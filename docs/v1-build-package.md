@@ -22,7 +22,7 @@ human-audit list at the end.
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
-| Rear ties | Three rows of two 1256 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
+| Rear ties | Three rows of two 1255.2 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
 
 The model keeps a **54 mm provisional gap** behind the panel face for T-nut,
 LED, and cable clearance. It includes four conservative LED-string routing

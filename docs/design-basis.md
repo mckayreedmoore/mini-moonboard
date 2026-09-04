@@ -23,7 +23,7 @@ invented from the photograph or video.
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
-| Connections | Four modeled structural-bolt envelopes per leg into the exterior face rail; 3/8-in x 9-in Grade-5 hardware assumed | Provisional; do not substitute climbing T-nuts for structural connections |
+| Connections | Four modeled structural-bolt envelopes per leg into the exterior face rail; 3/8-in Grade-5 bolt length unresolved | Provisional; do not substitute climbing T-nuts for structural connections |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
 | Portability | Fixed assembly versus demountable joints | Unresolved |
 
