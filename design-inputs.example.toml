@@ -1,0 +1,32 @@
+# Copy to design_inputs.toml, fill every field from the physical site, then run:
+# uv run python -m mini_moonboard.site_inputs design_inputs.toml
+#
+# Values here are intentionally invalid placeholders. Do not treat them as
+# recommendations or construction dimensions.
+
+[site]
+jurisdiction = ""
+reviewer = ""
+assembly = "" # fixed or demountable, subject to reviewer approval
+
+[room]
+clear_width_mm = 0.0
+clear_depth_mm = 0.0
+minimum_ceiling_height_mm = 0.0
+
+[crash_pad]
+deployed_width_mm = 0.0
+deployed_depth_mm = 0.0
+highest_surface_mm = 0.0
+clear_face_below_active_zone_mm = 0.0
+
+[panels]
+sheet_length_mm = 0.0
+sheet_width_mm = 0.0
+measured_thickness_mm = 0.0
+frame_ply_thickness_mm = 0.0
+material = ""
+
+[hardware]
+tnut_bolt_system = ""
+led_system_version = ""

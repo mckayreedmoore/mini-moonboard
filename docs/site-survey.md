@@ -4,6 +4,26 @@ Complete this worksheet before detailed frame CAD begins. Record measured
 values in both unit columns; do not fill one column with nominal product names
 such as "8 foot" or "3/4 inch."
 
+## Machine-readable inputs
+
+The worksheet remains the human review record. Once its fields are measured,
+copy [`design-inputs.example.toml`](../design-inputs.example.toml) to the
+ignored `design_inputs.toml` file and enter the canonical millimetre values:
+
+```bash
+cp design-inputs.example.toml design_inputs.toml
+uv run python -m mini_moonboard.site_inputs design_inputs.toml
+```
+
+The validator reports missing fields and derives the total kicker height as:
+
+```text
+highest deployed pad surface + desired clear face + 150 mm official active zone
+```
+
+It validates completeness only. It does not approve the room, impact area,
+frame, floor interface, or structural design.
+
 ## Installation and reviewer
 
 | Input | Value |

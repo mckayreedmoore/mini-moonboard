@@ -34,6 +34,7 @@ uv sync
 uv run ruff check .
 uv run pytest
 uv run python -m mini_moonboard.export
+uv run python -m mini_moonboard.site_inputs design_inputs.toml
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
@@ -54,6 +55,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   cut list; it intentionally excludes the unresolved frame BOM.
 - [`docs/site-survey.md`](docs/site-survey.md): dual-unit worksheet for room,
   crash-pad, kicker-clearance, stock, and review inputs.
+- [`design-inputs.example.toml`](design-inputs.example.toml): validated,
+  machine-readable companion to the site-survey worksheet.
 - [`docs/change-control.md`](docs/change-control.md): controlled-release,
   reviewer-record, and field-deviation process.
 - [`docs/inspection-maintenance.md`](docs/inspection-maintenance.md):

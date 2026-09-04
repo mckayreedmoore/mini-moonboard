@@ -57,6 +57,14 @@ CadQuery dimensions are always millimetres. Documentation should show both
 metric and imperial values and identify whether a value is source-stated,
 converted, derived, or still unresolved.
 
+Keep real site measurements in the ignored `design_inputs.toml`, created from
+`design-inputs.example.toml`. Validate it before using a custom kicker value or
+starting detailed frame design:
+
+```bash
+uv run python -m mini_moonboard.site_inputs design_inputs.toml
+```
+
 The reference model is not a structurally approved climbing-wall design. Do
 not turn provisional observations into construction instructions without a
 documented design decision and qualified structural review.
