@@ -79,6 +79,9 @@ The [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
 uses current CAD geometry. The [clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
 checks the current fastener arrangement. The [earlier beam FEA](docs/v1-fixed-foot-fea-screen.md)
 is a historical baseline and does not validate the new box frame.
+The new [bulk-frame FEA results](docs/box-frame-fea.md) include three mesh
+sizes and a stiffness sensitivity run. They describe ideal bonded joints
+and fixed floor contacts; the unanchored tipping issue remains unresolved.
 
 ## SketchUp reference geometry
 

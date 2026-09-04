@@ -30,9 +30,44 @@ def write_csv(directory, filename, header, rows):
 
 
 def cut_list(directory):
+    write_csv(directory,"mini_moonboard_v1_sheet_layout.csv",
+              ("sheet","stock_thickness_mm","part","layer","x_mm","y_mm","width_mm","length_mm","kerf_mm"),sheet_layout())
     return write_csv(directory,"mini_moonboard_v1_cut_list.csv",
         ("assembly","part","quantity","length_mm","width_mm","thickness_mm","length_in","width_in","thickness_in","note"),
         [("box frame",p.name,p.laminations,*[f"{v:.3f}" for v in (*p.blank[:2],p.blank[2]/p.laminations)],*[f"{v/25.4:.4f}" for v in (*p.blank[:2],p.blank[2]/p.laminations)],p.description) for p in frame_parts()])
+
+
+def sheet_layout():
+    """First-fit bounding-blank layout, preserving factory edges, 2.4 mm kerf."""
+    sheets=[]
+    rows=[]
+    blanks=[(p.blank[2]/p.laminations,p.blank[0],p.blank[1],p.name,layer)
+            for p in frame_parts() for layer in range(1,p.laminations+1)]
+    for thickness,length,width,name,layer in sorted(blanks,key=lambda b:(b[0],-b[1],-b[2],b[3],b[4])):
+        if length>2438.4+1e-5 or width>1219.2+1e-5:
+            raise ValueError(f"blank does not fit stock: {name}")
+        placement=None
+        for index,(stock,shelves) in enumerate(sheets):
+            if stock!=thickness:
+                continue
+            for shelf in shelves:
+                if length<=shelf[1]+1e-5 and shelf[2]+width<=1219.2+1e-5:
+                    placement=(index,shelf[2],shelf[0])
+                    shelf[2]+=width+2.4
+                    break
+            if placement:
+                break
+            y=shelves[-1][0]+shelves[-1][1]+2.4
+            if y+length<=2438.4+1e-5:
+                shelves.append([y,length,width+2.4])
+                placement=(index,0,y)
+                break
+        if placement is None:
+            sheets.append((thickness,[[0,length,width+2.4]]))
+            placement=(len(sheets)-1,0,0)
+        index,x,y=placement
+        rows.append((index+1,thickness,name,layer,x,y,width,length,2.4))
+    return rows
 
 
 def connection_schedule(directory):
@@ -44,8 +79,10 @@ def connection_schedule(directory):
 def bom(directory):
     counts=Counter((c.kind,c.diameter,c.length) for c in connections())
     bolts=sum(v for (kind,_,_),v in counts.items() if kind=="bolt")
-    rows=[("19.05 mm / 3/4 in birch plywood for laminations","nesting pending","Two layers = 38.1 mm. Cut list contains per-layer blanks; account for kerf."),
-          ("18 mm climbing plywood","4 main panels + 2 kicker panels","Climbing panel thickness is separate from support laminations."),
+    layout=sheet_layout()
+    stock_counts=Counter(thickness for _,thickness in {(r[0],r[1]) for r in layout})
+    rows=[("19.05 mm / 3/4 in birch plywood for laminations",f"{stock_counts[19.05]} sheets","Conservative bounding-blank sheet layout; two layers = 38.1 mm; 2.4 mm separating kerf."),
+          ("18 mm climbing plywood",f"{stock_counts[18]} sheets","4 main panels + 2 kicker panels; separate stock thickness."),
           ("Mini MoonBoard 2025 Setup Hold Bundle","1, SKU 60-105-2025","User-owned; hold-specific bolts and pin screws separate."),
           ("Escape 3-hole screw-in T-nuts, 3/8-16","142 + spares","Received flange geometry; fixing screws included per selected listing."),
           ("MoonBoard LED System","1, SKU 60-201-V5","132 installed lights; retain unused kit lights."),
@@ -95,7 +132,7 @@ def metadata(name):
         c=next(c for c in connections() if c.name==name)
         dims=(c.length,c.diameter,c.diameter)
         description=f"{c.kind}: {' to '.join(c.members)}; nominal hardware, strength not assessed"
-        status="FAIL: head/washer/nut collision" if any(row[0]==name for row in collisions()) else "PASS: head/washer/nut clearance only"
+        status="FAIL: hardware collision" if any(row[0]==name or row[2]==name for row in collisions()) else "PASS: hardware clearance only"
     result={"description":description,"dimensions_mm":list(dims),"dimensions_imperial":[_inch_fraction(v) for v in dims]}
     if status:
         result["clearance_status"]=status
@@ -108,12 +145,13 @@ def clearance_report():
     table="\n".join(f"| {a} | {b} | {c} | {v:.3f} |" for a,b,c,v in rows) or "| None | — | — | 0 |"
     return f"""# Box-frame fastener clearance screen
 
-Status: **{'FAIL' if rows else 'PASS'}** for nominal head/washer/nut to wood geometry only.
+Status: **{'FAIL' if rows else 'PASS'}** for nominal hardware clearance only.
 Total non-shank collisions: **{len(rows)}**.
 Panel-screw countersunk-head collisions: **{panel}**.
 
 Every head, washer and nut is checked against every timber part. Countersinks
 are cut into the receiving panel; screw shanks intentionally engage pilots.
+Complete fasteners, including shanks, are also checked against other fasteners.
 This is not a strength, withdrawal, edge-distance or thread-engagement approval.
 
 | Connection | Component | Wood part | Overlap mm3 |

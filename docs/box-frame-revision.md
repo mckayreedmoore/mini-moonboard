@@ -51,6 +51,9 @@ The connection CSV names every fastener's receiving parts, start coordinate,
 axis, diameter and length. The cut CSV counts separate 19.05 mm laminations.
 Leg blanks are bounding rectangles: the STEP/profile drawings control their
 non-rectangular shape. Actual stock, kerf and adhesive procedure remain inputs.
+The generated [sheet layout](../exports/mini_moonboard_v1_sheet_layout.csv)
+assigns each layer to a 1219.2 x 2438.4 mm sheet with 2.4 mm kerf separation.
+It is a conservative bounding-blank layout, not an optimized cut yield.
 
 ## Joints and analysis limits
 
@@ -77,6 +80,8 @@ The earlier fixed-foot beam FEA is historical. Its 169–351 mm displacement
 values cannot be applied to this box revision. Current stability screening
 uses the current CAD mass and the extreme edges of actual floor-contact
 faces; the reported minimum mass is not a ballast prescription.
+The new [bulk-frame FEA screen](box-frame-fea.md) reports the actual quadratic
+solid solves, mesh-refinement results, and their ideal-joint limitations.
 
 ## Build sequence for review
 

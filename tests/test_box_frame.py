@@ -5,7 +5,7 @@ from itertools import combinations, pairwise
 import cadquery as cq
 import pytest
 
-from mini_moonboard.box_exports import collisions, overlap
+from mini_moonboard.box_exports import collisions, overlap, sheet_layout
 from mini_moonboard.box_frame import (
     DEPTH,
     HALF,
@@ -87,3 +87,43 @@ def test_each_connection_enters_named_members_with_contained_tip():
             assert parts[c.members[-1]].isInside(tip+perpendicular.normalized()*2.5,1e-5),(c.name,"tip exits receiver")
         else:
             assert 3 <= c.length-(c.grip+4+9) <= 7,c.name
+
+
+def test_sheet_layout_accounts_for_all_layers_without_overlap():
+    rows=sheet_layout()
+    assert len(rows)==sum(p.laminations for p in frame_parts())
+    assert len({(r[2],r[3]) for r in rows})==len(rows)
+    for sheet,thickness,name,layer,x,y,w,h,kerf in rows:
+        assert x>=0 and y>=0 and x+w<=1219.2+1e-5 and y+h<=2438.4+1e-5,name
+        assert thickness in (18,19.05)
+    for a,b in combinations(rows,2):
+        if a[0]!=b[0]:
+            continue
+        assert a[1]==b[1]
+        _,_,_,_,ax,ay,aw,ah,k=a
+        _,_,_,_,bx,by,bw,bh,_=b
+        assert ax+aw+k<=bx+1e-5 or bx+bw+k<=ax+1e-5 or ay+ah+k<=by+1e-5 or by+bh+k<=ay+1e-5,(a[2],b[2])
+
+
+def test_all_parts_have_a_declared_fastened_path_to_the_frame():
+    graph={p.name:set() for p in frame_parts()}
+    for c in connections():
+        a,b=c.members
+        graph[a].add(b)
+        graph[b].add(a)
+    seen=set()
+    pending=["box_side_left"]
+    while pending:
+        name=pending.pop()
+        if name not in seen:
+            seen.add(name)
+            pending.extend(graph[name]-seen)
+    assert seen==set(graph),set(graph)-seen
+
+
+def test_both_fasteners_in_a_reported_collision_are_flagged(monkeypatch):
+    from mini_moonboard import box_exports
+    a,b=connections()[:2]
+    monkeypatch.setattr(box_exports,"collisions",lambda:((a.name,"other fastener",b.name,1.),))
+    assert box_exports.metadata(a.name)["clearance_status"].startswith("FAIL")
+    assert box_exports.metadata(b.name)["clearance_status"].startswith("FAIL")

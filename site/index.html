@@ -102,7 +102,9 @@
       const dimensionLabel = (text, point) => {
         const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;
         const context = canvas.getContext('2d'); context.fillStyle = '#121619dd'; context.fillRect(0, 0, 1024, 128);
-        context.fillStyle = '#f5f0e6'; context.font = 'bold 64px system-ui'; context.textAlign = 'center'; context.textBaseline = 'middle'; context.fillText(text, 512, 68);
+        context.fillStyle = '#f5f0e6'; context.font = 'bold 64px system-ui';
+        const fontSize = Math.min(64, 64 * 980 / context.measureText(text).width);
+        context.font = `bold ${fontSize}px system-ui`; context.textAlign = 'center'; context.textBaseline = 'middle'; context.fillText(text, 512, 68);
         const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, depthWrite: false }));
         sprite.position.fromArray(point); sprite.scale.set(760, 95, 1); dimensions.add(sprite);
       };
