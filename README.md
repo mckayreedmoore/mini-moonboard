@@ -14,6 +14,10 @@ The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.
 
+Reviewed renders of the completed assembly will be added here only with the
+build-ready release, after the frame and custom kicker are designed and
+accepted. The current reference-envelope exports are not frame renders.
+
 ## Reference dimensions
 
 | Property | Metric | Imperial |

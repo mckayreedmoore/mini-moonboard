@@ -85,6 +85,7 @@ The plans may be labelled **build-ready** only after:
 - qualified review comments are recorded and incorporated;
 - the reviewer and applicable standard editions are identified;
 - the final CAD, drawings, BOM, cut list, and guide agree;
+- reviewed renders of the completed board assembly are embedded in the README;
 - a dry-fit or prototype records deviations and corrective changes;
 - inspection and maintenance checklists are complete using
   [`inspection-maintenance.md`](inspection-maintenance.md); and
