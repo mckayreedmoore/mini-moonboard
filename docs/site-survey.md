@@ -138,7 +138,7 @@ an impact surface.
 
 Any later pad-clearance decision is a separate design/safety task, not a Moon
 Climbing recommendation or a change to this fixed v1 board geometry. The
-controlled 48-in-stock V1 model deliberately uses 1219.2 mm panels, so its
+controlled 48-in-stock V1 model deliberately uses 1218.0 mm panels, so its
 actual main-surface top is 2092.9 mm; see the V1 build package rather than
 using this nominal-reference calculation for cuts.
 

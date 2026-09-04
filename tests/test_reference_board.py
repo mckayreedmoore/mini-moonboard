@@ -107,7 +107,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     assert max(V1_STRUCTURAL_BOLT_DISTANCES_MM) < V1_LEG_UPPER_DISTANCE_MM
     for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
         x, y, z = v1_structural_bolt_position(1, distance)
-        assert x == pytest.approx(1219.2 + 36 / 2)
+        assert x == pytest.approx(V1_PANEL_SIZE_MM + 36 / 2)
         expected_y, expected_z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + 18)
         assert (y, z) == pytest.approx((expected_y, expected_z))
 

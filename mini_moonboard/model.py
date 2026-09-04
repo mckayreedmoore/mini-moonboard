@@ -7,7 +7,7 @@ from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datum
 MAIN_PANEL_SIZE_MM = 1220.0
 # Controlled v1 stock route: one factory-edge 48 in panel per 4 x 8 sheet.
 # This is intentionally not rounded to the 1220 mm official nominal size.
-V1_PANEL_SIZE_MM = 1219.2
+V1_PANEL_SIZE_MM = 1218.0
 PANEL_THICKNESS_MM = 18.0
 OFFICIAL_KICKER_HEIGHT_MM = 150.0
 V1_KICKER_HEIGHT_MM = 225.0

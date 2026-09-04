@@ -11,7 +11,7 @@ human-audit list at the end.
 
 | Item | V1 value | Basis |
 | --- | ---: | --- |
-| Main board | 2438.4 x 2438.4 mm actual v1 stock route at 40 degrees from vertical | Two factory-edge 48-in panels each direction; official dimensions remain nominal |
+| Main board | 2436.0 x 2436.0 mm actual v1 stock route at 40 degrees from vertical | Two 1218.0 mm panels per direction leave 2.4 mm total rip allowance in a 96-in sheet; official dimensions remain nominal |
 | Kicker | 225 mm total | 150 mm official active zone + user-estimated 75 mm blank extension |
 | Main-surface top (climbing face) | 2092.9 mm above floor | Derived from the face-aligned kicker/main seam, 48-in panels, and 40-degree angle |
 | Exterior legs | Two, one per board side | User direction |
@@ -76,7 +76,7 @@ The CSV drill coordinates are a machine-readable cross-check of the official
 metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
 requires the official **imperial** Mini template unless the hardware system is
 changed under controlled revision. Print that template at 100 percent and
-verify its calibration dimensions. The controlled 2438.4 mm V1 blank is not
+verify its calibration dimensions. The controlled 2436.0 mm V1 blank is not
 the published 2438.8 mm imperial template width: before any production
 drilling, record calibration marks, final blank trim, center-seam location,
 and template-to-blank offsets. Do not combine the PDF template and CSV by eye

@@ -193,7 +193,7 @@ def export_v1_cad_render(output_dir: Path) -> Path:
         faces = [[vertices[index].toTuple() for index in triangle] for triangle in triangles]
         category = next((key for key in colors if child.name.startswith(key)), "face")
         axes.add_collection3d(Poly3DCollection(faces, facecolors=colors[category], edgecolors="#171717", linewidths=0.1))
-    axes.set_box_aspect((2438.4, 1700, 2100))
+    axes.set_box_aspect((2 * V1_PANEL_SIZE_MM, 1700, 2100))
     # Look upward at the underside, where holds are installed. Holds themselves
     # remain unmodelled pending the physical/template audit.
     # Positive-Y / low-Z is the climber's side after the underside correction.
