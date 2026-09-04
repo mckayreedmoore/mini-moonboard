@@ -178,7 +178,13 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     figure = plt.figure(figsize=(12, 9), facecolor="#f4f1ea")
     axes = figure.add_subplot(projection="3d")
     colors = {"main": "#20252b", "kicker": "#444b53", "leg": "#8a4b16", "face": "#6f3510"}
+    # Matplotlib cannot depth-sort separate tessellated collections reliably.
+    # This README view intentionally presents the front-visible board, kicker,
+    # and exterior legs; the interactive viewer retains every assembly solid.
+    front_visible = ("main_", "kicker_left", "kicker_right", "leg_left", "leg_right")
     for child in build_v1_concept().children:
+        if not child.name.startswith(front_visible):
+            continue
         shape = child.obj if not hasattr(child.obj, "val") else child.obj.val()
         vertices, triangles = shape.tessellate(2.0)
         faces = [[vertices[index].toTuple() for index in triangle] for triangle in triangles]
@@ -187,7 +193,7 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     axes.set_box_aspect((2438.4, 1700, 2100))
     # Face the climbing surface from the front-right at a shallow elevation;
     # rear rails and hockey-stick legs remain visible without obscuring it.
-    axes.view_init(elev=12, azim=145)
+    axes.view_init(elev=12, azim=-35)
     axes.set_axis_off()
     axes.set_xlim(-1500, 1500)
     axes.set_ylim(-100, 1700)
