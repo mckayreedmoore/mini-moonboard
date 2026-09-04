@@ -52,7 +52,7 @@
       // side (where McKay stands); visible right is the K side.
       // Presentation offset only: keep McKay at the established front-left
       // reference point while placing the complete board assembly farther rearward.
-      const assemblyView = new THREE.Group(); assemblyView.position.set(0, -450, 0); scene.add(assemblyView);
+      const assemblyView = new THREE.Group(); assemblyView.position.set(0, -950, 0); scene.add(assemblyView);
       const climberView = new THREE.Group(); climberView.scale.x = -1; assemblyView.add(climberView);
       const partCard = document.querySelector('#part'); let selected = [];
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
