@@ -42,6 +42,7 @@ from .model import (
     v1_support_side_point,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
+from .stability import render_v1_stability_screen
 
 V1_SECONDARY_JOINERY_ROWS = (
     ("rail splice cover to lower/upper rail", 5, "#10 x 2.5 in structural wood screw", 4),
@@ -193,6 +194,14 @@ def export_v1_concept(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_concept.step"
     _export_step(build_v1_concept(), path)
+    return path
+
+
+def export_v1_stability_screen(output_dir: Path) -> Path:
+    """Export the current CAD-volume unanchored-stability screen."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_stability_screen.md"
+    path.write_text(render_v1_stability_screen())
     return path
 
 
@@ -1078,6 +1087,7 @@ def main() -> None:
     paths = (
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_v1_concept(args.output_dir),
+        export_v1_stability_screen(args.output_dir),
         export_v1_cad_render(args.output_dir),
         export_v1_concept_side_drawing(args.output_dir),
         export_v1_front_drawing(args.output_dir),

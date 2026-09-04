@@ -67,6 +67,16 @@ portable climbing structures, which is material because V1 is unanchored.
 
 Sources: [CWA Design & Engineering Specification (2022), Table 1 and §§4.5–4.7](https://www.cwapro.org/file/secure/cwadesignpecfinal2022.pdf) and [EN 12572-2:2017 preview, §§4.5–4.7](https://preview.sist.si/sist-preview/39968/eb82f102549541eba9b79bad025432c2/SIST-EN-12572-2-2017.pdf).
 
+## Current unanchored-screen result
+
+[`mini_moonboard_v1_stability_screen.md`](../exports/mini_moonboard_v1_stability_screen.md)
+uses the actual current CAD volume/centroid, a declared 600 kg/m³ density
+screen, and the 1.2 kN top-row force. It finds a negative floor reaction in
+both opposite normal directions. Therefore the current footprint is **not** a
+candidate for fixed-foot FEA or construction. Revise the base/ballast strategy
+and kicker-to-main load path first; then evaluate floor contact, friction,
+sliding, and overturning.
+
 ## Source geometry
 
 Generate the controlled assembly before analysis:
