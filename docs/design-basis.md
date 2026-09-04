@@ -20,10 +20,11 @@ invented from the photograph or video.
 | Total custom kicker | 225 mm (8.86 in): 150 mm active zone + 75 mm blank extension | Provisional v1; derived from the official kicker bolt-center datum |
 | Crash pad / fall surface | Separate element; excluded from v1 board/frame scope | Explicitly out of scope, not approved or designed here |
 | Frame assemblies | Board/kicker plus two exterior hockey-stick legs | Confirmed v1 concept |
+| Climbing-face orientation | Underside of the overhanging board; climber is below it | User correction; all support members, wiring, and controller live on the opposite support side |
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
-| Connections | Four modeled structural-bolt envelopes per leg into the exterior face rail; 3/8-in Grade-5 bolt length unresolved | Provisional; do not substitute climbing T-nuts for structural connections |
+| Connections | Four modeled structural-bolt envelopes per leg into the exterior support-side rail; 3/8-in Grade-5 bolt length unresolved | Provisional; do not substitute climbing T-nuts for structural connections |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
 | Portability | Fixed assembly versus demountable joints | Unresolved |
 

@@ -179,8 +179,8 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     axes = figure.add_subplot(projection="3d")
     colors = {"main": "#20252b", "kicker": "#444b53", "leg": "#8a4b16", "face": "#6f3510"}
     # Matplotlib cannot depth-sort separate tessellated collections reliably.
-    # This README view intentionally presents the front-visible board, kicker,
-    # and exterior legs; the interactive viewer retains every assembly solid.
+    # This README view intentionally presents the underside climbing face,
+    # kicker, and exterior legs; the interactive viewer retains every solid.
     front_visible = ("main_", "kicker_left", "kicker_right", "leg_left", "leg_right")
     for child in build_v1_concept().children:
         if not child.name.startswith(front_visible):
@@ -191,9 +191,9 @@ def export_v1_cad_render(output_dir: Path) -> Path:
         category = next((key for key in colors if child.name.startswith(key)), "face")
         axes.add_collection3d(Poly3DCollection(faces, facecolors=colors[category], edgecolors="#171717", linewidths=0.1))
     axes.set_box_aspect((2438.4, 1700, 2100))
-    # Face the climbing surface from the front-right at a shallow elevation;
-    # rear rails and hockey-stick legs remain visible without obscuring it.
-    axes.view_init(elev=12, azim=-35)
+    # Look upward at the underside, where holds are installed. Holds themselves
+    # remain unmodelled pending the physical/template audit.
+    axes.view_init(elev=-14, azim=-35)
     axes.set_axis_off()
     axes.set_xlim(-1500, 1500)
     axes.set_ylim(-100, 1700)
@@ -260,11 +260,11 @@ def export_v1_concept_side_drawing(output_dir: Path) -> Path:
 
 
 def export_v1_front_drawing(output_dir: Path) -> Path:
-    """Export the panel-facing v1 drawing with its fixed custom kicker."""
+    """Export the underside climbing-face elevation with its fixed kicker."""
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_front.svg"
     drawing = _front_svg(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM).replace(
-        "Mini MoonBoard reference front envelope", "Mini MoonBoard v1 front plan"
+        "Mini MoonBoard reference front envelope", "Mini MoonBoard v1 climbing-face elevation (underside)"
     )
     path.write_text(drawing.replace("CUSTOM KICKER INPUT - UNREVIEWED", "V1 PROVISIONAL - AUDIT BEFORE FABRICATION"))
     return path
@@ -290,9 +290,9 @@ def _v1_rear_svg() -> str:
 {rails}
 {braces}
   <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus center-seam rail, and three panel-joint-brace rows; 54 mm provisional hardware/wiring gap.</text>
-  <text x="450" y="725" text-anchor="middle">Rear ties are split at center for 4 x 8 stock; splice detail requires human review.</text>"""
+  <text x="450" y="725" text-anchor="middle">Support-side ties are split at center for 4 x 8 stock; splice detail requires human review.</text>"""
     return _svg(
-        "Mini MoonBoard v1 rear plan",
+        "Mini MoonBoard v1 support-side elevation",
         body,
         "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
     ).replace(
@@ -369,7 +369,7 @@ def _v1_isometric_svg() -> str:
 {seams}
 {rails}
 {legs}
-  <text x="450" y="710" text-anchor="middle">Isometric review render: panels, kicker, five face rails, and two exterior hockey-stick legs.</text>"""
+  <text x="450" y="710" text-anchor="middle">Isometric support-side review render: panels, kicker, five rails, and two exterior hockey-stick legs.</text>"""
     return _svg(
         "Mini MoonBoard v1 provisional isometric render",
         body,
@@ -465,7 +465,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                 x, y, z = v1_structural_bolt_position(sign, distance)
                 writer.writerow(
                     (
-                        "leg upper member to exterior outer face rail",
+                        "leg upper member to exterior outer support-side rail",
                         side,
                         1,
                         "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X is bolt-stack midpoint, Y/Z are hole centerline",

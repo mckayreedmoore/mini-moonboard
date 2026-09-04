@@ -19,6 +19,8 @@ V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
 V1_LEG_BEND_DISTANCE_MM = 1480.0
 V1_LEG_UPPER_DISTANCE_MM = 1880.0
 V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
+# The climber is below the overhanging panel. The board's opposite side carries
+# rails, braces, wiring, and legs; it is the support side, never the climbing face.
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -92,7 +94,7 @@ def _support_member(
 
 
 def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplane:
-    """Return a rearward-offset, board-parallel support rail.
+    """Return a support-side-offset, board-parallel rail.
 
     The 54 mm local offset is a provisional clearance gap for T-nuts and LED
     wiring. It must be checked against the selected hardware before fabrication.
@@ -113,7 +115,7 @@ def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplan
 
 
 def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
-    """Return one half of a transverse tie; the center splice needs review."""
+    """Return one half of a support-side transverse tie; its splice needs review."""
     half_length = V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM
     return cq.Workplane("XY").box(
         half_length,

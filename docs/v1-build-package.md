@@ -21,11 +21,11 @@ human-audit list at the end.
 | Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.4 mm above floor | Derived provisional geometry; wood member meets the CAD floor plane but finished feet/contact detail remains unresolved |
 | Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
-| Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
+| Support-side rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | These are above/opposite the underside climbing face; video supports four lines and center-seam backing is added for panel attachment |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
 | Rear ties | Three rows of two 1255.2 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
 
-The model keeps a **54 mm provisional gap** behind the panel face for T-nut,
+The model keeps a **54 mm provisional gap** on the support side, opposite the underside climbing face, for T-nut,
 LED, and cable clearance. It includes four conservative LED-string routing
 envelopes and one controller envelope in the STEP model. They are routing and
 clearance aids, not measured component geometry; do not reduce the gap or
@@ -38,7 +38,7 @@ centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
 the finished-floor plane (`Z=0`). Positive X is to the right while facing the
 climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
 coordinate uses the midpoint of the modeled leg-and-rail bolt stack for X and
-the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior face rails start behind the board at `Y=54 mm`;
+the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior support-side rails start behind the board at `Y=54 mm`;
 each listed bolt is offset 18 mm along the rail normal to its 36 mm-thick
 mid-plane.
 This datum is for audit transfer only, not authorization to drill.
@@ -54,10 +54,10 @@ uv run python -m mini_moonboard.export
 | File | Purpose |
 | --- | --- |
 | [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: panels, legs, face rails, braces, and rear ties |
-| [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Panel-facing dimensional plan |
+| [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Underside climbing-face elevation |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric visual review render of the assembled geometry |
-| [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Rear plan: five face rails, braces, and tie/splice intent |
+| [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, braces, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight provisional leg-to-board structural-bolt datums |
@@ -103,20 +103,20 @@ that change record.
 2. Print and calibrate the official imperial template for the selected Escape
    3/8-16 system. Drill and test a sample
    panel with an Escape T-nut, matching 3/8-16 bolt, representative hold,
-   Moon LED, and the proposed panel-to-rail screw. Confirm rear clearance.
+   Moon LED, and the proposed panel-to-rail screw. Confirm support-side clearance.
 3. Cut panel and support blanks only after the fit test passes. Keep the full
    75 mm blank kicker extension below the official active kicker zone.
 4. Glue and clamp each two-ply support member to the audited adhesive schedule;
    do not treat the 36 mm CAD thickness as an actual measured thickness. Do
    not make the leg knee until its reviewer-approved load-transfer detail
    (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
-5. Dry-fit the two side legs, five face rails, kicker
-   seam/bottom backing, three panel-joint braces, and split rear ties on a
+5. Dry-fit the two side legs, five support-side rails, kicker
+   seam/bottom backing, three panel-joint braces, and split support-side ties on a
    level protected floor. Check the 60-degree leg angle, rear-foot position,
    racking, and all panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
-7. Assemble the rear support frame flat where practical, raise it with at
+7. Assemble the support-side frame flat where practical, raise it with at
    least two people, and fasten panels only to the reviewed support layout.
 8. Drill final hold and LED holes using the calibrated template. Install and
    test the LED strings/controller before final rear access is obstructed.
@@ -133,7 +133,7 @@ continue as a geometry prototype while they are unresolved.
   an offcut; the model does not prove physical clearance.
 - Select and calculate/approve structural bolt, washer, nut, plate, adhesive,
   splice, panel-screw, knee-joint, and foot details. In particular, prove the
-  center splice in each rear tie, the leg's row-8 knee load transfer, and the
+  center splice in each support-side tie, the leg's row-8 knee load transfer, and the
   four-bolt leg connection.
 - Calibrate the official imperial template for the selected Escape 3/8-16
   system, then record panel-blank trim, seam location, and every

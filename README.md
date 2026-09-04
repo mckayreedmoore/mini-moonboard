@@ -34,9 +34,12 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 ## V1 concept render
 
-![CAD-derived front three-quarter rendering of the Mini MoonBoard V1 assembly](exports/mini_moonboard_v1_cad_front_render.png)
+![CAD-derived underside climbing-face rendering of the Mini MoonBoard V1 assembly](exports/mini_moonboard_v1_cad_front_render.png)
 
-This raster view is tessellated directly from the V1 CadQuery assembly.
+This raster view is tessellated directly from the V1 CadQuery assembly and
+looks upward at the underside—the climbing face. Holds are intentionally not
+modelled yet; the rails, braces, wiring, and legs belong on the opposite
+support side.
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, and zoom the same generated assembly.
 
