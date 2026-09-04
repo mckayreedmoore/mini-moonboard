@@ -1,5 +1,6 @@
 import argparse
 import csv
+import json
 import math
 import re
 from pathlib import Path
@@ -205,11 +206,25 @@ def export_v1_cad_render(output_dir: Path) -> Path:
 
 
 def export_v1_viewer_mesh(output_dir: Path) -> Path:
-    """Export the actual V1 assembly as an STL mesh for the static web viewer."""
+    """Export selectable CAD-derived V1 part meshes and bounding metadata."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_concept.stl"
-    shapes = [child.obj if not hasattr(child.obj, "val") else child.obj.val() for child in build_v1_concept().children]
-    cq.exporters.export(cq.Compound.makeCompound(shapes), str(path), cq.exporters.ExportTypes.STL, tolerance=0.5)
+    models_dir = output_dir / "models"
+    models_dir.mkdir(exist_ok=True)
+    parts = []
+    for child in build_v1_concept().children:
+        shape = child.obj if not hasattr(child.obj, "val") else child.obj.val()
+        bounds = shape.BoundingBox()
+        filename = f"{child.name}.stl"
+        cq.exporters.export(shape, str(models_dir / filename), cq.exporters.ExportTypes.STL, tolerance=0.5)
+        parts.append(
+            {
+                "name": child.name,
+                "path": f"models/{filename}",
+                "dimensions_mm": [round(bounds.xlen, 1), round(bounds.ylen, 1), round(bounds.zlen, 1)],
+            }
+        )
+    path = output_dir / "parts.json"
+    path.write_text(json.dumps({"parts": parts}, indent=2) + "\n")
     return path
 
 

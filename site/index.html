@@ -11,11 +11,12 @@
       header { position: fixed; z-index: 1; inset: 0 auto auto 0; padding: 1rem 1.25rem; background: #121619dd; }
       h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
       p { color: #c7c1b4; font-size: .9rem; margin: 0; }
+      #part { margin-top: .5rem; color: #f5f0e6; font-size: .85rem; max-width: 28rem; }
       canvas { display: block; height: 100vh; width: 100vw; }
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · pre-audit geometry only</p></header>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click a part for dimensions</p><div id="part">Loading selectable CAD parts…</div></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -40,10 +41,25 @@
       scene.add(new THREE.HemisphereLight(0xffffff, 0x222222, 2.4));
       const key = new THREE.DirectionalLight(0xffffff, 2.5); key.position.set(2000, -1500, 3000); scene.add(key);
       const grid = new THREE.GridHelper(5000, 25, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
-      new STLLoader().load('mini_moonboard_v1_concept.stl', geometry => {
-        geometry.computeVertexNormals();
-        const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x9d5a24, roughness: .7, metalness: .05 }));
-        scene.add(mesh);
+      const loader = new STLLoader(), meshes = [], raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
+      const partCard = document.querySelector('#part'); let selected;
+      const colorFor = name => name.startsWith('main_') ? 0x20252b : name.startsWith('kicker_') ? 0x444b53 : name.startsWith('led_') || name.startsWith('leg_bolt_') ? 0x4f8dcc : 0x9d5a24;
+      fetch('parts.json').then(response => response.json()).then(({ parts }) => {
+        partCard.textContent = 'Click any modeled part to inspect its CAD bounding dimensions.';
+        parts.forEach(part => loader.load(part.path, geometry => {
+          geometry.computeVertexNormals();
+          const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part.name), roughness: .7, metalness: .05 }));
+          mesh.userData.part = part; meshes.push(mesh); scene.add(mesh);
+        }));
+      }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
+      renderer.domElement.addEventListener('pointerdown', event => {
+        pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
+        raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(meshes)[0];
+        if (!hit) return;
+        if (selected) selected.material.emissive.setHex(0);
+        selected = hit.object; selected.material.emissive.setHex(0x5f3600);
+        const part = selected.userData.part, [x, y, z] = part.dimensions_mm;
+        partCard.textContent = `${part.name}: model bounding box ${x} × ${y} × ${z} mm (approximate viewer metadata).`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();
