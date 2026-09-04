@@ -26,6 +26,9 @@ _REQUIRED_POSITIVE = (
     ("panels", "sheet_width_mm"),
     ("panels", "measured_thickness_mm"),
     ("panels", "frame_ply_thickness_mm"),
+    ("hardware", "tnut_hole_diameter_mm"),
+    ("hardware", "tnut_barrel_length_mm"),
+    ("hardware", "led_hole_diameter_mm"),
 )
 
 

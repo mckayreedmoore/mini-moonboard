@@ -133,6 +133,7 @@ same batch intended for construction.
 | Species, grade, ply count, and certification | **unresolved** | **unresolved** |
 | Hold/T-nut thread standard | **unresolved** | **unresolved** |
 | T-nut body and flange dimensions | **unresolved** mm | **unresolved** in |
+| T-nut hole diameter and barrel length | **unresolved** mm | **unresolved** in |
 | LED-system version and guide revision | **unresolved** | **unresolved** |
 | LED body and required hole dimensions | **unresolved** mm | **unresolved** in |
 

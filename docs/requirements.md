@@ -75,6 +75,14 @@ testing LEDs before installation. That diameter applies only if the selected
 system is covered by that V3 guide; record the actual LED-system version and
 follow its supplied guide before drilling.
 
+The current official build page says metric setups use M10 T-nuts and bolts,
+with 3/8 in as the imperial equivalent. It specifies a 13 mm / 1/2 in T-nut
+drill hole and a 10 mm / 0.393 in T-nut barrel length. The US Mini 2020 product
+page also describes 3/8 in pre-drilled panels and included M10 hold bolt kits
+as compatible. Select one physical hardware system, record its manufacturer
+dimensions, and make a plywood offcut test before producing all holes; the
+published descriptions are not permission to mix incompatible parts.
+
 ## Panel template
 
 The template guides define columns A-K and rows 1-12 for the Mini MoonBoard.
@@ -94,10 +102,10 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 The first CAD milestone intentionally models panel blanks and seams, not
 drilled holes. The source-backed main T-nut, LED, and official kicker foothold
 center coordinates are now encoded separately in
-[`panel-grid.md`](panel-grid.md). T-nut and mounting-hole solids will be added
-only after their hardware dimensions, template system, and actual plywood
-sheets are verified. LED-hole solids additionally require confirmation that the
-selected system uses the V3 guide's 13 mm diameter.
+[`panel-grid.md`](panel-grid.md). The current official source specifies 13 mm
+T-nut holes with 10 mm barrels and conditionally specifies 13 mm LED holes for
+the V3 system. Hole solids and mounting details still require a physical test
+of the selected hardware, template system, and actual plywood sheets.
 
 ## Source discrepancies and cautions
 

@@ -79,7 +79,9 @@ coordinates, not transcriptions of the independently rounded imperial guide.
 Do not drill from this datum table alone. Before holes are added to CAD or a
 fabrication drawing, verify:
 
-- actual T-nut-hole diameter and any face orientation requirements;
+- the selected T-nut manufacturer's geometry. Moon Climbing's current build
+  page specifies a 13 mm / 1/2 in T-nut hole and 10 mm / 0.393 in barrel, but
+  an offcut fit test remains required;
 - the selected LED-system version. Moon Climbing's [V3 LED guide](https://moonclimbing.com/media/moonboard-pdf/NewMB_LED_Instructions_may2024.pdf)
   specifies 13 mm / 1/2 in LED holes below each matching T-nut, but a different
   supplied system guide takes precedence;

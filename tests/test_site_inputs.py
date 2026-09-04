@@ -31,6 +31,9 @@ def complete_inputs() -> dict[str, dict[str, float | str]]:
         "hardware": {
             "tnut_bolt_system": "M10",
             "led_system_version": "V3",
+            "tnut_hole_diameter_mm": 13.0,
+            "tnut_barrel_length_mm": 10.0,
+            "led_hole_diameter_mm": 13.0,
         },
     }
 
