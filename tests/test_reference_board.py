@@ -20,6 +20,7 @@ from mini_moonboard.model import (
     _structural_bolt_envelope,
     _v1_kicker_holes,
     _v1_main_panel_holes,
+    v1_face_rail_centres,
     v1_lower_leg_cut_profile,
     v1_main_support_origin,
     v1_panel_fastener_envelope,
@@ -300,6 +301,9 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
 
 def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:
     board = build_v1_concept()
+    assert v1_face_rail_centres()[:4] == pytest.approx(
+        (-V1_PANEL_SIZE_MM, -V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM)
+    )
     rail = _shape(next(child for child in board.children if child.name == "face_rail_1_lower"))
     rail_edge = next(edge for edge in rail.Edges() if edge.Length() == pytest.approx(V1_PANEL_SIZE_MM))
     rail_vertices = rail_edge.Vertices()

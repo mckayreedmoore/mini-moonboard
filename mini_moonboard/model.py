@@ -5,9 +5,10 @@ import cadquery as cq
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
 MAIN_PANEL_SIZE_MM = 1220.0
-# Controlled v1 stock route: one factory-edge 48 in panel per 4 x 8 sheet.
-# This is intentionally not rounded to the 1220 mm official nominal size.
-V1_PANEL_SIZE_MM = 1218.0
+# Controlled V1 stock route: one factory-width 48 in panel per 4 x 8 sheet.
+# Cutting two full-height panels from a single sheet leaves no practical kerf;
+# preserve the 48-in factory width and make one main panel per sheet instead.
+V1_PANEL_SIZE_MM = 1219.2
 PANEL_THICKNESS_MM = 18.0
 OFFICIAL_KICKER_HEIGHT_MM = 150.0
 V1_KICKER_HEIGHT_MM = 225.0
@@ -264,9 +265,12 @@ def _panel_standoff(x: float, distance: float, length: float = V1_STANDOFF_LENGT
 
 def v1_face_rail_centres() -> tuple[float, ...]:
     """Return the five support-side rail centre planes in global X."""
-    # The seam rail is shifted 30 mm left so its 60 mm bearing blocks can clear
-    # the nearest central hold/LED column while the 180 mm rail still bridges X=0.
-    return (-V1_PANEL_SIZE_MM, -360.0, 330.0, V1_PANEL_SIZE_MM, -85.0)
+    # The four primary rails divide the controlled 2438.4 mm board into three
+    # equal 812.8 mm bays, matching Moon's nominal 813 mm upright spacing. The
+    # fifth rail only reinforces the horizontal main-panel seam and is shifted
+    # left to keep its bearing blocks clear of the central bore column.
+    primary_inner = V1_PANEL_SIZE_MM / 3
+    return (-V1_PANEL_SIZE_MM, -primary_inner, primary_inner, V1_PANEL_SIZE_MM, -85.0)
 
 
 def v1_rail_standoff_placements() -> tuple[tuple[int, float, str, float], ...]:
@@ -280,7 +284,7 @@ def v1_rail_standoff_placements() -> tuple[tuple[int, float, str, float], ...]:
     # Within each 180 mm rail, shift the bearing block away from the nearest
     # column of holds/LEDs.  130 and 630 mm land between successive 100 mm
     # T-nut/LED rows.
-    block_centres = (-1165.0, -330.0, 300.0, 1165.0, -85.0)
+    block_centres = (-1166.0, -346.5, 466.3, 1166.0, -85.0)
     placements: list[tuple[int, float, str, float]] = []
     for rail_number, (rail_x, block_x) in enumerate(zip(rail_centres, block_centres), start=1):
         if abs(block_x - rail_x) + V1_STANDOFF_WIDTH_MM / 2 > V1_SUPPORT_WIDTH_MM / 2:
@@ -295,10 +299,11 @@ def v1_seam_standoff_placements() -> tuple[tuple[int, float, float], ...]:
     """Return five 180 mm blocks that bridge the lower/upper main-panel seam.
 
     Their X positions are shifted within the 180 mm rails to clear all CAD
-    bores while the block runs from board distance 1128 to 1308 mm, across the
-    1218 mm seam.
+    bores while the block runs 90 mm either side of the controlled main-panel
+    seam.
     """
-    return ((1, -1188.0, 1128.0), (2, -318.0, 1128.0), (3, 282.0, 1128.0), (4, 1188.0, 1128.0), (5, -118.0, 1128.0))
+    seam_start = V1_PANEL_SIZE_MM - V1_SEAM_STANDOFF_LENGTH_MM / 2
+    return ((1, -1188.0, seam_start), (2, -346.5, seam_start), (3, 466.3, seam_start), (4, 1188.0, seam_start), (5, -118.0, seam_start))
 
 
 def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:

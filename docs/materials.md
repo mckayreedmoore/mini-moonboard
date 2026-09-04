@@ -10,8 +10,8 @@ references; this page records what still requires a human audit.
 
 | Material or component | Current requirement | Status |
 | --- | --- | --- |
-| Main climbing panels | 4 birch plywood panels, 1218.0 x 1218.0 mm v1 stock target | Two panels per 4 x 8 sheet leave 2.4 mm total rip allowance; verify official-template calibration and actual stock |
-| Kicker panels | 2 birch plywood panels, 1218.0 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
+| Main climbing panels | 4 birch plywood panels, 1219.2 x 1219.2 mm v1 stock target | One factory-width panel per 4 x 8 sheet; its 2438.4 mm overall width is within 0.4 mm of the imperial template width. Verify official-template calibration and actual stock. |
+| Kicker panels | 2 birch plywood panels, 1219.2 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
 | Main horizontal panel-joint backing | Five 36 mm laminated, 180 x 60 mm bearing blocks | CAD and primary connection schedule bridge the lower/upper main-panel seam; screw datums are generated |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
 | Climbing holds and LEDs | Mini MoonBoard 2020 Setup Hold Bundle, SKU 60-105-2020, and MoonBoard LED System, SKU 60-201-V5 | The hold bundle supplies the official 130-hold setup but excludes bolts/T-nuts/LEDs. The standard LED kit supplies four 50-LED strings / 200 bulbs; V1 installs 132 and retains 68 (18 on the third-string tail and a whole unused fourth string), including Moon's two terminal spares. |

@@ -13,7 +13,7 @@ invented from the photograph or video.
 | Building attachment | None | Confirmed v1 constraint; no anchoring allowed |
 | Board | Mini MoonBoard, 40 degrees from vertical | Confirmed |
 | Main surface | 2440 x 2440 mm (8 x 8 ft nominal) | Confirmed reference envelope |
-| V1 stock-controlled main surface | 2436.0 x 2436.0 mm | Provisional: two 1218.0 mm panels leave 2.4 mm total rip allowance in a 96-in sheet; verify official-template calibration |
+| V1 stock-controlled main surface | 2438.4 x 2438.4 mm | Provisional: four factory-width 1219.2 mm panels (one per sheet) avoid an impractical production kerf; verify official-template calibration |
 | Panels | Fabricated birch plywood | Confirmed approach |
 | Units | Millimetres canonical; metric and imperial documents | Confirmed |
 | Active Mini MoonBoard kicker | 150 mm (5.9 in) | Confirmed official geometry |

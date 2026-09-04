@@ -11,7 +11,7 @@ human-audit list at the end.
 
 | Item | V1 value | Basis |
 | --- | ---: | --- |
-| Main board | 2436.0 x 2436.0 mm actual v1 stock route at 40 degrees from vertical | Two 1218.0 mm panels per direction leave 2.4 mm total rip allowance in a 96-in sheet; official dimensions remain nominal |
+| Main board | 2438.4 x 2438.4 mm actual v1 stock route at 40 degrees from vertical | Four factory-width 1219.2 mm panels: one full-width main panel per 4 x 8 sheet avoids an impractical production kerf and tracks the 2438.8 mm imperial template width within 0.4 mm. |
 | Kicker | 225 mm total | 150 mm official active zone + user-estimated 75 mm blank extension |
 | Main-surface top (climbing face) | 2092.9 mm above floor | Derived from the face-aligned kicker/main seam, 48-in panels, and 40-degree angle |
 | Exterior legs | Two, one per board side | User direction |
@@ -21,7 +21,7 @@ human-audit list at the end.
 | Lower-leg endpoint centre datum | 1389.6 mm behind kicker face and 0 mm above floor | CAD-derived; the overlong lower member is trimmed at the finished-floor plane, producing a full flat bearing face |
 | Leg knee | Lower and upper segments meet at row-8 bend | 450 x 450 mm two-ply exterior knee plate; four 3/8-in through-bolts per leg, 70 and 220 mm along each member from the bend; provisional load path |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
-| Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
+| Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | The four primary rails are 812.8 mm apart (controlled-width equivalent of Moon's nominal 813 mm upright spacing); rails sit on the true support side of the underside climbing face |
 | Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
 | Kicker/main gussets | Two exterior 36 mm-thick triangular side gussets | Each touches the vertical kicker and first 400 mm of the inclined main-panel side edge; four provisional screws per panel edge require human audit |
 | Leg cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap other frame solids |
@@ -86,10 +86,10 @@ per-blank CSV to transfer holes: each coordinate is from the **finished
 blank's lower-left corner while looking at its climbing face**, and every
 record names its component and Moon label. V1's selected Escape 3/8-16
 hardware still requires an offcut and a 100-percent official imperial-template
-calibration before production drilling. The controlled 2436.0 mm V1 blank is
-not the published 2438.8 mm imperial template width, so record the offcut
-result, final blank trim, and any template comparison offsets; never combine a
-PDF and a CSV by eye.
+calibration before production drilling. The controlled 2438.4 mm V1 blank is
+0.4 mm narrower than the published 2438.8 mm imperial template width, so
+record the offcut result, final blank trim, and any template comparison
+offsets; never combine a PDF and a CSV by eye.
 
 The CAD carries the 142 hold/T-nut and 132 LED through-bores, which are the
 physical provisions for those systems. It intentionally does not invent the
