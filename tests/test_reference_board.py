@@ -1,12 +1,20 @@
 import math
+from itertools import combinations
 
 import pytest
 
 from mini_moonboard import build_reference_board, build_v1_concept, reference_envelope
 from mini_moonboard.model import (
+    V1_HARDWARE_GAP_MM,
     V1_LEG_UPPER_DISTANCE_MM,
+    V1_PANEL_SIZE_MM,
+    V1_STANDOFF_CLEARANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
+    _v1_kicker_holes,
+    _v1_main_panel_holes,
+    v1_rail_standoff_placements,
     v1_structural_bolt_position,
+    v1_support_side_point,
 )
 
 
@@ -79,8 +87,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "face_rail_center_seam_lower",
         "face_rail_center_seam_upper",
     ]
-    assert "kicker_center_seam_backing" in names
-    assert {"kicker_bottom_backing_left", "kicker_bottom_backing_right"} <= set(names)
+    assert {"kicker_blank_extension_backing_left", "kicker_blank_extension_backing_right"} <= set(names)
     assert {
         "rear_tie_low_left",
         "rear_tie_low_right",
@@ -97,10 +104,86 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
         x, y, z = v1_structural_bolt_position(1, distance)
         assert x == pytest.approx(1219.2 + 36 / 2)
-        base_y = 54 + distance * math.sin(math.radians(40))
-        base_z = 225 + distance * math.cos(math.radians(40))
-        assert (y - base_y) * math.cos(math.radians(40)) - (z - base_z) * math.sin(
-            math.radians(40)
-        ) == pytest.approx(18)
-    assert {"leg_bolt_left_1", "leg_bolt_right_4", "led_controller_envelope"} <= set(names)
-    assert sum(name.startswith("led_string_envelope_") for name in names) == 4
+        expected_y, expected_z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + 18)
+        assert (y, z) == pytest.approx((expected_y, expected_z))
+
+
+def _shape(child: object):
+    obj = child.obj  # type: ignore[attr-defined]
+    return obj.val() if hasattr(obj, "val") else obj
+
+
+def test_v1_bores_are_mapped_inside_stock_controlled_panels() -> None:
+    assert [len(_v1_main_panel_holes(column, row)) for row in range(2) for column in range(2)] == [72, 60, 66, 55]
+    assert [len(_v1_kicker_holes(column)) for column in range(2)] == [11, 10]
+
+    for row in range(2):
+        for column in range(2):
+            for x, z, diameter in _v1_main_panel_holes(column, row):
+                assert abs(x) + diameter / 2 < V1_PANEL_SIZE_MM / 2
+                assert diameter / 2 < z < V1_PANEL_SIZE_MM - diameter / 2
+
+
+def test_v1_geometry_has_valid_solids_with_floor_bearing_faces() -> None:
+    board = build_v1_concept()
+    for child in board.children:
+        shape = _shape(child)
+        assert shape.isValid(), child.name
+        assert shape.Solids(), child.name
+
+    for child in board.children[6:8]:
+        floor_faces = [
+            face
+            for face in _shape(child).Faces()
+            if face.BoundingBox().zmin == pytest.approx(0, abs=0.001)
+            and face.BoundingBox().zmax == pytest.approx(0, abs=0.001)
+        ]
+        assert floor_faces
+        assert max(face.Area() for face in floor_faces) > 3_000
+
+
+def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
+    board = build_v1_concept()
+    parts = {child.name: _shape(child) for child in board.children}
+    assert parts["main_lower_left"].distance(parts["rail_1_standoff_lower_130"]) == pytest.approx(0)
+    assert parts["rail_1_standoff_lower_130"].distance(parts["face_rail_1_lower"]) == pytest.approx(0)
+    assert parts["main_lower_left"].distance(parts["face_rail_1_lower"]) == pytest.approx(V1_HARDWARE_GAP_MM)
+
+    bores = []
+    for row in range(2):
+        for column in range(2):
+            for x, z, radius in _v1_main_panel_holes(column, row):
+                bores.append((x + (column - 0.5) * V1_PANEL_SIZE_MM, z + row * V1_PANEL_SIZE_MM, radius / 2))
+    for _, x, _, distance in v1_rail_standoff_placements():
+        for bore_x, bore_distance, radius in bores:
+            lateral = max(abs(bore_x - x) - 30, 0)
+            longitudinal = max(abs(bore_distance - distance) - 40, 0)
+            assert math.hypot(lateral, longitudinal) - radius >= V1_STANDOFF_CLEARANCE_MM
+
+    for (left_name, left), (right_name, right) in combinations(parts.items(), 2):
+        left_box, right_box = left.BoundingBox(), right.BoundingBox()
+        if any(
+            min(getattr(left_box, f"{axis}max"), getattr(right_box, f"{axis}max"))
+            - max(getattr(left_box, f"{axis}min"), getattr(right_box, f"{axis}min"))
+            <= 0.01
+            for axis in "xyz"
+        ):
+            continue
+        assert left.intersect(right).Volume() <= 1, f"{left_name} overlaps {right_name}"
+
+
+def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:
+    board = build_v1_concept()
+    rail = _shape(next(child for child in board.children if child.name == "face_rail_1_lower"))
+    rail_edge = next(edge for edge in rail.Edges() if edge.Length() == pytest.approx(V1_PANEL_SIZE_MM))
+    rail_vertices = rail_edge.Vertices()
+    rail_dy = rail_vertices[1].Center().y - rail_vertices[0].Center().y
+    rail_dz = rail_vertices[1].Center().z - rail_vertices[0].Center().z
+    assert math.degrees(math.atan2(abs(rail_dy), abs(rail_dz))) == pytest.approx(40)
+
+    tie = _shape(next(child for child in board.children if child.name == "rear_tie_low_right"))
+    tie_edge = next(edge for edge in tie.Edges() if edge.Length() == pytest.approx(180))
+    tie_vertices = tie_edge.Vertices()
+    tie_dy = tie_vertices[1].Center().y - tie_vertices[0].Center().y
+    tie_dz = tie_vertices[1].Center().z - tie_vertices[0].Center().z
+    assert tie_dy * math.sin(math.radians(40)) + tie_dz * math.cos(math.radians(40)) == pytest.approx(0)

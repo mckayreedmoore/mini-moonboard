@@ -11,7 +11,6 @@
     .seam { stroke: #aaa; stroke-width: 1.5; }
     .dim { stroke: #333; stroke-width: 1.5; marker-start: url(#arrow); marker-end: url(#arrow); }
     .rail { stroke: #8a4b16; stroke-width: 18; }
-    .brace { stroke: #6f3510; stroke-width: 14; }
     .guide { stroke: #777; stroke-width: 1; stroke-dasharray: 5 5; }
     text { fill: #222; font: 16px sans-serif; }
     .on-dark { fill: white; }
@@ -27,9 +26,6 @@
   <line class="rail" x1="450.0" y1="135.0" x2="450.0" y2="594.6" />
   <line class="rail" x1="550.0" y1="135.0" x2="550.0" y2="594.6" />
   <line class="rail" x1="750.0" y1="135.0" x2="750.0" y2="594.6" />
-  <line class="brace" x1="150.0" y1="594.6" x2="750.0" y2="594.6" />
-  <line class="brace" x1="150.0" y1="364.8" x2="750.0" y2="364.8" />
-  <line class="brace" x1="150.0" y1="135.0" x2="750.0" y2="135.0" />
-  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus center-seam rail, and three panel-joint-brace rows; 54 mm provisional hardware/wiring gap.</text>
-  <text x="450" y="725" text-anchor="middle">Support-side ties are split at center for 4 x 8 stock; splice detail requires human review.</text>
+  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus shifted center-seam rail; 36 mm board-normal service gap on support side.</text>
+  <text x="450" y="725" text-anchor="middle">Bearing blocks and rear ties are separate, non-overlapping CAD solids; tie splices require human review.</text>
 </svg>

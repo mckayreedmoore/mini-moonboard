@@ -20,7 +20,7 @@ invented from the photograph or video.
 | Total custom kicker | 225 mm (8.86 in): 150 mm active zone + 75 mm blank extension | Provisional v1; derived from the official kicker bolt-center datum |
 | Crash pad / fall surface | Separate element; excluded from v1 board/frame scope | Explicitly out of scope, not approved or designed here |
 | Frame assemblies | Board/kicker plus two exterior hockey-stick legs | Confirmed v1 concept |
-| Climbing-face orientation | Underside of the overhanging board; climber is below it | User correction; all support members, wiring, and controller live on the opposite support side |
+| Climbing-face orientation | Underside of the overhanging board; climber is below it | CAD-controlled: main-panel climbing face is local +Y/downward; rails and wiring live on opposite local -Y support side |
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
@@ -67,9 +67,9 @@ these values before cutting, drilling, gluing, or loading it:
 - **Leg geometry:** the model bends at main-grid row 8 (fifth row down from
   row 12), reaches row 10, and assumes a 60-degree included angle from the
   descending board line. The lower-member endpoint centre is 1500 mm behind
-  the kicker face and 31.4 mm above floor; the wood member reaches the CAD
-  floor plane, but finished feet/contact detail is unresolved. Confirm the
-  final floor footprint.
+  the kicker face at the finished-floor plane; CAD trims its overlong lower
+  member to make a full 3448 mm² floor-parallel bearing face per leg. Confirm
+  the final floor footprint and foot protection.
 - **External-leg connection:** four structural bolts per leg are provisionally
   modelled as 3/8-in Grade-5, 10 mm clearance holes at the published X/Y/Z
   datums. Their final length, washer/plate stack, edge distances, and load path

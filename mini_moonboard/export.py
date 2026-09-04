@@ -17,6 +17,8 @@ from .model import (
     V1_KICKER_HEIGHT_MM,
     V1_PANEL_SIZE_MM,
     V1_REAR_TIE_WIDTH_MM,
+    V1_STANDOFF_LENGTH_MM,
+    V1_STANDOFF_WIDTH_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
     V1_SUPPORT_THICKNESS_MM,
     V1_SUPPORT_WIDTH_MM,
@@ -194,7 +196,8 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     axes.set_box_aspect((2438.4, 1700, 2100))
     # Look upward at the underside, where holds are installed. Holds themselves
     # remain unmodelled pending the physical/template audit.
-    axes.view_init(elev=-14, azim=-35)
+    # Positive-Y / low-Z is the climber's side after the underside correction.
+    axes.view_init(elev=-14, azim=125)
     axes.set_axis_off()
     axes.set_xlim(-1500, 1500)
     axes.set_ylim(-100, 1700)
@@ -288,7 +291,7 @@ def export_v1_front_drawing(output_dir: Path) -> Path:
 def _v1_rear_svg() -> str:
     width, _, height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
     scale = 600 / width
-    left, right, bottom = 150.0, 750.0, 650.0
+    left, bottom = 150.0, 650.0
     top = bottom - height * scale
     kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
     rail_x = [left + width * fraction * scale for fraction in (0.0, 1 / 3, 0.5, 2 / 3, 1.0)]
@@ -296,16 +299,11 @@ def _v1_rear_svg() -> str:
         f'  <line class="rail" x1="{x:.1f}" y1="{top:.1f}" x2="{x:.1f}" y2="{kicker_top:.1f}" />'
         for x in rail_x
     )
-    braces = "\n".join(
-        f'  <line class="brace" x1="{left:.1f}" y1="{y:.1f}" x2="{right:.1f}" y2="{y:.1f}" />'
-        for y in (kicker_top, (top + kicker_top) / 2, top)
-    )
     body = f"""  <rect class="kicker" x="{left:.1f}" y="{kicker_top:.1f}" width="{width * scale:.1f}" height="{V1_KICKER_HEIGHT_MM * scale:.1f}" />
   <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{(kicker_top - top):.1f}" />
 {rails}
-{braces}
-  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus center-seam rail, and three panel-joint-brace rows; 54 mm provisional hardware/wiring gap.</text>
-  <text x="450" y="725" text-anchor="middle">Support-side ties are split at center for 4 x 8 stock; splice detail requires human review.</text>"""
+  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus shifted center-seam rail; 36 mm board-normal service gap on support side.</text>
+  <text x="450" y="725" text-anchor="middle">Bearing blocks and rear ties are separate, non-overlapping CAD solids; tie splices require human review.</text>"""
     return _svg(
         "Mini MoonBoard v1 support-side elevation",
         body,
@@ -313,7 +311,7 @@ def _v1_rear_svg() -> str:
     ).replace(
         ".guide {",
         ".rail { stroke: #8a4b16; stroke-width: 18; }\n"
-        "    .brace { stroke: #6f3510; stroke-width: 14; }\n    .guide {",
+        "    .guide {",
     )
 
 
@@ -376,8 +374,8 @@ def _v1_isometric_svg() -> str:
         )
     )
     rails = "\n".join(
-        line((x, main_bottom_y + 54.0, main_bottom_z), (x, top_y + 54.0, top_z), "rail")
-        for x in (-V1_PANEL_SIZE_MM, -V1_PANEL_SIZE_MM / 3, 0.0, V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM)
+        line((x, main_bottom_y - 55.2, main_bottom_z + 46.3), (x, top_y - 55.2, top_z + 46.3), "rail")
+        for x in (-V1_PANEL_SIZE_MM, -360.0, -85.0, 330.0, V1_PANEL_SIZE_MM)
     )
     body = f"""{kicker}
 {board}
@@ -411,10 +409,9 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("climbing surface", "main climbing panel", 4, V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM),
         ("climbing surface", "kicker panel", 2, V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
         ("support frame", "face-rail lamination segment", 20, V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "panel-joint-brace-half lamination", 12, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-center-seam lamination", 2, V1_KICKER_HEIGHT_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-bottom-backing-half lamination", 4, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "rail-bearing-block lamination", 40, V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
+        ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
     )

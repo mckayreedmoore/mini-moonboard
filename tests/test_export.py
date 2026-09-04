@@ -22,7 +22,6 @@ from mini_moonboard.export import (
 )
 from mini_moonboard.model import (
     V1_PANEL_SIZE_MM,
-    V1_SUPPORT_THICKNESS_MM,
     v1_leg_geometry,
 )
 
@@ -69,7 +68,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
 
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 9
+    assert len(cut_rows) == 8
     assert len(drill_rows) == 274
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
@@ -81,7 +80,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
     rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
-    assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM:.1f}"
+    assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
     assert all("X is bolt-stack midpoint" in row["datum"] for row in connection_rows)
     assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
     assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5

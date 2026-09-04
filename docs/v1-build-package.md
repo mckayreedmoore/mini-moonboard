@@ -18,18 +18,19 @@ human-audit list at the end.
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
-| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.4 mm above floor | Derived provisional geometry; wood member meets the CAD floor plane but finished feet/contact detail remains unresolved |
+| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 0 mm above floor | The overlong lower member is CAD-trimmed at the finished-floor plane, producing a full flat bearing face |
 | Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
-| Support-side rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | These are above/opposite the underside climbing face; video supports four lines and center-seam backing is added for panel attachment |
-| Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
-| Rear ties | Three rows of two 1255.2 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
+| Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
+| Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
+| Rear ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap rails or other frame solids |
 
-The model keeps a **54 mm provisional gap** on the support side, opposite the underside climbing face, for T-nut,
-LED, and cable clearance. It includes four conservative LED-string routing
-envelopes and one controller envelope in the STEP model. They are routing and
-clearance aids, not measured component geometry; do not reduce the gap or
-mount hardware without a physical clearance check against the supplied kit.
+The model keeps a **36 mm provisional board-normal service gap** on the
+support side, opposite the underside climbing face, for T-nut, LED, and cable
+clearance. Twenty discrete bearing blocks bridge this gap; their projected
+edges maintain a tested 20 mm clearance beyond every CAD bore. This remains a
+geometry check, not proof that the purchased T-nut flange, LED body, cable,
+and fasteners fit; verify those items on an offcut.
 
 Every long support-side rail is modelled parallel to the board: 40 degrees
 from vertical. The support-side elevation depicts those rails straight-on, so
@@ -43,9 +44,9 @@ centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
 the finished-floor plane (`Z=0`). Positive X is to the right while facing the
 climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
 coordinate uses the midpoint of the modeled leg-and-rail bolt stack for X and
-the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior support-side rails start behind the board at `Y=54 mm`;
-each listed bolt is offset 18 mm along the rail normal to its 36 mm-thick
-mid-plane.
+the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior
+support-side rail center plane is 54 mm along the transformed support normal
+from the main-panel support plane (36 mm service gap plus 18 mm rail half-thickness).
 This datum is for audit transfer only, not authorization to drill.
 
 ## Generated deliverables
@@ -58,7 +59,7 @@ uv run python -m mini_moonboard.export
 
 | File | Purpose |
 | --- | --- |
-| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: panels, legs, face rails, braces, and rear ties |
+| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, and rear ties |
 | [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Underside climbing-face elevation |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric visual review render of the assembled geometry |
@@ -115,10 +116,10 @@ that change record.
    do not treat the 36 mm CAD thickness as an actual measured thickness. Do
    not make the leg knee until its reviewer-approved load-transfer detail
    (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
-5. Dry-fit the two side legs, five support-side rails, kicker
-   seam/bottom backing, three panel-joint braces, and split support-side ties on a
-   level protected floor. Check the 60-degree leg angle, rear-foot position,
-   racking, and all panel/LED/T-nut clearances.
+5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
+   blocks, blank-kicker backing, and split rear ties on a level protected floor.
+   Check the full flat foot bearing faces, 60-degree leg angle, rear-foot
+   position, racking, and all panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the support-side frame flat where practical, raise it with at
