@@ -37,3 +37,6 @@ downloadable CAD for these Mini hold sets and their actual profile/bolt-depth
 envelope comes from the received hold set. Do not substitute inferred or scanned
 hold geometry into the structural model; it is only useful later for detailed
 collision and bolt-length checks.
+
+See [hold scanning and IP](hold-scanning-and-ip.md) before making any scan. This
+repository deliberately contains no faithful hold scans or printable hold files.

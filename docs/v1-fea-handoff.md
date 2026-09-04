@@ -3,6 +3,40 @@
 This is the reproducible handoff for a qualified analyst. It is not an FEA
 result and does not authorize construction or loading.
 
+## Installed analysis tools and solver smoke test
+
+This workspace can use the Windows-side **FreeCAD 0.21.2** and **Gmsh 4.11.0**
+installation from WSL. CalculiX is also available without sudo as the pinned
+Docker image `calculix/ccx@sha256:b18b56fec00ad965d85e091454f26195d62115ee9a05feb4c130fa15406b6f7a`
+(the fetched image reports CalculiX 2.16). Verify the solver, independently of
+the board, with:
+
+```bash
+docker run --rm -v "$PWD/fea:/input:ro" calculix/ccx@sha256:b18b56fec00ad965d85e091454f26195d62115ee9a05feb4c130fa15406b6f7a \
+  bash -lc 'cp /input/calculix-smoke.inp /tmp/smoke.inp && cd /tmp && ccx -i smoke'
+```
+
+[`calculix-smoke.inp`](../fea/calculix-smoke.inp) is a one-element cantilever
+whose only purpose is proving that the solver runs. It is not a structural
+model, a material model, or a result for this board. Solver outputs remain in
+the container and are intentionally not versioned.
+
+## Source-backed preliminary design actions
+
+Use these as initial analyst inputs, not as a declaration of standard
+compliance. The CWA document expressly says it does not specifically apply to
+portable climbing structures, which is material because V1 is unanchored.
+
+| Check | Initial action | Source and use |
+| --- | --- | --- |
+| One unroped climber | 1.2 kN / 270 lbf | CWA Table 1 value. Apply at all governing hold locations and directions; V1's provisional capacity is one climber only. |
+| Unanchored stability | 1.2 kN times capacity at the most destabilizing point; separately 718 N/m² / 15 psf uniform load | CWA's no-protection-anchor stability procedure. Include actual dead load, floor contact/friction, sliding, uplift, and overturning. Do not credit a second climber as ballast. |
+| Overturning | Factor of safety no less than 1.5 | CWA floor requirement; an analyst must select the governing local design method and factor combination. |
+| Surface panel | 0.8 kN point load and maximum deflection `l/100` between fixations | EN 12572-2:2017 preview. Treat as a panel check in addition to, not instead of, global 1.2 kN and stability cases. |
+| Insert/offcut | Five representative panel/insert samples; after the standard's stated test step, deformation no more than 0.5 mm at 1.2 kN and no pull-out after its procedure | EN 12572-2:2017 preview. This is a physical test requirement to be specified and supervised; do not improvise it with a climber. |
+
+Sources: [CWA Design & Engineering Specification (2022), Table 1 and §§4.5–4.7](https://www.cwapro.org/file/secure/cwadesignpecfinal2022.pdf) and [EN 12572-2:2017 preview, §§4.5–4.7](https://preview.sist.si/sist-preview/39968/eb82f102549541eba9b79bad025432c2/SIST-EN-12572-2-2017.pdf).
+
 ## Source geometry
 
 Generate the controlled assembly before analysis:
@@ -45,7 +79,7 @@ locations may be sampled at different hold locations.
 | Plywood principal-direction elastic, shear, strength, density, and moisture data | Birch plywood varies by product, orientation, thickness, and batch. |
 | Lamination adhesive and joint properties | Depends on exact adhesive, spread, cure, clamp pressure, and wood surface. |
 | Exact structural bolts, washers, nuts, screws, and connection behavior | Current hardware is a provisional purchase schedule, not an approved connection design. |
-| User mass, applicable static/dynamic factors, and load combinations | Governs design actions and cannot be inferred safely from a render. |
+| Final load vectors, dynamic factors, and load combinations | The source-backed screening actions above are a starting point; a qualified reviewer must set the final combinations. |
 | Floor friction, compliance, and load-spreading behavior | This unanchored assembly can slide, rack, or overturn. |
 | Allowable stress, deflection, buckling, and connection criteria | Must come from the reviewer and applicable standard/jurisdiction. |
 
