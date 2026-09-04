@@ -112,6 +112,8 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "an absolutely staggering 5\\'8" in viewer_html
     assert "name: 'McKay'" in viewer_html
     assert "person.position.set(1710, 250, 0)" in viewer_html
+    assert "camera.position.set(4300, 4700, 1600)" in viewer_html
+    assert "controls.target.set(300, 700, 1050)" in viewer_html
     assert "MCKAY — 5'8\\\" / 1727.2 mm" in viewer_html
 
 

@@ -36,9 +36,11 @@
       camera.up.set(0, 0, 1);
       // Initial camera: hold-facing front (the underside climbing face), not
       // the braced support side.
-      camera.position.set(3100, 3200, 750);
+      // Start as an overview: center the board plus front-left scale figure,
+      // and leave useful front-to-back space instead of loading close to it.
+      camera.position.set(4300, 4700, 1600);
       const controls = new OrbitControls(camera, renderer.domElement);
-      controls.target.set(0, 750, 1050);
+      controls.target.set(300, 700, 1050);
       controls.enableDamping = true;
       controls.minDistance = 700;
       controls.maxDistance = 7000;
