@@ -185,7 +185,9 @@ def export_v1_cad_render(output_dir: Path) -> Path:
         category = next((key for key in colors if child.name.startswith(key)), "face")
         axes.add_collection3d(Poly3DCollection(faces, facecolors=colors[category], edgecolors="#171717", linewidths=0.1))
     axes.set_box_aspect((2438.4, 1700, 2100))
-    axes.view_init(elev=19, azim=-57)
+    # Face the climbing surface from the front-right at a shallow elevation;
+    # rear rails and hockey-stick legs remain visible without obscuring it.
+    axes.view_init(elev=12, azim=-35)
     axes.set_axis_off()
     axes.set_xlim(-1500, 1500)
     axes.set_ylim(-100, 1700)
