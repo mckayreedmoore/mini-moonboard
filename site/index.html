@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mini MoonBoard V1 — Interactive CAD View</title>
+    <title>Independent DIY frame for the Mini MoonBoard — Interactive CAD View</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23121619'/%3E%3Cpath d='M12 50 27 12h25L37 50Z' fill='%23a65a16'/%3E%3C/svg%3E" />
     <style>
       * { box-sizing: border-box; }
@@ -11,6 +11,7 @@
       header { position: fixed; z-index: 1; inset: 0 auto auto 0; padding: 1rem 1.25rem; background: #121619dd; }
       h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
       p { color: #c7c1b4; font-size: .9rem; margin: 0; }
+      .support-link { display: inline-block; margin-top: .55rem; color: #f0b429; font-size: .85rem; text-underline-offset: .2em; }
       #part { margin-top: .5rem; color: #f5f0e6; font-size: .85rem; max-width: 28rem; }
       label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
       select { margin-left: .35rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; padding: .2rem; }
@@ -18,7 +19,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or colored connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div></header>
+    <header><h1>Independent DIY frame plans for the Mini MoonBoard</h1><p>Not affiliated with or endorsed by Moon Climbing.</p><p>V1 CAD assembly · underside climbing face · drag to orbit · scroll to zoom · click wood or colored connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>

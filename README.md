@@ -1,7 +1,12 @@
-# Mini MoonBoard
+# Independent DIY frame plans for the Mini MoonBoard
 
 Source-backed requirements and parametric CadQuery models for a freestanding
 Mini MoonBoard.
+
+This is an independent project, not affiliated with or endorsed by Moon Climbing.
+
+[Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
+· [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
 
 ## Status
 
