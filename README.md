@@ -60,6 +60,14 @@ drilling schedule, purchasing estimate, and build sequence—is in
 The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
 specifies the ten 4 x 8 plywood sheets and required thin-kerf cut route.
 
+## SketchUp reference geometry
+
+The supplied reference model can be extracted for inspection without making it
+part of the V1 design: `uv run python scripts/import_sketchup.py INPUT.skp
+OUTPUT.obj`. The OBJ is in millimetres and retains named hierarchy groups, so
+it opens in FreeCAD, Blender, or an online OBJ viewer. It is comparison-only:
+do not copy its dimensions or connections into V1 without an explicit audit.
+
 ## Development
 
 ```bash
