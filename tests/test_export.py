@@ -19,6 +19,7 @@ from mini_moonboard.export import (
     export_v1_drill_schedule,
     export_v1_front_drawing,
     export_v1_isometric_drawing,
+    export_v1_leg_cut_schedule,
     export_v1_panel_drill_schedule,
     export_v1_rear_drawing,
     export_v1_viewer_mesh,
@@ -30,6 +31,7 @@ from mini_moonboard.model import (
     V1_PANEL_SIZE_MM,
     build_v1_concept,
     v1_leg_geometry,
+    v1_lower_leg_cut_profile,
 )
 
 
@@ -95,9 +97,12 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
         assert "PROVISIONAL" in path.read_text()
 
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
+    leg_cut_rows = list(csv.DictReader(export_v1_leg_cut_schedule(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
     assert len(cut_rows) == 15
+    assert len(leg_cut_rows) == 2
+    assert leg_cut_rows[0]["finished_profile_mm"].startswith(f"({v1_lower_leg_cut_profile()[0][0]:.3f},0.000)")
     assert len(drill_rows) == 274
     assert len(panel_drill_rows) == 274
     assert {row["part"] for row in panel_drill_rows} == {
@@ -163,6 +168,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_v1_rear_drawing(generated_dir)
     export_v1_isometric_drawing(generated_dir)
     export_v1_cut_list(generated_dir)
+    export_v1_leg_cut_schedule(generated_dir)
     export_v1_drill_schedule(generated_dir)
     export_v1_panel_drill_schedule(generated_dir)
     export_v1_connection_schedule(generated_dir)

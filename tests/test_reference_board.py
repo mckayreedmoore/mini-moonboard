@@ -20,6 +20,7 @@ from mini_moonboard.model import (
     _structural_bolt_envelope,
     _v1_kicker_holes,
     _v1_main_panel_holes,
+    v1_lower_leg_cut_profile,
     v1_main_support_origin,
     v1_panel_fastener_envelope,
     v1_panel_fastener_positions,
@@ -156,7 +157,9 @@ def test_v1_geometry_has_valid_solids_with_floor_bearing_faces() -> None:
             and face.BoundingBox().zmax == pytest.approx(0, abs=0.001)
         ]
         assert floor_faces
-        assert max(face.Area() for face in floor_faces) > 3_000
+        trim_corner, floor_corner = v1_lower_leg_cut_profile()[:2]
+        expected_bearing_width = math.dist(trim_corner, floor_corner)
+        assert max(face.Area() for face in floor_faces) == pytest.approx(36 * expected_bearing_width, abs=1)
 
 
 def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:

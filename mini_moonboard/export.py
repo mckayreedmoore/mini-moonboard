@@ -34,6 +34,7 @@ from .model import (
     reference_envelope,
     v1_knee_bolt_positions,
     v1_leg_geometry,
+    v1_lower_leg_cut_profile,
     v1_panel_fastener_positions,
     v1_rear_tie_lag_positions,
     v1_seam_panel_fastener_positions,
@@ -490,6 +491,49 @@ def export_v1_cut_list(output_dir: Path) -> Path:
     return path
 
 
+def export_v1_leg_cut_schedule(output_dir: Path) -> Path:
+    """Export the non-rectangular lower-leg profile needed for fabrication."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_leg_cut_schedule.csv"
+    profile = v1_lower_leg_cut_profile()
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(
+            (
+                "member",
+                "lamination_quantity",
+                "blank_length_mm",
+                "blank_width_mm",
+                "thickness_mm",
+                "finished_profile_mm",
+                "cut_instruction",
+            )
+        )
+        writer.writerow(
+            (
+                "lower leg",
+                "4",
+                f"{v1_leg_geometry()['lower_length']:.1f}",
+                f"{V1_SUPPORT_WIDTH_MM:.1f}",
+                f"{PANEL_THICKNESS_MM:.1f}",
+                " -> ".join(f"({length:.3f},{width:.3f})" for length, width in profile),
+                "Cut the lower-left triangular waste from the rectangular blank; laminate mirrored pairs for the two exterior legs.",
+            )
+        )
+        writer.writerow(
+            (
+                "upper leg",
+                "4",
+                "400.0",
+                f"{V1_SUPPORT_WIDTH_MM:.1f}",
+                f"{PANEL_THICKNESS_MM:.1f}",
+                "rectangle",
+                "Keep both ends square before the knee-plate connection is drilled.",
+            )
+        )
+    return path
+
+
 def export_v1_drill_schedule(output_dir: Path) -> Path:
     """Export selected-hardware drilling data, retaining official center datums."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -853,6 +897,7 @@ def main() -> None:
         export_v1_rear_drawing(args.output_dir),
         export_v1_isometric_drawing(args.output_dir),
         export_v1_cut_list(args.output_dir),
+        export_v1_leg_cut_schedule(args.output_dir),
         export_v1_drill_schedule(args.output_dir),
         export_v1_panel_drill_schedule(args.output_dir),
         export_v1_connection_schedule(args.output_dir),

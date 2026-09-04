@@ -68,6 +68,8 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric support-side schematic; use STEP or CAD-derived raster for exact geometry |
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
+| [`mini_moonboard_v1_leg_cut_schedule.csv`](../exports/mini_moonboard_v1_leg_cut_schedule.csv) | Exact lower-leg trim profile and upper-leg blank instructions |
+| [`v1-leg-cutting.md`](v1-leg-cutting.md) | Human-readable transfer procedure for the lower-leg floor trim and knee connection |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
 | [`mini_moonboard_v1_panel_drill_schedule.csv`](../exports/mini_moonboard_v1_panel_drill_schedule.csv) | Direct per-blank records: part ID, labeled hole, local finished-blank X/Z, and bore diameter |
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail bolts, eight knee-plate bolts, 40 regular panel/rail screw datums, and 20 main-seam panel/rail screw datums |

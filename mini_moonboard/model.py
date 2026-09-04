@@ -469,6 +469,24 @@ def v1_leg_geometry() -> dict[str, float]:
     }
 
 
+def v1_lower_leg_cut_profile() -> tuple[tuple[float, float], ...]:
+    """Return the finished lower-leg side profile on a 1495.2 x 180 mm blank.
+
+    Coordinates are ``(along_length, across_width)`` from the long-end/lower
+    corner. The omitted lower-left triangle makes the bearing edge horizontal
+    when the member is installed 20 degrees from vertical.
+    """
+    lower_angle_from_vertical = 60.0 - ANGLE_FROM_VERTICAL_DEG
+    trim_length = V1_SUPPORT_WIDTH_MM / 2 * math.tan(math.radians(lower_angle_from_vertical))
+    return (
+        (trim_length, 0.0),
+        (0.0, V1_SUPPORT_WIDTH_MM / 2),
+        (0.0, V1_SUPPORT_WIDTH_MM),
+        (v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM),
+        (v1_leg_geometry()["lower_length"], 0.0),
+    )
+
+
 def v1_structural_bolt_position(side: int, distance: float) -> tuple[float, float, float]:
     """Return the X-axis bolt center on the 18 mm normal mid-plane of an outer rail."""
     rail_midplane = V1_SUPPORT_THICKNESS_MM / 2
