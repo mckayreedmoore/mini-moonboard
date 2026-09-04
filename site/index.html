@@ -56,21 +56,29 @@
         }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
       const overlay = new THREE.Group(); scene.add(overlay);
-      // These sprites lie 2 mm in front of the actual underside face. Their
-      // positions use the same 40° main-grid datum as the drilled-hole model.
-      const labelSprite = (text, color, position) => {
+      // Decal planes lie 0.5 mm in front of the actual underside face. Their
+      // orientation and positions use the same 40° datum as the drilled-hole model.
+      const labelDecal = (text, color, position) => {
         const canvas = document.createElement('canvas'); canvas.width = canvas.height = 128;
         const context = canvas.getContext('2d'); context.fillStyle = color;
         context.font = 'bold 72px system-ui'; context.textAlign = 'center'; context.textBaseline = 'middle';
-        context.fillText(text, 64, 66);
-        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, depthWrite: false }));
-        sprite.position.fromArray(position); sprite.scale.set(95, 95, 1); overlay.add(sprite);
+        // The outward-facing plane is rotated 230° about X, so turn the canvas
+        // 180° to keep the printed glyph upright from the climber's viewpoint.
+        context.translate(64, 64); context.rotate(Math.PI); context.fillText(text, 0, 2);
+        const texture = new THREE.CanvasTexture(canvas);
+        const decal = new THREE.Mesh(
+          new THREE.PlaneGeometry(95, 95),
+          new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false, side: THREE.FrontSide }),
+        );
+        decal.position.fromArray(position); decal.rotation.x = 230 * Math.PI / 180; overlay.add(decal);
       };
-      const mainFacePoint = (x, distance) => [x, -16.47 + distance * Math.sin(Math.PI / 180 * 40), 223.71 + distance * Math.cos(Math.PI / 180 * 40)];
+      const mainFacePoint = (x, distance) => [x, -18 + .5 * Math.cos(Math.PI / 180 * 40) + distance * Math.sin(Math.PI / 180 * 40), 225 - .5 * Math.sin(Math.PI / 180 * 40) + distance * Math.cos(Math.PI / 180 * 40)];
       const makeGridOverlay = color => {
         overlay.clear();
-        'ABCDEFGHIJK'.split('').forEach((letter, index) => labelSprite(letter, color, mainFacePoint(-1019.2 + index * 200, 2415)));
-        Array.from({ length: 12 }, (_, index) => labelSprite(String(index + 1), color, mainFacePoint(-1285, 80 + index * 200)));
+        // In climber-facing coordinates, +X is left and -X is right. A starts
+        // at climber-left; the row numbers therefore also belong at +X.
+        'ABCDEFGHIJK'.split('').forEach((letter, index) => labelDecal(letter, color, mainFacePoint(1019.2 - index * 200, 2415)));
+        Array.from({ length: 12 }, (_, index) => labelDecal(String(index + 1), color, mainFacePoint(1285, 80 + index * 200)));
       };
       const overlaySelect = document.querySelector('#overlay');
       overlaySelect.addEventListener('change', () => {

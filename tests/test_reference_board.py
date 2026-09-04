@@ -210,7 +210,7 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
             assert envelope.intersect(parts[f"leg_{side}"]).Volume() > 0
             assert envelope.intersect(parts[rail]).Volume() > 0
 
-    expected_panel_embedment = V1_PANEL_FASTENER_LENGTH_MM - 2 * V1_HARDWARE_GAP_MM
+    expected_rail_engagement = V1_PANEL_FASTENER_LENGTH_MM - (PANEL_THICKNESS_MM + V1_HARDWARE_GAP_MM)
     for placement, fastener_pair in zip(
         v1_rail_standoff_placements(),
         (v1_panel_fastener_positions()[index : index + 2] for index in range(0, 40, 2)),
@@ -225,7 +225,11 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
             assert envelope.intersect(parts[rail]).Volume() > 0
             assert envelope.intersect(parts[block]).Volume() > 0
             assert envelope.intersect(parts[panel]).Volume() == pytest.approx(
-                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_panel_embedment,
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * PANEL_THICKNESS_MM,
+                abs=1,
+            )
+            assert envelope.intersect(parts[rail]).Volume() == pytest.approx(
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_rail_engagement,
                 abs=1,
             )
 
@@ -244,7 +248,11 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
             assert envelope.intersect(parts[f"{rail}_{row}"]).Volume() > 0
             assert envelope.intersect(parts[block]).Volume() > 0
             assert envelope.intersect(parts[f"main_{row}_{side}"]).Volume() == pytest.approx(
-                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_panel_embedment,
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * PANEL_THICKNESS_MM,
+                abs=1,
+            )
+            assert envelope.intersect(parts[f"{rail}_{row}"]).Volume() == pytest.approx(
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_rail_engagement,
                 abs=1,
             )
 

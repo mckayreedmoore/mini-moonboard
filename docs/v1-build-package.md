@@ -111,7 +111,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Insulated screw-mounted cable saddles | 30 plus spares | Provisional 300 mm maximum spacing and every turn; mount to rear rails only after received-wire measurement |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
-| Panel-to-rail screws | 60 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per regular bearing block and four per main-seam block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
+| Panel-to-rail screws | 60 x #10 x 3.5-in countersunk structural wood screws | **Provisional:** two screws per regular bearing block and four per main-seam block, installed flush from the climbing face through the panel and bearing block into the rail. CAD gives 34.90 mm nominal rail engagement without exiting the rail; a structural reviewer must approve the selected screw, countersink, pilot, and clearance. |
 | Secondary joinery screws | 72 x #10 x 2.5-in and 24 x #10 x 2-in, plus 10% spare | Rail splice, rail-grid tie splice, kicker-backing, and side-gusset patterns; the 2-in gusset screws stop within the 36 mm gusset + 18 mm panel stack; see secondary joinery schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
@@ -152,10 +152,11 @@ that change record.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the support-side frame flat where practical, raise it with at
-   least two people, and fasten each regular bearing block with two and each
-   main-seam bearing block with four #10 x 3.25-in screws from the rail exterior. Use the connection schedule's 60 head-centre
-   datums; test the exact screw on an offcut to confirm its tip does not break
-   through the climbing face.
+   least two people, then fasten each regular bearing block with two and each
+   main-seam bearing block with four flush #10 x 3.5-in countersunk screws from
+   the climbing face. Use the connection schedule's 60 head-centre datums;
+   the selected screw and countersink must be structurally approved and clear
+   all holds, T-nuts, LEDs, and wiring.
 8. Install every remaining rail splice, tie, kicker backing, and side-gusset
    fastener to the relative centers in the secondary joinery schedule. Check
    that each contact face bears flush before fastening.
@@ -183,10 +184,10 @@ continue as a geometry prototype while they are unresolved.
 - Check all structural bolt locations against the final hold, T-nut, LED,
   wiring, and panel-seam layout; the T-nut rows locate leg geometry but are not
   structural-fastener locations.
-- Prove the selected #10 x 3.25-in panel/rail screw on an offcut: the actual
-  head must seat on the rail, its pilot must not split the block or panel, and
-  its tip must stay clear of the climbing face, T-nut hardware, LED hardware,
-  and wiring.
+- Approve the selected face-installed #10 x 3.5-in panel/rail screw. Its head
+  must finish flush with the climbing face, and its countersink, pilot, 34.90
+  mm nominal rail engagement, hold/T-nut/LED clearance, and wiring clearance
+  must be checked against the final selected hardware.
 - Assess unanchored overturning, sliding, racking, floor bearing, anti-slip,
   and load spreading for intended use. No anchor may be added without a
   controlled revision.

@@ -90,6 +90,9 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "analysis_" in viewer_html
     assert 'id="overlay"' in viewer_html
     assert "ABCDEFGHIJK" in viewer_html
+    assert "labelDecal" in viewer_html
+    assert "new THREE.PlaneGeometry" in viewer_html
+    assert "mainFacePoint(1285" in viewer_html
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -172,7 +175,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert len(connection_rows) == 76
     assert len(bom_rows) == 14
     assert bom_rows[0]["quantity"] == "9 sheets"
-    panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
+    panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.5 in countersunk structural wood screws")
     assert panel_screws["quantity"] == "60"
     assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2.5 in structural wood screw") == 72
     assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2 in structural wood screw") == 24
@@ -183,7 +186,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
     assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
     assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])
-    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward climbing face"}
+    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward support frame"}
     assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
@@ -197,8 +200,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert all(
         "X is bolt-stack midpoint" in row["datum"]
         if row["axis"] == "X"
-        else "screw-head center at rail exterior face" in row["datum"]
-        if row["axis"] == "board-normal toward climbing face"
+        else "countersunk screw-head centers at climbing face" in row["datum"]
+        if row["axis"] == "board-normal toward support frame"
         else False
         for row in connection_rows
     )

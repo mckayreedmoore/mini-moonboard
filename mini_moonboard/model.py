@@ -36,7 +36,9 @@ V1_KNEE_GUSSET_SIZE_MM = 450.0
 V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM = 470.0
 V1_KNEE_BOLT_OFFSETS_MM = (70.0, 220.0)
 V1_PANEL_FASTENER_DIAMETER_MM = 4.826
-V1_PANEL_FASTENER_LENGTH_MM = 82.55
+# Face-installed screws cross the 18 mm panel and 36 mm bearing block, then
+# engage 34.9 mm of the 36 mm rail without exiting its rear face.
+V1_PANEL_FASTENER_LENGTH_MM = 88.9
 V1_PANEL_FASTENER_TANGENT_OFFSETS_MM = (25.0, 55.0)
 V1_SEAM_PANEL_FASTENER_TANGENT_OFFSETS_MM = (45.0, 75.0, 115.0, 145.0)
 V1_TIE_SPLICE_LENGTH_MM = 400.0
@@ -532,12 +534,11 @@ def v1_knee_bolt_positions(side: int) -> tuple[tuple[float, float, float], ...]:
 
 
 def v1_panel_fastener_positions() -> tuple[tuple[int, float, float], ...]:
-    """Return (rail number, X, board-distance) for 40 rear-installed screws.
+    """Return (rail number, X, board-distance) for 40 face-installed screws.
 
     Each of the twenty bearing blocks receives two screws 25 and 55 mm from
-    its lower-board-distance edge. The screw enters through the rail's exterior face, crosses its
-    matching block, and embeds 10.55 mm into the 18 mm panel without reaching
-    the underside climbing face.
+    its lower-board-distance edge. The screw enters flush from the climbing
+    face, crosses its matching bearing block, and engages the rail.
     """
     return tuple(
         (rail_number, x, distance + offset)
@@ -563,11 +564,9 @@ def v1_seam_panel_fastener_positions() -> tuple[tuple[int, float, float], ...]:
 
 def v1_panel_fastener_envelope(x: float, distance: float) -> cq.Shape:
     """Return the board-normal reference volume for one panel attachment screw."""
-    start_y, start_z = v1_support_side_point(
-        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM
-    )
+    start_y, start_z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
     end_y, end_z = v1_support_side_point(
-        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM - V1_PANEL_FASTENER_LENGTH_MM
+        distance, -PANEL_THICKNESS_MM + V1_PANEL_FASTENER_LENGTH_MM
     )
     return cq.Solid.makeCylinder(
         V1_PANEL_FASTENER_DIAMETER_MM / 2,

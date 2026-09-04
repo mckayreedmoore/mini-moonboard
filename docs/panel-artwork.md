@@ -17,7 +17,9 @@ The viewer therefore provides a non-logo, data-derived overlay switcher:
 - `Grid labels` adds A–K and 1–12 at the canonical Mini grid positions.
 - `High-contrast grid labels` uses the same geometry with a white treatment.
 
-The labels are display-only sprites placed 2 mm in front of the actual
-underside face. They do not alter the STEP model, hole datums, cut list, or FEA
+The labels are display-only decal planes placed 0.5 mm in front of the actual
+underside face and rotated to lie on its 40-degree slope. They use
+climber-facing coordinates: A begins at climber-left, and rows 1–12 run on
+climber-left. They do not alter the STEP model, hole datums, cut list, or FEA
 model. A future licensed Moon-artwork overlay can use the same selector without
 changing the CAD geometry.

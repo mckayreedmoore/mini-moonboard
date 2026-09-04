@@ -14,7 +14,6 @@ from .model import (
     MAIN_PANEL_SIZE_MM,
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
-    V1_HARDWARE_GAP_MM,
     V1_KICKER_HEIGHT_MM,
     V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
     V1_KNEE_BOLT_LENGTH_MM,
@@ -323,10 +322,10 @@ def _viewer_bolt(center: tuple[float, float, float], length: float, radius: floa
 
 
 def _viewer_panel_screw(x: float, distance: float) -> cq.Shape:
-    """Return a nominal #10 shank and pan-head envelope along the board normal."""
-    start_y, start_z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+    """Return a nominal face-countersunk #10 shank along the board normal."""
+    start_y, start_z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
     end_y, end_z = v1_support_side_point(
-        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM - V1_PANEL_FASTENER_LENGTH_MM
+        distance, -PANEL_THICKNESS_MM + V1_PANEL_FASTENER_LENGTH_MM
     )
     direction = cq.Vector(0, end_y - start_y, end_z - start_z)
     unit = direction.normalized()
@@ -346,7 +345,7 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
     elif name.startswith("analysis_knee_bolt_"):
         dimensions, description = (V1_KNEE_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in knee-plate bolt, washers, head, and nut envelope"
     elif name.startswith(("analysis_panel_screw_", "analysis_main_seam_screw_")):
-        dimensions, description = (V1_PANEL_FASTENER_LENGTH_MM, V1_PANEL_FASTENER_DIAMETER_MM, V1_PANEL_FASTENER_DIAMETER_MM), "analysis-visible #10 rear rail-to-panel screw axis and head envelope"
+        dimensions, description = (V1_PANEL_FASTENER_LENGTH_MM, V1_PANEL_FASTENER_DIAMETER_MM, V1_PANEL_FASTENER_DIAMETER_MM), "analysis-visible face-countersunk #10 panel-to-rail screw axis and head envelope"
     elif name.startswith("main_"):
         dimensions, description = (V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM), "finished climbing-panel blank"
     elif name.startswith("kicker_") and name in {"kicker_left", "kicker_right"}:
@@ -840,37 +839,37 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                     )
                 )
         for rail_number, x, distance in v1_panel_fastener_positions():
-            y, z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+            y, z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
             writer.writerow(
                 (
-                    "rear face rail through bearing block into panel",
+                    "climbing-face panel through bearing block into rail",
                     f"rail-{rail_number}",
                     1,
-                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are screw-head center at rail exterior face",
+                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are countersunk screw-head centers at climbing face",
                     f"{x:.3f}",
                     f"{y:.3f}",
                     f"{z:.3f}",
-                    "board-normal toward climbing face",
+                    "board-normal toward support frame",
                     "3.200 pilot",
-                    f"#10 structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.25 in nominal",
-                    "PROVISIONAL: two screws per bearing block; fit-test confirms 10.55 mm panel embedment without face breakout",
+                    f"#10 countersunk structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.5 in nominal",
+                    "PROVISIONAL: two screws per bearing block; nominal rail engagement is 34.90 mm. Structural reviewer must approve selected screw, countersink, pilot, and hold/T-nut/LED clearances",
                 )
             )
         for rail_number, x, distance in v1_seam_panel_fastener_positions():
-            y, z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+            y, z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
             writer.writerow(
                 (
-                    "rear face rail through main-seam bearing block into panel",
+                    "climbing-face panel through main-seam bearing block into rail",
                     f"rail-{rail_number}",
                     1,
-                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are screw-head center at rail exterior face",
+                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are countersunk screw-head centers at climbing face",
                     f"{x:.3f}",
                     f"{y:.3f}",
                     f"{z:.3f}",
-                    "board-normal toward climbing face",
+                    "board-normal toward support frame",
                     "3.200 pilot",
-                    f"#10 structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.25 in nominal",
-                    "PROVISIONAL: four screws per main-seam bearing block; two fasten each panel adjacent to the seam; fit-test confirms 10.55 mm panel embedment without face breakout",
+                    f"#10 countersunk structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.5 in nominal",
+                    "PROVISIONAL: four screws per main-seam bearing block; two fasten each adjacent panel. Nominal rail engagement is 34.90 mm; reviewer must approve selected screw, countersink, pilot, and hold/T-nut/LED clearances",
                 )
             )
     return path
@@ -890,7 +889,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in Grade-5 structural through-bolts", f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
-        ("#10 x 3.25 in structural wood screws", "60", "Two rear-installed screws per regular bearing block and four per main-seam bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
+        ("#10 x 3.5 in countersunk structural wood screws", "60", "Two face-installed screws per regular bearing block and four per main-seam bearing block; nominal rail engagement is 34.90 mm. Reviewer must approve actual head, countersink, pilot, and hold/T-nut/LED clearances"),
         ("#10 x 2.5 in structural wood screws", f"{_secondary_screw_count('#10 x 2.5 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: rail splices, rail-cross ties, tie-center splices, and kicker-backing seam splice"),
         ("#10 x 2 in structural wood screws", f"{_secondary_screw_count('#10 x 2 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: kicker/main side gussets and blank-kicker backing; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
