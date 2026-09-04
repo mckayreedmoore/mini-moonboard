@@ -30,7 +30,7 @@ V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
 V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
 V1_LED_HOLE_DIAMETER_MM = 13.0
 # The climber is below the overhanging panel. The board's opposite side carries
-# rails, braces, wiring, and legs; it is the support side, never the climbing face.
+# rails, bearing blocks, wiring, and legs; it is the support side, never the climbing face.
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -269,23 +269,6 @@ def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
         )
         .rotate((0, 0, 0), (1, 0, 0), -normal_angle)
         .translate((side * half_length / 2, y, z))
-    )
-
-
-def _panel_joint_brace_half(side: int, distance: float) -> cq.Workplane:
-    """Return one stock-cuttable half of a board-parallel panel-joint brace."""
-    y, z = v1_support_side_point(distance)
-    return (
-        cq.Workplane("XY")
-        .box(V1_PANEL_SIZE_MM, V1_SUPPORT_THICKNESS_MM, V1_REAR_TIE_WIDTH_MM, centered=(True, False, True))
-        .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
-        .translate(
-            (
-                side * V1_PANEL_SIZE_MM / 2,
-                y,
-                z,
-            )
-        )
     )
 
 

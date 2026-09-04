@@ -487,7 +487,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         "X",
                         "10.000",
                         "3/8 in Grade-5 through-bolt; length unresolved pending approved washer/plate/nut stack and thread engagement",
-                        "PROVISIONAL: envelope modeled; reviewer must check edge distance, panel/T-nut/LED clearance, bolt stack, and load path",
+                        "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, panel/T-nut/LED clearance, bolt stack, and load path",
                     )
                 )
     return path
