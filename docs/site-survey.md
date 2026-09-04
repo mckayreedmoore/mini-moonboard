@@ -157,7 +157,7 @@ same batch intended for construction.
 | Species, grade, ply count, and certification | **unresolved** | **unresolved** |
 | Hold/T-nut thread standard | 3/8-16 Escape screw-in T-nuts selected | 3/8-16 Escape screw-in T-nuts selected |
 | Selected T-nut reference | Escape 3-hole screw-in T-nut, Amazon ASIN B00FJGT7QI; user-provided URL recorded 2026-09-04 | Received component measured by user |
-| T-nut flange / body | 25.4 mm flange diameter; 1.86 mm flange thickness; 12.7 mm / 1/2 in body depth; three flange screw holes, about 3.2 mm diameter | 1 in flange; 0.07 in thick; 1/2 in depth; 3 x about 0.129 in holes |
+| T-nut flange / body | 25.4 mm flange diameter; 1.86 mm flange thickness; 12.7 mm / 1/2 in body depth; three flange screw holes, about 3.2 mm diameter; measured adjacent inside-edge gap 12.78 mm, deriving 15.98 mm center-to-center | 1 in flange; 0.07 in thick; 1/2 in depth; 3 x about 0.129 in holes; 0.503 in inside-edge gap, deriving 0.629 in center-to-center |
 | T-nut hole diameter and barrel length | 11.11 mm / 7/16 in bore per selected Escape listing; measured body depth 12.7 mm | 7/16 in bore; 1/2 in depth |
 | LED-system version and guide revision | MoonBoard LED System, SKU 60-201-V5; published V5 50-LED guide dated Nov 2025; supplied guide revision **unresolved** | MoonBoard LED System, SKU 60-201-V5; supplied guide revision **unresolved** |
 | LED body and rear projection | Measured: 31 mm total panel-rear projection; 24 mm cylinder with four opposing lugs, 12.7 mm maximum / about 11.7 mm minimum diameter; 7 mm dome, about 7.5 mm diameter, axis about 75 degrees to cylinder | 1.22 in projection; 0.93 in cylinder, 1/2 in max / 0.46 in min diameter; 0.28 in dome, about 0.30 in diameter |
@@ -168,8 +168,8 @@ offcut for fit checks before production drilling. Take thickness readings at
 multiple positions on each actual sheet, record the minimum, arithmetic mean,
 and maximum, and do not substitute nominal thickness. The official hole and
 barrel figures above are from Moon Climbing's [current build guidance](https://moonclimbing.com/build-your-moonboard);
-The screw-hole pitch, LED cable bundle outer diameter, exact dome angle, and
-tolerance are still approximate/unmeasured. These values are
+The full three-hole pattern/orientation, LED cable bundle outer diameter, exact
+dome angle, and tolerance are still approximate/unmeasured. These values are
 received-component observations, not a manufacturing drawing.
 
 ## Survey acceptance

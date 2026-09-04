@@ -63,8 +63,10 @@ the Escape offcut test governs the selected T-nut installation. Use only
 matching 3/8-16 bolts. Do not mix M10 bolts with these inserts. The received
 sample measures about a 1 in (25.4 mm) flange, 0.07 in (1.86 mm) flange
 thickness, 1/2 in (12.7 mm) body depth, and three roughly 3.2 mm flange screw
-holes; hole pitch still needs a direct measurement before a screw pattern is
-transferred.
+holes. An adjacent 12.78 mm inside-edge gap derives a 15.98 mm center-to-center
+spacing for equal 3.2 mm holes, but this is only a check value. After the main
+7/16 in bore is drilled, seat each physical insert, mark through its own three
+holes, then pilot-drill: the received part controls the screw pattern.
 
 Moon Climbing's own hardware path instead calls for metric M10 T-nuts and
 bolts (with 3/8 in described as the imperial counterpart) and its build page

@@ -131,6 +131,9 @@ that change record.
    3/8-16 system. Drill and test a sample
    panel with an Escape T-nut, matching 3/8-16 bolt, representative hold,
    Moon LED, and the proposed panel-to-rail screw. Confirm support-side clearance.
+   For each production insert, drill the 7/16-in main bore first, then seat the
+   actual T-nut on the support side and mark through its three flange holes;
+   pilot-drill those marks rather than scaling a nominal flange pattern.
 3. Cut panel and support blanks only after the fit test passes. Keep the full
    75 mm blank kicker extension below the official active kicker zone.
 4. Glue and clamp each two-ply support member, including the two 450 x 450 mm
