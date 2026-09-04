@@ -40,6 +40,10 @@ This generated render shows one side profile; the two exterior legs overlap in
 this view. It is a geometry prototype pending the human audit documented in
 [`docs/design-basis.md`](docs/design-basis.md), not a construction drawing.
 
+The complete pre-audit package—3D model, front/rear/side plans, cut list,
+drilling schedule, purchasing estimate, and build sequence—is in
+[`docs/v1-build-package.md`](docs/v1-build-package.md).
+
 ## Development
 
 ```bash
