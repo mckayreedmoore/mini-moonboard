@@ -24,6 +24,7 @@ from mini_moonboard.export import (
     export_v1_leg_cut_schedule,
     export_v1_panel_drill_schedule,
     export_v1_rear_drawing,
+    export_v1_secondary_joinery_schedule,
     export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
@@ -31,6 +32,8 @@ from mini_moonboard.model import (
     V1_KNEE_BOLT_LENGTH_MM,
     V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_SIZE_MM,
+    _v1_kicker_holes,
+    _v1_main_panel_holes,
     build_v1_concept,
     v1_leg_geometry,
     v1_lower_leg_cut_profile,
@@ -116,14 +119,48 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
         "main_lower_left", "main_lower_right", "main_upper_left", "main_upper_right", "kicker_left", "kicker_right"
     }
     assert all(0 < float(row["x_from_left_mm"]) < V1_PANEL_SIZE_MM for row in panel_drill_rows)
+    actual_panel_bores = {
+        (
+            row["part"],
+            round(float(row["x_from_left_mm"]), 3),
+            round(float(row["z_from_bottom_mm"]), 3),
+            round(float(row["diameter_mm"]), 3),
+        )
+        for row in panel_drill_rows
+    }
+    expected_panel_bores = {
+        (
+            f"main_{row_label}_{side}",
+            round(x + V1_PANEL_SIZE_MM / 2, 3),
+            round(z, 3),
+            round(diameter, 3),
+        )
+        for row, row_label in enumerate(("lower", "upper"))
+        for column, side in enumerate(("left", "right"))
+        for x, z, diameter in _v1_main_panel_holes(column, row)
+    } | {
+        (
+            f"kicker_{side}",
+            round(x + V1_PANEL_SIZE_MM / 2, 3),
+            round(z, 3),
+            round(diameter, 3),
+        )
+        for column, side in enumerate(("left", "right"))
+        for x, z, diameter in _v1_kicker_holes(column)
+    }
+    assert actual_panel_bores == expected_panel_bores
+    assert len({(row["feature"], row["label"]) for row in panel_drill_rows}) == len(panel_drill_rows)
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
+    secondary_rows = list(csv.DictReader(export_v1_secondary_joinery_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
     assert len(connection_rows) == 88
     assert len(bom_rows) == 15
     assert bom_rows[0]["quantity"] == "11 sheets"
     panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
     assert panel_screws["quantity"] == "60"
+    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2.5 in structural wood screw") == 84
+    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2 in structural wood screw") == 24
     assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "84 plus 10% spare"
     assert next(row for row in bom_rows if row["item"] == "#10 x 2 in structural wood screws")["quantity"] == "24 plus 10% spare"
     hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2020 Setup Hold Bundle")
@@ -182,6 +219,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_v1_drill_schedule(generated_dir)
     export_v1_panel_drill_schedule(generated_dir)
     export_v1_connection_schedule(generated_dir)
+    export_v1_secondary_joinery_schedule(generated_dir)
     export_v1_bom(generated_dir)
     export_panel_grid(generated_dir)
     export_panel_grid_drawing(generated_dir)

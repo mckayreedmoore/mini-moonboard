@@ -43,6 +43,15 @@ from .model import (
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
+V1_SECONDARY_JOINERY_ROWS = (
+    ("rail splice cover to lower/upper rail", 5, "#10 x 2.5 in structural wood screw", 4),
+    ("rail-cross-tie half to contacted face rail", 18, "#10 x 2.5 in structural wood screw", 2),
+    ("rear/rail tie center splice to its two halves", 6, "#10 x 2.5 in structural wood screw", 4),
+    ("kicker-backing center seam splice to both backings", 1, "#10 x 2.5 in structural wood screw", 4),
+    ("kicker/main exterior side gusset to panel edges", 4, "#10 x 2 in structural wood screw", 4),
+    ("blank-kicker backing to kicker panel", 2, "#10 x 2 in structural wood screw", 4),
+)
+
 
 def _imperial(mm: float) -> str:
     sixteenths = round(mm / 25.4 * 16)
@@ -773,8 +782,8 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
         ("#10 x 3.25 in structural wood screws", "60", "Two rear-installed screws per regular bearing block and four per main-seam bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
-        ("#10 x 2.5 in structural wood screws", "84 plus 10% spare", "Rail splice, rail-cross-tie, tie-center-splice, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
-        ("#10 x 2 in structural wood screws", "24 plus 10% spare", "Kicker/main side-gusset and blank-kicker-backing schedule; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
+        ("#10 x 2.5 in structural wood screws", f"{_secondary_screw_count('#10 x 2.5 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: rail splices, rail-cross ties, tie-center splices, and kicker-backing seam splice"),
+        ("#10 x 2 in structural wood screws", f"{_secondary_screw_count('#10 x 2 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: kicker/main side gussets and blank-kicker backing; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
         ("5/16 in x 10 in structural lag screws with washers", "12", "Rear-tie-end to lower-leg schedule in mini_moonboard_v1_connection_schedule.csv"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
@@ -783,6 +792,27 @@ def export_v1_bom(output_dir: Path) -> Path:
         writer = csv.writer(stream, lineterminator="\n")
         writer.writerow(("item", "quantity", "note"))
         writer.writerows(rows)
+    return path
+
+
+def _secondary_screw_count(hardware: str) -> int:
+    """Return the controlled count for one secondary screw specification."""
+    return sum(
+        interfaces * screws_per_interface
+        for _, interfaces, row_hardware, screws_per_interface in V1_SECONDARY_JOINERY_ROWS
+        if row_hardware == hardware
+    )
+
+
+def export_v1_secondary_joinery_schedule(output_dir: Path) -> Path:
+    """Export the count-controlled schedule for non-primary screw connections."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_secondary_joinery_schedule.csv"
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("interface", "interfaces", "hardware", "screws_per_interface", "total_screws"))
+        for interface, interfaces, hardware, screws_per_interface in V1_SECONDARY_JOINERY_ROWS:
+            writer.writerow((interface, interfaces, hardware, screws_per_interface, interfaces * screws_per_interface))
     return path
 
 
@@ -960,6 +990,7 @@ def main() -> None:
         export_v1_drill_schedule(args.output_dir),
         export_v1_panel_drill_schedule(args.output_dir),
         export_v1_connection_schedule(args.output_dir),
+        export_v1_secondary_joinery_schedule(args.output_dir),
         export_v1_bom(args.output_dir),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),

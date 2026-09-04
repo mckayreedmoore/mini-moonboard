@@ -2,8 +2,10 @@
 
 This schedule completes the physical connections that are represented as
 face-to-face contacts in the V1 STEP model but are not the generated primary
-entries
-in `mini_moonboard_v1_connection_schedule.csv`. Measurements are from the
+entries in `mini_moonboard_v1_connection_schedule.csv`. The matching generated
+[`mini_moonboard_v1_secondary_joinery_schedule.csv`](../exports/mini_moonboard_v1_secondary_joinery_schedule.csv)
+controls the count and screw specification; this document controls the relative
+patterns. Measurements are from the
 finished part edges, after the two 18 mm laminations have cured and been
 trimmed flush. Pilot every plywood screw hole; do not substitute drywall
 screws.
