@@ -172,8 +172,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2 in structural wood screw") == 24
     assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "72 plus 10% spare"
     assert next(row for row in bom_rows if row["item"] == "#10 x 2 in structural wood screws")["quantity"] == "24 plus 10% spare"
-    hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2020 Setup Hold Bundle")
-    assert hold_bundle["quantity"] == "1, SKU 60-105-2020"
+    hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2025 Setup Hold Bundle")
+    assert hold_bundle["quantity"] == "1, SKU 60-105-2025"
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
     assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
     assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])

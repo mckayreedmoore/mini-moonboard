@@ -77,8 +77,9 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Nine-sheet purchase and cut layout, with one factory-width main panel per sheet |
 | [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
-| [`v1-hold-installation.md`](v1-hold-installation.md) | Selected official Mini 2020 hold bundle, received-hold inventory, bolt-length, and pin-screw controls |
+| [`v1-hold-installation.md`](v1-hold-installation.md) | User-owned official Mini 2025 hold bundle, received-hold inventory, bolt-length, and pin-screw controls |
 | [`v1-led-installation.md`](v1-led-installation.md) | Source-backed V5 string order, service-gap routing, and received-kit audit |
+| [`v1-fea-handoff.md`](v1-fea-handoff.md) | Solver-ready geometry handoff, required analysis inputs, load-case matrix, and proof-test release gate |
 
 The whole-board CSV is a cross-check of the official metric datums. Use the
 per-blank CSV to transfer holes: each coordinate is from the **finished
@@ -103,9 +104,9 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
 | 3/4-in, 4 x 8 birch plywood | **9 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first. Each main panel requires a 1219.2 mm factory sheet width. |
-| Mini MoonBoard 2020 Setup Hold Bundle | 1, SKU 60-105-2020 | Selected official 130-hold setup: Original School Holds plus Wood Holds A/B/C. Moon states this bundle excludes bolts, T-nuts, and LEDs; see [hold installation](v1-hold-installation.md). |
+| Mini MoonBoard 2025 Setup Hold Bundle | 1, SKU 60-105-2025 | User-owned official 138-hold setup: Original School Holds, School Holds Set F, and Wood Holds B/C. Moon states this bundle excludes bolts, T-nuts, and LEDs; see [hold installation](v1-hold-installation.md). |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test. The selected listing says fixing screws are included; count the received screws before installation. |
-| 3/8-16 hold bolts | 130 minimum plus hold-specific spares | The selected hold bundle excludes bolts. Inventory each hold's counterbore and required bolt length before purchase; do not substitute one generic length. |
+| 3/8-16 hold bolts | 138 minimum plus hold-specific spares | The selected hold bundle excludes bolts. Inventory each hold's counterbore and required bolt length before purchase; do not substitute one generic length. |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected standard kit: four 50-LED strings / 200 bulbs. Install 132; retain 68 uninstalled bulbs (18 third-string tail plus unused fourth string), including Moon's two terminal replacement spares. The received guide controls installation. |
 | Insulated screw-mounted cable saddles | 30 plus spares | Provisional 300 mm maximum spacing and every turn; mount to rear rails only after received-wire measurement |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |

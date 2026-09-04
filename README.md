@@ -58,6 +58,9 @@ drilling schedule, purchasing estimate, and build sequence—is in
 [`docs/v1-build-package.md`](docs/v1-build-package.md).
 The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
 specifies the nine 4 x 8 plywood sheets and one-factory-width-main-panel-per-sheet route.
+The [FEA handoff](docs/v1-fea-handoff.md) defines the STEP source, structural
+idealization, required inputs, and load cases for qualified FreeCAD/CalculiX or
+equivalent analysis; it deliberately contains no invented stress result.
 
 ## SketchUp reference geometry
 
