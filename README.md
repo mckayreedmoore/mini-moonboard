@@ -44,21 +44,20 @@ controller/cable route remains an installation-audit item until its supplied
 guide and installed wire lengths are verified. Rails, bearing blocks, wiring,
 and legs belong on the opposite support side.
 
-[Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, and zoom the same generated assembly.
+[Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, zoom, and select a part for bilingual cut-list dimensions.
 
-![Provisional side render of the Mini MoonBoard v1 board and exterior hockey-stick leg](exports/mini_moonboard_v1_concept_side.svg)
-
-![Provisional isometric render of the Mini MoonBoard v1 frame](exports/mini_moonboard_v1_isometric.svg)
-
-This generated render shows one side profile; the two exterior legs overlap in
-this view. It is a geometry prototype pending the human audit documented in
-[`docs/design-basis.md`](docs/design-basis.md), not a construction drawing.
+The [side profile](exports/mini_moonboard_v1_concept_side.svg),
+[support-side elevation](exports/mini_moonboard_v1_rear.svg), and
+[isometric support view](exports/mini_moonboard_v1_isometric.svg) remain
+available as audit drawings. They are intentionally links rather than competing
+hero images: the CAD-derived climbing-face render above is the clearest visual
+summary of the assembly.
 
 The complete pre-audit package—3D model, front/rear/side plans, cut list,
 drilling schedule, purchasing estimate, and build sequence—is in
 [`docs/v1-build-package.md`](docs/v1-build-package.md).
 The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
-specifies the eleven 4 x 8 plywood sheets and required thin-kerf cut route.
+specifies the nine 4 x 8 plywood sheets and one-factory-width-main-panel-per-sheet route.
 
 ## SketchUp reference geometry
 

@@ -24,7 +24,6 @@ human-audit list at the end.
 | Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | The four primary rails are 812.8 mm apart (controlled-width equivalent of Moon's nominal 813 mm upright spacing); rails sit on the true support side of the underside climbing face |
 | Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
 | Kicker/main gussets | Two exterior 36 mm-thick triangular side gussets | Each touches the vertical kicker and first 400 mm of the inclined main-panel side edge; four provisional screws per panel edge require human audit |
-| Leg cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap other frame solids |
 | Rail cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Each half touches three rails; the rail grid transfers through outer rails to the leg-bolt path |
 | Rail splices | Five 36 mm-thick, 400 mm-long outer cover plates | Each physically bridges its lower/upper rail pair; fastener pattern remains a human-audit item |
 
@@ -62,7 +61,7 @@ uv run python -m mini_moonboard.export
 
 | File | Purpose |
 | --- | --- |
-| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, seam gussets, and rear ties |
+| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, and seam gussets; lower-leg rear ties are intentionally omitted from climber space |
 | [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Underside climbing-face elevation |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric support-side schematic; use STEP or CAD-derived raster for exact geometry |
@@ -76,7 +75,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail bolts, eight knee-plate bolts, 40 regular panel/rail screw datums, and 20 main-seam panel/rail screw datums |
 | [`mini_moonboard_v1_secondary_joinery_schedule.csv`](../exports/mini_moonboard_v1_secondary_joinery_schedule.csv) | Generated count control for the secondary #10 screw interfaces; pair it with the relative-coordinate pattern below |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
-| [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Eleven-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
+| [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Nine-sheet purchase and cut layout, with one factory-width main panel per sheet |
 | [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
 | [`v1-hold-installation.md`](v1-hold-installation.md) | Selected official Mini 2020 hold bundle, received-hold inventory, bolt-length, and pin-screw controls |
 | [`v1-led-installation.md`](v1-led-installation.md) | Source-backed V5 string order, service-gap routing, and received-kit audit |
@@ -103,7 +102,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
-| 3/4-in, 4 x 8 birch plywood | **11 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
+| 3/4-in, 4 x 8 birch plywood | **9 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first. Each main panel requires a 1219.2 mm factory sheet width. |
 | Mini MoonBoard 2020 Setup Hold Bundle | 1, SKU 60-105-2020 | Selected official 130-hold setup: Original School Holds plus Wood Holds A/B/C. Moon states this bundle excludes bolts, T-nuts, and LEDs; see [hold installation](v1-hold-installation.md). |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test. The selected listing says fixing screws are included; count the received screws before installation. |
 | 3/8-16 hold bolts | 130 minimum plus hold-specific spares | The selected hold bundle excludes bolts. Inventory each hold's counterbore and required bolt length before purchase; do not substitute one generic length. |
@@ -112,8 +111,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 60 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per regular bearing block and four per main-seam block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
-| Secondary joinery screws | 84 x #10 x 2.5-in and 24 x #10 x 2-in, plus 10% spare | Rail splice, tie splice, kicker-backing, and side-gusset patterns; the 2-in gusset screws stop within the 36 mm gusset + 18 mm panel stack; see secondary joinery schedule. |
-| Rear-tie leg lags | 12 x 5/16-in x 10-in structural lag screws with washers | Drive from leg exterior through the tie end; use global connection schedule. |
+| Secondary joinery screws | 72 x #10 x 2.5-in and 24 x #10 x 2-in, plus 10% spare | Rail splice, rail-grid tie splice, kicker-backing, and side-gusset patterns; the 2-in gusset screws stop within the 36 mm gusset + 18 mm panel stack; see secondary joinery schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
 
@@ -143,7 +141,7 @@ that change record.
    and edge distances have been checked.
 5. Dry-fit the two side legs, five support-side rails, twenty regular and five
    main-seam rail-bearing blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
-   leg cross ties and rail cross ties on a level protected floor. Check the
+   rail-grid cross ties on a level protected floor. Check the
    full flat foot bearing faces, 60-degree leg angle, 1389.6 mm rear-foot
    position, racking, and all
    panel/LED/T-nut clearances.

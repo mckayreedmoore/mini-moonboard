@@ -3,7 +3,9 @@
 [`mini_moonboard_v1_assembly_layout.csv`](../exports/mini_moonboard_v1_assembly_layout.csv)
 is generated directly from every physical solid in the CadQuery assembly. It
 lets a builder locate the rear rails, bearing blocks, ties, splices, legs, and
-gussets without reverse-engineering their placement from a rendered view.
+gussets without reverse-engineering their placement from a rendered view. The
+display-only `leg_left`/`leg_right` compounds are expanded into separate
+`*_lower` and `*_upper` construction rows.
 
 Its datum **O** is the board centerline at the kicker's climbing-face plane and
 finished-floor plane. Positive X is right when facing the climbing surface,

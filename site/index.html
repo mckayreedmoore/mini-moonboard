@@ -59,8 +59,8 @@
         if (!hit) return;
         if (selected) selected.material.emissive.setHex(0);
         selected = hit.object; selected.material.emissive.setHex(0x5f3600);
-        const part = selected.userData.part, [x, y, z] = part.fabrication.dimensions_mm;
-        partCard.textContent = `${part.name}: ${part.fabrication.description}; cut-list dimensions ${x} × ${y} × ${z} mm.`;
+        const part = selected.userData.part, [x, y, z] = part.fabrication.dimensions_mm, [ix, iy, iz] = part.fabrication.dimensions_imperial;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; cut-list dimensions ${x} × ${y} × ${z} mm (${ix} × ${iy} × ${iz}).`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();

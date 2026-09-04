@@ -5,6 +5,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 import cadquery as cq
+import pytest
 
 from mini_moonboard.export import (
     export_panel_grid,
@@ -35,6 +36,7 @@ from mini_moonboard.model import (
     _v1_kicker_holes,
     _v1_main_panel_holes,
     build_v1_concept,
+    v1_face_rail_centres,
     v1_leg_geometry,
     v1_lower_leg_cut_profile,
 )
@@ -51,14 +53,14 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
         assert root.tag == "{http://www.w3.org/2000/svg}svg"
         assert root.attrib["data-units"] == "mm"
 
-    assert "2440 mm / 96 1/16 in" in front_path.read_text()
+    assert "2440.0 mm / 96 1/16 in" in front_path.read_text()
     assert "40 degrees from vertical" in side_path.read_text()
 
 
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 75
+    assert cq.importers.importStep(str(path)).solids().size() == 66
 
 
 def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path) -> None:
@@ -66,6 +68,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     parts = json.loads(index_path.read_text())["parts"]
 
     assert len(parts) == len(build_v1_concept().children)
+    assert parts[0]["fabrication"]["dimensions_imperial"]
     assert len({part["name"] for part in parts}) == len(parts)
     for part in parts:
         mesh_path = tmp_path / part["path"]
@@ -108,8 +111,13 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
     assert len(cut_rows) == 15
     assert len(leg_cut_rows) == 2
-    assert len(layout_rows) == len(build_v1_concept().children)
-    assert {row["part"] for row in layout_rows} == {child.name for child in build_v1_concept().children}
+    assert len(layout_rows) == len(build_v1_concept().children) + 2
+    expected_layout_parts = {child.name for child in build_v1_concept().children} - {"leg_left", "leg_right"}
+    expected_layout_parts |= {"leg_left_lower", "leg_left_upper", "leg_right_lower", "leg_right_upper"}
+    assert {row["part"] for row in layout_rows} == expected_layout_parts
+    assert float(next(row for row in layout_rows if row["part"] == "leg_left_lower")["center_z_mm"]) < float(
+        next(row for row in layout_rows if row["part"] == "leg_left_upper")["center_z_mm"]
+    )
     assert all(math.isclose(sum(float(row[f"dominant_axis_{axis}"]) ** 2 for axis in "xyz"), 1, abs_tol=1e-5) for row in layout_rows)
     assert leg_cut_rows[0]["finished_profile_mm"].startswith(f"({v1_lower_leg_cut_profile()[0][0]:.3f},0.000)")
     assert "matched, identically profiled pairs" in leg_cut_rows[0]["cut_instruction"]
@@ -154,14 +162,14 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     secondary_rows = list(csv.DictReader(export_v1_secondary_joinery_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
-    assert len(connection_rows) == 88
-    assert len(bom_rows) == 15
-    assert bom_rows[0]["quantity"] == "11 sheets"
+    assert len(connection_rows) == 76
+    assert len(bom_rows) == 14
+    assert bom_rows[0]["quantity"] == "9 sheets"
     panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
     assert panel_screws["quantity"] == "60"
-    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2.5 in structural wood screw") == 84
+    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2.5 in structural wood screw") == 72
     assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2 in structural wood screw") == 24
-    assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "84 plus 10% spare"
+    assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "72 plus 10% spare"
     assert next(row for row in bom_rows if row["item"] == "#10 x 2 in structural wood screws")["quantity"] == "24 plus 10% spare"
     hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2020 Setup Hold Bundle")
     assert hold_bundle["quantity"] == "1, SKU 60-105-2020"
@@ -172,8 +180,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "6.000 pilot", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
-    rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
-    assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
+    rail_tie = next(row for row in cut_rows if row["part"] == "rail-cross-tie-half lamination")
+    assert rail_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
     gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
     assert gusset["quantity"] == "4"
     assert gusset["width_mm"] == f"{V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM:.1f}"
@@ -182,10 +190,14 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
         if row["axis"] == "X"
         else "screw-head center at rail exterior face" in row["datum"]
         if row["axis"] == "board-normal toward climbing face"
-        else "lag-screw head center on the leg exterior" in row["datum"]
+        else False
         for row in connection_rows
     )
-    assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
+    rear_drawing = export_v1_rear_drawing(tmp_path).read_text()
+    assert rear_drawing.count('class="rail"') == 5
+    rear_scale = 600 / (2 * V1_PANEL_SIZE_MM)
+    for rail in v1_face_rail_centres():
+        assert f'x1="{150 + (rail + V1_PANEL_SIZE_MM) * rear_scale:.1f}"' in rear_drawing
     assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
 
 
@@ -252,6 +264,44 @@ def test_exports_metric_template_datum_drawing(tmp_path: Path) -> None:
     assert "A" in path.read_text()
     assert "12" in path.read_text()
     assert len(root.findall("{http://www.w3.org/2000/svg}circle")) == 274
+
+
+def test_v1_sheet_nesting_map_has_kerf_separation_between_zones() -> None:
+    """Keep the human cut maps mechanically usable after stock-route edits."""
+    source = (Path(__file__).parents[1] / "docs" / "v1-sheet-nesting.md").read_text().splitlines()
+
+    def zones_after(heading: str) -> list[tuple[str, float, float, float, float]]:
+        start = source.index(heading) + 4
+        zones = []
+        for line in source[start:]:
+            if not line.startswith("|"):
+                break
+            cells = [cell.strip() for cell in line.split("|")[1:-1]]
+            if cells[0] == "Zone":
+                continue
+            x0, x1 = (float(value) for value in cells[1].split("–"))
+            y0, y1 = (float(value) for value in cells[2].split("–"))
+            zones.append((cells[0], x0, x1, y0, y1))
+        return zones
+
+    for zones in (zones_after("### Sheet 7"), zones_after("### Sheet 8"), zones_after("### Sheet 9")):
+        assert zones
+        for _name, x0, x1, y0, y1 in zones:
+            assert 0 <= x0 < x1 <= 1219.2
+            assert 0 <= y0 < y1 <= 2438.4
+        for index, (_name, x0, x1, y0, y1) in enumerate(zones):
+            for _other, other_x0, other_x1, other_y0, other_y1 in zones[index + 1 :]:
+                # Every pair of layout zones has at least one 2.4 mm kerf gap.
+                assert x1 + 1.2 <= other_x0 or other_x1 + 1.2 <= x0 or y1 + 1.2 <= other_y0 or other_y1 + 1.2 <= y0
+
+    # Sheets 1–4 retain the factory X width for both the square main panel and
+    # each rail's long dimension; only their Y ranges consume the crosscut
+    # remainder. This prevents a future rotation from making the route invalid.
+    main_end, kerf, raw_length = 1219.2, 2.4, 2438.4
+    rail_y_starts = tuple(main_end + kerf + index * (180 + kerf) for index in range(5))
+    assert rail_y_starts[0] == pytest.approx(1221.6)
+    assert rail_y_starts[-1] + 180 == pytest.approx(2131.2)
+    assert rail_y_starts[-1] + 180 <= raw_length
 
 
 def test_exports_reference_panel_cut_list(tmp_path: Path) -> None:

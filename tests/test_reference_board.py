@@ -1,21 +1,24 @@
 import math
 from collections import deque
-from itertools import combinations
+from itertools import combinations, pairwise
 
 import pytest
 
 from mini_moonboard import build_reference_board, build_v1_concept, reference_envelope
 from mini_moonboard.model import (
+    ANGLE_FROM_VERTICAL_DEG,
     PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
+    V1_KICKER_HEIGHT_MM,
     V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
     V1_LEG_UPPER_DISTANCE_MM,
     V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
-    V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM,
     V1_STANDOFF_CLEARANCE_MM,
+    V1_STANDOFF_WIDTH_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
+    V1_SUPPORT_WIDTH_MM,
     _kicker_main_seam_gusset,
     _structural_bolt_envelope,
     _v1_kicker_holes,
@@ -26,7 +29,6 @@ from mini_moonboard.model import (
     v1_panel_fastener_envelope,
     v1_panel_fastener_positions,
     v1_rail_standoff_placements,
-    v1_rear_tie_lag_envelope,
     v1_seam_panel_fastener_positions,
     v1_seam_standoff_placements,
     v1_structural_bolt_position,
@@ -107,15 +109,8 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     assert "kicker_blank_extension_backing_seam_splice" in names
     assert {"kicker_main_seam_gusset_left", "kicker_main_seam_gusset_right"} <= set(names)
     assert {"leg_knee_gusset_left", "leg_knee_gusset_right"} <= set(names)
-    assert {
-        "rear_tie_low_left",
-        "rear_tie_low_right",
-        "rear_tie_mid_left",
-        "rear_tie_mid_right",
-        "rear_tie_top_left",
-        "rear_tie_top_right",
-    } <= set(names)
-    assert len(board.children) == 73
+    assert not any(name.startswith("rear_tie_") for name in names)
+    assert len(board.children) == 64
     for part in (next(part for part in board.children if part.name == name) for name in ("leg_left", "leg_right")):
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
@@ -166,6 +161,12 @@ def test_v1_geometry_has_valid_solids_with_floor_bearing_faces() -> None:
 def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     board = build_v1_concept()
     parts = {child.name: _shape(child) for child in board.children}
+    rail_centres = v1_face_rail_centres()
+    for placements in (v1_rail_standoff_placements(), v1_seam_standoff_placements()):
+        block_centres = {rail_number: block_x for rail_number, block_x, *_rest in placements}
+        for rail_number, rail_x in enumerate(rail_centres, start=1):
+            margin = V1_SUPPORT_WIDTH_MM / 2 - (abs(rail_x - block_centres[rail_number]) + V1_STANDOFF_WIDTH_MM / 2)
+            assert margin >= 4.99, f"rail {rail_number} bearing block has only {margin:.1f} mm edge margin"
     assert parts["main_lower_left"].distance(parts["rail_1_standoff_lower_130"]) == pytest.approx(0)
     assert parts["rail_1_standoff_lower_130"].distance(parts["face_rail_1_lower"]) == pytest.approx(0)
     assert parts["main_lower_left"].distance(parts["face_rail_1_lower"]) == pytest.approx(V1_HARDWARE_GAP_MM)
@@ -180,11 +181,6 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
         splice = parts[f"face_rail_splice_{index}"]
         assert splice.distance(parts[f"{rail}_lower"]) == pytest.approx(0)
         assert splice.distance(parts[f"{rail}_upper"]) == pytest.approx(0)
-    for row in ("low", "mid", "top"):
-        for side in ("left", "right"):
-            assert parts[f"rear_tie_{row}_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
-        assert parts[f"rear_tie_splice_{row}"].distance(parts[f"rear_tie_{row}_left"]) == pytest.approx(0)
-        assert parts[f"rear_tie_splice_{row}"].distance(parts[f"rear_tie_{row}_right"]) == pytest.approx(0)
     for row in ("low", "mid", "top"):
         for side, rails in (("left", ("face_rail_1", "face_rail_2", "face_rail_center_seam")), ("right", ("face_rail_3", "face_rail_4", "face_rail_center_seam"))):
             cross_tie = parts[f"rail_cross_tie_{row}_{side}"]
@@ -203,12 +199,6 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
         assert block.distance(parts[f"{rail}_lower"]) == pytest.approx(0)
         assert block.distance(parts[f"{rail}_upper"]) == pytest.approx(0)
 
-    for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
-        for sign, side in ((-1, "left"), (1, "right")):
-            for offset in V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM:
-                envelope = v1_rear_tie_lag_envelope(sign, fraction, offset)
-                assert envelope.intersect(parts[f"leg_{side}"]).Volume() > 1_000
-                assert envelope.intersect(parts[f"rear_tie_{row}_{side}"]).Volume() > 10_000
     for sign, side, rail in ((-1, "left", "face_rail_1_upper"), (1, "right", "face_rail_4_upper")):
         for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
             envelope = _structural_bolt_envelope(sign, distance).val()
@@ -311,12 +301,27 @@ def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:
     rail_dz = rail_vertices[1].Center().z - rail_vertices[0].Center().z
     assert math.degrees(math.atan2(abs(rail_dy), abs(rail_dz))) == pytest.approx(40)
 
-    tie = _shape(next(child for child in board.children if child.name == "rear_tie_low_right"))
+    tie = _shape(next(child for child in board.children if child.name == "rail_cross_tie_low_right"))
     tie_edge = next(edge for edge in tie.Edges() if edge.Length() == pytest.approx(180))
     tie_vertices = tie_edge.Vertices()
     tie_dy = tie_vertices[1].Center().y - tie_vertices[0].Center().y
     tie_dz = tie_vertices[1].Center().z - tie_vertices[0].Center().z
     assert tie_dy * math.sin(math.radians(40)) + tie_dz * math.cos(math.radians(40)) == pytest.approx(0)
+
+
+def test_v1_stock_route_and_primary_rail_geometry_match_design_basis() -> None:
+    assert V1_PANEL_SIZE_MM == pytest.approx(1219.2)
+    assert ANGLE_FROM_VERTICAL_DEG == pytest.approx(40)
+    assert V1_KICKER_HEIGHT_MM == pytest.approx(225)
+    assert reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM) == pytest.approx(
+        (2438.4, 1567.4, 2092.9), abs=0.1
+    )
+    rails = v1_face_rail_centres()
+    assert rails[:4] == pytest.approx((-1219.2, -406.4, 406.4, 1219.2))
+    assert [right - left for left, right in pairwise(rails[:4])] == pytest.approx(
+        (812.8, 812.8, 812.8)
+    )
+    assert rails[4] == pytest.approx(-85.0)
 
 
 def test_v1_kicker_main_gusset_fits_its_cut_blank() -> None:

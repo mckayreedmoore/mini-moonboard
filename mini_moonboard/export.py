@@ -22,8 +22,7 @@ from .model import (
     V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
-    V1_REAR_TIE_LAG_LENGTH_MM,
-    V1_REAR_TIE_WIDTH_MM,
+    V1_RAIL_CROSS_TIE_WIDTH_MM,
     V1_STANDOFF_LENGTH_MM,
     V1_STANDOFF_WIDTH_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
@@ -32,11 +31,11 @@ from .model import (
     build_reference_board,
     build_v1_concept,
     reference_envelope,
+    v1_face_rail_centres,
     v1_knee_bolt_positions,
     v1_leg_geometry,
     v1_lower_leg_cut_profile,
     v1_panel_fastener_positions,
-    v1_rear_tie_lag_positions,
     v1_seam_panel_fastener_positions,
     v1_structural_bolt_position,
     v1_support_side_point,
@@ -46,7 +45,7 @@ from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datum
 V1_SECONDARY_JOINERY_ROWS = (
     ("rail splice cover to lower/upper rail", 5, "#10 x 2.5 in structural wood screw", 4),
     ("rail-cross-tie half to contacted face rail", 18, "#10 x 2.5 in structural wood screw", 2),
-    ("rear/rail tie center splice to its two halves", 6, "#10 x 2.5 in structural wood screw", 4),
+    ("rail-cross-tie center splice to its two halves", 3, "#10 x 2.5 in structural wood screw", 4),
     ("kicker-backing center seam splice to both backings", 1, "#10 x 2.5 in structural wood screw", 4),
     ("kicker/main exterior side gusset to panel edges", 4, "#10 x 2 in structural wood screw", 4),
     ("blank-kicker backing to kicker panel", 2, "#10 x 2 in structural wood screw", 4),
@@ -108,7 +107,7 @@ def _front_svg(kicker_height_mm: float, panel_size_mm: float = MAIN_PANEL_SIZE_M
   <line class="seam" x1="{center:.1f}" y1="{top:.1f}" x2="{center:.1f}" y2="{bottom:.1f}" />
   <line class="seam" x1="{left:.1f}" y1="{main_seam:.1f}" x2="{right:.1f}" y2="{main_seam:.1f}" />
   <line class="dim" x1="{left:.1f}" y1="700" x2="{right:.1f}" y2="700" />
-  <text x="{center:.1f}" y="725" text-anchor="middle">{width:.0f} mm / {_imperial(width)} in</text>
+  <text x="{center:.1f}" y="725" text-anchor="middle">{width:.1f} mm / {_imperial(width)} in</text>
   <line class="dim" x1="100" y1="{top:.1f}" x2="100" y2="{bottom:.1f}" />
   <text x="85" y="{(top + bottom) / 2:.1f}" text-anchor="middle" transform="rotate(-90 85 {(top + bottom) / 2:.1f})">{height:.1f} mm / {_imperial(height)} in overall</text>
   <text class="on-dark" x="{center:.1f}" y="{bottom - 8:.1f}" text-anchor="middle">kicker {kicker_height_mm:g} mm / {_imperial(kicker_height_mm)} in</text>{active_zone}"""
@@ -275,10 +274,10 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
         dimensions, description = (400.0, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated kicker-backing seam splice"
     elif name.startswith("kicker_main_seam_gusset"):
         dimensions, description = (400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, V1_SUPPORT_THICKNESS_MM), "trim profile from laminated kicker/main gusset blank"
-    elif name.startswith(("rear_tie_", "rail_cross_tie_")) and "splice" not in name:
-        dimensions, description = (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated tie half"
-    elif name.startswith(("rear_tie_splice_", "rail_cross_tie_splice_")):
-        dimensions, description = (400.0, V1_REAR_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated tie center-splice plate"
+    elif name.startswith("rail_cross_tie_") and "splice" not in name:
+        dimensions, description = (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_RAIL_CROSS_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated support-side rail-grid tie half"
+    elif name.startswith("rail_cross_tie_splice_"):
+        dimensions, description = (400.0, V1_RAIL_CROSS_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated rail-grid tie center-splice plate"
     elif name.startswith("face_rail_splice_"):
         dimensions, description = (400.0, V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated face-rail splice cover"
     elif name.startswith("leg_knee_gusset_"):
@@ -288,7 +287,22 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
         dimensions, description = (leg["lower_length"], V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm"
     else:
         raise ValueError(f"missing viewer fabrication metadata for {name}")
-    return {"description": description, "dimensions_mm": [round(value, 1) for value in dimensions]}
+    return {
+        "description": description,
+        "dimensions_mm": [round(value, 1) for value in dimensions],
+        "dimensions_imperial": [_inch_fraction(value) for value in dimensions],
+    }
+
+
+def _inch_fraction(mm: float) -> str:
+    """Format a millimetre cut dimension to the nearest 1/16 inch."""
+    sixteenths = round(mm / 25.4 * 16)
+    whole, remainder = divmod(sixteenths, 16)
+    if not remainder:
+        return f"{whole} in"
+    divisor = math.gcd(remainder, 16)
+    fraction = f"{remainder // divisor}/{16 // divisor}"
+    return f"{whole} {fraction} in" if whole else f"{fraction} in"
 
 
 def _v1_side_svg() -> str:
@@ -354,7 +368,7 @@ def _v1_rear_svg() -> str:
     left, bottom = 150.0, 650.0
     top = bottom - height * scale
     kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
-    rail_x = [left + width * fraction * scale for fraction in (0.0, 1 / 3, 0.5, 2 / 3, 1.0)]
+    rail_x = [left + (rail + V1_PANEL_SIZE_MM) * scale for rail in v1_face_rail_centres()]
     rails = "\n".join(
         f'  <line class="rail" x1="{x:.1f}" y1="{top:.1f}" x2="{x:.1f}" y2="{kicker_top:.1f}" />'
         for x in rail_x
@@ -363,7 +377,7 @@ def _v1_rear_svg() -> str:
   <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{(kicker_top - top):.1f}" />
 {rails}
   <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus shifted center-seam rail; 36 mm board-normal service gap on support side.</text>
-  <text x="450" y="725" text-anchor="middle">Bearing blocks and rear ties are separate, non-overlapping CAD solids; tie splices require human review.</text>"""
+  <text x="450" y="725" text-anchor="middle">Rail-grid ties remain on the support side; lower-leg rear ties are intentionally omitted from this V1.</text>"""
     return _svg(
         "Mini MoonBoard v1 support-side elevation",
         body,
@@ -435,7 +449,7 @@ def _v1_isometric_svg() -> str:
     )
     rails = "\n".join(
         line((x, main_bottom_y - 55.2, main_bottom_z + 46.3), (x, top_y - 55.2, top_z + 46.3), "rail")
-        for x in (-V1_PANEL_SIZE_MM, -360.0, -85.0, 330.0, V1_PANEL_SIZE_MM)
+        for x in v1_face_rail_centres()
     )
     body = f"""{kicker}
 {board}
@@ -474,9 +488,8 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
         ("support frame", "kicker-backing seam-splice lamination", 2, 400.0, 75.0, PANEL_THICKNESS_MM),
         ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "tie-center-splice lamination", 12, 400.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_RAIL_CROSS_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "rail-cross-tie-center-splice lamination", 6, 400.0, V1_RAIL_CROSS_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "face-rail splice-cover lamination", 10, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
@@ -582,22 +595,31 @@ def export_v1_assembly_layout(output_dir: Path) -> Path:
         )
         for child in build_v1_concept().children:
             shape = child.obj.val() if hasattr(child.obj, "val") else child.obj
-            center = shape.Center()
-            axis = _dominant_axis(shape)
-            bounds = shape.BoundingBox()
-            writer.writerow(
-                (
-                    child.name,
-                    f"{center.x:.3f}",
-                    f"{center.y:.3f}",
-                    f"{center.z:.3f}",
-                    *(f"{component:.6f}" for component in axis),
-                    f"{bounds.xlen:.3f}",
-                    f"{bounds.ylen:.3f}",
-                    f"{bounds.zlen:.3f}",
-                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; center and axis are world coordinates",
+            # A hockey-stick leg is one display compound but two separately cut,
+            # separately placed physical members.  Expand it here so the layout
+            # is a construction placement source rather than a viewer summary.
+            if child.name in {"leg_left", "leg_right"}:
+                lower, upper = sorted(shape.Solids(), key=lambda solid: solid.Center().z)
+                physical_parts = ((f"{child.name}_lower", lower), (f"{child.name}_upper", upper))
+            else:
+                physical_parts = ((child.name, shape),)
+            for part_name, physical_shape in physical_parts:
+                center = physical_shape.Center()
+                axis = _dominant_axis(physical_shape)
+                bounds = physical_shape.BoundingBox()
+                writer.writerow(
+                    (
+                        part_name,
+                        f"{center.x:.3f}",
+                        f"{center.y:.3f}",
+                        f"{center.z:.3f}",
+                        *(f"{component:.6f}" for component in axis),
+                        f"{bounds.xlen:.3f}",
+                        f"{bounds.ylen:.3f}",
+                        f"{bounds.zlen:.3f}",
+                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; center and axis are world coordinates",
+                    )
                 )
-            )
     return path
 
 
@@ -746,24 +768,6 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                     "PROVISIONAL: four screws per main-seam bearing block; two fasten each panel adjacent to the seam; fit-test confirms 10.55 mm panel embedment without face breakout",
                 )
             )
-        for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
-            for side, sign in (("left", -1), ("right", 1)):
-                for number, (x, y, z) in enumerate(v1_rear_tie_lag_positions(sign, fraction), start=1):
-                    writer.writerow(
-                        (
-                            "lower leg exterior through rear-tie end",
-                            f"{side}-{row}",
-                            number,
-                            "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are lag-screw head center on the leg exterior",
-                            f"{x:.3f}",
-                            f"{y:.3f}",
-                            f"{z:.3f}",
-                            "X toward board centerline",
-                            "6.000 pilot",
-                            f"5/16 in structural lag screw, {V1_REAR_TIE_LAG_LENGTH_MM:.1f} mm / 10 in nominal",
-                            "PROVISIONAL: two per rear-tie end; envelope traverses exterior leg and at least 200 mm of tie",
-                        )
-                    )
     return path
 
 
@@ -772,7 +776,7 @@ def export_v1_bom(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
-        ("3/4 in 4 x 8 birch plywood", "11 sheets", "See docs/v1-sheet-nesting.md; verify raw dimensions and use a main-panel separating kerf no greater than 2.4 mm"),
+        ("3/4 in 4 x 8 birch plywood", "9 sheets", "See docs/v1-sheet-nesting.md; each main panel needs a 1219.2 mm factory sheet width. Verify raw dimensions before cutting."),
         ("Mini MoonBoard 2020 Setup Hold Bundle", "1, SKU 60-105-2020", "Official 130-hold configuration: Original School Holds plus Wood Holds A/B/C; bolts, T-nuts, and LEDs are excluded by Moon"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore; fixing screws are included per selected listing—count received hardware before installation"),
         ("3/8-16 hold bolts", "130 minimum plus hold-specific spares", "The selected hold bundle excludes bolts. Inventory each received hold's counterbore and required bolt length before purchase; do not substitute a single generic length."),
@@ -784,7 +788,6 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("#10 x 3.25 in structural wood screws", "60", "Two rear-installed screws per regular bearing block and four per main-seam bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
         ("#10 x 2.5 in structural wood screws", f"{_secondary_screw_count('#10 x 2.5 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: rail splices, rail-cross ties, tie-center splices, and kicker-backing seam splice"),
         ("#10 x 2 in structural wood screws", f"{_secondary_screw_count('#10 x 2 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: kicker/main side gussets and blank-kicker backing; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
-        ("5/16 in x 10 in structural lag screws with washers", "12", "Rear-tie-end to lower-leg schedule in mini_moonboard_v1_connection_schedule.csv"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
     )
