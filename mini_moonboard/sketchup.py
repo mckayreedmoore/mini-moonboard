@@ -105,18 +105,19 @@ def scene_summary(scene: _SceneNode) -> dict[str, object]:
     def visit(node: _SceneNode, parent_transform: Sequence[float], path: tuple[str, ...]) -> None:
         transform = _compose_transform(parent_transform, node.transform)
         node_path = (*path, node.name or "unnamed")
+        faces = list(node.mesh.faces) if node.mesh is not None else []
         points = [
             _apply_transform(transform, point)
-            for face in node.mesh.faces
+            for face in faces
             for point in face.vertex_positions
-        ] if node.mesh is not None else []
+        ]
         if points:
             minimum = tuple(min(point[axis] for point in points) * INCH_TO_MM for axis in range(3))
             maximum = tuple(max(point[axis] for point in points) * INCH_TO_MM for axis in range(3))
             nodes.append(
                 {
                     "path": "/".join(node_path),
-                    "face_count": sum(1 for _ in node.mesh.faces),
+                    "face_count": len(faces),
                     "bounds_mm": {
                         "min": [round(value, 3) for value in minimum],
                         "max": [round(value, 3) for value in maximum],
