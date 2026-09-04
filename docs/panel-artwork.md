@@ -14,15 +14,28 @@ permission from Moon before committing or serving the branded artwork here.
 The viewer therefore provides a non-logo, data-derived overlay switcher:
 
 - `None` leaves the drilled panel clear.
-- `Grid labels` adds A–K and 1–12 at the canonical Mini grid positions.
-- `High-contrast grid labels` uses the same geometry with a white treatment.
+- `Grid-reference labels` adds A–K and 1–12 at the Mini grid's documented
+  column/row anchors.
+- `High-contrast grid-reference labels` uses the same geometry with a white
+  treatment.
 
 The labels are display-only decal planes placed 0.5 mm in front of the actual
 underside face and rotated to lie on its 40-degree slope. They use
 climber-facing coordinates: A begins at climber-left, and rows 1–12 run in the
-200 mm in-panel margin at climber-left. They do not alter the STEP model, hole datums, cut list, or FEA
-model. A future licensed Moon-artwork overlay can use the same selector without
-changing the CAD geometry.
+same direction as the MoonBoard app. Each letter is horizontally aligned to
+its documented T-nut column; each number is vertically aligned to its
+documented T-nut row. The numbers use a 59.2 mm inside-edge lane, clear of the
+first bolt column.
+
+Moon Climbing's Mini template fixes the drill/grid datums, but its official
+`Final_Artwork.zip` is an artwork-asset bundle rather than a dimensioned Mini
+placement drawing. It does **not** provide a numeric letter baseline,
+character height, number baseline, or side-edge offset. Therefore the viewer
+must not be used to print, paint, or apply the artwork: only the grid anchors
+are source-backed; the label size and margin are clearly marked display
+choices. They do not alter the STEP model, hole datums, cut list, or FEA model.
+A future licensed Moon-artwork overlay with a placement specification can use
+the same selector without changing the CAD geometry.
 
 The independent **Overall V1 dimensions** switch shows the CAD assembly AABB:
 2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and 2150.8 mm / 84.68
