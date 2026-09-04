@@ -386,6 +386,61 @@ def export_v1_drill_schedule(output_dir: Path) -> Path:
     return path
 
 
+def export_v1_connection_schedule(output_dir: Path) -> Path:
+    """Export provisional structural connection datums for human review."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_connection_schedule.csv"
+    bolt_distances = (1520.0, 1640.0, 1760.0, 1880.0)
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(
+            (
+                "connection",
+                "side",
+                "quantity",
+                "board_distance_from_main_seam_mm",
+                "hardware_assumption",
+                "status",
+            )
+        )
+        for side in ("left", "right"):
+            for distance in bolt_distances:
+                writer.writerow(
+                    (
+                        "leg upper member to exterior board side",
+                        side,
+                        1,
+                        f"{distance:.1f}",
+                        "3/8 in x 3 in Grade-5 through-bolt, two 1.5 in fender washers, nyloc nut",
+                        "PROVISIONAL: reviewer must check edge distance, panel/T-nut/LED clearance, and load path",
+                    )
+                )
+    return path
+
+
+def export_v1_bom(output_dir: Path) -> Path:
+    """Export the provisional purchasing BOM separately from the plywood cut list."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_bom.csv"
+    rows = (
+        ("3/4 in 4 x 8 birch plywood", "10 sheets", "Provisional: includes one offcut/waste sheet"),
+        ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
+        ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
+        ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
+        ("3/8 in x 3 in Grade-5 structural through-bolts", "8", "Provisional leg connection hardware"),
+        ("3/8 in x 1.5 in fender washers", "16", "Provisional leg connection hardware"),
+        ("3/8 in nyloc nuts", "8", "Provisional leg connection hardware"),
+        ("Panel-to-rail fasteners", "unresolved", "Select only after physical fit test and review"),
+        ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
+        ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
+    )
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("item", "quantity", "note"))
+        writer.writerows(rows)
+    return path
+
+
 def export_panel_grid(output_dir: Path) -> Path:
     """Export source-backed center datums; these are not drilling diameters."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -555,6 +610,8 @@ def main() -> None:
         export_v1_isometric_drawing(args.output_dir),
         export_v1_cut_list(args.output_dir),
         export_v1_drill_schedule(args.output_dir),
+        export_v1_connection_schedule(args.output_dir),
+        export_v1_bom(args.output_dir),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),
         export_reference_panel_cut_list(args.output_dir, args.kicker_height_mm),

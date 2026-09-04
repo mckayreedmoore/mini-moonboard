@@ -9,8 +9,10 @@ from mini_moonboard.export import (
     export_panel_grid_drawing,
     export_reference,
     export_reference_panel_cut_list,
+    export_v1_bom,
     export_v1_concept,
     export_v1_concept_side_drawing,
+    export_v1_connection_schedule,
     export_v1_cut_list,
     export_v1_drill_schedule,
     export_v1_front_drawing,
@@ -64,6 +66,10 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert len(cut_rows) == 7
     assert len(drill_rows) == 274
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
+    connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
+    bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
+    assert len(connection_rows) == 8
+    assert len(bom_rows) == 10
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:

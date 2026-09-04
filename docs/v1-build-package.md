@@ -44,6 +44,8 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Rear plan: four rails, braces, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
+| [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight provisional leg-to-board structural-bolt datums |
+| [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
 metric datums. For production, choose the official **imperial** Mini template,
@@ -61,7 +63,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; includes controller, four 50-LED strings, feeds, and 5 V adapter |
-| Leg-to-board structural bolts | 8 | **Provisional:** 3/8-in through-bolts, one at each of four locations per leg; reviewer selects grade, length, washers, and nuts |
+| Leg-to-board structural bolts | 8 | **Provisional:** 3/8-in x 3-in Grade-5 through-bolts, two 1.5-in fender washers, and a nyloc nut at each; connection schedule controls datum positions |
 | Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
