@@ -169,13 +169,104 @@ def export_panel_grid(output_dir: Path) -> Path:
     return path
 
 
+def _panel_grid_svg() -> str:
+    template_width_mm = 2437.0
+    main_height_mm = 2440.0
+    kicker_height_mm = OFFICIAL_KICKER_HEIGHT_MM
+    scale = 650.0 / template_width_mm
+    left, top = 150.0, 135.0
+    main_bottom = top + main_height_mm * scale
+    kicker_bottom = main_bottom + kicker_height_mm * scale
+
+    def x_coordinate(x_mm: float) -> float:
+        return left + x_mm * scale
+
+    def y_coordinate(y_mm: float) -> float:
+        return main_bottom - y_mm * scale
+
+    tnut_circles = "\n".join(
+        f'  <circle class="tnut" cx="{x_coordinate(x):.2f}" cy="{y_coordinate(y):.2f}" r="2.3" />'
+        for x, y in main_tnut_datums().values()
+    )
+    led_circles = "\n".join(
+        f'  <circle class="led" cx="{x_coordinate(x):.2f}" cy="{y_coordinate(y):.2f}" r="1.2" />'
+        for x, y in main_led_datums().values()
+    )
+    kicker_circles = "\n".join(
+        f'  <circle class="kicker-hole" cx="{x_coordinate(x):.2f}" cy="{y_coordinate(y):.2f}" r="2.3" />'
+        for x, y in kicker_foothold_datums().values()
+    )
+    column_labels = "\n".join(
+        f'  <text class="axis" x="{x_coordinate(200.0 * index):.2f}" y="125" text-anchor="middle">{column}</text>'
+        for index, column in enumerate("ABCDEFGHIJK", start=1)
+    )
+    row_labels = "\n".join(
+        f'  <text class="axis" x="132" y="{y_coordinate(80.0 + 200.0 * (row - 1)) + 4:.2f}" text-anchor="end">{row}</text>'
+        for row in range(1, 13)
+    )
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="950" viewBox="0 0 900 950" data-units="mm">
+  <title>Mini MoonBoard metric-template datum drawing</title>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#333" />
+    </marker>
+  </defs>
+  <style>
+    .panel {{ fill: #20252b; stroke: #f0b429; stroke-width: 2; }}
+    .kicker {{ fill: #444b53; stroke: #f0b429; stroke-width: 2; }}
+    .seam {{ stroke: #aaa; stroke-width: 1.5; }}
+    .tnut {{ fill: #f0b429; }}
+    .led {{ fill: #78b7e5; }}
+    .kicker-hole {{ fill: #e07a5f; }}
+    .dim {{ stroke: #333; stroke-width: 1.5; marker-start: url(#arrow); marker-end: url(#arrow); }}
+    text {{ fill: #222; font: 16px sans-serif; }}
+    .axis {{ font-weight: bold; }}
+    .on-dark {{ fill: white; }}
+    .warning {{ fill: #a3261f; font-weight: bold; }}
+  </style>
+  <rect width="900" height="950" fill="white" />
+  <text x="450" y="35" text-anchor="middle" font-size="24">Mini MoonBoard metric-template datum drawing</text>
+  <text class="warning" x="450" y="65" text-anchor="middle">CENTER DATUMS ONLY - NOT A DRILL TEMPLATE</text>
+  <text x="450" y="90" text-anchor="middle">Verify hole diameters and 100 percent print calibration before fabrication.</text>
+  <line class="dim" x1="{left:.2f}" y1="110" x2="{left + template_width_mm * scale:.2f}" y2="110" />
+  <text x="450" y="105" text-anchor="middle">2437 mm / {_imperial(template_width_mm)} in template width</text>
+  <rect class="panel" x="{left:.2f}" y="{top:.2f}" width="{template_width_mm * scale:.2f}" height="{main_height_mm * scale:.2f}" />
+  <rect class="kicker" x="{left:.2f}" y="{main_bottom:.2f}" width="{template_width_mm * scale:.2f}" height="{kicker_height_mm * scale:.2f}" />
+  <line class="seam" x1="{x_coordinate(template_width_mm / 2):.2f}" y1="{top:.2f}" x2="{x_coordinate(template_width_mm / 2):.2f}" y2="{kicker_bottom:.2f}" />
+  <line class="seam" x1="{left:.2f}" y1="{y_coordinate(1220.0):.2f}" x2="{left + template_width_mm * scale:.2f}" y2="{y_coordinate(1220.0):.2f}" />
+  <line class="seam" x1="{left:.2f}" y1="{main_bottom:.2f}" x2="{left + template_width_mm * scale:.2f}" y2="{main_bottom:.2f}" />
+{tnut_circles}
+{led_circles}
+{kicker_circles}
+{column_labels}
+{row_labels}
+  <text class="on-dark" x="{left + 12:.2f}" y="{top + 22:.2f}">main surface: T-nut centers in yellow; LED centers in blue</text>
+  <text class="on-dark" x="{left + 12:.2f}" y="{kicker_bottom - 10:.2f}">official kicker foothold centers in orange</text>
+  <text x="450" y="870" text-anchor="middle">Origin: lower-left of main surface; x right; y up. Kicker coordinates are negative y.</text>
+  <text x="450" y="895" text-anchor="middle">Metric-template source. Imperial values are conversions, not replacement template dimensions.</text>
+</svg>
+"""
+
+
+def export_panel_grid_drawing(output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_metric_template_datums.svg"
+    path.write_text(_panel_grid_svg())
+    return path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export the Mini MoonBoard reference envelope")
     parser.add_argument("--output-dir", type=Path, default=Path("exports"))
     parser.add_argument("--kicker-height-mm", type=float, default=OFFICIAL_KICKER_HEIGHT_MM)
     args = parser.parse_args()
 
-    paths = (*export_reference(args.output_dir, args.kicker_height_mm), export_panel_grid(args.output_dir))
+    paths = (
+        *export_reference(args.output_dir, args.kicker_height_mm),
+        export_panel_grid(args.output_dir),
+        export_panel_grid_drawing(args.output_dir),
+    )
     for path in paths:
         print(path)
 

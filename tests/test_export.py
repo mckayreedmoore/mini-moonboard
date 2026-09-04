@@ -3,7 +3,11 @@ from xml.etree import ElementTree
 
 import cadquery as cq
 
-from mini_moonboard.export import export_reference
+from mini_moonboard.export import (
+    export_panel_grid,
+    export_panel_grid_drawing,
+    export_reference,
+)
 
 
 def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
@@ -26,6 +30,10 @@ def test_exports_are_reproducible(tmp_path: Path) -> None:
     second = export_reference(tmp_path / "second")
 
     assert [path.read_bytes() for path in first] == [path.read_bytes() for path in second]
+    assert export_panel_grid(tmp_path / "first").read_bytes() == export_panel_grid(tmp_path / "second").read_bytes()
+    assert export_panel_grid_drawing(tmp_path / "first").read_bytes() == export_panel_grid_drawing(
+        tmp_path / "second"
+    ).read_bytes()
 
 
 def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:
@@ -38,3 +46,15 @@ def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:
         assert "official side envelope" not in drawing
 
     assert "official 150 mm / 5 7/8 in active zone" in front_path.read_text()
+
+
+def test_exports_metric_template_datum_drawing(tmp_path: Path) -> None:
+    path = export_panel_grid_drawing(tmp_path)
+    root = ElementTree.parse(path).getroot()
+
+    assert root.attrib["data-units"] == "mm"
+    assert "CENTER DATUMS ONLY - NOT A DRILL TEMPLATE" in path.read_text()
+    assert "2437 mm / 95 15/16 in template width" in path.read_text()
+    assert "A" in path.read_text()
+    assert "12" in path.read_text()
+    assert len(root.findall("{http://www.w3.org/2000/svg}circle")) == 274

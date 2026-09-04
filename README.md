@@ -48,6 +48,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   decisions, applicable-review references, and build-readiness gates.
 - [`docs/panel-grid.md`](docs/panel-grid.md): source-backed main T-nut and LED
   center coordinates plus unresolved drilling inputs.
+- `exports/mini_moonboard_metric_template_datums.{csv,svg}`: reproducible
+  dual-unit center-data table and visual verification drawing.
 - [`docs/site-survey.md`](docs/site-survey.md): dual-unit worksheet for room,
   crash-pad, kicker-clearance, stock, and review inputs.
 - [`docs/materials.md`](docs/materials.md): confirmed and provisional material

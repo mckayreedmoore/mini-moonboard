@@ -62,7 +62,10 @@ for the metric-template coordinates.
 
 [`exports/mini_moonboard_metric_template_datums.csv`](../exports/mini_moonboard_metric_template_datums.csv)
 contains all 132 T-nut centers and 132 LED centers in millimetres and decimal
-inches. Regenerate it with:
+inches, plus the 10 official kicker-foothold centers. The companion
+[`exports/mini_moonboard_metric_template_datums.svg`](../exports/mini_moonboard_metric_template_datums.svg)
+is a dimensioned visual check of the same points. It explicitly labels itself
+as center data rather than a drill template. Regenerate both with:
 
 ```bash
 uv run python -m mini_moonboard.export

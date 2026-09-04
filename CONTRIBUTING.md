@@ -50,6 +50,8 @@ The STEP exporter removes color metadata and normalizes unstable Open CASCADE
 timestamps and assembly counters so unchanged geometry produces byte-identical
 artifacts. Colors remain available when viewing the CadQuery assembly directly.
 CI repeats the export command and fails when committed artifacts are stale.
+The panel-datum CSV and SVG are also deterministic; the SVG is a visual
+verification drawing only and must never be treated as a drilling template.
 
 CadQuery dimensions are always millimetres. Documentation should show both
 metric and imperial values and identify whether a value is source-stated,
