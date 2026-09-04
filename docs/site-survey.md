@@ -1,8 +1,10 @@
 # Site survey and design-input worksheet
 
-Complete this worksheet before detailed frame CAD begins. Record measured
-values in both unit columns; do not fill one column with nominal product names
-such as "8 foot" or "3/4 inch."
+This worksheet records later human checks. V1 intentionally proceeds without a
+room survey and treats the crash pad as a separate element; neither is an input
+to the provisional board-and-legs model. Record measured values in both unit
+columns; do not fill one column with nominal product names such as "8 foot" or
+"3/4 inch."
 
 ## Machine-readable inputs
 
@@ -15,14 +17,15 @@ cp design-inputs.example.toml design_inputs.toml
 uv run python -m mini_moonboard.site_inputs design_inputs.toml
 ```
 
-The validator reports missing fields and derives the total kicker height as:
+The legacy validator reports missing fields and derives a pad-dependent kicker
+height as:
 
 ```text
 highest deployed pad surface + desired clear face + 150 mm official active zone
 ```
 
-It validates completeness only. It does not approve the room, impact area,
-frame, floor interface, or structural design.
+It is not the v1 design gate and does not approve the room, impact area, frame,
+floor interface, or structural design.
 
 ## Installation and reviewer
 
@@ -59,14 +62,15 @@ feature.
 | Floor slope across width | **unresolved** mm/m | **unresolved** in/ft | Measure beneath every planned foot |
 | Floor slope across depth | **unresolved** mm/m | **unresolved** in/ft | Measure beneath every planned foot |
 | Step or local height variation | **unresolved** mm | **unresolved** in | Record position |
-| Finish and substrate | — | — | Tile, slab, wood framing, etc. |
+| Finish and substrate | **unresolved** | **unresolved** | Identify finish and the load-bearing substrate below it |
+| Condition | **unresolved** | **unresolved** | Record cracks, loose finish, moisture, damage, deflection, and any repair needed |
 | Permitted attachment | — | — | Confirm whether drilling/anchoring is prohibited |
 
 The frame design must not assume that finish flooring can resist concentrated
 load, sliding, uplift, or overturning. The reviewer must establish the floor
 interface and any required load-spreading or anti-slip details.
 
-## Crash-pad system
+## Crash-pad system (separate; not part of v1)
 
 Measure the pads in their deployed climbing arrangement, including gaps,
 hinges, overlaps, and wall contact.
@@ -85,6 +89,25 @@ Do not infer an impact area from the footprint of a portable pad. The required
 impact-attenuating surface and clear fall zone must be established separately
 under the applicable guidance and qualified review.
 
+The gap-prevention entry must identify every seam, hinge, wall/kicker edge, and
+pad-to-pad junction; state the physical restraint or overlap used at each one;
+and be verified after the pads are deployed. A pad arrangement that can migrate
+or expose a hard edge is not accepted.
+
+## Obstructions and egress (deferred; not part of v1)
+
+Record every item within the board, frame, landing, and required egress areas.
+The image/video is not a scaled survey and cannot clear any item in this table.
+
+| Item/location | Projection or clearance | Effect / required action |
+| --- | ---: | --- |
+| Doors, windows, trim, outlets, radiators, lights, fans, ducts, sprinklers, plumbing, and stored items | **unresolved** mm / **unresolved** in | **unresolved** |
+| Required egress route(s), including smallest remaining width and height after installation | **unresolved** mm / **unresolved** in | **unresolved** |
+
+Do not place the board, frame, pads, wiring, or stored equipment in a required
+egress route. Confirm the final route with the owner or authority having
+jurisdiction before installation.
+
 ## Taller kicker relationship
 
 The official main surface rises 1869.1 mm / 73.59 in vertically and projects
@@ -96,28 +119,25 @@ main-surface top height = total kicker height + 1869.1 mm
 main-surface projection = 1568.4 mm
 ```
 
-The official foothold row remains 75 mm / 2.95 in below the main-surface seam.
-Adding blank kicker height below the official 150 mm / 5.91 in active zone can
-raise that zone above the pads without changing the MoonBoard hold geometry.
-When the deployed pad reaches the kicker face, the initial relationship is:
+V1 fixes the official foothold row at 75 mm / 2.95 in below the main-surface
+seam. Its blank extension equals that same 75 mm datum below Moon Climbing's
+150 mm active zone:
 
 ```text
-total kicker height = highest pad surface + desired clear face + 150 mm
+total v1 kicker height = 75 mm blank extension + 150 mm active zone = 225 mm
 ```
 
-This relationship must be revised if the pad stops short of the face or the
-final impact-surface design uses a different edge detail.
+This fixes only the board geometry. It does not define a pad relationship or
+an impact surface.
 
 | Input | Metric | Imperial |
 | --- | ---: | ---: |
-| Highest deployed pad surface at kicker | **unresolved** mm | **unresolved** in |
-| Desired clear face below official active zone | **unresolved** mm | **unresolved** in |
-| Proposed total kicker height | **unresolved** mm | **unresolved** in |
-| Resulting main-surface top height | **unresolved** mm | **unresolved** in |
-| Remaining ceiling clearance | **unresolved** mm | **unresolved** in |
+| Blank extension below official active zone | 75 mm | 2.95 in |
+| Total v1 kicker height | 225 mm | 8.86 in |
+| Resulting main-surface top height | 2094.1 mm | 82.44 in |
 
-The desired clearance is a design input, not a recommendation from Moon
-Climbing. Confirm the final relationship with the actual pads in place.
+Any later pad-clearance decision is a separate design/safety task, not a Moon
+Climbing recommendation or a change to this fixed v1 board geometry.
 
 ## Plywood and hardware samples
 
@@ -131,14 +151,19 @@ same batch intended for construction.
 | Frame-lamination sheet length x width | **unresolved** mm | **unresolved** in |
 | Frame-ply measured thickness: min/average/max | **unresolved** mm | **unresolved** in |
 | Species, grade, ply count, and certification | **unresolved** | **unresolved** |
-| Hold/T-nut thread standard | **unresolved** | **unresolved** |
-| T-nut body and flange dimensions | **unresolved** mm | **unresolved** in |
-| T-nut hole diameter and barrel length | **unresolved** mm | **unresolved** in |
-| LED-system version and guide revision | **unresolved** | **unresolved** |
-| LED body and required hole dimensions | **unresolved** mm | **unresolved** in |
+| Hold/T-nut thread standard | 3/8-16 Escape screw-in T-nuts selected | 3/8-16 Escape screw-in T-nuts selected |
+| T-nut body length, flange diameter, and flange thickness | **unresolved** mm | **unresolved** in |
+| T-nut hole diameter and barrel length | 11.11 mm / 7/16 in bore per selected Escape listing; barrel actual sample **unresolved** | 7/16 in bore per selected Escape listing; barrel actual sample **unresolved** |
+| LED-system version and guide revision | MoonBoard LED System, SKU 60-201-V5; supplied guide revision **unresolved** | MoonBoard LED System, SKU 60-201-V5; supplied guide revision **unresolved** |
+| LED body diameter, shoulder diameter, body length, and rear clearance | **unresolved** mm | **unresolved** in |
+| LED hole diameter | 13 mm / 1/2 in for the selected MoonBoard guide; purchased system **unresolved** | 13 mm / 1/2 in for the selected MoonBoard guide; purchased system **unresolved** |
 
 Photograph product labels and retain a sample T-nut, bolt, LED, and plywood
-offcut for fit checks before production drilling.
+offcut for fit checks before production drilling. Take thickness readings at
+multiple positions on each actual sheet, record the minimum, arithmetic mean,
+and maximum, and do not substitute nominal thickness. The official hole and
+barrel figures above are from Moon Climbing's [current build guidance](https://moonclimbing.com/build-your-moonboard);
+they do not replace measurements of the purchased T-nuts or LEDs.
 
 ## Survey acceptance
 

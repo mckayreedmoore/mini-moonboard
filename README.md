@@ -6,9 +6,10 @@ Mini MoonBoard.
 ## Status
 
 This repository currently models the official Mini MoonBoard panel envelope.
-It does **not** yet contain a structurally approved frame, bill of materials,
-cut list, or construction guide. Those depend on the final kicker height,
-crash-pad dimensions, room constraints, joinery, and structural review.
+It contains a provisional v1 climbing-surface and freestanding-leg concept.
+It does **not** contain a structurally approved frame, bill of materials, cut
+list, or construction guide. Structural connections, actual material, floor
+interface, and stability still require human review.
 
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
@@ -28,8 +29,8 @@ accepted. The current reference-envelope exports are not frame renders.
 | Official overall envelope | 2440 x 1569 x 2020 mm | 8.01 x 5.15 x 6.63 ft |
 | Main panel thickness | 18 mm | 0.71 in |
 
-The 150 mm kicker is retained only as an official reference. The custom taller
-kicker remains unset until the crash pad is selected.
+V1 uses a 225 mm total kicker: the official 150 mm active zone plus a 75 mm
+blank extension below it. The crash pad is a separate, excluded element.
 
 ## Development
 
@@ -57,8 +58,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   dual-unit center-data table and visual verification drawing.
 - `exports/mini_moonboard_reference_panel_cut_list.csv`: generated panel-only
   cut list; it intentionally excludes the unresolved frame BOM.
-- [`docs/site-survey.md`](docs/site-survey.md): dual-unit worksheet for room,
-  crash-pad, kicker-clearance, stock, and review inputs.
+- [`docs/site-survey.md`](docs/site-survey.md): deferred human-audit worksheet;
+  its crash-pad, room, and egress sections are outside v1 scope.
 - [`design-inputs.example.toml`](design-inputs.example.toml): validated,
   machine-readable companion to the site-survey worksheet.
 - [`docs/change-control.md`](docs/change-control.md): controlled-release,

@@ -123,13 +123,14 @@ of the selected hardware, template system, and actual plywood sheets.
   but does not define them in these documents. Those clearances remain a site
   and safety-review input.
 
-## Required inputs for the buildable frame
+## Remaining inputs before structural fabrication
 
-- crash-pad make, model, deployed thickness, width, and depth;
-- exposed kicker height desired above the deployed pad;
-- available ceiling height, floor footprint, and surrounding fall zone;
 - actual plywood sheet dimensions, grade, ply count, and measured thickness;
 - accepted frame-member lamination count and adhesive schedule;
 - connection hardware, joint geometry, and assembly/disassembly requirement;
 - design loads, connection loads, floor interface, and anti-racking strategy;
 - qualified review of the completed load path and local requirements.
+
+V1 deliberately fixes a 225 mm kicker and excludes the crash pad, room survey,
+obstructions, and egress from its design scope. Those remain separate site and
+safety work; omitting them does not approve installation or climbing use.

@@ -90,4 +90,5 @@ fabrication drawing, verify:
 - actual panel size and the 2437/2438.8/2440 mm width discrepancy documented
   in [`requirements.md`](requirements.md); and
 - the vertical placement of this official kicker pattern on a taller custom
-  kicker after the crash-pad clearance is selected.
+  kicker. V1 uses a 225 mm total kicker: retain the official pattern from
+  `y = -150` to `0` and leave the added `y = -225` to `-150` region blank.

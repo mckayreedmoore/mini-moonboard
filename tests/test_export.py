@@ -9,6 +9,7 @@ from mini_moonboard.export import (
     export_panel_grid_drawing,
     export_reference,
     export_reference_panel_cut_list,
+    export_v1_concept,
 )
 
 
@@ -27,6 +28,12 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
     assert "40 degrees from vertical" in side_path.read_text()
 
 
+def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
+    path = export_v1_concept(tmp_path)
+
+    assert cq.importers.importStep(str(path)).solids().size() == 10
+
+
 def test_exports_are_reproducible(tmp_path: Path) -> None:
     first = export_reference(tmp_path / "first")
     second = export_reference(tmp_path / "second")
@@ -39,6 +46,7 @@ def test_exports_are_reproducible(tmp_path: Path) -> None:
     assert export_reference_panel_cut_list(tmp_path / "first").read_bytes() == export_reference_panel_cut_list(
         tmp_path / "second"
     ).read_bytes()
+    assert export_v1_concept(tmp_path / "first").read_bytes() == export_v1_concept(tmp_path / "second").read_bytes()
 
 
 def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:

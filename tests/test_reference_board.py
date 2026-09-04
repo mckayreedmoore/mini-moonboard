@@ -2,7 +2,7 @@ import math
 
 import pytest
 
-from mini_moonboard import build_reference_board, reference_envelope
+from mini_moonboard import build_reference_board, build_v1_concept, reference_envelope
 
 
 def test_builds_six_named_panels() -> None:
@@ -54,3 +54,10 @@ def test_custom_kicker_moves_the_main_surface_up() -> None:
     official_main_z = official.children[2].obj.val().Center().z
     custom_main_z = custom.children[2].obj.val().Center().z
     assert custom_main_z - official_main_z == pytest.approx(150)
+
+
+def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
+    board = build_v1_concept()
+
+    assert [part.name for part in board.children][-2:] == ["leg_left", "leg_right"]
+    assert len(board.children) == 8

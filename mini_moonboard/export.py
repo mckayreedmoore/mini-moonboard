@@ -12,6 +12,7 @@ from .model import (
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
     build_reference_board,
+    build_v1_concept,
     reference_envelope,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
@@ -150,6 +151,14 @@ def export_reference(
     front_path.write_text(_front_svg(kicker_height_mm))
     side_path.write_text(_side_svg(kicker_height_mm))
     return step_path, front_path, side_path
+
+
+def export_v1_concept(output_dir: Path) -> Path:
+    """Export the provisional board-and-legs concept for review, not fabrication."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_concept.step"
+    _export_step(build_v1_concept(), path)
+    return path
 
 
 def export_panel_grid(output_dir: Path) -> Path:
@@ -314,6 +323,7 @@ def main() -> None:
 
     paths = (
         *export_reference(args.output_dir, args.kicker_height_mm),
+        export_v1_concept(args.output_dir),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),
         export_reference_panel_cut_list(args.output_dir, args.kicker_height_mm),

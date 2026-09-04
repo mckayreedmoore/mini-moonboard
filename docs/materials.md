@@ -8,17 +8,21 @@ frame ideas. It is not yet a purchasing list.
 | Material or component | Current requirement | Status |
 | --- | --- | --- |
 | Main climbing panels | 4 birch plywood panels, nominally 1220 x 1220 x 18 mm (48 x 48 x 0.71 in) | Geometry confirmed; grade and actual stock thickness to verify |
-| Kicker panels | 2 birch plywood panels spanning the 2440 mm (8 ft) width | Width confirmed; custom height unresolved |
+| Kicker panels | 2 birch plywood panels, 1220 x 225 mm nominal (48 x 8.86 in) | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
 | Horizontal joint braces | 18 mm (0.71 in) plywood strips behind panel joints | Required by Moon Climbing; strip dimensions unresolved |
-| Hold hardware | One consistent T-nut and bolt system matching the chosen holds | Thread standard must be verified before drilling |
-| Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible sets and LED system | Product selection and quantities outside this milestone |
+| Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
+| Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | LED kit selected; four 50-LED strings (200 bulbs total; 66 extra for Mini) |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
 ## Provisional frame approach
 
-The current concept is to laminate nominal 3/4 in birch plywood into broad
-support members similar to the reference structure. This is a manufacturing
-preference, not a validated structural specification.
+The v1 concept has three assemblies: the board/kicker and two exterior
+hockey-stick legs. Every support member is a two-ply laminate of nominal 3/4
+in birch plywood. Each leg follows the board to the datum two T-nut rows below
+the top, bends at the datum five rows below the top, and reaches the floor at
+a provisional 60-degree angle to the descending board line. It is unanchored.
+This is a geometry/manufacturing preference, not a validated structural
+specification.
 
 Do not purchase frame stock from this table yet. The design must still set:
 
@@ -30,6 +34,28 @@ Do not purchase frame stock from this table yet. The design must still set:
 - edge sealing and finish appropriate to the installation environment; and
 - replaceable feet, anti-slip treatment, and floor protection.
 
+## Selected hardware and LED provisions
+
+The selected Escape hardware is imperial 3/8-16 screw-in T-nuts. Its specified
+7/16 in bore differs from Moon Climbing's generic 13 mm / 1/2 in T-nut bore;
+the Escape offcut test governs the selected T-nut installation. Use only
+matching 3/8-16 bolts. Do not mix M10 bolts with these inserts.
+
+Moon Climbing's own hardware path instead calls for metric M10 T-nuts and
+bolts (with 3/8 in described as the imperial counterpart) and its build page
+lists a 13 mm / 1/2 in bore with a 10 mm barrel. If MoonBoard T-nuts are used,
+buy the required fixing screws separately and confirm the exact selected
+product's bore, barrel, flange, and screw requirements on an offcut.
+
+The selected [MoonBoard LED System](https://us.moonclimbing.com/products/moonboard-led-kit)
+is SKU 60-201-V5. Drill the 13 mm LED holes at the official LED datums and
+provide protected rear routing to the controller, with access to its switch.
+The kit includes a controller, four 50-LED strings, supplementary power feeds,
+and a 5 V adapter. Its 200 bulbs suit a Standard board and leave 66 bulbs
+unused on a Mini. A future kit version is a separate compatibility variant:
+it must retain the official datum pattern only if its supplied guide specifies
+the same hole, wiring, controller-clearance, and power requirements.
+
 ## Generated reference panel cut list
 
 [`exports/mini_moonboard_reference_panel_cut_list.csv`](../exports/mini_moonboard_reference_panel_cut_list.csv)
@@ -38,14 +64,13 @@ blanks and two kicker blanks. It deliberately excludes the frame, joint braces,
 fasteners, holds, LEDs, finish, waste allowance, and nesting because those
 require the selected stock and reviewed frame design.
 
-The committed file uses the official 150 mm / 5.9 in reference kicker. To
-evaluate a proposed taller kicker in a separate directory:
+To evaluate the v1 225 mm kicker in a separate directory:
 
 ```bash
-uv run python -m mini_moonboard.export --kicker-height-mm 300 --output-dir /tmp/mini-moonboard-300
+uv run python -m mini_moonboard.export --kicker-height-mm 225 --output-dir /tmp/mini-moonboard-v1
 ```
 
-Replace `300` only with the total kicker height resolved from the site survey;
+Replace `225` only after the kicker geometry is deliberately revised;
 the output remains a reference panel list until frame review is complete.
 
 ## BOM completion rule

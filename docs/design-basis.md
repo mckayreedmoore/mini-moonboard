@@ -10,19 +10,19 @@ invented from the photograph or video.
 | --- | --- | --- |
 | Use | Indoor personal bouldering/training wall | Confirmed |
 | Structure | Freestanding A-frame | Confirmed design target |
-| Building attachment | None intended | Provisional; stability review may require revisiting |
+| Building attachment | None | Confirmed v1 constraint; no anchoring allowed |
 | Board | Mini MoonBoard, 40 degrees from vertical | Confirmed |
 | Main surface | 2440 x 2440 mm (8 x 8 ft nominal) | Confirmed reference envelope |
 | Panels | Fabricated birch plywood | Confirmed approach |
 | Units | Millimetres canonical; metric and imperial documents | Confirmed |
 | Active Mini MoonBoard kicker | 150 mm (5.9 in) | Confirmed official geometry |
-| Total custom kicker | Greater than 150 mm | Unresolved |
-| Crash pad | Make, deployed size, thickness, and joining method | Unresolved |
-| Exposed kicker above pad | Required clearance | Unresolved |
-| Available room | Width, depth, ceiling height, and obstructions | Unresolved |
-| Fall/impact area | Plan dimensions and impact-attenuation system | Unresolved |
-| Frame stock | Laminated nominal 3/4 in birch plywood | Provisional concept |
-| Connections | Geometry, bolts, screws, plates, and adhesive | Unresolved |
+| Total custom kicker | 225 mm (8.86 in): 150 mm active zone + 75 mm blank extension | Provisional v1; derived from the official kicker bolt-center datum |
+| Crash pad / fall surface | Separate element; excluded from v1 board/frame scope | Explicitly out of scope, not approved or designed here |
+| Frame assemblies | Board/kicker plus two exterior hockey-stick legs | Confirmed v1 concept |
+| Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
+| Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
+| Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
+| Connections | Four structural bolts per leg against the exterior board side; exact hardware unresolved | Provisional; do not substitute climbing T-nuts for structural connections |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
 | Portability | Fixed assembly versus demountable joints | Unresolved |
 
@@ -54,17 +54,43 @@ interval is copied from a summary or inferred here. Those values must come
 from the acquired standard, the applicable building requirements, and the
 qualified review.
 
+## V1 human-audit checklist
+
+The v1 STEP model is a geometry prototype, not fabrication authority. Audit
+these values before cutting, drilling, gluing, or loading it:
+
+- **Kicker:** 225 mm total (75 mm blank + 150 mm official active zone). The
+  75 mm extension is a user estimate from the official foothold-center datum,
+  not a room or pad measurement.
+- **Leg geometry:** the model bends at main-grid row 8 (fifth row down from
+  row 12), reaches row 10, and assumes a 60-degree included angle from the
+  descending board line. Its rear foot is consequently about 1446 mm behind
+  the kicker face. Confirm this matches the intended floor footprint.
+- **External-leg connection:** four structural bolts per leg are intended, but
+  their diameter, grade, washer/plate stack, edge distances, and locations are
+  not selected. The T-nut rows are location datums only; no structural bolt may
+  obstruct a required hold, T-nut, LED, cable, or panel joint.
+- **Laminations:** the model uses a provisional 36 mm member thickness (two
+  18 mm layers). Measure the actual nominal-3/4-in sheets, then set thickness,
+  adhesive, clamping method, cure, and edge sealing accordingly.
+- **Unanchored stability:** inspect the floor bearing, anti-slip feet,
+  load-spreading, racking, and overturning resistance under intended use. No
+  anchoring is allowed; this must be resolved by the reviewer rather than
+  compensated for by an unreviewed dimension change.
+- **Climbing/electrical hardware:** test the Escape 3/8-16 screw-in T-nut
+  bore and screw clearance on an offcut; verify hold bolts; confirm the Moon
+  LED kit's supplied guide, 13 mm holes, rear cable routing, controller access,
+  and power protection before production drilling.
+
 ## Gate 1: inputs complete
 
-Before detailed frame modelling begins:
+Before structural fabrication or use:
 
-- complete [`site-survey.md`](site-survey.md), including the installation
-  envelope and floor condition;
-- select and measure the deployed crash-pad system;
-- set total kicker height and exposed active-kicker clearance;
+- inspect the floor condition, levelness, and slip resistance where each foot
+  bears; this does not authorize anchoring;
 - record actual plywood species, grade, sheet size, and measured thickness;
-- decide whether the structure must be demountable; and
-- identify the project jurisdiction and qualified reviewer.
+- select all structural connection hardware and adhesive; and
+- have a qualified reviewer assess the unanchored load path and stability.
 
 ## Gate 2: design review package complete
 

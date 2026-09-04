@@ -5,7 +5,10 @@ import cadquery as cq
 MAIN_PANEL_SIZE_MM = 1220.0
 PANEL_THICKNESS_MM = 18.0
 OFFICIAL_KICKER_HEIGHT_MM = 150.0
+V1_KICKER_HEIGHT_MM = 225.0
 ANGLE_FROM_VERTICAL_DEG = 40.0
+V1_SUPPORT_THICKNESS_MM = 36.0
+V1_SUPPORT_WIDTH_MM = 180.0
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -57,5 +60,49 @@ def build_reference_board(
                 .translate((0, 0, kicker_height_mm))
             )
             board.add(panel, name=f"main_{row}_{side}", color=cq.Color("black"))
+
+    return board
+
+
+def _support_member(
+    start_y: float, start_z: float, end_y: float, end_z: float
+) -> cq.Workplane:
+    """Return a provisional exterior support member between two side-view points."""
+    delta_y, delta_z = end_y - start_y, end_z - start_z
+    length = math.hypot(delta_y, delta_z)
+    angle_from_vertical = math.degrees(math.atan2(delta_y, delta_z))
+    return (
+        cq.Workplane("XY")
+        .box(V1_SUPPORT_THICKNESS_MM, V1_SUPPORT_WIDTH_MM, length, centered=(True, True, False))
+        .rotate((0, 0, 0), (1, 0, 0), -angle_from_vertical)
+        .translate((0, start_y, start_z))
+    )
+
+
+def build_v1_concept() -> cq.Assembly:
+    """Build the provisional unanchored board and two exterior hockey-stick legs.
+
+    The leg bend uses the fifth T-nut row down from the top (row 8); its upper
+    section reaches two rows upward (row 10). The 60-degree lower-leg angle and
+    36 mm support thickness are modeling assumptions, not structural approval.
+    """
+    board = build_reference_board(V1_KICKER_HEIGHT_MM)
+    board.name = "mini_moonboard_v1_concept"
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    bend_distance = 1480.0  # Fifth T-nut row down from row 12.
+    upper_distance = bend_distance + 400.0  # Two T-nut-row intervals.
+    bend_y = bend_distance * math.sin(angle)
+    bend_z = V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
+    upper_y = upper_distance * math.sin(angle)
+    upper_z = V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
+    # The descending board line points -130 degrees from horizontal. Rotating
+    # it 60 degrees gives the rearward, floor-reaching lower leg at -70 degrees.
+    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+
+    for side, x in (("left", -MAIN_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2),
+                    ("right", MAIN_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)):
+        upper = _support_member(bend_y, bend_z, upper_y, upper_z).translate((x, 0, 0))
+        lower = _support_member(bend_y, bend_z, foot_y, 0.0).translate((x, 0, 0))
+        board.add(cq.Compound.makeCompound([upper.val(), lower.val()]), name=f"leg_{side}", color=cq.Color("saddlebrown"))
 
     return board
