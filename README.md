@@ -54,6 +54,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   cut list; it intentionally excludes the unresolved frame BOM.
 - [`docs/site-survey.md`](docs/site-survey.md): dual-unit worksheet for room,
   crash-pad, kicker-clearance, stock, and review inputs.
+- [`docs/change-control.md`](docs/change-control.md): controlled-release,
+  reviewer-record, and field-deviation process.
+- [`docs/inspection-maintenance.md`](docs/inspection-maintenance.md):
+  commissioning and inspection-record framework pending reviewer approval.
 - [`docs/materials.md`](docs/materials.md): confirmed and provisional material
   requirements.
 - `mini_moonboard/`: CadQuery source and export command.

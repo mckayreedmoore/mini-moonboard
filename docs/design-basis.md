@@ -86,6 +86,7 @@ The plans may be labelled **build-ready** only after:
 - the reviewer and applicable standard editions are identified;
 - the final CAD, drawings, BOM, cut list, and guide agree;
 - a dry-fit or prototype records deviations and corrective changes;
-- inspection and maintenance checklists are complete; and
+- inspection and maintenance checklists are complete using
+  [`inspection-maintenance.md`](inspection-maintenance.md); and
 - the approved commit is tagged so later edits cannot be mistaken for the
   reviewed release.
