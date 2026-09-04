@@ -63,12 +63,15 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
         mesh_path = tmp_path / part["path"]
         assert mesh_path.is_file()
         assert mesh_path.stat().st_size > 84
-        assert len(part["dimensions_mm"]) == 3
-        assert all(dimension > 0 for dimension in part["dimensions_mm"])
+        assert len(part["fabrication"]["dimensions_mm"]) == 3
+        assert all(dimension > 0 for dimension in part["fabrication"]["dimensions_mm"])
+        assert len(part["viewer_aabb_mm"]) == 3
+        assert all(dimension > 0 for dimension in part["viewer_aabb_mm"])
 
     viewer_html = (Path(__file__).parents[1] / "site" / "index.html").read_text()
     assert "fetch('parts.json')" in viewer_html
     assert "loader.load(part.path" in viewer_html
+    assert "part.fabrication.dimensions_mm" in viewer_html
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:

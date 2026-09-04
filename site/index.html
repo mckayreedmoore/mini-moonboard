@@ -16,7 +16,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click a part for dimensions</p><div id="part">Loading selectable CAD parts…</div></header>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click a part for cut-list dimensions</p><div id="part">Loading selectable CAD parts…</div></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -46,7 +46,7 @@
       const partCard = document.querySelector('#part'); let selected;
       const colorFor = name => name.startsWith('main_') ? 0x20252b : name.startsWith('kicker_') ? 0x444b53 : name.startsWith('led_') || name.startsWith('leg_bolt_') ? 0x4f8dcc : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts }) => {
-        partCard.textContent = 'Click any modeled part to inspect its CAD bounding dimensions.';
+        partCard.textContent = 'Click any modeled part to inspect its cut-list dimensions.';
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part.name), roughness: .7, metalness: .05 }));
@@ -59,8 +59,8 @@
         if (!hit) return;
         if (selected) selected.material.emissive.setHex(0);
         selected = hit.object; selected.material.emissive.setHex(0x5f3600);
-        const part = selected.userData.part, [x, y, z] = part.dimensions_mm;
-        partCard.textContent = `${part.name}: model bounding box ${x} × ${y} × ${z} mm (approximate viewer metadata).`;
+        const part = selected.userData.part, [x, y, z] = part.fabrication.dimensions_mm;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; cut-list dimensions ${x} × ${y} × ${z} mm.`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();

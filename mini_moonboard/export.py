@@ -220,7 +220,7 @@ def export_v1_cad_render(output_dir: Path) -> Path:
 
 
 def export_v1_viewer_mesh(output_dir: Path) -> Path:
-    """Export selectable CAD-derived V1 part meshes and bounding metadata."""
+    """Export selectable meshes with fabrication dimensions and viewer AABBs."""
     output_dir.mkdir(parents=True, exist_ok=True)
     models_dir = output_dir / "models"
     models_dir.mkdir(exist_ok=True)
@@ -230,16 +230,54 @@ def export_v1_viewer_mesh(output_dir: Path) -> Path:
         bounds = shape.BoundingBox()
         filename = f"{child.name}.stl"
         cq.exporters.export(shape, str(models_dir / filename), cq.exporters.ExportTypes.STL, tolerance=0.5)
+        fabrication = _v1_viewer_fabrication_metadata(child.name)
         parts.append(
             {
                 "name": child.name,
                 "path": f"models/{filename}",
-                "dimensions_mm": [round(bounds.xlen, 1), round(bounds.ylen, 1), round(bounds.zlen, 1)],
+                "fabrication": fabrication,
+                "viewer_aabb_mm": [round(bounds.xlen, 1), round(bounds.ylen, 1), round(bounds.zlen, 1)],
             }
         )
     path = output_dir / "parts.json"
     path.write_text(json.dumps({"parts": parts}, indent=2) + "\n")
     return path
+
+
+def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
+    """Return cut-list dimensions rather than rotated world-axis extents."""
+    dimensions: tuple[float, float, float]
+    description: str
+    if name.startswith("main_"):
+        dimensions, description = (V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM), "finished climbing-panel blank"
+    elif name.startswith("kicker_") and name in {"kicker_left", "kicker_right"}:
+        dimensions, description = (V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM), "finished kicker-panel blank"
+    elif name.startswith("face_rail_") and "splice" not in name:
+        dimensions, description = (V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated face-rail segment"
+    elif "standoff_main_seam" in name:
+        dimensions, description = (180.0, V1_STANDOFF_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated main-seam bearing block"
+    elif "standoff" in name:
+        dimensions, description = (V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated rail bearing block"
+    elif name.startswith("kicker_blank_extension_backing") and "seam_splice" not in name:
+        dimensions, description = (V1_PANEL_SIZE_MM, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated blank-kicker backing"
+    elif name == "kicker_blank_extension_backing_seam_splice":
+        dimensions, description = (400.0, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated kicker-backing seam splice"
+    elif name.startswith("kicker_main_seam_gusset"):
+        dimensions, description = (400.0, 457.0, V1_SUPPORT_THICKNESS_MM), "trim profile from laminated kicker/main gusset blank"
+    elif name.startswith(("rear_tie_", "rail_cross_tie_")) and "splice" not in name:
+        dimensions, description = (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated tie half"
+    elif name.startswith(("rear_tie_splice_", "rail_cross_tie_splice_")):
+        dimensions, description = (400.0, V1_REAR_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated tie center-splice plate"
+    elif name.startswith("face_rail_splice_"):
+        dimensions, description = (400.0, V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated face-rail splice cover"
+    elif name.startswith("leg_knee_gusset_"):
+        dimensions, description = (V1_KNEE_GUSSET_SIZE_MM, V1_KNEE_GUSSET_SIZE_MM, V1_SUPPORT_THICKNESS_MM), "laminated knee-gusset blank"
+    elif name.startswith("leg_"):
+        leg = v1_leg_geometry()
+        dimensions, description = (leg["lower_length"], V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm"
+    else:
+        raise ValueError(f"missing viewer fabrication metadata for {name}")
+    return {"description": description, "dimensions_mm": [round(value, 1) for value in dimensions]}
 
 
 def _v1_side_svg() -> str:
