@@ -550,6 +550,8 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
         ("#10 x 3.25 in structural wood screws", "40", "Two rear-installed screws per bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
+        ("#10 x 2.5 in structural wood screws", "84 plus 10% spare", "Rail splice, rail-cross-tie, rear-tie, and side-gusset schedule in docs/v1-secondary-joinery.md"),
+        ("#10 x 2 in structural wood screws", "8 plus 10% spare", "Blank-kicker-backing schedule in docs/v1-secondary-joinery.md"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
     )

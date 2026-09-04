@@ -72,6 +72,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail bolts, eight knee-plate bolts, and forty panel/rail screw datums |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
+| [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
 metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
@@ -102,6 +103,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
+| Secondary joinery screws | 84 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
 
@@ -142,9 +144,12 @@ that change record.
    screws from the rail exterior. Use the connection schedule's 40 head-centre
    datums; test the exact screw on an offcut to confirm its tip does not break
    through the climbing face.
-8. Drill final hold and LED holes using the calibrated template. Install and
+8. Install every remaining rail splice, tie, kicker backing, and side-gusset
+   fastener to the relative centers in the secondary joinery schedule. Check
+   that each contact face bears flush before fastening.
+9. Drill final hold and LED holes using the calibrated template. Install and
    test the LED strings/controller before final rear access is obstructed.
-9. Complete a non-climbing inspection of all connections, wiring protection,
+10. Complete a non-climbing inspection of all connections, wiring protection,
    panel seams, feet, and the separate impact-surface plan before any use.
 
 ## Human-audit gate
