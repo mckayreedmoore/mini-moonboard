@@ -25,7 +25,10 @@ human-audit list at the end.
 | Rear ties | Three rows of two 1256 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
 
 The model keeps a **54 mm provisional gap** behind the panel face for T-nut,
-LED, and cable clearance. Do not reduce it without a physical clearance check.
+LED, and cable clearance. It includes four conservative LED-string routing
+envelopes and one controller envelope in the STEP model. They are routing and
+clearance aids, not measured component geometry; do not reduce the gap or
+mount hardware without a physical clearance check against the supplied kit.
 
 ## Generated deliverables
 
@@ -63,7 +66,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; includes controller, four 50-LED strings, feeds, and 5 V adapter |
-| Leg-to-board structural bolts | 8 | **Provisional:** 3/8-in x 3-in Grade-5 through-bolts, two 1.5-in fender washers, and a nyloc nut at each; connection schedule controls datum positions |
+| Leg-to-outer-rail structural bolts | 8 | **Provisional:** 3/8-in x 9-in Grade-5 through-bolts, two 1.5-in fender washers, and a nyloc nut at each; full X/Y/Z datums and a 10 mm clearance-hole assumption are in the connection schedule |
 | Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |

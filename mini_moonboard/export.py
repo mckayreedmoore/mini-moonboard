@@ -401,21 +401,31 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                 "connection",
                 "side",
                 "quantity",
-                "board_distance_from_main_seam_mm",
+                "x_mm",
+                "y_mm",
+                "z_mm",
+                "axis",
+                "clearance_hole_mm",
                 "hardware_assumption",
                 "status",
             )
         )
         for side in ("left", "right"):
             for distance in bolt_distances:
+                sign = -1 if side == "left" else 1
+                angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
                 writer.writerow(
                     (
-                        "leg upper member to exterior board side",
+                        "leg upper member to exterior outer face rail",
                         side,
                         1,
-                        f"{distance:.1f}",
-                        "3/8 in x 3 in Grade-5 through-bolt, two 1.5 in fender washers, nyloc nut",
-                        "PROVISIONAL: reviewer must check edge distance, panel/T-nut/LED clearance, and load path",
+                        f"{sign * V1_PANEL_SIZE_MM:.3f}",
+                        f"{54.0 + distance * math.sin(angle):.3f}",
+                        f"{V1_KICKER_HEIGHT_MM + distance * math.cos(angle):.3f}",
+                        "X",
+                        "10.000",
+                        "3/8 in x 9 in Grade-5 through-bolt, two 1.5 in fender washers, nyloc nut",
+                        "PROVISIONAL: envelope modeled; reviewer must check edge distance, panel/T-nut/LED clearance, and load path",
                     )
                 )
     return path
@@ -430,7 +440,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
-        ("3/8 in x 3 in Grade-5 structural through-bolts", "8", "Provisional leg connection hardware"),
+        ("3/8 in x 9 in Grade-5 structural through-bolts", "8", "Provisional leg-to-outer-rail connection hardware"),
         ("3/8 in x 1.5 in fender washers", "16", "Provisional leg connection hardware"),
         ("3/8 in nyloc nuts", "8", "Provisional leg connection hardware"),
         ("Panel-to-rail fasteners", "unresolved", "Select only after physical fit test and review"),

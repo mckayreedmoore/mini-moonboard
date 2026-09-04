@@ -76,15 +76,17 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     ]
     assert "kicker_center_seam_backing" in names
     assert {"kicker_bottom_backing_left", "kicker_bottom_backing_right"} <= set(names)
-    assert names[-6:] == [
+    assert {
         "rear_tie_low_left",
         "rear_tie_low_right",
         "rear_tie_mid_left",
         "rear_tie_mid_right",
         "rear_tie_top_left",
         "rear_tie_top_right",
-    ]
-    assert len(board.children) == 33
+    } <= set(names)
+    assert len(board.children) == 46
     for part in board.children[6:8]:
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin >= 0
+    assert {"leg_bolt_left_1", "leg_bolt_right_4", "led_controller_envelope"} <= set(names)
+    assert sum(name.startswith("led_string_envelope_") for name in names) == 4

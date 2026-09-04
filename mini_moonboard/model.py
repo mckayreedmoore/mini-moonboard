@@ -14,6 +14,8 @@ V1_SUPPORT_THICKNESS_MM = 36.0
 V1_SUPPORT_WIDTH_MM = 180.0
 V1_FACE_RAIL_COUNT = 4
 V1_REAR_TIE_WIDTH_MM = 180.0
+V1_HARDWARE_GAP_MM = 54.0
+V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -100,7 +102,7 @@ def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplan
         .translate(
             (
                 x,
-                54.0 + distance * math.sin(angle),
+                V1_HARDWARE_GAP_MM + distance * math.sin(angle),
                 V1_KICKER_HEIGHT_MM + distance * math.cos(angle),
             )
         )
@@ -128,7 +130,7 @@ def _panel_joint_brace_half(side: int, distance: float) -> cq.Workplane:
         .translate(
             (
                 side * V1_PANEL_SIZE_MM / 2,
-                54.0 + distance * math.sin(angle),
+                V1_HARDWARE_GAP_MM + distance * math.sin(angle),
                 V1_KICKER_HEIGHT_MM + distance * math.cos(angle),
             )
         )
@@ -140,8 +142,30 @@ def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplan
     return (
         cq.Workplane("XY")
         .box(width, V1_SUPPORT_THICKNESS_MM, height, centered=(True, False, False))
-        .translate((x, 54.0, 0.0))
+        .translate((x, V1_HARDWARE_GAP_MM, 0.0))
     )
+
+
+def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
+    """Return a conservative X-axis envelope for a leg-to-outer-rail bolt."""
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    return cq.Workplane("XY").box(
+        V1_SUPPORT_WIDTH_MM,
+        V1_STRUCTURAL_BOLT_DIAMETER_MM,
+        V1_STRUCTURAL_BOLT_DIAMETER_MM,
+        centered=(True, True, True),
+    ).translate(
+        (
+            side * V1_PANEL_SIZE_MM,
+            V1_HARDWARE_GAP_MM + distance * math.sin(angle),
+            V1_KICKER_HEIGHT_MM + distance * math.cos(angle),
+        )
+    )
+
+
+def _led_string_envelope(x: float) -> cq.Workplane:
+    """Return a conservative rear cable-routing envelope for one LED string."""
+    return _sloped_face_member(x, 0.0, 2 * V1_PANEL_SIZE_MM).translate((0, -24.0, 0))
 
 
 def build_v1_concept() -> cq.Assembly:
@@ -156,9 +180,9 @@ def build_v1_concept() -> cq.Assembly:
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
     bend_distance = 1480.0  # Fifth T-nut row down from row 12.
     upper_distance = bend_distance + 400.0  # Two T-nut-row intervals.
-    bend_y = bend_distance * math.sin(angle)
+    bend_y = V1_HARDWARE_GAP_MM + bend_distance * math.sin(angle)
     bend_z = V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
-    upper_y = upper_distance * math.sin(angle)
+    upper_y = V1_HARDWARE_GAP_MM + upper_distance * math.sin(angle)
     upper_z = V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
     # The descending board line points -130 degrees from horizontal. Rotating
     # it 60 degrees gives the rearward, floor-reaching lower leg at -70 degrees.
@@ -210,7 +234,7 @@ def build_v1_concept() -> cq.Assembly:
 
     for name, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
         tie_distance = bend_distance * fraction
-        tie_y = tie_distance * math.sin(angle) + 54.0
+        tie_y = tie_distance * math.sin(angle) + V1_HARDWARE_GAP_MM
         tie_z = V1_KICKER_HEIGHT_MM + tie_distance * math.cos(angle)
         for side, label in ((-1, "left"), (1, "right")):
             board.add(
@@ -218,5 +242,27 @@ def build_v1_concept() -> cq.Assembly:
                 name=f"rear_tie_{name}_{label}",
                 color=cq.Color("saddlebrown"),
             )
+
+    for side, label in ((-1, "left"), (1, "right")):
+        for index, distance in enumerate((1520.0, 1640.0, 1760.0, 1880.0), start=1):
+            board.add(
+                _structural_bolt_envelope(side, distance),
+                name=f"leg_bolt_{label}_{index}",
+                color=cq.Color("lightgray"),
+            )
+
+    for index, x in enumerate((-900.0, -300.0, 300.0, 900.0), start=1):
+        board.add(
+            _led_string_envelope(x),
+            name=f"led_string_envelope_{index}",
+            color=cq.Color("blue"),
+        )
+    board.add(
+        cq.Workplane("XY")
+        .box(180.0, 60.0, 120.0, centered=(True, True, True))
+        .translate((0, 900.0, 1050.0)),
+        name="led_controller_envelope",
+        color=cq.Color("blue"),
+    )
 
     return board

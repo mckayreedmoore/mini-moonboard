@@ -39,7 +39,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 35
+    assert cq.importers.importStep(str(path)).solids().size() == 48
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -70,6 +70,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
     assert len(connection_rows) == 8
     assert len(bom_rows) == 10
+    assert {row["axis"] for row in connection_rows} == {"X"}
+    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000"}
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:
