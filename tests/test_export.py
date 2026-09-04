@@ -105,7 +105,12 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
     gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
     assert gusset["quantity"] == "4"
-    assert all("X is bolt-stack midpoint" in row["datum"] for row in connection_rows)
+    assert all(
+        "X is bolt-stack midpoint" in row["datum"]
+        if row["axis"] == "X"
+        else "screw-head center at rail exterior face" in row["datum"]
+        for row in connection_rows
+    )
     assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
     assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
 
