@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from mini_moonboard.sketchup import export_scene_obj
+from mini_moonboard.sketchup import export_scene_obj, scene_summary
 
 
 @dataclass
@@ -42,3 +42,25 @@ def test_sketchup_scene_export_applies_nested_transforms_and_converts_to_mm(tmp_
     assert "v 50.800000 0.000000 0.000000" in text
     assert "v 76.200000 0.000000 0.000000" in text
     assert "f 1 2 3" in text
+
+
+def test_sketchup_scene_summary_applies_nested_transforms_and_converts_to_mm() -> None:
+    child_transform = [*IDENTITY]
+    child_transform[9] = 2.0
+    scene = Node(
+        "Scene",
+        IDENTITY,
+        None,
+        [Node("two by six", child_transform, Mesh([Face([(0, 0, 0), (1, 0, 0), (0, 1, 0)])]), [])],
+    )
+
+    summary = scene_summary(scene)
+
+    assert summary["units"] == "mm"
+    assert summary["nodes"] == [
+        {
+            "path": "Scene/two by six",
+            "face_count": 1,
+            "bounds_mm": {"min": [50.8, 0.0, 0.0], "max": [76.2, 25.4, 0.0], "size": [25.4, 25.4, 0.0]},
+        }
+    ]

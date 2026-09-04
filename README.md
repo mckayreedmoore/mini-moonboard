@@ -64,9 +64,11 @@ specifies the eleven 4 x 8 plywood sheets and required thin-kerf cut route.
 
 The supplied reference model can be extracted for inspection without making it
 part of the V1 design: `uv run python scripts/import_sketchup.py INPUT.skp
-OUTPUT.obj`. The OBJ is in millimetres and retains named hierarchy groups, so
-it opens in FreeCAD, Blender, or an online OBJ viewer. It is comparison-only:
-do not copy its dimensions or connections into V1 without an explicit audit.
+OUTPUT.obj --summary OUTPUT.json`. The OBJ is in millimetres and retains named
+hierarchy groups; the optional JSON reports each group's transformed bounds and
+face count. Both open or inspect in FreeCAD, Blender, or an online OBJ viewer.
+They are comparison-only: do not copy their dimensions or connections into V1
+without an explicit audit.
 
 ## Development
 

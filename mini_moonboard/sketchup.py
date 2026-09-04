@@ -8,6 +8,7 @@ hierarchy, in millimetres, for comparison in any conventional CAD viewer.
 
 from __future__ import annotations
 
+import json
 from collections.abc import Iterable, Sequence
 from pathlib import Path
 from typing import Protocol
@@ -93,6 +94,51 @@ def export_scene_obj(scene: _SceneNode, output_path: Path) -> Path:
 
     visit(scene, identity, ())
     output_path.write_text("\n".join(lines) + "\n")
+    return output_path
+
+
+def scene_summary(scene: _SceneNode) -> dict[str, object]:
+    """Return transformed millimetre bounds and face counts for every scene node."""
+    identity = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    nodes: list[dict[str, object]] = []
+
+    def visit(node: _SceneNode, parent_transform: Sequence[float], path: tuple[str, ...]) -> None:
+        transform = _compose_transform(parent_transform, node.transform)
+        node_path = (*path, node.name or "unnamed")
+        points = [
+            _apply_transform(transform, point)
+            for face in node.mesh.faces
+            for point in face.vertex_positions
+        ] if node.mesh is not None else []
+        if points:
+            minimum = tuple(min(point[axis] for point in points) * INCH_TO_MM for axis in range(3))
+            maximum = tuple(max(point[axis] for point in points) * INCH_TO_MM for axis in range(3))
+            nodes.append(
+                {
+                    "path": "/".join(node_path),
+                    "face_count": sum(1 for _ in node.mesh.faces),
+                    "bounds_mm": {
+                        "min": [round(value, 3) for value in minimum],
+                        "max": [round(value, 3) for value in maximum],
+                        "size": [round(upper - lower, 3) for lower, upper in zip(minimum, maximum)],
+                    },
+                }
+            )
+        for child in node.children:
+            visit(child, transform, node_path)
+
+    visit(scene, identity, ())
+    return {"units": "mm", "nodes": nodes}
+
+
+def export_skp_summary(input_path: Path, output_path: Path) -> Path:
+    """Extract a machine-readable reference-model hierarchy and bounds report."""
+    try:
+        import skppy
+    except ImportError as error:  # pragma: no cover - dependency is mandatory in production
+        raise RuntimeError("Install project dependencies including skppy to import .skp files") from error
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(scene_summary(skppy.load(input_path).to_scene()), indent=2) + "\n")
     return output_path
 
 
