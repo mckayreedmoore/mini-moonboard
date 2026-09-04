@@ -29,6 +29,13 @@ The analysis architecture is deliberately a short file pipeline:
 CadQuery source -> committed STEP -> FreeCAD/Gmsh mesh -> pinned CalculiX container -> analyst report
 ```
 
+The interactive viewer is the connection-layout review view: it adds selectable
+cyan, simplified representations for every primary bolt and rail-to-panel screw
+from the generated connection schedule. They show the assumed axes, nominal
+shanks, heads, washers, and nuts before FEA. The STEP frame remains thread-free;
+the analyst must convert each reviewed connection to an appropriate connector,
+constraint, or contact model rather than meshing those cosmetic solids.
+
 | Decision | Keep / skip | Reason |
 | --- | --- | --- |
 | CadQuery as the geometry source of truth | Keep | It already generates the named assembly, exports, and geometry checks. A second parametric model would drift. |

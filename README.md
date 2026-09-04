@@ -45,6 +45,10 @@ guide and installed wire lengths are verified. Rails, bearing blocks, wiring,
 and legs belong on the opposite support side.
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, zoom, and select a part for bilingual cut-list dimensions.
+The viewer also shows the 16 specified structural bolts and 60 primary
+rail-to-panel screw axes as selectable cyan, thread-free connection geometry.
+Those are the connection locations to be represented in the screening FEA; they
+are not a claim that cosmetic cylinder solids model fastener strength.
 
 The [side profile](exports/mini_moonboard_v1_concept_side.svg),
 [support-side elevation](exports/mini_moonboard_v1_rear.svg), and

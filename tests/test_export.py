@@ -67,7 +67,10 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     index_path = export_v1_viewer_mesh(tmp_path)
     parts = json.loads(index_path.read_text())["parts"]
 
-    assert len(parts) == len(build_v1_concept().children)
+    connection_parts = [part for part in parts if part["name"].startswith("analysis_")]
+    assert len(parts) == len(build_v1_concept().children) + 76
+    assert len(connection_parts) == 76
+    assert {part["name"].split("_")[1] for part in connection_parts} == {"leg", "knee", "panel", "main"}
     assert parts[0]["fabrication"]["dimensions_imperial"]
     assert len({part["name"] for part in parts}) == len(parts)
     for part in parts:
@@ -84,6 +87,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "loader.load(part.path" in viewer_html
     assert "part.fabrication.dimensions_mm" in viewer_html
     assert "part.fabrication.dimensions_imperial" in viewer_html
+    assert "analysis_" in viewer_html
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:

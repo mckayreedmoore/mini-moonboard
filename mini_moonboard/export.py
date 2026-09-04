@@ -20,6 +20,7 @@ from .model import (
     V1_KNEE_BOLT_LENGTH_MM,
     V1_KNEE_GUSSET_SIZE_MM,
     V1_LEG_RAIL_BOLT_LENGTH_MM,
+    V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     V1_RAIL_CROSS_TIE_WIDTH_MM,
@@ -230,7 +231,7 @@ def export_v1_cad_render(output_dir: Path) -> Path:
 
 
 def export_v1_viewer_mesh(output_dir: Path) -> Path:
-    """Export selectable meshes with fabrication dimensions and viewer AABBs."""
+    """Export selectable frame and connection-representation meshes for review."""
     output_dir.mkdir(parents=True, exist_ok=True)
     models_dir = output_dir / "models"
     models_dir.mkdir(exist_ok=True)
@@ -249,16 +250,95 @@ def export_v1_viewer_mesh(output_dir: Path) -> Path:
                 "viewer_aabb_mm": [round(bounds.xlen, 1), round(bounds.ylen, 1), round(bounds.zlen, 1)],
             }
         )
+    # The STEP/cut model does not pretend that threads are structural solids.
+    # The viewer does need each primary connector location, though: it is the
+    # review representation that precedes connection modelling in FEA.
+    for name, shape in _v1_viewer_connection_solids():
+        bounds = shape.BoundingBox()
+        filename = f"{name}.stl"
+        cq.exporters.export(shape, str(models_dir / filename), cq.exporters.ExportTypes.STL, tolerance=0.5)
+        parts.append(
+            {
+                "name": name,
+                "path": f"models/{filename}",
+                "fabrication": _v1_viewer_fabrication_metadata(name),
+                "viewer_aabb_mm": [round(bounds.xlen, 1), round(bounds.ylen, 1), round(bounds.zlen, 1)],
+            }
+        )
     path = output_dir / "parts.json"
     path.write_text(json.dumps({"parts": parts}, indent=2) + "\n")
     return path
+
+
+def _v1_viewer_connection_solids() -> tuple[tuple[str, cq.Shape], ...]:
+    """Return visible, thread-free primary connection representations.
+
+    These cylinders show the same centres and nominal shanks as the generated
+    connection schedule. They are intentionally viewer-only: FEA must model
+    each connection's reviewed stiffness and strength, not a cosmetic thread.
+    """
+    parts: list[tuple[str, cq.Shape]] = []
+    bolt_radius = 9.525 / 2
+    for side, sign in (("left", -1), ("right", 1)):
+        for number, distance in enumerate(V1_STRUCTURAL_BOLT_DISTANCES_MM, start=1):
+            parts.append(
+                (
+                    f"analysis_leg_rail_bolt_{side}_{number}",
+                    _viewer_bolt(v1_structural_bolt_position(sign, distance), V1_LEG_RAIL_BOLT_LENGTH_MM, bolt_radius),
+                )
+            )
+        for number, center in enumerate(v1_knee_bolt_positions(sign), start=1):
+            parts.append(
+                (f"analysis_knee_bolt_{side}_{number}", _viewer_bolt(center, V1_KNEE_BOLT_LENGTH_MM, bolt_radius))
+            )
+    for number, (_rail, x, distance) in enumerate(v1_panel_fastener_positions(), start=1):
+        parts.append((f"analysis_panel_screw_{number}", _viewer_panel_screw(x, distance)))
+    for number, (_rail, x, distance) in enumerate(v1_seam_panel_fastener_positions(), start=1):
+        parts.append((f"analysis_main_seam_screw_{number}", _viewer_panel_screw(x, distance)))
+    return tuple(parts)
+
+
+def _viewer_bolt(center: tuple[float, float, float], length: float, radius: float) -> cq.Shape:
+    """Return a shaft, two washers, and a head/nut envelope on the X axis."""
+    x, y, z = center
+    start = cq.Vector(x - length / 2, y, z)
+    direction = cq.Vector(1, 0, 0)
+    shaft = cq.Solid.makeCylinder(radius, length, start, direction)
+    washer_radius, washer_depth = 19.05, 1.5
+    outside = length / 2 - washer_depth
+    left_washer = cq.Solid.makeCylinder(washer_radius, washer_depth, cq.Vector(x - outside, y, z), direction)
+    right_washer = cq.Solid.makeCylinder(washer_radius, washer_depth, cq.Vector(x + outside - washer_depth, y, z), direction)
+    head = cq.Solid.makeCylinder(12.0, 6.0, cq.Vector(x - length / 2 - 6.0, y, z), direction)
+    nut = cq.Solid.makeCylinder(12.0, 7.0, cq.Vector(x + length / 2, y, z), direction)
+    return cq.Compound.makeCompound([shaft, left_washer, right_washer, head, nut])
+
+
+def _viewer_panel_screw(x: float, distance: float) -> cq.Shape:
+    """Return a nominal #10 shank and pan-head envelope along the board normal."""
+    start_y, start_z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+    end_y, end_z = v1_support_side_point(
+        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM - V1_PANEL_FASTENER_LENGTH_MM
+    )
+    direction = cq.Vector(0, end_y - start_y, end_z - start_z)
+    unit = direction.normalized()
+    shaft = cq.Solid.makeCylinder(V1_PANEL_FASTENER_DIAMETER_MM / 2, V1_PANEL_FASTENER_LENGTH_MM, cq.Vector(x, start_y, start_z), direction)
+    head_depth = 3.0
+    head_start = cq.Vector(x, start_y, start_z) - unit.multiply(head_depth)
+    head = cq.Solid.makeCylinder(6.0, head_depth, head_start, direction)
+    return cq.Compound.makeCompound([shaft, head])
 
 
 def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
     """Return cut-list dimensions rather than rotated world-axis extents."""
     dimensions: tuple[float, float, float]
     description: str
-    if name.startswith("main_"):
+    if name.startswith("analysis_leg_rail_bolt_"):
+        dimensions, description = (V1_LEG_RAIL_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in leg-to-rail bolt, washers, head, and nut envelope"
+    elif name.startswith("analysis_knee_bolt_"):
+        dimensions, description = (V1_KNEE_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in knee-plate bolt, washers, head, and nut envelope"
+    elif name.startswith(("analysis_panel_screw_", "analysis_main_seam_screw_")):
+        dimensions, description = (V1_PANEL_FASTENER_LENGTH_MM, V1_PANEL_FASTENER_DIAMETER_MM, V1_PANEL_FASTENER_DIAMETER_MM), "analysis-visible #10 rear rail-to-panel screw axis and head envelope"
+    elif name.startswith("main_"):
         dimensions, description = (V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM), "finished climbing-panel blank"
     elif name.startswith("kicker_") and name in {"kicker_left", "kicker_right"}:
         dimensions, description = (V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM), "finished kicker-panel blank"
