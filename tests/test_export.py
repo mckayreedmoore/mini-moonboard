@@ -103,6 +103,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert len(cut_rows) == 15
     assert len(leg_cut_rows) == 2
     assert leg_cut_rows[0]["finished_profile_mm"].startswith(f"({v1_lower_leg_cut_profile()[0][0]:.3f},0.000)")
+    assert "matched, identically profiled pairs" in leg_cut_rows[0]["cut_instruction"]
     assert len(drill_rows) == 274
     assert len(panel_drill_rows) == 274
     assert {row["part"] for row in panel_drill_rows} == {

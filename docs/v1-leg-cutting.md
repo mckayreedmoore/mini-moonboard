@@ -1,8 +1,9 @@
 # V1 exterior-leg cutting
 
 The two exterior hockey-stick legs use four lower and four upper 18 mm
-laminations. Laminate each matched pair to form one 36 mm leg member; mirror
-the finished lower profile for the left and right legs.
+laminations. Laminate each matched pair to form one 36 mm leg member. Both
+legs use the **same** lower profile: they differ only by their X-side placement
+on the assembly, not by a mirrored side-view cut.
 
 ## Lower member
 

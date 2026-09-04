@@ -517,7 +517,7 @@ def export_v1_leg_cut_schedule(output_dir: Path) -> Path:
                 f"{V1_SUPPORT_WIDTH_MM:.1f}",
                 f"{PANEL_THICKNESS_MM:.1f}",
                 " -> ".join(f"({length:.3f},{width:.3f})" for length, width in profile),
-                "Cut the lower-left triangular waste from the rectangular blank; laminate mirrored pairs for the two exterior legs.",
+                "Cut the lower-left triangular waste from each rectangular blank; laminate matched, identically profiled pairs for the two exterior legs.",
             )
         )
         writer.writerow(
