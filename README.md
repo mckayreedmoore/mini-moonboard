@@ -49,6 +49,11 @@ The viewer also shows the 16 specified structural bolts and 60 primary
 rail-to-panel screw axes as selectable cyan, thread-free connection geometry.
 Those are the connection locations to be represented in the screening FEA; they
 are not a claim that cosmetic cylinder solids model fastener strength.
+Use its panel-overlay selector for no labels, amber grid labels, or
+high-contrast grid labels. The letters A–K and rows 1–12 follow the canonical
+panel datums. Moon-branded artwork is deliberately not bundled until there is
+written permission to rehost it publicly; see the official [artwork archive](https://moonclimbing.com/media/moonboard-pdf/Final_Artwork.zip)
+and the project [artwork policy](docs/panel-artwork.md).
 
 The [side profile](exports/mini_moonboard_v1_concept_side.svg),
 [support-side elevation](exports/mini_moonboard_v1_rear.svg), and

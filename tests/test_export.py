@@ -88,6 +88,8 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "part.fabrication.dimensions_mm" in viewer_html
     assert "part.fabrication.dimensions_imperial" in viewer_html
     assert "analysis_" in viewer_html
+    assert 'id="overlay"' in viewer_html
+    assert "ABCDEFGHIJK" in viewer_html
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:

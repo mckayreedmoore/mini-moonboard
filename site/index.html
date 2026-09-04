@@ -12,11 +12,13 @@
       h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
       p { color: #c7c1b4; font-size: .9rem; margin: 0; }
       #part { margin-top: .5rem; color: #f5f0e6; font-size: .85rem; max-width: 28rem; }
+      label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
+      select { margin-left: .35rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; padding: .2rem; }
       canvas { display: block; height: 100vh; width: 100vw; }
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or cyan connection geometry to inspect it</p><div id="part">Loading selectable CAD parts…</div></header>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or cyan connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid labels</option><option value="grid-high">High-contrast grid labels</option></select></label><div id="part">Loading selectable CAD parts…</div></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -53,6 +55,28 @@
           mesh.userData.part = part; meshes.push(mesh); scene.add(mesh);
         }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
+      const overlay = new THREE.Group(); scene.add(overlay);
+      // These sprites lie 2 mm in front of the actual underside face. Their
+      // positions use the same 40° main-grid datum as the drilled-hole model.
+      const labelSprite = (text, color, position) => {
+        const canvas = document.createElement('canvas'); canvas.width = canvas.height = 128;
+        const context = canvas.getContext('2d'); context.fillStyle = color;
+        context.font = 'bold 72px system-ui'; context.textAlign = 'center'; context.textBaseline = 'middle';
+        context.fillText(text, 64, 66);
+        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, depthWrite: false }));
+        sprite.position.fromArray(position); sprite.scale.set(95, 95, 1); overlay.add(sprite);
+      };
+      const mainFacePoint = (x, distance) => [x, -16.47 + distance * Math.sin(Math.PI / 180 * 40), 223.71 + distance * Math.cos(Math.PI / 180 * 40)];
+      const makeGridOverlay = color => {
+        overlay.clear();
+        'ABCDEFGHIJK'.split('').forEach((letter, index) => labelSprite(letter, color, mainFacePoint(-1019.2 + index * 200, 2415)));
+        Array.from({ length: 12 }, (_, index) => labelSprite(String(index + 1), color, mainFacePoint(-1285, 80 + index * 200)));
+      };
+      const overlaySelect = document.querySelector('#overlay');
+      overlaySelect.addEventListener('change', () => {
+        if (overlaySelect.value === 'none') overlay.clear();
+        else makeGridOverlay(overlaySelect.value === 'grid' ? '#f0b429' : '#f5f0e6');
+      });
       renderer.domElement.addEventListener('pointerdown', event => {
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(meshes)[0];
