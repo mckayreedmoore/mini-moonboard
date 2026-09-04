@@ -9,6 +9,8 @@ from mini_moonboard.model import (
     PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
     V1_LEG_UPPER_DISTANCE_MM,
+    V1_PANEL_FASTENER_DIAMETER_MM,
+    V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     V1_STANDOFF_CLEARANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
@@ -16,6 +18,8 @@ from mini_moonboard.model import (
     _v1_kicker_holes,
     _v1_main_panel_holes,
     v1_main_support_origin,
+    v1_panel_fastener_envelope,
+    v1_panel_fastener_positions,
     v1_rail_standoff_placements,
     v1_structural_bolt_position,
     v1_support_side_point,
@@ -178,6 +182,25 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
             # STEP assembly, but its axis must traverse both the leg and rail.
             assert envelope.intersect(parts[f"leg_{side}"]).Volume() > 0
             assert envelope.intersect(parts[rail]).Volume() > 0
+
+    expected_panel_embedment = V1_PANEL_FASTENER_LENGTH_MM - 2 * V1_HARDWARE_GAP_MM
+    for placement, fastener_pair in zip(
+        v1_rail_standoff_placements(),
+        (v1_panel_fastener_positions()[index : index + 2] for index in range(0, 40, 2)),
+        strict=True,
+    ):
+        rail_number, _block_x, row, block_distance = placement
+        rail = f"face_rail_{rail_number}_{row}" if rail_number < 5 else f"face_rail_center_seam_{row}"
+        block = f"rail_{rail_number}_standoff_{row}_{int(block_distance % V1_PANEL_SIZE_MM)}"
+        panel = f"main_{row}_{'left' if rail_number in (1, 2, 5) else 'right'}"
+        for _fastener_rail, screw_x, screw_distance in fastener_pair:
+            envelope = v1_panel_fastener_envelope(screw_x, screw_distance)
+            assert envelope.intersect(parts[rail]).Volume() > 0
+            assert envelope.intersect(parts[block]).Volume() > 0
+            assert envelope.intersect(parts[panel]).Volume() == pytest.approx(
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_panel_embedment,
+                abs=1,
+            )
 
     bores = []
     for row in range(2):

@@ -69,7 +69,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
-| [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail and eight knee-plate structural-bolt datums |
+| [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail bolts, eight knee-plate bolts, and forty panel/rail screw datums |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 
@@ -101,7 +101,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
-| Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
+| Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
 
@@ -138,7 +138,10 @@ that change record.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the support-side frame flat where practical, raise it with at
-   least two people, and fasten panels only to the reviewed support layout.
+   least two people, and fasten every bearing block with two #10 x 3.25-in
+   screws from the rail exterior. Use the connection schedule's 40 head-centre
+   datums; test the exact screw on an offcut to confirm its tip does not break
+   through the climbing face.
 8. Drill final hold and LED holes using the calibrated template. Install and
    test the LED strings/controller before final rear access is obstructed.
 9. Complete a non-climbing inspection of all connections, wiring protection,
@@ -162,6 +165,10 @@ continue as a geometry prototype while they are unresolved.
 - Check all structural bolt locations against the final hold, T-nut, LED,
   wiring, and panel-seam layout; the T-nut rows locate leg geometry but are not
   structural-fastener locations.
+- Prove the selected #10 x 3.25-in panel/rail screw on an offcut: the actual
+  head must seat on the rail, its pilot must not split the block or panel, and
+  its tip must stay clear of the climbing face, T-nut hardware, LED hardware,
+  and wiring.
 - Assess unanchored overturning, sliding, racking, floor bearing, anti-slip,
   and load spreading for intended use. No anchor may be added without a
   controlled revision.

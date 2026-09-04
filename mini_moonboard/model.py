@@ -29,6 +29,9 @@ V1_LEG_UPPER_DISTANCE_MM = 1880.0
 V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
 V1_KNEE_GUSSET_SIZE_MM = 450.0
 V1_KNEE_BOLT_OFFSETS_MM = (70.0, 220.0)
+V1_PANEL_FASTENER_DIAMETER_MM = 4.826
+V1_PANEL_FASTENER_LENGTH_MM = 82.55
+V1_PANEL_FASTENER_TANGENT_OFFSETS_MM = (25.0, 55.0)
 V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
 V1_LED_HOLE_DIAMETER_MM = 13.0
 # The climber is below the overhanging panel. The board's opposite side carries
@@ -444,6 +447,37 @@ def v1_knee_bolt_positions(side: int) -> tuple[tuple[float, float, float], ...]:
         point_toward(end_y, end_z, offset)
         for end_y, end_z in ((upper_y, upper_z), (foot_y, foot_z))
         for offset in V1_KNEE_BOLT_OFFSETS_MM
+    )
+
+
+def v1_panel_fastener_positions() -> tuple[tuple[int, float, float], ...]:
+    """Return (rail number, X, board-distance) for 40 rear-installed screws.
+
+    Each of the twenty bearing blocks receives two screws 25 and 55 mm from
+    its lower-board-distance edge. The screw enters through the rail's exterior face, crosses its
+    matching block, and embeds 10.55 mm into the 18 mm panel without reaching
+    the underside climbing face.
+    """
+    return tuple(
+        (rail_number, x, distance + offset)
+        for rail_number, x, _row, distance in v1_rail_standoff_placements()
+        for offset in V1_PANEL_FASTENER_TANGENT_OFFSETS_MM
+    )
+
+
+def v1_panel_fastener_envelope(x: float, distance: float) -> cq.Shape:
+    """Return the board-normal reference volume for one panel attachment screw."""
+    start_y, start_z = v1_support_side_point(
+        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM
+    )
+    end_y, end_z = v1_support_side_point(
+        distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM - V1_PANEL_FASTENER_LENGTH_MM
+    )
+    return cq.Solid.makeCylinder(
+        V1_PANEL_FASTENER_DIAMETER_MM / 2,
+        V1_PANEL_FASTENER_LENGTH_MM,
+        cq.Vector(x, start_y, start_z),
+        cq.Vector(0.0, end_y - start_y, end_z - start_z),
     )
 
 

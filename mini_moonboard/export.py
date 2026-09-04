@@ -14,8 +14,10 @@ from .model import (
     MAIN_PANEL_SIZE_MM,
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
+    V1_HARDWARE_GAP_MM,
     V1_KICKER_HEIGHT_MM,
     V1_KNEE_GUSSET_SIZE_MM,
+    V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     V1_REAR_TIE_WIDTH_MM,
     V1_STANDOFF_LENGTH_MM,
@@ -28,7 +30,9 @@ from .model import (
     reference_envelope,
     v1_knee_bolt_positions,
     v1_leg_geometry,
+    v1_panel_fastener_positions,
     v1_structural_bolt_position,
+    v1_support_side_point,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
@@ -513,6 +517,23 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, bolt stack, and load path",
                     )
                 )
+        for rail_number, x, distance in v1_panel_fastener_positions():
+            y, z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+            writer.writerow(
+                (
+                    "rear face rail through bearing block into panel",
+                    f"rail-{rail_number}",
+                    1,
+                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are screw-head center at rail exterior face",
+                    f"{x:.3f}",
+                    f"{y:.3f}",
+                    f"{z:.3f}",
+                    "board-normal toward climbing face",
+                    "3.200 pilot",
+                    f"#10 structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.25 in nominal",
+                    "PROVISIONAL: two screws per bearing block; fit-test confirms 10.55 mm panel embedment without face breakout",
+                )
+            )
     return path
 
 
@@ -528,7 +549,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in Grade-5 structural through-bolts", "8 x 10 in; 8 x 4 in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
-        ("Panel-to-rail fasteners", "unresolved", "Select only after physical fit test and review"),
+        ("#10 x 3.25 in structural wood screws", "40", "Two rear-installed screws per bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
     )

@@ -94,11 +94,11 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
-    assert len(connection_rows) == 16
+    assert len(connection_rows) == 56
     assert len(bom_rows) == 10
     assert bom_rows[0]["quantity"] == "10 sheets"
-    assert {row["axis"] for row in connection_rows} == {"X"}
-    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000"}
+    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward climbing face"}
+    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
     rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
