@@ -16,7 +16,9 @@ from .model import (
     PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
     V1_KICKER_HEIGHT_MM,
+    V1_KNEE_BOLT_LENGTH_MM,
     V1_KNEE_GUSSET_SIZE_MM,
+    V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     V1_REAR_TIE_LAG_LENGTH_MM,
@@ -537,7 +539,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         f"{z:.3f}",
                         "X",
                         "10.000",
-                        "3/8 in Grade-5 through-bolt; length unresolved pending approved washer/plate/nut stack and thread engagement",
+                        f"3/8 in Grade-5 through-bolt, {V1_LEG_RAIL_BOLT_LENGTH_MM:.1f} mm / 10 in nominal; verify washer/nut stack and thread engagement",
                         "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, panel/T-nut/LED clearance, bolt stack, and load path",
                     )
                 )
@@ -554,7 +556,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         f"{z:.3f}",
                         "X",
                         "10.000",
-                        "3/8 in Grade-5 through-bolt, 4 in nominal; plate + one 36 mm leg member + washers/nut",
+                        f"3/8 in Grade-5 through-bolt, {V1_KNEE_BOLT_LENGTH_MM:.1f} mm / 4 in nominal; plate + one 36 mm leg member + washers/nut",
                         "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, bolt stack, and load path",
                     )
                 )
@@ -606,7 +608,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
         ("Insulated screw-mounted cable saddles", "30 plus spares", "Mount to rear rails only; see docs/v1-led-installation.md and measure received wire before selecting"),
-        ("3/8 in Grade-5 structural through-bolts", "8 x 10 in; 8 x 4 in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
+        ("3/8 in Grade-5 structural through-bolts", f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
         ("#10 x 3.25 in structural wood screws", "40", "Two rear-installed screws per bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),

@@ -24,6 +24,8 @@ from mini_moonboard.export import (
     export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
+    V1_KNEE_BOLT_LENGTH_MM,
+    V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     build_v1_concept,
     v1_leg_geometry,
@@ -104,6 +106,9 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert len(connection_rows) == 68
     assert len(bom_rows) == 14
     assert bom_rows[0]["quantity"] == "11 sheets"
+    structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
+    assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
+    assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])
     assert {row["axis"] for row in connection_rows} == {"X", "X toward board centerline", "board-normal toward climbing face"}
     assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "6.000 pilot", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")

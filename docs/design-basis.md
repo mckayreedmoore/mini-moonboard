@@ -24,7 +24,7 @@ invented from the photograph or video.
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
-| Connections | Four schedule-only structural-hole datums per leg into the exterior outer rail; 3/8-in Grade-5 bolt length unresolved | Provisional; bolts are intentionally absent from the collision-audited STEP assembly; do not substitute climbing T-nuts for structural connections |
+| Connections | Four schedule-only 3/8-in Grade-5 x 10-in structural-bolt datums per leg into the exterior outer rail, plus four 3/8-in Grade-5 x 4-in knee-plate bolts per leg | Provisional; bolts are intentionally absent from the collision-audited STEP assembly; do not substitute climbing T-nuts for structural connections. Verify actual washer/nut stack and thread engagement before purchase. |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
 | Portability | Fixed assembly versus demountable joints | Unresolved |
 
