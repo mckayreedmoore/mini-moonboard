@@ -255,6 +255,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_reference(generated_dir)
     export_v1_concept(generated_dir)
     export_v1_stability_screen(generated_dir)
+    export_v1_fastener_clearance_screen(generated_dir)
     export_v1_cad_render(generated_dir)
     export_v1_concept_side_drawing(generated_dir)
     export_v1_front_drawing(generated_dir)
