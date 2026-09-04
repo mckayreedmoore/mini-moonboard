@@ -5,6 +5,8 @@ import re
 from pathlib import Path
 
 import cadquery as cq
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 from .model import (
     ANGLE_FROM_VERTICAL_DEG,
@@ -166,6 +168,31 @@ def export_v1_concept(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_concept.step"
     _export_step(build_v1_concept(), path)
+    return path
+
+
+def export_v1_cad_render(output_dir: Path) -> Path:
+    """Render tessellated solids from the actual V1 CadQuery assembly."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_cad_render.png"
+    figure = plt.figure(figsize=(12, 9), facecolor="#f4f1ea")
+    axes = figure.add_subplot(projection="3d")
+    colors = {"main": "#20252b", "kicker": "#444b53", "leg": "#8a4b16", "face": "#6f3510"}
+    for child in build_v1_concept().children:
+        shape = child.obj if not hasattr(child.obj, "val") else child.obj.val()
+        vertices, triangles = shape.tessellate(2.0)
+        faces = [[vertices[index].toTuple() for index in triangle] for triangle in triangles]
+        category = next((key for key in colors if child.name.startswith(key)), "face")
+        axes.add_collection3d(Poly3DCollection(faces, facecolors=colors[category], edgecolors="#171717", linewidths=0.1))
+    axes.set_box_aspect((2438.4, 1700, 2100))
+    axes.view_init(elev=19, azim=-57)
+    axes.set_axis_off()
+    axes.set_xlim(-1500, 1500)
+    axes.set_ylim(-100, 1700)
+    axes.set_zlim(0, 2200)
+    figure.tight_layout(pad=0)
+    figure.savefig(path, dpi=180, facecolor=figure.get_facecolor())
+    plt.close(figure)
     return path
 
 
@@ -623,6 +650,7 @@ def main() -> None:
     paths = (
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_v1_concept(args.output_dir),
+        export_v1_cad_render(args.output_dir),
         export_v1_concept_side_drawing(args.output_dir),
         export_v1_front_drawing(args.output_dir),
         export_v1_rear_drawing(args.output_dir),
