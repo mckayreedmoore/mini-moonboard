@@ -20,6 +20,7 @@ from mini_moonboard.export import (
     export_v1_connection_schedule,
     export_v1_cut_list,
     export_v1_drill_schedule,
+    export_v1_fastener_clearance_screen,
     export_v1_front_drawing,
     export_v1_isometric_drawing,
     export_v1_leg_cut_schedule,
@@ -105,6 +106,15 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "name: 'McKay'" in viewer_html
     assert "person.position.set(1710, 250, 0)" in viewer_html
     assert "MCKAY — 5'8\\\" / 1727.2 mm" in viewer_html
+
+
+def test_fastener_head_clearance_screen_exposes_structural_stack_collisions(tmp_path: Path) -> None:
+    screen = export_v1_fastener_clearance_screen(tmp_path).read_text()
+
+    assert "Status: **FAIL" in screen
+    assert "Panel-screw countersunk-head collisions: **0**" in screen
+    assert "analysis_leg_rail_bolt_left_1" in screen
+    assert "analysis_knee_bolt_right_1" in screen
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:

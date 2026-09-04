@@ -308,6 +308,18 @@ def _v1_viewer_connection_solids() -> tuple[tuple[str, cq.Shape], ...]:
 
 def _viewer_bolt(center: tuple[float, float, float], length: float, radius: float) -> cq.Shape:
     """Return a shaft, two washers, and a head/nut envelope on the X axis."""
+    return cq.Compound.makeCompound(_viewer_bolt_components(center, length, radius))
+
+
+def _viewer_bolt_components(
+    center: tuple[float, float, float], length: float, radius: float
+) -> tuple[cq.Shape, cq.Shape, cq.Shape, cq.Shape, cq.Shape]:
+    """Return the named-order viewer solids for one provisional through-bolt.
+
+    The order is stable for the clearance screen: shaft, left washer, right
+    washer, head, nut. The compound remains viewer-only and is deliberately
+    more conservative than a threaded fastener model.
+    """
     x, y, z = center
     start = cq.Vector(x - length / 2, y, z)
     direction = cq.Vector(1, 0, 0)
@@ -318,11 +330,16 @@ def _viewer_bolt(center: tuple[float, float, float], length: float, radius: floa
     right_washer = cq.Solid.makeCylinder(washer_radius, washer_depth, cq.Vector(x + outside - washer_depth, y, z), direction)
     head = cq.Solid.makeCylinder(12.0, 6.0, cq.Vector(x - length / 2 - 6.0, y, z), direction)
     nut = cq.Solid.makeCylinder(12.0, 7.0, cq.Vector(x + length / 2, y, z), direction)
-    return cq.Compound.makeCompound([shaft, left_washer, right_washer, head, nut])
+    return (shaft, left_washer, right_washer, head, nut)
 
 
 def _viewer_panel_screw(x: float, distance: float) -> cq.Shape:
     """Return a nominal face-countersunk #10 shank along the board normal."""
+    return cq.Compound.makeCompound(_viewer_panel_screw_components(x, distance))
+
+
+def _viewer_panel_screw_components(x: float, distance: float) -> tuple[cq.Shape, cq.Shape]:
+    """Return the named-order viewer solids for one countersunk panel screw."""
     start_y, start_z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
     end_y, end_z = v1_support_side_point(
         distance, -PANEL_THICKNESS_MM + V1_PANEL_FASTENER_LENGTH_MM
@@ -333,7 +350,83 @@ def _viewer_panel_screw(x: float, distance: float) -> cq.Shape:
     head_depth = 3.0
     head_start = cq.Vector(x, start_y, start_z) - unit.multiply(head_depth)
     head = cq.Solid.makeCylinder(6.0, head_depth, head_start, direction)
-    return cq.Compound.makeCompound([shaft, head])
+    return (shaft, head)
+
+
+def _v1_fastener_head_collisions() -> tuple[tuple[str, str, str, float], ...]:
+    """Report non-shank viewer-fastener overlap with physical V1 solids.
+
+    Shafts are intentionally omitted: their intersection with their joined
+    members is the fastening function. A washer, head, or nut may touch its
+    clamped surface but must not have material-volume overlap. This tests the
+    nominal viewer hardware, not a reviewed fastener design.
+    """
+    board_parts = {
+        child.name: child.obj.val() if hasattr(child.obj, "val") else child.obj
+        for child in build_v1_concept().children
+    }
+    collisions: list[tuple[str, str, str, float]] = []
+    for name, shape in _v1_viewer_connection_solids():
+        roles = (
+            ("shaft", "left washer", "right washer", "head", "nut")
+            if name.startswith(("analysis_leg_rail_bolt_", "analysis_knee_bolt_"))
+            else ("shaft", "countersunk head")
+        )
+        for role, solid in zip(roles, shape.Solids(), strict=True):
+            if role == "shaft":
+                continue
+            for part_name, part in board_parts.items():
+                volume = solid.intersect(part).Volume()
+                if volume > 0.01:
+                    collisions.append((name, role, part_name, volume))
+    return tuple(collisions)
+
+
+def render_v1_fastener_clearance_screen() -> str:
+    """Render the viewer-hardware head/washer/nut collision audit."""
+    collisions = _v1_fastener_head_collisions()
+    rows = "\n".join(
+        f"| `{fastener}` | {role} | `{part}` | {volume:.1f} |"
+        for fastener, role, part, volume in collisions
+    ) or "| None | — | — | 0.0 |"
+    panel_head_collisions = [
+        collision
+        for collision in collisions
+        if collision[0].startswith(("analysis_panel_screw_", "analysis_main_seam_screw_"))
+    ]
+    return f"""# V1 fastener head-clearance screen
+
+This CAD-derived screen checks the visible nominal fastener **heads, washers,
+and nuts** against all physical V1 solids. It intentionally excludes shafts:
+their intersection with the fastened material is required. Surface contact is
+allowed; a reported value is a material-volume overlap above 0.01 mm³.
+
+## Result
+
+- Total non-shank collisions: **{len(collisions)}**.
+- Panel-screw countersunk-head collisions: **{len(panel_head_collisions)}**.
+- Status: **FAIL — do not treat the viewer fastener representation as an
+  installable hardware stack.**
+
+The screen confirms that the face-installed countersunk screw heads have no
+material-volume clash with the panels. It also exposes the current structural
+fastener problem: the generic through-bolt stack places hardware through the
+knee gusset/leg/rail volume. This is a real layout and stack-up issue, not an
+allowed shaft intersection. A redesigned, reviewer-approved connection must
+define the bolt direction, head/washer/nut locations, actual plate stack, and
+edge distances, then make this table empty.
+
+| Fastener | Component | Intruded physical part | Overlap mm³ |
+| --- | --- | --- | ---: |
+{rows}
+"""
+
+
+def export_v1_fastener_clearance_screen(output_dir: Path) -> Path:
+    """Export the repeatable nominal fastener-head collision screen."""
+    path = output_dir / "mini_moonboard_v1_fastener_clearance_screen.md"
+    path.write_text(render_v1_fastener_clearance_screen())
+    return path
 
 
 def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
@@ -1087,6 +1180,7 @@ def main() -> None:
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_v1_concept(args.output_dir),
         export_v1_stability_screen(args.output_dir),
+        export_v1_fastener_clearance_screen(args.output_dir),
         export_v1_cad_render(args.output_dir),
         export_v1_concept_side_drawing(args.output_dir),
         export_v1_front_drawing(args.output_dir),
