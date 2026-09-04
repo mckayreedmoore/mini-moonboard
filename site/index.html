@@ -45,6 +45,9 @@
       const key = new THREE.DirectionalLight(0xffffff, 2.5); key.position.set(2000, 2500, 500); scene.add(key);
       const grid = new THREE.GridHelper(5000, 25, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
       const loader = new STLLoader(), meshes = [], raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
+      // CAD +X is the template's left-to-right construction coordinate. Mirror
+      // it for the climber-facing view, where the visible left edge is A/rows.
+      const climberView = new THREE.Group(); climberView.scale.x = -1; scene.add(climberView);
       const partCard = document.querySelector('#part'); let selected;
       const colorFor = name => name.startsWith('analysis_') ? 0x29b6d6 : name.startsWith('main_') ? 0x20252b : name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts }) => {
@@ -52,7 +55,7 @@
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part.name), roughness: .7, metalness: .05 }));
-          mesh.userData.part = part; meshes.push(mesh); scene.add(mesh);
+          mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
         }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
       const overlay = new THREE.Group(); scene.add(overlay);
@@ -77,7 +80,7 @@
         overlay.clear();
         // In climber-facing coordinates, +X is left and -X is right. A starts
         // at climber-left; the row numbers therefore also belong at +X.
-        'ABCDEFGHIJK'.split('').forEach((letter, index) => labelDecal(letter, color, mainFacePoint(1019.2 - index * 200, 2415)));
+        'ABCDEFGHIJK'.split('').forEach((letter, index) => labelDecal(letter, color, mainFacePoint(1019.2 - index * 200, 2380)));
         Array.from({ length: 12 }, (_, index) => labelDecal(String(index + 1), color, mainFacePoint(1019.2, 80 + index * 200)));
       };
       const overlaySelect = document.querySelector('#overlay');

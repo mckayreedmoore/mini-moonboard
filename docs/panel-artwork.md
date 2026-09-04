@@ -23,3 +23,8 @@ climber-facing coordinates: A begins at climber-left, and rows 1–12 run in the
 200 mm in-panel margin at climber-left. They do not alter the STEP model, hole datums, cut list, or FEA
 model. A future licensed Moon-artwork overlay can use the same selector without
 changing the CAD geometry.
+
+The viewer reflects the CAD assembly across X for this climber-facing
+presentation: the source template's A column and the visible A decal therefore
+occupy the same climber-left column. This is a view transform only; the
+manufacturing schedules retain the official template's lower-left datum.
