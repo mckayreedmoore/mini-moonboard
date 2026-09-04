@@ -9,6 +9,8 @@ V1_KICKER_HEIGHT_MM = 225.0
 ANGLE_FROM_VERTICAL_DEG = 40.0
 V1_SUPPORT_THICKNESS_MM = 36.0
 V1_SUPPORT_WIDTH_MM = 180.0
+V1_FACE_RAIL_COUNT = 4
+V1_REAR_TIE_WIDTH_MM = 180.0
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -79,6 +81,42 @@ def _support_member(
     )
 
 
+def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplane:
+    """Return a rearward-offset, board-parallel support rail.
+
+    The 54 mm local offset is a provisional clearance gap for T-nuts and LED
+    wiring. It must be checked against the selected hardware before fabrication.
+    """
+    return (
+        cq.Workplane("XY")
+        .box(V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM, length, centered=(True, False, False))
+        .translate((x, 54.0, distance))
+        .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
+        .translate((0, 0, V1_KICKER_HEIGHT_MM))
+    )
+
+
+def _rear_tie(y: float, z: float) -> cq.Workplane:
+    """Return a provisional full-width transverse tie between the exterior legs."""
+    return cq.Workplane("XY").box(
+        2 * MAIN_PANEL_SIZE_MM + 2 * V1_SUPPORT_THICKNESS_MM,
+        V1_SUPPORT_THICKNESS_MM,
+        V1_REAR_TIE_WIDTH_MM,
+        centered=(True, True, True),
+    ).translate((0, y, z))
+
+
+def _panel_joint_brace(distance: float) -> cq.Workplane:
+    """Return a full-width board-parallel brace at a panel-edge datum."""
+    return (
+        cq.Workplane("XY")
+        .box(2 * MAIN_PANEL_SIZE_MM, V1_SUPPORT_THICKNESS_MM, V1_REAR_TIE_WIDTH_MM, centered=(True, False, True))
+        .translate((0, 54.0, distance))
+        .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
+        .translate((0, 0, V1_KICKER_HEIGHT_MM))
+    )
+
+
 def build_v1_concept() -> cq.Assembly:
     """Build the provisional unanchored board and two exterior hockey-stick legs.
 
@@ -104,5 +142,27 @@ def build_v1_concept() -> cq.Assembly:
         upper = _support_member(bend_y, bend_z, upper_y, upper_z).translate((x, 0, 0))
         lower = _support_member(bend_y, bend_z, foot_y, 0.0).translate((x, 0, 0))
         board.add(cq.Compound.makeCompound([upper.val(), lower.val()]), name=f"leg_{side}", color=cq.Color("saddlebrown"))
+
+    main_surface = 2 * MAIN_PANEL_SIZE_MM
+    rail_spacing = main_surface / (V1_FACE_RAIL_COUNT - 1)
+    for index in range(V1_FACE_RAIL_COUNT):
+        board.add(
+            _sloped_face_member(-MAIN_PANEL_SIZE_MM + index * rail_spacing, 0.0, main_surface),
+            name=f"face_rail_{index + 1}",
+            color=cq.Color("saddlebrown"),
+        )
+
+    for name, distance in (("kicker", 0.0), ("mid", MAIN_PANEL_SIZE_MM), ("top", main_surface)):
+        board.add(
+            _panel_joint_brace(distance),
+            name=f"panel_joint_brace_{name}",
+            color=cq.Color("saddlebrown"),
+        )
+
+    for name, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
+        tie_distance = bend_distance * fraction
+        tie_y = tie_distance * math.sin(angle) + 200.0
+        tie_z = V1_KICKER_HEIGHT_MM + tie_distance * math.cos(angle)
+        board.add(_rear_tie(tie_y, tie_z), name=f"rear_tie_{name}", color=cq.Color("saddlebrown"))
 
     return board

@@ -32,7 +32,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 10
+    assert cq.importers.importStep(str(path)).solids().size() == 20
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:

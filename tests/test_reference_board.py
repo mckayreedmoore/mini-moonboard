@@ -59,5 +59,9 @@ def test_custom_kicker_moves_the_main_surface_up() -> None:
 def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     board = build_v1_concept()
 
-    assert [part.name for part in board.children][-2:] == ["leg_left", "leg_right"]
-    assert len(board.children) == 8
+    names = [part.name for part in board.children]
+
+    assert names[6:8] == ["leg_left", "leg_right"]
+    assert names[8:12] == ["face_rail_1", "face_rail_2", "face_rail_3", "face_rail_4"]
+    assert names[-3:] == ["rear_tie_low", "rear_tie_mid", "rear_tie_top"]
+    assert len(board.children) == 18
