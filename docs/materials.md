@@ -14,6 +14,14 @@ frame ideas. It is not yet a purchasing list.
 | Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | LED kit selected; four 50-LED strings (200 bulbs total; 66 extra for Mini) |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
+The user-selected panel stock is [Swaner Hardwood 3/4-in x 4-ft x 8-ft C-3
+Birch Plywood, Home Depot product 165921](https://www.homedepot.com/p/Swaner-Hardwood-3-4-in-x-4-ft-x-8-ft-C-3-Birch-Plywood-165921/202085716), recorded 2026-09-04.
+The selected hold insert is [Escape Climbing 3-hole screw-in T-nut, Amazon
+ASIN B00FJGT7QI](https://www.amazon.com/dp/B00FJGT7QI?ref=ppx_yo2ov_dt_b_fed_asin_title),
+recorded 2026-09-04. These are user-provided listing references, not verified
+material certifications: availability, dimensions, grade, and every listing
+claim remain provisional until the received samples and offcut test are logged.
+
 ## Provisional frame approach
 
 The v1 concept has three assemblies: the board/kicker and two exterior

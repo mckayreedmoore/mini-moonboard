@@ -150,11 +150,13 @@ same batch intended for construction.
 | Input | Metric | Imperial |
 | --- | ---: | ---: |
 | Panel sheet length x width | **unresolved** mm | **unresolved** in |
+| Selected panel-stock reference | Swaner Hardwood C-3 birch plywood, Home Depot 165921; user-provided URL recorded 2026-09-04 | **unresolved** pending received-sheet measurement |
 | Panel measured thickness: min/average/max | **unresolved** mm | **unresolved** in |
 | Frame-lamination sheet length x width | **unresolved** mm | **unresolved** in |
 | Frame-ply measured thickness: min/average/max | **unresolved** mm | **unresolved** in |
 | Species, grade, ply count, and certification | **unresolved** | **unresolved** |
 | Hold/T-nut thread standard | 3/8-16 Escape screw-in T-nuts selected | 3/8-16 Escape screw-in T-nuts selected |
+| Selected T-nut reference | Escape 3-hole screw-in T-nut, Amazon ASIN B00FJGT7QI; user-provided URL recorded 2026-09-04 | **unresolved** pending sample inspection |
 | T-nut body length, flange diameter, and flange thickness | **unresolved** mm | **unresolved** in |
 | T-nut hole diameter and barrel length | 11.11 mm / 7/16 in bore per selected Escape listing; barrel actual sample **unresolved** | 7/16 in bore per selected Escape listing; barrel actual sample **unresolved** |
 | LED-system version and guide revision | MoonBoard LED System, SKU 60-201-V5; supplied guide revision **unresolved** | MoonBoard LED System, SKU 60-201-V5; supplied guide revision **unresolved** |

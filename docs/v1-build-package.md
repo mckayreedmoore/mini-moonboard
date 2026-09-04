@@ -18,7 +18,7 @@ human-audit list at the end.
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
-| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.8 mm above floor | Derived provisional geometry; not a finished foot/contact detail |
+| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.4 mm above floor | Derived provisional geometry; wood member meets the CAD floor plane but finished feet/contact detail remains unresolved |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
@@ -29,6 +29,16 @@ LED, and cable clearance. It includes four conservative LED-string routing
 envelopes and one controller envelope in the STEP model. They are routing and
 clearance aids, not measured component geometry; do not reduce the gap or
 mount hardware without a physical clearance check against the supplied kit.
+
+### Structural-coordinate datum
+
+The connection schedule uses CAD datum **O**: the intersection of the board
+centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
+the finished-floor plane (`Z=0`). Positive X is to the right while facing the
+climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
+coordinate is the centre of a provisional structural-bolt clearance hole; the
+bolt axis is X. The exterior face rails are behind the board at `Y=54 mm`.
+This datum is for audit transfer only, not authorization to drill.
 
 ## Generated deliverables
 
@@ -62,11 +72,11 @@ This is a quantity estimate, not a release-to-purchase BOM.
 
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
-| 3/4-in, 4 x 8 birch plywood | 16 sheets | Four factory-edge main panels, one kicker sheet, estimated ten support-frame sheets, and one offcut/waste sheet; no listed piece is assumed to be cut twice from a 96-in length |
+| 3/4-in, 4 x 8 birch plywood | **unresolved** | User-selected stock; the cut list is deliberately not a nesting plan. Purchase quantity must follow an audited sheet-by-sheet nesting layout and actual stock measurement. |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; includes controller, four 50-LED strings, feeds, and 5 V adapter |
-| Leg-to-outer-rail structural bolts | 8 | **Provisional:** 3/8-in x 9-in Grade-5 through-bolts, two 1.5-in fender washers, and a nyloc nut at each; full X/Y/Z datums and a 10 mm clearance-hole assumption are in the connection schedule |
+| Leg-to-outer-rail structural bolts | 8 | **Provisional:** 3/8-in Grade-5 through-bolts; length is unresolved until the reviewer approves the washer/plate/nut stack and thread engagement. Full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. |
 | Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |

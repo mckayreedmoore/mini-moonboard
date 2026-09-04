@@ -16,6 +16,9 @@ V1_FACE_RAIL_COUNT = 4
 V1_REAR_TIE_WIDTH_MM = 180.0
 V1_HARDWARE_GAP_MM = 54.0
 V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
+V1_LEG_BEND_DISTANCE_MM = 1480.0
+V1_LEG_UPPER_DISTANCE_MM = 1880.0
+V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -171,14 +174,18 @@ def _led_string_envelope(x: float) -> cq.Workplane:
 def v1_leg_geometry() -> dict[str, float]:
     """Return the shared provisional side-leg geometry in millimetres."""
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
-    bend_distance, upper_distance = 1480.0, 1880.0
+    bend_distance, upper_distance = V1_LEG_BEND_DISTANCE_MM, V1_LEG_UPPER_DISTANCE_MM
     bend_y = V1_HARDWARE_GAP_MM + bend_distance * math.sin(angle)
     bend_z = V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
     upper_y = V1_HARDWARE_GAP_MM + upper_distance * math.sin(angle)
     upper_z = V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
     foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
-    lower_angle = math.atan2(foot_y - bend_y, -bend_z)
-    foot_center_z = 1.0 + V1_SUPPORT_WIDTH_MM / 2 * abs(math.sin(lower_angle))
+    # Solve the endpoint-centre elevation which places the wood member's lower
+    # edge on z=0. Finished feet remain a separate, reviewer-selected detail.
+    foot_center_z = 0.0
+    for _ in range(8):
+        lower_length = math.hypot(foot_y - bend_y, foot_center_z - bend_z)
+        foot_center_z = V1_SUPPORT_WIDTH_MM / 2 * (foot_y - bend_y) / lower_length
     return {
         "bend_distance": bend_distance,
         "bend_y": bend_y,
@@ -262,7 +269,7 @@ def build_v1_concept() -> cq.Assembly:
             )
 
     for side, label in ((-1, "left"), (1, "right")):
-        for index, distance in enumerate((1520.0, 1640.0, 1760.0, 1880.0), start=1):
+        for index, distance in enumerate(V1_STRUCTURAL_BOLT_DISTANCES_MM, start=1):
             board.add(
                 _structural_bolt_envelope(side, distance),
                 name=f"leg_bolt_{label}_{index}",

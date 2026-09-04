@@ -14,6 +14,7 @@ from .model import (
     V1_KICKER_HEIGHT_MM,
     V1_PANEL_SIZE_MM,
     V1_REAR_TIE_WIDTH_MM,
+    V1_STRUCTURAL_BOLT_DISTANCES_MM,
     V1_SUPPORT_THICKNESS_MM,
     V1_SUPPORT_WIDTH_MM,
     build_reference_board,
@@ -353,7 +354,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "panel-joint-brace-half lamination", 12, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-center-seam lamination", 2, V1_KICKER_HEIGHT_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-bottom-backing-half lamination", 4, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rear-tie-half lamination", 12, 1256.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
     )
@@ -395,7 +396,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
     """Export provisional structural connection datums for human review."""
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_connection_schedule.csv"
-    bolt_distances = (1520.0, 1640.0, 1760.0, 1880.0)
+    bolt_distances = V1_STRUCTURAL_BOLT_DISTANCES_MM
     with path.open("w", newline="") as stream:
         writer = csv.writer(stream, lineterminator="\n")
         writer.writerow(
@@ -403,6 +404,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                 "connection",
                 "side",
                 "quantity",
+                "datum",
                 "x_mm",
                 "y_mm",
                 "z_mm",
@@ -421,13 +423,14 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         "leg upper member to exterior outer face rail",
                         side,
                         1,
+                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; coordinate is hole center",
                         f"{sign * (V1_PANEL_SIZE_MM + 54.0):.3f}",
                         f"{54.0 + distance * math.sin(angle):.3f}",
                         f"{V1_KICKER_HEIGHT_MM + distance * math.cos(angle):.3f}",
                         "X",
                         "10.000",
-                        "3/8 in x 9 in Grade-5 through-bolt, two 1.5 in fender washers, nyloc nut",
-                        "PROVISIONAL: envelope modeled; reviewer must check edge distance, panel/T-nut/LED clearance, and load path",
+                        "3/8 in Grade-5 through-bolt; length unresolved pending approved washer/plate/nut stack and thread engagement",
+                        "PROVISIONAL: envelope modeled; reviewer must check edge distance, panel/T-nut/LED clearance, bolt stack, and load path",
                     )
                 )
     return path
@@ -438,11 +441,11 @@ def export_v1_bom(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
-        ("3/4 in 4 x 8 birch plywood", "16 sheets", "Provisional: factory-edge panels; includes one offcut/waste sheet"),
+        ("3/4 in 4 x 8 birch plywood", "unresolved", "User-selected source stock; no sheet count until a reviewed nesting plan"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
-        ("3/8 in x 9 in Grade-5 structural through-bolts", "8", "Provisional leg-to-outer-rail connection hardware"),
+        ("3/8 in Grade-5 structural through-bolts", "8; length unresolved", "Do not purchase length until approved washer/plate/nut stack and thread engagement calculation"),
         ("3/8 in x 1.5 in fender washers", "16", "Provisional leg connection hardware"),
         ("3/8 in nyloc nuts", "8", "Provisional leg connection hardware"),
         ("Panel-to-rail fasteners", "unresolved", "Select only after physical fit test and review"),
