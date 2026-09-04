@@ -12,16 +12,22 @@ be used as fabrication dimensions.
 
 ## Visible construction sequence
 
-The time-lapse between 0:52 and 1:09 appears to show:
+The 0:52-1:09 time-lapse was inspected frame by frame at 1280 x 720. It shows
+the following sequence; timestamps are approximate because the source is a
+fast time-lapse.
 
-1. a ladder-like panel-support frame assembled flat;
-2. broad plywood side members and cross-members added while accessible;
-3. the frame raised into an A-frame stance;
-4. diagonal rear legs and transverse bracing establishing the footprint;
-5. the lower and then upper climbing panels attached to the face frame; and
-6. a wide cap member tying the structure together at the top.
+| Time | Directly visible observation |
+| --- | --- |
+| 0:53-0:57 | A rectangular, ladder-like face frame lies flat. It has broad outer rails, internal longitudinal support lines, and cross rails. Workers make connections while both faces are accessible. |
+| 0:58-1:00 | The face frame is raised. Broad diagonal rear legs create the side A-frame profiles. |
+| 1:00-1:03 | A full-width rear cross member is handled at about mid-height. The upright structure visibly includes top and lower transverse ties. |
+| 1:04-1:05 | The open rear view shows two internal longitudinal panel supports in addition to the two outer support lines. Horizontal rails occur at panel-edge/seam levels. |
+| 1:05-1:06 | The two lower black face panels are installed side by side. |
+| 1:06-1:08 | The two upper black face panels are installed side by side, completing the two-by-two main surface. |
+| about 1:09 | The edit cuts to the finished, hold-populated climbing face; hold installation is not shown. |
 
-This is an assembly-order reference only. Cuts, joints, fastener types,
+This is an assembly-order reference only. Some actions occur between sampled
+frames or are hidden by people and panels. Cuts, joints, fastener types,
 fastener counts, member thicknesses, and load paths are not visible well enough
 to reproduce safely.
 
@@ -37,6 +43,10 @@ The supplied photograph shows a self-supporting structure with:
 - through-fastener heads visible at several side-member connections;
 - a full-width top cap; and
 - an open landing area below the overhang for crash pads.
+
+The video corroborates the four apparent face-frame support lines and the
+full-width rear ties. It does not prove whether those members are solid,
+laminated, internally blocked, or reinforced on their hidden faces.
 
 The side members look compatible with laminated sheet construction, but the
 image does not establish their material grade, layer count, adhesive, internal
@@ -57,4 +67,3 @@ Not adopted without further evidence:
 - the photographed bolt pattern as an engineered connection schedule;
 - an assumption that no hidden blocking, plates, or anchors exist; or
 - an assumption that the reference structure satisfies local requirements.
-

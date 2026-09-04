@@ -13,6 +13,16 @@ copied into this repository:
 These sources were accessed on 2026-09-03. Check them again before fabrication
 in case Moon Climbing publishes a revision.
 
+The downloaded bytes used for this review had the following fingerprints.
+These hashes detect a later publisher-side change; they are not a substitute
+for checking that a newer official document exists.
+
+| Document | Pages | Bytes | SHA-256 |
+| --- | ---: | ---: | --- |
+| DIY Kit Build Guide | 3 | 1,248,505 | `2f3d1563cf405a6dd297bf5ca61592806b39d56a024bce260e496305d88917c2` |
+| Metric template | 1 | 72,837 | `7bc1cdeb1111c3292ffef4e9929deaed15e531fb7de30b80fd2d88eab78012e6` |
+| Imperial template | 1 | 107,550 | `84a032deacb02800bd035b4795f26cae7cf97e4217e4265ff31723db392bd14b` |
+
 ## Official geometry
 
 | Requirement | Source-stated metric | Source-stated imperial | Notes |
