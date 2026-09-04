@@ -501,7 +501,7 @@ def export_v1_bom(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
-        ("3/4 in 4 x 8 birch plywood", "unresolved", "User-selected source stock; no sheet count until a reviewed nesting plan"),
+        ("3/4 in 4 x 8 birch plywood", "10 sheets", "See docs/v1-sheet-nesting.md; verify raw dimensions and use a main-panel separating kerf no greater than 2.4 mm"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),

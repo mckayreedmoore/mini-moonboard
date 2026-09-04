@@ -57,6 +57,8 @@ this view. It is a geometry prototype pending the human audit documented in
 The complete pre-audit package—3D model, front/rear/side plans, cut list,
 drilling schedule, purchasing estimate, and build sequence—is in
 [`docs/v1-build-package.md`](docs/v1-build-package.md).
+The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
+specifies the ten 4 x 8 plywood sheets and required thin-kerf cut route.
 
 ## Development
 

@@ -71,6 +71,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight provisional leg-to-board structural-bolt datums |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
+| [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
 metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
@@ -94,7 +95,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
-| 3/4-in, 4 x 8 birch plywood | **unresolved** | User-selected stock; the cut list is deliberately not a nesting plan. Purchase quantity must follow an audited sheet-by-sheet nesting layout and actual stock measurement. |
+| 3/4-in, 4 x 8 birch plywood | **10 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |

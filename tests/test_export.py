@@ -96,6 +96,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
     assert len(connection_rows) == 8
     assert len(bom_rows) == 10
+    assert bom_rows[0]["quantity"] == "10 sheets"
     assert {row["axis"] for row in connection_rows} == {"X"}
     assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
