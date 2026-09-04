@@ -69,6 +69,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_leg_cut_schedule.csv`](../exports/mini_moonboard_v1_leg_cut_schedule.csv) | Exact lower-leg trim profile and upper-leg blank instructions |
+| [`mini_moonboard_v1_assembly_layout.csv`](../exports/mini_moonboard_v1_assembly_layout.csv) | Global center and dominant-axis placement datum for every physical assembly part |
 | [`v1-leg-cutting.md`](v1-leg-cutting.md) | Human-readable transfer procedure for the lower-leg floor trim and knee connection |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
 | [`mini_moonboard_v1_panel_drill_schedule.csv`](../exports/mini_moonboard_v1_panel_drill_schedule.csv) | Direct per-blank records: part ID, labeled hole, local finished-blank X/Z, and bore diameter |
@@ -110,7 +111,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 60 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per regular bearing block and four per main-seam block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
-| Secondary joinery screws | 100 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie splice, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
+| Secondary joinery screws | 84 x #10 x 2.5-in and 24 x #10 x 2-in, plus 10% spare | Rail splice, tie splice, kicker-backing, and side-gusset patterns; the 2-in gusset screws stop within the 36 mm gusset + 18 mm panel stack; see secondary joinery schedule. |
 | Rear-tie leg lags | 12 x 5/16-in x 10-in structural lag screws with washers | Drive from leg exterior through the tie end; use global connection schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |

@@ -534,6 +534,64 @@ def export_v1_leg_cut_schedule(output_dir: Path) -> Path:
     return path
 
 
+def _dominant_axis(shape: cq.Shape) -> tuple[float, float, float]:
+    """Return a deterministic unit vector along the longest straight edge."""
+    edge = max(shape.Edges(), key=lambda candidate: candidate.Length())
+    first, second = edge.Vertices()
+    start, end = first.Center(), second.Center()
+    delta = (end.x - start.x, end.y - start.y, end.z - start.z)
+    length = math.sqrt(sum(component * component for component in delta))
+    if length == 0:
+        raise ValueError("part has no orientable longest edge")
+    # Flip the vector to a stable lexicographic orientation so regenerated
+    # CSVs do not depend on CAD-kernel edge vertex ordering.
+    if next(component for component in delta if abs(component) > 1e-6) < 0:
+        delta = tuple(-component for component in delta)
+    return tuple(component / length for component in delta)
+
+
+def export_v1_assembly_layout(output_dir: Path) -> Path:
+    """Export every physical V1 part's global placement from datum O."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_assembly_layout.csv"
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(
+            (
+                "part",
+                "center_x_mm",
+                "center_y_mm",
+                "center_z_mm",
+                "dominant_axis_x",
+                "dominant_axis_y",
+                "dominant_axis_z",
+                "world_aabb_x_mm",
+                "world_aabb_y_mm",
+                "world_aabb_z_mm",
+                "datum",
+            )
+        )
+        for child in build_v1_concept().children:
+            shape = child.obj.val() if hasattr(child.obj, "val") else child.obj
+            center = shape.Center()
+            axis = _dominant_axis(shape)
+            bounds = shape.BoundingBox()
+            writer.writerow(
+                (
+                    child.name,
+                    f"{center.x:.3f}",
+                    f"{center.y:.3f}",
+                    f"{center.z:.3f}",
+                    *(f"{component:.6f}" for component in axis),
+                    f"{bounds.xlen:.3f}",
+                    f"{bounds.ylen:.3f}",
+                    f"{bounds.zlen:.3f}",
+                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; center and axis are world coordinates",
+                )
+            )
+    return path
+
+
 def export_v1_drill_schedule(output_dir: Path) -> Path:
     """Export selected-hardware drilling data, retaining official center datums."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -715,8 +773,8 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
         ("#10 x 3.25 in structural wood screws", "60", "Two rear-installed screws per regular bearing block and four per main-seam bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
-        ("#10 x 2.5 in structural wood screws", "100 plus 10% spare", "Rail splice, rail-cross-tie, tie-center-splice, side-gusset, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
-        ("#10 x 2 in structural wood screws", "8 plus 10% spare", "Blank-kicker-backing schedule in docs/v1-secondary-joinery.md"),
+        ("#10 x 2.5 in structural wood screws", "84 plus 10% spare", "Rail splice, rail-cross-tie, tie-center-splice, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
+        ("#10 x 2 in structural wood screws", "24 plus 10% spare", "Kicker/main side-gusset and blank-kicker-backing schedule; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
         ("5/16 in x 10 in structural lag screws with washers", "12", "Rear-tie-end to lower-leg schedule in mini_moonboard_v1_connection_schedule.csv"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
@@ -898,6 +956,7 @@ def main() -> None:
         export_v1_isometric_drawing(args.output_dir),
         export_v1_cut_list(args.output_dir),
         export_v1_leg_cut_schedule(args.output_dir),
+        export_v1_assembly_layout(args.output_dir),
         export_v1_drill_schedule(args.output_dir),
         export_v1_panel_drill_schedule(args.output_dir),
         export_v1_connection_schedule(args.output_dir),

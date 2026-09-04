@@ -1,5 +1,6 @@
 import csv
 import json
+import math
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -10,6 +11,7 @@ from mini_moonboard.export import (
     export_panel_grid_drawing,
     export_reference,
     export_reference_panel_cut_list,
+    export_v1_assembly_layout,
     export_v1_bom,
     export_v1_cad_render,
     export_v1_concept,
@@ -98,10 +100,14 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
 
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
     leg_cut_rows = list(csv.DictReader(export_v1_leg_cut_schedule(tmp_path).open(newline="")))
+    layout_rows = list(csv.DictReader(export_v1_assembly_layout(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
     assert len(cut_rows) == 15
     assert len(leg_cut_rows) == 2
+    assert len(layout_rows) == len(build_v1_concept().children)
+    assert {row["part"] for row in layout_rows} == {child.name for child in build_v1_concept().children}
+    assert all(math.isclose(sum(float(row[f"dominant_axis_{axis}"]) ** 2 for axis in "xyz"), 1, abs_tol=1e-5) for row in layout_rows)
     assert leg_cut_rows[0]["finished_profile_mm"].startswith(f"({v1_lower_leg_cut_profile()[0][0]:.3f},0.000)")
     assert "matched, identically profiled pairs" in leg_cut_rows[0]["cut_instruction"]
     assert len(drill_rows) == 274
@@ -118,6 +124,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert bom_rows[0]["quantity"] == "11 sheets"
     panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
     assert panel_screws["quantity"] == "60"
+    assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "84 plus 10% spare"
+    assert next(row for row in bom_rows if row["item"] == "#10 x 2 in structural wood screws")["quantity"] == "24 plus 10% spare"
     hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2020 Setup Hold Bundle")
     assert hold_bundle["quantity"] == "1, SKU 60-105-2020"
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
@@ -170,6 +178,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_v1_isometric_drawing(generated_dir)
     export_v1_cut_list(generated_dir)
     export_v1_leg_cut_schedule(generated_dir)
+    export_v1_assembly_layout(generated_dir)
     export_v1_drill_schedule(generated_dir)
     export_v1_panel_drill_schedule(generated_dir)
     export_v1_connection_schedule(generated_dir)
