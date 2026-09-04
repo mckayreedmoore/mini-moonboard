@@ -74,6 +74,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Eleven-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 | [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
+| [`v1-hold-installation.md`](v1-hold-installation.md) | Selected official Mini 2020 hold bundle, received-hold inventory, bolt-length, and pin-screw controls |
 | [`v1-led-installation.md`](v1-led-installation.md) | Source-backed V5 string order, service-gap routing, and received-kit audit |
 
 The whole-board CSV is a cross-check of the official metric datums. Use the
@@ -99,8 +100,9 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
 | 3/4-in, 4 x 8 birch plywood | **11 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
+| Mini MoonBoard 2020 Setup Hold Bundle | 1, SKU 60-105-2020 | Selected official 130-hold setup: Original School Holds plus Wood Holds A/B/C. Moon states this bundle excludes bolts, T-nuts, and LEDs; see [hold installation](v1-hold-installation.md). |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test. The selected listing says fixing screws are included; count the received screws before installation. |
-| 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
+| 3/8-16 hold bolts | 130 minimum plus hold-specific spares | The selected hold bundle excludes bolts. Inventory each hold's counterbore and required bolt length before purchase; do not substitute one generic length. |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
 | Insulated screw-mounted cable saddles | 30 plus spares | Provisional 300 mm maximum spacing and every turn; mount to rear rails only after received-wire measurement |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |

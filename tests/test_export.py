@@ -108,10 +108,12 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
     assert len(connection_rows) == 88
-    assert len(bom_rows) == 14
+    assert len(bom_rows) == 15
     assert bom_rows[0]["quantity"] == "11 sheets"
     panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
     assert panel_screws["quantity"] == "60"
+    hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2020 Setup Hold Bundle")
+    assert hold_bundle["quantity"] == "1, SKU 60-105-2020"
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
     assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
     assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])

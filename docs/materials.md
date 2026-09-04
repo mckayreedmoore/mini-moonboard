@@ -14,7 +14,7 @@ references; this page records what still requires a human audit.
 | Kicker panels | 2 birch plywood panels, 1218.0 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
 | Main horizontal panel-joint backing | Five 36 mm laminated, 180 x 60 mm bearing blocks | CAD and primary connection schedule bridge the lower/upper main-panel seam; screw datums are generated |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
-| Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | Selected listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to 132 official Mini LED centre datums; supplied V5 guide controls installation |
+| Climbing holds and LEDs | Mini MoonBoard 2020 Setup Hold Bundle, SKU 60-105-2020, and MoonBoard LED System, SKU 60-201-V5 | The hold bundle supplies the official 130-hold setup but excludes bolts/T-nuts/LEDs. The LED listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to 132 official Mini LED centre datums; supplied V5 guide controls installation |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
 The user-selected panel stock is [Swaner Hardwood 3/4-in x 4-ft x 8-ft C-3
@@ -24,6 +24,14 @@ ASIN B00FJGT7QI](https://www.amazon.com/dp/B00FJGT7QI?ref=ppx_yo2ov_dt_b_fed_asi
 recorded 2026-09-04. These are user-provided listing references, not verified
 material certifications: availability, dimensions, grade, and every listing
 claim remain provisional until the received samples and offcut test are logged.
+
+The selected [Mini MoonBoard 2020 Setup Hold Bundle](https://us.moonclimbing.com/products/mini-moonboard-2020-hold-set)
+is SKU `60-105-2020`. Moon states it contains 130 holds—Original School Holds
+and Wood Holds A/B/C—and that bolts, T-nuts, and LED hardware are not included.
+The hold/T-nut grid has 142 V1 positions, leaving twelve intentionally unused
+positions. The per-hold bolt inventory and orientation transfer are controlled
+by [`v1-hold-installation.md`](v1-hold-installation.md), not guessed from the
+panel CAD.
 
 ## Provisional frame approach
 
