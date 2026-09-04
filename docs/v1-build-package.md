@@ -19,7 +19,7 @@ human-audit list at the end.
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
 | Lower-leg endpoint centre datum | 1389.6 mm behind kicker face and 0 mm above floor | CAD-derived; the overlong lower member is trimmed at the finished-floor plane, producing a full flat bearing face |
-| Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
+| Leg knee | Lower and upper segments meet at row-8 bend | 450 x 450 mm two-ply exterior knee plate; four 3/8-in through-bolts per leg, 70 and 220 mm along each member from the bend; provisional load path |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
 | Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
@@ -69,7 +69,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
-| [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight provisional leg-to-board structural-bolt datums |
+| [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail and eight knee-plate structural-bolt datums |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 
@@ -99,7 +99,8 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
-| Leg-to-outer-rail structural bolts | 8 | **Provisional:** 3/8-in Grade-5 through-bolts; length is unresolved until the reviewer approves the washer/plate/nut stack and thread engagement. Full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. |
+| Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
+| Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
@@ -122,10 +123,12 @@ that change record.
    Moon LED, and the proposed panel-to-rail screw. Confirm support-side clearance.
 3. Cut panel and support blanks only after the fit test passes. Keep the full
    75 mm blank kicker extension below the official active kicker zone.
-4. Glue and clamp each two-ply support member to the audited adhesive schedule;
-   do not treat the 36 mm CAD thickness as an actual measured thickness. Do
-   not make the leg knee until its reviewer-approved load-transfer detail
-   (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
+4. Glue and clamp each two-ply support member, including the two 450 x 450 mm
+   knee plates, to the audited adhesive schedule; do not treat the 36 mm CAD
+   thickness as an actual measured thickness. Locate the plate outside each
+   leg, mark its four connection-schedule centers, drill 10 mm clearance holes,
+   and use the provisional 3/8-in x 4-in Grade-5 bolt stack only after its fit
+   and edge distances have been checked.
 5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
    blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
    leg cross ties and rail cross ties on a level protected floor. Check the
@@ -149,10 +152,10 @@ continue as a geometry prototype while they are unresolved.
 - Verify sheet stock is suitable and record actual min/mean/max thickness.
 - Verify every 7/16-in Escape bore, screw, T-nut, hold bolt, LED, and cable on
   an offcut; the model does not prove physical clearance.
-- Select and calculate/approve structural bolt, washer, nut, plate, adhesive,
-  splice, panel-screw, knee-joint, and foot details. In particular, prove the
-  center splice in each support-side tie, the leg's row-8 knee load transfer, and the
-  four-bolt leg connection.
+- Select and calculate/approve the specified structural bolt, washer, nut,
+  plate, adhesive, splice, panel-screw, knee-joint, and foot details. In
+  particular, prove the center splice in each support-side tie, the 450 mm
+  knee-plate load transfer, and the four-bolt leg-to-rail connection.
 - Calibrate the official imperial template for the selected Escape 3/8-16
   system, then record panel-blank trim, seam location, and every
   template-to-blank offset before drilling.

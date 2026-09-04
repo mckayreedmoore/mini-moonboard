@@ -1,4 +1,5 @@
 import math
+from collections import deque
 from itertools import combinations
 
 import pytest
@@ -77,8 +78,8 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
 
     names = [part.name for part in board.children]
 
-    assert names[6:8] == ["leg_left", "leg_right"]
-    assert names[8:18] == [
+    assert names[6:10] == ["leg_left", "leg_knee_gusset_left", "leg_right", "leg_knee_gusset_right"]
+    assert names[10:20] == [
         "face_rail_1_lower",
         "face_rail_1_upper",
         "face_rail_2_lower",
@@ -92,6 +93,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     ]
     assert {"kicker_blank_extension_backing_left", "kicker_blank_extension_backing_right"} <= set(names)
     assert {"kicker_main_seam_gusset_left", "kicker_main_seam_gusset_right"} <= set(names)
+    assert {"leg_knee_gusset_left", "leg_knee_gusset_right"} <= set(names)
     assert {
         "rear_tie_low_left",
         "rear_tie_low_right",
@@ -100,8 +102,8 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     } <= set(names)
-    assert len(board.children) == 59
-    for part in board.children[6:8]:
+    assert len(board.children) == 61
+    for part in (next(part for part in board.children if part.name == name) for name in ("leg_left", "leg_right")):
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
     assert max(V1_STRUCTURAL_BOLT_DISTANCES_MM) < V1_LEG_UPPER_DISTANCE_MM
@@ -135,7 +137,7 @@ def test_v1_geometry_has_valid_solids_with_floor_bearing_faces() -> None:
         assert shape.isValid(), child.name
         assert shape.Solids(), child.name
 
-    for child in board.children[6:8]:
+    for child in (next(child for child in board.children if child.name == name) for name in ("leg_left", "leg_right")):
         floor_faces = [
             face
             for face in _shape(child).Faces()
@@ -154,6 +156,8 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     assert parts["main_lower_left"].distance(parts["face_rail_1_lower"]) == pytest.approx(V1_HARDWARE_GAP_MM)
     assert parts["kicker_main_seam_gusset_left"].distance(parts["kicker_left"]) == pytest.approx(0)
     assert parts["kicker_main_seam_gusset_left"].distance(parts["main_lower_left"]) == pytest.approx(0)
+    for side in ("left", "right"):
+        assert parts[f"leg_knee_gusset_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
     for index, rail in enumerate(("face_rail_1", "face_rail_2", "face_rail_3", "face_rail_4", "face_rail_center_seam"), start=1):
         splice = parts[f"face_rail_splice_{index}"]
         assert splice.distance(parts[f"{rail}_lower"]) == pytest.approx(0)
@@ -196,6 +200,22 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
         ):
             continue
         assert left.intersect(right).Volume() <= 1, f"{left_name} overlaps {right_name}"
+
+    # Every physical part must have a contact path to a floor-bearing leg;
+    # this catches visually plausible but disconnected members.
+    contacts = {name: set() for name in parts}
+    for (left_name, left), (right_name, right) in combinations(parts.items(), 2):
+        if left.distance(right) < 0.01:
+            contacts[left_name].add(right_name)
+            contacts[right_name].add(left_name)
+    connected = {"leg_left", "leg_right"}
+    frontier = deque(connected)
+    while frontier:
+        name = frontier.popleft()
+        for neighbor in contacts[name] - connected:
+            connected.add(neighbor)
+            frontier.append(neighbor)
+    assert connected == set(parts)
 
 
 def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:

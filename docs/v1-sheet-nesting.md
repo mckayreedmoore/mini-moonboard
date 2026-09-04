@@ -26,7 +26,7 @@ the listed quantity already includes both plies.
 | 7 | 6 rail-cross-tie laminations, 1308 x 180 | Same layout as sheet 5. |
 | 8 | 6 rail-cross-tie laminations, 1308 x 180 | Same layout as sheet 5. |
 | 9 | 4 lower-leg laminations, 1495.2 x 180; 4 upper-leg laminations, 400 x 180 | Make four 180 mm lanes for lower legs; use the remaining width/length for upper-leg laminations. |
-| 10 | 40 bearing-block laminations, 4 side-gusset laminations, 10 rail-splice-cover laminations | First cut the four 400 x 457 mm gusset blanks; then the ten 400 x 180 mm splice blanks; use remaining area for the 80 x 60 mm bearing blocks. Mark gussets before trimming their CAD profile. |
+| 10 | 40 bearing-block laminations, 4 side-gusset laminations, 10 rail-splice-cover laminations, 4 knee-plate laminations | First cut four 450 x 450 mm knee blanks, then four 400 x 457 mm gusset blanks, then ten 400 x 180 mm splice blanks; use remaining area for the 80 x 60 mm bearing blocks. Mark gussets before trimming their CAD profile. |
 
 Before drilling, label every blank with its generated part name and orientation.
 The drill schedule/template controls holes; this nesting layout never changes

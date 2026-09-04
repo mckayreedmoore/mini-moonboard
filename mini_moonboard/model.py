@@ -27,6 +27,8 @@ V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
 V1_LEG_BEND_DISTANCE_MM = 1480.0
 V1_LEG_UPPER_DISTANCE_MM = 1880.0
 V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
+V1_KNEE_GUSSET_SIZE_MM = 450.0
+V1_KNEE_BOLT_OFFSETS_MM = (70.0, 220.0)
 V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
 V1_LED_HOLE_DIAMETER_MM = 13.0
 # The climber is below the overhanging panel. The board's opposite side carries
@@ -357,6 +359,24 @@ def _kicker_main_seam_gusset(side: int) -> cq.Workplane:
     return profile.extrude(side * V1_SUPPORT_THICKNESS_MM).translate((edge_x, 0.0, 0.0))
 
 
+def _leg_knee_gusset(side: int, bend_y: float, bend_z: float) -> cq.Workplane:
+    """Return a two-ply exterior plate tying the two members at one leg knee.
+
+    The plate lies outside the leg's 36 mm member stack. It meets, but does
+    not overlap, the member's outer X face; four through-bolt datums clamp it
+    to the two meeting leg segments. Its 450 mm square blank gives 220 mm of
+    overlap along each member from the bend.
+    """
+    leg_outer_face = side * (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM)
+    plate_center_x = leg_outer_face + side * V1_SUPPORT_THICKNESS_MM / 2
+    return cq.Workplane("XY").box(
+        V1_SUPPORT_THICKNESS_MM,
+        V1_KNEE_GUSSET_SIZE_MM,
+        V1_KNEE_GUSSET_SIZE_MM,
+        centered=(True, True, True),
+    ).translate((plate_center_x, bend_y, bend_z))
+
+
 def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
     """Return a conservative X-axis envelope for a leg-to-outer-rail bolt."""
     x, y, z = v1_structural_bolt_position(side, distance)
@@ -408,6 +428,25 @@ def v1_structural_bolt_position(side: int, distance: float) -> tuple[float, floa
     )
 
 
+def v1_knee_bolt_positions(side: int) -> tuple[tuple[float, float, float], ...]:
+    """Return four X-axis knee-plate bolt datums for one exterior leg."""
+    leg = v1_leg_geometry()
+    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
+    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
+    foot_y, foot_z = leg["foot_y"], leg["foot_center_z"]
+    x = side * (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM * 1.5)
+
+    def point_toward(end_y: float, end_z: float, offset: float) -> tuple[float, float, float]:
+        length = math.hypot(end_y - bend_y, end_z - bend_z)
+        return (x, bend_y + (end_y - bend_y) * offset / length, bend_z + (end_z - bend_z) * offset / length)
+
+    return tuple(
+        point_toward(end_y, end_z, offset)
+        for end_y, end_z in ((upper_y, upper_z), (foot_y, foot_z))
+        for offset in V1_KNEE_BOLT_OFFSETS_MM
+    )
+
+
 def build_v1_concept() -> cq.Assembly:
     """Build the provisional unanchored board and two exterior hockey-stick legs.
 
@@ -450,6 +489,12 @@ def build_v1_concept() -> cq.Assembly:
             _support_member(bend_y, bend_z, foot_y, foot_center_z).translate((x, 0, 0))
         )
         board.add(cq.Compound.makeCompound([upper.val(), lower.val()]), name=f"leg_{side}", color=cq.Color("saddlebrown"))
+        sign = -1 if side == "left" else 1
+        board.add(
+            _leg_knee_gusset(sign, bend_y, bend_z),
+            name=f"leg_knee_gusset_{side}",
+            color=cq.Color("peru"),
+        )
 
     rail_centres = v1_face_rail_centres()
     for index, rail_x in enumerate(rail_centres[:V1_FACE_RAIL_COUNT]):
