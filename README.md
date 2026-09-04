@@ -54,6 +54,9 @@ high-contrast grid labels. The letters A–K and rows 1–12 follow the canonica
 panel datums. Moon-branded artwork is deliberately not bundled until there is
 written permission to rehost it publicly; see the official [artwork archive](https://moonclimbing.com/media/moonboard-pdf/Final_Artwork.zip)
 and the project [artwork policy](docs/panel-artwork.md).
+Its independent overall-dimensions switch draws the provisional complete V1
+assembly extents—2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and
+2150.8 mm / 84.68 in high—excluding the separate crash pad.
 
 The [side profile](exports/mini_moonboard_v1_concept_side.svg),
 [support-side elevation](exports/mini_moonboard_v1_rear.svg), and

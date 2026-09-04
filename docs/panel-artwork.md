@@ -24,6 +24,11 @@ climber-facing coordinates: A begins at climber-left, and rows 1–12 run in the
 model. A future licensed Moon-artwork overlay can use the same selector without
 changing the CAD geometry.
 
+The independent **Overall V1 dimensions** switch shows the CAD assembly AABB:
+2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and 2150.8 mm / 84.68
+in high. Those values include both exterior legs and exclude the crash pad;
+they are provisional V1 geometry, not Moon's official board-only envelope.
+
 The viewer reflects the CAD assembly across X for this climber-facing
 presentation: the source template's A column and the visible A decal therefore
 occupy the same climber-left column. This is a view transform only; the
