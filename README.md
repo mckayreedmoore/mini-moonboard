@@ -82,6 +82,9 @@ still finds uplift.
 The generated [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
 currently finds the V1 footprint requires floor uplift under the sourced
 top-row load, so it is a redesign gate rather than a build release.
+The [unanchored-base redesign brief](docs/v1-base-redesign-brief.md) states
+the exact geometry, mass, floor, and connection inputs needed for the next
+CAD/FEA iteration.
 
 ## SketchUp reference geometry
 

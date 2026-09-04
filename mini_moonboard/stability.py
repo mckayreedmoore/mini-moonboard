@@ -44,6 +44,48 @@ class StabilityScreen:
     cases: tuple[StabilityCase, StabilityCase]
 
 
+def evaluate_unanchored_stability(
+    *,
+    mass_kg: float,
+    centre_y_mm: float,
+    front_toe_y_mm: float,
+    rear_toe_y_mm: float,
+    load_y_mm: float,
+    load_z_mm: float,
+) -> tuple[StabilityCase, StabilityCase]:
+    """Screen two floor toes for the declared top-row normal-load cases.
+
+    This is deliberately a rigid-body statics calculation, not FEA.  It makes
+    a proposed base footprint or a known added low mass testable before that
+    proposal is encoded in CAD.  The caller supplies the *combined* mass and
+    centre of mass after any base or ballast is included.
+    """
+    if mass_kg <= 0:
+        raise ValueError("mass_kg must be positive")
+    if rear_toe_y_mm <= front_toe_y_mm:
+        raise ValueError("rear_toe_y_mm must be greater than front_toe_y_mm")
+    if not front_toe_y_mm < centre_y_mm < rear_toe_y_mm:
+        raise ValueError("centre_y_mm must lie strictly between the floor toes")
+    weight_n = mass_kg * GRAVITY_MM_S2 / 1_000
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    span = rear_toe_y_mm - front_toe_y_mm
+
+    def reactions(direction: int, label: str) -> StabilityCase:
+        force_y = direction * UNROPED_CLIMBER_LOAD_N * math.cos(angle)
+        force_z = -direction * UNROPED_CLIMBER_LOAD_N * math.sin(angle)
+        load_moment = (load_y_mm - front_toe_y_mm) * force_z - load_z_mm * force_y
+        rear = (weight_n * (centre_y_mm - front_toe_y_mm) - load_moment) / span
+        front = weight_n - force_z - rear
+        rear_weight = max(0.0, load_moment / (centre_y_mm - front_toe_y_mm))
+        front_weight = max(
+            0.0,
+            (force_z - load_moment / span) * span / (rear_toe_y_mm - centre_y_mm),
+        )
+        return StabilityCase(label, front, rear, max(rear_weight, front_weight))
+
+    return (reactions(1, "normal +Y / -Z"), reactions(-1, "normal -Y / +Z"))
+
+
 def render_v1_stability_screen() -> str:
     """Render the reproducible pre-FEA stability result for the current CAD."""
     screen = v1_stability_screen()
@@ -114,20 +156,6 @@ def v1_stability_screen(density_kg_m3: float = SCREENING_DENSITY_KG_M3) -> Stabi
     centre_y = first_y_moment / volume_mm3
     front_toe, rear_toe = -PANEL_THICKNESS_MM, v1_leg_geometry()["foot_y"]
     load_y, load_z = v1_support_side_point(2 * V1_PANEL_SIZE_MM, -PANEL_THICKNESS_MM)
-    weight_n = mass_kg * GRAVITY_MM_S2 / 1_000
-    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
-
-    def reactions(direction: int, label: str) -> StabilityCase:
-        force_y = direction * UNROPED_CLIMBER_LOAD_N * math.cos(angle)
-        force_z = -direction * UNROPED_CLIMBER_LOAD_N * math.sin(angle)
-        span = rear_toe - front_toe
-        load_moment = (load_y - front_toe) * force_z - load_z * force_y
-        rear = (weight_n * (centre_y - front_toe) - load_moment) / span
-        front = weight_n - force_z - rear
-        rear_weight = max(0.0, load_moment / (centre_y - front_toe))
-        front_weight = max(0.0, (force_z - load_moment / span) * span / (rear_toe - centre_y))
-        return StabilityCase(label, front, rear, max(rear_weight, front_weight))
-
     return StabilityScreen(
         mass_kg,
         centre_y,
@@ -135,5 +163,12 @@ def v1_stability_screen(density_kg_m3: float = SCREENING_DENSITY_KG_M3) -> Stabi
         rear_toe,
         load_y,
         load_z,
-        (reactions(1, "normal +Y / -Z"), reactions(-1, "normal -Y / +Z")),
+        evaluate_unanchored_stability(
+            mass_kg=mass_kg,
+            centre_y_mm=centre_y,
+            front_toe_y_mm=front_toe,
+            rear_toe_y_mm=rear_toe,
+            load_y_mm=load_y,
+            load_z_mm=load_z,
+        ),
     )
