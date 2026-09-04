@@ -66,7 +66,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric support-side schematic; use STEP or CAD-derived raster for exact geometry |
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
-| [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
+| [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list; millimetres are canonical and inch conversions are included for purchasing/transfer |
 | [`mini_moonboard_v1_leg_cut_schedule.csv`](../exports/mini_moonboard_v1_leg_cut_schedule.csv) | Exact lower-leg trim profile and upper-leg blank instructions |
 | [`mini_moonboard_v1_assembly_layout.csv`](../exports/mini_moonboard_v1_assembly_layout.csv) | Global center and dominant-axis placement datum for every physical assembly part |
 | [`v1-leg-cutting.md`](v1-leg-cutting.md) | Human-readable transfer procedure for the lower-leg floor trim and knee connection |

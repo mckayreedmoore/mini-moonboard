@@ -497,7 +497,20 @@ def export_v1_cut_list(output_dir: Path) -> Path:
     )
     with path.open("w", newline="") as stream:
         writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(("assembly", "part", "quantity", "length_mm", "width_mm", "thickness_mm", "note"))
+        writer.writerow(
+            (
+                "assembly",
+                "part",
+                "quantity",
+                "length_mm",
+                "width_mm",
+                "thickness_mm",
+                "length_in",
+                "width_in",
+                "thickness_in",
+                "note",
+            )
+        )
         for assembly, part, quantity, length, width, thickness in rows:
             writer.writerow(
                 (
@@ -507,6 +520,9 @@ def export_v1_cut_list(output_dir: Path) -> Path:
                     f"{length:.1f}",
                     f"{width:.1f}",
                     f"{thickness:.1f}",
+                    f"{length / 25.4:.4f}",
+                    f"{width / 25.4:.4f}",
+                    f"{thickness / 25.4:.4f}",
                     "PROVISIONAL: verify stock and joint/connection details before cutting",
                 )
             )

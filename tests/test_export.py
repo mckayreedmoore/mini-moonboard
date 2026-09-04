@@ -83,6 +83,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "fetch('parts.json')" in viewer_html
     assert "loader.load(part.path" in viewer_html
     assert "part.fabrication.dimensions_mm" in viewer_html
+    assert "part.fabrication.dimensions_imperial" in viewer_html
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -109,7 +110,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     layout_rows = list(csv.DictReader(export_v1_assembly_layout(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 15
+    assert len(cut_rows) == 14
     assert len(leg_cut_rows) == 2
     assert len(layout_rows) == len(build_v1_concept().children) + 2
     expected_layout_parts = {child.name for child in build_v1_concept().children} - {"leg_left", "leg_right"}
@@ -176,10 +177,12 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
     assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
     assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])
-    assert {row["axis"] for row in connection_rows} == {"X", "X toward board centerline", "board-normal toward climbing face"}
-    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "6.000 pilot", "3.200 pilot"}
+    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward climbing face"}
+    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
+    assert float(lower_leg["length_in"]) == pytest.approx(v1_leg_geometry()["lower_length"] / 25.4, abs=0.0001)
+    assert {"length_in", "width_in", "thickness_in"} <= set(lower_leg)
     rail_tie = next(row for row in cut_rows if row["part"] == "rail-cross-tie-half lamination")
     assert rail_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
     gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
