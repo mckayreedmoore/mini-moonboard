@@ -44,6 +44,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   conversions, source conflicts, and design constraints.
 - [`docs/reference-analysis.md`](docs/reference-analysis.md): observations from
   the supplied photo and reference video.
+- [`docs/design-basis.md`](docs/design-basis.md): resolved inputs, open design
+  decisions, applicable-review references, and build-readiness gates.
 - [`docs/materials.md`](docs/materials.md): confirmed and provisional material
   requirements.
 - `mini_moonboard/`: CadQuery source and export command.
