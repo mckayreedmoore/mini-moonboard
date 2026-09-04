@@ -16,6 +16,8 @@ from mini_moonboard.model import (
     V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
+    V1_SELECTED_TNUT_BODY_DEPTH_MM,
+    V1_SELECTED_TNUT_FLANGE_THICKNESS_MM,
     V1_STANDOFF_CLEARANCE_MM,
     V1_STANDOFF_WIDTH_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
@@ -328,6 +330,12 @@ def test_v1_stock_route_and_primary_rail_geometry_match_design_basis() -> None:
 def test_v1_received_led_projection_leaves_a_small_service_gap_margin() -> None:
     """The measured LED protrusion must not reach the nearest rail plane."""
     assert V1_HARDWARE_GAP_MM - V1_LED_REAR_PROJECTION_MM == pytest.approx(5.0)
+
+
+def test_v1_received_tnut_depth_leaves_a_small_service_gap_margin() -> None:
+    """The flange/body stack must remain inside the rear service gap."""
+    tnut_projection = V1_SELECTED_TNUT_BODY_DEPTH_MM + V1_SELECTED_TNUT_FLANGE_THICKNESS_MM
+    assert V1_HARDWARE_GAP_MM - tnut_projection == pytest.approx(21.44)
 
 
 def test_v1_kicker_main_gusset_fits_its_cut_blank() -> None:

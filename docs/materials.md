@@ -61,9 +61,10 @@ The selected Escape hardware is imperial 3/8-16 screw-in T-nuts. Its specified
 7/16 in bore differs from Moon Climbing's generic 13 mm / 1/2 in T-nut bore;
 the Escape offcut test governs the selected T-nut installation. Use only
 matching 3/8-16 bolts. Do not mix M10 bolts with these inserts. The received
-sample measures about a 1 in (25.4 mm) flange, 1/2 in (12.7 mm) body depth,
-and three roughly 3.2 mm flange screw holes; flange thickness and hole pitch
-still need a direct measurement before a screw pattern is transferred.
+sample measures about a 1 in (25.4 mm) flange, 0.07 in (1.86 mm) flange
+thickness, 1/2 in (12.7 mm) body depth, and three roughly 3.2 mm flange screw
+holes; hole pitch still needs a direct measurement before a screw pattern is
+transferred.
 
 Moon Climbing's own hardware path instead calls for metric M10 T-nuts and
 bolts (with 3/8 in described as the imperial counterpart) and its build page
