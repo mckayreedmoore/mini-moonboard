@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or cyan connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div></header>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or colored connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -50,12 +50,12 @@
       // side (where McKay stands); visible right is the K side.
       const climberView = new THREE.Group(); climberView.scale.x = -1; scene.add(climberView);
       const partCard = document.querySelector('#part'); let selected;
-      const colorFor = name => name.startsWith('analysis_') ? 0x29b6d6 : name.startsWith('main_') ? 0x20252b : name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
+      const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts }) => {
-        partCard.textContent = 'Click wood for cut dimensions or cyan geometry for a primary FEA connection representation.';
+        partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
-          const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part.name), roughness: .7, metalness: .05 }));
+          const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: .7, metalness: .05 }));
           mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
         }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
@@ -139,7 +139,7 @@
         if (selected) selected.material.emissive.setHex(0);
         selected = hit.object; selected.material.emissive.setHex(0x5f3600);
         const part = selected.userData.part, [x, y, z] = part.fabrication.dimensions_mm, [ix, iy, iz] = part.fabrication.dimensions_imperial;
-        partCard.textContent = `${part.name}: ${part.fabrication.description}; nominal dimensions ${x} × ${y} × ${z} mm (${ix} × ${iy} × ${iz}).`;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${x} × ${y} × ${z} mm (${ix} × ${iy} × ${iz}).`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();

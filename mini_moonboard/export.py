@@ -433,12 +433,16 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
     """Return cut-list dimensions rather than rotated world-axis extents."""
     dimensions: tuple[float, float, float]
     description: str
+    clearance_status: str | None = None
     if name.startswith("analysis_leg_rail_bolt_"):
         dimensions, description = (V1_LEG_RAIL_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in leg-to-rail bolt, washers, head, and nut envelope"
+        clearance_status = "FAIL: head/washer/nut collision screen"
     elif name.startswith("analysis_knee_bolt_"):
         dimensions, description = (V1_KNEE_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in knee-plate bolt, washers, head, and nut envelope"
+        clearance_status = "FAIL: head/washer/nut collision screen"
     elif name.startswith(("analysis_panel_screw_", "analysis_main_seam_screw_")):
         dimensions, description = (V1_PANEL_FASTENER_LENGTH_MM, V1_PANEL_FASTENER_DIAMETER_MM, V1_PANEL_FASTENER_DIAMETER_MM), "analysis-visible face-countersunk #10 panel-to-rail screw axis and head envelope"
+        clearance_status = "PASS: countersunk-head collision screen"
     elif name.startswith("main_"):
         dimensions, description = (V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM), "finished climbing-panel blank"
     elif name.startswith("kicker_") and name in {"kicker_left", "kicker_right"}:
@@ -468,11 +472,14 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
         dimensions, description = (leg["lower_length"], V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm"
     else:
         raise ValueError(f"missing viewer fabrication metadata for {name}")
-    return {
+    metadata: dict[str, object] = {
         "description": description,
         "dimensions_mm": [round(value, 1) for value in dimensions],
         "dimensions_imperial": [_inch_fraction(value) for value in dimensions],
     }
+    if clearance_status:
+        metadata["clearance_status"] = clearance_status
+    return metadata
 
 
 def _inch_fraction(mm: float) -> str:

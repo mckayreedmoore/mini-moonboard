@@ -84,12 +84,19 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
         assert len(part["viewer_aabb_mm"]) == 3
         assert all(dimension > 0 for dimension in part["viewer_aabb_mm"])
 
+    failed_fasteners = [part for part in connection_parts if part["fabrication"].get("clearance_status", "").startswith("FAIL")]
+    passed_panel_screws = [part for part in connection_parts if part["fabrication"].get("clearance_status", "").startswith("PASS")]
+    assert len(failed_fasteners) == 16
+    assert len(passed_panel_screws) == 60
+
     viewer_html = (Path(__file__).parents[1] / "site" / "index.html").read_text()
     assert "fetch('parts.json')" in viewer_html
     assert "loader.load(part.path" in viewer_html
     assert "part.fabrication.dimensions_mm" in viewer_html
     assert "part.fabrication.dimensions_imperial" in viewer_html
     assert "analysis_" in viewer_html
+    assert "clearance_status" in viewer_html
+    assert "0xef5350" in viewer_html
     assert 'id="overlay"' in viewer_html
     assert "ABCDEFGHIJK" in viewer_html
     assert "labelDecal" in viewer_html
