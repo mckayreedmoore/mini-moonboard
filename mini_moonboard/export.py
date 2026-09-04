@@ -8,7 +8,9 @@ import cadquery as cq
 
 from .model import (
     ANGLE_FROM_VERTICAL_DEG,
+    MAIN_PANEL_SIZE_MM,
     OFFICIAL_KICKER_HEIGHT_MM,
+    PANEL_THICKNESS_MM,
     build_reference_board,
     reference_envelope,
 )
@@ -256,6 +258,54 @@ def export_panel_grid_drawing(output_dir: Path) -> Path:
     return path
 
 
+def export_reference_panel_cut_list(
+    output_dir: Path,
+    kicker_height_mm: float = OFFICIAL_KICKER_HEIGHT_MM,
+) -> Path:
+    """Export known panel blanks only; frame parts need a reviewed design."""
+    reference_envelope(kicker_height_mm)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_reference_panel_cut_list.csv"
+    scope = "reference climbing surface only — excludes frame and hardware"
+    material = "birch plywood; verify grade and actual thickness"
+    rows = (
+        ("main climbing panel", 4, MAIN_PANEL_SIZE_MM, MAIN_PANEL_SIZE_MM),
+        ("kicker panel", 2, MAIN_PANEL_SIZE_MM, kicker_height_mm),
+    )
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(
+            (
+                "scope",
+                "part",
+                "quantity",
+                "length_mm",
+                "width_mm",
+                "thickness_mm",
+                "length_in",
+                "width_in",
+                "thickness_in",
+                "material",
+            )
+        )
+        for part, quantity, length, width in rows:
+            writer.writerow(
+                (
+                    scope,
+                    part,
+                    quantity,
+                    f"{length:.1f}",
+                    f"{width:.1f}",
+                    f"{PANEL_THICKNESS_MM:.1f}",
+                    f"{length / 25.4:.4f}",
+                    f"{width / 25.4:.4f}",
+                    f"{PANEL_THICKNESS_MM / 25.4:.4f}",
+                    material,
+                )
+            )
+    return path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export the Mini MoonBoard reference envelope")
     parser.add_argument("--output-dir", type=Path, default=Path("exports"))
@@ -266,6 +316,7 @@ def main() -> None:
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),
+        export_reference_panel_cut_list(args.output_dir, args.kicker_height_mm),
     )
     for path in paths:
         print(path)

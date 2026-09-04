@@ -30,10 +30,27 @@ Do not purchase frame stock from this table yet. The design must still set:
 - edge sealing and finish appropriate to the installation environment; and
 - replaceable feet, anti-slip treatment, and floor protection.
 
+## Generated reference panel cut list
+
+[`exports/mini_moonboard_reference_panel_cut_list.csv`](../exports/mini_moonboard_reference_panel_cut_list.csv)
+is generated from the CadQuery source and covers only the four main panel
+blanks and two kicker blanks. It deliberately excludes the frame, joint braces,
+fasteners, holds, LEDs, finish, waste allowance, and nesting because those
+require the selected stock and reviewed frame design.
+
+The committed file uses the official 150 mm / 5.9 in reference kicker. To
+evaluate a proposed taller kicker in a separate directory:
+
+```bash
+uv run python -m mini_moonboard.export --kicker-height-mm 300 --output-dir /tmp/mini-moonboard-300
+```
+
+Replace `300` only with the total kicker height resolved from the site survey;
+the output remains a reference panel list until frame review is complete.
+
 ## BOM completion rule
 
 The bill of materials and cut list can be released only after the parametric
 frame model contains every load-bearing member and connection, the taller
 kicker and crash-pad relationship are fixed, sheet nesting is generated from
 actual stock sizes, and the structure has received qualified review.
-

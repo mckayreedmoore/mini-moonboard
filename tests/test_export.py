@@ -1,3 +1,4 @@
+import csv
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -7,6 +8,7 @@ from mini_moonboard.export import (
     export_panel_grid,
     export_panel_grid_drawing,
     export_reference,
+    export_reference_panel_cut_list,
 )
 
 
@@ -34,6 +36,9 @@ def test_exports_are_reproducible(tmp_path: Path) -> None:
     assert export_panel_grid_drawing(tmp_path / "first").read_bytes() == export_panel_grid_drawing(
         tmp_path / "second"
     ).read_bytes()
+    assert export_reference_panel_cut_list(tmp_path / "first").read_bytes() == export_reference_panel_cut_list(
+        tmp_path / "second"
+    ).read_bytes()
 
 
 def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:
@@ -58,3 +63,35 @@ def test_exports_metric_template_datum_drawing(tmp_path: Path) -> None:
     assert "A" in path.read_text()
     assert "12" in path.read_text()
     assert len(root.findall("{http://www.w3.org/2000/svg}circle")) == 274
+
+
+def test_exports_reference_panel_cut_list(tmp_path: Path) -> None:
+    path = export_reference_panel_cut_list(tmp_path, kicker_height_mm=300)
+    rows = list(csv.DictReader(path.open(newline="")))
+
+    assert rows == [
+        {
+            "scope": "reference climbing surface only — excludes frame and hardware",
+            "part": "main climbing panel",
+            "quantity": "4",
+            "length_mm": "1220.0",
+            "width_mm": "1220.0",
+            "thickness_mm": "18.0",
+            "length_in": "48.0315",
+            "width_in": "48.0315",
+            "thickness_in": "0.7087",
+            "material": "birch plywood; verify grade and actual thickness",
+        },
+        {
+            "scope": "reference climbing surface only — excludes frame and hardware",
+            "part": "kicker panel",
+            "quantity": "2",
+            "length_mm": "1220.0",
+            "width_mm": "300.0",
+            "thickness_mm": "18.0",
+            "length_in": "48.0315",
+            "width_in": "11.8110",
+            "thickness_in": "0.7087",
+            "material": "birch plywood; verify grade and actual thickness",
+        },
+    ]

@@ -50,6 +50,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   center coordinates plus unresolved drilling inputs.
 - `exports/mini_moonboard_metric_template_datums.{csv,svg}`: reproducible
   dual-unit center-data table and visual verification drawing.
+- `exports/mini_moonboard_reference_panel_cut_list.csv`: generated panel-only
+  cut list; it intentionally excludes the unresolved frame BOM.
 - [`docs/site-survey.md`](docs/site-survey.md): dual-unit worksheet for room,
   crash-pad, kicker-clearance, stock, and review inputs.
 - [`docs/materials.md`](docs/materials.md): confirmed and provisional material
