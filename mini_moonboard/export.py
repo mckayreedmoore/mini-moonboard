@@ -187,7 +187,7 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     axes.set_box_aspect((2438.4, 1700, 2100))
     # Face the climbing surface from the front-right at a shallow elevation;
     # rear rails and hockey-stick legs remain visible without obscuring it.
-    axes.view_init(elev=12, azim=-35)
+    axes.view_init(elev=12, azim=145)
     axes.set_axis_off()
     axes.set_xlim(-1500, 1500)
     axes.set_ylim(-100, 1700)
