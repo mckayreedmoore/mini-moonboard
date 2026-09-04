@@ -56,9 +56,11 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 3. print the chosen template at 100 percent scale; and
 4. measure its calibration dimensions before drilling any panel.
 
-The first CAD milestone intentionally models panel blanks and seams, not the
-T-nut, LED, hold, or mounting holes. The hole model will be added only after
-the template system and actual plywood sheets are verified.
+The first CAD milestone intentionally models panel blanks and seams, not
+drilled holes. The source-backed main T-nut and LED center coordinates are now
+encoded separately in [`panel-grid.md`](panel-grid.md). Hole solids will be
+added only after the diameters, template system, and actual plywood sheets are
+verified.
 
 ## Source discrepancies and cautions
 
@@ -86,4 +88,3 @@ the template system and actual plywood sheets are verified.
 - connection hardware, joint geometry, and assembly/disassembly requirement;
 - design loads, connection loads, floor interface, and anti-racking strategy;
 - qualified review of the completed load path and local requirements.
-

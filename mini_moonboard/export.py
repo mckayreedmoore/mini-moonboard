@@ -1,4 +1,5 @@
 import argparse
+import csv
 import math
 import re
 from pathlib import Path
@@ -11,6 +12,7 @@ from .model import (
     build_reference_board,
     reference_envelope,
 )
+from .panel_grid import main_led_datums, main_tnut_datums
 
 
 def _imperial(mm: float) -> str:
@@ -132,13 +134,32 @@ def export_reference(
     return step_path, front_path, side_path
 
 
+def export_panel_grid(output_dir: Path) -> Path:
+    """Export source-backed center datums; these are not drilling diameters."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_metric_template_datums.csv"
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("feature", "label", "x_mm", "y_mm", "x_in", "y_in"))
+        for feature, datums in (
+            ("tnut", main_tnut_datums()),
+            ("led", main_led_datums()),
+        ):
+            for label, (x, y) in datums.items():
+                writer.writerow(
+                    (feature, label, f"{x:.3f}", f"{y:.3f}", f"{x / 25.4:.4f}", f"{y / 25.4:.4f}")
+                )
+    return path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export the Mini MoonBoard reference envelope")
     parser.add_argument("--output-dir", type=Path, default=Path("exports"))
     parser.add_argument("--kicker-height-mm", type=float, default=OFFICIAL_KICKER_HEIGHT_MM)
     args = parser.parse_args()
 
-    for path in export_reference(args.output_dir, args.kicker_height_mm):
+    paths = (*export_reference(args.output_dir, args.kicker_height_mm), export_panel_grid(args.output_dir))
+    for path in paths:
         print(path)
 
 

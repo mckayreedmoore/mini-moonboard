@@ -39,8 +39,8 @@ uv run pytest
 uv run scripts/smoke_test.py
 ```
 
-Stable model exports belong in `exports/` and must be regenerated in the same
-commit as their CadQuery source:
+Stable model and panel-datum exports belong in `exports/` and must be
+regenerated in the same commit as their Python source:
 
 ```bash
 uv run python -m mini_moonboard.export

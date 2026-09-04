@@ -46,6 +46,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   the supplied photo and reference video.
 - [`docs/design-basis.md`](docs/design-basis.md): resolved inputs, open design
   decisions, applicable-review references, and build-readiness gates.
+- [`docs/panel-grid.md`](docs/panel-grid.md): source-backed main T-nut and LED
+  center coordinates plus unresolved drilling inputs.
 - [`docs/materials.md`](docs/materials.md): confirmed and provisional material
   requirements.
 - `mini_moonboard/`: CadQuery source and export command.
