@@ -20,6 +20,7 @@ invented from the photograph or video.
 | Total custom kicker | 225 mm (8.86 in): 150 mm active zone + 75 mm blank extension | Provisional v1; derived from the official kicker bolt-center datum |
 | Crash pad / fall surface | Separate element; excluded from v1 board/frame scope | Explicitly out of scope, not approved or designed here |
 | Frame assemblies | Board/kicker plus two exterior hockey-stick legs | Confirmed v1 concept |
+| Primary support-rail spacing | Four board-parallel primary rails at 812.8 mm centers, plus a separate center-seam rail | The controlled 2438.4 mm board divides into three equal bays; this is the 0.2 mm-per-bay stock-route equivalent of Moon's published nominal 813 mm upright spacing. |
 | Climbing-face orientation | Underside of the overhanging board; climber is below it | CAD-controlled: main-panel climbing face is local +Y/downward; rails and wiring live on opposite local -Y support side |
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |

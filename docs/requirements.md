@@ -99,6 +99,15 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 3. print the chosen template at 100 percent scale; and
 4. measure its calibration dimensions before drilling any panel.
 
+Moon's [current build guide](https://moonclimbing.com/build-your-moonboard)
+also calls for four upright supports at 813 mm
+(2 ft 8 in) spacing and says that the frame's structural requirements can vary
+by installation. V1 preserves the four-primary-support arrangement as four
+board-parallel rails at 812.8 mm centers across its controlled 2438.4 mm
+surface; its fifth center-seam rail is a panel-joint reinforcement, not a
+substitute primary upright. This reproduces the layout requirement while
+leaving the unanchored frame's structural design subject to the V1 review gate.
+
 The V1 CAD assembly now includes provisional visual/drill bores at the
 source-backed main T-nut, LED, and official kicker foothold centres encoded in
 [`panel-grid.md`](panel-grid.md). It uses the selected Escape 7/16-in bore and
