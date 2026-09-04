@@ -16,6 +16,7 @@ from .model import (
     PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
     V1_KICKER_HEIGHT_MM,
+    V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
     V1_KNEE_BOLT_LENGTH_MM,
     V1_KNEE_GUSSET_SIZE_MM,
     V1_LEG_RAIL_BOLT_LENGTH_MM,
@@ -263,7 +264,7 @@ def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
     elif name == "kicker_blank_extension_backing_seam_splice":
         dimensions, description = (400.0, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated kicker-backing seam splice"
     elif name.startswith("kicker_main_seam_gusset"):
-        dimensions, description = (400.0, 457.0, V1_SUPPORT_THICKNESS_MM), "trim profile from laminated kicker/main gusset blank"
+        dimensions, description = (400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, V1_SUPPORT_THICKNESS_MM), "trim profile from laminated kicker/main gusset blank"
     elif name.startswith(("rear_tie_", "rail_cross_tie_")) and "splice" not in name:
         dimensions, description = (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated tie half"
     elif name.startswith(("rear_tie_splice_", "rail_cross_tie_splice_")):
@@ -462,7 +463,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "main-seam-bearing-block lamination", 10, 180.0, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
         ("support frame", "kicker-backing seam-splice lamination", 2, 400.0, 75.0, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, 457.0, PANEL_THICKNESS_MM),
+        ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "tie-center-splice lamination", 12, 400.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),

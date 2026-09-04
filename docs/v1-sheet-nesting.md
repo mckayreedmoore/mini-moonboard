@@ -43,9 +43,9 @@ minimum 1219.2 x 2438.4 mm raw-sheet assumption.
 | --- | ---: | ---: | --- | --- |
 | A | 0–902.4 | 0–902.4 | 450 x 450 | Four knee-gusset blanks in a 2 x 2 array |
 | B | 902.4–1219.2 | 0–900 | 80 x 60 | Forty regular bearing-block laminations: three 80 mm columns by fourteen 60 mm rows provides 42 positions; retain two as optional defect/spare blanks |
-| C | 0–802.4 | 902.4–1818.8 | 400 x 457 | Four kicker/main side-gusset blanks in a 2 x 2 array |
+| C | 0–802.4 | 902.4–1844.8 | 400 x 470 | Four kicker/main side-gusset blanks in a 2 x 2 array |
 | D | 804.8–1204.8 | 902.4–1264.8 | 400 x 180 | Two face-rail splice-cover laminations stacked vertically |
-| E | 0–1204.8 | 1818.8–2363.6 | 400 x 180 | Eight face-rail splice-cover laminations in a three-column, three-row array; leave one position unused |
+| E | 0–1204.8 | 1844.8–2389.6 | 400 x 180 | Eight face-rail splice-cover laminations in a three-column, three-row array; leave one position unused |
 | F | 804.8–1204.8 | 1267.2–1419.6 | 400 x 75 | Two kicker-backing seam-splice laminations stacked vertically |
 
 ### Sheet 11

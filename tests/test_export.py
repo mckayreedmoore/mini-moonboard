@@ -24,6 +24,7 @@ from mini_moonboard.export import (
     export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
+    V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
     V1_KNEE_BOLT_LENGTH_MM,
     V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_SIZE_MM,
@@ -122,6 +123,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
     gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
     assert gusset["quantity"] == "4"
+    assert gusset["width_mm"] == f"{V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM:.1f}"
     assert all(
         "X is bolt-stack midpoint" in row["datum"]
         if row["axis"] == "X"

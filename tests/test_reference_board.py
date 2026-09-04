@@ -8,6 +8,7 @@ from mini_moonboard import build_reference_board, build_v1_concept, reference_en
 from mini_moonboard.model import (
     PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
+    V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
     V1_LEG_UPPER_DISTANCE_MM,
     V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
@@ -15,6 +16,7 @@ from mini_moonboard.model import (
     V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM,
     V1_STANDOFF_CLEARANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
+    _kicker_main_seam_gusset,
     _structural_bolt_envelope,
     _v1_kicker_holes,
     _v1_main_panel_holes,
@@ -308,6 +310,14 @@ def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:
     tie_dy = tie_vertices[1].Center().y - tie_vertices[0].Center().y
     tie_dz = tie_vertices[1].Center().z - tie_vertices[0].Center().z
     assert tie_dy * math.sin(math.radians(40)) + tie_dz * math.cos(math.radians(40)) == pytest.approx(0)
+
+
+def test_v1_kicker_main_gusset_fits_its_cut_blank() -> None:
+    for side in (-1, 1):
+        bounds = _kicker_main_seam_gusset(side).val().BoundingBox()
+        assert bounds.xlen == pytest.approx(36)
+        assert bounds.ylen <= 400
+        assert bounds.zlen <= V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM
 
 
 def test_v1_climbing_faces_share_the_kicker_main_seam() -> None:

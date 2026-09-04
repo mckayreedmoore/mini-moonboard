@@ -25,6 +25,17 @@ The `#10 x 2.5-in` count is **100** and the `#10 x 2-in` count is **8**.
 Buy at least 10 percent extra of each, plus the 60 `#10 x 3.25-in`
 panel-to-rail screws already specified in the primary connection schedule.
 
+## Kicker/main gusset cut profile
+
+Each exterior gusset starts as one of the 400 x 470 mm two-ply blanks in the
+cut list. With the blank's lower-left corner at the gusset's lowest/rearmost
+corner, transfer this four-point support-side profile in millimetres:
+`(31.8, 0)`, `(31.8, 150.0)`, `(0, 161.6)`, `(257.1, 468.0)`.
+The profile's 257.1 mm horizontal by 468.0 mm vertical envelope leaves the
+specified blank margin. Mirror it for the opposite exterior side. The STEP
+assembly is the controlling shape check; reject any hand-transferred profile
+that does not bear continuously on both the kicker and the lower main panel.
+
 ## Assembly controls
 
 1. Laminate every support part in matched pairs with full-face adhesive and
