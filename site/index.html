@@ -81,7 +81,9 @@
         // In climber-facing coordinates, +X is left and -X is right. A starts
         // at climber-left; the row numbers therefore also belong at +X.
         'ABCDEFGHIJK'.split('').forEach((letter, index) => labelDecal(letter, color, mainFacePoint(1019.2 - index * 200, 2380)));
-        Array.from({ length: 12 }, (_, index) => labelDecal(String(index + 1), color, mainFacePoint(1019.2, 80 + index * 200)));
+        // Keep the row decals inside the climber-left edge, but outside the
+        // 200 mm T-nut column: 1160 mm is 59.2 mm inboard of the panel edge.
+        Array.from({ length: 12 }, (_, index) => labelDecal(String(index + 1), color, mainFacePoint(1160, 80 + index * 200)));
       };
       const overlaySelect = document.querySelector('#overlay');
       overlaySelect.addEventListener('change', () => {

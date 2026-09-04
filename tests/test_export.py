@@ -93,7 +93,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "ABCDEFGHIJK" in viewer_html
     assert "labelDecal" in viewer_html
     assert "new THREE.PlaneGeometry" in viewer_html
-    assert "mainFacePoint(1019.2, 80 + index * 200)" in viewer_html
+    assert "mainFacePoint(1160, 80 + index * 200)" in viewer_html
     assert "climberView.scale.x = -1" in viewer_html
     assert "mainFacePoint(1019.2 - index * 200, 2380)" in viewer_html
     assert 'id="dimensions"' in viewer_html
