@@ -26,8 +26,34 @@ the listed quantity already includes both plies.
 | 7 | 6 rail-cross-tie laminations, 1308 x 180 | Same layout as sheet 5. |
 | 8 | 6 rail-cross-tie laminations, 1308 x 180 | Same layout as sheet 5. |
 | 9 | 4 lower-leg laminations, 1495.2 x 180; 4 upper-leg laminations, 400 x 180 | Make four 180 mm lanes for lower legs; use the remaining width/length for upper-leg laminations. |
-| 10 | 40 bearing-block laminations, 4 side-gusset laminations, 10 rail-splice-cover laminations, 4 knee-plate laminations, 2 kicker-backing seam-splice laminations | First cut four 450 x 450 mm knee blanks, then four 400 x 457 mm gusset blanks, then ten 400 x 180 mm splice blanks and two 400 x 75 mm backing-splice blanks; use remaining area for the 80 x 60 mm bearing blocks. Mark gussets before trimming their CAD profile. |
-| 11 | 12 tie-center-splice laminations, 400 x 180; 10 main-seam bearing-block laminations, 180 x 60 | Rip six 180 mm lanes and crosscut each into two 400 mm blanks. Pair the blanks into six 36 mm splice plates; use the remaining sheet area for the ten seam-block laminations. |
+| 10 | 40 bearing-block laminations, 4 side-gusset laminations, 10 rail-splice-cover laminations, 4 knee-plate laminations, 2 kicker-backing seam-splice laminations | Use the explicit sheet-10 lanes below. Mark gussets before trimming their CAD profile. |
+| 11 | 12 tie-center-splice laminations, 400 x 180; 10 main-seam bearing-block laminations, 180 x 60 | Use the explicit sheet-11 lanes below. Pair the twelve 400 x 180 blanks into six 36 mm splice plates. |
+
+## Crowded-sheet cut maps
+
+Coordinates below are measured from one factory corner of the raw sheet. They
+are **layout zones**, not a replacement for the finished dimensions in the cut
+list: leave a saw kerf of no more than 2.4 mm between every adjacent blank,
+and retain any surplus at the far edge as waste. The maps fit inside the
+minimum 1219.2 x 2438.4 mm raw-sheet assumption.
+
+### Sheet 10
+
+| Zone | X span mm | Y span mm | Finished cuts | Capacity/use |
+| --- | ---: | ---: | --- | --- |
+| A | 0–902.4 | 0–902.4 | 450 x 450 | Four knee-gusset blanks in a 2 x 2 array |
+| B | 902.4–1219.2 | 0–900 | 80 x 60 | Forty regular bearing-block laminations: three 80 mm columns by fourteen 60 mm rows provides 42 positions; retain two as optional defect/spare blanks |
+| C | 0–802.4 | 902.4–1818.8 | 400 x 457 | Four kicker/main side-gusset blanks in a 2 x 2 array |
+| D | 804.8–1204.8 | 902.4–1264.8 | 400 x 180 | Two face-rail splice-cover laminations stacked vertically |
+| E | 0–1204.8 | 1818.8–2363.6 | 400 x 180 | Eight face-rail splice-cover laminations in a three-column, three-row array; leave one position unused |
+| F | 804.8–1204.8 | 1267.2–1419.6 | 400 x 75 | Two kicker-backing seam-splice laminations stacked vertically |
+
+### Sheet 11
+
+| Zone | X span mm | Y span mm | Finished cuts | Capacity/use |
+| --- | ---: | ---: | --- | --- |
+| A | 0–1204.8 | 0–727.2 | 400 x 180 | Twelve tie-center-splice laminations in a three-column, four-row array |
+| B | 0–1092 | 727.2–849.6 | 180 x 60 | Ten main-seam bearing-block laminations; six columns by two rows gives 12 positions, leaving two optional defect/spare blanks |
 
 Before drilling, label every blank with its generated part name and orientation.
 The drill schedule/template controls holes; this nesting layout never changes
