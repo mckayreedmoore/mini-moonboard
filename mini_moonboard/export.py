@@ -19,6 +19,7 @@ from .model import (
     build_reference_board,
     build_v1_concept,
     reference_envelope,
+    v1_leg_geometry,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
@@ -172,11 +173,10 @@ def _v1_side_svg() -> str:
     base_x, bottom = 155.0, 650.0
     kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
     top_x, top_y = base_x + board_depth * scale, bottom - board_height * scale
-    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
-    bend_distance, upper_distance = 1480.0, 1880.0
-    bend_y, bend_z = bend_distance * math.sin(angle), V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
-    upper_y, upper_z = upper_distance * math.sin(angle), V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
-    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+    leg = v1_leg_geometry()
+    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
+    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
+    foot_y = leg["foot_y"]
 
     def point(y: float, z: float) -> tuple[float, float]:
         return base_x + y * scale, bottom - z * scale
@@ -192,7 +192,7 @@ def _v1_side_svg() -> str:
   <circle class="datum" cx="{bend_x:.1f}" cy="{bend_screen_y:.1f}" r="5" />
   <text x="{bend_x + 12:.1f}" y="{bend_screen_y - 12:.1f}">row 8 bend datum</text>
   <text x="{upper_x + 10:.1f}" y="{upper_screen_y - 8:.1f}">row 10 upper datum</text>
-  <text x="{foot_x + 8:.1f}" y="{foot_screen_y - 12:.1f}">provisional rear foot</text>
+  <text x="{foot_x + 8:.1f}" y="{foot_screen_y - 12:.1f}">provisional lower-member endpoint</text>
   <text x="{base_x - 12:.1f}" y="{(bottom + kicker_top) / 2:.1f}" text-anchor="end">225 mm kicker</text>
   <text x="450" y="700" text-anchor="middle">Two exterior laminated legs are coincident in this side view; 60 degree lower-leg angle.</text>"""
     return _svg(
@@ -230,7 +230,7 @@ def _v1_rear_svg() -> str:
     left, right, bottom = 150.0, 750.0, 650.0
     top = bottom - height * scale
     kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
-    rail_x = [left + width * index / 3 * scale for index in range(4)]
+    rail_x = [left + width * fraction * scale for fraction in (0.0, 1 / 3, 0.5, 2 / 3, 1.0)]
     rails = "\n".join(
         f'  <line class="rail" x1="{x:.1f}" y1="{top:.1f}" x2="{x:.1f}" y2="{kicker_top:.1f}" />'
         for x in rail_x
@@ -243,7 +243,7 @@ def _v1_rear_svg() -> str:
   <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{(kicker_top - top):.1f}" />
 {rails}
 {braces}
-  <text x="450" y="700" text-anchor="middle">Four rear face rails and three full-width panel-joint braces; 54 mm provisional hardware/wiring gap.</text>
+  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus center-seam rail, and three panel-joint-brace rows; 54 mm provisional hardware/wiring gap.</text>
   <text x="450" y="725" text-anchor="middle">Rear ties are split at center for 4 x 8 stock; splice detail requires human review.</text>"""
     return _svg(
         "Mini MoonBoard v1 rear plan",
@@ -301,27 +301,29 @@ def _v1_isometric_svg() -> str:
             line((x_left, mid_y, mid_z), (x_right, mid_y, mid_z), "seam"),
         )
     )
-    bend_distance, upper_distance = 1480.0, 1880.0
-    bend_y, bend_z = surface(bend_distance)
-    upper_y, upper_z = surface(upper_distance)
-    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+    leg = v1_leg_geometry()
+    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
+    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
+    foot_y, foot_z = leg["foot_y"], leg["foot_center_z"]
     legs = "\n".join(
-        line((x, foot_y, 0.0), (x, bend_y, bend_z), "leg")
+        line((x, foot_y, foot_z), (x, bend_y, bend_z), "leg")
         + "\n"
         + line((x, bend_y, bend_z), (x, upper_y, upper_z), "leg")
-        for x in (-V1_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2,
-                  V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)
+        for x in (
+            -V1_PANEL_SIZE_MM - V1_SUPPORT_WIDTH_MM / 2 - V1_SUPPORT_THICKNESS_MM / 2,
+            V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM / 2,
+        )
     )
     rails = "\n".join(
         line((x, main_bottom_y + 54.0, main_bottom_z), (x, top_y + 54.0, top_z), "rail")
-        for x in (-V1_PANEL_SIZE_MM, -V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM)
+        for x in (-V1_PANEL_SIZE_MM, -V1_PANEL_SIZE_MM / 3, 0.0, V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM)
     )
     body = f"""{kicker}
 {board}
 {seams}
 {rails}
 {legs}
-  <text x="450" y="710" text-anchor="middle">Isometric review render: panels, kicker, four face rails, and two exterior hockey-stick legs.</text>"""
+  <text x="450" y="710" text-anchor="middle">Isometric review render: panels, kicker, five face rails, and two exterior hockey-stick legs.</text>"""
     return _svg(
         "Mini MoonBoard v1 provisional isometric render",
         body,
@@ -352,7 +354,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "kicker-center-seam lamination", 2, V1_KICKER_HEIGHT_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-bottom-backing-half lamination", 4, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, 1256.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "leg-lower lamination", 4, 1446.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
     )
     with path.open("w", newline="") as stream:
@@ -419,7 +421,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         "leg upper member to exterior outer face rail",
                         side,
                         1,
-                        f"{sign * V1_PANEL_SIZE_MM:.3f}",
+                        f"{sign * (V1_PANEL_SIZE_MM + 54.0):.3f}",
                         f"{54.0 + distance * math.sin(angle):.3f}",
                         f"{V1_KICKER_HEIGHT_MM + distance * math.cos(angle):.3f}",
                         "X",

@@ -150,13 +150,13 @@ def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
     """Return a conservative X-axis envelope for a leg-to-outer-rail bolt."""
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
     return cq.Workplane("XY").box(
-        V1_SUPPORT_WIDTH_MM,
+        V1_SUPPORT_WIDTH_MM + V1_SUPPORT_THICKNESS_MM,
         V1_STRUCTURAL_BOLT_DIAMETER_MM,
         V1_STRUCTURAL_BOLT_DIAMETER_MM,
         centered=(True, True, True),
     ).translate(
         (
-            side * V1_PANEL_SIZE_MM,
+            side * (V1_PANEL_SIZE_MM + V1_HARDWARE_GAP_MM),
             V1_HARDWARE_GAP_MM + distance * math.sin(angle),
             V1_KICKER_HEIGHT_MM + distance * math.cos(angle),
         )
@@ -166,6 +166,29 @@ def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
 def _led_string_envelope(x: float) -> cq.Workplane:
     """Return a conservative rear cable-routing envelope for one LED string."""
     return _sloped_face_member(x, 0.0, 2 * V1_PANEL_SIZE_MM).translate((0, -24.0, 0))
+
+
+def v1_leg_geometry() -> dict[str, float]:
+    """Return the shared provisional side-leg geometry in millimetres."""
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    bend_distance, upper_distance = 1480.0, 1880.0
+    bend_y = V1_HARDWARE_GAP_MM + bend_distance * math.sin(angle)
+    bend_z = V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
+    upper_y = V1_HARDWARE_GAP_MM + upper_distance * math.sin(angle)
+    upper_z = V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
+    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+    lower_angle = math.atan2(foot_y - bend_y, -bend_z)
+    foot_center_z = 1.0 + V1_SUPPORT_WIDTH_MM / 2 * abs(math.sin(lower_angle))
+    return {
+        "bend_distance": bend_distance,
+        "bend_y": bend_y,
+        "bend_z": bend_z,
+        "upper_y": upper_y,
+        "upper_z": upper_z,
+        "foot_y": foot_y,
+        "foot_center_z": foot_center_z,
+        "lower_length": math.hypot(foot_y - bend_y, foot_center_z - bend_z),
+    }
 
 
 def build_v1_concept() -> cq.Assembly:
@@ -178,20 +201,15 @@ def build_v1_concept() -> cq.Assembly:
     board = build_reference_board(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
     board.name = "mini_moonboard_v1_concept"
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
-    bend_distance = 1480.0  # Fifth T-nut row down from row 12.
-    upper_distance = bend_distance + 400.0  # Two T-nut-row intervals.
-    bend_y = V1_HARDWARE_GAP_MM + bend_distance * math.sin(angle)
-    bend_z = V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
-    upper_y = V1_HARDWARE_GAP_MM + upper_distance * math.sin(angle)
-    upper_z = V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
-    # The descending board line points -130 degrees from horizontal. Rotating
-    # it 60 degrees gives the rearward, floor-reaching lower leg at -70 degrees.
-    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
-    lower_angle = math.atan2(foot_y - bend_y, -bend_z)
-    foot_center_z = 1.0 + V1_SUPPORT_WIDTH_MM / 2 * abs(math.sin(lower_angle))
+    leg = v1_leg_geometry()
+    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
+    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
+    foot_y, foot_center_z = leg["foot_y"], leg["foot_center_z"]
 
-    for side, x in (("left", -V1_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2),
-                    ("right", V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)):
+    for side, x in (
+        ("left", -V1_PANEL_SIZE_MM - V1_SUPPORT_WIDTH_MM / 2 - V1_SUPPORT_THICKNESS_MM / 2),
+        ("right", V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM / 2),
+    ):
         upper = _support_member(bend_y, bend_z, upper_y, upper_z).translate((x, 0, 0))
         lower = _support_member(bend_y, bend_z, foot_y, foot_center_z).translate((x, 0, 0))
         board.add(cq.Compound.makeCompound([upper.val(), lower.val()]), name=f"leg_{side}", color=cq.Color("saddlebrown"))
@@ -233,7 +251,7 @@ def build_v1_concept() -> cq.Assembly:
         )
 
     for name, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
-        tie_distance = bend_distance * fraction
+        tie_distance = leg["bend_distance"] * fraction
         tie_y = tie_distance * math.sin(angle) + V1_HARDWARE_GAP_MM
         tie_z = V1_KICKER_HEIGHT_MM + tie_distance * math.cos(angle)
         for side, label in ((-1, "left"), (1, "right")):

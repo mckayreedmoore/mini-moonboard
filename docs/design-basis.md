@@ -65,8 +65,9 @@ these values before cutting, drilling, gluing, or loading it:
   not a room or pad measurement.
 - **Leg geometry:** the model bends at main-grid row 8 (fifth row down from
   row 12), reaches row 10, and assumes a 60-degree included angle from the
-  descending board line. Its rear foot is consequently about 1446 mm behind
-  the kicker face. Confirm this matches the intended floor footprint.
+  descending board line. The lower-member endpoint centre is 1500 mm behind
+  the kicker face and 31.8 mm above floor; this is a CAD datum, not a finished
+  foot/contact point. Confirm the final floor footprint.
 - **External-leg connection:** four structural bolts per leg are intended, but
   their diameter, grade, washer/plate stack, edge distances, and locations are
   not selected. The T-nut rows are location datums only; no structural bolt may

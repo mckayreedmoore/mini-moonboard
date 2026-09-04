@@ -134,10 +134,13 @@ an impact surface.
 | --- | ---: | ---: |
 | Blank extension below official active zone | 75 mm | 2.95 in |
 | Total v1 kicker height | 225 mm | 8.86 in |
-| Resulting main-surface top height | 2094.1 mm | 82.44 in |
+| Nominal-reference main-surface top height | 2094.1 mm | 82.44 in |
 
 Any later pad-clearance decision is a separate design/safety task, not a Moon
-Climbing recommendation or a change to this fixed v1 board geometry.
+Climbing recommendation or a change to this fixed v1 board geometry. The
+controlled 48-in-stock V1 model deliberately uses 1219.2 mm panels, so its
+actual main-surface top is 2092.9 mm; see the V1 build package rather than
+using this nominal-reference calculation for cuts.
 
 ## Plywood and hardware samples
 

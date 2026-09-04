@@ -38,7 +38,7 @@ def _section(inputs: Mapping[str, Any], name: str) -> Mapping[str, Any]:
 
 
 def validate_site_inputs(inputs: Mapping[str, Any]) -> list[str]:
-    """Return missing or invalid fields required before frame design begins."""
+    """Validate the separate deferred site-and-pad worksheet, not V1 geometry."""
     errors: list[str] = []
     for section_name, field_name in _REQUIRED_TEXT:
         value = _section(inputs, section_name).get(field_name)

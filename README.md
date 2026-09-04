@@ -53,8 +53,10 @@ uv sync
 uv run ruff check .
 uv run pytest
 uv run python -m mini_moonboard.export
-uv run python -m mini_moonboard.site_inputs design_inputs.toml
 ```
+
+`site_inputs` is a separate, deferred site-and-pad worksheet validator; it is
+not a V1 build-package gate.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
 

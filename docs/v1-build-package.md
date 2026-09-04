@@ -18,7 +18,7 @@ human-audit list at the end.
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
-| Rear-foot datum | 1446 mm behind kicker face | Derived provisional geometry |
+| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.8 mm above floor | Derived provisional geometry; not a finished foot/contact detail |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
@@ -44,7 +44,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Panel-facing dimensional plan |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric visual review render of the assembled geometry |
-| [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Rear plan: four rails, braces, and tie/splice intent |
+| [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Rear plan: five face rails, braces, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight provisional leg-to-board structural-bolt datums |
@@ -90,7 +90,7 @@ that change record.
    75 mm blank kicker extension below the official active kicker zone.
 4. Glue and clamp each two-ply support member to the audited adhesive schedule;
    do not treat the 36 mm CAD thickness as an actual measured thickness.
-5. Dry-fit the two side legs, four face rails plus center-seam rail, kicker
+5. Dry-fit the two side legs, five face rails, kicker
    seam/bottom backing, three panel-joint braces, and split rear ties on a
    level protected floor. Check the 60-degree leg angle, rear-foot position,
    racking, and all panel/LED/T-nut clearances.

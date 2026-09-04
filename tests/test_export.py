@@ -19,6 +19,7 @@ from mini_moonboard.export import (
     export_v1_isometric_drawing,
     export_v1_rear_drawing,
 )
+from mini_moonboard.model import v1_leg_geometry
 
 
 def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
@@ -72,6 +73,10 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert len(bom_rows) == 10
     assert {row["axis"] for row in connection_rows} == {"X"}
     assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000"}
+    lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
+    assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
+    assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
+    assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:
@@ -87,6 +92,27 @@ def test_exports_are_reproducible(tmp_path: Path) -> None:
         tmp_path / "second"
     ).read_bytes()
     assert export_v1_concept(tmp_path / "first").read_bytes() == export_v1_concept(tmp_path / "second").read_bytes()
+
+
+def test_committed_exports_are_fresh(tmp_path: Path) -> None:
+    generated_dir = tmp_path / "exports"
+    export_reference(generated_dir)
+    export_v1_concept(generated_dir)
+    export_v1_concept_side_drawing(generated_dir)
+    export_v1_front_drawing(generated_dir)
+    export_v1_rear_drawing(generated_dir)
+    export_v1_isometric_drawing(generated_dir)
+    export_v1_cut_list(generated_dir)
+    export_v1_drill_schedule(generated_dir)
+    export_v1_connection_schedule(generated_dir)
+    export_v1_bom(generated_dir)
+    export_panel_grid(generated_dir)
+    export_panel_grid_drawing(generated_dir)
+    export_reference_panel_cut_list(generated_dir)
+    committed_dir = Path(__file__).parents[1] / "exports"
+    assert {path.name: path.read_bytes() for path in generated_dir.iterdir()} == {
+        path.name: path.read_bytes() for path in committed_dir.iterdir()
+    }
 
 
 def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:
