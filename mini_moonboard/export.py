@@ -19,6 +19,7 @@ from .model import (
     V1_KNEE_GUSSET_SIZE_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
+    V1_REAR_TIE_LAG_LENGTH_MM,
     V1_REAR_TIE_WIDTH_MM,
     V1_STANDOFF_LENGTH_MM,
     V1_STANDOFF_WIDTH_MM,
@@ -31,6 +32,7 @@ from .model import (
     v1_knee_bolt_positions,
     v1_leg_geometry,
     v1_panel_fastener_positions,
+    v1_rear_tie_lag_positions,
     v1_structural_bolt_position,
     v1_support_side_point,
 )
@@ -421,6 +423,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, 457.0, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "tie-center-splice lamination", 12, 400.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "face-rail splice-cover lamination", 10, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
@@ -457,6 +460,43 @@ def export_v1_drill_schedule(output_dir: Path) -> Path:
             writer.writerow(("LED", label, f"{x:.3f}", f"{y:.3f}", "13.000", "MoonBoard LED kit: verify supplied guide"))
         for label, (x, y) in kicker_foothold_datums().items():
             writer.writerow(("kicker T-nut", label, f"{x:.3f}", f"{y:.3f}", "11.112", "Escape 3/8-16: offcut test required"))
+    return path
+
+
+def export_v1_panel_drill_schedule(output_dir: Path) -> Path:
+    """Export direct local-coordinate drilling records for every V1 blank.
+
+    Coordinates are measured from the finished blank's lower-left corner while
+    looking at its climbing face. This is the cuttable V1 transfer schedule;
+    the whole-board datum CSV remains a cross-check against Moon's template.
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_panel_drill_schedule.csv"
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("part", "feature", "label", "x_from_left_mm", "z_from_bottom_mm", "diameter_mm", "datum"))
+        for row, row_label in enumerate(("lower", "upper")):
+            for column, side in enumerate(("left", "right")):
+                x_min, z_min = column * V1_PANEL_SIZE_MM, row * V1_PANEL_SIZE_MM
+                part = f"main_{row_label}_{side}"
+                for feature, datums, diameter in (
+                    ("T-nut", main_tnut_datums(), 11.112),
+                    ("LED", main_led_datums(), 13.0),
+                ):
+                    for label, (x, z) in datums.items():
+                        if x_min <= x < x_min + V1_PANEL_SIZE_MM and z_min <= z < z_min + V1_PANEL_SIZE_MM:
+                            writer.writerow(
+                                (part, feature, label, f"{x - x_min:.3f}", f"{z - z_min:.3f}", f"{diameter:.3f}", "finished blank lower-left, climbing face")
+                            )
+        for column, side in enumerate(("left", "right")):
+            x_min = column * V1_PANEL_SIZE_MM
+            part = f"kicker_{side}"
+            for label, (x, y) in kicker_foothold_datums().items():
+                if x_min <= x < x_min + V1_PANEL_SIZE_MM:
+                    writer.writerow((part, "T-nut", label, f"{x - x_min:.3f}", f"{V1_KICKER_HEIGHT_MM + y:.3f}", "11.112", "finished blank lower-left, climbing face"))
+            for label, (x, y) in main_led_datums().items():
+                if x_min <= x < x_min + V1_PANEL_SIZE_MM and y < 0:
+                    writer.writerow((part, "LED", label, f"{x - x_min:.3f}", f"{V1_KICKER_HEIGHT_MM + y:.3f}", "13.000", "finished blank lower-left, climbing face"))
     return path
 
 
@@ -535,6 +575,24 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                     "PROVISIONAL: two screws per bearing block; fit-test confirms 10.55 mm panel embedment without face breakout",
                 )
             )
+        for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
+            for side, sign in (("left", -1), ("right", 1)):
+                for number, (x, y, z) in enumerate(v1_rear_tie_lag_positions(sign, fraction), start=1):
+                    writer.writerow(
+                        (
+                            "lower leg exterior through rear-tie end",
+                            f"{side}-{row}",
+                            number,
+                            "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are lag-screw head center on the leg exterior",
+                            f"{x:.3f}",
+                            f"{y:.3f}",
+                            f"{z:.3f}",
+                            "X toward board centerline",
+                            "6.000 pilot",
+                            f"5/16 in structural lag screw, {V1_REAR_TIE_LAG_LENGTH_MM:.1f} mm / 10 in nominal",
+                            "PROVISIONAL: two per rear-tie end; envelope traverses exterior leg and at least 200 mm of tie",
+                        )
+                    )
     return path
 
 
@@ -543,7 +601,7 @@ def export_v1_bom(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
-        ("3/4 in 4 x 8 birch plywood", "10 sheets", "See docs/v1-sheet-nesting.md; verify raw dimensions and use a main-panel separating kerf no greater than 2.4 mm"),
+        ("3/4 in 4 x 8 birch plywood", "11 sheets", "See docs/v1-sheet-nesting.md; verify raw dimensions and use a main-panel separating kerf no greater than 2.4 mm"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
@@ -552,8 +610,9 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
         ("#10 x 3.25 in structural wood screws", "40", "Two rear-installed screws per bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
-        ("#10 x 2.5 in structural wood screws", "88 plus 10% spare", "Rail splice, rail-cross-tie, rear-tie, side-gusset, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
+        ("#10 x 2.5 in structural wood screws", "100 plus 10% spare", "Rail splice, rail-cross-tie, tie-center-splice, side-gusset, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
         ("#10 x 2 in structural wood screws", "8 plus 10% spare", "Blank-kicker-backing schedule in docs/v1-secondary-joinery.md"),
+        ("5/16 in x 10 in structural lag screws with washers", "12", "Rear-tie-end to lower-leg schedule in mini_moonboard_v1_connection_schedule.csv"),
         ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
         ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
     )
@@ -734,6 +793,7 @@ def main() -> None:
         export_v1_isometric_drawing(args.output_dir),
         export_v1_cut_list(args.output_dir),
         export_v1_drill_schedule(args.output_dir),
+        export_v1_panel_drill_schedule(args.output_dir),
         export_v1_connection_schedule(args.output_dir),
         export_v1_bom(args.output_dir),
         export_panel_grid(args.output_dir),

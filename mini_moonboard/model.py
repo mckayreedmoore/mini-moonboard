@@ -32,6 +32,10 @@ V1_KNEE_BOLT_OFFSETS_MM = (70.0, 220.0)
 V1_PANEL_FASTENER_DIAMETER_MM = 4.826
 V1_PANEL_FASTENER_LENGTH_MM = 82.55
 V1_PANEL_FASTENER_TANGENT_OFFSETS_MM = (25.0, 55.0)
+V1_TIE_SPLICE_LENGTH_MM = 400.0
+V1_REAR_TIE_LAG_DIAMETER_MM = 7.938
+V1_REAR_TIE_LAG_LENGTH_MM = 254.0
+V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM = (-45.0, 45.0)
 V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
 V1_LED_HOLE_DIAMETER_MM = 13.0
 # The climber is below the overhanging panel. The board's opposite side carries
@@ -303,6 +307,26 @@ def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
     )
 
 
+def _tie_center_splice(y: float, z: float) -> cq.Workplane:
+    """Return a two-ply rear-side plate bridging one pair of tie halves."""
+    normal_angle = 90.0 + ANGLE_FROM_VERTICAL_DEG
+    # The tie spans local Y=-18..18. Offset the splice so its local Y=0 face
+    # bears on the tie's rear face at local Y=18, without a volume overlap.
+    offset = V1_SUPPORT_THICKNESS_MM / 2
+    angle = math.radians(-normal_angle)
+    return (
+        cq.Workplane("XY")
+        .box(
+            V1_TIE_SPLICE_LENGTH_MM,
+            V1_SUPPORT_THICKNESS_MM,
+            V1_REAR_TIE_WIDTH_MM,
+            centered=(True, False, True),
+        )
+        .rotate((0, 0, 0), (1, 0, 0), -normal_angle)
+        .translate((0.0, y + offset * math.cos(angle), z + offset * math.sin(angle)))
+    )
+
+
 def _rail_cross_tie_point(distance: float) -> tuple[float, float]:
     """Return the center of a board-normal tie whose inner face touches rails."""
     return v1_support_side_point(
@@ -491,6 +515,36 @@ def v1_panel_fastener_envelope(x: float, distance: float) -> cq.Shape:
     )
 
 
+def v1_rear_tie_lag_positions(side: int, fraction: float) -> tuple[tuple[float, float, float], ...]:
+    """Return two exterior-to-interior 10-in lag screw centers for a rear tie."""
+    leg = v1_leg_geometry()
+    tie_y = leg["foot_y"] + fraction * (leg["bend_y"] - leg["foot_y"])
+    tie_z = leg["foot_center_z"] + fraction * (leg["bend_z"] - leg["foot_center_z"])
+    outer_x = side * (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM)
+    angle = math.radians(-90.0 - ANGLE_FROM_VERTICAL_DEG)
+    return tuple(
+        (
+            outer_x,
+            tie_y - offset * math.sin(angle),
+            tie_z + offset * math.cos(angle),
+        )
+        for offset in V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM
+    )
+
+
+def v1_rear_tie_lag_envelope(side: int, fraction: float, local_offset: float) -> cq.Shape:
+    """Return an X-axis reference cylinder from leg exterior into tie end."""
+    positions = v1_rear_tie_lag_positions(side, fraction)
+    index = V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM.index(local_offset)
+    x, y, z = positions[index]
+    return cq.Solid.makeCylinder(
+        V1_REAR_TIE_LAG_DIAMETER_MM / 2,
+        V1_REAR_TIE_LAG_LENGTH_MM,
+        cq.Vector(x, y, z),
+        cq.Vector(-side, 0.0, 0.0),
+    )
+
+
 def build_v1_concept() -> cq.Assembly:
     """Build the provisional unanchored board and two exterior hockey-stick legs.
 
@@ -594,6 +648,7 @@ def build_v1_concept() -> cq.Assembly:
                 name=f"rear_tie_{name}_{label}",
                 color=cq.Color("saddlebrown"),
             )
+        board.add(_tie_center_splice(tie_y, tie_z), name=f"rear_tie_splice_{name}", color=cq.Color("peru"))
 
     # A separate rail-grid tie system transfers every internal rail to the
     # exterior rails, which are the members connected to the hockey-stick legs.
@@ -607,5 +662,6 @@ def build_v1_concept() -> cq.Assembly:
                 name=f"rail_cross_tie_{name}_{label}",
                 color=cq.Color("saddlebrown"),
             )
+        board.add(_tie_center_splice(tie_y, tie_z), name=f"rail_cross_tie_splice_{name}", color=cq.Color("peru"))
 
     return board

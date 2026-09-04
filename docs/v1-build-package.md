@@ -69,21 +69,22 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
+| [`mini_moonboard_v1_panel_drill_schedule.csv`](../exports/mini_moonboard_v1_panel_drill_schedule.csv) | Direct per-blank records: part ID, labeled hole, local finished-blank X/Z, and bore diameter |
 | [`mini_moonboard_v1_connection_schedule.csv`](../exports/mini_moonboard_v1_connection_schedule.csv) | Eight leg-to-rail bolts, eight knee-plate bolts, and forty panel/rail screw datums |
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 | [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
 | [`v1-led-installation.md`](v1-led-installation.md) | Source-backed V5 string order, service-gap routing, and received-kit audit |
 
-The CSV drill coordinates are a machine-readable cross-check of the official
-metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
-requires the official **imperial** Mini template unless the hardware system is
-changed under controlled revision. Print that template at 100 percent and
-verify its calibration dimensions. The controlled 2436.0 mm V1 blank is not
-the published 2438.8 mm imperial template width: before any production
-drilling, record calibration marks, final blank trim, center-seam location,
-and template-to-blank offsets. Do not combine the PDF template and CSV by eye
-or substitute converted values for template dimensions.
+The whole-board CSV is a cross-check of the official metric datums. Use the
+per-blank CSV to transfer holes: each coordinate is from the **finished
+blank's lower-left corner while looking at its climbing face**, and every
+record names its component and Moon label. V1's selected Escape 3/8-16
+hardware still requires an offcut and a 100-percent official imperial-template
+calibration before production drilling. The controlled 2436.0 mm V1 blank is
+not the published 2438.8 mm imperial template width, so record the offcut
+result, final blank trim, and any template comparison offsets; never combine a
+PDF and a CSV by eye.
 
 The CAD carries the 142 hold/T-nut and 132 LED through-bores, which are the
 physical provisions for those systems. It intentionally does not invent the
@@ -97,7 +98,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
-| 3/4-in, 4 x 8 birch plywood | **10 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
+| 3/4-in, 4 x 8 birch plywood | **11 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
@@ -105,7 +106,8 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
-| Secondary joinery screws | 88 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
+| Secondary joinery screws | 100 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie splice, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
+| Rear-tie leg lags | 12 x 5/16-in x 10-in structural lag screws with washers | Drive from leg exterior through the tie end; use global connection schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
 

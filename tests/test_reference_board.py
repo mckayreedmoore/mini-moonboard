@@ -12,6 +12,7 @@ from mini_moonboard.model import (
     V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
+    V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM,
     V1_STANDOFF_CLEARANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
     _structural_bolt_envelope,
@@ -21,6 +22,7 @@ from mini_moonboard.model import (
     v1_panel_fastener_envelope,
     v1_panel_fastener_positions,
     v1_rail_standoff_placements,
+    v1_rear_tie_lag_envelope,
     v1_structural_bolt_position,
     v1_support_side_point,
 )
@@ -107,7 +109,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     } <= set(names)
-    assert len(board.children) == 62
+    assert len(board.children) == 68
     for part in (next(part for part in board.children if part.name == name) for name in ("leg_left", "leg_right")):
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
@@ -173,12 +175,23 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     for row in ("low", "mid", "top"):
         for side in ("left", "right"):
             assert parts[f"rear_tie_{row}_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
+        assert parts[f"rear_tie_splice_{row}"].distance(parts[f"rear_tie_{row}_left"]) == pytest.approx(0)
+        assert parts[f"rear_tie_splice_{row}"].distance(parts[f"rear_tie_{row}_right"]) == pytest.approx(0)
     for row in ("low", "mid", "top"):
         for side, rails in (("left", ("face_rail_1", "face_rail_2", "face_rail_center_seam")), ("right", ("face_rail_3", "face_rail_4", "face_rail_center_seam"))):
             cross_tie = parts[f"rail_cross_tie_{row}_{side}"]
             rail_row = "upper" if row == "top" else "lower"
             for rail in rails:
                 assert cross_tie.distance(parts[f"{rail}_{rail_row}"]) == pytest.approx(0)
+        assert parts[f"rail_cross_tie_splice_{row}"].distance(parts[f"rail_cross_tie_{row}_left"]) == pytest.approx(0)
+        assert parts[f"rail_cross_tie_splice_{row}"].distance(parts[f"rail_cross_tie_{row}_right"]) == pytest.approx(0)
+
+    for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
+        for sign, side in ((-1, "left"), (1, "right")):
+            for offset in V1_REAR_TIE_LAG_LOCAL_OFFSETS_MM:
+                envelope = v1_rear_tie_lag_envelope(sign, fraction, offset)
+                assert envelope.intersect(parts[f"leg_{side}"]).Volume() > 1_000
+                assert envelope.intersect(parts[f"rear_tie_{row}_{side}"]).Volume() > 10_000
     for sign, side, rail in ((-1, "left", "face_rail_1_upper"), (1, "right", "face_rail_4_upper")):
         for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
             envelope = _structural_bolt_envelope(sign, distance).val()

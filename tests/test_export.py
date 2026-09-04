@@ -19,6 +19,7 @@ from mini_moonboard.export import (
     export_v1_drill_schedule,
     export_v1_front_drawing,
     export_v1_isometric_drawing,
+    export_v1_panel_drill_schedule,
     export_v1_rear_drawing,
     export_v1_viewer_mesh,
 )
@@ -47,7 +48,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 64
+    assert cq.importers.importStep(str(path)).solids().size() == 70
 
 
 def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path) -> None:
@@ -89,16 +90,22 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
 
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 13
+    panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
+    assert len(cut_rows) == 14
     assert len(drill_rows) == 274
+    assert len(panel_drill_rows) == 274
+    assert {row["part"] for row in panel_drill_rows} == {
+        "main_lower_left", "main_lower_right", "main_upper_left", "main_upper_right", "kicker_left", "kicker_right"
+    }
+    assert all(0 < float(row["x_from_left_mm"]) < V1_PANEL_SIZE_MM for row in panel_drill_rows)
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
-    assert len(connection_rows) == 56
-    assert len(bom_rows) == 13
-    assert bom_rows[0]["quantity"] == "10 sheets"
-    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward climbing face"}
-    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "3.200 pilot"}
+    assert len(connection_rows) == 68
+    assert len(bom_rows) == 14
+    assert bom_rows[0]["quantity"] == "11 sheets"
+    assert {row["axis"] for row in connection_rows} == {"X", "X toward board centerline", "board-normal toward climbing face"}
+    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "6.000 pilot", "3.200 pilot"}
     lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
     rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
@@ -109,6 +116,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
         "X is bolt-stack midpoint" in row["datum"]
         if row["axis"] == "X"
         else "screw-head center at rail exterior face" in row["datum"]
+        if row["axis"] == "board-normal toward climbing face"
+        else "lag-screw head center on the leg exterior" in row["datum"]
         for row in connection_rows
     )
     assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
@@ -141,6 +150,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_v1_isometric_drawing(generated_dir)
     export_v1_cut_list(generated_dir)
     export_v1_drill_schedule(generated_dir)
+    export_v1_panel_drill_schedule(generated_dir)
     export_v1_connection_schedule(generated_dir)
     export_v1_bom(generated_dir)
     export_panel_grid(generated_dir)
