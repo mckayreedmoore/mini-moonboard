@@ -2,6 +2,8 @@ import math
 
 import cadquery as cq
 
+from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
+
 MAIN_PANEL_SIZE_MM = 1220.0
 # Controlled v1 stock route: one factory-edge 48 in panel per 4 x 8 sheet.
 # This is intentionally not rounded to the 1220 mm official nominal size.
@@ -19,6 +21,8 @@ V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
 V1_LEG_BEND_DISTANCE_MM = 1480.0
 V1_LEG_UPPER_DISTANCE_MM = 1880.0
 V1_STRUCTURAL_BOLT_DISTANCES_MM = (1520.0, 1600.0, 1680.0, 1760.0)
+V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
+V1_LED_HOLE_DIAMETER_MM = 13.0
 # The climber is below the overhanging panel. The board's opposite side carries
 # rails, braces, wiring, and legs; it is the support side, never the climbing face.
 
@@ -48,6 +52,48 @@ def _panel(width: float, height: float) -> cq.Workplane:
         .box(width, PANEL_THICKNESS_MM, height, centered=(True, False, False))
         .translate((0, -PANEL_THICKNESS_MM, 0))
     )
+
+
+def _panel_with_holes(
+    width: float, height: float, holes: list[tuple[float, float, float]]
+) -> cq.Workplane:
+    """Cut provisional visual/drill bores through one local X/Z plywood panel."""
+    panel = _panel(width, height)
+    for x, z, diameter in holes:
+        cutter = (
+            cq.Workplane("XZ")
+            .center(x, z)
+            .circle(diameter / 2)
+            .extrude(PANEL_THICKNESS_MM * 2, both=True)
+        )
+        panel = panel.cut(cutter)
+    return panel
+
+
+def _v1_main_panel_holes(column: int, row: int) -> list[tuple[float, float, float]]:
+    """Map official centre data to one V1 stock-controlled main-panel quadrant."""
+    x_min, y_min = column * V1_PANEL_SIZE_MM, row * V1_PANEL_SIZE_MM
+    holes: list[tuple[float, float, float]] = []
+    for x, y in main_tnut_datums().values():
+        if x_min <= x < x_min + V1_PANEL_SIZE_MM and y_min <= y < y_min + V1_PANEL_SIZE_MM:
+            holes.append((x - x_min - V1_PANEL_SIZE_MM / 2, y - y_min, V1_SELECTED_TNUT_HOLE_DIAMETER_MM))
+    for x, y in main_led_datums().values():
+        if x_min <= x < x_min + V1_PANEL_SIZE_MM and y_min <= y < y_min + V1_PANEL_SIZE_MM:
+            holes.append((x - x_min - V1_PANEL_SIZE_MM / 2, y - y_min, V1_LED_HOLE_DIAMETER_MM))
+    return holes
+
+
+def _v1_kicker_holes(column: int) -> list[tuple[float, float, float]]:
+    """Map official kicker and row-one LED centres to the active 150 mm V1 zone."""
+    x_min = column * V1_PANEL_SIZE_MM
+    holes: list[tuple[float, float, float]] = []
+    for x, y in kicker_foothold_datums().values():
+        if x_min <= x < x_min + V1_PANEL_SIZE_MM:
+            holes.append((x - x_min - V1_PANEL_SIZE_MM / 2, V1_KICKER_HEIGHT_MM + y, V1_SELECTED_TNUT_HOLE_DIAMETER_MM))
+    for x, y in main_led_datums().values():
+        if x_min <= x < x_min + V1_PANEL_SIZE_MM and y < 0:
+            holes.append((x - x_min - V1_PANEL_SIZE_MM / 2, V1_KICKER_HEIGHT_MM + y, V1_LED_HOLE_DIAMETER_MM))
+    return holes
 
 
 def build_reference_board(
@@ -214,8 +260,23 @@ def build_v1_concept() -> cq.Assembly:
     section reaches two rows upward (row 10). The 60-degree lower-leg angle and
     36 mm support thickness are modeling assumptions, not structural approval.
     """
-    board = build_reference_board(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
-    board.name = "mini_moonboard_v1_concept"
+    board = cq.Assembly(name="mini_moonboard_v1_concept")
+    half_panel = V1_PANEL_SIZE_MM / 2
+    for column, (side, x) in enumerate((("left", -half_panel), ("right", half_panel))):
+        board.add(
+            _panel_with_holes(V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, _v1_kicker_holes(column)).translate((x, 0, 0)),
+            name=f"kicker_{side}",
+            color=cq.Color("gray"),
+        )
+    for row, z in (("lower", 0.0), ("upper", V1_PANEL_SIZE_MM)):
+        for column, (side, x) in enumerate((("left", -half_panel), ("right", half_panel))):
+            panel = (
+                _panel_with_holes(V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, _v1_main_panel_holes(column, 0 if row == "lower" else 1))
+                .translate((x, 0, z))
+                .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
+                .translate((0, 0, V1_KICKER_HEIGHT_MM))
+            )
+            board.add(panel, name=f"main_{row}_{side}", color=cq.Color("black"))
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
     leg = v1_leg_geometry()
     bend_y, bend_z = leg["bend_y"], leg["bend_z"]
