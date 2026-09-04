@@ -12,6 +12,7 @@ from .model import (
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
     V1_KICKER_HEIGHT_MM,
+    V1_PANEL_SIZE_MM,
     V1_REAR_TIE_WIDTH_MM,
     V1_SUPPORT_THICKNESS_MM,
     V1_SUPPORT_WIDTH_MM,
@@ -57,8 +58,8 @@ def _svg(title: str, body: str, warning: str = "REFERENCE ONLY - NOT A FRAME DES
 """
 
 
-def _front_svg(kicker_height_mm: float) -> str:
-    width, _, height = reference_envelope(kicker_height_mm)
+def _front_svg(kicker_height_mm: float, panel_size_mm: float = MAIN_PANEL_SIZE_MM) -> str:
+    width, _, height = reference_envelope(kicker_height_mm, panel_size_mm)
     main_vertical = height - kicker_height_mm
     scale = 600 / width
     left, right, bottom = 150.0, 750.0, 650.0
@@ -89,8 +90,8 @@ def _front_svg(kicker_height_mm: float) -> str:
     return _svg("Mini MoonBoard reference front envelope", body, warning)
 
 
-def _side_svg(kicker_height_mm: float) -> str:
-    _, depth, height = reference_envelope(kicker_height_mm)
+def _side_svg(kicker_height_mm: float, panel_size_mm: float = MAIN_PANEL_SIZE_MM) -> str:
+    _, depth, height = reference_envelope(kicker_height_mm, panel_size_mm)
     scale = 520 / height
     base_x, bottom = 180.0, 650.0
     kicker_top = bottom - kicker_height_mm * scale
@@ -166,7 +167,7 @@ def export_v1_concept(output_dir: Path) -> Path:
 
 
 def _v1_side_svg() -> str:
-    _, board_depth, board_height = reference_envelope(V1_KICKER_HEIGHT_MM)
+    _, board_depth, board_height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
     scale = 520 / board_height
     base_x, bottom = 155.0, 650.0
     kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
@@ -216,7 +217,7 @@ def export_v1_front_drawing(output_dir: Path) -> Path:
     """Export the panel-facing v1 drawing with its fixed custom kicker."""
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_front.svg"
-    drawing = _front_svg(V1_KICKER_HEIGHT_MM).replace(
+    drawing = _front_svg(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM).replace(
         "Mini MoonBoard reference front envelope", "Mini MoonBoard v1 front plan"
     )
     path.write_text(drawing.replace("CUSTOM KICKER INPUT - UNREVIEWED", "V1 PROVISIONAL - AUDIT BEFORE FABRICATION"))
@@ -224,7 +225,7 @@ def export_v1_front_drawing(output_dir: Path) -> Path:
 
 
 def _v1_rear_svg() -> str:
-    width, _, height = reference_envelope(V1_KICKER_HEIGHT_MM)
+    width, _, height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
     scale = 600 / width
     left, right, bottom = 150.0, 750.0, 650.0
     top = bottom - height * scale
@@ -279,11 +280,11 @@ def _v1_isometric_svg() -> str:
         end_u, end_v = point(*end)
         return f'  <line class="{css}" x1="{start_u:.1f}" y1="{start_v:.1f}" x2="{end_u:.1f}" y2="{end_v:.1f}" />'
 
-    x_left, x_right = -MAIN_PANEL_SIZE_MM, MAIN_PANEL_SIZE_MM
+    x_left, x_right = -V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM
     surface = lambda distance: (distance * math.sin(angle), V1_KICKER_HEIGHT_MM + distance * math.cos(angle))
     main_bottom_y, main_bottom_z = surface(0.0)
-    mid_y, mid_z = surface(MAIN_PANEL_SIZE_MM)
-    top_y, top_z = surface(2 * MAIN_PANEL_SIZE_MM)
+    mid_y, mid_z = surface(V1_PANEL_SIZE_MM)
+    top_y, top_z = surface(2 * V1_PANEL_SIZE_MM)
     board = polygon(
         ((x_left, main_bottom_y, main_bottom_z), (x_right, main_bottom_y, main_bottom_z),
          (x_right, top_y, top_z), (x_left, top_y, top_z)),
@@ -308,12 +309,12 @@ def _v1_isometric_svg() -> str:
         line((x, foot_y, 0.0), (x, bend_y, bend_z), "leg")
         + "\n"
         + line((x, bend_y, bend_z), (x, upper_y, upper_z), "leg")
-        for x in (-MAIN_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2,
-                  MAIN_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)
+        for x in (-V1_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2,
+                  V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)
     )
     rails = "\n".join(
         line((x, main_bottom_y + 54.0, main_bottom_z), (x, top_y + 54.0, top_z), "rail")
-        for x in (-MAIN_PANEL_SIZE_MM, -MAIN_PANEL_SIZE_MM / 3, MAIN_PANEL_SIZE_MM / 3, MAIN_PANEL_SIZE_MM)
+        for x in (-V1_PANEL_SIZE_MM, -V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM / 3, V1_PANEL_SIZE_MM)
     )
     body = f"""{kicker}
 {board}
@@ -344,10 +345,12 @@ def export_v1_cut_list(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_cut_list.csv"
     rows = (
-        ("climbing surface", "main climbing panel", 4, 1220.0, 1220.0, PANEL_THICKNESS_MM),
-        ("climbing surface", "kicker panel", 2, 1220.0, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
-        ("support frame", "face-rail lamination", 8, 2440.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "panel-joint-brace lamination", 6, 2440.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("climbing surface", "main climbing panel", 4, V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM),
+        ("climbing surface", "kicker panel", 2, V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
+        ("support frame", "face-rail lamination segment", 20, V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "panel-joint-brace-half lamination", 12, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "kicker-center-seam lamination", 2, V1_KICKER_HEIGHT_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "kicker-bottom-backing-half lamination", 4, V1_PANEL_SIZE_MM, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, 1256.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, 1446.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
@@ -423,7 +426,7 @@ def export_v1_bom(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
-        ("3/4 in 4 x 8 birch plywood", "10 sheets", "Provisional: includes one offcut/waste sheet"),
+        ("3/4 in 4 x 8 birch plywood", "16 sheets", "Provisional: factory-edge panels; includes one offcut/waste sheet"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),

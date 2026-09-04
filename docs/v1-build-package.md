@@ -11,16 +11,16 @@ human-audit list at the end.
 
 | Item | V1 value | Basis |
 | --- | ---: | --- |
-| Main board | 2440 x 2440 mm nominal at 40 degrees from vertical | Official Mini geometry |
+| Main board | 2438.4 x 2438.4 mm actual v1 stock route at 40 degrees from vertical | Two factory-edge 48-in panels each direction; official dimensions remain nominal |
 | Kicker | 225 mm total | 150 mm official active zone + user-estimated 75 mm blank extension |
-| Main-surface top | 2094.1 mm above floor | Derived from the fixed kicker and official angle |
+| Main-surface top | 2092.9 mm above floor | Derived from the fixed kicker, 48-in panels, and official angle |
 | Exterior legs | Two, one per board side | User direction |
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
 | Rear-foot datum | 1446 mm behind kicker face | Derived provisional geometry |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
-| Face rails | Four, board-parallel, 180 mm nominal width | Video supports four lines; width is provisional |
+| Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
 | Rear ties | Three rows of two 1256 mm halves, center-spliced | Video supports transverse ties; splice is provisional |
 
@@ -59,7 +59,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
-| 3/4-in, 4 x 8 birch plywood | 10 sheets | 3 climbing-surface sheets + estimated 6 support-frame sheets + 1 waste/fit-test sheet; measure actual dimensions and thickness |
+| 3/4-in, 4 x 8 birch plywood | 16 sheets | Four factory-edge main panels, one kicker sheet, estimated ten support-frame sheets, and one offcut/waste sheet; no listed piece is assumed to be cut twice from a 96-in length |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; includes controller, four 50-LED strings, feeds, and 5 V adapter |
@@ -87,9 +87,10 @@ that change record.
    75 mm blank kicker extension below the official active kicker zone.
 4. Glue and clamp each two-ply support member to the audited adhesive schedule;
    do not treat the 36 mm CAD thickness as an actual measured thickness.
-5. Dry-fit the two side legs, four face rails, three panel-joint braces, and
-   split rear ties on a level protected floor. Check the 60-degree leg angle,
-   rear-foot position, racking, and all panel/LED/T-nut clearances.
+5. Dry-fit the two side legs, four face rails plus center-seam rail, kicker
+   seam/bottom backing, three panel-joint braces, and split rear ties on a
+   level protected floor. Check the 60-degree leg angle, rear-foot position,
+   racking, and all panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the rear support frame flat where practical, raise it with at

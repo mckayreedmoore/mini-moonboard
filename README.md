@@ -7,17 +7,17 @@ Mini MoonBoard.
 
 This repository currently models the official Mini MoonBoard panel envelope.
 It contains a provisional v1 climbing-surface and freestanding-leg concept.
-It does **not** contain a structurally approved frame, bill of materials, cut
-list, or construction guide. Structural connections, actual material, floor
-interface, and stability still require human review.
+It includes a provisional, pre-audit frame, BOM, cut list, and assembly draft.
+It does **not** contain a structurally approved or build-ready design.
+Structural connections, actual material, floor interface, and stability still
+require human review.
 
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.
 
-Reviewed renders of the completed assembly will be added here only with the
-build-ready release, after the frame and custom kicker are designed and
-accepted. The current reference-envelope exports are not frame renders.
+The v1 renders are review artifacts, not approval evidence. The official
+reference-envelope exports remain separate from the v1 frame artifacts.
 
 ## Reference dimensions
 

@@ -62,7 +62,20 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
     names = [part.name for part in board.children]
 
     assert names[6:8] == ["leg_left", "leg_right"]
-    assert names[8:12] == ["face_rail_1", "face_rail_2", "face_rail_3", "face_rail_4"]
+    assert names[8:18] == [
+        "face_rail_1_lower",
+        "face_rail_1_upper",
+        "face_rail_2_lower",
+        "face_rail_2_upper",
+        "face_rail_3_lower",
+        "face_rail_3_upper",
+        "face_rail_4_lower",
+        "face_rail_4_upper",
+        "face_rail_center_seam_lower",
+        "face_rail_center_seam_upper",
+    ]
+    assert "kicker_center_seam_backing" in names
+    assert {"kicker_bottom_backing_left", "kicker_bottom_backing_right"} <= set(names)
     assert names[-6:] == [
         "rear_tie_low_left",
         "rear_tie_low_right",
@@ -71,4 +84,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     ]
-    assert len(board.children) == 21
+    assert len(board.children) == 33
+    for part in board.children[6:8]:
+        shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
+        assert shape.BoundingBox().zmin >= 0
