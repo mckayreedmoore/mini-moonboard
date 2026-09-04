@@ -96,6 +96,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "face_rail_center_seam_upper",
     ]
     assert {"kicker_blank_extension_backing_left", "kicker_blank_extension_backing_right"} <= set(names)
+    assert "kicker_blank_extension_backing_seam_splice" in names
     assert {"kicker_main_seam_gusset_left", "kicker_main_seam_gusset_right"} <= set(names)
     assert {"leg_knee_gusset_left", "leg_knee_gusset_right"} <= set(names)
     assert {
@@ -106,7 +107,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     } <= set(names)
-    assert len(board.children) == 61
+    assert len(board.children) == 62
     for part in (next(part for part in board.children if part.name == name) for name in ("leg_left", "leg_right")):
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
@@ -160,6 +161,9 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     assert parts["main_lower_left"].distance(parts["face_rail_1_lower"]) == pytest.approx(V1_HARDWARE_GAP_MM)
     assert parts["kicker_main_seam_gusset_left"].distance(parts["kicker_left"]) == pytest.approx(0)
     assert parts["kicker_main_seam_gusset_left"].distance(parts["main_lower_left"]) == pytest.approx(0)
+    seam_splice = parts["kicker_blank_extension_backing_seam_splice"]
+    assert seam_splice.distance(parts["kicker_blank_extension_backing_left"]) == pytest.approx(0)
+    assert seam_splice.distance(parts["kicker_blank_extension_backing_right"]) == pytest.approx(0)
     for side in ("left", "right"):
         assert parts[f"leg_knee_gusset_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
     for index, rail in enumerate(("face_rail_1", "face_rail_2", "face_rail_3", "face_rail_4", "face_rail_center_seam"), start=1):

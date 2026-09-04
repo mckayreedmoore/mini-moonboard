@@ -103,7 +103,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
-| Secondary joinery screws | 84 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
+| Secondary joinery screws | 88 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
 | Feet / anti-slip / floor protection | **unresolved** | Required because anchoring is prohibited |
 

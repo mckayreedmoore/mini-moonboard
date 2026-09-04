@@ -336,6 +336,16 @@ def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplan
     )
 
 
+def _kicker_backing_seam_splice() -> cq.Workplane:
+    """Return a rear-side plate that bridges the two blank-kicker backings."""
+    return cq.Workplane("XY").box(
+        400.0,
+        V1_SUPPORT_THICKNESS_MM,
+        75.0,
+        centered=(True, False, False),
+    ).translate((0.0, V1_SUPPORT_THICKNESS_MM, 0.0))
+
+
 def _kicker_main_seam_gusset(side: int) -> cq.Workplane:
     """Return one exterior, laminated side gusset across the kicker/main seam.
 
@@ -566,6 +576,11 @@ def build_v1_concept() -> cq.Assembly:
             name=f"kicker_main_seam_gusset_{label}",
             color=cq.Color("saddlebrown"),
         )
+    board.add(
+        _kicker_backing_seam_splice(),
+        name="kicker_blank_extension_backing_seam_splice",
+        color=cq.Color("peru"),
+    )
 
     for name, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
         # Put every transverse tie on the *actual lower-leg centreline*, not
