@@ -26,3 +26,15 @@ def test_exports_are_reproducible(tmp_path: Path) -> None:
     second = export_reference(tmp_path / "second")
 
     assert [path.read_bytes() for path in first] == [path.read_bytes() for path in second]
+
+
+def test_custom_kicker_export_is_not_labeled_official(tmp_path: Path) -> None:
+    _, front_path, side_path = export_reference(tmp_path, kicker_height_mm=300)
+
+    for path in (front_path, side_path):
+        drawing = path.read_text()
+        assert "CUSTOM KICKER INPUT - UNREVIEWED" in drawing
+        assert "official front envelope" not in drawing
+        assert "official side envelope" not in drawing
+
+    assert "official 150 mm / 5 7/8 in active zone" in front_path.read_text()

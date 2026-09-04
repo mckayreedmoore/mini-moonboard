@@ -24,7 +24,7 @@ def _imperial(mm: float) -> str:
     return f"{whole} {numerator // divisor}/{16 // divisor}"
 
 
-def _svg(title: str, body: str) -> str:
+def _svg(title: str, body: str, warning: str = "REFERENCE ONLY - NOT A FRAME DESIGN") -> str:
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="750" viewBox="0 0 900 750" data-units="mm">
   <title>{title}</title>
   <defs>
@@ -44,7 +44,7 @@ def _svg(title: str, body: str) -> str:
   </style>
   <rect width="900" height="750" fill="white" />
   <text x="450" y="35" text-anchor="middle" font-size="24">{title}</text>
-  <text class="warning" x="450" y="65" text-anchor="middle">REFERENCE ONLY - NOT A FRAME DESIGN</text>
+  <text class="warning" x="450" y="65" text-anchor="middle">{warning}</text>
 {body}
 </svg>
 """
@@ -59,6 +59,12 @@ def _front_svg(kicker_height_mm: float) -> str:
     kicker_top = bottom - kicker_height_mm * scale
     main_seam = kicker_top - main_vertical / 2 * scale
     center = (left + right) / 2
+    active_zone = ""
+    if kicker_height_mm != OFFICIAL_KICKER_HEIGHT_MM:
+        active_zone_bottom = kicker_top + OFFICIAL_KICKER_HEIGHT_MM * scale
+        active_zone = f"""
+  <line class="seam" x1="{left:.1f}" y1="{active_zone_bottom:.1f}" x2="{right:.1f}" y2="{active_zone_bottom:.1f}" />
+  <text class="on-dark" x="{center:.1f}" y="{kicker_top + 20:.1f}" text-anchor="middle">official 150 mm / 5 7/8 in active zone</text>"""
     body = f"""  <rect class="kicker" x="{left:.1f}" y="{kicker_top:.1f}" width="{width * scale:.1f}" height="{kicker_height_mm * scale:.1f}" />
   <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{main_vertical * scale:.1f}" />
   <line class="seam" x1="{center:.1f}" y1="{top:.1f}" x2="{center:.1f}" y2="{bottom:.1f}" />
@@ -67,8 +73,13 @@ def _front_svg(kicker_height_mm: float) -> str:
   <text x="{center:.1f}" y="725" text-anchor="middle">{width:.0f} mm / {_imperial(width)} in</text>
   <line class="dim" x1="100" y1="{top:.1f}" x2="100" y2="{bottom:.1f}" />
   <text x="85" y="{(top + bottom) / 2:.1f}" text-anchor="middle" transform="rotate(-90 85 {(top + bottom) / 2:.1f})">{height:.1f} mm / {_imperial(height)} in overall</text>
-  <text class="on-dark" x="{center:.1f}" y="{kicker_top + 24:.1f}" text-anchor="middle">kicker {kicker_height_mm:g} mm / {_imperial(kicker_height_mm)} in</text>"""
-    return _svg("Mini MoonBoard official front envelope", body)
+  <text class="on-dark" x="{center:.1f}" y="{bottom - 8:.1f}" text-anchor="middle">kicker {kicker_height_mm:g} mm / {_imperial(kicker_height_mm)} in</text>{active_zone}"""
+    warning = (
+        "REFERENCE ONLY - NOT A FRAME DESIGN"
+        if kicker_height_mm == OFFICIAL_KICKER_HEIGHT_MM
+        else "CUSTOM KICKER INPUT - UNREVIEWED"
+    )
+    return _svg("Mini MoonBoard reference front envelope", body, warning)
 
 
 def _side_svg(kicker_height_mm: float) -> str:
@@ -88,7 +99,12 @@ def _side_svg(kicker_height_mm: float) -> str:
   <line class="dim" x1="100" y1="{top_y:.1f}" x2="100" y2="{bottom:.1f}" />
   <text x="85" y="{(top_y + bottom) / 2:.1f}" text-anchor="middle" transform="rotate(-90 85 {(top_y + bottom) / 2:.1f})">height {height:.1f} mm / {_imperial(height)} in</text>
   <text x="{base_x - 15:.1f}" y="{(kicker_top + bottom) / 2:.1f}" text-anchor="end">kicker {kicker_height_mm:g} mm</text>"""
-    return _svg("Mini MoonBoard official side envelope", body)
+    warning = (
+        "REFERENCE ONLY - NOT A FRAME DESIGN"
+        if kicker_height_mm == OFFICIAL_KICKER_HEIGHT_MM
+        else "CUSTOM KICKER INPUT - UNREVIEWED"
+    )
+    return _svg("Mini MoonBoard reference side envelope", body, warning)
 
 
 def _export_step(board: cq.Assembly, path: Path) -> None:
