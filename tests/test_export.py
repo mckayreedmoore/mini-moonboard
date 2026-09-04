@@ -19,3 +19,10 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 
     assert "2440 mm / 96 1/16 in" in front_path.read_text()
     assert "40 degrees from vertical" in side_path.read_text()
+
+
+def test_exports_are_reproducible(tmp_path: Path) -> None:
+    first = export_reference(tmp_path / "first")
+    second = export_reference(tmp_path / "second")
+
+    assert [path.read_bytes() for path in first] == [path.read_bytes() for path in second]

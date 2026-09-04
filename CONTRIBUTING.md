@@ -46,6 +46,11 @@ commit as their CadQuery source:
 uv run python -m mini_moonboard.export
 ```
 
+The STEP exporter removes color metadata and normalizes unstable Open CASCADE
+timestamps and assembly counters so unchanged geometry produces byte-identical
+artifacts. Colors remain available when viewing the CadQuery assembly directly.
+CI repeats the export command and fails when committed artifacts are stale.
+
 CadQuery dimensions are always millimetres. Documentation should show both
 metric and imperial values and identify whether a value is source-stated,
 converted, derived, or still unresolved.
@@ -53,4 +58,3 @@ converted, derived, or still unresolved.
 The reference model is not a structurally approved climbing-wall design. Do
 not turn provisional observations into construction instructions without a
 documented design decision and qualified structural review.
-

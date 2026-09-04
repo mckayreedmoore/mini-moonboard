@@ -1,6 +1,9 @@
 import argparse
 import math
+import re
 from pathlib import Path
+
+import cadquery as cq
 
 from .model import (
     ANGLE_FROM_VERTICAL_DEG,
@@ -86,6 +89,34 @@ def _side_svg(kicker_height_mm: float) -> str:
     return _svg("Mini MoonBoard official side envelope", body)
 
 
+def _export_step(board: cq.Assembly, path: Path) -> None:
+    # Open CASCADE emits presentation styles in unstable order, so the committed
+    # interchange file deliberately omits color metadata.
+    stable_board = cq.Assembly(name=board.name)
+    for child in board.children:
+        stable_board.add(child.obj, name=child.name)
+    stable_board.export(str(path))
+
+    step = path.read_text()
+    step = re.sub(
+        r"(FILE_NAME\('Open CASCADE Shape Model',')[^']+(')",
+        r"\g<1>1970-01-01T00:00:00\2",
+        step,
+        count=1,
+    )
+    occurrence = iter(range(1, len(board.children) + 1))
+    step = re.sub(
+        r"(NEXT_ASSEMBLY_USAGE_OCCURRENCE\(')\d+(')",
+        lambda match: f"{match[1]}{next(occurrence)}{match[2]}",
+        step,
+    )
+    # STEP treats whitespace as insignificant outside strings. The exporter
+    # wraps lines differently as its process-wide occurrence counter grows.
+    step = re.sub(r"\s+", " ", step)
+    step = re.sub(r"\s*([(),;$])\s*", r"\1", step).replace(";", ";\n")
+    path.write_text(step.rstrip() + "\n")
+
+
 def export_reference(
     output_dir: Path,
     kicker_height_mm: float = OFFICIAL_KICKER_HEIGHT_MM,
@@ -95,7 +126,7 @@ def export_reference(
     front_path = output_dir / "mini_moonboard_reference_front.svg"
     side_path = output_dir / "mini_moonboard_reference_side.svg"
 
-    build_reference_board(kicker_height_mm).export(str(step_path))
+    _export_step(build_reference_board(kicker_height_mm), step_path)
     front_path.write_text(_front_svg(kicker_height_mm))
     side_path.write_text(_side_svg(kicker_height_mm))
     return step_path, front_path, side_path

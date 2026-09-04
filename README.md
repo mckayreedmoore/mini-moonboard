@@ -48,6 +48,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   requirements.
 - `mini_moonboard/`: CadQuery source and export command.
 - `exports/`: committed STEP and dimensioned SVG outputs.
+- `.github/workflows/ci.yml`: lint, test, CadQuery smoke, and stale-export
+  checks on every push and pull request.
 
 ## Safety
 
@@ -56,4 +58,3 @@ Climbing instructs builders to seek professional advice if they have any doubt
 about construction. Have the completed frame design, connections, substrate,
 and installation reviewed by a qualified carpenter, climbing-wall builder, or
 structural engineer before producing a build guide or beginning construction.
-
