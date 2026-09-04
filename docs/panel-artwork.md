@@ -19,7 +19,7 @@ The viewer therefore provides a non-logo, data-derived overlay switcher:
 
 The labels are display-only decal planes placed 0.5 mm in front of the actual
 underside face and rotated to lie on its 40-degree slope. They use
-climber-facing coordinates: A begins at climber-left, and rows 1–12 run on
-climber-left. They do not alter the STEP model, hole datums, cut list, or FEA
+climber-facing coordinates: A begins at climber-left, and rows 1–12 run in the
+200 mm in-panel margin at climber-left. They do not alter the STEP model, hole datums, cut list, or FEA
 model. A future licensed Moon-artwork overlay can use the same selector without
 changing the CAD geometry.
