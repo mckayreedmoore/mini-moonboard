@@ -80,6 +80,12 @@ drilling, record calibration marks, final blank trim, center-seam location,
 and template-to-blank offsets. Do not combine the PDF template and CSV by eye
 or substitute converted values for template dimensions.
 
+The CAD carries the 142 hold/T-nut and 132 LED through-bores, which are the
+physical provisions for those systems. It intentionally does not invent the
+shape, bolt length, or clearance envelope of a hold that has not been selected,
+nor a V5 controller/cable route whose supplied installation guide has not been
+measured. Those are installation verification items, not absent panel features.
+
 ## Provisional purchasing estimate
 
 This is a quantity estimate, not a release-to-purchase BOM.

@@ -38,8 +38,11 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 This raster view is tessellated directly from the V1 CadQuery assembly and
 looks upward at the underside—the climbing face. Holds are intentionally not
-modelled yet; the rails, bearing blocks, wiring, and legs belong on the opposite
-support side.
+modelled as arbitrary solids: their 142 exact through-bore provisions are in
+the CAD. The 132 LED bores are likewise modelled, while the purchased V5 kit's
+controller/cable route remains an installation-audit item until its supplied
+guide and installed wire lengths are verified. Rails, bearing blocks, wiring,
+and legs belong on the opposite support side.
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, and zoom the same generated assembly.
 
