@@ -547,6 +547,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
+        ("Insulated screw-mounted cable saddles", "30 plus spares", "Mount to rear rails only; see docs/v1-led-installation.md and measure received wire before selecting"),
         ("3/8 in Grade-5 structural through-bolts", "8 x 10 in; 8 x 4 in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),

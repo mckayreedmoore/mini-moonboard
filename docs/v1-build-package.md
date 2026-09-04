@@ -73,6 +73,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 | [`v1-sheet-nesting.md`](v1-sheet-nesting.md) | Ten-sheet purchase and cut layout, including the required 2.4 mm maximum single main-panel kerf |
 | [`v1-secondary-joinery.md`](v1-secondary-joinery.md) | Relative-coordinate fastener pattern for rail splices/ties, kicker backing, and seam gussets |
+| [`v1-led-installation.md`](v1-led-installation.md) | Source-backed V5 string order, service-gap routing, and received-kit audit |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
 metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
@@ -100,6 +101,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
+| Insulated screw-mounted cable saddles | 30 plus spares | Provisional 300 mm maximum spacing and every turn; mount to rear rails only after received-wire measurement |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
 | Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
@@ -148,7 +150,8 @@ that change record.
    fastener to the relative centers in the secondary joinery schedule. Check
    that each contact face bears flush before fastening.
 9. Drill final hold and LED holes using the calibrated template. Install and
-   test the LED strings/controller before final rear access is obstructed.
+   test the V5 strings/controller using the dedicated LED installation plan
+   before final rear access is obstructed.
 10. Complete a non-climbing inspection of all connections, wiring protection,
    panel seams, feet, and the separate impact-surface plan before any use.
 
