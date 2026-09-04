@@ -38,6 +38,8 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 This raster view is tessellated directly from the V1 CadQuery assembly.
 
+[Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, and zoom the same generated assembly.
+
 ![Provisional side render of the Mini MoonBoard v1 board and exterior hockey-stick leg](exports/mini_moonboard_v1_concept_side.svg)
 
 ![Provisional isometric render of the Mini MoonBoard v1 frame](exports/mini_moonboard_v1_isometric.svg)

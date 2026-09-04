@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini MoonBoard V1 — Interactive CAD View</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #121619; color: #f5f0e6; font: 16px system-ui, sans-serif; }
+      header { position: fixed; z-index: 1; inset: 0 auto auto 0; padding: 1rem 1.25rem; background: #121619dd; }
+      h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
+      p { color: #c7c1b4; font-size: .9rem; margin: 0; }
+      canvas { display: block; height: 100vh; width: 100vw; }
+    </style>
+  </head>
+  <body>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Drag to orbit · scroll to zoom · right-drag to pan · pre-audit geometry only</p></header>
+    <script type="module">
+      import * as THREE from 'https://unpkg.com/three@0.161.0/build/three.module.js';
+      import { OrbitControls } from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
+      import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      document.body.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#121619');
+      const camera = new THREE.PerspectiveCamera(42, 1, 1, 10000);
+      camera.up.set(0, 0, 1);
+      camera.position.set(3100, -3200, 2350);
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.target.set(0, 750, 1050);
+      controls.enableDamping = true;
+      controls.minDistance = 700;
+      controls.maxDistance = 7000;
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x222222, 2.4));
+      const key = new THREE.DirectionalLight(0xffffff, 2.5); key.position.set(2000, -1500, 3000); scene.add(key);
+      const grid = new THREE.GridHelper(5000, 25, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
+      new STLLoader().load('mini_moonboard_v1_concept.stl', geometry => {
+        geometry.computeVertexNormals();
+        const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x9d5a24, roughness: .7, metalness: .05 }));
+        scene.add(mesh);
+      });
+      function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+      addEventListener('resize', resize); resize();
+      (function frame() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(frame); })();
+    </script>
+  </body>
+</html>

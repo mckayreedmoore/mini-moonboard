@@ -10,6 +10,7 @@ from mini_moonboard.export import (
     export_reference,
     export_reference_panel_cut_list,
     export_v1_bom,
+    export_v1_cad_render,
     export_v1_concept,
     export_v1_concept_side_drawing,
     export_v1_connection_schedule,
@@ -105,6 +106,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     generated_dir = tmp_path / "exports"
     export_reference(generated_dir)
     export_v1_concept(generated_dir)
+    export_v1_cad_render(generated_dir)
     export_v1_concept_side_drawing(generated_dir)
     export_v1_front_drawing(generated_dir)
     export_v1_rear_drawing(generated_dir)

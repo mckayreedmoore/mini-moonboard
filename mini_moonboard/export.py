@@ -196,6 +196,15 @@ def export_v1_cad_render(output_dir: Path) -> Path:
     return path
 
 
+def export_v1_viewer_mesh(output_dir: Path) -> Path:
+    """Export the actual V1 assembly as an STL mesh for the static web viewer."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_concept.stl"
+    shapes = [child.obj if not hasattr(child.obj, "val") else child.obj.val() for child in build_v1_concept().children]
+    cq.exporters.export(cq.Compound.makeCompound(shapes), str(path), cq.exporters.ExportTypes.STL, tolerance=0.5)
+    return path
+
+
 def _v1_side_svg() -> str:
     _, board_depth, board_height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
     scale = 520 / board_height
