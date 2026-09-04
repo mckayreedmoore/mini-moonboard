@@ -60,7 +60,10 @@ items are resolved:
 The selected Escape hardware is imperial 3/8-16 screw-in T-nuts. Its specified
 7/16 in bore differs from Moon Climbing's generic 13 mm / 1/2 in T-nut bore;
 the Escape offcut test governs the selected T-nut installation. Use only
-matching 3/8-16 bolts. Do not mix M10 bolts with these inserts.
+matching 3/8-16 bolts. Do not mix M10 bolts with these inserts. The received
+sample measures about a 1 in (25.4 mm) flange, 1/2 in (12.7 mm) body depth,
+and three roughly 3.2 mm flange screw holes; flange thickness and hole pitch
+still need a direct measurement before a screw pattern is transferred.
 
 Moon Climbing's own hardware path instead calls for metric M10 T-nuts and
 bolts (with 3/8 in described as the imperial counterpart) and its build page
@@ -72,6 +75,10 @@ The selected [MoonBoard LED System](https://us.moonclimbing.com/products/moonboa
 is SKU 60-201-V5. Drill the 13 mm LED holes at the official LED datums and
 provide protected rear routing to the controller, with access to its switch,
 only after the supplied V5 guide confirms that 13 mm diameter for this kit.
+The received LED projects about 31 mm behind the panel: a 24 mm lugged cylinder
+(12.7 mm maximum diameter, about 11.7 mm core) and a 7 mm, about 7.5 mm dome
+observed at roughly a 75-degree axis. That leaves only 5 mm in V1's 36 mm
+service gap and must be dry-fitted at every rail/block condition.
 The kit includes a controller, four 50-LED strings, supplementary power feeds,
 and a 5 V adapter according to the selected product listing. The listing's 200
 bulbs include 2 spares and describes 66 extra bulbs on a Mini. Install 132

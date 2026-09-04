@@ -11,6 +11,7 @@ from mini_moonboard.model import (
     V1_HARDWARE_GAP_MM,
     V1_KICKER_HEIGHT_MM,
     V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
+    V1_LED_REAR_PROJECTION_MM,
     V1_LEG_UPPER_DISTANCE_MM,
     V1_PANEL_FASTENER_DIAMETER_MM,
     V1_PANEL_FASTENER_LENGTH_MM,
@@ -322,6 +323,11 @@ def test_v1_stock_route_and_primary_rail_geometry_match_design_basis() -> None:
         (812.8, 812.8, 812.8)
     )
     assert rails[4] == pytest.approx(-85.0)
+
+
+def test_v1_received_led_projection_leaves_a_small_service_gap_margin() -> None:
+    """The measured LED protrusion must not reach the nearest rail plane."""
+    assert V1_HARDWARE_GAP_MM - V1_LED_REAR_PROJECTION_MM == pytest.approx(5.0)
 
 
 def test_v1_kicker_main_gusset_fits_its_cut_blank() -> None:

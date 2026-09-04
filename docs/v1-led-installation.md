@@ -20,9 +20,14 @@ if they conflict with this routing aid.
 - The generated drill schedule has 132 LED centres at 13 mm / 1/2-in diameter.
   The LED is installed below the T-nut/hold it illuminates, flush with the
   climbing side, as Moon specifies.
-- The opposite, support side has a tested 36 mm service gap between panel and
-  support rails. It is the only allowed route for LED wire across the main
-  surface; never route cable on the climbing face.
+- The opposite, support side has a 36 mm service gap between panel and support
+  rails. The received LED measures about 31 mm from panel rear to its end, so
+  only about 5 mm remains at the rail plane. Its 24 mm cylinder has four lugs
+  (12.7 mm max diameter / about 11.7 mm core), followed by a 7 mm, about
+  7.5 mm-diameter dome whose axis is observed at about 75 degrees. It is the
+  only allowed route for LED wire across the main surface; never route cable on
+  the climbing face. This tight clearance must be physically checked at every
+  rail/block location before installation.
 - The 20 bearing-block locations are kept at least 20 mm beyond the CAD bore
   edge. Do not add a cable clip, screw, or controller fastener in a bore,
   T-nut, or LED clearance area.
@@ -68,6 +73,7 @@ Record these before drilling controller or cable-mount holes:
 | Switch access and mains-adaptor lead direction | Verify at selected rear location |
 | Cable outer diameter, connector size, and minimum bend radius | Measure or use the supplied V5 guide |
 | Every saddle/clip location | Mark on rear rails only; verify against structural schedules |
+| Received LED geometry | Record/confirm 31 mm total projection, 24 mm lugged cylinder, 7 mm dome, and approximately 75-degree dome axis; measure cable bundle outer diameter and bend radius |
 
 This LED plan does not alter the board's separate crash-pad/impact-surface
 scope, and it does not authorize substitution of power, LEDs, or control-box

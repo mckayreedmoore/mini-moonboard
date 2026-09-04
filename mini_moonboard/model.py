@@ -17,9 +17,10 @@ V1_SUPPORT_THICKNESS_MM = 36.0
 V1_SUPPORT_WIDTH_MM = 180.0
 V1_FACE_RAIL_COUNT = 4
 V1_RAIL_CROSS_TIE_WIDTH_MM = 180.0
-# The selected T-nut barrel is 10 mm long.  A 36 mm support-side service space
-# leaves room for its flange and LED wiring while using the same two-ply stock
-# thickness specified for every frame member.
+# Received-component measurements: the selected Escape insert body is about
+# 1/2 in deep, and the V5 LED projects about 31 mm behind the panel.  A 36 mm
+# support-side service space therefore leaves only about 5 mm to the nearest
+# rail plane; wire bend, clips, and tolerance remain physical-audit items.
 V1_HARDWARE_GAP_MM = 36.0
 V1_STANDOFF_WIDTH_MM = 60.0
 V1_STANDOFF_LENGTH_MM = 80.0
@@ -40,7 +41,17 @@ V1_PANEL_FASTENER_TANGENT_OFFSETS_MM = (25.0, 55.0)
 V1_SEAM_PANEL_FASTENER_TANGENT_OFFSETS_MM = (45.0, 75.0, 115.0, 145.0)
 V1_TIE_SPLICE_LENGTH_MM = 400.0
 V1_SELECTED_TNUT_HOLE_DIAMETER_MM = 11.112
+V1_SELECTED_TNUT_FLANGE_DIAMETER_MM = 25.4
+V1_SELECTED_TNUT_BODY_DEPTH_MM = 12.7
+V1_SELECTED_TNUT_FLANGE_SCREW_HOLE_DIAMETER_MM = 3.2
 V1_LED_HOLE_DIAMETER_MM = 13.0
+V1_LED_REAR_PROJECTION_MM = 31.0
+V1_LED_CYLINDER_LENGTH_MM = 24.0
+V1_LED_CYLINDER_MAX_DIAMETER_MM = 12.7
+V1_LED_CYLINDER_MIN_DIAMETER_MM = 11.7
+V1_LED_DOME_LENGTH_MM = 7.0
+V1_LED_DOME_DIAMETER_MM = 7.5
+V1_LED_DOME_AXIS_ANGLE_DEG = 75.0
 # The climber is below the overhanging panel. The board's opposite side carries
 # rails, bearing blocks, wiring, and legs; it is the support side, never the climbing face.
 
