@@ -50,7 +50,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 70
+    assert cq.importers.importStep(str(path)).solids().size() == 75
 
 
 def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path) -> None:
@@ -103,9 +103,11 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
-    assert len(connection_rows) == 68
+    assert len(connection_rows) == 88
     assert len(bom_rows) == 14
     assert bom_rows[0]["quantity"] == "11 sheets"
+    panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.25 in structural wood screws")
+    assert panel_screws["quantity"] == "60"
     structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
     assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
     assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])

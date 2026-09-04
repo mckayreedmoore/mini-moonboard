@@ -23,6 +23,7 @@ from mini_moonboard.model import (
     v1_panel_fastener_positions,
     v1_rail_standoff_placements,
     v1_rear_tie_lag_envelope,
+    v1_seam_panel_fastener_positions,
     v1_seam_standoff_placements,
     v1_structural_bolt_position,
     v1_support_side_point,
@@ -229,6 +230,25 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
                 abs=1,
             )
 
+    for placement, fastener_group in zip(
+        v1_seam_standoff_placements(),
+        (v1_seam_panel_fastener_positions()[index : index + 4] for index in range(0, 20, 4)),
+        strict=True,
+    ):
+        rail_number, _block_x, _block_distance = placement
+        rail = f"face_rail_{rail_number}" if rail_number < 5 else "face_rail_center_seam"
+        side = "left" if rail_number in (1, 2, 5) else "right"
+        block = f"rail_{rail_number}_standoff_main_seam"
+        for _fastener_rail, screw_x, screw_distance in fastener_group:
+            row = "lower" if screw_distance < V1_PANEL_SIZE_MM else "upper"
+            envelope = v1_panel_fastener_envelope(screw_x, screw_distance)
+            assert envelope.intersect(parts[f"{rail}_{row}"]).Volume() > 0
+            assert envelope.intersect(parts[block]).Volume() > 0
+            assert envelope.intersect(parts[f"main_{row}_{side}"]).Volume() == pytest.approx(
+                math.pi * (V1_PANEL_FASTENER_DIAMETER_MM / 2) ** 2 * expected_panel_embedment,
+                abs=1,
+            )
+
     bores = []
     for row in range(2):
         for column in range(2):
@@ -238,6 +258,11 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
         for bore_x, bore_distance, radius in bores:
             lateral = max(abs(bore_x - x) - 30, 0)
             longitudinal = max(abs(bore_distance - distance) - 40, 0)
+            assert math.hypot(lateral, longitudinal) - radius >= V1_STANDOFF_CLEARANCE_MM
+    for _, x, distance in v1_seam_standoff_placements():
+        for bore_x, bore_distance, radius in bores:
+            lateral = max(abs(bore_x - x) - 30, 0)
+            longitudinal = max(abs(bore_distance - (distance + 90)) - 90, 0)
             assert math.hypot(lateral, longitudinal) - radius >= V1_STANDOFF_CLEARANCE_MM
 
     for (left_name, left), (right_name, right) in combinations(parts.items(), 2):

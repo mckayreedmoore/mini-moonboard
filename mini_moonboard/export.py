@@ -35,6 +35,7 @@ from .model import (
     v1_leg_geometry,
     v1_panel_fastener_positions,
     v1_rear_tie_lag_positions,
+    v1_seam_panel_fastener_positions,
     v1_structural_bolt_position,
     v1_support_side_point,
 )
@@ -578,6 +579,23 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                     "PROVISIONAL: two screws per bearing block; fit-test confirms 10.55 mm panel embedment without face breakout",
                 )
             )
+        for rail_number, x, distance in v1_seam_panel_fastener_positions():
+            y, z = v1_support_side_point(distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM)
+            writer.writerow(
+                (
+                    "rear face rail through main-seam bearing block into panel",
+                    f"rail-{rail_number}",
+                    1,
+                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X/Y/Z are screw-head center at rail exterior face",
+                    f"{x:.3f}",
+                    f"{y:.3f}",
+                    f"{z:.3f}",
+                    "board-normal toward climbing face",
+                    "3.200 pilot",
+                    f"#10 structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.25 in nominal",
+                    "PROVISIONAL: four screws per main-seam bearing block; two fasten each panel adjacent to the seam; fit-test confirms 10.55 mm panel embedment without face breakout",
+                )
+            )
         for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
             for side, sign in (("left", -1), ("right", 1)):
                 for number, (x, y, z) in enumerate(v1_rear_tie_lag_positions(sign, fraction), start=1):
@@ -605,14 +623,14 @@ def export_v1_bom(output_dir: Path) -> Path:
     path = output_dir / "mini_moonboard_v1_bom.csv"
     rows = (
         ("3/4 in 4 x 8 birch plywood", "11 sheets", "See docs/v1-sheet-nesting.md; verify raw dimensions and use a main-panel separating kerf no greater than 2.4 mm"),
-        ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore"),
+        ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore; fixing screws are included per selected listing—count received hardware before installation"),
         ("3/8-16 hold bolts", "142 minimum plus spares", "Length mix must match final hold set"),
         ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
         ("Insulated screw-mounted cable saddles", "30 plus spares", "Mount to rear rails only; see docs/v1-led-installation.md and measure received wire before selecting"),
         ("3/8 in Grade-5 structural through-bolts", f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
         ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
-        ("#10 x 3.25 in structural wood screws", "40", "Two rear-installed screws per bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
+        ("#10 x 3.25 in structural wood screws", "60", "Two rear-installed screws per regular bearing block and four per main-seam bearing block; verify actual head, pilot, and 10.55 mm panel embedment on an offcut"),
         ("#10 x 2.5 in structural wood screws", "100 plus 10% spare", "Rail splice, rail-cross-tie, tie-center-splice, side-gusset, and kicker-backing seam-splice schedule in docs/v1-secondary-joinery.md"),
         ("#10 x 2 in structural wood screws", "8 plus 10% spare", "Blank-kicker-backing schedule in docs/v1-secondary-joinery.md"),
         ("5/16 in x 10 in structural lag screws with washers", "12", "Rear-tie-end to lower-leg schedule in mini_moonboard_v1_connection_schedule.csv"),

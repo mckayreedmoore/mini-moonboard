@@ -35,6 +35,7 @@ V1_KNEE_BOLT_OFFSETS_MM = (70.0, 220.0)
 V1_PANEL_FASTENER_DIAMETER_MM = 4.826
 V1_PANEL_FASTENER_LENGTH_MM = 82.55
 V1_PANEL_FASTENER_TANGENT_OFFSETS_MM = (25.0, 55.0)
+V1_SEAM_PANEL_FASTENER_TANGENT_OFFSETS_MM = (45.0, 75.0, 115.0, 145.0)
 V1_TIE_SPLICE_LENGTH_MM = 400.0
 V1_REAR_TIE_LAG_DIAMETER_MM = 7.938
 V1_REAR_TIE_LAG_LENGTH_MM = 254.0
@@ -509,6 +510,21 @@ def v1_panel_fastener_positions() -> tuple[tuple[int, float, float], ...]:
         (rail_number, x, distance + offset)
         for rail_number, x, _row, distance in v1_rail_standoff_placements()
         for offset in V1_PANEL_FASTENER_TANGENT_OFFSETS_MM
+    )
+
+
+def v1_seam_panel_fastener_positions() -> tuple[tuple[int, float, float], ...]:
+    """Return 20 screw datums that fasten the five main-seam bearing blocks.
+
+    Four screws per 180 mm block put two screws into each panel adjacent to
+    the horizontal seam.  They use the same rail-to-panel board-normal stack
+    as the regular bearing-block screws, but are kept 15 mm from each block
+    end and clear of the CAD bores.
+    """
+    return tuple(
+        (rail_number, x, distance + offset)
+        for rail_number, x, distance in v1_seam_standoff_placements()
+        for offset in V1_SEAM_PANEL_FASTENER_TANGENT_OFFSETS_MM
     )
 
 

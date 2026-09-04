@@ -99,13 +99,13 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | Item | Quantity | V1 assumption / action |
 | --- | ---: | --- |
 | 3/4-in, 4 x 8 birch plywood | **11 sheets** | See the sheet-by-sheet nesting plan; measure raw stock first and use a single main-panel separating kerf no greater than 2.4 mm. |
-| Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
+| Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test. The selected listing says fixing screws are included; count the received screws before installation. |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
 | MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
 | Insulated screw-mounted cable saddles | 30 plus spares | Provisional 300 mm maximum spacing and every turn; mount to rear rails only after received-wire measurement |
 | Leg-to-outer-rail structural bolts | 8 x 3/8-in Grade-5 x 10-in | **Provisional:** four per leg; full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. Verify the actual washer/plate/nut stack and thread engagement before purchase. |
 | Exterior knee-plate structural bolts | 8 x 3/8-in Grade-5 x 4-in | **Provisional:** four per leg clamp the two-ply 450 mm knee plate to the upper/lower leg members. Use the connection schedule; verify edge distances and actual washer/nut stack. |
-| Panel-to-rail screws | 40 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per bearing block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
+| Panel-to-rail screws | 60 x #10 x 3.25-in structural wood screws | **Provisional:** two screws per regular bearing block and four per main-seam block, installed from rail exterior through block into panel. CAD limits nominal panel embedment to 10.55 mm; verify screw head, pilot, and no-face-breakout on an offcut. |
 | Secondary joinery screws | 100 x #10 x 2.5-in and 8 x #10 x 2-in, plus 10% spare | Rail splice, tie splice, side-gusset, and kicker-backing patterns; see secondary joinery schedule. |
 | Rear-tie leg lags | 12 x 5/16-in x 10-in structural lag screws with washers | Drive from leg exterior through the tie end; use global connection schedule. |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |
@@ -135,8 +135,8 @@ that change record.
    leg, mark its four connection-schedule centers, drill 10 mm clearance holes,
    and use the provisional 3/8-in x 4-in Grade-5 bolt stack only after its fit
    and edge distances have been checked.
-5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
-   blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
+5. Dry-fit the two side legs, five support-side rails, twenty regular and five
+   main-seam rail-bearing blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
    leg cross ties and rail cross ties on a level protected floor. Check the
    full flat foot bearing faces, 60-degree leg angle, 1389.6 mm rear-foot
    position, racking, and all
@@ -144,8 +144,8 @@ that change record.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the support-side frame flat where practical, raise it with at
-   least two people, and fasten every bearing block with two #10 x 3.25-in
-   screws from the rail exterior. Use the connection schedule's 40 head-centre
+   least two people, and fasten each regular bearing block with two and each
+   main-seam bearing block with four #10 x 3.25-in screws from the rail exterior. Use the connection schedule's 60 head-centre
    datums; test the exact screw on an offcut to confirm its tip does not break
    through the climbing face.
 8. Install every remaining rail splice, tie, kicker backing, and side-gusset

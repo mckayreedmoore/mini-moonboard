@@ -1,7 +1,10 @@
 # Materials ledger
 
-This ledger separates confirmed climbing-surface requirements from provisional
-frame ideas. It is not yet a purchasing list.
+This ledger separates source-backed climbing-surface requirements from the
+provisional V1 construction package. The generated
+[`v1 BOM`](../exports/mini_moonboard_v1_bom.csv) and
+[sheet-nesting plan](v1-sheet-nesting.md) are the controlled purchase/count
+references; this page records what still requires a human audit.
 
 ## Confirmed or source-backed
 
@@ -9,7 +12,7 @@ frame ideas. It is not yet a purchasing list.
 | --- | --- | --- |
 | Main climbing panels | 4 birch plywood panels, 1218.0 x 1218.0 mm v1 stock target | Two panels per 4 x 8 sheet leave 2.4 mm total rip allowance; verify official-template calibration and actual stock |
 | Kicker panels | 2 birch plywood panels, 1218.0 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
-| Horizontal joint braces | 18 mm (0.71 in) plywood strips behind panel joints | Required by Moon Climbing; strip dimensions unresolved |
+| Main horizontal panel-joint backing | Five 36 mm laminated, 180 x 60 mm bearing blocks | CAD and primary connection schedule bridge the lower/upper main-panel seam; screw datums are generated |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
 | Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | Selected listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to 132 official Mini LED centre datums; supplied V5 guide controls installation |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
@@ -32,12 +35,14 @@ a provisional 60-degree angle to the descending board line. It is unanchored.
 This is a geometry/manufacturing preference, not a validated structural
 specification.
 
-Do not purchase frame stock from this table yet. The design must still set:
+The V1 cut list and nesting plan now account for the frame stock. Do not cut
+load-bearing parts or purchase irreversible hardware until these human-audit
+items are resolved:
 
 - plywood species, structural grade, veneer quality, and sheet dimensions;
 - measured sheet thickness and number of laminated layers;
 - structural adhesive, spread rate, open time, clamping pressure, and cure;
-- scarf, lap, spline, or mechanical reinforcement at any member extension;
+- the reviewer disposition for every panel, rail, tie, and kicker/main joint;
 - bolt, screw, washer, insert, and plate specifications;
 - edge sealing and finish appropriate to the installation environment; and
 - replaceable feet, anti-slip treatment, and floor protection.

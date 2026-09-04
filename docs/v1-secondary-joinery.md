@@ -22,7 +22,7 @@ perform every listed screw stack on an offcut from the actual plywood batch.
 | Kicker-backing center seam splice to both backings | 2 #10 x 2.5-in structural wood screws into each backing. Centres are 50 mm from each splice end and Z=37.5 mm above floor. | 1 seam splice | 4 x #10 x 2.5-in |
 
 The `#10 x 2.5-in` count is **100** and the `#10 x 2-in` count is **8**.
-Buy at least 10 percent extra of each, plus the 40 `#10 x 3.25-in`
+Buy at least 10 percent extra of each, plus the 60 `#10 x 3.25-in`
 panel-to-rail screws already specified in the primary connection schedule.
 
 ## Assembly controls
