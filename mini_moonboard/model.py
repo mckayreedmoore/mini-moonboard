@@ -22,6 +22,7 @@ V1_REAR_TIE_WIDTH_MM = 180.0
 V1_HARDWARE_GAP_MM = 36.0
 V1_STANDOFF_WIDTH_MM = 60.0
 V1_STANDOFF_LENGTH_MM = 80.0
+V1_SEAM_STANDOFF_LENGTH_MM = 180.0
 V1_STANDOFF_CLEARANCE_MM = 20.0
 V1_STRUCTURAL_BOLT_DIAMETER_MM = 9.525
 V1_LEG_RAIL_BOLT_LENGTH_MM = 254.0
@@ -232,7 +233,7 @@ def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplan
     )
 
 
-def _panel_standoff(x: float, distance: float) -> cq.Workplane:
+def _panel_standoff(x: float, distance: float, length: float = V1_STANDOFF_LENGTH_MM) -> cq.Workplane:
     """Return one laminated block touching panel and rail across the service gap.
 
     ``distance`` is measured along the board from the main-surface/kicker seam.
@@ -245,7 +246,7 @@ def _panel_standoff(x: float, distance: float) -> cq.Workplane:
         .box(
             V1_STANDOFF_WIDTH_MM,
             V1_HARDWARE_GAP_MM,
-            V1_STANDOFF_LENGTH_MM,
+            length,
             centered=(True, True, False),
         )
         .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
@@ -286,6 +287,16 @@ def v1_rail_standoff_placements() -> tuple[tuple[int, float, str, float], ...]:
             for local_distance in (130.0, 630.0):
                 placements.append((rail_number, block_x, row, row_distance + local_distance))
     return tuple(placements)
+
+
+def v1_seam_standoff_placements() -> tuple[tuple[int, float, float], ...]:
+    """Return five 180 mm blocks that bridge the lower/upper main-panel seam.
+
+    Their X positions are shifted within the 180 mm rails to clear all CAD
+    bores while the block runs from board distance 1128 to 1308 mm, across the
+    1218 mm seam.
+    """
+    return ((1, -1188.0, 1128.0), (2, -318.0, 1128.0), (3, 282.0, 1128.0), (4, 1188.0, 1128.0), (5, -118.0, 1128.0))
 
 
 def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
@@ -618,6 +629,13 @@ def build_v1_concept() -> cq.Assembly:
         board.add(
             _panel_standoff(x, distance),
             name=f"rail_{rail_number}_standoff_{row}_{int(distance % V1_PANEL_SIZE_MM)}",
+            color=cq.Color("peru"),
+        )
+
+    for rail_number, x, distance in v1_seam_standoff_placements():
+        board.add(
+            _panel_standoff(x, distance, V1_SEAM_STANDOFF_LENGTH_MM),
+            name=f"rail_{rail_number}_standoff_main_seam",
             color=cq.Color("peru"),
         )
 

@@ -23,6 +23,7 @@ from mini_moonboard.model import (
     v1_panel_fastener_positions,
     v1_rail_standoff_placements,
     v1_rear_tie_lag_envelope,
+    v1_seam_standoff_placements,
     v1_structural_bolt_position,
     v1_support_side_point,
 )
@@ -109,7 +110,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     } <= set(names)
-    assert len(board.children) == 68
+    assert len(board.children) == 73
     for part in (next(part for part in board.children if part.name == name) for name in ("leg_left", "leg_right")):
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
@@ -185,6 +186,15 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
                 assert cross_tie.distance(parts[f"{rail}_{rail_row}"]) == pytest.approx(0)
         assert parts[f"rail_cross_tie_splice_{row}"].distance(parts[f"rail_cross_tie_{row}_left"]) == pytest.approx(0)
         assert parts[f"rail_cross_tie_splice_{row}"].distance(parts[f"rail_cross_tie_{row}_right"]) == pytest.approx(0)
+
+    for rail_number, _x, _distance in v1_seam_standoff_placements():
+        block = parts[f"rail_{rail_number}_standoff_main_seam"]
+        side = "left" if rail_number in (1, 2, 5) else "right"
+        rail = f"face_rail_{rail_number}" if rail_number < 5 else "face_rail_center_seam"
+        assert block.distance(parts[f"main_lower_{side}"]) == pytest.approx(0)
+        assert block.distance(parts[f"main_upper_{side}"]) == pytest.approx(0)
+        assert block.distance(parts[f"{rail}_lower"]) == pytest.approx(0)
+        assert block.distance(parts[f"{rail}_upper"]) == pytest.approx(0)
 
     for row, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
         for sign, side in ((-1, "left"), (1, "right")):

@@ -93,7 +93,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 14
+    assert len(cut_rows) == 15
     assert len(drill_rows) == 274
     assert len(panel_drill_rows) == 274
     assert {row["part"] for row in panel_drill_rows} == {

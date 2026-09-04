@@ -420,6 +420,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("climbing surface", "kicker panel", 2, V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
         ("support frame", "face-rail lamination segment", 20, V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rail-bearing-block lamination", 40, V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "main-seam-bearing-block lamination", 10, 180.0, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
         ("support frame", "kicker-backing seam-splice lamination", 2, 400.0, 75.0, PANEL_THICKNESS_MM),
         ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, 457.0, PANEL_THICKNESS_MM),
