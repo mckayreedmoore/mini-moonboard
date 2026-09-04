@@ -10,6 +10,7 @@ from mini_moonboard.model import (
     V1_PANEL_SIZE_MM,
     V1_STANDOFF_CLEARANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
+    _structural_bolt_envelope,
     _v1_kicker_holes,
     _v1_main_panel_holes,
     v1_rail_standoff_placements,
@@ -154,6 +155,13 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     for row in ("low", "mid", "top"):
         for side in ("left", "right"):
             assert parts[f"rear_tie_{row}_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
+    for sign, side, rail in ((-1, "left", "face_rail_1_upper"), (1, "right", "face_rail_4_upper")):
+        for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
+            envelope = _structural_bolt_envelope(sign, distance).val()
+            # The reference envelope is deliberately absent from the physical
+            # STEP assembly, but its axis must traverse both the leg and rail.
+            assert envelope.intersect(parts[f"leg_{side}"]).Volume() > 0
+            assert envelope.intersect(parts[rail]).Volume() > 0
 
     bores = []
     for row in range(2):
