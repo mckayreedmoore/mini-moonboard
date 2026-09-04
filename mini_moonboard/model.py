@@ -151,18 +151,14 @@ def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplan
 
 def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
     """Return a conservative X-axis envelope for a leg-to-outer-rail bolt."""
-    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    x, y, z = v1_structural_bolt_position(side, distance)
     return cq.Workplane("XY").box(
         V1_SUPPORT_WIDTH_MM + V1_SUPPORT_THICKNESS_MM,
         V1_STRUCTURAL_BOLT_DIAMETER_MM,
         V1_STRUCTURAL_BOLT_DIAMETER_MM,
         centered=(True, True, True),
     ).translate(
-        (
-            side * (V1_PANEL_SIZE_MM + V1_HARDWARE_GAP_MM),
-            V1_HARDWARE_GAP_MM + distance * math.sin(angle),
-            V1_KICKER_HEIGHT_MM + distance * math.cos(angle),
-        )
+        (x, y, z)
     )
 
 
@@ -196,6 +192,17 @@ def v1_leg_geometry() -> dict[str, float]:
         "foot_center_z": foot_center_z,
         "lower_length": math.hypot(foot_y - bend_y, foot_center_z - bend_z),
     }
+
+
+def v1_structural_bolt_position(side: int, distance: float) -> tuple[float, float, float]:
+    """Return the X-axis bolt center on the 18 mm normal mid-plane of an outer rail."""
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    rail_midplane = V1_SUPPORT_THICKNESS_MM / 2
+    return (
+        side * (V1_PANEL_SIZE_MM + V1_HARDWARE_GAP_MM),
+        V1_HARDWARE_GAP_MM + distance * math.sin(angle) + rail_midplane * math.cos(angle),
+        V1_KICKER_HEIGHT_MM + distance * math.cos(angle) - rail_midplane * math.sin(angle),
+    )
 
 
 def build_v1_concept() -> cq.Assembly:

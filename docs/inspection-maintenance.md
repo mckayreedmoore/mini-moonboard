@@ -51,7 +51,7 @@ The final reviewer-approved checklist must cover at least these groups:
 | Climbing panels | Surface damage, splits, delamination, swelling, edge damage, mounting condition, seams, and insert integrity |
 | Holds and hold hardware | Loose, spinning, damaged, or missing parts; do not invent torque values without the selected hardware specification |
 | Frame and joints | Cracks, delamination, crushing, member movement, loose fasteners, connector damage, and changes to bracing |
-| Feet and floor interface | Wear, sliding, indentation, uneven support, floor damage, moisture, and changes to any approved anchorage |
+| Feet and floor interface | Wear, sliding, indentation, uneven support, floor damage, and moisture; anchoring is not permitted in V1, and any future attachment requires a controlled scope revision |
 | Impact surface | Coverage, pad gaps, compression damage, migration, moisture, tears, and obstruction-free fall zone |
 | LEDs and electrical system | Damaged lights, wires, connectors, strain relief, control box, and power supply; use only the applicable official guide |
 

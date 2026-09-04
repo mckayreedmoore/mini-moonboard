@@ -21,6 +21,7 @@ from .model import (
     build_v1_concept,
     reference_envelope,
     v1_leg_geometry,
+    v1_structural_bolt_position,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
@@ -417,16 +418,16 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
         for side in ("left", "right"):
             for distance in bolt_distances:
                 sign = -1 if side == "left" else 1
-                angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+                x, y, z = v1_structural_bolt_position(sign, distance)
                 writer.writerow(
                     (
                         "leg upper member to exterior outer face rail",
                         side,
                         1,
                         "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; coordinate is hole center",
-                        f"{sign * (V1_PANEL_SIZE_MM + 54.0):.3f}",
-                        f"{54.0 + distance * math.sin(angle):.3f}",
-                        f"{V1_KICKER_HEIGHT_MM + distance * math.cos(angle):.3f}",
+                        f"{x:.3f}",
+                        f"{y:.3f}",
+                        f"{z:.3f}",
                         "X",
                         "10.000",
                         "3/8 in Grade-5 through-bolt; length unresolved pending approved washer/plate/nut stack and thread engagement",

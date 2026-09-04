@@ -11,7 +11,7 @@ frame ideas. It is not yet a purchasing list.
 | Kicker panels | 2 birch plywood panels, 1219.2 x 225 mm v1 stock target (48 x 8.86 in) | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
 | Horizontal joint braces | 18 mm (0.71 in) plywood strips behind panel joints | Required by Moon Climbing; strip dimensions unresolved |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
-| Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | LED kit selected; four 50-LED strings (200 bulbs total; 66 extra for Mini) |
+| Climbing holds and LEDs | Mini MoonBoard 2020 layout-compatible holds and MoonBoard LED System, SKU 60-201-V5 | Selected listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to 132 official Mini LED centre datums; supplied V5 guide controls installation |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
 The user-selected panel stock is [Swaner Hardwood 3/4-in x 4-ft x 8-ft C-3
@@ -59,8 +59,11 @@ The selected [MoonBoard LED System](https://us.moonclimbing.com/products/moonboa
 is SKU 60-201-V5. Drill the 13 mm LED holes at the official LED datums and
 provide protected rear routing to the controller, with access to its switch.
 The kit includes a controller, four 50-LED strings, supplementary power feeds,
-and a 5 V adapter. Its 200 bulbs suit a Standard board and leave 66 bulbs
-unused on a Mini. A future kit version is a separate compatibility variant:
+and a 5 V adapter according to the selected product listing. The listing's 200
+bulbs include 2 spares and describes 66 extra bulbs on a Mini, leaving 132
+installed positions—the same count as the official Mini LED centre datums in
+this package. Reconcile every LED with the supplied V5 guide during the
+offcut/template audit. A future kit version is a separate compatibility variant:
 it must retain the official datum pattern only if its supplied guide specifies
 the same hole, wiring, controller-clearance, and power requirements.
 

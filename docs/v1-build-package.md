@@ -37,7 +37,9 @@ centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
 the finished-floor plane (`Z=0`). Positive X is to the right while facing the
 climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
 coordinate is the centre of a provisional structural-bolt clearance hole; the
-bolt axis is X. The exterior face rails are behind the board at `Y=54 mm`.
+bolt axis is X. The exterior face rails start behind the board at `Y=54 mm`;
+each listed bolt is offset 18 mm along the rail normal to its 36 mm-thick
+mid-plane.
 This datum is for audit transfer only, not authorization to drill.
 
 ## Generated deliverables
@@ -75,7 +77,7 @@ This is a quantity estimate, not a release-to-purchase BOM.
 | 3/4-in, 4 x 8 birch plywood | **unresolved** | User-selected stock; the cut list is deliberately not a nesting plan. Purchase quantity must follow an audited sheet-by-sheet nesting layout and actual stock measurement. |
 | Escape 3-hole screw-in T-nuts, 3/8-16 | 2 x 100 packs | 142 required positions plus spares; use the selected 7/16-in bore only after offcut test |
 | 3/8-16 hold bolts | 142 minimum plus spares | Length mix must match the purchased hold set and 18 mm panel thickness |
-| MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; includes controller, four 50-LED strings, feeds, and 5 V adapter |
+| MoonBoard LED System | 1, SKU 60-201-V5 | User-selected kit; listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to the 132 scheduled LED centres; supplied guide controls installation |
 | Leg-to-outer-rail structural bolts | 8 | **Provisional:** 3/8-in Grade-5 through-bolts; length is unresolved until the reviewer approves the washer/plate/nut stack and thread engagement. Full X/Y/Z hole-centre datums and a 10 mm clearance-hole assumption are in the connection schedule. |
 | Panel-to-rail screws | **unresolved** | **Provisional:** select only after panel/rail test assembly establishes required edge distances and penetration |
 | Lamination adhesive | **unresolved** | **Provisional:** reviewer to select compatible wood adhesive, spread, clamping, cure, and environmental protection |

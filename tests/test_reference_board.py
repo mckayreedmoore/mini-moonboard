@@ -6,6 +6,7 @@ from mini_moonboard import build_reference_board, build_v1_concept, reference_en
 from mini_moonboard.model import (
     V1_LEG_UPPER_DISTANCE_MM,
     V1_STRUCTURAL_BOLT_DISTANCES_MM,
+    v1_structural_bolt_position,
 )
 
 
@@ -93,5 +94,12 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
     assert max(V1_STRUCTURAL_BOLT_DISTANCES_MM) < V1_LEG_UPPER_DISTANCE_MM
+    for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
+        _, y, z = v1_structural_bolt_position(1, distance)
+        base_y = 54 + distance * math.sin(math.radians(40))
+        base_z = 225 + distance * math.cos(math.radians(40))
+        assert (y - base_y) * math.cos(math.radians(40)) - (z - base_z) * math.sin(
+            math.radians(40)
+        ) == pytest.approx(18)
     assert {"leg_bolt_left_1", "leg_bolt_right_4", "led_controller_envelope"} <= set(names)
     assert sum(name.startswith("led_string_envelope_") for name in names) == 4
