@@ -96,14 +96,15 @@ def _sloped_face_member(x: float, distance: float, length: float) -> cq.Workplan
     )
 
 
-def _rear_tie(y: float, z: float) -> cq.Workplane:
-    """Return a provisional full-width transverse tie between the exterior legs."""
+def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
+    """Return one half of a transverse tie; the center splice needs review."""
+    half_length = MAIN_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM
     return cq.Workplane("XY").box(
-        2 * MAIN_PANEL_SIZE_MM + 2 * V1_SUPPORT_THICKNESS_MM,
+        half_length,
         V1_SUPPORT_THICKNESS_MM,
         V1_REAR_TIE_WIDTH_MM,
         centered=(True, True, True),
-    ).translate((0, y, z))
+    ).translate((side * half_length / 2, y, z))
 
 
 def _panel_joint_brace(distance: float) -> cq.Workplane:
@@ -163,6 +164,11 @@ def build_v1_concept() -> cq.Assembly:
         tie_distance = bend_distance * fraction
         tie_y = tie_distance * math.sin(angle) + 200.0
         tie_z = V1_KICKER_HEIGHT_MM + tie_distance * math.cos(angle)
-        board.add(_rear_tie(tie_y, tie_z), name=f"rear_tie_{name}", color=cq.Color("saddlebrown"))
+        for side, label in ((-1, "left"), (1, "right")):
+            board.add(
+                _rear_tie_half(side, tie_y, tie_z),
+                name=f"rear_tie_{name}_{label}",
+                color=cq.Color("saddlebrown"),
+            )
 
     return board

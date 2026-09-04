@@ -11,6 +11,10 @@ from mini_moonboard.export import (
     export_reference_panel_cut_list,
     export_v1_concept,
     export_v1_concept_side_drawing,
+    export_v1_cut_list,
+    export_v1_drill_schedule,
+    export_v1_front_drawing,
+    export_v1_rear_drawing,
 )
 
 
@@ -32,7 +36,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 20
+    assert cq.importers.importStep(str(path)).solids().size() == 23
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -42,6 +46,19 @@ def test_exports_v1_side_render(tmp_path: Path) -> None:
     assert root.attrib["data-units"] == "mm"
     assert "PROVISIONAL GEOMETRY" in path.read_text()
     assert "row 8 bend datum" in path.read_text()
+
+
+def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
+    for path in (export_v1_front_drawing(tmp_path), export_v1_rear_drawing(tmp_path)):
+        root = ElementTree.parse(path).getroot()
+        assert root.attrib["data-units"] == "mm"
+        assert "PROVISIONAL" in path.read_text()
+
+    cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
+    drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
+    assert len(cut_rows) == 7
+    assert len(drill_rows) == 274
+    assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:

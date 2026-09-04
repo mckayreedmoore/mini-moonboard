@@ -12,6 +12,8 @@ from .model import (
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
     V1_KICKER_HEIGHT_MM,
+    V1_REAR_TIE_WIDTH_MM,
+    V1_SUPPORT_WIDTH_MM,
     build_reference_board,
     build_v1_concept,
     reference_envelope,
@@ -209,6 +211,103 @@ def export_v1_concept_side_drawing(output_dir: Path) -> Path:
     return path
 
 
+def export_v1_front_drawing(output_dir: Path) -> Path:
+    """Export the panel-facing v1 drawing with its fixed custom kicker."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_front.svg"
+    drawing = _front_svg(V1_KICKER_HEIGHT_MM).replace(
+        "Mini MoonBoard reference front envelope", "Mini MoonBoard v1 front plan"
+    )
+    path.write_text(drawing.replace("CUSTOM KICKER INPUT - UNREVIEWED", "V1 PROVISIONAL - AUDIT BEFORE FABRICATION"))
+    return path
+
+
+def _v1_rear_svg() -> str:
+    width, _, height = reference_envelope(V1_KICKER_HEIGHT_MM)
+    scale = 600 / width
+    left, right, bottom = 150.0, 750.0, 650.0
+    top = bottom - height * scale
+    kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
+    rail_x = [left + width * index / 3 * scale for index in range(4)]
+    rails = "\n".join(
+        f'  <line class="rail" x1="{x:.1f}" y1="{top:.1f}" x2="{x:.1f}" y2="{kicker_top:.1f}" />'
+        for x in rail_x
+    )
+    braces = "\n".join(
+        f'  <line class="brace" x1="{left:.1f}" y1="{y:.1f}" x2="{right:.1f}" y2="{y:.1f}" />'
+        for y in (kicker_top, (top + kicker_top) / 2, top)
+    )
+    body = f"""  <rect class="kicker" x="{left:.1f}" y="{kicker_top:.1f}" width="{width * scale:.1f}" height="{V1_KICKER_HEIGHT_MM * scale:.1f}" />
+  <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{(kicker_top - top):.1f}" />
+{rails}
+{braces}
+  <text x="450" y="700" text-anchor="middle">Four rear face rails and three full-width panel-joint braces; 54 mm provisional hardware/wiring gap.</text>
+  <text x="450" y="725" text-anchor="middle">Rear ties are split at center for 4 x 8 stock; splice detail requires human review.</text>"""
+    return _svg(
+        "Mini MoonBoard v1 rear plan",
+        body,
+        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
+    ).replace(
+        ".guide {",
+        ".rail { stroke: #8a4b16; stroke-width: 18; }\n"
+        "    .brace { stroke: #6f3510; stroke-width: 14; }\n    .guide {",
+    )
+
+
+def export_v1_rear_drawing(output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_rear.svg"
+    path.write_text(_v1_rear_svg())
+    return path
+
+
+def export_v1_cut_list(output_dir: Path) -> Path:
+    """Export a provisional, laminations-expanded cut list for audit and nesting."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_cut_list.csv"
+    rows = (
+        ("climbing surface", "main climbing panel", 4, 1220.0, 1220.0, PANEL_THICKNESS_MM),
+        ("climbing surface", "kicker panel", 2, 1220.0, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
+        ("support frame", "face-rail lamination", 8, 2440.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "panel-joint-brace lamination", 6, 2440.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "rear-tie-half lamination", 12, 1256.0, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "leg-lower lamination", 4, 1446.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
+    )
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("assembly", "part", "quantity", "length_mm", "width_mm", "thickness_mm", "note"))
+        for assembly, part, quantity, length, width, thickness in rows:
+            writer.writerow(
+                (
+                    assembly,
+                    part,
+                    quantity,
+                    f"{length:.1f}",
+                    f"{width:.1f}",
+                    f"{thickness:.1f}",
+                    "PROVISIONAL: verify stock and joint/connection details before cutting",
+                )
+            )
+    return path
+
+
+def export_v1_drill_schedule(output_dir: Path) -> Path:
+    """Export selected-hardware drilling data, retaining official center datums."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_drill_schedule.csv"
+    with path.open("w", newline="") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("feature", "label", "x_mm", "y_mm", "diameter_mm", "note"))
+        for label, (x, y) in main_tnut_datums().items():
+            writer.writerow(("T-nut", label, f"{x:.3f}", f"{y:.3f}", "11.112", "Escape 3/8-16: offcut test required"))
+        for label, (x, y) in main_led_datums().items():
+            writer.writerow(("LED", label, f"{x:.3f}", f"{y:.3f}", "13.000", "MoonBoard LED kit: verify supplied guide"))
+        for label, (x, y) in kicker_foothold_datums().items():
+            writer.writerow(("kicker T-nut", label, f"{x:.3f}", f"{y:.3f}", "11.112", "Escape 3/8-16: offcut test required"))
+    return path
+
+
 def export_panel_grid(output_dir: Path) -> Path:
     """Export source-backed center datums; these are not drilling diameters."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -373,6 +472,10 @@ def main() -> None:
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_v1_concept(args.output_dir),
         export_v1_concept_side_drawing(args.output_dir),
+        export_v1_front_drawing(args.output_dir),
+        export_v1_rear_drawing(args.output_dir),
+        export_v1_cut_list(args.output_dir),
+        export_v1_drill_schedule(args.output_dir),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),
         export_reference_panel_cut_list(args.output_dir, args.kicker_height_mm),
