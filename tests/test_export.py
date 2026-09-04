@@ -10,6 +10,7 @@ from mini_moonboard.export import (
     export_reference,
     export_reference_panel_cut_list,
     export_v1_concept,
+    export_v1_concept_side_drawing,
 )
 
 
@@ -32,6 +33,15 @@ def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
     assert cq.importers.importStep(str(path)).solids().size() == 10
+
+
+def test_exports_v1_side_render(tmp_path: Path) -> None:
+    path = export_v1_concept_side_drawing(tmp_path)
+    root = ElementTree.parse(path).getroot()
+
+    assert root.attrib["data-units"] == "mm"
+    assert "PROVISIONAL GEOMETRY" in path.read_text()
+    assert "row 8 bend datum" in path.read_text()
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:

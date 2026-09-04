@@ -11,6 +11,7 @@ from .model import (
     MAIN_PANEL_SIZE_MM,
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
+    V1_KICKER_HEIGHT_MM,
     build_reference_board,
     build_v1_concept,
     reference_envelope,
@@ -158,6 +159,53 @@ def export_v1_concept(output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_concept.step"
     _export_step(build_v1_concept(), path)
+    return path
+
+
+def _v1_side_svg() -> str:
+    _, board_depth, board_height = reference_envelope(V1_KICKER_HEIGHT_MM)
+    scale = 520 / board_height
+    base_x, bottom = 155.0, 650.0
+    kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
+    top_x, top_y = base_x + board_depth * scale, bottom - board_height * scale
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    bend_distance, upper_distance = 1480.0, 1880.0
+    bend_y, bend_z = bend_distance * math.sin(angle), V1_KICKER_HEIGHT_MM + bend_distance * math.cos(angle)
+    upper_y, upper_z = upper_distance * math.sin(angle), V1_KICKER_HEIGHT_MM + upper_distance * math.cos(angle)
+    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+
+    def point(y: float, z: float) -> tuple[float, float]:
+        return base_x + y * scale, bottom - z * scale
+
+    bend_x, bend_screen_y = point(bend_y, bend_z)
+    upper_x, upper_screen_y = point(upper_y, upper_z)
+    foot_x, foot_screen_y = point(foot_y, 0.0)
+    body = f"""  <line class="guide" x1="90" y1="{bottom:.1f}" x2="820" y2="{bottom:.1f}" />
+  <rect class="kicker" x="{base_x - 5:.1f}" y="{kicker_top:.1f}" width="10" height="{V1_KICKER_HEIGHT_MM * scale:.1f}" />
+  <line class="panel" x1="{base_x:.1f}" y1="{kicker_top:.1f}" x2="{top_x:.1f}" y2="{top_y:.1f}" stroke-width="8" />
+  <line class="leg" x1="{foot_x:.1f}" y1="{foot_screen_y:.1f}" x2="{bend_x:.1f}" y2="{bend_screen_y:.1f}" />
+  <line class="leg" x1="{bend_x:.1f}" y1="{bend_screen_y:.1f}" x2="{upper_x:.1f}" y2="{upper_screen_y:.1f}" />
+  <circle class="datum" cx="{bend_x:.1f}" cy="{bend_screen_y:.1f}" r="5" />
+  <text x="{bend_x + 12:.1f}" y="{bend_screen_y - 12:.1f}">row 8 bend datum</text>
+  <text x="{upper_x + 10:.1f}" y="{upper_screen_y - 8:.1f}">row 10 upper datum</text>
+  <text x="{foot_x + 8:.1f}" y="{foot_screen_y - 12:.1f}">provisional rear foot</text>
+  <text x="{base_x - 12:.1f}" y="{(bottom + kicker_top) / 2:.1f}" text-anchor="end">225 mm kicker</text>
+  <text x="450" y="700" text-anchor="middle">Two exterior laminated legs are coincident in this side view; 60 degree lower-leg angle.</text>"""
+    return _svg(
+        "Mini MoonBoard v1 provisional side concept",
+        body,
+        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
+    ).replace(
+        ".guide {",
+        ".leg { stroke: #8a4b16; stroke-width: 16; stroke-linecap: round; }\n"
+        "    .datum { fill: #a3261f; }\n    .guide {",
+    )
+
+
+def export_v1_concept_side_drawing(output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_concept_side.svg"
+    path.write_text(_v1_side_svg())
     return path
 
 
@@ -324,6 +372,7 @@ def main() -> None:
     paths = (
         *export_reference(args.output_dir, args.kicker_height_mm),
         export_v1_concept(args.output_dir),
+        export_v1_concept_side_drawing(args.output_dir),
         export_panel_grid(args.output_dir),
         export_panel_grid_drawing(args.output_dir),
         export_reference_panel_cut_list(args.output_dir, args.kicker_height_mm),

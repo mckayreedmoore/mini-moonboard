@@ -32,6 +32,14 @@ accepted. The current reference-envelope exports are not frame renders.
 V1 uses a 225 mm total kicker: the official 150 mm active zone plus a 75 mm
 blank extension below it. The crash pad is a separate, excluded element.
 
+## V1 concept render
+
+![Provisional side render of the Mini MoonBoard v1 board and exterior hockey-stick leg](exports/mini_moonboard_v1_concept_side.svg)
+
+This generated render shows one side profile; the two exterior legs overlap in
+this view. It is a geometry prototype pending the human audit documented in
+[`docs/design-basis.md`](docs/design-basis.md), not a construction drawing.
+
 ## Development
 
 ```bash
