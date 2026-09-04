@@ -88,6 +88,36 @@ def _kicker_panel_with_holes(
     return _panel_with_holes(width, height, holes).translate((0, -PANEL_THICKNESS_MM, 0))
 
 
+def v1_main_support_origin() -> tuple[float, float]:
+    """Return the Y/Z origin of the main panel's support face at the kicker seam.
+
+    The main panel's climbing face (local +Y) meets the kicker climbing face
+    (global Y=-18) at Z=225.  Its support face is consequently offset upward
+    and forward by the transformed plywood thickness.
+    """
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    return (
+        -PANEL_THICKNESS_MM * (1 + math.cos(angle)),
+        V1_KICKER_HEIGHT_MM + PANEL_THICKNESS_MM * math.sin(angle),
+    )
+
+
+def _main_panel_placement(panel: cq.Workplane, x: float, row_distance: float, kicker_height: float) -> cq.Workplane:
+    """Place a local-+Y climbing panel so its lower face joins the kicker face."""
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    return (
+        panel.translate((x, 0, row_distance))
+        .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
+        .translate(
+            (
+                0,
+                -PANEL_THICKNESS_MM * (1 + math.cos(angle)),
+                kicker_height + PANEL_THICKNESS_MM * math.sin(angle),
+            )
+        )
+    )
+
+
 def _v1_main_panel_holes(column: int, row: int) -> list[tuple[float, float, float]]:
     """Map official centre data to one V1 stock-controlled main-panel quadrant."""
     x_min, y_min = column * V1_PANEL_SIZE_MM, row * V1_PANEL_SIZE_MM
@@ -131,12 +161,7 @@ def build_reference_board(
 
     for row, z in (("lower", 0.0), ("upper", panel_size_mm)):
         for side, x in (("left", -half_panel), ("right", half_panel)):
-            panel = (
-                _panel(panel_size_mm, panel_size_mm)
-                .translate((x, 0, z))
-                .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
-                .translate((0, 0, kicker_height_mm))
-            )
+            panel = _main_panel_placement(_panel(panel_size_mm, panel_size_mm), x, z, kicker_height_mm)
             board.add(panel, name=f"main_{row}_{side}", color=cq.Color("black"))
 
     return board
@@ -172,9 +197,10 @@ def v1_support_side_point(distance: float, normal_offset: float = V1_HARDWARE_GA
     not a valid board-normal gap.
     """
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    origin_y, origin_z = v1_main_support_origin()
     return (
-        distance * math.sin(angle) - normal_offset * math.cos(angle),
-        V1_KICKER_HEIGHT_MM + distance * math.cos(angle) + normal_offset * math.sin(angle),
+        origin_y + distance * math.sin(angle) - normal_offset * math.cos(angle),
+        origin_z + distance * math.cos(angle) + normal_offset * math.sin(angle),
     )
 
 
@@ -272,6 +298,14 @@ def _rear_tie_half(side: int, y: float, z: float) -> cq.Workplane:
     )
 
 
+def _rail_cross_tie_point(distance: float) -> tuple[float, float]:
+    """Return the center of a board-normal tie whose inner face touches rails."""
+    return v1_support_side_point(
+        distance,
+        V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM + V1_REAR_TIE_WIDTH_MM / 2,
+    )
+
+
 def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplane:
     """Return a direct-contact backing in the blank lower kicker extension."""
     return (
@@ -289,14 +323,16 @@ def _kicker_main_seam_gusset(side: int) -> cq.Workplane:
     main-panel edge.  Its fastening pattern remains a human-audit item.
     """
     span = 400.0
-    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    main_start_y, main_start_z = v1_main_support_origin()
+    main_end_y, main_end_z = v1_support_side_point(span, 0.0)
     profile = (
         cq.Workplane("YZ")
         .polyline(
             (
                 (0.0, 75.0),
                 (0.0, V1_KICKER_HEIGHT_MM),
-                (span * math.sin(angle), V1_KICKER_HEIGHT_MM + span * math.cos(angle)),
+                (main_start_y, main_start_z),
+                (main_end_y, main_end_z),
             )
         )
         .close()
@@ -373,11 +409,15 @@ def build_v1_concept() -> cq.Assembly:
         )
     for row, z in (("lower", 0.0), ("upper", V1_PANEL_SIZE_MM)):
         for column, (side, x) in enumerate((("left", -half_panel), ("right", half_panel))):
-            panel = (
-                _panel_with_holes(V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, _v1_main_panel_holes(column, 0 if row == "lower" else 1))
-                .translate((x, 0, z))
-                .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
-                .translate((0, 0, V1_KICKER_HEIGHT_MM))
+            panel = _main_panel_placement(
+                _panel_with_holes(
+                    V1_PANEL_SIZE_MM,
+                    V1_PANEL_SIZE_MM,
+                    _v1_main_panel_holes(column, 0 if row == "lower" else 1),
+                ),
+                x,
+                z,
+                V1_KICKER_HEIGHT_MM,
             )
             board.add(panel, name=f"main_{row}_{side}", color=cq.Color("black"))
     leg = v1_leg_geometry()
@@ -439,6 +479,19 @@ def build_v1_concept() -> cq.Assembly:
             board.add(
                 _rear_tie_half(side, tie_y, tie_z),
                 name=f"rear_tie_{name}_{label}",
+                color=cq.Color("saddlebrown"),
+            )
+
+    # A separate rail-grid tie system transfers every internal rail to the
+    # exterior rails, which are the members connected to the hockey-stick legs.
+    # It cannot share the lower-leg tie planes because the lower legs depart
+    # from the board angle after the knee.
+    for name, distance in (("low", 400.0), ("mid", 1000.0), ("top", 1600.0)):
+        tie_y, tie_z = _rail_cross_tie_point(distance)
+        for side, label in ((-1, "left"), (1, "right")):
+            board.add(
+                _rear_tie_half(side, tie_y, tie_z),
+                name=f"rail_cross_tie_{name}_{label}",
                 color=cq.Color("saddlebrown"),
             )
 

@@ -5,6 +5,7 @@ import pytest
 
 from mini_moonboard import build_reference_board, build_v1_concept, reference_envelope
 from mini_moonboard.model import (
+    PANEL_THICKNESS_MM,
     V1_HARDWARE_GAP_MM,
     V1_LEG_UPPER_DISTANCE_MM,
     V1_PANEL_SIZE_MM,
@@ -13,6 +14,7 @@ from mini_moonboard.model import (
     _structural_bolt_envelope,
     _v1_kicker_holes,
     _v1_main_panel_holes,
+    v1_main_support_origin,
     v1_rail_standoff_placements,
     v1_structural_bolt_position,
     v1_support_side_point,
@@ -98,7 +100,7 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         "rear_tie_top_left",
         "rear_tie_top_right",
     } <= set(names)
-    assert len(board.children) == 48
+    assert len(board.children) == 54
     for part in board.children[6:8]:
         shape = part.obj if not hasattr(part.obj, "val") else part.obj.val()
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
@@ -155,6 +157,12 @@ def test_v1_support_contacts_clear_all_bores_and_do_not_overlap() -> None:
     for row in ("low", "mid", "top"):
         for side in ("left", "right"):
             assert parts[f"rear_tie_{row}_{side}"].distance(parts[f"leg_{side}"]) == pytest.approx(0)
+    for row in ("low", "mid", "top"):
+        for side, rails in (("left", ("face_rail_1", "face_rail_2", "face_rail_center_seam")), ("right", ("face_rail_3", "face_rail_4", "face_rail_center_seam"))):
+            cross_tie = parts[f"rail_cross_tie_{row}_{side}"]
+            rail_row = "upper" if row == "top" else "lower"
+            for rail in rails:
+                assert cross_tie.distance(parts[f"{rail}_{rail_row}"]) == pytest.approx(0)
     for sign, side, rail in ((-1, "left", "face_rail_1_upper"), (1, "right", "face_rail_4_upper")):
         for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
             envelope = _structural_bolt_envelope(sign, distance).val()
@@ -201,3 +209,18 @@ def test_v1_rail_and_tie_axes_follow_the_declared_board_relationships() -> None:
     tie_dy = tie_vertices[1].Center().y - tie_vertices[0].Center().y
     tie_dz = tie_vertices[1].Center().z - tie_vertices[0].Center().z
     assert tie_dy * math.sin(math.radians(40)) + tie_dz * math.cos(math.radians(40)) == pytest.approx(0)
+
+
+def test_v1_climbing_faces_share_the_kicker_main_seam() -> None:
+    board = build_v1_concept()
+    parts = {child.name: _shape(child) for child in board.children}
+    seam_y, seam_z = -PANEL_THICKNESS_MM, 225.0
+    assert v1_main_support_origin() == pytest.approx(
+        (-PANEL_THICKNESS_MM * (1 + math.cos(math.radians(40))), 225 + PANEL_THICKNESS_MM * math.sin(math.radians(40)))
+    )
+    for name in ("kicker_left", "main_lower_left"):
+        assert any(
+            vertex.Center().y == pytest.approx(seam_y, abs=0.001)
+            and vertex.Center().z == pytest.approx(seam_z, abs=0.001)
+            for vertex in parts[name].Vertices()
+        )

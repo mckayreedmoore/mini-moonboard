@@ -13,18 +13,19 @@ human-audit list at the end.
 | --- | ---: | --- |
 | Main board | 2438.4 x 2438.4 mm actual v1 stock route at 40 degrees from vertical | Two factory-edge 48-in panels each direction; official dimensions remain nominal |
 | Kicker | 225 mm total | 150 mm official active zone + user-estimated 75 mm blank extension |
-| Main-surface top | 2092.9 mm above floor | Derived from the fixed kicker, 48-in panels, and official angle |
+| Main-surface top (climbing face) | 2092.9 mm above floor | Derived from the face-aligned kicker/main seam, 48-in panels, and 40-degree angle |
 | Exterior legs | Two, one per board side | User direction |
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
-| Lower-leg endpoint centre datum | 1500 mm behind kicker face and 0 mm above floor | The overlong lower member is CAD-trimmed at the finished-floor plane, producing a full flat bearing face |
+| Lower-leg endpoint centre datum | 1417.1 mm behind kicker face and 0 mm above floor | CAD-derived; the overlong lower member is trimmed at the finished-floor plane, producing a full flat bearing face |
 | Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
 | Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
 | Kicker/main gussets | Two exterior 36 mm-thick triangular side gussets | Each touches the vertical kicker and first 400 mm of the inclined main-panel side edge; four provisional screws per panel edge require human audit |
-| Rear ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap rails or other frame solids |
+| Leg cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap other frame solids |
+| Rail cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Each half touches three rails; the rail grid transfers through outer rails to the leg-bolt path |
 
 The model keeps a **36 mm provisional board-normal service gap** on the
 support side, opposite the underside climbing face, for T-nut, LED, and cable
@@ -125,8 +126,9 @@ that change record.
    (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
 5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
    blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
-   rear ties on a level protected floor. Check the full flat foot bearing
-   faces, 60-degree leg angle, rear-foot position, racking, and all
+   leg cross ties and rail cross ties on a level protected floor. Check the
+   full flat foot bearing faces, 60-degree leg angle, 1417.1 mm rear-foot
+   position, racking, and all
    panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
