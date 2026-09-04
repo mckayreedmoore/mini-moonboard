@@ -44,7 +44,9 @@ actual 40-degree orientation.
 The connection schedule uses CAD datum **O**: the intersection of the board
 centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
 the finished-floor plane (`Z=0`). Positive X is to the right while facing the
-climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
+climbing surface and positive Z is upward. Because the main face is sloped,
+the global Y sign is a coordinate only, not a front/back label; use the
+[physical orientation convention](orientation.md). Each CSV
 coordinate uses the midpoint of the modeled leg-and-rail bolt stack for X and
 the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior
 support-side rail center plane is 54 mm along the transformed support normal

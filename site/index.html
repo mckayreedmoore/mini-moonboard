@@ -34,7 +34,8 @@
       scene.background = new THREE.Color('#121619');
       const camera = new THREE.PerspectiveCamera(42, 1, 1, 10000);
       camera.up.set(0, 0, 1);
-      // Positive Y and low Z look at the actual underside climbing face.
+      // Initial camera: hold-facing front (the underside climbing face), not
+      // the braced support side.
       camera.position.set(3100, 3200, 750);
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.target.set(0, 750, 1050);
@@ -45,8 +46,8 @@
       const key = new THREE.DirectionalLight(0xffffff, 2.5); key.position.set(2000, 2500, 500); scene.add(key);
       const grid = new THREE.GridHelper(5000, 25, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
       const loader = new STLLoader(), meshes = [], raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
-      // CAD +X is the template's left-to-right construction coordinate. Mirror
-      // it for the climber-facing view, where the visible left edge is A/rows.
+      // Mirror CAD X for the climber-facing convention: visible left is the A
+      // side (where McKay stands); visible right is the K side.
       const climberView = new THREE.Group(); climberView.scale.x = -1; scene.add(climberView);
       const partCard = document.querySelector('#part'); let selected;
       const colorFor = name => name.startsWith('analysis_') ? 0x29b6d6 : name.startsWith('main_') ? 0x20252b : name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
@@ -109,9 +110,11 @@
       dimensionLine([-1460, -86.944, 20], [-1460, 1549.373, 20], [0, 0, 55], 'DEPTH 1636.3 mm / 64.42 in');
       dimensionLine([-1460, 1625, 0], [-1460, 1625, 2150.774], [55, 0, 0], 'HEIGHT 2150.8 mm / 84.68 in');
       document.querySelector('#dimensions').addEventListener('change', event => { dimensions.visible = event.target.checked; });
-      // +X is climber-left after the display-only face reflection; -Y is in
-      // front of the climbing face. Keep the scale figure clear of the board.
-      const person = new THREE.Group(); person.position.set(1710, -450, 0); scene.add(person);
+      // +X is climber-left after the display-only face reflection. At floor
+      // level Y=250 is in front of the lower climbing face; the bracing is on
+      // the opposite, support-side normal. Do not infer front/back from a
+      // global Y sign because the board is sloped.
+      const person = new THREE.Group(); person.position.set(1710, 250, 0); scene.add(person);
       const personPart = { name: 'McKay', fabrication: { dimensions_mm: [450, 300, 1727.2], dimensions_imperial: [17.72, 11.81, 68.00], description: 'an absolutely staggering 5\'8\" reference person; display-only and excluded from CAD, cut lists, stability, and FEA' } };
       const addPersonPart = (geometry, position, rotation = [0, 0, 0]) => {
         const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x607d8b, roughness: .85 }));

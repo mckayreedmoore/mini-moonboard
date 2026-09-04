@@ -45,7 +45,7 @@ they are provisional V1 geometry, not Moon's official board-only envelope.
 The viewer's selectable McKay figure is a simplified 1727.2 mm / 5 ft 8 in
 scale reference. It is not a scanned person, a CAD assembly child, a cut-list
 item, a stability mass, or an FEA load. It stands clear of the front-left
-(climber-left) side of the assembly.
+(climber-left/A-column) side of the assembly.
 
 The viewer reflects the CAD assembly across X for this climber-facing
 presentation: the source template's A column and the visible A decal therefore

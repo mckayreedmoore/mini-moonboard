@@ -55,8 +55,10 @@ V1_LED_CYLINDER_MIN_DIAMETER_MM = 11.7
 V1_LED_DOME_LENGTH_MM = 7.0
 V1_LED_DOME_DIAMETER_MM = 7.5
 V1_LED_DOME_AXIS_ANGLE_DEG = 75.0
-# The climber is below the overhanging panel. The board's opposite side carries
-# rails, bearing blocks, wiring, and legs; it is the support side, never the climbing face.
+# Physical orientation: front is the hold/climbing face below the overhanging
+# panel. Back is its opposite board-normal support side, carrying rails,
+# bearing blocks, wiring, and legs. This distinction is local to the sloped
+# panel; a global Y sign alone does not mean front or back.
 
 
 def _validate_kicker_height(kicker_height_mm: float) -> None:
@@ -217,8 +219,8 @@ def _trim_to_finished_floor(member: cq.Workplane) -> cq.Workplane:
 def v1_support_side_point(distance: float, normal_offset: float = V1_HARDWARE_GAP_MM) -> tuple[float, float]:
     """Return the Y/Z point at a board distance and support-side normal offset.
 
-    The board tangent is 40 degrees from vertical.  Its support-side normal is
-    local -Y (forward/upward); the climber sees local +Y below the board.  The
+    The board tangent is 40 degrees from vertical. Its back/support-side normal
+    is local -Y; the climber sees the front local +Y face below the board. The
     offset must therefore be transformed in both Y and Z; a global-Y shift is
     not a valid board-normal gap.
     """

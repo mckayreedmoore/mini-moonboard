@@ -118,6 +118,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup and workflow.
   the supplied photo and reference video.
 - [`docs/design-basis.md`](docs/design-basis.md): resolved inputs, open design
   decisions, applicable-review references, and build-readiness gates.
+- [`docs/orientation.md`](docs/orientation.md): front/back and climber-left/
+  climber-right convention for the rendered assembly.
 - [`docs/panel-grid.md`](docs/panel-grid.md): source-backed main T-nut and LED
   center coordinates plus unresolved drilling inputs.
 - `exports/mini_moonboard_metric_template_datums.{csv,svg}`: reproducible
