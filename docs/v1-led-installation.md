@@ -3,9 +3,13 @@
 V1 uses the user-selected **MoonBoard LED System, SKU 60-201-V5**, not a
 third-party substitute. Moon's current build guide identifies this V5 family
 as 50-LED strings and says that a Mini uses **three strings** (a Standard uses
-four); the user-selected Standard kit supplies 200 LEDs. Keep the unused fourth
-string and the terminal spare LEDs packaged as spares. The guide also requires
-Moon's supplied control box and 5 VDC power adaptor only.
+four); the user-selected Standard kit supplies 200 LEDs. V1 has 132 scheduled
+centres, so install the first 132 LEDs in the documented order: that consumes
+two complete strings and 32 LEDs of the third. Retain the remaining 18 LEDs on
+that third string and the wholly unused fourth string: **68 LEDs total** remain
+uninstalled (Moon identifies the last two as replacement spares; the other 66
+are the standard-kit excess for a Mini). The guide also requires Moon's
+supplied control box and 5 VDC power adaptor only.
 
 Source of record: [MoonBoard build and LED guide](https://moonclimbing.com/build-your-moonboard).
 The guide, the labels on the received kit, and its V5 installation PDF control
@@ -35,10 +39,11 @@ if they conflict with this routing aid.
    scheduled A1 hole until the LED is flush with the climbing face. Continue
    in Moon's specified zig-zag column sequence; do not infer the string order
    from cable length.
-3. Continue through three 50-LED strings using their push-fit connectors. At
-   the end of the second string, connect the supplementary power feed to PWR1
-   on the control box as directed by the V5 guide. Keep the spare/unused LEDs
-   at the end of the final installed string accessible and labeled.
+3. Continue through two complete 50-LED strings and 32 LEDs of the third
+   string, using the push-fit connectors. At the end of the second string,
+   connect the supplementary power feed to PWR1 on the control box as directed
+   by the V5 guide. Do not cut the third-string tail: label and retain its 18
+   uninstalled LEDs, plus the entire unused fourth string, for future repair.
 4. Mount the control box on the support side only after measuring its actual
    bracket/footprint. Choose a rear rail/tie location with switch access,
    a 30 mm clear perimeter, no panel bore behind it, no sharp bend in the
@@ -58,7 +63,7 @@ Record these before drilling controller or cable-mount holes:
 
 | Item | V1 status |
 | --- | --- |
-| String count and LEDs per string | Verify labels; V1 expects four 50-LED strings in SKU 60-201-V5 and installs three on Mini |
+| String count and LEDs per string | Verify four 50-LED strings in SKU 60-201-V5; V1 installs 132 LEDs, retaining 68 uninstalled LEDs |
 | Control-box mounting footprint and fastener holes | Measure actual received component |
 | Switch access and mains-adaptor lead direction | Verify at selected rear location |
 | Cable outer diameter, connector size, and minimum bend radius | Measure or use the supplied V5 guide |

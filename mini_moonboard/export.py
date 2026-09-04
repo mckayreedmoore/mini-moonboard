@@ -776,7 +776,7 @@ def export_v1_bom(output_dir: Path) -> Path:
         ("Mini MoonBoard 2020 Setup Hold Bundle", "1, SKU 60-105-2020", "Official 130-hold configuration: Original School Holds plus Wood Holds A/B/C; bolts, T-nuts, and LEDs are excluded by Moon"),
         ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore; fixing screws are included per selected listing—count received hardware before installation"),
         ("3/8-16 hold bolts", "130 minimum plus hold-specific spares", "The selected hold bundle excludes bolts. Inventory each received hold's counterbore and required bolt length before purchase; do not substitute a single generic length."),
-        ("MoonBoard LED System", "1", "SKU 60-201-V5; supplied kit guide controls installation"),
+        ("MoonBoard LED System", "1", "SKU 60-201-V5 standard kit: four 50-LED strings / 200 bulbs; install 132 and retain 68 uninstalled bulbs. Received kit guide controls installation."),
         ("Insulated screw-mounted cable saddles", "30 plus spares", "Mount to rear rails only; see docs/v1-led-installation.md and measure received wire before selecting"),
         ("3/8 in Grade-5 structural through-bolts", f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
         ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),

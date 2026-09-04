@@ -14,7 +14,7 @@ references; this page records what still requires a human audit.
 | Kicker panels | 2 birch plywood panels, 1218.0 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
 | Main horizontal panel-joint backing | Five 36 mm laminated, 180 x 60 mm bearing blocks | CAD and primary connection schedule bridge the lower/upper main-panel seam; screw datums are generated |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
-| Climbing holds and LEDs | Mini MoonBoard 2020 Setup Hold Bundle, SKU 60-105-2020, and MoonBoard LED System, SKU 60-201-V5 | The hold bundle supplies the official 130-hold setup but excludes bolts/T-nuts/LEDs. The LED listing states 200 bulbs including 2 spares and 66 extra on Mini, reconciling to 132 official Mini LED centre datums; supplied V5 guide controls installation |
+| Climbing holds and LEDs | Mini MoonBoard 2020 Setup Hold Bundle, SKU 60-105-2020, and MoonBoard LED System, SKU 60-201-V5 | The hold bundle supplies the official 130-hold setup but excludes bolts/T-nuts/LEDs. The standard LED kit supplies four 50-LED strings / 200 bulbs; V1 installs 132 and retains 68 (18 on the third-string tail and a whole unused fourth string), including Moon's two terminal spares. |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
 The user-selected panel stock is [Swaner Hardwood 3/4-in x 4-ft x 8-ft C-3
@@ -74,10 +74,11 @@ provide protected rear routing to the controller, with access to its switch,
 only after the supplied V5 guide confirms that 13 mm diameter for this kit.
 The kit includes a controller, four 50-LED strings, supplementary power feeds,
 and a 5 V adapter according to the selected product listing. The listing's 200
-bulbs include 2 spares and describes 66 extra bulbs on a Mini, leaving 132
-installed positions—the same count as the official Mini LED centre datums in
-this package. Reconcile every LED with the supplied V5 guide during the
-offcut/template audit. A future kit version is a separate compatibility variant:
+bulbs include 2 spares and describes 66 extra bulbs on a Mini. Install 132
+LEDs: two complete strings plus 32 LEDs from the third string. Retain its
+remaining 18 bulbs and the unused fourth string (68 uninstalled bulbs total).
+Reconcile every LED with the supplied V5 guide during the offcut/template
+audit. A future kit version is a separate compatibility variant:
 it must retain the official datum pattern only if its supplied guide specifies
 the same hole, wiring, controller-clearance, and power requirements.
 
