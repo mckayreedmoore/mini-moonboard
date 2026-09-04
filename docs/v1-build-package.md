@@ -19,6 +19,7 @@ human-audit list at the end.
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
 | Lower-leg endpoint centre datum | 1500 mm behind kicker face and 31.4 mm above floor | Derived provisional geometry; wood member meets the CAD floor plane but finished feet/contact detail remains unresolved |
+| Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Face rails | Four outer/intermediate rails plus a center-seam rail, board-parallel, 180 mm nominal width | Video supports four lines; center-seam backing is added for panel attachment; width is provisional |
 | Panel-joint braces | Three full-width board-parallel braces, 180 mm nominal width | Video plus Moon joint-bracing guidance; width is provisional |
@@ -63,10 +64,13 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
-metric datums. For production, choose the official **imperial** Mini template,
-print it at 100 percent, and verify its calibration dimensions. Do not combine
-the PDF template and CSV by eye or substitute converted values for template
-dimensions.
+metric datums. For production, select one official Mini template edition,
+print it at 100 percent, and verify its calibration dimensions. The controlled
+2438.4 mm V1 blank is not itself either published template width (2437 mm
+metric or 2438.8 mm imperial): before any production drilling, record the
+chosen edition, calibration marks, final blank trim, center-seam location, and
+template-to-blank offsets. Do not combine the PDF template and CSV by eye or
+substitute converted values for template dimensions.
 
 ## Provisional purchasing estimate
 
@@ -101,7 +105,9 @@ that change record.
 3. Cut panel and support blanks only after the fit test passes. Keep the full
    75 mm blank kicker extension below the official active kicker zone.
 4. Glue and clamp each two-ply support member to the audited adhesive schedule;
-   do not treat the 36 mm CAD thickness as an actual measured thickness.
+   do not treat the 36 mm CAD thickness as an actual measured thickness. Do
+   not make the leg knee until its reviewer-approved load-transfer detail
+   (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
 5. Dry-fit the two side legs, five face rails, kicker
    seam/bottom backing, three panel-joint braces, and split rear ties on a
    level protected floor. Check the 60-degree leg angle, rear-foot position,
@@ -124,8 +130,11 @@ continue as a geometry prototype while they are unresolved.
 - Verify every 7/16-in Escape bore, screw, T-nut, hold bolt, LED, and cable on
   an offcut; the model does not prove physical clearance.
 - Select and calculate/approve structural bolt, washer, nut, plate, adhesive,
-  splice, panel-screw, and foot details. In particular, prove the center splice
-  in each rear tie and the four-bolt leg connection.
+  splice, panel-screw, knee-joint, and foot details. In particular, prove the
+  center splice in each rear tie, the leg's row-8 knee load transfer, and the
+  four-bolt leg connection.
+- Select one official template edition and record its calibration, panel-blank
+  trim, seam location, and every template-to-blank offset before drilling.
 - Check all structural bolt locations against the final hold, T-nut, LED,
   wiring, and panel-seam layout; the T-nut rows locate leg geometry but are not
   structural-fastener locations.

@@ -69,10 +69,12 @@ these values before cutting, drilling, gluing, or loading it:
   the kicker face and 31.4 mm above floor; the wood member reaches the CAD
   floor plane, but finished feet/contact detail is unresolved. Confirm the
   final floor footprint.
-- **External-leg connection:** four structural bolts per leg are intended, but
-  their diameter, grade, washer/plate stack, edge distances, and locations are
-  not selected. The T-nut rows are location datums only; no structural bolt may
-  obstruct a required hold, T-nut, LED, cable, or panel joint.
+- **External-leg connection:** four structural bolts per leg are provisionally
+  modelled as 3/8-in Grade-5, 10 mm clearance holes at the published X/Y/Z
+  datums. Their final length, washer/plate stack, edge distances, and load path
+  are not reviewer-approved. The T-nut rows are location datums only; no
+  structural bolt may obstruct a required hold, T-nut, LED, cable, or panel
+  joint.
 - **Laminations:** the model uses a provisional 36 mm member thickness (two
   18 mm layers). Measure the actual nominal-3/4-in sheets, then set thickness,
   adhesive, clamping method, cure, and edge sealing accordingly.
