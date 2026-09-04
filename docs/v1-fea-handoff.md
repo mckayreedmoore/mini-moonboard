@@ -21,6 +21,29 @@ whose only purpose is proving that the solver runs. It is not a structural
 model, a material model, or a result for this board. Solver outputs remain in
 the container and are intentionally not versioned.
 
+## Architecture decision (minimal analysis pipeline)
+
+The analysis architecture is deliberately a short file pipeline:
+
+```text
+CadQuery source -> committed STEP -> FreeCAD/Gmsh mesh -> pinned CalculiX container -> analyst report
+```
+
+| Decision | Keep / skip | Reason |
+| --- | --- | --- |
+| CadQuery as the geometry source of truth | Keep | It already generates the named assembly, exports, and geometry checks. A second parametric model would drift. |
+| STEP as the FEA boundary | Keep | It is the existing neutral exchange artifact; no custom importer or mesh format is needed. |
+| Existing Windows FreeCAD + Gmsh | Keep | They provide the interactive meshing/inspection workbench already installed on this machine. |
+| Pinned CalculiX Docker image | Keep | It runs without sudo, is reproducible, and avoids a host solver install. |
+| Python FEA API, custom solver wrapper, database, or web service | Skip | No recurring automated analysis exists yet; these would only hide analyst choices about wood, joints, floor contact, and load combinations. |
+| FEA in GitHub Actions | Skip | CI should verify geometry and exports. It cannot establish the missing material/joint/floor inputs or turn a solver run into engineering approval. |
+| Committed result meshes/plots | Skip | They are generated analysis artifacts and meaningful only with their reviewed input deck and report. Commit the approved report/review record later. |
+
+This is a deliberate `ponytail` decision: add a scripted board-analysis deck
+only after the reviewer supplies the physical material, connection, floor, and
+acceptance inputs. Until then, the checked-in smoke deck proves the smallest
+useful operational fact—the solver actually runs.
+
 ## Source-backed preliminary design actions
 
 Use these as initial analyst inputs, not as a declaration of standard

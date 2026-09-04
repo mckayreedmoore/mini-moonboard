@@ -27,8 +27,11 @@ corner, rather than the modeled bearing face, on the floor.
 
 Cut four `400.0 x 180.0 x 18.0 mm` square-ended upper laminations. Pair them
 into two 36 mm members. At the row-8 bend, place the upper/lower members and
-the exterior 450 x 450 mm knee plate exactly as the STEP assembly and generated
-connection schedule show. The knee plate—not an unfastened butt—is the
+the exterior 450 x 450 mm knee plate first from the named
+`leg_*_lower`, `leg_*_upper`, and `leg_knee_gusset_*` rows in
+[`mini_moonboard_v1_assembly_layout.csv`](../exports/mini_moonboard_v1_assembly_layout.csv),
+then drill from the generated connection schedule. Use the STEP assembly as a
+visual cross-check. The knee plate—not an unfastened butt—is the
 provisional connection between the two segments.
 
 The full floor interface, structural bolt stack, glue system, and unanchored
