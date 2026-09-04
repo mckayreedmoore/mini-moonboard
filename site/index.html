@@ -50,7 +50,10 @@
       const loader = new STLLoader(), meshes = [], raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
       // Mirror CAD X for the climber-facing convention: visible left is the A
       // side (where McKay stands); visible right is the K side.
-      const climberView = new THREE.Group(); climberView.scale.x = -1; scene.add(climberView);
+      // Presentation offset only: keep McKay at the established front-left
+      // reference point while placing the complete board assembly farther rearward.
+      const assemblyView = new THREE.Group(); assemblyView.position.set(0, -450, 0); scene.add(assemblyView);
+      const climberView = new THREE.Group(); climberView.scale.x = -1; assemblyView.add(climberView);
       const partCard = document.querySelector('#part'); let selected = [];
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts }) => {
@@ -61,7 +64,7 @@
           mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
         }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
-      const overlay = new THREE.Group(); scene.add(overlay);
+      const overlay = new THREE.Group(); assemblyView.add(overlay);
       // Decal planes lie 0.5 mm in front of the actual underside face. Their
       // orientation and positions use the same 40° datum as the drilled-hole model.
       const labelDecal = (text, color, position) => {
@@ -93,7 +96,7 @@
         if (overlaySelect.value === 'none') overlay.clear();
         else makeGridOverlay(overlaySelect.value === 'grid' ? '#f0b429' : '#f5f0e6');
       });
-      const dimensions = new THREE.Group(); scene.add(dimensions);
+      const dimensions = new THREE.Group(); assemblyView.add(dimensions);
       const dimensionLabel = (text, point) => {
         const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 128;
         const context = canvas.getContext('2d'); context.fillStyle = '#121619dd'; context.fillRect(0, 0, 1024, 128);
