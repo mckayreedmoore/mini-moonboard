@@ -8,6 +8,7 @@ copied into this repository:
 - [MoonBoard DIY Kit Build Guide](https://moonclimbing.com/media/moonboard-pdf/How-to-build-a-MoonBoard_v2.3.pdf)
 - [Mini MoonBoard Template Guide - Metric](https://moonclimbing.com/media/moonboard-pdf/Mini_MoonBoard_Template_Guide_Metric.pdf)
 - [Mini MoonBoard Template Guide - Imperial](https://moonclimbing.com/media/moonboard-pdf/Mini_Moonboard_Template_Guide_IMPERIAL.pdf)
+- [MoonBoard LED System V3 Installation and Troubleshooting Guide, version 5.2](https://moonclimbing.com/media/moonboard-pdf/NewMB_LED_Instructions_may2024.pdf)
 - [Official Mini MoonBoard 2020 DIY Kit page](https://us.moonclimbing.com/products/mini-moonboard-2020-diy-kit)
 
 These sources were accessed on 2026-09-03. Check them again before fabrication
@@ -22,6 +23,7 @@ for checking that a newer official document exists.
 | DIY Kit Build Guide | 3 | 1,248,505 | `2f3d1563cf405a6dd297bf5ca61592806b39d56a024bce260e496305d88917c2` |
 | Metric template | 1 | 72,837 | `7bc1cdeb1111c3292ffef4e9929deaed15e531fb7de30b80fd2d88eab78012e6` |
 | Imperial template | 1 | 107,550 | `84a032deacb02800bd035b4795f26cae7cf97e4217e4265ff31723db392bd14b` |
+| LED V3 guide, version 5.2 | 8 | 48,472,717 | `b783ae3a5b1b844f5f6a92cc910b95ba232b398d6fa9265fbf85035c1cd33373` |
 
 ## Official geometry
 
@@ -50,6 +52,29 @@ values to inches using 25.4 mm per inch, normally rounded to 1/16 inch for shop
 dimensions. A source-stated imperial dimension is not silently replaced with a
 conversion.
 
+## Official assembly constraints
+
+The DIY build guide says its frame suggestions are basic requirements, that the
+actual structural frame may differ, and that the published height, width, and
+angle must be retained. It expects basic carpentry capability, tools, and at
+least two people for assembly. This repository treats those statements as a
+reason to require review of the completed custom freestanding frame, not as a
+structural design specification.
+
+For the Mini layout, the guide specifies four upright support lines at 813 mm
+/ 2 ft 8 in spacing, placed above the kickboard at the 40-degree board angle.
+It directs builders to attach two kicker panels and four main panels, then use
+18 mm plywood strips to brace panel joints as shown. The guide does not give a
+dimensioned strip schedule, member sizes, fastener schedule, connection design,
+or freestanding stability design, so none is inferred here.
+
+The guide directs hold setup through the MoonBoard app or website so each hold
+uses its correct grid reference and orientation. The current V3 LED guide
+specifies 13 mm / 1/2 in LED holes beneath the corresponding T-nuts and advises
+testing LEDs before installation. That diameter applies only if the selected
+system is covered by that V3 guide; record the actual LED-system version and
+follow its supplied guide before drilling.
+
 ## Panel template
 
 The template guides define columns A-K and rows 1-12 for the Mini MoonBoard.
@@ -69,8 +94,10 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 The first CAD milestone intentionally models panel blanks and seams, not
 drilled holes. The source-backed main T-nut, LED, and official kicker foothold
 center coordinates are now encoded separately in
-[`panel-grid.md`](panel-grid.md). Hole solids will be added only after the
-diameters, template system, and actual plywood sheets are verified.
+[`panel-grid.md`](panel-grid.md). T-nut and mounting-hole solids will be added
+only after their hardware dimensions, template system, and actual plywood
+sheets are verified. LED-hole solids additionally require confirmation that the
+selected system uses the V3 guide's 13 mm diameter.
 
 ## Source discrepancies and cautions
 
