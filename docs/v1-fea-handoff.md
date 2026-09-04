@@ -1,7 +1,9 @@
 # V1 structural FEA handoff
 
-This is the reproducible handoff for a qualified analyst. It is not an FEA
-result and does not authorize construction or loading.
+This is the reproducible handoff for a qualified analyst. It is not structural
+approval and does not authorize construction or loading. The user-requested
+fixed-foot screening result is recorded separately in
+[`v1-fixed-foot-fea-screen.md`](v1-fixed-foot-fea-screen.md).
 
 ## Installed analysis tools and solver smoke test
 
@@ -42,7 +44,8 @@ constraint, or contact model rather than meshing those cosmetic solids.
 | STEP as the FEA boundary | Keep | It is the existing neutral exchange artifact; no custom importer or mesh format is needed. |
 | Existing Windows FreeCAD + Gmsh | Keep | They provide the interactive meshing/inspection workbench already installed on this machine. |
 | Pinned CalculiX Docker image | Keep | It runs without sudo, is reproducible, and avoids a host solver install. |
-| Python FEA API, custom solver wrapper, database, or web service | Skip | No recurring automated analysis exists yet; these would only hide analyst choices about wood, joints, floor contact, and load combinations. |
+| General Python FEA API, database, or web service | Skip | These would only hide analyst choices about wood, joints, floor contact, and load combinations. |
+| Small CalculiX deck generator | Keep | The user requested a reproducible current-design screen; it generates a deliberately limited fixed-foot beam deck without claiming approval. |
 | FEA in GitHub Actions | Skip | CI should verify geometry and exports. It cannot establish the missing material/joint/floor inputs or turn a solver run into engineering approval. |
 | Committed result meshes/plots | Skip | They are generated analysis artifacts and meaningful only with their reviewed input deck and report. Commit the approved report/review record later. |
 
@@ -73,9 +76,11 @@ Sources: [CWA Design & Engineering Specification (2022), Table 1 and §§4.5–4
 uses the actual current CAD volume/centroid, a declared 600 kg/m³ density
 screen, and the 1.2 kN top-row force. It finds a negative floor reaction in
 both opposite normal directions. Therefore the current footprint is **not** a
-candidate for fixed-foot FEA or construction. Revise the base/ballast strategy
-and kicker-to-main load path first; then evaluate floor contact, friction,
-sliding, and overturning.
+candidate for construction or for using fixed-foot FEA as stability evidence.
+The separate fixed-foot frame screen is deliberately limited to identifying
+flexibility and member demand. Revise the base/ballast strategy and
+kicker-to-main load path first; then evaluate floor contact, friction, sliding,
+and overturning.
 
 ## Source geometry
 

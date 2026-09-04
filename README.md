@@ -75,7 +75,10 @@ The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
 specifies the nine 4 x 8 plywood sheets and one-factory-width-main-panel-per-sheet route.
 The [FEA handoff](docs/v1-fea-handoff.md) defines the STEP source, structural
 idealization, required inputs, and load cases for qualified FreeCAD/CalculiX or
-equivalent analysis; it deliberately contains no invented stress result.
+equivalent analysis. The current [fixed-foot FEA screen](docs/v1-fixed-foot-fea-screen.md)
+finds 169–351 mm top displacement in its five 1.2 kN cases and is a redesign
+warning, not a construction approval; the separate unanchored stability screen
+still finds uplift.
 The generated [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
 currently finds the V1 footprint requires floor uplift under the sourced
 top-row load, so it is a redesign gate rather than a build release.
