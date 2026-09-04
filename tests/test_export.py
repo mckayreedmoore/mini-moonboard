@@ -26,6 +26,7 @@ from mini_moonboard.export import (
     export_v1_panel_drill_schedule,
     export_v1_rear_drawing,
     export_v1_secondary_joinery_schedule,
+    export_v1_stability_screen,
     export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
@@ -232,6 +233,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     generated_dir = tmp_path / "exports"
     export_reference(generated_dir)
     export_v1_concept(generated_dir)
+    export_v1_stability_screen(generated_dir)
     export_v1_cad_render(generated_dir)
     export_v1_concept_side_drawing(generated_dir)
     export_v1_front_drawing(generated_dir)
