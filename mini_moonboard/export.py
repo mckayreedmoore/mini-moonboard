@@ -3,6 +3,7 @@ import csv
 import json
 import math
 import re
+from functools import cache
 from pathlib import Path
 
 import cadquery as cq
@@ -353,13 +354,16 @@ def _viewer_panel_screw_components(x: float, distance: float) -> tuple[cq.Shape,
     return (shaft, head)
 
 
+@cache
 def _v1_fastener_head_collisions() -> tuple[tuple[str, str, str, float], ...]:
     """Report non-shank viewer-fastener overlap with physical V1 solids.
 
     Shafts are intentionally omitted: their intersection with their joined
     members is the fastening function. A washer, head, or nut may touch its
     clamped surface but must not have material-volume overlap. This tests the
-    nominal viewer hardware, not a reviewed fastener design.
+    nominal viewer hardware, not a reviewed fastener design. The V1 model has
+    no runtime inputs, so this expensive immutable result is cached per Python
+    process for export/test reuse.
     """
     board_parts = {
         child.name: child.obj.val() if hasattr(child.obj, "val") else child.obj
