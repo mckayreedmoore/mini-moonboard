@@ -66,7 +66,7 @@ these values before cutting, drilling, gluing, or loading it:
   not a room or pad measurement.
 - **Leg geometry:** the model bends at main-grid row 8 (fifth row down from
   row 12), reaches row 10, and assumes a 60-degree included angle from the
-  descending board line. The lower-member endpoint centre is 1417.1 mm behind
+  descending board line. The lower-member endpoint centre is 1389.6 mm behind
   the kicker face at the finished-floor plane; CAD trims its overlong lower
   member to make a full 3448 mm² floor-parallel bearing face per leg. Confirm
   the final floor footprint and foot protection.

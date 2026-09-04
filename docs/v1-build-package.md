@@ -18,7 +18,7 @@ human-audit list at the end.
 | Leg bend | Main-grid row 8 | Fifth T-nut row down from row 12 |
 | Leg upper end | Main-grid row 10 | Two T-nut rows above the bend |
 | Lower-leg angle | 60 degrees to the descending board line | User estimate |
-| Lower-leg endpoint centre datum | 1417.1 mm behind kicker face and 0 mm above floor | CAD-derived; the overlong lower member is trimmed at the finished-floor plane, producing a full flat bearing face |
+| Lower-leg endpoint centre datum | 1389.6 mm behind kicker face and 0 mm above floor | CAD-derived; the overlong lower member is trimmed at the finished-floor plane, producing a full flat bearing face |
 | Leg knee | Lower and upper segments meet at row-8 bend | CAD has no load-transfer joint detail; continuous laminate, scarf/lap/gusset, fasteners, and load path are unresolved reviewer decisions |
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
@@ -26,6 +26,7 @@ human-audit list at the end.
 | Kicker/main gussets | Two exterior 36 mm-thick triangular side gussets | Each touches the vertical kicker and first 400 mm of the inclined main-panel side edge; four provisional screws per panel edge require human audit |
 | Leg cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap other frame solids |
 | Rail cross ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Each half touches three rails; the rail grid transfers through outer rails to the leg-bolt path |
+| Rail splices | Five 36 mm-thick, 400 mm-long outer cover plates | Each physically bridges its lower/upper rail pair; fastener pattern remains a human-audit item |
 
 The model keeps a **36 mm provisional board-normal service gap** on the
 support side, opposite the underside climbing face, for T-nut, LED, and cable
@@ -64,7 +65,7 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, seam gussets, and rear ties |
 | [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Underside climbing-face elevation |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
-| [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric visual review render of the assembled geometry |
+| [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric support-side schematic; use STEP or CAD-derived raster for exact geometry |
 | [`mini_moonboard_v1_rear.svg`](../exports/mini_moonboard_v1_rear.svg) | Support-side elevation: five rails, bearing-block service gap, and tie/splice intent |
 | [`mini_moonboard_v1_cut_list.csv`](../exports/mini_moonboard_v1_cut_list.csv) | Lamination-expanded provisional plywood cut list |
 | [`mini_moonboard_v1_drill_schedule.csv`](../exports/mini_moonboard_v1_drill_schedule.csv) | 132 main T-nut, 132 LED, and 10 kicker-hole center records |
@@ -127,7 +128,7 @@ that change record.
 5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
    blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
    leg cross ties and rail cross ties on a level protected floor. Check the
-   full flat foot bearing faces, 60-degree leg angle, 1417.1 mm rear-foot
+   full flat foot bearing faces, 60-degree leg angle, 1389.6 mm rear-foot
    position, racking, and all
    panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed

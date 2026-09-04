@@ -382,9 +382,9 @@ def _v1_isometric_svg() -> str:
 {seams}
 {rails}
 {legs}
-  <text x="450" y="710" text-anchor="middle">Isometric support-side review render: panels, kicker, five rails, and two exterior hockey-stick legs.</text>"""
+  <text x="450" y="710" text-anchor="middle">Isometric support-side schematic: inspect the STEP model or CAD-derived raster for exact assembly geometry.</text>"""
     return _svg(
-        "Mini MoonBoard v1 provisional isometric render",
+        "Mini MoonBoard v1 provisional isometric schematic",
         body,
         "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
     ).replace(
@@ -414,6 +414,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, 457.0, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
+        ("support frame", "face-rail splice-cover lamination", 10, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
     )

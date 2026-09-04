@@ -306,6 +306,22 @@ def _rail_cross_tie_point(distance: float) -> tuple[float, float]:
     )
 
 
+def _face_rail_splice(x: float) -> cq.Workplane:
+    """Return a two-ply outer cover plate across one lower/upper rail break."""
+    splice_length = 400.0
+    seam_distance = V1_PANEL_SIZE_MM
+    y, z = v1_support_side_point(
+        seam_distance - splice_length / 2,
+        V1_HARDWARE_GAP_MM + 2 * V1_SUPPORT_THICKNESS_MM,
+    )
+    return (
+        cq.Workplane("XY")
+        .box(V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM, splice_length, centered=(True, False, False))
+        .rotate((0, 0, 0), (1, 0, 0), -ANGLE_FROM_VERTICAL_DEG)
+        .translate((x, y, z))
+    )
+
+
 def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplane:
     """Return a direct-contact backing in the blank lower kicker extension."""
     return (
@@ -449,6 +465,9 @@ def build_v1_concept() -> cq.Assembly:
             name=f"face_rail_center_seam_{row}",
             color=cq.Color("saddlebrown"),
         )
+
+    for index, rail_x in enumerate(rail_centres, start=1):
+        board.add(_face_rail_splice(rail_x), name=f"face_rail_splice_{index}", color=cq.Color("saddlebrown"))
 
     for rail_number, x, row, distance in v1_rail_standoff_placements():
         board.add(
