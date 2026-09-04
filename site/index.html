@@ -51,7 +51,7 @@
       // Mirror CAD X for the climber-facing convention: visible left is the A
       // side (where McKay stands); visible right is the K side.
       const climberView = new THREE.Group(); climberView.scale.x = -1; scene.add(climberView);
-      const partCard = document.querySelector('#part'); let selected;
+      const partCard = document.querySelector('#part'); let selected = [];
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts }) => {
         partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
@@ -116,11 +116,11 @@
       // level Y=250 is in front of the lower climbing face; the bracing is on
       // the opposite, support-side normal. Do not infer front/back from a
       // global Y sign because the board is sloped.
-      const person = new THREE.Group(); person.position.set(1710, 250, 0); scene.add(person);
+      const person = new THREE.Group(), personMeshes = []; person.position.set(1710, 250, 0); scene.add(person);
       const personPart = { name: 'McKay', fabrication: { dimensions_mm: [450, 300, 1727.2], dimensions_imperial: [17.72, 11.81, 68.00], description: 'an absolutely staggering 5\'8\" reference person; display-only and excluded from CAD, cut lists, stability, and FEA' } };
       const addPersonPart = (geometry, position, rotation = [0, 0, 0]) => {
         const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x607d8b, roughness: .85 }));
-        mesh.position.fromArray(position); mesh.rotation.fromArray(rotation); mesh.userData.part = personPart; meshes.push(mesh); person.add(mesh);
+        mesh.position.fromArray(position); mesh.rotation.fromArray(rotation); mesh.userData.part = personPart; meshes.push(mesh); personMeshes.push(mesh); person.add(mesh);
       };
       // Simplified 1727.2 mm / 5 ft 8 in mannequin: visual scale reference only.
       addPersonPart(new THREE.CylinderGeometry(82, 105, 720, 12), [0, 0, 1125], [Math.PI / 2, 0, 0]);
@@ -138,9 +138,11 @@
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(meshes)[0];
         if (!hit) return;
-        if (selected) selected.material.emissive.setHex(0);
-        selected = hit.object; selected.material.emissive.setHex(0x5f3600);
-        const part = selected.userData.part, [x, y, z] = part.fabrication.dimensions_mm, [ix, iy, iz] = part.fabrication.dimensions_imperial;
+        selected.forEach(mesh => mesh.material.emissive.setHex(0));
+        const part = hit.object.userData.part;
+        selected = part === personPart ? personMeshes : [hit.object];
+        selected.forEach(mesh => mesh.material.emissive.setHex(0x5f3600));
+        const [x, y, z] = part.fabrication.dimensions_mm, [ix, iy, iz] = part.fabrication.dimensions_imperial;
         partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${x} × ${y} × ${z} mm (${ix} × ${iy} × ${iz}).`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
