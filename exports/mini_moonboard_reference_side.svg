@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="750" viewBox="0 0 900 750" data-units="mm">
+  <title>Mini MoonBoard official side envelope</title>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#333" />
+    </marker>
+  </defs>
+  <style>
+    .panel { fill: #20252b; stroke: #f0b429; stroke-width: 2; }
+    .kicker { fill: #444b53; stroke: #f0b429; stroke-width: 2; }
+    .seam { stroke: #aaa; stroke-width: 1.5; }
+    .dim { stroke: #333; stroke-width: 1.5; marker-start: url(#arrow); marker-end: url(#arrow); }
+    .guide { stroke: #777; stroke-width: 1; stroke-dasharray: 5 5; }
+    text { fill: #222; font: 16px sans-serif; }
+    .on-dark { fill: white; }
+    .warning { fill: #a3261f; font-weight: bold; }
+  </style>
+  <rect width="900" height="750" fill="white" />
+  <text x="450" y="35" text-anchor="middle" font-size="24">Mini MoonBoard official side envelope</text>
+  <text class="warning" x="450" y="65" text-anchor="middle">REFERENCE ONLY - NOT A FRAME DESIGN</text>
+  <line class="guide" x1="100" y1="650.0" x2="800" y2="650.0" />
+  <rect class="kicker" x="175.0" y="611.4" width="10" height="38.6" />
+  <line class="panel" x1="180.0" y1="611.4" x2="583.9" y2="130.0" stroke-width="8" />
+  <line class="guide" x1="180.0" y1="611.4" x2="180.0" y2="130.0" />
+  <text x="205.0" y="586.4">40 degrees from vertical</text>
+  <line class="dim" x1="180.0" y1="700" x2="583.9" y2="700" />
+  <text x="382.0" y="725" text-anchor="middle">depth 1568.4 mm / 61 3/4 in</text>
+  <line class="dim" x1="100" y1="130.0" x2="100" y2="650.0" />
+  <text x="85" y="390.0" text-anchor="middle" transform="rotate(-90 85 390.0)">height 2019.1 mm / 79 1/2 in</text>
+  <text x="165.0" y="630.7" text-anchor="end">kicker 150 mm</text>
+</svg>
