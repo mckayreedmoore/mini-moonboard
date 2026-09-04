@@ -281,6 +281,30 @@ def _kicker_backing_member(x: float, width: float, height: float) -> cq.Workplan
     )
 
 
+def _kicker_main_seam_gusset(side: int) -> cq.Workplane:
+    """Return one exterior, laminated side gusset across the kicker/main seam.
+
+    The gusset occupies the panel side plane (not the climbing or support face),
+    touching the kicker's vertical edge and the first 400 mm of the inclined
+    main-panel edge.  Its fastening pattern remains a human-audit item.
+    """
+    span = 400.0
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+    profile = (
+        cq.Workplane("YZ")
+        .polyline(
+            (
+                (0.0, 75.0),
+                (0.0, V1_KICKER_HEIGHT_MM),
+                (span * math.sin(angle), V1_KICKER_HEIGHT_MM + span * math.cos(angle)),
+            )
+        )
+        .close()
+    )
+    edge_x = side * V1_PANEL_SIZE_MM
+    return profile.extrude(side * V1_SUPPORT_THICKNESS_MM).translate((edge_x, 0.0, 0.0))
+
+
 def _structural_bolt_envelope(side: int, distance: float) -> cq.Workplane:
     """Return a conservative X-axis envelope for a leg-to-outer-rail bolt."""
     x, y, z = v1_structural_bolt_position(side, distance)
@@ -399,12 +423,18 @@ def build_v1_concept() -> cq.Assembly:
             name=f"kicker_blank_extension_backing_{label}",
             color=cq.Color("saddlebrown"),
         )
+        board.add(
+            _kicker_main_seam_gusset(side),
+            name=f"kicker_main_seam_gusset_{label}",
+            color=cq.Color("saddlebrown"),
+        )
 
     for name, fraction in (("low", 0.25), ("mid", 0.5), ("top", 0.75)):
-        tie_distance = leg["bend_distance"] * fraction
-        tie_y, tie_z = v1_support_side_point(
-            tie_distance, V1_HARDWARE_GAP_MM + V1_SUPPORT_THICKNESS_MM + V1_REAR_TIE_WIDTH_MM / 2
-        )
+        # Put every transverse tie on the *actual lower-leg centreline*, not
+        # on a nominal board-distance line.  Its half ends can then touch the
+        # inside faces of both legs without intersecting them.
+        tie_y = foot_y + fraction * (bend_y - foot_y)
+        tie_z = foot_center_z + fraction * (bend_z - foot_center_z)
         for side, label in ((-1, "left"), (1, "right")):
             board.add(
                 _rear_tie_half(side, tie_y, tie_z),

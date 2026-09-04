@@ -24,7 +24,7 @@ invented from the photograph or video.
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
-| Connections | Four modeled structural-bolt envelopes per leg into the exterior support-side rail; 3/8-in Grade-5 bolt length unresolved | Provisional; do not substitute climbing T-nuts for structural connections |
+| Connections | Four schedule-only structural-hole datums per leg into the exterior outer rail; 3/8-in Grade-5 bolt length unresolved | Provisional; bolts are intentionally absent from the collision-audited STEP assembly; do not substitute climbing T-nuts for structural connections |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
 | Portability | Fixed assembly versus demountable joints | Unresolved |
 
@@ -71,10 +71,11 @@ these values before cutting, drilling, gluing, or loading it:
   member to make a full 3448 mm² floor-parallel bearing face per leg. Confirm
   the final floor footprint and foot protection.
 - **External-leg connection:** four structural bolts per leg are provisionally
-  modelled as 3/8-in Grade-5, 10 mm clearance holes at the published X/Y/Z
-  datums. Their final length, washer/plate stack, edge distances, and load path
-  are not reviewer-approved. The T-nut rows are location datums only; no
-  structural bolt may obstruct a required hold, T-nut, LED, cable, or panel
+  specified in the connection schedule as 3/8-in Grade-5, 10 mm clearance-hole
+  datums. The bolts and bores are intentionally absent from the collision-audited
+  STEP assembly; their final length, washer/plate stack, edge distances, and
+  load path are not reviewer-approved. The T-nut rows are location datums only;
+  no structural bolt may obstruct a required hold, T-nut, LED, cable, or panel
   joint.
 - **Laminations:** the model uses a provisional 36 mm member thickness (two
   18 mm layers). Measure the actual nominal-3/4-in sheets, then set thickness,

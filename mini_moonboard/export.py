@@ -411,6 +411,7 @@ def export_v1_cut_list(output_dir: Path) -> Path:
         ("support frame", "face-rail lamination segment", 20, V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "rail-bearing-block lamination", 40, V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
+        ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, 457.0, PANEL_THICKNESS_MM),
         ("support frame", "rear-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_REAR_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
         ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),

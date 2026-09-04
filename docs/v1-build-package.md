@@ -23,6 +23,7 @@ human-audit list at the end.
 | Support member | Two nominal-3/4-in plywood laminations, modelled as 36 mm total | User direction; actual thickness unknown |
 | Support-side rails | Four outer/intermediate rails plus one shifted center-seam rail, board-parallel, 180 mm nominal width | Rails sit on the true support side of the underside climbing face |
 | Rail bearing blocks | 20 two-ply 60 x 80 mm blocks | CAD-contacted from panel to rail across the service gap; projected clearance from all bores is tested |
+| Kicker/main gussets | Two exterior 36 mm-thick triangular side gussets | Each touches the vertical kicker and first 400 mm of the inclined main-panel side edge; four provisional screws per panel edge require human audit |
 | Rear ties | Three rows of two 1309.2 mm halves, center-spliced and board-normal | Tie solids terminate at leg faces and do not overlap rails or other frame solids |
 
 The model keeps a **36 mm provisional board-normal service gap** on the
@@ -59,7 +60,7 @@ uv run python -m mini_moonboard.export
 
 | File | Purpose |
 | --- | --- |
-| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, and rear ties |
+| [`mini_moonboard_v1_concept.step`](../exports/mini_moonboard_v1_concept.step) | 3D CAD assembly: underside-face panels, legs, rails, bearing blocks, kicker backing, seam gussets, and rear ties |
 | [`mini_moonboard_v1_front.svg`](../exports/mini_moonboard_v1_front.svg) | Underside climbing-face elevation |
 | [`mini_moonboard_v1_concept_side.svg`](../exports/mini_moonboard_v1_concept_side.svg) | Side plan: leg datums and 60-degree assumption |
 | [`mini_moonboard_v1_isometric.svg`](../exports/mini_moonboard_v1_isometric.svg) | Isometric visual review render of the assembled geometry |
@@ -117,9 +118,10 @@ that change record.
    not make the leg knee until its reviewer-approved load-transfer detail
    (continuous laminate, scarf/lap/gusset and any fasteners) is recorded.
 5. Dry-fit the two side legs, five support-side rails, twenty rail-bearing
-   blocks, blank-kicker backing, and split rear ties on a level protected floor.
-   Check the full flat foot bearing faces, 60-degree leg angle, rear-foot
-   position, racking, and all panel/LED/T-nut clearances.
+   blocks, blank-kicker backing, exterior kicker/main seam gussets, and split
+   rear ties on a level protected floor. Check the full flat foot bearing
+   faces, 60-degree leg angle, rear-foot position, racking, and all
+   panel/LED/T-nut clearances.
 6. Have the structural connection and unanchored-stability review completed
    before drilling structural bolt holes or joining any load-bearing member.
 7. Assemble the support-side frame flat where practical, raise it with at

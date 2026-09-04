@@ -1,4 +1,5 @@
 import csv
+import json
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -19,9 +20,11 @@ from mini_moonboard.export import (
     export_v1_front_drawing,
     export_v1_isometric_drawing,
     export_v1_rear_drawing,
+    export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
     V1_PANEL_SIZE_MM,
+    build_v1_concept,
     v1_leg_geometry,
 )
 
@@ -44,7 +47,21 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 48
+    assert cq.importers.importStep(str(path)).solids().size() == 50
+
+
+def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path) -> None:
+    index_path = export_v1_viewer_mesh(tmp_path)
+    parts = json.loads(index_path.read_text())["parts"]
+
+    assert len(parts) == len(build_v1_concept().children)
+    assert len({part["name"] for part in parts}) == len(parts)
+    for part in parts:
+        mesh_path = tmp_path / part["path"]
+        assert mesh_path.is_file()
+        assert mesh_path.stat().st_size > 84
+        assert len(part["dimensions_mm"]) == 3
+        assert all(dimension > 0 for dimension in part["dimensions_mm"])
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -68,7 +85,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
 
     cut_rows = list(csv.DictReader(export_v1_cut_list(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 8
+    assert len(cut_rows) == 9
     assert len(drill_rows) == 274
     assert {row["diameter_mm"] for row in drill_rows if row["feature"] != "LED"} == {"11.112"}
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
@@ -81,6 +98,8 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
     rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
     assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
+    gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
+    assert gusset["quantity"] == "4"
     assert all("X is bolt-stack midpoint" in row["datum"] for row in connection_rows)
     assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
     assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
