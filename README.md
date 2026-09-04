@@ -36,6 +36,8 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 ![Provisional side render of the Mini MoonBoard v1 board and exterior hockey-stick leg](exports/mini_moonboard_v1_concept_side.svg)
 
+![Provisional isometric render of the Mini MoonBoard v1 frame](exports/mini_moonboard_v1_isometric.svg)
+
 This generated render shows one side profile; the two exterior legs overlap in
 this view. It is a geometry prototype pending the human audit documented in
 [`docs/design-basis.md`](docs/design-basis.md), not a construction drawing.

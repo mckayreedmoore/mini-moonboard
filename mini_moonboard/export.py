@@ -13,6 +13,7 @@ from .model import (
     PANEL_THICKNESS_MM,
     V1_KICKER_HEIGHT_MM,
     V1_REAR_TIE_WIDTH_MM,
+    V1_SUPPORT_THICKNESS_MM,
     V1_SUPPORT_WIDTH_MM,
     build_reference_board,
     build_v1_concept,
@@ -261,6 +262,83 @@ def export_v1_rear_drawing(output_dir: Path) -> Path:
     return path
 
 
+def _v1_isometric_svg() -> str:
+    """Render a lightweight isometric review view from the v1 model dimensions."""
+    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
+
+    def point(x: float, y: float, z: float) -> tuple[float, float]:
+        return 450 + x * 0.18 + y * 0.12, 630 + x * 0.055 - y * 0.07 - z * 0.22
+
+    def polygon(points: tuple[tuple[float, float, float], ...], css: str) -> str:
+        return f'  <polygon class="{css}" points="' + " ".join(
+            f"{u:.1f},{v:.1f}" for u, v in (point(*vertex) for vertex in points)
+        ) + '" />'
+
+    def line(start: tuple[float, float, float], end: tuple[float, float, float], css: str) -> str:
+        start_u, start_v = point(*start)
+        end_u, end_v = point(*end)
+        return f'  <line class="{css}" x1="{start_u:.1f}" y1="{start_v:.1f}" x2="{end_u:.1f}" y2="{end_v:.1f}" />'
+
+    x_left, x_right = -MAIN_PANEL_SIZE_MM, MAIN_PANEL_SIZE_MM
+    surface = lambda distance: (distance * math.sin(angle), V1_KICKER_HEIGHT_MM + distance * math.cos(angle))
+    main_bottom_y, main_bottom_z = surface(0.0)
+    mid_y, mid_z = surface(MAIN_PANEL_SIZE_MM)
+    top_y, top_z = surface(2 * MAIN_PANEL_SIZE_MM)
+    board = polygon(
+        ((x_left, main_bottom_y, main_bottom_z), (x_right, main_bottom_y, main_bottom_z),
+         (x_right, top_y, top_z), (x_left, top_y, top_z)),
+        "panel",
+    )
+    kicker = polygon(
+        ((x_left, 0.0, 0.0), (x_right, 0.0, 0.0),
+         (x_right, main_bottom_y, main_bottom_z), (x_left, main_bottom_y, main_bottom_z)),
+        "kicker",
+    )
+    seams = "\n".join(
+        (
+            line((0.0, main_bottom_y, main_bottom_z), (0.0, top_y, top_z), "seam"),
+            line((x_left, mid_y, mid_z), (x_right, mid_y, mid_z), "seam"),
+        )
+    )
+    bend_distance, upper_distance = 1480.0, 1880.0
+    bend_y, bend_z = surface(bend_distance)
+    upper_y, upper_z = surface(upper_distance)
+    foot_y = bend_y + bend_z / math.tan(math.radians(70.0))
+    legs = "\n".join(
+        line((x, foot_y, 0.0), (x, bend_y, bend_z), "leg")
+        + "\n"
+        + line((x, bend_y, bend_z), (x, upper_y, upper_z), "leg")
+        for x in (-MAIN_PANEL_SIZE_MM - V1_SUPPORT_THICKNESS_MM / 2,
+                  MAIN_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2)
+    )
+    rails = "\n".join(
+        line((x, main_bottom_y + 54.0, main_bottom_z), (x, top_y + 54.0, top_z), "rail")
+        for x in (-MAIN_PANEL_SIZE_MM, -MAIN_PANEL_SIZE_MM / 3, MAIN_PANEL_SIZE_MM / 3, MAIN_PANEL_SIZE_MM)
+    )
+    body = f"""{kicker}
+{board}
+{seams}
+{rails}
+{legs}
+  <text x="450" y="710" text-anchor="middle">Isometric review render: panels, kicker, four face rails, and two exterior hockey-stick legs.</text>"""
+    return _svg(
+        "Mini MoonBoard v1 provisional isometric render",
+        body,
+        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
+    ).replace(
+        ".guide {",
+        ".leg { stroke: #8a4b16; stroke-width: 16; stroke-linecap: round; }\n"
+        "    .rail { stroke: #6f3510; stroke-width: 9; }\n    .guide {",
+    )
+
+
+def export_v1_isometric_drawing(output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "mini_moonboard_v1_isometric.svg"
+    path.write_text(_v1_isometric_svg())
+    return path
+
+
 def export_v1_cut_list(output_dir: Path) -> Path:
     """Export a provisional, laminations-expanded cut list for audit and nesting."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -474,6 +552,7 @@ def main() -> None:
         export_v1_concept_side_drawing(args.output_dir),
         export_v1_front_drawing(args.output_dir),
         export_v1_rear_drawing(args.output_dir),
+        export_v1_isometric_drawing(args.output_dir),
         export_v1_cut_list(args.output_dir),
         export_v1_drill_schedule(args.output_dir),
         export_panel_grid(args.output_dir),

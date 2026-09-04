@@ -14,6 +14,7 @@ from mini_moonboard.export import (
     export_v1_cut_list,
     export_v1_drill_schedule,
     export_v1_front_drawing,
+    export_v1_isometric_drawing,
     export_v1_rear_drawing,
 )
 
@@ -49,7 +50,11 @@ def test_exports_v1_side_render(tmp_path: Path) -> None:
 
 
 def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
-    for path in (export_v1_front_drawing(tmp_path), export_v1_rear_drawing(tmp_path)):
+    for path in (
+        export_v1_front_drawing(tmp_path),
+        export_v1_rear_drawing(tmp_path),
+        export_v1_isometric_drawing(tmp_path),
+    ):
         root = ElementTree.parse(path).getroot()
         assert root.attrib["data-units"] == "mm"
         assert "PROVISIONAL" in path.read_text()
