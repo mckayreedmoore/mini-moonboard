@@ -64,13 +64,14 @@ uv run python -m mini_moonboard.export
 | [`mini_moonboard_v1_bom.csv`](../exports/mini_moonboard_v1_bom.csv) | Provisional purchasing BOM, separate from plywood cuts |
 
 The CSV drill coordinates are a machine-readable cross-check of the official
-metric datums. For production, select one official Mini template edition,
-print it at 100 percent, and verify its calibration dimensions. The controlled
-2438.4 mm V1 blank is not itself either published template width (2437 mm
-metric or 2438.8 mm imperial): before any production drilling, record the
-chosen edition, calibration marks, final blank trim, center-seam location, and
-template-to-blank offsets. Do not combine the PDF template and CSV by eye or
-substitute converted values for template dimensions.
+metric datums, not drill authority. V1's selected Escape 3/8-16 hardware
+requires the official **imperial** Mini template unless the hardware system is
+changed under controlled revision. Print that template at 100 percent and
+verify its calibration dimensions. The controlled 2438.4 mm V1 blank is not
+the published 2438.8 mm imperial template width: before any production
+drilling, record calibration marks, final blank trim, center-seam location,
+and template-to-blank offsets. Do not combine the PDF template and CSV by eye
+or substitute converted values for template dimensions.
 
 ## Provisional purchasing estimate
 
@@ -99,7 +100,8 @@ that change record.
 
 1. Inspect each plywood sheet; record actual length, width, thickness at
    multiple locations, flatness, damage, and grade. Reserve one offcut sheet.
-2. Print and calibrate the selected official template edition. Drill and test a sample
+2. Print and calibrate the official imperial template for the selected Escape
+   3/8-16 system. Drill and test a sample
    panel with an Escape T-nut, matching 3/8-16 bolt, representative hold,
    Moon LED, and the proposed panel-to-rail screw. Confirm rear clearance.
 3. Cut panel and support blanks only after the fit test passes. Keep the full
@@ -133,8 +135,9 @@ continue as a geometry prototype while they are unresolved.
   splice, panel-screw, knee-joint, and foot details. In particular, prove the
   center splice in each rear tie, the leg's row-8 knee load transfer, and the
   four-bolt leg connection.
-- Select one official template edition and record its calibration, panel-blank
-  trim, seam location, and every template-to-blank offset before drilling.
+- Calibrate the official imperial template for the selected Escape 3/8-16
+  system, then record panel-blank trim, seam location, and every
+  template-to-blank offset before drilling.
 - Check all structural bolt locations against the final hold, T-nut, LED,
   wiring, and panel-seam layout; the T-nut rows locate leg geometry but are not
   structural-fastener locations.
