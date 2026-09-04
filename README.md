@@ -57,6 +57,9 @@ and the project [artwork policy](docs/panel-artwork.md).
 Its independent overall-dimensions switch draws the provisional complete V1
 assembly extents—2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and
 2150.8 mm / 84.68 in high—excluding the separate crash pad.
+The viewer also includes a selectable 5 ft 8 in / 1727.2 mm reference person
+for scale. The person is display-only and deliberately excluded from the CAD
+assembly, cut lists, stability screen, and FEA.
 
 The [side profile](exports/mini_moonboard_v1_concept_side.svg),
 [support-side elevation](exports/mini_moonboard_v1_rear.svg), and

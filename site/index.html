@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or cyan connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid labels</option><option value="grid-high">High-contrast grid labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><div id="part">Loading selectable CAD parts…</div></header>
+    <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Initial view: underside climbing face · drag to orbit · scroll to zoom · click wood or cyan connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid labels</option><option value="grid-high">High-contrast grid labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -107,6 +107,24 @@
       dimensionLine([-1460, -86.944, 20], [-1460, 1549.373, 20], [0, 0, 55], 'DEPTH 1636.3 mm / 64.42 in');
       dimensionLine([-1460, 1625, 0], [-1460, 1625, 2150.774], [55, 0, 0], 'HEIGHT 2150.8 mm / 84.68 in');
       document.querySelector('#dimensions').addEventListener('change', event => { dimensions.visible = event.target.checked; });
+      const person = new THREE.Group(); person.position.set(1710, 250, 0); scene.add(person);
+      const personPart = { name: 'Mckay', fabrication: { dimensions_mm: [450, 300, 1727.2], dimensions_imperial: [17.72, 11.81, 68.00], description: 'an absolutely staggering 5\'8\" reference person; display-only and excluded from CAD, cut lists, stability, and FEA' } };
+      const addPersonPart = (geometry, position, rotation = [0, 0, 0]) => {
+        const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x607d8b, roughness: .85 }));
+        mesh.position.fromArray(position); mesh.rotation.fromArray(rotation); mesh.userData.part = personPart; meshes.push(mesh); person.add(mesh);
+      };
+      // Simplified 1727.2 mm / 5 ft 8 in mannequin: visual scale reference only.
+      addPersonPart(new THREE.CylinderGeometry(82, 105, 720, 12), [0, 0, 1125], [Math.PI / 2, 0, 0]);
+      addPersonPart(new THREE.SphereGeometry(90, 16, 12), [0, 0, 1637.2]);
+      [-95, 95].forEach(x => addPersonPart(new THREE.CylinderGeometry(48, 55, 740, 10), [x, 0, 370], [Math.PI / 2, 0, 0]));
+      [-150, 150].forEach(x => addPersonPart(new THREE.CylinderGeometry(36, 42, 590, 10), [x, 0, 1110], [Math.PI / 2, 0, 0]));
+      const personMaterial = new THREE.LineBasicMaterial({ color: 0x87ceeb });
+      person.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-250, 0, 0), new THREE.Vector3(-250, 0, 1727.2)]), personMaterial));
+      [[-305, 0, 0], [-195, 0, 0], [-305, 0, 1727.2], [-195, 0, 1727.2]].forEach((point, index, points) => { if (index % 2 === 0) person.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...point), new THREE.Vector3(...points[index + 1])]), personMaterial)); });
+      const personCanvas = document.createElement('canvas'); personCanvas.width = 1024; personCanvas.height = 128;
+      const personContext = personCanvas.getContext('2d'); personContext.fillStyle = '#121619dd'; personContext.fillRect(0, 0, 1024, 128); personContext.fillStyle = '#f5f0e6'; personContext.font = 'bold 58px system-ui'; personContext.textAlign = 'center'; personContext.textBaseline = 'middle'; personContext.fillText("MCKAY — 5'8\" / 1727.2 mm", 512, 68);
+      const personLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(personCanvas), transparent: true, depthWrite: false })); personLabel.position.set(-250, 0, 1815); personLabel.scale.set(700, 88, 1); person.add(personLabel);
+      document.querySelector('#person').addEventListener('change', event => { person.visible = event.target.checked; });
       renderer.domElement.addEventListener('pointerdown', event => {
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(meshes)[0];
