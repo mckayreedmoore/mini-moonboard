@@ -76,8 +76,10 @@ coordinates, not transcriptions of the independently rounded imperial guide.
 
 ## Intentionally unresolved
 
-Do not drill from this datum table alone. Before holes are added to CAD or a
-fabrication drawing, verify:
+The V1 CAD model shows provisional visual/drill bores from these centres: the
+selected Escape 7/16-in T-nut diameter and a conditional 13 mm LED diameter.
+They make the underside render and clearance checks meaningful; they are not
+fabrication authority. Before production drilling, verify:
 
 - the selected T-nut manufacturer's geometry. Moon Climbing's current build
   page specifies a 13 mm / 1/2 in T-nut hole and 10 mm / 0.393 in barrel, but

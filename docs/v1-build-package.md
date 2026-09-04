@@ -31,6 +31,11 @@ envelopes and one controller envelope in the STEP model. They are routing and
 clearance aids, not measured component geometry; do not reduce the gap or
 mount hardware without a physical clearance check against the supplied kit.
 
+Every long support-side rail is modelled parallel to the board: 40 degrees
+from vertical. The support-side elevation depicts those rails straight-on, so
+they appear vertical there; use the side plan or STEP model to judge their
+actual 40-degree orientation.
+
 ### Structural-coordinate datum
 
 The connection schedule uses CAD datum **O**: the intersection of the board

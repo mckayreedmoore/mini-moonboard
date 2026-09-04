@@ -95,17 +95,16 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 (2438.8 mm). The build guide uses a nominal 2440 mm envelope. Therefore:
 
 1. preserve the official metric and imperial drawings independently;
-2. choose the fabrication system before generating a drilling model;
+2. choose the fabrication system before authorizing a drilling model for cuts;
 3. print the chosen template at 100 percent scale; and
 4. measure its calibration dimensions before drilling any panel.
 
-The first CAD milestone intentionally models panel blanks and seams, not
-drilled holes. The source-backed main T-nut, LED, and official kicker foothold
-center coordinates are now encoded separately in
-[`panel-grid.md`](panel-grid.md). The current official source specifies 13 mm
-T-nut holes with 10 mm barrels and conditionally specifies 13 mm LED holes for
-the V3 system. Hole solids and mounting details still require a physical test
-of the selected hardware, template system, and actual plywood sheets.
+The V1 CAD assembly now includes provisional visual/drill bores at the
+source-backed main T-nut, LED, and official kicker foothold centres encoded in
+[`panel-grid.md`](panel-grid.md). It uses the selected Escape 7/16-in bore and
+conditional 13 mm LED bores to expose geometry and clearance issues. Physical
+production drilling still requires the selected hardware, template system, and
+actual plywood-sheet test.
 
 ## Source discrepancies and cautions
 
