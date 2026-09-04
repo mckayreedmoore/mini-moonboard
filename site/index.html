@@ -110,7 +110,7 @@
       dimensionLine([-1460, 1625, 0], [-1460, 1625, 2150.774], [55, 0, 0], 'HEIGHT 2150.8 mm / 84.68 in');
       document.querySelector('#dimensions').addEventListener('change', event => { dimensions.visible = event.target.checked; });
       const person = new THREE.Group(); person.position.set(1710, 250, 0); scene.add(person);
-      const personPart = { name: 'Mckay', fabrication: { dimensions_mm: [450, 300, 1727.2], dimensions_imperial: [17.72, 11.81, 68.00], description: 'an absolutely staggering 5\'8\" reference person; display-only and excluded from CAD, cut lists, stability, and FEA' } };
+      const personPart = { name: 'McKay', fabrication: { dimensions_mm: [450, 300, 1727.2], dimensions_imperial: [17.72, 11.81, 68.00], description: 'an absolutely staggering 5\'8\" reference person; display-only and excluded from CAD, cut lists, stability, and FEA' } };
       const addPersonPart = (geometry, position, rotation = [0, 0, 0]) => {
         const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x607d8b, roughness: .85 }));
         mesh.position.fromArray(position); mesh.rotation.fromArray(rotation); mesh.userData.part = personPart; meshes.push(mesh); person.add(mesh);

@@ -29,7 +29,7 @@ The independent **Overall V1 dimensions** switch shows the CAD assembly AABB:
 in high. Those values include both exterior legs and exclude the crash pad;
 they are provisional V1 geometry, not Moon's official board-only envelope.
 
-The viewer's selectable Mckay figure is a simplified 1727.2 mm / 5 ft 8 in
+The viewer's selectable McKay figure is a simplified 1727.2 mm / 5 ft 8 in
 scale reference. It is not a scanned person, a CAD assembly child, a cut-list
 item, a stability mass, or an FEA load.
 

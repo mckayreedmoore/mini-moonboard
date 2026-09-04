@@ -101,6 +101,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "WIDTH 2762.4 mm / 108.76 in" in viewer_html
     assert 'id="person"' in viewer_html
     assert "an absolutely staggering 5\\'8" in viewer_html
+    assert "name: 'McKay'" in viewer_html
     assert "MCKAY — 5'8\\\" / 1727.2 mm" in viewer_html
 
 
