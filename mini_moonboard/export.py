@@ -174,7 +174,7 @@ def export_v1_concept(output_dir: Path) -> Path:
 def export_v1_cad_render(output_dir: Path) -> Path:
     """Render tessellated solids from the actual V1 CadQuery assembly."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_cad_render.png"
+    path = output_dir / "mini_moonboard_v1_cad_front_render.png"
     figure = plt.figure(figsize=(12, 9), facecolor="#f4f1ea")
     axes = figure.add_subplot(projection="3d")
     colors = {"main": "#20252b", "kicker": "#444b53", "leg": "#8a4b16", "face": "#6f3510"}
