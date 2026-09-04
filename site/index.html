@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mini MoonBoard V1 — Interactive CAD View</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23121619'/%3E%3Cpath d='M12 50 27 12h25L37 50Z' fill='%23a65a16'/%3E%3C/svg%3E" />
     <style>
       * { box-sizing: border-box; }
       body { margin: 0; background: #121619; color: #f5f0e6; font: 16px system-ui, sans-serif; }
@@ -15,8 +16,11 @@
   </head>
   <body>
     <header><h1>Mini MoonBoard V1 — CAD assembly</h1><p>Drag to orbit · scroll to zoom · right-drag to pan · pre-audit geometry only</p></header>
+    <script type="importmap">
+      { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
+    </script>
     <script type="module">
-      import * as THREE from 'https://unpkg.com/three@0.161.0/build/three.module.js';
+      import * as THREE from 'three';
       import { OrbitControls } from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
       import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
 
