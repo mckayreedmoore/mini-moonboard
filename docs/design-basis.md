@@ -58,7 +58,8 @@ qualified review.
 
 Before detailed frame modelling begins:
 
-- measure the installation envelope and floor condition;
+- complete [`site-survey.md`](site-survey.md), including the installation
+  envelope and floor condition;
 - select and measure the deployed crash-pad system;
 - set total kicker height and exposed active-kicker clearance;
 - record actual plywood species, grade, sheet size, and measured thickness;
@@ -88,4 +89,3 @@ The plans may be labelled **build-ready** only after:
 - inspection and maintenance checklists are complete; and
 - the approved commit is tagged so later edits cannot be mistaken for the
   reviewed release.
-
