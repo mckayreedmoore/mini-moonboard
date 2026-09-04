@@ -13,7 +13,7 @@ PANEL_THICKNESS_MM = 18.0
 OFFICIAL_KICKER_HEIGHT_MM = 150.0
 V1_KICKER_HEIGHT_MM = 225.0
 ANGLE_FROM_VERTICAL_DEG = 40.0
-V1_SUPPORT_THICKNESS_MM = 36.0
+V1_SUPPORT_THICKNESS_MM = 38.1
 V1_SUPPORT_WIDTH_MM = 180.0
 V1_FACE_RAIL_COUNT = 4
 V1_RAIL_CROSS_TIE_WIDTH_MM = 180.0
@@ -578,7 +578,7 @@ def v1_panel_fastener_envelope(x: float, distance: float) -> cq.Shape:
     )
 
 
-def build_v1_concept() -> cq.Assembly:
+def build_legacy_v1_concept() -> cq.Assembly:
     """Build the provisional unanchored board and two exterior hockey-stick legs.
 
     The leg bend uses the fifth T-nut row down from the top (row 8); its upper
@@ -691,3 +691,10 @@ def build_v1_concept() -> cq.Assembly:
         board.add(_tie_center_splice(tie_y, tie_z), name=f"rail_cross_tie_splice_{name}", color=cq.Color("peru"))
 
     return board
+
+
+def build_v1_concept() -> cq.Assembly:
+    """Build the user-directed deep box-frame revision."""
+    from .box_frame import build_box_frame
+
+    return build_box_frame()

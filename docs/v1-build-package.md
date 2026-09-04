@@ -198,3 +198,6 @@ continue as a geometry prototype while they are unresolved.
   switch access, power routing, and protection.
 - Separately establish the impact surface/crash-pad arrangement before climbing;
   it is intentionally excluded from this board/frame package.
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

@@ -57,7 +57,8 @@
       const climberView = new THREE.Group(); climberView.scale.x = -1; assemblyView.add(climberView);
       const partCard = document.querySelector('#part'); let selected = [];
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
-      fetch('parts.json').then(response => response.json()).then(({ parts }) => {
+      fetch('parts.json').then(response => response.json()).then(({ parts, bounds_mm }) => {
+        drawDimensions(bounds_mm);
         partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
@@ -111,10 +112,13 @@
         [start, end].forEach(point => dimensions.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...point).add(new THREE.Vector3(...tick)), new THREE.Vector3(...point).sub(new THREE.Vector3(...tick))]), material)));
         dimensionLabel(label, start.map((value, index) => (value + end[index]) / 2 + (index === 2 ? 85 : 0)));
       };
-      // CAD-derived AABB of the complete V1 assembly: include legs, not pad.
-      dimensionLine([-1381.2, 1660, 20], [1381.2, 1660, 20], [0, 0, 55], 'WIDTH 2762.4 mm / 108.76 in');
-      dimensionLine([-1460, -86.944, 20], [-1460, 1549.373, 20], [0, 0, 55], 'DEPTH 1636.3 mm / 64.42 in');
-      dimensionLine([-1460, 1625, 0], [-1460, 1625, 2150.774], [55, 0, 0], 'HEIGHT 2150.8 mm / 84.68 in');
+      // Keep dimensions synchronized with CAD, including the outside legs.
+      function drawDimensions([[xmin, ymin, zmin], [xmax, ymax, zmax]]) {
+        const label = (name, mm) => `${name} ${mm.toFixed(1)} mm / ${(mm / 25.4).toFixed(2)} in`;
+        dimensionLine([-xmax, ymax + 140, 20], [-xmin, ymax + 140, 20], [0, 0, 55], label('WIDTH', xmax - xmin));
+        dimensionLine([-xmax - 120, ymin, 20], [-xmax - 120, ymax, 20], [0, 0, 55], label('DEPTH', ymax - ymin));
+        dimensionLine([-xmax - 120, ymax + 100, zmin], [-xmax - 120, ymax + 100, zmax], [55, 0, 0], label('HEIGHT', zmax - zmin));
+      }
       document.querySelector('#dimensions').addEventListener('change', event => { dimensions.visible = event.target.checked; });
       // +X is climber-left after the display-only face reflection. At floor
       // level Y=250 is in front of the lower climbing face; the bracing is on

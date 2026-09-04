@@ -64,3 +64,6 @@ that does not bear continuously on both the kicker and the lower main panel.
 These patterns deliberately keep the primary 3/8-in leg/rail and knee bolts
 separate: use their exact global coordinates from the generated CSV, not this
 relative schedule.
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

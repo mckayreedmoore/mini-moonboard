@@ -79,3 +79,6 @@ The sensible redesign order is: resolve the unanchored base/ballast strategy,
 make a continuous kicker-to-main and leg-to-rail load path, choose actual
 material/joint data, then rerun a model with floor contact and connection
 stiffness. Do not build, proof-load, or climb from this screen.
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

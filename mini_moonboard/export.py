@@ -7,51 +7,22 @@ from functools import cache
 from pathlib import Path
 
 import cadquery as cq
-from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
+from . import box_exports
+from .box_frame import connections, frame_parts
 from .model import (
     ANGLE_FROM_VERTICAL_DEG,
     MAIN_PANEL_SIZE_MM,
     OFFICIAL_KICKER_HEIGHT_MM,
     PANEL_THICKNESS_MM,
     V1_KICKER_HEIGHT_MM,
-    V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
-    V1_KNEE_BOLT_LENGTH_MM,
-    V1_KNEE_GUSSET_SIZE_MM,
-    V1_LEG_RAIL_BOLT_LENGTH_MM,
-    V1_PANEL_FASTENER_DIAMETER_MM,
-    V1_PANEL_FASTENER_LENGTH_MM,
     V1_PANEL_SIZE_MM,
-    V1_RAIL_CROSS_TIE_WIDTH_MM,
-    V1_STANDOFF_LENGTH_MM,
-    V1_STANDOFF_WIDTH_MM,
-    V1_STRUCTURAL_BOLT_DISTANCES_MM,
-    V1_SUPPORT_THICKNESS_MM,
-    V1_SUPPORT_WIDTH_MM,
     build_reference_board,
     build_v1_concept,
     reference_envelope,
-    v1_face_rail_centres,
-    v1_knee_bolt_positions,
-    v1_leg_geometry,
-    v1_lower_leg_cut_profile,
-    v1_panel_fastener_positions,
-    v1_seam_panel_fastener_positions,
-    v1_structural_bolt_position,
-    v1_support_side_point,
 )
 from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 from .stability import render_v1_stability_screen
-
-V1_SECONDARY_JOINERY_ROWS = (
-    ("rail splice cover to lower/upper rail", 5, "#10 x 2.5 in structural wood screw", 4),
-    ("rail-cross-tie half to contacted face rail", 18, "#10 x 2.5 in structural wood screw", 2),
-    ("rail-cross-tie center splice to its two halves", 3, "#10 x 2.5 in structural wood screw", 4),
-    ("kicker-backing center seam splice to both backings", 1, "#10 x 2.5 in structural wood screw", 4),
-    ("kicker/main exterior side gusset to panel edges", 4, "#10 x 2 in structural wood screw", 4),
-    ("blank-kicker backing to kicker panel", 2, "#10 x 2 in structural wood screw", 4),
-)
 
 
 def _imperial(mm: float) -> str:
@@ -206,36 +177,12 @@ def export_v1_stability_screen(output_dir: Path) -> Path:
 
 
 def export_v1_cad_render(output_dir: Path) -> Path:
-    """Render tessellated solids from the actual V1 CadQuery assembly."""
+    from .raster import render
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "mini_moonboard_v1_cad_front_render.png"
-    figure = plt.figure(figsize=(12, 9), facecolor="#f4f1ea")
-    axes = figure.add_subplot(projection="3d")
-    colors = {"main": "#20252b", "kicker": "#444b53", "leg": "#8a4b16", "face": "#6f3510"}
-    # Matplotlib cannot depth-sort separate tessellated collections reliably.
-    # This README view intentionally presents the underside climbing face,
-    # kicker, and exterior legs; the interactive viewer retains every solid.
-    front_visible = ("main_", "kicker_left", "kicker_right", "leg_left", "leg_right")
-    for child in build_v1_concept().children:
-        if not child.name.startswith(front_visible):
-            continue
-        shape = child.obj if not hasattr(child.obj, "val") else child.obj.val()
-        vertices, triangles = shape.tessellate(2.0)
-        faces = [[vertices[index].toTuple() for index in triangle] for triangle in triangles]
-        category = next((key for key in colors if child.name.startswith(key)), "face")
-        axes.add_collection3d(Poly3DCollection(faces, facecolors=colors[category], edgecolors="#171717", linewidths=0.1))
-    axes.set_box_aspect((2 * V1_PANEL_SIZE_MM, 1700, 2100))
-    # Look upward at the underside, where holds are installed. Holds themselves
-    # remain unmodelled pending the physical/template audit.
-    # Positive-Y / low-Z is the climber's side after the underside correction.
-    axes.view_init(elev=-14, azim=125)
-    axes.set_axis_off()
-    axes.set_xlim(-1500, 1500)
-    axes.set_ylim(-100, 1700)
-    axes.set_zlim(0, 2200)
-    figure.tight_layout(pad=0)
-    figure.savefig(path, dpi=180, facecolor=figure.get_facecolor())
-    plt.close(figure)
+    solids = [(p.shape, (40,46,51) if p.name.startswith("main_") else (75,83,90) if p.name in ("kicker_left","kicker_right") else (157,90,36)) for p in frame_parts()]
+    solids += [(cq.Compound.makeCompound(c.components()), (41,182,214) if c.kind == "screw" else (175,184,190)) for c in connections()]
+    render(solids, path)
     return path
 
 
@@ -247,7 +194,7 @@ def export_v1_viewer_mesh(output_dir: Path) -> Path:
     parts = []
     for child in build_v1_concept().children:
         shape = child.obj if not hasattr(child.obj, "val") else child.obj.val()
-        bounds = shape.BoundingBox()
+        bounds = box_exports.exact_bounds(shape)
         filename = f"{child.name}.stl"
         cq.exporters.export(shape, str(models_dir / filename), cq.exporters.ExportTypes.STL, tolerance=0.5)
         fabrication = _v1_viewer_fabrication_metadata(child.name)
@@ -263,7 +210,7 @@ def export_v1_viewer_mesh(output_dir: Path) -> Path:
     # The viewer does need each primary connector location, though: it is the
     # review representation that precedes connection modelling in FEA.
     for name, shape in _v1_viewer_connection_solids():
-        bounds = shape.BoundingBox()
+        bounds = box_exports.exact_bounds(shape)
         filename = f"{name}.stl"
         cq.exporters.export(shape, str(models_dir / filename), cq.exporters.ExportTypes.STL, tolerance=0.5)
         parts.append(
@@ -275,155 +222,27 @@ def export_v1_viewer_mesh(output_dir: Path) -> Path:
             }
         )
     path = output_dir / "parts.json"
-    path.write_text(json.dumps({"parts": parts}, indent=2) + "\n")
+    bounds = box_exports.exact_bounds(cq.Compound.makeCompound([p.shape for p in frame_parts()]))
+    bounds_mm = [[getattr(bounds, axis + end) for axis in "xyz"] for end in ("min", "max")]
+    path.write_text(json.dumps({"parts": parts, "bounds_mm": bounds_mm}, indent=2) + "\n")
     return path
 
 
 def _v1_viewer_connection_solids() -> tuple[tuple[str, cq.Shape], ...]:
-    """Return visible, thread-free primary connection representations.
-
-    These cylinders show the same centres and nominal shanks as the generated
-    connection schedule. They are intentionally viewer-only: FEA must model
-    each connection's reviewed stiffness and strength, not a cosmetic thread.
-    """
-    parts: list[tuple[str, cq.Shape]] = []
-    bolt_radius = 9.525 / 2
-    for side, sign in (("left", -1), ("right", 1)):
-        for number, distance in enumerate(V1_STRUCTURAL_BOLT_DISTANCES_MM, start=1):
-            parts.append(
-                (
-                    f"analysis_leg_rail_bolt_{side}_{number}",
-                    _viewer_bolt(v1_structural_bolt_position(sign, distance), V1_LEG_RAIL_BOLT_LENGTH_MM, bolt_radius),
-                )
-            )
-        for number, center in enumerate(v1_knee_bolt_positions(sign), start=1):
-            parts.append(
-                (f"analysis_knee_bolt_{side}_{number}", _viewer_bolt(center, V1_KNEE_BOLT_LENGTH_MM, bolt_radius))
-            )
-    for number, (_rail, x, distance) in enumerate(v1_panel_fastener_positions(), start=1):
-        parts.append((f"analysis_panel_screw_{number}", _viewer_panel_screw(x, distance)))
-    for number, (_rail, x, distance) in enumerate(v1_seam_panel_fastener_positions(), start=1):
-        parts.append((f"analysis_main_seam_screw_{number}", _viewer_panel_screw(x, distance)))
-    return tuple(parts)
+    return tuple((c.name, cq.Compound.makeCompound(c.components())) for c in connections())
 
 
-def _viewer_bolt(center: tuple[float, float, float], length: float, radius: float) -> cq.Shape:
-    """Return a shaft, two washers, and a head/nut envelope on the X axis."""
-    return cq.Compound.makeCompound(_viewer_bolt_components(center, length, radius))
 
 
-def _viewer_bolt_components(
-    center: tuple[float, float, float], length: float, radius: float
-) -> tuple[cq.Shape, cq.Shape, cq.Shape, cq.Shape, cq.Shape]:
-    """Return the named-order viewer solids for one provisional through-bolt.
-
-    The order is stable for the clearance screen: shaft, left washer, right
-    washer, head, nut. The compound remains viewer-only and is deliberately
-    more conservative than a threaded fastener model.
-    """
-    x, y, z = center
-    start = cq.Vector(x - length / 2, y, z)
-    direction = cq.Vector(1, 0, 0)
-    shaft = cq.Solid.makeCylinder(radius, length, start, direction)
-    washer_radius, washer_depth = 19.05, 1.5
-    outside = length / 2 - washer_depth
-    left_washer = cq.Solid.makeCylinder(washer_radius, washer_depth, cq.Vector(x - outside, y, z), direction)
-    right_washer = cq.Solid.makeCylinder(washer_radius, washer_depth, cq.Vector(x + outside - washer_depth, y, z), direction)
-    head = cq.Solid.makeCylinder(12.0, 6.0, cq.Vector(x - length / 2 - 6.0, y, z), direction)
-    nut = cq.Solid.makeCylinder(12.0, 7.0, cq.Vector(x + length / 2, y, z), direction)
-    return (shaft, left_washer, right_washer, head, nut)
-
-
-def _viewer_panel_screw(x: float, distance: float) -> cq.Shape:
-    """Return a nominal face-countersunk #10 shank along the board normal."""
-    return cq.Compound.makeCompound(_viewer_panel_screw_components(x, distance))
-
-
-def _viewer_panel_screw_components(x: float, distance: float) -> tuple[cq.Shape, cq.Shape]:
-    """Return the named-order viewer solids for one countersunk panel screw."""
-    start_y, start_z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
-    end_y, end_z = v1_support_side_point(
-        distance, -PANEL_THICKNESS_MM + V1_PANEL_FASTENER_LENGTH_MM
-    )
-    direction = cq.Vector(0, end_y - start_y, end_z - start_z)
-    unit = direction.normalized()
-    shaft = cq.Solid.makeCylinder(V1_PANEL_FASTENER_DIAMETER_MM / 2, V1_PANEL_FASTENER_LENGTH_MM, cq.Vector(x, start_y, start_z), direction)
-    head_depth = 3.0
-    head_start = cq.Vector(x, start_y, start_z) - unit.multiply(head_depth)
-    head = cq.Solid.makeCylinder(6.0, head_depth, head_start, direction)
-    return (shaft, head)
 
 
 @cache
-def _v1_fastener_head_collisions() -> tuple[tuple[str, str, str, float], ...]:
-    """Report non-shank viewer-fastener overlap with physical V1 solids.
-
-    Shafts are intentionally omitted: their intersection with their joined
-    members is the fastening function. A washer, head, or nut may touch its
-    clamped surface but must not have material-volume overlap. This tests the
-    nominal viewer hardware, not a reviewed fastener design. The V1 model has
-    no runtime inputs, so this expensive immutable result is cached per Python
-    process for export/test reuse.
-    """
-    board_parts = {
-        child.name: child.obj.val() if hasattr(child.obj, "val") else child.obj
-        for child in build_v1_concept().children
-    }
-    collisions: list[tuple[str, str, str, float]] = []
-    for name, shape in _v1_viewer_connection_solids():
-        roles = (
-            ("shaft", "left washer", "right washer", "head", "nut")
-            if name.startswith(("analysis_leg_rail_bolt_", "analysis_knee_bolt_"))
-            else ("shaft", "countersunk head")
-        )
-        for role, solid in zip(roles, shape.Solids(), strict=True):
-            if role == "shaft":
-                continue
-            for part_name, part in board_parts.items():
-                volume = solid.intersect(part).Volume()
-                if volume > 0.01:
-                    collisions.append((name, role, part_name, volume))
-    return tuple(collisions)
+def _v1_fastener_head_collisions():
+    return box_exports.collisions()
 
 
 def render_v1_fastener_clearance_screen() -> str:
-    """Render the viewer-hardware head/washer/nut collision audit."""
-    collisions = _v1_fastener_head_collisions()
-    rows = "\n".join(
-        f"| `{fastener}` | {role} | `{part}` | {volume:.1f} |"
-        for fastener, role, part, volume in collisions
-    ) or "| None | — | — | 0.0 |"
-    panel_head_collisions = [
-        collision
-        for collision in collisions
-        if collision[0].startswith(("analysis_panel_screw_", "analysis_main_seam_screw_"))
-    ]
-    return f"""# V1 fastener head-clearance screen
-
-This CAD-derived screen checks the visible nominal fastener **heads, washers,
-and nuts** against all physical V1 solids. It intentionally excludes shafts:
-their intersection with the fastened material is required. Surface contact is
-allowed; a reported value is a material-volume overlap above 0.01 mm³.
-
-## Result
-
-- Total non-shank collisions: **{len(collisions)}**.
-- Panel-screw countersunk-head collisions: **{len(panel_head_collisions)}**.
-- Status: **FAIL — do not treat the viewer fastener representation as an
-  installable hardware stack.**
-
-The screen confirms that the face-installed countersunk screw heads have no
-material-volume clash with the panels. It also exposes the current structural
-fastener problem: the generic through-bolt stack places hardware through the
-knee gusset/leg/rail volume. This is a real layout and stack-up issue, not an
-allowed shaft intersection. A redesigned, reviewer-approved connection must
-define the bolt direction, head/washer/nut locations, actual plate stack, and
-edge distances, then make this table empty.
-
-| Fastener | Component | Intruded physical part | Overlap mm³ |
-| --- | --- | --- | ---: |
-{rows}
-"""
+    return box_exports.clearance_report()
 
 
 def export_v1_fastener_clearance_screen(output_dir: Path) -> Path:
@@ -433,57 +252,8 @@ def export_v1_fastener_clearance_screen(output_dir: Path) -> Path:
     return path
 
 
-def _v1_viewer_fabrication_metadata(name: str) -> dict[str, object]:
-    """Return cut-list dimensions rather than rotated world-axis extents."""
-    dimensions: tuple[float, float, float]
-    description: str
-    clearance_status: str | None = None
-    if name.startswith("analysis_leg_rail_bolt_"):
-        dimensions, description = (V1_LEG_RAIL_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in leg-to-rail bolt, washers, head, and nut envelope"
-        clearance_status = "FAIL: head/washer/nut collision screen"
-    elif name.startswith("analysis_knee_bolt_"):
-        dimensions, description = (V1_KNEE_BOLT_LENGTH_MM, 9.525, 9.525), "analysis-visible 3/8 in knee-plate bolt, washers, head, and nut envelope"
-        clearance_status = "FAIL: head/washer/nut collision screen"
-    elif name.startswith(("analysis_panel_screw_", "analysis_main_seam_screw_")):
-        dimensions, description = (V1_PANEL_FASTENER_LENGTH_MM, V1_PANEL_FASTENER_DIAMETER_MM, V1_PANEL_FASTENER_DIAMETER_MM), "analysis-visible face-countersunk #10 panel-to-rail screw axis and head envelope"
-        clearance_status = "PASS: countersunk-head collision screen"
-    elif name.startswith("main_"):
-        dimensions, description = (V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM), "finished climbing-panel blank"
-    elif name.startswith("kicker_") and name in {"kicker_left", "kicker_right"}:
-        dimensions, description = (V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM), "finished kicker-panel blank"
-    elif name.startswith("face_rail_") and "splice" not in name:
-        dimensions, description = (V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated face-rail segment"
-    elif "standoff_main_seam" in name:
-        dimensions, description = (180.0, V1_STANDOFF_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated main-seam bearing block"
-    elif "standoff" in name:
-        dimensions, description = (V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated rail bearing block"
-    elif name.startswith("kicker_blank_extension_backing") and "seam_splice" not in name:
-        dimensions, description = (V1_PANEL_SIZE_MM, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated blank-kicker backing"
-    elif name == "kicker_blank_extension_backing_seam_splice":
-        dimensions, description = (400.0, 75.0, V1_SUPPORT_THICKNESS_MM), "laminated kicker-backing seam splice"
-    elif name.startswith("kicker_main_seam_gusset"):
-        dimensions, description = (400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, V1_SUPPORT_THICKNESS_MM), "trim profile from laminated kicker/main gusset blank"
-    elif name.startswith("rail_cross_tie_") and "splice" not in name:
-        dimensions, description = (V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_RAIL_CROSS_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated support-side rail-grid tie half"
-    elif name.startswith("rail_cross_tie_splice_"):
-        dimensions, description = (400.0, V1_RAIL_CROSS_TIE_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated rail-grid tie center-splice plate"
-    elif name.startswith("face_rail_splice_"):
-        dimensions, description = (400.0, V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "laminated face-rail splice cover"
-    elif name.startswith("leg_knee_gusset_"):
-        dimensions, description = (V1_KNEE_GUSSET_SIZE_MM, V1_KNEE_GUSSET_SIZE_MM, V1_SUPPORT_THICKNESS_MM), "laminated knee-gusset blank"
-    elif name.startswith("leg_"):
-        leg = v1_leg_geometry()
-        dimensions, description = (leg["lower_length"], V1_SUPPORT_WIDTH_MM, V1_SUPPORT_THICKNESS_MM), "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm"
-    else:
-        raise ValueError(f"missing viewer fabrication metadata for {name}")
-    metadata: dict[str, object] = {
-        "description": description,
-        "dimensions_mm": [round(value, 1) for value in dimensions],
-        "dimensions_imperial": [_inch_fraction(value) for value in dimensions],
-    }
-    if clearance_status:
-        metadata["clearance_status"] = clearance_status
-    return metadata
+def _v1_viewer_fabrication_metadata(name):
+    return box_exports.metadata(name)
 
 
 def _inch_fraction(mm: float) -> str:
@@ -497,50 +267,9 @@ def _inch_fraction(mm: float) -> str:
     return f"{whole} {fraction} in" if whole else f"{fraction} in"
 
 
-def _v1_side_svg() -> str:
-    _, board_depth, board_height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
-    scale = 520 / board_height
-    base_x, bottom = 155.0, 650.0
-    kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
-    top_x, top_y = base_x + board_depth * scale, bottom - board_height * scale
-    leg = v1_leg_geometry()
-    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
-    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
-    foot_y = leg["foot_y"]
-
-    def point(y: float, z: float) -> tuple[float, float]:
-        return base_x + y * scale, bottom - z * scale
-
-    bend_x, bend_screen_y = point(bend_y, bend_z)
-    upper_x, upper_screen_y = point(upper_y, upper_z)
-    foot_x, foot_screen_y = point(foot_y, 0.0)
-    body = f"""  <line class="guide" x1="90" y1="{bottom:.1f}" x2="820" y2="{bottom:.1f}" />
-  <rect class="kicker" x="{base_x - 5:.1f}" y="{kicker_top:.1f}" width="10" height="{V1_KICKER_HEIGHT_MM * scale:.1f}" />
-  <line class="panel" x1="{base_x:.1f}" y1="{kicker_top:.1f}" x2="{top_x:.1f}" y2="{top_y:.1f}" stroke-width="8" />
-  <line class="leg" x1="{foot_x:.1f}" y1="{foot_screen_y:.1f}" x2="{bend_x:.1f}" y2="{bend_screen_y:.1f}" />
-  <line class="leg" x1="{bend_x:.1f}" y1="{bend_screen_y:.1f}" x2="{upper_x:.1f}" y2="{upper_screen_y:.1f}" />
-  <circle class="datum" cx="{bend_x:.1f}" cy="{bend_screen_y:.1f}" r="5" />
-  <text x="{bend_x + 12:.1f}" y="{bend_screen_y - 12:.1f}">row 8 bend datum</text>
-  <text x="{upper_x + 10:.1f}" y="{upper_screen_y - 8:.1f}">row 10 upper datum</text>
-  <text x="{foot_x + 8:.1f}" y="{foot_screen_y - 12:.1f}">provisional lower-member endpoint</text>
-  <text x="{base_x - 12:.1f}" y="{(bottom + kicker_top) / 2:.1f}" text-anchor="end">225 mm kicker</text>
-  <text x="450" y="700" text-anchor="middle">Two exterior laminated legs are coincident in this side view; 60 degree lower-leg angle.</text>"""
-    return _svg(
-        "Mini MoonBoard v1 provisional side concept",
-        body,
-        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
-    ).replace(
-        ".guide {",
-        ".leg { stroke: #8a4b16; stroke-width: 16; stroke-linecap: round; }\n"
-        "    .datum { fill: #a3261f; }\n    .guide {",
-    )
-
 
 def export_v1_concept_side_drawing(output_dir: Path) -> Path:
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_concept_side.svg"
-    path.write_text(_v1_side_svg())
-    return path
+    return box_exports.drawing(output_dir, "concept_side", (1,0,0))
 
 
 def export_v1_front_drawing(output_dir: Path) -> Path:
@@ -554,214 +283,22 @@ def export_v1_front_drawing(output_dir: Path) -> Path:
     return path
 
 
-def _v1_rear_svg() -> str:
-    width, _, height = reference_envelope(V1_KICKER_HEIGHT_MM, V1_PANEL_SIZE_MM)
-    scale = 600 / width
-    left, bottom = 150.0, 650.0
-    top = bottom - height * scale
-    kicker_top = bottom - V1_KICKER_HEIGHT_MM * scale
-    rail_x = [left + (rail + V1_PANEL_SIZE_MM) * scale for rail in v1_face_rail_centres()]
-    rails = "\n".join(
-        f'  <line class="rail" x1="{x:.1f}" y1="{top:.1f}" x2="{x:.1f}" y2="{kicker_top:.1f}" />'
-        for x in rail_x
-    )
-    body = f"""  <rect class="kicker" x="{left:.1f}" y="{kicker_top:.1f}" width="{width * scale:.1f}" height="{V1_KICKER_HEIGHT_MM * scale:.1f}" />
-  <rect class="panel" x="{left:.1f}" y="{top:.1f}" width="{width * scale:.1f}" height="{(kicker_top - top):.1f}" />
-{rails}
-  <text x="450" y="700" text-anchor="middle">Four outer/intermediate rails plus shifted center-seam rail; 36 mm board-normal service gap on support side.</text>
-  <text x="450" y="725" text-anchor="middle">Rail-grid ties remain on the support side; lower-leg rear ties are intentionally omitted from this V1.</text>"""
-    return _svg(
-        "Mini MoonBoard v1 support-side elevation",
-        body,
-        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
-    ).replace(
-        ".guide {",
-        ".rail { stroke: #8a4b16; stroke-width: 18; }\n"
-        "    .guide {",
-    )
-
 
 def export_v1_rear_drawing(output_dir: Path) -> Path:
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_rear.svg"
-    path.write_text(_v1_rear_svg())
-    return path
+    return box_exports.drawing(output_dir, "rear", (0,-1,0))
 
-
-def _v1_isometric_svg() -> str:
-    """Render a lightweight isometric review view from the v1 model dimensions."""
-    angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
-
-    def point(x: float, y: float, z: float) -> tuple[float, float]:
-        return 450 + x * 0.18 + y * 0.12, 630 + x * 0.055 - y * 0.07 - z * 0.22
-
-    def polygon(points: tuple[tuple[float, float, float], ...], css: str) -> str:
-        return f'  <polygon class="{css}" points="' + " ".join(
-            f"{u:.1f},{v:.1f}" for u, v in (point(*vertex) for vertex in points)
-        ) + '" />'
-
-    def line(start: tuple[float, float, float], end: tuple[float, float, float], css: str) -> str:
-        start_u, start_v = point(*start)
-        end_u, end_v = point(*end)
-        return f'  <line class="{css}" x1="{start_u:.1f}" y1="{start_v:.1f}" x2="{end_u:.1f}" y2="{end_v:.1f}" />'
-
-    x_left, x_right = -V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM
-    surface = lambda distance: (distance * math.sin(angle), V1_KICKER_HEIGHT_MM + distance * math.cos(angle))
-    main_bottom_y, main_bottom_z = surface(0.0)
-    mid_y, mid_z = surface(V1_PANEL_SIZE_MM)
-    top_y, top_z = surface(2 * V1_PANEL_SIZE_MM)
-    board = polygon(
-        ((x_left, main_bottom_y, main_bottom_z), (x_right, main_bottom_y, main_bottom_z),
-         (x_right, top_y, top_z), (x_left, top_y, top_z)),
-        "panel",
-    )
-    kicker = polygon(
-        ((x_left, 0.0, 0.0), (x_right, 0.0, 0.0),
-         (x_right, main_bottom_y, main_bottom_z), (x_left, main_bottom_y, main_bottom_z)),
-        "kicker",
-    )
-    seams = "\n".join(
-        (
-            line((0.0, main_bottom_y, main_bottom_z), (0.0, top_y, top_z), "seam"),
-            line((x_left, mid_y, mid_z), (x_right, mid_y, mid_z), "seam"),
-        )
-    )
-    leg = v1_leg_geometry()
-    bend_y, bend_z = leg["bend_y"], leg["bend_z"]
-    upper_y, upper_z = leg["upper_y"], leg["upper_z"]
-    foot_y, foot_z = leg["foot_y"], leg["foot_center_z"]
-    legs = "\n".join(
-        line((x, foot_y, foot_z), (x, bend_y, bend_z), "leg")
-        + "\n"
-        + line((x, bend_y, bend_z), (x, upper_y, upper_z), "leg")
-        for x in (
-            -V1_PANEL_SIZE_MM - V1_SUPPORT_WIDTH_MM / 2 - V1_SUPPORT_THICKNESS_MM / 2,
-            V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2 + V1_SUPPORT_THICKNESS_MM / 2,
-        )
-    )
-    rails = "\n".join(
-        line((x, main_bottom_y - 55.2, main_bottom_z + 46.3), (x, top_y - 55.2, top_z + 46.3), "rail")
-        for x in v1_face_rail_centres()
-    )
-    body = f"""{kicker}
-{board}
-{seams}
-{rails}
-{legs}
-  <text x="450" y="710" text-anchor="middle">Isometric support-side schematic: inspect the STEP model or CAD-derived raster for exact assembly geometry.</text>"""
-    return _svg(
-        "Mini MoonBoard v1 provisional isometric schematic",
-        body,
-        "PROVISIONAL GEOMETRY - HUMAN STRUCTURAL AUDIT REQUIRED",
-    ).replace(
-        ".guide {",
-        ".leg { stroke: #8a4b16; stroke-width: 16; stroke-linecap: round; }\n"
-        "    .rail { stroke: #6f3510; stroke-width: 9; }\n    .guide {",
-    )
 
 
 def export_v1_isometric_drawing(output_dir: Path) -> Path:
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_isometric.svg"
-    path.write_text(_v1_isometric_svg())
-    return path
+    return box_exports.drawing(output_dir, "isometric", (1,-1,1))
 
 
 def export_v1_cut_list(output_dir: Path) -> Path:
-    """Export a provisional, laminations-expanded cut list for audit and nesting."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_cut_list.csv"
-    rows = (
-        ("climbing surface", "main climbing panel", 4, V1_PANEL_SIZE_MM, V1_PANEL_SIZE_MM, PANEL_THICKNESS_MM),
-        ("climbing surface", "kicker panel", 2, V1_PANEL_SIZE_MM, V1_KICKER_HEIGHT_MM, PANEL_THICKNESS_MM),
-        ("support frame", "face-rail lamination segment", 20, V1_PANEL_SIZE_MM, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rail-bearing-block lamination", 40, V1_STANDOFF_LENGTH_MM, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "main-seam-bearing-block lamination", 10, 180.0, V1_STANDOFF_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-blank-extension backing lamination", 4, V1_PANEL_SIZE_MM, 75.0, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-backing seam-splice lamination", 2, 400.0, 75.0, PANEL_THICKNESS_MM),
-        ("support frame", "kicker-main side-gusset lamination (trim profile)", 4, 400.0, V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rail-cross-tie-half lamination", 12, V1_PANEL_SIZE_MM + V1_SUPPORT_WIDTH_MM / 2, V1_RAIL_CROSS_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "rail-cross-tie-center-splice lamination", 6, 400.0, V1_RAIL_CROSS_TIE_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "face-rail splice-cover lamination", 10, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "leg-lower lamination", 4, v1_leg_geometry()["lower_length"], V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "leg-upper lamination", 4, 400.0, V1_SUPPORT_WIDTH_MM, PANEL_THICKNESS_MM),
-        ("support frame", "leg-knee gusset lamination", 4, V1_KNEE_GUSSET_SIZE_MM, V1_KNEE_GUSSET_SIZE_MM, PANEL_THICKNESS_MM),
-    )
-    with path.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(
-            (
-                "assembly",
-                "part",
-                "quantity",
-                "length_mm",
-                "width_mm",
-                "thickness_mm",
-                "length_in",
-                "width_in",
-                "thickness_in",
-                "note",
-            )
-        )
-        for assembly, part, quantity, length, width, thickness in rows:
-            writer.writerow(
-                (
-                    assembly,
-                    part,
-                    quantity,
-                    f"{length:.1f}",
-                    f"{width:.1f}",
-                    f"{thickness:.1f}",
-                    f"{length / 25.4:.4f}",
-                    f"{width / 25.4:.4f}",
-                    f"{thickness / 25.4:.4f}",
-                    "PROVISIONAL: verify stock and joint/connection details before cutting",
-                )
-            )
-    return path
+    return box_exports.cut_list(output_dir)
 
 
 def export_v1_leg_cut_schedule(output_dir: Path) -> Path:
-    """Export the non-rectangular lower-leg profile needed for fabrication."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_leg_cut_schedule.csv"
-    profile = v1_lower_leg_cut_profile()
-    with path.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(
-            (
-                "member",
-                "lamination_quantity",
-                "blank_length_mm",
-                "blank_width_mm",
-                "thickness_mm",
-                "finished_profile_mm",
-                "cut_instruction",
-            )
-        )
-        writer.writerow(
-            (
-                "lower leg",
-                "4",
-                f"{v1_leg_geometry()['lower_length']:.1f}",
-                f"{V1_SUPPORT_WIDTH_MM:.1f}",
-                f"{PANEL_THICKNESS_MM:.1f}",
-                " -> ".join(f"({length:.3f},{width:.3f})" for length, width in profile),
-                "Cut the lower-left triangular waste from each rectangular blank; laminate matched, identically profiled pairs for the two exterior legs.",
-            )
-        )
-        writer.writerow(
-            (
-                "upper leg",
-                "4",
-                "400.0",
-                f"{V1_SUPPORT_WIDTH_MM:.1f}",
-                f"{PANEL_THICKNESS_MM:.1f}",
-                "rectangle",
-                "Keep both ends square before the knee-plate connection is drilled.",
-            )
-        )
-    return path
+    return box_exports.leg_profiles(output_dir)
 
 
 def _dominant_axis(shape: cq.Shape) -> tuple[float, float, float]:
@@ -806,7 +343,7 @@ def export_v1_assembly_layout(output_dir: Path) -> Path:
             # A hockey-stick leg is one display compound but two separately cut,
             # separately placed physical members.  Expand it here so the layout
             # is a construction placement source rather than a viewer summary.
-            if child.name in {"leg_left", "leg_right"}:
+            if False:  # Legacy legs had separate upper/lower solids; current profiles are continuous.
                 lower, upper = sorted(shape.Solids(), key=lambda solid: solid.Center().z)
                 physical_parts = ((f"{child.name}_lower", lower), (f"{child.name}_upper", upper))
             else:
@@ -814,7 +351,7 @@ def export_v1_assembly_layout(output_dir: Path) -> Path:
             for part_name, physical_shape in physical_parts:
                 center = physical_shape.Center()
                 axis = _dominant_axis(physical_shape)
-                bounds = physical_shape.BoundingBox()
+                bounds = box_exports.exact_bounds(physical_shape)
                 writer.writerow(
                     (
                         part_name,
@@ -885,146 +422,16 @@ def export_v1_panel_drill_schedule(output_dir: Path) -> Path:
 
 
 def export_v1_connection_schedule(output_dir: Path) -> Path:
-    """Export provisional structural connection datums for human review."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_connection_schedule.csv"
-    bolt_distances = V1_STRUCTURAL_BOLT_DISTANCES_MM
-    with path.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(
-            (
-                "connection",
-                "side",
-                "quantity",
-                "datum",
-                "x_mm",
-                "y_mm",
-                "z_mm",
-                "axis",
-                "clearance_hole_mm",
-                "hardware_assumption",
-                "status",
-            )
-        )
-        for side in ("left", "right"):
-            for distance in bolt_distances:
-                sign = -1 if side == "left" else 1
-                x, y, z = v1_structural_bolt_position(sign, distance)
-                writer.writerow(
-                    (
-                        "leg upper member to exterior outer support-side rail",
-                        side,
-                        1,
-                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Z upward; Y is a world coordinate, while front/back are board-normal directions; X is bolt-stack midpoint, Y/Z are hole centerline",
-                        f"{x:.3f}",
-                        f"{y:.3f}",
-                        f"{z:.3f}",
-                        "X",
-                        "10.000",
-                        f"3/8 in Grade-5 through-bolt, {V1_LEG_RAIL_BOLT_LENGTH_MM:.1f} mm / 10 in nominal; verify washer/nut stack and thread engagement",
-                        "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, panel/T-nut/LED clearance, bolt stack, and load path",
-                    )
-                )
-        for side, sign in (("left", -1), ("right", 1)):
-            for bolt_number, (x, y, z) in enumerate(v1_knee_bolt_positions(sign), start=1):
-                writer.writerow(
-                    (
-                        "exterior knee plate to upper/lower leg member",
-                        side,
-                        bolt_number,
-                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Z upward; Y is a world coordinate, while front/back are board-normal directions; X is bolt-stack midpoint, Y/Z are hole centerline",
-                        f"{x:.3f}",
-                        f"{y:.3f}",
-                        f"{z:.3f}",
-                        "X",
-                        "10.000",
-                        f"3/8 in Grade-5 through-bolt, {V1_KNEE_BOLT_LENGTH_MM:.1f} mm / 4 in nominal; plate + one 36 mm leg member + washers/nut",
-                        "PROVISIONAL: CAD hole datum only; reviewer must check edge distance, bolt stack, and load path",
-                    )
-                )
-        for rail_number, x, distance in v1_panel_fastener_positions():
-            y, z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
-            writer.writerow(
-                (
-                    "climbing-face panel through bearing block into rail",
-                    f"rail-{rail_number}",
-                    1,
-                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Z upward; Y is a world coordinate, while front/back are board-normal directions; X/Y/Z are countersunk screw-head centers at climbing face",
-                    f"{x:.3f}",
-                    f"{y:.3f}",
-                    f"{z:.3f}",
-                    "board-normal toward support frame",
-                    "3.200 pilot",
-                    f"#10 countersunk structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.5 in nominal",
-                    "PROVISIONAL: two screws per bearing block; nominal rail engagement is 34.90 mm. Structural reviewer must approve selected screw, countersink, pilot, and hold/T-nut/LED clearances",
-                )
-            )
-        for rail_number, x, distance in v1_seam_panel_fastener_positions():
-            y, z = v1_support_side_point(distance, -PANEL_THICKNESS_MM)
-            writer.writerow(
-                (
-                    "climbing-face panel through main-seam bearing block into rail",
-                    f"rail-{rail_number}",
-                    1,
-                    "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Z upward; Y is a world coordinate, while front/back are board-normal directions; X/Y/Z are countersunk screw-head centers at climbing face",
-                    f"{x:.3f}",
-                    f"{y:.3f}",
-                    f"{z:.3f}",
-                    "board-normal toward support frame",
-                    "3.200 pilot",
-                    f"#10 countersunk structural wood screw, {V1_PANEL_FASTENER_LENGTH_MM:.2f} mm / 3.5 in nominal",
-                    "PROVISIONAL: four screws per main-seam bearing block; two fasten each adjacent panel. Nominal rail engagement is 34.90 mm; reviewer must approve selected screw, countersink, pilot, and hold/T-nut/LED clearances",
-                )
-            )
-    return path
+    return box_exports.connection_schedule(output_dir)
 
 
 def export_v1_bom(output_dir: Path) -> Path:
-    """Export the provisional purchasing BOM separately from the plywood cut list."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_bom.csv"
-    rows = (
-        ("3/4 in 4 x 8 birch plywood", "9 sheets", "See docs/v1-sheet-nesting.md; each main panel needs a 1219.2 mm factory sheet width. Verify raw dimensions before cutting."),
-        ("Mini MoonBoard 2025 Setup Hold Bundle", "1, SKU 60-105-2025", "Official 138-hold configuration: Original School Holds, School Holds Set F, and Wood Holds B/C; bolts, T-nuts, and LEDs are excluded by Moon"),
-        ("Escape 3-hole screw-in T-nuts, 3/8-16", "200", "142 positions plus spares; selected 7/16 in bore; fixing screws are included per selected listing—count received hardware before installation"),
-        ("3/8-16 hold bolts", "138 minimum plus hold-specific spares", "The selected hold bundle excludes bolts. Inventory each received hold's counterbore and required bolt length before purchase; do not substitute a single generic length."),
-        ("MoonBoard LED System", "1", "SKU 60-201-V5 standard kit: four 50-LED strings / 200 bulbs; install 132 and retain 68 uninstalled bulbs. Received kit guide controls installation."),
-        ("Insulated screw-mounted cable saddles", "30 plus spares", "Mount to rear rails only; see docs/v1-led-installation.md and measure received wire before selecting"),
-        ("3/8 in Grade-5 structural through-bolts", f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in", "10 in for leg-to-outer-rail stacks; 4 in for knee plate-to-leg stacks; verify actual washer/nut stack and thread engagement"),
-        ("3/8 in x 1.5 in fender washers", "32", "Two washers per provisional structural bolt"),
-        ("3/8 in nyloc nuts", "16", "One per provisional structural bolt"),
-        ("#10 x 3.5 in countersunk structural wood screws", "60", "Two face-installed screws per regular bearing block and four per main-seam bearing block; nominal rail engagement is 34.90 mm. Reviewer must approve actual head, countersink, pilot, and hold/T-nut/LED clearances"),
-        ("#10 x 2.5 in structural wood screws", f"{_secondary_screw_count('#10 x 2.5 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: rail splices, rail-cross ties, tie-center splices, and kicker-backing seam splice"),
-        ("#10 x 2 in structural wood screws", f"{_secondary_screw_count('#10 x 2 in structural wood screw')} plus 10% spare", "Generated secondary-joinery schedule: kicker/main side gussets and blank-kicker backing; 2 in prevents exit through the 36 mm gusset + 18 mm panel stack"),
-        ("Lamination adhesive", "unresolved", "Select compatible product, cure, and clamping schedule after review"),
-        ("Feet / anti-slip / floor protection", "unresolved", "Required for unanchored installation"),
-    )
-    with path.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(("item", "quantity", "note"))
-        writer.writerows(rows)
-    return path
+    return box_exports.bom(output_dir)
 
-
-def _secondary_screw_count(hardware: str) -> int:
-    """Return the controlled count for one secondary screw specification."""
-    return sum(
-        interfaces * screws_per_interface
-        for _, interfaces, row_hardware, screws_per_interface in V1_SECONDARY_JOINERY_ROWS
-        if row_hardware == hardware
-    )
 
 
 def export_v1_secondary_joinery_schedule(output_dir: Path) -> Path:
-    """Export the count-controlled schedule for non-primary screw connections."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / "mini_moonboard_v1_secondary_joinery_schedule.csv"
-    with path.open("w", newline="") as stream:
-        writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(("interface", "interfaces", "hardware", "screws_per_interface", "total_screws"))
-        for interface, interfaces, hardware, screws_per_interface in V1_SECONDARY_JOINERY_ROWS:
-            writer.writerow((interface, interfaces, hardware, screws_per_interface, interfaces * screws_per_interface))
-    return path
+    return box_exports.write_csv(output_dir, "mini_moonboard_v1_secondary_joinery_schedule.csv", ("connection", "members"), [(c.name, " + ".join(c.members)) for c in connections() if not c.name.startswith(("analysis_panel_", "analysis_leg_"))])
 
 
 def export_panel_grid(output_dir: Path) -> Path:

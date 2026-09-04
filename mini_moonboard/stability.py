@@ -12,7 +12,6 @@ from .model import (
     PANEL_THICKNESS_MM,
     V1_PANEL_SIZE_MM,
     build_v1_concept,
-    v1_leg_geometry,
     v1_support_side_point,
 )
 
@@ -108,8 +107,8 @@ hiding an unanchored uplift mechanism.
   mass. The purchased C-3 birch stock has no verified structural density or
   grade in this project, so this is a sensitivity input, not a material claim.
 - Dead weight acts at the CAD volume centroid, Y={screen.centre_y_mm:.1f} mm.
-- The floor support interval is the kicker forward edge at
-  Y={screen.front_toe_y_mm:.1f} mm through the rear leg floor centreline at
+- The floor support interval uses the extreme edges of actual CAD floor
+  contact faces, from Y={screen.front_toe_y_mm:.1f} mm through
   Y={screen.rear_toe_y_mm:.1f} mm.
 - The source-backed 1.2 kN unroped-climber force is applied at the top-row
   climbing-face point Y={screen.load_y_mm:.1f}, Z={screen.load_z_mm:.1f} mm in
@@ -154,7 +153,10 @@ def v1_stability_screen(density_kg_m3: float = SCREENING_DENSITY_KG_M3) -> Stabi
         first_y_moment += volume * shape.centerOfMass(shape).y
     mass_kg = volume_mm3 / 1_000_000_000 * density_kg_m3
     centre_y = first_y_moment / volume_mm3
-    front_toe, rear_toe = -PANEL_THICKNESS_MM, v1_leg_geometry()["foot_y"]
+    floor_faces = [face for child in build_v1_concept().children for face in child.toCompound().Faces()
+                   if abs(face.BoundingBox().zmin) < 1e-5 and abs(face.BoundingBox().zmax) < 1e-5]
+    front_toe = min(face.BoundingBox().ymin for face in floor_faces)
+    rear_toe = max(face.BoundingBox().ymax for face in floor_faces)
     load_y, load_z = v1_support_side_point(2 * V1_PANEL_SIZE_MM, -PANEL_THICKNESS_MM)
     return StabilityScreen(
         mass_kg,

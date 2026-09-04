@@ -46,22 +46,21 @@ looks upward at the underside—the climbing face. Holds are intentionally not
 modelled as arbitrary solids: their 142 exact through-bore provisions are in
 the CAD. The 132 LED bores are likewise modelled, while the purchased V5 kit's
 controller/cable route remains an installation-audit item until its supplied
-guide and installed wire lengths are verified. Rails, bearing blocks, wiring,
-and legs belong on the opposite support side.
+guide and installed wire lengths are verified. The frame now uses 12-inch-deep
+side walls, a top closure, and exterior legs made from two glued 3/4-inch layers.
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, zoom, and select a part for bilingual cut-list dimensions.
-The viewer also shows the 16 specified structural bolts and 60 primary
-rail-to-panel screw axes as selectable cyan, thread-free connection geometry.
-Those are the connection locations to be represented in the screening FEA; they
-are not a claim that cosmetic cylinder solids model fastener strength.
+The viewer shows the modelled bolts and screws as selectable connection geometry,
+including 96 screws following the four main panels’ perimeter edges. Hardware
+clearance is checked against wood and other fasteners. These checks do not
+establish connection strength.
 Use its panel-overlay selector for no labels, amber grid labels, or
 high-contrast grid labels. The letters A–K and rows 1–12 follow the canonical
 panel datums. Moon-branded artwork is deliberately not bundled until there is
 written permission to rehost it publicly; see the official [artwork archive](https://moonclimbing.com/media/moonboard-pdf/Final_Artwork.zip)
 and the project [artwork policy](docs/panel-artwork.md).
 Its independent overall-dimensions switch draws the provisional complete V1
-assembly extents—2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and
-2150.8 mm / 84.68 in high—excluding the separate crash pad.
+assembly extents directly from CAD, excluding the separate crash pad.
 The viewer also includes a selectable 5 ft 8 in / 1727.2 mm reference person
 for scale. The person is display-only and deliberately excluded from the CAD
 assembly, cut lists, stability screen, and FEA.
@@ -73,26 +72,13 @@ available as audit drawings. They are intentionally links rather than competing
 hero images: the CAD-derived climbing-face render above is the clearest visual
 summary of the assembly.
 
-The complete pre-audit package—3D model, front/rear/side plans, cut list,
-drilling schedule, purchasing estimate, and build sequence—is in
-[`docs/v1-build-package.md`](docs/v1-build-package.md).
-The accompanying [sheet-by-sheet nesting plan](docs/v1-sheet-nesting.md)
-specifies the nine 4 x 8 plywood sheets and one-factory-width-main-panel-per-sheet route.
-The [FEA handoff](docs/v1-fea-handoff.md) defines the STEP source, structural
-idealization, required inputs, and load cases for qualified FreeCAD/CalculiX or
-equivalent analysis. The current [fixed-foot FEA screen](docs/v1-fixed-foot-fea-screen.md)
-finds 169–351 mm top displacement in its five 1.2 kN cases and is a redesign
-warning, not a construction approval; the separate unanchored stability screen
-still finds uplift.
-The generated [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
-currently finds the V1 footprint requires floor uplift under the sourced
-top-row load, so it is a redesign gate rather than a build release.
-The [fastener head-clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
-also currently fails: the nominal structural bolt representation has head,
-washer, and nut intrusions that must be redesigned before fabrication.
-The [unanchored-base redesign brief](docs/v1-base-redesign-brief.md) states
-the exact geometry, mass, floor, and connection inputs needed for the next
-CAD/FEA iteration.
+The current design and build sequence are described in the
+[box-frame revision](docs/box-frame-revision.md). Generated cut and connection
+schedules describe this revision; older rail/spacer documents are historical.
+The [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
+uses current CAD geometry. The [clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
+checks the current fastener arrangement. The [earlier beam FEA](docs/v1-fixed-foot-fea-screen.md)
+is a historical baseline and does not validate the new box frame.
 
 ## SketchUp reference geometry
 

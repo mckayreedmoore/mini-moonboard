@@ -37,3 +37,6 @@ provisional connection between the two segments.
 The full floor interface, structural bolt stack, glue system, and unanchored
 stability remain human-review items. This file only makes the CAD's plywood
 geometry transferable to a blank.
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

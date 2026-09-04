@@ -156,3 +156,6 @@ inspection points, and pass/fail criteria. The first proof load must be secured
 dead weight/rigging—not a climber—and only follows a reviewed calculation.
 Record results in [`inspection-maintenance.md`](inspection-maintenance.md) and
 link the approved analysis/report and commit in [`change-control.md`](change-control.md).
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

@@ -1,54 +1,10 @@
 {
   "parts": [
     {
-      "name": "kicker_left",
-      "path": "models/kicker_left.stl",
-      "fabrication": {
-        "description": "finished kicker-panel blank",
-        "dimensions_mm": [
-          1219.2,
-          225.0,
-          18.0
-        ],
-        "dimensions_imperial": [
-          "48 in",
-          "8 7/8 in",
-          "11/16 in"
-        ]
-      },
-      "viewer_aabb_mm": [
-        1219.2,
-        18.0,
-        225.0
-      ]
-    },
-    {
-      "name": "kicker_right",
-      "path": "models/kicker_right.stl",
-      "fabrication": {
-        "description": "finished kicker-panel blank",
-        "dimensions_mm": [
-          1219.2,
-          225.0,
-          18.0
-        ],
-        "dimensions_imperial": [
-          "48 in",
-          "8 7/8 in",
-          "11/16 in"
-        ]
-      },
-      "viewer_aabb_mm": [
-        1219.2,
-        18.0,
-        225.0
-      ]
-    },
-    {
       "name": "main_lower_left",
       "path": "models/main_lower_left.stl",
       "fabrication": {
-        "description": "finished climbing-panel blank",
+        "description": "climbing panel; 24 perimeter screws",
         "dimensions_mm": [
           1219.2,
           1219.2,
@@ -70,7 +26,7 @@
       "name": "main_lower_right",
       "path": "models/main_lower_right.stl",
       "fabrication": {
-        "description": "finished climbing-panel blank",
+        "description": "climbing panel; 24 perimeter screws",
         "dimensions_mm": [
           1219.2,
           1219.2,
@@ -92,7 +48,7 @@
       "name": "main_upper_left",
       "path": "models/main_upper_left.stl",
       "fabrication": {
-        "description": "finished climbing-panel blank",
+        "description": "climbing panel; 24 perimeter screws",
         "dimensions_mm": [
           1219.2,
           1219.2,
@@ -114,7 +70,7 @@
       "name": "main_upper_right",
       "path": "models/main_upper_right.stl",
       "fabrication": {
-        "description": "finished climbing-panel blank",
+        "description": "climbing panel; 24 perimeter screws",
         "dimensions_mm": [
           1219.2,
           1219.2,
@@ -133,1280 +89,5568 @@
       ]
     },
     {
-      "name": "leg_left",
-      "path": "models/leg_left.stl",
+      "name": "kicker_left",
+      "path": "models/kicker_left.stl",
       "fabrication": {
-        "description": "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm",
+        "description": "kicker panel",
         "dimensions_mm": [
-          1495.2,
-          180.0,
-          36.0
+          1219.2,
+          225.0,
+          18.0
         ],
         "dimensions_imperial": [
-          "58 7/8 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "48 in",
+          "8 7/8 in",
+          "11/16 in"
         ]
       },
       "viewer_aabb_mm": [
-        36.0,
-        680.5,
-        1769.3
+        1219.2,
+        18.0,
+        225.0
       ]
     },
     {
-      "name": "leg_knee_gusset_left",
-      "path": "models/leg_knee_gusset_left.stl",
+      "name": "kicker_right",
+      "path": "models/kicker_right.stl",
       "fabrication": {
-        "description": "laminated knee-gusset blank",
+        "description": "kicker panel",
         "dimensions_mm": [
-          450.0,
-          450.0,
-          36.0
+          1219.2,
+          225.0,
+          18.0
         ],
         "dimensions_imperial": [
-          "17 11/16 in",
-          "17 11/16 in",
-          "1 7/16 in"
+          "48 in",
+          "8 7/8 in",
+          "11/16 in"
         ]
       },
       "viewer_aabb_mm": [
-        36.0,
-        450.0,
-        450.0
+        1219.2,
+        18.0,
+        225.0
+      ]
+    },
+    {
+      "name": "box_side_left",
+      "path": "models/box_side_left.stl",
+      "fabrication": {
+        "description": "laminated side wall; front flush with climbing face",
+        "dimensions_mm": [
+          2438.4,
+          322.8,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "96 in",
+          "12 11/16 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        1814.7,
+        2075.4
+      ]
+    },
+    {
+      "name": "leg_left",
+      "path": "models/leg_left.stl",
+      "fabrication": {
+        "description": "continuous laminated hockey-stick profile; bounding blank, profile governs",
+        "dimensions_mm": [
+          1872.6553934704941,
+          734.7838714967289,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "73 3/4 in",
+          "28 15/16 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        734.8,
+        1872.7
+      ]
+    },
+    {
+      "name": "kicker_cheek_left",
+      "path": "models/kicker_cheek_left.stl",
+      "fabrication": {
+        "description": "kicker-to-side-wall transition profile",
+        "dimensions_mm": [
+          432.49184040681484,
+          247.2791462388061,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "17 in",
+          "9 3/4 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        247.3,
+        432.5
+      ]
+    },
+    {
+      "name": "cheek_splice_left",
+      "path": "models/cheek_splice_left.stl",
+      "fabrication": {
+        "description": "broad-face wall/cheek splice; four screws",
+        "dimensions_mm": [
+          200,
+          200,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "7 7/8 in",
+          "7 7/8 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        281.8,
+        281.8
+      ]
+    },
+    {
+      "name": "box_side_right",
+      "path": "models/box_side_right.stl",
+      "fabrication": {
+        "description": "laminated side wall; front flush with climbing face",
+        "dimensions_mm": [
+          2438.4,
+          322.8,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "96 in",
+          "12 11/16 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        1814.7,
+        2075.4
       ]
     },
     {
       "name": "leg_right",
       "path": "models/leg_right.stl",
       "fabrication": {
-        "description": "leg assembly: lower member shown; upper member is 400 x 180 x 36 mm",
+        "description": "continuous laminated hockey-stick profile; bounding blank, profile governs",
         "dimensions_mm": [
-          1495.2,
-          180.0,
-          36.0
+          1872.6553934704941,
+          734.7838714967289,
+          38.1
         ],
         "dimensions_imperial": [
-          "58 7/8 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "73 3/4 in",
+          "28 15/16 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        36.0,
-        680.5,
-        1769.3
+        38.1,
+        734.8,
+        1872.7
       ]
     },
     {
-      "name": "leg_knee_gusset_right",
-      "path": "models/leg_knee_gusset_right.stl",
+      "name": "kicker_cheek_right",
+      "path": "models/kicker_cheek_right.stl",
       "fabrication": {
-        "description": "laminated knee-gusset blank",
+        "description": "kicker-to-side-wall transition profile",
         "dimensions_mm": [
-          450.0,
-          450.0,
-          36.0
+          432.49184040681484,
+          247.2791462388061,
+          38.1
         ],
         "dimensions_imperial": [
-          "17 11/16 in",
-          "17 11/16 in",
-          "1 7/16 in"
+          "17 in",
+          "9 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        36.0,
-        450.0,
-        450.0
+        38.1,
+        247.3,
+        432.5
       ]
     },
     {
-      "name": "face_rail_1_lower",
-      "path": "models/face_rail_1_lower.stl",
+      "name": "cheek_splice_right",
+      "path": "models/cheek_splice_right.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "broad-face wall/cheek splice; four screws",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          200,
+          200,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "7 7/8 in",
+          "7 7/8 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        38.1,
+        281.8,
+        281.8
       ]
     },
     {
-      "name": "face_rail_1_upper",
-      "path": "models/face_rail_1_upper.stl",
+      "name": "box_top",
+      "path": "models/box_top.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "laminated top closure; front batten completes flush rim",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          266.7,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "10 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        228.8,
+        200.6
       ]
     },
     {
-      "name": "face_rail_2_lower",
-      "path": "models/face_rail_2_lower.stl",
+      "name": "kicker_batten_bottom",
+      "path": "models/kicker_batten_bottom.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "kicker perimeter backing; screws from climbing face",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          50,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "1 15/16 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        38.1,
+        50.0
       ]
     },
     {
-      "name": "face_rail_2_upper",
-      "path": "models/face_rail_2_upper.stl",
+      "name": "kicker_batten_top",
+      "path": "models/kicker_batten_top.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "kicker perimeter backing; screws from climbing face",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          50,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "1 15/16 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        38.1,
+        50.0
       ]
     },
     {
-      "name": "face_rail_3_lower",
-      "path": "models/face_rail_3_lower.stl",
+      "name": "panel_edge_bottom",
+      "path": "models/panel_edge_bottom.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        74.2,
+        78.1
       ]
     },
     {
-      "name": "face_rail_3_upper",
-      "path": "models/face_rail_3_upper.stl",
+      "name": "panel_edge_top",
+      "path": "models/panel_edge_top.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        74.2,
+        78.1
       ]
     },
     {
-      "name": "face_rail_4_lower",
-      "path": "models/face_rail_4_lower.stl",
+      "name": "panel_seam_horizontal",
+      "path": "models/panel_seam_horizontal.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          2438.4,
+          140.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "5 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        2438.4,
+        119.2,
+        131.7
       ]
     },
     {
-      "name": "face_rail_4_upper",
-      "path": "models/face_rail_4_upper.stl",
+      "name": "panel_edge_left_lower",
+      "path": "models/panel_edge_left_lower.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          1079.2,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        70.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_center_seam_lower",
-      "path": "models/face_rail_center_seam_lower.stl",
+      "name": "panel_edge_right_lower",
+      "path": "models/panel_edge_right_lower.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          1079.2,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        70.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_center_seam_upper",
-      "path": "models/face_rail_center_seam_upper.stl",
+      "name": "panel_seam_vertical_lower",
+      "path": "models/panel_seam_vertical_lower.stl",
       "fabrication": {
-        "description": "laminated face-rail segment",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          1219.2,
-          180.0,
-          36.0
+          1079.2,
+          140.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "48 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "5 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        811.3,
-        957.1
+        140.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_splice_1",
-      "path": "models/face_rail_splice_1.stl",
+      "name": "panel_edge_left_upper",
+      "path": "models/panel_edge_left_upper.stl",
       "fabrication": {
-        "description": "laminated face-rail splice cover",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          1079.2,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        284.7,
-        329.6
+        70.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_splice_2",
-      "path": "models/face_rail_splice_2.stl",
+      "name": "panel_edge_right_upper",
+      "path": "models/panel_edge_right_upper.stl",
       "fabrication": {
-        "description": "laminated face-rail splice cover",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          1079.2,
+          70.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "2 3/4 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        284.7,
-        329.6
+        70.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_splice_3",
-      "path": "models/face_rail_splice_3.stl",
+      "name": "panel_seam_vertical_upper",
+      "path": "models/panel_seam_vertical_upper.stl",
       "fabrication": {
-        "description": "laminated face-rail splice cover",
+        "description": "panel-bearing batten; 40 mm hardware relief bores; profile governs",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          1079.2,
+          140.0,
+          38.1
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "42 1/2 in",
+          "5 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        284.7,
-        329.6
+        140.0,
+        722.9,
+        851.2
       ]
     },
     {
-      "name": "face_rail_splice_4",
-      "path": "models/face_rail_splice_4.stl",
+      "name": "rear_cross_1",
+      "path": "models/rear_cross_1.stl",
       "fabrication": {
-        "description": "laminated face-rail splice cover",
+        "description": "rear transverse member on bearing seats",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          2438.4,
+          60,
+          38.1
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
+          "96 in",
+          "2 3/8 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        180.0,
-        284.7,
-        329.6
+        2438.4,
+        70.5,
+        67.8
       ]
     },
     {
-      "name": "face_rail_splice_5",
-      "path": "models/face_rail_splice_5.stl",
+      "name": "cross_seat_left_1",
+      "path": "models/cross_seat_left_1.stl",
       "fabrication": {
-        "description": "laminated face-rail splice cover",
+        "description": "laminated bearing seat, through-bolted to wall",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          110,
+          80,
+          38.1
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
-      },
-      "viewer_aabb_mm": [
-        180.0,
-        284.7,
-        329.6
-      ]
-    },
-    {
-      "name": "rail_1_standoff_lower_130",
-      "path": "models/rail_1_standoff_lower_130.stl",
-      "fabrication": {
-        "description": "laminated rail bearing block",
-        "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
-        ],
-        "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_1_standoff_lower_630",
-      "path": "models/rail_1_standoff_lower_630.stl",
+      "name": "cross_seat_right_1",
+      "path": "models/cross_seat_right_1.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "laminated bearing seat, through-bolted to wall",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          110,
+          80,
+          38.1
         ],
         "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_1_standoff_upper_130",
-      "path": "models/rail_1_standoff_upper_130.stl",
+      "name": "seam_rib_1_left",
+      "path": "models/seam_rib_1_left.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "normal rib joining panel seam support to rear cross member",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          206.70000000000002,
+          38.1,
+          38.1
         ],
         "dimensions_imperial": [
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        182.8,
+        162.1
+      ]
+    },
+    {
+      "name": "seam_rib_1_right",
+      "path": "models/seam_rib_1_right.stl",
+      "fabrication": {
+        "description": "normal rib joining panel seam support to rear cross member",
+        "dimensions_mm": [
+          206.70000000000002,
+          38.1,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        182.8,
+        162.1
+      ]
+    },
+    {
+      "name": "rear_cross_2",
+      "path": "models/rear_cross_2.stl",
+      "fabrication": {
+        "description": "rear transverse member on bearing seats",
+        "dimensions_mm": [
+          2438.4,
+          60,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "96 in",
+          "2 3/8 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        2438.4,
+        70.5,
+        67.8
+      ]
+    },
+    {
+      "name": "cross_seat_left_2",
+      "path": "models/cross_seat_left_2.stl",
+      "fabrication": {
+        "description": "laminated bearing seat, through-bolted to wall",
+        "dimensions_mm": [
+          110,
+          80,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_1_standoff_upper_630",
-      "path": "models/rail_1_standoff_upper_630.stl",
+      "name": "cross_seat_right_2",
+      "path": "models/cross_seat_right_2.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "laminated bearing seat, through-bolted to wall",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          110,
+          80,
+          38.1
         ],
         "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_2_standoff_lower_130",
-      "path": "models/rail_2_standoff_lower_130.stl",
+      "name": "seam_rib_2_left",
+      "path": "models/seam_rib_2_left.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "normal rib joining panel seam support to rear cross member",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          206.70000000000002,
+          38.1,
+          38.1
         ],
         "dimensions_imperial": [
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        182.8,
+        162.1
+      ]
+    },
+    {
+      "name": "seam_rib_2_right",
+      "path": "models/seam_rib_2_right.stl",
+      "fabrication": {
+        "description": "normal rib joining panel seam support to rear cross member",
+        "dimensions_mm": [
+          206.70000000000002,
+          38.1,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        38.1,
+        182.8,
+        162.1
+      ]
+    },
+    {
+      "name": "rear_cross_3",
+      "path": "models/rear_cross_3.stl",
+      "fabrication": {
+        "description": "rear transverse member on bearing seats",
+        "dimensions_mm": [
+          2438.4,
+          60,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "96 in",
+          "2 3/8 in",
+          "1 1/2 in"
+        ]
+      },
+      "viewer_aabb_mm": [
+        2438.4,
+        70.5,
+        67.8
+      ]
+    },
+    {
+      "name": "cross_seat_left_3",
+      "path": "models/cross_seat_left_3.stl",
+      "fabrication": {
+        "description": "laminated bearing seat, through-bolted to wall",
+        "dimensions_mm": [
+          110,
+          80,
+          38.1
+        ],
+        "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_2_standoff_lower_630",
-      "path": "models/rail_2_standoff_lower_630.stl",
+      "name": "cross_seat_right_3",
+      "path": "models/cross_seat_right_3.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "laminated bearing seat, through-bolted to wall",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          110,
+          80,
+          38.1
         ],
         "dimensions_imperial": [
+          "4 5/16 in",
           "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        132.0,
+        135.7
       ]
     },
     {
-      "name": "rail_2_standoff_upper_130",
-      "path": "models/rail_2_standoff_upper_130.stl",
+      "name": "seam_rib_3_left",
+      "path": "models/seam_rib_3_left.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "normal rib joining panel seam support to rear cross member",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          206.70000000000002,
+          38.1,
+          38.1
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        182.8,
+        162.1
       ]
     },
     {
-      "name": "rail_2_standoff_upper_630",
-      "path": "models/rail_2_standoff_upper_630.stl",
+      "name": "seam_rib_3_right",
+      "path": "models/seam_rib_3_right.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "normal rib joining panel seam support to rear cross member",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          206.70000000000002,
+          38.1,
+          38.1
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
+          "8 1/8 in",
+          "1 1/2 in",
+          "1 1/2 in"
         ]
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        38.1,
+        182.8,
+        162.1
       ]
     },
     {
-      "name": "rail_3_standoff_lower_130",
-      "path": "models/rail_3_standoff_lower_130.stl",
+      "name": "analysis_panel_screw_1",
+      "path": "models/analysis_panel_screw_1.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_3_standoff_lower_630",
-      "path": "models/rail_3_standoff_lower_630.stl",
+      "name": "analysis_panel_screw_2",
+      "path": "models/analysis_panel_screw_2.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_3_standoff_upper_130",
-      "path": "models/rail_3_standoff_upper_130.stl",
+      "name": "analysis_panel_screw_3",
+      "path": "models/analysis_panel_screw_3.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_3_standoff_upper_630",
-      "path": "models/rail_3_standoff_upper_630.stl",
+      "name": "analysis_panel_screw_4",
+      "path": "models/analysis_panel_screw_4.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_4_standoff_lower_130",
-      "path": "models/rail_4_standoff_lower_130.stl",
+      "name": "analysis_panel_screw_5",
+      "path": "models/analysis_panel_screw_5.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_4_standoff_lower_630",
-      "path": "models/rail_4_standoff_lower_630.stl",
+      "name": "analysis_panel_screw_6",
+      "path": "models/analysis_panel_screw_6.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_4_standoff_upper_130",
-      "path": "models/rail_4_standoff_upper_130.stl",
+      "name": "analysis_panel_screw_7",
+      "path": "models/analysis_panel_screw_7.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_4_standoff_upper_630",
-      "path": "models/rail_4_standoff_upper_630.stl",
+      "name": "analysis_panel_screw_8",
+      "path": "models/analysis_panel_screw_8.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_5_standoff_lower_130",
-      "path": "models/rail_5_standoff_lower_130.stl",
+      "name": "analysis_panel_screw_9",
+      "path": "models/analysis_panel_screw_9.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_5_standoff_lower_630",
-      "path": "models/rail_5_standoff_lower_630.stl",
+      "name": "analysis_panel_screw_10",
+      "path": "models/analysis_panel_screw_10.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_5_standoff_upper_130",
-      "path": "models/rail_5_standoff_upper_130.stl",
+      "name": "analysis_panel_screw_11",
+      "path": "models/analysis_panel_screw_11.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_5_standoff_upper_630",
-      "path": "models/rail_5_standoff_upper_630.stl",
+      "name": "analysis_panel_screw_12",
+      "path": "models/analysis_panel_screw_12.stl",
       "fabrication": {
-        "description": "laminated rail bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          80.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "3 1/8 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        79.0,
-        84.4
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_1_standoff_main_seam",
-      "path": "models/rail_1_standoff_main_seam.stl",
+      "name": "analysis_panel_screw_13",
+      "path": "models/analysis_panel_screw_13.stl",
       "fabrication": {
-        "description": "laminated main-seam bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          180.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "7 1/16 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        143.3,
-        161.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_2_standoff_main_seam",
-      "path": "models/rail_2_standoff_main_seam.stl",
+      "name": "analysis_panel_screw_14",
+      "path": "models/analysis_panel_screw_14.stl",
       "fabrication": {
-        "description": "laminated main-seam bearing block",
+        "description": "screw: main_lower_left to panel_seam_horizontal; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          180.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "7 1/16 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        143.3,
-        161.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_3_standoff_main_seam",
-      "path": "models/rail_3_standoff_main_seam.stl",
+      "name": "analysis_panel_screw_15",
+      "path": "models/analysis_panel_screw_15.stl",
       "fabrication": {
-        "description": "laminated main-seam bearing block",
+        "description": "screw: main_lower_left to panel_edge_left_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          180.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "7 1/16 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        143.3,
-        161.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_4_standoff_main_seam",
-      "path": "models/rail_4_standoff_main_seam.stl",
+      "name": "analysis_panel_screw_16",
+      "path": "models/analysis_panel_screw_16.stl",
       "fabrication": {
-        "description": "laminated main-seam bearing block",
+        "description": "screw: main_lower_left to panel_edge_left_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          180.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "7 1/16 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        143.3,
-        161.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_5_standoff_main_seam",
-      "path": "models/rail_5_standoff_main_seam.stl",
+      "name": "analysis_panel_screw_17",
+      "path": "models/analysis_panel_screw_17.stl",
       "fabrication": {
-        "description": "laminated main-seam bearing block",
+        "description": "screw: main_lower_left to panel_edge_left_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          180.0,
-          60.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "7 1/16 in",
-          "2 3/8 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        60.0,
-        143.3,
-        161.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "kicker_blank_extension_backing_left",
-      "path": "models/kicker_blank_extension_backing_left.stl",
+      "name": "analysis_panel_screw_18",
+      "path": "models/analysis_panel_screw_18.stl",
       "fabrication": {
-        "description": "laminated blank-kicker backing",
+        "description": "screw: main_lower_left to panel_edge_left_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1219.2,
-          75.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "48 in",
-          "2 15/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1219.2,
-        36.0,
-        75.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "kicker_main_seam_gusset_left",
-      "path": "models/kicker_main_seam_gusset_left.stl",
+      "name": "analysis_panel_screw_19",
+      "path": "models/analysis_panel_screw_19.stl",
       "fabrication": {
-        "description": "trim profile from laminated kicker/main gusset blank",
+        "description": "screw: main_lower_left to panel_edge_left_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          470.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "18 1/2 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        36.0,
-        257.1,
-        468.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "kicker_blank_extension_backing_right",
-      "path": "models/kicker_blank_extension_backing_right.stl",
+      "name": "analysis_panel_screw_20",
+      "path": "models/analysis_panel_screw_20.stl",
       "fabrication": {
-        "description": "laminated blank-kicker backing",
+        "description": "screw: main_lower_left to panel_seam_vertical_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1219.2,
-          75.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "48 in",
-          "2 15/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1219.2,
-        36.0,
-        75.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "kicker_main_seam_gusset_right",
-      "path": "models/kicker_main_seam_gusset_right.stl",
+      "name": "analysis_panel_screw_21",
+      "path": "models/analysis_panel_screw_21.stl",
       "fabrication": {
-        "description": "trim profile from laminated kicker/main gusset blank",
+        "description": "screw: main_lower_left to panel_seam_vertical_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          470.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "18 1/2 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        36.0,
-        257.1,
-        468.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "kicker_blank_extension_backing_seam_splice",
-      "path": "models/kicker_blank_extension_backing_seam_splice.stl",
+      "name": "analysis_panel_screw_22",
+      "path": "models/analysis_panel_screw_22.stl",
       "fabrication": {
-        "description": "laminated kicker-backing seam splice",
+        "description": "screw: main_lower_left to panel_seam_vertical_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          75.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "2 15/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        400.0,
-        36.0,
-        75.0
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_low_left",
-      "path": "models/rail_cross_tie_low_left.stl",
+      "name": "analysis_panel_screw_23",
+      "path": "models/analysis_panel_screw_23.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_left to panel_seam_vertical_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_low_right",
-      "path": "models/rail_cross_tie_low_right.stl",
+      "name": "analysis_panel_screw_24",
+      "path": "models/analysis_panel_screw_24.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_left to panel_seam_vertical_lower; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_splice_low",
-      "path": "models/rail_cross_tie_splice_low.stl",
+      "name": "analysis_panel_screw_25",
+      "path": "models/analysis_panel_screw_25.stl",
       "fabrication": {
-        "description": "laminated rail-grid tie center-splice plate",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        400.0,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_mid_left",
-      "path": "models/rail_cross_tie_mid_left.stl",
+      "name": "analysis_panel_screw_26",
+      "path": "models/analysis_panel_screw_26.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_mid_right",
-      "path": "models/rail_cross_tie_mid_right.stl",
+      "name": "analysis_panel_screw_27",
+      "path": "models/analysis_panel_screw_27.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_splice_mid",
-      "path": "models/rail_cross_tie_splice_mid.stl",
+      "name": "analysis_panel_screw_28",
+      "path": "models/analysis_panel_screw_28.stl",
       "fabrication": {
-        "description": "laminated rail-grid tie center-splice plate",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        400.0,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_top_left",
-      "path": "models/rail_cross_tie_top_left.stl",
+      "name": "analysis_panel_screw_29",
+      "path": "models/analysis_panel_screw_29.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_top_right",
-      "path": "models/rail_cross_tie_top_right.stl",
+      "name": "analysis_panel_screw_30",
+      "path": "models/analysis_panel_screw_30.stl",
       "fabrication": {
-        "description": "laminated support-side rail-grid tie half",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          1309.2,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "51 9/16 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        1309.2,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
       ]
     },
     {
-      "name": "rail_cross_tie_splice_top",
-      "path": "models/rail_cross_tie_splice_top.stl",
+      "name": "analysis_panel_screw_31",
+      "path": "models/analysis_panel_screw_31.stl",
       "fabrication": {
-        "description": "laminated rail-grid tie center-splice plate",
+        "description": "screw: main_lower_right to panel_edge_bottom; nominal hardware, strength not assessed",
         "dimensions_mm": [
-          400.0,
-          180.0,
-          36.0
+          50.8,
+          4.826,
+          4.826
         ],
         "dimensions_imperial": [
-          "15 3/4 in",
-          "7 1/16 in",
-          "1 7/16 in"
-        ]
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
       },
       "viewer_aabb_mm": [
-        400.0,
-        161.0,
-        143.3
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_32",
+      "path": "models/analysis_panel_screw_32.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_33",
+      "path": "models/analysis_panel_screw_33.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_34",
+      "path": "models/analysis_panel_screw_34.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_35",
+      "path": "models/analysis_panel_screw_35.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_36",
+      "path": "models/analysis_panel_screw_36.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_37",
+      "path": "models/analysis_panel_screw_37.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_38",
+      "path": "models/analysis_panel_screw_38.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_39",
+      "path": "models/analysis_panel_screw_39.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_vertical_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_40",
+      "path": "models/analysis_panel_screw_40.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_vertical_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_41",
+      "path": "models/analysis_panel_screw_41.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_vertical_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_42",
+      "path": "models/analysis_panel_screw_42.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_vertical_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_43",
+      "path": "models/analysis_panel_screw_43.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_seam_vertical_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_44",
+      "path": "models/analysis_panel_screw_44.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_45",
+      "path": "models/analysis_panel_screw_45.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_46",
+      "path": "models/analysis_panel_screw_46.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_47",
+      "path": "models/analysis_panel_screw_47.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_48",
+      "path": "models/analysis_panel_screw_48.stl",
+      "fabrication": {
+        "description": "screw: main_lower_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_49",
+      "path": "models/analysis_panel_screw_49.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_50",
+      "path": "models/analysis_panel_screw_50.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_51",
+      "path": "models/analysis_panel_screw_51.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_52",
+      "path": "models/analysis_panel_screw_52.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_53",
+      "path": "models/analysis_panel_screw_53.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_54",
+      "path": "models/analysis_panel_screw_54.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_55",
+      "path": "models/analysis_panel_screw_55.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_56",
+      "path": "models/analysis_panel_screw_56.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_57",
+      "path": "models/analysis_panel_screw_57.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_58",
+      "path": "models/analysis_panel_screw_58.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_59",
+      "path": "models/analysis_panel_screw_59.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_60",
+      "path": "models/analysis_panel_screw_60.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_61",
+      "path": "models/analysis_panel_screw_61.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_62",
+      "path": "models/analysis_panel_screw_62.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_63",
+      "path": "models/analysis_panel_screw_63.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_64",
+      "path": "models/analysis_panel_screw_64.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_65",
+      "path": "models/analysis_panel_screw_65.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_66",
+      "path": "models/analysis_panel_screw_66.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_67",
+      "path": "models/analysis_panel_screw_67.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_68",
+      "path": "models/analysis_panel_screw_68.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_69",
+      "path": "models/analysis_panel_screw_69.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_70",
+      "path": "models/analysis_panel_screw_70.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_71",
+      "path": "models/analysis_panel_screw_71.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_72",
+      "path": "models/analysis_panel_screw_72.stl",
+      "fabrication": {
+        "description": "screw: main_upper_left to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_73",
+      "path": "models/analysis_panel_screw_73.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_74",
+      "path": "models/analysis_panel_screw_74.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_75",
+      "path": "models/analysis_panel_screw_75.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_76",
+      "path": "models/analysis_panel_screw_76.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_77",
+      "path": "models/analysis_panel_screw_77.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_78",
+      "path": "models/analysis_panel_screw_78.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_79",
+      "path": "models/analysis_panel_screw_79.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_80",
+      "path": "models/analysis_panel_screw_80.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_81",
+      "path": "models/analysis_panel_screw_81.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_82",
+      "path": "models/analysis_panel_screw_82.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_83",
+      "path": "models/analysis_panel_screw_83.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_84",
+      "path": "models/analysis_panel_screw_84.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_85",
+      "path": "models/analysis_panel_screw_85.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_86",
+      "path": "models/analysis_panel_screw_86.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_87",
+      "path": "models/analysis_panel_screw_87.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_88",
+      "path": "models/analysis_panel_screw_88.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_89",
+      "path": "models/analysis_panel_screw_89.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_90",
+      "path": "models/analysis_panel_screw_90.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_91",
+      "path": "models/analysis_panel_screw_91.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_seam_vertical_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_92",
+      "path": "models/analysis_panel_screw_92.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_93",
+      "path": "models/analysis_panel_screw_93.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_94",
+      "path": "models/analysis_panel_screw_94.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_95",
+      "path": "models/analysis_panel_screw_95.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_panel_screw_96",
+      "path": "models/analysis_panel_screw_96.stl",
+      "fabrication": {
+        "description": "screw: main_upper_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        43.7,
+        38.3
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_left_1",
+      "path": "models/analysis_leg_wall_bolt_left_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to leg_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_left_2",
+      "path": "models/analysis_leg_wall_bolt_left_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to leg_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_left_3",
+      "path": "models/analysis_leg_wall_bolt_left_3.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to leg_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_left_4",
+      "path": "models/analysis_leg_wall_bolt_left_4.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to leg_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_1_1",
+      "path": "models/analysis_seat_bolt_left_1_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_1_1",
+      "path": "models/analysis_cross_screw_left_1_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to cross_seat_left_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_1_2",
+      "path": "models/analysis_seat_bolt_left_1_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_1_2",
+      "path": "models/analysis_cross_screw_left_1_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to cross_seat_left_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_2_1",
+      "path": "models/analysis_seat_bolt_left_2_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_2_1",
+      "path": "models/analysis_cross_screw_left_2_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to cross_seat_left_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_2_2",
+      "path": "models/analysis_seat_bolt_left_2_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_2_2",
+      "path": "models/analysis_cross_screw_left_2_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to cross_seat_left_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_3_1",
+      "path": "models/analysis_seat_bolt_left_3_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_3_1",
+      "path": "models/analysis_cross_screw_left_3_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to cross_seat_left_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_left_3_2",
+      "path": "models/analysis_seat_bolt_left_3_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_left to cross_seat_left_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_left_3_2",
+      "path": "models/analysis_cross_screw_left_3_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to cross_seat_left_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_1",
+      "path": "models/analysis_edge_screw_left_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_2",
+      "path": "models/analysis_edge_screw_left_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_3",
+      "path": "models/analysis_edge_screw_left_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_4",
+      "path": "models/analysis_edge_screw_left_4.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_5",
+      "path": "models/analysis_edge_screw_left_5.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_left_6",
+      "path": "models/analysis_edge_screw_left_6.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_left_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_left_1",
+      "path": "models/analysis_batten_end_left_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_left_2",
+      "path": "models/analysis_batten_end_left_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_left_3",
+      "path": "models/analysis_batten_end_left_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_left_4",
+      "path": "models/analysis_batten_end_left_4.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_left_1",
+      "path": "models/analysis_top_end_left_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_left_2",
+      "path": "models/analysis_top_end_left_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_left_3",
+      "path": "models/analysis_top_end_left_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_left to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_left_1",
+      "path": "models/analysis_cheek_splice_left_1.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_left to kicker_cheek_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_left_2",
+      "path": "models/analysis_cheek_splice_left_2.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_left to kicker_cheek_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_left_3",
+      "path": "models/analysis_cheek_splice_left_3.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_left to box_side_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_left_4",
+      "path": "models/analysis_cheek_splice_left_4.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_left to box_side_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_end_left_1",
+      "path": "models/analysis_kicker_end_left_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_cheek_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_end_left_2",
+      "path": "models/analysis_kicker_end_left_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_cheek_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_right_1",
+      "path": "models/analysis_leg_wall_bolt_right_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to leg_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_right_2",
+      "path": "models/analysis_leg_wall_bolt_right_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to leg_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_right_3",
+      "path": "models/analysis_leg_wall_bolt_right_3.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to leg_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_leg_wall_bolt_right_4",
+      "path": "models/analysis_leg_wall_bolt_right_4.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to leg_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_1_1",
+      "path": "models/analysis_seat_bolt_right_1_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_1_1",
+      "path": "models/analysis_cross_screw_right_1_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to cross_seat_right_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_1_2",
+      "path": "models/analysis_seat_bolt_right_1_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_1_2",
+      "path": "models/analysis_cross_screw_right_1_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to cross_seat_right_1; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_2_1",
+      "path": "models/analysis_seat_bolt_right_2_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_2_1",
+      "path": "models/analysis_cross_screw_right_2_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to cross_seat_right_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_2_2",
+      "path": "models/analysis_seat_bolt_right_2_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_2_2",
+      "path": "models/analysis_cross_screw_right_2_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to cross_seat_right_2; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_3_1",
+      "path": "models/analysis_seat_bolt_right_3_1.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_3_1",
+      "path": "models/analysis_cross_screw_right_3_1.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to cross_seat_right_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_seat_bolt_right_3_2",
+      "path": "models/analysis_seat_bolt_right_3_2.stl",
+      "fabrication": {
+        "description": "bolt: box_side_right to cross_seat_right_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          95.25,
+          9.525,
+          9.525
+        ],
+        "dimensions_imperial": [
+          "3 3/4 in",
+          "3/8 in",
+          "3/8 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        101.2,
+        25.4,
+        25.4
+      ]
+    },
+    {
+      "name": "analysis_cross_screw_right_3_2",
+      "path": "models/analysis_cross_screw_right_3_2.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to cross_seat_right_3; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_1",
+      "path": "models/analysis_edge_screw_right_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_2",
+      "path": "models/analysis_edge_screw_right_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_3",
+      "path": "models/analysis_edge_screw_right_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_lower; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_4",
+      "path": "models/analysis_edge_screw_right_4.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_5",
+      "path": "models/analysis_edge_screw_right_5.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_edge_screw_right_6",
+      "path": "models/analysis_edge_screw_right_6.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_right_upper; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_right_1",
+      "path": "models/analysis_batten_end_right_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_right_2",
+      "path": "models/analysis_batten_end_right_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_right_3",
+      "path": "models/analysis_batten_end_right_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_seam_horizontal; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_batten_end_right_4",
+      "path": "models/analysis_batten_end_right_4.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to panel_edge_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_right_1",
+      "path": "models/analysis_top_end_right_1.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_right_2",
+      "path": "models/analysis_top_end_right_2.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_top_end_right_3",
+      "path": "models/analysis_top_end_right_3.stl",
+      "fabrication": {
+        "description": "screw: box_side_right to box_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_right_1",
+      "path": "models/analysis_cheek_splice_right_1.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_right to kicker_cheek_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_right_2",
+      "path": "models/analysis_cheek_splice_right_2.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_right to kicker_cheek_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_right_3",
+      "path": "models/analysis_cheek_splice_right_3.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_right to box_side_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_cheek_splice_right_4",
+      "path": "models/analysis_cheek_splice_right_4.stl",
+      "fabrication": {
+        "description": "screw: cheek_splice_right to box_side_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          63.5,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        63.5,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_end_right_1",
+      "path": "models/analysis_kicker_end_right_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_cheek_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_end_right_2",
+      "path": "models/analysis_kicker_end_right_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_cheek_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        88.9,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_rib_front_1_left",
+      "path": "models/analysis_rib_front_1_left.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_vertical_lower to seam_rib_1_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_1_left",
+      "path": "models/analysis_rib_back_1_left.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to seam_rib_1_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_front_1_right",
+      "path": "models/analysis_rib_front_1_right.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_vertical_lower to seam_rib_1_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_1_right",
+      "path": "models/analysis_rib_back_1_right.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_1 to seam_rib_1_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_front_2_left",
+      "path": "models/analysis_rib_front_2_left.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_horizontal to seam_rib_2_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_2_left",
+      "path": "models/analysis_rib_back_2_left.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to seam_rib_2_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_front_2_right",
+      "path": "models/analysis_rib_front_2_right.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_horizontal to seam_rib_2_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_2_right",
+      "path": "models/analysis_rib_back_2_right.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_2 to seam_rib_2_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_front_3_left",
+      "path": "models/analysis_rib_front_3_left.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_vertical_upper to seam_rib_3_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_3_left",
+      "path": "models/analysis_rib_back_3_left.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to seam_rib_3_left; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_front_3_right",
+      "path": "models/analysis_rib_front_3_right.stl",
+      "fabrication": {
+        "description": "screw: panel_seam_vertical_upper to seam_rib_3_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_rib_back_3_right",
+      "path": "models/analysis_rib_back_3_right.stl",
+      "fabrication": {
+        "description": "screw: rear_cross_3 to seam_rib_3_right; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          88.9,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "3 1/2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        72.9,
+        62.8
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_0",
+      "path": "models/analysis_kicker_screw_left_bottom_0.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_1",
+      "path": "models/analysis_kicker_screw_left_bottom_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_2",
+      "path": "models/analysis_kicker_screw_left_bottom_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_3",
+      "path": "models/analysis_kicker_screw_left_bottom_3.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_4",
+      "path": "models/analysis_kicker_screw_left_bottom_4.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_5",
+      "path": "models/analysis_kicker_screw_left_bottom_5.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_bottom_6",
+      "path": "models/analysis_kicker_screw_left_bottom_6.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_0",
+      "path": "models/analysis_kicker_screw_left_top_0.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_1",
+      "path": "models/analysis_kicker_screw_left_top_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_2",
+      "path": "models/analysis_kicker_screw_left_top_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_3",
+      "path": "models/analysis_kicker_screw_left_top_3.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_4",
+      "path": "models/analysis_kicker_screw_left_top_4.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_5",
+      "path": "models/analysis_kicker_screw_left_top_5.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_left_top_6",
+      "path": "models/analysis_kicker_screw_left_top_6.stl",
+      "fabrication": {
+        "description": "screw: kicker_left to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_0",
+      "path": "models/analysis_kicker_screw_right_bottom_0.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_1",
+      "path": "models/analysis_kicker_screw_right_bottom_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_2",
+      "path": "models/analysis_kicker_screw_right_bottom_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_3",
+      "path": "models/analysis_kicker_screw_right_bottom_3.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_4",
+      "path": "models/analysis_kicker_screw_right_bottom_4.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_5",
+      "path": "models/analysis_kicker_screw_right_bottom_5.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_bottom_6",
+      "path": "models/analysis_kicker_screw_right_bottom_6.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_bottom; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_0",
+      "path": "models/analysis_kicker_screw_right_top_0.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_1",
+      "path": "models/analysis_kicker_screw_right_top_1.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_2",
+      "path": "models/analysis_kicker_screw_right_top_2.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_3",
+      "path": "models/analysis_kicker_screw_right_top_3.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_4",
+      "path": "models/analysis_kicker_screw_right_top_4.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_5",
+      "path": "models/analysis_kicker_screw_right_top_5.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
+      ]
+    },
+    {
+      "name": "analysis_kicker_screw_right_top_6",
+      "path": "models/analysis_kicker_screw_right_top_6.stl",
+      "fabrication": {
+        "description": "screw: kicker_right to kicker_batten_top; nominal hardware, strength not assessed",
+        "dimensions_mm": [
+          50.8,
+          4.826,
+          4.826
+        ],
+        "dimensions_imperial": [
+          "2 in",
+          "3/16 in",
+          "3/16 in"
+        ],
+        "clearance_status": "PASS: head/washer/nut clearance only"
+      },
+      "viewer_aabb_mm": [
+        10.0,
+        50.8,
+        10.0
       ]
     }
+  ],
+  "bounds_mm": [
+    [
+      -1295.4279737199267,
+      -310.56000511810953,
+      -1.0000184303335536e-07
+    ],
+    [
+      1295.4279737199267,
+      1549.373307559659,
+      2300.4146106081325
+    ]
   ]
 }

@@ -78,3 +78,6 @@ trim and the template calibration have been recorded.
 This is a cut/purchase plan, not structural approval. The connection hardware,
 adhesive, floor interface, and final template calibration remain the explicit
 human-audit items in the V1 build package.
+> Historical rail-and-spacer revision. For the current box frame, use
+> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
+> The dimensions and analysis below do not describe the current assembly.

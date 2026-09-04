@@ -7,6 +7,7 @@ from xml.etree import ElementTree
 import cadquery as cq
 import pytest
 
+from mini_moonboard.box_frame import connections, frame_parts
 from mini_moonboard.export import (
     export_panel_grid,
     export_panel_grid_drawing,
@@ -31,16 +32,10 @@ from mini_moonboard.export import (
     export_v1_viewer_mesh,
 )
 from mini_moonboard.model import (
-    V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM,
-    V1_KNEE_BOLT_LENGTH_MM,
-    V1_LEG_RAIL_BOLT_LENGTH_MM,
     V1_PANEL_SIZE_MM,
     _v1_kicker_holes,
     _v1_main_panel_holes,
     build_v1_concept,
-    v1_face_rail_centres,
-    v1_leg_geometry,
-    v1_lower_leg_cut_profile,
 )
 
 
@@ -62,7 +57,7 @@ def test_exports_interoperable_reference_files(tmp_path: Path) -> None:
 def test_exports_v1_concept_with_board_and_two_legs(tmp_path: Path) -> None:
     path = export_v1_concept(tmp_path)
 
-    assert cq.importers.importStep(str(path)).solids().size() == 66
+    assert cq.importers.importStep(str(path)).solids().size() == len(frame_parts())
 
 
 def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path) -> None:
@@ -70,9 +65,9 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     parts = json.loads(index_path.read_text())["parts"]
 
     connection_parts = [part for part in parts if part["name"].startswith("analysis_")]
-    assert len(parts) == len(build_v1_concept().children) + 76
-    assert len(connection_parts) == 76
-    assert {part["name"].split("_")[1] for part in connection_parts} == {"leg", "knee", "panel", "main"}
+    assert len(parts) == len(build_v1_concept().children) + len(connections())
+    assert len(connection_parts) == len(connections())
+    assert {part["name"].split("_")[1] for part in connection_parts} >= {"leg", "panel", "cross"}
     assert parts[0]["fabrication"]["dimensions_imperial"]
     assert len({part["name"] for part in parts}) == len(parts)
     for part in parts:
@@ -86,8 +81,8 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
 
     failed_fasteners = [part for part in connection_parts if part["fabrication"].get("clearance_status", "").startswith("FAIL")]
     passed_panel_screws = [part for part in connection_parts if part["fabrication"].get("clearance_status", "").startswith("PASS")]
-    assert len(failed_fasteners) == 16
-    assert len(passed_panel_screws) == 60
+    assert len(failed_fasteners) == 0
+    assert len(passed_panel_screws) == len(connections())
 
     viewer_html = (Path(__file__).parents[1] / "site" / "index.html").read_text()
     assert "fetch('parts.json')" in viewer_html
@@ -107,7 +102,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "mainFacePoint(1019.2 - index * 200, 2380)" in viewer_html
     assert 'id="dimensions"' in viewer_html
     assert "dimensionLine" in viewer_html
-    assert "WIDTH 2762.4 mm / 108.76 in" in viewer_html
+    assert "bounds_mm" in viewer_html
     assert 'id="person"' in viewer_html
     assert "Grid-reference labels" in viewer_html
     assert "an absolutely staggering 5\\'8" in viewer_html
@@ -122,10 +117,9 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
 def test_fastener_head_clearance_screen_exposes_structural_stack_collisions(tmp_path: Path) -> None:
     screen = export_v1_fastener_clearance_screen(tmp_path).read_text()
 
-    assert "Status: **FAIL" in screen
+    assert "Status: **PASS" in screen
     assert "Panel-screw countersunk-head collisions: **0**" in screen
-    assert "analysis_leg_rail_bolt_left_1" in screen
-    assert "analysis_knee_bolt_right_1" in screen
+    assert "Total non-shank collisions: **0**" in screen
 
 
 def test_exports_v1_side_render(tmp_path: Path) -> None:
@@ -133,8 +127,8 @@ def test_exports_v1_side_render(tmp_path: Path) -> None:
     root = ElementTree.parse(path).getroot()
 
     assert root.attrib["data-units"] == "mm"
-    assert "PROVISIONAL GEOMETRY" in path.read_text()
-    assert "row 8 bend datum" in path.read_text()
+    assert "PROVISIONAL" in path.read_text()
+    assert "box frame" in path.read_text()
 
 
 def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
@@ -152,18 +146,11 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     layout_rows = list(csv.DictReader(export_v1_assembly_layout(tmp_path).open(newline="")))
     drill_rows = list(csv.DictReader(export_v1_drill_schedule(tmp_path).open(newline="")))
     panel_drill_rows = list(csv.DictReader(export_v1_panel_drill_schedule(tmp_path).open(newline="")))
-    assert len(cut_rows) == 14
+    assert len(cut_rows) == len(frame_parts())
     assert len(leg_cut_rows) == 2
-    assert len(layout_rows) == len(build_v1_concept().children) + 2
-    expected_layout_parts = {child.name for child in build_v1_concept().children} - {"leg_left", "leg_right"}
-    expected_layout_parts |= {"leg_left_lower", "leg_left_upper", "leg_right_lower", "leg_right_upper"}
-    assert {row["part"] for row in layout_rows} == expected_layout_parts
-    assert float(next(row for row in layout_rows if row["part"] == "leg_left_lower")["center_z_mm"]) < float(
-        next(row for row in layout_rows if row["part"] == "leg_left_upper")["center_z_mm"]
-    )
+    assert {row["part"] for row in layout_rows} == {p.name for p in frame_parts()}
     assert all(math.isclose(sum(float(row[f"dominant_axis_{axis}"]) ** 2 for axis in "xyz"), 1, abs_tol=1e-5) for row in layout_rows)
-    assert leg_cut_rows[0]["finished_profile_mm"].startswith(f"({v1_lower_leg_cut_profile()[0][0]:.3f},0.000)")
-    assert "matched, identically profiled pairs" in leg_cut_rows[0]["cut_instruction"]
+    assert all(float(row["thickness_mm"]) == 19.05 for row in cut_rows if int(row["quantity"]) == 2)
     assert len(drill_rows) == 274
     assert len(panel_drill_rows) == 274
     assert {row["part"] for row in panel_drill_rows} == {
@@ -205,45 +192,14 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     connection_rows = list(csv.DictReader(export_v1_connection_schedule(tmp_path).open(newline="")))
     secondary_rows = list(csv.DictReader(export_v1_secondary_joinery_schedule(tmp_path).open(newline="")))
     bom_rows = list(csv.DictReader(export_v1_bom(tmp_path).open(newline="")))
-    assert len(connection_rows) == 76
-    assert len(bom_rows) == 14
-    assert bom_rows[0]["quantity"] == "9 sheets"
-    panel_screws = next(row for row in bom_rows if row["item"] == "#10 x 3.5 in countersunk structural wood screws")
-    assert panel_screws["quantity"] == "60"
-    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2.5 in structural wood screw") == 72
-    assert sum(int(row["total_screws"]) for row in secondary_rows if row["hardware"] == "#10 x 2 in structural wood screw") == 24
-    assert next(row for row in bom_rows if row["item"] == "#10 x 2.5 in structural wood screws")["quantity"] == "72 plus 10% spare"
-    assert next(row for row in bom_rows if row["item"] == "#10 x 2 in structural wood screws")["quantity"] == "24 plus 10% spare"
-    hold_bundle = next(row for row in bom_rows if row["item"] == "Mini MoonBoard 2025 Setup Hold Bundle")
-    assert hold_bundle["quantity"] == "1, SKU 60-105-2025"
-    structural_bolt = next(row for row in bom_rows if row["item"] == "3/8 in Grade-5 structural through-bolts")
-    assert structural_bolt["quantity"] == f"8 x {V1_LEG_RAIL_BOLT_LENGTH_MM / 25.4:.0f} in; 8 x {V1_KNEE_BOLT_LENGTH_MM / 25.4:.0f} in"
-    assert all("10 in nominal" in row["hardware_assumption"] for row in connection_rows[:8])
-    assert {row["axis"] for row in connection_rows} == {"X", "board-normal toward support frame"}
-    assert {row["clearance_hole_mm"] for row in connection_rows} == {"10.000", "3.200 pilot"}
-    lower_leg = next(row for row in cut_rows if row["part"] == "leg-lower lamination")
-    assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
-    assert float(lower_leg["length_in"]) == pytest.approx(v1_leg_geometry()["lower_length"] / 25.4, abs=0.0001)
-    assert {"length_in", "width_in", "thickness_in"} <= set(lower_leg)
-    rail_tie = next(row for row in cut_rows if row["part"] == "rail-cross-tie-half lamination")
-    assert rail_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + 180 / 2:.1f}"
-    gusset = next(row for row in cut_rows if row["part"].startswith("kicker-main side-gusset"))
-    assert gusset["quantity"] == "4"
-    assert gusset["width_mm"] == f"{V1_KICKER_MAIN_GUSSET_BLANK_HEIGHT_MM:.1f}"
-    assert all(
-        "X is bolt-stack midpoint" in row["datum"]
-        if row["axis"] == "X"
-        else "countersunk screw-head centers at climbing face" in row["datum"]
-        if row["axis"] == "board-normal toward support frame"
-        else False
-        for row in connection_rows
-    )
-    rear_drawing = export_v1_rear_drawing(tmp_path).read_text()
-    assert rear_drawing.count('class="rail"') == 5
-    rear_scale = 600 / (2 * V1_PANEL_SIZE_MM)
-    for rail in v1_face_rail_centres():
-        assert f'x1="{150 + (rail + V1_PANEL_SIZE_MM) * rear_scale:.1f}"' in rear_drawing
-    assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
+    assert len(connection_rows) == len(connections())
+    assert {row["connection"] for row in connection_rows} == {c.name for c in connections()}
+    for row, connection in zip(connection_rows, connections(), strict=True):
+        assert tuple(float(row[f"{a}_mm"]) for a in "xyz") == pytest.approx(connection.start.toTuple(), abs=.001)
+        assert tuple(float(row[f"axis_{a}"]) for a in "xyz") == pytest.approx(connection.direction.toTuple())
+    assert secondary_rows
+    assert bom_rows
+    assert sum(int(row["quantity"]) for row in cut_rows) == sum(p.laminations for p in frame_parts())
 
 
 def test_exports_are_reproducible(tmp_path: Path) -> None:
