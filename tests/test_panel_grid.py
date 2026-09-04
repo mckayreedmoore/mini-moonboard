@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from mini_moonboard import main_led_datums, main_tnut_datums
+from mini_moonboard import kicker_foothold_datums, main_led_datums, main_tnut_datums
 from mini_moonboard.export import export_panel_grid
 
 
@@ -25,11 +25,20 @@ def test_led_datums_are_100_mm_below_each_tnut_row() -> None:
     assert datums["K12"] == pytest.approx((2200.0, 2180.0))
 
 
+def test_kicker_foothold_datums_follow_the_metric_template() -> None:
+    datums = kicker_foothold_datums()
+
+    assert len(datums) == 10
+    assert datums["1"] == pytest.approx((100.0, -75.0))
+    assert datums["2"] == pytest.approx((348.56, -75.0))
+    assert datums["10"] == pytest.approx((2337.04, -75.0))
+
+
 def test_exports_dual_unit_datum_table(tmp_path: Path) -> None:
     path = export_panel_grid(tmp_path)
     rows = list(csv.DictReader(path.open(newline="")))
 
-    assert len(rows) == 264
+    assert len(rows) == 274
     assert rows[0] == {
         "feature": "tnut",
         "label": "A1",
@@ -40,3 +49,5 @@ def test_exports_dual_unit_datum_table(tmp_path: Path) -> None:
     }
     assert rows[132]["feature"] == "led"
     assert rows[132]["y_mm"] == "-20.000"
+    assert rows[264]["feature"] == "kicker_foothold"
+    assert rows[264]["x_mm"] == "100.000"

@@ -14,3 +14,8 @@ def main_tnut_datums() -> dict[str, tuple[float, float]]:
 def main_led_datums() -> dict[str, tuple[float, float]]:
     """Return LED centers paired with the T-nut labels in the metric template."""
     return {label: (x, y - 100.0) for label, (x, y) in main_tnut_datums().items()}
+
+
+def kicker_foothold_datums() -> dict[str, tuple[float, float]]:
+    """Return official metric-template kicker foothold centers."""
+    return {str(index + 1): (100.0 + 248.56 * index, -75.0) for index in range(10)}

@@ -67,10 +67,10 @@ an overall width of 2437 mm, while the imperial guide labels 96 1/64 in
 4. measure its calibration dimensions before drilling any panel.
 
 The first CAD milestone intentionally models panel blanks and seams, not
-drilled holes. The source-backed main T-nut and LED center coordinates are now
-encoded separately in [`panel-grid.md`](panel-grid.md). Hole solids will be
-added only after the diameters, template system, and actual plywood sheets are
-verified.
+drilled holes. The source-backed main T-nut, LED, and official kicker foothold
+center coordinates are now encoded separately in
+[`panel-grid.md`](panel-grid.md). Hole solids will be added only after the
+diameters, template system, and actual plywood sheets are verified.
 
 ## Source discrepancies and cautions
 

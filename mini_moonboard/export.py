@@ -12,7 +12,7 @@ from .model import (
     build_reference_board,
     reference_envelope,
 )
-from .panel_grid import main_led_datums, main_tnut_datums
+from .panel_grid import kicker_foothold_datums, main_led_datums, main_tnut_datums
 
 
 def _imperial(mm: float) -> str:
@@ -144,6 +144,7 @@ def export_panel_grid(output_dir: Path) -> Path:
         for feature, datums in (
             ("tnut", main_tnut_datums()),
             ("led", main_led_datums()),
+            ("kicker_foothold", kicker_foothold_datums()),
         ):
             for label, (x, y) in datums.items():
                 writer.writerow(

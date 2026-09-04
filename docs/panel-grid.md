@@ -39,6 +39,25 @@ y(row)    = y of corresponding T-nut - 100 mm
 The LED datum paired with row 1 is therefore 20 mm below the main-panel edge,
 on the kicker. This matches the separate 20 mm dimension on the metric guide.
 
+## Official kicker foothold centers
+
+The metric template shows ten foothold centers on the 150 mm official kicker:
+
+```text
+x(index) = 100 mm + 248.56 mm * zero-based foothold index
+y        = -75 mm
+```
+
+The first center is `(100, -75) mm` / `(3.9370, -2.9528) in`; the tenth is
+`(2337.04, -75) mm` / `(92.0094, -2.9528) in`. The labels 1-10 in the export
+are repository identifiers from left to right, not labels printed by Moon
+Climbing.
+
+The imperial template states independently rounded dimensions of 3 15/16 in
+for the first offset, 9 51/64 in for the pitch, 2 61/64 in for the vertical
+offset, and 5 29/32 in for kicker height. These are not silently substituted
+for the metric-template coordinates.
+
 ## Generated table
 
 [`exports/mini_moonboard_metric_template_datums.csv`](../exports/mini_moonboard_metric_template_datums.csv)
@@ -62,5 +81,5 @@ fabrication drawing, verify:
 - the template calibration measurements against the physical print;
 - actual panel size and the 2437/2438.8/2440 mm width discrepancy documented
   in [`requirements.md`](requirements.md); and
-- the separate kicker foothold pattern, whose dimensions are not represented
-  by the regular A-K / 1-12 grid.
+- the vertical placement of this official kicker pattern on a taller custom
+  kicker after the crash-pad clearance is selected.
