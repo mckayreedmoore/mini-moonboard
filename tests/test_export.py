@@ -81,7 +81,7 @@ def test_exports_v1_plan_and_fabrication_schedules(tmp_path: Path) -> None:
     assert lower_leg["length_mm"] == f"{v1_leg_geometry()['lower_length']:.1f}"
     rear_tie = next(row for row in cut_rows if row["part"] == "rear-tie-half lamination")
     assert rear_tie["length_mm"] == f"{V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM:.1f}"
-    assert all("coordinate is hole center" in row["datum"] for row in connection_rows)
+    assert all("X is bolt-stack midpoint" in row["datum"] for row in connection_rows)
     assert export_v1_rear_drawing(tmp_path).read_text().count('class="rail"') == 5
     assert export_v1_isometric_drawing(tmp_path).read_text().count('class="rail"') == 5
 

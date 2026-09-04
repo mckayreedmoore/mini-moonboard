@@ -199,7 +199,7 @@ def v1_structural_bolt_position(side: int, distance: float) -> tuple[float, floa
     angle = math.radians(ANGLE_FROM_VERTICAL_DEG)
     rail_midplane = V1_SUPPORT_THICKNESS_MM / 2
     return (
-        side * (V1_PANEL_SIZE_MM + V1_HARDWARE_GAP_MM),
+        side * (V1_PANEL_SIZE_MM + V1_SUPPORT_THICKNESS_MM / 2),
         V1_HARDWARE_GAP_MM + distance * math.sin(angle) + rail_midplane * math.cos(angle),
         V1_KICKER_HEIGHT_MM + distance * math.cos(angle) - rail_midplane * math.sin(angle),
     )

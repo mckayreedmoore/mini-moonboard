@@ -95,7 +95,8 @@ def test_v1_concept_adds_two_exterior_hockey_stick_legs() -> None:
         assert shape.BoundingBox().zmin == pytest.approx(0, abs=0.001)
     assert max(V1_STRUCTURAL_BOLT_DISTANCES_MM) < V1_LEG_UPPER_DISTANCE_MM
     for distance in V1_STRUCTURAL_BOLT_DISTANCES_MM:
-        _, y, z = v1_structural_bolt_position(1, distance)
+        x, y, z = v1_structural_bolt_position(1, distance)
+        assert x == pytest.approx(1219.2 + 36 / 2)
         base_y = 54 + distance * math.sin(math.radians(40))
         base_z = 225 + distance * math.cos(math.radians(40))
         assert (y - base_y) * math.cos(math.radians(40)) - (z - base_z) * math.sin(

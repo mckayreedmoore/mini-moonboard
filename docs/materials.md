@@ -57,7 +57,8 @@ product's bore, barrel, flange, and screw requirements on an offcut.
 
 The selected [MoonBoard LED System](https://us.moonclimbing.com/products/moonboard-led-kit)
 is SKU 60-201-V5. Drill the 13 mm LED holes at the official LED datums and
-provide protected rear routing to the controller, with access to its switch.
+provide protected rear routing to the controller, with access to its switch,
+only after the supplied V5 guide confirms that 13 mm diameter for this kit.
 The kit includes a controller, four 50-LED strings, supplementary power feeds,
 and a 5 V adapter according to the selected product listing. The listing's 200
 bulbs include 2 spares and describes 66 extra bulbs on a Mini, leaving 132
@@ -87,6 +88,7 @@ the output remains a reference panel list until frame review is complete.
 ## BOM completion rule
 
 The bill of materials and cut list can be released only after the parametric
-frame model contains every load-bearing member and connection, the taller
-kicker and crash-pad relationship are fixed, sheet nesting is generated from
-actual stock sizes, and the structure has received qualified review.
+frame model contains every load-bearing member and connection, sheet nesting
+is generated from actual stock sizes, and the structure has received qualified
+review. The crash pad remains a separate later climbing/use gate, not a V1
+BOM or cut-list input.

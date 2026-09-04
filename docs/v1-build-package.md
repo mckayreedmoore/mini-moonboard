@@ -37,8 +37,8 @@ The connection schedule uses CAD datum **O**: the intersection of the board
 centreline (`X=0`), the vertical plane of the kicker front face (`Y=0`), and
 the finished-floor plane (`Z=0`). Positive X is to the right while facing the
 climbing surface, positive Y is rearward, and positive Z is upward. Each CSV
-coordinate is the centre of a provisional structural-bolt clearance hole; the
-bolt axis is X. The exterior face rails start behind the board at `Y=54 mm`;
+coordinate uses the midpoint of the modeled leg-and-rail bolt stack for X and
+the clearance-hole centerline for Y/Z; the bolt axis is X. The exterior face rails start behind the board at `Y=54 mm`;
 each listed bolt is offset 18 mm along the rail normal to its 36 mm-thick
 mid-plane.
 This datum is for audit transfer only, not authorization to drill.
@@ -99,7 +99,7 @@ that change record.
 
 1. Inspect each plywood sheet; record actual length, width, thickness at
    multiple locations, flatness, damage, and grade. Reserve one offcut sheet.
-2. Print and calibrate the official imperial template. Drill and test a sample
+2. Print and calibrate the selected official template edition. Drill and test a sample
    panel with an Escape T-nut, matching 3/8-16 bolt, representative hold,
    Moon LED, and the proposed panel-to-rail screw. Confirm rear clearance.
 3. Cut panel and support blanks only after the fit test passes. Keep the full

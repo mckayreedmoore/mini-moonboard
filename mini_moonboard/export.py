@@ -424,7 +424,7 @@ def export_v1_connection_schedule(output_dir: Path) -> Path:
                         "leg upper member to exterior outer face rail",
                         side,
                         1,
-                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; coordinate is hole center",
+                        "O: board centerline / kicker-face plane / finished-floor plane; +X right facing board, +Y rearward, +Z upward; X is bolt-stack midpoint, Y/Z are hole centerline",
                         f"{x:.3f}",
                         f"{y:.3f}",
                         f"{z:.3f}",
