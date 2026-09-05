@@ -56,6 +56,12 @@
       const assemblyView = new THREE.Group(); assemblyView.position.set(0, -950, 0); scene.add(assemblyView);
       const climberView = new THREE.Group(); climberView.scale.x = -1; assemblyView.add(climberView);
       const partCard = document.querySelector('#part'); let selected = [];
+      const feetAndInches = mm => {
+        const hundredths = Math.round(mm / 25.4 * 100);
+        const feet = Math.floor(hundredths / 1200);
+        const inches = Number(((hundredths % 1200) / 100).toFixed(2));
+        return `${feet} ft ${inches} in`;
+      };
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       fetch('parts.json').then(response => response.json()).then(({ parts, bounds_mm }) => {
         drawDimensions(bounds_mm);
@@ -116,7 +122,7 @@
       };
       // Keep dimensions synchronized with CAD, including the outside legs.
       function drawDimensions([[xmin, ymin, zmin], [xmax, ymax, zmax]]) {
-        const label = (name, mm) => `${name} ${mm.toFixed(1)} mm / ${(mm / 25.4).toFixed(2)} in`;
+        const label = (name, mm) => `${name} ${mm.toFixed(1)} mm / ${feetAndInches(mm)}`;
         dimensionLine([-xmax, ymax + 140, 20], [-xmin, ymax + 140, 20], [0, 0, 55], label('WIDTH', xmax - xmin));
         dimensionLine([-xmax - 120, ymin, 20], [-xmax - 120, ymax, 20], [0, 0, 55], label('DEPTH', ymax - ymin));
         dimensionLine([-xmax - 120, ymax + 100, zmin], [-xmax - 120, ymax + 100, zmax], [55, 0, 0], label('HEIGHT', zmax - zmin));
@@ -152,8 +158,8 @@
         const part = hit.object.userData.part;
         selected = part === personPart ? personMeshes : [hit.object];
         selected.forEach(mesh => mesh.material.emissive.setHex(0x5f3600));
-        const [x, y, z] = part.fabrication.dimensions_mm, [ix, iy, iz] = part.fabrication.dimensions_imperial;
-        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${x} × ${y} × ${z} mm (${ix} × ${iy} × ${iz}).`;
+        const [x, y, z] = part.fabrication.dimensions_mm;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${x} × ${y} × ${z} mm (${[x, y, z].map(feetAndInches).join(' × ')}).`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();
