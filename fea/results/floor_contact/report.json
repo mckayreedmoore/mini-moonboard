@@ -1,0 +1,225 @@
+{
+  "status": "Whole-frame contact feasibility unresolved; no accepted climbing-load result",
+  "sources_sha256": {
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/floor_contact_toy.py": "d65eb422add7253bb843ed8f945b925d2273b67f4e220cdb76bd4be97d3a0787",
+    "fea/floor_contact_record.py": "8f126194d91be921c61cd64696bed53a57e762db6569d10c0f4f422dc86f0b5a"
+  },
+  "provenance_note": "Source digests here identify publication/re-audit code, not immutable code execution provenance of early trials. Each trial retains its actual pre-launch deck digest; do not backfill missing launch source hashes.",
+  "trials": {
+    "floor_mu0p3_k10000": {
+      "source": "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp",
+      "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+      "cad_volume_mm3": 306605478.64831674,
+      "cad_centre_mm": [
+        4.267979715290524,
+        745.1537564500428,
+        1137.1505511639787
+      ],
+      "cad_mass_kg": 183.96328718899005,
+      "assumptions": "Undrilled timber only at600kg/m3, no angles/fasteners/holds/glue/LEDmass. Bonded timber retained. No joint capacity.",
+      "mesh_volume_mm3": 306605461.7407006,
+      "mesh_mass_kg": 183.96327704442035,
+      "mesh_centre_mm": [
+        4.267979946815062,
+        745.1537546404186,
+        1137.1505348925887
+      ],
+      "mu": 0.3,
+      "normal_penalty_n_mm3": 10000,
+      "tangent_penalty_n_mm3": 100.0,
+      "floor_face_counts": {
+        "LEFT": 16,
+        "RIGHT": 16,
+        "KICKER": 213
+      },
+      "load_nodes": [
+        18608,
+        18653,
+        19090,
+        22518,
+        23707
+      ],
+      "deck_sha256": "3c90c9957873a6122239526bc873f08307d1854e5c67f49ff5195bbf9a93e157",
+      "status": "UNRESOLVED SOLVER FAILURE; NOT A STABILITY CONCLUSION",
+      "exit_code": -15,
+      "stop_interpretation": "Manual bounded-work stop",
+      "accepted_increments": 0,
+      "climbing_load_reached": false,
+      "evidence_sha256": {
+        "floor_mu0p3_k10000.inp": "3c90c9957873a6122239526bc873f08307d1854e5c67f49ff5195bbf9a93e157",
+        "floor_mu0p3_k10000.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p3_k10000.sta": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p3_k10000.cvg": "2315c7ae6954be7a4c2911a078e65e1d9a18bfbf02ff7d3b6567ae7f342435f9",
+        "floor_mu0p3_k10000.log": "88d14010d26d3a5b0556a470350ae222cbe0d87188fe35e584dd8629dadd2cd2",
+        "floor_mu0p3_k10000.json": "2f357ac77de22b2f090c763f14a7e4cb8dad0a218985565883277b0e48794d43"
+      }
+    },
+    "floor_mu0p5_k10000": {
+      "source": "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp",
+      "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+      "cad_volume_mm3": 306605478.64831674,
+      "cad_centre_mm": [
+        4.267979715290524,
+        745.1537564500428,
+        1137.1505511639787
+      ],
+      "cad_mass_kg": 183.96328718899005,
+      "geometry_source_sha256": {
+        "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+        "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+        "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+        "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+        "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022"
+      },
+      "assumptions": "Undrilled timber only at600kg/m3, no angles/fasteners/holds/glue/LEDmass. Bonded timber retained. No joint capacity.",
+      "mesh_volume_mm3": 306605461.7407006,
+      "mesh_mass_kg": 183.96327704442035,
+      "mesh_centre_mm": [
+        4.267979946815062,
+        745.1537546404186,
+        1137.1505348925887
+      ],
+      "mu": 0.5,
+      "normal_penalty_n_mm3": 10000,
+      "tangent_penalty_n_mm3": 100.0,
+      "floor_face_counts": {
+        "LEFT": 16,
+        "RIGHT": 16,
+        "KICKER": 213
+      },
+      "load_nodes": [
+        18608,
+        18653,
+        19090,
+        22518,
+        23707
+      ],
+      "deck_sha256": "39fc2d4dd24bcb0d27fdc7f03f917804bb87b39fecb1f73e9713b82fececcf6c",
+      "status": "UNRESOLVED SOLVER FAILURE; NOT A STABILITY CONCLUSION",
+      "exit_code": -15,
+      "stop_interpretation": "Manual bounded-work stop",
+      "accepted_increments": 0,
+      "climbing_load_reached": false,
+      "evidence_sha256": {
+        "floor_mu0p5_k10000.inp": "39fc2d4dd24bcb0d27fdc7f03f917804bb87b39fecb1f73e9713b82fececcf6c",
+        "floor_mu0p5_k10000.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p5_k10000.sta": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p5_k10000.cvg": "61df0cb40f33afe268c06117a468b2b11a258e096e028818d138b0b64eb16199",
+        "floor_mu0p5_k10000.log": "7ed154258ce91776790b03d54194955802962a5c517b075fca9d279315c07240",
+        "floor_mu0p5_k10000.json": "4b7370b539e9961bb3084b511612ef17bfedcb3dca0672b0313cce9feabc1125"
+      }
+    },
+    "floor_mu0p5_k1000": {
+      "source": "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp",
+      "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+      "cad_volume_mm3": 306605478.64831674,
+      "cad_centre_mm": [
+        4.267979715290524,
+        745.1537564500428,
+        1137.1505511639787
+      ],
+      "cad_mass_kg": 183.96328718899005,
+      "geometry_source_sha256": {
+        "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+        "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+        "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+        "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+        "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022"
+      },
+      "assumptions": "Undrilled timber only at600kg/m3, no angles/fasteners/holds/glue/LEDmass. Bonded timber retained. No joint capacity.",
+      "mesh_volume_mm3": 306605461.7407006,
+      "mesh_mass_kg": 183.96327704442035,
+      "mesh_centre_mm": [
+        4.267979946815062,
+        745.1537546404186,
+        1137.1505348925887
+      ],
+      "mu": 0.5,
+      "normal_penalty_n_mm3": 1000.0,
+      "tangent_penalty_n_mm3": 10.0,
+      "floor_face_counts": {
+        "LEFT": 16,
+        "RIGHT": 16,
+        "KICKER": 213
+      },
+      "load_nodes": [
+        18608,
+        18653,
+        19090,
+        22518,
+        23707
+      ],
+      "deck_sha256": "8e50c4be8ff558b2035c3cb4a4af2490dafadde60abf4a7c8801ae3c1250167b",
+      "status": "UNRESOLVED SOLVER FAILURE; NOT A STABILITY CONCLUSION",
+      "runtime_stop": "Deliberately stopped after 240s; not a physical failure conclusion",
+      "exit_code": -999,
+      "stop_interpretation": "240-second subprocess timeout",
+      "accepted_increments": 0,
+      "climbing_load_reached": false,
+      "evidence_sha256": {
+        "floor_mu0p5_k1000.inp": "8e50c4be8ff558b2035c3cb4a4af2490dafadde60abf4a7c8801ae3c1250167b",
+        "floor_mu0p5_k1000.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p5_k1000.sta": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "floor_mu0p5_k1000.cvg": "9697a7214691f5c779010d4c8839fbc0a459843eb75ae0f94fe1f3c2ec09d658",
+        "floor_mu0p5_k1000.log": "08b3c8173deccafcc678c621bed3314b27bfe1e392491c1d88e1d7bf75a7d916",
+        "floor_mu0p5_k1000.json": "d9bdc8c6dab63745a96dd64af15708eead17057f4e044a88080ce442c7549460"
+      }
+    }
+  },
+  "toys": {
+    "toy": {
+      "status": "Complete gravity contact-law smoke test only; not whole-frame validation",
+      "mass_kg": 0.6,
+      "weight_n": 5.88399,
+      "force_residual_n": [
+        0.0,
+        0.0,
+        1.000000000139778e-06
+      ],
+      "moment_residual_nmm": [
+        0.00010999999994965037,
+        -0.00010999999994965037,
+        0.0
+      ],
+      "ground_resultant_n": [
+        0.0,
+        0.0,
+        5.883991
+      ],
+      "minimum_physical_gap_mm": -5.88399e-08,
+      "maximum_physical_gap_mm": -5.88399e-08,
+      "sha256": {
+        "toy.inp": "88066248241d39475e6d7f1f0f0d2407afbaf486cea66ca512105d8089ec4490",
+        "toy.dat": "b5de6126bffa9261c2577a96ae73920d9538d47b7034a7c8ec085d0a49435bd9"
+      }
+    },
+    "toy_quadratic": {
+      "status": "Complete gravity contact-law smoke test only; not whole-frame validation",
+      "mass_kg": 0.6,
+      "weight_n": 5.88399,
+      "force_residual_n": [
+        6.938893903907228e-18,
+        6.938893903907228e-18,
+        8.881784197001252e-16
+      ],
+      "moment_residual_nmm": [
+        2.2350099015966407e-07,
+        -2.2350099015966407e-07,
+        0.0
+      ],
+      "ground_resultant_n": [
+        6.938893903907228e-18,
+        6.938893903907228e-18,
+        5.883990000000001
+      ],
+      "minimum_physical_gap_mm": -6.184315e-08,
+      "maximum_physical_gap_mm": -4.06685e-08,
+      "sha256": {
+        "toy_quadratic.inp": "bea52a9c4c758569d2e4e4578c79c028024a68cecb35e6f1e181e79f67949ffa",
+        "toy_quadratic.dat": "91679cee68f97cb822a7a40845a1a27bd50c8c272590c8ce3501d73949a18fe4"
+      }
+    }
+  }
+}
