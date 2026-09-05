@@ -8,6 +8,13 @@ from pathlib import Path
 
 GRAVITY = 9.80665
 LB_KG = 0.45359237
+HISTORICAL_OUTPUT = Path("fea/results/hybrid/user_load_envelope.json")
+
+
+def output_path(sizes, output):
+    if "2x8-shallow" in sizes and (output is None or output.resolve() == HISTORICAL_OUTPUT.resolve()):
+        raise ValueError("The shallow candidate requires --output to a separate, nonhistorical report")
+    return HISTORICAL_OUTPUT if output is None else output
 
 
 def hull(points):
@@ -65,11 +72,13 @@ def edge_screen(polygon, centre_xy, mass_kg, load_xyz, downward_n, horizontal_n,
     return rows
 
 
-def envelope(state, locations):
+def envelope(state, locations, weights=(250, 300)):
     """Accept an explicit CAD state, so no unbuilt candidate is fabricated."""
+    if not weights or any(not math.isfinite(weight) or weight <= 0 for weight in weights):
+        raise ValueError("At least one finite positive climber weight is required")
     rows = []
     for pounds, multiplier, mass_scale, offset, horizontal in itertools.product(
-            (250, 300), (1, 2), (0.8, 1.0), (0, 50, 100), (0, 300)):
+            weights, (1, 2), (0.8, 1.0), (0, 50, 100), (0, 300)):
         mass = state["mass_kg"]*mass_scale
         downward = pounds*LB_KG*GRAVITY*multiplier
         edges = {}
@@ -94,8 +103,8 @@ def envelope(state, locations):
 
 
 def cad_state(size):
-    from mini_moonboard import hybrid_frame as h
-    parts = [p for p in h.parts(size, size != "2x8") if size != "2x8" or not p.name.startswith("angle_")]
+    from fea.prepare_hybrid_frame import candidate_parts
+    parts = [p for p in candidate_parts(size, size != "2x8") if size != "2x8" or not p.name.startswith("angle_")]
     masses = [p.shape.Volume()/1e9*(7850 if p.name.startswith("angle_") else 600) for p in parts]
     mass = sum(masses)
     centre = [sum(m*p.shape.centerOfMass(p.shape).toTuple()[i] for m, p in zip(masses, parts, strict=True))/mass for i in (0, 1)]
@@ -127,17 +136,26 @@ def hold_locations():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--sizes", nargs="+", default=["2x8", "2x10", "2x12"])
+    parser.add_argument("--sizes", nargs="+", choices=("2x8", "2x8-shallow", "2x10", "2x12"), default=["2x8", "2x10", "2x12"])
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--weights", nargs="+", type=float, default=[250, 300])
     args = parser.parse_args()
+    try:
+        target = output_path(args.sizes, args.output)
+    except ValueError as error:
+        parser.error(str(error))
     sources = ("fea/user_load_envelope.py", "mini_moonboard/hybrid_frame.py",
-               "mini_moonboard/hybrid.py", "mini_moonboard/box_frame.py", "mini_moonboard/panel_grid.py")
+               "mini_moonboard/hybrid.py", "mini_moonboard/box_frame.py", "mini_moonboard/panel_grid.py", "fea/prepare_hybrid_frame.py")
+    if "2x8-shallow" in args.sizes:
+        sources += ("mini_moonboard/shallow_frame.py",)
     report = {"assumptions": "One climber, 250 lb intended limit; 300 lb sensitivity, not a rating. Static and 2x gravity force; 300 N horizontal all azimuths illustrative, not prescribed dynamics. CAD floor support convex hull, rigid body; uniform mass scaling freezes CG. No joint flexibility, floor compliance, yaw equilibrium/friction distribution, anchors, ballast, strengths or approval.",
+              "climber_weights_lb": args.weights,
               "source_sha256": {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in sources},
               "candidates": {}}
     for size in args.sizes:
         state = cad_state(size)
-        report["candidates"][size] = {"state": state, "cases": envelope(state, hold_locations())}
-    target = Path("fea/results/hybrid/user_load_envelope.json")
+        report["candidates"][size] = {"state": state, "cases": envelope(state, hold_locations(), args.weights)}
+    target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(report, indent=2, allow_nan=False)+"\n")
     print(target)
 

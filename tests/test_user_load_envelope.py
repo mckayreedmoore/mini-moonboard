@@ -5,9 +5,26 @@ from pathlib import Path
 
 import pytest
 
-from fea.user_load_envelope import GRAVITY, edge_screen, envelope, hull
+from fea.user_load_envelope import (
+    GRAVITY,
+    HISTORICAL_OUTPUT,
+    edge_screen,
+    envelope,
+    hull,
+    output_path,
+)
 
 SQUARE = [(0, 0), (1000, 0), (1000, 1000), (0, 1000)]
+
+
+def test_shallow_report_cannot_replace_historical_output(tmp_path):
+    assert output_path(["2x8"], None) == HISTORICAL_OUTPUT
+    assert output_path(["2x8-shallow"], tmp_path/"new.json") == tmp_path/"new.json"
+    alias = tmp_path/"historical.json"
+    alias.symlink_to(HISTORICAL_OUTPUT.resolve())
+    for target in (None, HISTORICAL_OUTPUT, HISTORICAL_OUTPUT.resolve(), alias):
+        with pytest.raises(ValueError,match="separate"):
+            output_path(["2x8-shallow"], target)
 
 
 def test_hull_and_invalid_inputs():
@@ -66,11 +83,28 @@ def test_envelope_mass_weight_offset_monotonicity_and_count():
     assert case()["downward_n"] == pytest.approx(1112.0554038)
 
 
+def test_optional_lighter_cases_and_weight_validation():
+    state = {"mass_kg": 100, "centre_xy_mm": (500, 500), "support_polygon_mm": SQUARE}
+    locations = [("A12", (500, 1050, 1900), (0, 1, 0))]
+    rows = envelope(state, locations, (150, 200, 250, 300))
+    assert len(rows) == 96
+    assert {row["climber_lb"] for row in rows} == {150, 200, 250, 300}
+    assert next(row for row in rows if row["climber_lb"] == 150 and row["weight_multiplier"] == 1)["downward_n"] == pytest.approx(667.23324228)
+    assert next(row for row in rows if row["climber_lb"] == 200 and row["weight_multiplier"] == 1)["downward_n"] == pytest.approx(889.64432304)
+    for weights in ((), (0,), (-150,), (math.nan,), (math.inf,)):
+        with pytest.raises(ValueError, match="weight"):
+            envelope(state, locations, weights)
+
+
 def test_published_cases_reproduce_from_frozen_state():
     from fea.user_load_envelope import hold_locations
     record = json.loads(Path("fea/results/hybrid/user_load_envelope.json").read_text())
     assert set(record["candidates"]) == {"2x8", "2x10", "2x12"}
     for path, digest in record["source_sha256"].items():
+        if path == "fea/user_load_envelope.py":
+            # Historical report at 0499598 predates separate shallow candidates.
+            assert digest == "8508f57cb7fbe72ce24fb2f4bd5963d25671c6744882a0dc61205ee480c9c637"
+            continue
         assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
     for candidate in record["candidates"].values():
         state = candidate["state"]
@@ -78,3 +112,37 @@ def test_published_cases_reproduce_from_frozen_state():
             assert hashlib.sha256(Path(state["baseline"]["path"]).read_bytes()).hexdigest() == state["baseline"]["sha256"]
         # Normalize tuples to JSON arrays for the durable evidence comparison.
         assert json.loads(json.dumps(envelope(state, hold_locations()))) == candidate["cases"]
+
+
+def test_separate_candidate_dispatch_preserves_drilling(monkeypatch):
+    import sys
+    from types import SimpleNamespace
+
+    import mini_moonboard
+    from fea.prepare_hybrid_frame import candidate_parts
+    sentinel = object()
+    calls = []
+    def parts(*, drilled):
+        calls.append(drilled)
+        return sentinel
+    module = SimpleNamespace(parts=parts)
+    monkeypatch.setitem(sys.modules, "mini_moonboard.shallow_frame", module)
+    monkeypatch.setattr(mini_moonboard, "shallow_frame", module, raising=False)
+    assert candidate_parts("2x8-shallow", False) is sentinel
+    assert candidate_parts("2x8-shallow", True) is sentinel
+    assert calls == [False, True]
+
+
+def test_shallow_published_envelope_is_current_and_reproducible():
+    from fea.user_load_envelope import hold_locations
+    record = json.loads(Path("fea/results/hybrid/shallow_user_load_envelope.json").read_text())
+    assert set(record["candidates"]) == {"2x8-shallow"}
+    assert record["climber_weights_lb"] == [150, 200, 250, 300]
+    for path, digest in record["source_sha256"].items():
+        assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
+    candidate = record["candidates"]["2x8-shallow"]
+    baseline = candidate["state"]["baseline"]
+    assert baseline["path"] == "fea/results/hybrid/2x8-shallow/stability.json"
+    assert hashlib.sha256(Path(baseline["path"]).read_bytes()).hexdigest() == baseline["sha256"]
+    assert len(candidate["cases"]) == 96
+    assert json.loads(json.dumps(envelope(candidate["state"], hold_locations(), record["climber_weights_lb"]))) == candidate["cases"]

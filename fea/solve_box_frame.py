@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--size",type=float,default=100)
     parser.add_argument("--modulus",type=float,default=7000)
     parser.add_argument("--audited",action="store_true",help="Use audited row-12 targets and classified load cases")
-    parser.add_argument("--candidate",choices=("2x8","2x10","2x12"),help="Separate hybrid timber-only bonded screen")
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"),help="Separate hybrid timber-only bonded screen")
     args=parser.parse_args()
     if not all(math.isfinite(v) and v>0 for v in (args.size,args.modulus)):
         parser.error("size and modulus must be positive finite numbers")
@@ -26,6 +26,9 @@ def main():
         directory=directory/"hybrid"/args.candidate
     prefix=directory/f"box_{'audited_' if args.audited else ''}{args.size:g}_{args.modulus:g}".replace(".","p")
     info=json.loads((directory/"box_frame_bulk.json").read_text())
+    if args.candidate:
+        from hybrid_results import require_candidate
+        require_candidate(info,args.candidate)
     if args.candidate and hashlib.sha256((directory/"box_frame_bulk.step").read_bytes()).hexdigest()!=info["step_sha256"]:
         raise ValueError("Hybrid STEP differs from frozen metadata")
     gmsh.initialize()

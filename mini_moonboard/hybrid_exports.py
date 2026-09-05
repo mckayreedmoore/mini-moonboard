@@ -11,11 +11,19 @@ from .export import _export_step
 from .raster import render
 
 
-def export(directory=Path("exports/hybrid-full"), viewer=None):
+def candidate(size):
+    if size == "2x8-shallow":
+        from . import shallow_frame
+        return shallow_frame.parts(), shallow_frame.connections()
+    if size not in ("2x10", "2x12"):
+        raise ValueError("Only clearance-screened complete candidates have viewer exports")
+    return h.parts(size), h.connections(size)
+
+
+def export(directory=Path("exports/hybrid-full"), viewer=None, sizes=("2x10","2x12")):
     directory.mkdir(parents=True,exist_ok=True)
-    for size in ("2x10","2x12"):
-        parts=h.parts(size)
-        connections=h.connections(size)
+    for size in sizes:
+        parts,connections=candidate(size)
         assembly=cq.Assembly(name=f"hybrid_{size}_PROVISIONAL")
         solids=[]
         for p in parts:
@@ -46,14 +54,16 @@ def export(directory=Path("exports/hybrid-full"), viewer=None):
              for c in connections])
         if viewer is not None:
             viewer_mesh(size,viewer)
-    write_manifest(directory)
+    write_manifest(directory, shallow="2x8-shallow" in sizes)
 
 
-def write_manifest(directory):
+def write_manifest(directory, shallow=False):
     sources=("mini_moonboard/hybrid_frame.py","mini_moonboard/hybrid.py",
              "mini_moonboard/box_frame.py","mini_moonboard/model.py",
              "mini_moonboard/panel_grid.py","mini_moonboard/raster.py",
              "mini_moonboard/hybrid_exports.py")
+    if shallow:
+        sources+=("mini_moonboard/shallow_frame.py",)
     data={"sources":{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in sources},
           "artifacts":{p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in sorted(directory.iterdir()) if p.name!="manifest.json"}}
@@ -61,16 +71,15 @@ def write_manifest(directory):
 
 
 def viewer_mesh(size, root):
-    if size not in ("2x10", "2x12"):
-        raise ValueError("Only clearance-screened complete candidates have viewer exports")
+    parts,connections=candidate(size)
     directory=root/"hybrid"/size
     models=directory/"models"
     models.mkdir(parents=True,exist_ok=True)
     items=[]
-    entries=[(p.name,p.shape,p.blank,p.description,"part") for p in h.parts(size)]
+    entries=[(p.name,p.shape,p.blank,p.description,"part") for p in parts]
     entries.extend(("fastener_"+c.name,cq.Compound.makeCompound(c.components()),
                     (c.length,c.diameter,c.diameter)," + ".join(c.members)+
-                    "; nominal hardware envelope, capacity unvalidated",c.kind) for c in h.connections(size))
+                    "; nominal hardware envelope, capacity unvalidated",c.kind) for c in connections)
     for name,shape,dims,description,kind in entries:
         path=models/f"{name}.stl"
         cq.exporters.export(shape,str(path),cq.exporters.ExportTypes.STL,tolerance=.5)
@@ -79,7 +88,7 @@ def viewer_mesh(size, root):
             "viewer_aabb_mm":[bounds.xlen,bounds.ylen,bounds.zlen],
             "fabrication":{"dimensions_mm":list(dims),"description":description,
                 "kind":kind,"clearance_status":"Geometry screened; NOT structural approval"}})
-    bounds=exact_bounds(cq.Compound.makeCompound([p.shape for p in h.parts(size)]))
+    bounds=exact_bounds(cq.Compound.makeCompound([p.shape for p in parts]))
     (directory/"parts.json").write_text(json.dumps({"parts":items,
         "bounds_mm":[[getattr(bounds,a+end) for a in "xyz"] for end in ("min","max")]},indent=2)+"\n")
 

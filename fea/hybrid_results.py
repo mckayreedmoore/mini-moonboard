@@ -3,6 +3,11 @@ import math
 import re
 
 
+def require_candidate(info, expected):
+    if info.get("candidate") != expected:
+        raise ValueError("Frozen geometry candidate differs from selected identity")
+
+
 def support_moments(data,nodes,feet,top,cases):
     if any(len(force)!=3 or not all(math.isfinite(v) for v in force) for _,force in cases):
         raise ValueError("Invalid case force")

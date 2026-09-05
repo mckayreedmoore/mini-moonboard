@@ -26,7 +26,9 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 ## Reference dimensions
 
-Latest investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and
+Latest candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
+
+Earlier investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and
 [2×8 feasibility and matched FEA](docs/2x8-feasibility.md).
 Earlier stage: [2×12 footprint comparison, load basis and joint plan](docs/hybrid-footprint-study.md).
 

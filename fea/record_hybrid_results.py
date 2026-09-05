@@ -6,7 +6,7 @@ import math
 from pathlib import Path
 
 from .box_results import parse_results
-from .hybrid_results import deck_geometry, support_moments
+from .hybrid_results import deck_geometry, require_candidate, support_moments
 from .record_updated_results import verify_hashes
 
 
@@ -15,6 +15,8 @@ def checked_record(directory,mesh):
     record=json.loads(stem.with_suffix(".json").read_text())
     verify_hashes(record,directory)
     info=json.loads((directory/"box_frame_bulk.json").read_text())
+    require_candidate(info,directory.name)
+    require_candidate(record,directory.name)
     if record["frozen_geometry"]!=info:
         raise ValueError("Geometry metadata changed after solving")
     if hashlib.sha256((directory/"box_frame_bulk.step").read_bytes()).hexdigest()!=info["step_sha256"]:
@@ -44,7 +46,7 @@ def checked_record(directory,mesh):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--candidate",choices=("2x8","2x10","2x12"))
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"))
     args=parser.parse_args()
     destination=Path("fea/results/hybrid")
     for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):

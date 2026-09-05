@@ -14,9 +14,16 @@ from mini_moonboard.panel_grid import main_tnut_datums
 from mini_moonboard.stability import evaluate_load, load_cases, row_point
 
 
+def candidate_parts(size, drilled=True):
+    if size == "2x8-shallow":
+        from mini_moonboard import shallow_frame
+        return shallow_frame.parts(drilled=drilled)
+    return h.parts(size, drilled)
+
+
 def stability(size):
     # Separate densities remain explicit assumptions.
-    items=[(p.shape,7850 if p.name.startswith("angle_") else 600) for p in h.parts(size, size!="2x8")
+    items=[(p.shape,7850 if p.name.startswith("angle_") else 600) for p in candidate_parts(size, size!="2x8")
            if size!="2x8" or not p.name.startswith("angle_")]
     # Hardware mass is omitted for comparability with the old timber-only screen;
     # angle plates are a distinct candidate material and included explicitly.
@@ -44,19 +51,22 @@ def stability(size):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--candidate",choices=("2x8","2x10","2x12"))
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"))
     args=parser.parse_args()
     for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):
         directory=Path("fea/generated/hybrid")/size
         directory.mkdir(parents=True,exist_ok=True)
-        timber=[p for p in h.parts(size,False) if not p.name.startswith("angle_")]
+        timber=[p for p in candidate_parts(size,False) if not p.name.startswith("angle_")]
+        sources=("mini_moonboard/hybrid_frame.py","mini_moonboard/hybrid.py","mini_moonboard/box_frame.py")
+        if size == "2x8-shallow":
+            sources += ("mini_moonboard/shallow_frame.py",)
         step=directory/"box_frame_bulk.step"
         cq.exporters.export(cq.Compound.makeCompound([p.shape for p in timber]),str(step))
         info={"parts":[p.name for p in timber],"candidate":size,
             "geometry_commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
             "step_sha256":hashlib.sha256(step.read_bytes()).hexdigest(),
             "geometry_source_sha256":{name:hashlib.sha256(Path(name).read_bytes()).hexdigest()
-                for name in ("mini_moonboard/hybrid_frame.py","mini_moonboard/hybrid.py","mini_moonboard/box_frame.py")},
+                for name in sources},
             "audited_load_targets_mm":[b.point(main_tnut_datums()[label][0]-b.HALF,
                 main_tnut_datums()[label][1],-18).toTuple() for label in ("A12","C12","F12","H12","K12")],
             "audited_cases":[{"name":c.name,"basis":c.basis,"force_n":[0,c.force_y_n,c.force_z_n]} for c in load_cases()],

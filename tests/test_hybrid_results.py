@@ -5,7 +5,26 @@ from pathlib import Path
 import pytest
 
 from fea.box_results import parse_results
-from fea.hybrid_results import deck_geometry, support_moments
+from fea.hybrid_results import deck_geometry, require_candidate, support_moments
+
+
+def test_candidate_identity_cannot_be_crossed():
+    require_candidate({"candidate":"2x8-shallow"},"2x8-shallow")
+    for info in ({},{"candidate":"2x8"},{"candidate":"2x10"}):
+        with pytest.raises(ValueError,match="candidate"):
+            require_candidate(info,"2x8-shallow")
+
+
+@pytest.mark.parametrize("record_id,geometry_id",[("2x8","2x8-shallow"),("2x8-shallow","2x8")])
+def test_recorder_rejects_crossed_identity_before_auditing(tmp_path,monkeypatch,record_id,geometry_id):
+    from fea import record_hybrid_results as recorder
+    directory=tmp_path/"2x8-shallow"
+    directory.mkdir()
+    (directory/"box_audited_60_7000.json").write_text(json.dumps({"candidate":record_id}))
+    (directory/"box_frame_bulk.json").write_text(json.dumps({"candidate":geometry_id}))
+    monkeypatch.setattr(recorder,"verify_hashes",lambda *args:None)
+    with pytest.raises(ValueError,match="candidate"):
+        recorder.checked_record(directory,60)
 
 
 def test_reaction_moments_require_complete_balanced_output():
@@ -30,12 +49,17 @@ def test_deck_loads_and_supports_are_not_taken_on_trust():
             deck_geometry(broken,cases)
 
 
-@pytest.mark.parametrize("size",["2x8","2x10","2x12"])
+@pytest.mark.parametrize("size",["2x8","2x8-shallow","2x10","2x12"])
 @pytest.mark.parametrize("mesh",[60,40])
 def test_published_hybrid_force_and_displacement_records(size,mesh):
     directory=Path("fea/results/hybrid")/size
     stem=directory/f"box_audited_{mesh}_7000"
     record=json.loads(stem.with_suffix(".json").read_text())
+    assert record["candidate"]==size
+    assert record["frozen_geometry"]["candidate"]==size
+    if size=="2x8-shallow":
+        for path,digest in (record["frozen_geometry"]["geometry_source_sha256"]|record["audit_context_sha256"]).items():
+            assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest
     dat=stem.with_suffix(".dat")
     assert hashlib.sha256(dat.read_bytes()).hexdigest()==record["evidence_sha256"][dat.name]
     cases=[(c["name"],tuple(v/1200 for v in c["force_n"])) for c in record["load_basis"]]
