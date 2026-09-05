@@ -139,6 +139,10 @@ def test_shallow_published_envelope_is_current_and_reproducible():
     assert set(record["candidates"]) == {"2x8-shallow"}
     assert record["climber_weights_lb"] == [150, 200, 250, 300]
     for path, digest in record["source_sha256"].items():
+        if path == "fea/prepare_hybrid_frame.py":
+            # Frozen dc1659a dispatcher, before separate foot100 candidate.
+            assert digest == "06e0b2bde3e6f57fbb56b6737c4e7a9b85006ed86478a6e7aa271b09b25b8ee1"
+            continue
         assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
     candidate = record["candidates"]["2x8-shallow"]
     baseline = candidate["state"]["baseline"]
@@ -146,3 +150,17 @@ def test_shallow_published_envelope_is_current_and_reproducible():
     assert hashlib.sha256(Path(baseline["path"]).read_bytes()).hexdigest() == baseline["sha256"]
     assert len(candidate["cases"]) == 96
     assert json.loads(json.dumps(envelope(candidate["state"], hold_locations(), record["climber_weights_lb"]))) == candidate["cases"]
+
+
+def test_footprint_candidate_dispatch_preserves_extension_and_drilling(monkeypatch):
+    from fea.prepare_hybrid_frame import candidate_parts
+    from mini_moonboard import footprint_frame
+    calls = []
+    sentinel = object()
+    def parts(extension, *, drilled):
+        calls.append((extension, drilled))
+        return sentinel
+    monkeypatch.setattr(footprint_frame, "parts", parts)
+    assert candidate_parts("2x8-foot100", False) is sentinel
+    assert candidate_parts("2x8-foot100", True) is sentinel
+    assert calls == [(100, False), (100, True)]

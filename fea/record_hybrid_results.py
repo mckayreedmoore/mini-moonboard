@@ -46,7 +46,7 @@ def checked_record(directory,mesh):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"))
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x8-foot100","2x10","2x12"))
     args=parser.parse_args()
     destination=Path("fea/results/hybrid")
     for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):

@@ -10,7 +10,7 @@ import pytest
 from mini_moonboard.hybrid_exports import candidate
 
 
-@pytest.mark.parametrize("folder,count",[("hybrid-full",10),("shallow-frame",5)])
+@pytest.mark.parametrize("folder,count",[("hybrid-full",10),("shallow-frame",5),("footprint-frame",5)])
 def test_full_candidate_artifacts_match_recorded_sources_and_hashes(folder,count):
     directory=Path("exports")/folder
     manifest=json.loads((directory/"manifest.json").read_text())
@@ -22,9 +22,9 @@ def test_full_candidate_artifacts_match_recorded_sources_and_hashes(folder,count
         assert hashlib.sha256((directory/filename).read_bytes()).hexdigest()==digest,filename
 
 
-@pytest.mark.parametrize("size",["2x10","2x12","2x8-shallow"])
+@pytest.mark.parametrize("size",["2x10","2x12","2x8-shallow","2x8-foot100"])
 def test_full_candidate_schedules_and_step(size):
-    directory=Path("exports")/("shallow-frame" if size=="2x8-shallow" else "hybrid-full")
+    directory=Path("exports")/({"2x8-shallow":"shallow-frame","2x8-foot100":"footprint-frame"}.get(size,"hybrid-full"))
     with (directory/f"{size}_parts.csv").open() as stream:
         rows=list(csv.DictReader(stream))
     parts,connections=candidate(size)

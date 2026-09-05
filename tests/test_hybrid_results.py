@@ -49,7 +49,7 @@ def test_deck_loads_and_supports_are_not_taken_on_trust():
             deck_geometry(broken,cases)
 
 
-@pytest.mark.parametrize("size",["2x8","2x8-shallow","2x10","2x12"])
+@pytest.mark.parametrize("size",["2x8","2x8-shallow","2x8-foot100","2x10","2x12"])
 @pytest.mark.parametrize("mesh",[60,40])
 def test_published_hybrid_force_and_displacement_records(size,mesh):
     directory=Path("fea/results/hybrid")/size
@@ -57,9 +57,22 @@ def test_published_hybrid_force_and_displacement_records(size,mesh):
     record=json.loads(stem.with_suffix(".json").read_text())
     assert record["candidate"]==size
     assert record["frozen_geometry"]["candidate"]==size
-    if size=="2x8-shallow":
-        for path,digest in (record["frozen_geometry"]["geometry_source_sha256"]|record["audit_context_sha256"]).items():
+    if size in ("2x8-shallow", "2x8-foot100"):
+        for path,digest in record["frozen_geometry"]["geometry_source_sha256"].items():
             assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest
+        if size == "2x8-shallow":
+            # Frozen audit context at dc1659a; adding a separate candidate must
+            # not rewrite historical numerical evidence. Geometry and raw
+            # DAT/deck reproduction remain checked independently below.
+            assert record["audit_context_sha256"] == {
+                "fea/solve_box_frame.py": "1d01b3b637a7c48dd31957efa6817d3c4c2c8fa344415fe250137bf93c8c3eff",
+                "fea/prepare_hybrid_frame.py": "06e0b2bde3e6f57fbb56b6737c4e7a9b85006ed86478a6e7aa271b09b25b8ee1",
+                "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62",
+                "fea/record_hybrid_results.py": "4eb0647973e5b15e39e41b15c4f6ad12523b18d691df2aab668304a22b1727c1",
+            }
+        else:
+            for path, digest in record["audit_context_sha256"].items():
+                assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
     dat=stem.with_suffix(".dat")
     assert hashlib.sha256(dat.read_bytes()).hexdigest()==record["evidence_sha256"][dat.name]
     cases=[(c["name"],tuple(v/1200 for v in c["force_n"])) for c in record["load_basis"]]

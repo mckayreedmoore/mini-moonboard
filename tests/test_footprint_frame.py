@@ -70,3 +70,14 @@ def test_selected_full_geometry_gates(monkeypatch, gate, extension):
         parts=lambda size: frame.parts(extension), connections=lambda size: frame.connections(),
         panel_attachments=h.panel_attachments))
     gate('2x8')
+
+
+def test_selected_100_mm_shafts_clear_non_receiving_members():
+    parts = frame.parts(100)
+    collisions = []
+    for connection in frame.connections():
+        shaft = connection.components()[0]
+        for part in parts:
+            if part.name not in connection.members and overlap(shaft, part.shape) > .01:
+                collisions.append((connection.name, part.name))
+    assert not collisions, collisions

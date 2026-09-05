@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--size",type=float,default=100)
     parser.add_argument("--modulus",type=float,default=7000)
     parser.add_argument("--audited",action="store_true",help="Use audited row-12 targets and classified load cases")
-    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"),help="Separate hybrid timber-only bonded screen")
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x8-foot100","2x10","2x12"),help="Separate hybrid timber-only bonded screen")
     args=parser.parse_args()
     if not all(math.isfinite(v) and v>0 for v in (args.size,args.modulus)):
         parser.error("size and modulus must be positive finite numbers")

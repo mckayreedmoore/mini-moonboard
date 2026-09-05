@@ -12,6 +12,9 @@ from .raster import render
 
 
 def candidate(size):
+    if size == "2x8-foot100":
+        from . import footprint_frame
+        return footprint_frame.parts(100), footprint_frame.connections()
     if size == "2x8-shallow":
         from . import shallow_frame
         return shallow_frame.parts(), shallow_frame.connections()
@@ -54,16 +57,19 @@ def export(directory=Path("exports/hybrid-full"), viewer=None, sizes=("2x10","2x
              for c in connections])
         if viewer is not None:
             viewer_mesh(size,viewer)
-    write_manifest(directory, shallow="2x8-shallow" in sizes)
+    write_manifest(directory, shallow=any(s in ("2x8-shallow","2x8-foot100") for s in sizes),
+                   footprint="2x8-foot100" in sizes)
 
 
-def write_manifest(directory, shallow=False):
+def write_manifest(directory, shallow=False, footprint=False):
     sources=("mini_moonboard/hybrid_frame.py","mini_moonboard/hybrid.py",
              "mini_moonboard/box_frame.py","mini_moonboard/model.py",
              "mini_moonboard/panel_grid.py","mini_moonboard/raster.py",
              "mini_moonboard/hybrid_exports.py")
     if shallow:
         sources+=("mini_moonboard/shallow_frame.py",)
+    if footprint:
+        sources+=("mini_moonboard/footprint_frame.py",)
     data={"sources":{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in sources},
           "artifacts":{p.name:hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in sorted(directory.iterdir()) if p.name!="manifest.json"}}

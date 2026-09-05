@@ -15,6 +15,9 @@ from mini_moonboard.stability import evaluate_load, load_cases, row_point
 
 
 def candidate_parts(size, drilled=True):
+    if size == "2x8-foot100":
+        from mini_moonboard import footprint_frame
+        return footprint_frame.parts(100, drilled=drilled)
     if size == "2x8-shallow":
         from mini_moonboard import shallow_frame
         return shallow_frame.parts(drilled=drilled)
@@ -51,15 +54,17 @@ def stability(size):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x10","2x12"))
+    parser.add_argument("--candidate",choices=("2x8","2x8-shallow","2x8-foot100","2x10","2x12"))
     args=parser.parse_args()
     for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):
         directory=Path("fea/generated/hybrid")/size
         directory.mkdir(parents=True,exist_ok=True)
         timber=[p for p in candidate_parts(size,False) if not p.name.startswith("angle_")]
         sources=("mini_moonboard/hybrid_frame.py","mini_moonboard/hybrid.py","mini_moonboard/box_frame.py")
-        if size == "2x8-shallow":
+        if size in ("2x8-shallow", "2x8-foot100"):
             sources += ("mini_moonboard/shallow_frame.py",)
+        if size == "2x8-foot100":
+            sources += ("mini_moonboard/footprint_frame.py",)
         step=directory/"box_frame_bulk.step"
         cq.exporters.export(cq.Compound.makeCompound([p.shape for p in timber]),str(step))
         info={"parts":[p.name for p in timber],"candidate":size,
