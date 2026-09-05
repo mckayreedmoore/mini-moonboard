@@ -62,15 +62,25 @@
         const inches = Number(((hundredths % 1200) / 100).toFixed(2));
         return `${feet} ft ${inches} in`;
       };
-      const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
-      fetch('parts.json').then(response => response.json()).then(({ parts, bounds_mm }) => {
+      const requestedModel = new URLSearchParams(location.search).get('model');
+      const model = ['2x10', '2x12'].includes(requestedModel) ? requestedModel : 'plywood';
+      const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
+      const modelSelect = document.createElement('select'); modelSelect.id = 'model';
+      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
+      document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
+      modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
+      if (model !== 'plywood') document.querySelector('header p:nth-of-type(2)').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts red, screws blue, angles grey`;
+      const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'bolt' ? 0xd24141 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('angle_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
+      const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
+      manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm }) => {
         drawDimensions(bounds_mm);
         partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: .7, metalness: .05 }));
           mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
-        }));
+        }, undefined, error => { partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`; }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
       const overlay = new THREE.Group(); assemblyView.add(overlay);
       // Decal planes lie 0.5 mm in front of the actual underside face. Their

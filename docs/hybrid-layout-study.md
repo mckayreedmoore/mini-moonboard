@@ -1,5 +1,8 @@
 # Hybrid rim and leg study
 
+Historical first-stage layouts. See the [complete comparison candidates](hybrid-full-candidates.md)
+for the subsequent backing and connection geometry; these initial exports remain unchanged.
+
 **Incomplete layout candidates, not construction plans or FEA models.**
 The default plywood frame and its viewer remain unchanged. This first step
 resolves the candidate rim envelope and upper leg position before introducing

@@ -15,12 +15,19 @@ def main():
     parser.add_argument("--size",type=float,default=100)
     parser.add_argument("--modulus",type=float,default=7000)
     parser.add_argument("--audited",action="store_true",help="Use audited row-12 targets and classified load cases")
+    parser.add_argument("--candidate",choices=("2x10","2x12"),help="Separate hybrid timber-only bonded screen")
     args=parser.parse_args()
     if not all(math.isfinite(v) and v>0 for v in (args.size,args.modulus)):
         parser.error("size and modulus must be positive finite numbers")
+    if args.candidate and not args.audited:
+        parser.error("Hybrid comparisons require --audited load cases")
     directory=Path("fea/generated")
+    if args.candidate:
+        directory=directory/"hybrid"/args.candidate
     prefix=directory/f"box_{'audited_' if args.audited else ''}{args.size:g}_{args.modulus:g}".replace(".","p")
     info=json.loads((directory/"box_frame_bulk.json").read_text())
+    if args.candidate and hashlib.sha256((directory/"box_frame_bulk.step").read_bytes()).hexdigest()!=info["step_sha256"]:
+        raise ValueError("Hybrid STEP differs from frozen metadata")
     gmsh.initialize()
     gmsh.option.setNumber("General.Verbosity",2)
     gmsh.model.add("ideal_bonded_box")
@@ -66,7 +73,7 @@ def main():
         lines += [f"** CASE {name}","*STEP","*STATIC","*BOUNDARY","FEET,1,3,0","*CLOAD,OP=NEW"]
         for node in top:
             lines += [f"{node},{dof},{1200*value/len(top):.9f}" for dof,value in enumerate(force,1) if value]
-        lines += ["*NODE PRINT,NSET=TOP","U","*NODE PRINT,NSET=FEET,TOTALS=ONLY","RF","*NODE FILE","U","*END STEP"]
+        lines += ["*NODE PRINT,NSET=TOP","U",f"*NODE PRINT,NSET=FEET,TOTALS={'YES' if args.candidate else 'ONLY'}","RF","*NODE FILE","U","*END STEP"]
     prefix.with_suffix(".inp").write_text("\n".join(lines)+"\n")
     result=subprocess.run(["ccx","-i",prefix.name],cwd=directory,capture_output=True,text=True,check=False)
     prefix.with_suffix(".log").write_text(result.stdout+result.stderr)
@@ -80,6 +87,11 @@ def main():
              "load_basis":info["audited_cases"] if args.audited else "historical top-edge vectors",
              "assumptions":info["assumptions"].replace("E=7000MPa",f"E={args.modulus:g}MPa"),"max_top_displacement_mm":maxima,"reaction_totals_n":reactions}
     summary["evidence_sha256"]={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (prefix.with_suffix(".inp"),prefix.with_suffix(".dat"))}
+    if args.candidate:
+        from hybrid_results import support_moments
+        summary["reaction_moment_nmm"]=support_moments(data,nodes,feet,top,cases)
+        summary["candidate"]=args.candidate
+        summary["frozen_geometry"]=info
     prefix.with_suffix(".json").write_text(json.dumps(summary,indent=2)+"\n")
     print(json.dumps(summary,indent=2))
 

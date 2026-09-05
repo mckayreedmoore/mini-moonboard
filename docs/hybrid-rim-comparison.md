@@ -1,5 +1,8 @@
 # Hybrid rims against the plywood baseline
 
+Historical preliminary screen. The subsequent [complete-frame comparison](hybrid-frame-fea.md)
+now includes backing and connection geometry, with explicit ideal-bonded limits.
+
 **Preliminary analytical section comparison—not new whole-frame FEA.**
 The hybrid layouts have no backing or completed joints. Running them as complete
 frames would require inventing load paths; the reference skins are not attached.

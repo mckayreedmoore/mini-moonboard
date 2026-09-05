@@ -26,8 +26,9 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 ## Reference dimensions
 
-Separate development work: [2×10 and 2×12 hybrid rim/leg layout comparison](docs/hybrid-layout-study.md).
-These incomplete candidates do not replace the V1 model or its structural studies.
+Separate development work: [complete 2×10 and 2×12 hybrid candidates](docs/hybrid-full-candidates.md),
+with selectable viewer models, backing and nominal connections. These unvalidated
+candidates do not replace the V1 reference or its structural studies.
 
 | Property | Metric | Imperial |
 | --- | ---: | ---: |

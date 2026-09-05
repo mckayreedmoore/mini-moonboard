@@ -1,0 +1,65 @@
+{
+  "mass_kg": 216.3045679628235,
+  "centre_y_mm": 734.3352053178658,
+  "kicker_toe_y_mm": -236.89719962124798,
+  "leg_toe_y_mm": 1398.8000904067271,
+  "load_y_mm": 1447.5557500853092,
+  "load_z_mm": 1971.5813303112698,
+  "cases": [
+    {
+      "case": "Downward 1.2 kN",
+      "basis": "gravity-direction baseline",
+      "kicker_reaction_n": 825.9300426501363,
+      "leg_reaction_n": 2495.293148762487,
+      "overturning_factor": 24.090849715733732,
+      "friction_required": 0.0,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+      "kicker_reaction_n": 790.1613267813841,
+      "leg_reaction_n": 3731.061864631239,
+      "overturning_factor": 12.045424857866866,
+      "friction_required": 0.0,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "kicker_reaction_n": 464.32621613571746,
+      "leg_reaction_n": 2856.896975276906,
+      "overturning_factor": 2.168490941399735,
+      "friction_required": 0.09032816607317509,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "kicker_reaction_n": 1187.5338691645552,
+      "leg_reaction_n": 2133.689322248068,
+      "overturning_factor": null,
+      "friction_required": 0.09032816607317509,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Outward/downward normal",
+      "basis": "exploratory legacy direction",
+      "kicker_reaction_n": -269.311336503662,
+      "leg_reaction_n": 3161.8796595401323,
+      "overturning_factor": 0.7618842327854799,
+      "friction_required": null,
+      "status": "UPLIFT"
+    },
+    {
+      "case": "Inward/upward normal",
+      "basis": "exploratory legacy direction",
+      "kicker_reaction_n": 1992.7088535414387,
+      "leg_reaction_n": -642.8307937526625,
+      "overturning_factor": 0.6620868780191548,
+      "friction_required": null,
+      "status": "UPLIFT"
+    }
+  ],
+  "assumptions": "Drilled wood 600 kg/m3, drilled angle steel 7850 kg/m3. Fasteners, holds, glue, LEDs omitted. 2D rigid body; no measured friction, no 3D tipping, no strength rating."
+}
