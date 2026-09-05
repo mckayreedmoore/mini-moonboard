@@ -16,6 +16,13 @@ def final_block(data,title):
     return matches[-1][0]
 
 
+def seat_stiffness(weights,total):
+    if not weights or not math.isfinite(total) or total<=0 or any(not math.isfinite(w) or w<=0 for w in weights.values()):
+        raise ValueError("Positive finite seating weights and stiffness required")
+    area=sum(weights.values())
+    return {int(t):total*w/area for t,w in weights.items()}
+
+
 def main():
     from joint_math import parse_joint_results
 
@@ -25,11 +32,14 @@ def main():
     parser.add_argument("--stiffness",type=float,default=1000,help="assumed total axial N/mm per head")
     parser.add_argument("--penalty",type=float,default=100,help="backing N/mm^3, numerical penalty")
     parser.add_argument("--modulus",type=float,default=7000)
+    parser.add_argument("--contact-gap",type=float,default=0,help="initial backing clearance in mm")
     parser.add_argument("--push",action="store_true")
     parser.add_argument("--reparse",action="store_true",help="validate existing evidence without rerunning solver")
     args=parser.parse_args()
     if not all(math.isfinite(v) and v>0 for v in (args.stiffness,args.penalty,args.modulus)):
         parser.error("positive finite properties required")
+    if not math.isfinite(args.contact_gap) or not 0<=args.contact_gap<1:
+        parser.error("contact gap must be finite and between 0 and 1 mm")
     directory=Path("fea/generated/connection")
     meta_path=directory/f"mesh_{args.size}.json"
     meta=json.loads(meta_path.read_text())
@@ -57,8 +67,7 @@ def main():
     stiffness=args.stiffness*(2 if args.variant=="stiffer_attachment" else 1)
     springs=[]
     for name,weights in meta["heads"].items():
-        area=sum(weights.values())
-        springs += [(int(t),stiffness*w/area,"head",name) for t,w in weights.items()]
+        springs += [(t,k,"head",name) for t,k in seat_stiffness(weights,stiffness).items()]
     patches=meta["backing"]["closer_backing" if args.variant=="closer_backing" else "baseline"]
     springs += [(int(t),args.penalty*w,"back","backing") for t,w in patches.items()]
     lines=[mesh]
@@ -73,6 +82,8 @@ def main():
         # A 1e-9 mm transition gives a defined initial tangent at zero.
         # Its bounded wrong-sign force is checked and reported below.
         curve=[(-100.,-k*1e-9),(-1e-9,-k*1e-9),(0.,0.),(100.,100*k)] if kind=="head" else [(-100.,-100*k),(0.,0.),(1e-9,k*1e-9),(100.,k*1e-9)]
+        if kind=="back" and args.contact_gap:
+            curve=[(-100.,k*(-100+args.contact_gap)),(-args.contact_gap,0.),(0.,0.),(100.,0.)]
         lines += ["*NODE",f"{anchor},{x:.12g},{y:.12g},{z+10000:.12g}",f"*ELEMENT,TYPE=SPRINGA,ELSET=SP{i}",
                   f"{next_element+i},{tag},{anchor}",f"*SPRING,ELSET=SP{i},NONLINEAR",
                   *(f"{f:.12e},{u:.12e}" for u,f in curve)]
@@ -91,6 +102,8 @@ def main():
     lines += ["*NODE PRINT,NSET=ALLN,FREQUENCY=999999","U","*EL PRINT,ELSET=PANEL,FREQUENCY=999999","S",
               "*NODE PRINT,NSET=GROUND,TOTALS=YES,FREQUENCY=999999","RF","*NODE FILE,FREQUENCY=999999","U","*END STEP"]
     name=f"c10_{args.size}_{args.variant}_k{args.stiffness:g}_p{args.penalty:g}_e{args.modulus:g}_{'push' if args.push else 'pull'}".replace(".","p")
+    if args.contact_gap:
+        name+=f"_g{args.contact_gap:g}".replace(".","p")
     job=directory/name
     deck="\n".join(lines)+"\n"
     if args.reparse:
@@ -114,7 +127,9 @@ def main():
     result=parse_joint_results("\n".join(blocks.values()),applied,deformed,moment,elements)
     head_forces={key:0. for key in meta["heads"]}
     contact=0.
+    extra_contact=0.
     active_contact=0
+    spring_error=0.
     for anchor,(tag,k,kind,name) in zip(supports,springs,strict=True):
         delta=tuple(nodes[anchor][i]-deformed[tag][i] for i in range(3))
         length=math.sqrt(sum(v*v for v in delta))
@@ -122,23 +137,34 @@ def main():
         if abs(extension)>=100:
             raise ValueError("Spring table range exceeded")
         force=k*(max(extension,-1e-9) if kind=="head" else min(extension,1e-9))
+        if kind=="back" and args.contact_gap:
+            force=k*min(extension+args.contact_gap,0)
         expected=tuple(force*v/length for v in delta)
+        spring_error=max(spring_error,max(abs(a-b) for a,b in zip(reactions[anchor],expected,strict=True)))
         if any(abs(a-b)>.05 for a,b in zip(reactions[anchor],expected,strict=True)):
             raise ValueError("Spring law / reaction mismatch")
         if kind=="head":
             head_forces[name]+=force
         else:
             contact-=force
-            active_contact+=extension<0
+            if str(tag) not in meta["backing"]["baseline"]:
+                extra_contact-=force
+            active_contact+=extension < -args.contact_gap
     result.update({"revision":meta["revision"],"mesh_mm":args.size,"variant":args.variant,
                    "assumed_axial_stiffness_n_per_mm":stiffness,"backing_penalty_n_per_mm3":args.penalty,"modulus_mpa":args.modulus,
                    "load_direction":"push" if args.push else "pull","applied_force_n":applied,"applied_moment_nmm":moment,
+                   "initial_backing_gap_mm":args.contact_gap,
                    "head_tension_n":head_forces,"backing_compression_n":contact,"active_contact_nodes":active_contact,
+                   "extra_backing_compression_n":extra_contact,
                    "backing_area_mm2":sum(patches.values()),"panel_nodes":len(original),
-                   "wrong_sign_force_bound_n":sum(k*1e-9 for _,k,_,_ in springs),
+                   "wrong_sign_force_bound_n":sum(k*1e-9 for _,k,kind,_ in springs if kind=="head" or not args.contact_gap),
+                   "max_spring_law_residual_n":spring_error,
+                   "sum_abs_transverse_anchor_force_n":sum(math.hypot(*reactions[t][:2]) for t in supports),
+                   "in_plane_pin_reactions_n":{t:reactions[t] for t in (pin,pin2)},
                    "max_panel_separation_mm":max(-displacements[t][2] for t in original),
-                   "max_backing_penetration_mm":max(0,max(displacements[int(t)][2] for t in patches)),
-                   "evidence_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (job.with_suffix(".inp"),job.with_suffix(".dat"),meta_path,Path(__file__))}})
+                   "max_backing_penetration_mm":max(0,max(displacements[int(t)][2]-args.contact_gap for t in patches)),
+                   "evidence_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (job.with_suffix(".inp"),job.with_suffix(".dat"))},
+                   "audit_context_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (meta_path,Path(__file__))}})
     job.with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
     print(json.dumps(result),flush=True)
 

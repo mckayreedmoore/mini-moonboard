@@ -101,4 +101,49 @@ stops reuse. Do not regenerate frozen meshes while their solves are running.
 
 ## Results
 
-The comparison is in progress. No design recommendation has been established.
+The comparison is in progress. Accepted preliminary results at 1.2 kN C10
+pull-away loading are:
+
+| Case | Mesh | Maximum panel displacement | Largest effective head tension |
+| --- | ---: | ---: | ---: |
+| Baseline, assumed 1000 N/mm per head | 20 mm | 4.489 mm | 346 N |
+| Baseline, assumed 1000 N/mm per head | 15 mm | 4.494 mm | 345 N |
+| Stiffer attachment, 2000 N/mm per head | 20 mm | 4.019 mm | 498 N |
+| Closer passive backing, 1000 N/mm per head, 0.000001 mm initial clearance | 20 mm | 4.489 mm | 346 N |
+| Softer-property sensitivity, 100 N/mm per head | 20 mm | 6.622 mm | 187 N |
+| Stiffer-property sensitivity, 10,000 N/mm per head | 20 mm | 3.195 mm | 786 N |
+
+Doubling the assumed attachment stiffness reduces displacement about 10.5%,
+but increases the maximum effective head tension about 44%. Backing compression
+and attachment tension form a prying reaction pattern: total head tension can
+exceed the applied 1200 N while their signed resultant remains in equilibrium.
+This is not a screw-capacity verdict. More stiffness alone is not automatically
+the best connection change.
+
+The baseline mesh comparison changes displacement by 0.13% and maximum head
+tension by 0.25%. The sampled backing footprint area changes by about 0.3%;
+curved head and flange feature resolution remains inherited from the earlier
+meshes. This supports numerical consistency for these sampled quantities, not
+verified material behavior or full stress convergence.
+
+The zero-clearance closer-backing trials at penalties 100 and 10 N/mm³ did
+not converge in the attempted iterations and were stopped without accepted
+results. The 0.000001 mm initial-clearance case converged with open contact
+at initialization. The added strip carries zero compressive load in that case;
+the panel moves away from it. A matching baseline-clearance check and finer
+alternative meshes are still underway. The clearance is numerical, not a
+measured manufacturing gap. Solver difficulty is not a structural failure
+finding.
+
+Reducing the baseline backing penalty from 100 to 10 N/mm³ changes displacement
+from 4.489 to 4.517 mm (0.62%) and maximum effective head tension from 346
+to 334 N (3.5%). Maximum numerical penetration rises from 0.0064 to 0.0348 mm.
+This is a penalty sensitivity, not a measured backing compression modulus.
+
+The checked cases' summed absolute transverse anchor forces are below 0.024 N,
+compared with the applied 1200 N. The wrong-sign spring regularization bound
+is below 0.031 N. Input/output hashes are distinct from the recorded re-audit
+context: current script/metadata hashes are not immutable execution provenance.
+
+No final design recommendation has been established while the remaining
+alternative and sensitivity runs are underway.
