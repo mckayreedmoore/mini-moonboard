@@ -64,6 +64,10 @@ No total-frame mass, stability margin or load rating is inferred from this subse
 
 ## Next design steps
 
+The [preliminary side-rim comparison against plywood](hybrid-rim-comparison.md)
+quantifies the depth tradeoff. It is an analytical section screen, not completed
+hybrid-frame FEA.
+
 1. Add standard-lumber perimeter/seam backing and an **attached** mid-panel support
    candidate. Preserve hold/LED reliefs, perimeter screw regularity and a continuous
    load path into the rim. Passive backing alone did not help the previous outward

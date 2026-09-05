@@ -1,0 +1,108 @@
+{
+  "status": "ANALYTICAL GROSS SECTION SCREEN ONLY; no new FEA solve",
+  "baseline_assumed_E_mpa": 7000,
+  "baseline_result_file": "box_audited_40_7000.json",
+  "baseline_result_sha256": "5313ae734ad8dce1218f3b28137527148e0b49680c3d7d9aa6ad7fa525cc2e73",
+  "scope": "Side rims only, same length and bending axis. Gross homogeneous rectangular sections; perfect plywood lamination. No holes, joints, frame action, shear deflection, torsion or material failure. Sensitivity moduli are assumptions, not selected lumber properties or bounds. Do not scale old whole-frame displacements by these ratios.",
+  "sections": [
+    {
+      "name": "plywood",
+      "thickness_mm": 38.1,
+      "depth_mm": 322.8,
+      "area_mm2": 12298.68,
+      "I_normal_mm4": 106793374.01760001,
+      "I_lateral_mm4": 1487740.5729000003,
+      "Z_normal_mm3": 661668.984,
+      "Z_lateral_mm3": 78096.618,
+      "gross_volume_ratio_same_length": 1.0,
+      "equal_E_normal_EI_ratio": 1.0,
+      "equal_E_lateral_EI_ratio": 1.0,
+      "same_normal_moment_stress_ratio": 1.0,
+      "E_to_match_baseline_normal_EI_mpa": 7000.0,
+      "normal_EI_sensitivity": [
+        {
+          "assumed_E_mpa": 3500.0,
+          "EI_ratio_to_plywood": 0.5
+        },
+        {
+          "assumed_E_mpa": 7000,
+          "EI_ratio_to_plywood": 1.0
+        },
+        {
+          "assumed_E_mpa": 10500.0,
+          "EI_ratio_to_plywood": 1.5
+        },
+        {
+          "assumed_E_mpa": 14000,
+          "EI_ratio_to_plywood": 2.0
+        }
+      ]
+    },
+    {
+      "name": "2x10",
+      "thickness_mm": 38.1,
+      "depth_mm": 234.95,
+      "area_mm2": 8951.595,
+      "I_normal_mm4": 41178457.81429062,
+      "I_lateral_mm4": 1082852.0681625002,
+      "Z_normal_mm3": 350529.54087499995,
+      "Z_lateral_mm3": 56842.62825,
+      "gross_volume_ratio_same_length": 0.7278500619578686,
+      "equal_E_normal_EI_ratio": 0.38559000680607985,
+      "equal_E_lateral_EI_ratio": 0.7278500619578686,
+      "same_normal_moment_stress_ratio": 1.8876268811704904,
+      "E_to_match_baseline_normal_EI_mpa": 18153.997449214046,
+      "normal_EI_sensitivity": [
+        {
+          "assumed_E_mpa": 3500.0,
+          "EI_ratio_to_plywood": 0.19279500340303993
+        },
+        {
+          "assumed_E_mpa": 7000,
+          "EI_ratio_to_plywood": 0.38559000680607985
+        },
+        {
+          "assumed_E_mpa": 10500.0,
+          "EI_ratio_to_plywood": 0.5783850102091198
+        },
+        {
+          "assumed_E_mpa": 14000,
+          "EI_ratio_to_plywood": 0.7711800136121597
+        }
+      ]
+    },
+    {
+      "name": "2x12",
+      "thickness_mm": 38.1,
+      "depth_mm": 285.75,
+      "area_mm2": 10887.075,
+      "I_normal_mm4": 74080251.28476563,
+      "I_lateral_mm4": 1316982.2450625002,
+      "Z_normal_mm3": 518496.94687499997,
+      "Z_lateral_mm3": 69132.92625,
+      "gross_volume_ratio_same_length": 0.8852230483271376,
+      "equal_E_normal_EI_ratio": 0.6936783481768904,
+      "equal_E_lateral_EI_ratio": 0.8852230483271375,
+      "same_normal_moment_stress_ratio": 1.2761289878135313,
+      "E_to_match_baseline_normal_EI_mpa": 10091.132321481908,
+      "normal_EI_sensitivity": [
+        {
+          "assumed_E_mpa": 3500.0,
+          "EI_ratio_to_plywood": 0.3468391740884452
+        },
+        {
+          "assumed_E_mpa": 7000,
+          "EI_ratio_to_plywood": 0.6936783481768904
+        },
+        {
+          "assumed_E_mpa": 10500.0,
+          "EI_ratio_to_plywood": 1.0405175222653358
+        },
+        {
+          "assumed_E_mpa": 14000,
+          "EI_ratio_to_plywood": 1.387356696353781
+        }
+      ]
+    }
+  ]
+}
