@@ -95,6 +95,10 @@ assembled-joint, screw-withdrawal, or adhesive-strength validation.
 The [updated-board FEA](docs/updated-board-fea.md) reruns the global frame at
 row-12 load locations and screens drilled panels with the reduced 12/8-screw
 patterns. Its ideal screw-head constraints do not establish connection strength.
+The [C10 connection comparison](docs/panel-connection-comparison.md) adds
+finite-stiffness tensile attachments and compression-only backing contact,
+comparing stiffer attachments with closer passive backing. Assumed connection
+properties are sensitivity inputs, not hardware ratings.
 
 ## SketchUp reference geometry
 

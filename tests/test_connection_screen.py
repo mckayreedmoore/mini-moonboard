@@ -34,6 +34,14 @@ def test_published_connection_records_are_balanced_and_comparable():
     keys={(r["mesh_mm"],r["variant"],r["assumed_axial_stiffness_n_per_mm"],
            r["backing_penalty_n_per_mm3"],r["modulus_mpa"],r["initial_backing_gap_mm"],r["load_direction"]) for r in records}
     assert len(keys)==len(records)
+    for variant in ("baseline","stiffer_attachment","closer_backing"):
+        compared=[r for r in records if r["variant"]==variant and r["modulus_mpa"]==7000
+                  and r["backing_penalty_n_per_mm3"]==100 and r["assumed_axial_stiffness_n_per_mm"]==(2000 if variant=="stiffer_attachment" else 1000)]
+        assert {r["mesh_mm"] for r in compared}=={15,20}
+    matched=[r for r in records if r["mesh_mm"]==20 and r["modulus_mpa"]==7000
+             and r["initial_backing_gap_mm"]==1e-6 and r["backing_penalty_n_per_mm3"]==100]
+    assert {r["variant"] for r in matched}=={"baseline","closer_backing"}
+    assert matched[0]["max_displacement_mm"]==pytest.approx(matched[1]["max_displacement_mm"],abs=1e-5)
     for r in records:
         assert r["revision"].startswith("630a567")
         assert len(r["head_tension_n"])==12

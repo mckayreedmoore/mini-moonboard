@@ -11,11 +11,14 @@ analysis or permission to climb.
 
 ## What is different from the fixed-head screen
 
-The panel's actual countersinks now have distributed, finite-stiffness axial
+The 18 mm CAD panel's actual countersinks now have distributed, finite-stiffness axial
 supports instead of fixed XYZ nodes. Each head resists pull-away only. Its
 effective spring stiffness lumps screw withdrawal, head seating and receiving
 wood compliance; neither steel threads nor progressive wood failure is resolved.
 The total stiffness is normalized per head, not per mesh node.
+Radial countersink contact forces, splitting and screw shear are not represented
+by these axial springs. The JSON's isotropic stress outputs are not a plywood
+failure criterion.
 
 Existing backing footprints are sampled from the actual CAD battens, including
 hardware reliefs. They resist compression and permit separation. This is a
@@ -77,8 +80,10 @@ and C3D10 integration-point output. Checks compare every support reaction to
 its unilateral force law, reject spring extensions outside the tabulated range,
 and verify total force and moment equilibrium using deformed coordinates.
 The actual INP/DAT and frozen mesh metadata are hashed. Full raw outputs remain
-under ignored `fea/generated/connection/`; compact checked records will be
-published after the comparison and refinement complete.
+under ignored `fea/generated/connection/`; compact checked records are in
+[`connection_comparison.json`](../fea/results/connection_comparison.json), with
+[`geometry metadata`](../fea/results/connection_geometry.json). The recorder
+reconstructs each requested input and reparses the raw output before publication.
 
 ```bash
 uv run python -m fea.prepare_connection --size 20
@@ -94,6 +99,25 @@ docker run --rm --user "$(id -u):$(id -g)" -e OMP_NUM_THREADS=2 \
 # --reparse checks completed raw evidence without rerunning CalculiX.
 ```
 
+For the published matrix, run the solver with these argument combinations:
+
+```text
+--size 20
+--size 15
+--size 20 --variant stiffer_attachment
+--size 15 --variant stiffer_attachment --tight
+--size 20 --variant closer_backing --contact-gap 0.000001
+--size 15 --variant closer_backing --contact-gap 0.000001
+--size 20 --contact-gap 0.000001
+--size 20 --stiffness 100
+--size 20 --stiffness 10000
+--size 20 --penalty 10
+--size 20 --modulus 3500
+```
+
+Then run `uv run python -m fea.record_connection_results`. The 15 mm stiffer
+case uses tighter convergence tolerances; it does not change physical properties.
+
 The preparation requires the earlier actual drilled-panel C10 INP and STEP
 exports in `fea/generated/`. Regenerate those with the
 [panel screen workflow](updated-board-fea.md) if absent. A geometry mismatch
@@ -101,17 +125,20 @@ stops reuse. Do not regenerate frozen meshes while their solves are running.
 
 ## Results
 
-The comparison is in progress. Accepted preliminary results at 1.2 kN C10
-pull-away loading are:
+Eleven cases completed and passed the acceptance checks. Results at 1.2 kN C10
+pull-away loading are numerical comparisons under the stated assumptions:
 
 | Case | Mesh | Maximum panel displacement | Largest effective head tension |
 | --- | ---: | ---: | ---: |
 | Baseline, assumed 1000 N/mm per head | 20 mm | 4.489 mm | 346 N |
 | Baseline, assumed 1000 N/mm per head | 15 mm | 4.494 mm | 345 N |
 | Stiffer attachment, 2000 N/mm per head | 20 mm | 4.019 mm | 498 N |
+| Stiffer attachment, 2000 N/mm per head | 15 mm | 4.028 mm | 495 N |
 | Closer passive backing, 1000 N/mm per head, 0.000001 mm initial clearance | 20 mm | 4.489 mm | 346 N |
+| Closer passive backing, same clearance | 15 mm | 4.495 mm | 345 N |
 | Softer-property sensitivity, 100 N/mm per head | 20 mm | 6.622 mm | 187 N |
 | Stiffer-property sensitivity, 10,000 N/mm per head | 20 mm | 3.195 mm | 786 N |
+| Softer plywood sensitivity, E=3500 MPa, 1000 N/mm per head | 20 mm | 7.838 mm | 491 N |
 
 Doubling the assumed attachment stiffness reduces displacement about 10.5%,
 but increases the maximum effective head tension about 44%. Backing compression
@@ -125,25 +152,67 @@ tension by 0.25%. The sampled backing footprint area changes by about 0.3%;
 curved head and flange feature resolution remains inherited from the earlier
 meshes. This supports numerical consistency for these sampled quantities, not
 verified material behavior or full stress convergence.
+The stiffer alternative changes displacement by 0.21% and maximum head tension
+by 0.46% with refinement. The passive-backing alternative follows the baseline
+mesh response. These mesh differences are much smaller than the tested property
+sensitivities, but no probabilistic uncertainty band is established.
 
 The zero-clearance closer-backing trials at penalties 100 and 10 N/mm³ did
 not converge in the attempted iterations and were stopped without accepted
 results. The 0.000001 mm initial-clearance case converged with open contact
 at initialization. The added strip carries zero compressive load in that case;
-the panel moves away from it. A matching baseline-clearance check and finer
-alternative meshes are still underway. The clearance is numerical, not a
-measured manufacturing gap. Solver difficulty is not a structural failure
-finding.
+the panel moves away from it. The matching baseline-clearance case gives the
+same displacement and head forces to the output precision. Both finer meshes
+confirm the absence of extra-strip compression. The clearance is numerical,
+not a measured manufacturing gap. Solver difficulty is not a structural failure
+finding. This does not establish the strip's usefulness under inward loads,
+other hold locations, or racking.
+
+The initial 15 mm stiffer-attachment run completed in CalculiX but failed the
+independent 1 N mm moment-balance threshold (largest residual about 61 N mm).
+It is excluded. Tightening the nonlinear residual/correction tolerances and
+rerunning reduced the largest residual below 0.05 N mm. No acceptance threshold
+was relaxed to publish it.
 
 Reducing the baseline backing penalty from 100 to 10 N/mm³ changes displacement
 from 4.489 to 4.517 mm (0.62%) and maximum effective head tension from 346
 to 334 N (3.5%). Maximum numerical penetration rises from 0.0064 to 0.0348 mm.
 This is a penalty sensitivity, not a measured backing compression modulus.
 
-The checked cases' summed absolute transverse anchor forces are below 0.024 N,
+The checked cases' summed absolute transverse anchor forces are below 0.044 N,
 compared with the applied 1200 N. The wrong-sign spring regularization bound
 is below 0.031 N. Input/output hashes are distinct from the recorded re-audit
 context: current script/metadata hashes are not immutable execution provenance.
 
-No final design recommendation has been established while the remaining
-alternative and sensitivity runs are underway.
+## Recommended next design investigation
+
+1. **Do not add the passive central batten solely to fix this pull-away case.**
+   It carries no load here. Retain whatever backing is required for other load
+   directions and frame functions; this is not a recommendation to remove it.
+2. **Do not treat stiffer attachments alone as a strength fix.** They reduce
+   deflection but increase prying reactions in this comparison. Resolve actual
+   head-bearing and withdrawal capacity alongside stiffness.
+3. **Evaluate a central batten with deliberate panel attachments and a defined
+   load path into the frame.** This would shorten the panel's bending span;
+   the comparison here motivates testing it but does not prove its benefit.
+   Locate new attachments around hold/LED bores, provide adequate receiving wood
+   and clearances, and assess the batten's own frame connections. That candidate
+   has not been implemented or analyzed in this study.
+4. **Select traceable hardware and plywood properties before capacity checks.**
+   Obtain exact screw/head/thread specifications, applicable withdrawal and
+   pull-through data, and suitable plywood grade, thickness and directional
+   properties. The 100–10,000 N/mm and E3500/E7000 probes are not substitutes.
+
+The analysis does not establish a need for thicker plywood or a different
+overall footprint. Whole-frame compliance, unanchored lift/slip, gravity,
+dynamic/cyclic loading, off-centre holds, racking, adhesive behavior and real
+fastener failure remain outside this local study. Qualified structural review
+and controlled physical validation remain necessary before climbing use.
+
+## Review
+
+Three independent review rounds covering correctness, testing and architecture reviewed the setup,
+sign conventions, CAD footprints, evidence and interpretations. Confirmed
+numerical issues were rejected or rerun, not treated as board failures.
+Final artifact checks matched all 22 INP/DAT hashes for the eleven accepted cases.
+This software/numerical review is not structural certification.

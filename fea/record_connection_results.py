@@ -21,6 +21,8 @@ def main():
             command += ["--modulus",str(r["modulus_mpa"])]
         if r.get("initial_backing_gap_mm",0):
             command += ["--contact-gap",str(r["initial_backing_gap_mm"])]
+        if r.get("tight_convergence",False):
+            command.append("--tight")
         if r["load_direction"]=="push":
             command.append("--push")
         subprocess.run(command,check=True,capture_output=True,text=True)

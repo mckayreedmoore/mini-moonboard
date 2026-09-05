@@ -33,6 +33,7 @@ def main():
     parser.add_argument("--penalty",type=float,default=100,help="backing N/mm^3, numerical penalty")
     parser.add_argument("--modulus",type=float,default=7000)
     parser.add_argument("--contact-gap",type=float,default=0,help="initial backing clearance in mm")
+    parser.add_argument("--tight",action="store_true",help="stricter nonlinear residual and correction tolerances")
     parser.add_argument("--push",action="store_true")
     parser.add_argument("--reparse",action="store_true",help="validate existing evidence without rerunning solver")
     args=parser.parse_args()
@@ -96,14 +97,18 @@ def main():
               "*SOLID SECTION,ELSET=PANEL,MATERIAL=ASSUMED_PLY","*BOUNDARY"]
     lines += [f"{t},1,3" for t in supports]
     lines += [f"{pin},1,2",f"{pin2},2,2","*STEP,NLGEOM,INC=100",
-              "*CONTROLS,PARAMETERS=TIME INCREMENTATION","12,30,9,60,30,4,0,5,0,0","0.25,0.5,0.75,0.85,0,0,1.5,0",
-              "*STATIC","1.,1.,1.e-6,1.","*CLOAD"]
+              "*CONTROLS,PARAMETERS=TIME INCREMENTATION","12,30,9,60,30,4,0,5,0,0","0.25,0.5,0.75,0.85,0,0,1.5,0"]
+    if args.tight:
+        lines += ["*CONTROLS,PARAMETERS=FIELD","1.e-5,1.e-4,0.01,,1.e-5,1.e-5,1.e-3,1.e-8"]
+    lines += ["*STATIC","1.,1.,1.e-6,1.","*CLOAD"]
     lines += [f"{t},3,{v:.12g}" for t,v in loads.items()]
     lines += ["*NODE PRINT,NSET=ALLN,FREQUENCY=999999","U","*EL PRINT,ELSET=PANEL,FREQUENCY=999999","S",
               "*NODE PRINT,NSET=GROUND,TOTALS=YES,FREQUENCY=999999","RF","*NODE FILE,FREQUENCY=999999","U","*END STEP"]
     name=f"c10_{args.size}_{args.variant}_k{args.stiffness:g}_p{args.penalty:g}_e{args.modulus:g}_{'push' if args.push else 'pull'}".replace(".","p")
     if args.contact_gap:
         name+=f"_g{args.contact_gap:g}".replace(".","p")
+    if args.tight:
+        name+="_tight"
     job=directory/name
     deck="\n".join(lines)+"\n"
     if args.reparse:
@@ -154,6 +159,7 @@ def main():
                    "assumed_axial_stiffness_n_per_mm":stiffness,"backing_penalty_n_per_mm3":args.penalty,"modulus_mpa":args.modulus,
                    "load_direction":"push" if args.push else "pull","applied_force_n":applied,"applied_moment_nmm":moment,
                    "initial_backing_gap_mm":args.contact_gap,
+                   "tight_convergence":args.tight,
                    "head_tension_n":head_forces,"backing_compression_n":contact,"active_contact_nodes":active_contact,
                    "extra_backing_compression_n":extra_contact,
                    "backing_area_mm2":sum(patches.values()),"panel_nodes":len(original),

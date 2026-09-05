@@ -40,6 +40,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 40.651731645770404,
       "analysis_panel_screw_26": 286.3903276005229,
@@ -82,7 +83,181 @@
     },
     "audit_context_sha256": {
       "mesh_15.json": "4a453b20b3f296af63314491f19e9a776356c22cdef44fe6f09aa764c761dde1",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
+    }
+  },
+  {
+    "max_displacement_mm": 4.494504695121645,
+    "peak_equivalent_stress_mpa": 17.79369330807312,
+    "p95_equivalent_stress_mpa": 2.7101144578852256,
+    "max_abs_stress_components_mpa": [
+      18.73891,
+      18.8004,
+      7.100325,
+      9.228382,
+      2.091201,
+      1.769051
+    ],
+    "reaction_n": [
+      5.613265e-09,
+      1.702287e-08,
+      1200.0
+    ],
+    "reaction_moment_nmm": [
+      792954.5498644277,
+      743036.4571969069,
+      -1.3238031093011162e-05
+    ],
+    "stress_points": 416464,
+    "revision": "630a567fdc30df13a1b575d6c3044ba18ee50cf0",
+    "mesh_mm": 15,
+    "variant": "closer_backing",
+    "assumed_axial_stiffness_n_per_mm": 1000.0,
+    "backing_penalty_n_per_mm3": 100.0,
+    "modulus_mpa": 7000,
+    "load_direction": "pull",
+    "applied_force_n": [
+      0,
+      0,
+      -1199.999999999902
+    ],
+    "applied_moment_nmm": [
+      -792954.5441903154,
+      -743036.4448294808,
+      0
+    ],
+    "initial_backing_gap_mm": 1e-06,
+    "tight_convergence": false,
+    "head_tension_n": {
+      "analysis_panel_screw_25": 40.65145530041388,
+      "analysis_panel_screw_26": 286.3905459575831,
+      "analysis_panel_screw_27": 291.2660906055749,
+      "analysis_panel_screw_28": 39.89527688234718,
+      "analysis_panel_screw_29": 48.922444656108986,
+      "analysis_panel_screw_30": 345.3475910771565,
+      "analysis_panel_screw_31": 339.9263322598602,
+      "analysis_panel_screw_32": 47.027933993277266,
+      "analysis_panel_screw_33": 304.48657252598395,
+      "analysis_panel_screw_34": 329.1756275336474,
+      "analysis_panel_screw_35": 295.5200615314174,
+      "analysis_panel_screw_36": 316.9922175619806
+    },
+    "backing_compression_n": 1485.6021607504763,
+    "active_contact_nodes": 132,
+    "extra_backing_compression_n": 0.0,
+    "backing_area_mm2": 364949.41297417105,
+    "panel_nodes": 206352,
+    "wrong_sign_force_bound_n": 1.2e-05,
+    "max_spring_law_residual_n": 6.103574749616314e-06,
+    "sum_abs_transverse_anchor_force_n": 0.018660654969736696,
+    "in_plane_pin_reactions_n": {
+      "3999": [
+        0.0001226496,
+        0.000789521,
+        -2.323086e-12
+      ],
+      "5509": [
+        -4.704613e-14,
+        0.0006591893,
+        -3.241574e-13
+      ]
+    },
+    "max_panel_separation_mm": 4.494501,
+    "max_backing_penetration_mm": 0.00832153,
+    "evidence_sha256": {
+      "c10_15_closer_backing_k1000_p100_e7000_pull_g1e-06.inp": "ba6fa619b55a36b7d1ad58ef030488bcd5cb6c1b6d9022ea748e1779325658de",
+      "c10_15_closer_backing_k1000_p100_e7000_pull_g1e-06.dat": "504c50d08dc3e2197ea2d033289f59a9ade67f9fbd03a4fc364b66b0994d2648"
+    },
+    "audit_context_sha256": {
+      "mesh_15.json": "4a453b20b3f296af63314491f19e9a776356c22cdef44fe6f09aa764c761dde1",
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
+    }
+  },
+  {
+    "max_displacement_mm": 4.02761052941815,
+    "peak_equivalent_stress_mpa": 17.407593477917352,
+    "p95_equivalent_stress_mpa": 3.042542064156037,
+    "max_abs_stress_components_mpa": [
+      18.43438,
+      18.49806,
+      10.10738,
+      9.077782,
+      2.972111,
+      2.51714
+    ],
+    "reaction_n": [
+      9.972449e-12,
+      7.595943e-12,
+      1200.0
+    ],
+    "reaction_moment_nmm": [
+      792954.0486927024,
+      743038.2757870764,
+      -6.580503475925774e-09
+    ],
+    "stress_points": 416464,
+    "revision": "630a567fdc30df13a1b575d6c3044ba18ee50cf0",
+    "mesh_mm": 15,
+    "variant": "stiffer_attachment",
+    "assumed_axial_stiffness_n_per_mm": 2000.0,
+    "backing_penalty_n_per_mm3": 100.0,
+    "modulus_mpa": 7000,
+    "load_direction": "pull",
+    "applied_force_n": [
+      0,
+      0,
+      -1199.999999999902
+    ],
+    "applied_moment_nmm": [
+      -792954.0416965076,
+      -743038.2301318492,
+      0
+    ],
+    "initial_backing_gap_mm": 0,
+    "tight_convergence": true,
+    "head_tension_n": {
+      "analysis_panel_screw_25": 54.00022619522961,
+      "analysis_panel_screw_26": 402.8088784435539,
+      "analysis_panel_screw_27": 409.7971964247634,
+      "analysis_panel_screw_28": 52.875772999338494,
+      "analysis_panel_screw_29": 64.872548083954,
+      "analysis_panel_screw_30": 495.3092188878644,
+      "analysis_panel_screw_31": 486.70675200463427,
+      "analysis_panel_screw_32": 62.26458043960813,
+      "analysis_panel_screw_33": 431.6636831654445,
+      "analysis_panel_screw_34": 470.164174482202,
+      "analysis_panel_screw_35": 417.6902644892521,
+      "analysis_panel_screw_36": 450.44144311152644
+    },
+    "backing_compression_n": 2598.594728389904,
+    "active_contact_nodes": 223,
+    "extra_backing_compression_n": 0.0,
+    "backing_area_mm2": 302575.58023027284,
+    "panel_nodes": 206352,
+    "wrong_sign_force_bound_n": 0.030281558023027285,
+    "max_spring_law_residual_n": 1.603316278675493e-05,
+    "sum_abs_transverse_anchor_force_n": 0.023435412280898654,
+    "in_plane_pin_reactions_n": {
+      "3999": [
+        -0.0001682852,
+        0.0009329873,
+        3.112621e-12
+      ],
+      "5509": [
+        -1.482545e-14,
+        0.001103315,
+        4.378442e-13
+      ]
+    },
+    "max_panel_separation_mm": 4.027608,
+    "max_backing_penetration_mm": 0.01318577,
+    "evidence_sha256": {
+      "c10_15_stiffer_attachment_k1000_p100_e7000_pull_tight.inp": "2b64b6513fef70056c7ff5d50cdf3d4630983164dcb79a60e4b2d7f28aea310d",
+      "c10_15_stiffer_attachment_k1000_p100_e7000_pull_tight.dat": "bb3e25dff8f07461f65c28f50b1fb18d13fd7b66a9bf7fbf758896bbd22a2814"
+    },
+    "audit_context_sha256": {
+      "mesh_15.json": "4a453b20b3f296af63314491f19e9a776356c22cdef44fe6f09aa764c761dde1",
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -126,6 +301,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 72.28090230838386,
       "analysis_panel_screw_26": 600.0475094759972,
@@ -168,7 +344,94 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
+    }
+  },
+  {
+    "max_displacement_mm": 7.837972515249091,
+    "peak_equivalent_stress_mpa": 17.56544672695593,
+    "p95_equivalent_stress_mpa": 3.28751390027938,
+    "max_abs_stress_components_mpa": [
+      18.61827,
+      17.90185,
+      10.02866,
+      8.764113,
+      3.128536,
+      3.024133
+    ],
+    "reaction_n": [
+      9.281621e-10,
+      1.976237e-09,
+      1200.0
+    ],
+    "reaction_moment_nmm": [
+      792940.6208356731,
+      743042.4766576812,
+      -1.2527159632374944e-06
+    ],
+    "stress_points": 318600,
+    "revision": "630a567fdc30df13a1b575d6c3044ba18ee50cf0",
+    "mesh_mm": 20,
+    "variant": "baseline",
+    "assumed_axial_stiffness_n_per_mm": 1000.0,
+    "backing_penalty_n_per_mm3": 100.0,
+    "modulus_mpa": 3500.0,
+    "load_direction": "pull",
+    "applied_force_n": [
+      0,
+      0,
+      -1199.999999999902
+    ],
+    "applied_moment_nmm": [
+      -792940.5969850586,
+      -743042.4518917018,
+      0
+    ],
+    "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
+    "head_tension_n": {
+      "analysis_panel_screw_25": 53.88881223632174,
+      "analysis_panel_screw_26": 397.79731267708274,
+      "analysis_panel_screw_27": 405.7802638125091,
+      "analysis_panel_screw_28": 52.62134101008648,
+      "analysis_panel_screw_29": 64.7342578137734,
+      "analysis_panel_screw_30": 490.77867251894037,
+      "analysis_panel_screw_31": 482.530980054214,
+      "analysis_panel_screw_32": 61.99830140291462,
+      "analysis_panel_screw_33": 426.941458107297,
+      "analysis_panel_screw_34": 465.3489806896434,
+      "analysis_panel_screw_35": 412.8278691458314,
+      "analysis_panel_screw_36": 447.47474109287145
+    },
+    "backing_compression_n": 2562.7230039399656,
+    "active_contact_nodes": 142,
+    "extra_backing_compression_n": 0.0,
+    "backing_area_mm2": 301715.86059007223,
+    "panel_nodes": 160004,
+    "wrong_sign_force_bound_n": 0.030183586059007225,
+    "max_spring_law_residual_n": 1.6745025185116447e-05,
+    "sum_abs_transverse_anchor_force_n": 0.04356773218530045,
+    "in_plane_pin_reactions_n": {
+      "3657": [
+        -0.001007327,
+        0.0008895722,
+        -3.327505e-12
+      ],
+      "5167": [
+        2.424556e-14,
+        0.001995,
+        -2.075923e-12
+      ]
+    },
+    "max_panel_separation_mm": 7.837968,
+    "max_backing_penetration_mm": 0.01011932,
+    "evidence_sha256": {
+      "c10_20_baseline_k1000_p100_e3500_pull.inp": "8895514c3046b376c8e359d225ae6558c4237ba61246f5f63752947cab5e6943",
+      "c10_20_baseline_k1000_p100_e3500_pull.dat": "93fd477e3175594439b96f3da46553423c08b1e2761d3e5b28bb950db607e417"
+    },
+    "audit_context_sha256": {
+      "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -212,6 +475,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 41.00222003038853,
       "analysis_panel_screw_26": 286.5436717607438,
@@ -254,7 +518,94 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
+    }
+  },
+  {
+    "max_displacement_mm": 4.4887418812773925,
+    "peak_equivalent_stress_mpa": 17.85307570351207,
+    "p95_equivalent_stress_mpa": 2.932872343368133,
+    "max_abs_stress_components_mpa": [
+      19.52448,
+      18.76334,
+      7.131091,
+      9.190127,
+      2.170376,
+      2.103668
+    ],
+    "reaction_n": [
+      1.732418e-11,
+      -5.383832e-11,
+      1200.0
+    ],
+    "reaction_moment_nmm": [
+      792954.6039913156,
+      743036.3828544845,
+      -7.352520100619314e-09
+    ],
+    "stress_points": 318600,
+    "revision": "630a567fdc30df13a1b575d6c3044ba18ee50cf0",
+    "mesh_mm": 20,
+    "variant": "baseline",
+    "assumed_axial_stiffness_n_per_mm": 1000.0,
+    "backing_penalty_n_per_mm3": 100.0,
+    "modulus_mpa": 7000,
+    "load_direction": "pull",
+    "applied_force_n": [
+      0,
+      0,
+      -1199.999999999902
+    ],
+    "applied_moment_nmm": [
+      -792954.6073501323,
+      -743036.3909334857,
+      0
+    ],
+    "initial_backing_gap_mm": 1e-06,
+    "tight_convergence": false,
+    "head_tension_n": {
+      "analysis_panel_screw_25": 41.00202046978594,
+      "analysis_panel_screw_26": 286.5439066901101,
+      "analysis_panel_screw_27": 291.8539968968784,
+      "analysis_panel_screw_28": 39.948440503718345,
+      "analysis_panel_screw_29": 49.3659383548547,
+      "analysis_panel_screw_30": 346.2018271906749,
+      "analysis_panel_screw_31": 340.9675105966601,
+      "analysis_panel_screw_32": 47.31956553300194,
+      "analysis_panel_screw_33": 304.80642471963506,
+      "analysis_panel_screw_34": 329.6664296023486,
+      "analysis_panel_screw_35": 295.5796278431967,
+      "analysis_panel_screw_36": 318.2809260653117
+    },
+    "backing_compression_n": 1491.5366080437602,
+    "active_contact_nodes": 91,
+    "extra_backing_compression_n": 0.0,
+    "backing_area_mm2": 301715.86059007223,
+    "panel_nodes": 160004,
+    "wrong_sign_force_bound_n": 1.2e-05,
+    "max_spring_law_residual_n": 7.1259689917724245e-06,
+    "sum_abs_transverse_anchor_force_n": 0.01865961121360871,
+    "in_plane_pin_reactions_n": {
+      "3657": [
+        0.0001289463,
+        0.0008054706,
+        -3.727518e-12
+      ],
+      "5167": [
+        2.72636e-14,
+        0.0006675859,
+        2.384315e-12
+      ]
+    },
+    "max_panel_separation_mm": 4.488737,
+    "max_backing_penetration_mm": 0.006372355,
+    "evidence_sha256": {
+      "c10_20_baseline_k1000_p100_e7000_pull_g1e-06.inp": "410f17830b08ba23b0d3ba6e351acc0ebc17edbc33b5770c043229edcdb0d860",
+      "c10_20_baseline_k1000_p100_e7000_pull_g1e-06.dat": "309c697ee9e383a7c9674d45ad4bb5092f6ceb65e54e5b30b1f4cf4cb5d55772"
+    },
+    "audit_context_sha256": {
+      "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -298,6 +649,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 39.31046658022815,
       "analysis_panel_screw_26": 275.3214833543394,
@@ -340,7 +692,7 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -384,6 +736,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 32.6188253650052,
       "analysis_panel_screw_26": 144.34397424636973,
@@ -426,7 +779,7 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -470,6 +823,7 @@
       0
     ],
     "initial_backing_gap_mm": 1e-06,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 41.00202046978594,
       "analysis_panel_screw_26": 286.5439066901101,
@@ -512,7 +866,7 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   },
   {
@@ -556,6 +910,7 @@
       0
     ],
     "initial_backing_gap_mm": 0,
+    "tight_convergence": false,
     "head_tension_n": {
       "analysis_panel_screw_25": 54.34057270152587,
       "analysis_panel_screw_26": 403.2348247786854,
@@ -598,7 +953,7 @@
     },
     "audit_context_sha256": {
       "mesh_20.json": "6f8ec36b55def649b6f98d088a576c756ff0c484ecd3dd5cbf0ebd4427f39f04",
-      "solve_connection.py": "d67d63615a8d16f868afe3f904dc434e14a7f734c75e9eab9a3711e34080152f"
+      "solve_connection.py": "0b49cedc916445a55940d59ae967a2359fbf039fd57b112efcbc55d549c8df88"
     }
   }
 ]
