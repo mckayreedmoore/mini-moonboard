@@ -1,5 +1,8 @@
 # Full hybrid candidates: matched bulk FEA and stability
 
+Next-stage investigation: [support-envelope comparison](hybrid-footprint-study.md),
+[load-basis audit](hybrid-load-basis.md), and [joint work plan](hybrid-joint-next-steps.md).
+
 **Numerical comparison, not structural approval.** Both complete candidate
 geometries are frozen at `93c2b51`, with actual geometry-source and STEP hashes
 in each result. The [candidate drawings and connection limitations](hybrid-full-candidates.md)

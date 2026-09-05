@@ -1,0 +1,507 @@
+{
+  "source": "fea/results/hybrid/2x12/stability.json",
+  "source_sha256": "1ab6ebfc2f0c5bbac796f05f8bf9df77786d4a0a3097b58edafcf1e3abe7e479",
+  "mass_kg": 216.3045679628235,
+  "centre_y_mm": 734.3352053178658,
+  "assumptions": "Frozen 2x12 mass/centroid; massless rigid support extensions. All 12 main rows; no hold stand-off. Not changed leg CAD, joint analysis, lateral stability, contact FEA or build approval. No friction coefficient assumed.",
+  "options": [
+    {
+      "name": "current",
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0,
+      "support_span_mm": 1635.6972900279752,
+      "cases": [
+        {
+          "case": "Downward 1.2 kN",
+          "basis": "gravity-direction baseline",
+          "force_y_n": 0,
+          "force_z_n": -1200,
+          "governing_row": 12,
+          "minimum_factor": 24.090849715733732,
+          "minimum_kicker_reaction_n": 825.9300426501363,
+          "minimum_leg_reaction_n": 1457.8400087970592,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward 2.4 kN",
+          "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+          "force_y_n": 0,
+          "force_z_n": -2400,
+          "governing_row": 12,
+          "minimum_factor": 12.045424857866866,
+          "minimum_kicker_reaction_n": 790.1613267813841,
+          "minimum_leg_reaction_n": 1656.155584700384,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + outward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": 300,
+          "force_z_n": -1200,
+          "governing_row": 12,
+          "minimum_factor": 2.168490941399735,
+          "minimum_kicker_reaction_n": 464.32621613571746,
+          "minimum_leg_reaction_n": 1510.3467086359926,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + inward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": -300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1187.5338691645552,
+          "minimum_leg_reaction_n": 1405.333308958126,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": 919.2533317427736,
+          "force_z_n": -771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.7618842327854799,
+          "minimum_kicker_reaction_n": -269.311336503662,
+          "minimum_leg_reaction_n": 1547.889090444766,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": -919.2533317427736,
+          "force_z_n": 771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.6620868780191548,
+          "minimum_kicker_reaction_n": 378.71828444607286,
+          "minimum_leg_reaction_n": -642.8307937526625,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        }
+      ]
+    },
+    {
+      "name": "leg +150",
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 150,
+      "support_span_mm": 1785.6972900279752,
+      "cases": [
+        {
+          "case": "Downward 1.2 kN",
+          "basis": "gravity-direction baseline",
+          "force_y_n": 0,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1035.536662094863,
+          "minimum_leg_reaction_n": 1335.380282537334,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward 2.4 kN",
+          "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+          "force_y_n": 0,
+          "force_z_n": -2400,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1103.5735063372586,
+          "minimum_leg_reaction_n": 1517.0371915145122,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + outward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": 300,
+          "force_z_n": -1200,
+          "governing_row": 12,
+          "minimum_factor": 3.676023289868822,
+          "minimum_kicker_reaction_n": 704.3078461043797,
+          "minimum_leg_reaction_n": 1383.4763776114944,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + inward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": -300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1366.765478085346,
+          "minimum_leg_reaction_n": 1287.2841874631742,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": 919.2533317427736,
+          "force_z_n": -771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.9961790813323393,
+          "minimum_kicker_reaction_n": -3.7109172279010636,
+          "minimum_leg_reaction_n": 1417.865169333771,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": -919.2533317427736,
+          "force_z_n": 771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.6620868780191548,
+          "minimum_kicker_reaction_n": 460.29648200223505,
+          "minimum_leg_reaction_n": -588.832493144059,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        }
+      ]
+    },
+    {
+      "name": "leg +300",
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 300,
+      "support_span_mm": 1935.6972900279752,
+      "cases": [
+        {
+          "case": "Downward 1.2 kN",
+          "basis": "gravity-direction baseline",
+          "force_y_n": 0,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1212.6578375823324,
+          "minimum_leg_reaction_n": 1231.8997210815162,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward 2.4 kN",
+          "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+          "force_y_n": 0,
+          "force_z_n": -2400,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1368.4121540960182,
+          "minimum_leg_reaction_n": 1399.4797718190555,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + outward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": 300,
+          "force_z_n": -1200,
+          "governing_row": 12,
+          "minimum_factor": 7.055096492847887,
+          "minimum_kicker_reaction_n": 907.0964245760492,
+          "minimum_leg_reaction_n": 1276.2687797547421,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + inward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": -300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1518.2192505886153,
+          "minimum_leg_reaction_n": 1187.5306624082905,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": 919.2533317427736,
+          "force_z_n": -771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 1.2639702265688781,
+          "minimum_kicker_reaction_n": 220.72597601865436,
+          "minimum_leg_reaction_n": 1307.9927339608869,
+          "friction_required_all_rows": 0.3177983124622579,
+          "status": "MARGIN BELOW 1.5"
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": -919.2533317427736,
+          "force_z_n": 771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.6620868780191548,
+          "minimum_kicker_reaction_n": 529.2314530617092,
+          "minimum_leg_reaction_n": -543.2030063298618,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        }
+      ]
+    },
+    {
+      "name": "both +300",
+      "kicker_extension_mm": 300,
+      "leg_extension_mm": 300,
+      "support_span_mm": 2235.697290027975,
+      "cases": [
+        {
+          "case": "Downward 1.2 kN",
+          "basis": "gravity-direction baseline",
+          "force_y_n": 0,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1049.9357405894307,
+          "minimum_leg_reaction_n": 1512.2583563471558,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward 2.4 kN",
+          "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+          "force_y_n": 0,
+          "force_z_n": -2400,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1184.7899579874975,
+          "minimum_leg_reaction_n": 1818.3750444730522,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + outward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": 300,
+          "force_z_n": -1200,
+          "governing_row": 12,
+          "minimum_factor": 7.055096492847887,
+          "minimum_kicker_reaction_n": 785.3764902241992,
+          "minimum_leg_reaction_n": 1550.6736941560505,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + inward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": -300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1314.4949909546624,
+          "minimum_leg_reaction_n": 1473.8430185382608,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": 919.2533317427736,
+          "force_z_n": -771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 1.2639702265688781,
+          "minimum_kicker_reaction_n": 191.1075687767834,
+          "minimum_leg_reaction_n": 1520.621106703033,
+          "friction_required_all_rows": 0.3177983124622579,
+          "status": "MARGIN BELOW 1.5"
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": -919.2533317427736,
+          "force_z_n": 771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.806611565038409,
+          "minimum_kicker_reaction_n": 458.21583004929084,
+          "minimum_leg_reaction_n": -289.17741781716813,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        }
+      ]
+    },
+    {
+      "name": "both +600",
+      "kicker_extension_mm": 600,
+      "leg_extension_mm": 600,
+      "support_span_mm": 2835.697290027975,
+      "cases": [
+        {
+          "case": "Downward 1.2 kN",
+          "basis": "gravity-direction baseline",
+          "force_y_n": 0,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1179.1475271784407,
+          "minimum_leg_reaction_n": 1543.6481467625547,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward 2.4 kN",
+          "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+          "force_y_n": 0,
+          "force_z_n": -2400,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1412.4210894560192,
+          "minimum_leg_reaction_n": 1911.9470670133485,
+          "friction_required_all_rows": 0.0,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + outward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": 300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 970.5658844292793,
+          "minimum_leg_reaction_n": 1573.9352535482049,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Downward + inward 0.3 kN",
+          "basis": "illustrative horizontal sensitivity",
+          "force_y_n": -300,
+          "force_z_n": -1200,
+          "governing_row": 1,
+          "minimum_factor": null,
+          "minimum_kicker_reaction_n": 1387.7291699276025,
+          "minimum_leg_reaction_n": 1513.361039976905,
+          "friction_required_all_rows": 0.09032816607317509,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": 919.2533317427736,
+          "force_z_n": -771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 1.9335676018433468,
+          "minimum_kicker_reaction_n": 456.68808694183826,
+          "minimum_leg_reaction_n": 1504.892288515095,
+          "friction_required_all_rows": 0.3177983124622579,
+          "status": "MEETS 2D MARGIN ONLY"
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "force_y_n": -919.2533317427736,
+          "force_z_n": 771.3451316238471,
+          "governing_row": 12,
+          "minimum_factor": 0.9324238892787748,
+          "minimum_kicker_reaction_n": 504.07189528034905,
+          "minimum_leg_reaction_n": -85.1817830711098,
+          "friction_required_all_rows": null,
+          "status": "UPLIFT"
+        }
+      ]
+    }
+  ],
+  "thresholds": [
+    {
+      "case": "Downward 1.2 kN",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": 481.0867521496863,
+      "minimum_leg_toe_y_mm": 992.0308205760819,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": 362.2701245896846,
+      "minimum_leg_toe_y_mm": 1112.9339240657112,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": 506.9462206903494,
+      "minimum_leg_toe_y_mm": 1170.1201464072096,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": 455.2272836090232,
+      "minimum_leg_toe_y_mm": 813.9414947449542,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Outward/downward normal",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": 638.4072729958534,
+      "minimum_leg_toe_y_mm": 1551.0909869724562,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 152.2908965657291
+    },
+    {
+      "case": "Inward/upward normal",
+      "target": 1.0,
+      "maximum_kicker_toe_y_mm": -1015.8391045310098,
+      "minimum_leg_toe_y_mm": 939.8931046532011,
+      "kicker_extension_mm": 778.9419049097618,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward 1.2 kN",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": 412.58816563385597,
+      "minimum_leg_toe_y_mm": 1061.7322745264944,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": 293.29596892835315,
+      "minimum_leg_toe_y_mm": 1183.1192983797612,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": 445.4420975993744,
+      "minimum_leg_toe_y_mm": 1287.991162463055,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": 379.7342336683376,
+      "minimum_leg_toe_y_mm": 835.4733865899337,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 0
+    },
+    {
+      "case": "Outward/downward normal",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": 607.3716411364151,
+      "minimum_leg_toe_y_mm": 1815.3365632599684,
+      "kicker_extension_mm": 0,
+      "leg_extension_mm": 416.5364728532413
+    },
+    {
+      "case": "Inward/upward normal",
+      "target": 1.5,
+      "maximum_kicker_toe_y_mm": -2941.004620729128,
+      "minimum_leg_toe_y_mm": 1166.0037138397129,
+      "kicker_extension_mm": 2704.10742110788,
+      "leg_extension_mm": 0
+    }
+  ]
+}

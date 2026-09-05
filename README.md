@@ -26,6 +26,8 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 ## Reference dimensions
 
+Next-stage investigation: [2×12 footprint comparison, load basis and joint plan](docs/hybrid-footprint-study.md).
+
 Separate development work: [complete 2×10 and 2×12 hybrid candidates](docs/hybrid-full-candidates.md),
 with selectable viewer models, backing and nominal connections. These unvalidated
 candidates do not replace the V1 reference or its structural studies.
