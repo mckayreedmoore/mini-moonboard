@@ -168,9 +168,11 @@ def connections() -> tuple[Connection, ...]:
     return tuple(result)
 
 
-def _leg(sign: int) -> cq.Shape:
-    bend,upper=point(0,1480,LEG_NORMAL),point(0,1880,LEG_NORMAL)
-    foot=cq.Vector(0,bend.y+bend.z/math.tan(math.radians(70)),0)
+def _leg(sign: int, leg_normal: float = LEG_NORMAL) -> cq.Shape:
+    bend,upper=point(0,1480,leg_normal),point(0,1880,leg_normal)
+    # Keep the original floor centre when studying a shallower rim.
+    reference=point(0,1480,LEG_NORMAL)
+    foot=cq.Vector(0,reference.y+reference.z/math.tan(math.radians(70)),0)
     x=sign*(HALF+1.5*THICKNESS)
     def member(start,end):
         delta=end-start

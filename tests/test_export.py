@@ -88,7 +88,7 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "fetch('parts.json')" in viewer_html
     assert "loader.load(part.path" in viewer_html
     assert "part.fabrication.dimensions_mm" in viewer_html
-    assert "part.fabrication.dimensions_imperial" in viewer_html
+    assert "[x, y, z].map(feetAndInches)" in viewer_html
     assert "analysis_" in viewer_html
     assert "clearance_status" in viewer_html
     assert "0xef5350" in viewer_html
@@ -241,7 +241,7 @@ def test_committed_exports_are_fresh(tmp_path: Path) -> None:
     export_reference_panel_cut_list(generated_dir)
     committed_dir = Path(__file__).parents[1] / "exports"
     assert {path.name: path.read_bytes() for path in generated_dir.iterdir()} == {
-        path.name: path.read_bytes() for path in committed_dir.iterdir()
+        path.name: path.read_bytes() for path in committed_dir.iterdir() if path.is_file()
     }
 
 
