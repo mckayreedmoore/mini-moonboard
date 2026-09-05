@@ -30,7 +30,7 @@ def leg_bolts(size):
 
 
 @cache
-def parts(size):
+def parts(size, drilled=True):
     width=WIDTHS[size]
     rear=width-PANEL_THICKNESS_MM
     # Only the climbing skins are retained here. Carrying over old backing or
@@ -38,7 +38,7 @@ def parts(size):
     skins=[p for p in base.frame_parts(False)
            if p.name.startswith("main_") or p.name in ("kicker_left","kicker_right")]
     # Obtain hold/LED bores without inheriting the old panel screw schedule.
-    for i,p in enumerate(skins):
+    for i,p in enumerate(skins if drilled else ()):
         if p.name.startswith("main_"):
             row=int("upper" in p.name)
             col=int("right" in p.name)
@@ -68,7 +68,7 @@ def parts(size):
         base.LENGTH,base.LENGTH+base.THICKNESS,-PANEL_THICKNESS_MM,rear),
         (base.LENGTH+2*base.THICKNESS,width,base.THICKNESS),
         f"{size} full-width top; corner connectors NOT yet designed",1))
-    for c in leg_bolts(size):
+    for c in (leg_bolts(size) if drilled else ()):
         cutter=cq.Solid.makeCylinder(5,c.length+2,c.start-c.direction,c.direction)
         result=[replace(p,shape=p.shape.cut(cutter)) if p.name in c.members else p
                 for p in result]
