@@ -87,13 +87,16 @@ This is a two-mesh numerical check, not proof of stress convergence or safety.
 
 | Candidate | 1.2 kN downward, 40 mm mesh | Relative to 2×12 |
 | --- | ---: | ---: |
+| Plywood-only frame reference | 0.36846 mm | 0.95× |
 | 2×8 timber-only counterfactual | 0.83925 mm | 2.16× |
 | 2×10 ideal-bonded candidate | 0.54483 mm | 1.40× |
 | 2×12 ideal-bonded candidate | 0.38900 mm | 1.00× |
 
 These are maximum displacement magnitudes **among the five loaded nodes**,
-not the maximum anywhere in the model. All three bulk models omit steel and
-fastener stiffness, but only the 2×8 lacks a non-colliding nominal connection
+not the maximum anywhere in the model. The plywood row comes from the
+[published 40 mm reference record](../fea/results/box_audited_40_7000.json),
+not a new solve. All four bulk models omit steel and fastener stiffness, but
+only the 2×8 lacks a non-colliding nominal connection
 layout. Its higher displacement shows a stiffness tradeoff, not an allowable
 deflection failure. No selected material strength or joint capacity is tested.
 
@@ -121,6 +124,7 @@ Applying those factors to the 40 mm downward results gives:
 
 | Candidate | 250 lb static weight | 300 lb static weight |
 | --- | ---: | ---: |
+| Plywood-only frame reference | 0.34146 mm | 0.40975 mm |
 | 2×8 timber-only counterfactual | 0.77774 mm | 0.93329 mm |
 | 2×10 ideal-bonded candidate | 0.50490 mm | 0.60588 mm |
 | 2×12 ideal-bonded candidate | 0.36049 mm | 0.43259 mm |
@@ -139,3 +143,5 @@ directions require corresponding load cases, not scaling a scalar maximum.
 The next selection gate is combined: viable connection geometry, acceptable
 unanchored stability under a justified envelope, and connection-aware structural
 checks. A low displacement alone is insufficient to choose 2×8 or a smaller rim.
+The [five-step shallow-frame plan](shallow-frame-plan.md) defines the next
+comparison milestone and the separate gates before construction.
