@@ -51,7 +51,8 @@ side walls, a top closure, and exterior legs made from two glued 3/4-inch layers
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, zoom, and select a part for bilingual cut-list dimensions.
 The viewer shows the modelled bolts and screws as selectable connection geometry,
-including 64 screws following the four main panels’ perimeter edges (four per edge). Hardware
+including 48 main-panel screws (four per edge with shared corners) and
+16 kicker-panel screws (four per long edge with shared end corners). Hardware
 clearance is checked against wood and other fasteners. These checks do not
 establish connection strength.
 Use its panel-overlay selector for no labels, amber grid labels, or

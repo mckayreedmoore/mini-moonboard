@@ -31,16 +31,24 @@ describe this assembly. This remains a reviewable design, not a build release.
 
 ## Panel screws
 
-Each main panel has 16 front-installed screws following its four edges,
-25 mm / 0.98 in inboard. Four distinct screws follow each edge (corners are
-not shared), for 64 across the main panels. That includes the topmost
+Each main panel has 12 front-installed screws following its four edges,
+50 mm / 1.97 in inboard. Four screws follow each edge; the corner screws are
+shared by adjoining edges, for 48 across the main panels. That includes the topmost
 edge and both sides of the horizontal and vertical panel seams.
 
-The initial regular pattern slides individual screws along the same edge
+The increased inset clears the hold/LED bores at shared corners while retaining
+backing contact. Corners stay fixed; the initial regular pattern slides interior screws along the same edge
 to keep at least 28 mm from every hold/LED bore centre. This clears the
 40 mm relief holes in the backing strips. Adjacent screws on each straight
 edge are checked to remain within 450 mm. This is a user-requested provisional
 pattern, not a manufacturer-rated fastening schedule.
+
+Each kicker panel has eight screws: four on its top edge and four on its
+bottom edge, 25 mm inboard. End screws also serve as the short-edge corners;
+there are no additional short-edge screws or new vertical backing members.
+That is 16 kicker screws and 64 face-panel screws total. Kicker backing strips
+and all other structural connections remain unchanged. Reduced screw count
+has not been validated for connection strength or panel pull-through.
 
 Main-panel screws are nominal #10 x 50.8 mm / 2 in, with 32.8 mm penetration
 into the 38.1 mm backing. CAD includes 5.2 mm face clearance, a 3.2 mm

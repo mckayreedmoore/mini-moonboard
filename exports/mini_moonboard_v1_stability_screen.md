@@ -40,9 +40,9 @@ as a proven governing use case. Nor is any exploratory failure discarded.
 | Case | Kicker reaction N | Leg reaction N | Overturning factor | Required friction coefficient | Outcome |
 | --- | ---: | ---: | ---: | ---: | --- |
 | Downward 1.2 kN | 726 | 2324 | 22.08 | 0.000 | MEETS 2D MARGIN ONLY |
-| Downward 2.4 kN | 691 | 3558 | 11.04 | 0.000 | MEETS 2D MARGIN ONLY |
+| Downward 2.4 kN | 692 | 3558 | 11.04 | 0.000 | MEETS 2D MARGIN ONLY |
 | Downward + outward 0.3 kN | 371 | 2679 | 1.95 | 0.098 | MEETS 2D MARGIN ONLY |
-| Downward + inward 0.3 kN | 1081 | 1968 | no overturning demand | 0.098 | MEETS 2D MARGIN ONLY |
+| Downward + inward 0.3 kN | 1081 | 1969 | no overturning demand | 0.098 | MEETS 2D MARGIN ONLY |
 | Outward/downward normal | -350 | 2971 | 0.68 | not applicable: uplift | UPLIFT |
 | Inward/upward normal | 1871 | -793 | 0.58 | not applicable: uplift | UPLIFT |
 

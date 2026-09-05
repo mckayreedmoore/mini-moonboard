@@ -10,6 +10,7 @@ from mini_moonboard.box_frame import (
     DEPTH,
     HALF,
     LENGTH,
+    SCREW_EDGE,
     THICKNESS,
     connections,
     frame_parts,
@@ -54,17 +55,28 @@ def test_floor_bearing_is_full_width_and_level():
 
 def test_each_panel_has_regular_supported_perimeter_including_top():
     screws=panel_screws()
-    assert len(screws)==64
+    assert len(screws)==48
     for panel in {p for p,_,_ in screws}:
         row=0 if "lower" in panel else 1
         col=0 if "left" in panel else 1
         pts=[(x+HALF-col*HALF,s-row*HALF) for p,x,s in screws if p==panel]
-        assert len(set(pts))==16
+        assert len(set(pts))==12
+        assert all((u,v) in pts for u in (SCREW_EDGE,HALF-SCREW_EDGE) for v in (SCREW_EDGE,HALF-SCREW_EDGE))
         for axis in (0,1):
-            for edge in (25,HALF-25):
+            for edge in (SCREW_EDGE,HALF-SCREW_EDGE):
                 along=sorted(p[1-axis] for p in pts if abs(p[axis]-edge)<1e-5)
                 assert len(along)==4
                 assert max(b-a for a,b in pairwise(along))<=450
+
+
+def test_kicker_has_four_per_long_edge_and_shared_end_corners():
+    for side,col in (("left",0),("right",1)):
+        screws=[c for c in connections() if c.name.startswith(f"analysis_kicker_screw_{side}_")]
+        pts={(round(c.start.x+HALF-col*HALF,6),c.start.z) for c in screws}
+        assert len(screws)==len(pts)==8
+        assert all((round(x,6),z) in pts for x in (25,HALF-25) for z in (25,200))
+        assert all(sum(z==edge for x,z in pts)==4 for edge in (25,200))
+        assert all(sum(abs(x-edge)<1e-5 for x,z in pts)==2 for edge in (25,HALF-25))
 
 
 def test_each_connection_enters_named_members_with_contained_tip():

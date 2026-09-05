@@ -30,7 +30,7 @@ THICKNESS = V1_SUPPORT_THICKNESS_MM
 HALF = V1_PANEL_SIZE_MM
 LENGTH = 2 * HALF
 BATTEN_WIDTH = 70.0
-SCREW_EDGE = 25.0
+SCREW_EDGE = 50.0
 SCREW_LENGTH = 50.8
 LEG_NORMAL = DEPTH - V1_SUPPORT_WIDTH_MM / 2
 LEG_STATIONS = (1540.0, 1620.0, 1740.0, 1820.0)
@@ -88,20 +88,22 @@ class Connection:
 
 
 def panel_screws() -> tuple[tuple[str, float, float], ...]:
-    """Four distinct screws per edge (16 per panel); clear hardware bores."""
+    """Four screws per edge with shared corners (12 per panel)."""
     positions = []
-    ticks = [40 + i*(HALF-80)/3 for i in range(4)]
+    ticks = [SCREW_EDGE + i*(HALF-2*SCREW_EDGE)/3 for i in range(4)]
     bores=[(x-HALF,s) for x,s in (*main_tnut_datums().values(),*main_led_datums().values())]
     for row, row_name in enumerate(("lower", "upper")):
         for col, side in enumerate(("left", "right")):
             name = f"main_{row_name}_{side}"
             perimeter = [(u,v,0) for v in (SCREW_EDGE,HALF-SCREW_EDGE) for u in ticks]
-            perimeter += [(u,v,1) for u in (SCREW_EDGE,HALF-SCREW_EDGE) for v in ticks]
+            perimeter += [(u,v,1) for u in (SCREW_EDGE,HALF-SCREW_EDGE) for v in ticks[1:-1]]
             for u,v,axis in perimeter:
-                for delta in (0,*[d for offset in range(1,71) for d in (offset,-offset)]):
+                corner = u in (ticks[0],ticks[-1]) and v in (ticks[0],ticks[-1])
+                offsets = (0,) if corner else (0,*[d for offset in range(1,71) for d in (offset,-offset)])
+                for delta in offsets:
                     uu,vv=(u+delta,v) if axis==0 else (u,v+delta)
                     x,s=-HALF+col*HALF+uu,row*HALF+vv
-                    if 25<=uu<=HALF-25 and 25<=vv<=HALF-25 and all(math.hypot(x-bx,s-bs)>=28 for bx,bs in bores):
+                    if SCREW_EDGE<=uu<=HALF-SCREW_EDGE and SCREW_EDGE<=vv<=HALF-SCREW_EDGE and all(math.hypot(x-bx,s-bs)>=28 for bx,bs in bores):
                         positions.append((name,x,s))
                         break
                 else:
@@ -160,8 +162,8 @@ def connections() -> tuple[Connection, ...]:
             result.append(Connection(f"analysis_rib_back_{row}_{side}",point(sign*48,s,DEPTH),-normal(),88.9,4.826,(f"rear_cross_{row}",rib)))
     for col,side in enumerate(("left","right")):
         for edge,z in (("bottom",25.),("top",200.)):
-            for index in range(7):
-                x=-HALF+col*HALF+25+index*(HALF-50)/6
+            for index in range(4):
+                x=-HALF+col*HALF+25+index*(HALF-50)/3
                 result.append(Connection(f"analysis_kicker_screw_{side}_{edge}_{index}",cq.Vector(x,-PANEL_THICKNESS_MM,z),cq.Vector(0,-1,0),50.8,4.826,(f"kicker_{side}",f"kicker_batten_{edge}")))
     return tuple(result)
 
@@ -190,10 +192,10 @@ def frame_parts(drilled: bool = True) -> tuple[Part, ...]:
     for row,row_name in enumerate(("lower","upper")):
         for col,side in enumerate(("left","right")):
             panel=_main_panel_placement(_panel_with_holes(HALF,HALF,_v1_main_panel_holes(col,row) if drilled else []),(-.5+col)*HALF,row*HALF,V1_KICKER_HEIGHT_MM).val()
-            add(f"main_{row_name}_{side}",panel,(HALF,HALF,PANEL_THICKNESS_MM),"climbing panel; 16 perimeter screws (four per edge)",1)
+            add(f"main_{row_name}_{side}",panel,(HALF,HALF,PANEL_THICKNESS_MM),"climbing panel; 12 perimeter screws (four per edge, shared corners)",1)
     for col,side in enumerate(("left","right")):
         panel=_kicker_panel_with_holes(HALF,V1_KICKER_HEIGHT_MM,_v1_kicker_holes(col) if drilled else []).translate(((-.5+col)*HALF,-PANEL_THICKNESS_MM,0)).val()
-        add(f"kicker_{side}",panel,(HALF,V1_KICKER_HEIGHT_MM,PANEL_THICKNESS_MM),"kicker panel",1)
+        add(f"kicker_{side}",panel,(HALF,V1_KICKER_HEIGHT_MM,PANEL_THICKNESS_MM),"kicker panel; eight screws (four per long edge, shared corners)",1)
     for side,sign in (("left",-1),("right",1)):
         xa,xb=sorted((sign*HALF,sign*(HALF+THICKNESS)))
         add(f"box_side_{side}",block(xa,xb,0,LENGTH,-PANEL_THICKNESS_MM,DEPTH),(LENGTH,DEPTH+PANEL_THICKNESS_MM,THICKNESS),"laminated side wall; front flush with climbing face")
