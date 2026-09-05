@@ -1,0 +1,65 @@
+{
+  "mass_kg": 182.4589188114298,
+  "centre_y_mm": 743.3642186422525,
+  "kicker_toe_y_mm": -159.0670842003598,
+  "leg_toe_y_mm": 1398.2547256315024,
+  "load_y_mm": 1447.5557500853092,
+  "load_z_mm": 1971.5813303112698,
+  "cases": [
+    {
+      "case": "Downward 1.2 kN",
+      "basis": "gravity-direction baseline",
+      "kicker_reaction_n": 714.4582397133963,
+      "leg_reaction_n": 2274.852516448712,
+      "overturning_factor": 19.806935069578795,
+      "friction_required": 0.0,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+      "kicker_reaction_n": 676.4691555234331,
+      "leg_reaction_n": 3512.841600638675,
+      "overturning_factor": 9.903467534789398,
+      "friction_required": 0.0,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "kicker_reaction_n": 334.6559436438124,
+      "leg_reaction_n": 2654.654812518296,
+      "overturning_factor": 1.8010120827191616,
+      "friction_required": 0.10035758222245236,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "kicker_reaction_n": 1094.2605357829802,
+      "leg_reaction_n": 1895.050220379128,
+      "overturning_factor": null,
+      "friction_required": 0.10035758222245236,
+      "status": "MEETS 2D MARGIN ONLY"
+    },
+    {
+      "case": "Outward/downward normal",
+      "basis": "exploratory legacy direction",
+      "kicker_reaction_n": -435.7533422690217,
+      "leg_reaction_n": 2996.409230054977,
+      "overturning_factor": 0.6332662026922281,
+      "friction_required": null,
+      "status": "UPLIFT"
+    },
+    {
+      "case": "Inward/upward normal",
+      "basis": "exploratory legacy direction",
+      "kicker_reaction_n": 1940.6479900757404,
+      "leg_reaction_n": -922.6823655374794,
+      "overturning_factor": 0.5291345746676809,
+      "friction_required": null,
+      "status": "UPLIFT"
+    }
+  ],
+  "assumptions": "2x8 hypothetical UNDRILLED timber-only inventory; incompatible angles and all fasteners omitted; no completed connection design. Fasteners, holds, glue, LEDs omitted. 2D rigid body; no measured friction, no 3D tipping, no strength rating."
+}

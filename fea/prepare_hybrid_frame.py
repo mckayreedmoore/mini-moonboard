@@ -1,4 +1,5 @@
 """Freeze complete hybrid timber for matching ideal-bonded bulk comparisons."""
+import argparse
 import hashlib
 import json
 import math
@@ -15,7 +16,8 @@ from mini_moonboard.stability import evaluate_load, load_cases, row_point
 
 def stability(size):
     # Separate densities remain explicit assumptions.
-    items=[(p.shape,7850 if p.name.startswith("angle_") else 600) for p in h.parts(size)]
+    items=[(p.shape,7850 if p.name.startswith("angle_") else 600) for p in h.parts(size, size!="2x8")
+           if size!="2x8" or not p.name.startswith("angle_")]
     # Hardware mass is omitted for comparability with the old timber-only screen;
     # angle plates are a distinct candidate material and included explicitly.
     masses=[shape.Volume()/1e9*density for shape,density in items]
@@ -37,11 +39,14 @@ def stability(size):
             "status":case.status})
     return {"mass_kg":mass,"centre_y_mm":centre,"kicker_toe_y_mm":a,"leg_toe_y_mm":bb,
             "load_y_mm":y,"load_z_mm":z,"cases":results,
-            "assumptions":"Drilled wood 600 kg/m3, drilled angle steel 7850 kg/m3. Fasteners, holds, glue, LEDs omitted. 2D rigid body; no measured friction, no 3D tipping, no strength rating."}
+            "assumptions":("2x8 hypothetical UNDRILLED timber-only inventory; incompatible angles and all fasteners omitted; no completed connection design. " if size=="2x8" else "Drilled wood 600 kg/m3, drilled angle steel 7850 kg/m3. ")+"Fasteners, holds, glue, LEDs omitted. 2D rigid body; no measured friction, no 3D tipping, no strength rating."}
 
 
 def main():
-    for size in ("2x10","2x12"):
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--candidate",choices=("2x8","2x10","2x12"))
+    args=parser.parse_args()
+    for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):
         directory=Path("fea/generated/hybrid")/size
         directory.mkdir(parents=True,exist_ok=True)
         timber=[p for p in h.parts(size,False) if not p.name.startswith("angle_")]
@@ -56,6 +61,8 @@ def main():
                 main_tnut_datums()[label][1],-18).toTuple() for label in ("A12","C12","F12","H12","K12")],
             "audited_cases":[{"name":c.name,"basis":c.basis,"force_n":[0,c.force_y_n,c.force_z_n]} for c in load_cases()],
             "assumptions":"Hybrid timber bulk without holes/reliefs; all touching timber perfectly bonded, including interfaces actually fastened via angles. Steel/fastener stiffness not resolved. Fixed floor, no gravity. Isotropic screening E=7000MPa nu=.3 for all wood, not selected lumber properties. Comparable incremental stiffness only, no joint or unanchored validation."}
+        if size=="2x8":
+            info["assumptions"]+=" 2x8 is TIMBER-ONLY FEASIBILITY: existing angle/bolt geometry DOES NOT FIT; no complete buildable candidate."
         (directory/"box_frame_bulk.json").write_text(json.dumps(info,indent=2)+"\n")
         (directory/"stability.json").write_text(json.dumps(stability(size),indent=2)+"\n")
         print(directory)

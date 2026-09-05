@@ -11,7 +11,7 @@ from mini_moonboard import hybrid
 from mini_moonboard.box_exports import overlap
 
 
-@pytest.mark.parametrize("size,width",[("2x10",234.95),("2x12",285.75)])
+@pytest.mark.parametrize("size,width",[("2x8",184.15),("2x10",234.95),("2x12",285.75)])
 def test_layout_geometry_and_leg_hardware(size,width):
     parts={p.name:p for p in hybrid.parts(size)}
     assert len(parts)==11
@@ -53,7 +53,7 @@ def test_layout_geometry_and_leg_hardware(size,width):
 
 def test_invalid_size_rejected_and_default_unchanged():
     with pytest.raises(KeyError):
-        hybrid.parts("2x8")
+        hybrid.parts("2x6")
     hybrid.leg_bolts("2x12")
     assert base.DEPTH==304.8
     assert base.LEG_NORMAL==214.8

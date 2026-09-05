@@ -30,7 +30,7 @@ def test_deck_loads_and_supports_are_not_taken_on_trust():
             deck_geometry(broken,cases)
 
 
-@pytest.mark.parametrize("size",["2x10","2x12"])
+@pytest.mark.parametrize("size",["2x8","2x10","2x12"])
 @pytest.mark.parametrize("mesh",[60,40])
 def test_published_hybrid_force_and_displacement_records(size,mesh):
     directory=Path("fea/results/hybrid")/size

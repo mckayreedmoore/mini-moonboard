@@ -61,6 +61,8 @@ def write_manifest(directory):
 
 
 def viewer_mesh(size, root):
+    if size not in ("2x10", "2x12"):
+        raise ValueError("Only clearance-screened complete candidates have viewer exports")
     directory=root/"hybrid"/size
     models=directory/"models"
     models.mkdir(parents=True,exist_ok=True)

@@ -26,13 +26,13 @@ def test_comparison_matches_cad_depths_and_frozen_results():
     result=compare()
     assert result==json.loads((DIRECTORY/"hybrid_rim_sections.json").read_text())
     assert result["baseline_assumed_E_mpa"]==7000
-    ply,ten,twelve=result["sections"]
-    assert [p["depth_mm"] for p in (ply,ten,twelve)]==pytest.approx([322.8,234.95,285.75])
-    for p in (ply,ten,twelve):
+    ply,eight,ten,twelve=result["sections"]
+    assert [p["depth_mm"] for p in (ply,eight,ten,twelve)]==pytest.approx([322.8,184.15,234.95,285.75])
+    for p in (ply,eight,ten,twelve):
         ratio=p["equal_E_normal_EI_ratio"]
         assert ratio==pytest.approx((p["depth_mm"]/322.8)**3)
         assert p["E_to_match_baseline_normal_EI_mpa"]*ratio==pytest.approx(7000)
         assert p["same_normal_moment_stress_ratio"]==pytest.approx((322.8/p["depth_mm"])**2)
         assert [s["EI_ratio_to_plywood"] for s in p["normal_EI_sensitivity"]]==pytest.approx(
             [ratio*f for f in (.5,1,1.5,2)])
-    assert 0<ten["equal_E_normal_EI_ratio"]<twelve["equal_E_normal_EI_ratio"]<1
+    assert 0<eight["equal_E_normal_EI_ratio"]<ten["equal_E_normal_EI_ratio"]<twelve["equal_E_normal_EI_ratio"]<1

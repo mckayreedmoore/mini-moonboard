@@ -15,7 +15,7 @@ from .box_exports import write_csv
 from .model import PANEL_THICKNESS_MM
 from .raster import render
 
-WIDTHS = {"2x10": 234.95, "2x12": 285.75}
+WIDTHS = {"2x8": 184.15, "2x10": 234.95, "2x12": 285.75}
 
 
 def leg_normal(size):
@@ -85,7 +85,9 @@ def lower_angle(size):
 def export(directory=Path("exports/hybrid")):
     directory.mkdir(parents=True,exist_ok=True)
     rows=[]
-    for size,width in WIDTHS.items():
+    # Preserve the published initial two-candidate layout study.
+    for size in ("2x10", "2x12"):
+        width=WIDTHS[size]
         solids=[]
         assembly=cq.Assembly(name=f"{size}_INCOMPLETE_LAYOUT")
         for p in parts(size):

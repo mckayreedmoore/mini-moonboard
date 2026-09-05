@@ -1,4 +1,5 @@
 """Re-audit actual decks/DAT before publishing the hybrid comparison."""
+import argparse
 import hashlib
 import json
 import math
@@ -42,8 +43,11 @@ def checked_record(directory,mesh):
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--candidate",choices=("2x8","2x10","2x12"))
+    args=parser.parse_args()
     destination=Path("fea/results/hybrid")
-    for size in ("2x10","2x12"):
+    for size in ((args.candidate,) if args.candidate else ("2x10","2x12")):
         source=Path("fea/generated/hybrid")/size
         output=destination/size
         output.mkdir(parents=True,exist_ok=True)
