@@ -1,5 +1,10 @@
 # V1 unanchored-base redesign brief
 
+> Historical rail-frame brief, superseded by the
+> [box-frame load-basis audit](../exports/mini_moonboard_v1_stability_screen.md).
+> Mass thresholds and the former evaluator API below do not describe the
+> current design. Establish the load envelope before choosing footprint changes.
+
 The present V1 frame is **not** an unanchored build candidate.  This brief is
 the input contract for its next geometry; it does not select a base for the
 builder.

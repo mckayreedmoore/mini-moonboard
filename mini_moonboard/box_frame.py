@@ -87,15 +87,15 @@ class Connection:
 
 
 def panel_screws() -> tuple[tuple[str, float, float], ...]:
-    """24 perimeter screws per panel; slide along edges to clear hardware."""
+    """Four distinct screws per edge (16 per panel); clear hardware bores."""
     positions = []
-    ticks = [40 + i*(HALF-80)/6 for i in range(7)]
+    ticks = [40 + i*(HALF-80)/3 for i in range(4)]
     bores=[(x-HALF,s) for x,s in (*main_tnut_datums().values(),*main_led_datums().values())]
     for row, row_name in enumerate(("lower", "upper")):
         for col, side in enumerate(("left", "right")):
             name = f"main_{row_name}_{side}"
             perimeter = [(u,v,0) for v in (SCREW_EDGE,HALF-SCREW_EDGE) for u in ticks]
-            perimeter += [(u,v,1) for u in (SCREW_EDGE,HALF-SCREW_EDGE) for v in ticks[1:-1]]
+            perimeter += [(u,v,1) for u in (SCREW_EDGE,HALF-SCREW_EDGE) for v in ticks]
             for u,v,axis in perimeter:
                 for delta in (0,*[d for offset in range(1,71) for d in (offset,-offset)]):
                     uu,vv=(u+delta,v) if axis==0 else (u,v+delta)
@@ -189,7 +189,7 @@ def frame_parts(drilled: bool = True) -> tuple[Part, ...]:
     for row,row_name in enumerate(("lower","upper")):
         for col,side in enumerate(("left","right")):
             panel=_main_panel_placement(_panel_with_holes(HALF,HALF,_v1_main_panel_holes(col,row) if drilled else []),(-.5+col)*HALF,row*HALF,V1_KICKER_HEIGHT_MM).val()
-            add(f"main_{row_name}_{side}",panel,(HALF,HALF,PANEL_THICKNESS_MM),"climbing panel; 24 perimeter screws",1)
+            add(f"main_{row_name}_{side}",panel,(HALF,HALF,PANEL_THICKNESS_MM),"climbing panel; 16 perimeter screws (four per edge)",1)
     for col,side in enumerate(("left","right")):
         panel=_kicker_panel_with_holes(HALF,V1_KICKER_HEIGHT_MM,_v1_kicker_holes(col) if drilled else []).translate(((-.5+col)*HALF,-PANEL_THICKNESS_MM,0)).val()
         add(f"kicker_{side}",panel,(HALF,V1_KICKER_HEIGHT_MM,PANEL_THICKNESS_MM),"kicker panel",1)

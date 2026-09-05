@@ -51,7 +51,7 @@ side walls, a top closure, and exterior legs made from two glued 3/4-inch layers
 
 [Open the interactive V1 3D model](https://mckayreedmoore.github.io/mini-moonboard/) to rotate, pan, zoom, and select a part for bilingual cut-list dimensions.
 The viewer shows the modelled bolts and screws as selectable connection geometry,
-including 96 screws following the four main panels’ perimeter edges. Hardware
+including 64 screws following the four main panels’ perimeter edges (four per edge). Hardware
 clearance is checked against wood and other fasteners. These checks do not
 establish connection strength.
 Use its panel-overlay selector for no labels, amber grid labels, or
@@ -81,7 +81,9 @@ checks the current fastener arrangement. The [earlier beam FEA](docs/v1-fixed-fo
 is a historical baseline and does not validate the new box frame.
 The new [bulk-frame FEA results](docs/box-frame-fea.md) include three mesh
 sizes and a stiffness sensitivity run. They describe ideal bonded joints
-and fixed floor contacts; the unanchored tipping issue remains unresolved.
+and fixed floor contacts. The [load-basis audit](exports/mini_moonboard_v1_stability_screen.md)
+separates downward loading from exploratory directional failures; dynamic
+stability and actual joint strength remain unresolved.
 
 ## SketchUp reference geometry
 

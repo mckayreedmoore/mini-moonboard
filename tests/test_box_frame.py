@@ -54,17 +54,17 @@ def test_floor_bearing_is_full_width_and_level():
 
 def test_each_panel_has_regular_supported_perimeter_including_top():
     screws=panel_screws()
-    assert len(screws)==96
+    assert len(screws)==64
     for panel in {p for p,_,_ in screws}:
         row=0 if "lower" in panel else 1
         col=0 if "left" in panel else 1
         pts=[(x+HALF-col*HALF,s-row*HALF) for p,x,s in screws if p==panel]
-        assert len(set(pts))==24
+        assert len(set(pts))==16
         for axis in (0,1):
             for edge in (25,HALF-25):
                 along=sorted(p[1-axis] for p in pts if abs(p[axis]-edge)<1e-5)
-                assert len(along)==(5 if axis==0 else 7),(panel,axis,edge)
-                assert max(b-a for a,b in pairwise(along))<=250
+                assert len(along)==4
+                assert max(b-a for a,b in pairwise(along))<=450
 
 
 def test_each_connection_enters_named_members_with_contained_tip():

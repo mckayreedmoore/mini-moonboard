@@ -64,14 +64,23 @@ it cannot establish the stiffness of the proposed screw/bolt connections.
 The former beam model used a different idealization and boundary layout;
 do not quote the numerical difference as a measured improvement factor.
 
-The current CAD-derived unanchored screen still predicts negative floor
-reaction in both normal-load directions. At 600 kg/m3 assumed density the
+The original CAD-derived unanchored screen predicted negative floor
+reaction in both exploratory normal-load directions. At 600 kg/m3 assumed density the
 timber weighs about 188.6 kg; the two test cases have negative reactions
 of approximately -464 N and -907 N. Geometry clearance and this bonded
 FEA do not resolve that overturning issue.
 
-The next engineering changes should address the base/support footprint and
-the real wall/leg and plywood-edge screw joints. Then use contact/friction,
+The subsequent [load-basis audit](../exports/mini_moonboard_v1_stability_screen.md)
+corrects the top-edge/top-row distinction and front/rear reaction headings.
+The downward baseline meets the stated 2D moment margin; opposite-normal
+loads remain exploratory, not a verified governing dynamic envelope. The
+numbers above preserve the original FEA-era comparison, not a new blanket
+failure criterion. The screw-count revision does not change this undrilled
+bulk geometry; joint/panel attachment flexibility was never modeled here.
+
+The next engineering work should establish a justified load envelope and
+evaluate the real wall/leg and plywood-edge screw joints before selecting
+base/support footprint changes. Then use contact/friction,
 connection compliance, directional plywood properties, actual hold-load
 locations, local stress checks and buckling/racking cases. The present
 results do not justify reducing member sections or approving climbing.

@@ -31,15 +31,15 @@ describe this assembly. This remains a reviewable design, not a build release.
 
 ## Panel screws
 
-Each main panel has 24 front-installed screws following its four edges,
-25 mm / 0.98 in inboard. Seven screws follow each horizontal edge and five
-additional screws follow each vertical edge. That includes the topmost
+Each main panel has 16 front-installed screws following its four edges,
+25 mm / 0.98 in inboard. Four distinct screws follow each edge (corners are
+not shared), for 64 across the main panels. That includes the topmost
 edge and both sides of the horizontal and vertical panel seams.
 
 The initial regular pattern slides individual screws along the same edge
 to keep at least 28 mm from every hold/LED bore centre. This clears the
 40 mm relief holes in the backing strips. Adjacent screws on each straight
-edge are checked to remain within 250 mm. This is a provisional design
+edge are checked to remain within 450 mm. This is a user-requested provisional
 pattern, not a manufacturer-rated fastening schedule.
 
 Main-panel screws are nominal #10 x 50.8 mm / 2 in, with 32.8 mm penetration
@@ -79,7 +79,8 @@ strength, glue and connection flexibility need engineering evaluation.
 The earlier fixed-foot beam FEA is historical. Its 169–351 mm displacement
 values cannot be applied to this box revision. Current stability screening
 uses the current CAD mass and the extreme edges of actual floor-contact
-faces; the reported minimum mass is not a ballast prescription.
+faces. Its load-basis audit separates downward cases from exploratory normal
+loads and reports moment margins/friction demand, not a ballast prescription.
 The new [bulk-frame FEA screen](box-frame-fea.md) reports the actual quadratic
 solid solves, mesh-refinement results, and their ideal-joint limitations.
 
