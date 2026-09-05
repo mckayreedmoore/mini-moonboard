@@ -80,9 +80,10 @@ the material gates:
   differs from the drilled-timber-plus-steel-angle footprint screen and must be
   reported separately, not substituted without explanation.
 
-These are proposed/limited studies here, not completed or accepted results.
-Numerical contact-law and equilibrium checks plus mesh/penalty sensitivity are
-needed before interpreting their outputs.
+This page sets the assumptions, not the numerical outcomes. See the
+[pin/bore study](joint-contact-study.md) and
+[floor-contact study](floor-contact-study.md) for completed trials, rejected
+results, and the unresolved acceptance gates.
 
 ## Material and connection evidence still missing
 

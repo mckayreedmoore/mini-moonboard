@@ -1,0 +1,162 @@
+{
+  "name": "contact_S_6_100000_0p2375",
+  "args": {
+    "size": 6.0,
+    "penalty": 100000,
+    "clearance": 0.2375,
+    "direction": "S"
+  },
+  "imposed_displacement_mm": 0.26749999999999996,
+  "min_jacobian": 0.8390754209358893,
+  "geometry": {
+    "candidate": "2x8-foot100",
+    "model": "rigid-pin/leg-bore coupon NOT complete leg/rim joint",
+    "geometry_commit": "cd24e63ece990896a092ceec505edaacc3e172c4",
+    "source_sha256": {
+      "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+      "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+      "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+      "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+      "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+      "fea/prepare_joint_contact.py": "8d034638d1117dd3496279d6ef2f890e6a06a68f22352c34ce9a6c61ccfab571"
+    },
+    "step_sha256": "3cbc3e529bf8dff418e3b49b34e0a7118edc64f598538ec55830c87fedeac43c",
+    "stations_mm": [
+      60,
+      140,
+      260,
+      340
+    ],
+    "hole_radius_mm": 5,
+    "thickness_mm": 38.1,
+    "coordinates": "X across thickness; Y uphill S minus1480; Z backing N minus74.075",
+    "assumptions": "Actual upper-leg crop; only four primary bolt bores, secondary holes omitted. Four fully fixed rigid pins replace rim-side anchorage: no rim flexibility, bolt bending, washer/preload, member face friction, glue layers, orthotropy, damage or strength rating. Driven lower crop face is guided in all translations; imposed slip is conditional, not a whole-frame force or service-load derivation."
+  },
+  "solver_source_sha256": "4576202b5bfea73b04c117d6012e2037b13d20bf882ed4408f623a07f3b7962e",
+  "reactions_n": {
+    "DRIVE": [
+      -0.0007707026200017107,
+      7335.241198080851,
+      20.2295385336
+    ],
+    "PIN1_N": [
+      0.0011149850795095998,
+      -3118.30090677031,
+      -5.572588593011
+    ],
+    "PIN2_N": [
+      -8.319298859690002e-05,
+      -1972.0156364959869,
+      -5.012809799626001
+    ],
+    "PIN3_N": [
+      -0.000275824121196,
+      -1234.4027842994,
+      -4.947922089253
+    ],
+    "PIN4_N": [
+      2.0742230051999957e-05,
+      -1010.52193736528,
+      -4.696212322042
+    ]
+  },
+  "reaction_moments_deformed_nmm": {
+    "DRIVE": [
+      3918.979326573348,
+      -297.938287975774,
+      139738.10467135778
+    ],
+    "PIN1_N": [
+      -334.6917173600722,
+      53.910376541940614,
+      -59400.86327151194
+    ],
+    "PIN2_N": [
+      -701.7240987337378,
+      75.50734565153725,
+      -37601.93477542679
+    ],
+    "PIN3_N": [
+      -1286.3761962324659,
+      76.1704751128182,
+      -23435.121023962794
+    ],
+    "PIN4_N": [
+      -1596.5918776347414,
+      92.35928207125247,
+      -19300.24288635367
+    ]
+  },
+  "force_residual_n": [
+    6.007579766989048e-06,
+    -6.68501260179255e-05,
+    5.729667998721766e-06
+  ],
+  "moment_residual_nmm": [
+    -0.404563387669441,
+    0.009191401774508279,
+    -0.05728589740829193
+  ],
+  "moment_about_drive_centroid_residual_nmm": [
+    -0.4042370186748485,
+    0.009333773359040953,
+    -0.05596699542650185
+  ],
+  "moment_rf_roundoff_bound_nmm": [
+    0.0642522867539146,
+    0.01566111212438415,
+    0.033149038004457405
+  ],
+  "moment_tolerance_nmm": 2.934107637241755,
+  "moment_residual_fraction_of_limit": 0.13788294012613522,
+  "completed_time": 1.0,
+  "increments": 1,
+  "last_increment_iterations": 11,
+  "nodes": 131602,
+  "contact_points": 52296,
+  "max_contact_pressure_mpa": 77.13391,
+  "contact_pair_centres_mm": {
+    "PIN1": [
+      19.14237,
+      55.27266,
+      -0.02990372
+    ],
+    "PIN2": [
+      19.14806,
+      135.2597,
+      -0.02081488
+    ],
+    "PIN3": [
+      18.98035,
+      255.2496,
+      0.01107612
+    ],
+    "PIN4": [
+      18.85287,
+      335.2476,
+      -0.02738611
+    ]
+  },
+  "max_penalty_penetration_mm": 0.0007713391,
+  "max_displacement_mm": 0.2675,
+  "driven_force_axis_n": 7335.241198080851,
+  "pin_axis_share": [
+    0.42511225228505967,
+    0.2688412805037595,
+    0.16828387110465595,
+    0.13776260522008016
+  ],
+  "execution_provenance": "Early trial without pre-solve digest capture; intended deck independently checked, hashes below captured at re-audit, NOT immutable execution provenance",
+  "evidence_sha256": {
+    "contact_S_6_100000_0p2375.inp": "33c4678696efb6ad468935f8669b9b8334fad1fb36a7556657d4459e9ed720f7",
+    "contact_S_6_100000_0p2375.dat": "3c1d0dea21b00e1a97f5d50b65923d9414814176026caa5e1abc90a0f50fd980",
+    "contact_S_6_100000_0p2375.sta": "a09999872a3ded8c55785a7e8bcd612dfb8e527c868e6a9f20739cefa94e077c",
+    "contact_S_6_100000_0p2375.cvg": "9ac0da1a5a3e9d0030c13b50775e30a8f6f329ebfacec9a6b1088367e1d6ba5c",
+    "contact_S_6_100000_0p2375.log": "1689d8d1e06c30970d25e8eaa5e6f6e620de4aafdc8612ca0c836b8098322f98",
+    "contact_S_6_100000_0p2375.context.json": "97c72496675859564e5be15730f91a3028d26a7c1c580485b1d3bf7f55ff957c"
+  },
+  "audit_source_sha256": {
+    "fea/record_joint_contact.py": "c0f538f0a51902bd0244fb1d68403a625ac0cb43cbbb26e0062b58572dd57f39",
+    "fea/joint_contact_results.py": "751635607db4d1c56a575060e62ab00b9476e6fed66ae8ada2a502d1cdabc072"
+  }
+}

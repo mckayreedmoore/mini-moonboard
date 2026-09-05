@@ -30,6 +30,10 @@ Latest candidate: [2×8 with physically extended feet: comparison and results](d
 
 Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
 
+Contact studies: [four-pin/leg-bore coupon](docs/joint-contact-study.md) and
+[unpinned whole-frame floor-contact prototype](docs/floor-contact-study.md).
+These are limited numerical studies, not joint-capacity or construction approval.
+
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 
 Earlier investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and

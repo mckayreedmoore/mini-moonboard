@@ -141,6 +141,15 @@ The existing solver Docker image is reused; no new dependency or host solver
 installation is needed. Raw files remain under ignored
 `fea/generated/floor-contact/`, separate from historical results.
 
+The preparation step requires the generated `2x8-foot100` 60 mm bulk INP and
+its matching JSON, not just the committed result summary. On a fresh checkout,
+first generate that reference using the
+[bulk FEA reproduction commands](physical-footprint-results.md#matched-bulk-fea)
+at the end of that report (the 60 mm solve is sufficient). Build the existing
+image with `docker build -t mini-moonboard-fea:box-v1 -f fea/Dockerfile .` if it
+is not already present. The floor preparation verifies the generated input
+identity, and the contact run checks its integrated mass against CAD.
+
 ```sh
 uv run python -m fea.floor_contact --prepare
 docker run --rm --user "$(id -u):$(id -g)" -e OMP_NUM_THREADS=2 \
