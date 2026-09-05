@@ -28,6 +28,8 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 Latest candidate: [2×8 with physically extended feet: comparison and results](docs/physical-footprint-results.md).
 
+Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
+
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 
 Earlier investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and
