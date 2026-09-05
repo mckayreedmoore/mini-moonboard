@@ -1,5 +1,8 @@
 # 2×12 support-envelope study
 
+Follow-up: [250/300 lb, hold-offset and lateral-load comparison](user-load-envelope.md)
+now includes 2×8 timber-only feasibility alongside 2×10 and 2×12.
+
 **Decision study, not changed CAD or construction approval.** Keep the current
 2×12 geometry provisionally. The existing downward cases do not justify a
 larger footprint by themselves; the exploratory normal cases expose a load-basis

@@ -48,7 +48,8 @@ valid solids but **28 unintended part collisions**: 16 climbing-panel/angle and
 rib, and twelve second rib bolts miss the rib. The 80 mm angle leaf reaches
 N=−2.75 mm, through the backing and into the climbing panel; its second rib
 bolt lies at N=17.25 mm, before the rib begins. The 88.9 mm front screw would
-extend 11.65 mm beyond the rib into the rear crossmember.
+extend 11.65 mm beyond the rib into free space alongside the rear crossmember
+(the screw station is outside the crossmember's width).
 
 The unchanged stack requires at least `18 + 38.1 + 88.9 + 80 = 225 mm`
 full depth just to keep that angle leaf behind the front backing, before any

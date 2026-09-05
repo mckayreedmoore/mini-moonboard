@@ -1,6 +1,9 @@
 # Hybrid frame: provisional load basis
 
 Research checked 2026-09-05. **Analysis planning, not construction approval.**
+User decisions now recorded: strictly one climber, 250 lb maximum intended use;
+300 lb is a separate sensitivity, not a rating. See the implemented
+[user-weight and lateral/offset sensitivity](user-load-envelope.md).
 This separates sourced requirements from project sensitivities; it does not
 change the six historical cases in `mini_moonboard/stability.py` or reinterpret
 the [published bonded-frame results](hybrid-frame-fea.md) as joint validation.
@@ -74,7 +77,8 @@ also cannot determine unique individual foot reactions without compliance.
 
 ## Inputs that still require a human decision or measurement
 
-- Maximum intended user mass, simultaneous-user policy, dynamic moves,
+- Intended use is now one person at up to 250 lb, with 300 lb sensitivity.
+  Still unresolved: dynamic moves,
   side/top-edge use and any foreseeable non-climbing loads. Height alone does
   not establish weight or force. Qualified review must reconcile intended
   use with the applicable utilization and load-combination rules.

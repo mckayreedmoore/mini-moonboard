@@ -26,7 +26,9 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 ## Reference dimensions
 
-Next-stage investigation: [2×12 footprint comparison, load basis and joint plan](docs/hybrid-footprint-study.md).
+Latest investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and
+[2×8 feasibility and matched FEA](docs/2x8-feasibility.md).
+Earlier stage: [2×12 footprint comparison, load basis and joint plan](docs/hybrid-footprint-study.md).
 
 Separate development work: [complete 2×10 and 2×12 hybrid candidates](docs/hybrid-full-candidates.md),
 with selectable viewer models, backing and nominal connections. These unvalidated
