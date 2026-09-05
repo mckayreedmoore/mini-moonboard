@@ -1,0 +1,157 @@
+{
+  "parts": [
+    "main_lower_left",
+    "main_lower_right",
+    "main_upper_left",
+    "main_upper_right",
+    "kicker_left",
+    "kicker_right",
+    "box_side_left",
+    "leg_left",
+    "kicker_cheek_left",
+    "cheek_splice_left",
+    "box_side_right",
+    "leg_right",
+    "kicker_cheek_right",
+    "cheek_splice_right",
+    "box_top",
+    "kicker_batten_bottom",
+    "kicker_batten_top",
+    "panel_edge_bottom",
+    "panel_edge_top",
+    "panel_seam_horizontal",
+    "panel_edge_left_lower",
+    "panel_edge_right_lower",
+    "panel_seam_vertical_lower",
+    "panel_edge_left_upper",
+    "panel_edge_right_upper",
+    "panel_seam_vertical_upper",
+    "rear_cross_1",
+    "cross_seat_left_1",
+    "cross_seat_right_1",
+    "seam_rib_1_left",
+    "seam_rib_1_right",
+    "rear_cross_2",
+    "cross_seat_left_2",
+    "cross_seat_right_2",
+    "seam_rib_2_left",
+    "seam_rib_2_right",
+    "rear_cross_3",
+    "cross_seat_left_3",
+    "cross_seat_right_3",
+    "seam_rib_3_left",
+    "seam_rib_3_right"
+  ],
+  "geometry_commit": "d2a596da6359fe92b647c443d4b148bd5fd0786d",
+  "audited_load_targets_mm": [
+    [
+      -1019.2,
+      1447.5557500853092,
+      1971.5813303112698
+    ],
+    [
+      -619.2,
+      1447.5557500853092,
+      1971.5813303112698
+    ],
+    [
+      -19.200000000000045,
+      1447.5557500853092,
+      1971.5813303112698
+    ],
+    [
+      380.79999999999995,
+      1447.5557500853092,
+      1971.5813303112698
+    ],
+    [
+      980.8,
+      1447.5557500853092,
+      1971.5813303112698
+    ]
+  ],
+  "audited_cases": [
+    {
+      "name": "Downward 1.2 kN",
+      "basis": "gravity-direction baseline",
+      "force_n": [
+        0,
+        0,
+        -1200
+      ]
+    },
+    {
+      "name": "Downward 2.4 kN",
+      "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+      "force_n": [
+        0,
+        0,
+        -2400
+      ]
+    },
+    {
+      "name": "Downward + outward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "force_n": [
+        0,
+        300,
+        -1200
+      ]
+    },
+    {
+      "name": "Downward + inward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "force_n": [
+        0,
+        -300,
+        -1200
+      ]
+    },
+    {
+      "name": "Outward/downward normal",
+      "basis": "exploratory legacy direction",
+      "force_n": [
+        0,
+        919.2533317427736,
+        -771.3451316238471
+      ]
+    },
+    {
+      "name": "Inward/upward normal",
+      "basis": "exploratory legacy direction",
+      "force_n": [
+        0,
+        -919.2533317427736,
+        771.3451316238471
+      ]
+    }
+  ],
+  "load_targets_mm": [
+    [
+      -1219.2,
+      1549.373307459657,
+      2092.922770101316
+    ],
+    [
+      -609.6,
+      1549.373307459657,
+      2092.922770101316
+    ],
+    [
+      0.0,
+      1549.373307459657,
+      2092.922770101316
+    ],
+    [
+      609.6,
+      1549.373307459657,
+      2092.922770101316
+    ],
+    [
+      1219.2,
+      1549.373307459657,
+      2092.922770101316
+    ]
+  ],
+  "assumptions": "Bulk geometry without holes/reliefs; all timber contacts perfectly bonded; fixed floor; isotropic screening E=7000MPa nu=.3. No joint strength validation."
+}

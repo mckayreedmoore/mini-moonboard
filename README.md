@@ -88,6 +88,9 @@ stability and actual joint strength remain unresolved.
 The [bolted-joint bearing FEA](docs/joint-bearing-fea.md) adds 24 local timber
 solves with mesh comparisons. These are unit-load bearing screens, not
 assembled-joint, screw-withdrawal, or adhesive-strength validation.
+The [updated-board FEA](docs/updated-board-fea.md) reruns the global frame at
+row-12 load locations and screens drilled panels with the reduced 12/8-screw
+patterns. Its ideal screw-head constraints do not establish connection strength.
 
 ## SketchUp reference geometry
 

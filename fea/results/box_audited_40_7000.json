@@ -1,0 +1,123 @@
+{
+  "mesh_size_mm": 40.0,
+  "modulus_mpa": 7000,
+  "nodes": 123052,
+  "floor_nodes": 1084,
+  "load_nodes": [
+    33345,
+    34133,
+    35574,
+    42007,
+    44676
+  ],
+  "min_jacobian": 85.28487649113066,
+  "geometry_commit": "d2a596da6359fe92b647c443d4b148bd5fd0786d",
+  "load_target_distances_mm": [
+    5.972989522934798,
+    10.806505679149012,
+    9.277680000860691,
+    8.711527658338827,
+    5.516405495082502
+  ],
+  "load_basis": [
+    {
+      "name": "Downward 1.2 kN",
+      "basis": "gravity-direction baseline",
+      "force_n": [
+        0,
+        0,
+        -1200
+      ]
+    },
+    {
+      "name": "Downward 2.4 kN",
+      "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+      "force_n": [
+        0,
+        0,
+        -2400
+      ]
+    },
+    {
+      "name": "Downward + outward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "force_n": [
+        0,
+        300,
+        -1200
+      ]
+    },
+    {
+      "name": "Downward + inward 0.3 kN",
+      "basis": "illustrative horizontal sensitivity",
+      "force_n": [
+        0,
+        -300,
+        -1200
+      ]
+    },
+    {
+      "name": "Outward/downward normal",
+      "basis": "exploratory legacy direction",
+      "force_n": [
+        0,
+        919.2533317427736,
+        -771.3451316238471
+      ]
+    },
+    {
+      "name": "Inward/upward normal",
+      "basis": "exploratory legacy direction",
+      "force_n": [
+        0,
+        -919.2533317427736,
+        771.3451316238471
+      ]
+    }
+  ],
+  "assumptions": "Bulk geometry without holes/reliefs; all timber contacts perfectly bonded; fixed floor; isotropic screening E=7000MPa nu=.3. No joint strength validation.",
+  "max_top_displacement_mm": {
+    "Downward 1.2 kN": 0.36846429131851133,
+    "Downward 2.4 kN": 0.7369286494914641,
+    "Downward + outward 0.3 kN": 0.47713647717458507,
+    "Downward + inward 0.3 kN": 0.25995660932180786,
+    "Outward/downward normal": 0.5701132117376455,
+    "Inward/upward normal": 0.5701132117376455
+  },
+  "reaction_totals_n": [
+    [
+      1.080943e-09,
+      -9.118883e-09,
+      1200.0
+    ],
+    [
+      2.161462e-09,
+      -1.823793e-08,
+      2400.0
+    ],
+    [
+      1.344323e-09,
+      -300.0,
+      1200.0
+    ],
+    [
+      8.174061e-10,
+      300.0,
+      1200.0
+    ],
+    [
+      1.503653e-09,
+      -919.2533,
+      771.3451
+    ],
+    [
+      -1.503692e-09,
+      919.2533,
+      -771.3451
+    ]
+  ],
+  "evidence_sha256": {
+    "box_audited_40_7000.inp": "612dadaa37906b1b1ba8754cb74687881d5caec41b27ccf85417e3e7e721d969",
+    "box_audited_40_7000.dat": "92997da59152fcd9e518b27eeace29f007f21579338a8f9039a07ee390bb7c16"
+  }
+}
