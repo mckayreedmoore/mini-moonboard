@@ -84,6 +84,9 @@ sizes and a stiffness sensitivity run. They describe ideal bonded joints
 and fixed floor contacts. The [load-basis audit](exports/mini_moonboard_v1_stability_screen.md)
 separates downward loading from exploratory directional failures; dynamic
 stability and actual joint strength remain unresolved.
+The [bolted-joint bearing FEA](docs/joint-bearing-fea.md) adds 24 local timber
+solves with mesh comparisons. These are unit-load bearing screens, not
+assembled-joint, screw-withdrawal, or adhesive-strength validation.
 
 ## SketchUp reference geometry
 

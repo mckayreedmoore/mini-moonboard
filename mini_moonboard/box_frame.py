@@ -34,6 +34,7 @@ SCREW_EDGE = 25.0
 SCREW_LENGTH = 50.8
 LEG_NORMAL = DEPTH - V1_SUPPORT_WIDTH_MM / 2
 LEG_STATIONS = (1540.0, 1620.0, 1740.0, 1820.0)
+BOLT_HOLE_RADIUS_MM = 5.0
 CROSS_STATIONS = (400.0, HALF, 2000.0)
 
 
@@ -235,7 +236,7 @@ def frame_parts(drilled: bool = True) -> tuple[Part, ...]:
         d=c.direction.normalized()
         for i,name in enumerate(c.members):
             p=by_name[name]
-            radius=5 if c.kind=="bolt" else (2.6 if i==0 else 1.6)
+            radius=BOLT_HOLE_RADIUS_MM if c.kind=="bolt" else (2.6 if i==0 else 1.6)
             cutter=cq.Solid.makeCylinder(radius,c.length+2,c.start-d,d)
             shape=p.shape.cut(cutter)
             if c.kind=="screw" and i==0:

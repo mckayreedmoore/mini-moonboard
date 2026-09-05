@@ -85,6 +85,10 @@ connection compliance, directional plywood properties, actual hold-load
 locations, local stress checks and buckling/racking cases. The present
 results do not justify reducing member sections or approving climbing.
 
+The subsequent [joint-bearing submodels](joint-bearing-fea.md) investigate
+primary bolt bearing in the leg-wall and rear-seat timber. Their prescribed
+unit loads are not joint forces recovered from these bulk-frame solves.
+
 ## Reproduce in Docker
 
 ```bash
