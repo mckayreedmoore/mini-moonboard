@@ -1,4 +1,10 @@
-# V1 exterior-leg cutting
+# Historical V1 exterior-leg cutting
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 The two exterior hockey-stick legs use four lower and four upper 18 mm
 laminations. Laminate each matched pair to form one 36 mm leg member. Both
@@ -37,6 +43,3 @@ provisional connection between the two segments.
 The full floor interface, structural bolt stack, glue system, and unanchored
 stability remain human-review items. This file only makes the CAD's plywood
 geometry transferable to a blank.
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

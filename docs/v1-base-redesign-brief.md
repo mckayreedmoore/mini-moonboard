@@ -1,4 +1,10 @@
-# V1 unanchored-base redesign brief
+# Historical V1 unanchored-base redesign brief
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 > Historical rail-frame brief, superseded by the
 > [box-frame load-basis audit](../exports/mini_moonboard_v1_stability_screen.md).

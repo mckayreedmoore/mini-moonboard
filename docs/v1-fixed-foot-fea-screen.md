@@ -1,4 +1,10 @@
-# V1 fixed-foot frame FEA screen
+# Historical V1 fixed-foot frame FEA screen
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 This is a reproducible **screening analysis**, not structural approval and not
 an unanchored-stability result. It was run because the user requested a
@@ -79,6 +85,3 @@ The sensible redesign order is: resolve the unanchored base/ballast strategy,
 make a continuous kicker-to-main and leg-to-rail load path, choose actual
 material/joint data, then rerun a model with floor contact and connection
 stiffness. Do not build, proof-load, or climb from this screen.
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

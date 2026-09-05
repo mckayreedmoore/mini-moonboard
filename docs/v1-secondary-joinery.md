@@ -1,4 +1,10 @@
-# V1 secondary joinery schedule
+# Historical V1 secondary joinery schedule
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 This schedule completes the physical connections that are represented as
 face-to-face contacts in the V1 STEP model but are not the generated primary
@@ -64,6 +70,3 @@ that does not bear continuously on both the kicker and the lower main panel.
 These patterns deliberately keep the primary 3/8-in leg/rail and knee bolts
 separate: use their exact global coordinates from the generated CSV, not this
 relative schedule.
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

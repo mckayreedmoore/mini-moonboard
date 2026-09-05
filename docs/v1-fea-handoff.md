@@ -1,4 +1,10 @@
-# V1 structural FEA handoff
+# Historical V1 structural FEA handoff
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 This is the reproducible handoff for a qualified analyst. It is not structural
 approval and does not authorize construction or loading. The user-requested
@@ -156,6 +162,3 @@ inspection points, and pass/fail criteria. The first proof load must be secured
 dead weight/rigging—not a climber—and only follows a reviewed calculation.
 Record results in [`inspection-maintenance.md`](inspection-maintenance.md) and
 link the approved analysis/report and commit in [`change-control.md`](change-control.md).
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

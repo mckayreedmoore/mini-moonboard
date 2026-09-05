@@ -1,4 +1,10 @@
-# V1 provisional build package
+# Historical V1 provisional build package
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 This is a complete *pre-audit* package for the user-directed indoor,
 freestanding Mini MoonBoard v1. It supplies a reproducible 3D assembly,
@@ -198,6 +204,3 @@ continue as a geometry prototype while they are unresolved.
   switch access, power routing, and protection.
 - Separately establish the impact surface/crash-pad arrangement before climbing;
   it is intentionally excluded from this board/frame package.
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

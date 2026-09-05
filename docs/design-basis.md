@@ -20,14 +20,14 @@ invented from the photograph or video.
 | Total custom kicker | 225 mm (8.86 in): 150 mm active zone + 75 mm blank extension | Provisional v1; derived from the official kicker bolt-center datum |
 | Crash pad / fall surface | Separate element; excluded from v1 board/frame scope | Explicitly out of scope, not approved or designed here |
 | Frame assemblies | Board/kicker plus two exterior hockey-stick legs | Confirmed v1 concept |
-| Primary support-rail spacing | Four board-parallel primary rails at 812.8 mm centers, plus a separate center-seam rail | The controlled 2438.4 mm board divides into three equal bays; this is the 0.2 mm-per-bay stock-route equivalent of Moon's published nominal 813 mm upright spacing. |
-| Climbing-face orientation | Underside of the overhanging board; climber is below it | CAD-controlled: main-panel climbing face is local +Y/downward; rails and wiring live on opposite local -Y support side |
+| Frame layout | 304.8 mm / 12 in deep box, perimeter/seam battens, three rear cross members and six ribs | Current box-frame revision replaces the four-rail reference layout; structural adequacy remains unresolved |
+| Climbing-face orientation | Underside of the overhanging board; climber is below it | Frame and wiring are on the opposite support side; see orientation.md |
 | Leg upper datum | Reaches two T-nut rows below top; bend/connection five rows below top | Provisional v1 geometry datum; not a structural fastener pattern |
 | Leg lower angle | 60 degrees to the descending board line | Provisional v1 geometry |
 | Frame stock | Every support member is two laminated nominal 3/4 in birch plywood sheets | Provisional concept; actual thickness and glue quality need audit |
-| Connections | Four schedule-only 3/8-in Grade-5 x 10-in structural-bolt datums per leg into the exterior outer rail, plus four 3/8-in Grade-5 x 4-in knee-plate bolts per leg | Provisional; bolts are intentionally absent from the collision-audited STEP assembly; do not substitute climbing T-nuts for structural connections. Verify actual washer/nut stack and thread engagement before purchase. |
+| Connections | Four 3/8-in x 3.75-in bolts per leg; two per rear seat; 64 panel screws and 62 other frame screws | Current generated connection schedule controls geometry; no separate knee plates. Strength, hardware selection and locking method remain unresolved. |
 | Design loads | Dead, climbing, impact, racking, and incidental loads | Qualified reviewer to establish |
-| Portability | Fixed assembly versus demountable joints | Unresolved |
+| Portability | Occasional relocation; remove LED strips before panel separation and reinstall afterward | Reusable structural interfaces, moving modules and support sequence remain proposed work; see relocation-design.md |
 
 ## Standards and professional references
 
@@ -67,19 +67,18 @@ these values before cutting, drilling, gluing, or loading it:
   not a room or pad measurement.
 - **Leg geometry:** the model bends at main-grid row 8 (fifth row down from
   row 12), reaches row 10, and assumes a 60-degree included angle from the
-  descending board line. The lower-member endpoint centre is 1389.6 mm behind
-  the kicker face at the finished-floor plane; CAD trims its overlong lower
-  member to make a full 3448 mm² floor-parallel bearing face per leg. Confirm
-  the final floor footprint and foot protection.
+  descending board line. Continuous two-layer legs are trimmed at the floor.
+  Use current CAD floor-contact faces and stability output for footprint
+  dimensions; the former segmented-leg measurements are superseded.
 - **External-leg connection:** four structural bolts per leg are provisionally
-  specified in the connection schedule as 3/8-in Grade-5, 10 mm clearance-hole
-  datums. The bolts and bores are intentionally absent from the collision-audited
-  STEP assembly; their final length, washer/plate stack, edge distances, and
+  specified in the connection schedule as 3/8-in x 3.75-in with 10 mm bores.
+  Bores and nominal viewer hardware are modeled; strength, locking method,
+  washer/plate stack, edge distances, and
   load path are not reviewer-approved. The T-nut rows are location datums only;
   no structural bolt may obstruct a required hold, T-nut, LED, cable, or panel
   joint.
-- **Laminations:** the model uses a provisional 36 mm member thickness (two
-  18 mm layers). Measure the actual nominal-3/4-in sheets, then set thickness,
+- **Laminations:** the model uses a provisional 38.1 mm member thickness (two
+  19.05 mm / 3/4-in layers); climbing panels remain 18 mm. Measure stock, then set thickness,
   adhesive, clamping method, cure, and edge sealing accordingly.
 - **Unanchored stability:** inspect the floor bearing, anti-slip feet,
   load-spreading, racking, and overturning resistance under intended use. No

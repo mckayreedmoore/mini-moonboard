@@ -1,4 +1,10 @@
-# V1 sheet purchase and cutting layout
+# Historical V1 sheet purchase and cutting layout
+
+> Superseded rail-and-spacer design. Do not use these dimensions, hardware
+> counts, assembly steps or analysis results for the current box frame.
+> Start with [box-frame-revision.md](box-frame-revision.md), which links the
+> current generated schedules. Links below may now resolve to newer exports
+> and must not be combined with this historical text.
 
 Buy **nine** nominal 3/4-in, 48 x 96-in birch plywood sheets. This layout is
 for the user-selected stock route and the current `1219.2 mm` V1 panel size.
@@ -78,6 +84,3 @@ trim and the template calibration have been recorded.
 This is a cut/purchase plan, not structural approval. The connection hardware,
 adhesive, floor interface, and final template calibration remain the explicit
 human-audit items in the V1 build package.
-> Historical rail-and-spacer revision. For the current box frame, use
-> [box-frame-revision.md](box-frame-revision.md) and regenerated schedules.
-> The dimensions and analysis below do not describe the current assembly.

@@ -206,7 +206,11 @@ def frame_parts(drilled: bool = True) -> tuple[Part, ...]:
         cheek=cq.Workplane("YZ").polyline([(front.y,0),(front.y,front.z),(back.y,back.z),(back.y,0)]).close().extrude(THICKNESS).translate((xa,0,0)).val()
         add(f"kicker_cheek_{side}",cheek,(back.z,abs(back.y-front.y),THICKNESS),"kicker-to-side-wall transition profile")
         sx0,sx1=sorted((sign*HALF,sign*(HALF-THICKNESS)))
-        add(f"cheek_splice_{side}",block(sx0,sx1,-100,100,80,280),(200,200,THICKNESS),"broad-face wall/cheek splice; four screws")
+        splice=block(sx0,sx1,-100,100,80,280)
+        # Trim the unsupported corner flush with the cheek's vertical rear edge.
+        rear_cut=cq.Workplane("XY").box(10000,10000,10000).translate((0,back.y-5000,0)).val()
+        splice=splice.cut(rear_cut).clean()
+        add(f"cheek_splice_{side}",splice,(200,200,THICKNESS),"broad-face wall/cheek splice; rear corner trimmed flush with cheek; four screws; STEP profile governs")
     add("box_top",block(-HALF,HALF,LENGTH-THICKNESS,LENGTH,THICKNESS,DEPTH),(LENGTH,DEPTH-THICKNESS,THICKNESS),"laminated top closure; front batten completes flush rim")
     for label,z in (("bottom",0.),("top",175.)):
         shape=cq.Workplane("XY").box(LENGTH,THICKNESS,50,centered=(True,False,False)).translate((0,-2*PANEL_THICKNESS_MM-THICKNESS,z)).val()

@@ -3,7 +3,7 @@
 This ledger separates source-backed climbing-surface requirements from the
 provisional V1 construction package. The generated
 [`v1 BOM`](../exports/mini_moonboard_v1_bom.csv) and
-[sheet-nesting plan](v1-sheet-nesting.md) are the controlled purchase/count
+[generated sheet layout](../exports/mini_moonboard_v1_sheet_layout.csv) are the controlled purchase/count
 references; this page records what still requires a human audit.
 
 ## Confirmed or source-backed
@@ -12,9 +12,9 @@ references; this page records what still requires a human audit.
 | --- | --- | --- |
 | Main climbing panels | 4 birch plywood panels, 1219.2 x 1219.2 mm v1 stock target | One factory-width panel per 4 x 8 sheet; its 2438.4 mm overall width is within 0.4 mm of the imperial template width. Verify official-template calibration and actual stock. |
 | Kicker panels | 2 birch plywood panels, 1219.2 x 225 mm v1 stock target | Provisional v1: 150 mm active zone plus 75 mm blank extension below |
-| Main horizontal panel-joint backing | Five 36 mm laminated, 180 x 60 mm bearing blocks | CAD and primary connection schedule bridge the lower/upper main-panel seam; screw datums are generated |
+| Frame and panel-joint backing | Current box-frame walls, battens, ribs and seats; two 19.05 mm layers = 38.1 mm nominal | Use the generated cut/connection schedules; the old 36 mm bearing-block scheme is superseded |
 | Hold hardware | Escape Climbing 3-hole screw-in T-nuts, 3/8-16 | Selected; use 7/16 in bore after offcut fit test, 142 positions minimum, and matching 3/8-16 hold bolts |
-| Climbing holds and LEDs | User-owned Mini MoonBoard 2025 Setup Hold Bundle, SKU 60-105-2025, and MoonBoard LED System, SKU 60-201-V5 | The hold set is a replaceable board-layout configuration, not a frame input. The 2025 bundle has 138 holds and excludes bolts/T-nuts/LEDs. The standard LED kit supplies four 50-LED strings / 200 bulbs; V1 installs 132 and retains 68 (18 on the third-string tail and a whole unused fourth string), including Moon's two terminal spares. |
+| Climbing holds and LEDs | User-owned Mini MoonBoard 2025 holds and MoonBoard LEDs; V5 was the earlier selected kit | The 2025 bundle has 138 holds. CAD provides 132 LED locations; record the actual continuous-strip inventory using the current LED guide rather than the earlier assumed string counts. |
 | Surface finish | Durable coating suitable for the climbing panels | Exact coating system unresolved |
 
 The user-selected panel stock is [Swaner Hardwood 3/4-in x 4-ft x 8-ft C-3
@@ -31,7 +31,7 @@ School Holds Set F, and Wood Holds B/C—and that bolts, T-nuts, and LED hardwar
 are not included. The 2020 and 2025 Mini hold configurations are interchangeable
 on this same frame: their selection changes only the app-directed hold position,
 orientation, hold-bolt inventory, and unused insert count. It does not change
-the panel envelope, rails, legs, structural fasteners, or FEA model. The
+the panel envelope, box frame, legs or structural-fastener geometry. The
 per-hold bolt inventory and orientation transfer are controlled by
 [`v1-hold-installation.md`](v1-hold-installation.md), not guessed from panel CAD.
 
@@ -52,7 +52,7 @@ items are resolved:
 - plywood species, structural grade, veneer quality, and sheet dimensions;
 - measured sheet thickness and number of laminated layers;
 - structural adhesive, spread rate, open time, clamping pressure, and cure;
-- the reviewer disposition for every panel, rail, tie, and kicker/main joint;
+- the reviewer disposition for every panel, wall, batten, rib, seat and kicker/main joint;
 - bolt, screw, washer, insert, and plate specifications;
 - edge sealing and finish appropriate to the installation environment; and
 - replaceable feet, anti-slip treatment, and floor protection.
@@ -82,17 +82,13 @@ provide protected rear routing to the controller, with access to its switch,
 only after the supplied V5 guide confirms that 13 mm diameter for this kit.
 The received LED projects about 31 mm behind the panel: a 24 mm lugged cylinder
 (12.7 mm maximum diameter, about 11.7 mm core) and a 7 mm, about 7.5 mm dome
-observed at roughly a 75-degree axis. That leaves only 5 mm in V1's 36 mm
-service gap and must be dry-fitted at every rail/block condition.
-The kit includes a controller, four 50-LED strings, supplementary power feeds,
-and a 5 V adapter according to the selected product listing. The listing's 200
-bulbs include 2 spares and describes 66 extra bulbs on a Mini. Install 132
-LEDs: two complete strings plus 32 LEDs from the third string. Retain its
-remaining 18 bulbs and the unused fourth string (68 uninstalled bulbs total).
-Reconcile every LED with the supplied V5 guide during the offcut/template
-audit. A future kit version is a separate compatibility variant:
-it must retain the official datum pattern only if its supplied guide specifies
-the same hole, wiring, controller-clearance, and power requirements.
+observed at roughly a 75-degree axis. Recheck these measurements on the actual
+kit and dry-fit each backed location through the box frame's relief bores.
+The former 36 mm service-gap clearance calculation no longer applies.
+The owner describes one or two continuous LED strips, to be removed before
+panel separation and reinserted after assembly. Actual kit version, strip
+count, spare inventory and power equipment must be verified; see the current
+[LED installation and relocation guide](v1-led-installation.md).
 
 ## Generated reference panel cut list
 

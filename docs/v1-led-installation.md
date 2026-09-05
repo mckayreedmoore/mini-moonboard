@@ -1,80 +1,64 @@
-# V1 MoonBoard V5 LED installation and routing
+# LED installation, service and relocation
 
-V1 uses the user-selected **MoonBoard LED System, SKU 60-201-V5**, not a
-third-party substitute. Moon's current build guide identifies this V5 family
-as 50-LED strings and says that a Mini uses **three strings** (a Standard uses
-four); the user-selected Standard kit supplies 200 LEDs. V1 has 132 scheduled
-centres, so install the first 132 LEDs in the documented order: that consumes
-two complete strings and 32 LEDs of the third. Retain the remaining 18 LEDs on
-that third string and the wholly unused fourth string: **68 LEDs total** remain
-uninstalled (Moon identifies the last two as replacement spares; the other 66
-are the standard-kit excess for a Mini). The guide also requires Moon's
-supplied control box and 5 VDC power adaptor only.
+This guide applies to the current [box frame](box-frame-revision.md).
+The frame provides 132 LED holes at the documented Mini grid locations.
+The owner describes the lighting as one or two continuous strips; the exact
+strip count, connectors and removal method must be recorded from the received
+hardware. Earlier assumptions about four 50-light strings and 68 unused bulbs
+are not the current installation inventory.
 
-Source of record: [MoonBoard build and LED guide](https://moonclimbing.com/build-your-moonboard).
-The guide, the labels on the received kit, and its V5 installation PDF control
-if they conflict with this routing aid.
+The earlier selected-kit identifier was MoonBoard V5, SKU 60-201-V5. Confirm
+the actual kit/version before applying version-specific instructions. Use the
+received manufacturer's guide for hole fit, light order, connectors, power
+supply and removal. The [official build guide](https://moonclimbing.com/build-your-moonboard)
+is a reference, not proof that a particular wiring revision was supplied.
 
-## Physical provisions already in V1
+## Current frame provisions
 
-- The generated drill schedule has 132 LED centres at 13 mm / 1/2-in diameter.
-  The LED is installed below the T-nut/hold it illuminates, flush with the
-  climbing side, as Moon specifies.
-- The opposite, support side has a 36 mm service gap between panel and support
-  rails. The received LED measures about 31 mm from panel rear to its end, so
-  only about 5 mm remains at the rail plane. Its 24 mm cylinder has four lugs
-  (12.7 mm max diameter / about 11.7 mm core), followed by a 7 mm, about
-  7.5 mm-diameter dome whose axis is observed at about 75 degrees. It is the
-  only allowed route for LED wire across the main surface; never route cable on
-  the climbing face. This tight clearance must be physically checked at every
-  rail/block location before installation.
-- The 20 bearing-block locations are kept at least 20 mm beyond the CAD bore
-  edge. Do not add a cable clip, screw, or controller fastener in a bore,
-  T-nut, or LED clearance area.
-- The V1 model intentionally leaves controller dimensions unmodeled because
-  the received V5 box has not been measured. Its mounting footprint is a
-  required offcut/fit-test record, not a license to drill the panel.
+- The CAD has 13 mm / approximately 1/2 in LED holes. Verify fit using an
+  actual light and an 18 mm panel offcut before drilling production panels.
+- The box extends 304.8 mm / 12 in behind the panel support face and has an
+  open rear. It does not have the former 36 mm rail-and-spacer service gap.
+- Panel-bearing strips have 40 mm relief bores at nearby hold/LED positions.
+  Those strips and bores, rather than overall box depth alone, control local
+  access. Check the light body, retention feature, lead bend and extraction
+  access at each backed location.
+- Previously measured lights projected about 31 mm behind the panel.
+  Reconfirm this against the installed kit; controller dimensions and cable
+  routing are not represented by the timber CAD.
 
-## Install order
+## Installation and service
 
-1. Before mounting anything, connect the supplied LED strings, supplementary
-   power-feed cable, control box, and supplied power adaptor on a protected
-   bench. Confirm the startup sequence, then disconnect power.
-2. From the support side, begin with the LED labelled A1 and push it into the
-   scheduled A1 hole until the LED is flush with the climbing face. Continue
-   in Moon's specified zig-zag column sequence; do not infer the string order
-   from cable length.
-3. Continue through two complete 50-LED strings and 32 LEDs of the third
-   string, using the push-fit connectors. At the end of the second string,
-   connect the supplementary power feed to PWR1 on the control box as directed
-   by the V5 guide. Do not cut the third-string tail: label and retain its 18
-   uninstalled LEDs, plus the entire unused fourth string, for future repair.
-4. Mount the control box on the support side only after measuring its actual
-   bracket/footprint. Choose a rear rail/tie location with switch access,
-   a 30 mm clear perimeter, no panel bore behind it, no sharp bend in the
-   supplied leads, and no interference with leg or tie fasteners.
-5. Route each string inside the 36 mm service gap. Use screw-mounted,
-   insulated cable saddles fixed to rail faces—not the climbing panels—and
-   place a saddle at every direction change and at a maximum provisional
-   spacing of 300 mm. Do not pinch wire between any bearing block and panel.
-6. With mains power disconnected, perform a complete rear-side tug/visual
-   check: no conductor may rub an edge, cross a structural fastener, sit in a
-   panel seam, or be exposed on the climbing face. Then power up with only the
-   supplied adaptor and test every scheduled LED before holds are installed.
+1. Bench-test the lights and controller using the supplied power equipment,
+   then disconnect power before installing or handling wiring.
+2. Record strip count, first/last grid location, connector identity and route.
+   Photograph the route and label leads without obscuring factory marks.
+3. Install in the manufacturer's order. Do not infer electrical connections
+   from the CAD grid or cut/splice strips to match panel seams.
+4. Keep the controller and connectors accessible through the open rear.
+   Use removable cable retainers at accessible frame locations, avoiding
+   fasteners, sharp edges and joints. Retainer locations and strain relief
+   remain fit-check items; do not permanently glue wiring to the panels.
+5. Check insertion and extraction access at each backed location. Remove and
+   reinstall a representative light on an offcut using the approved release
+   method before treating it as repeatably serviceable.
+6. Test all 132 locations and record spare lights separately. Final routing
+   must permit the removal workflow below without pulling on wires.
 
-## Required received-kit audit
+## Relocation assumption
 
-Record these before drilling controller or cable-mount holes:
+The intended teardown removes the continuous LED strips before separating
+the climbing panels, then reinstalls them after frame and panel reassembly.
+No panel-boundary electrical connectors are proposed.
 
-| Item | V1 status |
-| --- | --- |
-| String count and LEDs per string | Verify four 50-LED strings in SKU 60-201-V5; V1 installs 132 LEDs, retaining 68 uninstalled LEDs |
-| Control-box mounting footprint and fastener holes | Measure actual received component |
-| Switch access and mains-adaptor lead direction | Verify at selected rear location |
-| Cable outer diameter, connector size, and minimum bend radius | Measure or use the supplied V5 guide |
-| Every saddle/clip location | Mark on rear rails only; verify against structural schedules |
-| Received LED geometry | Record/confirm 31 mm total projection, 24 mm lugged cylinder, 7 mm dome, and approximately 75-degree dome axis; measure cable bundle outer diameter and bend radius |
+With the board safely supported and power disconnected, release accessible
+cable retainers and extract lights using the received kit's approved method.
+Support each strip during extraction; do not use its conductors as handles.
+Label, loosely pack and protect the lights and connectors as one assembly
+per strip. Do not separate a panel while lights or wiring still tether it.
 
-This LED plan does not alter the board's separate crash-pad/impact-surface
-scope, and it does not authorize substitution of power, LEDs, or control-box
-components.
+After reassembly and structural inspection, follow the recorded route and
+manufacturer's installation order, inspect for damaged retention features
+or leads, and test every location before use. A safe frame-support and lifting
+sequence still needs to be developed; this is the electrical part of that
+future relocation procedure, not a complete teardown instruction.

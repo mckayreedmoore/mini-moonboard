@@ -3,7 +3,8 @@
 The frame is independent of the hold configuration. It accepts either the
 Mini 2020 or Mini 2025 official layout on the same 142 drilled 3/8-16 insert
 positions and 132 LED locations. Changing configurations never changes the
-panel envelope, rails, legs, structural fasteners, or structural analysis.
+panel envelope, box frame, legs or structural-fastener geometry. Physical
+hold projection and loading still require the documented analysis checks.
 
 The current purchasing default is the user-owned [Mini MoonBoard 2025 Setup
 Hold Bundle, SKU 60-105-2025](https://us.moonclimbing.com/products/mini-moonboard-2025-hold-set):

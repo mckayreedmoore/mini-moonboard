@@ -53,6 +53,20 @@ def test_floor_bearing_is_full_width_and_level():
         assert sum(f.Area() for f in faces)==pytest.approx(THICKNESS*180/math.cos(math.radians(20)),rel=1e-5)
 
 
+def test_cheek_splices_follow_rear_cheek_edge_and_retain_screw_heads():
+    parts={p.name:p.shape for p in frame_parts(drilled=False)}
+    for side in ("left","right"):
+        splice=parts[f"cheek_splice_{side}"]
+        cheek=parts[f"kicker_cheek_{side}"]
+        assert splice.BoundingBox().ymin==pytest.approx(cheek.BoundingBox().ymin,abs=1e-5)
+        assert splice.Volume()<200*200*THICKNESS
+        for c in connections():
+            if c.members[0]!=f"cheek_splice_{side}":
+                continue
+            probe=cq.Solid.makeCylinder(5,THICKNESS,c.start,c.direction)
+            assert probe.intersect(splice).Volume()==pytest.approx(probe.Volume(),rel=1e-5)
+
+
 def test_each_panel_has_regular_supported_perimeter_including_top():
     screws=panel_screws()
     assert len(screws)==48

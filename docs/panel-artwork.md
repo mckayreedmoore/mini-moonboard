@@ -37,10 +37,10 @@ choices. They do not alter the STEP model, hole datums, cut list, or FEA model.
 A future licensed Moon-artwork overlay with a placement specification can use
 the same selector without changing the CAD geometry.
 
-The independent **Overall V1 dimensions** switch shows the CAD assembly AABB:
-2762.4 mm / 108.76 in wide, 1636.3 mm / 64.42 in deep, and 2150.8 mm / 84.68
-in high. Those values include both exterior legs and exclude the crash pad;
-they are provisional V1 geometry, not Moon's official board-only envelope.
+The independent **Overall V1 dimensions** switch shows the current CAD
+assembly bounds, including both exterior legs and excluding the crash pad.
+Read the regenerated viewer dimensions rather than the superseded rail-frame
+measurements; these are not Moon's official board-only envelope.
 
 The viewer's selectable McKay figure is a simplified 1727.2 mm / 5 ft 8 in
 scale reference. It is not a scanned person, a CAD assembly child, a cut-list

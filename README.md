@@ -44,7 +44,7 @@ blank extension below it. The crash pad is a separate, excluded element.
 This raster view is tessellated directly from the V1 CadQuery assembly and
 looks upward at the underside—the climbing face. Holds are intentionally not
 modelled as arbitrary solids: their 142 exact through-bore provisions are in
-the CAD. The 132 LED bores are likewise modelled, while the purchased V5 kit's
+the CAD. The 132 LED bores are likewise modelled, while the received LED kit's
 controller/cable route remains an installation-audit item until its supplied
 guide and installed wire lengths are verified. The frame now uses 12-inch-deep
 side walls, a top closure, and exterior legs made from two glued 3/4-inch layers.
@@ -76,6 +76,10 @@ summary of the assembly.
 The current design and build sequence are described in the
 [box-frame revision](docs/box-frame-revision.md). Generated cut and connection
 schedules describe this revision; older rail/spacer documents are historical.
+The [relocation proposal](docs/relocation-design.md) identifies reusable-joint
+improvements for occasional moves. The [LED guide](docs/v1-led-installation.md)
+assumes removing the continuous strips before separating panels and reinstalling
+them afterward; structural relocation changes are not implemented yet.
 The [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
 uses current CAD geometry. The [clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
 checks the current fastener arrangement. The [earlier beam FEA](docs/v1-fixed-foot-fea-screen.md)

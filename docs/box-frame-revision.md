@@ -25,6 +25,10 @@ describe this assembly. This remains a reviewable design, not a build release.
   face: the visible face remains at Y=-18 mm, meeting the inclined face.
   Floor-reaching cheeks and broad-face splice plates join the kicker to the
   main side walls. Top and bottom kicker strips support its face screws.
+  Each cheek splice starts as a 200 x 200 mm / 7.87 x 7.87 in blank;
+  trim its rear corner flush with the cheek's vertical rear edge using the
+  STEP/side profile. Both laminated layers share that cut. The four screw
+  locations remain unchanged; strength and edge distances remain unverified.
 - Three rear transverse members meet bearing seats through-bolted to the
   side walls. Six normal ribs connect the central panel-seam supports to
   these members. No cross member spans the lower legs in climber space.
@@ -93,6 +97,25 @@ The new [bulk-frame FEA screen](box-frame-fea.md) reports the actual quadratic
 solid solves, mesh-refinement results, and their ideal-joint limitations.
 
 ## Build sequence for review
+
+Current fabrication references (these replace the historical rail guides):
+
+- [Cut list](../exports/mini_moonboard_v1_cut_list.csv) and
+  [per-layer sheet layout](../exports/mini_moonboard_v1_sheet_layout.csv).
+- [Purchasing BOM](../exports/mini_moonboard_v1_bom.csv),
+  [assembly placement](../exports/mini_moonboard_v1_assembly_layout.csv) and
+  [connection schedule](../exports/mini_moonboard_v1_connection_schedule.csv).
+- [Left leg profile](../exports/mini_moonboard_v1_leg_left_profile.svg),
+  [right leg profile](../exports/mini_moonboard_v1_leg_right_profile.svg) and
+  [assembly STEP](../exports/mini_moonboard_v1_concept.step).
+- [Panel drilling](../exports/mini_moonboard_v1_panel_drill_schedule.csv),
+  [hold installation](v1-hold-installation.md) and
+  [LED installation and relocation](v1-led-installation.md).
+
+Only laminate the paired layers of each part; inter-part joints are not
+specified as glued assemblies. Perfectly bonded contacts in the historical
+FEA idealization are not fabrication instructions. The rear-corner trim
+postdates the published bulk-frame solves, which have not been rerun for it.
 
 1. Confirm plywood thickness/grade and adhesive; transfer the per-layer cut
    schedule and profile geometry, allowing saw kerf and clamping access.
