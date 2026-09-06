@@ -1,0 +1,42 @@
+{
+  "status": "UNMODIFIED UPSTREAM BASELINE; SIX IMMUTABLE-ID CUBE REPLAYS MATCH OUTPUT/HISTORY; PRIOR SIX RUNS PRESERVED; NO LOCAL-LAW VALIDATION",
+  "base_image_id": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+  "upstream_image_id": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "tag": "mini-moonboard-fea:ccx-upstream-2.21-v1",
+  "source_archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad",
+  "binary_sha256": {
+    "/usr/bin/ccx": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+    "/usr/local/bin/ccx-upstream-2.21": "cfa7fd110a41c209746137da8b5af0a1c06dee47d58682e797d31b8952b72e4b"
+  },
+  "upstream_original_file_count": 1176,
+  "build_directory": "fea/mortar_build/baseline-njusw3dz",
+  "cube_directory": "fea/mortar_build/baseline-cube-zf7wgycd",
+  "evidence_sha256": {
+    "fea/mortar_build/baseline-njusw3dz/build_result.json": "3e58ec3b685cee0729740e00233e1a4ee46892e05fbac308b7cbf58cff4bf99a",
+    "fea/mortar_build/baseline-njusw3dz/build_manifest.json": "04b8da67a5edf12c763e03c9a4c3da241375c8d7a37c07eec06e2b31a4622988",
+    "fea/mortar_build/baseline-njusw3dz/build.log": "34ea93c53436241c30acc55d8997966e9337609ee642b786758d594f4c06c657",
+    "fea/mortar_build/baseline-cube-y1j5w_j0/report.json": "c9ece158752fcd44cb3b10576d20998060a91241f78a27bb85cc90dba9897580",
+    "fea/mortar_build/baseline-cube-zf7wgycd/report.json": "2224adf4320c771541f7a252ea72e488796c3e80989d1aba35459a1247dcdb8f",
+    "fea/mortar_build/baseline-cube-zf7wgycd/compare_cube.launch.py": "ab233fb9bd3fe8c8787f569acfeb387f1c7c4a80566f25aff65f5f3273a0327f",
+    "fea/mortar_build/pre-review-snapshot/build.py": "6bea88d1d66ffe123d11e3f105bf75bba4687951d35012d4384431251b57f516",
+    "fea/mortar_build/pre-review-snapshot/compare_cube.py": "953c6d5e38afdbda3c5f3e23ec176f566ec7c4568c4aa1c76c4a48cdc43ce183",
+    "fea/mortar_build/pre-review-snapshot/report.json": "0fe27d0b4939501db11188a977716d610684e1ad113160dda82846c44be232d9"
+  },
+  "support_sha256": {
+    "fea/mortar_build/Dockerfile": "bd3e0ae4540837b71d68c8a47703efed2ea8083bdb926591a22fe5983cfcbe66",
+    "fea/mortar_build/Makefile.upstream": "175520d1f17d2a16f530e08f248b212ee1d4c29165f426386e07baaf306811dc",
+    "fea/mortar_build/record_build.py": "aa42e590784c2fb1e8c2e2a11ec004acd8f0a0a422381a8de12189185f6809d8",
+    "fea/mortar_build/build.py": "0e646f09baa9b983c9939837f9547c8d0898b578be642374e4f05a3a90f07109",
+    "fea/mortar_build/compare_cube.py": "ab233fb9bd3fe8c8787f569acfeb387f1c7c4a80566f25aff65f5f3273a0327f"
+  },
+  "cube_run_count": 6,
+  "all_printed_RF_U_differences_zero": true,
+  "all_accepted_histories_equal": true,
+  "failed_attempts_preserved": {
+    "baseline-87dggvba": "BuildKit interpreted bare localimageID as registryname; no dependencyinstall",
+    "baseline-wwlnaack": "Pinned source download verified, extraction lackedbzip2; no compile"
+  },
+  "qualification": "Unmodified source build and small prescribed-motion cube only. Not observer, discrete-law proof, full-frame validation or construction approval. Rebuilt compiler/library binaries are identified, not assumed bitwise identical to packagedsolver.",
+  "prior_cube_directory": "fea/mortar_build/baseline-cube-y1j5w_j0",
+  "chronology": "The successful image build and first6cube runs used pre-review-snapshot/build.py and compare_cube.py (hashes match preserved originalpublication). Current build.py fixes failureexit propagation but has NOT rebuilt this binary. Corrected compare_cube.py generated new6cube runs using preverifiedimmutableimageIDs; newlaunch snapshot is retained. Oldcube outputs/publication untouched."
+}

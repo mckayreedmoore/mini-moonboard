@@ -1,0 +1,367 @@
+{
+  "nodes": {
+    "1": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "2": [
+      100.0,
+      0.0,
+      0.0
+    ],
+    "3": [
+      100.0,
+      100.0,
+      0.0
+    ],
+    "4": [
+      0.0,
+      100.0,
+      0.0
+    ],
+    "5": [
+      0.0,
+      0.0,
+      100.0
+    ],
+    "6": [
+      100.0,
+      0.0,
+      100.0
+    ],
+    "7": [
+      100.0,
+      100.0,
+      100.0
+    ],
+    "8": [
+      0.0,
+      100.0,
+      100.0
+    ],
+    "9": [
+      -10.0,
+      -10.0,
+      -100.0
+    ],
+    "10": [
+      110.0,
+      -10.0,
+      -100.0
+    ],
+    "11": [
+      110.0,
+      110.0,
+      -100.0
+    ],
+    "12": [
+      -10.0,
+      110.0,
+      -100.0
+    ],
+    "13": [
+      -10.0,
+      -10.0,
+      0.0
+    ],
+    "14": [
+      110.0,
+      -10.0,
+      0.0
+    ],
+    "15": [
+      110.0,
+      110.0,
+      0.0
+    ],
+    "16": [
+      -10.0,
+      110.0,
+      0.0
+    ],
+    "17": [
+      50.0,
+      0.0,
+      0.0
+    ],
+    "18": [
+      100.0,
+      50.0,
+      0.0
+    ],
+    "19": [
+      50.0,
+      50.0,
+      0.0
+    ],
+    "20": [
+      50.0,
+      50.0,
+      50.0
+    ],
+    "21": [
+      100.0,
+      50.0,
+      50.0
+    ],
+    "22": [
+      100.0,
+      100.0,
+      50.0
+    ],
+    "23": [
+      50.0,
+      100.0,
+      0.0
+    ],
+    "24": [
+      0.0,
+      50.0,
+      0.0
+    ],
+    "25": [
+      50.0,
+      100.0,
+      50.0
+    ],
+    "26": [
+      0.0,
+      100.0,
+      50.0
+    ],
+    "27": [
+      0.0,
+      50.0,
+      50.0
+    ],
+    "28": [
+      50.0,
+      100.0,
+      100.0
+    ],
+    "29": [
+      0.0,
+      50.0,
+      100.0
+    ],
+    "30": [
+      0.0,
+      0.0,
+      50.0
+    ],
+    "31": [
+      50.0,
+      50.0,
+      100.0
+    ],
+    "32": [
+      50.0,
+      0.0,
+      100.0
+    ],
+    "33": [
+      50.0,
+      0.0,
+      50.0
+    ],
+    "34": [
+      100.0,
+      50.0,
+      100.0
+    ],
+    "35": [
+      100.0,
+      0.0,
+      50.0
+    ]
+  },
+  "wood": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "ground": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "top": [
+    5,
+    6,
+    7,
+    8,
+    28,
+    29,
+    31,
+    32,
+    34
+  ],
+  "foot": [
+    1,
+    2,
+    3,
+    4,
+    17,
+    18,
+    19,
+    23,
+    24
+  ],
+  "support": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "formulation": "mortar",
+  "increment": 0.25,
+  "preload_n": 120.0,
+  "travel_mm": 1.0,
+  "mu": 0.3,
+  "normal_penalty_n_mm3": 10000.0,
+  "tangent_penalty_n_mm3": 100.0,
+  "deck_sha256": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+  "source_sha256": {
+    "fea/results/floor_contact/toy_quadratic.inp": "bea52a9c4c758569d2e4e4578c79c028024a68cecb35e6f1e181e79f67949ffa",
+    "/work/fea/contact_shear_coupon.py": "0fd9faeb16366365d35f66f0a3536f6c3be109e1ce530a8db808130b580ead25",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+  },
+  "max_seconds": 60.0,
+  "status": "GLOBAL COUPON CHECKS PASS; LOCAL CONTACT NOT VALIDATED",
+  "bottom_supported": true,
+  "assumptions": "No gravity; equal nodal top loads total120N; topXY seating guides then1mmX actuator,Y held,Z free; no frame stability inference",
+  "local_contact_status": "NOT AUDITED; mortar requires separate nodal/weak-law semantics, not penalty DAT assumptions",
+  "exit_code": 0,
+  "elapsed_seconds": 0.21621147499536164,
+  "endpoints": [
+    {
+      "time": 1.0,
+      "force_residual_n": [
+        4.199999999232595e-06,
+        4.199999999232595e-06,
+        -5.329070518200751e-15
+      ],
+      "moment_residual_nmm": [
+        -0.0005595019146085178,
+        0.0005595019146085178,
+        0.0
+      ],
+      "ground_reaction_n": [
+        0.238664,
+        0.238664,
+        120.0
+      ],
+      "force_pass": true,
+      "moment_pass": true,
+      "aggregate_friction_pass": true,
+      "mean_foot_x_displacement_mm": -6.140736666666664e-07,
+      "foot_z_displacement_mm": [
+        -0.0001133326,
+        -0.0001060901
+      ],
+      "ground_top_z_displacement_mm": [
+        -0.0001135699,
+        -0.0001035395,
+        -0.0001101723,
+        -0.0001035395
+      ],
+      "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+      "maximum_free_foot_rf_component_n": 37.88198,
+      "top_free_z_rf_n": [
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333
+      ]
+    },
+    {
+      "time": 2.0,
+      "force_residual_n": [
+        1.5999999999127823e-05,
+        -7.800000000335316e-06,
+        6.599999995193784e-06
+      ],
+      "moment_residual_nmm": [
+        0.0005865368939907967,
+        -1.026747611376777e-07,
+        -0.0013457999999397785
+      ],
+      "ground_reaction_n": [
+        -35.999576,
+        5.8000000000557606e-05,
+        120.0000066
+      ],
+      "force_pass": true,
+      "moment_pass": true,
+      "aggregate_friction_pass": true,
+      "mean_foot_x_displacement_mm": 0.9993433,
+      "foot_z_displacement_mm": [
+        -0.0002749776,
+        8.001615e-05
+      ],
+      "ground_top_z_displacement_mm": [
+        7.631147e-05,
+        -0.0003008329,
+        -0.0002933427,
+        6.968101e-05
+      ],
+      "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+      "maximum_free_foot_rf_component_n": 44.6094,
+      "top_free_z_rf_n": [
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333,
+        -13.33333
+      ]
+    }
+  ],
+  "reaction_output_note": "Only noncontact bottom SPC reactions and top actuator XY enter external balance; free master/slave RF are excluded. This validates endpoint external balance on this compliant-ground coupon only, not the local mortar law or whole frame",
+  "output_sha256": {
+    "mortar_0p25.sta": "a1277b7f1ef3825b55cd060aef892546902946bbf697d390338b2b4f69a30db9",
+    "mortar_0p25.log": "eb9824d2cbc7935480b3a8f0de7f6518866eb7b824a2f2090487af3f2df27b74",
+    "mortar_0p25.frd": "50d5832f039dcb2b3c0823ac7a6d270aaf7d877b9224f8573da14768126e73eb",
+    "mortar_0p25.cvg": "55adb50f232ed3c9366b5bceb81f97279513bbfffc6d85cb7a02574cf70bebae",
+    "mortar_0p25.dat": "ea3a9211d0b7634fce09a4c66d7312bbc3ca33e19de7513f63b4b83bc9628b3b"
+  }
+}

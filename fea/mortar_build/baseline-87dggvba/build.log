@@ -1,0 +1,25 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.05kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646
+#2 ...
+
+#3 [auth] library/sha256:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646:
+------
+Dockerfile:2
+--------------------
+   1 |     ARG BASE_IMAGE=mini-moonboard-fea:box-v1
+   2 | >>> FROM ${BASE_IMAGE}
+   3 |     # build.py refuses a base image other than the recorded immutable image ID.
+   4 |     RUN sha256sum /usr/bin/ccx > /tmp/packaged-ccx.before.sha256
+--------------------
+ERROR: failed to build: failed to solve: sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646: failed to resolve source metadata for docker.io/library/sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
