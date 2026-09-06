@@ -1,8 +1,10 @@
 # Free bolt/washer contact control
 
-Initial quiescent control rejected; no qualified contact response. This tests
-numerical contact, not a bolt product, plywood joint capacity or permission to
-build/climb.
+The centred, catalog-clearance fixed-step control passes its complete quiet
+output gates. Posed and moving-contact behavior remains unqualified. The
+earlier rejected attempts below are preserved evidence, not the current
+stationary status. These tests do not establish bolt-product suitability,
+plywood joint capacity or permission to build/climb.
 
 The first quiescent attempt, `quiescent-an9hdwot`, stopped during input parsing
 with native exit 201, before any accepted state or contact response. Its frozen
@@ -119,7 +121,7 @@ artificial energy. A failed gate stops escalation and remains archived. Solver
 completion by itself is not output qualification; none of these controls
 releases the complete eleven-body stitch experiment or validates the board.
 
-## Next experiment: catalog-clearance quiescent control
+## Catalog-clearance quiescent control
 
 The catalog-consistent correction is a **quiet-only preparation**: keep both
 bodies centred and give both zero initial velocity. Its first bounded solve
@@ -311,3 +313,31 @@ now proves positive selected-surface clearance for the proposed pose and
 compares both centred native reference masses with all 20 recorded states.
 Full native and Gauss8 matrices are retained separately. No posed deck, posed
 mass cache, posed quiet result or moving solver result is included yet.
+
+### Separate posed quiet preparation
+
+Create a new quiet-only input from the verified centred DIRECT preparation
+and the frozen pose evidence. Use the exact translated-and-serialized washer
+nodes from that proof; keep the core nodes and all connectivity unchanged.
+Update posed bounds and the fixed angular reference to `(1.001,0.7356,0)` mm,
+while retaining original CAD bounds explicitly as reference geometry.
+Recompute the washer reference mass from those exact coordinates rather than
+reuse the centred value by assumption.
+
+Retain zero initial velocity, no loads/restraints/preload/friction, the same
+contact pairs and penalties, all existing quiet gates, 20 DIRECT increments
+of 1e−7 s and total duration 2e−6 s. A future explicit launch uses the existing
+180-second inner/200-second outer cap. Preparation itself does not launch a
+solver or create a moving case. Complete output, including genuine inactive
+contact behavior, must be established before this pose can be used for impact.
+
+For CalculiX 2.21, zero created contact elements do not authorize missing DAT
+blocks. `resultsprint.f` calls the print routines without a contact-count
+guard; `printout.f` writes the CDIS/CSTR/CELS headers and explicit CELS/CNUM
+totals even with empty element loops. `printoutcontact.f` still prints each
+requested pair's statistics. Zero-area ancillary NaNs are distinct from
+missing primary forces or missing blocks. A synthetic parser regression
+checks explicit empty tables, zero totals and both complete inactive CF
+blocks, and rejects each missing required block. This is a source/output
+contract check, not a recorded posed solver result. The source is retained
+in the [native control evidence](../fea/results/native_dynamic_control/README.md).

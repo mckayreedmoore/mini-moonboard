@@ -103,6 +103,35 @@ def test_synthetic_complete_native_format_passes_quiet_only(complete):
     assert report["pair_sampled_force_norm_integral_N_s"] == {"WASHER_HEAD": 0, "WASHER_BORE": 0}
 
 
+@pytest.mark.parametrize("missing", [None, "relative contact displacement", "contact stress",
+                                    "contact spring energy (", "total number of contact elements",
+                                    "total contact spring energy", "statistics for slave set WASHER_HEAD",
+                                    "statistics for slave set WASHER_BORE"])
+def test_explicit_zero_contact_output_is_distinct_from_missing_output(complete, missing):
+    # Synthetic parser contract, not a recorded no-contact solver result.
+    # CCX 2.21 printout/printoutcontact retain headers, totals and CF at CNUM=0.
+    state = audit.blocks(complete["control.dat"].decode(), [1e-8])[0]
+    inactive = state["statistics for slave set WASHER_BORE, master set CORE_SHANK and time"]
+    for name in state:
+        if name.startswith(("relative contact displacement", "contact stress", "contact spring energy (")):
+            state[name] = []
+        elif name.startswith(("total number of contact elements", "total contact spring energy")):
+            state[name] = ["0"]
+        elif name.startswith("statistics for slave set"):
+            state[name] = list(inactive)
+    text = "\n".join(name + " 1e-8\n" + "\n".join(rows) for name, rows in state.items()
+                     if missing is None or not name.startswith(missing))
+    files = dict(complete, **{"control.dat": text.encode()})
+    if missing is not None:
+        with pytest.raises(ValueError, match="Missing DAT block"):
+            audit.audit(reseal(files))
+    else:
+        report = audit.audit(reseal(files))
+        assert report["status"] == "COMPLETE QUIESCENT OUTPUT GATES PASSED"
+        assert report["states"][0]["CNUM"] == 0
+        assert all(pair["area_mm2"] == 0 for pair in report["states"][0]["pairs"].values())
+
+
 @pytest.mark.parametrize("fault", ["missing_bore", "duplicate_time", "missing_node", "nonfinite_velocity", "cnum", "cels", "unknown_face", "truncated_cf"])
 def test_incomplete_or_changed_native_output_rejected(complete, fault):
     files = dict(complete)
