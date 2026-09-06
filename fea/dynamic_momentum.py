@@ -4,7 +4,9 @@ The consistent scalar mass blocks retain the quadratic interpolation products
 needed for angular momentum and kinetic energy. They must not be row-lumped:
 quadratic tetrahedron corner row sums can be negative.
 The physical Gauss8 and source-reconstructed CalculiX 2.21 four-point operators
-are distinct. Neither has yet been qualified against native solver ELKE output.
+are distinct. The untransformed native operator matches ELKE/EMAS in the
+archived four single-element controls; each new application still needs its
+own output comparison. Gauss8 is not the native solver operator.
 """
 
 import math
@@ -56,7 +58,8 @@ def consistent_mass(elements, nodes, density, integration_rule="Gauss8"):
 def calculix_221_mass(elements, nodes, density):
     """Reconstruct the untransformed implicit C3D10 four-point reference mass.
 
-    This source-based reconstruction is NOT yet solver-output qualified. It
+    Archived single-element controls qualify the untransformed ELKE/EMAS
+    comparison, not arbitrary contact models or moving-body balance. This
     excludes mortar basis transformations, mass scaling and explicit lumping.
     Return format matches consistent_mass. See docs/dynamic-momentum-qualification.md.
     """

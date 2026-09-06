@@ -260,3 +260,48 @@ energy balance, native mass/energy comparison, and timestep sensitivity before
 the eleven-body stitch comparison can proceed. The later stitch experiment
 can compare transfer between plies, but its fixed-upper-bore diagnostic fixture
 cannot validate the real upper joint or imply construction readiness.
+
+## Proposed two-interface moving fixture — not launched
+
+Translate only the catalog washer by local `(0.001, 0.7356, 0)` mm, keeping
+the bolt/nut core fixed in its original initial pose (but **not restrained**).
+The ideal head gap and nearest bore gap are both 0.001 mm. At an initial
+washer velocity of `(-100, 100, 0)` mm/s and zero core velocity, both would
+close at 10 µs under free flight. That timing is a geometric prediction,
+not a prescribed impact or proof both interfaces transfer force.
+
+Before using this pose, verify separate CAD solids and the entire curved
+quadratic mesh surfaces remain nonpenetrating after actual decimal
+serialization. Corner-node distances or sampled minima alone cannot prove
+that. Retain the centred control and create a separate posed quiet case;
+the earlier stationary pass does not qualify a different near-contact pose.
+Do not resize parts, merge nodes, introduce preload, or add constraints to
+make this fixture work.
+
+The candidate moving window is 20 µs with maximum increment 0.1 µs, requiring
+at least 200 increments. Procedure and wall-time bounds still need explicit
+prelaunch selection; the 20-increment stationary runtime is not a bound on
+an impact calculation. No moving deck or launch is authorized by completion
+of a preparation artifact alone.
+
+Cache full per-element 10×10 mass blocks for **both** bodies, separately for
+the source-reconstructed native four-point rule and physical Gauss8 rule,
+using the posed serialized coordinates. Preserve the helper's returned Gmsh
+connectivity order. No row lumping or assumed equal body/ply sharing is
+permitted. Compare native mass and kinetic energy with native output before
+using moving balance results; the core mass is not covered by the earlier
+washer-only comparison.
+
+Use the fixed initial posed washer centre `c=(1.001,0.7356,0)` mm as the
+angular reference. Transform both reconstructed momentum and reported CF
+moments consistently: `Hc=H0−c×P` and `Mc=M0−c×F`. Integrate each pair's
+force and moment through every accepted state, including a verified initial
+zero-force state. The expected washer reactions are +X from the head and −Y
+from the bore. Opposite core resultants must be checked against independent
+core momentum, not assumed to prove assembly conservation.
+
+Retain the predeclared transfer/balance/energy gates above and report native
+and physical integration separately. Before running a timestep refinement,
+freeze comparisons for angular momentum/impulse and energy as well as linear
+momentum and pair impulse. A case that does not transfer nontrivial impulse
+at **both** interfaces remains inconclusive, even if its residuals are small.
