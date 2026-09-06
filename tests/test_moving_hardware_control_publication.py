@@ -105,3 +105,37 @@ def test_catalog_archive_rejects_changed_linked_evidence(third_evidence, name):
     files["members.json"] = json.dumps(members).encode()
     with pytest.raises(ValueError):
         publisher.replay(files, catalog=True)
+
+
+@pytest.fixture(scope="module")
+def fourth_evidence():
+    report = json.loads((publisher.HERE / "fourth-direct-quiescent.json").read_text())
+    archive = publisher.HERE / report["archive"]
+    assert publisher.sha(archive.read_bytes()) == report["archive_sha256"]
+    return publisher.archive_files(archive), report
+
+
+def test_direct_solver_completion_is_not_contact_qualification(fourth_evidence):
+    files, report = fourth_evidence
+    assert publisher.replay(files, direct=True) == report["summary"]
+    assert report["summary"]["accepted_states"] == 20
+    assert report["summary"]["solver_exit_code"] == report["summary"]["cleanup_exit_code"] == 0
+    assert report["summary"]["classification"] == "DIRECT SOLVER COMPLETED; NUMERICAL QUALIFICATION PENDING"
+    assert "references.json" not in files
+    assert len([n for n in files if n.startswith("geometry/") and n.endswith(".step")]) == 11
+    assert json.loads(files["solve/launch.json"])["outer_timeout_seconds"] == 200
+    assert json.loads(files["solve/freeze.json"])["solver_timeout_seconds"] == 180
+    with pytest.raises(ValueError, match="Original failure differs"):
+        publisher.replay(files, catalog=True)
+
+
+@pytest.mark.parametrize("name", ["prepared/frozen/moving_hardware_control.py", "solve/frozen/control.inp",
+                                  "solve/result/control.sta", "solve/result/container-probe.json"])
+def test_direct_archive_rejects_changed_linked_evidence(fourth_evidence, name):
+    original, _ = fourth_evidence
+    files = {**original, name: original[name] + b"changed"}
+    members = json.loads(files["members.json"])
+    members[name] = publisher.sha(files[name])
+    files["members.json"] = json.dumps(members).encode()
+    with pytest.raises(ValueError):
+        publisher.replay(files, direct=True)

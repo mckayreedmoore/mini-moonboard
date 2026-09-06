@@ -233,3 +233,16 @@ single-launch protection and owned-container cleanup are unchanged. Previous
 bundles keep their original 120/140-second bounds; no in-flight extension or
 automatic retry is permitted. Solver completion still requires a separate
 complete-output audit and does not release a moving or full-joint analysis.
+
+### Fixed-increment execution
+
+Preparation `control-r3gnwd2c` and frozen solve `quiescent-ffkg77qe` completed
+with native exit 0 and owned-container cleanup exit 0. The native log records
+131.788192 seconds, within the predeclared 180-second cap. STA records exactly
+20 accepted increments of 1e−7 s, reaching 2e−6 s; there are no rejected
+attempts. Previous geometry and adaptive-run evidence are unchanged.
+
+This establishes completion of the requested stationary time window with the
+fixed-step procedure. Complete numerical output auditing is separate; no
+moving-contact, thread, plywood-joint or whole-board strength conclusion
+follows merely from this successful solve.

@@ -67,6 +67,25 @@ do not certify response completeness, quiet behavior, equilibrium, contact
 energy, material resistance or physical structural failure. An accepted
 increment is not equivalent to a qualified numerical result.
 
+## Fourth attempt: DIRECT stationary control
+
+`fourth-direct-quiescent.tar.gz` is self-contained and preserves
+`quiescent-ffkg77qe`, preparation `control-r3gnwd2c`, and the same complete
+catalog-clearance geometry and mesh evidence used in the third attempt.
+The prior three archives and their reports remain unchanged.
+
+The frozen deck specifies implicit `DIRECT`, twenty fixed increments of
+1e−7 seconds, and a total duration of 2e−6 seconds. The frozen solver cap is
+180 seconds and the outer observation cap is 200 seconds. Native execution
+finished and exited **0**; STA records all **20 accepted increments** through
+2e−6 seconds, and owned-container cleanup succeeded.
+
+This publication certifies the original hash chain, terminal execution and
+fixed-increment STA schedule only. It does **not** establish quiet behavior,
+contact-field completeness, energy or momentum consistency, contact-law
+qualification, material resistance or permission to build or climb.
+Those require a separate numerical audit of the retained output.
+
 ## Partial numerical diagnostic
 
 [Retained report](diagnostics/partial-quiescent-gb9rn5dl/report.json) and its
