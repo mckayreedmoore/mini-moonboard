@@ -28,11 +28,14 @@ adhesive, hardware or floor properties into an implied construction approval.
 
 ## Current parallel work
 
-- Refine only released-gravity and climbing-load increments after the demonstrated
-  guided preload; preserve complete release and the existing force/moment limits.
+- The first release/load increment refinement completes normally and passes
+  released-gravity equilibrium, but still fails loaded moment balance
+  (96 Nmm against 1 Nmm). Preserve this failed evidence and the original limits.
 - Investigate a supported alternative contact formulation if the moment-transfer
   discrepancy persists. A different formulation is an experiment, not an assumed
   cure or permission to discard failed evidence.
-- Develop the separate side-tied geometry and its connection load path while
-  preserving the untied baseline. Select material procurement paths with actual
+- Two separate side-tied geometry exports and their direct STEP regression tests
+  are complete. Compare them with the untied baseline under matched ideal-bonded
+  fixed-floor assumptions first; that screen cannot establish reduced sliding
+  or real joint capacity. Select material procurement paths with actual
   structural documentation before using product-dependent capacities.

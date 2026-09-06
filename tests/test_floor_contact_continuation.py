@@ -1,14 +1,16 @@
 import hashlib
 import json
+import re
 import tarfile
 from copy import deepcopy
+from decimal import Decimal
 from pathlib import Path
 
 import pytest
 
 from fea.floor_contact import FACES, deck, floor_faces, mesh
 from fea.floor_contact_continuation import audit_three, continuation_deck
-from fea.floor_contact_results import blocks
+from fea.floor_contact_results import blocks, cross
 
 
 @pytest.mark.parametrize("fraction", [.1, .05])
@@ -404,3 +406,62 @@ def test_published_continuation_evidence_replays_without_generated_inputs(report
         assert_complete_replay(raw["continuation.dat"].decode(), nodes, elements, groups, record)
         # Global equilibrium alone never proves local contact or structure.
         assert not report["accepted_physical_solution"]
+    if report_path.parent.name == "free-increment0p1-mu0p5":
+        assert_refined_independent_moment_claims(report_path.parent, raw, nodes, parsed, record)
+
+
+def assert_refined_independent_moment_claims(directory, raw, nodes, parsed, record):
+    """Replay the numerical finding, not the publisher or its narrative."""
+    audit = json.loads((directory/"independent_audit.json").read_text())
+    assert audit["dat_sha256"] == hashlib.sha256(raw["continuation.dat"]).hexdigest()
+    assert audit["production_audit_error"] == record["audit_error"]
+    assert audit["recorded_exit_code"] == record["exit_code"] == 0
+    assert "NOT PHYSICAL OR STRUCTURAL ACCEPTANCE" in audit["status"]
+    assert [endpoint["time"] for endpoint in audit["endpoints"]] == [1., 2., 3.]
+    for endpoint in audit["endpoints"][1:]:
+        time = endpoint["time"]
+        displacement = parsed["displacements", "WOODN", time]
+        positions = {node: tuple(a+b for a, b in zip(xyz, displacement[node], strict=True))
+                     for node, xyz in nodes.items()}
+        external = [(positions[int(node)], (0., 0., -volume*6e-10*9806.65))
+                    for node, volume in record["nodal_volume_mm3"].items()]
+        load = 1200. if time == 3. else 0.
+        external += [(positions[node], (0., 0., -load/len(record["load_nodes"])))
+                     for node in record["load_nodes"]]
+        for name, coordinates in record["ground_nodes"].items():
+            external += [(coordinates[str(node)], force)
+                         for node, force in parsed["forces", "GROUND_"+name, time].items()]
+        force = [sum(v[axis] for _, v in external) for axis in range(3)]
+        moment = [sum(cross(point, v)[axis] for point, v in external) for axis in range(3)]
+        assert force == pytest.approx(endpoint["force_residual_n"], abs=1e-9, rel=0)
+        assert moment == pytest.approx(endpoint["ground_moment_residual_nmm"], abs=1e-7, rel=0)
+        assert endpoint["global_equilibrium_pass"] == (max(map(abs, force)) <= .1 and max(map(abs, moment)) <= 1.)
+        assert endpoint["global_equilibrium_pass"] == (time == 2.)
+
+    data = raw["continuation.dat"].decode()
+    # The deck fixes output order to CF, CFN, CFS. Read the first of the three
+    # loaded-kicker result rows and independently propagate printed precision.
+    statistics = re.findall(
+        r"statistics for slave set SLAVE_KICKER, master set MASTER_KICKER and time\s+(\S+)\s+"
+        r"total surface force[^\n]*\n\s*([^\n]+)", data
+    )
+    loaded = [row.split() for time, row in statistics if float(time) == 3.]
+    assert len(loaded) == 3 and all(len(row) == 6 for row in loaded)
+    cf_mx = float(loaded[0][3])
+    coordinates = record["ground_nodes"]["KICKER"]
+    rf = parsed["forces", "GROUND_KICKER", 3.]
+    rf_mx = sum(cross(coordinates[str(node)], vector)[0] for node, vector in rf.items())
+    patch = audit["endpoints"][2]["patches"]["KICKER"]
+    assert cf_mx-rf_mx == pytest.approx(patch["cf_minus_rf_moment_nmm"][0], abs=1e-8, rel=0)
+    force_blocks = re.findall(r"forces[^\n]*for set GROUND_KICKER and time\s+(\S+)\n(.*?)(?=\n\s*[A-Za-z]|\Z)", data, re.DOTALL)
+    bodies = [body for time, body in force_blocks if float(time) == 3.]
+    assert len(bodies) == 1
+    rows = [line.split() for line in bodies[0].splitlines() if len(line.split()) == 4]
+    assert {int(row[0]) for row in rows} == rf.keys()
+    half_quantum = lambda token: .5*10**Decimal(token).as_tuple().exponent
+    tolerance = half_quantum(loaded[0][3])+sum(
+        abs(coordinates[row[0]][1])*half_quantum(row[3])+
+        abs(coordinates[row[0]][2])*half_quantum(row[2]) for row in rows
+    )
+    assert tolerance == pytest.approx(patch["cf_minus_rf_moment_print_tolerance_nmm"][0], abs=1e-12, rel=0)
+    assert abs(cf_mx-rf_mx) > 1000*tolerance

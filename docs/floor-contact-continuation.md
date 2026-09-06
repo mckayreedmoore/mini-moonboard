@@ -113,12 +113,43 @@ not a proven solver implementation bug. The exact-version
 (nodes 140 and 142) describes the face-to-face matching and contact stiffness
 used here. Wood-side balance must not replace the ground-based acceptance test.
 
+## Refined release/loading: gravity passes, loaded moment still fails
+
+The [0.1-increment run](../fea/results/floor_contact_continuation/free-increment0p1-mu0p5/report.json)
+finished normally in 1,405.2 seconds. It retains the full guided preload, then
+uses ten increments for released gravity and ten for the original 1.2 kN load.
+Geometry, μ=0.5, contact slopes and complete guide removal are unchanged.
+The [independent endpoint audit](../fea/results/floor_contact_continuation/free-increment0p1-mu0p5/independent_audit.json)
+and original raw outputs are preserved with the exact launch-source snapshot.
+
+| Maximum absolute ground-based moment residual | Full-step increments | Refined release/load increments | Unchanged limit |
+| --- | ---: | ---: | ---: |
+| Released gravity | 4.8925 Nmm | 0.07263 Nmm | 1 Nmm |
+| Full 1.2 kN load | 256.5547 Nmm | 96.0176 Nmm | 1 Nmm |
+
+Released gravity now passes the global force/moment check; the loaded state
+still fails. Loaded force residual components remain below 0.000071 N and
+released guide XY reactions below 1.5e-10 N. Wood-side CF moment components
+remain below 0.096 Nmm, but the kicker's CF-versus-ground Mx discrepancy is
+−98.4103 Nmm against about 0.03965 Nmm of propagated printing uncertainty.
+The improvement supports increment sensitivity, not proof of the exact source
+mechanism or acceptance of the loaded solution.
+
+All 69 printed active integration points satisfy compression, the normal law,
+and the assumed Coulomb bound within propagated print precision. Missing active
+faces are not thereby proven open. Kicker aggregate friction utilization is
+approximately 1.0000 at the assumed μ=0.5. Maximum nodal displacement is
+1.23428 mm, almost unchanged from the full-step result; agreement in displacement
+does not cancel the failed moment audit. These are rejected-model diagnostics,
+not verified deflection, contact pressure or capacity predictions.
+
 ## Next numerical step
 
 1. Retain the demonstrated guided preload, same geometry, friction assumption,
    contact slopes and complete guide release. Reduce increment sizes specifically
    during free gravity and climbing loading so contact matching refreshes more
-   frequently. Keep the 1 Nmm moment limit unchanged.
+   frequently. The first refinement above improves but does not resolve loading;
+   keep the 1 Nmm moment limit unchanged.
 2. Compare wood/ground force and moment transfer across increment refinements,
    alongside local pressure, friction and actual gaps. If the discrepancy
    persists, compare a documented mortar formulation on the actual-foot coupon
