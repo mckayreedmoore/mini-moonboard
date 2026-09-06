@@ -4,6 +4,7 @@ import math
 
 import pytest
 
+from fea import dynamic_momentum
 from fea import moving_hardware_balance as balance
 
 SCALES = {"P_star_tonne_mm_s": 2., "H_star_tonne_mm2_s": 2., "E_star_N_mm": 2.}
@@ -166,6 +167,57 @@ def test_ke_floor_is_reported_and_not_claimed_as_relative_accuracy():
     supplied[1]["bodies"]["BOLT_NUT"]["ELKE"] = 2e-13
     report = balance.assess(supplied, SCALES, REFERENCE)
     assert any("native kinetic-energy error" in f["quantity"] for f in report["failures"])
+
+
+@pytest.mark.parametrize("ke,failed", [(-5e-14, False), (-2e-13, True), (-1., True)])
+def test_signed_reconstructed_ke_uses_unchanged_absolute_gate(ke, failed):
+    initial = history()[0]
+    supplied = [initial, {**copy.deepcopy(initial), "time_s": 1}]
+    supplied[1]["bodies"]["BOLT_NUT"]["native"]["kinetic_energy"] = ke
+    report = balance.assess(supplied, SCALES, REFERENCE)
+    core = report["states"][1]["bodies"]["BOLT_NUT"]
+    assert core["KE_reconstructed"] == ke  # Preserve the sign; never clamp to zero.
+    assert core["native_KE_comparison_scale"] == max(abs(ke), 2e-8)
+    assert core["native_KE_floor_controls"] == (abs(ke) <= 2e-8)
+    assert bool(report["failures"]) == failed
+    assert all("native kinetic-energy error" in f["quantity"] for f in report["failures"])
+
+
+@pytest.mark.parametrize("field,value", [("ELKE", -1e-20), ("kinetic_energy", float("nan")),
+    ("kinetic_energy", float("inf")), ("kinetic_energy", True)])
+def test_printed_ke_still_nonnegative_and_reconstruction_finite(field, value):
+    supplied = history()
+    body = supplied[1]["bodies"]["BOLT_NUT"]
+    (body if field == "ELKE" else body["native"])[field] = value
+    with pytest.raises(ValueError):
+        balance.assess(supplied, SCALES, REFERENCE)
+
+
+def test_native_four_point_near_null_field_can_have_signed_matrix_roundoff():
+    points, weights = dynamic_momentum.calculix_221_quadrature()
+    barycentric = [(1-x-y-z, x, y, z) for x, y, z in points]
+    basis = [[l*(2*l-1) for l in values] +
+             [4*values[i]*values[j] for i, j in ((0, 1), (1, 2), (2, 0), (0, 3), (2, 3), (1, 3))]
+             for values in barycentric]
+    matrix = dynamic_momentum.mass_block(basis, weights, [1.]*4, 1.)
+    # In exact arithmetic the corner evaluation block is .2I-.1J.
+    # Cancel one midside basis function with its inverse, 5I-2.5J.
+    midside = [row[5] for row in basis]
+    velocity = [0.]*10
+    for values, value in zip(barycentric, midside, strict=True):
+        velocity[max(range(4), key=lambda i: values[i])] = -5*value + 2.5*sum(midside)
+    velocity[5] = 1.
+    assert max(abs(math.fsum(a*b for a, b in zip(row, velocity, strict=True))) for row in basis) < 4e-15
+    nodes = dict(enumerate(((0., 0., 0.), (1., 0., 0.), (0., 1., 0.), (0., 0., 1.),
+                            (.5, 0., 0.), (.5, .5, 0.), (0., .5, 0.), (0., 0., .5), (0., .5, .5), (.5, 0., .5))))
+    result = dynamic_momentum.momentum(nodes, {1: (tuple(nodes), matrix)}, {i: (0., 0., 0.) for i in nodes},
+                                      {i: (v, 0., 0.) for i, v in enumerate(velocity)})
+    assert -1e-17 < result["kinetic_energy"] < 0
+    initial = history()[0]
+    supplied = [initial, {**copy.deepcopy(initial), "time_s": 1}]
+    supplied[1]["bodies"]["BOLT_NUT"]["native"]["kinetic_energy"] = result["kinetic_energy"]
+    report = balance.assess(supplied, SCALES, REFERENCE)
+    assert report["failures"] == []
 
 
 @pytest.mark.parametrize("fault", ["initial_time", "initial_force", "initial_moment", "duplicate_time", "missing_body", "missing_pair", "nan", "negative_energy"])

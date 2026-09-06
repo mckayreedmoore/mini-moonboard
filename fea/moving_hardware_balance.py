@@ -79,12 +79,15 @@ def assess(states, scales, reference):
             mass = scalar(native["mass"], positive=True)
             p, h0 = vector(native["linear_momentum"]), vector(native["angular_momentum"])
             h = difference(h0, cross(reference, p))
-            ke, printed_ke = scalar(native["kinetic_energy"]), scalar(body["ELKE"])
+            ke = native["kinetic_energy"]
+            if type(ke) not in (int, float) or not math.isfinite(ke):
+                raise ValueError("Expected finite reconstructed kinetic energy")
+            printed_ke = scalar(body["ELKE"])
             printed_mass = scalar(body["EMAS"], positive=True)
             internal = scalar(body["ELSE"])
             mass_error = abs(printed_mass / mass - 1)
             floor = GATES["native_ke_floor_over_E_star"] * energy_scale
-            denominator = max(printed_ke, ke, floor)
+            denominator = max(printed_ke, abs(ke), floor)
             ke_error = abs(printed_ke-ke)
             gate(name + " native mass relative error", mass_error, GATES["native_mass_rtol"])
             gate(name + " native kinetic-energy error", ke_error, GATES["native_ke_rtol"] * denominator)
@@ -92,7 +95,7 @@ def assess(states, scales, reference):
                                   "EMAS": printed_mass, "ELKE": printed_ke, "ELSE": internal,
                                   "native_mass_relative_error": mass_error, "native_KE_absolute_error": ke_error,
                                   "native_KE_comparison_scale": denominator,
-                                  "native_KE_floor_controls": floor >= max(printed_ke, ke)}
+                                  "native_KE_floor_controls": floor >= max(printed_ke, abs(ke))}
         for name in pairs:
             force = vector(state["pairs"][name]["force_N"])
             moment0 = vector(state["pairs"][name]["origin_moment_N_mm"])
