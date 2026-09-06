@@ -211,6 +211,7 @@ def test_optional_native_mass_stage_freezes_predeclared_scales(tmp_path, monkeyp
         assert set(elements) == set(washer["elements"])
         assert set(nodes) == set(washer["nodes"])
         assert density == 7.85e-9
+        assert all(v == float(format(v, ".12g")) for p in nodes.values() for v in p)
         return {1: ((), ((6e-6,),))}
     monkeypatch.setattr(control.dynamic_momentum, "calculix_221_mass", native_mass)
     directory = control.prepare(tmp_path, tmp_path / "geometry.json", tmp_path / "outputs", integrate_reference=True)
@@ -238,3 +239,35 @@ def test_in_memory_declared_configuration_mutation_is_rejected(monkeypatch):
     monkeypatch.setitem(control.CASE_SETTINGS, "total_time_s", 2e-5)
     with pytest.raises(ValueError, match="Declared configuration changed"):
         control.source_snapshot()
+
+
+def test_native_node_reader_width_regression():
+    context = control.build_context(*fixture())
+    node = next(iter(context["nodes"]))
+    context["nodes"][node] = (-3.751665644813329e-12, .12345678901234567, 57.15)
+    line = next(line for line in control.deck(context, "quiescent").splitlines() if line.startswith(f"{node},"))
+    assert all(len(value) <= 20 for value in line.split(",")[1:])
+
+
+def test_quantized_context_matches_every_solver_coordinate_and_declared_bound():
+    text, record, geometry = fixture()
+    context = control.build_context(text, record, geometry)
+    nodes = {}
+    for line in control.deck(context, "quiescent").split("*NODE\n")[1].split("*ELEMENT")[0].splitlines():
+        tag, *coordinates = line.split(",")
+        assert len(coordinates) == 3 and all(len(v) <= 20 for v in coordinates)
+        nodes[int(tag)] = tuple(map(float, coordinates))
+    assert nodes == context["nodes"]
+    original, _ = control.mesh(text)
+    origin = context["origin_mm_global"]
+    actual_error = max(abs(p[a]-(original[n][a]-origin[a])) for n, p in nodes.items() for a in range(3))
+    report = context["coordinate_quantization"]
+    assert report["max_abs_component_error_mm"] == actual_error
+    assert actual_error <= report["maximum_allowed_error_mm"] == 5e-10
+    assert report["format"] == ".12g"
+    assert "frozen/mesh.inp" in report["original_coordinates"]
+
+
+def test_coordinate_quantization_rejects_out_of_scope_roundoff():
+    with pytest.raises(ValueError, match="quantization exceeds"):
+        control.quantize_coordinates({1: (1234567890123.456, 0., 0.)})

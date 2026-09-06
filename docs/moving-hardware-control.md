@@ -3,6 +3,16 @@
 Preparation in progress. This tests numerical contact, not a bolt product,
 plywood joint capacity or permission to build/climb.
 
+The first quiescent attempt, `quiescent-an9hdwot`, stopped during input parsing
+with native exit 201, before any accepted state or contact response. Its frozen
+deck, source, log and failed terminal record are preserved. The owned container
+was removed successfully. Source `nodes.f:140,150,160` reads only the first
+20 characters of each coordinate; the emitted 22-character value
+`-3.751665644813329E-12` was truncated to an incomplete exponent. This is an
+export-format failure, not a structural or contact result. The corrected export
+must bound coordinate field widths and bind subsequent mass/output analysis
+to the actual serialized coordinates, recording its small rounding error.
+
 The selected station-1 hardware comes from the actual locked-thread stitch
 variant: one fused bolt/head/nut solid and one separate inner annular washer.
 The eleven-body mesh completed in 7.05 seconds, with 131,695 nodes and 62,987

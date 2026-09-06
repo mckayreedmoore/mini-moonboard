@@ -22,6 +22,8 @@ BODY_NAMES = {"BOLT_NUT": STATION + "_bolt_nut", "WASHER": STATION + "_washer_in
 RADIUS = 4.7625
 CAD_TOLERANCE_MM = 1e-5
 AREA_RELATIVE_TOLERANCE = 1e-7
+COORDINATE_FORMAT = ".12g"
+QUANTIZATION_BOUND_MM = 5e-10
 MATERIAL = {"youngs_modulus_N_mm2": 210000., "poisson_ratio": .3, "density_tonne_mm3": 7.85e-9,
             "scope": "Generic elastic steel assumption, not measured properties or capacity"}
 CASE_SETTINGS = {"initial_dt_s": 1e-8, "max_dt_s": 1e-7, "min_dt_s": 1e-11, "total_time_s": 2e-6,
@@ -37,7 +39,8 @@ SURFACE_SPECS = {
 def declared_configuration():
     return json.dumps({"station": STATION, "body_names": BODY_NAMES, "radius": RADIUS,
                        "cad_tolerance": CAD_TOLERANCE_MM, "area_tolerance": AREA_RELATIVE_TOLERANCE,
-                       "material": MATERIAL, "cases": CASE_SETTINGS, "surfaces": SURFACE_SPECS}, sort_keys=True)
+                       "material": MATERIAL, "cases": CASE_SETTINGS, "surfaces": SURFACE_SPECS,
+                       "coordinate_format": COORDINATE_FORMAT, "quantization_bound_mm": QUANTIZATION_BOUND_MM}, sort_keys=True)
 
 
 _CONFIGURATION_AT_IMPORT = declared_configuration()
@@ -80,6 +83,19 @@ def source_snapshot():
 
 def bounds(points):
     return [fn(p[a] for p in points) for fn in (min, max) for a in range(3)]
+
+
+def quantize_coordinates(local):
+    # CalculiX 2.21 nodes.f:140/150/160 reads only (1:20) with f20.0.
+    # Raw repr can truncate an exponent; .12g fits all finite float fields.
+    quantized = {n: tuple(float(format(v, COORDINATE_FORMAT)) for v in p) for n, p in local.items()}
+    error = max(abs(v-quantized[n][a]) for n, p in local.items() for a, v in enumerate(p))
+    if not math.isfinite(error) or error > QUANTIZATION_BOUND_MM:
+        raise ValueError("Coordinate quantization exceeds the declared error bound")
+    return quantized, {"format": COORDINATE_FORMAT, "native_reader_field_width": 20,
+                       "max_abs_component_error_mm": error, "maximum_allowed_error_mm": QUANTIZATION_BOUND_MM,
+                       "original_coordinates": "Unmodified global coordinates retained in frozen/mesh.inp",
+                       "scope": "Decimal roundoff after station translation; these same quantized coordinates define deck and reference mass"}
 
 
 def select_surface(label, body, xyz, elements, origin):
@@ -156,6 +172,7 @@ def build_context(mesh_text, mesh_record, geometry_record):
     local = {n: tuple(x-origin[a] for a, x in enumerate(xyz[n])) for n in sorted(selected_nodes)}
     if any(not all(map(math.isfinite, p)) for p in local.values()):
         raise ValueError("Finite body coordinates required")
+    local, quantization = quantize_coordinates(local)
     validate_ownership(local, selected_elements, bodies)
     for body in bodies.values():
         body["local_bounds_mm"] = bounds([local[n] for n in body["nodes"]])
@@ -163,7 +180,8 @@ def build_context(mesh_text, mesh_record, geometry_record):
     return {"status": "PREPARED ONLY; NO SOLVER OR OUTPUT QUALIFICATION", "station": STATION,
             "scope": "Two-body numerical moving-hardware control only; no wood, preload, physical validation or frame inference",
             "origin_mm_global": origin, "angular_reference_mm_local": [1., 0., 0.],
-            "coordinate_transform": "Local XYZ = global XYZ minus station start; no relative geometry change",
+            "coordinate_transform": "Local XYZ = global XYZ minus station start, then .12g decimal quantization within the recorded bound; no intended physical geometry change",
+            "coordinate_quantization": quantization,
             "nodes": local, "elements": selected_elements, "bodies": bodies, "surfaces": surfaces,
             "global_bounds_mm": bounds([xyz[n] for n in selected_nodes]), "material": MATERIAL,
             "contact_pairs": [{"slave": slave, "master": master, "normal_penalty_n_mm3": 1e5,
@@ -189,7 +207,7 @@ def deck(context, case):
     settings = context["cases"][case]
     elements = {int(e): ids for e, ids in context["elements"].items()}
     lines = ["*HEADING", "Two free hardware bodies; numerical control only", "*NODE"]
-    lines += [str(n) + "," + ",".join(map(repr, p)) for n, p in context["nodes"].items()]
+    lines += [str(n) + "," + ",".join(format(v, COORDINATE_FORMAT) for v in p) for n, p in context["nodes"].items()]
     for name, body in context["bodies"].items():
         lines += [f"*ELEMENT,TYPE=C3D10,ELSET={name}"]
         lines += [str(e) + "," + ",".join(map(str, elements[e])) for e in body["elements"]]
