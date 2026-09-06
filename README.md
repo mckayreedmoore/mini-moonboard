@@ -17,6 +17,12 @@ It does **not** contain a structurally approved or build-ready design.
 Structural connections, actual material, floor interface, and stability still
 require human review.
 
+[Design recommendation and next five steps](docs/design-recommendation.md):
+develop the untied 2×8-foot100 baseline, resolve leg composite action and the
+backing joints, and use explicit load/contact findings to decide whether to
+change the support arrangement. This is a development decision, not approval
+of the current build plans.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.

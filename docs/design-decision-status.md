@@ -5,6 +5,12 @@ a solver run. Original plywood, 2×8, 2×10 and 2×12 candidates and their froze
 results remain references. One climber, 250 lb intended maximum, with 150/200 lb
 comparisons and 300 lb sensitivity; these are not certified user ratings.
 
+The [consolidated recommendation](design-recommendation.md) selects the next
+candidate to develop, dispositions the preserved alternatives and defines
+switch triggers. The open work below is the path from that research decision
+to a product-specific, validated assembly; it is not a reason to keep repeating
+generic stiffness comparisons without a design question.
+
 ## Current development preference
 
 Retain **2x8-foot100 as the comparison baseline**. Do not select deeper rims to

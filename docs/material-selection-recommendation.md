@@ -69,6 +69,41 @@ through-thickness shear and drilled connection behavior are different checks.
 Use a justified product/laminate representation rather than inventing a full
 three-dimensional orthotropic tensor from one published bending modulus.
 
+### Concrete supplier-data example, not a substituted material
+
+Checked 2026-09-06: Metsä's current Birch product page links a June 2026 data
+sheet and a structural-plywood declaration dated 2019-12-02. For its **18 mm,
+13-veneer sanded structural birch product**, the declaration gives these mean
+stiffnesses, parallel/perpendicular to the face grain:
+
+| Property | Parallel / perpendicular, MPa |
+| --- | --- |
+| Bending modulus | 10048 / 7452 |
+| Compression/tension modulus | 9148 / 8352 |
+| Panel shear modulus | 620 / 620 |
+| Planar shear modulus | 206 / 183 |
+
+The declaration directs these values to Eurocode 5 calculations and declares
+no performance for strength/stiffness under point load. It is not evidence for
+the Swaner SKU, a drilled climbing insert, or a workshop bond between sheets.
+[Manufacturer declaration, pp. 1–4](https://www.metsagroup.com/globalassets/metsa-wood/dop-documents/dop_metsa_wood_birch_plywood_pf_2019-12-2_en.pdf).
+
+Our isotropic E=7000 MPa, ν=0.3 implies `G=E/[2(1+ν)]=2692 MPa`: 4.34 times
+that example's panel-shear modulus, and about 13–15 times its planar-shear
+moduli. Thus choosing a lower scalar E does **not** establish a conservative
+overall plywood model. These effective panel properties also cannot simply be
+inserted into arbitrary 3D orthotropic slots; a compatible laminate/material
+representation and its missing inputs still need justification.
+
+The associated data sheet gives 17.1–18.1 mm thickness for nominal 18 mm panels
+and average density 680 kg/m³. Two such sheets are not the current 38.1 mm
+stack, and changing density must update only the applicable inventory. Request
+the offered product, actual dimensions, strength-axis orientation and applicable
+declaration from the supplier; availability, price and suitability of a US
+purchase have not been established. This is an example of a useful evidence
+packet, not a purchase recommendation.
+[June 2026 product data sheet, pp. 2–3](https://www.metsagroup.com/contentassets/42b1c1d79c43410c8762dcd1c6cc31e1/metsa-wood-birch-product-datasheet-en.pdf).
+
 The manufactured bonds inside a plywood sheet and the workshop bond joining
 two sheets are separate interfaces. USDA explains that bond performance depends
 on substrate, adhesive and interfacial condition, and covers moisture, surface
