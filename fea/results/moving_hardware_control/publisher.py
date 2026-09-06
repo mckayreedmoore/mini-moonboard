@@ -4,6 +4,7 @@ import io
 import json
 import re
 import tarfile
+from itertools import pairwise
 from pathlib import Path
 
 from fea.results.stitch_joint_mesh.publisher import archive_files, mesh, sha
@@ -24,7 +25,7 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def replay(files, *, timeout=False):
+def replay(files, *, timeout=False, catalog=False):
     """Check preserved hashes, ownership and rejection, not contact mechanics."""
     def record(name):
         return json.loads(files[name])
@@ -61,6 +62,15 @@ def replay(files, *, timeout=False):
     prepared = record("prepared/freeze.json")["files_sha256"]
     hashes("prepared/", prepared)
     context = record("prepared/context.json")
+    if catalog:
+        require(geometry.get("catalog_washer_bore") is True
+                and geometry.get("geometry_variant") == context.get("geometry_variant")
+                == "locked-thread-fw38-minimum-bore-11-body"
+                and context["washer_bore_diameter_mm"] == 10.9982,
+                "Catalog bore variant differs")
+        require(set(context["cases"]) == {"quiescent"}
+                and all(v == [0., 0., 0.] for v in context["cases"]["quiescent"]["initial_velocity_mm_s"].values()),
+                "Catalog case is not quiet-only")
     hashes("prepared/frozen/", context["input_sha256"])
     hashes("prepared/frozen/", context["source_sha256"])
     for name in ("mesh.inp", "mesh.json"):
@@ -77,7 +87,7 @@ def replay(files, *, timeout=False):
     launch, outcome = record("solve/launch.json"), record("solve/result/exit.json")
     require(launch["freeze_sha256"] == sha(files["solve/freeze.json"]), "Launch freeze differs")
     hashes("solve/result/", outcome["output_sha256"])
-    expected_exit = 124 if timeout else 201
+    expected_exit = 124 if timeout or catalog else 201
     require(outcome["returncode"] == expected_exit and outcome["cleanup_returncode"] == 0
             and outcome["status"] == "SOLVER OR CLEANUP FAILED" and outcome["exceptions"] == [], "Original failure differs")
     cid = files["solve/result/container.id"].decode().strip()
@@ -97,15 +107,25 @@ def replay(files, *, timeout=False):
         "SUMMARY OF JOB INFORMATION", "  STEP      INC     ATT  ITRS     TOT TIME     STEP TIME      INC TIME"]
     sta = files["solve/result/control.sta"].decode().splitlines()
     require(sta[:2] == headers, "Unexpected STA headers")
-    if timeout:
+    accepted_count = 0
+    if timeout or catalog:
         rows = [line.split() for line in sta[2:]]
         require(all(len(row) == 7 for row in rows), "Malformed partial STA")
         accepted = [row for row in rows if not row[2].endswith("U")]
-        require(len(accepted) == 1 and accepted[0][:4] == ["1", "1", "1", "3"]
-                and list(map(float, accepted[0][4:])) == [1e-8]*3, "Partial accepted state differs")
         rejected = [row for row in rows if row[2].endswith("U")]
-        require(len(rejected) == 10 and all(row[:2] == ["1", "2"] for row in rejected)
-                and float(rejected[-1][-1]) == 1e-11, "Cutback history differs")
+        accepted_count = len(accepted)
+        if catalog:
+            require(not rejected and accepted_count == 19
+                    and all(row[:4] == ["1", str(i), "1", "2"] for i, row in enumerate(accepted, 1))
+                    and float(accepted[0][4]) == 1e-8 and float(accepted[-1][4]) == 2.00705e-8
+                    and all(float(a[4]) < float(b[4]) for a, b in pairwise(accepted))
+                    and all(float(row[4]) == float(row[5]) and float(row[6]) > 0 for row in accepted),
+                    "Catalog partial accepted history differs")
+        else:
+            require(accepted_count == 1 and accepted[0][:4] == ["1", "1", "1", "3"]
+                    and list(map(float, accepted[0][4:])) == [1e-8]*3, "Partial accepted state differs")
+            require(len(rejected) == 10 and all(row[:2] == ["1", "2"] for row in rejected)
+                    and float(rejected[-1][-1]) == 1e-11, "Cutback history differs")
         require(files["solve/result/control.dat"] and "*ERROR reading *NODE" not in log, "Expected partial numerical output")
         command = launch["command"]
         require(command[command.index("timeout"):] == ["timeout", "--signal=TERM", "--kill-after=5", "120",
@@ -115,36 +135,43 @@ def replay(files, *, timeout=False):
         require("*ERROR reading *NODE. Card image:" in log and "*ERROR in calinput: at least one fatal" in log,
                 "Native input rejection absent")
         require(files["solve/result/control.dat"] == b"" and len(sta) == 2, "Unexpected numerical output")
-    return {"classification": "BOUNDED TIMEOUT; PARTIAL UNQUALIFIED RESPONSE" if timeout else "NATIVE INPUT REJECTED; NO ACCEPTED STATES",
+    return {"classification": "BOUNDED TIMEOUT; PARTIAL UNQUALIFIED RESPONSE" if timeout or catalog else "NATIVE INPUT REJECTED; NO ACCEPTED STATES",
             "solver_exit_code": expected_exit,
-            "cleanup_exit_code": 0, "accepted_states": 1 if timeout else 0, "body_count": 11,
+            "cleanup_exit_code": 0, "accepted_states": accepted_count, "body_count": 11,
             "mesh_nodes": len(nodes), "mesh_elements": len(elements), "shared_body_nodes": 0,
             "control_nodes": len(context["nodes"]), "control_elements": len(context["elements"])}
 
 
-def publish():
+def publish(*, third=False):
+    geometry_directory = ROOT / "fea/generated/stitch-joint-geometry-df3e0965" if third else GEOMETRY
+    mesh_directory = geometry_directory / "mesh-7amycoem" if third else MESH
+    solve_directory = ROOT / "fea/generated/quiescent-solves/quiescent-ggs6anor" if third else SOLVE
+    prep_directory = ROOT / "fea/generated/moving-hardware-controls/control-muorg377" if third else PREP
+    # Only terminal runs have an immutable outcome inventory to bind.
+    require((solve_directory / "result/exit.json").is_file(), "Run is not terminal; do not archive it")
     files = {}
-    for prefix, directory in (("solve/", SOLVE), ("prepared/", PREP), ("mesh/", MESH)):
+    for prefix, directory in (("solve/", solve_directory), ("prepared/", prep_directory), ("mesh/", mesh_directory)):
         for path in sorted(directory.rglob("*")):
             if path.is_file():
                 files[prefix + path.relative_to(directory).as_posix()] = path.read_bytes()
-    for path in sorted(GEOMETRY.rglob("*")):
-        if path.is_file() and (path.parent == GEOMETRY or "launch_sources" in path.relative_to(GEOMETRY).parts):
-            files["geometry/" + path.relative_to(GEOMETRY).as_posix()] = path.read_bytes()
+    for path in sorted(geometry_directory.rglob("*")):
+        if path.is_file() and (path.parent == geometry_directory or "launch_sources" in path.relative_to(geometry_directory).parts):
+            files["geometry/" + path.relative_to(geometry_directory).as_posix()] = path.read_bytes()
     files["publisher.py"] = Path(__file__).read_bytes()
     files["mesh_parser.py"] = (HERE.parent / "stitch_joint_mesh/publisher.py").read_bytes()
     files["members.json"] = (json.dumps({n: sha(b) for n, b in sorted(files.items())}, indent=2) + "\n").encode()
-    summary = replay(files)
-    archive = HERE / "first-input-rejection.tar.gz"
+    summary = replay(files, catalog=third)
+    basename = "third-catalog-quiescent" if third else "first-input-rejection"
+    archive = HERE / (basename + ".tar.gz")
     with tarfile.open(archive, "x:gz") as output:
         for name, data in sorted(files.items()):
             info = tarfile.TarInfo(name)
             info.size, info.mode = len(data), 0o644
             output.addfile(info, io.BytesIO(data))
-    require(replay(archive_files(archive)) == summary, "Written archive replay differs")
+    require(replay(archive_files(archive), catalog=third) == summary, "Written archive replay differs")
     report = {"archive": archive.name, "archive_sha256": sha(archive.read_bytes()), "summary": summary,
-              "limits": "Rejected input only; no contact response, equilibrium, geometry recomputation, mesh quality recomputation or capacity qualification."}
-    with (HERE / "first-input-rejection.json").open("x") as output:
+              "limits": "Archived terminal run only; no contact response, equilibrium, geometry recomputation, mesh quality recomputation or capacity qualification."}
+    with (HERE / (basename + ".json")).open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")
     return report
 
@@ -201,6 +228,8 @@ def publish_second():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--second", action="store_true")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--second", action="store_true")
+    selection.add_argument("--third", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(publish_second() if args.second else publish(), indent=2))
+    print(json.dumps(publish_second() if args.second else publish(third=args.third), indent=2))

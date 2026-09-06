@@ -72,3 +72,36 @@ def test_second_timeout_rejects_rewritten_evidence(second_evidence, name):
     files["members.json"] = json.dumps(members).encode()
     with pytest.raises(ValueError):
         publisher.replay_second(files, publisher.HERE / report["shared_archive"])
+
+
+@pytest.fixture(scope="module")
+def third_evidence():
+    report = json.loads((publisher.HERE / "third-catalog-quiescent.json").read_text())
+    archive = publisher.HERE / report["archive"]
+    assert publisher.sha(archive.read_bytes()) == report["archive_sha256"]
+    return publisher.archive_files(archive), report
+
+
+def test_catalog_timeout_is_self_contained_partial_evidence(third_evidence):
+    files, report = third_evidence
+    assert publisher.replay(files, catalog=True) == report["summary"]
+    assert report["summary"]["solver_exit_code"] == 124
+    assert report["summary"]["accepted_states"] == 19
+    assert "references.json" not in files
+    assert len([name for name in files if name.startswith("geometry/") and name.endswith(".step")]) == 11
+    assert "geometry/mesh-runtime.txt" in files
+    assert json.loads(files["prepared/context.json"])["washer_bore_diameter_mm"] == 10.9982
+    with pytest.raises(ValueError, match="Original failure differs"):
+        publisher.replay(files)  # Cannot relabel this as the original input rejection.
+
+
+@pytest.mark.parametrize("name", ["geometry/leg_stitch_right_1_washer_inner.step", "mesh/mesh.inp",
+                                  "solve/result/control.sta", "solve/frozen/moving_hardware_solve.py"])
+def test_catalog_archive_rejects_changed_linked_evidence(third_evidence, name):
+    original, _ = third_evidence
+    files = {**original, name: original[name] + b"changed"}
+    members = json.loads(files["members.json"])
+    members[name] = publisher.sha(files[name])
+    files["members.json"] = json.dumps(members).encode()
+    with pytest.raises(ValueError):
+        publisher.replay(files, catalog=True)

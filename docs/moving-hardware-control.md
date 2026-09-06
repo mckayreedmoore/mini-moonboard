@@ -122,8 +122,8 @@ releases the complete eleven-body stitch experiment or validates the board.
 ## Next experiment: catalog-clearance quiescent control
 
 The catalog-consistent correction is a **quiet-only preparation**: keep both
-bodies centred and give both zero initial velocity. No catalog-clearance solve
-has been launched, and no contact response is qualified. The proposed washer
+bodies centred and give both zero initial velocity. Its first bounded solve
+timed out; no contact response is qualified. The provisional washer
 bore is 10.9982 mm, the lower published FW38 bound; 25.4 mm OD and 2 mm thickness
 remain declared dimensions within its published ranges, not measurements of a
 purchased washer.
@@ -161,3 +161,57 @@ contact. Preserve the existing narrow allowance for nonfinite ancillary
 statistics only with verified zero contact area and finite zero primary
 force/moment components. Do not require a nonzero bore impulse in this quiet
 case: the two-interface transfer requirement belongs to a later moving test.
+
+### First catalog-clearance attempt
+
+Export `stitch-joint-geometry-df3e0965` and mesh `mesh-7amycoem` contain eleven
+independent bodies, 131,443 nodes and 62,935 C3D10 elements. The selected
+two-body control has 19,734 nodes and 10,215 elements. Preparation
+`control-muorg377` recomputed reference washer mass as
+6.463769626219888e−6 tonne from the serialized coordinates. This is a
+source-derived normalization, not yet a qualified native output comparison.
+
+Frozen solve `quiescent-ggs6anor` exited 124 at its original 120-second cap;
+the captured owned container was stopped and removed successfully. Its STA
+records 19 accepted increments, ending at 2.00705e−8 s, far short of the
+requested 2e−6 s. The increment repeatedly halves until reaching 1e−11 s.
+The solver log reports zero displacement increments and residual force in
+these accepted iterations, unlike the preceding zero-clearance trial. That
+observation does not establish complete-window quiet qualification. Preserve
+this attempt separately; do not restart it or treat the timeout as a strength
+failure.
+
+Read-only inspection of the terminal DAT found complete body U/V tables for
+all 19 accepted states, with every reported component zero. Reported body
+kinetic/internal energy and total contact energy are also zero. Both pair CF
+blocks are complete for the first 18 states; the last state's bore CF block
+is missing at EOF. Earlier bore blocks report zero primary force/moment and
+zero area, with nonfinite ancillary quantities for the inactive interface.
+These observations explain why missing final output must not be silently
+treated as another zero-contact state. They are not a portable full-window
+qualification or a moving-contact test.
+
+### Source-based next diagnostic: fixed increments
+
+The retained [unmodified CalculiX 2.21 source archive](../fea/results/native_dynamic_control/control-ajgbgzoh.tar.gz)
+contains `frozen/native-source/nonlingeo.c:1454`, which initializes `energyref`
+from the initial energy sum. `checkimpacts.f:98–113` divides by that reference
+when `emax <= 0`. For exactly zero initial and current energies, the resulting
+zero-over-zero ratios can make the comparisons false and select the halving
+branch at `checkimpacts.f:171–185`, including its minimum-increment clamp.
+This is a source-based explanation consistent with the retained zero-output
+history; the internal ratios were not instrumented.
+
+A separately frozen, bounded stationary diagnostic using
+`*DYNAMIC,DIRECT,ALPHA=0` is the next proposed route. `dynamics.f:117–119` sets
+`idrct=1`; the subsequent maximum-increment clamp in
+`checkconvergence.c:418–421` applies only when `idrct=0`. DIRECT still calls
+`checkimpacts` through `checkconvergence.c:256–278`; it does **not** disable all
+impact logic. Forced-size and divergence paths remain, and direct-increment
+divergence can terminate the calculation (`checkconvergence.c:354–358,582–588`).
+
+Choose and freeze the fixed increment and run bounds before that diagnostic.
+Do not add artificial velocity or reference energy, weaken tolerances, or
+restart the timed-out bundle. Actual STA increments and complete native
+output must still establish the requested quiet window; this proposed route
+does not qualify moving contact or imply any hardware resistance.

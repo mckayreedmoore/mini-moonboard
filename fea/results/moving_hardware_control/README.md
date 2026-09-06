@@ -46,6 +46,27 @@ hash chain, partial accepted-state history, terminal state and cleanup, not
 numerical equilibrium or contact-energy correctness. Any separate partial
 numerical diagnostic must retain these limitations.
 
+## Third attempt: catalog-clearance quiet control
+
+`third-catalog-quiescent.tar.gz` is a separate self-contained archive of
+`quiescent-ggs6anor`, preparation `control-muorg377`, all eleven STEP bodies
+and source snapshots from `stitch-joint-geometry-df3e0965`, and its
+`mesh-7amycoem` mesh, metadata, frozen mesher sources and recorded runtime.
+The first and second archives and reports remain unchanged.
+
+This quiet-only case uses the provisional 10.9982 mm washer bore, not the
+original zero-clearance bore. Its process hit the recorded 120-second limit
+and exited **124**, with successful owned-container cleanup. STA records
+**19 accepted increments**, ending at **2.00705e−8 seconds**, short of the
+requested 2e−6 seconds. There are no unsuccessful-attempt rows in this STA;
+shrinking accepted increments must not be mislabeled rejected cutbacks.
+
+The archive report and portable tests verify provenance, raw inventories,
+the catalog variant, partial STA history and terminal/cleanup records. They
+do not certify response completeness, quiet behavior, equilibrium, contact
+energy, material resistance or physical structural failure. An accepted
+increment is not equivalent to a qualified numerical result.
+
 ## Partial numerical diagnostic
 
 [Retained report](diagnostics/partial-quiescent-gb9rn5dl/report.json) and its
