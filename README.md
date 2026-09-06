@@ -69,6 +69,9 @@ explains why plotted contact fields alone cannot validate that formulation.
 Before extracting joint demands, the [native section-force benchmark](docs/section-force-extraction.md)
 records significant mesh-dependent bending error; that method is not yet qualified
 for the frame.
+The [follow-up straight-C3D10 benchmark](docs/section-force-tet-coupon.md) matches
+the known bending moment within 0.001% after fixing a load-field formatting bug.
+Curved frame sections and joint interfaces still require separate checks.
 
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 

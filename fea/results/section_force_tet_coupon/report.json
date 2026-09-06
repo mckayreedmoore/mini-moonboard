@@ -1,0 +1,1109 @@
+{
+  "status": "STRAIGHT HOMOGENEOUS C3D10 MIDMEMBER DIAGNOSTIC ONLY; NO CURVED FRAME OR JOINT VALIDATION",
+  "solver": "CalculiX 2.21, mini-moonboard-fea:box-v1, OMP_NUM_THREADS=2; 60 seconds maximum per job",
+  "assumptions": "10x10x100mm beam, E7000MPa, nu0; straight quadratic tetrahedra; all Z0 nodes clamped; independent consistent120N axial/1200Nmm bending end tractions; opposed planar Z50 cuts; no gravity/contact.",
+  "limitations": "Native extrapolated/averaged stresses, not interface traction or bolt force. Two structured straight meshes do not establish general convergence or qualify curved frame elements. Original trial retained as rejected load-serialization evidence.",
+  "source_directories": {
+    "unsafe-original": "section-force-tet-t_m4rvur",
+    "corrected": "section-force-tet-sk65nd4e"
+  },
+  "archive": "evidence.tar.gz",
+  "archive_bytes": 442148,
+  "archive_sha256": "09c03d2675f36ab9e61e23d6e0a120162713f8b3e63daf80e83e6f3aae4a2ffe",
+  "archive_contents": {
+    "unsafe-original/tet2.inp": "5f1bd8c96518a0acaa3557c9994cf68c82c2dd7129ca48622dda082728989627",
+    "unsafe-original/tet2.json": "36e85b33e7d9e723ab531af3381cc521d7a44689ea22125ba327a03a2e9a2afb",
+    "unsafe-original/tet2.dat": "012e916ea3e5ebbb005f8fa482837d984e2a643288c65731a8b9fc1854b93e24",
+    "unsafe-original/tet2.log": "7cdb13431b905d0ae5b15632c9cadab91363e42624ffc5cc9c6bf6d6692147f5",
+    "unsafe-original/tet2.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "unsafe-original/tet2.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "unsafe-original/tet4.inp": "ed356d3485e80abbbbeea9f2e24c9224251d4cd7e2a717e30a21dd9ce7eaadcd",
+    "unsafe-original/tet4.json": "2399ccb94e5a9b94fbab0c2aba49ebc5c9a922bed58d746ec4236ce1d907f941",
+    "unsafe-original/tet4.dat": "4e9352ce154cf1b783ad98646ffc8eb1dc788128c7c5923ff79c27a6fcf026ea",
+    "unsafe-original/tet4.log": "135f80fb16a0fdca1dc2a535ecf71bce654414566e0539e4533a80d1e3774a27",
+    "unsafe-original/tet4.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "unsafe-original/tet4.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "unsafe-original/launch_sources/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "unsafe-original/launch_sources/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "unsafe-original/launch_sources/section_force_coupon.py": "74facf185805321930c61f51f7e891b5703e684888f00f49d5b6c7f3c56698a8",
+    "unsafe-original/launch_sources/section_force_tet_coupon.py": "56e3f980f6abdf565ccea4b253501f0bf0d27da48a6dcd6761b6beaadc61b4a2",
+    "corrected/tet2.inp": "9fa479782134ace8f8d242c7c81b280214302203309a2dc50a6dc8f510950706",
+    "corrected/tet2.json": "f4e6d4f13a1347e4da86750643d36345bb7f858b801009814f7be42123c8024b",
+    "corrected/tet2.dat": "506ffb404b16d3889b5a6bceeb40063d7f8b049e23880689843e974d0abe4ffe",
+    "corrected/tet2.log": "4dd587b0837a5a4a18318d00b8fbbd49f2bf8475b4ef3a2fe92e8304b0f58f97",
+    "corrected/tet2.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "corrected/tet2.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "corrected/tet4.inp": "b5cf68d19e3abe78ec6424ff64b8967273d1183ab5104b800ab361b3d8b86c77",
+    "corrected/tet4.json": "9670288a256fb2574a01c8101f4f4faae2604e1d94b35fafbaa33dfa5ff2e771",
+    "corrected/tet4.dat": "3d255df09739ea9c0eb6aa14e077c0c323195a98c400435b7e66b7f881d55c09",
+    "corrected/tet4.log": "2b7c1a0b09d9ba040d730229d3fe3792e454d1b8ba5460e2e5469207117e7e4f",
+    "corrected/tet4.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "corrected/tet4.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "corrected/launch_sources/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "corrected/launch_sources/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "corrected/launch_sources/section_force_coupon.py": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127",
+    "corrected/launch_sources/section_force_tet_coupon.py": "6ef85362a1884e022cfccd7bfab9ed5a964e513c8530dd80834224bda283cf42"
+  },
+  "records": {
+    "unsafe-original": {
+      "2": {
+        "divisions": 2,
+        "geometry": {
+          "minimum_jacobian": 250.0,
+          "volume_mm3": 10000.0,
+          "node_count": 525,
+          "element_count": 240,
+          "surfaces": {
+            "LOWER_CUT": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            },
+            "UPPER_CUT": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            },
+            "TOP": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            }
+          }
+        },
+        "deck_sha256": "5f1bd8c96518a0acaa3557c9994cf68c82c2dd7129ca48622dda082728989627",
+        "source_sha256": {
+          "/work/fea/section_force_tet_coupon.py": "56e3f980f6abdf565ccea4b253501f0bf0d27da48a6dcd6761b6beaadc61b4a2",
+          "fea/section_force_coupon.py": "74facf185805321930c61f51f7e891b5703e684888f00f49d5b6c7f3c56698a8",
+          "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+          "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+        },
+        "status": "NATIVE STRAIGHT C3D10 MIDMEMBER DIAGNOSTIC; CURVED FRAME AND JOINTS NOT VALIDATED",
+        "max_seconds": 60,
+        "exit_code": 0,
+        "endpoints": [
+          {
+            "time": 1,
+            "external_force_residual_n": [
+              -3.387798054e-13,
+              -8.90386081e-14,
+              -3.2606224000000004e-14
+            ],
+            "external_moment_residual_nmm": [
+              1.408822e-12,
+              -2.09435965e-12,
+              -3.2034485075e-13
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  2.001708e-13,
+                  -5.96708e-14,
+                  119.9988,
+                  3.21791e-12,
+                  1.064748e-11,
+                  1.069148e-12
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  120.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "error": [
+                  2.001708e-13,
+                  -5.96708e-14,
+                  -0.0011999999999972033,
+                  3.21791e-12,
+                  1.064748e-11,
+                  1.069148e-12
+                ],
+                "centroid_normal": [
+                  2.664535e-15,
+                  -5.329071e-17,
+                  50.0,
+                  -3.182639e-15,
+                  1.080617e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  2.407647e-13,
+                  9.58686e-13,
+                  1.069148e-12
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  6.121049e-13,
+                  1.069148e-12,
+                  9.884567e-13
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -2.001708e-13,
+                  5.96708e-14,
+                  -119.9988,
+                  -3.429892e-12,
+                  -1.064748e-11,
+                  -1.069148e-12
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  -120.0,
+                  -0.0,
+                  -0.0,
+                  -0.0
+                ],
+                "error": [
+                  -2.001708e-13,
+                  5.96708e-14,
+                  0.0011999999999972033,
+                  -3.429892e-12,
+                  -1.064748e-11,
+                  -1.069148e-12
+                ],
+                "centroid_normal": [
+                  2.184919e-15,
+                  2.593481e-15,
+                  50.0,
+                  2.102022e-15,
+                  1.080617e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -1.351372e-13,
+                  -9.011327e-13,
+                  -1.069148e-12
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  4.577946e-13,
+                  1.069148e-12,
+                  9.112091e-13
+                ]
+              }
+            }
+          },
+          {
+            "time": 2,
+            "external_force_residual_n": [
+              -3.426604351e-10,
+              -1.3042230300000001e-11,
+              0.444074860000931
+            ],
+            "external_moment_residual_nmm": [
+              -2.4868995751603507e-14,
+              7.993605777301127e-14,
+              6.457484225e-10
+            ],
+            "external_balance_pass": false,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  2.51088e-07,
+                  2.50697e-07,
+                  -0.4440847,
+                  0.001095666,
+                  -1199.99,
+                  -6.657493e-10
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  -8.881784197001252e-16,
+                  -2.4868995751603507e-14,
+                  -1200.0,
+                  0.0
+                ],
+                "error": [
+                  2.51088e-07,
+                  2.50697e-07,
+                  -0.4440846999999991,
+                  0.001095666000024869,
+                  0.009999999999990905,
+                  -6.657493e-10
+                ],
+                "centroid_normal": [
+                  2.664535e-15,
+                  -5.329071e-17,
+                  50.0,
+                  -3.182639e-15,
+                  1.080617e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  0.001108201,
+                  -1199.99,
+                  -6.657493e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -0.4440847,
+                  3.548157e-07,
+                  -6.67046e-10,
+                  1199.99
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -2.51088e-07,
+                  -2.50697e-07,
+                  0.4440847,
+                  -0.001095666,
+                  1199.99,
+                  6.657493e-10
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  8.881784197001252e-16,
+                  2.4868995751603507e-14,
+                  1200.0,
+                  -0.0
+                ],
+                "error": [
+                  -2.51088e-07,
+                  -2.50697e-07,
+                  0.4440846999999991,
+                  -0.001095666000024869,
+                  -0.009999999999990905,
+                  6.657493e-10
+                ],
+                "centroid_normal": [
+                  2.184919e-15,
+                  2.593481e-15,
+                  50.0,
+                  2.102022e-15,
+                  1.080617e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -0.001108201,
+                  1199.99,
+                  6.657493e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -0.4440847,
+                  3.548157e-07,
+                  -6.644526e-10,
+                  1199.99
+                ]
+              }
+            }
+          }
+        ],
+        "output_sha256": {
+          "tet2.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+          "tet2.log": "7cdb13431b905d0ae5b15632c9cadab91363e42624ffc5cc9c6bf6d6692147f5",
+          "tet2.dat": "012e916ea3e5ebbb005f8fa482837d984e2a643288c65731a8b9fc1854b93e24",
+          "tet2.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7"
+        }
+      },
+      "4": {
+        "divisions": 4,
+        "geometry": {
+          "minimum_jacobian": 31.25,
+          "volume_mm3": 10000.0,
+          "node_count": 3321,
+          "element_count": 1920,
+          "surfaces": {
+            "LOWER_CUT": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            },
+            "UPPER_CUT": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            },
+            "TOP": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            }
+          }
+        },
+        "deck_sha256": "ed356d3485e80abbbbeea9f2e24c9224251d4cd7e2a717e30a21dd9ce7eaadcd",
+        "source_sha256": {
+          "/work/fea/section_force_tet_coupon.py": "56e3f980f6abdf565ccea4b253501f0bf0d27da48a6dcd6761b6beaadc61b4a2",
+          "fea/section_force_coupon.py": "74facf185805321930c61f51f7e891b5703e684888f00f49d5b6c7f3c56698a8",
+          "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+          "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+        },
+        "status": "NATIVE STRAIGHT C3D10 MIDMEMBER DIAGNOSTIC; CURVED FRAME AND JOINTS NOT VALIDATED",
+        "max_seconds": 60,
+        "exit_code": 0,
+        "endpoints": [
+          {
+            "time": 1,
+            "external_force_residual_n": [
+              -1.387472959092e-12,
+              -1.27507678009e-12,
+              -3.563138405000002e-14
+            ],
+            "external_moment_residual_nmm": [
+              4.4648416725e-12,
+              -4.388069343625e-12,
+              -2.699635824949999e-13
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  6.945323e-13,
+                  7.266857e-13,
+                  119.9988,
+                  -6.80036e-11,
+                  6.386447e-11,
+                  -5.370473e-13
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  120.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "error": [
+                  6.945323e-13,
+                  7.266857e-13,
+                  -0.0011999999999972033,
+                  -6.80036e-11,
+                  6.386447e-11,
+                  -5.370473e-13
+                ],
+                "centroid_normal": [
+                  1.820766e-15,
+                  -4.263256e-16,
+                  50.0,
+                  -6.365279e-15,
+                  2.161234e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  -3.161816e-11,
+                  2.935634e-11,
+                  -5.370473e-13
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  1.53141e-12,
+                  -5.370473e-13,
+                  4.314514e-11
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -6.945323e-13,
+                  -7.266857e-13,
+                  -119.9988,
+                  6.780769e-11,
+                  -6.392575e-11,
+                  5.370473e-13
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  -120.0,
+                  -0.0,
+                  -0.0,
+                  -0.0
+                ],
+                "error": [
+                  -6.945323e-13,
+                  -7.266857e-13,
+                  0.0011999999999972033,
+                  6.780769e-11,
+                  -6.392575e-11,
+                  5.370473e-13
+                ],
+                "centroid_normal": [
+                  1.048051e-15,
+                  8.615331e-16,
+                  50.0,
+                  4.204045e-15,
+                  2.161234e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  3.157679e-11,
+                  -2.93249e-11,
+                  5.370473e-13
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  1.552382e-12,
+                  -5.370473e-13,
+                  4.309343e-11
+                ]
+              }
+            }
+          },
+          {
+            "time": 2,
+            "external_force_residual_n": [
+              -1.02255718986e-09,
+              1.3248354074e-10,
+              2.164900240001064
+            ],
+            "external_moment_residual_nmm": [
+              6.999997040305339e-06,
+              -1.2490212500216424,
+              -3.4240983930000003e-10
+            ],
+            "external_balance_pass": false,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  8.380475e-10,
+                  -3.208297e-10,
+                  -2.164913,
+                  0.0002809787,
+                  -1198.74,
+                  2.876928e-10
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  -9.992007221626409e-16,
+                  -3.552713678800501e-15,
+                  -1199.9999999999998,
+                  0.0
+                ],
+                "error": [
+                  8.380475e-10,
+                  -3.208297e-10,
+                  -2.164912999999999,
+                  0.0002809787000035527,
+                  1.2599999999997635,
+                  2.876928e-10
+                ],
+                "centroid_normal": [
+                  1.820766e-15,
+                  -4.263256e-16,
+                  50.0,
+                  -6.365279e-15,
+                  2.161234e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  0.0002809627,
+                  -1198.74,
+                  2.876928e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -2.164913,
+                  8.973456e-10,
+                  2.85102e-10,
+                  1198.74
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -8.380475e-10,
+                  3.208297e-10,
+                  2.164913,
+                  -0.0002809787,
+                  1198.74,
+                  -2.876928e-10
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  9.992007221626409e-16,
+                  3.552713678800501e-15,
+                  1199.9999999999998,
+                  -0.0
+                ],
+                "error": [
+                  -8.380475e-10,
+                  3.208297e-10,
+                  2.164912999999999,
+                  -0.0002809787000035527,
+                  -1.2599999999997635,
+                  -2.876928e-10
+                ],
+                "centroid_normal": [
+                  1.048051e-15,
+                  8.615331e-16,
+                  50.0,
+                  4.204045e-15,
+                  2.161234e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -0.0002809627,
+                  1198.74,
+                  -2.876928e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -2.164913,
+                  8.973533e-10,
+                  2.902835e-10,
+                  1198.74
+                ]
+              }
+            }
+          }
+        ],
+        "output_sha256": {
+          "tet4.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+          "tet4.log": "135f80fb16a0fdca1dc2a535ecf71bce654414566e0539e4533a80d1e3774a27",
+          "tet4.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+          "tet4.dat": "4e9352ce154cf1b783ad98646ffc8eb1dc788128c7c5923ff79c27a6fcf026ea"
+        }
+      }
+    },
+    "corrected": {
+      "2": {
+        "divisions": 2,
+        "geometry": {
+          "minimum_jacobian": 250.0,
+          "volume_mm3": 10000.0,
+          "node_count": 525,
+          "element_count": 240,
+          "surfaces": {
+            "LOWER_CUT": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            },
+            "UPPER_CUT": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            },
+            "TOP": {
+              "face_count": 8,
+              "area_mm2": 100.0
+            }
+          }
+        },
+        "serialized_load_resultants_fz_mxyz": [
+          [
+            120.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -4.440892098501e-16,
+            0.0,
+            -1200.0,
+            0.0
+          ]
+        ],
+        "deck_sha256": "9fa479782134ace8f8d242c7c81b280214302203309a2dc50a6dc8f510950706",
+        "source_sha256": {
+          "/work/fea/section_force_tet_coupon.py": "6ef85362a1884e022cfccd7bfab9ed5a964e513c8530dd80834224bda283cf42",
+          "fea/section_force_coupon.py": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127",
+          "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+          "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+        },
+        "status": "NATIVE STRAIGHT C3D10 MIDMEMBER DIAGNOSTIC; CURVED FRAME AND JOINTS NOT VALIDATED",
+        "max_seconds": 60,
+        "exit_code": 0,
+        "endpoints": [
+          {
+            "time": 1,
+            "external_force_residual_n": [
+              -3.387798054e-13,
+              -8.90386081e-14,
+              -3.2606224000000004e-14
+            ],
+            "external_moment_residual_nmm": [
+              1.408822e-12,
+              -2.09435965e-12,
+              -3.2034485075e-13
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  2.001708e-13,
+                  -5.96708e-14,
+                  119.9988,
+                  3.21791e-12,
+                  1.064748e-11,
+                  1.069148e-12
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  120.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "error": [
+                  2.001708e-13,
+                  -5.96708e-14,
+                  -0.0011999999999972033,
+                  3.21791e-12,
+                  1.064748e-11,
+                  1.069148e-12
+                ],
+                "centroid_normal": [
+                  2.664535e-15,
+                  -5.329071e-17,
+                  50.0,
+                  -3.182639e-15,
+                  1.080617e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  2.407647e-13,
+                  9.58686e-13,
+                  1.069148e-12
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  6.121049e-13,
+                  1.069148e-12,
+                  9.884567e-13
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -2.001708e-13,
+                  5.96708e-14,
+                  -119.9988,
+                  -3.429892e-12,
+                  -1.064748e-11,
+                  -1.069148e-12
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  -120.0,
+                  -0.0,
+                  -0.0,
+                  -0.0
+                ],
+                "error": [
+                  -2.001708e-13,
+                  5.96708e-14,
+                  0.0011999999999972033,
+                  -3.429892e-12,
+                  -1.064748e-11,
+                  -1.069148e-12
+                ],
+                "centroid_normal": [
+                  2.184919e-15,
+                  2.593481e-15,
+                  50.0,
+                  2.102022e-15,
+                  1.080617e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -1.351372e-13,
+                  -9.011327e-13,
+                  -1.069148e-12
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  4.577946e-13,
+                  1.069148e-12,
+                  9.112091e-13
+                ]
+              }
+            }
+          },
+          {
+            "time": 2,
+            "external_force_residual_n": [
+              -3.427454423e-10,
+              -1.2927997500000002e-11,
+              5.4521038215803e-12
+            ],
+            "external_moment_residual_nmm": [
+              7.61331060042484e-11,
+              7.993605777301127e-14,
+              6.46311609e-10
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  3.888506e-10,
+                  1.080638e-12,
+                  -1.655707e-10,
+                  0.001107487,
+                  -1199.99,
+                  -6.631146e-10
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  -8.881784197001252e-16,
+                  -2.4868995751603507e-14,
+                  -1200.0,
+                  0.0
+                ],
+                "error": [
+                  3.888506e-10,
+                  1.080638e-12,
+                  -1.655698118215803e-10,
+                  0.001107487000024869,
+                  0.009999999999990905,
+                  -6.631146e-10
+                ],
+                "centroid_normal": [
+                  2.664535e-15,
+                  -5.329071e-17,
+                  50.0,
+                  -3.182639e-15,
+                  1.080617e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  0.001107487,
+                  -1199.99,
+                  -6.631146e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -1.655707e-10,
+                  3.888521e-10,
+                  -6.644114e-10,
+                  1199.99
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -3.888506e-10,
+                  -1.080638e-12,
+                  1.656204e-10,
+                  -0.001107487,
+                  1199.99,
+                  6.631146e-10
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  8.881784197001252e-16,
+                  2.4868995751603507e-14,
+                  1200.0,
+                  -0.0
+                ],
+                "error": [
+                  -3.888506e-10,
+                  -1.080638e-12,
+                  1.656195118215803e-10,
+                  -0.001107487000024869,
+                  -0.009999999999990905,
+                  6.631146e-10
+                ],
+                "centroid_normal": [
+                  2.184919e-15,
+                  2.593481e-15,
+                  50.0,
+                  2.102022e-15,
+                  1.080617e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -0.001107487,
+                  1199.99,
+                  6.631146e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -1.656204e-10,
+                  3.888521e-10,
+                  -6.618179e-10,
+                  1199.99
+                ]
+              }
+            }
+          }
+        ],
+        "output_sha256": {
+          "tet2.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+          "tet2.log": "4dd587b0837a5a4a18318d00b8fbbd49f2bf8475b4ef3a2fe92e8304b0f58f97",
+          "tet2.dat": "506ffb404b16d3889b5a6bceeb40063d7f8b049e23880689843e974d0abe4ffe",
+          "tet2.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7"
+        }
+      },
+      "4": {
+        "divisions": 4,
+        "geometry": {
+          "minimum_jacobian": 31.25,
+          "volume_mm3": 10000.0,
+          "node_count": 3321,
+          "element_count": 1920,
+          "surfaces": {
+            "LOWER_CUT": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            },
+            "UPPER_CUT": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            },
+            "TOP": {
+              "face_count": 32,
+              "area_mm2": 100.0
+            }
+          }
+        },
+        "serialized_load_resultants_fz_mxyz": [
+          [
+            120.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -4.996003610814066e-16,
+            4.930380657631324e-32,
+            -1200.0,
+            0.0
+          ]
+        ],
+        "deck_sha256": "b5cf68d19e3abe78ec6424ff64b8967273d1183ab5104b800ab361b3d8b86c77",
+        "source_sha256": {
+          "/work/fea/section_force_tet_coupon.py": "6ef85362a1884e022cfccd7bfab9ed5a964e513c8530dd80834224bda283cf42",
+          "fea/section_force_coupon.py": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127",
+          "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+          "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+        },
+        "status": "NATIVE STRAIGHT C3D10 MIDMEMBER DIAGNOSTIC; CURVED FRAME AND JOINTS NOT VALIDATED",
+        "max_seconds": 60,
+        "exit_code": 0,
+        "endpoints": [
+          {
+            "time": 1,
+            "external_force_residual_n": [
+              -1.387472959092e-12,
+              -1.27507678009e-12,
+              -3.563138405000002e-14
+            ],
+            "external_moment_residual_nmm": [
+              4.4648416725e-12,
+              -4.388069343625e-12,
+              -2.699635824949999e-13
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  6.945323e-13,
+                  7.266857e-13,
+                  119.9988,
+                  -6.80036e-11,
+                  6.386447e-11,
+                  -5.370473e-13
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  120.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "error": [
+                  6.945323e-13,
+                  7.266857e-13,
+                  -0.0011999999999972033,
+                  -6.80036e-11,
+                  6.386447e-11,
+                  -5.370473e-13
+                ],
+                "centroid_normal": [
+                  1.820766e-15,
+                  -4.263256e-16,
+                  50.0,
+                  -6.365279e-15,
+                  2.161234e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  -3.161816e-11,
+                  2.935634e-11,
+                  -5.370473e-13
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  1.53141e-12,
+                  -5.370473e-13,
+                  4.314514e-11
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -6.945323e-13,
+                  -7.266857e-13,
+                  -119.9988,
+                  6.780769e-11,
+                  -6.392575e-11,
+                  5.370473e-13
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  -120.0,
+                  -0.0,
+                  -0.0,
+                  -0.0
+                ],
+                "error": [
+                  -6.945323e-13,
+                  -7.266857e-13,
+                  0.0011999999999972033,
+                  6.780769e-11,
+                  -6.392575e-11,
+                  5.370473e-13
+                ],
+                "centroid_normal": [
+                  1.048051e-15,
+                  8.615331e-16,
+                  50.0,
+                  4.204045e-15,
+                  2.161234e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  3.157679e-11,
+                  -2.93249e-11,
+                  5.370473e-13
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  119.9988,
+                  1.552382e-12,
+                  -5.370473e-13,
+                  4.309343e-11
+                ]
+              }
+            }
+          },
+          {
+            "time": 2,
+            "external_force_residual_n": [
+              -1.0232971964e-09,
+              1.3265766579e-10,
+              6.8671525892778415e-12
+            ],
+            "external_moment_residual_nmm": [
+              -8.438849532136788e-10,
+              -2.168480696368042e-11,
+              -3.422704668500001e-10
+            ],
+            "external_balance_pass": true,
+            "sections": {
+              "LOWER_CUT": {
+                "native_force_moment": [
+                  9.331597e-10,
+                  -1.496694e-10,
+                  -1.464491e-10,
+                  0.0002812616,
+                  -1199.989,
+                  2.303413e-10
+                ],
+                "exact_force_moment": [
+                  0.0,
+                  0.0,
+                  -9.992007221626409e-16,
+                  -3.552713678800501e-15,
+                  -1199.9999999999998,
+                  0.0
+                ],
+                "error": [
+                  9.331597e-10,
+                  -1.496694e-10,
+                  -1.4644810079927783e-10,
+                  0.0002812616000035527,
+                  0.010999999999739885,
+                  2.303413e-10
+                ],
+                "centroid_normal": [
+                  1.820766e-15,
+                  -4.263256e-16,
+                  50.0,
+                  -6.365279e-15,
+                  2.161234e-15,
+                  1.0
+                ],
+                "centroid_moment": [
+                  0.0002812541,
+                  -1199.989,
+                  2.303413e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -1.464491e-10,
+                  9.450862e-10,
+                  2.277478e-10,
+                  1199.989
+                ]
+              },
+              "UPPER_CUT": {
+                "native_force_moment": [
+                  -9.331597e-10,
+                  1.496694e-10,
+                  1.465335e-10,
+                  -0.0002812616,
+                  1199.989,
+                  -2.303413e-10
+                ],
+                "exact_force_moment": [
+                  -0.0,
+                  -0.0,
+                  9.992007221626409e-16,
+                  3.552713678800501e-15,
+                  1199.9999999999998,
+                  -0.0
+                ],
+                "error": [
+                  -9.331597e-10,
+                  1.496694e-10,
+                  1.4653250079927783e-10,
+                  -0.0002812616000035527,
+                  -0.010999999999739885,
+                  -2.303413e-10
+                ],
+                "centroid_normal": [
+                  1.048051e-15,
+                  8.615331e-16,
+                  50.0,
+                  4.204045e-15,
+                  2.161234e-15,
+                  -1.0
+                ],
+                "centroid_moment": [
+                  -0.0002812541,
+                  1199.989,
+                  -2.303413e-10
+                ],
+                "area_normal_shear": [
+                  100.0,
+                  -1.465335e-10,
+                  9.450862e-10,
+                  2.329347e-10,
+                  1199.989
+                ]
+              }
+            }
+          }
+        ],
+        "output_sha256": {
+          "tet4.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+          "tet4.log": "2b7c1a0b09d9ba040d730229d3fe3792e454d1b8ba5460e2e5469207117e7e4f",
+          "tet4.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+          "tet4.dat": "3d255df09739ea9c0eb6aa14e077c0c323195a98c400435b7e66b7f881d55c09"
+        }
+      }
+    }
+  }
+}

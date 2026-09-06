@@ -46,12 +46,18 @@ native member forces. In particular, the frame uses quadratic C3D10 elements:
 these C3D8 results neither validate nor condemn that formulation's section
 output. The Poisson-zero homogeneous coupon is also not a plywood material model.
 
+The separate [straight-C3D10 follow-up](section-force-tet-coupon.md) now matches
+the known bending moment within 0.001% on both tested meshes. Its initial
+load-serialization failure and corrected runs are preserved separately.
+That narrower success does not change the C3D8 results or qualify curved frame
+elements and joint-interface demands.
+
 ## Application boundary and next step
 
 Use native section output as a diagnostic candidate at an interior section of a
 continuous homogeneous member. Before using it for frame decisions, demonstrate
-matching external free-body resultants and mesh sensitivity on a representative
-C3D10 coupon, then on selected frame sections. Avoid treating averaged stresses
+matching external free-body resultants and mesh sensitivity on representative
+curved C3D10 geometry, then on selected frame sections. Avoid treating averaged stresses
 across different materials, joints or fastener-contact regions as connection
 forces. Neither the current test nor the API itself supplies a bolt rating.
 

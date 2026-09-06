@@ -39,9 +39,11 @@ adhesive, hardware or floor properties into an implied construction approval.
   full-frame design conclusion. A different formulation is not an assumed cure.
 - Qualify member-demand extraction before using it to size joints. The
   [native section-force benchmark](section-force-extraction.md) has substantial
-  mesh-dependent bending error on its C3D8 coupon. Check the actual C3D10
-  formulation next; do not transfer either accuracy or failure between element
-  formulations without evidence.
+  mesh-dependent bending error on its C3D8 coupon. The separate
+  [straight-C3D10 benchmark](section-force-tet-coupon.md) passes external balance
+  and closely matches the known bending moment after a load-serialization fix.
+  Check representative curved elements and member cuts next; do not transfer
+  this homogeneous coupon result to joint-interface forces or capacities.
 - Use the [mortar audit basis](mortar-local-audit-basis.md) for local verification.
   Its displayed contact fields are not sufficient for a pointwise law check.
   Any future numerical error budget must be declared before its acceptance runs;
