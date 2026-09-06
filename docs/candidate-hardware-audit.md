@@ -39,6 +39,13 @@ row screen is now 26 mm against 25.4 mm, leaving only 0.6 mm before tolerances.
 The [short stitch-bolt lead](leg-connection-development.md) establishes an
 obtainable nominal length, not a fully checked bolt/accessory stack.
 
+A further [Simpson Australia SDWS16 technical sheet](https://strongtie.com.au/sites/default/files/technical_data/T-F-SDWS16-AU23_11.12.23.pdf)
+lists rounded SDWS16312 dimensions: 89 mm length, 51 mm thread length,
+11.2 mm head, 4.0 mm shank, 5.5 mm major and 3.7 mm minor diameter. It still
+does not give axial head/nib geometry. These regional, rounded values are not
+a tolerance envelope or permission to substitute the product or its resistance
+tables into this design. The head-seating decision remains open.
+
 ## Supplied insert and LED measurements are retained
 
 The [measured constants](../mini_moonboard/model.py) already retain the T-nut

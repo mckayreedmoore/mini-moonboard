@@ -22,6 +22,12 @@ not select a fastener product or establish joint resistance. The
 the new diagnostic arithmetic on two retained cube tests; it is not a completed
 full-frame contact qualification or FEA of the revised candidate.
 
+The [retained-output leg demand bridge](leg-joint-demand.md) now supplies
+aggregate baseline forces and moments for a subsequent connection experiment.
+It does not allocate loads to individual bolts or independent plies. All seven
+intermediate global diagnostic failures remain flagged, so these results do
+not remove the contact qualification gate.
+
 Scope remains one climber, 250 lb intended maximum, with 150/200 lb comparisons
 and 300 lb sensitivity—not certified ratings. No anchors, crash-pad support,
 unmeasured ballast or assumed room clearance is credited.
