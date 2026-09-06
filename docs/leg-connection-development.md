@@ -90,6 +90,17 @@ does not show that length. Find a documented compatible shorter product/stack
 or redesign the detail; do not silently add loose washers, trim bolts, or
 ignore the user's requirement to avoid excessive projections.
 
+A subsequent supplier check found the shorter nominal size: Kimball Midwest
+lists [350618, zinc-plated Grade 5 3/8-16 × 2-1/4-inch hex cap screw](https://www.kimballmidwest.com/350618).
+Thus 57.15 mm is a catalogued procurement lead, not merely an invented length.
+This does not select that product or establish its head profile, thread runout,
+tolerances, washer compatibility or resistance in the plywood assembly.
+For comparison, [McMaster 95462A031](https://www.mcmaster.com/95462A031/)
+is a Grade 5 3/8-16 UNC nut with nominal 9/16-inch width and 21/64-inch
+height (14.2875 / 8.334375 mm), not the model's generic 9 mm nut height.
+Any product substitution still requires the complete actual stack and
+projection check; these catalog leads do not change the published CAD.
+
 ## Actual CAD location and fit screen
 
 Define `B = box_frame.point(0, 1480, hybrid.leg_normal('2x8'))` and
