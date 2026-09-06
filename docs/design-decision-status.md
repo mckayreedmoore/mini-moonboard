@@ -15,7 +15,7 @@ not yet a selected design or a substitute for global sliding/tipping checks.
 | Decision requirement | Current evidence | Work still required |
 | --- | --- | --- |
 | Preserve and compare the original candidates | [Physical footprint and matched stiffness studies](physical-footprint-results.md) retain earlier results | Keep alternative geometry/results separately named; do not silently change reference mass, material or restraints |
-| A trustworthy unanchored numerical baseline | [Continuation study](floor-contact-continuation.md): μ=0.5 completes all solver steps, but contact moment transfer fails the independent audit | Increment refinement, force/moment transfer checks, local contact and mesh/history sensitivity; no acceptance from convergence alone. Keep [diagnostic tolerance policy](numerical-acceptance-basis.md) separate from structural requirements |
+| A trustworthy unanchored numerical baseline | [Matched MORTAR refinement](full-frame-increment-refinement.md): μ=0.5, increment 0.0625 passes both unchanged global endpoint checks; earlier failures retained | Local contact and mesh/history sensitivity, actual floor assumptions; global balance alone is not physical acceptance. Keep [diagnostic tolerance policy](numerical-acceptance-basis.md) separate from structural requirements |
 | Sensible, traceable material assumptions | [Material recommendation](material-selection-recommendation.md) distinguishes rated stock, clear-wood data and workshop lamination | Product-compatible material representation, directional properties and connection resistance; no strengths assigned to unidentified C-3 birch or an unqualified glue joint |
 | An alternative that addresses the actual load path | [Side-tie comparisons](tied-base-comparison.md) now include separate CAD, matched six-case bulk FEA and exact-inventory tipping screens | Complete connection design and unanchored comparison; fixed-floor reaction changes are not verified sliding benefits, and floating rails add no footprint |
 | A load envelope that reflects the intended use | [Load/contact basis](load-contact-basis.md) retains sourced and exploratory cases separately | Audited central/asymmetric loading, friction/hold-offset sensitivities, and material/connection demand checks; a 1.2 kN run alone is not the entire envelope |
@@ -43,8 +43,11 @@ adhesive, hardware or floor properties into an implied construction approval.
   discrepancy persists. The [unguided matched comparison](full-frame-mortar.md)
   now completes with MORTAR, but fails loaded moment balance (204 Nmm); its
   penalty counterpart times out before full gravity. Retain both outcomes.
-  Qualify local contact and refine matched increments before drawing a
-  full-frame design conclusion. A different formulation is not an assumed cure.
+  The subsequent [matched increment study](full-frame-increment-refinement.md)
+  completes at 0.125 and 0.0625; the latter passes both global endpoints, with
+  maximum loaded moment-residual component 0.0714 Nmm. Retain 0.0625 as the next
+  diagnostic baseline and qualify local contact and mesh sensitivity before a
+  full-frame design conclusion. No indefinite increment search is proposed.
 - Qualify member-demand extraction before using it to size joints. The
   [native section-force benchmark](section-force-extraction.md) has substantial
   mesh-dependent bending error on its C3D8 coupon. The separate

@@ -65,6 +65,12 @@ The [unguided whole-frame comparison](docs/full-frame-mortar.md) now retains a
 completed MORTAR run: gravity passes, but the loaded moment residual is 204 N·mm
 and fails the unchanged diagnostic limit. Its matched penalty run times out
 before full gravity. Neither is an accepted loaded-frame solution.
+The subsequent [matched increment refinement](docs/full-frame-increment-refinement.md)
+passes both global endpoint checks at increment 0.0625: the largest loaded
+moment-residual component is 0.0714 N·mm. The last two refinements differ by
+0.0000053 mm in maximum loaded-node displacement. This establishes a better
+numerical baseline, not local contact validation, material/joint capacity,
+mesh convergence, or construction approval; the earlier failures remain recorded.
 The [numerical acceptance basis](docs/numerical-acceptance-basis.md) distinguishes
 our strict diagnostic limits from structural requirements; no historical result
 is reclassified. The [mortar local-audit basis](docs/mortar-local-audit-basis.md)
