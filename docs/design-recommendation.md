@@ -6,6 +6,13 @@ The evidence now supports a development choice and a finite next-work plan,
 not an assertion that this is the lightest, cheapest or structurally sufficient
 final assembly. Original alternatives remain available and unchanged.
 
+The next development milestone is now underway: a separate
+[backing-joint candidate](backing-joint-development.md), an explicit
+[two-sheet leg connection study plan](leg-connection-development.md), and
+[archive-based local contact diagnostics](mortar-geometry-diagnostic.md).
+These additions do not supersede the retained baseline or complete its
+product, material, contact-law and structural checks.
+
 Scope remains one climber, 250 lb intended maximum, with 150/200 lb comparisons
 and 300 lb sensitivity—not certified ratings. No anchors, crash-pad support,
 unmeasured ballast or assumed room clearance is credited.
