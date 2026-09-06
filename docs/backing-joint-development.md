@@ -64,6 +64,13 @@ SDWS16312's [2025 catalog](https://www.strongtie.com/resources/literature/fasten
 generic 4.826/10 mm shaft/head envelopes; a product substitution requires new
 hole, countersink and clearance checks, not a label change.
 
+The subsequent [product and all-station spacing screen](front-rib-fastener-selection.md)
+also identifies nearby panel screws in the same battens: the closest pair has
+only 8.0044 mm axis separation. Non-intersection does not establish acceptable
+fastener spacing or resistance to splitting. The full layout remains
+**not spacing-qualified**; preserve this inspection variant while resolving
+the interacting screw groups and the product's conflicting published head details.
+
 Independent review identified only 20.1378 mm screw-axis-to-relief-boundary
 clearance at the first centred row-1/row-3 left seam positions. Moving those
 screws 30 mm uphill removes that known obstacle. Regression checks now require
