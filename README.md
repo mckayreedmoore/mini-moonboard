@@ -40,8 +40,9 @@ not establish equilibrium of the unanchored whole frame.
 The [full-frame recovery-control trial](docs/floor-contact-recovery.md) remains
 numerically unresolved; it is not evidence of physical failure.
 The [preload-and-release continuation study](docs/floor-contact-continuation.md)
-has reached released-gravity solver convergence, but that state still fails
-the independent moment-balance audit.
+completed gravity and 1.2 kN loading at an assumed friction coefficient of 0.5,
+but still fails the independent contact moment-transfer audit. This is not
+a validated load rating or construction approval.
 
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 

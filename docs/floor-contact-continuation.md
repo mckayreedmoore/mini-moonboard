@@ -69,13 +69,63 @@ In the guided configuration, the kicker's temporary lateral support was about
 its computed aggregate friction utilization is about 0.99974. These are
 conditional diagnostics of this state, not a certified minimum floor coefficient
 or proof of instability. A separate `--full-increment --mu .5 --max-seconds 900`
-trial is in progress to test friction sensitivity; 0.5 is not measured floor data.
-Its released-gravity state also reaches solver convergence but has a 4.892 Nmm
-moment residual, still above the same 1 Nmm limit. Increasing assumed friction
-changes the contact state and reduces the residual; it does not close the audit.
+trial completed all three solver steps normally in 585.067 seconds; 0.5 is
+not measured floor data. Its released-gravity state has a 4.892 Nmm moment
+residual, still above the same 1 Nmm limit. Increasing assumed friction changes
+the contact state and reduces that residual; it does not close the audit.
 
 No complete, equilibrium-audited free-board solution is accepted. No geometry
 or material-strength recommendation follows from these numerical trials alone.
+
+## Completed load step: moment-transfer discrepancy
+
+The [μ=0.5 report and raw evidence](../fea/results/floor_contact_continuation/full-increment-mu0p5/report.json)
+retain normal solver completion **and** the failed production audit. A separate
+[independent audit of all three endpoints](../fea/results/floor_contact_continuation/full-increment-mu0p5/independent_audit.json)
+checks complete contact statistics, not only convergence messages.
+
+| μ=0.5 endpoint | Ground-reaction-based moment residual about X, Nmm | Wood-side contact-force-based moment residual about X, Nmm |
+| --- | ---: | ---: |
+| Released gravity | 4.892 | -0.031 |
+| Released gravity + 1,200 N | 256.555 | 0.278 |
+
+All three wood-side residual components in the loaded state are below 1 Nmm,
+but the **ground-based global audit still fails**. Equal contact forces alone
+do not establish correct moment transfer. The loaded kicker's wood/ground
+contact moment difference is about -269.136 Nmm, compared with a propagated
+printing uncertainty of about 0.040 Nmm; printing precision does not explain it.
+All patch force comparisons agree within their printed precision. The loaded
+global force residual is below 0.000071 N and released guide components below
+0.000000065 N, so missing net force or retained guides do not explain this gap.
+
+Active integration-point pressure and Coulomb checks pass within printed
+precision. The loaded kicker is again close to the assumed friction limit
+(aggregate utilization about 0.99991). The calculated maximum displacement is
+1.234 mm, and maximum displacement among the five load nodes is 1.098 mm.
+These are **rejected-model diagnostics**, not validated deflection, bearing
+pressure or strength predictions. Missing/inactive regions and mesh/history
+sensitivity remain additional gates.
+
+The supported diagnosis is a contact-interface moment-transfer discrepancy.
+Frozen within-increment face matching/projections are a plausible mechanism,
+not a proven solver implementation bug. The exact-version
+[CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.htm.tar.bz2)
+(nodes 140 and 142) describes the face-to-face matching and contact stiffness
+used here. Wood-side balance must not replace the ground-based acceptance test.
+
+## Next numerical step
+
+1. Retain the demonstrated guided preload, same geometry, friction assumption,
+   contact slopes and complete guide release. Reduce increment sizes specifically
+   during free gravity and climbing loading so contact matching refreshes more
+   frequently. Keep the 1 Nmm moment limit unchanged.
+2. Compare wood/ground force and moment transfer across increment refinements,
+   alongside local pressure, friction and actual gaps. If the discrepancy
+   persists, compare a documented mortar formulation on the actual-foot coupon
+   before transferring it to the whole frame.
+3. Only after an audited unanchored baseline exists, run central and A12/K12
+   asymmetric loading and broader friction/mesh/history sensitivities. The
+   current data do not justify resizing the timber or declaring a safe load.
 
 ## Verification
 
@@ -87,3 +137,9 @@ guide removal, force/moment perturbations and friction sensitivities. Archived
 decks and outputs are replayed without requiring generated source files.
 A solver-complete but audit-rejected run remains valid *failure evidence*; its
 test must reproduce the rejection, not demand a passing physical result.
+
+Final publication checks passed 173 related tests, with one optional Gmsh
+coupon replay skipped on the host (its equivalent was separately verified in
+the pinned Docker image). The 51 continuation tests include all three archived
+trials and reproduce the μ=0.5 rejection. Independent correctness and testing
+reviews of the final publication found no substantial remaining issues.

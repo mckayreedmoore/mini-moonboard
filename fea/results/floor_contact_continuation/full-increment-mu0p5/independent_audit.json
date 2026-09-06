@@ -1,0 +1,609 @@
+{
+  "status": "REJECTED PHYSICAL ACCEPTANCE: normal solver completion does not satisfy deformed global moment audit; no tolerance weakened",
+  "supported_diagnosis": "At free times2/3, slave CF moments plus actual deformed external-load moments balance within1Nmm, while moments from fixed-ground nodal RF do not. All CF forces agree with ground RF sums within propagated print precision. The strongest discrepancy is kicker moment transfer: -5.247325Nmm at time2 and -269.136432Nmm at time3, far beyond printing uncertainty. This identifies a contact-interface moment-transfer discrepancy; the slave-side balance is not a substitute acceptance criterion.",
+  "mechanism_hypothesis": "Face-to-face penalty matching, quadrature projections and normals are frozen within each increment in CalculiX2.21. Large single-step tangential motion can therefore separate the slave and master locations through which equal contact forces act, creating a spurious force couple. The observed slave-ground moment discrepancy supports testing this mechanism, but does not alone prove its exact implementation cause.",
+  "next_numerical_test": "Keep geometry, mu0.5, penalty slopes and temporary-preload/full-release boundary sequence unchanged. Retain the demonstrated guided preload, then bound increments specifically in free-gravity and climbing-load steps so contact matching is refreshed more frequently. Compare slave-ground CF/RF moment transfer and the unchanged1Nmm global criterion. If the discrepancy persists, compare MORTAR first on the actual3D coupon, with a separate compatible output audit; do not mix contact formulations in one deck. No member resizing or tolerance relaxation follows from these numerical results.",
+  "manual_reference": "https://www.dhondt.de/ccx_2.21.htm.tar.bz2; face-to-face penalty General considerations node140: matching, integration points and local normals are established once at the start of an increment and retained while iterating. Normal contact stiffness node142 likewise assumes fixed master projection coordinates. Mortar node144 describes the alternative and3D/static restrictions. Exact source printoutcontact.f uses deformed slave coordinates for CF moments. Frozen mapping is documented; attributing the observed discrepancy to that approximation is a hypothesis, not proof of a source-code bug.",
+  "remaining_acceptance_limits": "Active integration-point compliance does not prove full-surface complementarity in omitted regions. Initialization-history, increment, penalty and mesh sensitivities remain required; no accepted physical solution or hardware/member-capacity conclusion.",
+  "reported_CF_contact_area_mm2_by_time": {"1.0":{"LEFT":7340.576,"RIGHT":7340.576,"KICKER":16591.86},"2.0":{"LEFT":3399.827,"RIGHT":3390.197,"KICKER":2099.75},"3.0":{"LEFT":278.5354,"RIGHT":305.3703,"KICKER":374.9949}},
+  "contact_area_qualification": "Areas are printed CF contact statistics for the active discretized interface, conditional on this rejected numerical solution. They are not independently validated physical bearing areas or capacity evidence.",
+  "dat_sha256": "9196e6c36823d378927ff00cac079910c371c8cce082f7da26df94f9e85eb547",
+  "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+  "recorded_exit_code": 0,
+  "production_audit_error": "Deformed equilibrium failed at 2.0: [2.70000000102133e-06, 1.0658141036401503e-14, 3.917233498117466e-05], [4.892494538468125, -0.06906845338178262, -0.01807189617466065]",
+  "formula_reference": "../full-increment-mu0p3/independent_audit.json formulas; here mu=0.5 and time3 additionally includes1200N downward over recorded load_nodes",
+  "formulas": {
+    "position": "initial wood coordinate plus printed displacement; ground remains fixed",
+    "gravity": "(0,0,-nodal_volume_mm3[n]*6e-10*9806.65)",
+    "moment": "sum cross(deformed_position,applied_force); guideXY included only at time1; groundRF always included",
+    "normal_law": "p=-10000*CDISnormal",
+    "point_friction_gamma": "hypot(tau1,tau2)/(0.5*p)",
+    "rounding": "epsilon=0.5*10^(exponent-digits_after_decimal) per printed token",
+    "normal_law_tolerance": "epsilon_p+10000*epsilon_CDIS+1e-14 N/mm2 floating arithmetic slack",
+    "compression_tolerance": "p>=-epsilon_p",
+    "coulomb_tolerance": "hypot(epsilon_tau1,epsilon_tau2)+0.5*epsilon_p+1e-14 N/mm2",
+    "pair_force_tolerance": "epsilon_CF+sum epsilon_RF per component",
+    "pair_moment_tolerance": "epsilon_CFmoment+sum absolute ground lever arm times epsilon_RF",
+    "global_acceptance": "maxabs(force)<=0.1N and maxabs(moment)<=1Nmm",
+    "pair_order": "three identically headed blocks per pair follow exact deck request CF,CFN,CFS; reject unknown pairs/incomplete triplets",
+    "missing_face_policy": "allow missing active-point faces; do not equate absent records with wholly open geometry"
+  },
+  "endpoints": [
+    {
+      "time": 1.0,
+      "temporary_guides_active": true,
+      "downward_climber_n": 0,
+      "active_point_count": 2244,
+      "matched_point_face_sequence": true,
+      "unknown_face_count": 0,
+      "pressure_range_n_mm2": [
+        0.0001595901,
+        0.4553852
+      ],
+      "maximum_normal_law_error_n_mm2": 5.551115123125783e-17,
+      "normal_law_tolerance_range_n_mm2": [
+        1.0001e-10,
+        1.0000000999999999e-07
+      ],
+      "maximum_raw_coulomb_excess_n_mm2": -7.979505e-05,
+      "coulomb_tolerance_range_n_mm2": [
+        7.071317911865475e-07,
+        7.321067911865475e-07
+      ],
+      "normal_law_violation_count": 0,
+      "compression_violation_count": 0,
+      "coulomb_violation_count": 0,
+      "maximum_point_friction_gamma": 0.0,
+      "patches": {
+        "LEFT": {
+          "ground_reaction_n": [
+            0.0,
+            0.0,
+            519.4149
+          ],
+          "aggregate_friction_utilization": 0.0,
+          "sampled_physical_nodal_gap_mm": [
+            -5.028829e-05,
+            -6.073533e-07
+          ],
+          "active_point_count": 672,
+          "active_face_count": 16,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 0,
+          "maximum_point_friction_gamma": 0.0,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            0.03669384110253304,
+            0.04382999998051673,
+            0.0
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            4.5e-06,
+            4.5e-06,
+            0.000252
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.333807674366304,
+            0.30802270000000004,
+            0.010721893551808
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": true
+        },
+        "RIGHT": {
+          "ground_reaction_n": [
+            0.0,
+            0.0,
+            523.2011
+          ],
+          "aggregate_friction_utilization": 0.0,
+          "sampled_physical_nodal_gap_mm": [
+            -5.09775e-05,
+            -5.455462e-07
+          ],
+          "active_point_count": 672,
+          "active_face_count": 16,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 0,
+          "maximum_point_friction_gamma": 0.0,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            0.0,
+            0.0,
+            -9.999999997489795e-05
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            -0.09854526340495795,
+            0.05108000012114644,
+            0.0
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            4.5e-06,
+            4.5e-06,
+            0.000252
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.333807674366304,
+            0.30802270000000004,
+            0.010721893551808
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": true
+        },
+        "KICKER": {
+          "ground_reaction_n": [
+            0.0,
+            0.0,
+            761.4476
+          ],
+          "aggregate_friction_utilization": 0.0,
+          "sampled_physical_nodal_gap_mm": [
+            -3.533934e-05,
+            0.001131512
+          ],
+          "active_point_count": 900,
+          "active_face_count": 77,
+          "total_floor_face_count": 213,
+          "missing_active_face_count": 136,
+          "maximum_point_friction_gamma": 0.0,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            0.0,
+            0.0,
+            -9.999999997489795e-05
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            0.017675646173302084,
+            0.045339999986481416,
+            0.0
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            4.5e-06,
+            4.5e-06,
+            0.000252
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.03964777550423029,
+            0.27487459999999997,
+            0.006111834168400599
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": true
+        }
+      },
+      "maximum_guide_xy_component_n": 19.15229,
+      "maximum_nodal_displacement_mm": 0.35634562741129416,
+      "maximum_loaded_node_displacement_mm": 0.35066814297177007,
+      "force_residual_n": [
+        -1.3583000001964746e-06,
+        -3.404100000348534e-06,
+        0.00012917233499553103
+      ],
+      "moment_residual_nmm": [
+        0.094854976863678,
+        -0.1494678211084595,
+        0.022866344314849657
+      ],
+      "slave_CF_plus_applied_moment_nmm": [
+        0.06616136175580323,
+        -0.013841404542290547,
+        0.0
+      ],
+      "global_equilibrium_pass": true,
+      "pair_statistics_complete": true
+    },
+    {
+      "time": 2.0,
+      "temporary_guides_active": false,
+      "downward_climber_n": 0,
+      "active_point_count": 710,
+      "matched_point_face_sequence": true,
+      "unknown_face_count": 0,
+      "pressure_range_n_mm2": [
+        0.004867188,
+        0.6620642
+      ],
+      "maximum_normal_law_error_n_mm2": 1.1102230246251565e-16,
+      "normal_law_tolerance_range_n_mm2": [
+        1.0000100000000001e-09,
+        1.0000000999999999e-07
+      ],
+      "maximum_raw_coulomb_excess_n_mm2": 6.606098507111469e-08,
+      "coulomb_tolerance_range_n_mm2": [
+        7.525037810560446e-10,
+        9.571068811865474e-08
+      ],
+      "normal_law_violation_count": 0,
+      "compression_violation_count": 0,
+      "coulomb_violation_count": 0,
+      "maximum_point_friction_gamma": 1.0000004504063296,
+      "patches": {
+        "LEFT": {
+          "ground_reaction_n": [
+            3.2895541,
+            -130.66894,
+            520.1491
+          ],
+          "aggregate_friction_utilization": 0.5025879704290869,
+          "sampled_physical_nodal_gap_mm": [
+            -5.863614e-05,
+            0.00137292
+          ],
+          "active_point_count": 310,
+          "active_face_count": 10,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 6,
+          "maximum_point_friction_gamma": 1.0000003856019002,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            -1.0000000028043132e-07,
+            3.9999999984274837e-05,
+            0.0
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            0.19903952861204743,
+            -0.015865999972447753,
+            -0.02248471960774623
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.001974665,
+            -7.382998e-06,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            3.6e-06,
+            7.2e-05,
+            0.000162
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.189777847502844,
+            0.19315120000000002,
+            0.0824320950026512
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": false
+        },
+        "RIGHT": {
+          "ground_reaction_n": [
+            -3.5306514,
+            -132.00721,
+            524.13271
+          ],
+          "aggregate_friction_utilization": 0.5038968729148999,
+          "sampled_physical_nodal_gap_mm": [
+            -5.974669e-05,
+            0.001397372
+          ],
+          "active_point_count": 309,
+          "active_face_count": 10,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 6,
+          "maximum_point_friction_gamma": 1.0000004302222394,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            3.9999999978945766e-07,
+            9.999999974752427e-06,
+            -0.00010999999994965037
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            0.12494394404347986,
+            0.0977970000822097,
+            -0.02322397945681587
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.002026415,
+            3.613583e-06,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            3.6e-06,
+            7.2e-05,
+            0.000162
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.189777847502844,
+            0.19315120000000002,
+            0.0824320950026512
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": true
+        },
+        "KICKER": {
+          "ground_reaction_n": [
+            0.2411000000000012,
+            262.67615,
+            759.7817
+          ],
+          "aggregate_friction_utilization": 0.6914519279630751,
+          "sampled_physical_nodal_gap_mm": [
+            -0.0002941769,
+            0.01641427
+          ],
+          "active_point_count": 91,
+          "active_face_count": 36,
+          "total_floor_face_count": 213,
+          "missing_active_face_count": 177,
+          "maximum_point_friction_gamma": 1.0000004504063296,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            -2.6000000012127433e-06,
+            4.999999998744897e-05,
+            0.0
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            -5.24732462324755,
+            -0.013769999948635814,
+            -0.00021940475130577397
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.0072946600040745355,
+            6.054041e-05,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            2.2050000000000004e-05,
+            7.2e-05,
+            0.000252
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.03964777550423029,
+            0.27487459999999997,
+            0.0341123379262033
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": false
+        }
+      },
+      "maximum_guide_xy_component_n": 8.703964e-12,
+      "maximum_nodal_displacement_mm": 0.3419414787520583,
+      "maximum_loaded_node_displacement_mm": 0.33584221028975986,
+      "force_residual_n": [
+        2.70000000102133e-06,
+        1.0658141036401503e-14,
+        3.917233498117466e-05
+      ],
+      "moment_residual_nmm": [
+        4.892494538468125,
+        -0.06906845338178262,
+        -0.01807189617466065
+      ],
+      "slave_CF_plus_applied_moment_nmm": [
+        -0.030846612062305212,
+        -0.0009074532354134135,
+        -0.0639999999941665
+      ],
+      "global_equilibrium_pass": false,
+      "pair_statistics_complete": true
+    },
+    {
+      "time": 3.0,
+      "temporary_guides_active": false,
+      "downward_climber_n": 1200,
+      "active_point_count": 69,
+      "matched_point_face_sequence": true,
+      "unknown_face_count": 0,
+      "pressure_range_n_mm2": [
+        0.05657348,
+        8.183285
+      ],
+      "maximum_normal_law_error_n_mm2": 8.881784197001252e-16,
+      "normal_law_tolerance_range_n_mm2": [
+        1.000001e-08,
+        1.00000001e-06
+      ],
+      "maximum_raw_coulomb_excess_n_mm2": 3.1925182630843096e-07,
+      "coulomb_tolerance_range_n_mm2": [
+        7.500259993750312e-09,
+        7.524937910560446e-07
+      ],
+      "normal_law_violation_count": 0,
+      "compression_violation_count": 0,
+      "coulomb_violation_count": 0,
+      "maximum_point_friction_gamma": 1.0000003862680913,
+      "patches": {
+        "LEFT": {
+          "ground_reaction_n": [
+            5.4586519,
+            -154.41642000000002,
+            1217.3917999999999
+          ],
+          "aggregate_friction_utilization": 0.25384247225116496,
+          "sampled_physical_nodal_gap_mm": [
+            -0.0009282132,
+            0.1081115
+          ],
+          "active_point_count": 26,
+          "active_face_count": 3,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 13,
+          "maximum_point_friction_gamma": 1.0000001194990622,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            1.0000000028043132e-07,
+            2.0000000006348273e-05,
+            0.00020000000017716957
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            6.77871653623879,
+            0.7554399999789894,
+            0.037342258234275505
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.07284048,
+            0.001409271,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            4.05e-06,
+            7.2e-05,
+            0.000702
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.783807674366304,
+            0.7580227,
+            0.08297554441749071
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": false
+        },
+        "RIGHT": {
+          "ground_reaction_n": [
+            -4.5794742,
+            -155.54433,
+            1166.6919
+          ],
+          "aggregate_friction_utilization": 0.2667571942947815,
+          "sampled_physical_nodal_gap_mm": [
+            -0.0007583099,
+            0.09374222
+          ],
+          "active_point_count": 28,
+          "active_face_count": 3,
+          "total_floor_face_count": 16,
+          "missing_active_face_count": 13,
+          "maximum_point_friction_gamma": 1.0000003862680913,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            1.9999999967268423e-07,
+            3.000000000952241e-05,
+            9.999999997489795e-05
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            6.081443196162581,
+            -0.24147999985143542,
+            -0.04835288171307184
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.06066542,
+            -0.001466911,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            3.15e-06,
+            7.2e-05,
+            0.000702
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.783807674366304,
+            0.7580227,
+            0.08171194586833391
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": false
+        },
+        "KICKER": {
+          "ground_reaction_n": [
+            -0.8791779,
+            309.96076,
+            619.9797
+          ],
+          "aggregate_friction_utilization": 0.9999101804622478,
+          "sampled_physical_nodal_gap_mm": [
+            -0.001735191,
+            0.1203756
+          ],
+          "active_point_count": 15,
+          "active_face_count": 8,
+          "total_floor_face_count": 213,
+          "missing_active_face_count": 205,
+          "maximum_point_friction_gamma": 1.0000003120187633,
+          "complete_CF_CFN_CFS": true,
+          "CF_minus_RF_n": [
+            0.0,
+            4.0000000012696546e-05,
+            9.999999997489795e-05
+          ],
+          "CF_moment_minus_ground_RF_moment_nmm": [
+            -269.13643185609544,
+            -0.8134899999922709,
+            -0.007328633435463416
+          ],
+          "CF_minus_CFN_minus_CFS_force_and_moment": [
+            0.0,
+            0.0,
+            0.0,
+            0.0009841099976716922,
+            0.0008294265002037268,
+            0.0
+          ],
+          "CF_RF_force_rounding_bound_n": [
+            2.25e-06,
+            7.2e-05,
+            0.000252
+          ],
+          "CF_RF_moment_rounding_bound_nmm": [
+            0.03964777550423029,
+            0.27487459999999997,
+            0.03073577379262033
+          ],
+          "CF_RF_force_within_rounding": true,
+          "CF_RF_moment_within_rounding": false
+        }
+      },
+      "maximum_guide_xy_component_n": 6.445535e-08,
+      "maximum_nodal_displacement_mm": 1.2342544660149217,
+      "maximum_loaded_node_displacement_mm": 1.09790055942778,
+      "force_residual_n": [
+        -1.9999999989472883e-07,
+        1.0000000003174137e-05,
+        -7.082766502531913e-05
+      ],
+      "moment_residual_nmm": [
+        256.5547271526125,
+        0.6826625407270429,
+        0.016339256912033306
+      ],
+      "slave_CF_plus_applied_moment_nmm": [
+        0.2784550287760794,
+        0.3831325407445547,
+        -0.002000000005864422
+      ],
+      "global_equilibrium_pass": false,
+      "pair_statistics_complete": true
+    }
+  ]
+}
