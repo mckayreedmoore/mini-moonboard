@@ -215,3 +215,21 @@ Do not add artificial velocity or reference energy, weaken tolerances, or
 restart the timed-out bundle. Actual STA increments and complete native
 output must still establish the requested quiet window; this proposed route
 does not qualify moving contact or imply any hardware resistance.
+
+### Predeclared fixed-increment trial
+
+Use a new preparation with `--direct-quiescent`: catalogue-clearance geometry
+only, `*DYNAMIC,DIRECT,ALPHA=0`, fixed increment 1e−7 s and total time 2e−6 s
+(20 nominal increments). Geometry, contact penalty, zero initial velocities,
+reference-scale definitions and all quiet gates remain unchanged. This is
+not a time-convergence demonstration; it tests whether the stationary state
+can persist through the original requested window without adaptive-step collapse.
+
+Freeze this new trial with `--solver-timeout-seconds 180` before launching.
+The preceding run needed roughly 120 seconds for 19 accepted increments;
+180 seconds allows bounded overhead for the planned 20-state output, with
+200 seconds for the outer process observation. Memory, CPU, network isolation,
+single-launch protection and owned-container cleanup are unchanged. Previous
+bundles keep their original 120/140-second bounds; no in-flight extension or
+automatic retry is permitted. Solver completion still requires a separate
+complete-output audit and does not release a moving or full-joint analysis.

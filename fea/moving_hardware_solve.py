@@ -48,6 +48,7 @@ def check_reference(context):
 
 
 def check_frozen(frozen, record):
+    check_timeout(record.get("solver_timeout_seconds", 120))
     expected = {"moving_hardware_solve.py", "control.inp", "context.json", "build_manifest.json", "prepared-freeze.json"}
     if record["image"] != IMAGE or record["case"] != "quiescent" or set(record["inputs_sha256"]) != expected:
         raise ValueError("Wrong frozen quiescent inventory or image")
@@ -65,8 +66,15 @@ def check_frozen(frozen, record):
         raise ValueError("Prepared context/deck identity differs")
 
 
-def prepare(prepared, parent=Path("fea/generated/quiescent-solves")):
+def check_timeout(seconds):
+    if type(seconds) is not int or seconds not in (120, 180):
+        raise ValueError("Only predeclared 120 or 180 second solver caps are supported")
+    return seconds
+
+
+def prepare(prepared, parent=Path("fea/generated/quiescent-solves"), *, solver_timeout_seconds=120):
     """Copy a verified prepared quiescent deck into a new, unlaunched bundle."""
+    check_timeout(solver_timeout_seconds)
     prepared = Path(prepared).resolve()
     original_freeze = (prepared / "freeze.json").read_bytes()
     inventory = json.loads(original_freeze)["files_sha256"]
@@ -94,6 +102,7 @@ def prepare(prepared, parent=Path("fea/generated/quiescent-solves")):
         shutil.copy2(source, frozen / name)
     (frozen / "prepared-freeze.json").write_bytes(original_freeze)
     save(directory / "freeze.json", {"image": IMAGE, "case": "quiescent", "prepared_directory": str(prepared),
+         "solver_timeout_seconds": solver_timeout_seconds,
          "inputs_sha256": {p.name: sha(p) for p in frozen.iterdir()}})
     verify(directory)
     if (prepared / "freeze.json").read_bytes() != original_freeze:
@@ -108,7 +117,8 @@ def verify(directory):
     return record
 
 
-def command(directory):
+def command(directory, *, solver_timeout_seconds=120):
+    check_timeout(solver_timeout_seconds)
     return ["docker", "run", "--name", "quiescent-" + directory.name,
             "--cidfile", str(directory / "result/container.id"),
             "--network=none", "--read-only", "--memory=4g", "--memory-swap=4g", "--cpus=2",
@@ -116,18 +126,19 @@ def command(directory):
             "-e", "OPENBLAS_NUM_THREADS=2", "-e", "PYTHONDONTWRITEBYTECODE=1",
             "-v", f"{directory / 'freeze.json'}:/freeze.json:ro",
             "-v", f"{directory / 'frozen'}:/frozen:ro", "-v", f"{directory / 'result'}:/result",
-            "-w", "/result", IMAGE, "timeout", "--signal=TERM", "--kill-after=5", "120",
+            "-w", "/result", IMAGE, "timeout", "--signal=TERM", "--kill-after=5", str(solver_timeout_seconds),
             "python3", "/frozen/moving_hardware_solve.py", "--execute"]
 
 
 def launch(directory):
     """A consumed launch sentinel forbids rerunning this frozen bundle."""
     directory = Path(directory).resolve()
-    verify(directory)
+    record = verify(directory)
     freeze_bytes = (directory / "freeze.json").read_bytes()
-    cmd = command(directory)
+    seconds = check_timeout(record.get("solver_timeout_seconds", 120))
+    cmd = command(directory, solver_timeout_seconds=seconds)
     save(directory / "launch.json", {"command": cmd, "freeze_sha256": sha(directory / "freeze.json"),
-                                    "limits": LIMITS, "outer_timeout_seconds": 140})
+                                    "limits": LIMITS, "outer_timeout_seconds": seconds + 20})
     result = directory / "result"
     result.mkdir()
     errors, code, cleanup_code, stopped, owned_cid = [], None, None, False, None
@@ -149,7 +160,7 @@ def launch(directory):
         try:
             with (result / "solver.log").open("xb") as log:
                 code = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT,
-                                      timeout=140, check=False).returncode
+                                      timeout=seconds + 20, check=False).returncode
         except BaseException as error:  # noqa: BLE001 -- interruption must still clean the named container
             errors.append(error)
         finally:
@@ -231,10 +242,14 @@ if __name__ == "__main__":
     action.add_argument("--launch", type=Path)
     action.add_argument("--execute", action="store_true")
     parser.add_argument("--output", type=Path, default=Path("fea/generated/quiescent-solves"))
+    parser.add_argument("--solver-timeout-seconds", type=int, choices=(120, 180), default=120,
+                        help="preparation-only immutable solver cap; existing bundles retain their frozen cap")
     args = parser.parse_args()
+    if args.solver_timeout_seconds != 120 and args.prepare is None:
+        parser.error("--solver-timeout-seconds is preparation-only; launch uses the frozen cap")
     if args.execute:
         execute()
     elif args.launch:
         print(launch(args.launch))
     else:
-        print(prepare(args.prepare, args.output))
+        print(prepare(args.prepare, args.output, solver_timeout_seconds=args.solver_timeout_seconds))

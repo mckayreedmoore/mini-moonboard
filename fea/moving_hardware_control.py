@@ -29,6 +29,8 @@ MATERIAL = {"youngs_modulus_N_mm2": 210000., "poisson_ratio": .3, "density_tonne
             "scope": "Generic elastic steel assumption, not measured properties or capacity"}
 CASE_SETTINGS = {"initial_dt_s": 1e-8, "max_dt_s": 1e-7, "min_dt_s": 1e-11, "total_time_s": 2e-6,
                  "maximum_increment_count": 1000, "alpha": 0.}
+DIRECT_QUIESCENT_SETTINGS = {"initial_dt_s": 1e-7, "total_time_s": 2e-6,
+                             "maximum_increment_count": 20, "alpha": 0., "direct_quiescent": True}
 SURFACE_SPECS = {
     "WASHER_HEAD": ("WASHER", "Plane", (0., -12.7, -12.7, 0., 12.7, 12.7), math.pi*(12.7**2-RADIUS**2)),
     "CORE_HEAD": ("BOLT_NUT", "Plane", (0., -9., -9., 0., 9., 9.), math.pi*(9**2-RADIUS**2)),
@@ -42,6 +44,7 @@ def declared_configuration():
                        "catalog_washer_radius": CATALOG_WASHER_RADIUS,
                        "cad_tolerance": CAD_TOLERANCE_MM, "area_tolerance": AREA_RELATIVE_TOLERANCE,
                        "material": MATERIAL, "cases": CASE_SETTINGS, "surfaces": SURFACE_SPECS,
+                       "direct_quiescent": DIRECT_QUIESCENT_SETTINGS,
                        "coordinate_format": COORDINATE_FORMAT, "quantization_bound_mm": QUANTIZATION_BOUND_MM}, sort_keys=True)
 
 
@@ -147,11 +150,15 @@ def select_surface(label, body, xyz, elements, origin, *, washer_radius=RADIUS):
             "cad_area_mm2": surface["cad_area_mm2"], "faces": [list(face) for face in faces], "nodes": sorted(used)}
 
 
-def build_context(mesh_text, mesh_record, geometry_record):
+def build_context(mesh_text, mesh_record, geometry_record, *, direct_quiescent=False):
+    if type(direct_quiescent) is not bool:
+        raise ValueError("direct_quiescent must be a boolean")
     names = geometry_names(geometry_record)
     catalog = geometry_record.get("catalog_washer_bore", False)
     if type(catalog) is not bool:
         raise ValueError("catalog_washer_bore must be a boolean")
+    if direct_quiescent and not catalog:
+        raise ValueError("DIRECT quiescent requires catalog washer geometry")
     washer_radius = CATALOG_WASHER_RADIUS if catalog else RADIUS
     if geometry_record.get("locked_threads") is not True or len(names) != 11:
         raise ValueError("Exactly eleven explicitly locked-thread geometry bodies required")
@@ -209,7 +216,11 @@ def build_context(mesh_text, mesh_record, geometry_record):
             "contact_pairs": [{"slave": slave, "master": master, "normal_penalty_n_mm3": 1e5,
                                "formulation": "ordinary surface-to-surface penalty", "friction": 0.}
                               for slave, master in (("WASHER_HEAD", "CORE_HEAD"), ("WASHER_BORE", "CORE_SHANK"))],
-            "cases": {name: {**CASE_SETTINGS, "initial_velocity_mm_s": {"BOLT_NUT": [0., 0., 0.], "WASHER": list(v)}}
+            "integration_intent": {"direct_quiescent": direct_quiescent,
+                "mode": "Fixed-increment stationary diagnostic" if direct_quiescent else "Adaptive implicit diagnostic",
+                "expected_fixed_increment_count": 20 if direct_quiescent else None,
+                "scope": "No added energy or weakened gates; output qualification remains required"},
+            "cases": {name: {**(DIRECT_QUIESCENT_SETTINGS if direct_quiescent else CASE_SETTINGS), "initial_velocity_mm_s": {"BOLT_NUT": [0., 0., 0.], "WASHER": list(v)}}
                       for name, v in (("quiescent", (0., 0., 0.)), ("moving", (-100., 100., 0.)))
                       if not catalog or name == "quiescent"},
             "diagnostic_reference_scales": {"status": "FORMULAS ONLY; native washer mass not yet integrated or output-qualified",
@@ -228,6 +239,13 @@ def deck(context, case):
     if case not in ("quiescent", "moving") or case not in context["cases"]:
         raise ValueError("Only explicitly prepared qualification cases may be emitted")
     settings = context["cases"][case]
+    direct = settings.get("direct_quiescent", False)
+    if type(direct) is not bool:
+        raise ValueError("direct_quiescent must be a boolean")
+    if direct and (case != "quiescent" or context["geometry_variant"] != "locked-thread-fw38-minimum-bore-11-body" or
+                   any(settings.get(key) != value for key, value in DIRECT_QUIESCENT_SETTINGS.items()) or
+                   settings["initial_velocity_mm_s"] != {"BOLT_NUT": [0., 0., 0.], "WASHER": [0., 0., 0.]}):
+        raise ValueError("DIRECT requires the declared catalog stationary settings")
     elements = {int(e): ids for e, ids in context["elements"].items()}
     lines = ["*HEADING", "Two free hardware bodies; numerical control only", "*NODE"]
     lines += [str(n) + "," + ",".join(format(v, COORDINATE_FORMAT) for v in p) for n, p in context["nodes"].items()]
@@ -246,8 +264,10 @@ def deck(context, case):
     for name, body in context["bodies"].items():
         lines += [f"{n},{axis},{value!r}" for n in body["nodes"]
                   for axis, value in enumerate(settings["initial_velocity_mm_s"][name], 1)]
-    lines += [f"*STEP,NLGEOM,INC={settings['maximum_increment_count']}", "*DYNAMIC,ALPHA=0",
-              ",".join(repr(settings[key]) for key in ("initial_dt_s", "total_time_s", "min_dt_s", "max_dt_s"))]
+    time_keys = ("initial_dt_s", "total_time_s") if direct else ("initial_dt_s", "total_time_s", "min_dt_s", "max_dt_s")
+    lines += [f"*STEP,NLGEOM,INC={settings['maximum_increment_count']}",
+              "*DYNAMIC,DIRECT,ALPHA=0" if direct else "*DYNAMIC,ALPHA=0",
+              ",".join(repr(settings[key]) for key in time_keys)]
     for name in context["bodies"]:
         lines += [f"*NODE PRINT,NSET={name},FREQUENCY=1", "U,V",
                   f"*EL PRINT,ELSET={name},FREQUENCY=1,TOTALS=ONLY", "ELKE,EMAS,ELSE"]
@@ -258,7 +278,9 @@ def deck(context, case):
     return "\n".join(lines + ["*END STEP"]) + "\n"
 
 
-def prepare(mesh_directory, geometry_path, parent=Path("fea/generated/moving-hardware-controls"), *, integrate_reference=False):
+def prepare(mesh_directory, geometry_path, parent=Path("fea/generated/moving-hardware-controls"), *, integrate_reference=False, direct_quiescent=False):
+    if type(direct_quiescent) is not bool:
+        raise ValueError("direct_quiescent must be a boolean")
     sources = source_snapshot()
     mesh_directory, geometry_path = Path(mesh_directory), Path(geometry_path)
     inputs = {"mesh.inp": (mesh_directory / "mesh.inp").read_bytes(),
@@ -266,7 +288,7 @@ def prepare(mesh_directory, geometry_path, parent=Path("fea/generated/moving-har
     mesh_record, geometry_record = json.loads(inputs["mesh.json"]), json.loads(inputs["geometry.json"])
     if mesh_record["geometry_sha256"] != digest(inputs["geometry.json"]):
         raise ValueError("Mesh geometry hash differs from provided geometry")
-    context = build_context(inputs["mesh.inp"].decode(), mesh_record, geometry_record)
+    context = build_context(inputs["mesh.inp"].decode(), mesh_record, geometry_record, direct_quiescent=direct_quiescent)
     if integrate_reference:
         washer = context["bodies"]["WASHER"]
         blocks = dynamic_momentum.calculix_221_mass(
@@ -308,5 +330,7 @@ if __name__ == "__main__":
     parser.add_argument("geometry_path", type=Path)
     parser.add_argument("--output", type=Path, default=Path("fea/generated/moving-hardware-controls"))
     parser.add_argument("--integrate-reference", action="store_true", help="Cache source-derived washer mass/scales using Gmsh; no solver")
+    parser.add_argument("--direct-quiescent", action="store_true", help="Catalog only: prepare 20 fixed stationary increments of 1e-7 s; no solver")
     args = parser.parse_args()
-    print(prepare(args.mesh_directory, args.geometry_path, args.output, integrate_reference=args.integrate_reference))
+    print(prepare(args.mesh_directory, args.geometry_path, args.output, integrate_reference=args.integrate_reference,
+                  direct_quiescent=args.direct_quiescent))

@@ -1,6 +1,7 @@
 import copy
 import json
 import math
+import subprocess
 import sys
 from pathlib import Path
 
@@ -78,6 +79,58 @@ def test_catalog_bore_preserves_core_and_prepares_only_stationary_case():
     assert "*DYNAMIC,ALPHA=0" in control.deck(context, "quiescent")
     with pytest.raises(ValueError, match="explicitly prepared"):
         control.deck(context, "moving")
+
+
+def test_direct_quiescent_changes_only_integration_and_preserves_quiet_gates():
+    adaptive = control.build_context(*fixture(catalog=True))
+    direct = control.build_context(*fixture(catalog=True), direct_quiescent=True)
+    assert {k: v for k, v in direct.items() if k not in ("cases", "integration_intent")} == {
+        k: v for k, v in adaptive.items() if k not in ("cases", "integration_intent")}
+    assert set(direct["cases"]) == {"quiescent"}
+    assert direct["integration_intent"]["expected_fixed_increment_count"] == 20
+    settings = direct["cases"]["quiescent"]
+    assert settings["total_time_s"] / settings["initial_dt_s"] == 20
+    assert "min_dt_s" not in settings and "max_dt_s" not in settings
+    output = control.deck(direct, "quiescent")
+    assert "*STEP,NLGEOM,INC=20\n*DYNAMIC,DIRECT,ALPHA=0\n1e-07,2e-06\n*NODE PRINT" in output
+    assert output == control.deck(json.loads(json.dumps(direct)), "quiescent")
+    initial = output.split("*INITIAL CONDITIONS,TYPE=VELOCITY\n")[1].split("*STEP")[0]
+    assert all(float(line.split(",")[2]) == 0 for line in initial.splitlines())
+    assert not any(word in output for word in ("EXPLICIT", "*BOUNDARY", "*TIE", "*DLOAD", "*CLOAD"))
+    with pytest.raises(ValueError, match="explicitly prepared"):
+        control.deck(direct, "moving")
+
+
+@pytest.mark.parametrize("flag", [None, 0, 1, "true", "false", {}])
+def test_direct_option_requires_boolean(flag, tmp_path):
+    with pytest.raises(ValueError, match="must be a boolean"):
+        control.build_context(*fixture(catalog=True), direct_quiescent=flag)
+    with pytest.raises(ValueError, match="must be a boolean"):
+        control.prepare(tmp_path, tmp_path / "missing", direct_quiescent=flag)
+
+
+def test_direct_rejects_legacy_geometry_and_malformed_cli():
+    with pytest.raises(ValueError, match="requires catalog"):
+        control.build_context(*fixture(), direct_quiescent=True)
+    result = subprocess.run([sys.executable, "-m", "fea.moving_hardware_control", "missing", "missing",
+                             "--direct-quiescent=false"], capture_output=True, text=True, check=False)
+    assert result.returncode == 2 and "ignored explicit argument" in result.stderr
+
+
+@pytest.mark.parametrize("fault", ["velocity", "dt", "geometry", "flag"])
+def test_direct_deck_rejects_changed_intent(fault):
+    context = control.build_context(*fixture(catalog=True), direct_quiescent=True)
+    settings = context["cases"]["quiescent"]
+    if fault == "velocity":
+        settings["initial_velocity_mm_s"]["WASHER"][0] = 100
+    elif fault == "dt":
+        settings["initial_dt_s"] = 1e-8
+    elif fault == "geometry":
+        context["geometry_variant"] = "locked-thread-11-body"
+    else:
+        settings["direct_quiescent"] = "true"
+    with pytest.raises(ValueError):
+        control.deck(context, "quiescent")
 
 
 @pytest.mark.parametrize("fault", ["flag", "tag", "diameter", "legacy_mesh"])
@@ -228,8 +281,9 @@ def test_surface_cannot_drop_an_exterior_face_and_trim_its_node_list():
         control.select_surface("WASHER_BORE", body, xyz, elements, geometry["stitches"][0]["start_mm"])
 
 
-def test_optional_native_mass_stage_freezes_predeclared_scales(tmp_path, monkeypatch):
-    text, record, geometry = fixture()
+@pytest.mark.parametrize("direct", [False, True])
+def test_optional_native_mass_stage_freezes_predeclared_scales(tmp_path, monkeypatch, direct):
+    text, record, geometry = fixture(catalog=direct)
     (tmp_path / "mesh.inp").write_text(text)
     (tmp_path / "mesh.json").write_text(json.dumps(record))
     (tmp_path / "geometry.json").write_text(json.dumps(geometry))
@@ -245,13 +299,22 @@ def test_optional_native_mass_stage_freezes_predeclared_scales(tmp_path, monkeyp
         assert all(v == float(format(v, ".12g")) for p in nodes.values() for v in p)
         return {1: ((), ((6e-6,),))}
     monkeypatch.setattr(control.dynamic_momentum, "calculix_221_mass", native_mass)
-    directory = control.prepare(tmp_path, tmp_path / "geometry.json", tmp_path / "outputs", integrate_reference=True)
+    directory = control.prepare(tmp_path, tmp_path / "geometry.json", tmp_path / "outputs",
+                                integrate_reference=True, direct_quiescent=direct)
     scales = json.loads((directory / "context.json").read_text())["diagnostic_reference_scales"]
     assert scales["reference_mass_tonne"] == 6e-6
     assert scales["P_star_tonne_mm_s"] == pytest.approx(6e-6*math.sqrt(20000))
     assert scales["E_star_N_mm"] == pytest.approx(.06)
     assert scales["H_star_tonne_mm2_s"] == pytest.approx(57.15*6e-6*math.sqrt(20000))
     assert (directory / "frozen/dynamic_momentum.py").exists()
+    if direct:
+        context = json.loads((directory / "context.json").read_text())
+        assert context["integration_intent"]["direct_quiescent"] is True
+        assert context["cases"]["quiescent"]["maximum_increment_count"] == 20
+        assert not (directory / "moving.inp").exists()
+        inventory = json.loads((directory / "freeze.json").read_text())["files_sha256"]
+        assert inventory["context.json"] == control.digest((directory / "context.json").read_bytes())
+        assert inventory["quiescent.inp"] == control.digest((directory / "quiescent.inp").read_bytes())
 
 
 def test_constant_only_source_change_after_import_is_rejected(monkeypatch):

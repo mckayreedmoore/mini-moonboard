@@ -38,7 +38,7 @@ def mock_docker(monkeypatch, directory, *, code=0, running=False, oom=False, cle
     def run(cmd, **kwargs):
         calls.append(cmd)
         if cmd[1] == "run":
-            assert kwargs["timeout"] == 140
+            assert kwargs["timeout"] == int(cmd[cmd.index("--kill-after=5") + 1]) + 20
             assert not Path(cmd[cmd.index("--cidfile") + 1]).exists()
             Path(cmd[cmd.index("--cidfile") + 1]).write_text(CID + "\n")
             kwargs["stdout"].write(b"retained solver output\n")
@@ -84,6 +84,22 @@ def test_resource_bounds_and_frozen_entrypoint(tmp_path):
     assert f"{tmp_path / 'frozen'}:/frozen:ro" in cmd
     assert f"{tmp_path / 'freeze.json'}:/freeze.json:ro" in cmd
     assert cmd[cmd.index("--cidfile") + 1] == str(tmp_path / "result/container.id")
+
+
+def test_explicit_longer_cap_is_frozen_and_observed(prepared, tmp_path, monkeypatch):
+    directory = solve.prepare(prepared, tmp_path / "runs", solver_timeout_seconds=180)
+    assert solve.verify(directory)["solver_timeout_seconds"] == 180
+    calls = mock_docker(monkeypatch, directory)
+    solve.launch(directory)
+    assert calls[0][calls[0].index("--kill-after=5") + 1] == "180"
+    assert json.loads((directory / "launch.json").read_text())["outer_timeout_seconds"] == 200
+
+
+@pytest.mark.parametrize("seconds", [True, 180., 0, 121, 10000])
+def test_unbounded_or_undeclared_cap_rejected(prepared, tmp_path, seconds):
+    with pytest.raises(ValueError, match="predeclared"):
+        solve.prepare(prepared, tmp_path / "runs", solver_timeout_seconds=seconds)
+    assert not (tmp_path / "runs").exists()
 
 
 def test_success_is_only_solver_completion_and_cannot_repeat(prepared, tmp_path, monkeypatch):
