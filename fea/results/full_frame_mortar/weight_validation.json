@@ -1,0 +1,36 @@
+{
+  "scope": "Fresh Gmsh reintegration and current postrun production auditor; original launch source/context preserved separately",
+  "gmsh_version": "4.12.1",
+  "validator_source_sha256": {
+    "fea/full_frame_mortar.py": "18083f1c8d29e2063d711586c25ff80907027134c43d8fee3acfd6f81d6b3be6",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_recovery.py": "e03cf2c10453b53f6a4bb04610ad875a89abc66bcc438d5b4f845e7a200bfeab",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+  },
+  "formulations": {
+    "penalty": {
+      "deck_sha256": "57eb809b04ab62148b8d458aade78273f23266e4bf26b6695924974438214a4c",
+      "wood_mesh_sha256": "284c61a05f2d90cc9359a445ce8b95bd891d101fa9e63ea3bd98acf4eac6cf84",
+      "terminal_context_sha256": "82e9f5aa9a482bde2977cce1f45d7c2dcf837278ad534426806cbf137e35bc7d",
+      "dat_sha256": "512684f9b64e7eb1a7200b074602992fcf0e00d38095503fe396c376ac31c1b7",
+      "weight_count": 62020,
+      "negative_weight_count": 10140,
+      "maximum_absolute_difference_mm3": 0.0,
+      "weight_validation_pass": true,
+      "integrated_weights_sha256": "3f49d5059e56e47e65a2fcb004ea3e66a578525398a5933cd3e1e94a2cfbff32",
+      "production_audit_error": "Incomplete timber endpoint 1.0"
+    },
+    "mortar": {
+      "deck_sha256": "1b9fba3562e623690d8fe39260aa45cd1e2afe9736c8512a4cc66b9c99917d88",
+      "wood_mesh_sha256": "284c61a05f2d90cc9359a445ce8b95bd891d101fa9e63ea3bd98acf4eac6cf84",
+      "terminal_context_sha256": "264af85c61f4953cc1779effdbeba61c7b7d05bc68b4c3e846811c5720652ea2",
+      "dat_sha256": "8a1c883fc2cf6dfdcb6a9770ad0f5257fff7f0bc74f016436116f6025b1e5203",
+      "weight_count": 62020,
+      "negative_weight_count": 10140,
+      "maximum_absolute_difference_mm3": 0.0,
+      "weight_validation_pass": true,
+      "integrated_weights_sha256": "3f49d5059e56e47e65a2fcb004ea3e66a578525398a5933cd3e1e94a2cfbff32",
+      "production_audit_error": "Deformed equilibrium failed at 2.0: [-2.0000000020559128e-06, -1.899999999688262e-05, -7.082766520628581e-05], [204.02197362012424, 0.47266018310370056, -0.002837823012669105]"
+    }
+  }
+}

@@ -58,6 +58,10 @@ loaded moment residual remains 96 N·mm against the unchanged 1 N·mm limit.
 Separate [sliding-cube](docs/contact-shear-coupon.md) and
 [actual-leg](docs/leg-shear-coupon.md) comparisons support further MORTAR
 qualification; their global balance checks are not full-frame approval.
+The [unguided whole-frame comparison](docs/full-frame-mortar.md) now retains a
+completed MORTAR run: gravity passes, but the loaded moment residual is 204 N·mm
+and fails the unchanged diagnostic limit. Its matched penalty run times out
+before full gravity. Neither is an accepted loaded-frame solution.
 The [numerical acceptance basis](docs/numerical-acceptance-basis.md) distinguishes
 our strict diagnostic limits from structural requirements; no historical result
 is reclassified. The [mortar local-audit basis](docs/mortar-local-audit-basis.md)

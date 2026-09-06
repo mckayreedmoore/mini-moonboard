@@ -1,0 +1,1257 @@
+{
+  "status": "Neither matched full-frame run accepted; diagnostics only",
+  "force_limit_n": 0.1,
+  "moment_limit_nmm": 1.0,
+  "local_contact_status": "NOT VALIDATED",
+  "weight_validation_sha256": "6dc8dc94532e23af73915d2f7e03883879d11e90e865f43148cc0934b0e5b47e",
+  "formulations": {
+    "penalty": {
+      "archive": "penalty.tar.gz",
+      "archive_sha256": "1252b40deac23e4a01362806e16c3e9cce4ec2f072cceffca21522b7b049d79b",
+      "archive_contents_sha256": {
+        "frame.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frame.cvg": "f9caabdcf72053d6f321fe2c023c65f36665fd0d4bd4ce74c044e1ab0f9f5d85",
+        "frame.dat": "512684f9b64e7eb1a7200b074602992fcf0e00d38095503fe396c376ac31c1b7",
+        "frame.frd": "243fec9185af88fc2074bd4bd8680758a7009835d1f9dc9de85fb42a05a9e1b8",
+        "frame.inp": "57eb809b04ab62148b8d458aade78273f23266e4bf26b6695924974438214a4c",
+        "frame.json": "82e9f5aa9a482bde2977cce1f45d7c2dcf837278ad534426806cbf137e35bc7d",
+        "frame.log": "c1cc7e24cda1f4d1f628ce20f5e1ef4e3440864d855d895b17a0e6444be1513d",
+        "frame.sta": "19f9100271166cdd319f9b9679616830357931a51a40c8b64938ad3503a84374",
+        "launch_sources/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+        "launch_sources/floor_contact_recovery.py": "e03cf2c10453b53f6a4bb04610ad875a89abc66bcc438d5b4f845e7a200bfeab",
+        "launch_sources/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+        "launch_sources/full_frame_mortar.py": "6cfc6b3946aac8c112a7beaac8fa5c8a722b87e9e326f99e66a2ec25731c5657",
+        "spooles.out": "1ab371d5395d08c69e608cce953c5d0c2ce1f2742e9f9e0dea0b517eb9ae150e"
+      },
+      "source_directory": "fea/generated/full-frame-penalty-djvymws7",
+      "exit_code": -999,
+      "elapsed_seconds": 600.1723820740008,
+      "raw_status": "UNRESOLVED SOLVER/OUTPUT; NO ACCEPTED FRAME SOLUTION",
+      "accepted_increments": [
+        {
+          "step": 1,
+          "increment": 1,
+          "attempt": 1,
+          "iterations": 32,
+          "time": 0.25,
+          "step_time": 0.25,
+          "increment_time": 0.25
+        },
+        {
+          "step": 1,
+          "increment": 2,
+          "attempt": 1,
+          "iterations": 34,
+          "time": 0.5,
+          "step_time": 0.5,
+          "increment_time": 0.25
+        }
+      ],
+      "diagnostic_endpoints": [
+        {
+          "time": 0.25,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 0.25,
+          "force_residual_n": [
+            -8.881784197001252e-16,
+            -6.999999999202089e-06,
+            1.2293083718609098e-05
+          ],
+          "moment_residual_nmm": [
+            0.31490387014850135,
+            0.010387457609191658,
+            0.018244874324409466
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.08551414521617448,
+          "maximum_loaded_node_displacement_mm": 0.0839865417731977,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                0.825118999999999,
+                -32.68555,
+                130.0147
+              ],
+              "maximum_ground_displacement_mm": 3.5489622814273474e-05,
+              "master_displacement_mm": {
+                "62025": [
+                  -1.612233e-05,
+                  7.76727e-06,
+                  -3.064724e-05
+                ],
+                "62026": [
+                  1.442316e-05,
+                  8.247234e-06,
+                  -2.70869e-05
+                ],
+                "62027": [
+                  1.562192e-06,
+                  1.073382e-05,
+                  -3.397465e-06
+                ],
+                "62028": [
+                  -3.380909e-06,
+                  1.265115e-05,
+                  -5.091239e-06
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -0.8856869999999999,
+                -33.018192,
+                131.01023
+              ],
+              "maximum_ground_displacement_mm": 3.5856433363920904e-05,
+              "master_displacement_mm": {
+                "62033": [
+                  -1.444373e-05,
+                  8.375688e-06,
+                  -2.711973e-05
+                ],
+                "62034": [
+                  1.629192e-05,
+                  7.87982e-06,
+                  -3.095425e-05
+                ],
+                "62035": [
+                  3.485673e-06,
+                  1.284554e-05,
+                  -5.231137e-06
+                ],
+                "62036": [
+                  -1.556097e-06,
+                  1.078236e-05,
+                  -3.421936e-06
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.060567999999999955,
+                65.703735,
+                189.99095
+              ],
+              "maximum_ground_displacement_mm": 4.589710751410594e-06,
+              "master_displacement_mm": {
+                "62041": [
+                  1.022421e-06,
+                  -3.735825e-06,
+                  -2.375503e-06
+                ],
+                "62042": [
+                  -1.025641e-06,
+                  -3.782562e-06,
+                  -2.388667e-06
+                ],
+                "62043": [
+                  -1.71009e-06,
+                  -1.595669e-06,
+                  -2.229768e-06
+                ],
+                "62044": [
+                  1.70583e-06,
+                  -1.532593e-06,
+                  -2.182173e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 0.5,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 0.5,
+          "force_residual_n": [
+            -1.0999999998428933e-05,
+            3.999999995230041e-06,
+            -5.5413832566858615e-05
+          ],
+          "moment_residual_nmm": [
+            0.5999904783640161,
+            -0.08018210408781723,
+            0.005385153075621929
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.17103606866535978,
+          "maximum_loaded_node_displacement_mm": 0.16797837750510314,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                1.6474910000000005,
+                -65.3655,
+                260.02951
+              ],
+              "maximum_ground_displacement_mm": 7.097099632888354e-05,
+              "master_displacement_mm": {
+                "62025": [
+                  -3.22361e-05,
+                  1.5518e-05,
+                  -6.129362e-05
+                ],
+                "62026": [
+                  2.885214e-05,
+                  1.646863e-05,
+                  -5.417734e-05
+                ],
+                "62027": [
+                  3.119316e-06,
+                  2.147731e-05,
+                  -6.798047e-06
+                ],
+                "62028": [
+                  -6.764337e-06,
+                  2.532673e-05,
+                  -1.018419e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -1.7683009999999992,
+                -66.032626,
+                262.02144
+              ],
+              "maximum_ground_displacement_mm": 7.170242971930937e-05,
+              "master_displacement_mm": {
+                "62033": [
+                  -2.889218e-05,
+                  1.6726e-05,
+                  -5.424142e-05
+                ],
+                "62034": [
+                  3.2574e-05,
+                  1.57425e-05,
+                  -6.190595e-05
+                ],
+                "62035": [
+                  6.974117e-06,
+                  2.571714e-05,
+                  -1.046539e-05
+                ],
+                "62036": [
+                  -3.10828e-06,
+                  2.157763e-05,
+                  -6.849601e-06
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.12079900000000032,
+                131.39812999999998,
+                379.98073
+              ],
+              "maximum_ground_displacement_mm": 9.178762668111754e-06,
+              "master_displacement_mm": {
+                "62041": [
+                  2.04347e-06,
+                  -7.467259e-06,
+                  -4.747211e-06
+                ],
+                "62042": [
+                  -2.049977e-06,
+                  -7.564828e-06,
+                  -4.777097e-06
+                ],
+                "62043": [
+                  -3.420775e-06,
+                  -3.191237e-06,
+                  -4.459688e-06
+                ],
+                "62044": [
+                  3.412396e-06,
+                  -3.066332e-06,
+                  -4.367478e-06
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "mortar": {
+      "archive": "mortar.tar.gz",
+      "archive_sha256": "68abd5b5736b14171dc384292d15d2f4e84e07bada9df8b63ca023b21d3c41ef",
+      "archive_contents_sha256": {
+        "contact.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frame.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frame.cvg": "d633de454b756c87c898d0983f35e2bb234384fac460b27fe7810fc2e805fb2f",
+        "frame.dat": "8a1c883fc2cf6dfdcb6a9770ad0f5257fff7f0bc74f016436116f6025b1e5203",
+        "frame.frd": "c9a3e68a372c4c0048e4a06c0712cf3d5d9a6fb9c130d4bd8ed1232f91d251af",
+        "frame.inp": "1b9fba3562e623690d8fe39260aa45cd1e2afe9736c8512a4cc66b9c99917d88",
+        "frame.json": "264af85c61f4953cc1779effdbeba61c7b7d05bc68b4c3e846811c5720652ea2",
+        "frame.log": "8e41467cec2bce3f9410d69349940ce7d7a7e434a1cea077720009ef7c09f17b",
+        "frame.sta": "a5839c51605a3ff09d2dfce0960ded37a644ab1b99ae3ed8696da22bd51dcf5e",
+        "intpoints.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "launch_sources/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+        "launch_sources/floor_contact_recovery.py": "e03cf2c10453b53f6a4bb04610ad875a89abc66bcc438d5b4f845e7a200bfeab",
+        "launch_sources/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+        "launch_sources/full_frame_mortar.py": "6cfc6b3946aac8c112a7beaac8fa5c8a722b87e9e326f99e66a2ec25731c5657",
+        "slavintmortar.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "slavtan.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "spooles.out": "fdc6e9735099f2560497ff51b6ea2b7f70974056a5ea7fabdf6e38a0b1fa58bb"
+      },
+      "source_directory": "fea/generated/full-frame-mortar-o6a8wt26",
+      "exit_code": 0,
+      "elapsed_seconds": 524.1205743379833,
+      "raw_status": "UNRESOLVED SOLVER/OUTPUT; NO ACCEPTED FRAME SOLUTION",
+      "accepted_increments": [
+        {
+          "step": 1,
+          "increment": 1,
+          "attempt": 1,
+          "iterations": 14,
+          "time": 0.25,
+          "step_time": 0.25,
+          "increment_time": 0.25
+        },
+        {
+          "step": 1,
+          "increment": 2,
+          "attempt": 1,
+          "iterations": 4,
+          "time": 0.5,
+          "step_time": 0.5,
+          "increment_time": 0.25
+        },
+        {
+          "step": 1,
+          "increment": 3,
+          "attempt": 1,
+          "iterations": 4,
+          "time": 0.75,
+          "step_time": 0.75,
+          "increment_time": 0.25
+        },
+        {
+          "step": 1,
+          "increment": 4,
+          "attempt": 1,
+          "iterations": 3,
+          "time": 1.0,
+          "step_time": 1.0,
+          "increment_time": 0.25
+        },
+        {
+          "step": 2,
+          "increment": 1,
+          "attempt": 1,
+          "iterations": 8,
+          "time": 1.25,
+          "step_time": 0.25,
+          "increment_time": 0.25
+        },
+        {
+          "step": 2,
+          "increment": 2,
+          "attempt": 1,
+          "iterations": 5,
+          "time": 1.5,
+          "step_time": 0.5,
+          "increment_time": 0.25
+        },
+        {
+          "step": 2,
+          "increment": 3,
+          "attempt": 1,
+          "iterations": 7,
+          "time": 1.75,
+          "step_time": 0.75,
+          "increment_time": 0.25
+        },
+        {
+          "step": 2,
+          "increment": 4,
+          "attempt": 1,
+          "iterations": 4,
+          "time": 2.0,
+          "step_time": 1.0,
+          "increment_time": 0.25
+        }
+      ],
+      "diagnostic_endpoints": [
+        {
+          "time": 0.25,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 0.25,
+          "force_residual_n": [
+            0.0,
+            -1.3999999998404178e-05,
+            1.229308371150367e-05
+          ],
+          "moment_residual_nmm": [
+            0.280770247138684,
+            0.009144637485971545,
+            -0.009624845869439014
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.08553797655191982,
+          "maximum_loaded_node_displacement_mm": 0.08400573372845112,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                0.8266460000000002,
+                -32.674272,
+                130.06025
+              ],
+              "maximum_ground_displacement_mm": 3.558957515260613e-05,
+              "master_displacement_mm": {
+                "62025": [
+                  -1.627405e-05,
+                  7.55306e-06,
+                  -3.073637e-05
+                ],
+                "62026": [
+                  1.453985e-05,
+                  8.159319e-06,
+                  -2.714599e-05
+                ],
+                "62027": [
+                  1.53353e-06,
+                  1.083161e-05,
+                  -3.378226e-06
+                ],
+                "62028": [
+                  -3.334197e-06,
+                  1.279119e-05,
+                  -5.076616e-06
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -0.8862170000000003,
+                -33.025604,
+                131.06471
+              ],
+              "maximum_ground_displacement_mm": 3.5928123598895284e-05,
+              "master_displacement_mm": {
+                "62033": [
+                  -1.455466e-05,
+                  8.276049e-06,
+                  -2.71699e-05
+                ],
+                "62034": [
+                  1.642703e-05,
+                  7.656986e-06,
+                  -3.102182e-05
+                ],
+                "62035": [
+                  3.44983e-06,
+                  1.302439e-05,
+                  -5.240686e-06
+                ],
+                "62036": [
+                  -1.532122e-06,
+                  1.091009e-05,
+                  -3.421561e-06
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.05957100000000004,
+                65.699862,
+                189.89092
+              ],
+              "maximum_ground_displacement_mm": 4.793990916784157e-06,
+              "master_displacement_mm": {
+                "62041": [
+                  1.556136e-06,
+                  -3.754199e-06,
+                  -2.379951e-06
+                ],
+                "62042": [
+                  -1.560737e-06,
+                  -3.832568e-06,
+                  -2.420304e-06
+                ],
+                "62043": [
+                  -2.465168e-06,
+                  -1.572146e-06,
+                  -2.184165e-06
+                ],
+                "62044": [
+                  2.462594e-06,
+                  -1.517629e-06,
+                  -2.159792e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 0.5,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 0.5,
+          "force_residual_n": [
+            -1.0000000010279564e-06,
+            1.7763568394002505e-15,
+            -3.541383254629949e-05
+          ],
+          "moment_residual_nmm": [
+            -0.00021015393060879579,
+            0.0028687926046840275,
+            0.005078423042505165
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.17108710241901628,
+          "maximum_loaded_node_displacement_mm": 0.16801984557297964,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                1.6505069999999993,
+                -65.348235,
+                260.12170000000003
+              ],
+              "maximum_ground_displacement_mm": 7.116932129915881e-05,
+              "master_displacement_mm": {
+                "62025": [
+                  -3.254279e-05,
+                  1.510958e-05,
+                  -6.146332e-05
+                ],
+                "62026": [
+                  2.907644e-05,
+                  1.633105e-05,
+                  -5.428195e-05
+                ],
+                "62027": [
+                  3.075012e-06,
+                  2.166419e-05,
+                  -6.768928e-06
+                ],
+                "62028": [
+                  -6.671312e-06,
+                  2.557467e-05,
+                  -1.015877e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -1.7694350000000014,
+                -66.050865,
+                262.13034
+              ],
+              "maximum_ground_displacement_mm": 7.184615719997696e-05,
+              "master_displacement_mm": {
+                "62033": [
+                  -2.910615e-05,
+                  1.656447e-05,
+                  -5.432971e-05
+                ],
+                "62034": [
+                  3.284847e-05,
+                  1.531727e-05,
+                  -6.20341e-05
+                ],
+                "62035": [
+                  6.902484e-06,
+                  2.6041e-05,
+                  -1.048678e-05
+                ],
+                "62036": [
+                  -3.072191e-06,
+                  2.18214e-05,
+                  -6.855731e-06
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.11892700000000112,
+                131.3991,
+                379.77966000000004
+              ],
+              "maximum_ground_displacement_mm": 9.587649838921425e-06,
+              "master_displacement_mm": {
+                "62041": [
+                  3.110358e-06,
+                  -7.508517e-06,
+                  -4.760123e-06
+                ],
+                "62042": [
+                  -3.119553e-06,
+                  -7.665331e-06,
+                  -4.84088e-06
+                ],
+                "62043": [
+                  -4.927176e-06,
+                  -3.144224e-06,
+                  -4.368143e-06
+                ],
+                "62044": [
+                  4.922057e-06,
+                  -3.035165e-06,
+                  -4.319399e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 0.75,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 0.75,
+          "force_residual_n": [
+            4.9999999980343546e-06,
+            -7.105427357601002e-15,
+            -4.312074886624387e-05
+          ],
+          "moment_residual_nmm": [
+            0.033769522160670105,
+            0.08320401945911317,
+            0.016651223912049318
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.25663733495451146,
+          "maximum_loaded_node_displacement_mm": 0.25203585167557496,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                2.473180000000001,
+                -98.00938,
+                390.20014000000003
+              ],
+              "maximum_ground_displacement_mm": 0.00010679377614072742,
+              "master_displacement_mm": {
+                "62025": [
+                  -4.883201e-05,
+                  2.266551e-05,
+                  -9.223134e-05
+                ],
+                "62026": [
+                  4.363444e-05,
+                  2.449591e-05,
+                  -8.145024e-05
+                ],
+                "62027": [
+                  4.599084e-06,
+                  3.246988e-05,
+                  -1.012463e-05
+                ],
+                "62028": [
+                  -9.994431e-06,
+                  3.833603e-05,
+                  -1.520759e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -2.651370000000002,
+                -99.06326,
+                393.21262
+              ],
+              "maximum_ground_displacement_mm": 0.0001078092171528738,
+              "master_displacement_mm": {
+                "62033": [
+                  -4.367909e-05,
+                  2.484616e-05,
+                  -8.152148e-05
+                ],
+                "62034": [
+                  4.929049e-05,
+                  2.297715e-05,
+                  -9.308773e-05
+                ],
+                "62035": [
+                  1.034131e-05,
+                  3.90356e-05,
+                  -1.569975e-05
+                ],
+                "62036": [
+                  -4.594796e-06,
+                  3.270538e-05,
+                  -1.025467e-05
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.17819499999999877,
+                197.07263999999998,
+                569.6348
+              ],
+              "maximum_ground_displacement_mm": 1.4380283425453338e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  4.664929e-06,
+                  -1.126169e-05,
+                  -7.139784e-06
+                ],
+                "62042": [
+                  -4.678712e-06,
+                  -1.149698e-05,
+                  -7.260968e-06
+                ],
+                "62043": [
+                  -7.389529e-06,
+                  -4.715314e-06,
+                  -6.551829e-06
+                ],
+                "62044": [
+                  7.381876e-06,
+                  -4.551702e-06,
+                  -6.478704e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 1.0,
+          "climber_load_n": 0.0,
+          "gravity_fraction": 1.0,
+          "force_residual_n": [
+            -9.999999997845066e-06,
+            -1.9999999999242846e-05,
+            -7.082766512102068e-05
+          ],
+          "moment_residual_nmm": [
+            -0.0775384672872556,
+            -0.20447722649956823,
+            0.00984630257153185
+          ],
+          "global_gate_pass": true,
+          "maximum_wood_displacement_mm": 0.3421835472832766,
+          "maximum_loaded_node_displacement_mm": 0.33605016044374775,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                3.2953100000000006,
+                -130.65189,
+                520.3023000000001
+              ],
+              "maximum_ground_displacement_mm": 0.00014248706854066618,
+              "master_displacement_mm": {
+                "62025": [
+                  -6.515319e-05,
+                  3.021958e-05,
+                  -0.0001230626
+                ],
+                "62026": [
+                  5.822465e-05,
+                  3.264626e-05,
+                  -0.0001086693
+                ],
+                "62027": [
+                  6.094898e-06,
+                  4.323579e-05,
+                  -1.342467e-05
+                ],
+                "62028": [
+                  -1.329605e-05,
+                  5.106786e-05,
+                  -2.020572e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -3.5327299999999973,
+                -132.05703,
+                524.3185
+              ],
+              "maximum_ground_displacement_mm": 0.00014384172497367687,
+              "master_displacement_mm": {
+                "62033": [
+                  -5.828426e-05,
+                  3.311353e-05,
+                  -0.0001087635
+                ],
+                "62034": [
+                  6.576475e-05,
+                  3.063548e-05,
+                  -0.0001242051
+                ],
+                "62035": [
+                  1.375892e-05,
+                  5.200084e-05,
+                  -2.086232e-05
+                ],
+                "62036": [
+                  -6.089041e-06,
+                  4.354886e-05,
+                  -1.359753e-05
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.2374099999999988,
+                262.70889999999997,
+                759.4426
+              ],
+              "maximum_ground_displacement_mm": 1.9171436060781074e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  6.219868e-06,
+                  -1.501326e-05,
+                  -9.518755e-06
+                ],
+                "62042": [
+                  -6.238239e-06,
+                  -1.532705e-05,
+                  -9.680386e-06
+                ],
+                "62043": [
+                  -9.852151e-06,
+                  -6.284937e-06,
+                  -8.735082e-06
+                ],
+                "62044": [
+                  9.84197e-06,
+                  -6.066776e-06,
+                  -8.637574e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 1.25,
+          "climber_load_n": 300.0,
+          "gravity_fraction": 1.0,
+          "force_residual_n": [
+            6.999999997869821e-06,
+            0.0,
+            2.9172334910720682e-05
+          ],
+          "moment_residual_nmm": [
+            7.854749707484053,
+            -0.020603972163177865,
+            -0.009580107587680686
+          ],
+          "global_gate_pass": false,
+          "maximum_wood_displacement_mm": 0.5704330845663567,
+          "maximum_loaded_node_displacement_mm": 0.5295269490832598,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                3.7296699999999987,
+                -138.53568,
+                698.6319
+              ],
+              "maximum_ground_displacement_mm": 0.00022540811356005887,
+              "master_displacement_mm": {
+                "62025": [
+                  -0.0001058381,
+                  2.389388e-05,
+                  -0.0001975758
+                ],
+                "62026": [
+                  9.483271e-05,
+                  2.969896e-05,
+                  -0.0001757427
+                ],
+                "62027": [
+                  -4.783808e-06,
+                  3.044647e-05,
+                  1.040284e-05
+                ],
+                "62028": [
+                  1.322538e-07,
+                  3.607726e-05,
+                  9.068689e-06
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -3.836500000000001,
+                -139.44854,
+                688.8121
+              ],
+              "maximum_ground_displacement_mm": 0.00022052075224484905,
+              "master_displacement_mm": {
+                "62033": [
+                  -9.284752e-05,
+                  3.035663e-05,
+                  -0.0001716491
+                ],
+                "62034": [
+                  0.0001034779,
+                  2.551529e-05,
+                  -0.0001930562
+                ],
+                "62035": [
+                  1.120557e-06,
+                  3.742749e-05,
+                  6.8931e-06
+                ],
+                "62036": [
+                  4.164915e-06,
+                  3.140684e-05,
+                  8.865541e-06
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                0.10683700000000007,
+                277.98422,
+                716.6195
+              ],
+              "maximum_ground_displacement_mm": 1.821021687028831e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  1.56688e-06,
+                  -1.520822e-05,
+                  -9.300583e-06
+                ],
+                "62042": [
+                  -1.573148e-06,
+                  -1.547029e-05,
+                  -9.476673e-06
+                ],
+                "62043": [
+                  -3.061495e-06,
+                  -7.430169e-06,
+                  -8.050698e-06
+                ],
+                "62044": [
+                  3.063346e-06,
+                  -7.333262e-06,
+                  -7.88127e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 1.5,
+          "climber_load_n": 600.0,
+          "gravity_fraction": 1.0,
+          "force_residual_n": [
+            3.9999999990048e-06,
+            1.0000000004950493e-05,
+            -7.08276651778641e-05
+          ],
+          "moment_residual_nmm": [
+            6.20692494662538,
+            0.42799843664873405,
+            -0.037709230557084084
+          ],
+          "global_gate_pass": false,
+          "maximum_wood_displacement_mm": 0.8143863171015852,
+          "maximum_loaded_node_displacement_mm": 0.7365970329039431,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                4.259769999999996,
+                -150.32358,
+                872.0996
+              ],
+              "maximum_ground_displacement_mm": 0.00029166192136562857,
+              "master_displacement_mm": {
+                "62025": [
+                  -0.0001371316,
+                  1.410599e-05,
+                  -0.0002570265
+                ],
+                "62026": [
+                  0.0001228224,
+                  2.586255e-05,
+                  -0.0002295274
+                ],
+                "62027": [
+                  -1.045668e-05,
+                  2.931832e-05,
+                  2.174473e-05
+                ],
+                "62028": [
+                  6.794381e-06,
+                  3.439728e-05,
+                  2.25712e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -4.031789999999997,
+                -151.24066,
+                848.5935999999999
+              ],
+              "maximum_ground_displacement_mm": 0.000280523425239765,
+              "master_displacement_mm": {
+                "62033": [
+                  -0.000119146,
+                  2.837826e-05,
+                  -0.0002225245
+                ],
+                "62034": [
+                  0.000131884,
+                  1.69309e-05,
+                  -0.0002470088
+                ],
+                "62035": [
+                  -5.481812e-06,
+                  3.485551e-05,
+                  2.008068e-05
+                ],
+                "62036": [
+                  9.157969e-06,
+                  3.053689e-05,
+                  1.942331e-05
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                -0.22797599999999973,
+                301.56425,
+                683.3702
+              ],
+              "maximum_ground_displacement_mm": 1.869847190076999e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  -1.528959e-07,
+                  -1.579019e-05,
+                  -9.19782e-06
+                ],
+                "62042": [
+                  1.674372e-07,
+                  -1.614963e-05,
+                  -9.423071e-06
+                ],
+                "62043": [
+                  -5.805951e-07,
+                  -8.914743e-06,
+                  -7.343973e-06
+                ],
+                "62044": [
+                  6.182084e-07,
+                  -8.748013e-06,
+                  -7.146517e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 1.75,
+          "climber_load_n": 900.0,
+          "gravity_fraction": 1.0,
+          "force_residual_n": [
+            -3.000000006636583e-06,
+            1.4210854715202004e-14,
+            -7.082766509259897e-05
+          ],
+          "moment_residual_nmm": [
+            34.95026825689111,
+            -0.03543559702932117,
+            0.17415800946764648
+          ],
+          "global_gate_pass": false,
+          "maximum_wood_displacement_mm": 1.0537845798158352,
+          "maximum_loaded_node_displacement_mm": 0.9398748867928622,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                5.036229999999993,
+                -161.41901,
+                1044.7895
+              ],
+              "maximum_ground_displacement_mm": 0.00035655849185201017,
+              "master_displacement_mm": {
+                "62025": [
+                  -0.0001676112,
+                  4.131249e-06,
+                  -0.0003146798
+                ],
+                "62026": [
+                  0.0001498881,
+                  1.81586e-05,
+                  -0.0002810132
+                ],
+                "62027": [
+                  -1.593164e-05,
+                  2.974472e-05,
+                  3.162799e-05
+                ],
+                "62028": [
+                  1.200142e-05,
+                  3.636666e-05,
+                  3.279389e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -4.42859,
+                -162.73763,
+                1007.325
+              ],
+              "maximum_ground_displacement_mm": 0.0003377438262836276,
+              "master_displacement_mm": {
+                "62033": [
+                  -0.0001446746,
+                  2.213686e-05,
+                  -0.0002710989
+                ],
+                "62034": [
+                  0.0001586333,
+                  9.146198e-06,
+                  -0.0002980314
+                ],
+                "62035": [
+                  -9.969105e-06,
+                  3.634913e-05,
+                  2.913162e-05
+                ],
+                "62036": [
+                  1.404866e-05,
+                  3.138609e-05,
+                  2.839163e-05
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                -0.6076429999999995,
+                324.15664,
+                651.9489
+              ],
+              "maximum_ground_displacement_mm": 1.9347893735615178e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  -1.131671e-06,
+                  -1.631586e-05,
+                  -9.07609e-06
+                ],
+                "62042": [
+                  1.167804e-06,
+                  -1.68771e-05,
+                  -9.388329e-06
+                ],
+                "62043": [
+                  8.199342e-07,
+                  -1.03703e-05,
+                  -6.65942e-06
+                ],
+                "62044": [
+                  -7.388065e-07,
+                  -1.0028e-05,
+                  -6.435445e-06
+                ]
+              }
+            }
+          }
+        },
+        {
+          "time": 2.0,
+          "climber_load_n": 1200.0,
+          "gravity_fraction": 1.0,
+          "force_residual_n": [
+            -2.0000000020559128e-06,
+            -1.899999999688262e-05,
+            -7.082766520628581e-05
+          ],
+          "moment_residual_nmm": [
+            204.02197362012424,
+            0.47266018310370056,
+            -0.002837823012669105
+          ],
+          "global_gate_pass": false,
+          "maximum_wood_displacement_mm": 1.2301822972816219,
+          "maximum_loaded_node_displacement_mm": 1.0948991665935355,
+          "patches": {
+            "LEFT": {
+              "bottom_reaction_n": [
+                5.241799999999998,
+                -152.987158,
+                1218.5841
+              ],
+              "maximum_ground_displacement_mm": 0.0004265524752511883,
+              "master_displacement_mm": {
+                "62025": [
+                  -0.000199271,
+                  -2.088734e-05,
+                  -0.0003765658
+                ],
+                "62026": [
+                  0.000179818,
+                  -3.267448e-06,
+                  -0.0003401443
+                ],
+                "62027": [
+                  -2.428903e-05,
+                  2.681052e-05,
+                  4.577003e-05
+                ],
+                "62028": [
+                  2.119789e-05,
+                  3.396437e-05,
+                  4.834731e-05
+                ]
+              }
+            },
+            "RIGHT": {
+              "bottom_reaction_n": [
+                -4.461600000000001,
+                -154.218601,
+                1167.6236999999999
+              ],
+              "maximum_ground_displacement_mm": 0.000402242421745081,
+              "master_displacement_mm": {
+                "62033": [
+                  -0.000173367,
+                  1.561376e-06,
+                  -0.0003274863
+                ],
+                "62034": [
+                  0.0001881942,
+                  -1.412026e-05,
+                  -0.0003552218
+                ],
+                "62035": [
+                  -1.900072e-05,
+                  3.346635e-05,
+                  4.426639e-05
+                ],
+                "62036": [
+                  2.218589e-05,
+                  2.819147e-05,
+                  4.253694e-05
+                ]
+              }
+            },
+            "KICKER": {
+              "bottom_reaction_n": [
+                -0.7802019999999992,
+                307.20574,
+                617.8556
+              ],
+              "maximum_ground_displacement_mm": 1.839930621231847e-05,
+              "master_displacement_mm": {
+                "62041": [
+                  -1.158584e-06,
+                  -1.544373e-05,
+                  -8.599604e-06
+                ],
+                "62042": [
+                  1.205831e-06,
+                  -1.604054e-05,
+                  -8.93205e-06
+                ],
+                "62043": [
+                  9.200277e-07,
+                  -9.84167e-06,
+                  -6.313589e-06
+                ],
+                "62044": [
+                  -8.210622e-07,
+                  -9.478673e-06,
+                  -6.075573e-06
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
