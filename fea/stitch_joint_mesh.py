@@ -17,6 +17,19 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def geometry_names(info):
+    """Accept only the original loose or explicitly locked-thread body inventory."""
+    locked = info.get("locked_threads", False)
+    if type(locked) is not bool:
+        raise ValueError("locked_threads must be a boolean")
+    roles = ("bolt_nut", "washer_inner", "washer_outer") if locked else ("bolt", "nut", "washer_inner", "washer_outer")
+    expected = {"leg_right_inner", "leg_right_outer"} | {
+        f"leg_stitch_right_{i}_{role}" for i in (1, 2, 3) for role in roles}
+    if set(info["parts"]) != expected or set(info["step_sha256"]) != {name + ".step" for name in expected}:
+        raise ValueError("Geometry/STEP inventory differs from the selected thread variant")
+    return sorted(expected)
+
+
 def external_faces(elements):
     """Index exterior C3D10 faces and reject incompatible quadratic interiors."""
     indexed = {}
@@ -91,11 +104,7 @@ def worker(geometry_directory, size, hardware_size):
     geometry_path = geometry_directory / "geometry.json"
     geometry_hash = digest(geometry_path)
     info = json.loads(geometry_path.read_text())
-    names = sorted(info["parts"])
-    if len(names) != 14 or set(info["step_sha256"]) != {name + ".step" for name in names}:
-        raise ValueError("Expected exactly fourteen frozen STEP bodies")
-    if any(Path(name).name != name for name in names):
-        raise ValueError("Invalid body name")
+    names = geometry_names(info)
     if any(not math.isfinite(v) or v <= 0 for v in (size, hardware_size)):
         raise ValueError("Mesh sizes must be finite and positive")
     if any(digest(geometry_directory / name) != value for name, value in info["step_sha256"].items()):
@@ -105,6 +114,7 @@ def worker(geometry_directory, size, hardware_size):
     output = Path(tempfile.mkdtemp(prefix="mesh-", dir=geometry_directory))
     all_nodes, all_elements, bodies = {}, {}, {}
     record = {"status": "PREPARING; NO SOLVER", "limits": LIMITS,
+              "locked_threads": info.get("locked_threads", False),
               "geometry_sha256": geometry_hash, "step_sha256": info["step_sha256"],
               "configuration": {"size_mm": size, "hardware_size_mm": hardware_size},
               "source_sha256": {name: hashlib.sha256(data).hexdigest() for name, data in sources.items()},

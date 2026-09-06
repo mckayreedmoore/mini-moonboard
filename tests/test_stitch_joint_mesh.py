@@ -6,9 +6,31 @@ from fea.stitch_joint_mesh import (
     GMSH_TO_CCX,
     append_body,
     external_faces,
+    geometry_names,
     surface_faces,
     validate_ownership,
 )
+
+
+@pytest.mark.parametrize("locked", [False, True])
+def test_exact_geometry_inventory_requires_explicit_locked_thread_variant(locked):
+    roles = ("bolt_nut", "washer_inner", "washer_outer") if locked else ("bolt", "nut", "washer_inner", "washer_outer")
+    names = {"leg_right_inner", "leg_right_outer"} | {
+        f"leg_stitch_right_{i}_{role}" for i in (1, 2, 3) for role in roles}
+    record = {"parts": dict.fromkeys(names), "step_sha256": dict.fromkeys(n + ".step" for n in names),
+              "locked_threads": locked}
+    assert geometry_names(record) == sorted(names)
+    with pytest.raises(ValueError, match="inventory"):
+        geometry_names({**record, "locked_threads": not locked})
+    with pytest.raises(ValueError, match="boolean"):
+        geometry_names({**record, "locked_threads": "false"})
+    with pytest.raises(ValueError, match="inventory"):
+        geometry_names({**record, "parts": {**record["parts"], "foreign": None}})
+    with pytest.raises(ValueError, match="inventory"):
+        geometry_names({**record, "step_sha256": {}})
+    if not locked:
+        del record["locked_threads"]
+        assert geometry_names(record) == sorted(names)  # Original published manifest.
 
 
 def test_quadratic_exterior_maps_every_face_and_rejects_wrong_midside_nodes():

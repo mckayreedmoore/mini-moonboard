@@ -19,6 +19,13 @@ LIMITS = (
     "tolerances remain unknown. Smooth nut and washer bores touch the nominal shank; "
     "this geometry does not supply threaded axial retention. No mesh or solver run."
 )
+LOCKED_LIMITS = (
+    "Geometry-only perfectly locked-thread idealization: each nut and bolt core "
+    "form one solid, without preload. Two actual plies and six annular washers "
+    "remain separate bodies; no wood or washer bonding or constraints assigned. "
+    "No material or contact law, friction, thread stresses, tightening, loosening, "
+    "manufacturing tolerances or capacity established. No mesh or solver run."
+)
 VOLUME_TOLERANCE_MM3 = .001
 DISTANCE_TOLERANCE_MM = 1e-5
 REPOSITORY = Path(__file__).resolve().parents[1]
@@ -28,8 +35,8 @@ def stitches():
     return tuple(c for c in frame.connections() if c.name.startswith("leg_stitch_right_"))
 
 
-def solids():
-    """Four separate hardware bodies per stitch; only shaft/head are one body."""
+def solids(*, locked_threads=False):
+    """Default fourteen bodies; explicit thread lock combines each nut/core only."""
     result = {p.name: p.shape for p in frame.parts(True)
               if p.name in ("leg_right_inner", "leg_right_outer")}
     for connection in stitches():
@@ -37,6 +44,9 @@ def solids():
         result[connection.name + "_bolt"] = shaft.fuse(head).clean()
         for role, shape in (("washer_inner", washer_inner), ("washer_outer", washer_outer), ("nut", nut)):
             result[connection.name + "_" + role] = shape.cut(shaft).clean()
+        if locked_threads:
+            result[connection.name + "_bolt_nut"] = result.pop(connection.name + "_bolt").fuse(
+                result.pop(connection.name + "_nut")).clean()
     return result
 
 
@@ -62,14 +72,30 @@ def validate_disjoint(bodies):
     return maximum
 
 
-def validate(bodies):
+def validate(bodies, *, locked_threads=False):
     connections = stitches()
+    roles = ("bolt_nut", "washer_inner", "washer_outer") if locked_threads else (
+        "bolt", "washer_inner", "washer_outer", "nut")
     expected = {"leg_right_inner", "leg_right_outer"} | {
         c.name + "_" + role for c in connections
-        for role in ("bolt", "washer_inner", "washer_outer", "nut")}
-    if len(connections) != 3 or len(bodies) != 14 or set(bodies) != expected:
-        raise ValueError("Expected two plies and twelve separate hardware bodies")
+        for role in roles}
+    if len(connections) != 3 or len(bodies) != (11 if locked_threads else 14) or set(bodies) != expected:
+        raise ValueError("Expected two plies and " + ("nine locked-thread hardware bodies" if locked_threads
+                                                     else "twelve separate hardware bodies"))
     maximum = validate_disjoint(bodies)
+    union_volume = None
+    if locked_threads:
+        reference = solids()
+        union_volume = sum(s.Volume() for s in reference.values())
+        for c in connections:
+            reference[c.name + "_bolt_nut"] = reference.pop(c.name + "_bolt").fuse(
+                reference.pop(c.name + "_nut")).clean()
+        for name, shape in bodies.items():
+            for difference in (shape.cut(reference[name]), reference[name].cut(shape)):
+                if not math.isfinite(difference.Volume()) or difference.Volume() > VOLUME_TOLERANCE_MM3:
+                    raise ValueError(f"Locked-thread variant changed nominal geometry: {name}")
+        if abs(sum(s.Volume() for s in bodies.values()) - union_volume) > VOLUME_TOLERANCE_MM3:
+            raise ValueError("Locked-thread variant changed total union volume")
     records = {}
     for name, shape in bodies.items():
         bounds = exact_bounds(shape)
@@ -103,14 +129,16 @@ def validate(bodies):
                 or abs(c.length - 57.15) > 1e-8 or c.direction.toTuple() != (1., 0., 0.)):
             raise ValueError("Unexpected nominal stitch geometry")
         prefix = c.name + "_"
-        contact_pairs += [(prefix + "bolt", prefix + "washer_inner"),
+        core = prefix + ("bolt_nut" if locked_threads else "bolt")
+        nut = core if locked_threads else prefix + "nut"
+        contact_pairs += [(core, prefix + "washer_inner"),
                           (prefix + "washer_inner", "leg_right_inner"),
                           ("leg_right_outer", prefix + "washer_outer"),
-                          (prefix + "washer_outer", prefix + "nut"),
-                          (prefix + "bolt", prefix + "washer_outer"),
-                          (prefix + "bolt", prefix + "nut")]
+                          (prefix + "washer_outer", nut)]
+        if not locked_threads:
+            contact_pairs += [(core, prefix + "washer_outer"), (core, nut)]
         for ply in ("leg_right_inner", "leg_right_outer"):
-            distance = bodies[prefix + "bolt"].distance(bodies[ply])
+            distance = bodies[core].distance(bodies[ply])
             if not math.isfinite(distance) or abs(distance - .2375) > 1e-5:
                 raise ValueError("Incorrect actual bore/shank radial clearance")
         stitch_records.append({"name": c.name, "start_mm": c.start.toTuple(),
@@ -122,11 +150,19 @@ def validate(bodies):
         distance = bodies[first].distance(bodies[second])
         if not math.isfinite(distance) or distance < 0 or distance > DISTANCE_TOLERANCE_MM:
             raise ValueError(f"Missing nominal stack contact: {first}/{second}")
-    return {"status": "VERIFIED GEOMETRY ONLY; NO MESH OR SOLVER", "limits": LIMITS,
+    summary = {"status": "VERIFIED GEOMETRY ONLY; NO MESH OR SOLVER",
+            "locked_threads": locked_threads,
+            "limits": LOCKED_LIMITS if locked_threads else LIMITS,
             "candidate": frame.KEY, "body_count": len(bodies), "parts": records,
             "stitches": stitch_records, "nominal_touching_pairs": contact_pairs,
             "maximum_pair_overlap_mm3": maximum,
             "overlap_tolerance_mm3": VOLUME_TOLERANCE_MM3}
+    if locked_threads:
+        summary.update(geometry_variant="locked-thread-11-body", thread_retention="perfectly fused nut/core",
+                       preload_assigned=False, default_14_body_union_volume_mm3=union_volume,
+                       union_volume_mm3=sum(s.Volume() for s in bodies.values()),
+                       separate_washer_bodies=[name for name in bodies if "_washer_" in name])
+    return summary
 
 
 def source_snapshot():
@@ -142,12 +178,12 @@ def source_snapshot():
     return {p.relative_to(REPOSITORY).as_posix(): p.read_bytes() for p in paths}
 
 
-def export(bodies, parent=Path("fea/generated"), *, sources_before=None):
+def export(bodies, parent=Path("fea/generated"), *, sources_before=None, locked_threads=False):
     """Export only to a new unique evidence directory, never published geometry."""
     initial_sources = source_snapshot()
     if sources_before is not None and sources_before != initial_sources:
         raise ValueError("Source drift during geometry preparation")
-    summary = validate(bodies)
+    summary = validate(bodies, locked_threads=locked_threads)
     parent = Path(parent)
     parent.mkdir(parents=True, exist_ok=True)
     directory = Path(tempfile.mkdtemp(prefix="stitch-joint-geometry-", dir=parent))
@@ -170,13 +206,14 @@ def export(bodies, parent=Path("fea/generated"), *, sources_before=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--export", action="store_true", help="write a unique fea/generated evidence directory")
+    parser.add_argument("--locked-threads", action="store_true", help="explicit eleven-body fused nut/core idealization")
     args = parser.parse_args()
     sources_before = source_snapshot()
-    bodies = solids()
+    bodies = solids(locked_threads=args.locked_threads)
     if args.export:
-        print(export(bodies, sources_before=sources_before))
+        print(export(bodies, sources_before=sources_before, locked_threads=args.locked_threads))
     else:
-        summary = validate(bodies)
+        summary = validate(bodies, locked_threads=args.locked_threads)
         if source_snapshot() != sources_before:
             raise ValueError("Source drift during geometry preparation")
         print(json.dumps(summary, indent=2, allow_nan=False))
