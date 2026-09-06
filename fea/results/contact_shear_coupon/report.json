@@ -1,0 +1,880 @@
+{
+  "status": "PENALTY MOMENT REJECTED; BOTTOM-SUPPORTED MORTAR GLOBAL COUPON CHECKS PASS ONLY; LOCAL CONTACT NOT VALIDATED",
+  "solver": "CalculiX2.21; mini-moonboard-fea:box-v1; OMP_NUM_THREADS=2",
+  "preload_n": 120,
+  "travel_mm": 1,
+  "mu": 0.3,
+  "normal_penalty_n_mm3": 10000,
+  "tangent_penalty_n_mm3": 100,
+  "ground_geometry_mm": "120x120x100; sameE7000MPa,nu0.3aswood; no gravity",
+  "source": "fea/results/floor_contact/toy_quadratic.inp",
+  "comparisons": {
+    "all-fixed": {
+      "mortar_0p125": {
+        "status": "MORTAR REACTION OUTPUT SEMANTICS UNVERIFIED; NO GLOBAL OR LOCAL PASS",
+        "formulation": "mortar",
+        "increment": 0.125,
+        "bottom_supported": false,
+        "exit_code": 0,
+        "elapsed_seconds": 0.5156260360090528,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              -0.3784023999999989,
+              -0.3784023999999989,
+              -120.0
+            ],
+            "moment_residual_nmm": [
+              -5962.1590975181525,
+              5962.1590975181525,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_pass": false,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 7.074726222222223e-07,
+            "foot_z_displacement_mm": [
+              -1.366555e-06,
+              -1.178233e-06
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 36.01523,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              35.999972,
+              7.800000000113272e-06,
+              -120.0
+            ],
+            "moment_residual_nmm": [
+              -6000.000100116682,
+              9719.998063178457,
+              -1799.9982922
+            ],
+            "ground_reaction_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_pass": false,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9996534777777778,
+            "foot_z_displacement_mm": [
+              -2.981619e-06,
+              3.941609e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 44.49474,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "mortar_0p25": {
+        "status": "MORTAR REACTION OUTPUT SEMANTICS UNVERIFIED; NO GLOBAL OR LOCAL PASS",
+        "formulation": "mortar",
+        "increment": 0.25,
+        "bottom_supported": false,
+        "exit_code": 0,
+        "elapsed_seconds": 0.36754381901118904,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              -0.3778138000000003,
+              -0.3778138000000003,
+              -120.0
+            ],
+            "moment_residual_nmm": [
+              -5962.217957498726,
+              5962.217957498726,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_pass": false,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 7.035044777777777e-07,
+            "foot_z_displacement_mm": [
+              -1.366516e-06,
+              -1.178215e-06
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 36.01446,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              35.999990000000004,
+              2.0600000000148277e-05,
+              -120.0
+            ],
+            "moment_residual_nmm": [
+              -6000.001380116359,
+              9719.999863183015,
+              -1799.9983794
+            ],
+            "ground_reaction_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_pass": false,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9996534777777778,
+            "foot_z_displacement_mm": [
+              -2.981617e-06,
+              3.941622e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 44.49475,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "penalty_0p125": {
+        "status": "GLOBAL COUPON AUDIT REJECTED; NOT FRAME FAILURE",
+        "formulation": "penalty",
+        "increment": 0.125,
+        "bottom_supported": false,
+        "exit_code": 0,
+        "elapsed_seconds": 0.31504953300463967,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              2.220446049250313e-16,
+              2.220446049250313e-16,
+              -1.0000000008503207e-05
+            ],
+            "moment_residual_nmm": [
+              -0.0005632572562035421,
+              0.0005632572562035421,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.5495631000000001,
+              0.5495631000000001,
+              119.99999
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 9.053323555555555e-07,
+            "foot_z_displacement_mm": [
+              -2.435287e-06,
+              -1.048712e-06
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 1.071365e-14,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              -2.0000000011677344e-06,
+              2.199999994632661e-06,
+              -8.881784197001252e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0007998721419255617,
+              15.000310148176709,
+              0.00016219999952760134
+            ],
+            "ground_reaction_n": [
+              -36.000008,
+              -4.7644674e-15,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9996467444444446,
+            "foot_z_displacement_mm": [
+              -5.656998e-06,
+              4.380296e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 2.082644e-11,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "penalty_0p25": {
+        "status": "GLOBAL COUPON AUDIT REJECTED; NOT FRAME FAILURE",
+        "formulation": "penalty",
+        "increment": 0.25,
+        "bottom_supported": false,
+        "exit_code": 0,
+        "elapsed_seconds": 0.21551898098550737,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              2.0000000011677344e-07,
+              2.0000000011677344e-07,
+              -1.0000000008503207e-05
+            ],
+            "moment_residual_nmm": [
+              -0.0005632572562035421,
+              0.0005632572562035421,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.5495633,
+              0.5495633,
+              119.99999
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 9.053323666666665e-07,
+            "foot_z_displacement_mm": [
+              -2.435288e-06,
+              -1.048712e-06
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 2.04281e-14,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              -1.9999999993913775e-06,
+              2.1999928070846287e-06,
+              -8.881784197001252e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0007998721419255617,
+              30.00031014817671,
+              0.00016219941405459792
+            ],
+            "ground_reaction_n": [
+              -36.000008,
+              -7.1923125e-12,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9996467444444446,
+            "foot_z_displacement_mm": [
+              -5.656998e-06,
+              4.380296e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 5.389494e-11,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      }
+    },
+    "bottom-supported": {
+      "mortar_0p125": {
+        "status": "GLOBAL COUPON CHECKS PASS; LOCAL CONTACT NOT VALIDATED",
+        "formulation": "mortar",
+        "increment": 0.125,
+        "bottom_supported": true,
+        "exit_code": 0,
+        "elapsed_seconds": 0.3775252960040234,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              3.199999999647929e-06,
+              3.199999999647929e-06,
+              -5.329070518200751e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0004595002654923519,
+              0.0004595002654923519,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.23868200000000073,
+              0.23868200000000073,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": -6.136682222222219e-07,
+            "foot_z_displacement_mm": [
+              -0.0001133328,
+              -0.0001060901
+            ],
+            "ground_top_z_displacement_mm": [
+              -0.0001135702,
+              -0.0001035395,
+              -0.0001101722,
+              -0.0001035395
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 37.88193,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              9.999999996956888e-07,
+              -3.6000000001035204e-06,
+              2.19999999512277e-06
+            ],
+            "moment_residual_nmm": [
+              0.0008185305110828267,
+              0.0006558996250589644,
+              0.00014040000004822417
+            ],
+            "ground_reaction_n": [
+              -35.999587,
+              -4.000000000559112e-06,
+              120.0000022
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9993433,
+            "foot_z_displacement_mm": [
+              -0.0002749772,
+              8.001549e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              7.631173e-05,
+              -0.0003008325,
+              -0.0002933431,
+              6.968078e-05
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 44.60939,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "mortar_0p25": {
+        "status": "GLOBAL COUPON CHECKS PASS; LOCAL CONTACT NOT VALIDATED",
+        "formulation": "mortar",
+        "increment": 0.25,
+        "bottom_supported": true,
+        "exit_code": 0,
+        "elapsed_seconds": 0.21621147499536164,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              4.199999999232595e-06,
+              4.199999999232595e-06,
+              -5.329070518200751e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0005595019146085178,
+              0.0005595019146085178,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.238664,
+              0.238664,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": -6.140736666666664e-07,
+            "foot_z_displacement_mm": [
+              -0.0001133326,
+              -0.0001060901
+            ],
+            "ground_top_z_displacement_mm": [
+              -0.0001135699,
+              -0.0001035395,
+              -0.0001101723,
+              -0.0001035395
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 37.88198,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              1.5999999999127823e-05,
+              -7.800000000335316e-06,
+              6.599999995193784e-06
+            ],
+            "moment_residual_nmm": [
+              0.0005865368939907967,
+              -1.026747611376777e-07,
+              -0.0013457999999397785
+            ],
+            "ground_reaction_n": [
+              -35.999576,
+              5.8000000000557606e-05,
+              120.0000066
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9993433,
+            "foot_z_displacement_mm": [
+              -0.0002749776,
+              8.001615e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              7.631147e-05,
+              -0.0003008329,
+              -0.0002933427,
+              6.968101e-05
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 44.6094,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "penalty_0p125": {
+        "status": "GLOBAL COUPON AUDIT REJECTED; NOT FRAME FAILURE",
+        "formulation": "penalty",
+        "increment": 0.125,
+        "bottom_supported": true,
+        "exit_code": 0,
+        "elapsed_seconds": 0.3148483520199079,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              -2.1999999990640617e-06,
+              -2.1999999990640617e-06,
+              -5.329070518200751e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0001451017145654987,
+              0.0001451017145654987,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.26267500000000066,
+              0.26267500000000066,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": -5.17608777777778e-07,
+            "foot_z_displacement_mm": [
+              -0.0001145697,
+              -0.0001068216
+            ],
+            "ground_top_z_displacement_mm": [
+              -0.0001140453,
+              -0.0001037732,
+              -0.0001092811,
+              -0.0001037732
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 1.354472e-13,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              -1.2999999999152578e-05,
+              -4.399999999349369e-06,
+              3.899999997558634e-06
+            ],
+            "moment_residual_nmm": [
+              -0.00038224223402494317,
+              14.999233771051138,
+              -4.1400000297286965e-05
+            ],
+            "ground_reaction_n": [
+              -35.999605,
+              -1.2999999998708489e-05,
+              120.0000039
+            ],
+            "force_pass": true,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9993380888888888,
+            "foot_z_displacement_mm": [
+              -0.0002770884,
+              8.3396e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              7.575699e-05,
+              -0.0003002348,
+              -0.0002929013,
+              6.926398e-05
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 3.50342e-11,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      },
+      "penalty_0p25": {
+        "status": "GLOBAL COUPON AUDIT REJECTED; NOT FRAME FAILURE",
+        "formulation": "penalty",
+        "increment": 0.25,
+        "bottom_supported": true,
+        "exit_code": 0,
+        "elapsed_seconds": 0.21477473000413738,
+        "endpoints": [
+          {
+            "time": 1.0,
+            "force_residual_n": [
+              -2.1999999990640617e-06,
+              -2.1999999990640617e-06,
+              -5.329070518200751e-15
+            ],
+            "moment_residual_nmm": [
+              -0.0001451017145654987,
+              0.0001451017145654987,
+              0.0
+            ],
+            "ground_reaction_n": [
+              0.26267500000000066,
+              0.26267500000000066,
+              120.0
+            ],
+            "force_pass": true,
+            "moment_pass": true,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": -5.17608777777778e-07,
+            "foot_z_displacement_mm": [
+              -0.0001145697,
+              -0.0001068216
+            ],
+            "ground_top_z_displacement_mm": [
+              -0.0001140453,
+              -0.0001037732,
+              -0.0001092811,
+              -0.0001037732
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 6.211698e-14,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          },
+          {
+            "time": 2.0,
+            "force_residual_n": [
+              -4.999999998478444e-06,
+              6.700000000359196e-06,
+              -9.000000024128596e-07
+            ],
+            "moment_residual_nmm": [
+              0.00026821344266636515,
+              30.0003706421669,
+              0.0007096999996765163
+            ],
+            "ground_reaction_n": [
+              -35.999607,
+              -2.9999999990870663e-06,
+              119.9999991
+            ],
+            "force_pass": true,
+            "moment_pass": false,
+            "aggregate_friction_pass": true,
+            "mean_foot_x_displacement_mm": 0.9993389333333332,
+            "foot_z_displacement_mm": [
+              -0.0002766409,
+              8.300548e-05
+            ],
+            "ground_top_z_displacement_mm": [
+              7.527114e-05,
+              -0.000299715,
+              -0.0002923815,
+              6.877813e-05
+            ],
+            "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+            "maximum_free_foot_rf_component_n": 3.39595e-11,
+            "top_free_z_rf_n": [
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333,
+              -13.33333
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "provenance_note": "Archived launch sources match prelaunch hashes. Later context/output guards replay identically; original launches are not relabeled.",
+  "archive": "solver_evidence.tar.gz",
+  "archive_sha256": "326af45fc9faad9071d770c7157e4a087b9bf5f2840c7ede5b98c9484bd04d6e",
+  "archive_contents": {
+    "all-fixed/contact_shear_coupon.launch.py": "0fd9faeb16366365d35f66f0a3536f6c3be109e1ce530a8db808130b580ead25",
+    "all-fixed/mortar_0p125.cvg": "355e66d5bd70e04f6054aa440e9dea67c91e36fb328d427c205aa00f81e63b4a",
+    "all-fixed/mortar_0p125.dat": "a3e048c55c2286e95352cc69b1dcd22cdc258d4add305d114424f6a6cd0d249f",
+    "all-fixed/mortar_0p125.frd": "29481fcf8a1ef3ba1b2a9fd8ede2a68cf9b79a9eaa9b2abd69aa818bf75b2141",
+    "all-fixed/mortar_0p125.inp": "48cd3b0f0ab0c7ee975f824420188d47dcc6cb673b7b1ac38e2ff89f913ccf99",
+    "all-fixed/mortar_0p125.json": "fa7c0276f6e42abf330fe0907e6a6adea0e8c064ab2be4e6a52562e61af30fa9",
+    "all-fixed/mortar_0p125.log": "1735f892c68b0a48c453519e2bf9026a7ddc8355c537e58deacfc600449cfb01",
+    "all-fixed/mortar_0p125.sta": "526a2fbd24ee32e2323818a03f3899109532af25c8b52dccce685c9a28e1d35d",
+    "all-fixed/mortar_0p25.cvg": "24d364d46ea47ea110580c261a1651b1b5cb278fbb03addde7043e890e4a0dc5",
+    "all-fixed/mortar_0p25.dat": "dfeb6b732e801687abd2bf4f95153934cd5b452e82ec067a0bed851b265c291f",
+    "all-fixed/mortar_0p25.frd": "0538d583a0ed3d944c52e155c4da243b26b6f12b3bbddede0f820cd71a8785a3",
+    "all-fixed/mortar_0p25.inp": "759e95ad433cac4b60678e91e5cd5e7069cd438c6aac05dedc80f564f122b6b8",
+    "all-fixed/mortar_0p25.json": "8ddef65655320a235f5e2906cdf056124d7b01fea88ec7d29613bc91a52d00d7",
+    "all-fixed/mortar_0p25.log": "e89b5b9cc330ad0cb0ab275e8eb93afd827bf5c21a44231886889761be1ae069",
+    "all-fixed/mortar_0p25.sta": "d283a74bd34ff4b0617e317a7988b4753090dd8f96d6ca46776485eb96a1eefa",
+    "all-fixed/penalty_0p125.cvg": "4fa9dc933161e8aac45425066d7cf6969a0b3b4811ed84447d58322a27c92781",
+    "all-fixed/penalty_0p125.dat": "f8aa34816f32841b6faeec02d20fe2dfe74ff1152360692e989db8f10ce15ebd",
+    "all-fixed/penalty_0p125.frd": "eaf9a2864b13e975207a42d1486708b478611ad311433c95143ca51dbcbce12f",
+    "all-fixed/penalty_0p125.inp": "4bcc4896649157edd813c017ae276133ce469b8e1e9bbdc158dbe59bd771a27f",
+    "all-fixed/penalty_0p125.json": "44f0ad60e01b61b1caeee9d5582fe9264f2783161ab740b938c0743ccb0a24c1",
+    "all-fixed/penalty_0p125.log": "eaa46f48c138bcf42dc83fbaea76ac3b4a200c4f4e738cb36a3e83122a652edc",
+    "all-fixed/penalty_0p125.sta": "27e66863d8c507088ff536f7b55b4b518f80af45c978d8158b0aecdfc834d0b2",
+    "all-fixed/penalty_0p25.cvg": "365bc3234157348cbda083348d33a9fc127568159aa78359961efd0562bf1d78",
+    "all-fixed/penalty_0p25.dat": "401bde9aa6eaa432a8e17108d3c43a6884621fd7ea0bd54a2be14dc8d7092744",
+    "all-fixed/penalty_0p25.frd": "b6b27b83a3b4db823dade2ab0658352baff55c6238cd1904fd847fc406e26649",
+    "all-fixed/penalty_0p25.inp": "cfdd1e1500f661b9c8aad4ea150cdfe9ba66989a4243408b5cf1bc3aeaec670d",
+    "all-fixed/penalty_0p25.json": "4ace99057a61deaa7a411759cc252c3b50e1ffa3e0216102068c5aee304f8eec",
+    "all-fixed/penalty_0p25.log": "c524bffe5f2fb6a5178a7047834e63cdcd044a56ac21d803589e6690cd64d6f0",
+    "all-fixed/penalty_0p25.sta": "3e1e081335acee20fe0bc657c588440353780b1a528bf3fbf812015528fea66d",
+    "bottom-supported/contact_shear_coupon.launch.py": "0fd9faeb16366365d35f66f0a3536f6c3be109e1ce530a8db808130b580ead25",
+    "bottom-supported/mortar_0p125.cvg": "4153354f0a9ca2f59ec7a059f334f55c4113ed1c79e62ff14d47bde2c3358f8d",
+    "bottom-supported/mortar_0p125.dat": "b638983eafbf6b77f36a7dbf935aa68e3e4801dacb1e8d87895cca3c337635d8",
+    "bottom-supported/mortar_0p125.frd": "612262ca87e67d41554228654e282265bb1cd9ef5b587967c41f3d751e34f955",
+    "bottom-supported/mortar_0p125.inp": "e88beee657d5a3503281c48980663c99e4d19fd699d99d486173cca14ecd2346",
+    "bottom-supported/mortar_0p125.json": "043727173987c62c3edb81f94b2aa24fce730d47f6ecef7254d192001f233351",
+    "bottom-supported/mortar_0p125.log": "2bd924842f9b8cdb10e65e4c2afc70b82c62c2b6fe922947adeb309ae31f24d1",
+    "bottom-supported/mortar_0p125.sta": "aab54f3a32052e67d6960416faddd3d4f0cbf3b1acf83756ea2d7a746aaa06be",
+    "bottom-supported/mortar_0p25.cvg": "55adb50f232ed3c9366b5bceb81f97279513bbfffc6d85cb7a02574cf70bebae",
+    "bottom-supported/mortar_0p25.dat": "ea3a9211d0b7634fce09a4c66d7312bbc3ca33e19de7513f63b4b83bc9628b3b",
+    "bottom-supported/mortar_0p25.frd": "50d5832f039dcb2b3c0823ac7a6d270aaf7d877b9224f8573da14768126e73eb",
+    "bottom-supported/mortar_0p25.inp": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+    "bottom-supported/mortar_0p25.json": "09a470595e1d6d1c4d611791267ce4c335026ac4c86a96a0ef7f9fd0664798a2",
+    "bottom-supported/mortar_0p25.log": "eb9824d2cbc7935480b3a8f0de7f6518866eb7b824a2f2090487af3f2df27b74",
+    "bottom-supported/mortar_0p25.sta": "a1277b7f1ef3825b55cd060aef892546902946bbf697d390338b2b4f69a30db9",
+    "bottom-supported/penalty_0p125.cvg": "5db5449b9b72f7b1a585619baae1fb258b16c14f8d2cb1a23309c40a81464679",
+    "bottom-supported/penalty_0p125.dat": "89aa71198476454e889955a479ef0843893453f4513f1e0714103f813c38f0de",
+    "bottom-supported/penalty_0p125.frd": "3f8d3e0718184d10c46ac63e3266e544fe78e4a6809b8554cc53e53f64ad3d95",
+    "bottom-supported/penalty_0p125.inp": "4acb2c21ce6918d6adfccf73b957152cbc6c8418dfb1e51b22c4dac0ee4c5e3a",
+    "bottom-supported/penalty_0p125.json": "b7235c1c156a292ff14739918fe746a0a2a63b25450982ad695c289cb7081abc",
+    "bottom-supported/penalty_0p125.log": "acb43b80d755fe44521905bd2a5fe873de4208cf5d08e601a8e0472ec8caa02d",
+    "bottom-supported/penalty_0p125.sta": "bc980148ad836e7c8a368a44bbff5686b9e489d86f25087bde5729c5f8ad3d29",
+    "bottom-supported/penalty_0p25.cvg": "f886e024c29bb267e2827ce2acfa25672adfbc278aa4380cd2c34dbbdb3c6e78",
+    "bottom-supported/penalty_0p25.dat": "0e767fc0183499082f5a6bddeab26ef0857c9c53b58019233058f7de03acbbe2",
+    "bottom-supported/penalty_0p25.frd": "2302b150deccc89012738d19b9f6e2e4db8244dd611fb8f9cdeb59f196e25357",
+    "bottom-supported/penalty_0p25.inp": "91ddf82a610ed9967c582afbd8bd714a949521950e36256daa58ae04fb76f909",
+    "bottom-supported/penalty_0p25.json": "02506a78ca45e87b3475a011ef3409e08eec066691d663f1e867e749ef397a37",
+    "bottom-supported/penalty_0p25.log": "ca1a145d80912dc91b17ab0f351538ff1fd13ef63623bbde637330512a1fbca6",
+    "bottom-supported/penalty_0p25.sta": "6a9340d61c9e324a39ca1d2404fc44b5b5263e95177773fe80dfb289480e7976"
+  }
+}
