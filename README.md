@@ -39,6 +39,11 @@ retains those separate plies while moving the close rib/panel screw groups apart
 [Its changes and remaining product checks](docs/screw-spacing-development.md)
 are documented separately; geometry screening is not structural approval.
 
+The [updated candidate moment screen](docs/candidate-stability-screen.md) retains
+all 96 downward/horizontal cases and both adverse normal-force uplift cases.
+The [completed baseline contact-observer audit](docs/mortar-frame-observer.md)
+retains its rejected qualification; neither report approves the new joints.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.
