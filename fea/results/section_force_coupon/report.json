@@ -1,0 +1,484 @@
+{
+  "status": "NATIVE SECTION DIAGNOSTIC; BENDING RESULTANTS NOT CONVERGED; NO FRAME OR CONNECTION VALIDATION",
+  "source_directory": "fea/generated/section-force-ygws9_ba",
+  "solver": "CalculiX 2.21, mini-moonboard-fea:box-v1, OMP_NUM_THREADS=2",
+  "assumptions": "Homogeneous linear C3D8 beam10x10x100mm; E7000MPa,nu0; clamped Z0; no gravity; independent120N axial and1200Nmm pure bending end tractions; opposite internal faces atZ50; native SOF/SOM only, no custom stress integration.",
+  "limitations": "Native stresses are extrapolated/averaged then integrated. Midmember coupon only; not a material-interface or fastener-force method. C3D10 frame formulation unqualified; no converged bending result claimed. Linear reference-coordinate external equilibrium, not geometrically nonlinear balance.",
+  "manual": "https://www.dhondt.de/ccx_2.21.htm.tar.bz2 (node332, SECTION PRINT)",
+  "archive": "evidence.tar.gz",
+  "archive_bytes": 41859,
+  "archive_sha256": "2e5c66483753a75a9de1160fd56b1978f0ee0ee2de6d23d4c7e0c2ca0501f96f",
+  "archive_contents": {
+    "section2.inp": "9288610b5d041a796a1c587079fa34331d187d0c9c2802115d455f8dc85a3e02",
+    "section2.json": "5de4a8287aa44b215dfa960798e46afa536da5026f22bab1112d6cb708abb935",
+    "section2.dat": "b146d02605e4c76af4a62847701b0c2297770a24df1899ea7e58ceb1f7dce5d5",
+    "section2.log": "884f2f2d6dbabef256c8fe2c5634c222a352b95564aaddd179598dcaf3bcd090",
+    "section2.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "section2.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "section4.inp": "9ba2c137a284fb8a39275bea68267ad4f5c629c3712e6e7cd856034d305d776b",
+    "section4.json": "430c8f47eaee51d5db1db151969ef0669c967d32734f0d808969e785e4a08964",
+    "section4.dat": "656fecf1669f50cabb8bc10a9d19ddc62bbbda2ed73ed7c981c33ed008e28db8",
+    "section4.log": "7b060392144f54f2b113c0f8e9b4144d3e61f0b91e6b1e004807a48416d2e275",
+    "section4.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "section4.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "section_force_coupon.launch.py": "74facf185805321930c61f51f7e891b5703e684888f00f49d5b6c7f3c56698a8",
+    "helpers/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "helpers/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+  },
+  "comparisons": {
+    "2": {
+      "mesh": "2x2x10 C3D8",
+      "element_count": 40,
+      "axial_force_n": 119.9952,
+      "axial_error_percent": -0.00400000000000252,
+      "bending_magnitude_nmm": 799.9815,
+      "bending_shortfall_percent": 33.334875,
+      "endpoints": [
+        {
+          "time": 1,
+          "external_force_residual_n": [
+            -1.33653646e-13,
+            7.406947e-14,
+            0.0
+          ],
+          "external_moment_residual_nmm": [
+            0.0,
+            0.0,
+            4.71246e-14
+          ],
+          "external_balance_pass": true,
+          "sections": {
+            "LOWER_CUT": {
+              "native_force_moment": [
+                3.894023e-14,
+                1.814407e-13,
+                119.9952,
+                -7.369837e-12,
+                3.350209e-12,
+                -1.664927e-13
+              ],
+              "exact_force_moment": [
+                0.0,
+                0.0,
+                120.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "error": [
+                3.894023e-14,
+                1.814407e-13,
+                -0.004800000000003024,
+                -7.369837e-12,
+                3.350209e-12,
+                -1.664927e-13
+              ],
+              "centroid_normal": [
+                0.0,
+                -7.105427e-17,
+                50.0,
+                0.0,
+                -1.776357e-16,
+                1.0
+              ],
+              "centroid_moment": [
+                1.710724e-12,
+                1.403198e-12,
+                -1.664927e-13
+              ],
+              "area_normal_shear": [
+                100.0,
+                119.9952,
+                2.064616e-13,
+                -1.664927e-13,
+                2.212587e-12
+              ]
+            },
+            "UPPER_CUT": {
+              "native_force_moment": [
+                -3.894023e-14,
+                -1.814407e-13,
+                -119.9952,
+                7.379851e-12,
+                -3.318235e-12,
+                1.664927e-13
+              ],
+              "exact_force_moment": [
+                -0.0,
+                -0.0,
+                -120.0,
+                -0.0,
+                -0.0,
+                -0.0
+              ],
+              "error": [
+                -3.894023e-14,
+                -1.814407e-13,
+                0.004800000000003024,
+                7.379851e-12,
+                -3.318235e-12,
+                1.664927e-13
+              ],
+              "centroid_normal": [
+                0.0,
+                -8.881784e-17,
+                50.0,
+                0.0,
+                -1.776357e-16,
+                -1.0
+              ],
+              "centroid_moment": [
+                -1.702841e-12,
+                -1.371223e-12,
+                1.664927e-13
+              ],
+              "area_normal_shear": [
+                100.0,
+                119.9952,
+                1.647921e-13,
+                -1.664927e-13,
+                2.186303e-12
+              ]
+            }
+          }
+        },
+        {
+          "time": 2,
+          "external_force_residual_n": [
+            -2.5960651999999998e-11,
+            1.7875095499999999e-12,
+            1.5888396000000003e-12
+          ],
+          "external_moment_residual_nmm": [
+            -5.5222495e-11,
+            0.0,
+            1.6995267499999999e-12
+          ],
+          "external_balance_pass": true,
+          "sections": {
+            "LOWER_CUT": {
+              "native_force_moment": [
+                1.514613e-28,
+                -2.194354e-13,
+                -2.046363e-12,
+                2.368881e-11,
+                -799.9815,
+                -2.158763e-12
+              ],
+              "exact_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1200.0,
+                0.0
+              ],
+              "error": [
+                1.514613e-28,
+                -2.194354e-13,
+                -2.046363e-12,
+                2.368881e-11,
+                400.0185,
+                -2.158763e-12
+              ],
+              "centroid_normal": [
+                0.0,
+                -7.105427e-17,
+                50.0,
+                0.0,
+                -1.776357e-16,
+                1.0
+              ],
+              "centroid_moment": [
+                1.271704e-11,
+                -799.9815,
+                -2.158763e-12
+              ],
+              "area_normal_shear": [
+                100.0,
+                -2.046363e-12,
+                2.194354e-13,
+                -2.016658e-12,
+                799.9815
+              ]
+            },
+            "UPPER_CUT": {
+              "native_force_moment": [
+                1.167514e-28,
+                2.194354e-13,
+                2.049916e-12,
+                -2.364533e-11,
+                799.9815,
+                2.158763e-12
+              ],
+              "exact_force_moment": [
+                -0.0,
+                -0.0,
+                -0.0,
+                -0.0,
+                1200.0,
+                -0.0
+              ],
+              "error": [
+                1.167514e-28,
+                2.194354e-13,
+                2.049916e-12,
+                -2.364533e-11,
+                -400.0185,
+                2.158763e-12
+              ],
+              "centroid_normal": [
+                0.0,
+                -8.881784e-17,
+                50.0,
+                0.0,
+                -1.776357e-16,
+                -1.0
+              ],
+              "centroid_moment": [
+                -1.267356e-11,
+                799.9815,
+                2.158763e-12
+              ],
+              "area_normal_shear": [
+                100.0,
+                -2.049916e-12,
+                2.194354e-13,
+                -2.300868e-12,
+                799.9815
+              ]
+            }
+          }
+        }
+      ],
+      "status": "NATIVE SECTION DIAGNOSTIC; C3D10 AND INTERFACE ACCURACY NOT VALIDATED"
+    },
+    "4": {
+      "mesh": "4x4x20 C3D8",
+      "element_count": 320,
+      "axial_force_n": 119.9952,
+      "axial_error_percent": -0.00400000000000252,
+      "bending_magnitude_nmm": 1066.63,
+      "bending_shortfall_percent": 11.114166666666657,
+      "endpoints": [
+        {
+          "time": 1,
+          "external_force_residual_n": [
+            -9.545262480000001e-14,
+            -1.80940008e-14,
+            0.0
+          ],
+          "external_moment_residual_nmm": [
+            0.0,
+            0.0,
+            2.521510835e-13
+          ],
+          "external_balance_pass": true,
+          "sections": {
+            "LOWER_CUT": {
+              "native_force_moment": [
+                1.260741e-14,
+                2.908144e-14,
+                119.9952,
+                -1.89133e-12,
+                -4.991563e-13,
+                1.725594e-13
+              ],
+              "exact_force_moment": [
+                0.0,
+                0.0,
+                120.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "error": [
+                1.260741e-14,
+                2.908144e-14,
+                -0.004800000000003024,
+                -1.89133e-12,
+                -4.991563e-13,
+                1.725594e-13
+              ],
+              "centroid_normal": [
+                2.664535e-17,
+                3.552714e-17,
+                50.0,
+                0.0,
+                -3.552714e-16,
+                1.0
+              ],
+              "centroid_moment": [
+                -4.415209e-13,
+                -1.12633e-12,
+                1.725594e-13
+              ],
+              "area_normal_shear": [
+                100.0,
+                119.9952,
+                7.281209e-14,
+                1.725594e-13,
+                1.209776e-12
+              ]
+            },
+            "UPPER_CUT": {
+              "native_force_moment": [
+                -1.260741e-14,
+                -2.908144e-14,
+                -119.9952,
+                1.830278e-12,
+                4.991563e-13,
+                -1.725594e-13
+              ],
+              "exact_force_moment": [
+                -0.0,
+                -0.0,
+                -120.0,
+                -0.0,
+                -0.0,
+                -0.0
+              ],
+              "error": [
+                -1.260741e-14,
+                -2.908144e-14,
+                0.004800000000003024,
+                1.830278e-12,
+                4.991563e-13,
+                -1.725594e-13
+              ],
+              "centroid_normal": [
+                2.664535e-17,
+                -8.881784e-17,
+                50.0,
+                0.0,
+                -3.552714e-16,
+                -1.0
+              ],
+              "centroid_moment": [
+                3.655486e-13,
+                1.12633e-12,
+                -1.725594e-13
+              ],
+              "area_normal_shear": [
+                100.0,
+                119.9952,
+                1.850767e-14,
+                1.725594e-13,
+                1.184164e-12
+              ]
+            }
+          }
+        },
+        {
+          "time": 2,
+          "external_force_residual_n": [
+            2.66824421e-11,
+            3.82173493e-12,
+            4.624904000000002e-13
+          ],
+          "external_moment_residual_nmm": [
+            -4.69470675e-11,
+            0.0,
+            1.3964735675e-10
+          ],
+          "external_balance_pass": true,
+          "sections": {
+            "LOWER_CUT": {
+              "native_force_moment": [
+                -5.007147e-07,
+                -1.933903e-12,
+                -3.588241e-13,
+                1.013326e-10,
+                -1066.63,
+                -1.033897e-10
+              ],
+              "exact_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1200.0,
+                0.0
+              ],
+              "error": [
+                -5.007147e-07,
+                -1.933903e-12,
+                -3.588241e-13,
+                1.013326e-10,
+                133.3699999999999,
+                -1.033897e-10
+              ],
+              "centroid_normal": [
+                2.664535e-17,
+                3.552714e-17,
+                50.0,
+                0.0,
+                -3.552714e-16,
+                1.0
+              ],
+              "centroid_moment": [
+                4.63744e-12,
+                -1066.63,
+                -1.033897e-10
+              ],
+              "area_normal_shear": [
+                100.0,
+                -3.588241e-13,
+                5.007147e-07,
+                -1.030107e-10,
+                1066.63
+              ]
+            },
+            "UPPER_CUT": {
+              "native_force_moment": [
+                5.007147e-07,
+                1.933903e-12,
+                3.801404e-13,
+                -1.013721e-10,
+                1066.63,
+                1.033897e-10
+              ],
+              "exact_force_moment": [
+                -0.0,
+                -0.0,
+                -0.0,
+                -0.0,
+                1200.0,
+                -0.0
+              ],
+              "error": [
+                5.007147e-07,
+                1.933903e-12,
+                3.801404e-13,
+                -1.013721e-10,
+                -133.3699999999999,
+                1.033897e-10
+              ],
+              "centroid_normal": [
+                2.664535e-17,
+                -8.881784e-17,
+                50.0,
+                0.0,
+                -3.552714e-16,
+                -1.0
+              ],
+              "centroid_moment": [
+                -4.676971e-12,
+                1066.63,
+                1.033897e-10
+              ],
+              "area_normal_shear": [
+                100.0,
+                -3.801404e-13,
+                5.007147e-07,
+                -1.037686e-10,
+                1066.63
+              ]
+            }
+          }
+        }
+      ],
+      "status": "NATIVE SECTION DIAGNOSTIC; C3D10 AND INTERFACE ACCURACY NOT VALIDATED"
+    }
+  }
+}
