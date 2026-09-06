@@ -104,3 +104,7 @@ Front and selected-stitch screenshots were visually inspected for the new
 variant. A final independent correctness, testing and architecture review pass
 found no substantial remaining findings. These checks do not qualify materials,
 installation details, load resistance or climbing use.
+
+The [hardware completion audit](candidate-hardware-audit.md) lists the exact
+remaining product families, non-catalog geometric screw lengths and omitted
+installed insert/LED details. This candidate is not yet a complete purchase list.
