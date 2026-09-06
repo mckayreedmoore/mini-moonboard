@@ -31,6 +31,8 @@ CASE_SETTINGS = {"initial_dt_s": 1e-8, "max_dt_s": 1e-7, "min_dt_s": 1e-11, "tot
                  "maximum_increment_count": 1000, "alpha": 0.}
 DIRECT_QUIESCENT_SETTINGS = {"initial_dt_s": 1e-7, "total_time_s": 2e-6,
                              "maximum_increment_count": 20, "alpha": 0., "direct_quiescent": True}
+DIRECT_MOVING_SETTINGS = {"initial_dt_s": 1e-7, "total_time_s": 2e-5,
+                          "maximum_increment_count": 200, "alpha": 0., "direct_moving": True}
 SURFACE_SPECS = {
     "WASHER_HEAD": ("WASHER", "Plane", (0., -12.7, -12.7, 0., 12.7, 12.7), math.pi*(12.7**2-RADIUS**2)),
     "CORE_HEAD": ("BOLT_NUT", "Plane", (0., -9., -9., 0., 9., 9.), math.pi*(9**2-RADIUS**2)),
@@ -45,6 +47,7 @@ def declared_configuration():
                        "cad_tolerance": CAD_TOLERANCE_MM, "area_tolerance": AREA_RELATIVE_TOLERANCE,
                        "material": MATERIAL, "cases": CASE_SETTINGS, "surfaces": SURFACE_SPECS,
                        "direct_quiescent": DIRECT_QUIESCENT_SETTINGS,
+                       "direct_moving": DIRECT_MOVING_SETTINGS,
                        "coordinate_format": COORDINATE_FORMAT, "quantization_bound_mm": QUANTIZATION_BOUND_MM}, sort_keys=True)
 
 
@@ -246,6 +249,16 @@ def deck(context, case):
                    any(settings.get(key) != value for key, value in DIRECT_QUIESCENT_SETTINGS.items()) or
                    settings["initial_velocity_mm_s"] != {"BOLT_NUT": [0., 0., 0.], "WASHER": [0., 0., 0.]}):
         raise ValueError("DIRECT requires the declared catalog stationary settings")
+    moving_direct = settings.get("direct_moving", False)
+    if type(moving_direct) is not bool:
+        raise ValueError("direct_moving must be a boolean")
+    if moving_direct:
+        if (direct or case != "moving" or context.get("pose_variant") != "separated-washer-stationary-preflight"
+                or context["geometry_variant"] != "locked-thread-fw38-minimum-bore-11-body"
+                or settings != {**DIRECT_MOVING_SETTINGS,
+                                "initial_velocity_mm_s": {"BOLT_NUT": [0., 0., 0.], "WASHER": [-100., 100., 0.]}}):
+            raise ValueError("DIRECT moving requires the declared coarse posed event settings")
+        direct = True
     elements = {int(e): ids for e, ids in context["elements"].items()}
     lines = ["*HEADING", "Two free hardware bodies; numerical control only", "*NODE"]
     lines += [str(n) + "," + ",".join(format(v, COORDINATE_FORMAT) for v in p) for n, p in context["nodes"].items()]
