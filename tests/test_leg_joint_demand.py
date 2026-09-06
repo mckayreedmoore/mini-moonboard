@@ -1,8 +1,10 @@
+import csv
 import hashlib
 import json
 import math
 import re
 
+import numpy as np
 import pytest
 
 from fea.leg_joint_demand import (
@@ -122,3 +124,37 @@ def test_portable_retained_dat_to_report_all_increments():
     assert count == 1 and damaged != data
     with pytest.raises(ValueError, match='Incomplete timber output'):
         assemble_endpoints(damaged, nodes, ground, bottom, baseline, info['legs'], integration)
+
+
+def test_collinear_upper_bolt_points_cannot_supply_uphill_axis_moment():
+    """Point-force model limitation, not a physical connection capacity test."""
+    retained = {name.removeprefix('./'): data for name, data in
+                read_archive('fea/results/leg_joint_demand/successful.tar.gz').items()}
+    info, report = (json.loads(retained[name]) for name in ('input.json', 'report.json'))
+    with open('exports/screw-spacing-development/screw-spacing-development_connections.csv') as stream:
+        connections = list(csv.DictReader(stream))
+    def resultant_map(positions):
+        moments = np.hstack([np.column_stack([np.cross(r, axis) for axis in np.eye(3)])
+                             for r in positions])
+        return np.vstack((np.tile(np.eye(3), (1, len(positions))), moments))
+    endpoint = report['endpoints'][-1]
+    assert endpoint['time'] == 2 and endpoint['baseline_global_gate_pass']
+    for side in ('left', 'right'):
+        leg = info['legs'][side]
+        reference, axes = np.array(leg['reference_mm']), np.array(leg['local_axes_world'])
+        group = [c for c in connections if c['connection'].startswith('analysis_leg_wall_bolt_'+side+'_')]
+        assert len(group) == 4
+        # CSV X is the bolt start, not its point on the rim/leg interface.
+        points = np.array([[reference[0], float(c['y_mm']), float(c['z_mm'])] for c in group])
+        local = (points-reference) @ axes.T
+        np.testing.assert_allclose(local, [[0, s, 0] for s in (-140, -60, 60, 140)], atol=1e-9)
+        matrix = resultant_map(local/1000)  # N and N*m, not mixed mm/m moments.
+        assert np.linalg.matrix_rank(matrix, tol=1e-10) == 5
+        demand = np.array(endpoint['legs'][side]['leg_on_rim_local_force_moment'])
+        demand[3:] /= 1000
+        forces = np.linalg.lstsq(matrix, demand, rcond=None)[0]
+        np.testing.assert_allclose(demand-matrix@forces, [0, 0, 0, 0, demand[4], 0], atol=1e-9)
+        assert abs(demand[4]) > 10  # Requires mechanics beyond four point forces.
+    # Synthetic noncollinear control; NOT a selected or fit-checked bolt layout.
+    rectangle = np.array([[0, s, n] for s in (-.14, .14) for n in (-.04, .04)])
+    assert np.linalg.matrix_rank(resultant_map(rectangle), tol=1e-10) == 6

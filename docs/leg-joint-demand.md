@@ -79,6 +79,28 @@ explicitly flagged and must not be presented as qualified demand cases.
 Even the passing endpoints remain conditional on the original contact model;
 this extraction does not settle its local contact audit.
 
+### Why four point forces are not a complete joint model
+
+The current four upper bolts intersect each rim/leg face at local offsets
+`(X,S,N) = (0,-140,0), (0,-60,0), (0,60,0), (0,140,0)` mm about the
+documented reference. They are collinear along S. Even allowing arbitrary
+three-component forces at all four centers, the resultant map has rank five:
+those forces cannot generate a moment about S. The final conditional demand
+contains +10.921 N·m on the left and -10.868 N·m on the right about that axis.
+
+This is a limitation of the point-force idealization, **not evidence that the
+physical connection fails**. Finite face compression paired with bolt axial
+tension, distributed hole/washer bearing and bolt bending can provide additional
+mechanics without presuming glue or friction. A subsequent joint model must
+represent and check any such action it credits. Dividing the force by four,
+fixing every bore or adding an arbitrary rotational spring does not establish it.
+
+A noncollinear 2×2 arrangement is another possible geometry experiment, but
+rank six alone supplies neither admissible force directions nor fit, edge
+distances or resistance. No layout change is selected by this calculation.
+The runnable rank/residual check uses the published candidate connection CSV
+and retained demand; its rectangular control is synthetic, not a CAD design.
+
 SHA-256 identities:
 
 | Artifact | SHA-256 |
@@ -105,3 +127,10 @@ timber displacement block must fail the production coverage check.
 This later refactor and test do not replace the original launch-source
 snapshot or imply another integration. The test reads archives through the
 standard library and requires neither Docker, Gmsh nor CAD construction.
+
+Verification checkpoint: the frozen repository suite excluding this then-new
+test module passed 707 tests with one Gmsh-dependent skip. That skipped test
+passed separately using the pinned FEA image and the host's read-only pytest
+dependencies. This module's complete six-test suite subsequently passed, as
+did Ruff and the diff check. The point-force rank/sign/unit interpretation was
+also checked independently. None of these tests is construction approval.
