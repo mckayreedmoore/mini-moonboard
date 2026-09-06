@@ -431,3 +431,19 @@ clamp; inactive-contact suppression happens during contact generation. Together
 with the exact separated pose and recorded quiet CNUM=0, this supports the
 initial zero-force sample when only initial velocity changes. It does **not**
 establish zero force over the first finite interval or cover another contact law.
+
+### Implementation boundary
+
+`moving_hardware_event.py` prepares the coarse event from the pinned passed
+posed-quiet archive. It records the exact protocol, evaluator source snapshots
+and changed initial velocities without running a solver. The stationary
+launcher remains stationary-only.
+
+`moving_hardware_replay.py` reconstructs both operators from complete raw
+fields and the exact selected deck/cache; `moving_hardware_balance.py` applies
+the numerical balance/energy/endpoint-transfer gates. The latter explicitly
+does not establish launch provenance, complete-window or refinement
+qualification. Its input t=0 values are reconstructed initial conditions,
+not invented printed solver observations. A complete moving-run wrapper and
+the conditional refinement comparison remain required before any moving
+qualification claim. Synthetic tests are code checks, not FEA results.
