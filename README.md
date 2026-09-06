@@ -58,6 +58,13 @@ loaded moment residual remains 96 N·mm against the unchanged 1 N·mm limit.
 Separate [sliding-cube](docs/contact-shear-coupon.md) and
 [actual-leg](docs/leg-shear-coupon.md) comparisons support further MORTAR
 qualification; their global balance checks are not full-frame approval.
+The [numerical acceptance basis](docs/numerical-acceptance-basis.md) distinguishes
+our strict diagnostic limits from structural requirements; no historical result
+is reclassified. The [mortar local-audit basis](docs/mortar-local-audit-basis.md)
+explains why plotted contact fields alone cannot validate that formulation.
+Before extracting joint demands, the [native section-force benchmark](docs/section-force-extraction.md)
+records significant mesh-dependent bending error; that method is not yet qualified
+for the frame.
 
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 
