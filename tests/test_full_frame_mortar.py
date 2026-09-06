@@ -217,3 +217,26 @@ def test_builder_rejects_incomplete_floor_faces_and_unused_mesh_nodes():
     nodes[1000] = (0., 0., 0.)
     with pytest.raises(ValueError, match="coverage"):
         build_deck(nodes, elements, groups, record["load_nodes"], "mortar")
+
+
+@pytest.mark.parametrize("increment", [.125, .0625, .123456789])
+def test_refinement_changes_only_both_static_increment_lines(increment):
+    original, record, rows = fixture()
+    nodes, elements, groups, ground, bottom = verify_deck(original, record)
+    refined, actual_ground, actual_bottom = build_deck(nodes, elements, groups, record["load_nodes"], "mortar", increment)
+    assert refined == original.replace("0.25,1,1e-6,0.25", f"{increment},1,1e-6,{increment}")
+    assert refined.count(f"*STATIC\n{increment},1,1e-6,{increment}") == 2
+    assert actual_ground == ground and actual_bottom == bottom
+    record.update(increment=increment, deck_sha256=hashlib.sha256(refined.encode()).hexdigest())
+    assert len(audit(refined, output(rows), record)) == 2
+    record["increment"] = .25
+    with pytest.raises(ValueError, match="Deck differs"):
+        verify_deck(refined, record)
+
+
+@pytest.mark.parametrize("increment", [0., -.1, .0049, 1.01, float("nan"), float("inf"), True])
+def test_invalid_increment_rejected(increment):
+    original, record, _ = fixture()
+    nodes, elements, groups, *_ = verify_deck(original, record)
+    with pytest.raises(ValueError, match="increment"):
+        build_deck(nodes, elements, groups, record["load_nodes"], "mortar", increment)

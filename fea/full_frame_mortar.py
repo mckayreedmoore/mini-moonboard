@@ -35,7 +35,9 @@ def mesh_digest(nodes, elements):
     return hashlib.sha256(json.dumps([nodes, elements], sort_keys=True, allow_nan=False).encode()).hexdigest()
 
 
-def build_deck(nodes, elements, groups, top, formulation):
+def build_deck(nodes, elements, groups, top, formulation, increment=INCREMENT):
+    if isinstance(increment, bool) or not math.isfinite(increment) or not .005 <= increment <= 1.:
+        raise ValueError("Finite increment between .005 and 1 required (INC=200)")
     if formulation not in ("penalty", "mortar"):
         raise ValueError("Formulation must be penalty or mortar")
     if not nodes or any(len(p) != 3 or not all(map(math.isfinite, p)) for p in nodes.values()):
@@ -59,7 +61,7 @@ def build_deck(nodes, elements, groups, top, formulation):
     for name in ground:
         text = text.replace(f"GROUND_{name},1,3,0\n", f"BOTTOM_{name},1,3,0\n")
         text = text.replace(f"*NODE PRINT,NSET=GROUND_{name}\nRF\n", f"*NODE PRINT,NSET=GROUND_{name}\nU,RF\n")
-    text = text.replace("*STATIC\n0.05,1,1e-6,0.1\n", "*STATIC\n0.25,1,1e-6,0.25\n")
+    text = text.replace("*STATIC\n0.05,1,1e-6,0.1\n", f"*STATIC\n{increment},1,1e-6,{increment}\n")
     if formulation == "mortar":
         text = text.replace("TYPE=SURFACE TO SURFACE", "TYPE=MORTAR")
     else:
@@ -78,9 +80,9 @@ def verify_deck(text, record):
         raise ValueError("Wood mesh differs from frozen launch context")
     groups = floor_faces(nodes, elements)
     if (record["mu"] != MU or record["normal_penalty_n_mm3"] != NORMAL_SLOPE or
-            record["tangent_penalty_n_mm3"] != TANGENT_SLOPE or record["increment"] != INCREMENT):
+            record["tangent_penalty_n_mm3"] != TANGENT_SLOPE):
         raise ValueError("Recorded contact or increment context differs")
-    expected, ground, supports = build_deck(nodes, elements, groups, record["load_nodes"], record["formulation"])
+    expected, ground, supports = build_deck(nodes, elements, groups, record["load_nodes"], record["formulation"], record["increment"])
     if text != expected:
         raise ValueError("Deck differs from intended mesh/materials/loads/boundaries/contact")
     recorded_ground = {name: {int(n): tuple(p) for n, p in xyz.items()} for name, xyz in record["ground_nodes"].items()}
@@ -89,8 +91,7 @@ def verify_deck(text, record):
     return nodes, elements, groups, ground, supports
 
 
-def audit(text, data, record):
-    nodes, elements, groups, ground, supports = verify_deck(text, record)
+def validate_weights(nodes, elements, record):
     weights = {int(n): v for n, v in record["nodal_volume_mm3"].items()}
     if (weights.keys() != nodes.keys() or not all(map(math.isfinite, weights.values())) or
             not math.isfinite(sum(weights.values())) or sum(weights.values()) <= 0):
@@ -102,6 +103,12 @@ def audit(text, data, record):
             not math.isclose(weights[n], expected_weights[n], rel_tol=1e-10, abs_tol=1e-8)
             for n in weights):
         raise ValueError("Nodal gravity weights differ from verified mesh integration")
+    return weights
+
+
+def audit(text, data, record):
+    nodes, elements, groups, ground, supports = verify_deck(text, record)
+    weights = validate_weights(nodes, elements, record)
     parsed, output = blocks(data), []
     for endpoint, load in ((1., 0.), (2., LOAD_N)):
         u = parsed.get(("displacements", "WOODN", endpoint), {})
@@ -156,6 +163,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--formulation", choices=("penalty", "mortar"), required=True)
     parser.add_argument("--max-seconds", type=float, default=600.)
+    parser.add_argument("--increment", type=float, default=INCREMENT)
     args = parser.parse_args()
     if not math.isfinite(args.max_seconds) or args.max_seconds <= 0:
         parser.error("Positive finite runtime required")
@@ -175,19 +183,20 @@ def main():
     centre = [sum(nodes[n][i]*v for n, v in weights.items())/volume for i in range(3)]
     if abs(volume/info["cad_volume_mm3"]-1) > .001 or math.dist(centre, info["cad_centre_mm"]) > 1:
         raise ValueError("Integrated mesh mass/centroid differs from CAD")
-    text, ground, bottom = build_deck(nodes, elements, groups, summary["load_nodes"], args.formulation)
+    text, ground, bottom = build_deck(nodes, elements, groups, summary["load_nodes"], args.formulation, args.increment)
     parent = Path("fea/generated")
     parent.mkdir(parents=True, exist_ok=True)
     directory = Path(tempfile.mkdtemp(prefix="full-frame-"+args.formulation+"-", dir=parent))
     snapshot = directory/"launch_sources"
     snapshot.mkdir()
-    sources = (Path(__file__), Path("fea/floor_contact.py"), Path("fea/floor_contact_recovery.py"), Path("fea/floor_contact_results.py"))
+    sources = (Path(__file__), Path("fea/floor_contact.py"), Path("fea/floor_contact_recovery.py"), Path("fea/floor_contact_results.py"),
+               Path("docs/full-frame-increment-refinement.md"))
     for path in sources:
         shutil.copyfile(path, snapshot/path.name)
     job = directory/"frame"
     job.with_suffix(".inp").write_text(text)
     record = dict(info, formulation=args.formulation, mu=MU, normal_penalty_n_mm3=NORMAL_SLOPE,
-                  tangent_penalty_n_mm3=TANGENT_SLOPE, increment=INCREMENT, wood_nodes=nodes,
+                  tangent_penalty_n_mm3=TANGENT_SLOPE, increment=args.increment, wood_nodes=nodes,
                   ground_nodes=ground, bottom_nodes=bottom, load_nodes=summary["load_nodes"],
                   nodal_volume_mm3=weights, mesh_volume_mm3=volume, mesh_mass_kg=volume*600/1e9,
                   mesh_centre_mm=centre, deck_sha256=hashlib.sha256(text.encode()).hexdigest(),
@@ -199,6 +208,7 @@ def main():
                   friction_audit_basis="Only approximate initial-horizontal resultant diagnostic; no deformed local-cone acceptance is claimed",
                   local_contact_status="NOT VALIDATED; mortar CONTACT FILE retained without penalty pointwise-law or CF assumptions")
     verify_deck(text, record)
+    validate_weights(nodes, elements, record)
     save(job.with_suffix(".json"), record)
     print(f"Evidence: {directory}", flush=True)
     started = time.monotonic()
