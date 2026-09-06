@@ -28,6 +28,13 @@ reference-envelope exports remain separate from the v1 frame artifacts.
 
 Latest candidate: [2×8 with physically extended feet: comparison and results](docs/physical-footprint-results.md).
 
+Current [design decision status](docs/design-decision-status.md) separates numerical
+verification from material and connection selection. Two additional
+[side-tied base envelopes](docs/base-restraint-options.md) preserve that candidate;
+their new connections remain unresolved. See the
+[material-selection recommendation](docs/material-selection-recommendation.md)
+before treating any candidate as a purchasing or building plan.
+
 Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
 
 Contact studies: [four-pin/leg-bore coupon](docs/joint-contact-study.md) and
