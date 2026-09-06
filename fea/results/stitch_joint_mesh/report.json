@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED ACTUAL STITCH GEOMETRY AND DISJOINT MESH; NO SOLVER",
+  "limits": "Geometry and mesh evidence only. No materials, interface laws, ties, supports, preload, friction, response, strength or capacity verified. Portable replay checks topology, recorded quality/volume gates and provenance; it does not recalculate CAD geometry or quadratic Jacobians.",
+  "archive_sha256": "39b640ed0062fa1fcbe811f3e6cde5e2e1ea13ea0170565c8037d3f41123e604",
+  "publisher_sha256": "1a9b553a814cbb0d7da133012ed9b6b42eb1b3becec1bfbc0920ea99c89835dc",
+  "summary": {
+    "body_count": 14,
+    "node_count": 145787,
+    "element_count": 70148,
+    "cad_surface_count": 83,
+    "shared_body_nodes": 0,
+    "maximum_relative_volume_error": 1.7489448659313567e-06,
+    "minimum_recorded_sampled_jacobian": 0.1706681578031217,
+    "runtime": {
+      "elapsed_seconds": 7.4,
+      "exit_code": 0,
+      "docker_image_id": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+      "max_seconds": 120,
+      "memory_limit_gib": 6,
+      "network": "none",
+      "runtime_scope": "GNU time measures Docker client; its RSS is not container peak memory.",
+      "postcheck_classification": "Post-hoc read-only inspection; not a prelaunch monitor record",
+      "named_container_absent": true
+    }
+  },
+  "prepared_geometry_directory": "fea/generated/stitch-joint-geometry-yeqct4i9",
+  "prepared_mesh_directory": "fea/generated/stitch-joint-geometry-yeqct4i9/mesh-0e97dpji"
+}

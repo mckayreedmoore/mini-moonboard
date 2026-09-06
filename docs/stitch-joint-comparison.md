@@ -27,6 +27,17 @@ STEP files, source snapshots and hashes. Geometry checks do not establish
 contact mechanics. In particular, a smooth cylindrical nut bore supplies no
 threaded axial retention by itself.
 
+The first separate-body mesh completed in 7.40 seconds with exit zero in the
+immutable Gmsh image `sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646`.
+It contains 145787 nodes and 70148 C3D10 elements, with no shared node IDs
+between bodies. The maximum relative body-volume error against CAD is
+1.748945e−6; the minimum sampled Jacobian is positive (0.170668). Complete
+quadratic exterior faces are associated with the individual CAD surfaces.
+These are mesh gates, not contact convergence, material quality or strength gates.
+The [frozen mesh evidence](../fea/results/stitch_joint_mesh/README.md) includes
+STEP files, source snapshots, the raw mesh, runtime records and portable topology
+checks. Its replay does not recalculate CAD geometry or mesh Jacobians.
+
 The intended mechanical idealization is a nut-to-shank tie **only** to represent
 locked thread retention, without preload. No wood-to-bolt, washer-to-shank or
 ply-to-ply tie is permitted. Washer and wood interfaces remain frictionless,
@@ -48,7 +59,7 @@ With freely moving hardware, 0.2375 mm inner-ply motion does not necessarily
 engage both sides of a bolt. Clearance can be taken up on each ply before a
 complete shear path forms; the two radial clearances total 0.475 mm nominally.
 Actual local engagement must be measured, not inferred from floor displacement
-or forced equal across the three stations.
+  or forced equal across the three stations.
 
 An unloaded, loose bolt can have unconstrained rigid motion in a static start.
 Fixing it to make that calculation solvable would create an external load path.
@@ -80,6 +91,11 @@ density is tonne/mm³: multiply kg/m³ by 10⁻¹².
 - Compute hardware linear and angular momentum with consistent volume
   quadrature, including deformed position in angular momentum. Equal nodal mass
   or a lumped shortcut is not an independent audit of curved quadratic elements.
+  Keep the solver's own integration rule separate from higher-order physical
+  integration: source inspection shows CalculiX 2.21 implicit C3D10 mass uses
+  four points. The Gauss8 reference operator is not solver-identical. Native
+  kinetic-energy controls with quadratic velocity fields are required before
+  trusting the reconstructed discrete momentum balance.
 - Compare contact impulse with momentum change for each complete hardware
   assembly; internal thread-tie forces then cancel. Audit freely contacting
   washers separately or inside that complete assembly, without omitting forces.
