@@ -1,0 +1,81 @@
+# Independent-ply leg comparison: geometry and bounded next experiment
+
+This is a separately named analysis path, `foot100-independent-plies`, not a
+replacement for the original bonded leg or a construction release. Retain the
+current 2×8-foot100 development baseline while evaluating whether its requested
+two-sheet construction needs a different connection or member design.
+
+## Geometry preflight
+
+Use `footprint_frame.parts(100, drilled=True)`, not the historical leg coupon.
+The current member has a continuous cut profile, a rounded knee, four bolt
+bores, and a floor-clipped lower end. Split along **global X**, the thickness
+direction, into two nominal 19.05 mm (3/4 in) plies. The right leg extends from
+X = 1257.30 to 1295.40 mm and splits at 1276.35 mm; the left is mirrored.
+
+`uv run pytest tests/test_independent_leg_geometry.py` checks both legs:
+
+- Each ply is a valid single solid with half the original volume; their union
+  reconstructs the original drilled leg without lost or overlapping volume.
+- Each has a planar, finite-area floor face at Z = 0, with the area and centroid
+  predicted by the actual lower-member angle. This checks nominal CAD seating,
+  not floor levelness or simultaneous contact after deformation.
+- Each of the four 10 mm bores crosses both plies inside surrounding wood.
+  The nominal 9.525 mm bolt leaves 0.475 mm diametral clearance; the test does
+  not assign contact engagement or bolt-bearing capacity.
+- The rim is adjacent to the inner ply only. The outer ply is one ply thickness
+  away from the rim; a through-bolt does not by itself enforce equal sharing.
+
+No stitches or interface ties are added by this preflight. The source geometry,
+viewer, original solid model and prior results remain unchanged.
+
+## Predeclared next numerical comparison
+
+First qualify a conditional **linear stiffness/load-sharing** comparison, not
+a nonlinear capacity calculation. Use the same current full profile and holes
+for all cases, retaining the generic equal-property material solely to isolate
+the construction assumption. Do not call this a model of identified plywood.
+
+1. Original homogeneous 38.10 mm reference.
+2. Two uncoupled 19.05 mm plies with half the total applied resultant on each.
+3. Two uncoupled plies with the full resultant on the inner ply; repeat on the
+   outer ply if the chosen fixtures are not mirror-equivalent.
+
+Apply in-plane and out-of-plane unit loading separately. Use documented
+identical idealized fixtures at the four actual bolt-hole locations and
+distributed loads on the floor-bearing faces. These reversed, restrained
+fixtures isolate compliance; they do **not** represent unilateral floor contact
+or actual loose-bolt engagement. Do not couple the two plies at their interface,
+share mesh nodes, or silently introduce a common rigid foot plate.
+
+Before the profile runs, verify the fixture/load implementation on a homogeneous
+straight-strip control: the section-property model predicts equal in-plane
+aggregate bending rigidity and one-quarter out-of-plane aggregate rigidity for
+independent plies versus the composite reference, under the required symmetric
+loading and support assumptions. The bent, drilled leg need not exhibit those
+exact displacement ratios. See the derivation and real-plywood limitations in
+[the material recommendation](material-selection-recommendation.md).
+
+Record all applied/support resultants, per-ply displacement and strain energy,
+and load-sharing sensitivity at two mesh levels. Predeclare numerical tolerances
+and the compared output locations in the executable experiment before launch;
+do not choose tolerances after seeing its results. Keep fixture singularities
+out of any proposed member-demand extraction and qualify that extraction
+separately. A failed control or balance check stops interpretation of the
+profile comparison.
+
+## What the result can decide
+
+This experiment can identify whether independent-ply compliance or unequal
+sharing is consequential enough to prioritize leg redesign. It cannot select
+stitch spacing, establish real load sharing, prove buckling resistance, assign
+panel strength, or qualify the workshop adhesive. Its next physical model must
+replace imposed sharing with actual connector engagement/slip and allow
+independent-ply motion under justified restraints.
+
+If this mechanism governs, changing 2×8 rims to 2×10 or 2×12 is not the targeted
+remedy. Develop either a documented structural lamination, a verified
+mechanically connected two-ply assembly with no adhesive credit, or a separately
+checked engineered-member geometry. Material identity and connection evidence
+remain prerequisites for comparing demands with resistance, not reasons to
+invent capacities for the present C-3 plywood reference.

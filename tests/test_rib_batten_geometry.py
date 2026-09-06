@@ -2,6 +2,7 @@
 import pytest
 
 from mini_moonboard import box_frame as b
+from mini_moonboard.box_exports import overlap
 from mini_moonboard.footprint_frame import connections, parts
 
 
@@ -40,3 +41,27 @@ def test_actual_foot100_rib_and_front_screw_depths():
                    for axis in "xyz") and shaft.intersect(part.shape).Volume() > 1e-4:
                 hits.add(name)
         assert hits == set(connection.members), (connection.name, hits)
+
+
+@pytest.mark.parametrize("width,length,expected_overlap", [
+    (44.45, 114.3, 22580.6),  # Centred axial-only SDWS16 distance envelope.
+    (50.8, 203.2, 42858.69),  # Centred SDWS16312 perpendicular lateral envelope.
+])
+def test_enlarged_rib_distance_envelopes_require_relocated_rear_angles(
+        width, length, expected_overlap):
+    # Geometric exclusion screen only: no product capacity, stock selection,
+    # bore/head clearance or manufacturing allowance is established here.
+    bodies = {part.name: part.shape for part in parts(100, False)}
+    origin = b.point(0, 0, 0)
+    tangent = (b.point(0, 1, 0)-origin).normalized()
+    ribs = {name: shape for name, shape in bodies.items() if name.startswith("rib_")}
+    assert len(ribs) == 12
+    for name, original in ribs.items():
+        center = original.Center()
+        x, s = center.x, (center-origin).dot(tangent)
+        enlarged = b.block(x-width/2, x+width/2, s-length/2, s+length/2,
+                           38.1, 128.05)
+        hits = {other: volume for other, shape in bodies.items()
+                if other != name and (volume := overlap(enlarged, shape)) > 1e-4}
+        assert set(hits) == {"angle_"+name}
+        assert hits["angle_"+name] == pytest.approx(expected_overlap, abs=1e-3)

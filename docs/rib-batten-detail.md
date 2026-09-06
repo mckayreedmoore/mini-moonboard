@@ -92,6 +92,36 @@ not a generic deck screw or an SDS substitution in an SD-only connector.
 
 ## Decision and next physical detail
 
+### Enlarging the block is a joint-layout change
+
+A follow-up all-12-rib CAD screen uses two centred, rectangular distance
+envelopes, retaining the existing N = 38.1–128.05 mm bearing depth:
+
+| Screen, not a selected block | X width × S length, mm (in) | Overlap with each existing rear angle, mm³ |
+| --- | --- | ---: |
+| SDWS16 axial-only end/edge minima doubled | 44.45 × 114.3 (1.75 × 4.5) | 22,580.60 |
+| SDWS16312 perpendicular-to-grain lateral end/edge minima doubled | 50.8 × 203.2 (2 × 8) | 42,858.69 |
+
+The second envelope uses the guide's 4 in end distance and 1 in edge distance
+for that specific screw and loading direction (page 47). These are necessary
+centred-screw distance screens, not a combined-load design, nominal lumber
+sizes, selected stock, or an allowance for cutting tolerances. The existing
+off-centre screw location would not meet these symmetric end-distance limits.
+
+Both envelopes intersect their corresponding rear angle at **every** rib.
+Against the unchanged undrilled assembly, no other positive-volume body
+intersection was found for these individual substitutions. This check does not
+include replacement-angle geometry, fastener heads/tool access, hardware/wiring
+envelopes, or a new hole layout. It cannot establish that an enlarged assembly
+fits or that its connections carry the demand. The existing tests now reproduce
+these overlap volumes as well as the original screw-depth checks.
+
+Consequently, do not switch to an enlarged block in isolation. The next detail
+candidate must move/redesign its rear angle and bolts together with the block,
+then audit all stations and the front fastener's actual bearing/thread geometry.
+A front clip with a documented applicable installation remains an alternative;
+neither route currently justifies deeper perimeter rims.
+
 The same-envelope side-grain block is a useful preserved concept, but **is not
 ready to replace the current assembly**. No CAD or purchase-list change follows
 from this note. Before committing to it, select an applicable smaller-fastener

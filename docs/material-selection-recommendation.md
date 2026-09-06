@@ -174,6 +174,11 @@ process, but not the need for a verified leg assembly. It neither requires deepe
 rims nor establishes that 2×8 rims suffice; retain the existing geometry baseline
 until member-specific demand/resistance identifies what governs.
 
+The [independent-ply experiment plan](independent-leg-test-plan.md) now binds
+that next comparison to the current drilled foot100 profile. Its CAD preflight
+passes for both split legs, including planar floor seating and through-bores;
+no solver result or physical load-sharing qualification is claimed by that test.
+
 ## Floor friction is a separate material input
 
 USDA reports that wood friction depends on moisture, surface roughness and the
