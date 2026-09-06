@@ -168,6 +168,20 @@ def numeric(lines, width, *, empty=False, finite=True):
     return rows
 
 
+def nodal_vectors(lines, node_ids):
+    """Parse one complete native U or V table into integer-node → XYZ tuples.
+
+    The caller takes the required DAT block; missing blocks are not empty fields.
+    """
+    expected = list(node_ids)
+    require(expected and all(type(n) is int and n > 0 for n in expected)
+            and len(expected) == len(set(expected)), "Invalid body node ownership")
+    rows = numeric(lines, 4)
+    ids = [r[0] for r in rows]
+    require(len(ids) == len(set(ids)) and set(ids) == set(expected), "Incomplete body U/V ownership")
+    return {int(row[0]): row[1:] for row in rows}
+
+
 def contact_force(lines):
     labels = ("total surface force (fx,fy,fz) and moment about the origin (mx,my,mz)",
               "center of gravity and mean normal", "moment about the center of gravity(mx,my,mz)",
@@ -207,10 +221,8 @@ def outputs(text, times, context):
         for name in ("BOLT_NUT", "WASHER"):
             body = {}
             for label, key in (("displacements", "max_displacement_mm"), ("velocities", "max_velocity_mm_s")):
-                rows = numeric(take(f"{label} (vx,vy,vz) for set {name} and time"), 4)
-                ids = [r[0] for r in rows]
-                require(len(ids) == len(set(ids)) and set(ids) == set(context["bodies"][name]["nodes"]), "Incomplete body U/V ownership")
-                body[key] = max(math.hypot(*r[1:]) for r in rows)
+                vectors = nodal_vectors(take(f"{label} (vx,vy,vz) for set {name} and time"), context["bodies"][name]["nodes"])
+                body[key] = max(math.hypot(*v) for v in vectors.values())
             for label, key in (("mass", "observed_mass_tonne"), ("kinetic energy", "ELKE_N_mm"), ("internal energy", "ELSE_N_mm")):
                 body[key] = scalar(f"total {label} for set {name} and time")
             require(body["observed_mass_tonne"] > 0, "Nonpositive mass")

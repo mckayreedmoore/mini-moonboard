@@ -196,3 +196,70 @@ def test_actual_density_and_body_sections_rejected_even_with_resealed_hashes(pre
     with pytest.raises(ValueError, match="assignment differs|sections or density differ"):
         cache.build(prepared, tmp_path / "outputs")
     assert not (tmp_path / "outputs").exists()
+
+
+def add_moving_deck(prepared):
+    directory = prepared.parent
+    moving = (directory / "quiescent.inp").read_bytes() + b"** separately frozen moving deck\n"
+    (directory / "moving.inp").write_bytes(moving)
+    data = json.loads(prepared.read_bytes())
+    data["deck_sha256"]["moving"] = cache.sha(moving)
+    prepared.write_text(json.dumps(data))
+    path = directory / "freeze.json"
+    freeze = json.loads(path.read_bytes())
+    freeze["files_sha256"].update({"context.json": cache.sha(prepared.read_bytes()), "moving.inp": cache.sha(moving)})
+    path.write_text(json.dumps(freeze))
+    return moving
+
+
+def test_explicit_moving_selects_only_its_frozen_deck(prepared, tmp_path, monkeypatch):
+    moving = add_moving_deck(prepared)
+    stub_integration(monkeypatch)
+    directory = cache.build(prepared, tmp_path / "outputs", case="moving")
+    assert (directory / "moving.inp").read_bytes() == moving
+    assert not (directory / "quiescent.inp").exists()
+    report = json.loads((directory / "report.json").read_text())
+    assert report["case"] == "moving" and report["deck_sha256"] == cache.sha(moving)
+
+
+def test_explicit_quiet_keeps_default_payload_and_schema(prepared, tmp_path, monkeypatch):
+    stub_integration(monkeypatch)
+    default = cache.build(prepared, tmp_path / "outputs")
+    explicit = cache.build(prepared, tmp_path / "outputs", case="quiescent")
+    assert {p.name: p.read_bytes() for p in default.iterdir()} == {p.name: p.read_bytes() for p in explicit.iterdir()}
+    assert "case" not in json.loads((default / "report.json").read_text())
+
+
+@pytest.mark.parametrize("case", ["", "MOVING", "../moving", None, True, []])
+def test_invalid_case_rejected_before_read_or_integration(tmp_path, case):
+    with pytest.raises(ValueError, match="case must be"):
+        cache.build(tmp_path / "missing", tmp_path / "outputs", case=case)
+    assert not (tmp_path / "outputs").exists()
+
+
+def test_absent_moving_case_is_not_inferred_from_quiet(prepared, tmp_path):
+    with pytest.raises(ValueError, match="case/deck is absent"):
+        cache.build(prepared, tmp_path / "outputs", case="moving")
+    assert not (tmp_path / "outputs").exists()
+
+
+@pytest.mark.parametrize("fault", ["hash", "coordinate", "density"])
+def test_moving_deck_identity_and_mesh_checked_before_integration(prepared, tmp_path, fault):
+    moving = add_moving_deck(prepared)
+    if fault == "hash":
+        moving += b"changed"
+    elif fault == "coordinate":
+        moving = moving.replace(b"1,1.0,0.0,0.0", b"1,1.1,0.0,0.0", 1)
+    else:
+        moving = moving.replace(b"*DENSITY\n1.0", b"*DENSITY\n2.0")
+    (tmp_path / "moving.inp").write_bytes(moving)
+    if fault != "hash":
+        data = json.loads(prepared.read_bytes())
+        data["deck_sha256"]["moving"] = cache.sha(moving)
+        prepared.write_text(json.dumps(data))
+        freeze = json.loads((tmp_path / "freeze.json").read_bytes())
+        freeze["files_sha256"].update({"context.json": cache.sha(prepared.read_bytes()), "moving.inp": cache.sha(moving)})
+        (tmp_path / "freeze.json").write_text(json.dumps(freeze))
+    with pytest.raises(ValueError, match="deck hash differs|deck mesh differs|density differ"):
+        cache.build(prepared, tmp_path / "outputs", case="moving")
+    assert not (tmp_path / "outputs").exists()

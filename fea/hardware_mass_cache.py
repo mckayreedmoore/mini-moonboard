@@ -162,7 +162,9 @@ def validate_cache(cache, context_bytes):
     return result
 
 
-def build(context_path, parent=Path("fea/generated/hardware-mass-caches")):
+def build(context_path, parent=Path("fea/generated/hardware-mass-caches"), *, case="quiescent"):
+    if type(case) is not str or case not in ("quiescent", "moving"):
+        raise ValueError("Mass cache case must be quiescent or moving")
     before = sources()
     context_path = Path(context_path)
     data = context_path.read_bytes()
@@ -172,10 +174,13 @@ def build(context_path, parent=Path("fea/generated/hardware-mass-caches")):
         raise ValueError("Prepared context hash differs")
     context = json.loads(data)
     nodes, elements, density = context_mesh(context)
-    deck_path = context_path.parent / "quiescent.inp"
+    deck_name = case + ".inp"
+    if case not in context["deck_sha256"] or deck_name not in freeze["files_sha256"]:
+        raise ValueError("Selected prepared case/deck is absent")
+    deck_path = context_path.parent / deck_name
     deck_bytes = deck_path.read_bytes()
-    if (freeze["files_sha256"]["quiescent.inp"] != sha(deck_bytes)
-            or context["deck_sha256"]["quiescent"] != sha(deck_bytes)):
+    if (freeze["files_sha256"][deck_name] != sha(deck_bytes)
+            or context["deck_sha256"][case] != sha(deck_bytes)):
         raise ValueError("Prepared deck hash differs")
     deck_mesh(deck_bytes.decode(), context)
     import gmsh
@@ -186,7 +191,7 @@ def build(context_path, parent=Path("fea/generated/hardware-mass-caches")):
     directory = Path(tempfile.mkdtemp(prefix="mass-cache-", dir=parent))
     (directory / "context.json").write_bytes(data)
     (directory / "prepared-freeze.json").write_bytes(freeze_bytes)
-    (directory / "quiescent.inp").write_bytes(deck_bytes)
+    (directory / deck_name).write_bytes(deck_bytes)
     for name, source in before.items():
         (directory / (name + ".snapshot")).write_bytes(source)
     cache = {"status": "SOURCE-DERIVED MASS CACHE ONLY", "limits": LIMITS,
@@ -213,6 +218,8 @@ def build(context_path, parent=Path("fea/generated/hardware-mass-caches")):
               "context_sha256": sha(data), "prepared_freeze_sha256": sha(freeze_bytes),
               "deck_sha256": sha(deck_bytes),
               "blocks_sha256": sha(payload), "source_sha256": {n: sha(b) for n, b in before.items()}}
+    if case != "quiescent":
+        report["case"] = case
     (directory / "report.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
     return directory
 
@@ -221,5 +228,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("context", type=Path)
     parser.add_argument("--output", type=Path, default=Path("fea/generated/hardware-mass-caches"))
+    parser.add_argument("--case", choices=("quiescent", "moving"), default="quiescent")
     args = parser.parse_args()
-    print(build(args.context, args.output))
+    print(build(args.context, args.output, case=args.case))

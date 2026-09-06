@@ -349,3 +349,85 @@ within its frozen cap, with successful owned-container cleanup. Both posed
 mass operators are archived; native reference masses agree with both bodies'
 printed masses throughout the window. This releases preparation of the moving
 comparison, not moving contact or joint/board capacity qualification.
+
+## Moving comparison protocol — selected, not launched
+
+The next preparation must bind the passed posed quiet evidence and retain its
+exact serialized nodes, connectivity, material/contact parameters and surface
+ownership. It changes only the initial washer velocity to `(-100,100,0)` mm/s
+and the diagnostic time window; the core remains initially stationary and free.
+There is no velocity ramp, external load, restraint, preload or added damping.
+The fixed angular reference is `c=(1.001,0.7356,0)` mm, not the earlier centred
+reference. Each moving deck needs its own context-bound mass cache, even though
+the coordinates and thus its mass operators should match the posed quiet case.
+
+| Case | Fixed increment | Duration | Increments | Inner / outer runtime cap |
+| --- | --- | --- | --- | --- |
+| First moving comparison | 1e−7 s | 2e−5 s | 200 | 1800 / 1820 s |
+| Conditional refinement | 5e−8 s | 2e−5 s | 400 | 3600 / 3620 s |
+
+Use NLGEOM, implicit `DYNAMIC,DIRECT,ALPHA=0`, with EXPLICIT omitted. These are
+selected preparation requirements, **not yet a launchable frozen experiment**:
+the existing launcher still accepts stationary cases only. Each eventual
+launch must be explicitly selected, single-use and bounded, retaining its own
+command, binary/build identity, raw output, exit and owned-container cleanup.
+No timeout extension, automatic retry or automatic refinement is permitted.
+
+DIRECT provides nested grids for comparison, not proof of stability. It still
+calls native impact logic and can terminate on nonconvergence. The quiet
+runtime extrapolates to approximately 930 / 1860 seconds before nonlinear
+contact overhead; caps are limits, not completion predictions. Nominal contact
+engagement is around 10 microseconds, but mesh geometry can change the actual
+engagement times. Neither simultaneous engagement nor a particular contact
+time is an acceptance condition. Failure requires diagnosis; adaptive stepping
+would be a separately frozen experiment, not an implicit fallback.
+
+Before launch, implement and test an offline replay with these definitions:
+
+- Retain all full nodal U/V tables, exact body ownership and every accepted
+  contact sample. Actual STA times must match the requested complete grid.
+- Reconstruct each body's native four-point and physical Gauss8 mass, P, H and
+  KE separately from its full element matrices. No row lumping, shared-body
+  nodes or substitution of static RF for dynamic balance. The formal balance
+  gates below use the native operator; Gauss8 remains a separate diagnostic.
+- Native EMAS relative error remains ≤5e−6 for each body at every state.
+  Native KE error is bounded by
+  `5e−6 max(abs(KE_native), abs(KE_reconstructed), 1e−8 E*)`.
+  Report when the small reference floor controls a comparison; that is an
+  absolute-normalized check, not relative kinetic-energy qualification.
+- Use current positions `X+U`. Transform `Hc=H0−c×P` and each pair's
+  `Mc=M0−c×F`. Trapezoidally integrate signed vectors over every accepted
+  interval. The initial zero-force sample must be justified from the separated
+  initial geometry, passed quiet evidence and absence of a velocity-dependent
+  contact law; do not infer it from a missing first output interval.
+- Compare washer `ΔP−ΣJ` and `ΔHc−ΣK`; independently reconstruct the core and
+  compare `ΔP+ΣJ` and `ΔHc+ΣK`. Equal-and-opposite contact resultants alone are
+  not proof that the core balances. Preserve the per-body limits of 1e−3 P*
+  and 1e−3 H*, and assembly drift limits of 1e−4 P* and 1e−4 H*, throughout
+  the accepted window.
+- Preserve the total energy residual limit of 1% E* throughout the window:
+  `sum(ELKE+ELSE)+CELS−initial_energy`, with no external work in this fixture.
+  Keep the native energy audit and physical Gauss8 comparison distinct.
+- Require each pair's **endpoint net impulse-vector magnitude** ≥1e−3 P*
+  and endpoint core KE ≥1e−4 E*. Also retain cumulative force-norm integrals
+  and peak core KE to expose cancellation or transient transfer. Insufficient
+  endpoint transfer is inconclusive, not qualification.
+- Only a complete coarse pass permits the separately selected half-step run.
+  Both runs must independently pass the same balance/energy/transfer gates.
+  At every matching coarse-grid time, including the endpoint, require each
+  body's P and each pair's accumulated J to differ by ≤1% P*, each body's Hc
+  and each pair's accumulated K by ≤1% H*, and total energy by ≤1% E*.
+
+These are numerical qualification gates, not structural allowables. Moving
+contact qualification would enable the subsequent stitched-versus-independent
+leg comparison; it would not establish plywood resistance or approve a build.
+
+The initial-force assumption is supported for this particular unchanged law:
+CalculiX 2.21 `gencontelem_f2f.f:551–560` excludes positive-clearance contact
+points in dynamic, non-tied contact. `springforc_f2f.f:186–200` computes the
+linear spring response from displacement-derived clearance, area and penalty,
+without a velocity term. Its linear formula itself is not a positive-part
+clamp; inactive-contact suppression happens during contact generation. Together
+with the exact separated pose and recorded quiet CNUM=0, this supports the
+initial zero-force sample when only initial velocity changes. It does **not**
+establish zero force over the first finite interval or cover another contact law.

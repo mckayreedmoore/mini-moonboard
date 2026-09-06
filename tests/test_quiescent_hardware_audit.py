@@ -103,6 +103,26 @@ def test_synthetic_complete_native_format_passes_quiet_only(complete):
     assert report["pair_sampled_force_norm_integral_N_s"] == {"WASHER_HEAD": 0, "WASHER_BORE": 0}
 
 
+def test_nodal_vectors_preserve_all_signed_components_and_integer_ownership():
+    assert audit.nodal_vectors(["12 -1.25 2.5 -3e-2", "4 7 -8 9"], [4, 12]) == {
+        12: (-1.25, 2.5, -.03), 4: (7., -8., 9.)}
+
+
+@pytest.mark.parametrize("rows", [[], ["4 1 2 3"], ["4 1 2 3", "4 4 5 6"],
+    ["4 1 2 3", "13 4 5 6"], ["4 1 2 3", "12.5 4 5 6"],
+    ["4 1 2 3", "12 NaN 5 6"], ["4 1 2 3", "12 4 inf 6"],
+    ["4 1 2 3", "12 4 5"], ["4 1 2 3", "12 4 5 6", "13 7 8 9"]])
+def test_nodal_vectors_reject_incomplete_duplicate_foreign_or_nonfinite_rows(rows):
+    with pytest.raises(ValueError):
+        audit.nodal_vectors(rows, [4, 12])
+
+
+@pytest.mark.parametrize("ids", [[], [4, 4], [4, 12.], [4, True], [4, -12]])
+def test_nodal_vectors_reject_invalid_expected_ownership(ids):
+    with pytest.raises(ValueError, match="Invalid body node ownership"):
+        audit.nodal_vectors(["4 1 2 3", "12 4 5 6"], ids)
+
+
 @pytest.mark.parametrize("missing", [None, "relative contact displacement", "contact stress",
                                     "contact spring energy (", "total number of contact elements",
                                     "total contact spring energy", "statistics for slave set WASHER_HEAD",
