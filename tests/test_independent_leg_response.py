@@ -1,5 +1,6 @@
 """Small analytic mesh fixture; archived actual profile replay added separately."""
 import hashlib
+import json
 import tarfile
 from pathlib import Path
 
@@ -7,7 +8,7 @@ import numpy as np
 import pytest
 
 from fea.floor_contact import FACES, mesh
-from fea.independent_leg_response import audit, deck, validate_prepared
+from fea.independent_leg_response import audit, deck, replay_archive, validate_prepared
 from fea.independent_ply_control import deck as control_deck
 from fea.independent_ply_control import resultant
 from fea.section_force_tet_coupon import triangle_loads
@@ -120,3 +121,13 @@ def test_prepared_fixture_metadata_is_bound_to_verified_archive(tmp_path):
     target.write_bytes(target.read_bytes()+b"\n")
     with pytest.raises(ValueError, match="fixture/mesh"):
         validate_prepared(tmp_path)
+
+
+def test_archived_actual_profile_response():
+    root = Path("fea/results/independent_leg_response")
+    report = json.loads((root/"report.json").read_text())
+    assert hashlib.sha256((root/"evidence.tar.gz").read_bytes()).hexdigest() == report["archive_sha256"]
+    assert hashlib.sha256((root/"publisher.py").read_bytes()).hexdigest() == report["publisher_source_sha256"]
+    actual = replay_archive(root/"evidence.tar.gz")
+    assert actual["pass"]
+    assert all(report[key] == value for key, value in actual.items())

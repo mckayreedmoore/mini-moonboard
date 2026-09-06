@@ -174,10 +174,15 @@ process, but not the need for a verified leg assembly. It neither requires deepe
 rims nor establishes that 2×8 rims suffice; retain the existing geometry baseline
 until member-specific demand/resistance identifies what governs.
 
-The [independent-ply experiment plan](independent-leg-test-plan.md) now binds
-that next comparison to the current drilled foot100 profile. Its CAD preflight
-passes for both split legs, including planar floor seating and through-bores;
-no solver result or physical load-sharing qualification is claimed by that test.
+The [independent-ply experiment](../fea/results/independent_leg_response/README.md)
+now includes a verified control and current drilled foot100 profile runs.
+Evenly shared independent plies show 3.9223× out-of-plane compliance versus the
+bonded reference, with less than 0.04% in-plane change, under the declared
+generic-material fixed-bore fixtures. This supports prioritizing real composite
+action and lateral restraint; it is not a strength ratio or proof of actual
+connector sharing. Keep qualified lamination as the preferred two-sheet route
+to develop, while retaining the mechanically connected alternative for explicit
+connector/stability verification rather than rejecting it on stiffness alone.
 
 ## Floor friction is a separate material input
 

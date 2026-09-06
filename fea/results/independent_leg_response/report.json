@@ -1,0 +1,2064 @@
+{
+  "scope": "CONDITIONAL LINEAR FIXED-BORE COMPLIANCE; NO CAPACITY OR PHYSICAL CONTACT ACCEPTANCE",
+  "gates": {
+    "force_n": 0.001,
+    "moment_nmm": 0.01,
+    "fixed_displacement_mm": 1e-09,
+    "unloaded_displacement_mm": 1e-09,
+    "relative_mesh_compliance": 0.05,
+    "relative_energy_work": 0.001,
+    "unloaded_energy_nmm": 1e-10
+  },
+  "max_seconds_per_job": 120,
+  "verified_mesh_archive_sha256": "ff5712e8d8edddde33310d67307655272b98d7bc62e88f56dc4f32c308e0e699",
+  "solver_image_id": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+  "source_sha256": {
+    "/work/fea/independent_leg_response.py": "837488351bc4f26ddbf3205431b95f95d882f5d2e66d3e0c5090c748f95fdd64",
+    "fea/independent_ply_control.py": "2b5c9e3efcab711a9374554a9e5f06e5679e0bdc049293c4c44f2430d1691fa7",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/section_force_coupon.py": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127",
+    "fea/section_force_tet_coupon.py": "6ef85362a1884e022cfccd7bfab9ed5a964e513c8530dd80834224bda283cf42",
+    "fea/independent_leg_mesh.py": "ee185c9998e02b59d32feb9e1f4307b8bda3ad8d0131b321a20abc6b0c5425d6"
+  },
+  "jobs": {
+    "composite40": {
+      "status": "PASS_CONDITIONAL_GLOBAL_DIAGNOSTICS_ONLY",
+      "deck_sha256": "49f32fc267c645309e15e3be400cca960071185645ae6cad7ca24e8e5c94f09c",
+      "exit_code": 0,
+      "results": [
+        {
+          "sharing": "composite",
+          "axis": 0,
+          "applied_force_moment": [
+            1.0000000000000004,
+            0.0,
+            0.0,
+            0.0,
+            -5.684341886079971e-15,
+            -1403.9983879520007
+          ],
+          "reaction_force_moment": [
+            -0.99999989783279,
+            2.1675655004084e-07,
+            3.882577679567134e-07,
+            3.440845599795075e-05,
+            -0.00036399743287341633,
+            1403.9985784144194
+          ],
+          "balance_residual": [
+            1.0216721046951704e-07,
+            2.1675655004084e-07,
+            3.882577679567134e-07,
+            3.440845599795075e-05,
+            -0.0003639974328791007,
+            0.0001904624186863657
+          ],
+          "unit_load_compliance_mm_per_n": 0.22431668333333343,
+          "energy_from_half_external_work_nmm": 0.11215834166666672,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.23146450873849533,
+              "native_internal_energy_nmm": 0.05607928
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.23146450773667696,
+              "native_internal_energy_nmm": 0.05607906
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "composite",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            1.0000000000000004,
+            0.0,
+            5.684341886079971e-15,
+            0.0,
+            1276.3500000000006
+          ],
+          "reaction_force_moment": [
+            6.173592001019758e-09,
+            -1.000000009579,
+            -3.545162000768815e-08,
+            -1.6932640838318927e-05,
+            5.320194611053248e-05,
+            -1276.350017753404
+          ],
+          "balance_residual": [
+            6.173592001019758e-09,
+            -9.578999593529147e-09,
+            -3.545162000768815e-08,
+            -1.6932640832634584e-05,
+            5.320194611053248e-05,
+            -1.775340342646814e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.010328328833333338,
+          "energy_from_half_external_work_nmm": 0.005164164416666669,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.011374548864412387,
+              "native_internal_energy_nmm": 0.002582093
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.011374563567602976,
+              "native_internal_energy_nmm": 0.002582072
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "composite",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            1.0000000000000004,
+            1403.9983879520007,
+            -1276.3500000000006,
+            0.0
+          ],
+          "reaction_force_moment": [
+            1.8004889995264895e-09,
+            5.641729995606061e-09,
+            -1.00000000768792,
+            -1403.9984034639358,
+            1276.3500124746458,
+            5.200113572576383e-06
+          ],
+          "balance_residual": [
+            1.8004889995264895e-09,
+            5.641729995606061e-09,
+            -7.687919634236096e-09,
+            -1.551193508930737e-05,
+            1.2474645245674765e-05,
+            5.200113572576383e-06
+          ],
+          "unit_load_compliance_mm_per_n": 0.0014371681166666674,
+          "energy_from_half_external_work_nmm": 0.0007185840583333337,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.004200186583615134,
+              "native_internal_energy_nmm": 0.0003592932
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.004200190491395018,
+              "native_internal_energy_nmm": 0.0003592908
+            }
+          },
+          "pass": true
+        }
+      ],
+      "output_sha256": {
+        "composite40.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "composite40.dat": "8f4ef27f3d9c833ecd7f30c77c8fdaae89fc82bcacbc273ac0f864c13e00716e",
+        "composite40.log": "b911f7bf7c509c70a702fb7a5e8ed799b68288e9b04f577620c952756622850d",
+        "composite40.frd": "d1a5493169c4de5f8fea0bd460c97b10743678fc1680f048244a72d960e566a3",
+        "composite40.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+        "composite40.sta": "92309906ae07ca70ed9bc6ea03391c51670a3aad8d33b096591b0fef2ba98776"
+      }
+    },
+    "independent40": {
+      "status": "PASS_CONDITIONAL_GLOBAL_DIAGNOSTICS_ONLY",
+      "deck_sha256": "85c6405d2519e51cedfb112e9cdfa348f74047960402d0b0267b24e3f40c4218",
+      "exit_code": 0,
+      "results": [
+        {
+          "sharing": "symmetric",
+          "axis": 0,
+          "applied_force_moment": [
+            1.0000000000000004,
+            0.0,
+            0.0,
+            0.0,
+            -5.684341886079971e-15,
+            -1403.9983879520007
+          ],
+          "reaction_force_moment": [
+            -1.0000000158111302,
+            -2.9124281007346924e-07,
+            6.196967498406109e-07,
+            0.0009704283870384839,
+            -0.0008140413970197321,
+            1403.998047477844
+          ],
+          "balance_residual": [
+            -1.5811129738807495e-08,
+            -2.9124281007346924e-07,
+            6.196967498406109e-07,
+            0.0009704283870384839,
+            -0.0008140413970254165,
+            -0.00034047415670102055
+          ],
+          "unit_load_compliance_mm_per_n": 0.879389639166667,
+          "energy_from_half_external_work_nmm": 0.4396948195833335,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.907248966457413,
+              "native_internal_energy_nmm": 0.2198451,
+              "energy_from_half_external_work_nmm": 0.2198450558333334,
+              "reaction_force_moment": [
+                -0.49999982442507007,
+                -5.522674999583408e-07,
+                3.5042379980022924e-07,
+                0.0011166220868219483,
+                -0.0001794428473773041,
+                701.9983370403986
+              ],
+              "applied_force_moment": [
+                0.5000000000000002,
+                0.0,
+                0.0,
+                0.0,
+                -2.8421709430399856e-15,
+                -701.9991939760002
+              ],
+              "balance_residual": [
+                1.7557493015019077e-07,
+                -5.522674999583408e-07,
+                3.5042379980022924e-07,
+                0.0011166220868219483,
+                -0.00017944284738014628,
+                -0.0008569356016323582
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.9072680666836325,
+              "native_internal_energy_nmm": 0.2198498,
+              "energy_from_half_external_work_nmm": 0.2198497637500001,
+              "reaction_force_moment": [
+                -0.50000019138606,
+                2.610246898848716e-07,
+                2.692729500403816e-07,
+                -0.00014619369978346444,
+                -0.000634598549642428,
+                701.9997104374454
+              ],
+              "applied_force_moment": [
+                0.5000000000000002,
+                0.0,
+                0.0,
+                0.0,
+                -2.8421709430399856e-15,
+                -701.9991939760004
+              ],
+              "balance_residual": [
+                -1.9138605977797596e-07,
+                2.610246898848716e-07,
+                2.692729500403816e-07,
+                -0.00014619369978346444,
+                -0.0006345985496452702,
+                0.0005164614450450244
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "symmetric",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            1.0000000000000004,
+            0.0,
+            5.684341886079971e-15,
+            0.0,
+            1276.3500000000006
+          ],
+          "reaction_force_moment": [
+            9.97908000007025e-09,
+            -1.00000003514206,
+            1.3620556002682438e-07,
+            0.00017810204900430828,
+            -0.00015853947185438377,
+            -1276.3500535147077
+          ],
+          "balance_residual": [
+            9.97908000007025e-09,
+            -3.514205948462745e-08,
+            1.3620556002682438e-07,
+            0.00017810204900999262,
+            -0.00015853947185438377,
+            -5.35147071332176e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.010331835750000004,
+          "energy_from_half_external_work_nmm": 0.005165917875000002,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.011378306678336676,
+              "native_internal_energy_nmm": 0.002582949,
+              "energy_from_half_external_work_nmm": 0.002582949375000001,
+              "reaction_force_moment": [
+                1.6641299995981252e-09,
+                -0.50000004455386,
+                9.726100001160818e-08,
+                0.00015312432866477436,
+                -0.00012081158468049951,
+                -633.4125579244546
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.5000000000000002,
+                0.0,
+                2.8421709430399856e-15,
+                0.0,
+                633.4125000000003
+              ],
+              "balance_residual": [
+                1.6641299995981252e-09,
+                -4.455385982371496e-08,
+                9.726100001160818e-08,
+                0.00015312432866761654,
+                -0.00012081158468049951,
+                -5.7924454381463875e-05
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.011378393671693922,
+              "native_internal_energy_nmm": 0.002582968,
+              "energy_from_half_external_work_nmm": 0.002582968500000001,
+              "reaction_force_moment": [
+                8.314950000472124e-09,
+                -0.4999999905882,
+                3.8944560015216194e-08,
+                2.4977720339533927e-05,
+                -3.7727887173884256e-05,
+                -642.9374955902531
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.5000000000000002,
+                0.0,
+                2.8421709430399856e-15,
+                0.0,
+                642.9375000000003
+              ],
+              "balance_residual": [
+                8.314950000472124e-09,
+                9.411800228065204e-09,
+                3.8944560015216194e-08,
+                2.49777203423761e-05,
+                -3.7727887173884256e-05,
+                4.409747248246276e-06
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "symmetric",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            1.0000000000000004,
+            1403.9983879520007,
+            -1276.3500000000006,
+            0.0
+          ],
+          "reaction_force_moment": [
+            2.5053330005340094e-09,
+            -1.1179936004529002e-08,
+            -1.0000000100925,
+            -1403.998382431174,
+            1276.3500166391357,
+            -1.6457486591852798e-05
+          ],
+          "balance_residual": [
+            2.5053330005340094e-09,
+            -1.1179936004529002e-08,
+            -1.0092499502789565e-08,
+            5.5208267895068275e-06,
+            1.6639135083096335e-05,
+            -1.6457486591852798e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.001437573758333334,
+          "energy_from_half_external_work_nmm": 0.000718786879166667,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0042014477390306835,
+              "native_internal_energy_nmm": 0.0003593921,
+              "energy_from_half_external_work_nmm": 0.00035939204166666685,
+              "reaction_force_moment": [
+                9.97000000181671e-10,
+                -1.1974860004435278e-08,
+                -0.5000000022542,
+                -701.9991792994149,
+                633.4125043468018,
+                -1.608146857835839e-05
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.5000000000000002,
+                701.9991939760002,
+                -633.4125000000003,
+                0.0
+              ],
+              "balance_residual": [
+                9.97000000181671e-10,
+                -1.1974860004435278e-08,
+                -2.2541998268010843e-09,
+                1.4676585351480753e-05,
+                4.346801574683923e-06,
+                -1.608146857835839e-05
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.004201478623249022,
+              "native_internal_energy_nmm": 0.0003593948,
+              "energy_from_half_external_work_nmm": 0.0003593948375000002,
+              "reaction_force_moment": [
+                1.5083330003523384e-09,
+                7.949239999062759e-10,
+                -0.5000000078383,
+                -701.999203131759,
+                642.9375122923337,
+                -3.760180134944075e-07
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.5000000000000002,
+                701.9991939760004,
+                -642.9375000000003,
+                0.0
+              ],
+              "balance_residual": [
+                1.5083330003523384e-09,
+                7.949239999062759e-10,
+                -7.838299787010783e-09,
+                -9.155758675660763e-06,
+                1.2292333394725574e-05,
+                -3.760180134944075e-07
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 0,
+          "applied_force_moment": [
+            0.9999999999999996,
+            0.0,
+            0.0,
+            0.0,
+            -5.6843418860799664e-15,
+            -1403.9983879519993
+          ],
+          "reaction_force_moment": [
+            -0.9999998163941,
+            1.2091681200544843e-06,
+            1.9822199498342157e-08,
+            -0.001758369181137252,
+            0.0002458255350851991,
+            1403.9997473237452
+          ],
+          "balance_residual": [
+            1.8360589959520723e-07,
+            1.2091681200544843e-06,
+            1.9822199498342157e-08,
+            -0.001758369181137252,
+            0.00024582553507951474,
+            0.001359371745820681
+          ],
+          "unit_load_compliance_mm_per_n": 1.7587604666666659,
+          "energy_from_half_external_work_nmm": 0.8793802333333329,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 1.814498332899101,
+              "native_internal_energy_nmm": 0.8793802,
+              "energy_from_half_external_work_nmm": 0.8793802333333329,
+              "reaction_force_moment": [
+                -0.9999998163941,
+                1.2091681200544843e-06,
+                1.9822199498342157e-08,
+                -0.001758369181137252,
+                0.0002458255350851991,
+                1403.9997473237452
+              ],
+              "applied_force_moment": [
+                0.9999999999999996,
+                0.0,
+                0.0,
+                0.0,
+                -5.6843418860799664e-15,
+                -1403.9983879519993
+              ],
+              "balance_residual": [
+                1.8360589959520723e-07,
+                1.2091681200544843e-06,
+                1.9822199498342157e-08,
+                -0.001758369181137252,
+                0.00024582553507951474,
+                0.001359371745820681
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            0.9999999999999996,
+            0.0,
+            5.6843418860799664e-15,
+            0.0,
+            1266.8249999999996
+          ],
+          "reaction_force_moment": [
+            -1.0894000010008612e-09,
+            -0.9999999929177,
+            -5.990290000195007e-08,
+            -6.207027071223128e-05,
+            7.338975604346404e-05,
+            -1266.8249899340087
+          ],
+          "balance_residual": [
+            -1.0894000010008612e-09,
+            7.082299524618918e-09,
+            -5.990290000195007e-08,
+            -6.207027070654695e-05,
+            7.338975604346404e-05,
+            1.0065990863949992e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.020663595333333326,
+          "energy_from_half_external_work_nmm": 0.010331797666666663,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.022756622440204606,
+              "native_internal_energy_nmm": 0.0103318,
+              "energy_from_half_external_work_nmm": 0.010331797666666663,
+              "reaction_force_moment": [
+                -1.0894000010008612e-09,
+                -0.9999999929177,
+                -5.990290000195007e-08,
+                -6.207027071223128e-05,
+                7.338975604346404e-05,
+                -1266.8249899340087
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.9999999999999996,
+                0.0,
+                5.6843418860799664e-15,
+                0.0,
+                1266.8249999999996
+              ],
+              "balance_residual": [
+                -1.0894000010008612e-09,
+                7.082299524618918e-09,
+                -5.990290000195007e-08,
+                -6.207027070654695e-05,
+                7.338975604346404e-05,
+                1.0065990863949992e-05
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            0.9999999999999996,
+            1403.9983879519993,
+            -1266.8249999999996,
+            0.0
+          ],
+          "reaction_force_moment": [
+            1.9848399993654494e-09,
+            7.796979994483268e-09,
+            -0.9999999789148,
+            -1403.998379137538,
+            1266.824976434943,
+            7.89181949090509e-06
+          ],
+          "balance_residual": [
+            1.9848399993654494e-09,
+            7.796979994483268e-09,
+            2.108519958632371e-08,
+            8.814461352812941e-06,
+            -2.356505660827679e-05,
+            7.89181949090509e-06
+          ],
+          "unit_load_compliance_mm_per_n": 0.002875136399999999,
+          "energy_from_half_external_work_nmm": 0.0014375681999999996,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.00840289505035131,
+              "native_internal_energy_nmm": 0.001437568,
+              "energy_from_half_external_work_nmm": 0.0014375681999999996,
+              "reaction_force_moment": [
+                1.9848399993654494e-09,
+                7.796979994483268e-09,
+                -0.9999999789148,
+                -1403.998379137538,
+                1266.824976434943,
+                7.89181949090509e-06
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.9999999999999996,
+                1403.9983879519993,
+                -1266.8249999999996,
+                0.0
+              ],
+              "balance_residual": [
+                1.9848399993654494e-09,
+                7.796979994483268e-09,
+                2.108519958632371e-08,
+                8.814461352812941e-06,
+                -2.356505660827679e-05,
+                7.89181949090509e-06
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 0,
+          "applied_force_moment": [
+            0.9999999999999997,
+            0.0,
+            0.0,
+            0.0,
+            -5.6843418860799664e-15,
+            -1403.9983879519996
+          ],
+          "reaction_force_moment": [
+            -1.0000002001859,
+            7.979080099962127e-07,
+            1.766179034161902e-08,
+            -0.0011922966843785497,
+            -0.00032097750476767564,
+            1403.9995995459929
+          ],
+          "balance_residual": [
+            -2.0018590041193107e-07,
+            7.979080099962127e-07,
+            1.766179034161902e-08,
+            -0.0011922966843785497,
+            -0.00032097750477336,
+            0.0012115939932755282
+          ],
+          "unit_load_compliance_mm_per_n": 1.758798116666666,
+          "energy_from_half_external_work_nmm": 0.879399058333333,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 1.814536333373058,
+              "native_internal_energy_nmm": 0.8793991,
+              "energy_from_half_external_work_nmm": 0.879399058333333,
+              "reaction_force_moment": [
+                -1.0000002001859,
+                7.979080099962127e-07,
+                1.766179034161902e-08,
+                -0.0011922966843785497,
+                -0.00032097750476767564,
+                1403.9995995459929
+              ],
+              "applied_force_moment": [
+                0.9999999999999997,
+                0.0,
+                0.0,
+                0.0,
+                -5.6843418860799664e-15,
+                -1403.9983879519996
+              ],
+              "balance_residual": [
+                -2.0018590041193107e-07,
+                7.979080099962127e-07,
+                1.766179034161902e-08,
+                -0.0011922966843785497,
+                -0.00032097750477336,
+                0.0012115939932755282
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            0.9999999999999997,
+            0.0,
+            5.6843418860799664e-15,
+            0.0,
+            1285.8749999999995
+          ],
+          "reaction_force_moment": [
+            2.9770100032988466e-09,
+            -1.000000048813,
+            1.37795000081052e-08,
+            8.416759110525893e-05,
+            -1.3530392168463815e-05,
+            -1285.8750656210957
+          ],
+          "balance_residual": [
+            2.9770100032988466e-09,
+            -4.881300041947867e-08,
+            1.37795000081052e-08,
+            8.416759111094327e-05,
+            -1.3530392168463815e-05,
+            -6.56210961551551e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.020663746333333326,
+          "energy_from_half_external_work_nmm": 0.010331873166666663,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.022756778678061418,
+              "native_internal_energy_nmm": 0.01033187,
+              "energy_from_half_external_work_nmm": 0.010331873166666663,
+              "reaction_force_moment": [
+                2.9770100032988466e-09,
+                -1.000000048813,
+                1.37795000081052e-08,
+                8.416759110525893e-05,
+                -1.3530392168463815e-05,
+                -1285.8750656210957
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.9999999999999997,
+                0.0,
+                5.6843418860799664e-15,
+                0.0,
+                1285.8749999999995
+              ],
+              "balance_residual": [
+                2.9770100032988466e-09,
+                -4.881300041947867e-08,
+                1.37795000081052e-08,
+                8.416759111094327e-05,
+                -1.3530392168463815e-05,
+                -6.56210961551551e-05
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            0.9999999999999997,
+            1403.9983879519996,
+            -1285.8749999999995,
+            0.0
+          ],
+          "reaction_force_moment": [
+            -6.95523998607686e-10,
+            1.5904149997133233e-08,
+            -1.0000000213834,
+            -1403.9984327794512,
+            1285.8750265365488,
+            2.0933303870615625e-05
+          ],
+          "balance_residual": [
+            -6.95523998607686e-10,
+            1.5904149997133233e-08,
+            -2.1383400272689812e-08,
+            -4.48274515747471e-05,
+            2.653654928508331e-05,
+            2.0933303870615625e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.0028751587833333327,
+          "energy_from_half_external_work_nmm": 0.0014375793916666664,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.008402956818788906,
+              "native_internal_energy_nmm": 0.001437579,
+              "energy_from_half_external_work_nmm": 0.0014375793916666664,
+              "reaction_force_moment": [
+                -6.95523998607686e-10,
+                1.5904149997133233e-08,
+                -1.0000000213834,
+                -1403.9984327794512,
+                1285.8750265365488,
+                2.0933303870615625e-05
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.9999999999999997,
+                1403.9983879519996,
+                -1285.8749999999995,
+                0.0
+              ],
+              "balance_residual": [
+                -6.95523998607686e-10,
+                1.5904149997133233e-08,
+                -2.1383400272689812e-08,
+                -4.48274515747471e-05,
+                2.653654928508331e-05,
+                2.0933303870615625e-05
+              ]
+            }
+          },
+          "pass": true
+        }
+      ],
+      "output_sha256": {
+        "independent40.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+        "independent40.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "independent40.log": "6e71142cffd5713437656df927bf83211e0959f6dda465a7d39e8d235f491f1b",
+        "independent40.frd": "a8cac083d8cb4cf6579b461459dc3e68ec58b497c62fb3a0cd97f0c5c935ec22",
+        "independent40.dat": "5009d1882174de9e49edbf662a016136f58e3c626d090f51da80a0d819c70282",
+        "independent40.sta": "35d3a177ebf486fc65a0e3ce3723d996f75009aa0337b92891ab2fb7cc58d803"
+      }
+    },
+    "composite25": {
+      "status": "PASS_CONDITIONAL_GLOBAL_DIAGNOSTICS_ONLY",
+      "deck_sha256": "caadaed7cf16badcb60c8e9f8cfd59e99c5d16421ae99cbde69c5390039b6a41",
+      "exit_code": 0,
+      "results": [
+        {
+          "sharing": "composite",
+          "axis": 0,
+          "applied_force_moment": [
+            1.0000000000000002,
+            0.0,
+            0.0,
+            0.0,
+            -3.55271367880492e-15,
+            -1403.9983879519857
+          ],
+          "reaction_force_moment": [
+            -1.000000084900076,
+            1.6401676898471872e-07,
+            -5.224978890095446e-07,
+            -0.0007188835252700589,
+            0.0005465106026904419,
+            1403.9986781585792
+          ],
+          "balance_residual": [
+            -8.490007585848502e-08,
+            1.6401676898471872e-07,
+            -5.224978890095446e-07,
+            -0.0007188835252700589,
+            0.0005465106026868892,
+            0.00029020659349043854
+          ],
+          "unit_load_compliance_mm_per_n": 0.22448506562499881,
+          "energy_from_half_external_work_nmm": 0.11224253281249941,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.23163942048759897,
+              "native_internal_energy_nmm": 0.05612241
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.23163941909626817,
+              "native_internal_energy_nmm": 0.05612013
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "composite",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            1.0000000000000002,
+            0.0,
+            3.55271367880492e-15,
+            0.0,
+            1276.3500000000001
+          ],
+          "reaction_force_moment": [
+            3.1150329998894645e-09,
+            -0.9999999455235,
+            -3.451860001526266e-08,
+            -0.00011362577215804021,
+            4.929663166738105e-05,
+            -1276.349933444843
+          ],
+          "balance_residual": [
+            3.1150329998894645e-09,
+            5.4476500199740485e-08,
+            -3.451860001526266e-08,
+            -0.0001136257721544875,
+            4.929663166738105e-05,
+            6.655515721831762e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.01034568921875,
+          "energy_from_half_external_work_nmm": 0.005172844609375,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.011393796684764243,
+              "native_internal_energy_nmm": 0.002586455
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.01139381204453836,
+              "native_internal_energy_nmm": 0.00258639
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "composite",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            1.0000000000000002,
+            1403.9983879519857,
+            -1276.3500000000001,
+            0.0
+          ],
+          "reaction_force_moment": [
+            -7.985260004213527e-10,
+            -6.9719799991881964e-09,
+            -0.99999999591754,
+            -1403.998374571029,
+            1276.34999363326,
+            -8.129412817631102e-06
+          ],
+          "balance_residual": [
+            -7.985260004213527e-10,
+            -6.9719799991881964e-09,
+            4.082460258736376e-09,
+            1.3380956715991488e-05,
+            -6.366740080920863e-06,
+            -8.129412817631102e-06
+          ],
+          "unit_load_compliance_mm_per_n": 0.0014395830104166048,
+          "energy_from_half_external_work_nmm": 0.0007197915052083024,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.004207358718653209,
+              "native_internal_energy_nmm": 0.000359901
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.004207365796530017,
+              "native_internal_energy_nmm": 0.0003598905
+            }
+          },
+          "pass": true
+        }
+      ],
+      "output_sha256": {
+        "composite25.log": "55a05c698db197d637a8448d88595fc827541979b5c77456b8cb8ae945018fcf",
+        "composite25.sta": "92309906ae07ca70ed9bc6ea03391c51670a3aad8d33b096591b0fef2ba98776",
+        "composite25.dat": "f1abd9307ee24d96eb649e0a90279402f3742a2b1310ed5f906765a3d0c26b9a",
+        "composite25.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+        "composite25.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "composite25.frd": "a4562305c0971d703a32956a1184b90e201ca122865b9e3a7f07ecb87e47e48f"
+      }
+    },
+    "independent25": {
+      "status": "PASS_CONDITIONAL_GLOBAL_DIAGNOSTICS_ONLY",
+      "deck_sha256": "43c9f2e3779b823ef5a0f7d20a53472db9b88d10a7079da721404b37d5844cb2",
+      "exit_code": 0,
+      "results": [
+        {
+          "sharing": "symmetric",
+          "axis": 0,
+          "applied_force_moment": [
+            1.0000000000000002,
+            0.0,
+            0.0,
+            0.0,
+            -3.55271367880492e-15,
+            -1403.9983879519857
+          ],
+          "reaction_force_moment": [
+            -1.00000011684025,
+            8.93577629956775e-07,
+            -1.3605566820535341e-06,
+            -0.002523181647290338,
+            0.0015716402650317012,
+            1403.999637147771
+          ],
+          "balance_residual": [
+            -1.1684024969760287e-07,
+            8.93577629956775e-07,
+            -1.3605566820535341e-06,
+            -0.002523181647290338,
+            0.0015716402650281485,
+            0.0012491957852489577
+          ],
+          "unit_load_compliance_mm_per_n": 0.8804881312499954,
+          "energy_from_half_external_work_nmm": 0.4402440656249977,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.9083960764989297,
+              "native_internal_energy_nmm": 0.2201214,
+              "energy_from_half_external_work_nmm": 0.2201213994791657,
+              "reaction_force_moment": [
+                -0.49999999340009993,
+                4.400522999487983e-07,
+                -4.889396919340939e-07,
+                -0.001084156488634786,
+                0.0006304821905540273,
+                701.9997465937299
+              ],
+              "applied_force_moment": [
+                0.5000000000000006,
+                0.0,
+                0.0,
+                0.0,
+                -1.77635683940246e-15,
+                -701.9991939759934
+              ],
+              "balance_residual": [
+                6.599900626014232e-09,
+                4.400522999487983e-07,
+                -4.889396919340939e-07,
+                -0.001084156488634786,
+                0.000630482190552251,
+                0.0005526177365027252
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.9084015752528456,
+              "native_internal_energy_nmm": 0.2201227,
+              "energy_from_half_external_work_nmm": 0.22012266614583198,
+              "reaction_force_moment": [
+                -0.50000012344015,
+                4.535253300079768e-07,
+                -8.716169901194402e-07,
+                -0.0014390251586555518,
+                0.0009411580744776739,
+                701.999890554041
+              ],
+              "applied_force_moment": [
+                0.4999999999999996,
+                0.0,
+                0.0,
+                0.0,
+                -1.77635683940246e-15,
+                -701.9991939759922
+              ],
+              "balance_residual": [
+                -1.2344015037912826e-07,
+                4.535253300079768e-07,
+                -8.716169901194402e-07,
+                -0.0014390251586555518,
+                0.0009411580744758976,
+                0.0006965780488599194
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "symmetric",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            1.0000000000000002,
+            0.0,
+            3.55271367880492e-15,
+            0.0,
+            1276.3500000000001
+          ],
+          "reaction_force_moment": [
+            8.556197999887225e-09,
+            -0.99999999597196,
+            -4.5090319985874744e-08,
+            -4.617268622855101e-05,
+            7.106306782923236e-05,
+            -1276.3500039173316
+          ],
+          "balance_residual": [
+            8.556197999887225e-09,
+            4.028040234693719e-09,
+            -4.5090319985874744e-08,
+            -4.61726862249983e-05,
+            7.106306782923236e-05,
+            -3.9173314689833205e-06
+          ],
+          "unit_load_compliance_mm_per_n": 0.010348933489583335,
+          "energy_from_half_external_work_nmm": 0.0051744667447916675,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.011397121276607887,
+              "native_internal_energy_nmm": 0.002587189,
+              "energy_from_half_external_work_nmm": 0.0025871887500000025,
+              "reaction_force_moment": [
+                7.343177999188543e-09,
+                -0.49999995365256,
+                -6.86059999062307e-09,
+                -7.478536975382647e-05,
+                1.97370710937686e-05,
+                -633.4124479127245
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.5000000000000006,
+                0.0,
+                1.77635683940246e-15,
+                0.0,
+                633.4125000000006
+              ],
+              "balance_residual": [
+                7.343177999188543e-09,
+                4.634744055209694e-08,
+                -6.86059999062307e-09,
+                -7.478536975205011e-05,
+                1.97370710937686e-05,
+                5.208727611716313e-05
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.011397505692394054,
+              "native_internal_energy_nmm": 0.002587278,
+              "energy_from_half_external_work_nmm": 0.0025872779947916646,
+              "reaction_force_moment": [
+                1.2130200006986818e-09,
+                -0.5000000423194,
+                -3.8229719995251675e-08,
+                2.861268352527546e-05,
+                5.1325996735463765e-05,
+                -642.9375560046072
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.4999999999999996,
+                0.0,
+                1.77635683940246e-15,
+                0.0,
+                642.9374999999995
+              ],
+              "balance_residual": [
+                1.2130200006986818e-09,
+                -4.231940037291437e-08,
+                -3.8229719995251675e-08,
+                2.8612683527051816e-05,
+                5.1325996735463765e-05,
+                -5.6004607699833286e-05
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "symmetric",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            1.0000000000000002,
+            1403.9983879519857,
+            -1276.3500000000001,
+            0.0
+          ],
+          "reaction_force_moment": [
+            2.8339799985710957e-10,
+            1.162629999892017e-08,
+            -0.9999999882763188,
+            -1403.998393292225,
+            1276.3499853367778,
+            1.4901152293767981e-05
+          ],
+          "balance_residual": [
+            2.8339799985710957e-10,
+            1.162629999892017e-08,
+            1.1723681470066083e-08,
+            -5.340239340512198e-06,
+            -1.4663222373201279e-05,
+            1.4901152293767981e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.0014399507968749382,
+          "energy_from_half_external_work_nmm": 0.0007199753984374691,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.004208458514759875,
+              "native_internal_energy_nmm": 0.0003599816,
+              "energy_from_half_external_work_nmm": 0.00035998161197915154,
+              "reaction_force_moment": [
+                -6.14140000592663e-10,
+                -2.0460999987952373e-09,
+                -0.49999999821154,
+                -701.9991883285089,
+                633.4124967459859,
+                -1.8877753829283327e-06
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.5000000000000006,
+                701.9991939759934,
+                -633.4125000000006,
+                0.0
+              ],
+              "balance_residual": [
+                -6.14140000592663e-10,
+                -2.0460999987952373e-09,
+                1.7884605463258652e-09,
+                5.647484499604616e-06,
+                -3.2540147003601305e-06,
+                -1.8877753829283327e-06
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.004208601726042385,
+              "native_internal_energy_nmm": 0.0003599938,
+              "energy_from_half_external_work_nmm": 0.00035999378645831754,
+              "reaction_force_moment": [
+                8.975380004497726e-10,
+                1.3672399997715407e-08,
+                -0.4999999900647787,
+                -701.9992049637161,
+                642.9374885907918,
+                1.6788927676696314e-05
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.4999999999999996,
+                701.9991939759922,
+                -642.9374999999995,
+                0.0
+              ],
+              "balance_residual": [
+                8.975380004497726e-10,
+                1.3672399997715407e-08,
+                9.935220923740218e-09,
+                -1.0987723953803652e-05,
+                -1.1409207786527986e-05,
+                1.6788927676696314e-05
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 0,
+          "applied_force_moment": [
+            0.9999999999999992,
+            0.0,
+            0.0,
+            0.0,
+            -3.5527136788049115e-15,
+            -1403.9983879519843
+          ],
+          "reaction_force_moment": [
+            -0.9999999088249,
+            8.039487002314996e-07,
+            -5.195343799808359e-07,
+            -0.0016683409020449274,
+            0.0008066780173006764,
+            1403.9993202070953
+          ],
+          "balance_residual": [
+            9.117509924827516e-08,
+            8.039487002314996e-07,
+            -5.195343799808359e-07,
+            -0.0016683409020449274,
+            0.0008066780172971237,
+            0.0009322551109107735
+          ],
+          "unit_load_compliance_mm_per_n": 1.7609711979166556,
+          "energy_from_half_external_work_nmm": 0.8804855989583278,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 1.8167923529900047,
+              "native_internal_energy_nmm": 0.8804856,
+              "energy_from_half_external_work_nmm": 0.8804855989583278,
+              "reaction_force_moment": [
+                -0.9999999088249,
+                8.039487002314996e-07,
+                -5.195343799808359e-07,
+                -0.0016683409020449274,
+                0.0008066780173006764,
+                1403.9993202070953
+              ],
+              "applied_force_moment": [
+                0.9999999999999992,
+                0.0,
+                0.0,
+                0.0,
+                -3.5527136788049115e-15,
+                -1403.9983879519843
+              ],
+              "balance_residual": [
+                9.117509924827516e-08,
+                8.039487002314996e-07,
+                -5.195343799808359e-07,
+                -0.0016683409020449274,
+                0.0008066780172971237,
+                0.0009322551109107735
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            0.9999999999999992,
+            0.0,
+            3.5527136788049115e-15,
+            0.0,
+            1266.824999999999
+          ],
+          "reaction_force_moment": [
+            -1.2180360005974298e-09,
+            -1.0000000820062,
+            -6.899710003877313e-08,
+            5.813764506021335e-05,
+            8.652745025560481e-05,
+            -1266.8251039923275
+          ],
+          "balance_residual": [
+            -1.2180360005974298e-09,
+            -8.200620082998711e-08,
+            -6.899710003877313e-08,
+            5.8137645063766064e-05,
+            8.652745025560481e-05,
+            -0.00010399232860436314
+          ],
+          "unit_load_compliance_mm_per_n": 0.020697510416666648,
+          "energy_from_half_external_work_nmm": 0.010348755208333324,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.02279424297140861,
+              "native_internal_energy_nmm": 0.01034876,
+              "energy_from_half_external_work_nmm": 0.010348755208333324,
+              "reaction_force_moment": [
+                -1.2180360005974298e-09,
+                -1.0000000820062,
+                -6.899710003877313e-08,
+                5.813764506021335e-05,
+                8.652745025560481e-05,
+                -1266.8251039923275
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.9999999999999992,
+                0.0,
+                3.5527136788049115e-15,
+                0.0,
+                1266.824999999999
+              ],
+              "balance_residual": [
+                -1.2180360005974298e-09,
+                -8.200620082998711e-08,
+                -6.899710003877313e-08,
+                5.8137645063766064e-05,
+                8.652745025560481e-05,
+                -0.00010399232860436314
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "inner_only",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            0.9999999999999992,
+            1403.9983879519843,
+            -1266.824999999999,
+            0.0
+          ],
+          "reaction_force_moment": [
+            1.1717400001875735e-09,
+            1.4138700000911502e-08,
+            -0.999999995098,
+            -1403.9984035997384,
+            1266.8249956380562,
+            1.6723696130082786e-05
+          ],
+          "balance_residual": [
+            1.1717400001875735e-09,
+            1.4138700000911502e-08,
+            4.901999250961353e-09,
+            -1.564775402584928e-05,
+            -4.361942728792201e-06,
+            1.6723696130082786e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.0028798530624998737,
+          "energy_from_half_external_work_nmm": 0.0014399265312499368,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.008416915697907255,
+              "native_internal_energy_nmm": 0.001439927,
+              "energy_from_half_external_work_nmm": 0.0014399265312499368,
+              "reaction_force_moment": [
+                1.1717400001875735e-09,
+                1.4138700000911502e-08,
+                -0.999999995098,
+                -1403.9984035997384,
+                1266.8249956380562,
+                1.6723696130082786e-05
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                0.9999999999999992,
+                1403.9983879519843,
+                -1266.824999999999,
+                0.0
+              ],
+              "balance_residual": [
+                1.1717400001875735e-09,
+                1.4138700000911502e-08,
+                4.901999250961353e-09,
+                -1.564775402584928e-05,
+                -4.361942728792201e-06,
+                1.6723696130082786e-05
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 0,
+          "applied_force_moment": [
+            1.0000000000000009,
+            0.0,
+            0.0,
+            0.0,
+            -3.5527136788049115e-15,
+            -1403.9983879519866
+          ],
+          "reaction_force_moment": [
+            -0.9999997705173003,
+            9.37305000624409e-08,
+            2.3543039975778246e-07,
+            6.208548057487842e-05,
+            2.8194224001300196e-05,
+            1403.9982948781415
+          ],
+          "balance_residual": [
+            2.2948270061995402e-07,
+            9.37305000624409e-08,
+            2.3543039975778246e-07,
+            6.208548057487842e-05,
+            2.8194223997747483e-05,
+            -9.307384516432649e-05
+          ],
+          "unit_load_compliance_mm_per_n": 1.7609813020833252,
+          "energy_from_half_external_work_nmm": 0.8804906510416626,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 1.8168033504811791,
+              "native_internal_energy_nmm": 0.8804907,
+              "energy_from_half_external_work_nmm": 0.8804906510416626,
+              "reaction_force_moment": [
+                -0.9999997705173003,
+                9.37305000624409e-08,
+                2.3543039975778246e-07,
+                6.208548057487842e-05,
+                2.8194224001300196e-05,
+                1403.9982948781415
+              ],
+              "applied_force_moment": [
+                1.0000000000000009,
+                0.0,
+                0.0,
+                0.0,
+                -3.5527136788049115e-15,
+                -1403.9983879519866
+              ],
+              "balance_residual": [
+                2.2948270061995402e-07,
+                9.37305000624409e-08,
+                2.3543039975778246e-07,
+                6.208548057487842e-05,
+                2.8194223997747483e-05,
+                -9.307384516432649e-05
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 1,
+          "applied_force_moment": [
+            0.0,
+            1.0000000000000009,
+            0.0,
+            3.5527136788049115e-15,
+            0.0,
+            1285.8750000000011
+          ],
+          "reaction_force_moment": [
+            -3.694600001122556e-09,
+            -1.0000000052475,
+            -4.599872998550212e-08,
+            -3.491382497761619e-05,
+            5.2771822667867056e-05,
+            -1285.8750025514228
+          ],
+          "balance_residual": [
+            -3.694600001122556e-09,
+            -5.247499101912467e-09,
+            -4.599872998550212e-08,
+            -3.491382497406348e-05,
+            5.2771822667867056e-05,
+            -2.551421630414552e-06
+          ],
+          "unit_load_compliance_mm_per_n": 0.020698224583333348,
+          "energy_from_half_external_work_nmm": 0.010349112291666674,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.022795020468372573,
+              "native_internal_energy_nmm": 0.01034911,
+              "energy_from_half_external_work_nmm": 0.010349112291666674,
+              "reaction_force_moment": [
+                -3.694600001122556e-09,
+                -1.0000000052475,
+                -4.599872998550212e-08,
+                -3.491382497761619e-05,
+                5.2771822667867056e-05,
+                -1285.8750025514228
+              ],
+              "applied_force_moment": [
+                0.0,
+                1.0000000000000009,
+                0.0,
+                3.5527136788049115e-15,
+                0.0,
+                1285.8750000000011
+              ],
+              "balance_residual": [
+                -3.694600001122556e-09,
+                -5.247499101912467e-09,
+                -4.599872998550212e-08,
+                -3.491382497406348e-05,
+                5.2771822667867056e-05,
+                -2.551421630414552e-06
+              ]
+            }
+          },
+          "pass": true
+        },
+        {
+          "sharing": "outer_only",
+          "axis": 2,
+          "applied_force_moment": [
+            0.0,
+            0.0,
+            1.0000000000000009,
+            1403.9983879519866,
+            -1285.8750000000011,
+            0.0
+          ],
+          "reaction_force_moment": [
+            -5.459129995209197e-10,
+            8.721400010894787e-09,
+            -1.000000007291547,
+            -1403.9984071529868,
+            1285.875008625711,
+            1.167065943106756e-05
+          ],
+          "balance_residual": [
+            -5.459129995209197e-10,
+            8.721400010894787e-09,
+            -7.291546033627583e-09,
+            -1.920100021379767e-05,
+            8.625709824627847e-06,
+            1.167065943106756e-05
+          ],
+          "unit_load_compliance_mm_per_n": 0.0028799502083332114,
+          "energy_from_half_external_work_nmm": 0.0014399751041666057,
+          "plies": {
+            "inner": {
+              "maximum_displacement_mm": 0.0,
+              "native_internal_energy_nmm": 0.0,
+              "energy_from_half_external_work_nmm": 0.0,
+              "reaction_force_moment": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "applied_force_moment": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "balance_residual": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "outer": {
+              "maximum_displacement_mm": 0.00841720435601328,
+              "native_internal_energy_nmm": 0.001439975,
+              "energy_from_half_external_work_nmm": 0.0014399751041666057,
+              "reaction_force_moment": [
+                -5.459129995209197e-10,
+                8.721400010894787e-09,
+                -1.000000007291547,
+                -1403.9984071529868,
+                1285.875008625711,
+                1.167065943106756e-05
+              ],
+              "applied_force_moment": [
+                0.0,
+                0.0,
+                1.0000000000000009,
+                1403.9983879519866,
+                -1285.8750000000011,
+                0.0
+              ],
+              "balance_residual": [
+                -5.459129995209197e-10,
+                8.721400010894787e-09,
+                -7.291546033627583e-09,
+                -1.920100021379767e-05,
+                8.625709824627847e-06,
+                1.167065943106756e-05
+              ]
+            }
+          },
+          "pass": true
+        }
+      ],
+      "output_sha256": {
+        "independent25.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+        "independent25.log": "631f95222b919145666b3caabce1d671b6dd3b2effc9fa831eee3b5ce7e919fc",
+        "independent25.dat": "f2848766760f525019672b5244f70f28b2da92000dde58939ea41f5062f77f9a",
+        "independent25.sta": "35d3a177ebf486fc65a0e3ce3723d996f75009aa0337b92891ab2fb7cc58d803",
+        "independent25.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "independent25.frd": "af6eb7f824a9843ef4d6aa19564f992b41d5359e182dd700b22581232a038d69"
+      }
+    }
+  },
+  "prepared_input_sha256": "26bb58375c9aa4d8a5465bfa6c8f1c9601293e6c93ca8755dcca6ec24019f74a",
+  "comparisons": {
+    "mesh_checks": [
+      {
+        "model": "composite",
+        "sharing": "composite",
+        "axis": 0,
+        "relative_compliance_change": 0.0007506454230832293,
+        "pass": true
+      },
+      {
+        "model": "composite",
+        "sharing": "composite",
+        "axis": 1,
+        "relative_compliance_change": 0.0016808513455375262,
+        "pass": true
+      },
+      {
+        "model": "composite",
+        "sharing": "composite",
+        "axis": 2,
+        "relative_compliance_change": 0.0016803140300234443,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "symmetric",
+        "axis": 0,
+        "relative_compliance_change": 0.001249152860578695,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "symmetric",
+        "axis": 1,
+        "relative_compliance_change": 0.0016548597942365184,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "symmetric",
+        "axis": 2,
+        "relative_compliance_change": 0.0016535071872485485,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "inner_only",
+        "axis": 0,
+        "relative_compliance_change": 0.001256982569195264,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "inner_only",
+        "axis": 1,
+        "relative_compliance_change": 0.001641296337167919,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "inner_only",
+        "axis": 2,
+        "relative_compliance_change": 0.001640500429779479,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "outer_only",
+        "axis": 0,
+        "relative_compliance_change": 0.001241293924510778,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "outer_only",
+        "axis": 1,
+        "relative_compliance_change": 0.0016685381945675815,
+        "pass": true
+      },
+      {
+        "model": "independent",
+        "sharing": "outer_only",
+        "axis": 2,
+        "relative_compliance_change": 0.0016664905700698451,
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "pass": true,
+  "archive_sha256": "476283677930a59e8c0ed202f3455fa72b67880dbfcba3a8062dcb35522dfc5a",
+  "original_directory": "fea/generated/independent-leg-response-c_big87g",
+  "publisher_source_sha256": "86c61999f9d0d26076e8b7b73d7949b5ee6f2ae2a16b62ea8cc633e4356fb459"
+}

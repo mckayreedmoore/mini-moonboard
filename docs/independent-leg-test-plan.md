@@ -5,6 +5,12 @@ replacement for the original bonded leg or a construction release. Retain the
 current 2×8-foot100 development baseline while evaluating whether its requested
 two-sheet construction needs a different connection or member design.
 
+**Completed evidence:** the [actual profile comparison](../fea/results/independent_leg_response/README.md)
+passes its global, energy and two-mesh diagnostics. Even sharing gives 3.9223×
+out-of-plane compliance versus the bonded reference and less than 0.04% change
+in-plane. The predeclared experiment below is retained; its results do not
+validate actual panel properties, glue, stitches, contact or stability.
+
 ## Geometry preflight
 
 Use `footprint_frame.parts(100, drilled=True)`, not the historical leg coupon.

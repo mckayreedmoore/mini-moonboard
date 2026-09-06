@@ -39,6 +39,10 @@ untied baseline: the rails change support reactions but provide little
 fixed-floor stiffness improvement and do not cure the exploratory tipping cases.
 
 Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
+The [independent-ply leg study](fea/results/independent_leg_response/README.md)
+now verifies a roughly 3.92× out-of-plane compliance increase without composite
+action under its idealized fixtures. Resolve leg lamination, connectors and
+lateral stability before selecting deeper rims; this is not a load rating.
 The [rib/batten detail screen](docs/rib-batten-detail.md) checks the actual
 extended-foot backing and explains why changing grain direction alone does not
 finish the connection design.

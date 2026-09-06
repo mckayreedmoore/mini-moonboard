@@ -38,9 +38,11 @@ adhesive, hardware or floor properties into an implied construction approval.
   prevents mixing up the current frame with the older unrotated backing.
   Enlarging the screened blocks collides with all 12 existing rear angles, so
   a replacement must redesign the joint layout as a unit. The
-  [independent-ply leg plan](independent-leg-test-plan.md) has passed its CAD
-  splitting/floor/through-bore preflight; its conditional stiffness comparison
-  is the next test, not an already validated construction alternative.
+  [independent-ply leg comparison](../fea/results/independent_leg_response/README.md)
+  now passes its control, actual-profile equilibrium/energy and two-mesh checks:
+  evenly shared independent plies are 3.9223× as compliant out of plane, with
+  less than 0.04% in-plane change. Next resolve real composite action, connector
+  sharing and lateral stability; this is not a validated construction alternative.
 - The first release/load increment refinement completes normally and passes
   released-gravity equilibrium, but still fails loaded moment balance
   (96 Nmm against 1 Nmm). Preserve this failed evidence and the original limits.

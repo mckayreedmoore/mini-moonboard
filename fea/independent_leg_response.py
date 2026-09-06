@@ -225,6 +225,71 @@ def main(prepared):
     (directory/"manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False)+"\n")
 
 
+def replay_archive(path):
+    with tarfile.open(path) as archive:
+        entries = [m for m in archive.getmembers() if m.isfile()]
+        if len({m.name for m in entries}) != len(entries):
+            raise ValueError("Duplicate response archive members")
+        files = {m.name: archive.extractfile(m).read() for m in entries}
+    manifest = json.loads(files["manifest.json"])
+    if manifest["gates"] != GATES:
+        raise ValueError("Replay diagnostic gates differ from predeclared experiment")
+    for source, digest in manifest["source_sha256"].items():
+        if hashlib.sha256(files["launch_sources/"+Path(source).name]).hexdigest() != digest:
+            raise ValueError("Response launch snapshot changed")
+    mesh_archive = Path("fea/results/independent_leg_mesh/evidence.tar.gz")
+    if hashlib.sha256(mesh_archive.read_bytes()).hexdigest() != manifest["verified_mesh_archive_sha256"]:
+        raise ValueError("Verified mesh publication changed")
+    from fea.independent_leg_mesh import replay_archive as replay_mesh
+    replay_mesh(mesh_archive)
+    with tarfile.open(mesh_archive) as archive:
+        if archive.extractfile("input.json").read() != files["prepared_input.json"]:
+            raise ValueError("Prepared CAD context differs")
+        for size in (40, 25):
+            for extension in ("inp", "json"):
+                if archive.extractfile(f"mesh{size}/mesh.{extension}").read() != files[f"mesh{size}.{extension}"]:
+                    raise ValueError("Response mesh/fixture differs from verified publication")
+    if hashlib.sha256(files["prepared_input.json"]).hexdigest() != manifest["prepared_input_sha256"]:
+        raise ValueError("Prepared input digest differs")
+    jobs = {}
+    for size in (40, 25):
+        for independent in (False, True):
+            name = f"{'independent' if independent else 'composite'}{size}"
+            record = json.loads(files[name+".json"])
+            text, context = deck(files[f"mesh{size}.inp"].decode(), json.loads(files[f"mesh{size}.json"]), independent)
+            if text.encode() != files[name+".inp"] or hashlib.sha256(text.encode()).hexdigest() != record["deck_sha256"]:
+                raise ValueError("Response deck differs from intended experiment")
+            if record["exit_code"] != 0 or "*ERROR" in files[name+".log"].decode().upper():
+                raise ValueError("Incomplete/failed response solver")
+            if any(hashlib.sha256(files[n]).hexdigest() != h for n, h in record["output_sha256"].items()):
+                raise ValueError("Raw response output digest differs")
+            results = audit(files[name+".dat"].decode(), context)
+            if results != record["results"] or record != manifest["jobs"][name]:
+                raise ValueError("Response results differ from raw replay")
+            jobs[name] = record
+    compared = comparisons(jobs)
+    if compared != manifest["comparisons"] or manifest["pass"] != (compared["pass"] and all(r["pass"] for j in jobs.values() for r in j["results"])):
+        raise ValueError("Response comparison status differs")
+    return manifest
+
+
+def publish(directory):
+    directory = Path(directory)
+    destination = Path("fea/results/independent_leg_response")
+    destination.mkdir()  # Preserve any prior publication; never overwrite it.
+    archive = destination/"evidence.tar.gz"
+    with tarfile.open(archive, "x:gz") as bundle:
+        for p in sorted(directory.rglob("*")):
+            if p.is_file():
+                bundle.add(p, arcname=str(p.relative_to(directory)))
+    manifest = replay_archive(archive)
+    report = dict(manifest, archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
+                  original_directory=str(directory), publisher_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
+    (destination/"publisher.py").write_bytes(Path(__file__).read_bytes())
+    (destination/"report.json").write_text(json.dumps(report, indent=2, allow_nan=False)+"\n")
+    return report
+
+
 if __name__ == "__main__":
     import sys
     main(sys.argv[1])
