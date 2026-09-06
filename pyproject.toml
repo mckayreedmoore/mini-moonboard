@@ -22,3 +22,5 @@ testpaths = ["tests"]
 
 [tool.ruff]
 target-version = "py312"
+# Immutable launch snapshots are evidence, not maintained application code.
+extend-exclude = ["fea/results/**/*.launch.py"]
