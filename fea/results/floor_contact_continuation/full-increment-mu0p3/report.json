@@ -1,0 +1,41 @@
+{
+  "status": "BOUNDED TIMEOUT AFTER RELEASED GRAVITY; INDEPENDENT MOMENT AUDIT FAILED; NO ACCEPTED PHYSICAL BOARD SOLUTION",
+  "source_directory": "fea/generated/continuation-xy-oxlhtudr",
+  "exit_code": -999,
+  "max_seconds": 900.0,
+  "elapsed_seconds": 900.16708882901,
+  "solver": "CalculiX 2.21; mini-moonboard-fea:box-v1; OMP_NUM_THREADS=2",
+  "mu": 0.3,
+  "changes_from_original_floor_deck": "Step 1 temporarily constrains all 610 actual floor nodes in x/y with z free. Step 2 starts with BOUNDARY,OP=NEW and reinstates only all ground xyz constraints. Step 3 applies the original 1200 N load. Each step starts with a full unit-time increment. Added local contact/reaction diagnostic output.",
+  "accepted_partial_increments": [
+    {"step": 1, "increment": 1, "attempt": 1, "iterations": 13, "total_time": 1.0, "step_time": 1.0, "increment_time": 1.0},
+    {"step": 2, "increment": 1, "attempt": 1, "iterations": 34, "total_time": 2.0, "step_time": 1.0, "increment_time": 1.0}
+  ],
+  "last_accepted_total_time": 2.0,
+  "complete_steps": 2,
+  "guided_preload_complete": true,
+  "free_gravity_reached": true,
+  "free_gravity_complete": true,
+  "climber_load_reached": false,
+  "climber_load_attempted": true,
+  "climber_load_complete": false,
+  "accepted_physical_solution": false,
+  "independent_partial_endpoint_audit": {
+    "source": "independent_audit.json",
+    "time": 2.0,
+    "moment_audit_pass": false,
+    "maximum_moment_residual_nmm_rounded": 89.268,
+    "moment_tolerance_nmm": 1.0,
+    "note": "The terminal run context has no audit_error because the three-step runner does not audit timeout results. A separate independent audit of accepted partial endpoints identifies the released-gravity moment failure; solver acceptance is not equilibrium validation."
+  },
+  "interpretation": "The solver accepted guided preload and released gravity at full step time, then attempted the 1200 N climbing-load step without any accepted increment before timeout. The independent released-gravity moment audit fails. Neither the solver endpoints nor timeout establish an acceptable physical board solution or physical instability.",
+  "provenance_note": "The archived launch generator matches the prelaunch hash in the original terminal context. Later source guards were not part of this run. Original hashes are preserved; no revised-source rerun is implied.",
+  "archive": "solver_evidence.tar.gz",
+  "archive_bytes": 8597888,
+  "archive_sha256": "12ace387abe4194eed214b7b93b9eeb43296092f3307b73bc8aca3f253648765",
+  "archive_contents": ["continuation.inp", "continuation.json", "continuation.dat", "continuation.log", "continuation.sta", "continuation.cvg", "continuation.frd", "floor_contact_continuation.launch.py"],
+  "verification": "Every archived output hash, launched deck hash, and archived launch-source hash verified against the terminal continuation.json context.",
+  "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+  "deck_sha256": "9bb632921037826e223e56663418d5790e36388e5161ee917131956fbbf85bc2",
+  "launch_source_sha256": "33091fb892934924c796056b7d110158ed70246cf8eb410fb9f1764224d8522e"
+}

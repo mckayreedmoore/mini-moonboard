@@ -123,6 +123,13 @@ reached CalculiX's built-in contact softening/cutback procedure four times,
 but still accepted no gravity increment in 600 seconds. Merely reaching that
 procedure earlier did not resolve startup within the bounded experiment.
 
+The [temporary-guide/release experiment](floor-contact-continuation.md)
+separates guided preload from fully released gravity and climbing load.
+Guided convergence is never counted as an unanchored solution; all three
+complete steps must pass their equilibrium audits, with no guide forces in
+the final two steps. Current released-gravity convergence still fails the
+independent moment audit.
+
 Before a broad whole-frame load sweep, isolate the quadratic floor-contact
 mesh and unloaded rigid-body modes with a small representative leg/foot
 model. Compare penalty/increment settings without supplying artificial

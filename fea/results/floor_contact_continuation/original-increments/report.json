@@ -1,0 +1,30 @@
+{
+  "status": "BOUNDED TIMEOUT DURING TEMPORARILY GUIDED GRAVITY; NO ACCEPTED FREE BOARD SOLUTION",
+  "source_directory": "fea/generated/continuation-xy-ytq_ixd_",
+  "exit_code": -999,
+  "max_seconds": 600.0,
+  "elapsed_seconds": 600.1962832039862,
+  "solver": "CalculiX 2.21; mini-moonboard-fea:box-v1; OMP_NUM_THREADS=2",
+  "changes_from_original_floor_deck": "Step 1 temporarily constrains all 610 actual floor nodes in x/y with z free. Step 2 starts with BOUNDARY,OP=NEW and reinstates only all ground xyz constraints. Step 3 applies the original 1200 N load. Original static controls retained. Added local contact/reaction diagnostic output.",
+  "accepted_partial_increments": [
+    {"step": 1, "increment": 1, "attempt": 1, "iterations": 13, "total_time": 0.05, "step_time": 0.05, "increment_time": 0.05},
+    {"step": 1, "increment": 2, "attempt": 1, "iterations": 13, "total_time": 0.10, "step_time": 0.10, "increment_time": 0.05},
+    {"step": 1, "increment": 3, "attempt": 1, "iterations": 13, "total_time": 0.175, "step_time": 0.175, "increment_time": 0.075},
+    {"step": 1, "increment": 4, "attempt": 1, "iterations": 13, "total_time": 0.275, "step_time": 0.275, "increment_time": 0.10}
+  ],
+  "last_accepted_total_time": 0.275,
+  "complete_steps": 0,
+  "free_gravity_reached": false,
+  "climber_load_reached": false,
+  "accepted_physical_solution": false,
+  "interpretation": "The temporary lateral guides permit partial gravity increments on the original full mesh. The bounded run did not complete guided preload, so it provides no released-frame equilibrium or physical stability result. Timeout is not instability evidence.",
+  "provenance_note": "The archived launch generator matches the prelaunch hash in the original terminal context. Subsequent guards in the current source were not part of this run. Original hashes are preserved; no revised-source rerun is implied.",
+  "archive": "solver_evidence.tar.gz",
+  "archive_bytes": 13200071,
+  "archive_sha256": "e32161a3f499fc7d3f3a93181cd9f53f69e5e214914f5a62790bcd4a26af06a7",
+  "archive_contents": ["continuation.inp", "continuation.json", "continuation.dat", "continuation.log", "continuation.sta", "continuation.cvg", "continuation.frd", "floor_contact_continuation.launch.py"],
+  "verification": "Every archived output hash, launched deck hash, and archived launch-source hash verified against the terminal continuation.json context.",
+  "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+  "deck_sha256": "338a671e675bb88738081f79f1b26f62dafa10b911f47a8607ae423fd875a668",
+  "launch_source_sha256": "6b0ad4bb921043cea469bf84fc31d9f1bf5467261244f2578a85d972f20d6d9b"
+}
