@@ -39,6 +39,9 @@ untied baseline: the rails change support reactions but provide little
 fixed-floor stiffness improvement and do not cure the exploratory tipping cases.
 
 Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
+The [rib/batten detail screen](docs/rib-batten-detail.md) checks the actual
+extended-foot backing and explains why changing grain direction alone does not
+finish the connection design.
 
 Contact studies: [four-pin/leg-bore coupon](docs/joint-contact-study.md) and
 [unpinned whole-frame floor-contact prototype](docs/floor-contact-study.md).

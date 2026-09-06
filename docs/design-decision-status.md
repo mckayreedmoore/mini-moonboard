@@ -28,6 +28,14 @@ adhesive, hardware or floor properties into an implied construction approval.
 
 ## Current parallel work
 
+- Progress material and connection choices independently of the numerical
+  moment diagnostic. The next discriminating construction choice is qualified
+  leg lamination versus mechanically connected plies with no adhesive credit;
+  neither is replaced by buying deeper rims. The
+  [actual rib/batten fit screen](rib-batten-detail.md) preserves a same-envelope
+  side-grain concept, but rules out an assumed SDS/SDWS drop-in and documents
+  why grain rotation also requires rechecking the rear bolts. Its CAD regression
+  prevents mixing up the current frame with the older unrotated backing.
 - The first release/load increment refinement completes normally and passes
   released-gravity equilibrium, but still fails loaded moment balance
   (96 Nmm against 1 Nmm). Preserve this failed evidence and the original limits.
