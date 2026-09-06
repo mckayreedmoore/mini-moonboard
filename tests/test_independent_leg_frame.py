@@ -1,5 +1,9 @@
 """Mechanical candidate geometry checks, never connection/stability approval."""
 import math
+import subprocess
+import sys
+from pathlib import Path
+from textwrap import dedent
 
 import cadquery as cq
 import pytest
@@ -105,3 +109,62 @@ def test_stitch_hardware_access_and_floor_clearances():
         assert all(access.intersect(p.shape).Volume() < .01 for p in parts if p.name not in stitch.members)
         assert all(access.intersect(shape).Volume() < .01 for c in connections if c.name != stitch.name
                    for shape in c.components())
+
+
+def test_real_predecessor_export_does_not_change_ply_geometry_or_artifacts(tmp_path):
+    # A fresh process avoids inheriting triangulations or already-split cached
+    # plies from another test. Exercise the actual predecessor exporter before
+    # rebuilding the independent plies, not a mocked BoundingBox return value.
+    script = dedent('''
+        import hashlib
+        import math
+        import sys
+        from pathlib import Path
+
+        import cadquery as cq
+
+        from mini_moonboard import independent_leg_frame as frame
+        from mini_moonboard import joint_exports, joint_frame
+        from mini_moonboard.box_exports import exact_bounds
+        from mini_moonboard.export import _export_step
+
+        root = Path(sys.argv[1])
+        cold = {p.name: p.shape for p in frame.parts() if p.name.startswith("leg_")}
+        sources = {p.name: p.shape for p in joint_frame.parts(True) if p.name.startswith("leg_")}
+
+        def artifacts(plies, directory):
+            directory.mkdir()
+            assembly = cq.Assembly(name="independent_leg_profiles")
+            for name, shape in plies.items():
+                assembly.add(shape, name=name)
+                cq.exporters.export(shape, str(directory / (name + ".stl")),
+                                    cq.exporters.ExportTypes.STL, tolerance=.5)
+            _export_step(assembly, directory / "legs.step")
+            return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in directory.iterdir()}
+
+        before = artifacts(cold, root / "cold")
+        # Real sequence: each STL, normalized STEP, front raster and rotated
+        # rear raster, including their cached display tessellations.
+        joint_exports.export(root / "predecessor", root / "viewer")
+        frame.parts.cache_clear()
+        warm = {p.name: p.shape for p in frame.parts() if p.name.startswith("leg_")}
+        assert warm.keys() == cold.keys()
+        for name, shape in warm.items():
+            bounds = exact_bounds(shape)
+            assert abs(bounds.xlen - 19.05) < 1e-8, (name, bounds.xlen)
+            assert abs(bounds.zmin) < 1e-8, (name, bounds.zmin)
+            assert shape.cut(cold[name]).Volume() < 1e-5, name
+            assert cold[name].cut(shape).Volume() < 1e-5, name
+        for side in ("left", "right"):
+            inner, outer = (warm[f"leg_{side}_{layer}"] for layer in ("inner", "outer"))
+            assert inner.distance(outer) < 1e-8, side
+            combined = inner.fuse(outer)
+            original = sources["leg_" + side]
+            assert combined.cut(original).Volume() < 1e-5, side
+            removed = original.cut(combined).Volume()
+            assert abs(removed - 3 * math.pi * 5**2 * 38.1) < .01, (side, removed)
+        assert artifacts(warm, root / "warm") == before
+    ''')
+    result = subprocess.run([sys.executable, "-c", script, str(tmp_path)],
+        cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, check=False)
+    assert result.returncode == 0, result.stdout + result.stderr

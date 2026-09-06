@@ -34,6 +34,11 @@ adds four individually selectable plywood plies and six provisional stitch bolts
 [Geometry, exports and remaining gates](docs/independent-leg-development.md)
 are documented; no glue, interface-friction or external-bracing credit is assumed.
 
+The [revised screw-spacing model](https://mckayreedmoore.github.io/mini-moonboard/?model=screw-spacing-development)
+retains those separate plies while moving the close rib/panel screw groups apart.
+[Its changes and remaining product checks](docs/screw-spacing-development.md)
+are documented separately; geometry screening is not structural approval.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.

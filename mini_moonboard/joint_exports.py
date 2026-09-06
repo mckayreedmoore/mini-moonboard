@@ -24,6 +24,12 @@ INDEPENDENT_DESIGN = {
     "status": "PROVISIONAL — independent-ply experiment; candidate FEA not run",
     "description": "Four separate plywood leg plies and six internal stitch bolts on the joint redesign. No adhesive, interface-friction or external-bracing credit. Products and resistance unresolved.",
 }
+SPACING_DESIGN = {
+    "key": "screw-spacing-development",
+    "baseline": INDEPENDENT_DESIGN["key"],
+    "status": "PROVISIONAL — revised screw-spacing geometry; candidate FEA not run",
+    "description": "Longer seam ribs at rows 1/3, outward row-2 seam joints and relocated front screws/rear bolts. Separate leg plies retained. Mixed-product spacing approval, head seating, materials and resistance unresolved.",
+}
 
 
 def export(directory=None, viewer=Path("site"), *, variant=KEY):
@@ -32,6 +38,9 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     elif variant == INDEPENDENT_DESIGN["key"]:
         from . import independent_leg_frame
         model, design = independent_leg_frame, INDEPENDENT_DESIGN
+    elif variant == SPACING_DESIGN["key"]:
+        from . import spacing_frame
+        model, design = spacing_frame, SPACING_DESIGN
     else:
         raise ValueError("Unknown development variant")
     directory = Path(directory) if directory is not None else Path("exports")/variant
@@ -79,8 +88,10 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
-    if variant == INDEPENDENT_DESIGN["key"]:
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"]):
         sources.append(Path("mini_moonboard/independent_leg_frame.py"))
+    if variant == SPACING_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/spacing_frame.py"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
@@ -90,5 +101,5 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"]), default=KEY)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"]), default=KEY)
     export(variant=parser.parse_args().variant)

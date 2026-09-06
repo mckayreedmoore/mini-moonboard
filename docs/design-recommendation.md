@@ -13,6 +13,15 @@ The next development milestone is now underway: a separate
 These additions do not supersede the retained baseline or complete its
 product, material, contact-law and structural checks.
 
+The next inspection candidate is now the separate
+[screw-spacing development](screw-spacing-development.md): it retains four
+independent leg plies and six provisional internal stitch bolts, enlarges four
+seam ribs and relocates the close seam screw/joint groups. Its CAD checks do
+not select a fastener product or establish joint resistance. The
+[kinematic observer evidence](../fea/mortar_kinematic_build/README.md) verifies
+the new diagnostic arithmetic on two retained cube tests; it is not a completed
+full-frame contact qualification or FEA of the revised candidate.
+
 Scope remains one climber, 250 lb intended maximum, with 150/200 lb comparisons
 and 300 lb sensitivity—not certified ratings. No anchors, crash-pad support,
 unmeasured ballast or assumed room clearance is credited.

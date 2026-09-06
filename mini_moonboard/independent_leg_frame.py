@@ -12,6 +12,7 @@ from . import box_frame as b
 from . import footprint_frame as footprint
 from . import hybrid
 from . import joint_frame as baseline
+from .box_exports import exact_bounds
 
 KEY = "independent-leg-development"
 PLY_THICKNESS = 19.05
@@ -53,7 +54,8 @@ def parts(drilled=True):
         if part.name not in ("leg_left", "leg_right"):
             result.append(part)
             continue
-        bounds = part.shape.BoundingBox()
+        # Cached display tessellations must not move the ply cutting planes.
+        bounds = exact_bounds(part.shape)
         split = (bounds.xmin + bounds.xmax) / 2
         for layer, x0 in (("inner", bounds.xmin if part.name == "leg_right" else split),
                           ("outer", split if part.name == "leg_right" else bounds.xmin)):

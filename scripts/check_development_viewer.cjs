@@ -1,7 +1,9 @@
 // Optional browser regression: serve site/ on localhost:8766 and run with
-// node scripts/check_development_viewer.cjs [path-to-installed-playwright]
+// node scripts/check_development_viewer.cjs [path-to-installed-playwright] [model]
 const { chromium } = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
+const model = process.argv[3] || 'independent-leg-development';
+assert.ok(['independent-leg-development', 'screw-spacing-development'].includes(model));
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
   const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
@@ -20,20 +22,21 @@ const assert = require('node:assert/strict');
     await route.fulfill({response, body: (await response.text()).replace('</script>\n  </body>',
       'window.cadTest = {meshes, camera, controls, climberView};</script>\n  </body>')});
   });
-  await page.goto('http://127.0.0.1:8766/?model=independent-leg-development');
-  const manifest = await page.evaluate(async () => (await fetch('hybrid/independent-leg-development/parts.json')).json());
+  await page.goto('http://127.0.0.1:8766/?model='+model);
+  const manifest = await page.evaluate(async model => (await fetch('hybrid/'+model+'/parts.json')).json(), model);
   await page.waitForFunction(count => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === count,
     manifest.parts.length, {timeout: 120000});
-  assert.equal(await page.locator('#model').inputValue(), 'independent-leg-development');
+  assert.equal(await page.locator('#model').inputValue(), model);
   const details = await page.locator('#design-details').innerText();
   assert.match(details, /PROVISIONAL/);
   assert.match(details, /candidate FEA not run/);
-  assert.match(details, /No adhesive, interface-friction or external-bracing credit/);
+  assert.match(details, model === 'independent-leg-development' ?
+    /No adhesive, interface-friction or external-bracing credit/ : /Mixed-product spacing approval, head seating, materials and resistance unresolved/);
   const plies = manifest.parts.filter(p => /^leg_(left|right)_(inner|outer)$/.test(p.name));
   const stitches = manifest.parts.filter(p => p.name.startsWith('fastener_leg_stitch_'));
   assert.equal(plies.length, 4);
   assert.equal(stitches.length, 6);
-  await page.screenshot({path:'/tmp/mini-moonboard-independent-leg-development-front.png'});
+  await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-front.png'});
   await page.evaluate(() => {
     const {camera, controls} = window.cadTest;
     camera.position.set(2076.35,321.033374,1134.344356);
@@ -76,12 +79,12 @@ const assert = require('node:assert/strict');
       1417.930445*(1-q),-sign);
     assert.match(await page.locator('#part').innerText(), /capacity unvalidated/);
   }
-  await page.screenshot({path:'/tmp/mini-moonboard-independent-leg-development-stitch.png'});
+  await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-stitch.png'});
   await page.goto('http://127.0.0.1:8766/');
   await page.waitForSelector('#model');
   assert.equal(await page.locator('#model').inputValue(),'plywood');
-  await page.selectOption('#model','independent-leg-development');
-  await page.waitForURL('**/?model=independent-leg-development');
+  await page.selectOption('#model',model);
+  await page.waitForURL('**/?model='+model);
   assert.deepEqual(errors,[]);
   console.log(JSON.stringify({loadedParts:manifest.parts.length,clicked,defaultModel:'plywood',selectorNavigation:true,errors}));
   await browser.close();
