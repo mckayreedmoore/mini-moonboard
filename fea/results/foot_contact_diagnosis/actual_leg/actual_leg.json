@@ -1,0 +1,132 @@
+{
+  "source": "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp",
+  "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+  "original_volume": "VOLUME8",
+  "node_count": 2147,
+  "element_count": 968,
+  "floor_face_count": 16,
+  "original_geometry_audit": {
+    "max_midside_offset_mm": 3.1579153759790577,
+    "minimum_outward_down_cosine": 1.0
+  },
+  "straight_midsides": false,
+  "mass_kg": 7.880529168400366,
+  "upper_node_count": 46,
+  "mesh_centre_mm": [
+    -1276.3500000448516,
+    1103.0952501606755,
+    888.4518360928962
+  ],
+  "mesh_bounds_mm": [
+    [
+      -1295.4,
+      -1257.3
+    ],
+    [
+      772.84386463213,
+      1500.331409594
+    ],
+    [
+      -2.273736754432e-13,
+      1782.199107097
+    ]
+  ],
+  "cad_reference": {
+    "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+    "volume_mm3": 13134223.734189691,
+    "centre_mm": [
+      -1276.3500000000006,
+      1103.0950408940369,
+      888.4521860688236
+    ],
+    "bounds_mm": [
+      [
+        -1295.4,
+        -1257.3000000000002
+      ],
+      [
+        772.7921202358981,
+        1500.331409594098
+      ],
+      [
+        -2.2737367544323206e-13,
+        1782.1991070973554
+      ]
+    ],
+    "geometry_source_sha256": {
+      "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+      "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+      "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+      "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+      "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022"
+    }
+  },
+  "assumptions": "Permanent upper 60 mm x/y guide; z free; gravity then 1200 N downward upper patch; conditional leg coupon, never free board",
+  "deck_sha256": "7738f7fba3d00ae51c749eecef7f121457bbce00dc2abb2a7a842f6524385e01",
+  "run_source_sha256": {
+    "/work/fea/foot_contact_repro.py": "17a11d4066ae0f7fefd3c7f7788941d7e427025ecfbb6c7f3a79c3c1e60a9494",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+  },
+  "exit_code": 0,
+  "status": "TWO COMPLETE EQUILIBRIUM-AUDITED CONDITIONAL COUPON STEPS; LOCAL CONTACT AUDIT STILL REQUIRED",
+  "audited_steps": [
+    {
+      "time": 1.0,
+      "downward_upper_load_n": 0.0,
+      "force_residual_n": [
+        1.2700000008702278e-06,
+        4.000000002335469e-06,
+        -1.3692934433764568e-06
+      ],
+      "moment_residual_nmm": [
+        -0.010420514718017415,
+        0.00015824743342218728,
+        -0.006514014931326528
+      ],
+      "floor_resultant_n": [
+        0.000518279999999996,
+        -11.515169,
+        77.28159
+      ],
+      "upper_guide_resultant_n": [
+        -0.0005170099999991257,
+        11.515173000000003,
+        0.0
+      ],
+      "max_displacement_mm": 0.008444723869868036
+    },
+    {
+      "time": 2.0,
+      "downward_upper_load_n": 1200.0,
+      "force_residual_n": [
+        -0.00017859999999819687,
+        -0.0002299999999095803,
+        0.00010863070665015882
+      ],
+      "moment_residual_nmm": [
+        0.5076506689541644,
+        -0.17724829410534382,
+        0.47616570785612566
+      ],
+      "floor_resultant_n": [
+        -0.006835600000000108,
+        -253.50477,
+        1277.2817
+      ],
+      "upper_guide_resultant_n": [
+        0.006657000000001911,
+        253.5045400000001,
+        0.0
+      ],
+      "max_displacement_mm": 0.29476981351324505
+    }
+  ],
+  "evidence_sha256": {
+    "actual_leg.log": "cde04f3adeb5e41c3cd003bcd5999101a98fb0ceda43b1a65098889c4d1aa998",
+    "actual_leg.inp": "7738f7fba3d00ae51c749eecef7f121457bbce00dc2abb2a7a842f6524385e01",
+    "actual_leg.sta": "cd5896004dcdcb337e0c5fa975252f22d2dd28376c08a3f401cf4861faba0a81",
+    "actual_leg.dat": "ab0271d8d247599fa06ab768bbd18848b6b55619a01f35134f287c6a336cc4ff",
+    "actual_leg.cvg": "aa6fc03f7ec1e4465ebe61d29f79a4c52b3d307b362013ca545aa20dbb22fdc4"
+  }
+}

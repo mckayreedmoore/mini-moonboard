@@ -34,6 +34,10 @@ Contact studies: [four-pin/leg-bore coupon](docs/joint-contact-study.md) and
 [unpinned whole-frame floor-contact prototype](docs/floor-contact-study.md).
 These are limited numerical studies, not joint-capacity or construction approval.
 
+Convergence diagnosis: [the actual leg/foot coupon](docs/foot-contact-diagnosis.md)
+completes gravity and downward loading with an explicit upper guide. It does
+not establish equilibrium of the unanchored whole frame.
+
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 
 Earlier investigation: [250/300 lb load envelope](docs/user-load-envelope.md) and

@@ -112,6 +112,12 @@ or global reaction balance alone is not an accepted local contact solution.
 
 ## Next numerical step
 
+Follow-up: the [unchanged actual-leg coupon](foot-contact-diagnosis.md)
+completed both load steps with a permanent, explicitly reported upper XY
+guide. This narrows the diagnosis but is not an unanchored frame result.
+Its recovered nodal contact fields also do not establish local Coulomb
+compliance. The original bounded trials above remain unchanged evidence.
+
 Before a broad whole-frame load sweep, isolate the quadratic floor-contact
 mesh and unloaded rigid-body modes with a small representative leg/foot
 model. Compare penalty/increment settings without supplying artificial
