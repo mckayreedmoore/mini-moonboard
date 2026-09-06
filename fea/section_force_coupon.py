@@ -12,6 +12,15 @@ from fea.floor_contact import node_set
 from fea.floor_contact_results import blocks, cross
 
 
+def format_cload(value):
+    if not math.isfinite(value):
+        raise ValueError("Finite load required")
+    # CalculiX2.21 cloads.f:267 reads only textpart(3)(1:20). Keep existing
+    # short tokens byte-identical; otherwise prevent exponent truncation.
+    token = f"{value:.15g}"
+    return token if len(token) <= 20 else f"{value:.12E}"
+
+
 def deck(divisions):
     if divisions not in (2, 4):
         raise ValueError("Only two bounded structured mesh comparisons are defined")
@@ -54,7 +63,7 @@ def deck(divisions):
     lines += [f"{tag},S2" for tag in lower]+["*SURFACE,NAME=UPPER_CUT"]+[f"{tag},S1" for tag in upper]
     for forces in loads:
         lines += ["*STEP", "*STATIC", "*BOUNDARY", "FIXED,1,3,0", "*CLOAD,OP=NEW"]
-        lines += [f"{tag},3,{force:.15g}" for tag, force in forces.items() if force]
+        lines += [f"{tag},3,{format_cload(force)}" for tag, force in forces.items() if force]
         lines += ["*NODE PRINT,NSET=FIXED", "RF", "*NODE PRINT,NSET=ALLN", "U",
                   "*SECTION PRINT,SURFACE=LOWER_CUT,NAME=LOWER", "SOF",
                   "*SECTION PRINT,SURFACE=UPPER_CUT,NAME=UPPER", "SOM", "*END STEP"]

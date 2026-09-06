@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 from fea.floor_contact_results import cross
-from fea.section_force_coupon import audit, deck, sections
+from fea.section_force_coupon import audit, deck, format_cload, sections
 
 
 @pytest.mark.parametrize("divisions", [2, 4])
@@ -107,3 +107,15 @@ def test_published_native_sections_replay_without_solver_or_generated_files():
         assert saved["bending_shortfall_percent"] == pytest.approx(100*abs(bending["error"][4])/1200)
         errors.append(saved["bending_shortfall_percent"])
     assert errors[0] > errors[1] > 10  # Refinement improves this failure, not convergence.
+
+
+def test_cload_formatter_preserves_old_tokens_and_guards_exponent_truncation():
+    assert format_cload(-120.) == "-120"
+    value = -4.44089209850063e-16
+    assert len(f"{value:.15g}") == 21
+    assert float(f"{value:.15g}"[:20]) == pytest.approx(-.444089209850063)
+    token = format_cload(value)
+    assert len(token) <= 20
+    assert float(token[:20]) == pytest.approx(value, rel=1e-12, abs=0)
+    with pytest.raises(ValueError):
+        format_cload(float("nan"))
