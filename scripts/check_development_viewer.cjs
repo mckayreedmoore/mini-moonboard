@@ -86,4 +86,3 @@ const assert = require('node:assert/strict');
   console.log(JSON.stringify({loadedParts:manifest.parts.length,clicked,defaultModel:'plywood',selectorNavigation:true,errors}));
   await browser.close();
 })().catch(error => {console.error(error);process.exit(1)});
-
