@@ -119,3 +119,23 @@ which candidate to develop, what to change next, why, and when to switch.
 It does not close construction drawings, product selection, structural
 validation or permission to climb. Those remain explicit downstream work,
 rather than being silently relabeled as completed audits.
+
+### Completion audit of the requested research objective
+
+| Requirement | Evidence inspected and conclusion |
+| --- | --- |
+| Clear recommendation about which design to use or switch to | The alternative table selects untied 2×8-foot100 for development and gives mechanism-specific reasons and switch conditions. It does not select a construction-ready assembly. |
+| Clear next steps | The five gates above identify load applicability, leg/material and joint choices, contact verification, the unanchored comparison, and product-based checks in decision order. |
+| Preserve the original alternatives while testing new ideas | Original plywood/2×8/2×10/2×12 references and raw evidence remain separate from foot extensions, side ties and independent-ply studies. Source/geometry/result replay checks passed in the full suite. |
+| Research whether assumptions are reasonable | The linked load, material, contact and joint studies distinguish sourced scope from exploratory inputs. Manufacturer checks identify concrete limitations; unsupported properties and adverse load cases are retained rather than declared acceptable. |
+| Test and evaluate the claims, not just obtain solver completion | Analytical controls, actual-CAD preflights, mesh comparisons, global and per-ply equilibrium/energy audits, and archived-output replay support the stated numerical conclusions. Independent review checked the synthesis and primary material documents without finding substantial remaining errors. |
+
+Final local verification on 2026-09-06: `uv run pytest -q` completed with
+**456 passed, 1 skipped** in 435.54 seconds. The skipped Gmsh-dependent
+`test_published_raw_equilibrium_replay_when_gmsh_is_available` was then run in
+the existing `mini-moonboard-fea:box-v1` Docker environment and **passed**.
+`uv run ruff check .` and `git diff --check` also passed. The full suite checks
+repository behavior and evidence consistency; it is not physical validation
+of the proposed structure. The available independent reviews are documented
+with their limits; no fresh three-agent protocol or professional structural
+sign-off is claimed.
