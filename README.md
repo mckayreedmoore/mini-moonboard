@@ -23,6 +23,12 @@ backing joints, and use explicit load/contact findings to decide whether to
 change the support arrangement. This is a development decision, not approval
 of the current build plans.
 
+New separately selectable [backing-joint development model](https://mckayreedmoore.github.io/mini-moonboard/?model=joint-development):
+use the viewer's **Design** selector to compare it with the preserved references.
+It adds wider seam battens, enlarged side-grain ribs, wire chases and relocated
+rear angles/bolts. [Changes and remaining checks](docs/backing-joint-development.md)
+are explicit; this candidate has not yet undergone FEA or product qualification.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.

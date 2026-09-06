@@ -13,6 +13,7 @@
       p { color: #c7c1b4; font-size: .9rem; margin: 0; }
       .support-link { display: inline-block; margin-top: .55rem; color: #f0b429; font-size: .85rem; text-underline-offset: .2em; }
       #part { margin-top: .5rem; color: #f5f0e6; font-size: .85rem; max-width: 28rem; }
+      #design-details { margin-top: .5rem; max-width: 28rem; font-size: .85rem; }
       label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
       select { margin-left: .35rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; padding: .2rem; }
       canvas { display: block; height: 100vh; width: 100vw; }
@@ -63,17 +64,22 @@
         return `${feet} ft ${inches} in`;
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
-      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100'].includes(requestedModel) ? requestedModel : 'plywood';
+      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development'].includes(requestedModel) ? requestedModel : 'plywood';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
-      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
       if (model !== 'plywood') document.querySelector('header p:nth-of-type(2)').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts red, screws blue, angles grey`;
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'bolt' ? 0xd24141 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.name.startsWith('angle_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
-      manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm }) => {
+      manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
+        if (design) {
+          const details = document.createElement('p'); details.id = 'design-details';
+          details.textContent = `${design.status}. ${design.description}`;
+          modelLabel.after(details);
+        }
         drawDimensions(bounds_mm);
         partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         parts.forEach(part => loader.load(part.path, geometry => {
