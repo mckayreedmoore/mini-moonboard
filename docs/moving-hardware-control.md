@@ -1,7 +1,7 @@
 # Free bolt/washer contact control
 
-The centred, catalog-clearance fixed-step control passes its complete quiet
-output gates. Posed and moving-contact behavior remains unqualified. The
+The centred and separated-pose catalog-clearance fixed-step controls pass their
+complete quiet output gates. Moving-contact behavior remains unqualified. The
 earlier rejected attempts below are preserved evidence, not the current
 stationary status. These tests do not establish bolt-product suitability,
 plywood joint capacity or permission to build/climb.
@@ -341,3 +341,11 @@ checks explicit empty tables, zero totals and both complete inactive CF
 blocks, and rejects each missing required block. This is a source/output
 contract check, not a recorded posed solver result. The source is retained
 in the [native control evidence](../fea/results/native_dynamic_control/README.md).
+
+The subsequent [posed stationary evidence](../fea/results/posed_hardware_control/README.md)
+now establishes all 20 quiet states for `posed-control-p8c_gk9h`, including
+explicit CNUM=0 and both complete inactive pair outputs. The solver finished
+within its frozen cap, with successful owned-container cleanup. Both posed
+mass operators are archived; native reference masses agree with both bodies'
+printed masses throughout the window. This releases preparation of the moving
+comparison, not moving contact or joint/board capacity qualification.
