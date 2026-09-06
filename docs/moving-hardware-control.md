@@ -305,3 +305,9 @@ and physical integration separately. Before running a timestep refinement,
 freeze comparisons for angular momentum/impulse and energy as well as linear
 momentum and pair impulse. A case that does not transfer nontrivial impulse
 at **both** interfaces remains inconclusive, even if its residuals are small.
+
+The [published preparation evidence](../fea/results/moving_fixture_preparation/README.md)
+now proves positive selected-surface clearance for the proposed pose and
+compares both centred native reference masses with all 20 recorded states.
+Full native and Gauss8 matrices are retained separately. No posed deck, posed
+mass cache, posed quiet result or moving solver result is included yet.
