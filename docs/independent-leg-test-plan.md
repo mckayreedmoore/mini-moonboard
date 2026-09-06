@@ -48,6 +48,21 @@ fixtures isolate compliance; they do **not** represent unilateral floor contact
 or actual loose-bolt engagement. Do not couple the two plies at their interface,
 share mesh nodes, or silently introduce a common rigid foot plate.
 
+For the actual profile, resolve loading into separate global X, Y and Z unit
+force cases: X is out of the plywood plane; Y and Z span its plane. Record the
+actual traction centroid and all three applied moment components. Moving the
+full force from the full-width floor face onto the inner ply changes that
+centroid by half a ply thickness (9.525 mm). For Y or Z loading it consequently
+changes an applied moment by 9.525 Nmm per 1 N force; X loading has no moment
+change from that X shift. This is a combined **sharing/eccentricity** sensitivity,
+not identical six-component loading. Do not conceal it with a rigid coupling or
+an undocumented correcting couple.
+
+An uncoupled, no-contact ply model may permit separation or interpenetration
+under unequal loading. It is a mathematical stiffness comparison only, not an
+admissible simulation of the complete physical assembly. A subsequent assembly
+model must address contact and actual connectors explicitly.
+
 Before the profile runs, verify the fixture/load implementation on a homogeneous
 straight-strip control: the section-property model predicts equal in-plane
 aggregate bending rigidity and one-quarter out-of-plane aggregate rigidity for
@@ -65,6 +80,38 @@ separately. A failed control or balance check stops interpretation of the
 profile comparison.
 
 ## What the result can decide
+
+### Executable profile experiment, declared before launch
+
+The straight-strip [control now passes](../fea/results/independent_ply_control/README.md).
+The actual [matched right-leg meshes](../fea/results/independent_leg_mesh/README.md)
+retain the same quadratic elements for the bonded and independent cases;
+only interface node connectivity changes. Mesh sizes are 40 and 25 mm, with
+additional curvature-driven refinement around the bores. Before launch, the
+response runner authenticates the full bore/floor selections against the
+verified mesh archive, not just a connectivity checksum.
+
+`fea/independent_leg_response.py` implements the three unit force directions
+above, with generic E = 7000 MPa and ν = 0.3. Each job has a 120-second solver
+cap and two OpenMP threads. The frozen numerical gates are 0.001 N and
+0.01 Nmm per residual component, 1e−9 mm for fixed/unloaded displacement,
+0.1% for native-energy versus half-work comparisons, 1e−10 Nmm for unloaded
+energy, and 5% for the two-mesh change in work-conjugate compliance. These are
+experiment diagnostics, not allowable deformations or structural capacities.
+
+Native `ELSE` output is requested separately for each ply's element set. For
+independent plies it is compared with each ply's half external work; for the
+bonded reference only the **sum** is compared with total half external work,
+because an individual bonded ply also exchanges interface work. The exact
+CalculiX 2.21 manual identifies `ELSE` as whole-element internal energy and
+requires its output request to trigger calculation; the parser follows that
+version's `printout.f` total-energy format.
+[CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.htm.tar.bz2).
+
+The current mesh is not exactly mirror-symmetric in its discretization, so all
+three directions also run with the entire unit force on the **outer** ply.
+That avoids attributing discretization differences to physical sidedness.
+No profile result is claimed by this predeclared section.
 
 This experiment can identify whether independent-ply compliance or unequal
 sharing is consequential enough to prioritize leg redesign. It cannot select
