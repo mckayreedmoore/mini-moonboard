@@ -1,7 +1,10 @@
 """Mocked quiescent orchestration only; never launch Docker or a solver."""
 
+import copy
+import gzip
 import json
 import math
+import shutil
 import signal
 import subprocess
 from pathlib import Path
@@ -11,6 +14,196 @@ import pytest
 from fea import moving_hardware_solve as solve
 
 CID = "a" * 64
+
+
+@pytest.fixture(scope="module")
+def moving_prepared(tmp_path_factory):
+    """Replay real quiet proof; reuse its unchanged-coordinate matrices, not a solve."""
+    from fea import hardware_mass_cache as mass
+    from fea import moving_hardware_event as event
+
+    parent = tmp_path_factory.mktemp("moving-launch-fixture")
+    prepared = event.prepare(parent)
+    evidence = event.archived_files(event.ARCHIVE.read_bytes())
+    data = (prepared / "context.json").read_bytes()
+    context = json.loads(data)
+    old = json.loads(evidence["mass/context.json"])
+    assert mass.context_mesh(context) == mass.context_mesh(old)
+    # Changing initial velocity and selected time window cannot change M(X,rho).
+    cache = json.loads(gzip.decompress(evidence["mass/blocks.json.gz"]))
+    cache["context_sha256"] = mass.sha(data)
+    payload = gzip.compress(json.dumps(cache, separators=(",", ":")).encode(), mtime=0)
+    report = json.loads(evidence["mass/report.json"])
+    report.update(case="moving", context_sha256=mass.sha(data), blocks_sha256=mass.sha(payload),
+                  deck_sha256=solve.sha(prepared / "moving.inp"),
+                  prepared_freeze_sha256=solve.sha(prepared / "freeze.json"),
+                  source_sha256={n: mass.sha(b) for n, b in mass.sources().items()})
+    assert mass.validate_cache(cache, data) == report["body_mass_tonne"]
+    directory = parent / "rebound-identical-mesh-mass"
+    directory.mkdir()
+    for name, contents in {"context.json": data, "blocks.json.gz": payload,
+            "prepared-freeze.json": (prepared / "freeze.json").read_bytes(),
+            "moving.inp": (prepared / "moving.inp").read_bytes(),
+            **{n + ".snapshot": b for n, b in mass.sources().items()}}.items():
+        (directory / name).write_bytes(contents)
+    solve.save(directory / "report.json", report)
+    return prepared, directory
+
+
+@pytest.fixture
+def moving_run(moving_prepared, tmp_path, monkeypatch):
+    prepared, mass = moving_prepared
+    with monkeypatch.context() as guard:
+        guard.setattr(solve.subprocess, "run", lambda *a, **k: pytest.fail("prepare must not launch"))
+        return solve.prepare(prepared, tmp_path / "runs", case="moving", mass_directory=mass,
+                             solver_timeout_seconds=1800)
+
+
+def test_explicit_moving_freezes_full_approved_closure(moving_run, moving_prepared):
+    prepared, mass = moving_prepared
+    record = solve.verify(moving_run)
+    frozen = moving_run / "frozen"
+    approval = json.loads((frozen / "moving-preflight.json").read_text())
+    assert record["case"] == "moving" and record["solver_timeout_seconds"] == 1800
+    assert approval["passed_quiet_archive_sha256"] == solve.QUIET_ARCHIVE_SHA
+    assert approval["inputs_sha256"] == {n: h for n, h in record["inputs_sha256"].items() if n != "moving-preflight.json"}
+    assert {p.name for p in (frozen / "mass").iterdir()} == solve.MASS_FILES
+    assert all((frozen / "mass" / n).read_bytes() == (mass / n).read_bytes() for n in solve.MASS_FILES)
+    assert (frozen / "control.inp").read_bytes() == (prepared / "moving.inp").read_bytes()
+    assert not (moving_run / "launch.json").exists()
+    command = solve.command(moving_run, case="moving", solver_timeout_seconds=1800)
+    assert command[3] == "moving-" + moving_run.name
+    assert command[command.index("--kill-after=5") + 1] == "1800"
+
+
+def test_moving_mock_completion_is_not_acceptance_and_is_single_use(moving_run, monkeypatch):
+    calls = mock_docker(monkeypatch, moving_run)
+    result = solve.launch(moving_run)
+    launch = json.loads((moving_run / "launch.json").read_text())
+    report = json.loads((result / "exit.json").read_text())
+    assert launch["outer_timeout_seconds"] == 1820
+    assert report["status"] == "SOLVER COMPLETED; AUDIT PENDING"
+    assert report["container_stopped_successfully_before_cleanup"] is True
+    assert "refinement pending" in report["limits"]
+    with pytest.raises(FileExistsError):
+        solve.launch(moving_run)
+    assert calls[-1] == ["docker", "rm", "-f", CID] and len(calls) == 3
+
+
+@pytest.mark.parametrize("failure", ["timeout", "running"])
+def test_moving_timeout_or_running_container_retains_failure(moving_run, monkeypatch, failure):
+    kwargs = {"error": subprocess.TimeoutExpired("docker", 1820)} if failure == "timeout" else {"running": True}
+    calls = mock_docker(monkeypatch, moving_run, **kwargs)
+    with pytest.raises((RuntimeError, subprocess.TimeoutExpired)):
+        solve.launch(moving_run)
+    assert calls[-1] == ["docker", "rm", "-f", CID]
+    report = json.loads((moving_run / "result/exit.json").read_text())
+    assert report["status"] != "SOLVER COMPLETED; AUDIT PENDING"
+    assert report["output_sha256"]["control.dat"] == solve.sha(moving_run / "result/control.dat")
+
+
+@pytest.mark.parametrize("name", ["mass/blocks.json.gz", "evaluators/moving_hardware_balance.py.snapshot", "moving-preflight.json"])
+def test_changed_moving_frozen_evidence_rejects_before_sentinel(moving_run, name):
+    path = moving_run / "frozen" / name
+    path.write_bytes(path.read_bytes() + b" ")
+    with pytest.raises(ValueError, match="Frozen input changed"):
+        solve.launch(moving_run)
+    assert not (moving_run / "launch.json").exists()
+
+
+@pytest.mark.parametrize("case,seconds", [("quiescent", 1800), ("moving", 120), ("moving", 180),
+    ("moving", 3600), ("moving", 1800.), ("moving", True), ("refinement", 1800)])
+def test_moving_authority_is_explicit_and_coarse_only(tmp_path, case, seconds):
+    with pytest.raises(ValueError):
+        solve.prepare(tmp_path / "absent", case=case, solver_timeout_seconds=seconds)
+
+
+def test_moving_missing_selected_cache_rejects(moving_prepared, tmp_path):
+    prepared, _ = moving_prepared
+    with pytest.raises(ValueError, match="explicit mass_directory"):
+        solve.prepare(prepared, tmp_path / "runs", case="moving", solver_timeout_seconds=1800)
+    assert not (tmp_path / "runs").exists()
+
+
+def test_moving_child_guard_needs_only_standard_library(moving_run):
+    # -I removes the repository import path: runtime approval must need no FEA/Gmsh imports.
+    import sys
+    program = ("import json,runpy,pathlib; p=pathlib.Path(__import__('sys').argv[1]); "
+               "m=runpy.run_path(str(p/'frozen/moving_hardware_solve.py')); "
+               "m['check_frozen'](p/'frozen',json.loads((p/'freeze.json').read_text()))")
+    completed = subprocess.run([sys.executable, "-I", "-c", program, str(moving_run)],
+                               capture_output=True, text=True, timeout=20, check=False)
+    assert completed.returncode == 0, completed.stderr
+
+
+@pytest.mark.parametrize("fault", ["context", "blocks", "source", "extra"])
+def test_moving_wrong_cache_is_rejected(moving_prepared, tmp_path, fault):
+    prepared, mass = moving_prepared
+    changed = tmp_path / "mass"
+    shutil.copytree(mass, changed)
+    name = {"context": "context.json", "blocks": "blocks.json.gz", "source": "dynamic_momentum.py.snapshot", "extra": "foreign"}[fault]
+    (changed / name).write_bytes(b"changed")
+    with pytest.raises(ValueError):
+        solve.prepare(prepared, tmp_path / "runs", case="moving", solver_timeout_seconds=1800, mass_directory=changed)
+    assert not (tmp_path / "runs").exists()
+
+
+def test_moving_extra_frozen_file_rejects(moving_run):
+    (moving_run / "frozen/unapproved").write_bytes(b"extra")
+    with pytest.raises(ValueError, match="inventory"):
+        solve.verify(moving_run)
+
+
+def test_selected_native_mass_must_match_frozen_reference(moving_prepared, tmp_path):
+    from fea import hardware_mass_cache as mass
+
+    prepared, original = moving_prepared
+    changed = tmp_path / "mass"
+    shutil.copytree(original, changed)
+    cache = json.loads(gzip.decompress((changed / "blocks.json.gz").read_bytes()))
+    for _, block in cache["operators"]["native_four_point"]["WASHER"].values():
+        for row in block:
+            for i in range(len(row)):
+                row[i] *= 2
+    payload = gzip.compress(json.dumps(cache).encode(), mtime=0)
+    (changed / "blocks.json.gz").write_bytes(payload)
+    report = json.loads((changed / "report.json").read_bytes())
+    report["blocks_sha256"] = mass.sha(payload)
+    report["body_mass_tonne"] = mass.validate_cache(cache, (prepared / "context.json").read_bytes())
+    (changed / "report.json").write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="native washer mass differs"):
+        solve.prepare(prepared, tmp_path / "runs", case="moving", solver_timeout_seconds=1800, mass_directory=changed)
+    assert not (tmp_path / "runs").exists()
+
+
+def test_failed_freeze_validation_leaves_no_launchable_record(prepared, tmp_path, monkeypatch):
+    def reject(*args):
+        raise ValueError("final frozen validation failed")
+    monkeypatch.setattr(solve, "check_frozen", reject)
+    with pytest.raises(ValueError, match="final frozen validation"):
+        solve.prepare(prepared, tmp_path / "runs")
+    assert list((tmp_path / "runs").iterdir())
+    assert not list((tmp_path / "runs").glob("*/freeze.json"))
+
+
+@pytest.mark.parametrize("fault", ["velocity", "time", "gate", "quiet", "source", "reference"])
+def test_moving_host_replay_rejects_changed_contract(moving_prepared, fault):
+    prepared, mass = moving_prepared
+    context = copy.deepcopy(json.loads((prepared / "context.json").read_text()))
+    if fault == "velocity":
+        context["cases"]["moving"]["initial_velocity_mm_s"]["BOLT_NUT"][0] = 1
+    elif fault == "time":
+        context["cases"]["moving"]["total_time_s"] = 4e-5
+    elif fault == "gate":
+        context["moving_protocol"]["native_ke_rtol"] = 1
+    elif fault == "quiet":
+        context["passed_quiet_evidence"]["archive_sha256"] = "0" * 64
+    elif fault == "source":
+        context["source_sha256"]["moving_hardware_balance.py"] = "0" * 64
+    else:
+        context["diagnostic_reference_scales"]["reference_mass_tonne"] *= 2
+    with pytest.raises(ValueError):
+        solve.moving_preflight(prepared, context, mass)
 
 
 @pytest.fixture
@@ -51,7 +244,7 @@ def mock_docker(monkeypatch, directory, *, code=0, running=False, oom=False, cle
         if cmd[1] == "inspect":
             assert cmd[-1] == CID
             data = [{"Id": "b" * 64 if wrong_id else CID,
-                     "Name": "/foreign" if wrong_name else "/" + solve.command(directory)[3],
+                     "Name": "/foreign" if wrong_name else "/" + json.loads((directory / "freeze.json").read_text())["case"] + "-" + directory.name,
                      "Config": {"Image": "foreign" if wrong_image else solve.IMAGE},
                      "State": {"Running": running, "ExitCode": code, "OOMKilled": oom}}]
             return subprocess.CompletedProcess(cmd, 0, json.dumps(data).encode(), b"")

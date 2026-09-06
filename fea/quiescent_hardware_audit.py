@@ -93,14 +93,15 @@ def stationary_deck(text, context):
             "Actual provisional material/contact settings differ")
 
 
-def identities(files):
+def identities(files, *, case="quiescent"):
+    require(case in ("quiescent", "moving"), "Unsupported terminal audit case")
     require(set(files) == set(INPUTS), "Audit input inventory differs")
     context, freeze, launch, outcome, probe, cleanup = [json.loads(files[n]) for n in
         ("context.json", "freeze.json", "launch.json", "exit.json", "container-probe.json", "cleanup.json")]
-    require(retained.sha(files["freeze.json"]) == launch["freeze_sha256"] and freeze["case"] == "quiescent", "Launch freeze differs")
+    require(retained.sha(files["freeze.json"]) == launch["freeze_sha256"] and freeze["case"] == case, "Launch freeze differs")
     for n in ("context.json", "control.inp"):
         require(retained.sha(files[n]) == freeze["inputs_sha256"][n], "Frozen input hash differs")
-    require(retained.sha(files["control.inp"]) == context["deck_sha256"]["quiescent"], "Deck hash differs")
+    require(retained.sha(files["control.inp"]) == context["deck_sha256"][case], "Deck hash differs")
     for n in ("control.inp", "control.dat", "control.sta", "container-probe.json", "cleanup.json"):
         require(retained.sha(files[n]) == outcome["output_sha256"][n], "Output hash differs")
     inspected = json.loads(probe["stdout"])
@@ -115,6 +116,9 @@ def identities(files):
             and outcome["status"] == "SOLVER COMPLETED; AUDIT PENDING" and outcome["exceptions"] == []
             and cleanup["returncode"] == 0 and cleanup["container_id"] == cid
             and cleanup["stdout"].strip() == cid, "Incomplete solver or owned cleanup")
+    if case == "moving":
+        retained.actual_mesh(files["control.inp"].decode(), context)
+        return context  # Moving caller must separately enforce its exact deck and output contract.
     case = context["cases"]["quiescent"]
     dynamic = re.findall(r"^\*DYNAMIC[^\n]*\n([^\n]+)", files["control.inp"].decode(), re.MULTILINE)
     require(len(dynamic) == 1 and close(float(dynamic[0].split(",")[1]), case["total_time_s"]), "Deck/context duration differs")
@@ -236,13 +240,23 @@ def outputs(text, times, context):
         require(count == len(dis) and close(total, math.fsum(r[2] for r in energy)), "CNUM or total CELS differs")
         penetration = 0.
         active = {name: False for name in pairs}
+        traction = {name: False for name in pairs}
+        represented = set()
         for d, s, e in zip(dis, stress, energy, strict=True):
             require(d[:2] in face_owner and all(v == int(v) for v in d[:2]), "Unknown quadratic slave face")
+            represented.add(face_owner[d[:2]])
             penalty = pairs[face_owner[d[:2]]]["normal_penalty_n_mm3"]
             require(s[2] >= 0 and e[2] >= 0 and math.isclose(s[2], max(0., -penalty*d[2]), rel_tol=PRINT_RTOL, abs_tol=1e-10), "Contact pressure/penetration differs")
             penetration = max(penetration, -d[2])
             active[face_owner[d[:2]]] |= any(v != 0 for v in s[2:]) or e[2] != 0
+            traction[face_owner[d[:2]]] |= any(v != 0 for v in s[2:])
         forces = {name: contact_force(take(f"statistics for slave set {name}, master set {p['master']} and time")) for name, p in pairs.items()}
+        require(all(name in represented or (pair["area_mm2"] == 0
+                    and all(v == 0 for v in pair["force_N"] + pair["origin_moment_N_mm"]))
+                    for name, pair in forces.items()), "CF area/resultant has no contact rows for its pair")
+        # Native CF integrates the same stx(4:6) components printed as CSTR.
+        require(all(traction[name] or all(v == 0 for v in pair["force_N"] + pair["origin_moment_N_mm"])
+                    for name, pair in forces.items()), "Nonzero CF contradicts zero point traction for its pair")
         require(all(not active[name] or pair["area_mm2"] > 0 for name, pair in forces.items()), "Inactive CF contradicts point pressure/energy")
         # Native EMAS also emits inertia/centroid summaries; they are not mass-reference qualification.
         for name in state:

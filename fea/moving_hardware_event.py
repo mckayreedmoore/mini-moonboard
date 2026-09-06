@@ -23,7 +23,9 @@ ARCHIVE_SHA = "0149053d26aa67e1c5f2d22de7e9b1e058d24f7188ef02324fe3cc6508bb86ea"
 DOCUMENT = ROOT / "docs/moving-hardware-control.md"
 SECTION = "## Moving comparison protocol — selected, not launched"
 EVALUATOR_FILES = ("fea/moving_hardware_balance.py", "fea/moving_hardware_replay.py", "fea/floor_contact_results.py",
-                   "tests/test_moving_hardware_balance.py", "tests/test_moving_hardware_replay.py")
+                   "tests/test_moving_hardware_balance.py", "tests/test_moving_hardware_replay.py",
+                   "fea/moving_hardware_audit.py", "tests/test_moving_hardware_audit.py",
+                   "fea/moving_hardware_solve.py", "tests/test_moving_hardware_solve.py")
 PROTOCOL = {
     "formal_operator": "native_four_point", "physical_operator_scope": "Separate Gauss8 diagnostic",
     "native_mass_rtol": 5e-6, "native_ke_rtol": 5e-6, "native_ke_floor_over_E_star": 1e-8,

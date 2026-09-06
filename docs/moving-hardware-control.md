@@ -367,8 +367,7 @@ the coordinates and thus its mass operators should match the posed quiet case.
 | Conditional refinement | 5e−8 s | 2e−5 s | 400 | 3600 / 3620 s |
 
 Use NLGEOM, implicit `DYNAMIC,DIRECT,ALPHA=0`, with EXPLICIT omitted. These are
-selected preparation requirements, **not yet a launchable frozen experiment**:
-the existing launcher still accepts stationary cases only. Each eventual
+selected preparation requirements, **not numerical qualification**. Each
 launch must be explicitly selected, single-use and bounded, retaining its own
 command, binary/build identity, raw output, exit and owned-container cleanup.
 No timeout extension, automatic retry or automatic refinement is permitted.
@@ -436,14 +435,39 @@ establish zero force over the first finite interval or cover another contact law
 
 `moving_hardware_event.py` prepares the coarse event from the pinned passed
 posed-quiet archive. It records the exact protocol, evaluator source snapshots
-and changed initial velocities without running a solver. The stationary
-launcher remains stationary-only.
+and changed initial velocities without running a solver. The launcher retains
+its stationary default; moving preparation requires explicit case selection,
+the matching mass-cache directory and the declared 1800-second cap. Preparation
+and launch remain separate, and each launch bundle is single-use.
 
 `moving_hardware_replay.py` reconstructs both operators from complete raw
 fields and the exact selected deck/cache; `moving_hardware_balance.py` applies
 the numerical balance/energy/endpoint-transfer gates. The latter explicitly
 does not establish launch provenance, complete-window or refinement
 qualification. Its input t=0 values are reconstructed initial conditions,
-not invented printed solver observations. A complete moving-run wrapper and
-the conditional refinement comparison remain required before any moving
-qualification claim. Synthetic tests are code checks, not FEA results.
+not invented printed solver observations. `moving_hardware_audit.py` adds the
+complete-run layer: terminal solver/owned-cleanup checks, frozen source,
+preflight/deck/cache identity, complete raw-output checks and numerical replay.
+It verifies the recorded host preflight approval rather than rerunning CAD or
+loading the complete quiet archive again. The full preparation is retained
+separately so that prerequisite remains auditable. The conditional refinement
+comparison remains required before moving-contact qualification. Synthetic
+tests are code checks, not FEA results.
+
+### Bounded coarse post-processing
+
+The first complete moving audit is separately limited to 900 seconds inside
+an 8 GiB memory/8 GiB memory-plus-swap, two-CPU worker, with a 920-second outer
+limit. Inputs remain read-only, network access disabled, and output goes to a
+new directory. Before reading the raw DAT, require its size to be no more than
+1,500,000,000 bytes. A larger file, timeout or memory failure requires diagnosis
+and a separately declared approach, not automatic resource extension or a pass.
+
+Bounded local diagnostics measured approximately 1.02 seconds for one actual
+mesh state across both operators/bodies. Parsing the retained 20-state quiet
+outputs and scaling their sizes suggests roughly 250–340 seconds and 5–6 GiB
+for the coarse replay, including input bytes and matrices. These are
+session-observed planning estimates, not archived performance guarantees or a
+worst-case bound: moving contact counts may be larger. The refinement audit
+must be budgeted separately. Avoid retaining unnecessary archive copies; a
+streaming parser can be considered if the actual output exceeds this envelope.
