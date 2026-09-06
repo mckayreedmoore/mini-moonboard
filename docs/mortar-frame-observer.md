@@ -1,7 +1,52 @@
 # Bounded observer replay of the original untied frame
 
-Prepared, **not launched**. This is the existing finest original 2×8-foot100
+Completed; **diagnostic qualification rejected**. This is the existing finest original 2×8-foot100
 baseline, not the redesigned joint candidate and not a strength approval.
+
+## Completed run and retained audit failures
+
+The immutable observer solve completed all 32 accepted increments / 108 calls
+in 1252.126 s, below its 1500 s cap, with Docker-client exit zero. Original
+evidence directory: `mortar-frame-observer-2jr09aeb`. The original terminal
+report remains unchanged: it reports unconfirmed cleanup because Docker emitted
+lowercase `error: no such object: <exact container name>` and the monitor
+incorrectly expected uppercase `No such`.
+
+A separate exact-name Docker inspection confirmed the container was absent.
+`fea/recover_frame_observer_audit.py` copied the evidence, retained the original
+report and its hash, and recorded post-hoc terminal confirmation separately.
+Recovery directory: `recovered-frame-audit-z44815i0`. The audit executed the exact
+nine-file launch source closure in a separate package root, with the original
+300 s / 6 GiB bounds. No solver rerun, modified deck or relaxed numerical gate
+was involved. The recovery launcher itself is retained as `recovery-launch.py`.
+
+| Recovered diagnostic | Result |
+| --- | --- |
+| Deck inventory and observed-matrix kinematic/force replay | Pass |
+| Accepted history | Identical, 32 increments |
+| Maximum printed reaction difference from original | 0 N |
+| Maximum printed displacement difference from original | 9.999999994736442e−9 mm |
+| Ground-body force/moment gates | Pass at all accepted increments |
+| Global force/moment gates | Seven intermediate increments fail |
+| Overall qualification | **Rejected**, retained audit exit 1 |
+
+Failed global times are 1.0625, 1.125, 1.1875, 1.25, 1.3125, 1.75 and 1.8125,
+also identified in the original-data replay. Final endpoints 1 and 2 pass the
+global diagnostic, not physical validation. The very small printed displacement
+difference still fails the predeclared exact-output comparison; it is reported,
+not silently accepted. Observed contact matrices/segmentation, local weak-law
+acceptance, real floor properties and joint capacities remain unqualified.
+
+The future monitor now recognizes only an exact named missing-object diagnostic,
+case-insensitively; other-container, network, daemon and permission errors remain
+fail-closed. The recovery tool also rejects an interrupted/erroring monitor,
+budget overrun or changed original evidence. Focused tests: **73 passed**.
+Independent correctness, testing and architecture reviews found no outstanding
+substantial findings; actual recovered execution exercised the frozen imports
+that unit orchestration tests mock. These are software/evidence checks, not
+construction or climbing approval.
+
+## Original execution contract
 
 The exact deck/context come from
 `fea/results/full_frame_refinement/0.0625.tar.gz`, SHA256
@@ -15,7 +60,7 @@ under its 1200 s cap. Its archived launcher resolves `ccx` through PATH and
 sets two OpenMP threads; the archived context does **not** independently bind
 the historical container image. No historical image ID is retroactively claimed.
 
-The prepared runner pins observer image
+The runner pins observer image
 `sha256:8e84d8ad546cd98a861ceba3ccbf4c486b88f38a8b7e4c45f7784ace4cea21e1`
 and checks the published build/source hashes, image manifest and actual binaries
 before execution. Its canonical provenance is
@@ -120,5 +165,5 @@ Tests: `uv run pytest tests/test_mortar_frame_observer.py` (no solver).
 Prelaunch verification: 43 focused tests and Ruff passed; the immutable-image
 manifest and actual binary hashes were checked. A final independent correctness,
 testing and architecture review pass found no substantial remaining findings.
-These are runner qualification results, not evidence that the frame solve has
-been executed or accepted.
+Those prelaunch checks did not constitute numerical acceptance; the completed
+run and rejected qualification are recorded above.

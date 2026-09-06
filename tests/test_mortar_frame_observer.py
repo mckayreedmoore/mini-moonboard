@@ -321,7 +321,7 @@ def test_solver_spawn_interrupt_is_deferred_until_handle_assignment_and_reaped_b
         assert events[-1] == 'client_reaped'
         assert command[1] == 'inspect' and command[-1] == 'only-spawn-test'
         events.append('absent_container_confirmed')
-        return subprocess.CompletedProcess(command, 1, '', 'No such object')
+        return subprocess.CompletedProcess(command, 1, '', 'No such object: only-spawn-test')
     monkeypatch.setattr(module.signal, 'pthread_sigmask', mask)
     monkeypatch.setattr(module.subprocess, 'Popen', Process)
     monkeypatch.setattr(module.subprocess, 'run', inspect)
@@ -368,6 +368,36 @@ def test_solver_terminal_report_is_persisted_before_interrupt_during_raw_hash(mo
     assert report['status'].startswith('TERMINAL') and report['terminal_state_confirmed']
     assert report['sentinel'] == 'retained'
     assert report['output_sha256']['frame.log'] == original_sha(tmp_path/'frame.log')
+
+
+@pytest.mark.parametrize('stderr,absent', [
+    ('error: no such object: mortar-frame-observer-2jr09aeb\n', True),
+    ('Error: No such object: mortar-frame-observer-2jr09aeb\n', True),
+    ('error: no such object: mortar-frame-observer-2jr09aeb-other\n', False),
+    ('error: no such object: different-container\n', False),
+    ('Error: No such object: different-container\n', False),
+    ('Error: No such network: mortar-frame-observer-2jr09aeb\n', False),
+    ('Cannot connect to the Docker daemon\n', False),
+    ('permission denied\n', False),
+])
+def test_monitor_exact_named_container_absence_error(monkeypatch, tmp_path, stderr, absent):
+    from fea import mortar_frame_observer as module
+    class Process:
+        pid = 321
+        def __init__(self, command, **kwargs):
+            pass
+        def poll(self):
+            return 0
+        def wait(self, timeout):
+            return 0
+    def inspect(command, **kwargs):
+        assert command == ['docker', 'inspect', '--format', '{{.State.Running}}', 'mortar-frame-observer-2jr09aeb']
+        return subprocess.CompletedProcess(command, 1, '', stderr)
+    monkeypatch.setattr(module.subprocess, 'Popen', Process)
+    monkeypatch.setattr(module.subprocess, 'run', inspect)
+    result = module.monitor(['docker', 'run', '--name', 'mortar-frame-observer-2jr09aeb'], tmp_path)
+    assert result['terminal_state_confirmed'] is absent
+    assert ('stop_reason' in result) is not absent
 
 
 @pytest.mark.parametrize('failure', ['timeout', 'sigint', 'sigterm'])

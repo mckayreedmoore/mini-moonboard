@@ -107,7 +107,8 @@ def monitor(command, directory, launch_report=None):
                     def container_running():
                         probe = subprocess.run(['docker', 'inspect', '--format', '{{.State.Running}}', name],
                                                capture_output=True, text=True, check=False, timeout=15)
-                        if probe.returncode and 'No such' in probe.stderr:
+                        if probe.returncode and re.fullmatch(
+                                r'(?i:(?:error:\s*)?no such object:)\s*'+re.escape(name), probe.stderr.strip()):
                             return False
                         if probe.returncode or probe.stdout.strip() not in ('true', 'false'):
                             raise RuntimeError('Cannot resolve named container: '+probe.stderr)
