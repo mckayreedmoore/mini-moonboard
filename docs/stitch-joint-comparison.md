@@ -42,10 +42,13 @@ The next mechanical variant will fuse each nut to its bolt core as an explicit
 perfectly locked-thread idealization, without preload. This avoids introducing
 tie-projection constraints into the first contact/momentum qualification. It
 requires three newly meshed fused hardware solids: two plies, six separate
-washers and three core/nut solids give **eleven mechanical bodies**. This variant
-is not yet prepared or solved; the published fourteen-body geometry and mesh
-remain unchanged. Independently meshed bodies must not be joined by blindly
-merging coincident nodes.
+washers and three core/nut solids give **eleven mechanical bodies**. Geometry
+and meshing are now prepared, with 131,695 nodes and 62,987 C3D10 elements;
+no full stitch solve has run. The published fourteen-body geometry and mesh
+remain unchanged. All eleven bodies were meshed independently; the two ply
+node/element counts match the earlier mesh, but matching counts alone are not
+proof of identical connectivity. Bodies must not be joined by blindly merging
+coincident nodes.
 
 No wood-to-bolt, washer-to-shank or ply-to-ply tie is permitted. Washer and wood
 interfaces remain frictionless, unilateral contact. A standard CalculiX tie is
@@ -71,6 +74,8 @@ assembly balance, and energy, then repeat at a smaller timestep. Independently
 meshed nominally zero-clearance washer/shank surfaces may introduce apparent
 penetration; that must be checked rather than accepted as preload. Freeze the
 velocity, duration, penalty settings and numerical gates before launching.
+The [bounded two-body control contract](moving-hardware-control.md) records the
+selected settings, reference-scale formulas and interpretation gates.
 
 ## Matched fixture experiment
 
