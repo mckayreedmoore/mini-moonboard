@@ -59,7 +59,7 @@ With freely moving hardware, 0.2375 mm inner-ply motion does not necessarily
 engage both sides of a bolt. Clearance can be taken up on each ply before a
 complete shear path forms; the two radial clearances total 0.475 mm nominally.
 Actual local engagement must be measured, not inferred from floor displacement
-  or forced equal across the three stations.
+or forced equal across the three stations.
 
 An unloaded, loose bolt can have unconstrained rigid motion in a static start.
 Fixing it to make that calculation solvable would create an external load path.
@@ -71,10 +71,15 @@ inertia is small enough for a quasi-static interpretation.
 
 The [CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.pdf) documents implicit
 `*DYNAMIC`, density, amplitudes and energy/contact output. The proposed
-`EXPLICIT=0,ALPHA=0` procedure uses automatic increments and no alpha-method
+`*DYNAMIC,ALPHA=0` procedure omits `EXPLICIT` entirely, uses automatic increments and no alpha-method
 numerical damping. An explicit displacement amplitude avoids a suddenly applied
 full dynamic displacement. The manual warns that reported `RF` excludes dynamic
 forces; summing it as if it were a static reaction balance would be incorrect.
+The first native control exposed a manual/parser discrepancy: although the
+bundled manual describes numeric `EXPLICIT` values, the verified 2.21 parser
+enables explicit structural integration whenever that parameter is present,
+including `EXPLICIT=0`. Its actual run log confirmed explicit integration. That
+attempt is retained as failed qualification; it is not an implicit control.
 
 Generic elastic wood and steel properties may define a conditional mechanics
 comparison, but cannot establish plywood, bolt or connection resistance. Any
@@ -94,8 +99,9 @@ density is tonne/mm³: multiply kg/m³ by 10⁻¹².
   Keep the solver's own integration rule separate from higher-order physical
   integration: source inspection shows CalculiX 2.21 implicit C3D10 mass uses
   four points. The Gauss8 reference operator is not solver-identical. Native
-  kinetic-energy controls with quadratic velocity fields are required before
-  trusting the reconstructed discrete momentum balance.
+  kinetic-energy controls with quadratic velocity fields have now passed for
+  four untransformed straight/curved cases; [scope and remaining checks](dynamic-momentum-qualification.md)
+  are explicit. This does not establish contact impulse/momentum balance.
 - Compare contact impulse with momentum change for each complete hardware
   assembly; internal thread-tie forces then cancel. Audit freely contacting
   washers separately or inside that complete assembly, without omitting forces.

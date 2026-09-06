@@ -1,0 +1,20 @@
+[
+  "docker",
+  "run",
+  "--name",
+  "native-mass-cache-929c13aa60e3",
+  "--network=none",
+  "--memory=2g",
+  "--memory-swap=2g",
+  "--cpus=1",
+  "--pids-limit=128",
+  "-v",
+  "/home/mckay-linux/repos/mini-moonboard/fea/generated/native-dynamic-controls/control-ajgbgzoh/frozen:/frozen:ro",
+  "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "timeout",
+  "--kill-after=2",
+  "20",
+  "python3",
+  "-c",
+  "import sys,json,gmsh\nsys.path.insert(0,\"/frozen\")\nimport native_dynamic_control as c\nimport dynamic_momentum as m\nresult={\"gmsh_version\":gmsh.__version__,\"image\":c.IMAGE,\"geometries\":{}}\nfor geometry,curved in ((\"straight\",False),(\"curved\",True)):\n n=c.nodes(curved); e={1:tuple(n)}\n result[\"geometries\"][geometry]={\"nodes\":n,\"four_point\":m.calculix_221_mass(e,n,1),\"Gauss8\":m.consistent_mass(e,n,1)}\nprint(json.dumps(result,indent=2))\n"
+]

@@ -1,4 +1,4 @@
-# Dynamic momentum operators: qualification pending
+# Dynamic momentum operators: bounded native output controls
 
 `fea/dynamic_momentum.py` contains two separate C3D10 reference-volume
 operators. `consistent_mass` uses Gmsh Gauss8 to integrate physical mass and
@@ -9,10 +9,12 @@ points and weights specified in its source. Both return element blocks for
 origin using current position `X+u`, and kinetic energy. Units follow the
 provided coordinates, density and time.
 
-Neither operator has been qualified against actual native dynamic solver
-output. The four-point reconstruction excludes mortar basis transformations,
-explicit lumping, and mass scaling. Passing its numerical tests does not
-authorize a candidate fourteen-body solve or establish dynamic contact balance.
+Four corrected implicit one-element controls now verify native velocity output
+and ELKE/EMAS reconstruction using emitted states, on straight and curved
+geometry with and without `NLGEOM`. The four-point reconstruction excludes
+mortar basis transformations, explicit lumping, and mass scaling. This is not
+qualification of dynamic contact balance or every entry of the solver mass
+matrix, and does not by itself release the candidate fourteen-body solve.
 
 ## Source evidence
 
@@ -68,7 +70,7 @@ Run these checks with:
 .venv/bin/ruff check fea/dynamic_momentum.py tests/test_dynamic_momentum.py
 ```
 
-## Required before a dynamic momentum audit
+## Native controls and remaining dynamic-audit gates
 
 1. Verify the installed solver's velocity-output request (`V` on `*NODE PRINT`), actual
    output labels, time association, and complete nodal displacement/velocity
@@ -88,4 +90,43 @@ Run these checks with:
    with refinement. Do not interpret quadrature disagreement as missing
    external impulse or silently relax a balance tolerance to absorb it.
 
-These native controls and the candidate fourteen-body solve remain unlaunched.
+The first native control was launched with `EXPLICIT=0` and correctly failed
+accepted-state qualification. Its run log identified explicit time integration,
+and its STA contained no accepted implicit increments. Source `dynamics.f:58`
+defaults to implicit, while `:115–116` enables explicit integration on parameter
+presence regardless of its numeric suffix. This conflicts with the bundled
+manual's numeric-value description. The corrected implicit deck must omit
+`EXPLICIT` entirely. The original failed attempt is retained unchanged at
+`fea/generated/native-dynamic-controls/control-axqh8cyi`.
+
+The corrected `control-ajgbgzoh` run completed all four cases with the same
+predeclared 5e−6 relative ELKE/EMAS agreement limit. Maximum observed errors were
+3.512780e−7 for ELKE and 1.9999996e−7 for EMAS. Every final state also exceeded
+the predeclared nonzero-energy, quadrature-contrast and non-affine-velocity
+thresholds. These checks prevent zero or rigid velocity fields from producing
+an uninformative agreement. Both solver and analysis exits were zero, with
+successful terminal-container checks and cleanup.
+
+The [published native-control evidence](../fea/results/native_dynamic_control/README.md)
+preserves both attempts, raw output, frozen sources and portable replay tests.
+Replay requires no new solver execution.
+
+For these deliberately non-affine fixtures, physical Gauss8 KE differs from
+the native four-point value by about 73.7–75.0%, normalized by the larger value.
+This is not an estimate of error in the board design. It demonstrates why the
+two operators cannot be interchanged, and why low-inertia and refinement checks
+remain necessary before interpreting a future joint transient.
+
+Native kinetic-energy/mass output is now checked for these four untransformed
+controls. Full contact impulse/momentum balance, thread retention, material
+assumptions, rate sensitivity and candidate response remain unqualified. The
+candidate fourteen-body solve remains unlaunched.
+
+## Separate static gravity diagnosis
+
+The [retained original-state gravity replay](../fea/results/native_gravity_replay/README.md)
+tests whether replacing archived Gauss5 gravity weights with untransformed
+native four-point weights explains the earlier seven moment failures. It does
+not: all seven fail times remain unchanged and the maximum correction is only
+0.000819323 N·mm. No frame solver was rerun and original gates/results remain
+preserved. Mortar basis transformations are still outside that diagnostic.
