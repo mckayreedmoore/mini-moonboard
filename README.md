@@ -34,6 +34,9 @@ verification from material and connection selection. Two additional
 their new connections remain unresolved. See the
 [material-selection recommendation](docs/material-selection-recommendation.md)
 before treating any candidate as a purchasing or building plan.
+The [matched side-tie comparison](docs/tied-base-comparison.md) retains the
+untied baseline: the rails change support reactions but provide little
+fixed-floor stiffness improvement and do not cure the exploratory tipping cases.
 
 Next analysis: [joint/contact load basis and outstanding material evidence](docs/load-contact-basis.md).
 
