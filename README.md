@@ -29,6 +29,11 @@ It adds wider seam battens, enlarged side-grain ribs, wire chases and relocated
 rear angles/bolts. [Changes and remaining checks](docs/backing-joint-development.md)
 are explicit; this candidate has not yet undergone FEA or product qualification.
 
+The separate [independent-leg inspection model](https://mckayreedmoore.github.io/mini-moonboard/?model=independent-leg-development)
+adds four individually selectable plywood plies and six provisional stitch bolts.
+[Geometry, exports and remaining gates](docs/independent-leg-development.md)
+are documented; no glue, interface-friction or external-bracing credit is assumed.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.

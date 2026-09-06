@@ -64,10 +64,10 @@
         return `${feet} ft ${inches} in`;
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
-      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development'].includes(requestedModel) ? requestedModel : 'plywood';
+      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development'].includes(requestedModel) ? requestedModel : 'plywood';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
-      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
@@ -168,7 +168,9 @@
       document.querySelector('#person').addEventListener('change', event => { person.visible = event.target.checked; });
       renderer.domElement.addEventListener('pointerdown', event => {
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
-        raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(meshes)[0];
+        raycaster.setFromCamera(pointer, camera);
+        // The raycaster still intersects children of an invisible parent group.
+        const hit = raycaster.intersectObjects(meshes.filter(mesh => person.visible || mesh.userData.part !== personPart))[0];
         if (!hit) return;
         selected.forEach(mesh => mesh.material.emissive.setHex(0));
         const part = hit.object.userData.part;

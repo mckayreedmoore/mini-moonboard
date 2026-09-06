@@ -1,0 +1,107 @@
+"""Mechanical candidate geometry checks, never connection/stability approval."""
+import math
+
+import cadquery as cq
+import pytest
+
+from mini_moonboard import independent_leg_frame as frame
+from mini_moonboard import joint_frame as baseline
+
+
+@pytest.mark.parametrize("drilled", [False, True])
+def test_distinct_plies_preserve_profiles_floor_and_baseline(drilled):
+    original = {p.name: p for p in baseline.parts(drilled)}
+    candidate = {p.name: p for p in frame.parts(drilled)}
+    assert len(candidate) == len(frame.parts(drilled))
+    assert len(candidate) == len(original) + 2
+    for name, part in original.items():
+        if name not in ("leg_left", "leg_right"):
+            assert candidate[name] is part
+            continue
+        plies = [candidate[name + "_" + layer] for layer in ("inner", "outer")]
+        for ply in plies:
+            assert ply.laminations == 1 and ply.blank[2] == 19.05
+            assert ply.shape.isValid() and len(ply.shape.Solids()) == 1
+            assert ply.shape.BoundingBox().xlen == pytest.approx(19.05)
+            floors = [f for f in ply.shape.Faces() if abs(f.BoundingBox().zmin) < 1e-5
+                      and abs(f.BoundingBox().zmax) < 1e-5]
+            assert len(floors) == 1 and floors[0].geomType() == "PLANE"
+            old_floor = [f for f in part.shape.Faces() if abs(f.BoundingBox().zmin) < 1e-5
+                         and abs(f.BoundingBox().zmax) < 1e-5]
+            assert floors[0].Area() == pytest.approx(old_floor[0].Area()/2, abs=.01)
+            assert "no adhesive or interface-friction credit" in ply.description
+        inner, outer = [p.shape for p in plies]
+        assert abs(inner.Center().x) < abs(outer.Center().x)
+        assert inner.intersect(outer).Volume() < .01
+        assert inner.distance(outer) == pytest.approx(0, abs=1e-5)
+        reconstructed = inner.fuse(outer)
+        assert reconstructed.cut(part.shape).Volume() < .01
+        assert part.shape.cut(reconstructed).Volume() == pytest.approx(
+            3 * math.pi * 5**2 * 38.1 if drilled else 0, abs=.01)
+
+
+def test_three_member_upper_bolts_and_internal_stitch_graph():
+    old = {c.name: c for c in baseline.connections()}
+    current = {c.name: c for c in frame.connections()}
+    assert len(current) == len(frame.connections()) == 226
+    assert current.keys() == old.keys() | {
+        f"leg_stitch_{side}_{index}" for side in ("left", "right") for index in (1, 2, 3)}
+    parts = {p.name: p for p in frame.parts()}
+    adjacency = {name: set() for name in parts}
+    stitches = []
+    upper = []
+    for connection in frame.connections():
+        assert set(connection.members) <= parts.keys()
+        for member in connection.members:
+            adjacency[member].update(set(connection.members) - {member})
+        if connection.name.startswith("leg_stitch_"):
+            stitches.append(connection)
+            assert connection.grip == pytest.approx(38.1)
+            assert connection.length - connection.grip - 4 - 9 == pytest.approx(6.05)
+            assert len(connection.members) == 2
+            assert all(name.startswith("leg_") for name in connection.members)
+        elif connection.name.startswith("analysis_leg_wall_bolt_"):
+            upper.append(connection)
+            side = "left" if "left" in connection.name else "right"
+            assert connection.members == (f"box_side_{side}", f"leg_{side}_inner", f"leg_{side}_outer")
+            assert connection.start == old[connection.name].start
+            assert connection.length == old[connection.name].length
+            assert connection.grip == pytest.approx(76.2)
+        else:
+            assert connection is old[connection.name]
+    assert len(stitches) == 6 and len(upper) == 8
+    reached, todo = set(), [next(iter(parts))]
+    while todo:
+        name = todo.pop()
+        if name not in reached:
+            reached.add(name)
+            todo.extend(adjacency[name] - reached)
+    assert reached == parts.keys()
+    # All seven bores remain inside each ply, with a complete material annulus.
+    for connection in stitches + upper:
+        for member in connection.members:
+            if not member.startswith("leg_"):
+                continue
+            shape = parts[member].shape
+            start = cq.Vector(shape.BoundingBox().xmin, connection.start.y, connection.start.z)
+            # Include the documented 30 mm face-bearing envelope, in addition
+            # to the actual nominal 25.4 mm washers on the generic hardware.
+            for radius, area in ((5, 0), (6, math.pi*(6**2-5**2)), (15, math.pi*(15**2-5**2))):
+                probe = cq.Solid.makeCylinder(radius, 19.05, start, cq.Vector(1, 0, 0))
+                assert probe.intersect(shape).Volume() == pytest.approx(area*19.05, abs=.01)
+
+
+def test_stitch_hardware_access_and_floor_clearances():
+    parts = frame.parts()
+    connections = frame.connections()
+    for stitch in (c for c in connections if c.name.startswith("leg_stitch_")):
+        components = stitch.components()
+        assert all(component.BoundingBox().zmin > 0 for component in components)
+        for component in components:
+            assert all(component.intersect(part.shape).Volume() < .01 for part in parts)
+        # 36 mm nominal socket/access cylinder on both exposed faces and through
+        # the stack. Receivers are intentional; every other object must clear.
+        access = cq.Solid.makeCylinder(18, 80, stitch.start-stitch.direction*18, stitch.direction)
+        assert all(access.intersect(p.shape).Volume() < .01 for p in parts if p.name not in stitch.members)
+        assert all(access.intersect(shape).Volume() < .01 for c in connections if c.name != stitch.name
+                   for shape in c.components())

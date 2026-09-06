@@ -9,33 +9,39 @@ from pathlib import Path
 import cadquery as cq
 import pytest
 
-from mini_moonboard import joint_frame
+from mini_moonboard import independent_leg_frame, joint_frame
 from mini_moonboard.box_exports import exact_bounds
-from mini_moonboard.joint_exports import DESIGN, KEY
+from mini_moonboard.joint_exports import DESIGN, INDEPENDENT_DESIGN
 
 
-def test_joint_candidate_viewer_and_exports_match_geometry():
-    directory = Path("exports/joint-development")
+@pytest.mark.parametrize("model,design", [(joint_frame, DESIGN), (independent_leg_frame, INDEPENDENT_DESIGN)],
+                         ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"]])
+def test_joint_candidate_viewer_and_exports_match_geometry(model, design):
+    key = design["key"]
+    directory = Path("exports")/key
     manifest = json.loads((directory/"manifest.json").read_text())
-    viewer = json.loads((Path("site/hybrid")/KEY/"parts.json").read_text())
-    assert viewer["design"] == manifest["design"] == DESIGN
-    assert DESIGN["baseline"] == "2x8-foot100"
-    assert set(manifest["sources"]) == {f"mini_moonboard/{name}.py" for name in (
+    viewer = json.loads((Path("site/hybrid")/key/"parts.json").read_text())
+    assert viewer["design"] == manifest["design"] == design
+    assert design["baseline"] == ("2x8-foot100" if model is joint_frame else "joint-development")
+    sources = {f"mini_moonboard/{name}.py" for name in (
         "joint_exports", "joint_frame", "footprint_frame", "shallow_frame", "hybrid_frame",
         "hybrid", "box_frame", "model", "panel_grid", "box_exports", "export", "raster")}
-    assert set(manifest["artifacts"]) == {KEY+suffix for suffix in (
+    if model is independent_leg_frame:
+        sources.add("mini_moonboard/independent_leg_frame.py")
+    assert set(manifest["sources"]) == sources
+    assert set(manifest["artifacts"]) == {key+suffix for suffix in (
         ".step", "_front.png", "_rear.png", "_parts.csv", "_connections.csv")}
     assert set(manifest["artifacts"]) == {p.name for p in directory.iterdir() if p.name != "manifest.json"}
-    for root, key in ((Path("."), "sources"), (directory, "artifacts"), (Path("site"), "viewer_artifacts")):
-        for filename, digest in manifest[key].items():
+    for root, category in ((Path("."), "sources"), (directory, "artifacts"), (Path("site"), "viewer_artifacts")):
+        for filename, digest in manifest[category].items():
             assert hashlib.sha256((root/filename).read_bytes()).hexdigest() == digest, filename
-    parts, connections = joint_frame.parts(), joint_frame.connections()
+    parts, connections = model.parts(), model.connections()
     expected = {p.name: (p.shape, p.blank) for p in parts}
     expected.update({"fastener_"+c.name: (cq.Compound.makeCompound(c.components()),
                      (c.length, c.diameter, c.diameter)) for c in connections})
     assert {p["name"] for p in viewer["parts"]} == set(expected)
     assert len(viewer["parts"]) == len(expected)
-    assert set(manifest["viewer_artifacts"]) == {str(Path("hybrid")/KEY/"parts.json")} | {p["path"] for p in viewer["parts"]}
+    assert set(manifest["viewer_artifacts"]) == {str(Path("hybrid")/key/"parts.json")} | {p["path"] for p in viewer["parts"]}
     for item in viewer["parts"]:
         assert item["fabrication"]["dimensions_mm"] == pytest.approx(expected[item["name"]][1])
         assert "NOT structural approval" in item["fabrication"]["clearance_status"]
@@ -55,24 +61,33 @@ def test_joint_candidate_viewer_and_exports_match_geometry():
         assert lower+upper == pytest.approx([getattr(bounds, axis+end)
             for end in ("min", "max") for axis in "xyz"], abs=.501)
         assert item["viewer_aabb_mm"] == pytest.approx([bounds.xlen, bounds.ylen, bounds.zlen], abs=1e-5)
-    with (directory/f"{KEY}_parts.csv").open() as stream:
-        rows = {r["part"]: r for r in csv.DictReader(stream)}
+    with (directory/f"{key}_parts.csv").open() as stream:
+        records = list(csv.DictReader(stream))
+    rows = {r["part"]: r for r in records}
+    assert len(records) == len(rows) == len(parts)
     assert rows.keys() == {p.name for p in parts}
     for part in parts:
         row = rows[part.name]
         assert int(row["layers"]) == part.laminations
         for unit, divisor in (("mm", 1), ("in", 25.4)):
             assert [float(row[f"dimension_{axis}_{unit}"]) for axis in (1, 2, 3)] == pytest.approx([v/divisor for v in part.blank])
-    with (directory/f"{KEY}_connections.csv").open() as stream:
-        rows = {r["connection"]: r for r in csv.DictReader(stream)}
+    with (directory/f"{key}_connections.csv").open() as stream:
+        records = list(csv.DictReader(stream))
+    rows = {r["connection"]: r for r in records}
+    assert len(records) == len(rows) == len(connections)
     assert rows.keys() == {c.name for c in connections}
     for connection in connections:
         row = rows[connection.name]
+        assert row["members"].split(" + ") == list(connection.members)
+        assert row["kind"] == connection.kind
+        assert row["status"] == design["status"]
+        if model is independent_leg_frame and connection.name.startswith("analysis_leg_wall_bolt_"):
+            assert len(row["members"].split(" + ")) == 3
         assert [float(row[f"{axis}_mm"]) for axis in "xyz"] == pytest.approx(connection.start.toTuple())
         assert [float(row[f"axis_{axis}"]) for axis in "xyz"] == pytest.approx(connection.direction.toTuple())
         assert [float(row[field]) for field in ("length_mm", "length_in", "diameter_mm", "grip_mm")] == pytest.approx([
             connection.length, connection.length/25.4, connection.diameter, connection.grip])
-    step = cq.importers.importStep(str(directory/f"{KEY}.step")).val()
+    step = cq.importers.importStep(str(directory/f"{key}.step")).val()
     assert len(step.Solids()) == sum(len(shape.Solids()) for shape, _ in expected.values())
     assert step.Volume() == pytest.approx(sum(shape.Volume() for shape, _ in expected.values()), rel=1e-8)
     # Match spatial fingerprints, not just total volume: displaced parts retain

@@ -1,4 +1,5 @@
-"""Separate viewer/export artifacts for the provisional joint redesign."""
+"""Separate viewer/export artifacts for provisional development variants."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -17,14 +18,28 @@ DESIGN = {
     "status": "PROVISIONAL — geometry development, not build-ready; candidate FEA not run",
     "description": "Wider seam battens, solid ribs with wire chases, relocated custom rear angles and longer bolts. Steel fabrication, materials and fastener products remain unresolved.",
 }
+INDEPENDENT_DESIGN = {
+    "key": "independent-leg-development",
+    "baseline": KEY,
+    "status": "PROVISIONAL — independent-ply experiment; candidate FEA not run",
+    "description": "Four separate plywood leg plies and six internal stitch bolts on the joint redesign. No adhesive, interface-friction or external-bracing credit. Products and resistance unresolved.",
+}
 
 
-def export(directory=Path("exports/joint-development"), viewer=Path("site")):
-    parts, connections = joint_frame.parts(), joint_frame.connections()
+def export(directory=None, viewer=Path("site"), *, variant=KEY):
+    if variant == KEY:
+        model, design = joint_frame, DESIGN
+    elif variant == INDEPENDENT_DESIGN["key"]:
+        from . import independent_leg_frame
+        model, design = independent_leg_frame, INDEPENDENT_DESIGN
+    else:
+        raise ValueError("Unknown development variant")
+    directory = Path(directory) if directory is not None else Path("exports")/variant
+    parts, connections = model.parts(), model.connections()
     directory.mkdir(parents=True, exist_ok=True)
-    models = viewer/"hybrid"/KEY/"models"
+    models = viewer/"hybrid"/variant/"models"
     models.mkdir(parents=True, exist_ok=True)
-    assembly = cq.Assembly(name="joint_development_PROVISIONAL")
+    assembly = cq.Assembly(name=variant.replace("-", "_")+"_PROVISIONAL")
     entries = [(p.name, p.shape, p.blank, p.description, "part") for p in parts]
     entries.extend(("fastener_"+c.name, cq.Compound.makeCompound(c.components()),
                     (c.length, c.diameter, c.diameter), " + ".join(c.members)+
@@ -45,31 +60,35 @@ def export(directory=Path("exports/joint-development"), viewer=Path("site")):
                                       "kind": kind, "clearance_status": "Development geometry; NOT structural approval"}})
     bounds = exact_bounds(cq.Compound.makeCompound([p.shape for p in parts]))
     viewer_manifest = models.parent/"parts.json"
-    viewer_manifest.write_text(json.dumps({"design": DESIGN, "parts": items,
+    viewer_manifest.write_text(json.dumps({"design": design, "parts": items,
         "bounds_mm": [[getattr(bounds, axis+end) for axis in "xyz"] for end in ("min", "max")]}, indent=2)+"\n")
-    _export_step(assembly, directory/f"{KEY}.step")
-    render(solids, directory/f"{KEY}_front.png")
+    _export_step(assembly, directory/f"{variant}.step")
+    render(solids, directory/f"{variant}_front.png")
     render([(shape.rotate((0, 0, 0), (0, 0, 1), 180), color) for shape, color in solids],
-           directory/f"{KEY}_rear.png")
-    write_csv(directory, f"{KEY}_parts.csv",
+           directory/f"{variant}_rear.png")
+    write_csv(directory, f"{variant}_parts.csv",
               ("part", "layers", "dimension_1_mm", "dimension_2_mm", "dimension_3_mm",
                "dimension_1_in", "dimension_2_in", "dimension_3_in", "description"),
               [(p.name, p.laminations, *p.blank, *[v/25.4 for v in p.blank], p.description) for p in parts])
-    write_csv(directory, f"{KEY}_connections.csv",
+    write_csv(directory, f"{variant}_connections.csv",
               ("connection", "kind", "members", "x_mm", "y_mm", "z_mm", "axis_x", "axis_y", "axis_z",
                "length_mm", "length_in", "diameter_mm", "grip_mm", "status"),
               [(c.name, c.kind, " + ".join(c.members), *c.start.toTuple(), *c.direction.toTuple(),
-                c.length, c.length/25.4, c.diameter, c.grip, DESIGN["status"]) for c in connections])
+                c.length, c.length/25.4, c.diameter, c.grip, design["status"]) for c in connections])
     sources = list(map(Path, ("mini_moonboard/joint_exports.py", "mini_moonboard/joint_frame.py", "mini_moonboard/footprint_frame.py",
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
+    if variant == INDEPENDENT_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/independent_leg_frame.py"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
-    manifest = {"design": DESIGN, "sources": {str(p): digest(p) for p in sources},
+    manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
                 "viewer_artifacts": {str(p.relative_to(viewer)): digest(p) for p in [viewer_manifest, *sorted(models.glob("*.stl"))]}}
     (directory/"manifest.json").write_text(json.dumps(manifest, indent=2)+"\n")
 
 
 if __name__ == "__main__":
-    export()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"]), default=KEY)
+    export(variant=parser.parse_args().variant)
