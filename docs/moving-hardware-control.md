@@ -1,7 +1,8 @@
 # Free bolt/washer contact control
 
-Preparation in progress. This tests numerical contact, not a bolt product,
-plywood joint capacity or permission to build/climb.
+Initial quiescent control rejected; no qualified contact response. This tests
+numerical contact, not a bolt product, plywood joint capacity or permission to
+build/climb.
 
 The first quiescent attempt, `quiescent-an9hdwot`, stopped during input parsing
 with native exit 201, before any accepted state or contact response. Its frozen
@@ -12,6 +13,30 @@ was removed successfully. Source `nodes.f:140,150,160` reads only the first
 export-format failure, not a structural or contact result. The corrected export
 must bound coordinate field widths and bind subsequent mass/output analysis
 to the actual serialized coordinates, recording its small rounding error.
+
+The corrected attempt `quiescent-mgxeu8y1` reached one accepted state at
+1e−8 seconds, then repeatedly cut back increment 2 to the 1e−11-second minimum.
+The original 120-second cap stopped it with exit 124; captured terminal state
+was stopped, not OOM-killed, and owned-container cleanup succeeded. No moving
+case was launched. At the accepted state, washer speed reaches 9.3677 mm/s
+and core speed 6.3820 mm/s, both exceeding the 0.01 mm/s quiet limit.
+Displacements remain below 1e−6 mm. Bore penetration reaches 1.76855e−5 mm,
+above its 1e−6 mm limit; summed bore-contact energy alone is 1.65350e−5 N·mm,
+above the 6.83659e−6 N·mm quiet energy limit. Head-contact energy is about
+1e−13 N·mm. The partial DAT lacks the final total-contact-energy scalar and
+pair CF blocks, so impulse qualification is unavailable.
+
+The [published evidence and portable diagnostic](../fea/results/moving_hardware_control/README.md)
+retain both attempts and reproduce the four first-state gate failures from
+the original output, with thresholds bound to the frozen launch inputs.
+
+This localizes the principal observed artificial response to the nominally
+zero-clearance curved bore. The maximum coordinate-rounding change is only
+5.00009e−11 mm; it is not a plausible explanation for the much larger reported
+penetration. These are rejected numerical diagnostics, not physical hardware
+or board-strength failures. A [catalog-backed washer-bore correction](candidate-hardware-audit.md#washer-bore-model-correction-identified-by-the-quiet-control)
+is the next geometry step. Preserve the failed trial and requalify the quiet
+case before moving contact; do not relax its gates to obtain a pass.
 
 The selected station-1 hardware comes from the actual locked-thread stitch
 variant: one fused bolt/head/nut solid and one separate inner annular washer.
@@ -29,7 +54,7 @@ forces. In particular, no artificial pinning is used to suppress free-body
 motion. Perfectly fused nut/core retention is a numerical idealization, not a
 model of real threads or tightening.
 
-## Frozen proposed numerical settings
+## Requested numerical settings
 
 | Setting | Value |
 | --- | --- |
@@ -47,6 +72,9 @@ mass and 183.2133 mm² head bearing area imply an approximate penalty-contact
 timescale of 6e−7 seconds; even the selected maximum increment requires a later
 refinement check. Initial velocity supplies the moving case's kinetic energy;
 there is no load amplitude and no subsequent external work.
+Actual accepted increments come from the retained STA, not from assuming that
+the solver uses each requested increment unchanged. Its impact logic reduced
+the second increment repeatedly in this trial.
 
 ## Predeclared interpretation gates
 

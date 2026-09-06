@@ -1,0 +1,79 @@
+{
+  "status": "PARTIAL QUIESCENT GATES FAILED",
+  "limits": "Partial accepted-state failure diagnosis only. No complete contact-output, CF impulse, native total contact energy, total-energy balance, moving-case or physical qualification.",
+  "accepted_time_s": 1e-08,
+  "body_results": {
+    "BOLT_NUT": {
+      "max_displacement_mm": 3.191006183792092e-08,
+      "max_speed_mm_s": 6.382012367591692
+    },
+    "WASHER": {
+      "max_displacement_mm": 4.6838373862362644e-08,
+      "max_speed_mm_s": 9.36767476997006
+    }
+  },
+  "pair_results": {
+    "WASHER_HEAD": {
+      "point_rows": 14544,
+      "reported_slave_faces": 119,
+      "selected_quadratic_slave_faces": 196,
+      "max_penetration_mm": 1.295435e-09,
+      "max_pressure_N_mm2": 0.0001295435,
+      "max_abs_tangential_stress_N_mm2": 0.0,
+      "sum_recorded_CELS_N_mm": 1.0340034735810746e-13
+    },
+    "WASHER_BORE": {
+      "point_rows": 17832,
+      "reported_slave_faces": 200,
+      "selected_quadratic_slave_faces": 200,
+      "max_penetration_mm": 1.768548e-05,
+      "max_pressure_N_mm2": 1.768548,
+      "max_abs_tangential_stress_N_mm2": 0.0,
+      "sum_recorded_CELS_N_mm": 1.6535045409507667e-05
+    }
+  },
+  "aligned_contact_point_rows": 32376,
+  "failures": [
+    {
+      "body": "BOLT_NUT",
+      "quantity": "max_speed_mm_s",
+      "observed": 6.382012367591692,
+      "limit": 0.01
+    },
+    {
+      "body": "WASHER",
+      "quantity": "max_speed_mm_s",
+      "observed": 9.36767476997006,
+      "limit": 0.01
+    },
+    {
+      "pair": "WASHER_BORE",
+      "quantity": "max_penetration_mm",
+      "observed": 1.768548e-05,
+      "limit": 1e-06
+    },
+    {
+      "quantity": "sum_recorded_CELS_alone_N_mm",
+      "observed": 1.6535045512908014e-05,
+      "limit": 6.83658698012575e-06
+    }
+  ],
+  "native_total_contact_energy_qualified": false,
+  "CF_impulse_qualified": false,
+  "missing_tail": [
+    "native total CELS scalar",
+    "CNUM",
+    "pair CF statistics"
+  ],
+  "input_sha256": {
+    "context.json": "ecbdfb3ead7309cf8c647ce8ebf358133e6fb984e70e330dcf90d805f8bef66c",
+    "control.inp": "ba7488561f877fbe53f2252f5ebe000c1ec6761e8d8f2d7a967a9e1e283dde6c",
+    "control.dat": "256e9b33ac05779e036fb0b00804e5eaf99e07750108f10cb9cef51d4d92d0f2",
+    "control.sta": "28bcff8f93c6abcbb3a58a1c919ae0bd3b74a248b838813fd9bad6841b615d41",
+    "exit.json": "dbdca3f4a997b76d6dfd097c09822d351516138788288eb1bf1c32a4dd29e254",
+    "container-probe.json": "2425ab1e4d1923a812cf614a282756cfb96a1130be751096aeb7707a10b66add",
+    "freeze.json": "70c3b4c164191a66e98d8e7697cb1b075da0027b7d3f6199b6278ff264ed5eed",
+    "launch.json": "da554d7fe66769c4717f2401a365b31c8fa33673bddbbeab8270a98a768acacb"
+  },
+  "diagnostic_source_sha256": "8d7310ab07619ed418732e468a37a374d94351a4b56bd9b02c94c43093216b75"
+}

@@ -45,3 +45,15 @@ evidence of a physical structural failure. Publication tests check the original
 hash chain, partial accepted-state history, terminal state and cleanup, not
 numerical equilibrium or contact-energy correctness. Any separate partial
 numerical diagnostic must retain these limitations.
+
+## Partial numerical diagnostic
+
+[Retained report](diagnostics/partial-quiescent-gb9rn5dl/report.json) and its
+adjacent source snapshot reproduce four failed first-state gates: bolt/nut
+speed, washer speed, washer-bore penetration, and recorded contact energy
+alone. The frozen launch → preparation → context/deck chain fixes the original
+thresholds. Missing tail fields prevent an impulse or full energy audit.
+This diagnoses a contact-model problem, not board strength or construction safety.
+
+Run `uv run pytest tests/test_quiescent_hardware_diagnostic.py -q` to replay
+the report from the archived native output without a solver.

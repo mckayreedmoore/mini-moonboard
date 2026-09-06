@@ -75,3 +75,33 @@ controller and extraction path.
 Actual structural plywood, lumber grade/species, moisture and fabrication
 process remain separate resistance inputs. No generic hardware envelope,
 appearance-grade plywood label or successful geometry test supplies them.
+
+## Washer-bore model correction identified by the quiet control
+
+The isolated [free-hardware control](moving-hardware-control.md) exposes a
+problem with the nominal washer model: its bore was cut to exactly the 9.525 mm
+shank diameter. That zero-clearance assumption is not a selected washer product.
+The quiet numerical test develops bore-contact energy and cannot yet qualify;
+this is not evidence for increasing timber size or a hardware strength failure.
+
+One manufacturer-backed geometry lead is [L.H. Dottie FW38, 3/8-inch USS flat
+washer](https://lhdottie.com/pdf/product-specification-sheet/FW38), checked
+2026-09-06. Its published bounds are:
+
+| Dimension | Imperial | Metric |
+| --- | --- | --- |
+| Bore diameter | 0.433–0.453 in | 10.9982–11.5062 mm |
+| Outside diameter | 0.993–1.030 in | 25.2222–26.1620 mm |
+| Thickness | 0.064–0.104 in | 1.6256–2.6416 mm |
+
+The sheet identifies unhardened carbon steel with zinc plating. These dimensions
+provide at least 0.7366 mm nominal radial clearance against the modeled
+9.525 mm shank. The current 25.4 mm OD and 2 mm thickness lie within the
+published bounds, but are not guaranteed dimensions of a purchased washer.
+
+Next, use an explicitly identified catalog-consistent washer geometry and
+tolerance envelope, then recheck bearing area, nut/head contact, grip stack,
+projection and tool clearances. Do not silently enlarge the bore just until a
+solver passes. Product selection and washer/wood/bolt resistance remain open;
+the catalog geometry does not establish suitability for this joint. Preserve
+the original zero-clearance trial as a rejected numerical model.
