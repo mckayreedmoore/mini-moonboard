@@ -43,6 +43,14 @@ The seven global failures are moment-balance failures (maximum component
 predicted collapse. These diagnostics alone do not justify enlarging members
 or establish that the proposed stitch/upper joints can carry their loads.
 
+A separate [original-state gravity replay](../fea/results/native_gravity_replay/README.md)
+has since tested the untransformed native four-point gravity rule against the
+archived Gauss5 weights. The maximum moment correction is only 0.000819323 N·mm;
+all seven failures remain. A strict-source supplementary integration reproduces
+all 62,020 recorded weights exactly without changing the original evidence.
+This rules out that quadrature difference as the explanation, not mortar basis
+transformations or other contact-audit causes. No frame solver was rerun.
+
 The future monitor now recognizes only an exact named missing-object diagnostic,
 case-insensitively; other-container, network, daemon and permission errors remain
 fail-closed. The recovery tool also rejects an interrupted/erroring monitor,
