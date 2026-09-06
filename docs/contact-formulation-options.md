@@ -1,7 +1,8 @@
 # Contact formulation options: CalculiX 2.21
 
-Research only; no deck change or solver launch. This is a proposed numerical
-diagnostic, not a material, geometry, friction, or capacity recommendation.
+Formulation research and a numerical diagnostic plan. Completed coupon studies
+are linked below; the proposed whole-frame comparison has not run. This is not
+a material, geometry, friction, or capacity recommendation.
 
 ## Decision
 
@@ -126,3 +127,45 @@ the frozen-geometry hypothesis. A consistent mortar improvement at matched
 increments would justify further validation of that formulation. Failure of
 both motivates contact mapping/output investigation, not member resizing or a
 weaker acceptance threshold.
+
+## Follow-up status and next whole-frame diagnostic
+
+The [sliding cube](contact-shear-coupon.md) and
+[actual inclined-leg comparison](leg-shear-coupon.md) are now complete.
+Bottom-supported MORTAR passes their full-step external force/moment checks.
+The leg primarily bends rather than sliding, so it does not replace the cube's
+slip test. Neither closes local weak-law/contact-gap validation.
+
+The next bounded **diagnostic**, not an accepted-frame analysis, is a matched
+penalty/MORTAR pair on the unchanged `2x8-foot100` mesh:
+
+- Retain the frozen 62,020 timber nodes, 32,511 C3D10 elements, all three floor
+  patches, E=7,000 MPa, ν=0.3, timber-only density and original five load nodes.
+  Keep LINEAR normal slope 10,000 N/mm³, tangent slope 100 N/mm³ and μ=0.5
+  explicitly as a sensitivity assumption.
+- Use the existing three C3D8 ground bricks, but fix **only their twelve bottom
+  nodes** at Z=−100 mm. There must be no timber SPC, guide, spring or MPC in
+  either step. This is a different ground-compliance model from the historical
+  fully fixed bricks; an otherwise identical penalty control is necessary to
+  separate that change from formulation effects.
+- Apply timber gravity, then maintain gravity and apply the original total
+  1.2 kN downward load. Start with common maximum increments of 0.25, retain
+  cutbacks and a bounded runtime, and preserve failures without adding a final
+  frame restraint to obtain convergence.
+- Record all timber and all 24 ground-node displacements. Record ground RF,
+  but count **only noncontact bottom SPC reactions** as external supports.
+  Audit gravity using the verified consistent nodal volume weights and audit
+  every load moment at its deformed position. Require the existing 0.1 N and
+  1 Nmm limits; verify the bottom nodes remain fixed and each bottom support
+  set corresponds to the actual launched deck.
+- Retain mortar nodal CONTACT FILE output as unaudited local evidence. Do not
+  request penalty CF resultants as if they were supported mortar output, treat
+  free contact-node RF as an external support, or reuse the penalty assertion
+  that released contact-node RF must be zero.
+
+Independent ground bricks at E=7,000 MPa are a controlled numerical device,
+not identified flooring. Their deformation, stiffness and mesh sensitivity
+must be reported; a successful global balance would not certify the actual
+floor or its local contact laws. Only after appropriate local validation and
+history/mesh checks should this formulation support an unanchored design
+comparison with asymmetric loads or the side-tied candidates.

@@ -55,6 +55,9 @@ but still fails the independent contact moment-transfer audit. This is not
 a validated load rating or construction approval.
 Smaller release/load increments now pass the gravity balance check, but the
 loaded moment residual remains 96 N·mm against the unchanged 1 N·mm limit.
+Separate [sliding-cube](docs/contact-shear-coupon.md) and
+[actual-leg](docs/leg-shear-coupon.md) comparisons support further MORTAR
+qualification; their global balance checks are not full-frame approval.
 
 Previous candidate: [rotated-rear 2×8 CAD, plywood comparison and results](docs/shallow-frame-results.md).
 

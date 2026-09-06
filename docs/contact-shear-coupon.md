@@ -59,7 +59,10 @@ auditor. Local-law, inactive-region, mesh and broader load-history checks remain
 open. The reduction with increment size supports, but does not prove, the
 frozen contact-mapping hypothesis. Next test the actual inclined leg/foot
 coupon with the same noncontact-ground support approach before considering
-any full-frame formulation change.
+any full-frame formulation change. The
+[actual inclined-leg follow-up](leg-shear-coupon.md) now passes global checks
+for both MORTAR increments, while remaining bending-dominated and locally
+unvalidated.
 
 ## Evidence and replay
 
