@@ -19,6 +19,8 @@ Recovery directory: `recovered-frame-audit-z44815i0`. The audit executed the exa
 nine-file launch source closure in a separate package root, with the original
 300 s / 6 GiB bounds. No solver rerun, modified deck or relaxed numerical gate
 was involved. The recovery launcher itself is retained as `recovery-launch.py`.
+[Published raw evidence and fresh replay instructions](../fea/results/mortar_frame_observer/README.md)
+include both original and recovered terminal records.
 
 | Recovered diagnostic | Result |
 | --- | --- |
@@ -36,6 +38,10 @@ global diagnostic, not physical validation. The very small printed displacement
 difference still fails the predeclared exact-output comparison; it is reported,
 not silently accepted. Observed contact matrices/segmentation, local weak-law
 acceptance, real floor properties and joint capacities remain unqualified.
+The seven global failures are moment-balance failures (maximum component
+30.284569 N·mm versus the predeclared 1 N·mm gate), not strength failures or
+predicted collapse. These diagnostics alone do not justify enlarging members
+or establish that the proposed stitch/upper joints can carry their loads.
 
 The future monitor now recognizes only an exact named missing-object diagnostic,
 case-insensitively; other-container, network, daemon and permission errors remain

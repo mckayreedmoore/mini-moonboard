@@ -1,0 +1,23 @@
+{
+  "original_directory": "/home/mckay-linux/repos/mini-moonboard/fea/generated/mortar-frame-observer-2jr09aeb",
+  "original_report_sha256": "99f0b00f8200eafce75c7dbe125f6ec38d3d7c0602530f3ea43457b86b7ad2f3",
+  "recovery_source_sha256": "5e3c3dbf1e453fdc8b8ddab4d6e0defa334cfa07ef2049b53bef406e512ad85c",
+  "checked_at_utc": "2026-09-06T19:50:00.266804+00:00",
+  "container_probe": {
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.State.Running}}",
+      "mortar-frame-observer-2jr09aeb"
+    ],
+    "returncode": 1,
+    "stdout": "\n",
+    "stderr": "error: no such object: mortar-frame-observer-2jr09aeb\n"
+  },
+  "meaning": "Post-hoc terminal classification only. Original cleanup failure retained. No solver rerun, numerical changes, physical acceptance or retroactive monitor success.",
+  "reference_sha256": {
+    "report.json": "83576da2a70e4c9d4bf6c0996a2ee9246603f21bc6bbacbd1f6f8151504b038e",
+    "0.0625.tar.gz": "b7191366c224835aa6f790996671cc491ad3ae878cb9b797698a04d45e0b373b"
+  }
+}
