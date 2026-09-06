@@ -10,7 +10,7 @@ from fea import moving_hardware_control as control
 from fea.floor_contact import FACES
 
 
-def fixture():
+def fixture(*, catalog=False):
     xyz, elements, bodies = {}, {}, {}
     origin = [1255.3, 971.0333737790937, 1134.3443559823804]
     names = ["leg_right_inner", "leg_right_outer"] + [f"leg_stitch_right_{i}_{role}"
@@ -18,11 +18,13 @@ def fixture():
     for name in names:
         body_nodes, body_elements, surfaces = [], [], {}
         role = next((k for k, v in control.BODY_NAMES.items() if v == name), None)
-        specs = [(label, spec) for label, spec in control.SURFACE_SPECS.items() if spec[0] == role]
+        washer_radius = control.CATALOG_WASHER_RADIUS if catalog else control.RADIUS
+        specs = [(label, spec) for label, spec in control.surface_specs(washer_radius).items() if spec[0] == role]
         for label, spec in specs or [("unused", (None, "Plane", (0, 0, 0, 1, 1, 1), 1))]:
             _, kind, bounds, area = spec
+            surface_radius = washer_radius if role == "WASHER" else control.RADIUS
             if kind == "Cylinder":
-                corners = [(0, control.RADIUS, 0), (1, control.RADIUS, 0), (0, control.RADIUS*math.cos(.2), control.RADIUS*math.sin(.2)), (0, 0, 0)]
+                corners = [(0, surface_radius, 0), (1, surface_radius, 0), (0, surface_radius*math.cos(.2), surface_radius*math.sin(.2)), (0, 0, 0)]
             else:
                 corners = [(0, 6, 0), (0, 7, 0), (0, 6, 1), (1, 6, 0)]
             points = corners + [tuple((corners[i][a]+corners[j][a])/2 for a in range(3))
@@ -31,7 +33,7 @@ def fixture():
                 for i in (4, 5, 6):
                     x, y, z = points[i]
                     radius = math.hypot(y, z)
-                    points[i] = (x, y*control.RADIUS/radius, z*control.RADIUS/radius)
+                    points[i] = (x, y*surface_radius/radius, z*surface_radius/radius)
             ids = list(range(len(xyz)+1, len(xyz)+11))
             xyz.update({n: tuple(v+origin[a] for a, v in enumerate(p)) for n, p in zip(ids, points)})
             e = len(elements)+1
@@ -48,6 +50,9 @@ def fixture():
     geometry = {"locked_threads": True, "parts": {n: {"bounds_mm": [0]*6} for n in names},
                 "step_sha256": {n+".step": "unused" for n in names}, "stitches": [{"name": control.STATION,
                 "start_mm": origin, "axis": [1., 0., 0.], "shank_diameter_mm": 9.525, "grip_mm": 38.1, "length_mm": 57.15}]}
+    if catalog:
+        geometry.update(catalog_washer_bore=True, geometry_variant="locked-thread-fw38-minimum-bore-11-body")
+        geometry["stitches"][0]["washer_bore_diameter_mm"] = 10.9982
     record = {"locked_threads": True, "body_count": 11, "bodies": bodies, "mesh_sha256": control.digest(text.encode()),
               "status": "VERIFIED MESH ONLY; NO SOLVER", "geometry_sha256": control.digest(json.dumps(geometry).encode())}
     return text, record, geometry
@@ -62,6 +67,32 @@ def test_selects_two_owned_bodies_and_four_complete_surfaces():
     assert all(len(surface["nodes"]) == 6 for surface in context["surfaces"].values())
     assert context["diagnostic_reference_scales"]["status"].startswith("FORMULAS ONLY")
     assert context["quiescent_diagnostic_gates"]["max_displacement_mm"] == 1e-6
+
+
+def test_catalog_bore_preserves_core_and_prepares_only_stationary_case():
+    context = control.build_context(*fixture(catalog=True))
+    assert context["nominal_washer_shank_radial_clearance_mm"] == pytest.approx(.7366)
+    assert context["surfaces"]["CORE_SHANK"]["cad_bounds_mm_local"][4] == control.RADIUS
+    assert context["surfaces"]["WASHER_BORE"]["cad_bounds_mm_local"][4] == control.CATALOG_WASHER_RADIUS
+    assert set(context["cases"]) == {"quiescent"}
+    assert "*DYNAMIC,ALPHA=0" in control.deck(context, "quiescent")
+    with pytest.raises(ValueError, match="explicitly prepared"):
+        control.deck(context, "moving")
+
+
+@pytest.mark.parametrize("fault", ["flag", "tag", "diameter", "legacy_mesh"])
+def test_catalog_selector_rejects_mismatched_geometry(fault):
+    text, record, geometry = fixture(catalog=True)
+    if fault == "flag":
+        geometry["catalog_washer_bore"] = "true"
+    elif fault == "tag":
+        geometry["geometry_variant"] = "unknown"
+    elif fault == "diameter":
+        geometry["stitches"][0]["washer_bore_diameter_mm"] = 9.525
+    else:
+        text, record, _ = fixture()
+    with pytest.raises(ValueError):
+        control.build_context(text, record, geometry)
 
 
 def test_surface_checks_midnodes_area_bounds_and_uniqueness():

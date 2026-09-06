@@ -26,6 +26,12 @@ LOCKED_LIMITS = (
     "No material or contact law, friction, thread stresses, tightening, loosening, "
     "manufacturing tolerances or capacity established. No mesh or solver run."
 )
+CATALOG_WASHER_ID_MM = 10.9982
+CATALOG_LIMITS = (
+    LOCKED_LIMITS + " FW38 catalog-consistent provisional washer bore only, not purchased "
+    "or measured hardware: minimum published ID with retained 25.4 mm OD and 2 mm "
+    "thickness within published ranges. No product suitability or capacity established."
+)
 VOLUME_TOLERANCE_MM3 = .001
 DISTANCE_TOLERANCE_MM = 1e-5
 REPOSITORY = Path(__file__).resolve().parents[1]
@@ -35,8 +41,15 @@ def stitches():
     return tuple(c for c in frame.connections() if c.name.startswith("leg_stitch_right_"))
 
 
-def solids(*, locked_threads=False):
+def washer_bore(connection, offset):
+    return cq.Solid.makeCylinder(CATALOG_WASHER_ID_MM / 2, 2,
+                                 connection.start + connection.direction.multiply(offset), connection.direction)
+
+
+def solids(*, locked_threads=False, catalog_washer_bore=False):
     """Default fourteen bodies; explicit thread lock combines each nut/core only."""
+    if catalog_washer_bore and not locked_threads:
+        raise ValueError("Catalog washer bore requires explicit locked threads")
     result = {p.name: p.shape for p in frame.parts(True)
               if p.name in ("leg_right_inner", "leg_right_outer")}
     for connection in stitches():
@@ -47,6 +60,10 @@ def solids(*, locked_threads=False):
         if locked_threads:
             result[connection.name + "_bolt_nut"] = result.pop(connection.name + "_bolt").fuse(
                 result.pop(connection.name + "_nut")).clean()
+        if catalog_washer_bore:
+            for role, offset in (("washer_inner", 0), ("washer_outer", 40.1)):
+                name = connection.name + "_" + role
+                result[name] = result[name].cut(washer_bore(connection, offset)).clean()
     return result
 
 
@@ -72,7 +89,9 @@ def validate_disjoint(bodies):
     return maximum
 
 
-def validate(bodies, *, locked_threads=False):
+def validate(bodies, *, locked_threads=False, catalog_washer_bore=False):
+    if catalog_washer_bore and not locked_threads:
+        raise ValueError("Catalog washer bore requires explicit locked threads")
     connections = stitches()
     roles = ("bolt_nut", "washer_inner", "washer_outer") if locked_threads else (
         "bolt", "washer_inner", "washer_outer", "nut")
@@ -90,11 +109,20 @@ def validate(bodies, *, locked_threads=False):
         for c in connections:
             reference[c.name + "_bolt_nut"] = reference.pop(c.name + "_bolt").fuse(
                 reference.pop(c.name + "_nut")).clean()
+            if catalog_washer_bore:
+                for role, offset in (("washer_inner", 0), ("washer_outer", 40.1)):
+                    name = c.name + "_" + role
+                    original = reference[name]
+                    reference[name] = original.cut(washer_bore(c, offset)).clean()
+                    removed = math.pi * ((CATALOG_WASHER_ID_MM / 2)**2 - (c.diameter / 2)**2) * 2
+                    if abs(original.Volume() - bodies[name].Volume() - removed) > VOLUME_TOLERANCE_MM3:
+                        raise ValueError(f"Catalog washer removed annulus volume differs: {name}")
         for name, shape in bodies.items():
             for difference in (shape.cut(reference[name]), reference[name].cut(shape)):
                 if not math.isfinite(difference.Volume()) or difference.Volume() > VOLUME_TOLERANCE_MM3:
                     raise ValueError(f"Locked-thread variant changed nominal geometry: {name}")
-        if abs(sum(s.Volume() for s in bodies.values()) - union_volume) > VOLUME_TOLERANCE_MM3:
+        expected_volume = sum(s.Volume() for s in reference.values()) if catalog_washer_bore else union_volume
+        if abs(sum(s.Volume() for s in bodies.values()) - expected_volume) > VOLUME_TOLERANCE_MM3:
             raise ValueError("Locked-thread variant changed total union volume")
     records = {}
     for name, shape in bodies.items():
@@ -146,6 +174,8 @@ def validate(bodies, *, locked_threads=False):
                                "grip_mm": c.grip, "bore_diameter_mm": 10.,
                                "shank_diameter_mm": c.diameter, "radial_clearance_mm": .2375,
                                "projection_past_nut_mm": c.length - (4 + c.grip + 9)})
+        if catalog_washer_bore:
+            stitch_records[-1]["washer_bore_diameter_mm"] = CATALOG_WASHER_ID_MM
     for first, second in contact_pairs:
         distance = bodies[first].distance(bodies[second])
         if not math.isfinite(distance) or distance < 0 or distance > DISTANCE_TOLERANCE_MM:
@@ -162,6 +192,21 @@ def validate(bodies, *, locked_threads=False):
                        preload_assigned=False, default_14_body_union_volume_mm3=union_volume,
                        union_volume_mm3=sum(s.Volume() for s in bodies.values()),
                        separate_washer_bodies=[name for name in bodies if "_washer_" in name])
+    if catalog_washer_bore:
+        summary.update(geometry_variant="locked-thread-fw38-minimum-bore-11-body", limits=CATALOG_LIMITS,
+                       catalog_washer_bore=True,
+                       catalog_washer={
+                           "manufacturer": "L.H. Dottie", "part_number": "FW38",
+                           "source_url": "https://lhdottie.com/pdf/product-specification-sheet/FW38",
+                           "source_checked_date": "2026-09-06",
+                           "published_ID_range_in": [.433, .453], "published_OD_range_in": [.993, 1.030],
+                           "published_thickness_range_in": [.064, .104],
+                           "modeled_ID_mm": CATALOG_WASHER_ID_MM, "modeled_OD_mm": 25.4,
+                           "modeled_thickness_mm": 2., "purchased_or_measured": False,
+                           "minimum_nominal_radial_gap_mm": (CATALOG_WASHER_ID_MM - 9.525) / 2,
+                           "head_nut_axial_bearing_annulus_area_mm2": math.pi * (9**2 - (CATALOG_WASHER_ID_MM / 2)**2),
+                           "washer_ply_axial_bearing_annulus_area_mm2": math.pi * (12.7**2 - (CATALOG_WASHER_ID_MM / 2)**2),
+                           "removed_volume_all_six_washers_mm3": union_volume - sum(s.Volume() for s in bodies.values())})
     return summary
 
 
@@ -178,12 +223,12 @@ def source_snapshot():
     return {p.relative_to(REPOSITORY).as_posix(): p.read_bytes() for p in paths}
 
 
-def export(bodies, parent=Path("fea/generated"), *, sources_before=None, locked_threads=False):
+def export(bodies, parent=Path("fea/generated"), *, sources_before=None, locked_threads=False, catalog_washer_bore=False):
     """Export only to a new unique evidence directory, never published geometry."""
     initial_sources = source_snapshot()
     if sources_before is not None and sources_before != initial_sources:
         raise ValueError("Source drift during geometry preparation")
-    summary = validate(bodies, locked_threads=locked_threads)
+    summary = validate(bodies, locked_threads=locked_threads, catalog_washer_bore=catalog_washer_bore)
     parent = Path(parent)
     parent.mkdir(parents=True, exist_ok=True)
     directory = Path(tempfile.mkdtemp(prefix="stitch-joint-geometry-", dir=parent))
@@ -207,13 +252,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--export", action="store_true", help="write a unique fea/generated evidence directory")
     parser.add_argument("--locked-threads", action="store_true", help="explicit eleven-body fused nut/core idealization")
+    parser.add_argument("--catalog-washer-bore", action="store_true", help="FW38 minimum ID; requires --locked-threads")
     args = parser.parse_args()
     sources_before = source_snapshot()
-    bodies = solids(locked_threads=args.locked_threads)
+    bodies = solids(locked_threads=args.locked_threads, catalog_washer_bore=args.catalog_washer_bore)
     if args.export:
-        print(export(bodies, sources_before=sources_before, locked_threads=args.locked_threads))
+        print(export(bodies, sources_before=sources_before, locked_threads=args.locked_threads,
+                     catalog_washer_bore=args.catalog_washer_bore))
     else:
-        summary = validate(bodies, locked_threads=args.locked_threads)
+        summary = validate(bodies, locked_threads=args.locked_threads, catalog_washer_bore=args.catalog_washer_bore)
         if source_snapshot() != sources_before:
             raise ValueError("Source drift during geometry preparation")
         print(json.dumps(summary, indent=2, allow_nan=False))

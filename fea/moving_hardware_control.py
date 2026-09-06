@@ -20,6 +20,7 @@ _SOURCE_HASHES_AT_IMPORT = {
 STATION = "leg_stitch_right_1"
 BODY_NAMES = {"BOLT_NUT": STATION + "_bolt_nut", "WASHER": STATION + "_washer_inner"}
 RADIUS = 4.7625
+CATALOG_WASHER_RADIUS = 10.9982 / 2
 CAD_TOLERANCE_MM = 1e-5
 AREA_RELATIVE_TOLERANCE = 1e-7
 COORDINATE_FORMAT = ".12g"
@@ -38,6 +39,7 @@ SURFACE_SPECS = {
 
 def declared_configuration():
     return json.dumps({"station": STATION, "body_names": BODY_NAMES, "radius": RADIUS,
+                       "catalog_washer_radius": CATALOG_WASHER_RADIUS,
                        "cad_tolerance": CAD_TOLERANCE_MM, "area_tolerance": AREA_RELATIVE_TOLERANCE,
                        "material": MATERIAL, "cases": CASE_SETTINGS, "surfaces": SURFACE_SPECS,
                        "coordinate_format": COORDINATE_FORMAT, "quantization_bound_mm": QUANTIZATION_BOUND_MM}, sort_keys=True)
@@ -98,9 +100,18 @@ def quantize_coordinates(local):
                        "scope": "Decimal roundoff after station translation; these same quantized coordinates define deck and reference mass"}
 
 
-def select_surface(label, body, xyz, elements, origin):
+def surface_specs(washer_radius=RADIUS):
+    """Keep the shank/head stencil fixed while changing only the washer bore."""
+    specs = dict(SURFACE_SPECS)
+    specs["WASHER_HEAD"] = ("WASHER", "Plane", (0., -12.7, -12.7, 0., 12.7, 12.7), math.pi*(12.7**2-washer_radius**2))
+    specs["WASHER_BORE"] = ("WASHER", "Cylinder", (0., -washer_radius, -washer_radius, 2., washer_radius, washer_radius), 4*math.pi*washer_radius)
+    return specs
+
+
+def select_surface(label, body, xyz, elements, origin, *, washer_radius=RADIUS):
     """Match complete CAD surface groups by type, bounds, area and all TRI6 nodes."""
-    role, kind, expected_bounds, area = SURFACE_SPECS[label]
+    role, kind, expected_bounds, area = surface_specs(washer_radius)[label]
+    inner_radius = washer_radius if role == "WASHER" else RADIUS
     matches = []
     for tag, surface in body["surfaces"].items():
         local_bounds = [v-origin[i % 3] for i, v in enumerate(surface["cad_bounds_mm"])]
@@ -124,8 +135,8 @@ def select_surface(label, body, xyz, elements, origin):
         if not all(math.isfinite(x) for x in p):
             raise ValueError("Nonfinite contact coordinates")
         if kind == "Plane":
-            return abs(p[0]) <= CAD_TOLERANCE_MM and RADIUS-CAD_TOLERANCE_MM <= radial <= expected_bounds[4]+CAD_TOLERANCE_MM
-        return abs(radial-RADIUS) <= CAD_TOLERANCE_MM and -CAD_TOLERANCE_MM <= p[0] <= expected_bounds[3]+CAD_TOLERANCE_MM
+            return abs(p[0]) <= CAD_TOLERANCE_MM and inner_radius-CAD_TOLERANCE_MM <= radial <= expected_bounds[4]+CAD_TOLERANCE_MM
+        return abs(radial-inner_radius) <= CAD_TOLERANCE_MM and -CAD_TOLERANCE_MM <= p[0] <= expected_bounds[3]+CAD_TOLERANCE_MM
     if not all(on_stencil(n) for n in used):
         raise ValueError("TRI6 node is off the selected " + ("annular plane" if kind == "Plane" else "cylinder"))
     complete = {face for face, ids in exterior.items() if all(on_stencil(n) for n in ids)}
@@ -138,6 +149,10 @@ def select_surface(label, body, xyz, elements, origin):
 
 def build_context(mesh_text, mesh_record, geometry_record):
     names = geometry_names(geometry_record)
+    catalog = geometry_record.get("catalog_washer_bore", False)
+    if type(catalog) is not bool:
+        raise ValueError("catalog_washer_bore must be a boolean")
+    washer_radius = CATALOG_WASHER_RADIUS if catalog else RADIUS
     if geometry_record.get("locked_threads") is not True or len(names) != 11:
         raise ValueError("Exactly eleven explicitly locked-thread geometry bodies required")
     if (mesh_record.get("locked_threads") is not True or mesh_record.get("body_count") != 11 or
@@ -151,6 +166,9 @@ def build_context(mesh_text, mesh_record, geometry_record):
     if len(stations) != 1:
         raise ValueError("Unique station1 geometry required")
     station = stations[0]
+    if catalog and (geometry_record.get("geometry_variant") != "locked-thread-fw38-minimum-bore-11-body" or
+                    station.get("washer_bore_diameter_mm") != 2*CATALOG_WASHER_RADIUS):
+        raise ValueError("Expected explicit FW38 minimum-bore geometry")
     if (station["axis"] != [1., 0., 0.] or not math.isclose(station["shank_diameter_mm"], 2*RADIUS, abs_tol=1e-10) or
             not math.isclose(station["grip_mm"], 38.1, abs_tol=1e-10) or not math.isclose(station["length_mm"], 57.15, abs_tol=1e-10)):
         raise ValueError("Station geometry does not match the declared surface stencil")
@@ -163,7 +181,8 @@ def build_context(mesh_text, mesh_record, geometry_record):
             raise ValueError("Positive mesh Jacobian evidence required")
         if not math.isclose(body["mesh_volume_mm3"], body["cad_volume_mm3"], rel_tol=.001):
             raise ValueError("Mesh volume differs from CAD")
-    surfaces = {name: select_surface(name, bodies[spec[0]], xyz, elements, origin) for name, spec in SURFACE_SPECS.items()}
+    surfaces = {name: select_surface(name, bodies[spec[0]], xyz, elements, origin, washer_radius=washer_radius)
+                for name, spec in surface_specs(washer_radius).items()}
     for first, second in (("WASHER_HEAD", "WASHER_BORE"), ("CORE_HEAD", "CORE_SHANK")):
         if set(map(tuple, surfaces[first]["faces"])) & set(map(tuple, surfaces[second]["faces"])):
             raise ValueError("Bearing and cylindrical contact faces overlap")
@@ -180,6 +199,9 @@ def build_context(mesh_text, mesh_record, geometry_record):
     return {"status": "PREPARED ONLY; NO SOLVER OR OUTPUT QUALIFICATION", "station": STATION,
             "scope": "Two-body numerical moving-hardware control only; no wood, preload, physical validation or frame inference",
             "origin_mm_global": origin, "angular_reference_mm_local": [1., 0., 0.],
+            "washer_bore_diameter_mm": 2*washer_radius,
+            "nominal_washer_shank_radial_clearance_mm": washer_radius-RADIUS,
+            "geometry_variant": geometry_record.get("geometry_variant", "locked-thread-11-body"),
             "coordinate_transform": "Local XYZ = global XYZ minus station start, then .12g decimal quantization within the recorded bound; no intended physical geometry change",
             "coordinate_quantization": quantization,
             "nodes": local, "elements": selected_elements, "bodies": bodies, "surfaces": surfaces,
@@ -188,7 +210,8 @@ def build_context(mesh_text, mesh_record, geometry_record):
                                "formulation": "ordinary surface-to-surface penalty", "friction": 0.}
                               for slave, master in (("WASHER_HEAD", "CORE_HEAD"), ("WASHER_BORE", "CORE_SHANK"))],
             "cases": {name: {**CASE_SETTINGS, "initial_velocity_mm_s": {"BOLT_NUT": [0., 0., 0.], "WASHER": list(v)}}
-                      for name, v in (("quiescent", (0., 0., 0.)), ("moving", (-100., 100., 0.)))},
+                      for name, v in (("quiescent", (0., 0., 0.)), ("moving", (-100., 100., 0.)))
+                      if not catalog or name == "quiescent"},
             "diagnostic_reference_scales": {"status": "FORMULAS ONLY; native washer mass not yet integrated or output-qualified",
                 "washer_mass": "mW = reference CalculiX2.21 four-point mass, density7.85e-9 tonne/mm3",
                 "P_star_tonne_mm_s": "mW*sqrt(100**2+100**2)", "E_star_N_mm": "0.5*mW*(100**2+100**2)",
@@ -197,13 +220,13 @@ def build_context(mesh_text, mesh_record, geometry_record):
                 "max_displacement_mm": 1e-6, "max_velocity_mm_s": .01,
                 "max_total_ELSE_ELKE_CELS_over_E_star": 1e-4, "max_each_pair_cumulative_impulse_over_P_star": 1e-4,
                 "max_normal_penetration_mm": 1e-6},
-            "time_step_basis": "K=1e5 and head area183.2mm2 give approximate washer contact timescale6.1e-7s; maxdt1e-7 is a diagnostic choice requiring later convergence checks",
+            "time_step_basis": "maxdt1e-7s retained for the quiet diagnostic; not a qualified stability or accuracy limit. Positive bore clearance requires a separately designed moving fixture/event before two-interface qualification.",
             "next_comparison": "No half-dt or extended-duration deck until first output qualification; no automatic reruns"}
 
 
 def deck(context, case):
-    if case not in ("quiescent", "moving"):
-        raise ValueError("Only the two initial qualification cases are prepared")
+    if case not in ("quiescent", "moving") or case not in context["cases"]:
+        raise ValueError("Only explicitly prepared qualification cases may be emitted")
     settings = context["cases"][case]
     elements = {int(e): ids for e, ids in context["elements"].items()}
     lines = ["*HEADING", "Two free hardware bodies; numerical control only", "*NODE"]

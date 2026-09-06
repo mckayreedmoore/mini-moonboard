@@ -112,3 +112,64 @@ def test_locked_threads_preserve_geometry_and_separate_washers(bodies, tmp_path)
     bad[first] = bad[first].translate((1, 0, 0))
     with pytest.raises(ValueError, match="Positive-volume overlap"):
         validate(bad, locked_threads=True)
+
+
+def test_catalog_washer_variant_changes_only_exact_bore_annuli(tmp_path):
+    legacy = solids(locked_threads=True)
+    catalog = solids(locked_threads=True, catalog_washer_bore=True)
+    report = validate(catalog, locked_threads=True, catalog_washer_bore=True)
+    assert report["geometry_variant"] == "locked-thread-fw38-minimum-bore-11-body"
+    assert report["catalog_washer_bore"] is True
+    assert report["body_count"] == 11
+    dimensions = report["catalog_washer"]
+    assert dimensions["minimum_nominal_radial_gap_mm"] == pytest.approx(.7366)
+    assert dimensions["purchased_or_measured"] is False
+    removed_one = math.pi * (5.4991**2 - 4.7625**2) * 2
+    assert dimensions["removed_volume_all_six_washers_mm3"] == pytest.approx(6 * removed_one, abs=.001)
+    for name, original in legacy.items():
+        modified = catalog[name]
+        assert modified.cut(original).Volume() < .001
+        if "_washer_" not in name:
+            assert original.cut(modified).Volume() < .001
+    for c in stitches():
+        assert next(s for s in report["stitches"] if s["name"] == c.name)["washer_bore_diameter_mm"] == 10.9982
+        for role, offset in (("washer_inner", 0), ("washer_outer", 40.1)):
+            name = c.name + "_" + role
+            washer = catalog[name]
+            origin = c.start + cq.Vector(offset, 0, 0)
+            bore = cq.Solid.makeCylinder(5.4991, 2, origin, cq.Vector(1, 0, 0))
+            expected_removed = bore.cut(cq.Solid.makeCylinder(4.7625, 2, origin, cq.Vector(1, 0, 0)))
+            removed = legacy[name].cut(washer)
+            assert removed.Volume() == pytest.approx(removed_one, abs=.001)
+            assert removed.cut(expected_removed).Volume() < .001
+            assert expected_removed.cut(removed).Volume() < .001
+            assert washer.intersect(bore).Volume() < .001
+            b = exact_bounds(washer)
+            assert (b.xmin, b.xlen, b.ylen, b.zlen) == pytest.approx((origin.x, 2, 25.4, 25.4))
+            bearing = [f for f in washer.Faces() if f.geomType() == "PLANE"]
+            assert len(bearing) == 2
+            assert all(f.Area() == pytest.approx(math.pi * (12.7**2 - 5.4991**2)) for f in bearing)
+            for x in (origin.x, origin.x + 2):
+                assert any(abs(exact_bounds(f).xmin - x) < 1e-5 for f in bearing)
+    with pytest.raises(ValueError, match="changed nominal geometry"):
+        validate(catalog, locked_threads=True)
+    with pytest.raises(ValueError, match="removed annulus"):
+        validate(legacy, locked_threads=True, catalog_washer_bore=True)
+    bad = dict(catalog)
+    name = stitches()[0].name + "_washer_inner"
+    bad[name] = bad[name].translate((-.1, 0, 0))
+    with pytest.raises(ValueError, match="Positive-volume overlap"):
+        validate(bad, locked_threads=True, catalog_washer_bore=True)
+    directory = export(catalog, tmp_path, locked_threads=True, catalog_washer_bore=True)
+    record = json.loads((directory / "geometry.json").read_text())
+    assert record["catalog_washer"] == dimensions
+    assert len(record["step_sha256"]) == 11
+    roundtrip = {p.stem: cq.importers.importStep(str(p)).val() for p in directory.glob("*.step")}
+    assert validate(roundtrip, locked_threads=True, catalog_washer_bore=True)["body_count"] == 11
+
+
+def test_catalog_variant_requires_explicit_thread_choice():
+    with pytest.raises(ValueError, match="requires explicit locked threads"):
+        solids(catalog_washer_bore=True)
+    with pytest.raises(ValueError, match="requires explicit locked threads"):
+        validate({}, catalog_washer_bore=True)

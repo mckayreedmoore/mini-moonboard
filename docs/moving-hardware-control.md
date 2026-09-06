@@ -118,3 +118,46 @@ meshed nominally zero-clearance cylinders can create apparent penetration and
 artificial energy. A failed gate stops escalation and remains archived. Solver
 completion by itself is not output qualification; none of these controls
 releases the complete eleven-body stitch experiment or validates the board.
+
+## Next experiment: catalog-clearance quiescent control
+
+The catalog-consistent correction is a **quiet-only preparation**: keep both
+bodies centred and give both zero initial velocity. No catalog-clearance solve
+has been launched, and no contact response is qualified. The proposed washer
+bore is 10.9982 mm, the lower published FW38 bound; 25.4 mm OD and 2 mm thickness
+remain declared dimensions within its published ranges, not measurements of a
+purchased washer.
+
+The washer bore radius is now 5.4991 mm, while the shank remains 4.7625 mm.
+Surface selection must use those different radii: the washer bore and its
+head-facing annulus change; the core shank and head-underside annulus do not.
+Keep complete quadratic face/node selections and independently verify their
+CAD bounds and areas. The core head surface still has area 183.2133 mm², but
+the centred washer/head overlap is only `π(9² − 5.4991²) = 159.4669 mm²`.
+Reference washer mass and diagnostic scales must be recomputed from the new
+serialized mesh before any solve.
+
+The centred radial gap is exactly `(10.9982 − 9.525)/2 = 0.7366 mm` for these
+declared dimensions. At 100 mm/s, free lateral travel in 2 μs is only
+0.0002 mm; nominal gap closure would take 0.007366 s, or 7.366 ms. Consequently,
+the earlier short moving case cannot exercise both interfaces with this
+centred geometry. The 100 mm/s components used in `P*`, `E*` and `H*` remain
+named diagnostic reference scales; they do not prescribe motion in the quiet
+case or imply that a moving deck has been prepared. Any later moving fixture,
+initial pose and duration require a separate explicit design decision.
+
+Quiet qualification requires the entire requested time window, complete body
+U/V at every accepted STA state, native body mass/energy totals, native total
+contact energy, and complete pair CF force/moment histories. Apply the
+predeclared displacement, speed, energy, penetration and cumulative-impulse
+limits; a timeout, missing tail or isolated accepted state cannot qualify it.
+The existing partial diagnostic can establish failures but cannot establish
+this success.
+
+A genuinely inactive bore is expected and is not a failure. Empty contact-point
+tables are acceptable only when complete native counts, pair statistics and
+zero resultants establish inactivity; absent or truncated blocks are not zero
+contact. Preserve the existing narrow allowance for nonfinite ancillary
+statistics only with verified zero contact area and finite zero primary
+force/moment components. Do not require a nonzero bore impulse in this quiet
+case: the two-interface transfer requirement belongs to a later moving test.
