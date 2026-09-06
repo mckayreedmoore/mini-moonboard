@@ -1,0 +1,49 @@
+{
+  "status": "V2 CUBE KINEMATIC/COUPLING REPLAY ONLY; NO FRAME OR PHYSICAL CAPACITY APPROVAL",
+  "observer_image_id": "sha256:8e84d8ad546cd98a861ceba3ccbf4c486b88f38a8b7e4c45f7784ace4cea21e1",
+  "parent_image_id": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "build_directory": "fea/mortar_kinematic_build/build-sxz5mfwe",
+  "cube_directory": "fea/mortar_kinematic_build/cube-9bidnnnr",
+  "sources_sha256": {
+    "fea/mortar_observer/patch.py": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71",
+    "fea/mortar_observer/kinematic_patch.py": "56bbf167b3e8f323dc898ee135bb93c50a9a94f3a9cf6f14386008e619d9b0ab",
+    "fea/mortar_observer_replay.py": "8dc421b66d7804ffa4abc319526dc46e10dd66add0608864988845655d235fcd",
+    "fea/mortar_kinematic_replay.py": "8a75aac45d4697a296c448855c17e1c68e748e83fd64e3328e7e9e4d7aac6170",
+    "fea/mortar_linear_law.py": "724598402d7cd5303a52505d2330e60cf369d36e78331b5a4e13315939e29995",
+    "fea/mortar_kinematic_build/Dockerfile": "0ede9489a02bedc8a4bbd28a65b943eb390947d88332f2edb69c9fe31c4ff16e",
+    "fea/mortar_kinematic_build/build.py": "34d5d307c14f4625a35c1e1eb2fd9096bc1ec8b5d6d3231156aa096face77e70",
+    "fea/mortar_kinematic_build/record_build.py": "4b954ec60bc3c49c603ba1c6c1d9197624f3fe8b416b1fee6ac578d3d27a9fef",
+    "fea/mortar_kinematic_build/compare_cube.py": "d7a93c38b5f7e44e25ff6c2145efb48dea3dedbbd0df66f7f2b18417aafcd7a6",
+    "fea/mortar_kinematic_build/publish.py": "45d7b5645119a0898e5449bfbe9dc4e3b0f30e6c32fc7aee5e98ac4d59b56e51"
+  },
+  "evidence_sha256": {
+    "fea/mortar_kinematic_build/build-sxz5mfwe/build_result.json": "67101a714302b3f4c2e062be19fc88474f4e3bc25342c2fe5f920f970b9ddf8e",
+    "fea/mortar_kinematic_build/build-sxz5mfwe/build_manifest.json": "e487a533334e121558a3afa75dde7b851a1e92a47c1896e612de0e3da20099e8",
+    "fea/mortar_kinematic_build/cube-9bidnnnr/report.json": "7e67da95afa7e72c02fa4ad03af9dc988e25c0379830722dc6aba7bbd21d6059"
+  },
+  "cases": [
+    {
+      "case": "mortar_0p25",
+      "replay": "fea/mortar_kinematic_build/replay-lj6k7w_c/mortar_0p25.json",
+      "replay_sha256": "7ef7c98f374cf38e239dbc9f2c6b4b81326baa0669282de86587c86f83db8771",
+      "calls_checked": 28,
+      "accepted_coupling_count": 8,
+      "status": "OBSERVED MATRIX KINEMATIC/FORCE REPLAY; GEOMETRIC SEGMENTATION AND PHYSICAL CAPACITY NOT VALIDATED",
+      "limitations": "Coupling matrices, initial weighted gap and frozen bases remain observed inputs. Applied forces are negative internal cfs. No cfm-side interpretation, guessed nodal area or joint-strength credit."
+    },
+    {
+      "case": "mortar_0p125",
+      "replay": "fea/mortar_kinematic_build/replay-lj6k7w_c/mortar_0p125.json",
+      "replay_sha256": "f56aab8ee1e5b6f63421cc2492f0d428f3b14c80541361547ea4edec2ae87c4c",
+      "calls_checked": 45,
+      "accepted_coupling_count": 16,
+      "status": "OBSERVED MATRIX KINEMATIC/FORCE REPLAY; GEOMETRIC SEGMENTATION AND PHYSICAL CAPACITY NOT VALIDATED",
+      "limitations": "Coupling matrices, initial weighted gap and frozen bases remain observed inputs. Applied forces are negative internal cfs. No cfm-side interpretation, guessed nodal area or joint-strength credit."
+    }
+  ],
+  "publication_history": {
+    "initial_report": "fea/mortar_kinematic_build/initial-report.json",
+    "initial_report_sha256": "336da12847caa4ee6129d480be3a202d7fbddc0c0194f844143913d444052d70",
+    "change": "Repository-relative references; original publication and publisher snapshot retained. Solver inputs, executions and replay quantities unchanged."
+  }
+}

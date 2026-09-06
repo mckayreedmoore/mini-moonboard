@@ -1,0 +1,29 @@
+{
+  "parent_image_id": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "parent_evidence_sha256": {
+    "build_result.json": "3e58ec3b685cee0729740e00233e1a4ee46892e05fbac308b7cbf58cff4bf99a",
+    "build_manifest.json": "04b8da67a5edf12c763e03c9a4c3da241375c8d7a37c07eec06e2b31a4622988"
+  },
+  "tag": "mini-moonboard-fea:ccx-kinematic-observer-2.21-v1",
+  "command": [
+    "docker",
+    "build",
+    "--progress=plain",
+    "--build-arg",
+    "BASE_IMAGE=mini-moonboard-fea:kinematic-base-5adec98a0bb4",
+    "-t",
+    "mini-moonboard-fea:ccx-kinematic-observer-2.21-v1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/mortar_kinematic_build/build-sxz5mfwe/context"
+  ],
+  "exit_code": 0,
+  "image_id": "sha256:8e84d8ad546cd98a861ceba3ccbf4c486b88f38a8b7e4c45f7784ace4cea21e1",
+  "evidence_sha256": {
+    "build.launch.py": "34d5d307c14f4625a35c1e1eb2fd9096bc1ec8b5d6d3231156aa096face77e70",
+    "build.log": "ece68854ca7e9b38f245eb9e9f330e5122e99db191c76db23bf3c64e8ba038c7",
+    "build_manifest.json": "e487a533334e121558a3afa75dde7b851a1e92a47c1896e612de0e3da20099e8",
+    "context/Dockerfile": "0ede9489a02bedc8a4bbd28a65b943eb390947d88332f2edb69c9fe31c4ff16e",
+    "context/kinematic_patch.py": "56bbf167b3e8f323dc898ee135bb93c50a9a94f3a9cf6f14386008e619d9b0ab",
+    "context/patch.py": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71",
+    "context/record_build.py": "4b954ec60bc3c49c603ba1c6c1d9197624f3fe8b416b1fee6ac578d3d27a9fef"
+  }
+}

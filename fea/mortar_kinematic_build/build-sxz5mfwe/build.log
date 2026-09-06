@@ -1,0 +1,133 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 639B done
+#1 WARN: InvalidDefaultArgInFrom: Default value for ARG ${BASE_IMAGE} results in empty or invalid base image name (line 2)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/mini-moonboard-fea:kinematic-base-5adec98a0bb4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/mini-moonboard-fea:kinematic-base-5adec98a0bb4
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 16.70kB 0.0s done
+#5 DONE 0.0s
+
+#6 [2/5] WORKDIR /opt/ccx-kinematic-observer-2.21
+#6 DONE 0.1s
+
+#7 [3/5] COPY patch.py kinematic_patch.py record_build.py Dockerfile ./
+#7 DONE 0.1s
+
+#8 [4/5] RUN python3 kinematic_patch.py /opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src patched     && cp patched/stressmortar.c patched/nonlingeo.c /opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src/     && make -C /opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src -f /opt/ccx-upstream-2.21/Makefile.upstream -j2     && install -m755 /opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src/ccx_2.21 /usr/local/bin/ccx-kinematic-observer-2.21     && python3 record_build.py
+#8 0.479 make: Entering directory '/opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src'
+#8 0.479 gcc -Wall -O2 -I/usr/include/spooles -DARCH="Linux" -DSPOOLES -DARPACK -DMATRIXSTORAGE -DNETWORKOUT -c nonlingeo.c -o nonlingeo.o
+#8 0.484 gcc -Wall -O2 -I/usr/include/spooles -DARCH="Linux" -DSPOOLES -DARPACK -DMATRIXSTORAGE -DNETWORKOUT -c stressmortar.c -o stressmortar.o
+#8 0.574 stressmortar.c: In function 'stressmortar':
+#8 0.574 stressmortar.c:865:24: warning: unused variable 'os' [-Wunused-variable]
+#8 0.574   865 | { ITG oi,oj,ok,on,op=0,os=0;
+#8 0.574       |                        ^~
+#8 0.574 stressmortar.c:865:19: warning: unused variable 'op' [-Wunused-variable]
+#8 0.574   865 | { ITG oi,oj,ok,on,op=0,os=0;
+#8 0.574       |                   ^~
+#8 0.574 stressmortar.c:865:13: warning: unused variable 'ok' [-Wunused-variable]
+#8 0.574   865 | { ITG oi,oj,ok,on,op=0,os=0;
+#8 0.574       |             ^~
+#8 0.622 nonlingeo.c: In function 'nonlingeo':
+#8 0.622 nonlingeo.c:171:15: warning: unused variable 'denergymax' [-Wunused-variable]
+#8 0.622   171 |     energyref,denergymax,dtcont,dtvol,wavespeed[*nmat],emax,r_abs,
+#8 0.622       |               ^~~~~~~~~~
+#8 0.622 nonlingeo.c:141:5: warning: unused variable 'intpointvart' [-Wunused-variable]
+#8 0.622   141 |     intpointvart,*jqbi=NULL,*irowbi=NULL,*jqib=NULL,*irowib=NULL;
+#8 0.622       |     ^~~~~~~~~~~~
+#8 0.622 nonlingeo.c:140:61: warning: unused variable 'ikin' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |                                                             ^~~~
+#8 0.622 nonlingeo.c:140:47: warning: unused variable 'calcul_cauchy' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |                                               ^~~~~~~~~~~~~
+#8 0.622 nonlingeo.c:140:37: warning: unused variable 'calcul_qa' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |                                     ^~~~~~~~~
+#8 0.622 nonlingeo.c:140:28: warning: unused variable 'calcul_f' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |                            ^~~~~~~~
+#8 0.622 nonlingeo.c:140:18: warning: unused variable 'calcul_fn' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |                  ^~~~~~~~~
+#8 0.622 nonlingeo.c:140:5: warning: unused variable 'intpointvarm' [-Wunused-variable]
+#8 0.622   140 |     intpointvarm,calcul_fn,calcul_f,calcul_qa,calcul_cauchy,ikin,
+#8 0.622       |     ^~~~~~~~~~~~
+#8 0.622 nonlingeo.c:138:34: warning: unused variable 'jqtherm' [-Wunused-variable]
+#8 0.622   138 |     *iamloadf=NULL,*inotrf=NULL,*jqtherm=NULL,*jqw=NULL,*iroww=NULL,nzsw,
+#8 0.622       |                                  ^~~~~~~
+#8 0.622 nonlingeo.c:128:60: warning: unused variable 'nrhs' [-Wunused-variable]
+#8 0.622   128 |     *nelemload=NULL,*iamload=NULL,ncontacts=0,inccontact=0,nrhs=1,
+#8 0.622       |                                                            ^~~~
+#8 0.622 nonlingeo.c:122:46: warning: unused variable 'mortarsav' [-Wunused-variable]
+#8 0.622   122 |     nface,nfreestream,nsolidsurf,i,icfd=0,id,mortarsav=0,
+#8 0.622       |                                              ^~~~~~~~~
+#8 1.182 nonlingeo.c:759:21: warning: 'nslavs_prev_step' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.182   759 |       if((*istep==1)||(nslavs_prev_step==0))
+#8 1.182       |          ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+#8 1.182 nonlingeo.c:119:56: note: 'nslavs_prev_step' was declared here
+#8 1.182   119 |     coriolis=0,*ipneigh=NULL,*neigh=NULL,maxprevcontel,nslavs_prev_step,
+#8 1.182       |                                                        ^~~~~~~~~~~~~~~~
+#8 1.183 In file included from nonlingeo.c:21:
+#8 1.183 CalculiX.h:62:29: warning: 'memmpcref_' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.183    62 | #define RENEW(a,b,c) a=(b *)u_realloc((b *)(a),(c)*sizeof(b),__FILE__,__LINE__,#a)
+#8 1.183       |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#8 1.183 nonlingeo.c:950:7: note: in expansion of macro 'RENEW'
+#8 1.183   950 |       RENEW(coefmpc,double,memmpcref_);
+#8 1.183       |       ^~~~~
+#8 1.183 nonlingeo.c:102:22: note: 'memmpcref_' was declared here
+#8 1.183   102 |     *nodempcref=NULL,memmpcref_,mpcfreeref,*itg=NULL,*ineighe=NULL,
+#8 1.183       |                      ^~~~~~~~~~
+#8 1.183 nonlingeo.c:946:33: warning: 'mpcfreeref' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.183   946 |       memmpc_=memmpcref_;mpcfree=mpcfreeref;maxlenmpc=maxlenmpcref;
+#8 1.183       |                          ~~~~~~~^~~~~~~~~~~
+#8 1.183 nonlingeo.c:102:33: note: 'mpcfreeref' was declared here
+#8 1.183   102 |     *nodempcref=NULL,memmpcref_,mpcfreeref,*itg=NULL,*ineighe=NULL,
+#8 1.183       |                                 ^~~~~~~~~~
+#8 1.183 nonlingeo.c:946:54: warning: 'maxlenmpcref' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.183   946 |       memmpc_=memmpcref_;mpcfree=mpcfreeref;maxlenmpc=maxlenmpcref;
+#8 1.183       |                                             ~~~~~~~~~^~~~~~~~~~~~~
+#8 1.183 nonlingeo.c:113:52: note: 'maxlenmpcref' was declared here
+#8 1.183   113 |     *iponoels=NULL,*inoels=NULL,*islavsurfold=NULL,maxlenmpcref,
+#8 1.183       |                                                    ^~~~~~~~~~~~
+#8 1.184 nonlingeo.c:3997:26: warning: 'nloadref' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.184  3997 |     RENEW(nelemload,ITG,2**nload);
+#8 1.184 CalculiX.h:62:49: note: in definition of macro 'RENEW'
+#8 1.184    62 | #define RENEW(a,b,c) a=(b *)u_realloc((b *)(a),(c)*sizeof(b),__FILE__,__LINE__,#a)
+#8 1.184       |                                                 ^
+#8 1.184 nonlingeo.c:126:48: note: 'nloadref' was declared here
+#8 1.184   126 |     *ielmatf=NULL,*ielorienf=NULL,ialeatoric=0,nloadref,isym,
+#8 1.184       |                                                ^~~~~~~~
+#8 1.185 nonlingeo.c:3082:17: warning: 'iflagact_old' may be used uninitialized [-Wmaybe-uninitialized]
+#8 1.185  3082 |         iflagact=iflagact_old;
+#8 1.185       |         ~~~~~~~~^~~~~~~~~~~~~
+#8 1.185 nonlingeo.c:236:23: note: 'iflagact_old' was declared here
+#8 1.185   236 |     *islavactini=NULL,iflagact_old,*islavactdoftie=NULL,
+#8 1.185       |                       ^~~~~~~~~~~~
+#8 2.770 ar rcs ccx_2.21.a absolute_relative.o acctube.o acctube_one.o actideacti.o actideactistr.o add_bo_st.o addimd.o addimdnodecload.o addimdnodedload.o addimdnodedof.o addizdofcload.o addizdofdload.o add_sm_ei.o add_sm_fl.o add_sm_st_as.o add_sm_st_corio.o add_sm_st.o adjacentbounodes.o adjustcontactnodes.o addshell.o advecforc.o advecstiff.o air_valve.o allocation.o allocation_rfn.o allocont.o amplitudes.o angsum.o anisomaxwavspd.o anisonl.o anisotropic.o applybounfem.o applybounp.o approxplane.o assigndomtonodes.o attach_1d.o attach_2d.o attach_3d.o attachline.o auglag_inclusion.o autocovmatrix.o basemotions.o basis.o beamextscheme.o beamgeneralsections.o beamintscheme.o beammpc.o beamsections.o biotsavart.o bodyadd.o bodyforce.o bounadd.o bounaddf.o boundaryfs.o boundarymesh.o boundarys.o bsort.o buckles.o calcdatarget.o calcdev.o calcdhds.o calceigenvalues.o calcenergy.o calcexternalwork.o calcfeasibledirection_gd.o calcfeasibledirection_gp.o calcgeomelemnet.o calch0interface.o calcheatnet.o calc_ider_cross_split.o calc_ider_tee.o calc_ider_wye.o calcmac.o calcmach.o calcmass.o calcmechstrain.o calcnormal.o calc_residual_cross_split.o calc_residual_tee.o calc_residual_wye.o calcspringforc.o calcstabletimeinccont.o calcstabletimeincvol.o calcstress.o calcstressheatfluxfem.o calcsurf.o calctotstrain.o calculated.o calculateh.o calculatehmid.o calcview.o calcvol.o calinput.o calinput_rfn.o carbon_seal.o catedges_crackprop.o catedges_refine.o catnodes.o catsmpcslavno.o cattet.o cattri.o cavity_refine.o cavityext_refine.o cd_bleedtapping.o cd_bragg.o cd_chamfer.o cd_lab_1spike.o cd_lab_correction.o cd_lab_honeycomb.o cd_lab_radius.o cd_lab_straight.o cd_lichtarowicz.o cd_Mcgreehan_Schotsch.o cd_ms_ms.o cd_own_albers.o cd_pk_albers.o cd_pk_ms.o cd_preswirlnozzle.o cfdconv.o cfds.o cflux.o cfluxs.o changecontacttypes.o changedepterm.o changefrictions.o changekon.o changematerials.o changeplastics.o changesolidsections.o changesurfacebehaviors.o channeljointback.o channeljointfront.o characteristic.o characteristiclength.o checkconstraint.o checkcrosssections.o checkexiedge.o checkforhomnet.o checkimpacts.o checkinputvaluesnet.o checkintegrity.o checkjac.o checkprojectgrad.o checksharp.o checkspcmpc.o checktemp.o checktime.o checktruecontact.o checkvol.o chksurf.o cident80.o cident81.o cident.o clearances.o cload.o cloaddistributing.o cloads.o clonesensitivities.o closefile.o closefilefluid.o cmatrix.o combilcfhcf.o compdt.o complexfrequencys.o con2phys.o condrandomfield.o conductivitys.o constassembly.o constraints.o contactdampings.o contactpairs.o contactprints.o contingentsurf.o contraction.o controlss.o coriolissolve.o correctem.o correlationlengths.o couplings.o couptempdisps.o cp_corrected.o cracklength.o cracklength_smoothing.o crackprop.o crackpropagations.o crackrate.o crackshape.o create_contactdofs.o createbd.o createblock_struct.o createelemneigh.o createfint.o createialnk.o createinterfacempcs.o createinum.o createlocalsys.o createmddof.o createmdelem.o createnodeneigh.o createtele.o createteleinv.o createteleinv_lin.o createtele_lin.o createtet.o createtiedsurfs.o creep.o creeps.o cross_split.o cubic.o cubtri.o cyclichardenings.o cyclicsymmetrymodels.o dampings.o dashdamp.o dashpots.o dattime.o ddeabm.o ddebdf.o deformationplasticitys.o defplas.o delaun.o deltri.o densitys.o depvars.o designresponses.o designvariabless.o desiperelem.o resforccont.o detectactivecont.o determineextern.o dflux.o dfluxs.o dgesv.o dgmres1.o dgmres.o disp_sen_dv.o distattach_1d.o distattach_2d.o distattach_3d.o distattachline.o distributesens.o distributingcouplings.o distributions.o dKdm.o dKdp.o dKdt.o dKdX.o dload.o dloads.o dlz.o dmatrix.o dqag.o drfftf.o dsort.o dsptrf.o dsptri.o dualshape3tri.o dualshape4q.o dualshape6tritilde.o dualshape6tritilde_lin.o dualshape8qtilde.o dualshape8qtilde_lin.o dynamics.o dynresults.o e_c3d_cs_se.o e_c3d_duds.o e_c3d_em.o e_c3d.o e_c3d_plhs.o e_c3d_prhs.o e_c3d_rhs.o e_c3d_rhs_th.o e_c3d_se.o e_c3d_th.o e_c3d_u1.o e_c3d_us3.o e_c3d_us45.o e_c3d_u.o e_c3d_vlhs.o e_c3d_v1rhs.o e_c3d_v2rhs.o e_corio.o e_damp.o edgedivide.o edg.o effectivemodalmass.o elastics.o electricalconductivitys.o electromagneticss.o elementpernode.o elementpernodef.o elements.o elemperdesi.o elemperorien.o elprints.o envtemp.o eplane.o eqspacednodes.o equationcheck.o equations.o errorestimator.o evalshapefunc.o expand_auw.o expansions.o extendmesh.o extern_crackprop.o extfacepernode.o extract_matrices.o extrapol2dto3d.o extrapolatecontact.o extrapolate.o extrapolatefem.o extrapolateshell.o extrapolateshell_us3.o extrapolateshell_us45.o extrapolate_se.o extrapolate_u.o extrapolate_u1.o extrapolate_us3.o extrapolate_us45.o faceinfo.o fcrit.o feasibledirections.o fillknotmpc.o film.o films.o filtermatrix.o filters.o filter_backward.o filter_forward.o findextsurface.o findslavcfd.o findsurface.o fixnode.o flowbc.o flowoutput.o fluidconstantss.o fluidsections.o flux.o fminsirefine.o forcadd.o forcesolve.o frdfluidfem.o frditeration.o free_convection.o free_disc_pumping.o frequencys.o fricheat.o friction_coefficient.o frictionheating.o frictions.o fsub.o fsuper.o fumid.o fuvertex.o gapconductances.o gapcon.o gapheatgenerations.o gaps.o gasmechbc.o gaspipe_fanno.o gaspipe_rot.o gen3dboun.o gen3dconnect.o gen3delem.o gen3dforc.o gen3dfrom1d.o gen3dfrom2d.o gen3dmembrane.o gen3dmpc.o gen3dnor.o gen3dsurf.o gen3dtemp.o gen3dtruss.o genadvecelem.o gencontelem_f2f.o gencontelem_n2f.o gendualcoeffs.o generatecycmpcs.o generateeminterfaces.o generatetet_refine2.o generatetet_refine.o genfirstactif.o genislavactdof.o genislavelinv.o genmidnodes.o genmodes.o genmpc.o gennactdofinv.o gennactdofinv3d.o genratio.o gentiedmpc.o geometricconstraints.o geometrictolerances.o geomview.o getcontactparams.o getdesiinfo2d.o getdesiinfo3d.o getdesiinfo3d_robust.o getdesiinfobou.o getlocno.o getnewline.o getnodel.o getnodesinitetmesh.o getnumberofnodes.o getversion.o globalcrackresults.o greens.o hcfs.o hcrit.o headings.o heattransfers.o henergy.o hgforce.o hgstiffness.o hnorm.o hns.o hybsvd.o hyperelastics.o hyperfoams.o ident2.o identamta.o ident.o identifytiedface.o identifytransform.o includefilename.o incplas.o incplas_lin.o init_submodel.o initialcfdfem.o initialchannel.o initialconditionss.o initialmeshs.o initialnet.o initialstrainincreases.o inputerror.o inputinfo.o inputwarning.o insertsortd.o insertsorti.o interpol_alfa2.o interpolateinface.o interpolatestate.o interpolextnodes.o interpolextnodesf.o interpolsubmodel.o interpoltet.o intersectionpoint.o inversewavspd.o inviscidpre.o islavactive.o isortic.o isortiddc.o isortid.o isorti.o isortii.o isortiiddc.o isortiid.o isortiii.o jouleheating.o keystart.o knotmpc.o lab_straight_ppkrit.o labyrinth.o limit_case_calc.o linel.o linkdissimilar.o linscal10.o linscal.o lintemp.o lintemp_th0.o lintemp_th1.o lintemp_th.o linvec10.o linvec.o liquidpipe.o liquidpump.o loadadd.o loadaddp.o loadaddt.o localaxescs.o localaxes.o lump.o machpi.o mafillcorio.o mafilldm.o mafilldmss.o mafillem.o mafillfreq_em.o mafillnet.o mafillpbc.o mafillplhs.o mafillprhs.o mafillsm.o mafillsmas.o mafillsmcsas.o mafillsmcs.o mafillsmcsmatrix.o mafillsmcsse.o mafillsmduds.o mafillsmforc.o mafillsmmatrix.o mafillsmse.o mafillv1rhs.o mafillv2rhs.o mafillvlhs.o magneticpermeabilitys.o map3dto1d2d.o map3dto1d2d_v.o map3dtolayer.o massflow_percent.o massflows.o masss.o materialdata_cond.o materialdata_cp.o materialdata_cp_sec.o materialdata_crack.o materialdata_dvi.o materialdata_dvifem.o materialdata_em.o materialdata_me.o materialdata_rho.o materialdata_sp.o materialdata_tg.o materialdata_th.o materials.o matrix2userelem.o matrixassembles.o matvec.o matvec_struct.o maxdesvardisp.o mechmodel.o membranesections.o merge_ikactmech1.o meshquality.o meshqualitycavity.o midexternaledges.o midexternalfaces.o modaldampings.o modaldynamics.o modelchanges.o modf.o modifympc.o moehring.o mohrcoulomb.o mohrcoulombhardenings.o mohrcoulombs.o mpcadd.o mpcrem.o mpcs.o msolve.o msolve_struct.o mulmatvec_asym.o mult.o multistages.o multvec.o near2d.o near3d.o near3d_se.o neartriangle.o negativepressure.o networkelementpernode.o networkextrapolate.o networkforc.o networkinum.o networkmpc_lhs.o networkmpc_rhs.o networkmpcs.o networkneighbor.o networkstiff.o newnodes.o newton.o nident2.o nident.o nidentk.o nidentll.o nmatrix.o noanalysiss.o nodalthicknesss.o nodeprints.o nodes.o nodestiedface.o noelfiles.o noelsets.o nonlinmpc.o normals.o writeinputdeck.o writeinputdeck2.o normalsoninterface.o normalsonsurface_robust.o normalsonsurface_se.o normmpc.o norshell3.o norshell4.o norshell6.o norshell8.o nortanslav.o objective_disp.o objective_disp_tot.o objective_freq_cs.o objective_freq.o objective_mass_dx.o objective_modalstress.o objective_peeq.o objective_peeq_se.o objective_shapeener_dx.o objective_shapeener_tot.o objective_stress_dx_dy.o objective_stress.o objective_stress_se.o objective_stress_tot.o objectives.o onedint.o opas.o op_corio.o openfile.o openfilefluidfem.o op.o opnonsym.o opnonsymt.o orientations.o orifice.o orthonl.o orthotropic.o outputs.o packaging.o patch.o phys2con.o physicalconstantss.o pk_cdc_cl1.o pk_cdc_cl3a.o pk_cdc_cl3b.o pk_cdc_cl3d.o pk_cdc_cl3.o pk_cdi_noz.o pk_cdi_r.o pk_cdi_rl.o pk_cdi_se.o pk_y0_yg.o plane3.o plane4.o plane_eq.o planeeq.o planempc.o plastics.o plcopy.o plinterpol.o plmix.o pop.o postinitialnet.o postprojectgrad.o postview.o precfdcyc.o preconditioning.o precondrandomfield.o predgmres_struct.o prefilter.o preinitialnet.o prepackaging.o preprojectgrad.o presgradient.o pretensionsections.o prethickness.o pretransition.o printoutcontact.o printoutebhe.o printoutelem.o printout.o printoutface.o printoutfacefem.o printoutfluidfem.o printoutint.o printoutintfluidfem.o printoutnode.o printoutnodefluid.o printoutnodefluidfem.o projectgrad.o projectmidnodes.o projectvertexnodes.o propertynet.o pt2_lim_calc.o pt2zpt1_crit.o pt2zpt1_rot.o push.o qsorti.o quadmeshquality.o quadraticsens.o radiate.o radiates.o radmatrix.o radresult.o randomfields.o randomval.o ranstarefine.o ranuwh.o ratedependents.o rcavi2.o rcavi_cp_lt.o rcavi_cp_nt.o rcavi.o readforce.o readsen.o readview.o rearrange.o rearrangecfd.o rectcylexp.o rectcyl.o rectcylvi.o rectcylvold.o reducematrix.o refinemeshs.o regularization_gn_c.o regularization_gt_c.o regularization_slip_iwan.o regularization_slip_lin.o reinit_refine.o relaxval_al.o removesliver.o removetet_refine.o removetet_sliver.o reorderampl.o reservoir.o restartread.o restarts.o restartshort.o restartwrite.o restrictor.o resultnet.o resultsem.o resultsforc_em.o resultsforc_se.o resultsini_em.o resultsini_mortar.o resultsk.o resultsmech.o resultsmech_matrix.o resultsmech_se.o resultsmech_u1.o resultsmech_us3.o resultsmech_us45.o resultsmech_u.o resultsnoddir.o resultsp.o resultsprint.o resultst.o resultstherm.o resultsv1.o resultsv2.o retainednodaldofss.o rhs.o rhsnodef.o rigidbodys.o rigidmpc.o rimseal_calc.o rimseal.o robustdesigns.o rotationvector.o rotationvectorinv.o rs.o rubber.o scalesen.o scavenge_pump.o sdvini.o searchmidneigh.o sectionprints.o selectcyclicsymmetrymodess.o sensitivitys.o shape10tet.o shape15w.o shape20h_ax.o shape20h.o shape20h_pl.o shape2l.o shape3l.o shape3tri.o shape4q.o shape4tet.o shape6tri.o shape6tritilde.o shape6tritilde_lin.o shape6w.o shape8h.o shape8hr.o shape8hu.o shape8humass.o shape8q.o shape8qtilde.o shape8qtilde_lin.o shellsections.o sigini.o skip.o slavintmortar.o slavintpoints.o sluicegate.o smalldist.o smoothbadmid.o smoothbadvertex.o smoothingmidnodes.o smoothingvertexnodes.o smoothshock.o solidsections.o sortev.o spcmatch.o specificgasconstants.o specificheats.o splitline.o spooles_read.o spooles_write.o springdamp_f2f.o springdamp_n2f.o springforc_f2f.o springforc_f2f_th.o springforc_n2f.o springforc_n2f_th.o springs.o springstiff_f2f.o springstiff_f2f_th.o springstiff_n2f.o springstiff_n2f_th.o statics.o steadystatedynamicss.o steps.o stiff2mat.o stop.o stopwithout201.o storecontactprop.o storeresidual.o str2mat.o straightchannel.o straighteq2d.o straighteq3d.o straighteq3dpen.o straightmpc.o stressintensity.o stressintensity_smoothing.o submodels.o subspace.o substructuregenerates.o substructurematrixoutputs.o subtracthmatrix.o surfacebehaviors.o surfaceinteractions.o surfaces.o sutherland_hodgman.o swap.o tee.o temperatures.o temploaddiff.o tempload_em.o tempload.o temploadfem.o temploadmodal.o thermmodel.o thickness.o tiefaccont.o ties.o timepointss.o topocfdfem.o totalcontact.o transformatrix.o transformfs.o transforms.o transition.o treatmasterface.o treatmasterface_mortar.o trianeighbor.o triangucont.o triangulate.o triloc.o ts_calc.o tt_calc.o turningdirection.o twodint.o two_phase_flow.o uamplitude.o uboun.o ufaceload.o uhardening.o umat.o umat_abaqus.o umat_abaqusnl.o umat_abaqusnl_total.o umat_aniso_creep.o umat_aniso_plas.o umat_ciarlet_el.o umat_compression_only.o umat_def_plas.o umat_elastic_fiber.o umat_ideal_gas.o umat_johnson_cook.o umat_lin_el_corot.o umat_lin_iso_el.o umat_main.o umat_single_crystal_creep.o umat_single_crystal.o umat_tension_only.o umat_undo_nlgeom_lin_el.o umat_undo_nlgeom_lin_iso_el.o umat_user.o umatht.o umpc_dist.o umpc_mean_rot.o umpc_user.o uncouptempdisps.o updatecon.o updatecont2d.o updatecont.o updatecontpen.o updategeodata.o us3_sub.o us4_sub.o userelements.o usermaterials.o usermpc.o usersections.o user_network_element.o user_network_element_p0.o user_network_element_p1.o utemp_ccxlib.o utemp.o valuesatinfinitys.o varsmooth.o velinireltoabs.o viewfactors.o viscos.o vortex.o wcoef.o wpi.o writeboun.o writebv.o writecvg.o writedeigdx.o writedesi.o writeelem.o writeevcomplex.o writeevcscomplex.o writeevcs.o writeev.o writehe.o writeim.o writeinput.o writelm.o writemaccs.o writemac.o writematrix.o writemeshinp.o writempc.o writeobj.o writepf.o writerandomfield.o writere.o writerefinemesh.o writesen.o writestadiv.o writesta.o writesubmatrix.o writetetmesh.o writetrilinos.o writeturdircs.o writeturdir.o writevector.o writevfa.o writeview.o wye.o zeta_calc.o zienzhu.o add_rect.o arpack.o arpackbu.o arpackcs.o bdfill.o biosav.o buildtquad.o calcresidual.o calcresidual_em.o calcshapef.o ccx_2.21step.o call_external_umat.o call_external_umat_user.o cascade.o checkconvergence.o checkconvnet.o checkdivergence.o checkinclength.o compare.o compfluidfem.o complexfreq.o contact.o contactmortar.o convert2rowbyrow.o cpypardou.o cpyparitg.o crackfrd.o crackpropagation.o crackpropdata.o dam1parll.o dam2parll.o dealloc_cal.o decascade_mortar.o dfdbj.o dgmresmain.o divparll.o dudsmain.o dyna.o dynboun.o electromagnetics.o elementcpuload.o expand.o external.o feasibledirection.o filtermain_backward.o filtermain_forward.o forparll.o frd.o frdcyc.o frdgeneralvector.o frdheader.o frdselect.o frd_sen.o frdset.o frdvector.o frecord.o genrandmain.o getglobalresults.o getlocalresults.o getSystemCPUs.o getuncrackedresults.o gradientprojection.o ini_cal.o inicont.o inimortar.o iniparll.o insert_cmatrix.o insertas.o insertas_ws.o insert.o insertcbs.o insertfreq.o insertrad.o interpolatestatemain.o interpoltetmain.o linstatic.o mafilldmssmain.o mafillsmasmain.o mafillsmmain.o mafillsmmain_se.o massless.o mastruct.o mastructcmatrix.o mastructcs.o mastructdmatrix.o mastructem.o mastructffem.o mastructfilter.o mastructmatrix.o mastructmatrixcs.o mastructnmatrix.o mastructrad.o mastructrand.o mastructread.o mastructreadcs.o mastructse.o matrixsort.o matrixstorage.o mortar_postfrd.o mortar_prefrd.o multimortar.o multi_rect.o multi_rectv.o multi_scal.o nonlingeo.o objectivemain_se.o packagingmain.o pardiso.o pardiso_cp.o pastix.o pcgsolver.o peeq_sen_dv.o peeq_sen_dx.o precontact.o premortar.o predgmres_struct_mt.o prediction.o prediction_em.o preiter.o preparll.o printenergy.o radcyc.o radflowload.o randomfieldmain.o readfrd.o readinput.o readnewmesh.o refinemesh.o remastructar.o remastruct.o remastructem.o res1parll.o res2parll.o res3parll.o res4parll.o results.o resultsforc.o resultsinduction.o resultsini.o results_se.o resultsstr.o rhsmain.o robustdesign.o sensi_coor.o sensi_orien.o sensitivity_out.o setpardou.o setparitg.o sgi.o solveeq.o spooles.o steadystate.o stof.o stoi.o storecontactdof.o stos.o strcmp1.o strcmp2.o strcpy1.o strcpy2.o stress_sen_dv.o stress_sen_dx.o stressmortar.o strsplt.o tau.o thicknessmain.o tiedcontact.o trafontmortar2.o trafontspcmpc.o transformspcsmpcs_quad.o transitionmain.o transpose.o u_calloc.o u_free.o u_malloc.o u_realloc.o utempread.o worparll.o writeheading.o writenewmesh.o writeoldmesh.o
+#8 3.486 gfortran -O2 -o ccx_2.21 ccx_2.21.o ccx_2.21.a -lspooles -larpack -llapack -lblas -lpthread -lm -fopenmp
+#8 3.793 make: Leaving directory '/opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src'
+#8 DONE 4.2s
+
+#9 [5/5] WORKDIR /work
+#9 DONE 0.1s
+
+#10 exporting to image
+#10 exporting layers 0.1s done
+#10 writing image sha256:8e84d8ad546cd98a861ceba3ccbf4c486b88f38a8b7e4c45f7784ace4cea21e1 done
+#10 naming to docker.io/library/mini-moonboard-fea:ccx-kinematic-observer-2.21-v1 done
+#10 DONE 0.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - InvalidDefaultArgInFrom: Default value for ARG ${BASE_IMAGE} results in empty or invalid base image name (line 2)
