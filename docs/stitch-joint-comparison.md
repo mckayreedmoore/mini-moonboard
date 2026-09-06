@@ -38,12 +38,39 @@ The [frozen mesh evidence](../fea/results/stitch_joint_mesh/README.md) includes
 STEP files, source snapshots, the raw mesh, runtime records and portable topology
 checks. Its replay does not recalculate CAD geometry or mesh Jacobians.
 
-The intended mechanical idealization is a nut-to-shank tie **only** to represent
-locked thread retention, without preload. No wood-to-bolt, washer-to-shank or
-ply-to-ply tie is permitted. Washer and wood interfaces remain frictionless,
-unilateral contact. Thread stresses, tightening, loosening, real washer bore
-clearance, bolt grip/thread transition and product resistance remain outside
-this first comparison. The smooth hardware is nominal, not manufacturer CAD.
+The next mechanical variant will fuse each nut to its bolt core as an explicit
+perfectly locked-thread idealization, without preload. This avoids introducing
+tie-projection constraints into the first contact/momentum qualification. It
+requires three newly meshed fused hardware solids: two plies, six separate
+washers and three core/nut solids give **eleven mechanical bodies**. This variant
+is not yet prepared or solved; the published fourteen-body geometry and mesh
+remain unchanged. Independently meshed bodies must not be joined by blindly
+merging coincident nodes.
+
+No wood-to-bolt, washer-to-shank or ply-to-ply tie is permitted. Washer and wood
+interfaces remain frictionless, unilateral contact. A standard CalculiX tie is
+an MPC construction, not necessarily mortar; using it instead would require
+separate coverage, geometry-adjustment and momentum checks. Thread stresses,
+tightening, loosening, real washer bore clearance, bolt grip/thread transition
+and product resistance remain outside this first comparison. The smooth
+hardware is nominal, not manufacturer CAD.
+
+The planned contact inventory is eight frictionless unilateral interfaces per
+stitch: each of the two wood bores and two washer bores against the shank;
+head against inner washer; inner washer against inner ply; outer ply against
+outer washer; and outer washer against nut. Add one ply-to-ply interface for
+25 pairs total. This is a selection contract, not a verified solver deck.
+
+Before the complete comparison, use one fused core/nut and one actual annular
+washer in a small, freely moving implicit contact control, without constraints,
+gravity, applied forces, ties or mortar. First test zero initial velocity for
+artificial contact pressure/motion/energy; then give the washer both lateral
+and toward-head velocity to exercise its bore and bearing faces. Check each
+body's contact impulse and moment impulse against momentum change, the whole
+assembly balance, and energy, then repeat at a smaller timestep. Independently
+meshed nominally zero-clearance washer/shank surfaces may introduce apparent
+penetration; that must be checked rather than accepted as preload. Freeze the
+velocity, duration, penalty settings and numerical gates before launching.
 
 ## Matched fixture experiment
 
@@ -103,7 +130,7 @@ density is tonne/mm³: multiply kg/m³ by 10⁻¹².
   four untransformed straight/curved cases; [scope and remaining checks](dynamic-momentum-qualification.md)
   are explicit. This does not establish contact impulse/momentum balance.
 - Compare contact impulse with momentum change for each complete hardware
-  assembly; internal thread-tie forces then cancel. Audit freely contacting
+  assembly; internal retention forces then cancel. Audit freely contacting
   washers separately or inside that complete assembly, without omitting forces.
 - Report each station's transfer to each ply, bolt motion/bending and recipient
   ply response. Do not divide the total by three or count artificial fixture
