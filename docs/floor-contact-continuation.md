@@ -129,6 +129,14 @@ used here. Wood-side balance must not replace the ground-based acceptance test.
 
 ## Verification
 
+The separate `--free-increment 0.1` experiment keeps the successful full guided
+preload and caps both released-gravity and climbing-load increments at 0.1.
+It changes neither the contact law nor the released boundaries. The option is
+exclusive with `--full-increment`; fractions must be finite in `[0.005, 1]`.
+The lower bound follows the existing 200-increment limit, and 0.005 leaves no
+headroom for cutbacks. This is a numerical sensitivity, not a convergence promise.
+Its launch snapshot is preserved separately from later runner validation edits.
+
 Independent correctness, testing and architecture reviews are complete for the
 runner and the first two published trials. Confirmed fixes prevent an empty
 load-node list from masquerading as a 1,200 N load and reject invalid numerical

@@ -21,7 +21,11 @@ from fea.floor_contact_recovery import validate_context
 from fea.floor_contact_results import blocks, cross
 
 
-def continuation_deck(base, groups, feet, full_increment=False):
+def continuation_deck(base, groups, feet, full_increment=False, free_increment=None):
+    if free_increment is not None and (
+        full_increment or not math.isfinite(free_increment) or not .005 <= free_increment <= 1
+    ):
+        raise ValueError("Free increment must be finite in [0.005,1] for INC=200 and exclude full-increment mode")
     if full_increment:
         base = base.replace("*STATIC\n0.05,1,1e-6,0.1\n", "*STATIC\n1,1,1e-6,1\n")
     model, gravity, loaded = base.split("*STEP,NLGEOM,INC=200\n")
@@ -31,7 +35,14 @@ def continuation_deck(base, groups, feet, full_increment=False):
     output = "*NODE PRINT,NSET=PRELOAD_GUIDE\nRF\n*CONTACT PRINT\nCDIS,CSTR\n"
     for name in groups:
         output += f"*CONTACT PRINT,SLAVE=SLAVE_{name},MASTER=MASTER_{name}\nCF,CFN,CFS\n"
-    steps = (gravity, release+gravity, loaded)
+    preload = gravity
+    if free_increment is not None:
+        original = "*STATIC\n0.05,1,1e-6,0.1\n"
+        preload = gravity.replace(original, "*STATIC\n1,1,1e-6,1\n")
+        refined = f"*STATIC\n{free_increment!r},1,1e-6,{free_increment!r}\n"
+        gravity = gravity.replace(original, refined)
+        loaded = loaded.replace(original, refined)
+    steps = (preload, release+gravity, loaded)
     return model+"".join("*STEP,NLGEOM,INC=200\n"+step.replace("*END STEP\n", output+"*END STEP\n") for step in steps)
 
 
@@ -100,8 +111,11 @@ def audit_three(data, nodes, elements, groups, record):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--max-seconds", type=float, default=600)
-    parser.add_argument("--full-increment", action="store_true",
-                        help="Separate sensitivity: attempt each full step before automatic cutbacks")
+    increments = parser.add_mutually_exclusive_group()
+    increments.add_argument("--full-increment", action="store_true",
+                            help="Separate sensitivity: attempt each full step before automatic cutbacks")
+    increments.add_argument("--free-increment", type=float,
+                            help="Full guided preload, then cap released/load increments at this fraction")
     parser.add_argument("--mu", type=float, default=.3,
                         help="Assumed friction sensitivity, not a measured floor coefficient")
     args = parser.parse_args()
@@ -109,6 +123,10 @@ def main():
         parser.error("Positive finite runtime required")
     if not math.isfinite(args.mu) or not 0 < args.mu <= 1:
         parser.error("Friction must be finite and in (0,1]")
+    if args.free_increment is not None and (
+        not math.isfinite(args.free_increment) or not .005 <= args.free_increment <= 1
+    ):
+        parser.error("Free increment must be finite and in [0.005,1] for INC=200")
     prepared = Path("fea/generated/floor-contact/input.json")
     info = json.loads(prepared.read_text())
     summary = json.loads(SOURCE.with_suffix(".json").read_text())
@@ -125,7 +143,7 @@ def main():
         raise ValueError("Integrated mass/CG differs from CAD")
     feet = sorted({elements[e][i] for faces in groups.values() for e, face in faces for i in FACES[face-1]})
     base, ground = deck(nodes, elements, groups, summary["load_nodes"], args.mu, 10000)
-    text = continuation_deck(base, groups, feet, args.full_increment)
+    text = continuation_deck(base, groups, feet, args.full_increment, args.free_increment)
     directory = Path(tempfile.mkdtemp(prefix="continuation-xy-", dir="fea/generated"))
     job = directory/"continuation"
     job.with_suffix(".inp").write_text(text)
@@ -137,6 +155,7 @@ def main():
                   deck_sha256=hashlib.sha256(text.encode()).hexdigest(),
                   baseline_deck_sha256=hashlib.sha256(base.encode()).hexdigest(),
                   full_increment=args.full_increment,
+                  free_increment=args.free_increment,
                   max_seconds=args.max_seconds, status="RUNNING; TEMPORARY GUIDED PRELOAD IS NOT AN ACCEPTED BOARD SOLUTION",
                   assumptions="Step1 actual floor nodes XY fixed,Z free; Step2 OP=NEW retains ground only; Step3 original1200N load; no final guides/pins/springs/damping")
     job.with_suffix(".json").write_text(json.dumps(record, indent=2)+"\n")

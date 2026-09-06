@@ -11,6 +11,32 @@ from fea.floor_contact_continuation import audit_three, continuation_deck
 from fea.floor_contact_results import blocks
 
 
+@pytest.mark.parametrize("fraction", [.1, .05])
+def test_only_free_and_loaded_steps_are_refined_after_full_preload(fraction):
+    base = "*BOUNDARY\nGROUND_LEFT,1,3,0\n" + 2 * (
+        "*STEP,NLGEOM,INC=200\n*STATIC\n0.05,1,1e-6,0.1\n*END STEP\n"
+    )
+    original = continuation_deck(base, {"LEFT": []}, [1], True)
+    result = continuation_deck(base, {"LEFT": []}, [1], free_increment=fraction)
+    _, preload, released, loaded = result.split("*STEP,NLGEOM,INC=200\n")
+    assert "*STATIC\n1,1,1e-6,1\n" in preload
+    assert released.startswith("*BOUNDARY,OP=NEW\nGROUND_LEFT,1,3,0\n")
+    refined = f"*STATIC\n{fraction!r},1,1e-6,{fraction!r}\n"
+    assert refined in released and refined in loaded
+    assert result.replace(refined, "*STATIC\n1,1,1e-6,1\n") == original
+
+
+@pytest.mark.parametrize("fraction", [float("nan"), float("inf"), 0., -.1, 1.1, .001, 1e-7])
+def test_invalid_free_increment_is_rejected(fraction):
+    with pytest.raises(ValueError, match="Free increment"):
+        continuation_deck("", {}, [], free_increment=fraction)
+
+
+def test_refined_and_full_increment_modes_are_exclusive():
+    with pytest.raises(ValueError, match="Free increment"):
+        continuation_deck("", {}, [], True, .1)
+
+
 def test_full_increment_sensitivity_changes_only_static_step_sizes():
     base = "*BOUNDARY\nGROUND_LEFT,1,3,0\n" + 2 * (
         "*STEP,NLGEOM,INC=200\n*STATIC\n0.05,1,1e-6,0.1\n*END STEP\n"
@@ -339,7 +365,9 @@ def test_published_continuation_evidence_replays_without_generated_inputs(report
             assert record["ground_nodes"][name][str(node)] == list(all_nodes[node])
             baseline = baseline.replace(f"{node},"+",".join(map(str, xyz))+"\n", lines[node]+"\n")
     assert hashlib.sha256(baseline.encode()).hexdigest() == record["baseline_deck_sha256"]
-    assert continuation_deck(baseline, groups, feet, record.get("full_increment", False)) == text
+    assert continuation_deck(
+        baseline, groups, feet, record.get("full_increment", False), record.get("free_increment")
+    ) == text
 
     fields = ("step", "increment", "attempt", "iterations", "total_time", "step_time", "increment_time")
     accepted = []
