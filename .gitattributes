@@ -2,3 +2,10 @@
 # Preserve the solver's verbatim, hash-audited diagnostic logs.
 fea/results/floor_contact/*.log -whitespace
 fea/results/floor_contact_recovery/*.log -whitespace
+# Keep fixed-width solver records and verbatim build/run logs byte-identical.
+fea/mortar_build/**/cube.frd -whitespace
+fea/mortar_build/**/cube.log -whitespace
+fea/mortar_build/**/build.log -whitespace
+fea/mortar_observer_build/**/cube.frd -whitespace
+fea/mortar_observer_build/**/cube.log -whitespace
+fea/mortar_observer_build/**/build.log -whitespace

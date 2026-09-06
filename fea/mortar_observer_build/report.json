@@ -1,0 +1,53 @@
+{
+  "status": "BOUNDED CUBE OBSERVER REPLAY; NO REDESIGNED FRAME RESULT OR PHYSICAL APPROVAL",
+  "qualification": "Printed U/RF and accepted histories match the unmodified upstream solver and archive. Complete internal multiplier transforms and residual arithmetic replay on two cubes. Independent gap/displacement kinematics, segmentation, coupling-force balance and physical floor/joint properties remain unqualified.",
+  "observer_image_id": "sha256:e6d105d3e987ef1ed81744e22c63ae1cb1e8e61dbbd18649436d5f57b2f874f6",
+  "parent_image_id": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "build_directory": "fea/mortar_observer_build/build-rvk4q426",
+  "cube_directory": "fea/mortar_observer_build/cube-qyk279w_",
+  "sources_sha256": {
+    "fea/mortar_observer/patch.py": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71",
+    "fea/mortar_observer_replay.py": "8dc421b66d7804ffa4abc319526dc46e10dd66add0608864988845655d235fcd",
+    "fea/mortar_linear_law.py": "724598402d7cd5303a52505d2330e60cf369d36e78331b5a4e13315939e29995",
+    "fea/mortar_observer_build/Dockerfile": "1fe69216b64f20167c4ae2e3623f5c1f273a044fdb0c74f5c22132cd16b80ca5",
+    "fea/mortar_observer_build/record_build.py": "162bd0b71d8481eb68264dc049b6f5ec6be71a8abf1454328e93b7011385b3b5",
+    "fea/mortar_observer_build/build.py": "34176fcdcad3238d7562be02bb1c3d720f2f8840d6edc4fbab911d81b40fe9c7",
+    "fea/mortar_observer_build/compare_cube.py": "4f13c9976a279b3a0ad287e2dfeb4690918d4cd5059d2a694753d433304a50a4",
+    "fea/mortar_observer_build/publish.py": "29707053f57f3e3809d8d73824a50affe5d956b9957f484c601dd20f676ea46d"
+  },
+  "evidence_sha256": {
+    "fea/mortar_observer_build/build-rvk4q426/build_result.json": "deb395a86c5f1bd9f5ae92a1aa5e5d24082a290aaccb23e5d0e7c9586a901a74",
+    "fea/mortar_observer_build/build-rvk4q426/build_manifest.json": "2e88410a8cd07d8077506cef8a4a04dea3e32cb8eeda0921f8eb17a319db4786",
+    "fea/mortar_observer_build/cube-qyk279w_/report.json": "5b9a6c9345650057bf57bae0f43a8b4edd00cdacbadbe574fdc5ab076ebc7ee8"
+  },
+  "cases": [
+    {
+      "case": "mortar_0p25",
+      "replay": "fea/mortar_observer_build/replay-qyk279w_/mortar_0p25.json",
+      "replay_sha256": "d679b38ca1257df14e226dd406a36131a9775d9d626b941b50ebbdf830792375",
+      "calls": 28,
+      "accepted_increments": 8,
+      "accepted_override_call_ids": [],
+      "accepted_node_observations": 72,
+      "eligible_node_observations": 72,
+      "max_abs_normal_residual": 2.6020847698760008e-09,
+      "max_abs_tangent_residual": 3.2048088919635342e-06,
+      "min_weighted_regularized_opening": -8.673617379884035e-19,
+      "max_internal_coulomb_excess": 5.329070518200751e-15
+    },
+    {
+      "case": "mortar_0p125",
+      "replay": "fea/mortar_observer_build/replay-qyk279w_/mortar_0p125.json",
+      "replay_sha256": "83ac26ea3d974178e6bef9c8660cc2d5fbc474b72a35984558be8ee32d73ce3d",
+      "calls": 45,
+      "accepted_increments": 16,
+      "accepted_override_call_ids": [],
+      "accepted_node_observations": 144,
+      "eligible_node_observations": 144,
+      "max_abs_normal_residual": 2.602083881697581e-09,
+      "max_abs_tangent_residual": 1.603293475581813e-06,
+      "min_weighted_regularized_opening": -4.336808689942018e-19,
+      "max_internal_coulomb_excess": 3.552713678800501e-15
+    }
+  ]
+}

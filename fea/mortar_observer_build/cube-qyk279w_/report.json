@@ -1,0 +1,558 @@
+{
+  "status": "OBSERVER OUTPUT COMPARISON ONLY; INTERNAL REPLAY AND LOCAL LAW QUALIFICATION SEPARATE",
+  "build_result_sha256": "deb395a86c5f1bd9f5ae92a1aa5e5d24082a290aaccb23e5d0e7c9586a901a74",
+  "build_manifest_sha256": "2e88410a8cd07d8077506cef8a4a04dea3e32cb8eeda0921f8eb17a319db4786",
+  "build_directory": "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/build-rvk4q426",
+  "reference_archive_sha256": "326af45fc9faad9071d770c7157e4a087b9bf5f2840c7ede5b98c9484bd04d6e",
+  "launch_source_sha256": "4f13c9976a279b3a0ad287e2dfeb4690918d4cd5059d2a694753d433304a50a4",
+  "runs": [
+    {
+      "case": "mortar_0p25",
+      "binary": "upstream",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "observer-cube-qyk279w_-mortar_0p25-upstream",
+        "--user",
+        "1000:1000",
+        "-e",
+        "OMP_NUM_THREADS=2",
+        "-v",
+        "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/cube-qyk279w_/mortar_0p25-upstream:/work",
+        "-w",
+        "/work",
+        "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+        "/usr/local/bin/ccx-upstream-2.21",
+        "-i",
+        "cube"
+      ],
+      "deck_sha256": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+      "exit_code": 0,
+      "maximum_printed_difference_from_archive": {
+        "forces": 0.0,
+        "displacements": 0.0
+      },
+      "accepted_history_equal_to_archive": true,
+      "endpoints": [
+        {
+          "time": 1.0,
+          "force_residual_n": [
+            4.199999999232595e-06,
+            4.199999999232595e-06,
+            -5.329070518200751e-15
+          ],
+          "moment_residual_nmm": [
+            -0.0005595019146085178,
+            0.0005595019146085178,
+            0.0
+          ],
+          "ground_reaction_n": [
+            0.238664,
+            0.238664,
+            120.0
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": -6.140736666666664e-07,
+          "foot_z_displacement_mm": [
+            -0.0001133326,
+            -0.0001060901
+          ],
+          "ground_top_z_displacement_mm": [
+            -0.0001135699,
+            -0.0001035395,
+            -0.0001101723,
+            -0.0001035395
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 37.88198,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        },
+        {
+          "time": 2.0,
+          "force_residual_n": [
+            1.5999999999127823e-05,
+            -7.800000000335316e-06,
+            6.599999995193784e-06
+          ],
+          "moment_residual_nmm": [
+            0.0005865368939907967,
+            -1.026747611376777e-07,
+            -0.0013457999999397785
+          ],
+          "ground_reaction_n": [
+            -35.999576,
+            5.8000000000557606e-05,
+            120.0000066
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": 0.9993433,
+          "foot_z_displacement_mm": [
+            -0.0002749776,
+            8.001615e-05
+          ],
+          "ground_top_z_displacement_mm": [
+            7.631147e-05,
+            -0.0003008329,
+            -0.0002933427,
+            6.968101e-05
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 44.6094,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        }
+      ],
+      "output_sha256": {
+        "contact.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.cvg": "55adb50f232ed3c9366b5bceb81f97279513bbfffc6d85cb7a02574cf70bebae",
+        "cube.dat": "ea3a9211d0b7634fce09a4c66d7312bbc3ca33e19de7513f63b4b83bc9628b3b",
+        "cube.frd": "e06bedfdb4b319194e20832f2695e387b750f38d0c717e5624160addd705289e",
+        "cube.inp": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+        "cube.log": "89674e51ea5bff13fdfde81179dab562b04ee015d441a3279fefc5895e7a94f9",
+        "cube.sta": "a1277b7f1ef3825b55cd060aef892546902946bbf697d390338b2b4f69a30db9",
+        "intpoints.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original.context.json": "09a470595e1d6d1c4d611791267ce4c335026ac4c86a96a0ef7f9fd0664798a2",
+        "slavintmortar.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "slavtan.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "case": "mortar_0p25",
+      "binary": "observer",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "observer-cube-qyk279w_-mortar_0p25-observer",
+        "--user",
+        "1000:1000",
+        "-e",
+        "OMP_NUM_THREADS=2",
+        "-v",
+        "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/cube-qyk279w_/mortar_0p25-observer:/work",
+        "-w",
+        "/work",
+        "sha256:e6d105d3e987ef1ed81744e22c63ae1cb1e8e61dbbd18649436d5f57b2f874f6",
+        "/usr/local/bin/ccx-observer-2.21",
+        "-i",
+        "cube"
+      ],
+      "deck_sha256": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+      "exit_code": 0,
+      "maximum_printed_difference_from_archive": {
+        "forces": 0.0,
+        "displacements": 0.0
+      },
+      "accepted_history_equal_to_archive": true,
+      "endpoints": [
+        {
+          "time": 1.0,
+          "force_residual_n": [
+            4.199999999232595e-06,
+            4.199999999232595e-06,
+            -5.329070518200751e-15
+          ],
+          "moment_residual_nmm": [
+            -0.0005595019146085178,
+            0.0005595019146085178,
+            0.0
+          ],
+          "ground_reaction_n": [
+            0.238664,
+            0.238664,
+            120.0
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": -6.140736666666664e-07,
+          "foot_z_displacement_mm": [
+            -0.0001133326,
+            -0.0001060901
+          ],
+          "ground_top_z_displacement_mm": [
+            -0.0001135699,
+            -0.0001035395,
+            -0.0001101723,
+            -0.0001035395
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 37.88198,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        },
+        {
+          "time": 2.0,
+          "force_residual_n": [
+            1.5999999999127823e-05,
+            -7.800000000335316e-06,
+            6.599999995193784e-06
+          ],
+          "moment_residual_nmm": [
+            0.0005865368939907967,
+            -1.026747611376777e-07,
+            -0.0013457999999397785
+          ],
+          "ground_reaction_n": [
+            -35.999576,
+            5.8000000000557606e-05,
+            120.0000066
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": 0.9993433,
+          "foot_z_displacement_mm": [
+            -0.0002749776,
+            8.001615e-05
+          ],
+          "ground_top_z_displacement_mm": [
+            7.631147e-05,
+            -0.0003008329,
+            -0.0002933427,
+            6.968101e-05
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 44.6094,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        }
+      ],
+      "output_sha256": {
+        "contact.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.cvg": "55adb50f232ed3c9366b5bceb81f97279513bbfffc6d85cb7a02574cf70bebae",
+        "cube.dat": "ea3a9211d0b7634fce09a4c66d7312bbc3ca33e19de7513f63b4b83bc9628b3b",
+        "cube.frd": "51bc8d9dfea9d7ac8f2fd8158aa13483142af29c61f2398662df3c45a43e68e5",
+        "cube.inp": "0435a84a69418f995f42cd4467be72b603087d59adad044590efac6e15c91095",
+        "cube.log": "b28d7b738277b18d46e3bcdd556c6d3182665600cd6ad974800e6b9d36d1cfd9",
+        "cube.sta": "a1277b7f1ef3825b55cd060aef892546902946bbf697d390338b2b4f69a30db9",
+        "intpoints.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original.context.json": "09a470595e1d6d1c4d611791267ce4c335026ac4c86a96a0ef7f9fd0664798a2",
+        "slavintmortar.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "slavtan.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "case": "mortar_0p125",
+      "binary": "upstream",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "observer-cube-qyk279w_-mortar_0p125-upstream",
+        "--user",
+        "1000:1000",
+        "-e",
+        "OMP_NUM_THREADS=2",
+        "-v",
+        "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/cube-qyk279w_/mortar_0p125-upstream:/work",
+        "-w",
+        "/work",
+        "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+        "/usr/local/bin/ccx-upstream-2.21",
+        "-i",
+        "cube"
+      ],
+      "deck_sha256": "e88beee657d5a3503281c48980663c99e4d19fd699d99d486173cca14ecd2346",
+      "exit_code": 0,
+      "maximum_printed_difference_from_archive": {
+        "forces": 0.0,
+        "displacements": 0.0
+      },
+      "accepted_history_equal_to_archive": true,
+      "endpoints": [
+        {
+          "time": 1.0,
+          "force_residual_n": [
+            3.199999999647929e-06,
+            3.199999999647929e-06,
+            -5.329070518200751e-15
+          ],
+          "moment_residual_nmm": [
+            -0.0004595002654923519,
+            0.0004595002654923519,
+            0.0
+          ],
+          "ground_reaction_n": [
+            0.23868200000000073,
+            0.23868200000000073,
+            120.0
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": -6.136682222222219e-07,
+          "foot_z_displacement_mm": [
+            -0.0001133328,
+            -0.0001060901
+          ],
+          "ground_top_z_displacement_mm": [
+            -0.0001135702,
+            -0.0001035395,
+            -0.0001101722,
+            -0.0001035395
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 37.88193,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        },
+        {
+          "time": 2.0,
+          "force_residual_n": [
+            9.999999996956888e-07,
+            -3.6000000001035204e-06,
+            2.19999999512277e-06
+          ],
+          "moment_residual_nmm": [
+            0.0008185305110828267,
+            0.0006558996250589644,
+            0.00014040000004822417
+          ],
+          "ground_reaction_n": [
+            -35.999587,
+            -4.000000000559112e-06,
+            120.0000022
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": 0.9993433,
+          "foot_z_displacement_mm": [
+            -0.0002749772,
+            8.001549e-05
+          ],
+          "ground_top_z_displacement_mm": [
+            7.631173e-05,
+            -0.0003008325,
+            -0.0002933431,
+            6.968078e-05
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 44.60939,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        }
+      ],
+      "output_sha256": {
+        "contact.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.cvg": "4153354f0a9ca2f59ec7a059f334f55c4113ed1c79e62ff14d47bde2c3358f8d",
+        "cube.dat": "b638983eafbf6b77f36a7dbf935aa68e3e4801dacb1e8d87895cca3c337635d8",
+        "cube.frd": "dc51304dc7d23d6bd28146bd65a0683c7be20658088c9ea081414783e152bfcd",
+        "cube.inp": "e88beee657d5a3503281c48980663c99e4d19fd699d99d486173cca14ecd2346",
+        "cube.log": "c3a48f29becc9959b2992b63bfbb4d2af9db1834d9e59a49b3c86d864e472213",
+        "cube.sta": "aab54f3a32052e67d6960416faddd3d4f0cbf3b1acf83756ea2d7a746aaa06be",
+        "intpoints.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original.context.json": "043727173987c62c3edb81f94b2aa24fce730d47f6ecef7254d192001f233351",
+        "slavintmortar.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "slavtan.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "case": "mortar_0p125",
+      "binary": "observer",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "observer-cube-qyk279w_-mortar_0p125-observer",
+        "--user",
+        "1000:1000",
+        "-e",
+        "OMP_NUM_THREADS=2",
+        "-v",
+        "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/cube-qyk279w_/mortar_0p125-observer:/work",
+        "-w",
+        "/work",
+        "sha256:e6d105d3e987ef1ed81744e22c63ae1cb1e8e61dbbd18649436d5f57b2f874f6",
+        "/usr/local/bin/ccx-observer-2.21",
+        "-i",
+        "cube"
+      ],
+      "deck_sha256": "e88beee657d5a3503281c48980663c99e4d19fd699d99d486173cca14ecd2346",
+      "exit_code": 0,
+      "maximum_printed_difference_from_archive": {
+        "forces": 0.0,
+        "displacements": 0.0
+      },
+      "accepted_history_equal_to_archive": true,
+      "endpoints": [
+        {
+          "time": 1.0,
+          "force_residual_n": [
+            3.199999999647929e-06,
+            3.199999999647929e-06,
+            -5.329070518200751e-15
+          ],
+          "moment_residual_nmm": [
+            -0.0004595002654923519,
+            0.0004595002654923519,
+            0.0
+          ],
+          "ground_reaction_n": [
+            0.23868200000000073,
+            0.23868200000000073,
+            120.0
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": -6.136682222222219e-07,
+          "foot_z_displacement_mm": [
+            -0.0001133328,
+            -0.0001060901
+          ],
+          "ground_top_z_displacement_mm": [
+            -0.0001135702,
+            -0.0001035395,
+            -0.0001101722,
+            -0.0001035395
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 37.88193,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        },
+        {
+          "time": 2.0,
+          "force_residual_n": [
+            9.999999996956888e-07,
+            -3.6000000001035204e-06,
+            2.19999999512277e-06
+          ],
+          "moment_residual_nmm": [
+            0.0008185305110828267,
+            0.0006558996250589644,
+            0.00014040000004822417
+          ],
+          "ground_reaction_n": [
+            -35.999587,
+            -4.000000000559112e-06,
+            120.0000022
+          ],
+          "force_pass": true,
+          "moment_pass": true,
+          "aggregate_friction_pass": true,
+          "mean_foot_x_displacement_mm": 0.9993433,
+          "foot_z_displacement_mm": [
+            -0.0002749772,
+            8.001549e-05
+          ],
+          "ground_top_z_displacement_mm": [
+            7.631173e-05,
+            -0.0003008325,
+            -0.0002933431,
+            6.968078e-05
+          ],
+          "gap_qualification": "Wood Z displacement is not contact clearance when the ground deforms; local contact geometry remains unaudited",
+          "maximum_free_foot_rf_component_n": 44.60939,
+          "top_free_z_rf_n": [
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333,
+            -13.33333
+          ]
+        }
+      ],
+      "output_sha256": {
+        "contact.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cube.cvg": "4153354f0a9ca2f59ec7a059f334f55c4113ed1c79e62ff14d47bde2c3358f8d",
+        "cube.dat": "b638983eafbf6b77f36a7dbf935aa68e3e4801dacb1e8d87895cca3c337635d8",
+        "cube.frd": "22c795abe2c1e55c6cc3adb107a436d935d4f04f53fe51166c7304b62091ad3b",
+        "cube.inp": "e88beee657d5a3503281c48980663c99e4d19fd699d99d486173cca14ecd2346",
+        "cube.log": "3e3a6c84d4aea299dbd443f734b538d0e1a2d05b489ebef7b6937e5a11fb84fd",
+        "cube.sta": "aab54f3a32052e67d6960416faddd3d4f0cbf3b1acf83756ea2d7a746aaa06be",
+        "intpoints.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original.context.json": "043727173987c62c3edb81f94b2aa24fce730d47f6ecef7254d192001f233351",
+        "slavintmortar.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "slavtan.fbd": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

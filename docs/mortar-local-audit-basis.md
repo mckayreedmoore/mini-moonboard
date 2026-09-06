@@ -4,6 +4,14 @@ Research only; no solver changes or new physical acceptance. The existing
 [cube](contact-shear-coupon.md) and [inclined-leg](leg-shear-coupon.md) endpoint
 global checks remain useful, but do not validate the local mortar law.
 
+Progress since this research note: the [archive geometry diagnostic](mortar-geometry-diagnostic.md),
+[synthetic internal-law arithmetic checker](mortar-linear-law-checker.md), and
+[separate unmodified upstream solver build with cube comparisons](../fea/mortar_build/README.md)
+are now recorded. The active development goal includes separately reviewed
+instrumentation; the research-only scope below describes this note's original
+work, not a prohibition on that later work. Accepted-state internal-law replay
+and the redesigned candidate's FEA remain incomplete.
+
 ## Recommendation
 
 Implement an archive-only **coverage and deformed-geometry diagnostic** first.

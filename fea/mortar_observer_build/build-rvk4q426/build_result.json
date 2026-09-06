@@ -1,0 +1,28 @@
+{
+  "parent_image_id": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "parent_evidence_sha256": {
+    "build_result.json": "3e58ec3b685cee0729740e00233e1a4ee46892e05fbac308b7cbf58cff4bf99a",
+    "build_manifest.json": "04b8da67a5edf12c763e03c9a4c3da241375c8d7a37c07eec06e2b31a4622988"
+  },
+  "tag": "mini-moonboard-fea:ccx-observer-2.21-v1",
+  "command": [
+    "docker",
+    "build",
+    "--progress=plain",
+    "--build-arg",
+    "BASE_IMAGE=mini-moonboard-fea:observer-base-5adec98a0bb4",
+    "-t",
+    "mini-moonboard-fea:ccx-observer-2.21-v1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/mortar_observer_build/build-rvk4q426/context"
+  ],
+  "exit_code": 0,
+  "image_id": "sha256:e6d105d3e987ef1ed81744e22c63ae1cb1e8e61dbbd18649436d5f57b2f874f6",
+  "evidence_sha256": {
+    "build.launch.py": "34176fcdcad3238d7562be02bb1c3d720f2f8840d6edc4fbab911d81b40fe9c7",
+    "build.log": "6b82b9fdd09f62821aba44d7215554f8f1dd71e43a23b4ce1c2fc82cc44b6a96",
+    "build_manifest.json": "2e88410a8cd07d8077506cef8a4a04dea3e32cb8eeda0921f8eb17a319db4786",
+    "context/Dockerfile": "1fe69216b64f20167c4ae2e3623f5c1f273a044fdb0c74f5c22132cd16b80ca5",
+    "context/patch.py": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71",
+    "context/record_build.py": "162bd0b71d8481eb68264dc049b6f5ec6be71a8abf1454328e93b7011385b3b5"
+  }
+}

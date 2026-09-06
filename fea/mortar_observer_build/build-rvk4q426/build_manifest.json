@@ -1,0 +1,59 @@
+{
+  "qualification": "Logging-only source delta; binary/cube equivalence and local-law replay still required",
+  "upstream_manifest_sha256": "04b8da67a5edf12c763e03c9a4c3da241375c8d7a37c07eec06e2b31a4622988",
+  "source_changes": {
+    "./CalculiX/ccx_2.21/src/stressmortar.c": {
+      "before": "d7cc1fa5d73aba85bbec7dd48f839e7b05514d91ab996025d089a12c45e84cd6",
+      "after": "5a187100df00fecb2baa2438000b74c97a5048bf7f22b3aaef2e865fd6299bce"
+    },
+    "./CalculiX/ccx_2.21/src/nonlingeo.c": {
+      "before": "0be7d7d6037868c364a621e12a3802a703f189b09ba200de95cf2e9d1b211f1b",
+      "after": "4b6fbd372e2d9025b09a626e712b3d5aa55e854ab6f9703f9a130ce44697dde2"
+    }
+  },
+  "source_files_checked": 1176,
+  "patch_manifest": {
+    "source_sha256": {
+      "stressmortar.c": "d7cc1fa5d73aba85bbec7dd48f839e7b05514d91ab996025d089a12c45e84cd6",
+      "nonlingeo.c": "0be7d7d6037868c364a621e12a3802a703f189b09ba200de95cf2e9d1b211f1b"
+    },
+    "patched_sha256": {
+      "stressmortar.c": "5a187100df00fecb2baa2438000b74c97a5048bf7f22b3aaef2e865fd6299bce",
+      "nonlingeo.c": "4b6fbd372e2d9025b09a626e712b3d5aa55e854ab6f9703f9a130ce44697dde2"
+    },
+    "patch_generator_sha256": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71",
+    "status": "LOGGING PATCH ONLY; NOT A VERIFIED OBSERVER BINARY"
+  },
+  "binary_sha256": {
+    "/usr/bin/ccx": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+    "/usr/local/bin/ccx-upstream-2.21": "cfa7fd110a41c209746137da8b5af0a1c06dee47d58682e797d31b8952b72e4b",
+    "/usr/local/bin/ccx-observer-2.21": "9351b9a57b1d1f3002f6a699cac8f6ab4af237683f46a3a8ac1fba850e815cb6"
+  },
+  "preserved_linked_library_sha256": {
+    "/usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0": "e748efcae5753fe4a652877fccdb5895ac6f7605668a2db878b19c914e78e3a8",
+    "/usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0": "851bb1fc5833ede9ed704b4417a251a899976d5e0915de40452615187a65278f",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "cd4df4f3c7b83673d61189bf2eaebd33ca4f2853ab9772b8a25e025ef99b1e81",
+    "/usr/lib/x86_64-linux-gnu/libarpack.so.2.1.0": "98ac6135ac6cabe79f79dec26c675f9c41a0bd09e1b27da917140e36ece8414c",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "8db37cf3f2169f59a0f07ef1fea308c35656668c64c8ff294e1860f4121eb161",
+    "/usr/lib/x86_64-linux-gnu/libcap.so.2.66": "6ac6abc86ac891c6e13486470e26f1d939f47fda9e6b5d5508a7f5ec881adc84",
+    "/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1": "92084a8c9d5655496edb225606022376c7ce584dff69d5127fbae11261f8fc37",
+    "/usr/lib/x86_64-linux-gnu/libevent_pthreads-2.1.so.7.0.1": "d428cc6b9e6af9d14aad44977984f15babdb33fdbe66fc202b3eac6eea7380a9",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "/usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0": "342618ccfebe840446e4ef2b7893f4161b2084845e570f42d68a70bfde58a58d",
+    "/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0": "86dff44a023254d997cea910b9a51f35afefe6780f4b5530f974a2009ba47487",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": "e9c4b28d340e415b8137480ec442662f981e1399386c5931dae0e886e3639e91",
+    "/usr/lib/x86_64-linux-gnu/libmpi.so.40.30.6": "9055018b12757e830591aa0283e485e471f1f2a06d3bc0dd5fb35ab00386c172",
+    "/usr/lib/x86_64-linux-gnu/libmvec.so.1": "5def2254818922462209834d08bded55536eea5946aa29809517a0362d690078",
+    "/usr/lib/x86_64-linux-gnu/libopen-pal.so.40.30.3": "59c4d9b111cd3ec326a4df475a338daae050496087c67e86956187056fdc3051",
+    "/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3": "26467e1da428d31dab924ddbc50bc6ade75da47dbb82c77498a5f127a5466ba7",
+    "/usr/lib/x86_64-linux-gnu/libspooles.so.2.2": "4c5b6238fa4cbe2ad10a9226f328a4277a58ebc506f2cdad904a9b9f9a5b2283",
+    "/usr/lib/x86_64-linux-gnu/libudev.so.1.7.8": "4298228175fa62a36af88b1afd4406cdd8b1bf166621f957d0dbbde45a698fe5",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3": "86200da370f20476a2507e9097a789b5ef97269b4ca8d5e164ad82dab9d99892"
+  },
+  "observer_ldd": "\tlinux-vdso.so.1 (0x00007ffcadfc1000)\n\tlibspooles.so.2.2 => /lib/x86_64-linux-gnu/libspooles.so.2.2 (0x00007098eeca0000)\n\tlibarpack.so.2 => /lib/x86_64-linux-gnu/libarpack.so.2 (0x00007098eec56000)\n\tliblapack.so.3 => /lib/x86_64-linux-gnu/liblapack.so.3 (0x00007098ee566000)\n\tlibblas.so.3 => /lib/x86_64-linux-gnu/libblas.so.3 (0x00007098ee4bf000)\n\tlibgfortran.so.5 => /lib/x86_64-linux-gnu/libgfortran.so.5 (0x00007098ee1a1000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007098ee0b6000)\n\tlibmvec.so.1 => /lib/x86_64-linux-gnu/libmvec.so.1 (0x00007098edfbd000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007098edf8f000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007098edd7d000)\n\tlibmpi.so.40 => /lib/x86_64-linux-gnu/libmpi.so.40 (0x00007098edc4b000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007098ef3e3000)\n\tlibopen-rte.so.40 => /lib/x86_64-linux-gnu/libopen-rte.so.40 (0x00007098edb8d000)\n\tlibopen-pal.so.40 => /lib/x86_64-linux-gnu/libopen-pal.so.40 (0x00007098edad9000)\n\tlibhwloc.so.15 => /lib/x86_64-linux-gnu/libhwloc.so.15 (0x00007098eda78000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007098eda5c000)\n\tlibevent_core-2.1.so.7 => /lib/x86_64-linux-gnu/libevent_core-2.1.so.7 (0x00007098eda27000)\n\tlibevent_pthreads-2.1.so.7 => /lib/x86_64-linux-gnu/libevent_pthreads-2.1.so.7 (0x00007098eda20000)\n\tlibudev.so.1 => /lib/x86_64-linux-gnu/libudev.so.1 (0x00007098ed9ed000)\n\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007098ed9e0000)\n",
+  "build_support_sha256": {
+    "Dockerfile": "1fe69216b64f20167c4ae2e3623f5c1f273a044fdb0c74f5c22132cd16b80ca5",
+    "record_build.py": "162bd0b71d8481eb68264dc049b6f5ec6be71a8abf1454328e93b7011385b3b5",
+    "patch.py": "1f139e3b6f6368b4e9fc70943bf356859c71bf7965d692ebc8cc9618c7e1de71"
+  }
+}
