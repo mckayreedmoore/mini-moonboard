@@ -1,0 +1,78 @@
+{
+  "source": "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp",
+  "source_sha256": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+  "cad_volume_mm3": 306605478.64831674,
+  "cad_centre_mm": [
+    4.267979715290524,
+    745.1537564500428,
+    1137.1505511639787
+  ],
+  "cad_mass_kg": 183.96328718899005,
+  "geometry_source_sha256": {
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022"
+  },
+  "assumptions": "Undrilled timber only at600kg/m3, no angles/fasteners/holds/glue/LEDmass. Bonded timber retained. No joint capacity.",
+  "mu": 0.3,
+  "normal_penalty_n_mm3": 10000,
+  "tangent_penalty_n_mm3": 100,
+  "contact_controls": {
+    "delcon": 0.001,
+    "alea": 0.1,
+    "kscalemax": 100,
+    "itf2f": 12
+  },
+  "load_nodes": [
+    18608,
+    18653,
+    19090,
+    22518,
+    23707
+  ],
+  "mesh_volume_mm3": 306605461.7407006,
+  "mesh_mass_kg": 183.96327704442035,
+  "mesh_centre_mm": [
+    4.267979946815062,
+    745.1537546404186,
+    1137.1505348925887
+  ],
+  "floor_face_counts": {
+    "LEFT": 16,
+    "RIGHT": 16,
+    "KICKER": 213
+  },
+  "prelaunch_sha256": {
+    "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.inp": "684cc4ecc2fc2f1d15ad19fcae2a01e5cb24b990591176009cf86469ec2cdeac",
+    "fea/generated/hybrid/2x8-foot100/box_audited_60_7000.json": "b4949de6f9204e19747b1afe04ff275eceb8fc8d928df13b96b83696d7956c89",
+    "fea/generated/floor-contact/input.json": "664c8bdc6135ada98d5a7ce66f2f299bf30ae00aabb0509d8c73ef6948829d86",
+    "/work/fea/floor_contact_recovery.py": "8453566c7e90be39abd57961c234ab452042e240046141744c296b6b2bd100ed",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4"
+  },
+  "deck_sha256": "ef23e7b15cab5455fe1ac5463c6a95f7ae3639599b2959c8a2a529a437b6e02d",
+  "baseline_deck_sha256": "3c90c9957873a6122239526bc873f08307d1854e5c67f49ff5195bbf9a93e157",
+  "max_seconds": 600,
+  "status": "UNRESOLVED SOLVER/OUTPUT; NOT A STABILITY CONCLUSION",
+  "exit_code": -999,
+  "runtime_stop": "Bounded timeout; no physical failure conclusion",
+  "elapsed_seconds": 600.1328620190034,
+  "stiffness_reductions": 4,
+  "nominal_stiffness_restoration_messages": 0,
+  "output_sha256": {
+    "recovery.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "recovery.sta": "b80616d5cdbf1ebb7d4ed1c8b3f0241ab166f4fa07fed27e106c1c04fb541ddd",
+    "recovery.frd": "359adada6ee2b463f0c8e11862a784c85afa7fd800bbb0ffd10df3a8c42248bd",
+    "recovery.log": "067d9b43eb69586126fda16f1408e978614a2fb83ed43ed4498db4f56637cb4a",
+    "recovery.cvg": "72c079e2e229890dd154b97d079dc2549e4b74706197d51b0bb771caa97494d2"
+  },
+  "accepted_increments": 0,
+  "final_attempt": 5,
+  "final_recorded_iteration": 10,
+  "solver_version": "CalculiX 2.21",
+  "docker_image_id": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+  "archive_sha256": "fee0d25cd146ee801d23869c71dc9ae2e89b698e2af66b90d14b9084fda52752",
+  "interpretation": "Earlier built-in recovery was reached four times but did not resolve first-increment startup. Nominal stiffness was not restored. No accepted contact output, equilibrium or physical result."
+}

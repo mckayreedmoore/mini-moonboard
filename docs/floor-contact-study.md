@@ -118,6 +118,11 @@ guide. This narrows the diagnosis but is not an unanchored frame result.
 Its recovered nodal contact fields also do not establish local Coulomb
 compliance. The original bounded trials above remain unchanged evidence.
 
+The [earlier-recovery experiment](floor-contact-recovery.md) subsequently
+reached CalculiX's built-in contact softening/cutback procedure four times,
+but still accepted no gravity increment in 600 seconds. Merely reaching that
+procedure earlier did not resolve startup within the bounded experiment.
+
 Before a broad whole-frame load sweep, isolate the quadratic floor-contact
 mesh and unloaded rigid-body modes with a small representative leg/foot
 model. Compare penalty/increment settings without supplying artificial
