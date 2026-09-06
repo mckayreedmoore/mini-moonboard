@@ -97,3 +97,23 @@ This diagnoses a contact-model problem, not board strength or construction safet
 
 Run `uv run pytest tests/test_quiescent_hardware_diagnostic.py -q` to replay
 the report from the archived native output without a solver.
+
+## Complete fixed-step quiet-output audit
+
+[Audit report](diagnostics/quiet-audit-dcp8zhtm/report.json) and adjacent source
+snapshots replay the fourth archive's complete 20-state window. All frozen
+quiet-output gates pass: reported U/V, native body kinetic/internal energy,
+contact energy, penetration and both sampled pair-force integrals are zero.
+Every state includes both CF blocks; the inactive bore's zero primary
+resultants and zero area are distinguished from missing output. Native
+washer mass agrees with its source-derived reference within print precision.
+
+Run `uv run pytest tests/test_quiescent_hardware_audit.py -q` to reproduce the
+retained report and exercise incomplete/corrupted-input rejection without a
+solver. The audit checks actual stationary input cards, frozen thresholds,
+body ownership, complete output history and native contact totals.
+
+This is a **stationary numerical check only**. It does not qualify impact or
+moving-contact transfer, momentum balance, core reference mass, timestep or
+mesh convergence, timber resistance, full-joint behavior or construction.
+The sampled endpoint force envelope is not a bound on unobserved forces.

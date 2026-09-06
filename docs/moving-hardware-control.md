@@ -246,3 +246,17 @@ This establishes completion of the requested stationary time window with the
 fixed-step procedure. Complete numerical output auditing is separate; no
 moving-contact, thread, plywood-joint or whole-board strength conclusion
 follows merely from this successful solve.
+
+The separate [complete-output audit and retained report](../fea/results/moving_hardware_control/README.md#complete-fixed-step-quiet-output-audit)
+pass the frozen quiet gates across all 20 states. Reported motion, native
+energies, penetration and sampled pair-force integrals are zero. This closes
+the initial stationary-output gate for this exact geometry, mesh, procedure
+and window—not a general contact-law or strength validation.
+
+Next, design and freeze a separate nonpenetrating moving fixture that actually
+engages both interfaces; verify its initial pose and preserve this centred
+quiet case. Moving transfer needs per-body momentum/angular-momentum and
+energy balance, native mass/energy comparison, and timestep sensitivity before
+the eleven-body stitch comparison can proceed. The later stitch experiment
+can compare transfer between plies, but its fixed-upper-bore diagnostic fixture
+cannot validate the real upper joint or imply construction readiness.
