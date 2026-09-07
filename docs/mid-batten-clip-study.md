@@ -86,8 +86,29 @@ available or approved screw, a nail-driving clearance, or US/UK equivalence.
 No purchasing schedule, manufacturer spacing compliance, bend/tolerance fit,
 installation-sequence approval or joint capacity follows from these tests.
 
-The variant is not yet registered/exported in the online viewer and no FEA has
-been run on it. Next: resolve a compatible connector/fastener installation,
-publish the separately labeled viewer variant, then qualify its joint demands
-without adhesive/composite-action credit or replacing the original failed FEA
-evidence.
+## Viewer and inspection artifacts
+
+The separate [interactive clip variation](https://mckayreedmoore.github.io/mini-moonboard/?model=mid-batten-clip-development)
+is available from the Design selector as **Mid-batten clips · unselected hardware**.
+It contains 325 selectable entries, including eight grey clips and 32 blue
+fastener envelopes. Selecting a new fastener displays its unselected-product
+warning; the same warning is retained in the connection CSV. The original
+viewer default and all predecessor geometry remain unchanged.
+
+- [STEP assembly](../exports/mid-batten-clip-development/mid-batten-clip-development.step)
+- [Metric/imperial parts list](../exports/mid-batten-clip-development/mid-batten-clip-development_parts.csv)
+- [Connection schedule](../exports/mid-batten-clip-development/mid-batten-clip-development_connections.csv)
+- [Front render](../exports/mid-batten-clip-development/mid-batten-clip-development_front.png)
+- [Rear render](../exports/mid-batten-clip-development/mid-batten-clip-development_rear.png)
+
+All four development variants were regenerated through the shared exporter;
+the three predecessor geometry/artifact files remained byte-identical, with
+only the exporter-source hashes changing. Twelve CAD/export tests passed.
+A real 1440×1000 browser check loaded all 325 entries, selected four leg plies,
+six stitches, a clip and its fastener, and verified selector navigation with
+no browser errors. Screenshots were inspected locally; they are not load or
+installation evidence.
+
+No FEA has been run on this variation. Next: resolve a compatible
+connector/fastener installation, then qualify joint demands without
+adhesive/composite-action credit or replacing the original failed FEA evidence.

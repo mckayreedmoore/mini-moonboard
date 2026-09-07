@@ -39,6 +39,11 @@ retains those separate plies while moving the close rib/panel screw groups apart
 [Its changes and remaining product checks](docs/screw-spacing-development.md)
 are documented separately; geometry screening is not structural approval.
 
+The new [mid-batten clip variation](https://mckayreedmoore.github.io/mini-moonboard/?model=mid-batten-clip-development)
+replaces eight end screws with eight clip outlines and 32 **unselected** fastener
+envelopes. [Inspection results, STEP and metric/imperial schedules](docs/mid-batten-clip-study.md#viewer-and-inspection-artifacts)
+are available; this is not a catalog-approved connection or an FEA-qualified design.
+
 The [updated candidate moment screen](docs/candidate-stability-screen.md) retains
 all 96 downward/horizontal cases and both adverse normal-force uplift cases.
 The [completed baseline contact-observer audit](docs/mortar-frame-observer.md)

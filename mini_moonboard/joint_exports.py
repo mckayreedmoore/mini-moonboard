@@ -30,6 +30,12 @@ SPACING_DESIGN = {
     "status": "PROVISIONAL — revised screw-spacing geometry; candidate FEA not run",
     "description": "Longer seam ribs at rows 1/3, outward row-2 seam joints and relocated front screws/rear bolts. Separate leg plies retained. Mixed-product spacing approval, head seating, materials and resistance unresolved.",
 }
+CLIP_DESIGN = {
+    "key": "mid-batten-clip-development",
+    "baseline": SPACING_DESIGN["key"],
+    "status": "PROVISIONAL — clip-envelope inspection; candidate FEA not run",
+    "description": "Eight clip outlines replace the mid-batten end screws; dependent battens/ribs/angles move 5 mm. Separate leg plies and fixed MoonBoard holes retained. Clip screws are UNSELECTED envelopes, not the UK-specified nails or an approved US substitution. Product fit, installation and resistance unresolved.",
+}
 
 
 def export(directory=None, viewer=Path("site"), *, variant=KEY):
@@ -41,6 +47,9 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     elif variant == SPACING_DESIGN["key"]:
         from . import spacing_frame
         model, design = spacing_frame, SPACING_DESIGN
+    elif variant == CLIP_DESIGN["key"]:
+        from . import clip_frame
+        model, design = clip_frame, CLIP_DESIGN
     else:
         raise ValueError("Unknown development variant")
     directory = Path(directory) if directory is not None else Path("exports")/variant
@@ -49,15 +58,18 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     models = viewer/"hybrid"/variant/"models"
     models.mkdir(parents=True, exist_ok=True)
     assembly = cq.Assembly(name=variant.replace("-", "_")+"_PROVISIONAL")
+    def product_note(connection):
+        note = getattr(connection, "product_status", "")
+        return "; " + note if note else ""
     entries = [(p.name, p.shape, p.blank, p.description, "part") for p in parts]
     entries.extend(("fastener_"+c.name, cq.Compound.makeCompound(c.components()),
                     (c.length, c.diameter, c.diameter), " + ".join(c.members)+
-                    "; nominal hardware envelope, capacity unvalidated", c.kind) for c in connections)
+                    "; nominal hardware envelope, capacity unvalidated" + product_note(c), c.kind) for c in connections)
     items, solids = [], []
     for name, shape, dims, description, kind in entries:
         assembly.add(shape, name=name)
         color = ((210, 65, 65) if kind == "bolt" else (41, 182, 214) if kind == "screw"
-                 else (120, 135, 145) if name.startswith("angle_")
+                 else (120, 135, 145) if name.startswith(("angle_", "clip_"))
                  else (40, 46, 51) if name.startswith("main_") else (157, 90, 36))
         solids.append((shape, color))
         path = models/f"{name}.stl"
@@ -83,15 +95,17 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
               ("connection", "kind", "members", "x_mm", "y_mm", "z_mm", "axis_x", "axis_y", "axis_z",
                "length_mm", "length_in", "diameter_mm", "grip_mm", "status"),
               [(c.name, c.kind, " + ".join(c.members), *c.start.toTuple(), *c.direction.toTuple(),
-                c.length, c.length/25.4, c.diameter, c.grip, design["status"]) for c in connections])
+                c.length, c.length/25.4, c.diameter, c.grip, design["status"] + product_note(c)) for c in connections])
     sources = list(map(Path, ("mini_moonboard/joint_exports.py", "mini_moonboard/joint_frame.py", "mini_moonboard/footprint_frame.py",
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
-    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"]):
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]):
         sources.append(Path("mini_moonboard/independent_leg_frame.py"))
-    if variant == SPACING_DESIGN["key"]:
+    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"]):
         sources.append(Path("mini_moonboard/spacing_frame.py"))
+    if variant == CLIP_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/clip_frame.py"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
@@ -101,5 +115,5 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"]), default=KEY)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]), default=KEY)
     export(variant=parser.parse_args().variant)

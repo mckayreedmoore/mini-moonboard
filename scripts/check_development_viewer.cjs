@@ -3,7 +3,7 @@
 const { chromium } = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const model = process.argv[3] || 'independent-leg-development';
-assert.ok(['independent-leg-development', 'screw-spacing-development'].includes(model));
+assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development'].includes(model));
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
   const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
@@ -31,7 +31,8 @@ assert.ok(['independent-leg-development', 'screw-spacing-development'].includes(
   assert.match(details, /PROVISIONAL/);
   assert.match(details, /candidate FEA not run/);
   assert.match(details, model === 'independent-leg-development' ?
-    /No adhesive, interface-friction or external-bracing credit/ : /Mixed-product spacing approval, head seating, materials and resistance unresolved/);
+    /No adhesive, interface-friction or external-bracing credit/ : model === 'mid-batten-clip-development' ?
+    /Clip screws are UNSELECTED envelopes/ : /Mixed-product spacing approval, head seating, materials and resistance unresolved/);
   const plies = manifest.parts.filter(p => /^leg_(left|right)_(inner|outer)$/.test(p.name));
   const stitches = manifest.parts.filter(p => p.name.startsWith('fastener_leg_stitch_'));
   assert.equal(plies.length, 4);
@@ -80,6 +81,33 @@ assert.ok(['independent-leg-development', 'screw-spacing-development'].includes(
     assert.match(await page.locator('#part').innerText(), /capacity unvalidated/);
   }
   await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-stitch.png'});
+  if (model === 'mid-batten-clip-development') {
+    assert.equal(manifest.parts.filter(p => p.name.startsWith('clip_')).length, 8);
+    assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_clip_')).length, 32);
+    assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_mid_end_')).length, 0);
+    // Actual pointer selection from the rear: long clip leaf and its pan head.
+    // Board-local X/S/N are transformed with the existing 40-degree datum.
+    for (const [name, x, s, n] of [
+      ['clip_lower_left_bottom', -559.8184, 108.9, 19.05],
+      ['fastener_clip_lower_left_bottom_batten_1', -562.8184, 131.3434, 26.9875],
+    ]) {
+      await page.evaluate(({x,s,n}) => {
+        const a = 40 * Math.PI / 180, {camera, controls} = window.cadTest;
+        const y = -18*(1+Math.cos(a)) + s*Math.sin(a) - n*Math.cos(a) - 950;
+        const z = 225 + 18*Math.sin(a) + s*Math.cos(a) + n*Math.sin(a);
+        camera.position.set(-x+300, y-800*Math.cos(a), z+800*Math.sin(a));
+        controls.target.set(-x,y,z); controls.update();
+      }, {x,s,n});
+      await page.waitForTimeout(150);
+      await page.mouse.click(720,500);
+      const text = await page.locator('#part').innerText();
+      assert.ok(text.startsWith(name+':'), name+' got '+text);
+      assert.match(text, /NOT structural approval/);
+      if (name.startsWith('fastener_')) assert.match(text, /UNSELECTED SCREW-ENVELOPE EXPLORATION/);
+      clicked.push(name);
+    }
+    await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-clips.png'});
+  }
   await page.goto('http://127.0.0.1:8766/');
   await page.waitForSelector('#model');
   assert.equal(await page.locator('#model').inputValue(),'plywood');

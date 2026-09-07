@@ -10,9 +10,14 @@ import cadquery as cq
 import numpy as np
 import pytest
 
-from mini_moonboard import independent_leg_frame, joint_frame, spacing_frame
+from mini_moonboard import clip_frame, independent_leg_frame, joint_frame, spacing_frame
 from mini_moonboard.box_exports import exact_bounds
-from mini_moonboard.joint_exports import DESIGN, INDEPENDENT_DESIGN, SPACING_DESIGN
+from mini_moonboard.joint_exports import (
+    CLIP_DESIGN,
+    DESIGN,
+    INDEPENDENT_DESIGN,
+    SPACING_DESIGN,
+)
 
 
 def segment_hits_triangles(triangles, start, end):
@@ -46,7 +51,8 @@ def test_bore_segment_detects_filled_cap_without_hitting_beyond_pilot():
     (joint_frame, DESIGN, "2x8-foot100"),
     (independent_leg_frame, INDEPENDENT_DESIGN, "joint-development"),
     (spacing_frame, SPACING_DESIGN, "independent-leg-development"),
-], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"]])
+    (clip_frame, CLIP_DESIGN, "screw-spacing-development"),
+], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]])
 def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseline):
     key = design["key"]
     directory = Path("exports")/key
@@ -59,8 +65,10 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         "hybrid", "box_frame", "model", "panel_grid", "box_exports", "export", "raster")}
     if model is not joint_frame:
         sources.add("mini_moonboard/independent_leg_frame.py")
-    if model is spacing_frame:
+    if model in (spacing_frame, clip_frame):
         sources.add("mini_moonboard/spacing_frame.py")
+    if model is clip_frame:
+        sources.add("mini_moonboard/clip_frame.py")
     assert set(manifest["sources"]) == sources
     assert set(manifest["artifacts"]) == {key+suffix for suffix in (
         ".step", "_front.png", "_rear.png", "_parts.csv", "_connections.csv")}
@@ -139,7 +147,12 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         row = rows[connection.name]
         assert row["members"].split(" + ") == list(connection.members)
         assert row["kind"] == connection.kind
-        assert row["status"] == design["status"]
+        product = getattr(connection, "product_status", "")
+        assert row["status"] == design["status"] + ("; " + product if product else "")
+        if product:
+            item = next(p for p in viewer["parts"] if p["name"] == "fastener_"+connection.name)
+            assert product in item["fabrication"]["description"]
+            assert "UNSELECTED" in product and "nails" in product
         if model is not joint_frame and connection.name.startswith("analysis_leg_wall_bolt_"):
             assert len(row["members"].split(" + ")) == 3
         assert [float(row[f"{axis}_mm"]) for axis in "xyz"] == pytest.approx(connection.start.toTuple())
