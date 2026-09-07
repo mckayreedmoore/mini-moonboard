@@ -16,6 +16,7 @@ from mini_moonboard import (
     joint_frame,
     product_frame,
     spacing_frame,
+    top_joint_frame,
     transition_frame,
 )
 from mini_moonboard.box_exports import exact_bounds
@@ -25,6 +26,7 @@ from mini_moonboard.joint_exports import (
     INDEPENDENT_DESIGN,
     PRODUCT_DESIGN,
     SPACING_DESIGN,
+    TOP_JOINT_DESIGN,
     TRANSITION_DESIGN,
 )
 
@@ -63,8 +65,10 @@ def test_bore_segment_detects_filled_cap_without_hitting_beyond_pilot():
     (clip_frame, CLIP_DESIGN, "screw-spacing-development"),
     (transition_frame, TRANSITION_DESIGN, "mid-batten-clip-development"),
     (product_frame, PRODUCT_DESIGN, "lower-transition-development"),
-], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]])
+    (top_joint_frame, TOP_JOINT_DESIGN, "selected-hardware-development"),
+], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]])
 def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseline):
+    selected_products = model in (product_frame, top_joint_frame)
     key = design["key"]
     directory = Path("exports")/key
     manifest = json.loads((directory/"manifest.json").read_text())
@@ -76,15 +80,17 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         "hybrid", "box_frame", "model", "panel_grid", "box_exports", "export", "raster")}
     if model is not joint_frame:
         sources.add("mini_moonboard/independent_leg_frame.py")
-    if model in (spacing_frame, clip_frame, transition_frame, product_frame):
+    if model in (spacing_frame, clip_frame, transition_frame, product_frame, top_joint_frame):
         sources.add("mini_moonboard/spacing_frame.py")
-    if model in (clip_frame, transition_frame, product_frame):
+    if model in (clip_frame, transition_frame, product_frame, top_joint_frame):
         sources.add("mini_moonboard/clip_frame.py")
-    if model in (transition_frame, product_frame):
+    if model in (transition_frame, product_frame, top_joint_frame):
         sources.add("mini_moonboard/transition_frame.py")
-    if model is product_frame:
+    if selected_products:
         sources.update(f"mini_moonboard/{name}.py" for name in
                        ("product_frame", "product_connections", "selected_hardware"))
+    if model is top_joint_frame:
+        sources.add("mini_moonboard/top_joint_frame.py")
     assert set(manifest["sources"]) == sources
     assert set(manifest["artifacts"]) == {key+suffix for suffix in (
         ".step", "_front.png", "_rear.png", "_parts.csv", "_connections.csv")}
@@ -98,13 +104,13 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
                      (c.length, c.diameter, c.diameter)) for c in connections})
     assert {p["name"] for p in viewer["parts"]} == set(expected)
     assert len(viewer["parts"]) == len(expected)
-    if model is product_frame:
+    if selected_products:
         assert (len(parts), len(connections), len(viewer["parts"])) == (87, 278, 365)
     assert set(manifest["viewer_artifacts"]) == {str(Path("hybrid")/key/"parts.json")} | {p["path"] for p in viewer["parts"]}
-    bore_connections = [c for c in connections if model is product_frame or c.name.startswith("leg_stitch_")
+    bore_connections = [c for c in connections if selected_products or c.name.startswith("leg_stitch_")
                         or ("_seam_" in c.name and c.name.startswith(("rib_", "angle_rib_")))
                         or (model is transition_frame and c.name.startswith("transition_"))]
-    assert len(bore_connections) == (278 if model is product_frame else 30 if model is joint_frame else 76 if model is transition_frame else 36)
+    assert len(bore_connections) == (278 if selected_products else 30 if model is joint_frame else 76 if model is transition_frame else 36)
     bore_members = {name for c in bore_connections for name in c.members}
     meshes = {}
     for item in viewer["parts"]:
@@ -141,7 +147,7 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         transverse = np.cross(direction, radial)
         for index, name in enumerate(connection.members):
             radius = 5 if connection.kind == "bolt" else (2.6 if index == 0 else 1.6)
-            if model is product_frame:
+            if selected_products:
                 if connection.kind == "bolt":
                     radius = 11.1125/2
                 elif name.startswith("clip_"):
@@ -182,7 +188,7 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         if product:
             item = next(p for p in viewer["parts"] if p["name"] == "fastener_"+connection.name)
             assert product in item["fabrication"]["description"]
-            if model is product_frame:
+            if selected_products:
                 assert product.startswith("SELECTED ")
                 assert "inspection envelope only" in product
                 assert "receiving holes and resistance require verification" in product

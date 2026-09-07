@@ -3,7 +3,8 @@
 const { chromium } = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const model = process.argv[3] || 'independent-leg-development';
-assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development'].includes(model));
+assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development'].includes(model));
+const selectedProducts = ['selected-hardware-development', 'top-joint-development'].includes(model);
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
   const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
@@ -31,7 +32,8 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
   assert.match(details, /PROVISIONAL/);
   assert.match(details, /candidate FEA not run/);
   assert.match(details, model === 'independent-leg-development' ?
-    /No adhesive, interface-friction or external-bracing credit/ : model === 'selected-hardware-development' ?
+    /No adhesive, interface-friction or external-bracing credit/ : model === 'top-joint-development' ?
+    /110\.4\/70\.4 mm/ : model === 'selected-hardware-development' ?
     /23\/32/ : model === 'lower-transition-development' ?
     /Ten custom steel angles and 40 unselected fasteners/ : model === 'mid-batten-clip-development' ?
     /Clip screws are UNSELECTED envelopes/ : /Mixed-product spacing approval, head seating, materials and resistance unresolved/);
@@ -40,14 +42,14 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
   assert.equal(plies.length, 4);
   assert.equal(stitches.length, 6);
   await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-front.png'});
-  await page.evaluate(model => {
+  await page.evaluate(selectedProducts => {
     const {camera, controls} = window.cadTest;
-    if (model === 'selected-hardware-development') camera.setViewOffset(1440,1000,-380,-300,1440,1000);
+    if (selectedProducts) camera.setViewOffset(1440,1000,-380,-300,1440,1000);
     camera.position.set(2076.35,321.033374,1134.344356);
     controls.target.set(1276.35,21.033374,1134.344356); controls.update();
-  }, model);
-  const clickTarget = () => page.mouse.click(model === 'selected-hardware-development' ? 1100 : 720,
-    model === 'selected-hardware-development' ? 800 : 500);
+  }, selectedProducts);
+  const clickTarget = () => page.mouse.click(selectedProducts ? 1100 : 720,
+    selectedProducts ? 800 : 500);
   await page.waitForTimeout(150);
   await clickTarget();
   assert.match(await page.locator('#part').innerText(), /^McKay:/);
@@ -61,7 +63,7 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
       const {camera, controls} = window.cadTest;
       camera.position.set(x+side*800, axial ? y : y-500, z);
       controls.target.set(x,y,z); controls.update();
-    }, {x,y,z,side,axial:model === 'selected-hardware-development' && name.startsWith('fastener_')});
+    }, {x,y,z,side,axial:selectedProducts && name.startsWith('fastener_')});
     await page.waitForTimeout(150);
     await clickTarget();
     const text = await page.locator('#part').innerText();
@@ -86,7 +88,7 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
     assert.match(await page.locator('#part').innerText(), /capacity unvalidated/);
   }
   await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-stitch.png'});
-  if (['mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development'].includes(model)) {
+  if (['mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development'].includes(model)) {
     assert.equal(manifest.parts.filter(p => p.name.startsWith('clip_')).length, 8);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_clip_')).length, 32);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_mid_end_')).length, 0);
@@ -108,12 +110,12 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
       const text = await page.locator('#part').innerText();
       assert.ok(text.startsWith(name+':'), name+' got '+text);
       assert.match(text, /NOT structural approval/);
-      if (name.startsWith('fastener_')) assert.match(text, model === 'selected-hardware-development' ? /SELECTED Simpson SD9112/ : /UNSELECTED SCREW-ENVELOPE EXPLORATION/);
+      if (name.startsWith('fastener_')) assert.match(text, selectedProducts ? /SELECTED Simpson SD9112/ : /UNSELECTED SCREW-ENVELOPE EXPLORATION/);
       clicked.push(name);
     }
     await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-clips.png'});
   }
-  if (['lower-transition-development', 'selected-hardware-development'].includes(model)) {
+  if (['lower-transition-development', 'selected-hardware-development', 'top-joint-development'].includes(model)) {
     assert.equal(manifest.parts.length, 365);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('transition_')).length, 10);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_transition_')).length, 40);
@@ -136,10 +138,35 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
       await page.mouse.click(1100,800);
       const text = await page.locator('#part').innerText();
       assert.ok(text.startsWith(name+':'), name+' got '+text);
-      assert.match(text, model === 'selected-hardware-development' && name.startsWith('fastener_') ? /SELECTED Conquest/ : /UNSELECTED/);
+      assert.match(text, selectedProducts && name.startsWith('fastener_') ? /SELECTED Conquest/ : /UNSELECTED/);
       assert.match(text, /NOT structural approval/);
       clicked.push(name);
       await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-'+(side?'bolt':'angle')+'.png'});
+    }
+  }
+  if (model === 'top-joint-development') {
+    // Inspect the downhill extension itself, not the unchanged rail leaf.
+    // Then target the relocated bolt's head axially from inside the rim.
+    for (const [name, x, s, n] of [
+      ['transition_top_angle_left', -1213.2, 2346, 70],
+      ['fastener_transition_top_left_bolt_1', -1208, 2328, 63],
+    ]) {
+      await page.evaluate(({x,s,n}) => {
+        const a = 40*Math.PI/180, {camera,controls} = window.cadTest;
+        const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
+        const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
+        camera.position.set(-x-600,y,z);
+        camera.setViewOffset(1440,1000,-380,-300,1440,1000);
+        controls.target.set(-x,y,z); controls.update();
+      }, {x,s,n});
+      await page.waitForTimeout(150);
+      await clickTarget();
+      const text = await page.locator('#part').innerText();
+      assert.ok(text.startsWith(name+':'), name+' got '+text);
+      assert.match(text, /NOT structural approval/);
+      assert.match(text, name.startsWith('fastener_') ? /SELECTED Conquest/ : /downhill to S2313/);
+      clicked.push(name);
+      await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-'+name+'.png'});
     }
   }
   await page.goto('http://127.0.0.1:8766/');
@@ -149,7 +176,7 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
   await page.waitForURL('**/?model='+model);
   await page.waitForFunction(count => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === count,
     manifest.parts.length, {timeout: 120000});
-  if (model === 'selected-hardware-development') {
+  if (selectedProducts) {
     await page.setViewportSize({width: 390, height: 844});
     await page.waitForFunction(() => Math.abs(window.cadTest.camera.aspect-390/844)<1e-6);
     const horizontalExtent = await page.evaluate(() => {

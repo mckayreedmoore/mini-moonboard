@@ -63,6 +63,31 @@ diff whitespace checks passed. Two independent three-scope review passes
 check; it was added and the final pass had no substantial findings. These are
 software/geometry review results, not professional structural review.
 
-Publication of this revision in the viewer and export schedules is still
-pending. The currently published selected-product variant is the predecessor,
-with its shorter top-bolt end distances; do not treat the two as identical.
+## Viewer and matching exports
+
+- [Interactive revised top-joint model](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development)
+- [STEP assembly](../exports/top-joint-development/top-joint-development.step)
+- [Metric/imperial parts schedule](../exports/top-joint-development/top-joint-development_parts.csv)
+- [Connection positions and hardware schedule](../exports/top-joint-development/top-joint-development_connections.csv)
+- [Source and artifact hashes](../exports/top-joint-development/manifest.json)
+
+![Revised top-joint candidate, generated perspective](../exports/top-joint-development/top-joint-development_front.png)
+
+The selectable `selected-hardware-development` variant remains the predecessor
+with shorter top-bolt end distances. Do not treat the two as identical. All
+[predecessor assembly-access and service reservations](product-frame-integration.md)
+remain applicable, except the explicitly relocated top bolts and extended leaves.
+
+Adding the exporter branch updates only the shared exporter-source hash in the
+six predecessor manifests. Their CAD, images, schedules and viewer artifact
+bytes are unchanged. The export regression checks the old and new variants
+against their respective geometry and source closures.
+
+Publication checks: all eight cases in `tests/test_joint_exports.py` passed,
+covering all seven development variants and the bore-probe control case.
+The local browser loaded 365 entries, selected 16 parts/connections through
+actual pointer events (including the extended leaf and moved bolt), retained
+the plywood default and reloaded this variant through the selector without
+page/request errors. Desktop and 390 × 844 narrow-screen captures were inspected.
+The narrow-screen check verifies horizontal fit only; the scrollable status
+header still overlays the upper scene. This is not a mobile usability sign-off.

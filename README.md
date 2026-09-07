@@ -7,10 +7,13 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-[Inspect the selected-product candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development):
-purchased 23/32 CAT face stock and selected frame hardware. **Not build-ready:**
-top-rim bolt end distances need revision; head seats, clip fit and structural
-qualification remain open. [Geometry and assembly-access audit](docs/product-frame-integration.md).
+[Inspect the revised top-joint candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development):
+purchased 23/32 CAT face stock, selected frame hardware and revised top-rim bolt
+end distances. **Not build-ready:** extended steel leaf strength, head seats,
+clip fit and structural qualification remain open.
+[Changes, CAD and metric/imperial schedules](docs/top-joint-development.md).
+The [selected-product predecessor](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development)
+and its [geometry/access audit](docs/product-frame-integration.md) remain available.
 · [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
 
 ## Status

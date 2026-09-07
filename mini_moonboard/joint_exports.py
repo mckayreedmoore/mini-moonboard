@@ -48,6 +48,12 @@ PRODUCT_DESIGN = {
     "status": "PROVISIONAL — selected-product inspection envelopes; fit unqualified; candidate FEA not run",
     "description": "Actual bolt, nut, washer and screw products selected for 278 connections; 23/32 CAT face panels retain the backing datums. Head seats, pilots and tool corridors are project allowances, not approved machining. US A21 uses an unverified UK geometry proxy. Install rib screws before panels and obstructed edge screws before legs. Upper top bolt timber end distance is only 23.4 mm and requires review; no installation or structural qualification.",
 }
+TOP_JOINT_DESIGN = {
+    "key": "top-joint-development",
+    "baseline": PRODUCT_DESIGN["key"],
+    "status": "PROVISIONAL — top-joint end-distance revision; extended steel resistance unresolved; candidate FEA not run",
+    "description": "Four top-rim bolts move 47 mm downhill, giving nominal timber end distances of 110.4/70.4 mm. Only the two custom angles' rim-facing leaves extend downhill; rail-facing leaves and screws stay fixed. Four receiving bodies are rebuilt; the other 83 bodies and 274 connections are preserved. Selected-product allowances and installation-order obstructions remain. Nominal spacing screens are not capacity approval; extended steel bending, prying, fabrication and installation remain unqualified.",
+}
 
 
 def export(directory=None, viewer=Path("site"), *, variant=KEY):
@@ -68,6 +74,9 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     elif variant == PRODUCT_DESIGN["key"]:
         from . import product_frame
         model, design = product_frame, PRODUCT_DESIGN
+    elif variant == TOP_JOINT_DESIGN["key"]:
+        from . import top_joint_frame
+        model, design = top_joint_frame, TOP_JOINT_DESIGN
     else:
         raise ValueError("Unknown development variant")
     directory = Path(directory) if directory is not None else Path("exports")/variant
@@ -118,17 +127,19 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
-    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/independent_leg_frame.py"))
-    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
+    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/spacing_frame.py"))
-    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
+    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/clip_frame.py"))
-    if variant in (TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
+    if variant in (TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/transition_frame.py"))
-    if variant == PRODUCT_DESIGN["key"]:
+    if variant in (PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
         sources.extend(Path("mini_moonboard")/(name+".py") for name in
                        ("product_frame", "product_connections", "selected_hardware"))
+    if variant == TOP_JOINT_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/top_joint_frame.py"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
@@ -138,5 +149,5 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]), default=KEY)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]), default=KEY)
     export(variant=parser.parse_args().variant)
