@@ -20,10 +20,13 @@ replace the listing’s PS1-09 designation with a newer standard by assumption.
 
 Keep this face-panel purchase. Before final cutting, check actual thickness,
 usable sheet dimensions and stamp/strength-axis identification; a stamp photo
-is optional assistance. Reconcile these with the current **18 mm face-panel**
-model, including screw penetration and hold hardware. The **19.05 mm leg and
-splice plies are separate, unpurchased material selections**. No CAD dimensions,
-plywood strengths or existing acceptance gates change here.
+is optional assistance. The **selected-hardware-development** and
+**top-joint-development** candidates model these faces at **23/32 CAT
+(18.25625 mm)**, while the preserved earlier candidates retain **18 mm** faces.
+Reconcile measured stock with the chosen candidate, including screw penetration
+and hold hardware; category thickness is not a measurement. The **19.05 mm leg
+and splice plies are separate, unpurchased material selections**. This material
+record does not assign plywood strengths or change existing acceptance gates.
 
 ## Selected remaining lumber
 

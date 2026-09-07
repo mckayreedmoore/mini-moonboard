@@ -12,6 +12,7 @@ purchased 23/32 CAT face stock, selected frame hardware and revised top-rim bolt
 end distances. **Not build-ready:** extended steel leaf strength, head seats,
 clip fit and structural qualification remain open.
 [Changes, CAD and metric/imperial schedules](docs/top-joint-development.md).
+[Current recommendation, evidence and remaining checks](docs/candidate-review-packet.md).
 The [selected-product predecessor](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development)
 and its [geometry/access audit](docs/product-frame-integration.md) remain available.
 · [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
