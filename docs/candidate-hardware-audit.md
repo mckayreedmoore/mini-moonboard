@@ -112,6 +112,53 @@ Actual structural plywood, lumber grade/species, moisture and fabrication
 process remain separate resistance inputs. No generic hardware envelope,
 appearance-grade plywood label or successful geometry test supplies them.
 
+## Perimeter end-grain product screen
+
+Checked 2026-09-06 against the separate clip candidate. All twelve retained
+end-screw axes are centred through the receiver's 38.1 mm depth, leaving
+**19.05 mm to each nominal exterior face**. The other receiver cross-section
+axis has these distances, identical on left and right:
+
+| Receiver / screw index | Distances to opposite nominal edges, mm |
+| --- | --- |
+| Bottom main rail / 1 | 35 / 53.9 |
+| Horizontal seam / 2 | 34.85 / 104.85 |
+| Horizontal seam / 3 | 104.85 / 34.85 |
+| Top main rail / 4 | 33.9 / 55 |
+| Both kicker rails / 1 and 2 | 12 / 38 |
+
+These values are reproduced from undrilled CAD vertices and connection axes by
+`test_remaining_perimeter_end_screws_are_explicit_not_resolved_by_clips`.
+They are rectangular-envelope measurements, not distances to every notch,
+relief or neighbouring bore, and not manufacturer spacing approval.
+
+The [US 2025 fastener technical guide](https://ssttoolbox.widen.net/view/pdf/zpm9nibpvz/C-F-2025TECHSUP.pdf?t.download=true)
+permits end-grain **withdrawal** with `Ceg = 0.65` for SDWS Timber (printed p.43)
+and SDS (p.75), but the shear tables on pp.42 and 74 explicitly assume
+side-grain installation. That does not establish an end-grain mixed-load
+connection here. Its axial-only spacing notes are not an end-grain cross-section
+diagram; do not rotate those rules to pronounce the measured clearances either
+approved or categorically prohibited.
+
+SDS25312 is a length-compatible lead only: nominal 88.9 mm overall length,
+6.35 mm diameter and 57.15 mm thread length. Passing through the existing
+38.1 mm side member leaves 50.8 mm nominal receiver penetration, not all
+57.15 mm of thread in the receiver. It is not a drop-in replacement for the
+4.826 mm generic screws. The [2026 connector catalog](https://ssttoolbox.widen.net/view/pdf/orplhjaqw1/C-C-2026.pdf?t.download=true)
+(printed p.377, note 9) directs spacing to ESR-2236 and reduced-spacing
+questions to Simpson Engineering.
+
+**Decision:** do not select a screw-only replacement from the withdrawal factor.
+Develop the [perimeter side-grain/bearing layout](perimeter-connection-layout.md)
+in parallel; the first block screen identifies a lower-transition splice
+conflict, so one identical block cannot be copied to every junction. Retaining the
+current end-screw route would require product-specific confirmation addressing
+combined lateral/withdrawal demand, the above cross-section distances, actual
+side-member material, partial thread penetration, installation holes and head
+seating. A manufacturer inquiry should include these dimensions and the fact
+that joint demand is not yet qualified; no inquiry has been sent on the user's
+behalf. Neither route has a resistance or construction approval.
+
 ## Washer-bore model correction identified by the quiet control
 
 The isolated [free-hardware control](moving-hardware-control.md) exposes a

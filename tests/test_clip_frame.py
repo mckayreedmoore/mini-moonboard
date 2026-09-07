@@ -112,6 +112,7 @@ def test_orientation_gate_rejects_perpendicular_member(prefix):
 
 def test_remaining_perimeter_end_screws_are_explicit_not_resolved_by_clips():
     current = {c.name: c for c in frame.connections()}
+    raw = {p.name: p for p in frame.parts(False)}
     expected = {f"analysis_batten_end_{side}_{i}" for side in ("left", "right")
                 for i in range(1, 5)} | {
                     f"analysis_kicker_end_{side}_{i}" for side in ("left", "right")
@@ -124,6 +125,20 @@ def test_remaining_perimeter_end_screws_are_explicit_not_resolved_by_clips():
         assert connection.kind == "screw"
         assert (connection.diameter, connection.length) == (4.826, 88.9)
         assert abs(connection.direction.x) == pytest.approx(1)
+        kicker = name.startswith("analysis_kicker_end_")
+        axes = ((cq.Vector(0, 1, 0), cq.Vector(0, 0, 1)) if kicker else
+                (b.normal(), frame.TANGENT))
+        # Nominal rectangular receiver edges, not notch distances or a code rule.
+        distances = []
+        for axis in axes:
+            coordinates = [v.Center().dot(axis) for v in raw[connection.members[-1]].shape.Vertices()]
+            location = connection.start.dot(axis)
+            distances.append((location-min(coordinates), max(coordinates)-location))
+        assert distances[0] == pytest.approx((19.05, 19.05), abs=1e-6)
+        expected_edges = ((12, 38) if kicker else
+                          {1: (35, 53.9), 2: (34.85, 104.85),
+                           3: (104.85, 34.85), 4: (33.9, 55)}[int(name[-1])])
+        assert distances[1] == pytest.approx(expected_edges, abs=1e-6)
     assert sum(c.kind == "screw" for c in current.values()) == 156
     assert sum(c.kind == "bolt" for c in current.values()) == 94
 
