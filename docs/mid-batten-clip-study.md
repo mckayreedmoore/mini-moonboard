@@ -1,7 +1,7 @@
 # Mid-batten side-grain clip study
 
-2026-09-06. **Read-only geometry investigation, not a frame change, qualified
-fit, product selection or capacity claim.** This is separate from the existing
+2026-09-06. **Separate CAD investigation, not a selected-baseline change,
+qualified fit, product selection or capacity claim.** This is separate from the existing
 `screw-spacing-development` / untied `2x8-foot100` candidate. Its eight generic
 mid-batten end screws remain unresolved: four are 138.9 mm long and four are
 189.7 mm long, passing through rails into batten end grain.
@@ -112,3 +112,40 @@ installation evidence.
 No FEA has been run on this variation. Next: resolve a compatible
 connector/fastener installation, then qualify joint demands without
 adhesive/composite-action credit or replacing the original failed FEA evidence.
+
+## Next product decision and missing dimensions
+
+Investigate **US A21 with SD9112 connector screws** as one complete regional
+product combination, not a screw substitution into the UK geometry above.
+The [2026 US connector catalog](https://ssttoolbox.widen.net/view/pdf/orplhjaqw1/C-C-2026.pdf?t.download=true)
+(printed pages 314 and 380) lists the 18-gauge A21, nominal 2 × 1½ inch legs,
+1⅜ inch width, and four approved #9 × 1½ inch SD connector screws. Its nail
+schedule is separately two Ø0.148 × 1½ inch nails per member. These schedules
+are alternatives, not mixed installations or a capacity conclusion for this frame.
+
+The [2025 fastener catalog](https://ssttoolbox.widen.net/view/pdf/07il60awb7/C-F-2025.pdf?t.download=true)
+(printed page 71) identifies SD9112 with 1⅛ inch thread length, nominal 4.5 mm
+thread diameter, 0.130 inch shank, 0.370 inch washer-head diameter and ¼ inch
+hex drive. Page 131 lists BITHEXR14-R1 with 1¾ inch (44.45 mm) overall length.
+That is not a verified 25 mm approach envelope: installed bit engagement and
+the actual driver/socket outside profile still need definition.
+
+| Required input | Why it changes the candidate |
+| --- | --- |
+| US A21 drawing or measured sample: hole centres/diameters, bend radius and outer tolerances | The retrieved UK model does not establish US manufactured geometry or compatibility. Do not enlarge or relocate a rated connector's holes to fit the frame. |
+| SD9112 head height, washer profile and threaded/shank envelope | Replace the current Ø3.75 × 30 mm placeholder; rerun seating, shaft penetration, collisions and receiver checks with the actual 38.1 mm screw. |
+| Actual socket/bit outside profile and intended installation sequence | Recheck all 32 approaches, including nearby panels, rails and wiring, before selecting the detail. |
+| Lumber species/grade and applicable installation/load directions | Establish catalog applicability, edge/end distances and resistance; nominal fit alone gives none of these. |
+
+The nominal 34.925 mm clip width leaves only 1.5875 mm on each side when centred
+in the 38.1 mm backing depth. That is a packaging calculation, **not a wood
+fastener edge-distance check**. Thread diameter also must not be used as a
+simple solid-cylinder clash rejection against the UK holes: insertion/thread
+engagement and regional compatibility require the actual product instructions.
+
+Retain the current untied baseline and this separately selectable experiment
+while resolving these inputs. The next geometry decision is whether the actual
+US installation fits without moving the MoonBoard grid or front panel screws.
+If it does not, revise the side-grain connection layout; do not claim the
+placeholder clearances qualify the purchased hardware. Product drawings can
+resolve these inputs without a user offcut fit test, which remains waived.

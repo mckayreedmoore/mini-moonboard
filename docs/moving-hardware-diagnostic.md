@@ -45,6 +45,30 @@ resultants therefore remain unqualified. The
 printed CELS cannot qualify total energy. No internal/contact/total-energy
 balance, refinement agreement or resistance check is performed here.
 
+A subsequent source review also found inconsistent work-array dimensions on
+the quadratic surface-contact path in the pinned CalculiX 2.21 build
+(`resultsmech.f:61,428–451` and `springforc_f2f.f:38–39`). The source files are
+identified by the retained native build manifest. The effect on the optimized
+binary's recorded results has **not** been measured; the proposed instrumented
+reproduction was not completed after an assistant-tool safety interruption.
+Do not treat the small residuals above as resolving that source concern.
+Evaluate a supported solver release and independently qualify the applicable
+contact path before relying on it for design demands; no corrected build has
+yet been selected or validated.
+
+The [official CalculiX site](https://www.calculix.de/) advertises version 2.23.
+Its [release notes](https://www.dhondt.de/new_calc.htm) do not identify a CELS
+indexing correction. A read-only comparison of the official 2.23 source with
+the retained 2.21 sources still found the compact-index reader in
+`printoutelem.f` and the `igauss`-based writer in `resultsmech.f`. Therefore an
+upgrade is **not an established fix**. Any vendor-release evaluation must be
+separate from the preserved 2.21 evidence and pass the same applicable numerical
+qualification gates. No 2.23 solve was performed by this review.
+
+Source: [official 2.23 archive](https://www.dhondt.de/ccx_2.23.src.tar.bz2),
+1,551,289 bytes, SHA256
+`9c88385c10fb04f5dc6c4e98027a51bebdd8aee3920e05190d6c1dd08357d6e7`.
+
 Recommendation: **do not alter the frame because of these numerical controls.**
 The observations narrow the investigation: no extra momentum or native
 kinetic-energy discrepancy was exposed, while unilateral-contact behavior and
