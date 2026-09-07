@@ -62,7 +62,9 @@ retrieved here is the July 2023 edition, renewal July 2025: not verified current
 approval. It limits covered wood products, requires mixed-load/group checks,
 and does not establish this purchased Roseburg plywood detail. Its #9 × 2½ length is 2⅜ in
 versus the drawing's 2½; #9 × 2 thread length is 1¼ versus 1.30 in. Treat the
-former as 60.325–63.5 mm for penetration/tip screening and the latter as
+former as 60.325–63.5 mm for penetration/tip screening. Its Table 1A thread
+length is 1⅝ in, giving a 39.878–41.275 mm thread-length screen across the two
+sources. Treat the latter #9 × 2 thread length as
 31.75–33.02 mm pending the purchased generation's markings. For #10 × 3½,
 the report distinguishes 2 in thread from a historical 2⅜ in alternative.
 Do not combine the larger length/strength from different generations.

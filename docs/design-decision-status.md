@@ -27,6 +27,16 @@ See [purchased stock and selected lumber](purchased-materials.md),
 [selected bolt hardware](selected-bolt-hardware.md), and
 [selected wood fasteners](selected-wood-fasteners.md).
 
+The [remaining material/hardware closure](remaining-material-hardware-closure.md)
+separately selects leg-profile plywood and records hold/insert/wiring inputs.
+`selected_hardware.py` now encodes the 278-position frame inventory with sourced
+dimensions and separately labeled assumptions. `product_connections.py` provides
+selected inspection envelopes, including annular washers and preserved physical
+grip datums. These are not yet integrated receiving-part bores or a published
+candidate: custom-angle seating, clip fit and face-stock seam geometry remain
+the next implementation work. Do not interpret these envelopes as exact screw
+recess machining, thread solids, mass properties or structural qualification.
+
 The immediate completion target is a product-specific material/fastener
 schedule, revised top-joint packaging, and an inspectable candidate using those
 selections. Preserve reference models and failed analyses; do not change old
