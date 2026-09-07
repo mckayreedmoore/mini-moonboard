@@ -1,5 +1,6 @@
 """Actual geometric inspection, not catalog compatibility or strength gates."""
 import math
+from dataclasses import replace
 from itertools import combinations
 from types import SimpleNamespace
 
@@ -11,8 +12,28 @@ from mini_moonboard import box_frame as b
 from mini_moonboard import clip_frame as frame
 from mini_moonboard import hybrid_frame as h
 from mini_moonboard import spacing_frame as baseline
-from mini_moonboard.box_exports import overlap
+from mini_moonboard.box_exports import exact_bounds, overlap
 from mini_moonboard.panel_grid import main_led_datums, main_tnut_datums
+
+
+def assert_board_member_orientation(part):
+    normal = cq.Vector(0, -math.cos(math.radians(40)), math.sin(math.radians(40)))
+    tangent = cq.Vector(0, math.sin(math.radians(40)), math.cos(math.radians(40)))
+    axes = (normal, tangent, cq.Vector(1, 0, 0))
+    planes = [f for f in part.shape.Faces() if f.geomType() == "PLANE"]
+    assert all(max(abs(f.normalAt().dot(axis)) for axis in axes) > 1-1e-7
+               for f in planes), part.name
+    # Outer corners establish these rectangular members' projected extents.
+    # An unordered normal set alone also accepts a 90-degree N/S swap.
+    extents = []
+    for axis in axes:
+        coordinates = [v.Center().dot(axis) for v in part.shape.Vertices()]
+        extents.append(max(coordinates)-min(coordinates))
+    # Map the declared blank axes, including the spacing revision's unequal ribs.
+    expected = ((part.blank[2], part.blank[1], part.blank[0])
+                if part.name.startswith("main_") else
+                (part.blank[1], part.blank[0], part.blank[2]))
+    assert extents == pytest.approx(expected, abs=1e-6), part.name
 
 
 def test_exact_inventory_translation_and_fixed_panel_axes():
@@ -41,6 +62,70 @@ def test_exact_inventory_translation_and_fixed_panel_axes():
             assert (candidate[name].shape.Center()-part.shape.Center()).toTuple() == pytest.approx((5, 0, 0))
         else:
             assert candidate[name] is part
+
+
+def test_candidate_floor_seating_orientation_and_connection_graph():
+    parts = {p.name: p for p in frame.parts()}
+    # Check the assembled candidate, not just its unchanged predecessor.
+    plies = [p for p in parts.values() if p.name.startswith("leg_")]
+    assert len(plies) == 4
+    for ply in plies:
+        bounds = exact_bounds(ply.shape)
+        assert bounds.zmin == pytest.approx(0, abs=1e-7)
+        assert bounds.xlen == pytest.approx(19.05, abs=1e-7)
+        assert ply.laminations == 1
+        floors = [f for f in ply.shape.Faces() if abs(exact_bounds(f).zmin) < 1e-7
+                  and abs(exact_bounds(f).zmax) < 1e-7]
+        assert len(floors) == 1 and floors[0].geomType() == "PLANE"
+        assert abs(floors[0].normalAt().z) == pytest.approx(1)
+        assert floors[0].Area() > 19.05*180
+    ribs = [p for p in parts.values() if p.name.startswith("rib_")]
+    panels = [p for p in parts.values() if p.name.startswith("main_")]
+    assert len(ribs) == 12 and len(panels) == 4
+    for part in ribs + panels:
+        assert_board_member_orientation(part)
+    adjacency = {name: set() for name in parts}
+    for connection in frame.connections():
+        assert len(set(connection.members)) >= 2
+        assert set(connection.members) <= parts.keys()
+        for member in connection.members:
+            adjacency[member].update(set(connection.members)-{member})
+    reached, todo = set(), [plies[0].name]
+    while todo:
+        name = todo.pop()
+        if name not in reached:
+            reached.add(name)
+            todo.extend(adjacency[name]-reached)
+    assert reached == parts.keys()
+    # Connectivity is inventory topology, not joint stiffness or capacity;
+    # touching butt faces are not silently treated as bonded connections.
+
+
+@pytest.mark.parametrize("prefix", ["main_", "rib_"])
+def test_orientation_gate_rejects_perpendicular_member(prefix):
+    part = next(p for p in frame.parts() if p.name.startswith(prefix))
+    assert_board_member_orientation(part)
+    perpendicular = replace(part, shape=part.shape.rotate((0, 0, 0), (1, 0, 0), 90))
+    with pytest.raises(AssertionError):
+        assert_board_member_orientation(perpendicular)
+
+
+def test_remaining_perimeter_end_screws_are_explicit_not_resolved_by_clips():
+    current = {c.name: c for c in frame.connections()}
+    expected = {f"analysis_batten_end_{side}_{i}" for side in ("left", "right")
+                for i in range(1, 5)} | {
+                    f"analysis_kicker_end_{side}_{i}" for side in ("left", "right")
+                    for i in (1, 2)}
+    actual = {name for name in current if name.startswith(
+        ("analysis_batten_end_", "analysis_kicker_end_"))}
+    assert actual == expected
+    for name in expected:
+        connection = current[name]
+        assert connection.kind == "screw"
+        assert (connection.diameter, connection.length) == (4.826, 88.9)
+        assert abs(connection.direction.x) == pytest.approx(1)
+    assert sum(c.kind == "screw" for c in current.values()) == 156
+    assert sum(c.kind == "bolt" for c in current.values()) == 94
 
 
 def test_all_eight_official_model_outlines_holes_and_relief_allowance():

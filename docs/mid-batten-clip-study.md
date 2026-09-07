@@ -149,3 +149,12 @@ US installation fits without moving the MoonBoard grid or front panel screws.
 If it does not, revise the side-grain connection layout; do not claim the
 placeholder clearances qualify the purchased hardware. Product drawings can
 resolve these inputs without a user offcut fit test, which remains waived.
+
+The public [Drawing Finder downloads](https://www.strongtie.com/products/software/drawing-finder-plugins-download)
+were checked as a further route: the Bluebeam tool set provides navigation tools,
+not a recovered A21 production drawing. No exact US A21 hole/bend drawing or
+SD9112 axial head profile was obtained. A manufacturer model request remains
+an option; none has been submitted on the user's behalf. Meanwhile, the
+[hardware audit](candidate-hardware-audit.md#separate-clip-variation-perimeter-joints-are-still-unresolved)
+identifies ten other perimeter/kicker junctions whose end-grain attachment still
+needs a complete layout decision; these are not solved by the eight clips.

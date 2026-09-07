@@ -63,10 +63,46 @@ controller and extraction path.
 
 ## Next closure order
 
+### Separate clip variation: perimeter joints are still unresolved
+
+The [clip study](mid-batten-clip-study.md) has **250 frame connections: 156
+screws and 94 bolts**. It removes eight mid-batten end screws, but retains the
+following twelve generic Ø4.826 × 88.9 mm end screws. Grain is assumed to follow
+the long rail direction; actual stock orientation remains a fabrication input.
+
+| Connection names | Count | Physical junctions |
+| --- | ---: | --- |
+| `analysis_batten_end_{left,right}_{1..4}` | 8 | Six rim-to-horizontal-rail junctions: bottom, seam (two screws per end), top |
+| `analysis_kicker_end_{left,right}_{1,2}` | 4 | Four cheek-to-kicker-rail junctions: bottom and top |
+
+Resolve these **ten junctions as a complete perimeter layout**, using an
+applicable documented end-grain detail or side-grain connectors/bearing seats.
+Do not automatically duplicate the experimental A21 detail: product geometry,
+panel/LED clearance and installation access must be checked at each location.
+The twelve `rib_*_front` screws are a different interface: the current solid
+ribs specify grain along the board slope, so those screws enter side grain;
+their product/head seating and material applicability are still unresolved.
+
+Four ends of the two vertical seam battens and eight ends of the four vertical
+edge battens touch adjoining rails without a direct end fastener. Their indirect
+paths run through panels, ribs and/or rims. The connection graph is connected,
+but this does not justify bonding those butt faces or equal load sharing in FEA.
+Twenty custom angles (eight perimeter, twelve rib) also remain fabricated
+envelopes, not selected rated products.
+
+The clip tests now explicitly check all four independent-ply floor faces,
+40° board/member plane orientation, connected inventory and retained end-screw
+families. These are nominal geometry/topology checks, not resistance or contact
+qualification. The selected baseline and its schedule above remain unchanged.
+
+### Product closure sequence
+
 1. Obtain the front-rib product's axial head/nib geometry and definitive seating
    instruction; it determines panel-face seating and batten machining.
-2. Resolve the eight long end-screw details with obtainable products and
-   applicable connection rules; do not round their lengths silently.
+2. Resolve the eight long mid-batten end-screw details with obtainable products
+   and applicable connection rules; the separate clip study is an unselected
+   alternative. Also resolve the twelve retained perimeter/kicker end screws
+   at the ten junctions above. Do not round lengths silently.
 3. Select one real 3/8-inch bolt/nut/washer family and check every length/grip
    stack, thread engagement, projection, tool and counterhold envelope.
 4. Add installed insert fixing hardware and the remaining LED harness provisions,
