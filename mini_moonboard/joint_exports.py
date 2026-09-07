@@ -42,6 +42,12 @@ TRANSITION_DESIGN = {
     "status": "PROVISIONAL — perimeter replacement-route inspection; candidate FEA not run",
     "description": "Ten custom steel angles and 40 unselected fasteners replace twelve perimeter/kicker end screws. Additive splice profiles are split into independent plywood plies. No glue/friction credit; products, installation and resistance unresolved. Top nominal washer/socket margins are only 0.5/0.9 mm, not approved tolerances.",
 }
+PRODUCT_DESIGN = {
+    "key": "selected-hardware-development",
+    "baseline": TRANSITION_DESIGN["key"],
+    "status": "PROVISIONAL — selected-product inspection envelopes; fit unqualified; candidate FEA not run",
+    "description": "Actual bolt, nut, washer and screw products selected for 278 connections; 23/32 CAT face panels retain the backing datums. Head seats, pilots and tool corridors are project allowances, not approved machining. US A21 uses an unverified UK geometry proxy. Install rib screws before panels and obstructed edge screws before legs. Upper top bolt timber end distance is only 23.4 mm and requires review; no installation or structural qualification.",
+}
 
 
 def export(directory=None, viewer=Path("site"), *, variant=KEY):
@@ -59,6 +65,9 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     elif variant == TRANSITION_DESIGN["key"]:
         from . import transition_frame
         model, design = transition_frame, TRANSITION_DESIGN
+    elif variant == PRODUCT_DESIGN["key"]:
+        from . import product_frame
+        model, design = product_frame, PRODUCT_DESIGN
     else:
         raise ValueError("Unknown development variant")
     directory = Path(directory) if directory is not None else Path("exports")/variant
@@ -109,14 +118,17 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
-    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/independent_leg_frame.py"))
-    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
+    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/spacing_frame.py"))
-    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
+    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/clip_frame.py"))
-    if variant == TRANSITION_DESIGN["key"]:
+    if variant in (TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]):
         sources.append(Path("mini_moonboard/transition_frame.py"))
+    if variant == PRODUCT_DESIGN["key"]:
+        sources.extend(Path("mini_moonboard")/(name+".py") for name in
+                       ("product_frame", "product_connections", "selected_hardware"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
@@ -126,5 +138,5 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]), default=KEY)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"]), default=KEY)
     export(variant=parser.parse_args().variant)

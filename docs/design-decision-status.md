@@ -33,8 +33,9 @@ separately selects leg-profile plywood and records hold/insert/wiring inputs.
 dimensions and separately labeled assumptions. `product_connections.py` provides
 selected inspection envelopes, including annular washers and preserved physical
 grip datums. The separate [product geometry integration](product-frame-integration.md)
-now rebuilds receiver bores and face-stock seam geometry; full product fit and
-publication remain open. Do not interpret these envelopes as exact screw
+now rebuilds receiver bores and face-stock seam geometry and provides separate
+inspection exports. The [top-joint end-distance audit](product-connection-audit.md)
+requires a further layout revision; full product fit remains open. Do not interpret these envelopes as exact screw
 recess machining, thread solids, mass properties or structural qualification.
 
 The immediate completion target is a product-specific material/fastener

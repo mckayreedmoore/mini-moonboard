@@ -6,6 +6,11 @@ Mini MoonBoard.
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
+
+[Inspect the selected-product candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development):
+purchased 23/32 CAT face stock and selected frame hardware. **Not build-ready:**
+top-rim bolt end distances need revision; head seats, clip fit and structural
+qualification remain open. [Geometry and assembly-access audit](docs/product-frame-integration.md).
 · [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
 
 ## Status
@@ -63,8 +68,9 @@ no additional momentum/mass/kinetic-energy threshold failures in the saved
 the contact-energy output-indexing concern. Neither result qualifies the frame.
 
 The eventual design target is an indoor, freestanding plywood A-frame inspired
-by the reference photo and Moon Climbing video. The climbing panels will be
-fabricated from birch plywood rather than purchased pre-drilled.
+by the reference photo and Moon Climbing video. The purchased climbing-face stock
+is Roseburg AC Douglas-fir 23/32 CAT plywood, not the earlier birch shopping
+reference; see [material identification](docs/purchased-materials.md).
 
 The v1 renders are review artifacts, not approval evidence. The official
 reference-envelope exports remain separate from the v1 frame artifacts.

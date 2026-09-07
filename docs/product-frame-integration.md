@@ -3,7 +3,17 @@
 This is an inspectable development candidate, **not a build release, machining
 instruction or structural approval**. `product_frame.py` keeps the earlier
 transition model unchanged and exposes a separate `selected-hardware-development`
-candidate. It is not yet published in the viewer.
+candidate. [Open its viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development),
+[STEP assembly](../exports/selected-hardware-development/selected-hardware-development.step),
+[metric/imperial parts](../exports/selected-hardware-development/selected-hardware-development_parts.csv),
+and [connection schedule](../exports/selected-hardware-development/selected-hardware-development_connections.csv).
+
+**Known next revision:** the top-rim bolt end distances fall short of the selected
+conservative 7D layout screen. See the [connection-distance audit](product-connection-audit.md).
+This exported state preserves that issue for inspection; it is not the final
+goal candidate or a recommendation to fabricate these top joints.
+
+![Selected-product candidate, front inspection view](../exports/selected-hardware-development/selected-hardware-development_front.png)
 
 ## What changed
 
@@ -50,10 +60,15 @@ lifting, tightening and stability remain part of the assembly-plan audit.
 
 ## Still required before the goal handoff
 
-Verify LED/wire and actual head/driver engagement envelopes, bearing and edge/end
-distances, manufacturing allowances and all material/product assumptions. Export
-the candidate and verify matching viewer, metric/imperial schedules and assembly
-notes. Run independent review of that published state. Previous rejected FEA
+Five additional service tests pass: all 132 conservative Ø12.7 × 31 mm rear LED
+reservations and eleven 11 × 2 mm straight routing corridors clear the candidate
+parts/hardware; all 228 minimum washer-bearing annuli fit the actual receiving
+bodies. These are not a complete harness, bend-radius or capacity check.
+
+Revise the top bolt layout, then recheck geometry and service space. Verify
+actual head/driver engagement, all other edge/end distances, manufacturing
+allowances and material/product assumptions. Keep viewer, metric/imperial
+schedules and assembly notes synchronized and independently reviewed. Previous rejected FEA
 force recovery remains unusable for joint sizing; none of these geometry checks
 establish connection resistance, load sharing, sliding/tipping stability or a
 climber weight rating.

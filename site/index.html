@@ -8,7 +8,7 @@
     <style>
       * { box-sizing: border-box; }
       body { margin: 0; background: #121619; color: #f5f0e6; font: 16px system-ui, sans-serif; }
-      header { position: fixed; z-index: 1; inset: 0 auto auto 0; padding: 1rem 1.25rem; background: #121619dd; }
+      header { position: fixed; z-index: 1; inset: 0 auto auto 0; max-width: min(32rem, 100vw); max-height: 45vh; overflow: auto; padding: 1rem 1.25rem; background: #121619dd; }
       h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
       p { color: #c7c1b4; font-size: .9rem; margin: 0; }
       .support-link { display: inline-block; margin-top: .55rem; color: #f0b429; font-size: .85rem; text-underline-offset: .2em; }
@@ -16,6 +16,7 @@
       #design-details { margin-top: .5rem; max-width: 28rem; font-size: .85rem; }
       label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
       select { margin-left: .35rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; padding: .2rem; }
+      @media (max-width: 600px) { select { max-width: 100%; margin-left: 0; } }
       canvas { display: block; height: 100vh; width: 100vw; }
     </style>
   </head>
@@ -64,10 +65,10 @@
         return `${feet} ft ${inches} in`;
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
-      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development'].includes(requestedModel) ? requestedModel : 'plywood';
+      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development'].includes(requestedModel) ? requestedModel : 'plywood';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
-      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware'], ['selected-hardware-development', 'Selected products · fit unqualified']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
@@ -179,7 +180,7 @@
         const [x, y, z] = part.fabrication.dimensions_mm;
         partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${x} × ${y} × ${z} mm (${[x, y, z].map(feetAndInches).join(' × ')}).`;
       });
-      function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+      function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.zoom=Math.min(1,w/h); camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();
       (function frame() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(frame); })();
     </script>
