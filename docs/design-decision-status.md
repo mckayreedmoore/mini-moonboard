@@ -15,6 +15,9 @@ generic stiffness comparisons without a design question.
 
 ### Authorized material and hardware completion phase
 
+The [audited next-milestone goal](current-goal.md) defines the product-specific
+candidate deliverables separately from the remaining structural qualification.
+
 The user has purchased **Roseburg AC Douglas-fir face plywood, Lowe’s item
 12235 / model 119055, 23/32 CAT**, and authorized reasonable selections for
 remaining lumber and hardware. The listing identifies PS1-09 and Exterior
