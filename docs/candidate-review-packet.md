@@ -4,8 +4,9 @@
 human design review. Keep the 2×8 backing and independent plywood leg plies;
 do not buy deeper framing to compensate for an unidentified joint or stability
 problem. This is an inspectable design proposal, **not build/use approval**.
-The packet is still a draft: the complete per-member edge/ligament audit and
-remaining product-fit dispositions below are not finished.
+The handoff identifies every frame-connection family and the remaining product,
+boundary, installation and structural decisions. It does not claim every
+boundary has been numerically measured or that proxy hardware is manufacture-ready.
 
 ## Start here
 
@@ -15,6 +16,8 @@ remaining product-fit dispositions below are not finished.
 - [Remaining plywood, hold, insert and wiring selections](remaining-material-hardware-closure.md)
 - [Selected bolts/nuts/washers](selected-bolt-hardware.md) and [wood screws](selected-wood-fasteners.md)
 - [Consolidated hardware-fit dispositions](hardware-fit-dispositions.md)
+- [All 278 connections: boundary evidence and reviewer decisions](joint-boundary-dispositions.md)
+- [Goal-to-evidence verification register](handoff-verification.md)
 
 The face uses purchased Roseburg 23/32 CAT plywood as a nominal 18.25625 mm
 assumption. The legs/splices use separately selected plywood: two nominal
@@ -61,14 +64,14 @@ reviewer before fabrication; a final-state clearance check cannot approve an
 unsupported intermediate state. Do not fill or relocate holes in an existing
 frame using the new-manufacture top-joint model.
 
-## Remaining work, in priority order
+## Decisions after this handoff, in priority order
 
-1. Finish the boundary dispositions for the remaining wood/steel joints and
-   review the short kicker/splice margin above. The curved plywood profile
-   distances and neighboring-bore ligaments are now recorded; material/load
-   classification and head-seat effects remain unresolved. Do not treat a
-   positive ligament as adequate connection strength.
-2. Disposition US A21 proxy geometry, actual driver/head seating, steel fabrication,
+1. Review the short kicker/splice margin and extended top steel detail first.
+   Keep the overall 2×8/independent-ply arrangement as the inspection baseline;
+   do not approve these local details from positive geometric clearance alone.
+   The [complete family inventory](joint-boundary-dispositions.md) assigns the
+   other boundary, material/load classification and head-seat questions explicitly.
+2. Resolve the identified US A21 proxy geometry, actual driver/head seating, steel fabrication,
    hold-specific bolt lengths/head seats, supplied insert-retainer screw geometry,
    and received LED connector/retention/access details. Exact unresolved items
    remain in the linked hardware documents; generic hold bolts are not a safe substitute.
@@ -85,6 +88,6 @@ No anchors, pad support, assumed ballast or unverified composite action.
 
 Record actual sheet thickness, usable dimensions and stamp/strength direction;
 identify the received hold-bolt seats, insert-retainer screws and LED revision.
-These can proceed while the design audit finishes. Room measurements and an
+These are the next product-identification inputs for the review. Room measurements and an
 offcut test are not prerequisites for this design phase. Before construction,
 the unresolved fit, structural and installation gates still need resolution.

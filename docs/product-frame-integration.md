@@ -8,10 +8,13 @@ candidate. [Open its viewer](https://mckayreedmoore.github.io/mini-moonboard/?mo
 [metric/imperial parts](../exports/selected-hardware-development/selected-hardware-development_parts.csv),
 and [connection schedule](../exports/selected-hardware-development/selected-hardware-development_connections.csv).
 
-**Known next revision:** the top-rim bolt end distances fall short of the selected
+**Preserved predecessor finding:** the top-rim bolt end distances fall short of the selected
 conservative 7D layout screen. See the [connection-distance audit](product-connection-audit.md).
 This exported state preserves that issue for inspection; it is not the final
 goal candidate or a recommendation to fabricate these top joints.
+The separate [top-joint candidate](top-joint-development.md) implements the
+relocation. Its [review packet](candidate-review-packet.md) is the current handoff;
+the evidence below remains specific to this predecessor unless explicitly reused.
 
 ![Selected-product candidate, front inspection view](../exports/selected-hardware-development/selected-hardware-development_front.png)
 
@@ -58,7 +61,7 @@ These are retained assembled-access obstructions, not silently exempted clashes.
 The sequence describes access dependency only; safe erection, temporary support,
 lifting, tightening and stability remain part of the assembly-plan audit.
 
-## Still required before the goal handoff
+## Follow-up identified at this predecessor checkpoint
 
 Five additional service tests pass: all 132 conservative Ø12.7 × 31 mm rear LED
 reservations and eleven 11 × 2 mm straight routing corridors clear the candidate

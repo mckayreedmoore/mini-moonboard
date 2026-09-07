@@ -1,8 +1,10 @@
 """Top-joint relocation geometry and declared spacing screen, not resistance approval."""
+import math
 from types import SimpleNamespace
 
 import cadquery as cq
 import pytest
+import test_clip_frame as clip_tests
 import test_product_frame as product_tests
 import test_product_service_clearance as service
 
@@ -21,6 +23,33 @@ service_envelopes = service.service_envelopes
 @pytest.fixture(scope="module")
 def parts():
     return {p.name: p for p in frame.parts()}
+
+
+def test_goal_critical_current_candidate_floor_orientation_and_graph(monkeypatch):
+    monkeypatch.setattr(clip_tests, "frame", frame)
+    clip_tests.test_candidate_floor_seating_orientation_and_connection_graph()
+
+
+def test_goal_critical_climbing_underside_and_rear_rib_sidedness():
+    # Independent world-axis expectation: climbing face points +Y and down;
+    # using abs(normal dot axis) would also accept the opposite face.
+    angle = math.radians(40.)
+    climbing = cq.Vector(0, math.cos(angle), -math.sin(angle))
+    rear = -climbing
+    origin = b.point(0, 0, 0)
+    raw = frame.parts(False)
+    panels = [p for p in raw if p.name.startswith("main_")]
+    ribs = [p for p in raw if p.name.startswith("rib_")]
+    assert len(panels) == 4 and len(ribs) == 12
+    for part in panels+ribs:
+        depths = [(v.Center()-origin).dot(rear) for v in part.shape.Vertices()]
+        expected = (-18.25625, 0.) if part.name.startswith("main_") else (38.1, 128.05)
+        assert (min(depths), max(depths)) == pytest.approx(expected, abs=1e-6), part.name
+        if part.name.startswith("main_"):
+            faces = [f for f in part.shape.Faces() if f.geomType() == "PLANE"
+                     and abs((f.Center()-origin).dot(rear)+18.25625) < 1e-6]
+            assert len(faces) == 1, part.name
+            assert faces[0].normalAt().dot(climbing) > 1-1e-7, part.name
 
 
 def test_exact_four_bolt_relocation_preserves_other_connection_datums():

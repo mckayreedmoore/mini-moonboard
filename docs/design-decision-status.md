@@ -41,9 +41,12 @@ open. The [predecessor audit](product-connection-audit.md) is preserved, not
 retroactively passed. Do not interpret these envelopes as exact screw
 recess machining, thread solids, mass properties or structural qualification.
 
-The immediate completion target is a product-specific material/fastener
-schedule, revised top-joint packaging, and an inspectable candidate using those
-selections. Preserve reference models and failed analyses; do not change old
+The product-specific inspection candidate now has matching material/fastener
+schedules, revised top-joint packaging and a consolidated
+[human-review packet](candidate-review-packet.md). The
+[evidence register](handoff-verification.md) distinguishes verified nominal
+geometry from explicit remaining product, boundary and structural decisions.
+Preserve reference models and failed analyses; do not change old
 material assumptions or geometry silently. Select products without purchasing
 them, distinguish chosen specifications from supplier-confirmed dimensions and
 structural approval, and retain an explicit final-verification list. No new

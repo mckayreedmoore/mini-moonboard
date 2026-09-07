@@ -1,5 +1,11 @@
 # Nominal connection-distance audit
 
+**Historical predecessor audit:** “current” below refers to
+`selected-hardware-development`, not the revised `top-joint-development`
+candidate. The [top-joint revision](top-joint-development.md) replaces the
+S2375/2415 bolt stations with S2328/2368. Keep these original findings as
+evidence; use the [review packet](candidate-review-packet.md) for current status.
+
 Source inspection only, 2026-09-07; no new CAD run or capacity acceptance.
 `product_frame` preserves `transition_frame` backing/bolt axes. S follows the
 board uphill; N is rearward normal. All distances below are mm.
