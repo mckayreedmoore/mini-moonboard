@@ -1,6 +1,10 @@
 // Serve site/ on localhost:8766; pass an installed Playwright module path.
 const { chromium } = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
+const models = process.argv.slice(3);
+if (!models.length) models.push('wood-first-mvp', 'commercial-bracket-mvp');
+assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
+  'square-cut-bracket', 'square-cut-wood-blocks'].includes(model)));
 
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
@@ -14,7 +18,7 @@ const assert = require('node:assert/strict');
       await route.fulfill({response, body: (await response.text()).replace('</script>\n  </body>',
         'window.cadTest = {meshes, camera, controls};</script>\n  </body>')});
     });
-    for (const model of ['wood-first-mvp', 'commercial-bracket-mvp']) {
+    for (const model of models) {
       await page.goto('http://127.0.0.1:8766/?model='+model);
       const manifest = await page.evaluate(async model =>
         (await fetch('hybrid/'+model+'/parts.json')).json(), model);

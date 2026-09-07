@@ -7,13 +7,16 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current redesign: no owner-fabricated steel.** Compare the
-[wood-first MVP](https://mckayreedmoore.github.io/mini-moonboard/?model=wood-first-mvp)
-with the [commercial-bracket MVP](https://mckayreedmoore.github.io/mini-moonboard/?model=commercial-bracket-mvp).
-Both include purchased face stock, independent two-ply legs, revised backing
-and kicker connections. **Not build-ready:** these are inspectable design
-concepts, not structural approval.
-[Comparison, assembly concepts, STEP and metric/imperial schedules](docs/redesign-mvp.md).
+**Current easier-build comparison: no fitted framing housings or custom steel.**
+Inspect [A: square-cut purchased connectors](https://mckayreedmoore.github.io/mini-moonboard/?model=square-cut-bracket)
+and [B: square-cut bolted wood blocks](https://mckayreedmoore.github.io/mini-moonboard/?model=square-cut-wood-blocks).
+Both use eight repeated infills and shorter front-installed backing screws;
+the existing shaped legs and kicker remain. **Not build-ready:** these are
+inspection concepts, not structural approval.
+[Comparison, assembly guidance, STEP and metric/imperial workshop schedules](docs/square-cut-comparison.md).
+
+The earlier [wood-first and bracket MVPs](docs/redesign-mvp.md) remain available
+for comparison, with their original geometry and evidence preserved.
 
 The [earlier custom-steel top-joint candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development)
 and its [audit packet](docs/candidate-review-packet.md) remain historical evidence,
