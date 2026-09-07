@@ -150,7 +150,7 @@ same batch intended for construction.
 | Input | Metric | Imperial |
 | --- | ---: | ---: |
 | Panel sheet length x width | **unresolved** mm | **unresolved** in |
-| Selected panel-stock reference | Swaner Hardwood C-3 birch plywood, Home Depot 165921; user-provided URL recorded 2026-09-04 | **unresolved** pending received-sheet measurement |
+| Purchased face-panel stock | [Roseburg / Lowe’s item 12235, model 119055](purchased-materials.md); user-confirmed purchase, 2026-09-06; listing: PS1-09, Exterior | 23/32 CAT (18.25625 mm category); listed 0.718 in is product data, not a sheet measurement |
 | Panel measured thickness: min/average/max | **unresolved** mm | **unresolved** in |
 | Frame-lamination sheet length x width | **unresolved** mm | **unresolved** in |
 | Frame-ply measured thickness: min/average/max | **unresolved** mm | **unresolved** in |

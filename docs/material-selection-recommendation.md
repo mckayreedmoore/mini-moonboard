@@ -33,10 +33,22 @@ Structural I is an available structural panel category with enhanced cross-panel
 and racking properties; it is not automatically necessary or sufficient for this
 leg. [APA Rated Sheathing data sheet](https://www.apawood.org/Data/Sites/1/documents/product-support/rated-sheathing-datasheet.pdf).
 
-## What the C-3 birch reference establishes
+## Purchased stock supersedes the C-3 birch shopping reference
 
-The [site survey](site-survey.md) records Swaner C-3 birch, Home Depot 165921,
-with received-sheet dimensions still unresolved. Keep this stock reference,
+The user confirmed **Roseburg AC Douglas-fir face plywood, Lowe’s item 12235 /
+model 119055, 23/32 CAT**. The listing identifies PS1-09 and Exterior exposure;
+23/32 inch is 18.25625 mm, not 19.05 mm. See the
+[purchased-stock specification](purchased-materials.md) for manufacturer sources,
+the listing's thickness/width caveats and selected remaining lumber. Actual
+sheet dimensions, lot stamp and layup remain unverified. Old 18 mm face-panel
+and 19.05 mm support-ply CAD assumptions and old equal-property FEA are preserved
+as reference models, not silently relabelled as tested purchased plywood.
+This purchase identifies face stock only, not the separate leg/splice plies.
+
+### Historical C-3 birch reference
+
+The earlier shopping reference was Swaner C-3 birch, Home Depot 165921.
+Keep this historical reference,
 but do not assign structural design values from the words “birch” or “C-3.”
 Hardwood face/back grading addresses veneer characteristics and appearance;
 another manufacturer's grading guide is not a set of design values for this

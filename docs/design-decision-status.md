@@ -13,6 +13,25 @@ generic stiffness comparisons without a design question.
 
 ## Current development preference
 
+### Authorized material and hardware completion phase
+
+The user has purchased **Roseburg AC Douglas-fir face plywood, Lowe’s item
+12235 / model 119055, 23/32 CAT**, and authorized reasonable selections for
+remaining lumber and hardware. The listing identifies PS1-09 and Exterior
+exposure; actual sheets' dimensions and layup still need verification. This
+supersedes the earlier C-3 birch shopping reference for the face, not leg stock.
+See [purchased stock and selected lumber](purchased-materials.md),
+[selected bolt hardware](selected-bolt-hardware.md), and
+[selected wood fasteners](selected-wood-fasteners.md).
+
+The immediate completion target is a product-specific material/fastener
+schedule, revised top-joint packaging, and an inspectable candidate using those
+selections. Preserve reference models and failed analyses; do not change old
+material assumptions or geometry silently. Select products without purchasing
+them, distinguish chosen specifications from supplier-confirmed dimensions and
+structural approval, and retain an explicit final-verification list. No new
+room measurements or offcut test are prerequisites to this selection work.
+
 Retain **2x8-foot100 as the comparison baseline**. Do not select deeper rims to
 solve an unidentified connection, material or floor-interface problem. Evaluate
 a separate side-tied base as a way to close spreading forces internally; it is
