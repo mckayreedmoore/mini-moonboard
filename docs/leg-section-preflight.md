@@ -68,3 +68,7 @@ both opposed section resultants with the independent subbody references and
 retain the original external equilibrium/energy checks. An eventual pass would
 qualify only the tested homogeneous section-recovery path—not fastener forces,
 ply sharing, contact interfaces, timber resistance or the full board.
+
+The [prospective native comparison protocol](leg-section-protocol.md) now records
+the load/output invariants, reference translation and component-wise numerical
+targets before any such native run. It is a plan, not acceptance evidence.
