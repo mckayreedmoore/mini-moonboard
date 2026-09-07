@@ -129,6 +129,12 @@ geometry checks; the final pass found no further substantial MVP findings.
 The wood-first inventory is 36 parts and 140 fasteners; the bracket inventory
 is 51 parts (including twelve connectors) and 206 fasteners.
 
+Publication verification for `07e0d9c` on 2026-09-07:
+[Pages deployment succeeded](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/34146701913).
+All 436 live index/manifest/STL files matched the committed SHA-256 values.
+All 13 commit-pinned plan/render/schedule/manifest/document files also matched.
+These publication checks establish correspondence, not structural validation.
+
 ## Review queue after this MVP
 
 1. Verify actual timber grade/species, plywood thickness/orientation and
@@ -142,3 +148,8 @@ is 51 parts (including twelve connectors) and 206 fasteners.
    strength, and the current checks do not model tool swept volumes.
 5. Obtain appropriate structural and IP review before treating either concept
    as approved plans; see [independent-design boundaries](wood-first-redesign.md).
+
+Separate software maintenance: the successful Pages run reports deprecated
+Node.js 20 action declarations being forced onto Node.js 24. Update and verify
+those action versions in a later workflow-maintenance change; it did not block
+this deployment.
