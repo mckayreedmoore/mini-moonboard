@@ -6,6 +6,10 @@ earlier rejected attempts below are preserved evidence, not the current
 stationary status. These tests do not establish bolt-product suitability,
 plywood joint capacity or permission to build/climb.
 
+The [selected coarse moving inputs](../fea/results/coarse_moving_control/README.md)
+are now published separately, including both full mass operators and the exact
+single-use launch preparation. This is an input archive, not a moving result.
+
 The first quiescent attempt, `quiescent-an9hdwot`, stopped during input parsing
 with native exit 201, before any accepted state or contact response. Its frozen
 deck, source, log and failed terminal record are preserved. The owned container
