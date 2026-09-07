@@ -14,6 +14,7 @@ remaining product-fit dispositions below are not finished.
 - [Purchased face stock and selected lumber](purchased-materials.md)
 - [Remaining plywood, hold, insert and wiring selections](remaining-material-hardware-closure.md)
 - [Selected bolts/nuts/washers](selected-bolt-hardware.md) and [wood screws](selected-wood-fasteners.md)
+- [Consolidated hardware-fit dispositions](hardware-fit-dispositions.md)
 
 The face uses purchased Roseburg 23/32 CAT plywood as a nominal 18.25625 mm
 assumption. The legs/splices use separately selected plywood: two nominal
@@ -28,6 +29,7 @@ strength-axis identification; do not infer it from a curved leg's outline.
 | Do modeled parts and hardware fit without unintended solid intersections? | The top-candidate nominal screen passes, with exactly 24 documented tool-access obstructions requiring installation order. It does not verify actual tools or manufacturing tolerances. |
 | Do the displayed holes and schedules match CAD? | All seven development variants passed export regressions; the current viewer includes 365 entries and all 278 connection bore paths were checked. |
 | Did the revised top bolts improve end distance? | Nominal minimum timber end distance is 70.4 mm. The extended steel leaf still needs bending/prying/fabrication review. |
+| Do curved leg/splice profiles have material around their project bores? | All 60 incident bore positions on eight independent profiles have positive geometric outline and neighboring-bore ligaments. The shortest center-to-outline distance is only 14.0671 mm at a kicker/splice bolt; this is an unresolved structural-detail concern, not an approved edge distance. |
 | Do screw tips remain inside the modeled final receivers? | The axial diagnostic finds all 164 nominal tips inside, with minimum axial cover 5.55625 mm. This excludes measured stock variation and is not a three-dimensional minimum cover. |
 | Is there material along the threaded tail? | Minimum nominal point-included axial overlap is 25.4 mm. Point geometry and full-circumference support are not verified, so effective threaded embedment remains unresolved. |
 | Do bolt ends project beyond nuts? | Minimum catalog-stack tip projection is 4.2362 mm, using nominal grips. Actual stock variation and complete chamfer-free thread engagement are not verified. |
@@ -42,6 +44,14 @@ The 17 focused axial-geometry/report tests pass; independent correctness,
 testing and architecture review found no substantial remaining implementation
 findings. That software review does not replace a qualified structural review.
 
+The [exact plywood profile report](top-joint-ply-profiles.json) uses actual
+curved boundaries and verifies that each end profile represents the full
+prismatic ply. Its minimum hole-to-outline ligament is 8.5108 mm; minimum
+hole-to-hole ligament is 12.4593 mm. It excludes countersinks/head seats and
+does not assign plywood grain or loaded edge/end classifications. Fourteen
+profile/report tests pass, with independent implementation review clean.
+Reproduce with `uv run python -m mini_moonboard.ply_profile_audit --output docs/top-joint-ply-profiles.json`.
+
 ## Assembly constraints—not an erection procedure
 
 Install the obstructed rib screws before skins and the obstructed edge screws
@@ -53,9 +63,11 @@ frame using the new-manufacture top-joint model.
 
 ## Remaining work, in priority order
 
-1. Finish the per-member net edge/ligament audit, including the curved plywood
-   legs and neighboring holes/reliefs. Record actual profile distances and
-   strength-axis uncertainty, not bounding-box substitutes or assumed capacity.
+1. Finish the boundary dispositions for the remaining wood/steel joints and
+   review the short kicker/splice margin above. The curved plywood profile
+   distances and neighboring-bore ligaments are now recorded; material/load
+   classification and head-seat effects remain unresolved. Do not treat a
+   positive ligament as adequate connection strength.
 2. Disposition US A21 proxy geometry, actual driver/head seating, steel fabrication,
    hold-specific bolt lengths/head seats, supplied insert-retainer screw geometry,
    and received LED connector/retention/access details. Exact unresolved items
