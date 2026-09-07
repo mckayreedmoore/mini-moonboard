@@ -15,6 +15,11 @@ the existing shaped legs and kicker remain. **Not build-ready:** these are
 inspection concepts, not structural approval.
 [Comparison, assembly guidance, STEP and metric/imperial workshop schedules](docs/square-cut-comparison.md).
 
+[Structural screening results](docs/square-cut-structural-review.md): both pass
+the selected rigid-body moment screen, but **B fails a block-bolt edge-distance
+screen and neither design is structurally qualified**. Small ideal-bonded FEA
+deflections do not approve the actual joints or unanchored use.
+
 The earlier [wood-first and bracket MVPs](docs/redesign-mvp.md) remain available
 for comparison, with their original geometry and evidence preserved.
 

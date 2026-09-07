@@ -116,6 +116,12 @@ For each key, inspect:
 
 ## Verification
 
+Subsequent [structural screening](square-cut-structural-review.md) found a
+loaded-edge-distance failure in B's block joints. Both candidates remain
+unqualified despite passing the selected moment screen and completing the
+ideal-bonded stiffness comparison. The frozen viewer/export descriptions reflect
+their earlier geometry-only publication; this review records the later analysis.
+
 On 2026-09-07, `uv run pytest tests/test_easy_frame.py -q` passed all 26 cases:
 preserved faces/grid/floor, full square-cut stock, connected bodies, actual
 receiver paths, body/hardware/service collisions, shorter front screw direction

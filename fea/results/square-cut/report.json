@@ -1,0 +1,468 @@
+{
+  "status": "SCREENING ONLY; NEITHER DESIGN QUALIFIED FOR CONSTRUCTION",
+  "publication_observed_image_id": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+  "audit_source_sha256": {
+    "fea/publish_easy_structural.py": "6fd614d8586bded600bac9056677fd4c6a1d2b7247e6d5f3564fe2b0ead81153",
+    "fea/solve_easy_frame.py": "d996504c1ba154aa6df373d9080327c57cfb6f620e1e8eed4909c42cc72c079f",
+    "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+    "fea/box_results.py": "dc5660f8d95560a6f7810060ba0f7471220ecc5f29146a2409131f6ec9124d89",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328"
+  },
+  "candidates": {
+    "square-cut-bracket": {
+      "meshes": {
+        "60": {
+          "nodes": 83599,
+          "min_jacobian": 1.2553218107971924,
+          "load_target_mapping": [
+            {
+              "target_mm": [
+                -1019.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24042,
+              "coordinates_mm": [
+                -1016.349029201,
+                1445.678029501,
+                1968.9448958282
+              ],
+              "distance_mm": 4.305692953572529
+            },
+            {
+              "target_mm": [
+                -619.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24087,
+              "coordinates_mm": [
+                -609.94902920117,
+                1445.678029501,
+                1968.9448958282
+              ],
+              "distance_mm": 9.797521014751618
+            },
+            {
+              "target_mm": [
+                -19.200000000000045,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24524,
+              "coordinates_mm": [
+                -20.193168640645,
+                1445.5078830148,
+                1968.742123142
+              ],
+              "distance_mm": 3.6298177329865835
+            },
+            {
+              "target_mm": [
+                380.79999999999995,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 28979,
+              "coordinates_mm": [
+                379.99380756115,
+                1448.1419622337,
+                1971.8812965143
+              ],
+              "distance_mm": 1.0089135700211145
+            },
+            {
+              "target_mm": [
+                980.8,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 30128,
+              "coordinates_mm": [
+                986.97142857147,
+                1445.8822814186,
+                1969.1883137847
+              ],
+              "distance_mm": 6.822601558427317
+            }
+          ],
+          "displacement_mm": {
+            "Downward 1.2 kN": 1.2403641893213608,
+            "Downward 2.4 kN": 2.4807284916779477,
+            "Downward + outward 0.3 kN": 1.6017289451021057,
+            "Downward + inward 0.3 kN": 0.8790632996298452,
+            "Outward/downward normal": 1.904686388663197,
+            "Inward/upward normal": 1.904686388663197
+          }
+        },
+        "40": {
+          "nodes": 153291,
+          "min_jacobian": 0.7377588878299869,
+          "load_target_mapping": [
+            {
+              "target_mm": [
+                -1019.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 44401,
+              "coordinates_mm": [
+                -1022.5548387094,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 5.972989523065134
+            },
+            {
+              "target_mm": [
+                -619.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 114303,
+              "coordinates_mm": [
+                -618.05203910509,
+                1440.5880770705,
+                1977.0797682899
+              ],
+              "distance_mm": 9.203890572049438
+            },
+            {
+              "target_mm": [
+                -19.200000000000045,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 42745,
+              "coordinates_mm": [
+                -17.029872348178,
+                1442.1286444929,
+                1964.7149034933
+              ],
+              "distance_mm": 9.013605400744753
+            },
+            {
+              "target_mm": [
+                380.79999999999995,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 52190,
+              "coordinates_mm": [
+                373.62580645184,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 8.711527658397102
+            },
+            {
+              "target_mm": [
+                980.8,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 54513,
+              "coordinates_mm": [
+                983.22580645167,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 5.505106540070018
+            }
+          ],
+          "displacement_mm": {
+            "Downward 1.2 kN": 1.2426137579233163,
+            "Downward 2.4 kN": 2.4852274784719617,
+            "Downward + outward 0.3 kN": 1.6055176739828254,
+            "Downward + inward 0.3 kN": 0.8797769796189282,
+            "Outward/downward normal": 1.910853169876246,
+            "Inward/upward normal": 1.910853169876246
+          }
+        }
+      },
+      "legacy_sagittal_normals": [
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "load_yz_mm": [
+            1447.7520489738586,
+            1971.4166159862878
+          ],
+          "force_yz_n": [
+            919.2533317427736,
+            -771.3451316238471
+          ],
+          "status": "UPLIFT",
+          "kicker_reaction_n": -171.48347476299978,
+          "leg_reaction_n": 2797.927607960133
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "load_yz_mm": [
+            1447.7520489738586,
+            1971.4166159862878
+          ],
+          "force_yz_n": [
+            -919.2533317427736,
+            771.3451316238471
+          ],
+          "status": "UPLIFT",
+          "kicker_reaction_n": 1963.837806153619,
+          "leg_reaction_n": -880.0839362041797
+        }
+      ],
+      "refinement_change_percent": {
+        "Downward 1.2 kN": 0.18136355606865884,
+        "Downward 2.4 kN": 0.18135748467058566,
+        "Downward + outward 0.3 kN": 0.2365399521751188,
+        "Downward + inward 0.3 kN": 0.08118641619818678,
+        "Outward/downward normal": 0.32376884980929166,
+        "Inward/upward normal": 0.32376884980929166
+      },
+      "artifact_sha256": {
+        "box_audited_40_7000.log.gz": "93835b3db89d6faf5778ca6fa1f572302108ac1df8a883ff50fbf869ef302583",
+        "box_audited_60_7000.dat.gz": "d667873a3ac95b07866bf5d0d9e4bcbac8fc1e3d1bcff019f7a9306956f0f1fd",
+        "box_audited_60_7000.context.json.gz": "ade6c1a1d6eea0b043deae2a7702ee7a4b1f720bd389e6fea6d65eb191af48c0",
+        "box_audited_40_7000.context.json.gz": "ca42be1db08c0a9b74386d4d594c0394b09342f4d6ba5c39336deb1ca9e26cde",
+        "box_audited_40_7000.dat.gz": "647b81a775bdad67fff10b62575a44e5c42ab7b8dbfc4cb036565c0c7ca98332",
+        "box_frame_bulk.json": "81f8abd363b71ba289228dd4b60d515826007a9e29e37a6fb8c97803810519e9",
+        "box_audited_40_7000.inp.gz": "a0d33af1805ad37ef6db085a940353f7214477b02db843d15bf43ad988a918d2",
+        "box_audited_60_7000.inp.gz": "17e5742afe5586b4d7d6d05dff1fea030e7ead6cc10a6c31b5991cfdd3c5cc6d",
+        "box_audited_40_7000.json.gz": "9f0227595c947de9ce478093045606454b00bbf8c10cd5a677c0e924d814100c",
+        "stability.json": "87e95689f4b6abe54661f4ed25f1f7f890fd7a684aed3349e58303a1226c40cf",
+        "box_audited_60_7000.json.gz": "344b451686f95917c401ddee21a07fd99c308fe6f970957beb12319607c490d9",
+        "box_audited_60_7000.log.gz": "c6aebbb49dc6ea9aa3594dcc397b09229b4c53e4729f5dce586c716eb3669856"
+      }
+    },
+    "square-cut-wood-blocks": {
+      "meshes": {
+        "60": {
+          "nodes": 84675,
+          "min_jacobian": 1.1842086498965299,
+          "load_target_mapping": [
+            {
+              "target_mm": [
+                -1019.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24345,
+              "coordinates_mm": [
+                -1016.349029201,
+                1445.678029501,
+                1968.9448958282
+              ],
+              "distance_mm": 4.305692953572529
+            },
+            {
+              "target_mm": [
+                -619.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24390,
+              "coordinates_mm": [
+                -609.94902920117,
+                1445.678029501,
+                1968.9448958282
+              ],
+              "distance_mm": 9.797521014751618
+            },
+            {
+              "target_mm": [
+                -19.200000000000045,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 24827,
+              "coordinates_mm": [
+                -20.193259082425,
+                1445.5078384947,
+                1968.742070085
+              ],
+              "distance_mm": 3.6299090977157267
+            },
+            {
+              "target_mm": [
+                380.79999999999995,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 29282,
+              "coordinates_mm": [
+                379.99380756115,
+                1448.1419622337,
+                1971.8812965143
+              ],
+              "distance_mm": 1.0089135700211145
+            },
+            {
+              "target_mm": [
+                980.8,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 30431,
+              "coordinates_mm": [
+                986.97142857147,
+                1445.8822814186,
+                1969.1883137847
+              ],
+              "distance_mm": 6.822601558427317
+            }
+          ],
+          "displacement_mm": {
+            "Downward 1.2 kN": 1.1727036420182173,
+            "Downward 2.4 kN": 2.3454072840364346,
+            "Downward + outward 0.3 kN": 1.5139353034728202,
+            "Downward + inward 0.3 kN": 0.8315392127625894,
+            "Outward/downward normal": 1.7995088418779381,
+            "Inward/upward normal": 1.7995088418779381
+          }
+        },
+        "40": {
+          "nodes": 154174,
+          "min_jacobian": 0.7133721129485407,
+          "load_target_mapping": [
+            {
+              "target_mm": [
+                -1019.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 44772,
+              "coordinates_mm": [
+                -1022.5548387094,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 5.972989523065134
+            },
+            {
+              "target_mm": [
+                -619.2,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 114899,
+              "coordinates_mm": [
+                -618.05203910509,
+                1440.5880770705,
+                1977.0797682899
+              ],
+              "distance_mm": 9.203890572049438
+            },
+            {
+              "target_mm": [
+                -19.200000000000045,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 43116,
+              "coordinates_mm": [
+                -17.02997052086,
+                1442.1286941432,
+                1964.7149626642
+              ],
+              "distance_mm": 9.013506794876212
+            },
+            {
+              "target_mm": [
+                380.79999999999995,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 52561,
+              "coordinates_mm": [
+                373.62580645184,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 8.711527658397102
+            },
+            {
+              "target_mm": [
+                980.8,
+                1447.7520489738586,
+                1971.4166159862878
+              ],
+              "node": 54884,
+              "coordinates_mm": [
+                983.22580645167,
+                1444.5755033553,
+                1967.6309563331
+              ],
+              "distance_mm": 5.505106540070018
+            }
+          ],
+          "displacement_mm": {
+            "Downward 1.2 kN": 1.174111062728472,
+            "Downward 2.4 kN": 2.3482216929167214,
+            "Downward + outward 0.3 kN": 1.5166546531218166,
+            "Downward + inward 0.3 kN": 0.8316380088937976,
+            "Outward/downward normal": 1.8044384735429102,
+            "Inward/upward normal": 1.8044384735429102
+          }
+        }
+      },
+      "legacy_sagittal_normals": [
+        {
+          "case": "Outward/downward normal",
+          "basis": "exploratory legacy direction",
+          "load_yz_mm": [
+            1447.7520489738586,
+            1971.4166159862878
+          ],
+          "force_yz_n": [
+            919.2533317427736,
+            -771.3451316238471
+          ],
+          "status": "UPLIFT",
+          "kicker_reaction_n": -168.08646572574253,
+          "leg_reaction_n": 2801.38652394632
+        },
+        {
+          "case": "Inward/upward normal",
+          "basis": "exploratory legacy direction",
+          "load_yz_mm": [
+            1447.7520489738586,
+            1971.4166159862878
+          ],
+          "force_yz_n": [
+            -919.2533317427736,
+            771.3451316238471
+          ],
+          "status": "UPLIFT",
+          "kicker_reaction_n": 1967.2348151908764,
+          "leg_reaction_n": -876.6250202179932
+        }
+      ],
+      "refinement_change_percent": {
+        "Downward 1.2 kN": 0.12001503703293892,
+        "Downward 2.4 kN": 0.11999659502393012,
+        "Downward + outward 0.3 kN": 0.17962125876571644,
+        "Downward + inward 0.3 kN": 0.011881115128664632,
+        "Outward/downward normal": 0.27394317550712977,
+        "Inward/upward normal": 0.27394317550712977
+      },
+      "artifact_sha256": {
+        "box_audited_40_7000.log.gz": "8ad560b68eb8d5ea4e7a3b77a2cf1ad90eab2b060be0f0f5b6eedd9156053f43",
+        "box_audited_60_7000.dat.gz": "387e4b5e762ea6ecdaf500e070c4d1c1ccd0045931b74ff88cac4897f3f62fef",
+        "box_audited_60_7000.context.json.gz": "cc0278460bc115740b4dd811932ec86e0604a96856e64e350818c694edf4cf92",
+        "box_audited_40_7000.context.json.gz": "c24c95d045937d2919a95f600fff5ca68a93fa85e72535fbbb7c2760796e0d6f",
+        "box_audited_40_7000.dat.gz": "655cc4b0c8c3154d3e78ce347133b71d9baf7126cab18835f71afa61b1664ba0",
+        "box_frame_bulk.json": "988c9d380b3ddcbe09a4b1b11907697753d8ddfdc7d9f96d47511bb0405ff1c9",
+        "box_audited_40_7000.inp.gz": "018cb450b734f3c9773d1455f9594824987f65265cd018e2a1ae2adfb510eb8a",
+        "box_audited_60_7000.inp.gz": "2478a95274a446e22c67f72b117507b6e8268a3773547f661d7c33a21938c524",
+        "box_audited_40_7000.json.gz": "be71721f562bab2d527e6f42c62b717aab2e022d0cab072d09c58056d70eb9cc",
+        "stability.json": "0d1c9400c7b303d0356bc26364a91be86343a72aa85724a483ede22db3260c4c",
+        "box_audited_60_7000.json.gz": "e7cd5401b7b4b523d18aaf606ce98270d2ba887373240df7d4bafbab54ad3913",
+        "box_audited_60_7000.log.gz": "bbadb2185e0b91a884929b6324bca84b464436cc16720f5143b68061633b2588"
+      }
+    }
+  }
+}

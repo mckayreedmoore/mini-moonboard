@@ -96,6 +96,8 @@ def test_square_cut_repeated_cases_replace_loads(witness):
     deck_geometry(result, normalized)
     assert result.count("*CLOAD,OP=NEW") == 2
     assert "5000,0.3" in result
+
+
 def test_target_mapping_rejects_distant_or_duplicate_targets():
     from fea.solve_easy_frame import target_mapping
 
@@ -107,3 +109,66 @@ def test_target_mapping_rejects_distant_or_duplicate_targets():
     with pytest.raises(ValueError, match="duplicate"):
         target_mapping(nodes, [points[0]]*5, 40)
 
+
+def test_current_block_joint_is_rejected_by_loaded_edge_screen():
+    from mini_moonboard import easy_blocks
+
+    joints = {c.name: c for c in easy_blocks.connections()}
+    checked = 0
+    for name, origin, _, v, _, _ in easy_blocks.block_layout():
+        for index in (1, 2):
+            bolt = joints[f"{name}_upright_{index}"]
+            along_s = (bolt.start-origin).dot(v)
+            distance = min(along_s, easy_blocks.BLOCK_S_MM-along_s)
+            assert distance == pytest.approx(19.05)
+            assert 4*bolt.diameter == pytest.approx(38.1)
+            assert distance < 4*bolt.diameter
+            checked += 1
+    assert checked == 24  # Passing this test means the design defect is retained, not safe.
+
+
+@pytest.mark.parametrize("key", ["square-cut-bracket", "square-cut-wood-blocks"])
+def test_published_structural_evidence_replays(key):
+    import gzip
+    import hashlib
+    import json
+    from pathlib import Path
+
+    directory = Path("fea/results/square-cut")
+    report = json.loads((directory/"report.json").read_text())
+    candidate = report["candidates"][key]
+    for name, expected in candidate["artifact_sha256"].items():
+        assert hashlib.sha256((directory/key/name).read_bytes()).hexdigest() == expected
+    for size in (60, 40):
+        prefix = directory/key/f"box_audited_{size}_7000"
+
+        def read(extension, prefix=prefix):
+            return gzip.decompress(prefix.with_suffix(extension+".gz").read_bytes()).decode()
+
+        saved = json.loads(read(".json"))
+        context = json.loads(read(".context.json"))
+        text = read(".inp")
+        prepared = directory/key/"box_frame_bulk.json"
+        assert saved["candidate"] == context["candidate"] == key
+        assert saved["mesh_size_mm"] == context["size_mm"] == size
+        assert saved["modulus_mpa"] == context["modulus_mpa"] == 7000
+        assert saved["source_sha256"] == context["source_sha256"]
+        assert saved["frozen_geometry"] == json.loads(prepared.read_text())
+        assert hashlib.sha256(prepared.read_bytes()).hexdigest() == context["input_sha256"]
+        assert hashlib.sha256(text.encode()).hexdigest() == context["deck_sha256"]
+        info = saved["frozen_geometry"]
+        cases = [(c["name"], tuple(v/1200 for v in c["force_n"])) for c in info["audited_cases"]]
+        nodes, feet, top = deck_geometry(text, cases)
+        from fea.solve_easy_frame import target_mapping
+
+        mapping = target_mapping(nodes, info["audited_load_targets_mm"], size)
+        assert top == sorted(r["node"] for r in mapping) == context["load_nodes"] == saved["load_nodes"]
+        mesh_text = text.split("\n", 1)[1].split("*NSET,NSET=FEET")[0][:-1]
+        reconstructed = make_deck(mesh_text, feet, top, info["audited_cases"], 7000)
+        assert reconstructed.split("\n", 1)[1] == text.split("\n", 1)[1]
+        result = audit(text, read(".dat"), info)
+        assert all(result[k] == saved[k] for k in result)
+        assert result["max_top_displacement_mm"] == candidate["meshes"][str(size)]["displacement_mm"]
+    stability = json.loads((directory/key/"stability.json").read_text())
+    assert len(stability["cases"]) == 96
+    assert {c["climber_lb"] for c in stability["cases"]} == {150, 200, 250, 300}
