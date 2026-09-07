@@ -39,7 +39,7 @@ The climbing faces, official hold/LED layout, box-frame datum and plywood leg
 profiles remain. Four nominal 4×6 uprights have actual 88.9 × 139.7 mm
 (3½ × 5½ in) sections. The central pair remain full-length; the outer pair have
 square lower ends above the retained kicker-splice profiles. Six beam spans are
-identical 984.1 mm (38¾ in) long 4×6 blanks. This increases timber bulk and handling
+identical 984.1 mm (38.744 in) long 4×6 blanks. This increases timber bulk and handling
 weight compared with the former narrow 2×6 frame; equal section depth does not
 mean equal weight or identical structural behavior.
 
@@ -114,6 +114,68 @@ Bolt holes allow clearance and therefore initial movement; tightening is not
 permission to crush the wood or assume a friction joint. No installation
 torque is assigned here. Future reinspection must allow access to hidden
 connections, normally by removing the climbing panels.
+
+## Inspection files
+
+| Candidate | Inspect and download |
+| --- | --- |
+| A: purchased clips | [3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-clip-frame) · [STEP](../exports/bolted-clip-frame/bolted-clip-frame.step) · [parts](../exports/bolted-clip-frame/bolted-clip-frame_parts.csv) · [hardware connections](../exports/bolted-clip-frame/bolted-clip-frame_connections.csv) · [grouped blanks](../exports/bolted-clip-frame/bolted-clip-frame_blank_groups.csv) · [hole entries](../exports/bolted-clip-frame/bolted-clip-frame_hole_entries.csv) |
+| B: wood blocks | [3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-block-frame) · [STEP](../exports/bolted-block-frame/bolted-block-frame.step) · [parts](../exports/bolted-block-frame/bolted-block-frame_parts.csv) · [hardware connections](../exports/bolted-block-frame/bolted-block-frame_connections.csv) · [grouped blanks](../exports/bolted-block-frame/bolted-block-frame_blank_groups.csv) · [hole entries](../exports/bolted-block-frame/bolted-block-frame_hole_entries.csv) |
+
+Schedules include metric and imperial dimensions. Hole entries refer to raw
+member surfaces in board-local X/S/N coordinates, not the recessed bolt-head
+plane. They are inspection records, not approved machining templates.
+
+## Current checks and practical cost
+
+The [source-bound screening record](../fea/results/bolted-frame/report.json)
+uses the current drilled geometry, assumed wood density of 600 kg/m³ and clip
+proxy density of 7,850 kg/m³. Fasteners, holds, LEDs and glue are omitted.
+
+| Candidate | Included mass | Minimum edge-moment factor, 250 lb climber | Minimum factor, 300 lb sensitivity |
+| --- | ---: | ---: | ---: |
+| A: clips | 280.7 kg / 619 lb | 2.870 | 2.821 |
+| B: blocks | 286.0 kg / 631 lb | 2.925 | 2.876 |
+
+All 192 selected cases meet the illustrative 1.5 moment target. These include
+150/200/250/300 lb climbers, 1×/2× downward gravity, 0/300 N horizontal forces
+over all azimuths, 0/50/100 mm hold standoff and 80%/100% included mass.
+They do **not** resolve joint strength, uneven floor contact, yaw/sliding,
+dynamic response or the earlier opposite-normal/upward load questions.
+
+**These are heavy designs, not easy-to-lift designs.** A's included mass rises
+from the predecessor's approximately 189 kg to 281 kg. The wider receiver
+approach reduces joint-layout difficulties at a substantial material and handling
+cost. Assemble in manageable stages with a separately reviewed erection plan;
+do not plan to lift a completed frame alone. A is preferred between these two
+for fewer long-hole and block-bolt operations, not as a weight-optimized answer.
+
+The 4×6 gross section has 2.33× the area and out-of-plane second moment of area
+of the former 2×6 section at equal depth; its in-plane second moment is 12.70×.
+Those are geometric, equal-modulus ratios—not whole-frame stiffness or capacity
+ratios. No new bonded FEA is presented as proof of these changed joints.
+
+Verification: 56 focused CAD, export, screen and historical-evidence tests pass.
+They cover body/hardware intersections, receiver engagement and edge/end
+distances, paired block-bolt spacing, assumed front socket access, official
+service geometry, STEP solids, STL bounds/volume, raw-surface hole entries,
+metric/imperial schedules and source hashes. Independent correctness, testing
+and dataflow review passes found and corrected raw hole-entry coordinates and
+missing receiver, spacing and viewer-volume regression checks. Actual hardware
+tool sweeps and structural qualification remain outside those passes.
+The local browser check loaded all 259 A and 223 B selectable meshes, selected
+a rear upright, displayed metric/imperial dimensions and reported no page or
+request errors. Front and selection screenshots were visually inspected.
+
+Reproduce the focused checks with:
+
+```sh
+uv run pytest tests/test_bolted_frame.py tests/test_bolted_exports.py tests/test_bolted_screen.py tests/test_easy_structural.py
+```
+
+`uv run python -m fea.bolted_screen` regenerates the screen only in a fresh
+checkout without the published report; it deliberately refuses to overwrite
+existing evidence. The report records its source and export-manifest hashes.
 
 ## Remaining qualification gates
 

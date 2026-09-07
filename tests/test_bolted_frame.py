@@ -227,3 +227,10 @@ def test_block_bolts_have_actual_two_member_edge_margins(candidate):
         # Exact nominal clearance remains a smaller quarter-inch-family bore,
         # independently of the reused 3/8-inch common frame connections.
         assert frame.BOLT_CLEARANCE_MM == pytest.approx(7.14375)
+    for block in blocks:
+        pair = [c for c in bolts if c.name.startswith(block.name+"_upright_")]
+        assert len(pair) == 2
+        separation = pair[1].start-pair[0].start
+        assert separation.dot(axes[1]) == pytest.approx(0., abs=1e-6)
+        assert abs(separation.dot(axes[2])) >= 4*pair[0].diameter
+        assert abs(separation.dot(axes[2])) == pytest.approx(40.)

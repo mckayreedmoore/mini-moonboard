@@ -7,7 +7,15 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current easier-build comparison: no fitted framing housings or custom steel.**
+**Current redesign: wider framing and recessed through-bolts.**
+Inspect [A: purchased clips](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-clip-frame)
+and [B: bolted wood blocks](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-block-frame).
+These address the predecessor's short backing-screw engagement and block-edge
+geometry. They trade heavier framing and additional drilling for more direct,
+inspectable connections. **Not build-ready or structurally qualified.**
+[Comparison, hardware, cutting and assembly guidance](docs/bolted-redesign.md).
+
+**Preserved earlier square-cut comparison:**
 Inspect [A: square-cut purchased connectors](https://mckayreedmoore.github.io/mini-moonboard/?model=square-cut-bracket)
 and [B: square-cut bolted wood blocks](https://mckayreedmoore.github.io/mini-moonboard/?model=square-cut-wood-blocks).
 Both use eight repeated infills and shorter front-installed backing screws;

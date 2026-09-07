@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const models = process.argv.slice(3);
 if (!models.length) models.push('wood-first-mvp', 'commercial-bracket-mvp');
 assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
-  'square-cut-bracket', 'square-cut-wood-blocks'].includes(model)));
+  'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame'].includes(model)));
 
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
