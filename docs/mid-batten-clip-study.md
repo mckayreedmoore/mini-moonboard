@@ -41,7 +41,7 @@ lists nominal 50×38×35×1.2 mm and two 3.75×30 mm nails per member. The separ
 lists four #9×1½-inch SD Connector screws for A21. **Regional product/dimensional
 equivalence and installation suitability are not established.**
 
-## Clearance calculation and next inspection
+## Clearance calculation
 
 For the proposed mounting, timber touches model outer planes Y=0/Z=0:
 outward reach is **39.2684**, not nominal 38. Batten faces X=−563.65/+636.35
@@ -51,11 +51,43 @@ For 20 mm relief radius plus a declared **2 mm geometric screen allowance**,
 required +X shift is `sqrt(22² − ΔS²) − 16.2816`:
 **3.837793629 / 3.770768937 mm**. Common **+3.9 mm** passes this model-only
 calculation, not a manufacturing-tolerance design. A rounded +5 mm alternative
-could be inspected but is not selected.
+is inspected below but is not a selected manufacturing design.
 
-Next inspect all eight exact solids, opposite-S rotations, fasteners, tools,
-reliefs, edge/end distances and installation sequence. Move attached ribs,
-angles, rib screws and corresponding receiving holes with each batten; recheck
-panel-screw engagement and every neighbouring connection. Keep the MoonBoard
-hold grid fixed. Rebuild affected stock without abandoned bores. No CAD change
-or completed fit test is recorded here.
+## Separate +5 mm CAD inspection
+
+[`clip_frame.py`](../mini_moonboard/clip_frame.py) now provides the separate
+`mid-batten-clip-development` model; the existing baseline is unchanged.
+Four mid-battens, six attached ribs and six rear angles move +5 mm in CAD X,
+along with 30 dependent connection axes. The 64 panel and 16 kicker screw axes and
+MoonBoard hole grid stay fixed. Affected receivers are rebuilt from undrilled
+stock, removing the eight former end-grain screw bores and relocating dependent
+bores. Eight clips and 32 provisional fasteners replace eight screws:
+250 connections total.
+
+Seven actual-CAD tests pass:
+
+```sh
+uv run pytest -q tests/test_clip_frame.py
+```
+
+They check the eight outlined/perforated clips, opposite-S orientations,
+body/head/hardware collisions, shaft receivers, old-bore removal, existing
+socket/LED/wiring envelopes and all 32 provisional straight-driver approaches.
+Minimum clip-to-relief clearance is **3.06765 mm**, exceeding the unchanged
+2 mm geometric screen. This is nominal CAD clearance, not tolerance approval.
+The tests use board-local enclosing bounds before nearby solid-distance checks:
+the CAD kernel returned a false zero distance for a remote, nonintersecting pair
+whose S intervals were over 800 mm apart.
+
+**The new fasteners are unselected screw-envelope explorations, not the UK
+product's specified nails.** Each models a Ø3.75×30 mm shaft, Ø10×3 mm pan head
+and Ø10×25 mm straight driver approach. These dimensions do not establish an
+available or approved screw, a nail-driving clearance, or US/UK equivalence.
+No purchasing schedule, manufacturer spacing compliance, bend/tolerance fit,
+installation-sequence approval or joint capacity follows from these tests.
+
+The variant is not yet registered/exported in the online viewer and no FEA has
+been run on it. Next: resolve a compatible connector/fastener installation,
+publish the separately labeled viewer variant, then qualify its joint demands
+without adhesive/composite-action credit or replacing the original failed FEA
+evidence.
