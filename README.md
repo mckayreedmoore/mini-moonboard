@@ -44,6 +44,12 @@ all 96 downward/horizontal cases and both adverse normal-force uplift cases.
 The [completed baseline contact-observer audit](docs/mortar-frame-observer.md)
 retains its rejected qualification; neither report approves the new joints.
 
+The latest [local hardware diagnostic](docs/moving-hardware-diagnostic.md) found
+no additional momentum/mass/kinetic-energy threshold failures in the saved
+200-step run. The original contact audit remains failed, and a
+[native reader probe](docs/contact-energy-output-investigation.md) reproduced
+the contact-energy output-indexing concern. Neither result qualifies the frame.
+
 The eventual design target is an indoor, freestanding plywood A-frame inspired
 by the reference photo and Moon Climbing video. The climbing panels will be
 fabricated from birch plywood rather than purchased pre-drilled.

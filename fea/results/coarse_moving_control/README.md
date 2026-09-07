@@ -48,10 +48,14 @@ but printed using the compact contact-element index. Sparse activation can
 therefore produce missing or misassigned CELS values; the two individual rows'
 hidden indices are not exposed in DAT. Printed contact energy remains unqualified.
 
-Next: a separately labeled **fail-only momentum/kinetic-energy diagnostic**,
-and a tiny sparse-contact output check before relying on contact energy or
-preregistering any acceptance change. No automatic refinement, solver rerun or
-frame alteration follows from this result.
+The subsequent [native reader probe](../../../docs/contact-energy-output-investigation.md#executed-native-reader-probe)
+reproduced compact-slot reading with controlled inputs. A separate
+[fail-only momentum/kinetic-energy replay](../../../docs/moving-hardware-diagnostic.md)
+completed all 200 states plus t0 without additional threshold violations;
+[its evidence](fail-only-diagnostic.tar.gz) preserves the original failed status.
+Neither result qualifies contact energy, unilateral contact, refinement or the
+frame. Next: writer-to-reader integration and contact-behavior qualification;
+no automatic refinement, solver rerun or frame alteration follows.
 
 First-audit archive SHA256:
 `3c1ca9a3a281a928cf2194e0e15d9102ba657b8f1af693e4f62e745f2b8b4e66`

@@ -15,6 +15,10 @@ completion. The audit's clamped-pressure assumption and the native signed
 spring law must be distinguished in a fail-only diagnostic before considering
 any acceptance change. A separate [contact-energy indexing investigation](contact-energy-output-investigation.md)
 also prevents treating the printed CELS values as qualified contact energy.
+The subsequent [fail-only replay](moving-hardware-diagnostic.md) completed all
+200 states plus t0 without additional momentum/mass/kinetic-energy threshold
+violations. It deliberately leaves contact/resultant and total-energy checks
+unqualified and does not replace the original failed audit.
 Proposal/protocol headings below retain their prelaunch wording; the status
 above and the linked outcome describe the completed first attempt.
 
