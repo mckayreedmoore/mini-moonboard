@@ -7,12 +7,17 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-[Inspect the revised top-joint candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development):
-purchased 23/32 CAT face stock, selected frame hardware and revised top-rim bolt
-end distances. **Not build-ready:** extended steel leaf strength, head seats,
-clip fit and structural qualification remain open.
-[Changes, CAD and metric/imperial schedules](docs/top-joint-development.md).
-[Current recommendation, evidence and remaining checks](docs/candidate-review-packet.md).
+**Current redesign: no owner-fabricated steel.** Compare the
+[wood-first MVP](https://mckayreedmoore.github.io/mini-moonboard/?model=wood-first-mvp)
+with the [commercial-bracket MVP](https://mckayreedmoore.github.io/mini-moonboard/?model=commercial-bracket-mvp).
+Both include purchased face stock, independent two-ply legs, revised backing
+and kicker connections. **Not build-ready:** these are inspectable design
+concepts, not structural approval.
+[Comparison, assembly concepts, STEP and metric/imperial schedules](docs/redesign-mvp.md).
+
+The [earlier custom-steel top-joint candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development)
+and its [audit packet](docs/candidate-review-packet.md) remain historical evidence,
+not the recommended fabrication route under the no-custom-steel constraint.
 The [selected-product predecessor](https://mckayreedmoore.github.io/mini-moonboard/?model=selected-hardware-development)
 and its [geometry/access audit](docs/product-frame-integration.md) remain available.
 · [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
