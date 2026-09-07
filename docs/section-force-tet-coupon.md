@@ -6,6 +6,11 @@ test. It does not qualify the frame's curved quadratic elements (previously
 measured maximum midside deviation 3.158 mm), material interfaces, contact,
 fasteners, or allowable loads. No frame design recommendation changes here.
 
+The separate [actual-leg cut preflight](leg-section-preflight.md) now identifies
+curved conforming cuts and independent external-load references on both saved
+leg meshes. It adds no native section observations and does not close this
+curved-element qualification gap.
+
 ## Setup and measured results
 
 A 10 × 10 × 100 mm beam, E = 7000 MPa and Poisson ratio 0, is clamped at every
