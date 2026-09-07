@@ -36,6 +36,12 @@ CLIP_DESIGN = {
     "status": "PROVISIONAL — clip-envelope inspection; candidate FEA not run",
     "description": "Eight clip outlines replace the mid-batten end screws; dependent battens/ribs/angles move 5 mm. Separate leg plies and fixed MoonBoard holes retained. Clip screws are UNSELECTED envelopes, not the UK-specified nails or an approved US substitution. Product fit, installation and resistance unresolved.",
 }
+TRANSITION_DESIGN = {
+    "key": "lower-transition-development",
+    "baseline": CLIP_DESIGN["key"],
+    "status": "PROVISIONAL — perimeter replacement-route inspection; candidate FEA not run",
+    "description": "Ten custom steel angles and 40 unselected fasteners replace twelve perimeter/kicker end screws. Additive splice profiles are split into independent plywood plies. No glue/friction credit; products, installation and resistance unresolved. Top nominal washer/socket margins are only 0.5/0.9 mm, not approved tolerances.",
+}
 
 
 def export(directory=None, viewer=Path("site"), *, variant=KEY):
@@ -50,6 +56,9 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     elif variant == CLIP_DESIGN["key"]:
         from . import clip_frame
         model, design = clip_frame, CLIP_DESIGN
+    elif variant == TRANSITION_DESIGN["key"]:
+        from . import transition_frame
+        model, design = transition_frame, TRANSITION_DESIGN
     else:
         raise ValueError("Unknown development variant")
     directory = Path(directory) if directory is not None else Path("exports")/variant
@@ -69,7 +78,7 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
     for name, shape, dims, description, kind in entries:
         assembly.add(shape, name=name)
         color = ((210, 65, 65) if kind == "bolt" else (41, 182, 214) if kind == "screw"
-                 else (120, 135, 145) if name.startswith(("angle_", "clip_"))
+                 else (120, 135, 145) if name.startswith(("angle_", "clip_", "transition_"))
                  else (40, 46, 51) if name.startswith("main_") else (157, 90, 36))
         solids.append((shape, color))
         path = models/f"{name}.stl"
@@ -100,12 +109,14 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
                "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
                "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
                "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
-    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]):
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
         sources.append(Path("mini_moonboard/independent_leg_frame.py"))
-    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"]):
+    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
         sources.append(Path("mini_moonboard/spacing_frame.py"))
-    if variant == CLIP_DESIGN["key"]:
+    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]):
         sources.append(Path("mini_moonboard/clip_frame.py"))
+    if variant == TRANSITION_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/transition_frame.py"))
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
                 "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
@@ -115,5 +126,5 @@ def export(directory=None, viewer=Path("site"), *, variant=KEY):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]), default=KEY)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]), default=KEY)
     export(variant=parser.parse_args().variant)

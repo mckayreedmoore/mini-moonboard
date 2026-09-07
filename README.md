@@ -44,6 +44,13 @@ replaces eight end screws with eight clip outlines and 32 **unselected** fastene
 envelopes. [Inspection results, STEP and metric/imperial schedules](docs/mid-batten-clip-study.md#viewer-and-inspection-artifacts)
 are available; this is not a catalog-approved connection or an FEA-qualified design.
 
+The separate [perimeter-transition variation](https://mckayreedmoore.github.io/mini-moonboard/?model=lower-transition-development)
+replaces twelve more end screws with ten custom angles and 40 **unselected**
+fasteners. [Changes, inspection exports and tight-clearance limits](docs/transition-development.md)
+remain explicit; the previous designs are preserved and this variation is not build-ready.
+Two [native leg-section runs](docs/leg-section-response.md) completed but failed
+section-force recovery checks; this is not a physical board failure or new-candidate FEA.
+
 The [updated candidate moment screen](docs/candidate-stability-screen.md) retains
 all 96 downward/horizontal cases and both adverse normal-force uplift cases.
 The [completed baseline contact-observer audit](docs/mortar-frame-observer.md)

@@ -10,13 +10,20 @@ import cadquery as cq
 import numpy as np
 import pytest
 
-from mini_moonboard import clip_frame, independent_leg_frame, joint_frame, spacing_frame
+from mini_moonboard import (
+    clip_frame,
+    independent_leg_frame,
+    joint_frame,
+    spacing_frame,
+    transition_frame,
+)
 from mini_moonboard.box_exports import exact_bounds
 from mini_moonboard.joint_exports import (
     CLIP_DESIGN,
     DESIGN,
     INDEPENDENT_DESIGN,
     SPACING_DESIGN,
+    TRANSITION_DESIGN,
 )
 
 
@@ -52,7 +59,8 @@ def test_bore_segment_detects_filled_cap_without_hitting_beyond_pilot():
     (independent_leg_frame, INDEPENDENT_DESIGN, "joint-development"),
     (spacing_frame, SPACING_DESIGN, "independent-leg-development"),
     (clip_frame, CLIP_DESIGN, "screw-spacing-development"),
-], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"]])
+    (transition_frame, TRANSITION_DESIGN, "mid-batten-clip-development"),
+], ids=[DESIGN["key"], INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"]])
 def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseline):
     key = design["key"]
     directory = Path("exports")/key
@@ -65,10 +73,12 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         "hybrid", "box_frame", "model", "panel_grid", "box_exports", "export", "raster")}
     if model is not joint_frame:
         sources.add("mini_moonboard/independent_leg_frame.py")
-    if model in (spacing_frame, clip_frame):
+    if model in (spacing_frame, clip_frame, transition_frame):
         sources.add("mini_moonboard/spacing_frame.py")
-    if model is clip_frame:
+    if model in (clip_frame, transition_frame):
         sources.add("mini_moonboard/clip_frame.py")
+    if model is transition_frame:
+        sources.add("mini_moonboard/transition_frame.py")
     assert set(manifest["sources"]) == sources
     assert set(manifest["artifacts"]) == {key+suffix for suffix in (
         ".step", "_front.png", "_rear.png", "_parts.csv", "_connections.csv")}
@@ -84,8 +94,9 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
     assert len(viewer["parts"]) == len(expected)
     assert set(manifest["viewer_artifacts"]) == {str(Path("hybrid")/key/"parts.json")} | {p["path"] for p in viewer["parts"]}
     bore_connections = [c for c in connections if c.name.startswith("leg_stitch_")
-                        or ("_seam_" in c.name and c.name.startswith(("rib_", "angle_rib_")))]
-    assert len(bore_connections) == (30 if model is joint_frame else 36)
+                        or ("_seam_" in c.name and c.name.startswith(("rib_", "angle_rib_")))
+                        or (model is transition_frame and c.name.startswith("transition_"))]
+    assert len(bore_connections) == (30 if model is joint_frame else 76 if model is transition_frame else 36)
     bore_members = {name for c in bore_connections for name in c.members}
     meshes = {}
     for item in viewer["parts"]:
@@ -152,7 +163,8 @@ def test_joint_candidate_viewer_and_exports_match_geometry(model, design, baseli
         if product:
             item = next(p for p in viewer["parts"] if p["name"] == "fastener_"+connection.name)
             assert product in item["fabrication"]["description"]
-            assert "UNSELECTED" in product and "nails" in product
+            assert "UNSELECTED" in product
+            assert ("not a rated A21" if connection.name.startswith("transition_") else "nails") in product
         if model is not joint_frame and connection.name.startswith("analysis_leg_wall_bolt_"):
             assert len(row["members"].split(" + ")) == 3
         assert [float(row[f"{axis}_mm"]) for axis in "xyz"] == pytest.approx(connection.start.toTuple())

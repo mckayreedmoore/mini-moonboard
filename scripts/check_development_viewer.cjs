@@ -3,7 +3,7 @@
 const { chromium } = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const model = process.argv[3] || 'independent-leg-development';
-assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development'].includes(model));
+assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development'].includes(model));
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
   const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
@@ -31,7 +31,8 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
   assert.match(details, /PROVISIONAL/);
   assert.match(details, /candidate FEA not run/);
   assert.match(details, model === 'independent-leg-development' ?
-    /No adhesive, interface-friction or external-bracing credit/ : model === 'mid-batten-clip-development' ?
+    /No adhesive, interface-friction or external-bracing credit/ : model === 'lower-transition-development' ?
+    /Ten custom steel angles and 40 unselected fasteners/ : model === 'mid-batten-clip-development' ?
     /Clip screws are UNSELECTED envelopes/ : /Mixed-product spacing approval, head seating, materials and resistance unresolved/);
   const plies = manifest.parts.filter(p => /^leg_(left|right)_(inner|outer)$/.test(p.name));
   const stitches = manifest.parts.filter(p => p.name.startsWith('fastener_leg_stitch_'));
@@ -81,7 +82,7 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
     assert.match(await page.locator('#part').innerText(), /capacity unvalidated/);
   }
   await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-stitch.png'});
-  if (model === 'mid-batten-clip-development') {
+  if (['mid-batten-clip-development', 'lower-transition-development'].includes(model)) {
     assert.equal(manifest.parts.filter(p => p.name.startsWith('clip_')).length, 8);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_clip_')).length, 32);
     assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_mid_end_')).length, 0);
@@ -107,6 +108,35 @@ assert.ok(['independent-leg-development', 'screw-spacing-development', 'mid-batt
       clicked.push(name);
     }
     await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-clips.png'});
+  }
+  if (model === 'lower-transition-development') {
+    assert.equal(manifest.parts.length, 365);
+    assert.equal(manifest.parts.filter(p => p.name.startsWith('transition_')).length, 10);
+    assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_transition_')).length, 40);
+    assert.equal(manifest.parts.filter(p => /^fastener_analysis_(batten|kicker)_end_/.test(p.name)).length, 0);
+    assert.equal(manifest.parts.filter(p => /^cheek_splice_(left|right)_(inner|outer)$/.test(p.name)).length, 4);
+    for (const [name,x,s,n,side] of [
+      ['transition_main_angle_left', -1140, 45, 44.1, false],
+      ['fastener_transition_main_left_bolt_1', -1167.9, 25, 110, true],
+    ]) {
+      await page.evaluate(({x,s,n,side}) => {
+        const a = 40*Math.PI/180, {camera,controls} = window.cadTest;
+        const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
+        const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
+        camera.position.set(-x-(side?600:0), y-(side?0:800*Math.cos(a)), z+(side?0:800*Math.sin(a)));
+        // Keep the actual pointer target below/right of the expanded status header.
+        camera.setViewOffset(1440,1000,-380,-300,1440,1000);
+        controls.target.set(-x,y,z); controls.update();
+      }, {x,s,n,side});
+      await page.waitForTimeout(150);
+      await page.mouse.click(1100,800);
+      const text = await page.locator('#part').innerText();
+      assert.ok(text.startsWith(name+':'), name+' got '+text);
+      assert.match(text, /UNSELECTED/);
+      assert.match(text, /NOT structural approval/);
+      clicked.push(name);
+      await page.screenshot({path:'/tmp/mini-moonboard-'+model+'-'+(side?'bolt':'angle')+'.png'});
+    }
   }
   await page.goto('http://127.0.0.1:8766/');
   await page.waitForSelector('#model');
