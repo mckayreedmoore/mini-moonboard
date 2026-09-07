@@ -71,5 +71,6 @@ uv run pytest -q tests/test_leg_section_geometry.py tests/test_leg_section_geome
 The first suite uses analytic synthetic geometry; the publication suite checks
 retained provenance and recomputes gates from reported derived integrals.
 Neither reruns Gmsh or independently reconstructs the complete integration.
-Next qualify native section resultants against the separately established
-external-load references; these geometry checks alone do not qualify that path.
+The subsequent [native section comparison](leg-section-response.md) failed
+against the separately established external-load references. These passing
+geometry checks alone do not qualify that recovery path.

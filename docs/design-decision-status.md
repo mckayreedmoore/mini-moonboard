@@ -18,6 +18,30 @@ solve an unidentified connection, material or floor-interface problem. Evaluate
 a separate side-tied base as a way to close spreading forces internally; it is
 not yet a selected design or a substitute for global sliding/tipping checks.
 
+### Latest bounded completion path
+
+Finish the complete backing-junction layout before another lumber-size sweep.
+The [curved-leg geometry evidence](leg-section-geometry.md) now passes its
+declared boundary/volume arithmetic checks on both archived meshes. The
+[native section comparison](leg-section-response.md) completed both runs but
+rejected the recovered forces, while preserving passing fixture checks.
+These section values must not be used for member or joint sizing. This does
+not establish a physical failure or justify deeper lumber.
+
+**2×6 remains an untested possible reduction, not an approved substitute.**
+Only compare it after fixing the joint layout, with the same material, loads,
+restraints and checks as 2×8. Include displaced shape and joint/fastener fit,
+not just peak displacement. A shallower member that obstructs bolts or lacks
+permitted edge distances is not an equivalent construction comparison.
+
+The immediate handoff should contain one inspectable complete candidate,
+retained numerical results (including failures), and a concise product/material
+closure list. Do not turn unresolved contact output into endless solver changes
+or select larger lumber to conceal an unqualified joint. Actual rated stock,
+connection products and floor assumptions are still required for a defensible
+capacity conclusion; no additional room measurements or offcut test are being
+requested here.
+
 | Decision requirement | Current evidence | Work still required |
 | --- | --- | --- |
 | Preserve and compare the original candidates | [Physical footprint and matched stiffness studies](physical-footprint-results.md) retain earlier results | Keep alternative geometry/results separately named; do not silently change reference mass, material or restraints |

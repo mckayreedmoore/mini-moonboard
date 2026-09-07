@@ -61,7 +61,7 @@ Tests include deliberately wrong midside ownership, misplaced fixture/floor
 nodes, an insufficiently curved cut, disconnected topology and damaged load
 tokens. The original archive and all previous numerical failures are unchanged.
 
-Next verify curved-face geometry/integration and declare local force/moment
+The next planned step was to verify curved-face geometry/integration and declare local force/moment
 and refinement criteria before requesting native section output in a separate,
 bounded **contact-free** diagnostic using these same loads and meshes. Compare
 both opposed section resultants with the independent subbody references and
@@ -69,6 +69,8 @@ retain the original external equilibrium/energy checks. An eventual pass would
 qualify only the tested homogeneous section-recovery path—not fastener forces,
 ply sharing, contact interfaces, timber resistance or the full board.
 
-The [prospective native comparison protocol](leg-section-protocol.md) now records
+The [prospective native comparison protocol](leg-section-protocol.md) records
 the load/output invariants, reference translation and component-wise numerical
-targets before any such native run. It is a plan, not acceptance evidence.
+targets declared before execution. Subsequent [geometry checks passed](leg-section-geometry.md),
+but the [native section comparison failed](leg-section-response.md); the
+recovery route remains unqualified.

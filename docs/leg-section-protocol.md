@@ -1,6 +1,6 @@
 # Prospective curved-leg native section comparison
 
-**Predeclared diagnostic protocol; not yet run or qualified.** This concerns
+**Predeclared diagnostic protocol; subsequent [runs rejected section recovery](leg-section-response.md).** This concerns
 homogeneous, contact-free section recovery on the archived independent-ply leg
 fixture. It does not address the unresolved surface-contact diagnostic or make
 a construction recommendation.
@@ -61,5 +61,5 @@ limits after seeing a failing result to label the same trial accepted.
 
 Archive decks, geometry/preflight identities, exact runtime and audit sources,
 solver identity, logs, native outputs, cleanup record and the complete signed
-comparison, including failures. Until that evidence exists, native curved-leg
-section recovery remains **unqualified**.
+comparison, including failures. The subsequent evidence preserves failed
+comparisons; native curved-leg section recovery remains **unqualified**.
