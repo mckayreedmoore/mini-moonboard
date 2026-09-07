@@ -87,6 +87,10 @@ design work. No glue or tightening-friction capacity is credited to these joints
 
 ## Checks and next gates
 
+The separate [mid-batten clip study](mid-batten-clip-study.md) investigates the
+eight remaining noncatalog end screws. It records an official-model clearance
+screen only; it does not change this candidate or qualify a replacement joint.
+
 `uv run pytest tests/test_joint_frame.py` checks every station using actual CAD:
 solid validity, body and hardware overlaps, receiving members and connection
 graph, nominal socket/withdrawal envelopes, LED bodies and straight wiring
