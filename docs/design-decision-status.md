@@ -32,9 +32,9 @@ separately selects leg-profile plywood and records hold/insert/wiring inputs.
 `selected_hardware.py` now encodes the 278-position frame inventory with sourced
 dimensions and separately labeled assumptions. `product_connections.py` provides
 selected inspection envelopes, including annular washers and preserved physical
-grip datums. These are not yet integrated receiving-part bores or a published
-candidate: custom-angle seating, clip fit and face-stock seam geometry remain
-the next implementation work. Do not interpret these envelopes as exact screw
+grip datums. The separate [product geometry integration](product-frame-integration.md)
+now rebuilds receiver bores and face-stock seam geometry; full product fit and
+publication remain open. Do not interpret these envelopes as exact screw
 recess machining, thread solids, mass properties or structural qualification.
 
 The immediate completion target is a product-specific material/fastener

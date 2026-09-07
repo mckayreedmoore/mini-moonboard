@@ -9,6 +9,25 @@ from mini_moonboard.product_connections import selected_connection
 from mini_moonboard.selected_hardware import spec_for
 
 
+def test_current_transition_inventory_maps_without_changing_bearing_datums():
+    from mini_moonboard.selected_hardware import SPECS_BY_NAME
+    from mini_moonboard.transition_frame import connections
+
+    original = connections()
+    assert {c.name for c in original} == set(SPECS_BY_NAME)
+    assert len(original) == 278
+    for old in original:
+        new = selected_connection(old)
+        assert new.members == old.members
+        assert (new.direction-old.direction).Length < 1e-8
+        spec = spec_for(new)
+        if old.kind == "bolt":
+            assert (new.start+new.direction*spec.washer_thickness_nominal_mm
+                    -old.start-old.direction*2).Length < 1e-8
+        else:
+            assert (new.start-old.start).Length < 1e-8
+
+
 @pytest.mark.parametrize("direction", [(1, 0, 0), (0, -1, 0), (0, .6, .8)])
 def test_bolt_conversion_preserves_grip_and_annular_washers(direction):
     old = Connection("leg_stitch_left_1", cq.Vector(11, 20, 30),
