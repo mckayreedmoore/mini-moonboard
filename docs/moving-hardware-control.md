@@ -6,9 +6,17 @@ earlier rejected attempts below are preserved evidence, not the current
 stationary status. These tests do not establish bolt-product suitability,
 plywood joint capacity or permission to build/climb.
 
-The [selected coarse moving inputs](../fea/results/coarse_moving_control/README.md)
-are now published separately, including both full mass operators and the exact
-single-use launch preparation. This is an input archive, not a moving result.
+The [first coarse moving run](../fea/results/coarse_moving_control/README.md)
+completed all 200 increments with native exit 0 and successful cleanup. Its
+first audit rejected two signed-pressure rows before evaluating the full
+momentum/energy balance. The exact inputs, raw outputs and failed audit are
+retained separately; no moving qualification or refinement follows from solver
+completion. The audit's clamped-pressure assumption and the native signed
+spring law must be distinguished in a fail-only diagnostic before considering
+any acceptance change. A separate [contact-energy indexing investigation](contact-energy-output-investigation.md)
+also prevents treating the printed CELS values as qualified contact energy.
+Proposal/protocol headings below retain their prelaunch wording; the status
+above and the linked outcome describe the completed first attempt.
 
 The first quiescent attempt, `quiescent-an9hdwot`, stopped during input parsing
 with native exit 201, before any accepted state or contact response. Its frozen

@@ -1,8 +1,69 @@
-# Coarse moving-control preparation
+# Coarse moving-control evidence
 
-This bundle publishes the selected **inputs**, not a solver outcome or moving
-qualification. Solver results and the numerical audit are not published here
-yet. No joint capacity or permission to build/climb follows from preparation.
+The native moving solve completed 200 increments through 2e−5 s in about
+1110 seconds, with native exit 0 and successful owned-container cleanup.
+The first bounded audit then stopped at its pressure/penetration check,
+**before the full momentum/energy balance was evaluated**. No moving-contact,
+refinement, joint-capacity or structural qualification has been established.
+
+Raw native output is retained in [control.dat.gz](control.dat.gz),
+[control.frd.gz](control.frd.gz) and [native-other.tar.gz](native-other.tar.gz),
+with identities recorded in [native-output.json](native-output.json).
+
+## First audit and pressure diagnosis
+
+[first-audit.tar.gz](first-audit.tar.gz) preserves the complete first audit
+runtime, supervisor snapshot, command, traceback, exit and owned-CID cleanup,
+plus the read-only diagnostic script/report. The audit process exited 1 after
+35.999 seconds; cleanup exited 0 and the container was not OOM-killed. No audit
+report or numerical pass was produced. Its frozen limits were 900 / 920 seconds,
+8 GiB memory/memory-plus-swap and two CPUs.
+
+The read-only contact scan identified two failed rows among 582,445 aligned
+rows across all 200 states:
+
+| Time | Interface | Positive gap (mm) | Negative pressure (N/mm²) |
+| --- | --- | --- | --- |
+| 1.07e−5 s | Washer bore | 1.552056e−8 | −0.001552056 |
+| 1.61e−5 s | Washer head | 4.199942e−9 | −0.0004199942 |
+
+Both follow the signed native relation `pressure = −100000 × clearance` and
+fail the audit's nonnegative, clamped-pressure requirement. Both print CELS=0;
+that observation is **not** validated by the source spring-energy formula.
+
+CalculiX 2.21 suppresses positive-gap springs during contact generation
+(`gencontelem_f2f.f:551–560`), but generation precedes the final displacement
+update (`nonlingeo.c:2291–2311,3140`). Final output recomputes existing springs
+without another generation pass (`:3677–3735`), using a signed linear law
+(`springforc_f2f.f:157–164,191,253`). This explains how conditional negative
+pressure can reach output; it does not establish acceptable unilateral contact.
+CDIS/CSTR use the same contact-element traversal and state. Source identities
+and the detailed chain are recorded in `references.json` inside the archive.
+Diagnostic runtime was session-observed, not archived; the original failed
+audit and its gates remain unchanged.
+
+A subsequent [source-level energy-index investigation](../../../docs/contact-energy-output-investigation.md)
+found that spring energy is stored using a potential-integration-point index
+but printed using the compact contact-element index. Sparse activation can
+therefore produce missing or misassigned CELS values; the two individual rows'
+hidden indices are not exposed in DAT. Printed contact energy remains unqualified.
+
+Next: a separately labeled **fail-only momentum/kinetic-energy diagnostic**,
+and a tiny sparse-contact output check before relying on contact energy or
+preregistering any acceptance change. No automatic refinement, solver rerun or
+frame alteration follows from this result.
+
+First-audit archive SHA256:
+`3c1ca9a3a281a928cf2194e0e15d9102ba657b8f1af693e4f62e745f2b8b4e66`
+(10,772 bytes; 13 members). Portable tests verify the failed runtime and recover
+the two rows by streaming the retained compressed DAT, without a solver or
+full-balance evaluation:
+
+```sh
+uv run pytest tests/test_coarse_moving_audit_publication.py -q
+```
+
+## Selected preparation
 
 [preparation.tar.gz](preparation.tar.gz) contains:
 
