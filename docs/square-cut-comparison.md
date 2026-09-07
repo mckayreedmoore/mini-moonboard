@@ -142,6 +142,19 @@ this inspection scope. Product/strength gates below are not treated as passed.
 
 ## Finite remaining gates
 
+### Publication checkpoint
+
+Commit `41421ac` was published successfully by Pages deployment `34149264683`.
+All 473 checked live viewer files and 16 commit-pinned GitHub deliverables matched
+their local SHA-256 hashes. A live desktop browser loaded all 253 A meshes, then
+switched through the selector and loaded all 217 B meshes without request or
+JavaScript errors. An earlier check observed only 229 A responses; a diagnostic
+rerun and the final A-to-B check did not reproduce that incomplete load. Its
+cause remains unconfirmed; no speculative viewer change was made. Full repository
+CI was still running at this checkpoint; the focused checks above had passed.
+
+### Before construction
+
 Verify actual stock and plywood direction; select the new wood screws and B's
 bolt products; replace A's factory-hole/bend proxy with verified product
 geometry; check pilots, seats, edge/end distances, engagement and real tools.
