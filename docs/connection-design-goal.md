@@ -157,6 +157,14 @@ panel/leg contact attempt also belongs to the preserved timber model.
 
 ### Next bounded analytical deliverable
 
+The [backing-leverage investigation](wide-backing-leverage.md) now evaluates
+all six actual attachment X positions in a projected two-support statics model.
+The maximum positive retention coefficient is 7.024, with an opposing compression
+reaction; off-axis moments are recorded separately. This rejects equal-share
+reasoning for that model but is not actual joint demand, a conservative bound
+or connection qualification. Finite housing contact and panel load sharing must
+be resolved before using the result to size hardware.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical

@@ -50,6 +50,13 @@ apply to a zinc insert and a different machine-screw head. The
 
 ## Backing bolts: distinguish axial and lateral questions
 
+The [current backing-leverage calculation](wide-backing-leverage.md) now
+evaluates the six real attachment X positions against the two central bolt
+axes. Under its explicitly projected two-support model, an outer attachment
+produces up to 7.024 times its outward load as positive retention reaction and
+an opposing compression reaction. This is not actual bolt demand or a bound;
+finite housing contact, panel sharing and off-axis torsion remain unresolved.
+
 The widened principals add approximately **23.68 kg** in the current comparison
 and resolve a particular transverse edge-distance geometry condition. That
 does not establish that this mass increase is structurally necessary. A purely

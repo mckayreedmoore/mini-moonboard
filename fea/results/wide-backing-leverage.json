@@ -1,0 +1,67 @@
+{
+  "candidate": "wide-principal-development",
+  "model": "Two point supports at bolt X coordinates; outward force projected to bolt S station",
+  "limits": "Conditional planar influence coefficients, NOT actual bolt forces or a conservative bound. Positive reaction may require retention; negative reaction needs a compression path. Finite housing contact, panel/frame load sharing, rail bending/torsion, joint compliance, preload and resistance unqualified. Real attachment S offsets leave additional torsion.",
+  "support_x_mm": [
+    -82.55,
+    44.45
+  ],
+  "support_s_mm": 39.99999999999996,
+  "source_export_manifest": "exports/wide-principal-development/manifest.json",
+  "rows": [
+    {
+      "attachment": "timber_panel_lower_left_3",
+      "x_mm": -82.55,
+      "s_mm": 60.000000000000085,
+      "left_reaction_per_unit_outward": 1.0,
+      "right_reaction_per_unit_outward": 0.0,
+      "largest_positive_retention_multiplier": 1.0,
+      "unrepresented_world_x_moment_nmm_per_n": -20.000000000000128
+    },
+    {
+      "attachment": "timber_panel_lower_left_9",
+      "x_mm": -791.1500000000001,
+      "s_mm": 19.050000000000068,
+      "left_reaction_per_unit_outward": 6.579527559055119,
+      "right_reaction_per_unit_outward": -5.579527559055119,
+      "largest_positive_retention_multiplier": 6.579527559055119,
+      "unrepresented_world_x_moment_nmm_per_n": 20.94999999999989
+    },
+    {
+      "attachment": "timber_panel_lower_left_10",
+      "x_mm": -448.1500000000001,
+      "s_mm": 19.050000000000068,
+      "left_reaction_per_unit_outward": 3.8787401574803155,
+      "right_reaction_per_unit_outward": -2.8787401574803155,
+      "largest_positive_retention_multiplier": 3.8787401574803155,
+      "unrepresented_world_x_moment_nmm_per_n": 20.94999999999989
+    },
+    {
+      "attachment": "timber_panel_lower_right_1",
+      "x_mm": 44.45,
+      "s_mm": 60.000000000000085,
+      "left_reaction_per_unit_outward": 0.0,
+      "right_reaction_per_unit_outward": 1.0,
+      "largest_positive_retention_multiplier": 1.0,
+      "unrepresented_world_x_moment_nmm_per_n": -20.000000000000128
+    },
+    {
+      "attachment": "timber_panel_lower_right_9",
+      "x_mm": 412.75000000000006,
+      "s_mm": 19.050000000000068,
+      "left_reaction_per_unit_outward": -2.9000000000000004,
+      "right_reaction_per_unit_outward": 3.9000000000000004,
+      "largest_positive_retention_multiplier": 3.9000000000000004,
+      "unrepresented_world_x_moment_nmm_per_n": 20.94999999999989
+    },
+    {
+      "attachment": "timber_panel_lower_right_10",
+      "x_mm": 809.45,
+      "s_mm": 19.050000000000068,
+      "left_reaction_per_unit_outward": -6.0236220472440944,
+      "right_reaction_per_unit_outward": 7.0236220472440944,
+      "largest_positive_retention_multiplier": 7.0236220472440944,
+      "unrepresented_world_x_moment_nmm_per_n": 20.94999999999989
+    }
+  ]
+}
