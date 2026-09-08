@@ -16,22 +16,33 @@ physical validation are still unqualified.** [Cuts, assembly and audit limits](d
 [Part-local dimensions and profile references](docs/wide-machining.md) now cover
 all 29 wooden parts, with metric/imperial schedules and explicit machining limits.
 
-[New structural diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
+**Start here: [current review guide and release gates](docs/current-review-guide.md).**
+It links the matching viewer, assembly sequence, machining schedules and hardware
+BOM, and separates the remaining engineering work from supplier/user inputs.
+
+[Earlier bonded-frame diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
 deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg added
 modeled mass. This does not establish that the heavier supports are necessary.
 [Remaining joint qualification](docs/connection-qualification-ledger.md) is explicit.
 
-[Current-candidate asymmetric results](docs/wide-asymmetric-results.md) now include
-nine solved bases and 216 derived scenarios. The largest loaded-point response
-is 2.49 mm under the 300 lb, factor-two plus 300 N outward case. Fixed-floor
-results include downward base restraint; they do not validate unanchored support.
+[Later coupled leg/rim and gusset diagnostics](docs/coupled-leg-release.md)
+release several artificial bonds. Peak loaded-hold displacement ranges from
+7.81 to 2.78 mm across three assumed connector stiffnesses. These are conditional
+results, not real stiffness bounds. The [leg-bolt comparison](docs/leg-bolt-resistance.md)
+separates the requested 250 lb maximum from the 300 lb sensitivity; neither is
+qualified. [Current floor-equilibrium screening](docs/wide-floor-screen.md)
+does not establish actual friction or replace compliant unanchored validation.
 
-Further connection diagnostics: [aggregate base actions](docs/timber-base-demand.md),
+Preserved predecessor diagnostics: [aggregate base actions](docs/timber-base-demand.md),
 [panel-edge bond sensitivity](docs/timber-release-results.md), and
 [conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not
 establish individual bolt capacity or qualify the wider variant's real joints.
 
 ![Wider central supports, climbing-side view](exports/wide-principal-development/wide-principal-development_front.png)
+
+<details>
+<summary>Preserved earlier candidates and investigations</summary>
+
 
 **Preserved connection candidate: removable panels with threaded inserts.**
 [Inspect the panel-insert revision](https://mckayreedmoore.github.io/mini-moonboard/?model=panel-insert-development).
@@ -55,7 +66,7 @@ compare easier disassembly without treating inserts as a proven structural upgra
 selected cases have admissible reactions at assumed friction 0.20; low-friction
 cases expose limits. Actual floor friction and joint resistance remain unqualified.
 
-**New layout comparison: panels over side framing and a horizontal base.**
+**Preserved layout comparison: panels over side framing and a horizontal base.**
 [Inspect the base-bearing concept](https://mckayreedmoore.github.io/mini-moonboard/?model=base-bearing-concept&view=rear).
 This separately selectable model uses corrected panel-edge hole datums and
 level bearing cuts. **Geometry only: connections are omitted.** Known LED
@@ -126,14 +137,19 @@ The [selected-product predecessor](https://mckayreedmoore.github.io/mini-moonboa
 and its [geometry/access audit](docs/product-frame-integration.md) remain available.
 · [Support this project on Ko-fi](https://ko-fi.com/mckayreedmoore)
 
+</details>
+
 ## Status
 
-This repository currently models the official Mini MoonBoard panel envelope.
-It contains a provisional v1 climbing-surface and freestanding-leg concept.
-It includes a provisional, pre-audit frame, BOM, cut list, and assembly draft.
+The current review candidate is `wide-principal-development`, with matching
+CAD, hardware, machining and assembly documents linked in the
+[current review guide](docs/current-review-guide.md).
 It does **not** contain a structurally approved or build-ready design.
 Structural connections, actual material, floor interface, and stability still
 require human review.
+
+<details>
+<summary>Historical development decisions and diagnostics — not current instructions</summary>
 
 [Design recommendation and next five steps](docs/design-recommendation.md):
 develop the untied 2×8-foot100 baseline, resolve leg composite action and the
@@ -188,9 +204,14 @@ reference; see [material identification](docs/purchased-materials.md).
 The v1 renders are review artifacts, not approval evidence. The official
 reference-envelope exports remain separate from the v1 frame artifacts.
 
+</details>
+
 ## Reference dimensions
 
-Latest candidate: [2×8 with physically extended feet: comparison and results](docs/physical-footprint-results.md).
+<details>
+<summary>Earlier footprint, contact and lumber comparisons</summary>
+
+Earlier candidate: [2×8 with physically extended feet: comparison and results](docs/physical-footprint-results.md).
 
 Current [design decision status](docs/design-decision-status.md) separates numerical
 verification from material and connection selection. Two additional
@@ -260,6 +281,12 @@ Separate development work: [complete 2×10 and 2×12 hybrid candidates](docs/hyb
 with selectable viewer models, backing and nominal connections. These unvalidated
 candidates do not replace the V1 reference or its structural studies.
 
+</details>
+
+The table below describes the official reference, not the complete custom-frame
+envelope or the purchased face-sheet thickness. Use the current candidate's
+dimensioned viewer and schedules for its geometry.
+
 | Property | Metric | Imperial |
 | --- | ---: | ---: |
 | Main climbing surface | 2440 x 2440 mm | 8 ft x 8 ft nominal |
@@ -272,6 +299,8 @@ V1 uses a 225 mm total kicker: the official 150 mm active zone plus a 75 mm
 blank extension below it. The crash pad is a separate, excluded element.
 
 ## V1 concept render
+
+Historical V1 reference, not the current wide-support candidate shown above.
 
 ![CAD-derived underside climbing-face rendering of the Mini MoonBoard V1 assembly](exports/mini_moonboard_v1_cad_front_render.png)
 

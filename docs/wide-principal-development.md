@@ -6,6 +6,9 @@ timber and insert variants and their structural results remain unchanged.
 
 ## Inspection package
 
+Start with the [current review guide](current-review-guide.md) for a short
+decision checklist and the latest connection comparisons.
+
 - [Interactive candidate](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 - [Assembly STEP](../exports/wide-principal-development/wide-principal-development.step)
 - [Metric/imperial parts and cuts](../exports/wide-principal-development/wide-principal-development_parts.csv)
