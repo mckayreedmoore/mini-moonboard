@@ -113,3 +113,29 @@ four nonlinear penalty/increment runs with all 36 endpoints audited. Contact
 force and moment agree with independent reactions on both bodies; 37 focused
 tests and independent reviews pass. Actual frame contact, opening/recontact and
 real fastener load sharing remain unfinished. The goal remains active.
+
+## Current-candidate evidence gap
+
+The advertised candidate is `wide-principal-development`. The 216 asymmetric
+scenarios and aggregate leg/base actions above belong to the preserved narrower
+timber model, not this candidate. Their numerical values cannot be transferred
+to changed principals, posts and connector positions. Completing the current
+candidate's conditional demand package therefore requires:
+
+1. Authenticate the existing wider 40 mm mesh and its archived solver inputs.
+2. Recover leg and base ownership against the actual wider CAD and mesh. The
+   leg shapes remain unchanged, but remeshing changes node and element IDs.
+   The wider base has eleven bodies: header, six posts, two kicker panels and
+   two gussets. Recompute unique floor nodes and moment references.
+3. Solve the nine A12/K12/F6 Cartesian basis cases and reconstruct the 216
+   prescribed linear scenarios. Reuse numerical helpers, not historical
+   geometry identities or old result labels.
+4. Independently replay aggregate force/moment and displacement results with
+   source-derived ownership. Retain fixed-floor/ideal-bonding limitations;
+   these results still do not establish real fastener sharing or resistance.
+
+The panel/leg contact diagnostic remains a separate same-mesh investigation of
+the preserved timber model. Its completion does not close this wider-candidate
+gap. The purchasing and part-local assembly/machining handoff also needs to
+identify the current candidate consistently; historical inspection packets
+must not silently act as its manufacturing instructions.

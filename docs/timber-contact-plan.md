@@ -128,5 +128,9 @@ belong to `prepare`, not `solve`, so the launched settings remain frozen.
 
 The adapter's `execution.json` means only that the solver exited successfully.
 It is not an accepted result; the contact and complete-history audit must pass
-separately before interpreting the response. The first-run results and bounded
-sensitivity comparison remain pending until recorded with their source hashes.
+separately before interpreting the response. The first attempt reached load
+factor 0.228125 before its 600-second limit expired. Its
+[source-bound incomplete archive](../fea/results/timber-panel-contact-incomplete/README.md)
+is preserved separately from accepted results. Full-load contact recovery and
+the bounded sensitivity comparison remain unfinished; no structural failure or
+approval can be inferred from this runtime limit.
