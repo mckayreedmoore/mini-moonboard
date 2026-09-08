@@ -304,3 +304,9 @@ A steel-strength-only sensitivity reaches a mode-II reference ceiling of
 maximum. Do not pursue a stronger bolt grade alone as the fix. The procurement
 basis retains no laminate credit, so the next substantive connection model
 must resolve individual-ply transfer or explicitly qualify composite behavior.
+
+The [individual-ply map](leg-ply-load-path.md) now verifies that the existing
+mesh can separate both pairs of leg plies without remeshing. All four ply
+volumes/centroids and six stitch axes are checked against current CAD. The
+next step is a defensible three-bearing-member bolt formulation and released
+ply equilibrium checks, not another bonded-leg stiffness sweep.

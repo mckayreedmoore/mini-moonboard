@@ -82,6 +82,10 @@ basis. To qualify the intended no-credit approach, resolve individual-ply bolt
 bearing and stitch transfer; alternatively, explicitly qualify laminate action.
 Do not silently carry the bonded reference into the procurement/build plans.
 
+The [individual-ply load-path audit](leg-ply-load-path.md) confirms the existing
+mesh can support that separation and maps the actual stitch bolts. It does not
+yet assign individual-ply forces or qualify a three-member bolt model.
+
 Do not declare this joint adequate. Establish the purchased bolt properties,
 laminate/load-sharing basis and directional slip, then check the same-case
 lateral/axial forces, washer bearing, spacing, group action and plywood failure
