@@ -290,3 +290,11 @@ peak leg-connector resultant ranges from 364.97 to 903.48 N and peak loaded-hold
 displacement from 7.8143 to 2.7803 mm. These are conditional sensitivity results,
 not physical bounds. The next comparison needs a resistance/slip basis for the
 actual rim plus two-ply leg stack; the prior gusset reference cannot substitute.
+
+The [leg-bolt resistance checkpoint](leg-bolt-resistance.md) now verifies all
+eight actual three-member stacks. A conditional perfectly bonded laminate
+reference is 797.62 N per bolt, below the stiffest trial's 903.13 N lateral
+maximum. This is not an adjusted allowable or proof of physical failure.
+Laminate behavior, purchased bolt properties, calibrated slip and combined
+axial/lateral resistance remain the next connection decision; the design is
+not released for construction.

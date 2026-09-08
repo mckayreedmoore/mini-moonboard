@@ -119,6 +119,10 @@ remaining base bonds, bearing/contact, frame gravity, unanchored support and
 panel/end-connector gates stay open. No physical adequacy claim follows from
 the passing numerical checks.
 
+The subsequent [leg-bolt resistance checkpoint](leg-bolt-resistance.md) records
+the actual stack and a conditional bonded-laminate reference. It does not yet
+qualify the physical joint or close the limitations above.
+
 The [native archive](../fea/results/coupled-leg-release.tar.gz) retains all
 decks, native results/logs, source hashes, leg-node remaps, basis results and
 scenario vectors. The separate map provides member/face/point identities.
