@@ -310,3 +310,9 @@ mesh can separate both pairs of leg plies without remeshing. All four ply
 volumes/centroids and six stitch axes are checked against current CAD. The
 next step is a defensible three-bearing-member bolt formulation and released
 ply equilibrium checks, not another bonded-leg stiffness sweep.
+
+The [mass-specific demand checkpoint](leg-bolt-resistance.md) now separates
+the requested 250 lb maximum from the 300 lb sensitivity and retains same-case
+force vectors. Their stiffest-trial lateral peaks are 770.90 and 903.13 N,
+respectively. Neither comparison qualifies the joint; do not conflate the
+300 lb numerical shortfall with proof of failure at the requested maximum.

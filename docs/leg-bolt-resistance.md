@@ -54,6 +54,54 @@ vectors remain in the native archive for combined-action assessment.
 
 ## Next decision
 
+### Distinguish the requested maximum from the sensitivity mass
+
+The owner specified one climber, 250 lb maximum; 300 lb remains a comparison
+case, not a changed requirement or a certified limit. The archived trials give
+the following **peak lateral** forces, distinct from resultant-force maxima:
+
+| Climber mass | At 100 N/mm | At 1,000 N/mm | At 10,000 N/mm | Signed axial force simultaneous with the 10,000 N/mm lateral peak |
+| --- | ---: | ---: | ---: | ---: |
+| 150 lb | 202.91 N | 385.95 N | 506.43 N | −14.08 N |
+| 200 lb | 256.89 N | 489.07 N | 638.66 N | −17.77 N |
+| 250 lb requested maximum | 310.87 N | 592.19 N | 770.90 N | −21.47 N |
+| 300 lb sensitivity | 364.84 N | 695.31 N | 903.13 N | −25.16 N |
+
+All these lateral peaks occur at A12 with twice the listed weight downward and
+300 N in world +Y. At 100/1,000 N/mm the governing bolt is
+`analysis_leg_wall_bolt_left_4`; at 10,000 N/mm it is
+`analysis_leg_wall_bolt_left_1`. Axial signs above refer to force **on the leg
+in world X**, not an automatic tension/compression classification of the washer
+stack. Other cases/bolts can govern axial or combined action.
+
+The stiffest 250 lb lateral case is numerically about 0.967 times the conditional
+797.62 N reference. This is too incomplete to establish adequacy: it omits the
+reference's unresolved applicability/adjustments, simultaneous axial resistance,
+other failure modes and real connection/floor behavior. Do not describe the
+300 lb result as a demonstrated failure of the 250 lb design, or the 250 lb
+comparison as a pass.
+
+`fea.leg_demand_checkpoint` authenticates the native archive and returns all
+12 maxima with their actual case, bolt, signed vector and conditional numerical
+reference ratio. It does not combine independently maximized components.
+
+```sh
+uv run python -m fea.leg_demand_checkpoint
+uv run pytest -q tests/test_leg_demand_checkpoint.py
+```
+
+Published yield theory does not itself establish joint slip, and the cited
+load-slip study evaluates a two-member connection, not this three-member stack.
+See [Heine and Dolan, Wood and Fiber Science, 2001](https://wfs.swst.org/index.php/wfs/article/view/1368).
+Neither dividing a yield value by a guessed displacement nor transferring the
+study without checking applicability supplies the missing spring calibration.
+
+Checkpoint verification: 20 focused tests passed, including replay of the full
+coupled-leg native archive. Ruff and whitespace checks passed. Three independent
+reviewers found no substantial correctness, testing or package issues and
+independently verified the reported maxima. This is numerical/package review,
+not structural approval.
+
 ### Steel-grade-only change does not close this comparison
 
 Source check, 2026-09-08: the manufacturer's
