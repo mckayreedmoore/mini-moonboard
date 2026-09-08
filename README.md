@@ -16,6 +16,8 @@ unqualified.** [Stock, assembly, hardware and analysis limits](docs/timber-base-
 [Updated diagnostics](docs/timber-structural-results.md): about 2.08 mm at the
 most displaced loaded point under 2.4 kN downward force in the optimistic
 40 mm bulk model; real joint resistance is not established.
+[Threaded-insert and retained-nut options](docs/threaded-insert-options.md)
+compare easier disassembly without treating inserts as a proven structural upgrade.
 
 ![Lumber-base development, climbing-side view](exports/timber-base-development/timber-base-development_front.png)
 
