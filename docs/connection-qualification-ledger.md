@@ -42,6 +42,11 @@ the bearing input, not the resistance calculation. Member-specific threaded
 bearing, yield modes and the other joint limit states still require evaluation;
 do not use solid-lumber properties or equate bearing stress with a joint rating.
 
+The [conditional two-member yield calculation](two-member-bolt-yield.md) now
+provides reference values of about 512 N per stitch bolt and 615 N per gusset
+bolt under explicit root-diameter, material and zero-gap assumptions. These are
+not adjusted group resistances and do not supply actual individual-bolt demands.
+
 ## What the supplier information can establish
 
 The [selected bolt/nut/washer record](selected-bolt-hardware.md) identifies
