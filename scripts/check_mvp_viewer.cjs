@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const models = process.argv.slice(3);
 if (!models.length) models.push('wood-first-mvp', 'commercial-bracket-mvp');
 assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
-  'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame'].includes(model)));
+  'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame'].includes(model)));
 
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
@@ -31,7 +31,7 @@ assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
       await page.locator('#dimensions').uncheck();
       // Aim at an unobstructed rear face of the new continuous central support.
       await page.evaluate(model => {
-        const lean = ['lean-38mm-frame', 'continuous-lean-frame'].includes(model);
+        const lean = ['lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame'].includes(model);
         const a = 40*Math.PI/180, x = lean ? -57.15 : -76.35, s = 700, n = lean ? 139.7 : 177.8;
         const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
         const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
@@ -45,13 +45,32 @@ assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
       assert.match(await page.locator('#part').innerText(), /wood_principal_left|lean_principal_left|fastener_wood_principal_ledge_left/);
       assert.match(await page.locator('#part').innerText(), /mm.*ft.*in/);
       if (model === 'lean-38mm-frame') assert.match(await page.locator('#part').innerText(), /2298\.7 × 139\.7 × 38\.1 mm/);
-      if (model === 'continuous-lean-frame') assert.match(await page.locator('#part').innerText(), /2260\.6 × 139\.7 × 38\.1 mm/);
+      if (['continuous-lean-frame', 'bearing-lean-frame'].includes(model)) assert.match(await page.locator('#part').innerText(), /2260\.6 × 139\.7 × 38\.1 mm/);
       await page.screenshot({path: '/tmp/mini-moonboard-'+model+'-selection.png'});
       await page.goto('http://127.0.0.1:8766/?model='+model+'&view=rear');
       await page.waitForFunction(count => window.cadTest?.meshes.filter(m =>
         m.userData.part.name !== 'McKay').length === count, manifest.parts.length, {timeout: 120000});
       assert.ok(await page.evaluate(() => window.cadTest.camera.position.y < window.cadTest.controls.target.y));
       await page.screenshot({path: '/tmp/mini-moonboard-'+model+'-rear.png'});
+      if (model === 'bearing-lean-frame') {
+        await page.locator('#person').uncheck();
+        await page.locator('#dimensions').uncheck();
+        await page.evaluate(() => {
+          const a = 40*Math.PI/180, x = -509.2, s = 75, n = 40.8;
+          const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
+          const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
+          const {camera, controls} = window.cadTest;
+          camera.setViewOffset(1440,1000,-380,-300,1440,1000);
+          camera.position.set(-x,y-500*Math.cos(a),z+500*Math.sin(a));
+          controls.target.set(-x,y,z); controls.update();
+        });
+        await page.waitForTimeout(150);
+        await page.mouse.click(1100, 800);
+        assert.match(await page.locator('#part').innerText(), /^clip_mvp_ledge_2:/);
+        assert.match(await page.locator('#part').innerText(), /101\.6 × 50\.8 × 50\.8 mm/);
+        assert.match(await page.locator('#part').innerText(), /PROVISIONAL/);
+        await page.screenshot({path: '/tmp/mini-moonboard-'+model+'-lower-angle.png'});
+      }
       console.log(model+': loaded '+manifest.parts.length+' meshes; rear selection and dual units passed');
     }
     assert.deepEqual(errors, []);
