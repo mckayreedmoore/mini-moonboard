@@ -47,6 +47,13 @@ provides reference values of about 512 N per stitch bolt and 615 N per gusset
 bolt under explicit root-diameter, material and zero-gap assumptions. These are
 not adjusted group resistances and do not supply actual individual-bolt demands.
 
+The [gusset two-interface calculation](gusset-group-envelope.md) now separates
+the upper rim pair from the lower post pair and includes their 90/240 mm centroid
+offset. Its conditional reference scales are 344 N FY, 538 N FZ or 49 N·m MX,
+separately applied at the upper centroid. These cannot be added or used as an
+actual group capacity; signed force/moment combinations and load-path demands
+remain necessary.
+
 ## What the supplier information can establish
 
 The [selected bolt/nut/washer record](selected-bolt-hardware.md) identifies
