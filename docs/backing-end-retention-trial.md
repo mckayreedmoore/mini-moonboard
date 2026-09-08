@@ -1,6 +1,6 @@
 # Purchased backing-end retention trial
 
-**Unselected geometry investigation.** The current wider-principal CAD, its
+**Rejected at the current location: hardware collision.** The current wider-principal CAD, its
 18 installed angles and purchasing schedule are unchanged. This trial addresses
 the load-path concern identified in the
 [isolated backing-contact calculation](wide-backing-contact-bound.md), not a
@@ -54,8 +54,27 @@ withdrawal resistance or proof of the complete assembly's fit.
 
 ## Remaining before selection
 
-1. Complete bracket solids, heads and tool/removal envelopes; test against all
-   existing fasteners, panels, service reservations and floor/base geometry.
+The full nominal bracket/fastener check now rejects this placement. Each angle
+intersects the existing `timber_base_left_1` or `timber_base_right_1` gusset bolt;
+the nearby proposed rim screw's shaft and head also collide. The earlier
+receiver-penetration checks remain true, but are insufficient for assembly fit.
+No collision exemption has been added and the trial remains outside the viewer
+and current purchasing/drilling schedules.
+
+Both existing bolt axes are at approximately S = 17.6005 mm, N = 77.7038 mm.
+Moving the angle to either extreme that keeps its full 76.2 mm width within the
+88.9 mm backing (center S = 38.1 or 50.8 mm) still produces bracket/bolt overlap.
+Do not notch a purchased angle, remove factory screws or move a structural bolt
+just to hide this clash. A revised backing/receiver or connector arrangement
+needs its own complete geometry and connection review.
+
+Five regression tests now cover the two valid receiver/layout checks, exact
+nominal bracket volume including bends/chamfers/holes, the six known collision
+pairs, and both limiting slide positions. Passing this regression suite preserves
+evidence of a **rejected** trial; it does not mean the trial clears the assembly.
+
+1. Resolve the rejected bracket/base-bolt interference in a separately checked
+   arrangement; then complete tool/removal and service-envelope checks.
 2. Establish applicable manufacturer edge/end-distance and installation limits
    for both members. Reconcile the shallow backing with cross-grain loading.
 3. Compare realistic panel/backing/rim load transfer and connection resistance.

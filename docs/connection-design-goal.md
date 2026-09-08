@@ -174,7 +174,11 @@ optimistic conditional bound, not physical contact FEA or joint qualification.
 The [backing-end retention trial](backing-end-retention-trial.md) identifies a
 smaller purchased ML23Z angle from official drawings and checks eight proposed
 screw axes/shaft envelopes in current wood receivers. It is not installed in the
-current model. Full hardware/tool clearance, installation limits, load transfer
+current model. The subsequent full bracket/fastener check rejects its proposed
+placement: both angles and nearby rim screws collide with existing base-gusset
+bolts, including bracket clashes at both full-width slide limits. The documented
+trial is rejected; no current geometry was changed to conceal the interference.
+An alternative arrangement, tool clearance, installation limits, load transfer
 and repeated-disassembly behavior must be resolved before selection.
 
 Assess the intended leg/rim or lower-backing load path with explicitly defined
