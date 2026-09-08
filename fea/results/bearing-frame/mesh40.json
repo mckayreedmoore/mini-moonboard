@@ -1,0 +1,702 @@
+{
+  "input_sha256": "40adc960699278f0ffa7d800e3efbd7b9240549f400b8b1c2e23c0d823a78440",
+  "source_sha256": {
+    "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+    "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+    "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+    "fea/prepare_bearing_structural.py": "fa3caeb959a0d54aadc917652ded5b669fb68d379611b594ad9ceb09a2dd53f7",
+    "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+    "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+    "exports/bearing-lean-frame/manifest.json": "bcdf987a9dcb85d297f89d38e9850e9eece7c9f8833ba50b888a9a13ff57ed73",
+    "fea/solve_bearing_frame.py": "3e6219ef535842540f6bbd70b1f17a18f7b2af6e0e46f28c3737f12620fb6709",
+    "fea/solve_easy_frame.py": "d996504c1ba154aa6df373d9080327c57cfb6f620e1e8eed4909c42cc72c079f",
+    "fea/box_results.py": "dc5660f8d95560a6f7810060ba0f7471220ecc5f29146a2409131f6ec9124d89",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62"
+  },
+  "limits": "Optimistic isotropic bulk stiffness diagnostic only. Undrilled timber and all touching interfaces, including independent plywood leg plies, are ideally bonded. All floor nodes fixed XYZ; no gravity, separation, slip, actual bolt/screw/connector compliance, strengths, buckling or approval. Straight-sided C3D10 elements facet curved boundaries; gross volume agreement does not qualify local geometry/stress. Five equally loaded row-12 nodes: reported displacement is their maximum, not the whole-frame maximum or a single-hold result. Point-load and target-mapping mesh sensitivity precludes treating two mesh levels as general convergence proof.",
+  "candidate": "bearing-lean-frame",
+  "size_mm": 40.0,
+  "modulus_mpa": 7000.0,
+  "mesh_settings": {
+    "Mesh.MeshSizeMax": 40.0,
+    "Mesh.MeshSizeMin": 8.0,
+    "Mesh.MeshSizeFromCurvature": 0,
+    "Mesh.ElementOrder": 2,
+    "Mesh.SecondOrderLinear": 1
+  },
+  "high_order_optimizer_used": false,
+  "deck_sha256": "e4aa738a5ee92e34bb499d0a7d75f26d4814fd2b52a313842b51d369f1be005e",
+  "load_nodes": [
+    42085,
+    43063,
+    44720,
+    51502,
+    53825
+  ],
+  "floor_node_count": 1176,
+  "gmsh_version": "4.12.1",
+  "min_jacobian": 0.31331819920122633,
+  "nodes": 142255,
+  "elements": 76535,
+  "cad_volume_mm3": 297965049.4808378,
+  "mesh_volume_mm3": 298102638.5423292,
+  "volume_relative_error": 0.0004617624172066482,
+  "maximum_midpoint_error_mm": 9.265498198245943e-11,
+  "mesh_size_mm": 40.0,
+  "geometry_commit": "b23ffbecf46eff3e9f1cc2c31936218e54efff1d",
+  "frozen_geometry": {
+    "candidate": "bearing-lean-frame",
+    "parts": [
+      "main_lower_left",
+      "main_lower_right",
+      "main_upper_left",
+      "main_upper_right",
+      "kicker_left",
+      "kicker_right",
+      "box_side_left",
+      "leg_left_inner",
+      "leg_left_outer",
+      "box_side_right",
+      "leg_right_inner",
+      "leg_right_outer",
+      "kicker_batten_bottom",
+      "kicker_batten_top",
+      "kicker_cheek_left",
+      "kicker_cheek_right",
+      "cheek_splice_left_inner",
+      "cheek_splice_left_outer",
+      "cheek_splice_right_inner",
+      "cheek_splice_right_outer",
+      "wood_kicker_block_left_bottom",
+      "wood_kicker_block_left_top",
+      "wood_kicker_block_right_bottom",
+      "wood_kicker_block_right_top",
+      "easy_lower_corner_left",
+      "easy_lower_corner_right",
+      "wood_rail_lower",
+      "lean_principal_left",
+      "lean_principal_right",
+      "lean_beam_mid_lower_left",
+      "lean_beam_mid_lower_right",
+      "lean_beam_mid_upper_left",
+      "lean_beam_mid_upper_right",
+      "lean_edge_left_lower",
+      "lean_edge_left_upper",
+      "lean_edge_right_lower",
+      "lean_edge_right_upper",
+      "lean_beam_top_full",
+      "lean_beam_lower_full"
+    ],
+    "geometry_source_sha256": {
+      "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+      "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+      "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+      "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+      "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+      "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+      "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+      "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+      "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+      "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+      "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+      "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+      "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+      "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+      "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+      "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+      "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+      "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+      "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+      "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+      "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+      "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+      "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+      "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+      "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+      "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+      "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+      "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+      "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+      "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+      "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+      "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+      "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+      "fea/prepare_bearing_structural.py": "fa3caeb959a0d54aadc917652ded5b669fb68d379611b594ad9ceb09a2dd53f7",
+      "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+      "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e",
+      "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+      "exports/bearing-lean-frame/manifest.json": "bcdf987a9dcb85d297f89d38e9850e9eece7c9f8833ba50b888a9a13ff57ed73"
+    },
+    "step_sha256": "469878c5801feb57d206e0c5b10f3b11d913b61beeabd81ce5def095d41fd619",
+    "cad_unfragmented_volume_mm3": 297965049.4815899,
+    "geometry_commit": "b23ffbecf46eff3e9f1cc2c31936218e54efff1d",
+    "audited_load_targets_mm": [
+      [
+        -1019.2,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      [
+        -619.2,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      [
+        -19.200000000000045,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      [
+        380.79999999999995,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      [
+        980.8,
+        1447.7520489738586,
+        1971.4166159862878
+      ]
+    ],
+    "audited_cases": [
+      {
+        "name": "Downward 1.2 kN",
+        "basis": "gravity-direction baseline",
+        "force_n": [
+          0,
+          0,
+          -1200
+        ]
+      },
+      {
+        "name": "Downward 2.4 kN",
+        "basis": "2x magnitude sensitivity; not a prescribed dynamic load",
+        "force_n": [
+          0,
+          0,
+          -2400
+        ]
+      },
+      {
+        "name": "Downward + outward 0.3 kN",
+        "basis": "illustrative horizontal sensitivity",
+        "force_n": [
+          0,
+          300,
+          -1200
+        ]
+      },
+      {
+        "name": "Downward + inward 0.3 kN",
+        "basis": "illustrative horizontal sensitivity",
+        "force_n": [
+          0,
+          -300,
+          -1200
+        ]
+      },
+      {
+        "name": "Outward/downward normal",
+        "basis": "exploratory legacy direction",
+        "force_n": [
+          0,
+          919.2533317427736,
+          -771.3451316238471
+        ]
+      },
+      {
+        "name": "Inward/upward normal",
+        "basis": "exploratory legacy direction",
+        "force_n": [
+          0,
+          -919.2533317427736,
+          771.3451316238471
+        ]
+      }
+    ],
+    "assumptions": "Optimistic undrilled isotropic ideally bonded timber, steel and fasteners omitted; fixed floor XYZ and no gravity. Five equally loaded row12 points. No joint, strength, buckling, unanchored contact or construction approval."
+  },
+  "load_target_mapping": [
+    {
+      "target_mm": [
+        -1019.2,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      "node": 44720,
+      "coordinates_mm": [
+        -1022.5548387094,
+        1444.5755033553,
+        1967.6309563331
+      ],
+      "distance_mm": 5.972989523065134
+    },
+    {
+      "target_mm": [
+        -619.2,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      "node": 42085,
+      "coordinates_mm": [
+        -609.59999999985,
+        1444.5755033553,
+        1967.6309563331
+      ],
+      "distance_mm": 10.797298786244614
+    },
+    {
+      "target_mm": [
+        -19.200000000000045,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      "node": 43063,
+      "coordinates_mm": [
+        -17.02997052086,
+        1442.1286941432,
+        1964.7149626642
+      ],
+      "distance_mm": 9.013506794876212
+    },
+    {
+      "target_mm": [
+        380.79999999999995,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      "node": 51502,
+      "coordinates_mm": [
+        373.62580645184,
+        1444.5755033553,
+        1967.6309563331
+      ],
+      "distance_mm": 8.711527658397102
+    },
+    {
+      "target_mm": [
+        980.8,
+        1447.7520489738586,
+        1971.4166159862878
+      ],
+      "node": 53825,
+      "coordinates_mm": [
+        983.22580645167,
+        1444.5755033553,
+        1967.6309563331
+      ],
+      "distance_mm": 5.505106540070018
+    }
+  ],
+  "load_target_distances_mm": [
+    5.972989523065134,
+    10.797298786244614,
+    9.013506794876212,
+    8.711527658397102,
+    5.505106540070018
+  ],
+  "max_top_displacement_mm": {
+    "Downward 1.2 kN": 1.2106518318047281,
+    "Downward 2.4 kN": 2.421303491740915,
+    "Downward + outward 0.3 kN": 1.564844993915546,
+    "Downward + inward 0.3 kN": 0.8565366885241487,
+    "Outward/downward normal": 1.863635463353062,
+    "Inward/upward normal": 1.863635463353062
+  },
+  "reaction_totals_n": [
+    [
+      6.913732e-09,
+      4.105797e-08,
+      1200.0
+    ],
+    [
+      1.382776e-08,
+      8.211718e-08,
+      2400.0
+    ],
+    [
+      9.191065e-09,
+      -300.0,
+      1200.0
+    ],
+    [
+      4.634885e-09,
+      300.0,
+      1200.0
+    ],
+    [
+      1.142995e-08,
+      -919.2533,
+      771.3451
+    ],
+    [
+      -1.142941e-08,
+      919.2533,
+      -771.3451
+    ]
+  ],
+  "reaction_moment_nmm": [
+    [
+      1732903.3899696518,
+      70159.94469266942,
+      0.007515572613189317
+    ],
+    [
+      3465806.727968193,
+      140319.8688337687,
+      0.009658323097858496
+    ],
+    [
+      2323017.74020922,
+      70160.02339736404,
+      17539.992453939718
+    ],
+    [
+      1142789.0035751187,
+      70159.9900754305,
+      -17540.001927880512
+    ],
+    [
+      2922104.03977105,
+      45097.961586734695,
+      53745.650688948066
+    ],
+    [
+      -2922104.03977105,
+      -45097.961586734695,
+      -53745.650688948066
+    ]
+  ],
+  "floor_patch_reactions": [
+    {
+      "case": "Downward 1.2 kN",
+      "group": "LEFT",
+      "reaction_n": [
+        10.893825180000006,
+        -143.999327336,
+        712.8048871269
+      ],
+      "moment_about_origin_nmm": [
+        942343.6152156703,
+        915428.9921198676,
+        168478.31960365502
+      ]
+    },
+    {
+      "case": "Downward 1.2 kN",
+      "group": "RIGHT",
+      "reaction_n": [
+        -10.566784080000001,
+        -131.65734045,
+        651.037843725
+      ],
+      "moment_about_origin_nmm": [
+        860825.933422702,
+        -836409.4457012104,
+        -153204.3318611107
+      ]
+    },
+    {
+      "case": "Downward 1.2 kN",
+      "group": "KICKER",
+      "reaction_n": [
+        -0.3270373787400004,
+        275.6566605361,
+        -163.84270137000001
+      ],
+      "moment_about_origin_nmm": [
+        -70266.15866872051,
+        -8859.601725987764,
+        -15273.980226971731
+      ]
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "group": "LEFT",
+      "reaction_n": [
+        21.7876448,
+        -287.998651936,
+        1425.609746724
+      ],
+      "moment_about_origin_nmm": [
+        1884687.1933718498,
+        1830857.9485500555,
+        336956.64251695323
+      ]
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "group": "RIGHT",
+      "reaction_n": [
+        -21.133557250000006,
+        -263.314675064,
+        1302.07567373
+      ],
+      "moment_about_origin_nmm": [
+        1721651.848755497,
+        -1672818.8730700342,
+        -306408.6697669373
+      ]
+    },
+    {
+      "case": "Downward 2.4 kN",
+      "group": "KICKER",
+      "reaction_n": [
+        -0.6540852472,
+        551.3133238832,
+        -327.685422752
+      ],
+      "moment_about_origin_nmm": [
+        -140532.31415915367,
+        -17719.20664625245,
+        -30547.963091692836
+      ]
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "group": "LEFT",
+      "reaction_n": [
+        14.174916303000005,
+        -192.485577038,
+        921.4595610060001
+      ],
+      "moment_about_origin_nmm": [
+        1221984.6307541674,
+        1183433.235258717,
+        225767.70923556347
+      ]
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "group": "RIGHT",
+      "reaction_n": [
+        -13.759819950000006,
+        -175.724370388,
+        841.662797849
+      ],
+      "moment_about_origin_nmm": [
+        1116191.1083019776,
+        -1081357.0675386356,
+        -204981.02647003508
+      ]
+    },
+    {
+      "case": "Downward + outward 0.3 kN",
+      "group": "KICKER",
+      "reaction_n": [
+        -0.41508748590000105,
+        68.2099515825,
+        -563.122331973
+      ],
+      "moment_about_origin_nmm": [
+        -15157.998846925346,
+        -31916.144322717348,
+        -3246.6903115886826
+      ]
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "group": "LEFT",
+      "reaction_n": [
+        7.612719329999997,
+        -95.5130805691,
+        504.15024986
+      ],
+      "moment_about_origin_nmm": [
+        662702.6519194879,
+        647424.7950750173,
+        111188.95274327439
+      ]
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "group": "RIGHT",
+      "reaction_n": [
+        -7.373714697000001,
+        -87.5902965565,
+        460.412822311
+      ],
+      "moment_about_origin_nmm": [
+        605460.667373946,
+        -591461.7372211466,
+        -101427.66417552225
+      ]
+    },
+    {
+      "case": "Downward + inward 0.3 kN",
+      "group": "KICKER",
+      "reaction_n": [
+        -0.2389976583300031,
+        483.1033832574,
+        235.436901318
+      ],
+      "moment_about_origin_nmm": [
+        -125374.3157183153,
+        14196.932221559877,
+        -27301.290495632657
+      ]
+    },
+    {
+      "case": "Outward/downward normal",
+      "group": "LEFT",
+      "reaction_n": [
+        17.05627919,
+        -241.1314414314,
+        1097.53708219
+      ],
+      "moment_about_origin_nmm": [
+        1462596.466444507,
+        1409638.9560181703,
+        283840.59035455936
+      ]
+    },
+    {
+      "case": "Outward/downward normal",
+      "group": "RIGHT",
+      "reaction_n": [
+        -16.576288099999992,
+        -219.65695431,
+        1002.58785315
+      ],
+      "moment_about_origin_nmm": [
+        1335812.5984529152,
+        -1288196.746620912,
+        -257130.80319059972
+      ]
+    },
+    {
+      "case": "Outward/downward normal",
+      "group": "KICKER",
+      "reaction_n": [
+        -0.47999195873000206,
+        -458.4649385599,
+        -1328.7797677923
+      ],
+      "moment_about_origin_nmm": [
+        123694.97487362786,
+        -76344.24781052355,
+        27035.86352498844
+      ]
+    },
+    {
+      "case": "Inward/upward normal",
+      "group": "LEFT",
+      "reaction_n": [
+        -17.05627919,
+        241.1314414314,
+        -1097.53708219
+      ],
+      "moment_about_origin_nmm": [
+        -1462596.466444507,
+        -1409638.9560181703,
+        -283840.59035455936
+      ]
+    },
+    {
+      "case": "Inward/upward normal",
+      "group": "RIGHT",
+      "reaction_n": [
+        16.576288099999992,
+        219.65695431,
+        -1002.58785315
+      ],
+      "moment_about_origin_nmm": [
+        -1335812.5984529152,
+        1288196.746620912,
+        257130.80319059972
+      ]
+    },
+    {
+      "case": "Inward/upward normal",
+      "group": "KICKER",
+      "reaction_n": [
+        0.47999195873000206,
+        458.4649385599,
+        1328.7797677923
+      ],
+      "moment_about_origin_nmm": [
+        -123694.97487362786,
+        76344.24781052355,
+        -27035.86352498844
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.inp": "e4aa738a5ee92e34bb499d0a7d75f26d4814fd2b52a313842b51d369f1be005e",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.sta": "06d580cfdefdc03a6b8a3a123aa73cbe9b91604b0cac5038ba0dc5fbe5100e25",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.frd": "979b48875d522255b58536fdc0486a2ae7fbcafe6d85b613e652cdc8e91b1a76",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.dat": "78ce31f0789eeace0848391886633eadd64ee81ed5de65d7e2ca3ba27885097f",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.log": "f5f8a1b496f46b0215d49e3eba38bf146cefae65a57293813f062212cac175bd",
+    "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.context.json": "c6feece46dd9178476630e9fde7577d33ef3bd76653121754c97afb2db276467"
+  },
+  "replay_archives": {
+    "mesh40.inp.gz": {
+      "gzip_sha256": "d9a4b0d5efca9c2715c86e500d23edfb644d1e71b2cb48b45602bc787d813270",
+      "uncompressed_sha256": "e4aa738a5ee92e34bb499d0a7d75f26d4814fd2b52a313842b51d369f1be005e",
+      "original_name": "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.inp"
+    },
+    "mesh40.dat.gz": {
+      "gzip_sha256": "dd68544a88d9015797067547080269b1d5ed74dae3ff0b892a5298b6e1f14bf0",
+      "uncompressed_sha256": "78ce31f0789eeace0848391886633eadd64ee81ed5de65d7e2ca3ba27885097f",
+      "original_name": "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.dat"
+    },
+    "mesh40.context.json.gz": {
+      "gzip_sha256": "9ca4a673e5e2b3d883bfadf36ac82fc993185cf0896ccfae8ebe8abc7e66c297",
+      "uncompressed_sha256": "c6feece46dd9178476630e9fde7577d33ef3bd76653121754c97afb2db276467",
+      "original_name": "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.context.json"
+    },
+    "mesh40.log.gz": {
+      "gzip_sha256": "51a02c41d7c9bc441f1894067b43b9c9279e61cc31f162bf556eb2c7f3629329",
+      "uncompressed_sha256": "f5f8a1b496f46b0215d49e3eba38bf146cefae65a57293813f062212cac175bd",
+      "original_name": "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.log"
+    },
+    "mesh40.sta.gz": {
+      "gzip_sha256": "722fac8040e14dba6f32b171b0cb6537dfa6dc92e401cdcd819fa9f56aed03ff",
+      "uncompressed_sha256": "06d580cfdefdc03a6b8a3a123aa73cbe9b91604b0cac5038ba0dc5fbe5100e25",
+      "original_name": "bearing_audited_40_7000_b920ec5901784e68b199bb3f060d2efc.sta"
+    }
+  },
+  "publisher_source_sha256": {
+    "fea/publish_bearing_structural.py": "56cb5419af106fa7608c84c159449ba6e7e33a6b447d9ff87bf0757ea20ac379"
+  }
+}

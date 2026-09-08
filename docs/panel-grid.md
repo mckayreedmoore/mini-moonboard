@@ -1,6 +1,14 @@
 # Panel datum grid
 
-This document records the unambiguous center datums reconstructed from the
+**Historical grid error — do not use the formulas or linked drilling exports
+below for fabrication.** The corrected, versioned implementation is
+[`panel_grid_v2.py`](../mini_moonboard/panel_grid_v2.py). It uses lower-panel
+top-edge and upper-panel bottom-edge references. On nominal 1220 mm panels,
+T-nut rows are 100–1100 mm and 1320–2320 mm; the seam gap is 220 mm.
+The bottom LED is on the main panel, not the kicker. The historical description
+below is retained to explain the old source-bound models, not as guidance.
+
+The original reconstruction used the
 official [metric](https://moonclimbing.com/media/moonboard-pdf/Mini_MoonBoard_Template_Guide_Metric.pdf)
 and [imperial](https://moonclimbing.com/media/moonboard-pdf/Mini_Moonboard_Template_Guide_IMPERIAL.pdf)
 Mini MoonBoard template guides. It does **not** specify drilling diameters,

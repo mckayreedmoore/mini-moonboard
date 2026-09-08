@@ -6,6 +6,16 @@ addresses two lower-frame details in the
 uprights and the four front-driven ledge screws. The predecessor remains
 unchanged as a source-bound comparison.
 
+**Known historical hole-layout error:** do not use this revision's panel or
+kicker drilling schedules. The corrected panel-edge datums and subsequent
+base redesign are separate work; none of this revision's results qualify them.
+
+The [new structural results](bearing-structural-results.md) include valid bulk
+stiffness runs and a leg-bolt dimensional audit, but no joint approval. Official
+ML24Z geometry differs from the current proxy, and the lower-ledge load direction
+still requires qualification. Do not treat the earlier nominal clearance tests
+as verification of the purchased connector.
+
 ## What changes
 
 The continuous lower 2×6 rail moves **1.6 mm uphill**, from board-local

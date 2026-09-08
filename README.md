@@ -8,6 +8,10 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
 **Current development: lower bearing and purchased ledge angles.**
+**Known datum error:** the preserved models below use an incorrect main-panel
+hole layout. Do not use their drilling schedules. A panel-edge-referenced
+correction and revised kicker/base are in development; historical FEA does not
+validate that redesign.
 [Inspect the revised lower connection](https://mckayreedmoore.github.io/mini-moonboard/?model=bearing-lean-frame&view=rear).
 Full-width top and bottom rails remain. The lower rail now meets the central
 uprights; four purchased angle proxies replace four lower-ledge screws that
@@ -15,6 +19,10 @@ failed the available product edge-distance screen. Two lower edge infills
 are shortened 1.6 mm to clear the relocated clips. No additional timber pieces.
 [Changes, assembly and remaining qualification gates](docs/bearing-frame.md).
 **Actual connector fit and joint resistance remain unqualified; not build-ready.**
+
+[Historical structural diagnostics and next design gates](docs/bearing-structural-results.md):
+valid ideal-bonded stiffness diagnostics now run, but actual connector geometry,
+lower-ledge load direction and panel attachments remain unresolved.
 
 **Preserved predecessor: continuous top and bottom crossmembers.**
 [Inspect the full-width rails from behind](https://mckayreedmoore.github.io/mini-moonboard/?model=continuous-lean-frame&view=rear).

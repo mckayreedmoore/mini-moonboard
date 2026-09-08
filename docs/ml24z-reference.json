@@ -1,0 +1,64 @@
+{
+  "status": "Manufacturer nominal reference geometry and published loads; not frame qualification",
+  "retrieved_date": "2026-09-07",
+  "redistribution": "Links and extracted facts only; no vendor PDF or CAD files included",
+  "geometry_warning": "Manufacturer drawings are approximate, not exact product geometry or manufacturing tolerances",
+  "product_url": "https://www.strongtie.com/decks_decksandfences/ml_angle/p/ml",
+  "sources": [
+    {"name": "ML24Z front DXF", "url": "https://ssttoolbox.widen.net/content/6u4ezyeid6/original/C_ML24Z_2DO_Cad_FR_Prod.dxf", "sha256": "ded361419e9ecdf68891f8fea353db3c641f7730f2de809cf0680978481a6d8f"},
+    {"name": "ML24Z top DXF", "url": "https://ssttoolbox.widen.net/content/xd1zmjh7gb/original/C_ML24Z_2DO_Cad_T_Prod.dxf", "sha256": "aeb3c6c1d191e83665a8f41970795fb539d7070e9ac70e1191b5aa3935ff0fe2"},
+    {"name": "ML24Z side DXF", "url": "https://ssttoolbox.widen.net/content/pdu11d6ffc/original/C_ML24Z_2DO_Cad_L_Prod.dxf", "sha256": "f5a5ce0892164f0fbbb5fee8e36471b6a22fd439b8069e85a449525b49114664"},
+    {"name": "ML24Z SAT", "url": "https://ssttoolbox.widen.net/content/7ps49sz24p/original/C_ML24Z_3D_CAD_MULT_Prod.sat", "sha256": "bb990998b01b6b54897073b862ad36c4c049cb983bb1acd62a009c085d956482"},
+    {"name": "ML24Z STL", "url": "https://ssttoolbox.widen.net/content/6uy2xqi9uk/original/C_ML24Z_3D_CAD_MULT_Prod.stl", "sha256": null},
+    {"name": "ML24Z IFC", "url": "https://ssttoolbox.widen.net/content/fw5t1rrwgk/original/C_ML24Z_3D_CAD_MULT_Prod.ifc", "sha256": null},
+    {"name": "L-C-MLZ25", "url": "https://ssttoolbox.widen.net/content/iczmiabsx6/pdf/L-C-MLZ25.pdf", "sha256": "88d9051a9eadc08508a1a1c591914217309d6a2c1a281b375149d0cc57e584ff"},
+    {"name": "C-C-2026 page 323", "url": "https://ssttoolbox.widen.net/content/wrzfhjzbna/pdf/C-C-2026-p323.pdf", "sha256": null},
+    {"name": "SDS25112 front DXF", "url": "https://ssttoolbox.widen.net/content/ym0d9ow55z/original/F_SDS25112_2DO_Cad_FR_Prod.dxf", "sha256": "969827a58e2d8d15043b12779a3f761ad34d260e5d613feaf78064e6e53f06af"},
+    {"name": "SDS25112 top DXF", "url": "https://ssttoolbox.widen.net/content/f4k9rzlcqu/original/F_SDS25112_2DO_Cad_T_Prod.dxf", "sha256": "1cbea551a4df87f59d18aac6c857132cbc427ff362eb84d172a954d4918c2a93"},
+    {"name": "SDS25112 SAT", "url": "https://ssttoolbox.widen.net/content/mae9x6lwnx/original/F_SDS25112_3d_Cad_MULT_Prod.sat", "sha256": null},
+    {"name": "SDS25112 STL", "url": "https://ssttoolbox.widen.net/content/ocag3r2rik/original/F_SDS25112_3d_Cad_MULT_Prod.stl", "sha256": null}
+  ],
+  "hash_note": "SHA256 identifies the locally downloaded bytes inspected for this reference. Null means no hash recorded, not failed verification.",
+  "ml24z_nominal_mm": {
+    "coordinate_convention": "Hole offsets measured along each flange from the other outer wood-contact plane; width measured from bend-line midpoint",
+    "width": 101.6,
+    "thickness": 2.55524,
+    "outside_flange_reach": 53.35524,
+    "inside_bend_radius": 5.08,
+    "outside_bend_radius": 7.63524,
+    "hole_diameter": 6.731,
+    "width_stations": [-38.1, 0, 38.1],
+    "front_flange_offsets": [42.24274, 35.89274, 42.24274],
+    "opposite_flange_offsets": [35.89274, 42.24274, 35.89274]
+  },
+  "sds25112_nominal_mm": {
+    "underhead_length": 38.1,
+    "maximum_head_diameter": 12.7889,
+    "head_height": 5.6134,
+    "gross_penetration_through_nominal_ml24z": 35.54476,
+    "penetration_note": "Gross subtraction only, not effective thread engagement or capacity"
+  },
+  "loads": {
+    "source": "L-C-MLZ25",
+    "issued": "2025-12-23",
+    "valid_through": "2027-12-31",
+    "units": "lbf allowable",
+    "connector_quantity": 1,
+    "fasteners": "6 SDS25112, separately purchased",
+    "direction_order": ["F1", "F2", "F3", "F4"],
+    "single_end": {"DF_SP": [595, 450, 450, 750], "SPF_HF": [450, 340, 340, 540]},
+    "bearing": {"DF_SP": [595, null, 450, 750], "SPF_HF": [450, null, 340, 450]},
+    "null_meaning": "Unlisted direction; not zero and not transferable from another installation",
+    "duration_increase_ml24z": false,
+    "mixed_axis_interaction": "Not established for this frame",
+    "wood_limit": "Designer must consider reinforcement for unavoidable cross-grain bending or tension"
+  },
+  "bearing_frame_mapping": {
+    "inherited_16_clip_F1": "N",
+    "new_4_ledge_clip_F1": "X",
+    "ledge_bearing_analogy_unlisted_F2": "S separation/downhill",
+    "ledge_bearing_analogy_F3_F4": "Opposing N directions; signs require loaded-member mapping",
+    "qualification": "Unresolved: downhill ledge load pulls away from rail rather than producing bearing; single/end rating not automatically applicable",
+    "historical_collision_scope": "Assumed hole coordinates and sharp-bend proxy only; not verified actual-product fit"
+  }
+}
