@@ -50,3 +50,37 @@ header reactions or credit permanent tensile header contact.
 This audit changes no geometry, solver input or published FEA result. It identifies
 why the existing aggregate output is insufficient and the specific interfaces
 that the pending joint-demand model must address.
+
+## Reproducible element-face map
+
+`fea/gusset_interfaces.py` now authenticates the parent evidence, reproduces
+the complete element selection and classifies conforming six-node tetrahedron
+faces against neighboring raw CAD members. The current selected tetrahedra have
+straight midside geometry within the checked 1e-6 mm limit; the reported triangle
+areas are not being applied to an unverified curved mesh.
+
+| Neighbor | Left faces | Right faces | Area per side |
+| --- | ---: | ---: | ---: |
+| Inclined rim | 68 | 68 | 35,402.227 mm² |
+| Outer post | 100 | 100 | 47,691.675 mm² |
+| Header | 20 | 18 | 10,887.075 mm² |
+| Kicker | 0 | 0 | No separate shared face |
+
+All shared gusset nodes belong to at least one of the three face-interface
+groups. The kicker's node containment count above occurs on their boundaries;
+it is not a fourth face interface. Interface groups still share edge nodes,
+so summing their nodal reactions independently would double count those nodes.
+The header has a finite, substantial tied area in the parent mesh, not merely
+an incidental edge tie.
+
+The [complete face map](../fea/results/gusset-interfaces.json) retains element,
+neighbor, face and node identities, source hashes and areas. The replay test
+regenerates the map from authenticated CAD/mesh, checks exact face inventory,
+coverage, ownership, positive areas and mesh/CAD volume agreement:
+
+```sh
+uv run pytest -q tests/test_gusset_interfaces.py
+```
+
+This provides the interface geometry for subsequent recovery; no traction,
+contact-law or actual bolt force has yet been calculated from it.
