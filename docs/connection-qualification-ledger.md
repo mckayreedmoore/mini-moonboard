@@ -134,3 +134,10 @@ behavior, unanchored stability and the physical validation procedure before
 construction or climbing approval. Physical tests need a planned, controlled
 setup; no person should serve as a proof load. The crash pad remains separate
 from the structural model.
+
+The subsequent [current-wide floor equilibrium screen](wide-floor-screen.md)
+includes gravity and balances yaw with compression-only frictional reactions.
+All 1,296 sampled cases are feasible at assumed coefficients 0.2 and 0.4;
+613 are polygon-infeasible at 0.1, including 504 necessary aggregate sliding
+bound violations. This supports retaining the current footprint for joint
+development, not actual floor acceptance or an individual joint-demand allocation.
