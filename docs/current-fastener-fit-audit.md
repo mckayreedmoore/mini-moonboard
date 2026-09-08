@@ -52,3 +52,32 @@ uv run pytest -q tests/test_washer_seating.py
 The 56 removable panel insert/machine-screw pairs and 108 manufacturer bracket
 screws are separate attachment families. They are not included in the 24-bolt
 stack or 48-washer counts, and no bolt result transfers to their resistance.
+
+## Additional SDS published-thread envelope
+
+The January 2026 [ESR-2236 report](https://icc-es.org/wp-content/uploads/report-directory/ESR-2236.pdf)
+section 3.2 gives SDS major diameter 0.256 in (6.5024 mm), versus the simplified
+6.35 mm shaft in current CAD. Its unthreaded shank is 0.239 in (6.0706 mm).
+Table 1 lists 1 inch of thread including the tip for SDS25112. These are distinct
+from the gross wood penetration obtained by subtracting angle thickness from
+the 1.5 inch under-head length. The report identity is recorded in the
+[installation-source check](end-angle-installation-gate.md).
+
+Two additional tests use the larger major-diameter cylinder over the full screw
+length as a clearance envelope. All 108 current SDS positions and the
+[relocated-end trial's](backing-end-relocated-trial.md) 116 positions pass:
+embedded envelopes fit the raw designated receivers, clear factory steel holes,
+and do not intersect other bodies or fastener envelopes. Intended thread-to-wood
+engagement is the only receiver exemption. Head and washer checks remain separate.
+The nominal factory hole is 6.731 mm, leaving 0.2286 mm diametral difference
+from this published major diameter; no manufactured tolerance margin is implied.
+
+The simplified viewer shafts and historical source-bound files are unchanged.
+This supplemental check addresses the larger thread envelope explicitly; it does
+not turn 6.5024 mm into a wood pilot recommendation, establish exact thread
+geometry or qualify screw resistance. A future selected geometry revision should
+distinguish the shank/thread envelopes without changing preserved analysis inputs.
+
+```bash
+uv run pytest -q tests/test_sds_thread_envelope.py
+```

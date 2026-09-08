@@ -14,6 +14,12 @@ The [current fastener-fit audit](current-fastener-fit-audit.md) now verifies all
 48 washer support planes against actual machined CAD and checks the 24 nominal
 bolt stacks with dimensional tolerances. Those checks do not qualify resistance.
 
+An additional SDS thread-envelope check covers the published 6.5024 mm nominal
+major diameter, larger than the simplified 6.35 mm viewer shaft. All 108 current
+SDS envelopes and the relocated-end trial's 116 envelopes clear other hardware
+and fit their raw designated wood receivers. This is not a tolerance-qualified
+maximum, a wood pilot specification or a resistance check; see the fit audit.
+
 ## Finite remaining checks
 
 | Family | Established information | Missing demand or resistance | Next bounded check |

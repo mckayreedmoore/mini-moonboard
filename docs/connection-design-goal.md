@@ -195,6 +195,12 @@ or separately designed alternative is still required. A precise supplier/reviewe
 question is prepared but has not been sent. This does not establish physical
 failure or close the unresolved panel/joint demand assessment.
 
+The [supplemental SDS envelope check](current-fastener-fit-audit.md) now uses
+the published 0.256 inch major diameter instead of relying solely on the
+viewer's simplified 0.25 inch shaft. Two tests pass for all 108 current and
+116 relocated-trial SDS positions. Tolerance, pilot and resistance claims remain
+excluded; historical source-bound geometry is unchanged.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical
