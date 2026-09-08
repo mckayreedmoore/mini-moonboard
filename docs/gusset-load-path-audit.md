@@ -195,3 +195,12 @@ with the intended fasteners and admissible bearing/contact behavior. This
 recovery has established that the archived fields can support numerical force
 inspection; it has not established actual bolt demand, separation resistance,
 plywood failure resistance or unanchored support behavior.
+
+### Independent review checkpoint
+
+The recovery increment and preceding bolt-yield, thread-exposure, gusset-pair,
+interface-map and displacement-control work received independent correctness,
+testing and architecture/package-consistency reviews. All three reported no
+substantial findings. The combined focused regression passed 36 tests; Ruff and
+`git diff --check` were clean. Reviewers did not rerun heavy CAD or solver jobs.
+This records a numerical/software review, not professional structural approval.
