@@ -98,3 +98,50 @@ insert/screw geometry cannot be reused unchanged. Flange bearing, wood splitting
 panel pull-through and thread engagement would still require checks. Do not
 transfer capacities from another E-Z LOK insert family or interpret the general
 installation recommendation as a structural allowable.
+
+## Prepared manufacturer/reviewer question — not sent
+
+We are developing a freestanding indoor climbing frame with removable plywood
+face and kicker panels. We are considering 56 E-Z LOK 801420-13 zinc Hex Drive
+inserts in solid Douglas-fir/larch receivers, paired with 1/4-20 × 1¼ in
+flat-head machine screws (L.H. Dottie FMDD14114). Nominal panel thickness is
+18.25625 mm (23/32 in); actual delivered dimensions remain to be measured.
+The panels see outward retention, lateral and repeated climbing loads; actual
+per-attachment design demands are still being established. This is not a
+furniture-only or purely static installation.
+
+Could you provide or confirm:
+
+1. Required recess below the receiver surface, allowable recess range, hex-drive
+   depth, usable full internal-thread interval, and minimum complete screw-thread
+   engagement? The drawing's 13.0048 mm total length cannot by itself establish
+   usable thread length. Nominal gross screw reach into the receiver is
+   13.49375 mm, falling to 11.96975 mm at the listed minimum screw length, before
+   deducting insert recess and incomplete male/female threads.
+2. Suitable pilot diameter and full-depth/tip clearance for this receiver
+   species, insert installation torque and machine-screw tightening limits?
+   Our model uses the published 23/64 in pilot recommendation and a provisional
+   17 mm depth reservation; these are not final installation instructions.
+3. An applicable withdrawal, lateral, combined-load and repeated-removal basis
+   for this application, including required wood condition and edge/end/spacing
+   limits? Please distinguish ultimate test results from design allowables and
+   identify the installation and material conditions attached to any values.
+4. If these data are unavailable for 801420-13, is a different insert topology
+   supported for this use, or what application evaluation should our structural
+   reviewer specify? We understand the general rear-installed flanged-insert
+   guidance does not itself provide a rating for this frame.
+
+The narrower receivers are nominally 38.1 mm wide; larger principals and
+service-pocket geometry differ by location. We can provide the
+[current machining schedule](wide-machining.md) and
+[candidate model](wide-principal-development.md) for individual edge/spacing
+and remaining-material checks. No approved per-insert load is claimed, and we
+will not divide total climber load by 56 to obtain one.
+
+The primary testing policy and product listing were rechecked September 8,
+2026; they did not close these questions. Do not transfer the separate Knife
+Thread family test data into the selected Hex Drive design. The owner's waiver
+of a preliminary offcut fit test remains in place; it does not supply a missing
+structural resistance basis. No sample loading procedure or human load test is
+prescribed here. Manufacturer contact and any physical application evaluation
+remain external actions, not work already performed.

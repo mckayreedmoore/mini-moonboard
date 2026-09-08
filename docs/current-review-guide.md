@@ -52,8 +52,9 @@ the sweep is not a physical bound.
   behalf. This asks whether a proposed detail is supported, not permission to
   improvise an installation.
 - Confirm the insert's installed recess and usable internal thread dimensions
-  with the manufacturer, and obtain an applicable anchorage basis; see the
-  [insert qualification gate](panel-insert-selection.md#qualification-gate).
+  with the manufacturer, and obtain an applicable anchorage basis; the
+  [prepared insert application question](panel-insert-selection.md#prepared-manufacturerreviewer-question--not-sent)
+  can be forwarded as written. It has not been sent.
 - Provide grade stamps, actual thicknesses and bolt identification/certificates
   when available. These resolve inputs; they are not substitutes for connection
   and whole-frame evaluation.
