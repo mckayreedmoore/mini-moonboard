@@ -37,7 +37,10 @@ its available rating/installation conditions do not qualify this application.
 
 ## Drilling and model interpretation
 
-Inserts sit flush with the **receiver**, behind the removable panel. The panel
+In the preserved CAD, inserts sit flush with the **receiver**, behind the removable
+panel. This is a modeling datum, not an installation instruction: the manufacturer
+describes below-surface Type E installation, with recess depth still unresolved
+in the [current selection record](panel-insert-selection.md). The panel
 receives a provisional 7 mm (0.276 in) machine-screw clearance hole. The insert
 manufacturer lists a 23/64 in (9.128 mm) pilot, separately from its 11.506 mm
 nominal external thread diameter. Do not drill the receiver to the external
@@ -65,8 +68,9 @@ No installation torque, withdrawal or lateral resistance is assigned.
    Resolve the qualification items below before using these as workshop plans.
 2. Transfer the matched panel/receiver axes using the drilling schedule; keep
    panel-clearance drilling separate from insert installation pilots.
-3. Install each insert flush with its receiver using the selected manufacturer's
-   tool/method. Do not infer a tightening torque from the machine-screw catalog.
+3. Resolve below-surface insert recess, effective thread overlap and pilot depth
+   before installation using the manufacturer's tool/method. Do not copy the
+   model's zero-recess position or infer torque from the machine-screw catalog.
 4. Offer up panels without forcing alignment. Install machine screws from the
    climbing side; verify seating, no bottoming and no service obstruction.
 5. For removal, support each panel and remove its 12 screws (four per kicker
