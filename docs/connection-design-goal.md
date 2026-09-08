@@ -262,3 +262,12 @@ resistances. In parallel with that engineering decision, obtain the already
 prepared supplier/reviewer answers for the end-angle installation and panel
 insert engagement. Do not change lumber sizes based on the bonded recovery or
 label the current machining package ready for construction.
+
+The subsequent [released-gusset connector trial](gusset-connector-trial.md)
+successfully replaces full-surface ties with force transfer at actual bolt-axis
+points in an isolated, frozen-parent-motion model. Three assumed stiffnesses
+and six rigid-motion controls establish the numerical formulation, not actual
+bolt stiffness or demand. The original direct prescribed-anchor attempt failed
+and remains archived. Next, connect this formulation to freely redistributing
+parent members in the whole-frame model; do not size the connection from the
+small one-way trial forces.
