@@ -13,6 +13,7 @@ timber and insert variants and their structural results remain unchanged.
 - [Panel/insert drilling reservations](../exports/wide-principal-development/wide-principal-development_panel_drilling.csv)
 - [Variant-specific assembly, access and removal sequence](wide-principal-assembly.md)
 - [Consolidated structural hardware BOM](wide-purchase-bom.md)
+- [Part-local machining coordinates and dimensioned profile references](wide-machining.md)
 
 There are 291 selectable entries: 103 bodies (including 56 inserts and 18 angles)
 and 188 connection assemblies. Retained transport bolts remain red, panel and

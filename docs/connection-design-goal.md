@@ -124,6 +124,15 @@ Eighteen focused tests pass. The [hardware BOM](wide-purchase-bom.md) and
 Part-local machining dimensions, actual contact/load sharing and complete joint
 resistance remain unfinished; the overall goal is not complete.
 
+The subsequent [part-local machining package](wide-machining.md) now closes the
+dimensional handoff gap: 29 datum/profile references, 276 member-specific
+connection-axis rows and 422 other feature records. It includes actual lower
+bearing-plane definitions, full metric/imperial vertex coordinates and explicit
+drill-versus-reservation semantics. Twenty-eight tests pass, including full CAD
+replay and all CSV fields; independent reviews and representative browser-rendered
+SVG inspections are complete. Actual installation dimensions where marked
+unresolved, contact/load sharing and complete joint resistance are still open.
+
 The advertised candidate is `wide-principal-development`. The 216 asymmetric
 scenarios and aggregate leg/base actions from the earlier section belong to the
 preserved narrower timber model, not this candidate. Their values cannot be transferred

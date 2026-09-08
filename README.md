@@ -13,6 +13,8 @@ Two nominal 4×6 central supports replace the narrow 2×6 receivers, providing
 44.45 mm backing-bolt edge distance. Matching base blocks come from the same
 stock. Panel inserts and purchased brackets remain; **joint resistance and
 physical validation are still unqualified.** [Cuts, assembly and audit limits](docs/wide-principal-development.md).
+[Part-local dimensions and profile references](docs/wide-machining.md) now cover
+all 29 wooden parts, with metric/imperial schedules and explicit machining limits.
 
 [New structural diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
 deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg added

@@ -10,7 +10,8 @@ assumed safe to lift or leave unsupported.
 Use the current [parts/cut schedule](../exports/wide-principal-development/wide-principal-development_parts.csv),
 [connection coordinates](../exports/wide-principal-development/wide-principal-development_connections.csv)
 and [panel/insert drilling reservations](../exports/wide-principal-development/wide-principal-development_panel_drilling.csv)
-together. X is across the board, S follows the inclined board upward, and N
+together with the [part-local machining package](wide-machining.md). X is across
+the board, S follows the inclined board upward, and N
 points toward its backing. “Front” means the climbing side, including when the
 assembly is lying down. World-coordinate schedules must not be treated as
 untransformed measurements along a timber edge.
