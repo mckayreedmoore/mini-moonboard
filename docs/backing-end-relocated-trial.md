@@ -39,6 +39,11 @@ trial's tests remain intact.
 
 ## Not yet established
 
+The subsequent [installation-source check and prepared inquiry](end-angle-installation-gate.md)
+identifies a concrete limit: the trial does not meet the generic SDS axial
+edge/end-distance provisions. Connector-specific applicability remains unresolved;
+nominal fit must not be promoted to a capacity claim.
+
 - Manufacturer installation and edge/end/spacing requirements for the ML23Z
   connections and revised gusset bolt group.
 - Actual load sharing, local resistance and unanchored behavior.

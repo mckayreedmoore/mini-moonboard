@@ -188,6 +188,13 @@ complete changed-hardware clearance. Existing stock and bolt lengths are retaine
 the trial remains unselected pending spacing, installation, demand/resistance,
 tool access and fresh manufacturing geometry checks.
 
+The [end-angle installation gate](end-angle-installation-gate.md) now records
+current ER-280 and ESR-2236 evidence. The trial's backing edge/end distances do
+not support the generic axial-SDS route; an applicable connector-specific rating
+or separately designed alternative is still required. A precise supplier/reviewer
+question is prepared but has not been sent. This does not establish physical
+failure or close the unresolved panel/joint demand assessment.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical
