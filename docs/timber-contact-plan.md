@@ -103,3 +103,30 @@ Preserve a failed or incomplete solver attempt with its inputs and diagnostics.
 Do not relax equilibrium tolerances, add a panel tie, or substitute the released
 linear basis combination to force acceptance. A successful first run is still
 provisional until the bounded penalty/increment comparison is examined.
+
+## Reproducing the first direct frame run
+
+The implemented adapter is `fea/timber_panel_contact.py`; its companion audit
+is `fea/timber_panel_contact_audit.py`. Preparation reconstructs both the
+authenticated released mesh and the complete panel/leg surface inventories.
+The first numerical penalty is 10,000 N/mm³, with maximum load increment 0.125.
+These are numerical settings, not measured wood-contact properties. The solver
+attempt is limited to 600 seconds and two OpenMP threads.
+
+```bash
+uv run python -m fea.timber_panel_contact prepare
+docker run --rm --user 1000:1000 -e OMP_NUM_THREADS=2 \
+  -v "$PWD":/work -w /work mini-moonboard-fea:release-v1 \
+  python3 -m fea.timber_panel_contact solve
+```
+
+The Docker image and NumPy addition are documented in the
+[release results](timber-release-results.md). Preparation refuses an existing
+output directory. A repeat must use a fresh explicit `--directory`; never
+delete a failed attempt to reuse its name. Penalty and increment overrides
+belong to `prepare`, not `solve`, so the launched settings remain frozen.
+
+The adapter's `execution.json` means only that the solver exited successfully.
+It is not an accepted result; the contact and complete-history audit must pass
+separately before interpreting the response. The first-run results and bounded
+sensitivity comparison remain pending until recorded with their source hashes.
