@@ -28,6 +28,11 @@ pairs. Its reactions are work-conjugate forces in N and moments in N·mm.
 The retained recovery matrix allows checking the bolt's own equilibrium and
 the uncondensed energy, rather than trusting the reduced matrix alone.
 
+Sign convention: `K q` is the **external generalized action needed to impose**
+the region motions. The bolt/foundation action on those regions is `−K q`.
+Keep that distinction when forming a wood-body free body; a positive work
+matrix is not automatically a table of bolt-on-wood forces.
+
 This is our explicit linear coupon formulation, not an AWC-prescribed
 three-member allowable. Published bolt load-slip research distinguishes
 deformation from yield theory; see
@@ -58,6 +63,28 @@ The coupon and existing yield-kernel regression passed 17 tests. Ruff and
 whitespace checks passed. Independent correctness, testing and architecture
 reviews found no substantial issues; this is numerical implementation review,
 not experimental or structural validation.
+
+## Independent finite-bending check
+
+A subsequent independent finite-bending check solves the continuous piecewise
+beam equation with matrix exponentials. Its state is displacement, slope,
+moment and shear, augmented by constant/axial-coordinate terms for each region's
+linear imposed motion. It enforces zero moment and shear at both bolt ends,
+propagates continuity across both material interfaces, and obtains each region's
+external force/moment from shear and moment differences. It does not reuse
+Hermite element matrices, Gauss integration or the condensation implementation.
+
+All six independent member motions were checked for both the nominal-thickness
+coupon and an unequal 20/30/10 mm stack with different bearing stiffnesses.
+At 16 elements per region, every stiffness-column relative 2-norm error was
+below 1e-5 against that continuous solution. This checks the supplied-input
+linear mechanics away from the rigid-bolt limit; it does **not** validate the
+physical foundation law or the neglected joint behaviors below. Both methods
+share the stated Euler–Bernoulli/linear-foundation idealization.
+
+The expanded coupon/yield regression passed 19 tests. A fresh three-scope
+independent review found no substantial issues in the ODE comparison or force
+sign convention; Ruff and whitespace checks remained clean.
 
 ## Before using it in frame decisions
 

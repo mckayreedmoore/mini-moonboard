@@ -15,6 +15,8 @@ def stiffness(lengths_mm, foundation_n_per_mm2, bending_n_mm2, subdivisions=8):
 Member DOFs alternate [translation mm, rotation rad]. Work-conjugate forces
 are [N, N mm]. Foundation input is distributed stiffness, NOT NDS bearing
 strength or a point spring stiffness. Bolt EI is explicitly supplied.
+K @ q is the external generalized action required to impose the member motion;
+the bolt/foundation action ON those members is its negative.
 """
     lengths = np.asarray(lengths_mm, dtype=float)
     foundation = np.asarray(foundation_n_per_mm2, dtype=float)
