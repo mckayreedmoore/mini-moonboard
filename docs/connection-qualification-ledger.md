@@ -91,6 +91,15 @@ among gussets, backing bolts or the header's bearing contacts.
 
 ## Achievable next stage and human gates
 
+The current wider candidate now has its own
+[nine-basis, 216-scenario asymmetric evidence](wide-asymmetric-results.md),
+including reconstructed leg and eleven-member base ownership. This closes the
+previous lack of candidate-specific aggregate actions; it does not supply the
+isolated bolt, gusset, backing or angle demands listed above. The 300 lb
+maximum-displacement case has approximately −561 N net vertical base reaction
+in the no-gravity fixed-floor model, emphasizing that these constrained actions
+cannot be used as the actual unanchored support state.
+
 The next analytical milestone is a source-backed **conditional connection
 envelope**, starting with the backing's axial load path, plus a clearly isolated
 leg/rim demand model. Existing free-body and bolt-group arithmetic can assist,

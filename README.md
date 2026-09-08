@@ -19,6 +19,11 @@ deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg adde
 modeled mass. This does not establish that the heavier supports are necessary.
 [Remaining joint qualification](docs/connection-qualification-ledger.md) is explicit.
 
+[Current-candidate asymmetric results](docs/wide-asymmetric-results.md) now include
+nine solved bases and 216 derived scenarios. The largest loaded-point response
+is 2.49 mm under the 300 lb, factor-two plus 300 N outward case. Fixed-floor
+results include downward base restraint; they do not validate unanchored support.
+
 Further connection diagnostics: [aggregate base actions](docs/timber-base-demand.md),
 [panel-edge bond sensitivity](docs/timber-release-results.md), and
 [conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not

@@ -116,9 +116,17 @@ real fastener load sharing remain unfinished. The goal remains active.
 
 ## Current-candidate evidence gap
 
+**Update:** the four conditional asymmetric-evidence steps below are now
+complete, with [current-wide results](wide-asymmetric-results.md), nineteen
+replay archives and all 216 independently checked aggregate action cases.
+Eighteen focused tests pass. The [hardware BOM](wide-purchase-bom.md) and
+[current assembly/access sequence](wide-principal-assembly.md) are also present.
+Part-local machining dimensions, actual contact/load sharing and complete joint
+resistance remain unfinished; the overall goal is not complete.
+
 The advertised candidate is `wide-principal-development`. The 216 asymmetric
-scenarios and aggregate leg/base actions above belong to the preserved narrower
-timber model, not this candidate. Their numerical values cannot be transferred
+scenarios and aggregate leg/base actions from the earlier section belong to the
+preserved narrower timber model, not this candidate. Their values cannot be transferred
 to changed principals, posts and connector positions. Completing the current
 candidate's conditional demand package therefore requires:
 
