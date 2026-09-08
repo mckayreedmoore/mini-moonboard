@@ -84,3 +84,31 @@ uv run pytest -q tests/test_gusset_interfaces.py
 
 This provides the interface geometry for subsequent recovery; no traction,
 contact-law or actual bolt force has yet been calculated from it.
+
+## Parent displacement availability
+
+The original ASCII FRD files remain under `fea/generated/wide-asymmetric/`.
+Their bytes were checked against the FRD hashes in the published compressed
+run records, and their decks against the same records. Each A12, K12 and F6 file
+contains all 153,552 parent node IDs for all three basis steps. The strict
+`fea/frd_displacements.py` reader verified complete coverage before selecting
+the 3,455 gusset nodes; no unselected missing node is silently ignored.
+
+| Original run | Extracted steps | Largest absolute selected displacement component |
+| --- | ---: | ---: |
+| A12 | 3 | 0.0195309 mm |
+| K12 | 3 | 0.0193870 mm |
+| F6 | 3 | 0.00364251 mm |
+
+These maxima are availability diagnostics over the Cartesian basis steps, not
+combined-load results. FRD values retain limited printed precision; differentiating
+them to recover forces needs a sensitivity/equilibrium check. The original DAT
+publication contains only selected output sets, so it must not be represented as
+a full-displacement archive. The full FRDs are locally retained but not yet added
+to the portable replay package.
+
+Six parser tests cover fixed-width adjacent signed numbers, node selection,
+missing terminators, wrong fields, duplicate/unknown nodes and repeated steps.
+All three original files passed the full-node identity check. A subsequent
+substructure recovery can reuse these authenticated fields without a whole-frame
+rerun, provided its own force-recovery and precision acceptance controls pass.
