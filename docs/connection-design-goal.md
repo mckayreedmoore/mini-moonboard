@@ -41,6 +41,16 @@ this task's edit/staging scope.
 
 ## Current implementation status
 
+September 8 continuation: the [current-wide frictional floor screen](wide-floor-screen.md)
+and [conditional backing retention ceiling](backing-retention-envelope.md) are
+complete within their stated assumptions. Three independent reviews of the
+increment (correctness, testing, architecture/package consistency) found no
+substantial defects. A linked predecessor page's obsolete flush-installation
+instruction was corrected without altering its historical CAD. The combined
+floor, retention, bearing and leverage regression passed 65 tests. These results
+do not settle actual connection resistance, panel load transfer or floor friction;
+the overall goal remains incomplete.
+
 - Panel-insert geometry and inspection package implemented as
   `panel-insert-development`; 56 replacements, existing transport/bracket
   fasteners retained. Geometry/export checks pass; resistance remains open.
