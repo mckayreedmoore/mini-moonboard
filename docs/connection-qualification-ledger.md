@@ -102,6 +102,13 @@ the 2024 NDS material assumptions and a reproducible calculation: approximately
 These are wood-bearing-only values, not qualified connection resistances.
 Both washers act in series, and assembly preload also consumes bearing pressure.
 
+The subsequent [isolated retention ceiling](backing-retention-envelope.md)
+combines those conditional per-bolt caps with the relaxed housing geometry.
+Outer attachment dry-case ceilings are approximately 245 N left and 230 N right,
+with force/moment and primal/dual checks. These are not actual panel demands or
+whole-frame capacities; they keep end retention/load transfer a priority rather
+than treating wider central principals as a completed connection solution.
+
 The [aggregate base-action recovery](timber-base-demand.md) now covers six original
 and 216 asymmetric cases on the preserved timber mesh. It identifies fixed
 kicker-bottom support as well as post support. It does not split those actions
