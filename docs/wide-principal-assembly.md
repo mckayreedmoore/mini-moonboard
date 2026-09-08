@@ -78,11 +78,14 @@ historical documents and analyses remain valid records of their own variants.
 
 6. **Match the removable panels and receivers.** Transfer the current matched
    axes without forcing misaligned parts. Panel machine-screw clearance and
-   countersinking are separate from receiver insert pilots. Install the inserts
-   from the exposed front of the receiver, flush with that timber surface—not
-   flush with the outer face of the plywood. Kicker inserts enter the front post
-   faces behind the kicker. Resolve the installation-depth and engagement items
-   below before machining production parts.
+   countersinking are separate from receiver insert pilots. The current CAD
+   locates inserts at the exposed front surface of each receiver, not at the
+   outer face of the plywood. This is a provisional datum: E-Z LOK describes
+   Type E installation below the receiver surface without specifying a recess
+   depth. Do not use zero recess as a production installation instruction.
+   Kicker inserts enter the front post faces behind the kicker. Resolve recess,
+   complete thread overlap, tip clearance and the installation items below
+   before machining production parts; recess reduces screw reach into the insert.
 
 7. **Complete the rear-of-panel and wiring access review before closing.**
    T-nuts and their three flange-retention screw positions must be accessible
@@ -129,7 +132,7 @@ not established here.
 | Feature | Current model or source datum | What still needs resolution |
 | --- | --- | --- |
 | Backing bolt front seat | 28.575 mm recess diameter; 12.032 mm depth along N; 11.1125 mm through bore | Actual cutter/socket envelope, tolerances, seating and counterbore ligament resistance; do not enlarge for a socket without revisiting the detail |
-| Receiver insert pilot | Manufacturer inch datum 23/64 in, 9.128125 mm | Stock/tool-specific pilot and drill-point depth; the model's 17 mm reservation is not a finished machining depth |
+| Receiver insert pilot | Manufacturer inch datum 23/64 in, 9.128125 mm | Stock/tool-specific pilot, below-surface insert recess and drill-point depth; the model's 17 mm reservation is not a finished machining depth |
 | Display insert cut | Nominal OD 11.5062 mm plus the documented tolerance reservation | Not the installation pilot diameter; do not copy the displayed cut as a drilling operation |
 | Panel clearance and head | Provisional 7 mm clearance and nominal 82° countersink concept | Actual seating depth, plywood damage, flush surface and complete usable thread engagement; CAD uses an 80° maximum-head clearance envelope |
 | Hand and power tools | Nominal hardware bodies clear the modeled parts | Socket/driver outside diameters, approach lengths and removal paths are not comprehensively modeled |

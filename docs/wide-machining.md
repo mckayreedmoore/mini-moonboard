@@ -70,6 +70,15 @@ maximum-head envelope is not an approved depth for the provisional 82° workshop
 countersink. Effective engagement, drill-point allowances, seating, torque and
 application resistance remain unresolved.
 
+The CAD insert origins are at the receiver surface. The manufacturer describes
+Type E installation below that surface but does not specify the recess in the
+retrieved instructions. Consequently, the listed origins are nominal layout
+datums, not an instruction to install at zero recess. A resolved recess changes
+the screw's reach relative to the insert top and may require a changed screw
+length or pilot reservation. See the [engagement arithmetic](panel-insert-selection.md).
+Do not apply the CSV's nominal receiver depth or the rendered insert position
+as a finished stop setting while this remains unresolved.
+
 The backing counterbores start at timber surface N=0 and extend 12.032 mm, with
 28.575 mm diameter. Their bolt origins are at N=10, not the cutting surface.
 Socket clearance, remaining ligament resistance and actual tolerances still
