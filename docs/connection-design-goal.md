@@ -281,3 +281,12 @@ connector resultant is 50.3075 N in the 300 lb sensitivity combinations, not
 an actual demand bound or a basis for a safety factor. Remaining ideal bonds,
 uncalibrated axial/lateral stiffness, bearing/contact and connection resistance
 still prevent qualification of the physical splice or frame.
+
+The [coupled leg/rim release](coupled-leg-release.md) now removes the additional
+rim and upper-panel bonds from both legs while preserving their glued-ply
+idealization and original floor supports. All 27 bases and 648 combinations
+pass the declared numerical gates. Depending on the assumed spring stiffness,
+peak leg-connector resultant ranges from 364.97 to 903.48 N and peak loaded-hold
+displacement from 7.8143 to 2.7803 mm. These are conditional sensitivity results,
+not physical bounds. The next comparison needs a resistance/slip basis for the
+actual rim plus two-ply leg stack; the prior gusset reference cannot substitute.

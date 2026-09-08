@@ -1,5 +1,9 @@
 # Coupled whole-frame gusset-release trial
 
+The subsequent [leg/rim release](coupled-leg-release.md) also removes the bonded
+leg-to-rim and leg-to-panel paths. Use that follow-up for conditional leg-bolt
+transfers; the results below deliberately preserve bonded legs as a comparison.
+
 This trial allows the surrounding frame to redistribute deformation when the
 gusset ties are released. It supersedes the frozen-parent-motion limitation of
 the [isolated connector trial](gusset-connector-trial.md) for this specific
