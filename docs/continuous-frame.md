@@ -3,6 +3,11 @@
 This revision corrects the split crossmembers in the lean frame. It is an
 inspection design, **not a structural approval**.
 
+The [structural evaluation](continuous-frame-evaluation.md) identifies a lower
+ledge fastener edge-distance failure against the retrieved product basis and
+unqualified joints. Both attempted FEA meshes failed quality checks; no new
+FEA displacement or strength result is accepted.
+
 - One unspliced top rail and one unspliced lower deep rail each span the full
   2438.4 mm / 96 in between the perimeter rims.
 - Each is nominal 2×6 stock: 38.1 × 139.7 mm / 1½ × 5½ in.
