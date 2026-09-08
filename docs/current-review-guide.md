@@ -7,6 +7,10 @@ into this candidate's schedules.
 
 ## Open these first
 
+The [latest local package audit](current-package-audit.md) records 57 passing
+geometry/hardware/machining tests and the current candidate's browser check,
+with their coverage limits. Passing these checks does not close the gates below.
+
 1. [Interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development&view=rear)
    and [candidate overview with STEP and export links](wide-principal-development.md).
 2. [Assembly and disassembly sequence](wide-principal-assembly.md).
