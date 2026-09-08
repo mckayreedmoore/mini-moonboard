@@ -14,6 +14,8 @@ timber and insert variants and their structural results remain unchanged.
 - [Variant-specific assembly, access and removal sequence](wide-principal-assembly.md)
 - [Consolidated structural hardware BOM](wide-purchase-bom.md)
 - [Part-local machining coordinates and dimensioned profile references](wide-machining.md)
+- [Current connection-development scope and open gates](connection-design-goal.md)
+- [Coupled whole-frame gusset connector assessment](coupled-gussets.md)
 
 There are 291 selectable entries: 103 bodies (including 56 inserts and 18 angles)
 and 188 connection assemblies. Retained transport bolts remain red, panel and

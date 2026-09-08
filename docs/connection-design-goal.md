@@ -271,3 +271,13 @@ bolt stiffness or demand. The original direct prescribed-anchor attempt failed
 and remains archived. Next, connect this formulation to freely redistributing
 parent members in the whole-frame model; do not size the connection from the
 small one-way trial forces.
+
+The [coupled whole-frame gusset assessment](coupled-gussets.md) now completes
+that specific redistribution step: 830 shared nodes are released, with no
+geometric change, and eight point connectors join independently moving gusset
+and parent interfaces. All 27 native bases and 648 derived scenarios pass the
+declared numerical checks for the three assumed stiffnesses. Peak tested
+connector resultant is 50.3075 N in the 300 lb sensitivity combinations, not
+an actual demand bound or a basis for a safety factor. Remaining ideal bonds,
+uncalibrated axial/lateral stiffness, bearing/contact and connection resistance
+still prevent qualification of the physical splice or frame.
