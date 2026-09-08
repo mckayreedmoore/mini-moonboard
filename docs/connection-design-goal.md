@@ -100,3 +100,10 @@ not substituted by these numerical checks.
 4. Resolve insert engagement and application resistance with actual hardware
    data and supplier/reviewer-supported testing. Keep bracket SDS screws and
    transport through-bolts unchanged unless their own checks require changes.
+
+The [current fastener-fit audit](current-fastener-fit-audit.md) now confirms
+full modeled support beneath all 48 washers and nominal dimensional clearance
+for all 24 through-bolt stacks. Three focused tests pass. The
+[contact-surface preparation](timber-contact-plan.md) also passes two actual-mesh
+checks, providing verified paired faces for the next unilateral-contact control.
+Neither addition supplies an unverified structural rating.
