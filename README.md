@@ -13,6 +13,9 @@ Full-width 2×8×10 ft side rims replace long plywood strips. A continuous lower
 backing rail, LED service pockets, full-depth base posts and nominal purchased
 hardware are modeled. **Fit development only; joint resistance remains
 unqualified.** [Stock, assembly, hardware and analysis limits](docs/timber-base-development.md).
+[Updated diagnostics](docs/timber-structural-results.md): about 2.08 mm at the
+most displaced loaded point under 2.4 kN downward force in the optimistic
+40 mm bulk model; real joint resistance is not established.
 
 ![Lumber-base development, climbing-side view](exports/timber-base-development/timber-base-development_front.png)
 

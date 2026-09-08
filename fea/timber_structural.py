@@ -55,9 +55,32 @@ def mass_state(parts):
 def bulk_parts(frame):
     """Omit face/fastener drilling, not the newly designed timber service pockets."""
     undrilled = {p.name: p for p in frame.wood_parts(False)}
-    return tuple(replace(p, shape=undrilled[p.name].shape)
-                 if p.name.startswith(("main_", "kicker_")) else p
-                 for p in frame.wood_parts(True))
+    parts = {p.name: replace(p, shape=undrilled[p.name].shape)
+             if p.name.startswith(("main_", "kicker_")) else p
+             for p in frame.wood_parts(True)}
+    # The already ideal-bonded pair is one rectangular section. Constructing
+    # that same section directly avoids duplicate coincident imported faces at
+    # the seam; generic OCC deduplication did not heal them. Physical CAD stays
+    # two pieces, and no connection strength is implied by this FE-only union.
+    if any(name.startswith("base_rail_mid_") for name in parts):
+        import cadquery as cq
+
+        from mini_moonboard import base_frame as base
+        from mini_moonboard import box_frame as b
+        from mini_moonboard import panel_grid_v2 as grid
+
+        for side, x0, x1 in (("left", -base.INNER_EDGE, -76.2), ("right", 38.1, base.INNER_EDGE)):
+            lower = parts.pop(f"base_rail_mid_lower_{side}")
+            upper = parts.pop(f"base_rail_mid_upper_{side}")
+            shape = b.block(x0, x1, b.HALF-38.1, b.HALF+38.1, 0., 139.7)
+            for x, s in grid.main_led_datums().values():
+                if abs(s-b.HALF) < 40 and x0-20 < x-b.HALF < x1+20:
+                    shape = shape.cut(cq.Solid.makeCylinder(20., 45., b.point(x-b.HALF, s, 0), b.normal()))
+            if abs(shape.Volume()-lower.shape.Volume()-upper.shape.Volume()) > .01:
+                raise ValueError("Canonical midpoint pair changes material volume")
+            name = f"bulk_mid_pair_{side}"
+            parts[name] = replace(lower, name=name, shape=shape.clean())
+    return tuple(parts.values())
 
 
 def prepare():

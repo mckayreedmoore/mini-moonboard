@@ -90,3 +90,8 @@ sharing, housing net sections, panel attachment resistance, connector load
 directions, floor friction and separation. Actual hardware/stock tolerances and
 driver access also need review. New bulk FEA must use this revision and corrected
 grid; historical base/bearing results do not transfer.
+
+[Updated structural diagnostics](timber-structural-results.md) now include
+source-bound 60/40 mm bulk runs and the 96-case moment screen. The finer run
+gives approximately 2.08 mm loaded-node displacement under 2.4 kN downward
+loading, but intentionally idealized joints mean this is not connection approval.
