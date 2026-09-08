@@ -40,8 +40,9 @@ this task's edit/staging scope.
   fasteners retained. Geometry/export checks pass; resistance remains open.
 - Supplier research identifies usable nominal dimensions but not a qualified
   insert engagement/withdrawal rating in the actual stock.
-- Current leg-resultant recovery is being checked against actual mesh ownership
-  before any forces are attributed to the upper bolt groups.
+- Current leg-resultant recovery identifies an ideal-bonded panel-edge path as
+  well as rim contact. [Aggregate leg-to-board actions](timber-joint-demand.md)
+  are recovered; isolated bolt-group demand remains unresolved.
 - The A21 backing-angle trial is not selected: available rating/installation
   restrictions do not establish suitability. The original backing edge-distance
   concern remains open, not silently accepted.
