@@ -7,7 +7,14 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current redesign: wider framing and recessed through-bolts.**
+**Current lighter concept: 1½-in stock with one main framing layer.**
+[Inspect the lean frame from the rear](https://mckayreedmoore.github.io/mini-moonboard/?model=lean-38mm-frame&view=rear).
+This replaces duplicated main ledges and wide uprights with thin on-edge
+members. Paired seam rails preserve separate panel-edge receivers; the lower
+kicker transition remains an explicit exception. **Not structurally qualified.**
+[Stock, assembly, tradeoffs and downloads](docs/lean-frame.md).
+
+**Preserved heavier comparison: wider framing and recessed through-bolts.**
 Inspect [A: purchased clips](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-clip-frame)
 and [B: bolted wood blocks](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-block-frame).
 These address the predecessor's short backing-screw engagement and block-edge

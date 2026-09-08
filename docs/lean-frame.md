@@ -118,10 +118,48 @@ moment. It would also alter connector space, rear projection, mass and joint
 demands. It is an analytical option only—not another selectable or validated
 design. No previous bonded-joint FEA result approves either depth.
 
-The mass target is a design objective, not evidence of success. Use a fresh
-drilled-CAD inventory and the same density assumptions for comparison. Removing
-mass can reduce restoring moments against tipping; rerun the unanchored
-stability screen rather than transferring the heavier design's result.
+## Measured CAD reduction and screening
+
+The [source-bound report](../fea/results/lean-frame/report.json) includes each
+part's calculated mass. Using the same assumed densities as the heavier variant
+(wood 600 kg/m³, connector proxies 7,850 kg/m³), included mass is **181.14 kg /
+399.34 lb**, down from 280.72 kg / 618.88 lb: **35.47% less, not half**.
+Fasteners, holds, LEDs and glue are excluded from both estimates. Main plywood
+faces alone contribute 64.80 kg; these are calculated volumes, not scale weights.
+
+All 96 selected rigid-body cases meet the illustrative 1.5 edge-moment target:
+
+| Climber weight | Minimum moment factor |
+| --- | ---: |
+| 150 lb | 1.935 |
+| 200 lb | 1.901 |
+| 250 lb intended maximum | 1.869 |
+| 300 lb sensitivity | 1.837 |
+
+These cases combine 1×/2× downward gravity, 0/300 N horizontal force over all
+azimuths, 0/50/100 mm hold standoff and 80%/100% included mass. The result is
+not joint-strength FEA, a sliding/contact solution or a climber rating. Upward
+and opposite-normal exploratory loads are not included, and earlier concerns
+about them are not superseded. Removing weight reduces restoring moments;
+the heavy frame's stability result was not transferred to this version.
+
+All 19 focused tests pass. CAD/export checks cover collisions, fastener components, official holes and
+rear service reservations, direct panel receivers, thin-stock geometry, the
+lower exception, mass, STEP solids, STL volume/bounds, dual-unit schedules and
+source hashes. Screening tests replay the published cases. Independent design,
+testing and dataflow reviews found no remaining substantial implementation
+findings; that is not engineering approval.
+Browser checks load all 267 selectable meshes, verify rear-member selection and
+dual-unit dimensions, and exercise the rear-view URL. Front, close-up selection
+and rear-overview screenshots were inspected locally.
+
+```sh
+uv run pytest tests/test_lean_frame.py tests/test_lean_exports.py tests/test_lean_screen.py
+```
+
+The screen generator, `uv run python -m fea.lean_screen`, refuses to overwrite
+its published report. Use a fresh checkout without that report to regenerate
+evidence. The exporter preserves all older variants and their source hashes.
 
 Remaining gates include actual stock, connector and panel-fastener resistance,
 net sections and splitting, panel support, racking, independent leg-ply load
@@ -130,7 +168,9 @@ crash pad remains a separate excluded element. No anchors or ballast are assumed
 
 ## Inspection files
 
-[Open the lean 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=lean-38mm-frame).
+[Open the lean frame from the rear](https://mckayreedmoore.github.io/mini-moonboard/?model=lean-38mm-frame&view=rear)
+to inspect the changed backing, or use the
+[front view](https://mckayreedmoore.github.io/mini-moonboard/?model=lean-38mm-frame).
 Download the [STEP assembly](../exports/lean-38mm-frame/lean-38mm-frame.step),
 [parts schedule](../exports/lean-38mm-frame/lean-38mm-frame_parts.csv),
 [connection schedule](../exports/lean-38mm-frame/lean-38mm-frame_connections.csv),
