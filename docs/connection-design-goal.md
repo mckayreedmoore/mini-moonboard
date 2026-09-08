@@ -2,6 +2,12 @@
 
 ## Target
 
+The application goal was restarted on September 8, 2026. Its active scope is
+to bring the current candidate as close as defensibly possible to ready-to-use
+plans, including connection resistance and unanchored stability work, while
+retaining explicit construction/use validation gates. A complete-looking viewer
+or machining package alone does not meet this goal.
+
 Produce one coherent, auditable timber-frame connection candidate, not a climbing
 approval. Preserve published predecessor models and their source-bound analysis.
 No broad frame redesign unless the connection evidence requires one.

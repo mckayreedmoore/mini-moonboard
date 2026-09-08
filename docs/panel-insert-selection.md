@@ -34,14 +34,25 @@ wood/zinc-insert assembly.
 
 ## Fit arithmetic and intentionally unresolved details
 
-Install the insert flush with the **timber receiver surface**, not inside the
-face plywood. At the modeled 18.25625 mm face/kicker thickness, a flush-seated
+The CAD currently places the insert flush with the **timber receiver surface**,
+not inside the face plywood. This is a modeling datum, not a final installation
+instruction: the manufacturer's installation page describes Type E inserts as
+installed below the surface, without giving a recess depth. Resolve that depth
+before issuing the drilling and screw-length specification.
+At the modeled 18.25625 mm face/kicker thickness, a flush-seated
 screw reaches nominally 13.49375 mm into the receiver, or 11.96975 mm at its
 published minimum length. This is **gross reach, not effective thread engagement**:
 the insert's internal hex/recess depth, complete thread length and screw-tip
 runout have not been specified by the retrieved drawing. The product page lists
 minimum full thread depth as unavailable. Do not assume thirteen millimeters
 of usable internal thread.
+
+If the insert top is recessed by `r` mm, the screw's gross reach measured from
+that top becomes `13.49375 - r` mm nominal or `11.96975 - r` mm at minimum
+published screw length. This still is not effective engagement: complete male
+and female thread overlap must exclude both runouts and the insert drive recess.
+The existing 17 mm receiver reservation also needs rechecking against the chosen
+recess and actual drill-point geometry. No recess value is selected here.
 
 For an inspectable CAD trial, reserve a 17 mm-deep pilot/tip-clearance volume
 from the receiver surface and a 7 mm panel clearance bore. Both are **project
@@ -75,3 +86,15 @@ qualification by calling a nominal geometric fit a successful test.
 Machine-readable facts and unknowns are in
 [`panel-insert-reference.json`](panel-insert-reference.json). No vendor CAD or
 PDF is copied into the repository, and no hardware has been purchased.
+
+## Alternative to assess before requesting application qualification
+
+The same manufacturer installation guidance explicitly permits installing a
+flanged insert from the back for additional pull-out resistance, with the screw
+entering its non-flanged end. This provides a source-supported alternative
+topology to investigate, not a rated replacement. It would change screw length,
+rear access and likely receiver machining; the current short front-installed
+insert/screw geometry cannot be reused unchanged. Flange bearing, wood splitting,
+panel pull-through and thread engagement would still require checks. Do not
+transfer capacities from another E-Z LOK insert family or interpret the general
+installation recommendation as a structural allowable.
