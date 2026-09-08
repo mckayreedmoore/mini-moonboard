@@ -112,3 +112,24 @@ missing terminators, wrong fields, duplicate/unknown nodes and repeated steps.
 All three original files passed the full-node identity check. A subsequent
 substructure recovery can reuse these authenticated fields without a whole-frame
 rerun, provided its own force-recovery and precision acceptance controls pass.
+
+## Native prescribed-displacement control
+
+`fea/prescribed_tet_control.py` now runs a single straight C3D10 tetrahedron
+with all displacement components prescribed. The affine field produces known
+constant uniaxial stress. Expected consistent nodal forces are calculated from
+the exact volume integrals of the quadratic shape gradients, independently of
+the solver output. Force/moment balance and strain energy also have exact checks.
+
+The pinned CalculiX 2.21 image completed the all-prescribed solve successfully.
+Maximum nodal-force discrepancy was 0.00003334 N, below the preselected 0.001 N
+gate; imposed displacements matched within 1e-9 mm. No free DOF or artificial
+spring was needed to obtain reactions. Both initial and source-hashed follow-up
+runs remain locally retained; the follow-up's complete small output is in
+[`prescribed-tet-control.tar.gz`](../fea/results/prescribed-tet-control.tar.gz).
+
+Two tests verify analytic equilibrium/energy and independently replay the archive,
+including source/input/output hashes and every nodal displacement/force. This
+qualifies the narrow all-prescribed reaction mechanism on this affine element,
+not full gusset recovery, FRD rounding sensitivity or attribution of shared-edge
+forces to individual physical interfaces. Those remain the next checks.
