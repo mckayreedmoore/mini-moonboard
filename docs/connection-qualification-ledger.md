@@ -54,6 +54,12 @@ separately applied at the upper centroid. These cannot be added or used as an
 actual group capacity; signed force/moment combinations and load-path demands
 remain necessary.
 
+The [current gusset mesh audit](gusset-load-path-audit.md) confirms additional
+shared degrees of freedom with the header and kicker boundary, besides rim and
+post. A recovered bonded-gusset resultant therefore cannot be treated as the
+two-bolt-pair load path without separating those interfaces and their physical
+contact assumptions. Neighbor-node counts are overlapping, not summed areas.
+
 ## What the supplier information can establish
 
 The [selected bolt/nut/washer record](selected-bolt-hardware.md) identifies
