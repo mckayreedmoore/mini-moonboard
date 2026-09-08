@@ -32,3 +32,18 @@ evidence remains visible and prevents construction/climbing approval.
 Local work and commits continue during Denver quiet hours. Publication follows
 the repository Git agreement. Another agent's untracked design notes are outside
 this task's edit/staging scope.
+
+## Current implementation status
+
+- Panel-insert geometry and inspection package implemented as
+  `panel-insert-development`; 56 replacements, existing transport/bracket
+  fasteners retained. Geometry/export checks pass; resistance remains open.
+- Supplier research identifies usable nominal dimensions but not a qualified
+  insert engagement/withdrawal rating in the actual stock.
+- Current leg-resultant recovery is being checked against actual mesh ownership
+  before any forces are attributed to the upper bolt groups.
+- The A21 backing-angle trial is not selected: available rating/installation
+  restrictions do not establish suitability. The original backing edge-distance
+  concern remains open, not silently accepted.
+- Full asymmetric FE extension, final joint resistance checks and human/physical
+  validation are still outstanding. The overall goal is not complete.

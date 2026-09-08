@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const models = process.argv.slice(3);
 if (!models.length) models.push('wood-first-mvp', 'commercial-bracket-mvp');
 assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
-  'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development'].includes(model)));
+  'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development'].includes(model)));
 
 (async () => {
   const browser = await chromium.launch({headless: true, args: ['--no-sandbox']});
@@ -31,7 +31,7 @@ assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
       await page.locator('#dimensions').uncheck();
       // Aim at an unobstructed rear face of the new continuous central support.
       await page.evaluate(model => {
-        const lean = ['lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development'].includes(model);
+        const lean = ['lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development'].includes(model);
         const a = 40*Math.PI/180, x = lean ? -57.15 : -76.35, s = 700, n = lean ? 139.7 : 177.8;
         const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
         const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
@@ -52,7 +52,7 @@ assert.ok(models.every(model => ['wood-first-mvp', 'commercial-bracket-mvp',
         m.userData.part.name !== 'McKay').length === count, manifest.parts.length, {timeout: 120000});
       assert.ok(await page.evaluate(() => window.cadTest.camera.position.y < window.cadTest.controls.target.y));
       await page.screenshot({path: '/tmp/mini-moonboard-'+model+'-rear.png'});
-      if (['base-bearing-concept', 'timber-base-development'].includes(model)) {
+      if (['base-bearing-concept', 'timber-base-development', 'panel-insert-development'].includes(model)) {
         // Select labels before the model metadata arrives: they must refresh
         // to the corrected stations, not retain the historical uniform grid.
         let release;

@@ -7,6 +7,15 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
+**Current connection candidate: removable panels with threaded inserts.**
+[Inspect the panel-insert revision](https://mckayreedmoore.github.io/mini-moonboard/?model=panel-insert-development).
+56 panel wood screws become machine screws and flush receiver inserts; existing
+through-bolts and commercial-bracket screws stay unchanged. **Geometry candidate
+only; insert engagement, joint strength and the lower-backing detail remain
+unqualified.** [Hardware, drilling reservations, assembly and audit gates](docs/panel-insert-development.md).
+
+![Removable-panel insert candidate, climbing-side view](exports/panel-insert-development/panel-insert-development_front.png)
+
 **Current development: lumber rims, service clearance and removable connections.**
 [Inspect the lumber-base revision](https://mckayreedmoore.github.io/mini-moonboard/?model=timber-base-development&view=rear).
 Full-width 2×8×10 ft side rims replace long plywood strips. A continuous lower
