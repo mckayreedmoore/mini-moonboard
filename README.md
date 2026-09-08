@@ -7,7 +7,14 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current lighter concept: 1½-in stock with one main framing layer.**
+**Current correction: continuous top and bottom crossmembers.**
+[Inspect the full-width rails from behind](https://mckayreedmoore.github.io/mini-moonboard/?model=continuous-lean-frame&view=rear).
+Both rails are unspliced 8-ft 2×6 members. Central uprights stop beneath the top
+rail, preserving the full cross-board connection without overlapping members.
+[Updated cuts, connections and limitations](docs/continuous-frame.md).
+**Joint resistance remains unqualified; this is not build approval.**
+
+**Preserved split-beam predecessor: 1½-in stock with one main framing layer.**
 [Inspect the lean frame from the rear](https://mckayreedmoore.github.io/mini-moonboard/?model=lean-38mm-frame&view=rear).
 This replaces duplicated main ledges and wide uprights with thin on-edge
 members. Paired seam rails preserve separate panel-edge receivers; the lower

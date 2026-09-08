@@ -32,6 +32,8 @@ def test_two_unspliced_full_width_crossmembers(candidate):
         assert len(parts[name].shape.Solids()) == 1
         assert raw[name].blank == pytest.approx((2438.4, 139.7, 38.1))
         assert raw[name].shape.Volume() == pytest.approx(2438.4*139.7*38.1)
+        for side in ("left", "right"):
+            assert parts[name].shape.distance(parts["box_side_"+side].shape) < 1e-6
         # A material witness spans the old gap and upright widths, away from
         # legitimate connection drillings in the member's shallower region.
         witness = cq.Solid.makeCylinder(1., 200., b.point(-100., s, n), cq.Vector(1, 0, 0))

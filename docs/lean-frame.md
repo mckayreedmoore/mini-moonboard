@@ -1,5 +1,9 @@
 # Lean 38 mm frame: a lighter inspection concept
 
+**Superseded topology:** use the [continuous top/bottom revision](continuous-frame.md)
+for the current cross-board connection. This page and its evidence describe
+the preserved split-beam version.
+
 **Development geometry, not construction or climbing approval.** This candidate
 replaces most of the [wide bolted frame](bolted-redesign.md)'s duplicated backing
 with one layer of thinner, deeper members. Its purpose is to reduce material,
