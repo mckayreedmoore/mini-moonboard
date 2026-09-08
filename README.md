@@ -18,6 +18,9 @@ most displaced loaded point under 2.4 kN downward force in the optimistic
 40 mm bulk model; real joint resistance is not established.
 [Threaded-insert and retained-nut options](docs/threaded-insert-options.md)
 compare easier disassembly without treating inserts as a proven structural upgrade.
+[Asymmetric floor-equilibrium screen](docs/timber-floor-screen.md): all 1,296
+selected cases have admissible reactions at assumed friction 0.20; low-friction
+cases expose limits. Actual floor friction and joint resistance remain unqualified.
 
 ![Lumber-base development, climbing-side view](exports/timber-base-development/timber-base-development_front.png)
 
