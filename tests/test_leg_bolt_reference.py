@@ -1,5 +1,6 @@
 import pytest
 
+from fea.dowel_yield import single_shear
 from fea.leg_bolt_reference import build
 
 
@@ -20,3 +21,18 @@ def test_actual_stack_and_conditional_reference():
         assert inputs["side_bearing_lb_in"] == pytest.approx(5600*.298)
         assert row["governing_mode"] == "IIIm"
         assert row["conditional_reference_lateral_n"] == pytest.approx(797.6155904451)
+
+
+def test_steel_strength_alone_reaches_bearing_mode_ceiling():
+    # Supplied-input sensitivity, not assignment of a purchased bolt grade.
+    inputs = build()["rows"][0]["conditional_bonded_laminate_inputs"]
+    baseline = single_shear(**inputs)
+    ceiling = baseline["reference_values_lbf"]["II"]
+    assert ceiling*4.4482216152605 == pytest.approx(840.7878584403)
+    for assumed_fyb in (90000, 120000):
+        changed = dict(inputs, main_yield_moment_lb_in=assumed_fyb*.298**3/6,
+                       side_yield_moment_lb_in=assumed_fyb*.298**3/6)
+        result = single_shear(**changed)
+        assert result["governing_mode"] == "II"
+        assert result["reference_lateral_lbf"] == pytest.approx(ceiling)
+        assert result["reference_values_lbf"]["II"] == baseline["reference_values_lbf"]["II"]

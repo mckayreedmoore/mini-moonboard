@@ -54,6 +54,34 @@ vectors remain in the native archive for combined-action assessment.
 
 ## Next decision
 
+### Steel-grade-only change does not close this comparison
+
+Source check, 2026-09-08: the manufacturer's
+[A307 mechanical-property summary](https://www.portlandbolt.com/technical/specifications/astm-a307/)
+lists a 60 ksi minimum tensile strength for Grade A but no minimum yield
+strength. The selected grade designation alone therefore does not verify the
+45 ksi bending-yield input. A tensile ultimate value is not a substitute.
+The [J429 summary](https://www.portlandbolt.com/technical/faqs/j429-strength-requirements/)
+does specify yield minima for other grades, but these do not automatically
+establish the project's NDS bending basis or compatible purchased hardware.
+
+Holding all current lengths, bearing properties, root diameter and reduction
+terms fixed, the mode-II reference is **840.79 N** and is independent of the
+steel bending-yield input. Raising the assumed input from 45 ksi to either
+90 or 120 ksi makes mode II govern at that value, only about 5.4% above the
+current 797.62 N reference and still below the trial's 903.13 N lateral maximum.
+Those two inputs are arithmetic sensitivities, not assignments to catalog
+bolt grades. The mode-II ceiling applies to this calculation only, not all
+possible joints or adjusted design values. No higher-grade bolt substitution
+is selected as a solution.
+
+The [material procurement basis](remaining-material-hardware-closure.md) takes
+no adhesive/composite credit. The bonded-laminate calculation and bonded-ply FE
+body are conditional departures used for diagnosis, not changes to that design
+basis. To qualify the intended no-credit approach, resolve individual-ply bolt
+bearing and stitch transfer; alternatively, explicitly qualify laminate action.
+Do not silently carry the bonded reference into the procurement/build plans.
+
 Do not declare this joint adequate. Establish the purchased bolt properties,
 laminate/load-sharing basis and directional slip, then check the same-case
 lateral/axial forces, washer bearing, spacing, group action and plywood failure
@@ -73,3 +101,8 @@ Verification: 25 focused thread-bearing, yield-kernel, bolt-reference and
 gusset-envelope regression tests passed. Ruff and whitespace checks passed.
 Independent correctness, testing and architecture/package reviews reported no
 substantial findings. These implementation reviews are not structural approval.
+
+The subsequent steel-strength-only sensitivity increases that regression to
+26 passing tests. A fresh three-scope independent review found no substantial
+issues in the sensitivity or design-basis clarification; Ruff and whitespace
+checks remained clean.

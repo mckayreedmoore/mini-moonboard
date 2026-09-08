@@ -298,3 +298,9 @@ maximum. This is not an adjusted allowable or proof of physical failure.
 Laminate behavior, purchased bolt properties, calibrated slip and combined
 axial/lateral resistance remain the next connection decision; the design is
 not released for construction.
+
+A steel-strength-only sensitivity reaches a mode-II reference ceiling of
+840.79 N under the same inputs, still below the stiffest trial's lateral
+maximum. Do not pursue a stronger bolt grade alone as the fix. The procurement
+basis retains no laminate credit, so the next substantive connection model
+must resolve individual-ply transfer or explicitly qualify composite behavior.

@@ -24,6 +24,12 @@ updating grips, spacers and geometry. Keep the intended grain/strength-axis
 orientation in the profile nesting. Final sheet count follows usable stock
 dimensions and nesting; the bounding blanks are not a cutting yield guarantee.
 
+The later [leg-bolt resistance checkpoint](leg-bolt-resistance.md) and coupled
+FE trial temporarily idealize bonded plies to diagnose the connection. They do
+not supersede this no-composite-credit procurement/design basis or qualify the
+glue. Individual-ply bearing and stitch transfer remain unresolved under this
+basis; the conditional laminate reference must not be used as its allowable.
+
 ## Holds and inserts
 
 Retain the owned [Mini 2025 bundle, 60-105-2025](https://us.moonclimbing.com/products/mini-moonboard-2025-hold-set)
