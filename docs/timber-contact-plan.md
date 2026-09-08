@@ -66,3 +66,40 @@ C3D10 section-force recovery; it is not an approved shortcut. Switching to
 MORTAR would require different output/reaction validation and is not an
 automatic repair. None of these diagnostics establishes actual bolted-rim
 compliance, independent-ply transfer, unanchored floor contact or joint strength.
+
+## Frame-run interpretation contract
+
+The first frame experiment uses the authenticated `timber-base-development`
+40 mm mesh, not `wide-principal-development`. This deliberate same-mesh
+comparison isolates the interface formulation from the changed principals and
+base blocks. Its results must not be relabeled as the current wider candidate's
+connection demands.
+
+The prescribed load is one direct combined K12 case: 300 lb climber weight,
+factor two on gravity-direction force, and 300 N in global positive Y. The
+load ramps through a nonlinear static step. Floor nodes remain fixed in XYZ;
+the load case has no frame self-weight. This is not a simulation of a falling
+person or a complete design load combination.
+
+Before reporting any inferred connection action, require:
+
+- the complete prepared face inventory and unchanged archived mesh provenance;
+- completed load history and finite output at every converged endpoint;
+- global force and moment equilibrium using the deformed load position;
+- zero movement of every prescribed floor support;
+- correctly named left and right contact-pair wrenches;
+- compression-only, frictionless local contact output consistent with the
+  numerical penalty law, with each reported face belonging to its declared
+  slave surface.
+
+Open faces need not appear in the active contact output. An absent active face
+is not permission to omit that face from the prepared contact surface. Likewise,
+an inferred rim wrench is not independently validated by merely adding its two
+terms: no direct rim reaction measurement is available in this bonded mesh.
+The control coupon supports interpreting the contact output, but it does not
+validate real bolt sharing or the retained common-edge constraint.
+
+Preserve a failed or incomplete solver attempt with its inputs and diagnostics.
+Do not relax equilibrium tolerances, add a panel tie, or substitute the released
+linear basis combination to force acceptance. A successful first run is still
+provisional until the bounded penalty/increment comparison is examined.
