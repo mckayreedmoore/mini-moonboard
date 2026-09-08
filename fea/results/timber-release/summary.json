@@ -1,0 +1,4953 @@
+{
+  "candidate": "timber-base-development",
+  "limits": "K12 linear release sensitivity on accepted timber mesh, not insert/wide geometry. Fixed XYZ floor, no gravity; ideal rim bond, common N=0 edge and bonded leg plies retained. Released coincident panel surfaces are traction-free, not unilateral contact; negative signed X gap means interpenetration. Not a conservative bound, joint/bolt demand or resistance qualification. Three basis solves and one linear scenario combination; point stresses unqualified.",
+  "source_sha256": {
+    "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+    "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+    "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/base_exports.py": "d549b37c8f4acc76d4164f8130356b6d11b76d2bce93b138b2f53cfdd75e64e5",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_exports.py": "138260d7f3b02ff7a4f44a7d68cb9100a2bf656e40eb24b289a32944005a8c29",
+    "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
+    "fea/timber_structural.py": "cafd3753a40f54060df7879faca6b314eedd3cb2b182d86c0003cde214441137",
+    "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+    "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+    "exports/timber-base-development/manifest.json": "93ba427f0e3a8357719584c6519034befb41c109abb3e20e4c3c3410f509555a",
+    "fea/solve_bearing_frame.py": "3e6219ef535842540f6bbd70b1f17a18f7b2af6e0e46f28c3737f12620fb6709",
+    "fea/solve_easy_frame.py": "d996504c1ba154aa6df373d9080327c57cfb6f620e1e8eed4909c42cc72c079f",
+    "fea/box_results.py": "dc5660f8d95560a6f7810060ba0f7471220ecc5f29146a2409131f6ec9124d89",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62",
+    "fea/publish_timber_structural.py": "936f92ca68d29010a54373fe39cf1b71302a143c60b33fcf0c922a2509337f26",
+    "fea/publish_bearing_structural.py": "56cb5419af106fa7608c84c159449ba6e7e33a6b447d9ff87bf0757ea20ac379",
+    "fea/results/timber-base/mesh40.inp.gz": "448cab7e48264d246bbd4dce6eb0c577b144493b1c38468bee372e9c43549300",
+    "fea/results/timber-base/mesh40.dat.gz": "22fd2e34767b40d2f11e2f8f8e8cbc9c7bf82fb7beef32264ad6cbea95de8a3c",
+    "fea/results/timber-base/mesh40.context.json.gz": "4c4ed6e738dc94332ecf96b9fd8c43de53d37c2bc4086b6b64f93db4602fb579",
+    "fea/results/timber-base/mesh40.log.gz": "b78691452ea12d14993241cabd087662e3562283abb88d5eba8dc1dbe0eafe5b",
+    "fea/results/timber-base/mesh40.sta.gz": "722fac8040e14dba6f32b171b0cb6537dfa6dc92e401cdcd819fa9f56aed03ff",
+    "fea/results/timber-base/mesh40.json": "058e5c8962f25a62499f4ea801b06840b3b31c0a178763ad0b8b937b45443060",
+    "fea/timber_joint_demand.py": "9818f5b394c24a5dd65a0ba2ef05739c546cef9a9e72dac72d28a578043fb9a6",
+    "fea/leg_joint_demand.py": "cc3b35429732a4b0e27570440a6d5b86bab896bb798410f7e24665c18749f3c3",
+    "fea/timber_asymmetric.py": "123ef2d3638755790cd7f203415dd628aa7b119a682580a9400f3c0b30fe5798",
+    "fea/results/timber-joint-demand.json": "7d02ce0cb1875f8d829a332661922a115c14df7cb4f27d6387317fed82ed43d7",
+    "fea/publish_timber_asymmetric.py": "d44bf6184354417653dd8858c74c5d6f2ccd74facc31d7430ed58855df9be249",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "fea/timber_release.py": "d92d20dea4ad63d03bc25de0465dc7a1cb5b807282d4ec25b55a8cdc2fab0720",
+    "fea/panel_edge_release.py": "b96e80a5633d4b939861bd892a83c4fd98bc84c8c02ae62c14c2015b65c54870",
+    "fea/prove_panel_edge_release.py": "47d579aa5278eae0eb820c39e2153b80a07be9d528c2c0d18f3d8e64057f4409",
+    "fea/results/timber-asymmetric/summary.json": "6bd54c18046270b3cd368b5fd9cec87e90f878534501fea5709ce59eea75c7cd",
+    "fea/results/timber-asymmetric/K12.inp.gz": "ced531fab1836fe155486cfb63f91acbc7f1d801f9c4f437c9cf7e948fa13fd2",
+    "fea/results/timber-asymmetric/K12.dat.gz": "8a5b0d5d1c6252ef3aa4e7747440901d0f33d737f845cbdacb9e33432fc3925a",
+    "fea/publish_timber_release.py": "71730d92d7dd7f841b7b068be1b00ea9c070d6f7be39ac8c922892cb11db2e2f"
+  },
+  "input": {
+    "candidate": "timber-base-development",
+    "limits": "K12 linear release sensitivity on accepted timber mesh, not insert/wide geometry. Fixed XYZ floor, no gravity; ideal rim bond, common N=0 edge and bonded leg plies retained. Released coincident panel surfaces are traction-free, not unilateral contact; negative signed X gap means interpenetration. Not a conservative bound, joint/bolt demand or resistance qualification. Three basis solves and one linear scenario combination; point stresses unqualified.",
+    "source_sha256": {
+      "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+      "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+      "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+      "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+      "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+      "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+      "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+      "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+      "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+      "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+      "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+      "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+      "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+      "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+      "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+      "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+      "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+      "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+      "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+      "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+      "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+      "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+      "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+      "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+      "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+      "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+      "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+      "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+      "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+      "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+      "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+      "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+      "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/base_exports.py": "d549b37c8f4acc76d4164f8130356b6d11b76d2bce93b138b2f53cfdd75e64e5",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+      "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+      "mini_moonboard/timber_exports.py": "138260d7f3b02ff7a4f44a7d68cb9100a2bf656e40eb24b289a32944005a8c29",
+      "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
+      "fea/timber_structural.py": "cafd3753a40f54060df7879faca6b314eedd3cb2b182d86c0003cde214441137",
+      "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+      "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e",
+      "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+      "exports/timber-base-development/manifest.json": "93ba427f0e3a8357719584c6519034befb41c109abb3e20e4c3c3410f509555a",
+      "fea/solve_bearing_frame.py": "3e6219ef535842540f6bbd70b1f17a18f7b2af6e0e46f28c3737f12620fb6709",
+      "fea/solve_easy_frame.py": "d996504c1ba154aa6df373d9080327c57cfb6f620e1e8eed4909c42cc72c079f",
+      "fea/box_results.py": "dc5660f8d95560a6f7810060ba0f7471220ecc5f29146a2409131f6ec9124d89",
+      "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+      "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+      "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62",
+      "fea/publish_timber_structural.py": "936f92ca68d29010a54373fe39cf1b71302a143c60b33fcf0c922a2509337f26",
+      "fea/publish_bearing_structural.py": "56cb5419af106fa7608c84c159449ba6e7e33a6b447d9ff87bf0757ea20ac379",
+      "fea/results/timber-base/mesh40.inp.gz": "448cab7e48264d246bbd4dce6eb0c577b144493b1c38468bee372e9c43549300",
+      "fea/results/timber-base/mesh40.dat.gz": "22fd2e34767b40d2f11e2f8f8e8cbc9c7bf82fb7beef32264ad6cbea95de8a3c",
+      "fea/results/timber-base/mesh40.context.json.gz": "4c4ed6e738dc94332ecf96b9fd8c43de53d37c2bc4086b6b64f93db4602fb579",
+      "fea/results/timber-base/mesh40.log.gz": "b78691452ea12d14993241cabd087662e3562283abb88d5eba8dc1dbe0eafe5b",
+      "fea/results/timber-base/mesh40.sta.gz": "722fac8040e14dba6f32b171b0cb6537dfa6dc92e401cdcd819fa9f56aed03ff",
+      "fea/results/timber-base/mesh40.json": "058e5c8962f25a62499f4ea801b06840b3b31c0a178763ad0b8b937b45443060",
+      "fea/timber_joint_demand.py": "9818f5b394c24a5dd65a0ba2ef05739c546cef9a9e72dac72d28a578043fb9a6",
+      "fea/leg_joint_demand.py": "cc3b35429732a4b0e27570440a6d5b86bab896bb798410f7e24665c18749f3c3",
+      "fea/timber_asymmetric.py": "123ef2d3638755790cd7f203415dd628aa7b119a682580a9400f3c0b30fe5798",
+      "fea/results/timber-joint-demand.json": "7d02ce0cb1875f8d829a332661922a115c14df7cb4f27d6387317fed82ed43d7",
+      "fea/publish_timber_asymmetric.py": "d44bf6184354417653dd8858c74c5d6f2ccd74facc31d7430ed58855df9be249",
+      "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+      "fea/timber_release.py": "d92d20dea4ad63d03bc25de0465dc7a1cb5b807282d4ec25b55a8cdc2fab0720",
+      "fea/panel_edge_release.py": "b96e80a5633d4b939861bd892a83c4fd98bc84c8c02ae62c14c2015b65c54870",
+      "fea/prove_panel_edge_release.py": "47d579aa5278eae0eb820c39e2153b80a07be9d528c2c0d18f3d8e64057f4409",
+      "fea/results/timber-asymmetric/summary.json": "6bd54c18046270b3cd368b5fd9cec87e90f878534501fea5709ce59eea75c7cd",
+      "fea/results/timber-asymmetric/K12.inp.gz": "ced531fab1836fe155486cfb63f91acbc7f1d801f9c4f437c9cf7e948fa13fd2",
+      "fea/results/timber-asymmetric/K12.dat.gz": "8a5b0d5d1c6252ef3aa4e7747440901d0f33d737f845cbdacb9e33432fc3925a"
+    },
+    "accepted_mesh_deck_sha256": "be1534a8ace52cd2e0e58659d9c45c287eea7b8252f7be5a007c35d40309cbc2",
+    "mapping": {
+      "node": 50994,
+      "target_mm": [
+        980.8,
+        1472.9493232735708,
+        2001.4455581565517
+      ],
+      "coordinates_mm": [
+        984.42528750844,
+        1472.8213607591,
+        2001.29305837
+      ],
+      "distance_mm": 3.6307492489649063
+    },
+    "floor_nodes": [
+      1,
+      3,
+      5,
+      7,
+      254,
+      257,
+      259,
+      260,
+      261,
+      264,
+      265,
+      266,
+      267,
+      433,
+      435,
+      436,
+      437,
+      438,
+      439,
+      443,
+      444,
+      448,
+      449,
+      455,
+      456,
+      457,
+      458,
+      461,
+      462,
+      471,
+      472,
+      556,
+      557,
+      558,
+      559,
+      560,
+      561,
+      562,
+      563,
+      564,
+      565,
+      566,
+      567,
+      568,
+      569,
+      570,
+      604,
+      605,
+      606,
+      607,
+      608,
+      609,
+      610,
+      611,
+      612,
+      613,
+      614,
+      615,
+      616,
+      617,
+      618,
+      643,
+      645,
+      3900,
+      3985,
+      3986,
+      3987,
+      3988,
+      3989,
+      3990,
+      3991,
+      3992,
+      3993,
+      3994,
+      3995,
+      3996,
+      3997,
+      3998,
+      3999,
+      4000,
+      4001,
+      4002,
+      4003,
+      4004,
+      4005,
+      4006,
+      4007,
+      4008,
+      4009,
+      4010,
+      4011,
+      4012,
+      4013,
+      4014,
+      4015,
+      4016,
+      4017,
+      4018,
+      4019,
+      4020,
+      4021,
+      4022,
+      4023,
+      4024,
+      4025,
+      4026,
+      4027,
+      4028,
+      4029,
+      4030,
+      4031,
+      4032,
+      4033,
+      4034,
+      4035,
+      4036,
+      4037,
+      4038,
+      4039,
+      4040,
+      4041,
+      4042,
+      4043,
+      4044,
+      4045,
+      4046,
+      4047,
+      4048,
+      4049,
+      4050,
+      4051,
+      4052,
+      4053,
+      4054,
+      4055,
+      4056,
+      4057,
+      4058,
+      4059,
+      4060,
+      4061,
+      4062,
+      4063,
+      4064,
+      4065,
+      4066,
+      4067,
+      4068,
+      4069,
+      4070,
+      4071,
+      4072,
+      4073,
+      4074,
+      4075,
+      4076,
+      4077,
+      4078,
+      4079,
+      4080,
+      4081,
+      4082,
+      4083,
+      4084,
+      4085,
+      4086,
+      4087,
+      4088,
+      4089,
+      4090,
+      4091,
+      4092,
+      4093,
+      4094,
+      4095,
+      4096,
+      4097,
+      4098,
+      4099,
+      4100,
+      4101,
+      4102,
+      4103,
+      4253,
+      4254,
+      4255,
+      4256,
+      4257,
+      4258,
+      4259,
+      4260,
+      4261,
+      4262,
+      4263,
+      4264,
+      4265,
+      4266,
+      4267,
+      4268,
+      4269,
+      4270,
+      4271,
+      4272,
+      4273,
+      4274,
+      4275,
+      4276,
+      4277,
+      4278,
+      4279,
+      4280,
+      4281,
+      4282,
+      4283,
+      4284,
+      4285,
+      4286,
+      4287,
+      4288,
+      4289,
+      4290,
+      4291,
+      4292,
+      4293,
+      4294,
+      4295,
+      4296,
+      4297,
+      4298,
+      4299,
+      4300,
+      4301,
+      4302,
+      4303,
+      4304,
+      4305,
+      4306,
+      4307,
+      4308,
+      4309,
+      4310,
+      4311,
+      4312,
+      4313,
+      4314,
+      4315,
+      4316,
+      4317,
+      4318,
+      4319,
+      4320,
+      4321,
+      4322,
+      4323,
+      4324,
+      4325,
+      4326,
+      4327,
+      4328,
+      4329,
+      4330,
+      4331,
+      4332,
+      4333,
+      4334,
+      4335,
+      4336,
+      4337,
+      4338,
+      4339,
+      4340,
+      4341,
+      4342,
+      4343,
+      4344,
+      4345,
+      4346,
+      4347,
+      4348,
+      4349,
+      4350,
+      4351,
+      4352,
+      4353,
+      4354,
+      4355,
+      4356,
+      4357,
+      4358,
+      4359,
+      4360,
+      4361,
+      4362,
+      4363,
+      4364,
+      4365,
+      4366,
+      4367,
+      4368,
+      4369,
+      4370,
+      4371,
+      4372,
+      4373,
+      6991,
+      6992,
+      6993,
+      6994,
+      6995,
+      6996,
+      6997,
+      6998,
+      6999,
+      7000,
+      7001,
+      7002,
+      7003,
+      7004,
+      7005,
+      7024,
+      7025,
+      7026,
+      7027,
+      7028,
+      7029,
+      7030,
+      7031,
+      7032,
+      7033,
+      7034,
+      7035,
+      7036,
+      7037,
+      7038,
+      7039,
+      7049,
+      7050,
+      7051,
+      7052,
+      7053,
+      7054,
+      7055,
+      7056,
+      7057,
+      7058,
+      7059,
+      7060,
+      7061,
+      7062,
+      7063,
+      7073,
+      7074,
+      7075,
+      7076,
+      7077,
+      7078,
+      7079,
+      7080,
+      7081,
+      7082,
+      7083,
+      7084,
+      7085,
+      7086,
+      7087,
+      7088,
+      7098,
+      7099,
+      7100,
+      7101,
+      7102,
+      7103,
+      7104,
+      7105,
+      7106,
+      7107,
+      7108,
+      7109,
+      7110,
+      7111,
+      7112,
+      7129,
+      7130,
+      7131,
+      7132,
+      7133,
+      7134,
+      7135,
+      7136,
+      7137,
+      7138,
+      7139,
+      7140,
+      7141,
+      7142,
+      7143,
+      7153,
+      7248,
+      7249,
+      7250,
+      7251,
+      7252,
+      7253,
+      7254,
+      7255,
+      7256,
+      7433,
+      7434,
+      7435,
+      7436,
+      7437,
+      7438,
+      7439,
+      7440,
+      7441,
+      7517,
+      7518,
+      7646,
+      7647,
+      7648,
+      7649,
+      7650,
+      7651,
+      7652,
+      7653,
+      7654,
+      7732,
+      7733,
+      7812,
+      7813,
+      7814,
+      7815,
+      7816,
+      7817,
+      7818,
+      7819,
+      7820,
+      7982,
+      7983,
+      7984,
+      7985,
+      7986,
+      7987,
+      7988,
+      7989,
+      7990,
+      7991,
+      7992,
+      8231,
+      8232,
+      8233,
+      8234,
+      8235,
+      8236,
+      8237,
+      8238,
+      8239,
+      8316,
+      8317,
+      9792,
+      9793,
+      9794,
+      9795,
+      9796,
+      9797,
+      9798,
+      9799,
+      9800,
+      9801,
+      9802,
+      9803,
+      9804,
+      9805,
+      9806,
+      9807,
+      9808,
+      9809,
+      9810,
+      9811,
+      9812,
+      9813,
+      9814,
+      9815,
+      9816,
+      9817,
+      9818,
+      9819,
+      9820,
+      9821,
+      9822,
+      9823,
+      9824,
+      9825,
+      9826,
+      9827,
+      9828,
+      9829,
+      9830,
+      9831,
+      9832,
+      9833,
+      9834,
+      9835,
+      9836,
+      9837,
+      9838,
+      53320,
+      53321,
+      53322,
+      53323,
+      53324,
+      53325,
+      53326,
+      53327,
+      53328,
+      53329,
+      53330,
+      53331,
+      53332,
+      53333,
+      53334,
+      53335,
+      53336,
+      53337,
+      53338,
+      53339,
+      53340,
+      53341,
+      53342,
+      53343,
+      53344,
+      53345,
+      53346,
+      53347,
+      53348,
+      53349,
+      53350,
+      53351,
+      53352,
+      53353,
+      53354,
+      53355,
+      53356,
+      53357,
+      53358,
+      53359,
+      53360,
+      53361,
+      53362,
+      53363,
+      53364,
+      53365,
+      53366,
+      53367,
+      53368,
+      53369,
+      53370,
+      53371,
+      53372,
+      53373,
+      53374,
+      53375,
+      53376,
+      53377,
+      53378,
+      53379,
+      53380,
+      53381,
+      53382,
+      53383,
+      53384,
+      53385,
+      53386,
+      53387,
+      53388,
+      53389,
+      53390,
+      53391,
+      53392,
+      53393,
+      53394,
+      53395,
+      53396,
+      53397,
+      53398,
+      53399,
+      53400,
+      53401,
+      53402,
+      53403,
+      53404,
+      53405,
+      53406,
+      53407,
+      53408,
+      53409,
+      53410,
+      53411,
+      53412,
+      53413,
+      53414,
+      53415,
+      53416,
+      53417,
+      53418,
+      53419,
+      53420,
+      53421,
+      53422,
+      53423,
+      53424,
+      53425,
+      53426,
+      53427,
+      53428,
+      53429,
+      53430,
+      53431,
+      53432,
+      53433,
+      53434,
+      53435,
+      53436,
+      53437,
+      53438,
+      53439,
+      53440,
+      53441,
+      53442,
+      53443,
+      53444,
+      53445,
+      53446,
+      53447,
+      53448,
+      53449,
+      53450,
+      53451,
+      53452,
+      53453,
+      53454,
+      53455,
+      53456,
+      53457,
+      53458,
+      53459,
+      53460,
+      53461,
+      53462,
+      53463,
+      53464,
+      53465,
+      53466,
+      53467,
+      53468,
+      53469,
+      53470,
+      53471,
+      53472,
+      55333,
+      55334,
+      55335,
+      55336,
+      55337,
+      55338,
+      55339,
+      55340,
+      55341,
+      55342,
+      55343,
+      55344,
+      55345,
+      55346,
+      55347,
+      55348,
+      55349,
+      55350,
+      55351,
+      55352,
+      55353,
+      55354,
+      55355,
+      55356,
+      55357,
+      55358,
+      55359,
+      55360,
+      55361,
+      55362,
+      55363,
+      55364,
+      55365,
+      55366,
+      55367,
+      55368,
+      55369,
+      55370,
+      55371,
+      55372,
+      55373,
+      55374,
+      55375,
+      55376,
+      55377,
+      55378,
+      55379,
+      55380,
+      55381,
+      55382,
+      55383,
+      55384,
+      55385,
+      55386,
+      55387,
+      55388,
+      55389,
+      55390,
+      55391,
+      55392,
+      55393,
+      55394,
+      55395,
+      55396,
+      55397,
+      55398,
+      55399,
+      55400,
+      55401,
+      55402,
+      55403,
+      55404,
+      55405,
+      55406,
+      55407,
+      55408,
+      55409,
+      55410,
+      55411,
+      55412,
+      55413,
+      55414,
+      55415,
+      55416,
+      55417,
+      55418,
+      55419,
+      55420,
+      55421,
+      55422,
+      55423,
+      55424,
+      55425,
+      55426,
+      55427,
+      55428,
+      55429,
+      55430,
+      55431,
+      55432,
+      55433,
+      55434,
+      55435,
+      55436,
+      55437,
+      55438,
+      55439,
+      55440,
+      55441,
+      55442,
+      55443,
+      55444,
+      55445,
+      55446,
+      55447,
+      55448,
+      55449,
+      55450,
+      55451,
+      55452,
+      55453,
+      55454,
+      55455,
+      55456,
+      55457,
+      55458,
+      55459,
+      55460,
+      55461,
+      55462,
+      55463,
+      55464,
+      55465,
+      55466,
+      55467,
+      55468,
+      55469,
+      55470,
+      55471,
+      55472,
+      55473,
+      55474,
+      55475,
+      55476,
+      55477,
+      55478,
+      55479,
+      55480,
+      55481,
+      55482,
+      55483,
+      55484,
+      55485,
+      55486,
+      55487,
+      55488,
+      55489,
+      55490,
+      55491,
+      55492,
+      55493,
+      55494,
+      55495,
+      55496,
+      55497,
+      55498,
+      55499,
+      55500,
+      55501,
+      55502,
+      55503,
+      55504,
+      55505,
+      55506,
+      55507,
+      55508,
+      55509,
+      55510,
+      55511,
+      55512,
+      55513,
+      55514,
+      55515,
+      55516,
+      55517,
+      79349,
+      79350,
+      79351,
+      79352,
+      79353,
+      79354,
+      79355,
+      79356,
+      79357,
+      79358,
+      79359,
+      79360,
+      79361,
+      79362,
+      79363,
+      79364,
+      79365,
+      79366,
+      79367,
+      79368,
+      79369,
+      79370,
+      79371,
+      79372,
+      79373,
+      79374,
+      79375,
+      79376,
+      79377,
+      79378,
+      79379,
+      79380,
+      79381,
+      79382,
+      79383,
+      79384,
+      79385,
+      79386,
+      79387,
+      79388,
+      79389,
+      79390,
+      79391,
+      79392,
+      79393,
+      79394,
+      79395,
+      79799,
+      79800,
+      79801,
+      79802,
+      79803,
+      79804,
+      79805,
+      79806,
+      79807,
+      79808,
+      79809,
+      79810,
+      79811,
+      79812,
+      79813,
+      79814,
+      79815,
+      79816,
+      79817,
+      79818,
+      79819,
+      79820,
+      79821,
+      79822,
+      79823,
+      79824,
+      79825,
+      79826,
+      79827,
+      79828,
+      79829,
+      79830,
+      79831,
+      79832,
+      79833,
+      79834,
+      79835,
+      79836,
+      79837,
+      79838,
+      79839,
+      79840,
+      79841,
+      79842,
+      79843,
+      79844,
+      79845,
+      80277,
+      80278,
+      80279,
+      80280,
+      80281,
+      80282,
+      80283,
+      80284,
+      80285,
+      80286,
+      80287,
+      80288,
+      80289,
+      80290,
+      80291,
+      80292,
+      80293,
+      80294,
+      80295,
+      80296,
+      80297,
+      80298,
+      80299,
+      80300,
+      80301,
+      80302,
+      80303,
+      80304,
+      80305,
+      80306,
+      80307,
+      80308,
+      80309,
+      80310,
+      80311,
+      80312,
+      80313,
+      80314,
+      80315,
+      80316,
+      80317,
+      80318,
+      80319,
+      80320,
+      80321,
+      80322,
+      80323,
+      82256,
+      82257,
+      82258,
+      82259,
+      82260,
+      82261,
+      82262,
+      82263,
+      82264,
+      82265,
+      82266,
+      82267,
+      82268,
+      82269,
+      82270,
+      82271,
+      82272,
+      82273,
+      82274,
+      82275,
+      82276,
+      82277,
+      82278,
+      82279,
+      82280,
+      82281,
+      82282,
+      82283,
+      82284,
+      83834,
+      83835,
+      83836,
+      83837,
+      83838,
+      83839,
+      83840,
+      83841,
+      83842,
+      83843,
+      83844,
+      83845,
+      83846,
+      83847,
+      83848,
+      83849,
+      83850,
+      83851,
+      83852,
+      83853,
+      83854,
+      83855,
+      83856,
+      83857,
+      83858,
+      83859,
+      83860,
+      83861,
+      83862,
+      85132,
+      85133,
+      85134,
+      85135,
+      85136,
+      85137,
+      85138,
+      85139,
+      85140,
+      85141,
+      85142,
+      85143,
+      85144,
+      85145,
+      85146,
+      85147,
+      85148,
+      85149,
+      85150,
+      85151,
+      85152,
+      85153,
+      85154,
+      85155,
+      85156,
+      85157,
+      85158,
+      85159,
+      85160,
+      87730,
+      87731,
+      87732,
+      87733,
+      87734,
+      87735,
+      87736,
+      87737,
+      87738,
+      87739,
+      87740,
+      87741,
+      87742,
+      87743,
+      87744,
+      87745,
+      87746,
+      87747,
+      87748,
+      87749,
+      87750,
+      87751,
+      87752,
+      87753,
+      87754,
+      87755,
+      87756,
+      87757,
+      87758
+    ],
+    "node_map": {
+      "left": {
+        "180": 146735,
+        "182": 146736,
+        "183": 146737,
+        "184": 146738,
+        "2652": 146739,
+        "2685": 146740,
+        "2686": 146741,
+        "2687": 146742,
+        "2688": 146743,
+        "2689": 146744,
+        "2690": 146745,
+        "2691": 146746,
+        "2692": 146747,
+        "2693": 146748,
+        "2694": 146749,
+        "2695": 146750,
+        "2696": 146751,
+        "2697": 146752,
+        "2698": 146753,
+        "2699": 146754,
+        "2700": 146755,
+        "2701": 146756,
+        "2702": 146757,
+        "2703": 146758,
+        "2704": 146759,
+        "2705": 146760,
+        "2706": 146761,
+        "2707": 146762,
+        "2708": 146763,
+        "2709": 146764,
+        "2710": 146765,
+        "2711": 146766,
+        "2712": 146767,
+        "2713": 146768,
+        "2714": 146769,
+        "33462": 146770,
+        "33463": 146771,
+        "33464": 146772,
+        "33465": 146773,
+        "33466": 146774,
+        "33467": 146775,
+        "33468": 146776,
+        "33469": 146777,
+        "33470": 146778,
+        "33471": 146779,
+        "33472": 146780,
+        "33473": 146781,
+        "33474": 146782,
+        "33475": 146783,
+        "33476": 146784,
+        "33477": 146785,
+        "33478": 146786,
+        "33479": 146787,
+        "33480": 146788,
+        "33481": 146789,
+        "33482": 146790,
+        "33483": 146791,
+        "33484": 146792,
+        "33485": 146793,
+        "33486": 146794,
+        "33487": 146795,
+        "33488": 146796,
+        "33489": 146797,
+        "33490": 146798,
+        "33491": 146799,
+        "33492": 146800,
+        "33493": 146801,
+        "33494": 146802,
+        "33495": 146803,
+        "33496": 146804,
+        "33497": 146805,
+        "33498": 146806
+      },
+      "right": {
+        "241": 146807,
+        "243": 146808,
+        "244": 146809,
+        "245": 146810,
+        "3366": 146811,
+        "3399": 146812,
+        "3400": 146813,
+        "3401": 146814,
+        "3402": 146815,
+        "3403": 146816,
+        "3404": 146817,
+        "3405": 146818,
+        "3406": 146819,
+        "3407": 146820,
+        "3408": 146821,
+        "3409": 146822,
+        "3410": 146823,
+        "3411": 146824,
+        "3412": 146825,
+        "3413": 146826,
+        "3414": 146827,
+        "3415": 146828,
+        "3416": 146829,
+        "3417": 146830,
+        "3418": 146831,
+        "3419": 146832,
+        "3420": 146833,
+        "3421": 146834,
+        "3422": 146835,
+        "3423": 146836,
+        "3424": 146837,
+        "3425": 146838,
+        "3426": 146839,
+        "3427": 146840,
+        "3428": 146841,
+        "43105": 146842,
+        "43106": 146843,
+        "43107": 146844,
+        "43108": 146845,
+        "43109": 146846,
+        "43110": 146847,
+        "43111": 146848,
+        "43112": 146849,
+        "43113": 146850,
+        "43114": 146851,
+        "43115": 146852,
+        "43116": 146853,
+        "43117": 146854,
+        "43118": 146855,
+        "43119": 146856,
+        "43120": 146857,
+        "43121": 146858,
+        "43122": 146859,
+        "43123": 146860,
+        "43124": 146861,
+        "43125": 146862,
+        "43126": 146863,
+        "43127": 146864,
+        "43128": 146865,
+        "43129": 146866,
+        "43130": 146867,
+        "43131": 146868,
+        "43132": 146869,
+        "43133": 146870,
+        "43134": 146871,
+        "43135": 146872,
+        "43136": 146873,
+        "43137": 146874,
+        "43138": 146875,
+        "43139": 146876,
+        "43140": 146877,
+        "43141": 146878
+      }
+    },
+    "release_proof": {
+      "limits": "Zero-gap traction-free leg/panel interface; no unilateral contact. Interpenetration is possible; this is not a conservative bound. N=0 common-edge nodes and the nonzero-area rim bond remain shared. No individual bolt-force or joint-capacity qualification.",
+      "legs": {
+        "left": {
+          "node_map": {
+            "180": 146735,
+            "182": 146736,
+            "183": 146737,
+            "184": 146738,
+            "2652": 146739,
+            "2685": 146740,
+            "2686": 146741,
+            "2687": 146742,
+            "2688": 146743,
+            "2689": 146744,
+            "2690": 146745,
+            "2691": 146746,
+            "2692": 146747,
+            "2693": 146748,
+            "2694": 146749,
+            "2695": 146750,
+            "2696": 146751,
+            "2697": 146752,
+            "2698": 146753,
+            "2699": 146754,
+            "2700": 146755,
+            "2701": 146756,
+            "2702": 146757,
+            "2703": 146758,
+            "2704": 146759,
+            "2705": 146760,
+            "2706": 146761,
+            "2707": 146762,
+            "2708": 146763,
+            "2709": 146764,
+            "2710": 146765,
+            "2711": 146766,
+            "2712": 146767,
+            "2713": 146768,
+            "2714": 146769,
+            "33462": 146770,
+            "33463": 146771,
+            "33464": 146772,
+            "33465": 146773,
+            "33466": 146774,
+            "33467": 146775,
+            "33468": 146776,
+            "33469": 146777,
+            "33470": 146778,
+            "33471": 146779,
+            "33472": 146780,
+            "33473": 146781,
+            "33474": 146782,
+            "33475": 146783,
+            "33476": 146784,
+            "33477": 146785,
+            "33478": 146786,
+            "33479": 146787,
+            "33480": 146788,
+            "33481": 146789,
+            "33482": 146790,
+            "33483": 146791,
+            "33484": 146792,
+            "33485": 146793,
+            "33486": 146794,
+            "33487": 146795,
+            "33488": 146796,
+            "33489": 146797,
+            "33490": 146798,
+            "33491": 146799,
+            "33492": 146800,
+            "33493": 146801,
+            "33494": 146802,
+            "33495": 146803,
+            "33496": 146804,
+            "33497": 146805,
+            "33498": 146806
+          },
+          "released_panel_face_count": 34,
+          "released_panel_area_mm2": 9218.14883125195,
+          "retained_rim_face_count": 148,
+          "retained_rim_area_mm2": 81257.79116351595,
+          "retained_common_edge_nodes": [
+            179,
+            181,
+            2658,
+            2659,
+            2660,
+            2661,
+            2662,
+            2663,
+            2664,
+            2665,
+            2666,
+            2667,
+            2668,
+            2669,
+            2670,
+            2671,
+            2672,
+            2673,
+            2674,
+            2675,
+            2676,
+            2677,
+            2678,
+            2679,
+            2680,
+            2681,
+            2682,
+            2683,
+            2684
+          ]
+        },
+        "right": {
+          "node_map": {
+            "241": 146807,
+            "243": 146808,
+            "244": 146809,
+            "245": 146810,
+            "3366": 146811,
+            "3399": 146812,
+            "3400": 146813,
+            "3401": 146814,
+            "3402": 146815,
+            "3403": 146816,
+            "3404": 146817,
+            "3405": 146818,
+            "3406": 146819,
+            "3407": 146820,
+            "3408": 146821,
+            "3409": 146822,
+            "3410": 146823,
+            "3411": 146824,
+            "3412": 146825,
+            "3413": 146826,
+            "3414": 146827,
+            "3415": 146828,
+            "3416": 146829,
+            "3417": 146830,
+            "3418": 146831,
+            "3419": 146832,
+            "3420": 146833,
+            "3421": 146834,
+            "3422": 146835,
+            "3423": 146836,
+            "3424": 146837,
+            "3425": 146838,
+            "3426": 146839,
+            "3427": 146840,
+            "3428": 146841,
+            "43105": 146842,
+            "43106": 146843,
+            "43107": 146844,
+            "43108": 146845,
+            "43109": 146846,
+            "43110": 146847,
+            "43111": 146848,
+            "43112": 146849,
+            "43113": 146850,
+            "43114": 146851,
+            "43115": 146852,
+            "43116": 146853,
+            "43117": 146854,
+            "43118": 146855,
+            "43119": 146856,
+            "43120": 146857,
+            "43121": 146858,
+            "43122": 146859,
+            "43123": 146860,
+            "43124": 146861,
+            "43125": 146862,
+            "43126": 146863,
+            "43127": 146864,
+            "43128": 146865,
+            "43129": 146866,
+            "43130": 146867,
+            "43131": 146868,
+            "43132": 146869,
+            "43133": 146870,
+            "43134": 146871,
+            "43135": 146872,
+            "43136": 146873,
+            "43137": 146874,
+            "43138": 146875,
+            "43139": 146876,
+            "43140": 146877,
+            "43141": 146878
+          },
+          "released_panel_face_count": 34,
+          "released_panel_area_mm2": 9218.14883125195,
+          "retained_rim_face_count": 148,
+          "retained_rim_area_mm2": 81257.79116351595,
+          "retained_common_edge_nodes": [
+            240,
+            242,
+            3372,
+            3373,
+            3374,
+            3375,
+            3376,
+            3377,
+            3378,
+            3379,
+            3380,
+            3381,
+            3382,
+            3383,
+            3384,
+            3385,
+            3386,
+            3387,
+            3388,
+            3389,
+            3390,
+            3391,
+            3392,
+            3393,
+            3394,
+            3395,
+            3396,
+            3397,
+            3398
+          ]
+        }
+      },
+      "volume_mm3": 289546572.28788966,
+      "tolerance_mm": 1e-05,
+      "added_node_count": 144
+    },
+    "bonded_basis": [
+      {
+        "name": "X",
+        "force_n": [
+          1000.0,
+          0.0,
+          0.0
+        ],
+        "loaded_displacement_mm": [
+          0.06713467,
+          0.01990974,
+          -0.03605554
+        ],
+        "reaction_wrench_n_nmm": [
+          -999.9999958118,
+          -5.494900000146578e-06,
+          -4.04483899950883e-05,
+          0.005307675216667721,
+          -2001293.0408386092,
+          1472821.376824795
+        ],
+        "residual_wrench": [
+          4.188200023236277e-06,
+          -5.494900000146578e-06,
+          -4.04483899950883e-05,
+          0.005307675216667721,
+          0.017531390767544508,
+          0.01606569509021938
+        ]
+      },
+      {
+        "name": "Y",
+        "force_n": [
+          0.0,
+          1000.0,
+          0.0
+        ],
+        "loaded_displacement_mm": [
+          0.01990974,
+          0.7765034,
+          -0.6562109
+        ],
+        "reaction_wrench_n_nmm": [
+          -7.176300002199475e-06,
+          -1000.0000192943,
+          -1.7396099991222314e-05,
+          2001293.0752861148,
+          -0.001958616693502835,
+          -984425.3047629873
+        ],
+        "residual_wrench": [
+          -7.176300002199475e-06,
+          -1.929430004565802e-05,
+          -1.7396099991222314e-05,
+          0.01691611483693123,
+          -0.001958616693502835,
+          -0.017254547332413495
+        ]
+      },
+      {
+        "name": "Z",
+        "force_n": [
+          0.0,
+          0.0,
+          -1000.0
+        ],
+        "loaded_displacement_mm": [
+          0.03605554,
+          0.6562109,
+          -0.6176475
+        ],
+        "reaction_wrench_n_nmm": [
+          8.177636004412674e-06,
+          -2.1372210004409605e-05,
+          999.9999724405,
+          1472821.3294524367,
+          -984425.2756954118,
+          -0.032391501244482424
+        ],
+        "residual_wrench": [
+          8.177636004412674e-06,
+          -2.1372210004409605e-05,
+          -2.755950004029728e-05,
+          -0.03130666329525411,
+          0.01181302813347429,
+          -0.032391501244482424
+        ]
+      }
+    ],
+    "deck_sha256": "ffe5b28914f4ba096fac14a2511e5bdb78ce5769fc46d0aef847926222e53629"
+  },
+  "basis": [
+    {
+      "name": "X",
+      "force_n": [
+        1000.0,
+        0.0,
+        0.0
+      ],
+      "loaded_displacement_mm": [
+        0.06715528,
+        0.02002849,
+        -0.03618121
+      ],
+      "reaction_wrench_n_nmm": [
+        -1000.00000248575,
+        -1.3046499991355945e-05,
+        -3.2547739991857184e-05,
+        0.010169489568223338,
+        -2001293.1476132916,
+        1472821.3526626274
+      ],
+      "residual_wrench": [
+        -2.4857499738573097e-06,
+        -1.3046499991355945e-05,
+        -3.2547739991857184e-05,
+        0.010169489568223338,
+        -0.0892432916443795,
+        -0.008096472593024373
+      ],
+      "gap": {
+        "left": {
+          "pairs": [
+            {
+              "board_node": 180,
+              "leg_node": 146735,
+              "signed_gap_mm": 7.888999999999813e-05
+            },
+            {
+              "board_node": 182,
+              "leg_node": 146736,
+              "signed_gap_mm": -3.2890000000000696e-05
+            },
+            {
+              "board_node": 183,
+              "leg_node": 146737,
+              "signed_gap_mm": 1.3100000000008938e-06
+            },
+            {
+              "board_node": 184,
+              "leg_node": 146738,
+              "signed_gap_mm": -5.5400000000017935e-06
+            },
+            {
+              "board_node": 2652,
+              "leg_node": 146739,
+              "signed_gap_mm": 5.389999999999909e-05
+            },
+            {
+              "board_node": 2685,
+              "leg_node": 146740,
+              "signed_gap_mm": -1.568999999999876e-05
+            },
+            {
+              "board_node": 2686,
+              "leg_node": 146741,
+              "signed_gap_mm": -1.318999999999973e-05
+            },
+            {
+              "board_node": 2687,
+              "leg_node": 146742,
+              "signed_gap_mm": -3.4600000000002684e-06
+            },
+            {
+              "board_node": 2688,
+              "leg_node": 146743,
+              "signed_gap_mm": -1.500000000008439e-07
+            },
+            {
+              "board_node": 2689,
+              "leg_node": 146744,
+              "signed_gap_mm": -1.7999999999893102e-07
+            },
+            {
+              "board_node": 2690,
+              "leg_node": 146745,
+              "signed_gap_mm": -1.3100000000008938e-06
+            },
+            {
+              "board_node": 2691,
+              "leg_node": 146746,
+              "signed_gap_mm": -3.6200000000027877e-06
+            },
+            {
+              "board_node": 2692,
+              "leg_node": 146747,
+              "signed_gap_mm": -8.229999999997961e-06
+            },
+            {
+              "board_node": 2693,
+              "leg_node": 146748,
+              "signed_gap_mm": -1.967000000000635e-05
+            },
+            {
+              "board_node": 2694,
+              "leg_node": 146749,
+              "signed_gap_mm": -1.4179999999999054e-05
+            },
+            {
+              "board_node": 2695,
+              "leg_node": 146750,
+              "signed_gap_mm": -8.560000000001206e-06
+            },
+            {
+              "board_node": 2696,
+              "leg_node": 146751,
+              "signed_gap_mm": -1.689999999998637e-06
+            },
+            {
+              "board_node": 2697,
+              "leg_node": 146752,
+              "signed_gap_mm": -1.599999999990498e-07
+            },
+            {
+              "board_node": 2698,
+              "leg_node": 146753,
+              "signed_gap_mm": -1.000000000001e-06
+            },
+            {
+              "board_node": 2699,
+              "leg_node": 146754,
+              "signed_gap_mm": -2.769999999999162e-06
+            },
+            {
+              "board_node": 2700,
+              "leg_node": 146755,
+              "signed_gap_mm": -6.209999999999549e-06
+            },
+            {
+              "board_node": 2701,
+              "leg_node": 146756,
+              "signed_gap_mm": -1.4090000000001324e-05
+            },
+            {
+              "board_node": 2702,
+              "leg_node": 146757,
+              "signed_gap_mm": -3.0240000000000822e-05
+            },
+            {
+              "board_node": 2703,
+              "leg_node": 146758,
+              "signed_gap_mm": -1.3100000000008938e-06
+            },
+            {
+              "board_node": 2704,
+              "leg_node": 146759,
+              "signed_gap_mm": 3.238000000000199e-05
+            },
+            {
+              "board_node": 2705,
+              "leg_node": 146760,
+              "signed_gap_mm": 1.9459999999998923e-05
+            },
+            {
+              "board_node": 2706,
+              "leg_node": 146761,
+              "signed_gap_mm": 8.520000000001443e-06
+            },
+            {
+              "board_node": 2707,
+              "leg_node": 146762,
+              "signed_gap_mm": -1.4599999999982682e-06
+            },
+            {
+              "board_node": 2708,
+              "leg_node": 146763,
+              "signed_gap_mm": -1.3250000000002843e-05
+            },
+            {
+              "board_node": 2709,
+              "leg_node": 146764,
+              "signed_gap_mm": 5.248000000000058e-05
+            },
+            {
+              "board_node": 2710,
+              "leg_node": 146765,
+              "signed_gap_mm": 2.4780000000002023e-05
+            },
+            {
+              "board_node": 2711,
+              "leg_node": 146766,
+              "signed_gap_mm": 1.3850000000002749e-05
+            },
+            {
+              "board_node": 2712,
+              "leg_node": 146767,
+              "signed_gap_mm": 2.7000000000013125e-06
+            },
+            {
+              "board_node": 2713,
+              "leg_node": 146768,
+              "signed_gap_mm": -8.860000000002893e-06
+            },
+            {
+              "board_node": 2714,
+              "leg_node": 146769,
+              "signed_gap_mm": -1.411999999999941e-05
+            },
+            {
+              "board_node": 33462,
+              "leg_node": 146770,
+              "signed_gap_mm": -1.8539999999997447e-05
+            },
+            {
+              "board_node": 33463,
+              "leg_node": 146771,
+              "signed_gap_mm": -1.1609999999998705e-05
+            },
+            {
+              "board_node": 33464,
+              "leg_node": 146772,
+              "signed_gap_mm": 2.5529999999999303e-05
+            },
+            {
+              "board_node": 33465,
+              "leg_node": 146773,
+              "signed_gap_mm": 1.5569999999999473e-05
+            },
+            {
+              "board_node": 33466,
+              "leg_node": 146774,
+              "signed_gap_mm": -2.6100000000001122e-05
+            },
+            {
+              "board_node": 33467,
+              "leg_node": 146775,
+              "signed_gap_mm": -1.1169999999997848e-05
+            },
+            {
+              "board_node": 33468,
+              "leg_node": 146776,
+              "signed_gap_mm": -9.450000000001124e-06
+            },
+            {
+              "board_node": 33469,
+              "leg_node": 146777,
+              "signed_gap_mm": -2.1069999999998035e-05
+            },
+            {
+              "board_node": 33470,
+              "leg_node": 146778,
+              "signed_gap_mm": -9.820000000000662e-06
+            },
+            {
+              "board_node": 33471,
+              "leg_node": 146779,
+              "signed_gap_mm": -8.95999999999883e-06
+            },
+            {
+              "board_node": 33472,
+              "leg_node": 146780,
+              "signed_gap_mm": -1.0130000000000555e-05
+            },
+            {
+              "board_node": 33473,
+              "leg_node": 146781,
+              "signed_gap_mm": -1.1200000000002874e-06
+            },
+            {
+              "board_node": 33474,
+              "leg_node": 146782,
+              "signed_gap_mm": -6.630000000000524e-06
+            },
+            {
+              "board_node": 33475,
+              "leg_node": 146783,
+              "signed_gap_mm": -7.629999999998055e-06
+            },
+            {
+              "board_node": 33476,
+              "leg_node": 146784,
+              "signed_gap_mm": -1.4340000000001574e-05
+            },
+            {
+              "board_node": 33477,
+              "leg_node": 146785,
+              "signed_gap_mm": 6.809999999999455e-06
+            },
+            {
+              "board_node": 33478,
+              "leg_node": 146786,
+              "signed_gap_mm": 1.0539999999999855e-05
+            },
+            {
+              "board_node": 33479,
+              "leg_node": 146787,
+              "signed_gap_mm": -8.399999999984809e-07
+            },
+            {
+              "board_node": 33480,
+              "leg_node": 146788,
+              "signed_gap_mm": 2.5300000000005873e-06
+            },
+            {
+              "board_node": 33481,
+              "leg_node": 146789,
+              "signed_gap_mm": -9.010000000000268e-06
+            },
+            {
+              "board_node": 33482,
+              "leg_node": 146790,
+              "signed_gap_mm": -3.940000000000887e-06
+            },
+            {
+              "board_node": 33483,
+              "leg_node": 146791,
+              "signed_gap_mm": -9.70999999999958e-06
+            },
+            {
+              "board_node": 33484,
+              "leg_node": 146792,
+              "signed_gap_mm": -1.0730000000000461e-05
+            },
+            {
+              "board_node": 33485,
+              "leg_node": 146793,
+              "signed_gap_mm": -5.2100000000020186e-06
+            },
+            {
+              "board_node": 33486,
+              "leg_node": 146794,
+              "signed_gap_mm": -1.0499999999989684e-06
+            },
+            {
+              "board_node": 33487,
+              "leg_node": 146795,
+              "signed_gap_mm": -2.1400000000011687e-06
+            },
+            {
+              "board_node": 33488,
+              "leg_node": 146796,
+              "signed_gap_mm": -3.000000000155656e-08
+            },
+            {
+              "board_node": 33489,
+              "leg_node": 146797,
+              "signed_gap_mm": -1.200000000027568e-07
+            },
+            {
+              "board_node": 33490,
+              "leg_node": 146798,
+              "signed_gap_mm": -5.199999999969118e-07
+            },
+            {
+              "board_node": 33491,
+              "leg_node": 146799,
+              "signed_gap_mm": -1.4000000000263801e-07
+            },
+            {
+              "board_node": 33492,
+              "leg_node": 146800,
+              "signed_gap_mm": -1.6099999999991121e-06
+            },
+            {
+              "board_node": 33493,
+              "leg_node": 146801,
+              "signed_gap_mm": -8.30000000000275e-07
+            },
+            {
+              "board_node": 33494,
+              "leg_node": 146802,
+              "signed_gap_mm": -2.240000000000575e-06
+            },
+            {
+              "board_node": 33495,
+              "leg_node": 146803,
+              "signed_gap_mm": -3.710000000003988e-06
+            },
+            {
+              "board_node": 33496,
+              "leg_node": 146804,
+              "signed_gap_mm": -5.089999999999262e-06
+            },
+            {
+              "board_node": 33497,
+              "leg_node": 146805,
+              "signed_gap_mm": -8.489999999999887e-06
+            },
+            {
+              "board_node": 33498,
+              "leg_node": 146806,
+              "signed_gap_mm": -1.1390000000000011e-05
+            }
+          ],
+          "minimum_signed_gap_mm": -3.2890000000000696e-05,
+          "maximum_signed_gap_mm": 7.888999999999813e-05,
+          "interpenetrating_pair_count": 18,
+          "classification_tolerance_mm": 1e-05
+        },
+        "right": {
+          "pairs": [
+            {
+              "board_node": 241,
+              "leg_node": 146807,
+              "signed_gap_mm": -0.00018928
+            },
+            {
+              "board_node": 243,
+              "leg_node": 146808,
+              "signed_gap_mm": -0.00022211999999999926
+            },
+            {
+              "board_node": 244,
+              "leg_node": 146809,
+              "signed_gap_mm": -1.4670000000001349e-05
+            },
+            {
+              "board_node": 245,
+              "leg_node": 146810,
+              "signed_gap_mm": -6.160000000001581e-06
+            },
+            {
+              "board_node": 3366,
+              "leg_node": 146811,
+              "signed_gap_mm": -0.00012374999999999886
+            },
+            {
+              "board_node": 3399,
+              "leg_node": 146812,
+              "signed_gap_mm": -0.0001671700000000012
+            },
+            {
+              "board_node": 3400,
+              "leg_node": 146813,
+              "signed_gap_mm": 2.9390000000000666e-05
+            },
+            {
+              "board_node": 3401,
+              "leg_node": 146814,
+              "signed_gap_mm": 1.9470000000000598e-05
+            },
+            {
+              "board_node": 3402,
+              "leg_node": 146815,
+              "signed_gap_mm": 1.5569999999999473e-05
+            },
+            {
+              "board_node": 3403,
+              "leg_node": 146816,
+              "signed_gap_mm": 1.587000000000116e-05
+            },
+            {
+              "board_node": 3404,
+              "leg_node": 146817,
+              "signed_gap_mm": 1.8820000000002723e-05
+            },
+            {
+              "board_node": 3405,
+              "leg_node": 146818,
+              "signed_gap_mm": 1.940000000000275e-05
+            },
+            {
+              "board_node": 3406,
+              "leg_node": 146819,
+              "signed_gap_mm": 1.8749999999997935e-05
+            },
+            {
+              "board_node": 3407,
+              "leg_node": 146820,
+              "signed_gap_mm": -8.829999999994398e-06
+            },
+            {
+              "board_node": 3408,
+              "leg_node": 146821,
+              "signed_gap_mm": 2.221999999999988e-05
+            },
+            {
+              "board_node": 3409,
+              "leg_node": 146822,
+              "signed_gap_mm": 2.589999999999884e-05
+            },
+            {
+              "board_node": 3410,
+              "leg_node": 146823,
+              "signed_gap_mm": 1.758000000000315e-05
+            },
+            {
+              "board_node": 3411,
+              "leg_node": 146824,
+              "signed_gap_mm": 1.605000000000356e-05
+            },
+            {
+              "board_node": 3412,
+              "leg_node": 146825,
+              "signed_gap_mm": 1.7129999999997148e-05
+            },
+            {
+              "board_node": 3413,
+              "leg_node": 146826,
+              "signed_gap_mm": 1.991999999999966e-05
+            },
+            {
+              "board_node": 3414,
+              "leg_node": 146827,
+              "signed_gap_mm": 1.9859999999996547e-05
+            },
+            {
+              "board_node": 3415,
+              "leg_node": 146828,
+              "signed_gap_mm": 1.0440000000000449e-05
+            },
+            {
+              "board_node": 3416,
+              "leg_node": 146829,
+              "signed_gap_mm": -6.52099999999961e-05
+            },
+            {
+              "board_node": 3417,
+              "leg_node": 146830,
+              "signed_gap_mm": -1.1880000000002305e-05
+            },
+            {
+              "board_node": 3418,
+              "leg_node": 146831,
+              "signed_gap_mm": -9.939999999999949e-05
+            },
+            {
+              "board_node": 3419,
+              "leg_node": 146832,
+              "signed_gap_mm": -7.040999999999992e-05
+            },
+            {
+              "board_node": 3420,
+              "leg_node": 146833,
+              "signed_gap_mm": -4.736999999999797e-05
+            },
+            {
+              "board_node": 3421,
+              "leg_node": 146834,
+              "signed_gap_mm": -2.562999999999871e-05
+            },
+            {
+              "board_node": 3422,
+              "leg_node": 146835,
+              "signed_gap_mm": -4.600000000007376e-07
+            },
+            {
+              "board_node": 3423,
+              "leg_node": 146836,
+              "signed_gap_mm": -0.00013979000000000075
+            },
+            {
+              "board_node": 3424,
+              "leg_node": 146837,
+              "signed_gap_mm": -8.309999999999915e-05
+            },
+            {
+              "board_node": 3425,
+              "leg_node": 146838,
+              "signed_gap_mm": -5.961999999999981e-05
+            },
+            {
+              "board_node": 3426,
+              "leg_node": 146839,
+              "signed_gap_mm": -3.560999999999842e-05
+            },
+            {
+              "board_node": 3427,
+              "leg_node": 146840,
+              "signed_gap_mm": -9.479999999999211e-06
+            },
+            {
+              "board_node": 3428,
+              "leg_node": 146841,
+              "signed_gap_mm": 2.1299999999994934e-06
+            },
+            {
+              "board_node": 43105,
+              "leg_node": 146842,
+              "signed_gap_mm": -4.246000000000111e-05
+            },
+            {
+              "board_node": 43106,
+              "leg_node": 146843,
+              "signed_gap_mm": 9.610000000000174e-06
+            },
+            {
+              "board_node": 43107,
+              "leg_node": 146844,
+              "signed_gap_mm": -6.223999999999813e-05
+            },
+            {
+              "board_node": 43108,
+              "leg_node": 146845,
+              "signed_gap_mm": -4.496000000000014e-05
+            },
+            {
+              "board_node": 43109,
+              "leg_node": 146846,
+              "signed_gap_mm": -4.093000000000152e-05
+            },
+            {
+              "board_node": 43110,
+              "leg_node": 146847,
+              "signed_gap_mm": -0.00011327000000000559
+            },
+            {
+              "board_node": 43111,
+              "leg_node": 146848,
+              "signed_gap_mm": -9.929999999998274e-06
+            },
+            {
+              "board_node": 43112,
+              "leg_node": 146849,
+              "signed_gap_mm": -2.2360000000005986e-05
+            },
+            {
+              "board_node": 43113,
+              "leg_node": 146850,
+              "signed_gap_mm": 2.6000000000019063e-06
+            },
+            {
+              "board_node": 43114,
+              "leg_node": 146851,
+              "signed_gap_mm": 2.4599999999992683e-06
+            },
+            {
+              "board_node": 43115,
+              "leg_node": 146852,
+              "signed_gap_mm": -4.109999999998143e-06
+            },
+            {
+              "board_node": 43116,
+              "leg_node": 146853,
+              "signed_gap_mm": 1.6459999999999392e-05
+            },
+            {
+              "board_node": 43117,
+              "leg_node": 146854,
+              "signed_gap_mm": 6.760000000001487e-06
+            },
+            {
+              "board_node": 43118,
+              "leg_node": 146855,
+              "signed_gap_mm": 1.6889999999998573e-05
+            },
+            {
+              "board_node": 43119,
+              "leg_node": 146856,
+              "signed_gap_mm": 8.62000000000085e-06
+            },
+            {
+              "board_node": 43120,
+              "leg_node": 146857,
+              "signed_gap_mm": -3.250000000000128e-05
+            },
+            {
+              "board_node": 43121,
+              "leg_node": 146858,
+              "signed_gap_mm": -2.570000000000003e-05
+            },
+            {
+              "board_node": 43122,
+              "leg_node": 146859,
+              "signed_gap_mm": -1.7819999999998254e-05
+            },
+            {
+              "board_node": 43123,
+              "leg_node": 146860,
+              "signed_gap_mm": -1.0190000000000199e-05
+            },
+            {
+              "board_node": 43124,
+              "leg_node": 146861,
+              "signed_gap_mm": -5.710000000002519e-06
+            },
+            {
+              "board_node": 43125,
+              "leg_node": 146862,
+              "signed_gap_mm": 4.239999999999106e-06
+            },
+            {
+              "board_node": 43126,
+              "leg_node": 146863,
+              "signed_gap_mm": 1.0930000000002743e-05
+            },
+            {
+              "board_node": 43127,
+              "leg_node": 146864,
+              "signed_gap_mm": 8.359999999998924e-06
+            },
+            {
+              "board_node": 43128,
+              "leg_node": 146865,
+              "signed_gap_mm": 1.584999999999781e-05
+            },
+            {
+              "board_node": 43129,
+              "leg_node": 146866,
+              "signed_gap_mm": 1.1499999999997623e-05
+            },
+            {
+              "board_node": 43130,
+              "leg_node": 146867,
+              "signed_gap_mm": 1.0889999999999511e-05
+            },
+            {
+              "board_node": 43131,
+              "leg_node": 146868,
+              "signed_gap_mm": 9.189999999999199e-06
+            },
+            {
+              "board_node": 43132,
+              "leg_node": 146869,
+              "signed_gap_mm": 9.95999999999636e-06
+            },
+            {
+              "board_node": 43133,
+              "leg_node": 146870,
+              "signed_gap_mm": 9.389999999998011e-06
+            },
+            {
+              "board_node": 43134,
+              "leg_node": 146871,
+              "signed_gap_mm": 1.0650000000000936e-05
+            },
+            {
+              "board_node": 43135,
+              "leg_node": 146872,
+              "signed_gap_mm": 1.1150000000001437e-05
+            },
+            {
+              "board_node": 43136,
+              "leg_node": 146873,
+              "signed_gap_mm": 1.2510000000000299e-05
+            },
+            {
+              "board_node": 43137,
+              "leg_node": 146874,
+              "signed_gap_mm": 1.2669999999999348e-05
+            },
+            {
+              "board_node": 43138,
+              "leg_node": 146875,
+              "signed_gap_mm": 1.1329999999996898e-05
+            },
+            {
+              "board_node": 43139,
+              "leg_node": 146876,
+              "signed_gap_mm": 7.420000000001037e-06
+            },
+            {
+              "board_node": 43140,
+              "leg_node": 146877,
+              "signed_gap_mm": 1.1600000000000499e-05
+            },
+            {
+              "board_node": 43141,
+              "leg_node": 146878,
+              "signed_gap_mm": -3.949999999995624e-06
+            }
+          ],
+          "minimum_signed_gap_mm": -0.00022211999999999926,
+          "maximum_signed_gap_mm": 2.9390000000000666e-05,
+          "interpenetrating_pair_count": 25,
+          "classification_tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "Y",
+      "force_n": [
+        0.0,
+        1000.0,
+        0.0
+      ],
+      "loaded_displacement_mm": [
+        0.02002849,
+        0.7788538,
+        -0.6583366
+      ],
+      "reaction_wrench_n_nmm": [
+        -2.477909999864023e-05,
+        -1000.0000025018,
+        -4.006729998902014e-05,
+        2001293.036353676,
+        0.06418519238670212,
+        -984425.2729482801
+      ],
+      "residual_wrench": [
+        -2.477909999864023e-05,
+        -2.501800054233172e-06,
+        -4.006729998902014e-05,
+        -0.022016323870047927,
+        0.06418519238670212,
+        0.014560159877873957
+      ],
+      "gap": {
+        "left": {
+          "pairs": [
+            {
+              "board_node": 180,
+              "leg_node": 146735,
+              "signed_gap_mm": -8.296200000000066e-05
+            },
+            {
+              "board_node": 182,
+              "leg_node": 146736,
+              "signed_gap_mm": -0.00039170000000000003
+            },
+            {
+              "board_node": 183,
+              "leg_node": 146737,
+              "signed_gap_mm": -0.00018519600000000032
+            },
+            {
+              "board_node": 184,
+              "leg_node": 146738,
+              "signed_gap_mm": -0.00021841700000000026
+            },
+            {
+              "board_node": 2652,
+              "leg_node": 146739,
+              "signed_gap_mm": 1.1325000000000397e-05
+            },
+            {
+              "board_node": 2685,
+              "leg_node": 146740,
+              "signed_gap_mm": -0.000265225
+            },
+            {
+              "board_node": 2686,
+              "leg_node": 146741,
+              "signed_gap_mm": -5.704999999999946e-06
+            },
+            {
+              "board_node": 2687,
+              "leg_node": 146742,
+              "signed_gap_mm": -1.3309000000001278e-05
+            },
+            {
+              "board_node": 2688,
+              "leg_node": 146743,
+              "signed_gap_mm": -1.7757999999999663e-05
+            },
+            {
+              "board_node": 2689,
+              "leg_node": 146744,
+              "signed_gap_mm": -1.7968999999999624e-05
+            },
+            {
+              "board_node": 2690,
+              "leg_node": 146745,
+              "signed_gap_mm": -1.8699999999999967e-05
+            },
+            {
+              "board_node": 2691,
+              "leg_node": 146746,
+              "signed_gap_mm": -1.992599999999997e-05
+            },
+            {
+              "board_node": 2692,
+              "leg_node": 146747,
+              "signed_gap_mm": -3.8914000000001e-05
+            },
+            {
+              "board_node": 2693,
+              "leg_node": 146748,
+              "signed_gap_mm": -0.00010360100000000004
+            },
+            {
+              "board_node": 2694,
+              "leg_node": 146749,
+              "signed_gap_mm": -5.003099999999899e-05
+            },
+            {
+              "board_node": 2695,
+              "leg_node": 146750,
+              "signed_gap_mm": -8.006999999999112e-06
+            },
+            {
+              "board_node": 2696,
+              "leg_node": 146751,
+              "signed_gap_mm": -1.7105000000001633e-05
+            },
+            {
+              "board_node": 2697,
+              "leg_node": 146752,
+              "signed_gap_mm": -1.842300000000005e-05
+            },
+            {
+              "board_node": 2698,
+              "leg_node": 146753,
+              "signed_gap_mm": -1.964200000000027e-05
+            },
+            {
+              "board_node": 2699,
+              "leg_node": 146754,
+              "signed_gap_mm": -2.1606000000000403e-05
+            },
+            {
+              "board_node": 2700,
+              "leg_node": 146755,
+              "signed_gap_mm": -2.9792000000000707e-05
+            },
+            {
+              "board_node": 2701,
+              "leg_node": 146756,
+              "signed_gap_mm": -6.270200000000128e-05
+            },
+            {
+              "board_node": 2702,
+              "leg_node": 146757,
+              "signed_gap_mm": -0.00019882799999999985
+            },
+            {
+              "board_node": 2703,
+              "leg_node": 146758,
+              "signed_gap_mm": -0.00020479600000000014
+            },
+            {
+              "board_node": 2704,
+              "leg_node": 146759,
+              "signed_gap_mm": -0.000306621
+            },
+            {
+              "board_node": 2705,
+              "leg_node": 146760,
+              "signed_gap_mm": -0.00035808300000000036
+            },
+            {
+              "board_node": 2706,
+              "leg_node": 146761,
+              "signed_gap_mm": -0.0003406480000000007
+            },
+            {
+              "board_node": 2707,
+              "leg_node": 146762,
+              "signed_gap_mm": -0.0003207799999999997
+            },
+            {
+              "board_node": 2708,
+              "leg_node": 146763,
+              "signed_gap_mm": -0.0002632699999999995
+            },
+            {
+              "board_node": 2709,
+              "leg_node": 146764,
+              "signed_gap_mm": -0.0002289270000000003
+            },
+            {
+              "board_node": 2710,
+              "leg_node": 146765,
+              "signed_gap_mm": -0.0003484539999999998
+            },
+            {
+              "board_node": 2711,
+              "leg_node": 146766,
+              "signed_gap_mm": -0.00035161000000000046
+            },
+            {
+              "board_node": 2712,
+              "leg_node": 146767,
+              "signed_gap_mm": -0.0003335739999999997
+            },
+            {
+              "board_node": 2713,
+              "leg_node": 146768,
+              "signed_gap_mm": -0.00029533099999999937
+            },
+            {
+              "board_node": 2714,
+              "leg_node": 146769,
+              "signed_gap_mm": -0.00024166100000000065
+            },
+            {
+              "board_node": 33462,
+              "leg_node": 146770,
+              "signed_gap_mm": -0.00012448600000000004
+            },
+            {
+              "board_node": 33463,
+              "leg_node": 146771,
+              "signed_gap_mm": -0.0001206379999999993
+            },
+            {
+              "board_node": 33464,
+              "leg_node": 146772,
+              "signed_gap_mm": -9.917300000000014e-05
+            },
+            {
+              "board_node": 33465,
+              "leg_node": 146773,
+              "signed_gap_mm": -0.00013757000000000005
+            },
+            {
+              "board_node": 33466,
+              "leg_node": 146774,
+              "signed_gap_mm": -0.00023688699999999986
+            },
+            {
+              "board_node": 33467,
+              "leg_node": 146775,
+              "signed_gap_mm": -9.241899999999983e-05
+            },
+            {
+              "board_node": 33468,
+              "leg_node": 146776,
+              "signed_gap_mm": -5.1123999999999614e-05
+            },
+            {
+              "board_node": 33469,
+              "leg_node": 146777,
+              "signed_gap_mm": -0.00011602799999999892
+            },
+            {
+              "board_node": 33470,
+              "leg_node": 146778,
+              "signed_gap_mm": -0.00016855399999999958
+            },
+            {
+              "board_node": 33471,
+              "leg_node": 146779,
+              "signed_gap_mm": -0.0001538070000000006
+            },
+            {
+              "board_node": 33472,
+              "leg_node": 146780,
+              "signed_gap_mm": -2.3805000000000007e-05
+            },
+            {
+              "board_node": 33473,
+              "leg_node": 146781,
+              "signed_gap_mm": -9.235600000000004e-05
+            },
+            {
+              "board_node": 33474,
+              "leg_node": 146782,
+              "signed_gap_mm": -5.447899999999964e-05
+            },
+            {
+              "board_node": 33475,
+              "leg_node": 146783,
+              "signed_gap_mm": -4.379000000000535e-06
+            },
+            {
+              "board_node": 33476,
+              "leg_node": 146784,
+              "signed_gap_mm": -0.0001859149999999983
+            },
+            {
+              "board_node": 33477,
+              "leg_node": 146785,
+              "signed_gap_mm": -0.0001694629999999999
+            },
+            {
+              "board_node": 33478,
+              "leg_node": 146786,
+              "signed_gap_mm": -0.0001658499999999995
+            },
+            {
+              "board_node": 33479,
+              "leg_node": 146787,
+              "signed_gap_mm": -0.0001607240000000001
+            },
+            {
+              "board_node": 33480,
+              "leg_node": 146788,
+              "signed_gap_mm": -0.0001595329999999999
+            },
+            {
+              "board_node": 33481,
+              "leg_node": 146789,
+              "signed_gap_mm": -0.00013326300000000065
+            },
+            {
+              "board_node": 33482,
+              "leg_node": 146790,
+              "signed_gap_mm": -0.00014534000000000075
+            },
+            {
+              "board_node": 33483,
+              "leg_node": 146791,
+              "signed_gap_mm": -6.192199999999985e-05
+            },
+            {
+              "board_node": 33484,
+              "leg_node": 146792,
+              "signed_gap_mm": -0.00011296099999999996
+            },
+            {
+              "board_node": 33485,
+              "leg_node": 146793,
+              "signed_gap_mm": -4.845999999999323e-06
+            },
+            {
+              "board_node": 33486,
+              "leg_node": 146794,
+              "signed_gap_mm": -1.039100000000022e-05
+            },
+            {
+              "board_node": 33487,
+              "leg_node": 146795,
+              "signed_gap_mm": -7.642999999999886e-06
+            },
+            {
+              "board_node": 33488,
+              "leg_node": 146796,
+              "signed_gap_mm": -1.1071999999999992e-05
+            },
+            {
+              "board_node": 33489,
+              "leg_node": 146797,
+              "signed_gap_mm": -1.0801000000000387e-05
+            },
+            {
+              "board_node": 33490,
+              "leg_node": 146798,
+              "signed_gap_mm": -1.1482999999999632e-05
+            },
+            {
+              "board_node": 33491,
+              "leg_node": 146799,
+              "signed_gap_mm": -1.0511000000000374e-05
+            },
+            {
+              "board_node": 33492,
+              "leg_node": 146800,
+              "signed_gap_mm": -1.2950000000000288e-05
+            },
+            {
+              "board_node": 33493,
+              "leg_node": 146801,
+              "signed_gap_mm": -1.1039000000000014e-05
+            },
+            {
+              "board_node": 33494,
+              "leg_node": 146802,
+              "signed_gap_mm": -1.1962000000000778e-05
+            },
+            {
+              "board_node": 33495,
+              "leg_node": 146803,
+              "signed_gap_mm": -1.7711000000000116e-05
+            },
+            {
+              "board_node": 33496,
+              "leg_node": 146804,
+              "signed_gap_mm": -2.3007000000000236e-05
+            },
+            {
+              "board_node": 33497,
+              "leg_node": 146805,
+              "signed_gap_mm": -3.641899999999934e-05
+            },
+            {
+              "board_node": 33498,
+              "leg_node": 146806,
+              "signed_gap_mm": -6.0488000000000035e-05
+            }
+          ],
+          "minimum_signed_gap_mm": -0.00039170000000000003,
+          "maximum_signed_gap_mm": 1.1325000000000397e-05,
+          "interpenetrating_pair_count": 66,
+          "classification_tolerance_mm": 1e-05
+        },
+        "right": {
+          "pairs": [
+            {
+              "board_node": 241,
+              "leg_node": 146807,
+              "signed_gap_mm": 0.0018811338000000002
+            },
+            {
+              "board_node": 243,
+              "leg_node": 146808,
+              "signed_gap_mm": 0.00049471392
+            },
+            {
+              "board_node": 244,
+              "leg_node": 146809,
+              "signed_gap_mm": -0.0010101119999999996
+            },
+            {
+              "board_node": 245,
+              "leg_node": 146810,
+              "signed_gap_mm": -0.0010300120000000003
+            },
+            {
+              "board_node": 3366,
+              "leg_node": 146811,
+              "signed_gap_mm": 0.0010589379999999997
+            },
+            {
+              "board_node": 3399,
+              "leg_node": 146812,
+              "signed_gap_mm": 0.0002001899999999994
+            },
+            {
+              "board_node": 3400,
+              "leg_node": 146813,
+              "signed_gap_mm": -6.705199999999974e-05
+            },
+            {
+              "board_node": 3401,
+              "leg_node": 146814,
+              "signed_gap_mm": -0.0002008029999999994
+            },
+            {
+              "board_node": 3402,
+              "leg_node": 146815,
+              "signed_gap_mm": -0.00024475299999999946
+            },
+            {
+              "board_node": 3403,
+              "leg_node": 146816,
+              "signed_gap_mm": -0.00022461300000000024
+            },
+            {
+              "board_node": 3404,
+              "leg_node": 146817,
+              "signed_gap_mm": -0.00017245500000000018
+            },
+            {
+              "board_node": 3405,
+              "leg_node": 146818,
+              "signed_gap_mm": -9.886900000000013e-05
+            },
+            {
+              "board_node": 3406,
+              "leg_node": 146819,
+              "signed_gap_mm": 3.727700000000006e-05
+            },
+            {
+              "board_node": 3407,
+              "leg_node": 146820,
+              "signed_gap_mm": 0.0003016761
+            },
+            {
+              "board_node": 3408,
+              "leg_node": 146821,
+              "signed_gap_mm": -0.00025850000000000005
+            },
+            {
+              "board_node": 3409,
+              "leg_node": 146822,
+              "signed_gap_mm": -0.00012529000000000012
+            },
+            {
+              "board_node": 3410,
+              "leg_node": 146823,
+              "signed_gap_mm": -0.00023814999999999947
+            },
+            {
+              "board_node": 3411,
+              "leg_node": 146824,
+              "signed_gap_mm": -0.0002428629999999994
+            },
+            {
+              "board_node": 3412,
+              "leg_node": 146825,
+              "signed_gap_mm": -0.00020378900000000023
+            },
+            {
+              "board_node": 3413,
+              "leg_node": 146826,
+              "signed_gap_mm": -0.0001430540000000001
+            },
+            {
+              "board_node": 3414,
+              "leg_node": 146827,
+              "signed_gap_mm": -3.5533999999999826e-05
+            },
+            {
+              "board_node": 3415,
+              "leg_node": 146828,
+              "signed_gap_mm": 0.00016788799999999993
+            },
+            {
+              "board_node": 3416,
+              "leg_node": 146829,
+              "signed_gap_mm": 0.0005253193999999999
+            },
+            {
+              "board_node": 3417,
+              "leg_node": 146830,
+              "signed_gap_mm": -0.0010471660000000004
+            },
+            {
+              "board_node": 3418,
+              "leg_node": 146831,
+              "signed_gap_mm": 0.000945331
+            },
+            {
+              "board_node": 3419,
+              "leg_node": 146832,
+              "signed_gap_mm": 0.00034410699999999996
+            },
+            {
+              "board_node": 3420,
+              "leg_node": 146833,
+              "signed_gap_mm": -3.616699999999993e-05
+            },
+            {
+              "board_node": 3421,
+              "leg_node": 146834,
+              "signed_gap_mm": -0.000393797
+            },
+            {
+              "board_node": 3422,
+              "leg_node": 146835,
+              "signed_gap_mm": -0.0005767370000000003
+            },
+            {
+              "board_node": 3423,
+              "leg_node": 146836,
+              "signed_gap_mm": 0.0013510391
+            },
+            {
+              "board_node": 3424,
+              "leg_node": 146837,
+              "signed_gap_mm": 0.0006123146000000001
+            },
+            {
+              "board_node": 3425,
+              "leg_node": 146838,
+              "signed_gap_mm": 0.00014078700000000007
+            },
+            {
+              "board_node": 3426,
+              "leg_node": 146839,
+              "signed_gap_mm": -0.00019846899999999995
+            },
+            {
+              "board_node": 3427,
+              "leg_node": 146840,
+              "signed_gap_mm": -0.0004348900000000003
+            },
+            {
+              "board_node": 3428,
+              "leg_node": 146841,
+              "signed_gap_mm": -0.0007692759999999997
+            },
+            {
+              "board_node": 43105,
+              "leg_node": 146842,
+              "signed_gap_mm": 0.00032701
+            },
+            {
+              "board_node": 43106,
+              "leg_node": 146843,
+              "signed_gap_mm": -0.00038641800000000035
+            },
+            {
+              "board_node": 43107,
+              "leg_node": 146844,
+              "signed_gap_mm": 0.000713394
+            },
+            {
+              "board_node": 43108,
+              "leg_node": 146845,
+              "signed_gap_mm": 0.0005152769999999997
+            },
+            {
+              "board_node": 43109,
+              "leg_node": 146846,
+              "signed_gap_mm": 0.00020014200000000038
+            },
+            {
+              "board_node": 43110,
+              "leg_node": 146847,
+              "signed_gap_mm": 0.000436999
+            },
+            {
+              "board_node": 43111,
+              "leg_node": 146848,
+              "signed_gap_mm": 0.00016437799999999975
+            },
+            {
+              "board_node": 43112,
+              "leg_node": 146849,
+              "signed_gap_mm": 0.0003600179999999997
+            },
+            {
+              "board_node": 43113,
+              "leg_node": 146850,
+              "signed_gap_mm": -0.0006565130000000001
+            },
+            {
+              "board_node": 43114,
+              "leg_node": 146851,
+              "signed_gap_mm": -0.0006979880000000001
+            },
+            {
+              "board_node": 43115,
+              "leg_node": 146852,
+              "signed_gap_mm": -0.0005086660000000014
+            },
+            {
+              "board_node": 43116,
+              "leg_node": 146853,
+              "signed_gap_mm": -0.00011393600000000025
+            },
+            {
+              "board_node": 43117,
+              "leg_node": 146854,
+              "signed_gap_mm": -0.00021463000000000038
+            },
+            {
+              "board_node": 43118,
+              "leg_node": 146855,
+              "signed_gap_mm": -4.6310000000000795e-05
+            },
+            {
+              "board_node": 43119,
+              "leg_node": 146856,
+              "signed_gap_mm": -0.0004565350000000001
+            },
+            {
+              "board_node": 43120,
+              "leg_node": 146857,
+              "signed_gap_mm": 0.0003358979999999994
+            },
+            {
+              "board_node": 43121,
+              "leg_node": 146858,
+              "signed_gap_mm": 0.00018723100000000038
+            },
+            {
+              "board_node": 43122,
+              "leg_node": 146859,
+              "signed_gap_mm": 0.00012804500000000024
+            },
+            {
+              "board_node": 43123,
+              "leg_node": 146860,
+              "signed_gap_mm": 3.2471999999999536e-05
+            },
+            {
+              "board_node": 43124,
+              "leg_node": 146861,
+              "signed_gap_mm": -9.840300000000038e-05
+            },
+            {
+              "board_node": 43125,
+              "leg_node": 146862,
+              "signed_gap_mm": -0.00011624899999999969
+            },
+            {
+              "board_node": 43126,
+              "leg_node": 146863,
+              "signed_gap_mm": -0.00010169999999999971
+            },
+            {
+              "board_node": 43127,
+              "leg_node": 146864,
+              "signed_gap_mm": -0.00017385500000000054
+            },
+            {
+              "board_node": 43128,
+              "leg_node": 146865,
+              "signed_gap_mm": -8.186999999999951e-05
+            },
+            {
+              "board_node": 43129,
+              "leg_node": 146866,
+              "signed_gap_mm": -0.00011714999999999989
+            },
+            {
+              "board_node": 43130,
+              "leg_node": 146867,
+              "signed_gap_mm": -0.00014878999999999934
+            },
+            {
+              "board_node": 43131,
+              "leg_node": 146868,
+              "signed_gap_mm": -0.00014385000000000092
+            },
+            {
+              "board_node": 43132,
+              "leg_node": 146869,
+              "signed_gap_mm": -0.0001516999999999994
+            },
+            {
+              "board_node": 43133,
+              "leg_node": 146870,
+              "signed_gap_mm": -0.00013179000000000142
+            },
+            {
+              "board_node": 43134,
+              "leg_node": 146871,
+              "signed_gap_mm": -0.0001277179999999989
+            },
+            {
+              "board_node": 43135,
+              "leg_node": 146872,
+              "signed_gap_mm": -0.00010111500000000058
+            },
+            {
+              "board_node": 43136,
+              "leg_node": 146873,
+              "signed_gap_mm": -9.061800000000064e-05
+            },
+            {
+              "board_node": 43137,
+              "leg_node": 146874,
+              "signed_gap_mm": -2.0101999999999273e-05
+            },
+            {
+              "board_node": 43138,
+              "leg_node": 146875,
+              "signed_gap_mm": -5.8460999999999236e-05
+            },
+            {
+              "board_node": 43139,
+              "leg_node": 146876,
+              "signed_gap_mm": 0.00010713000000000042
+            },
+            {
+              "board_node": 43140,
+              "leg_node": 146877,
+              "signed_gap_mm": 2.499999999999898e-05
+            },
+            {
+              "board_node": 43141,
+              "leg_node": 146878,
+              "signed_gap_mm": 0.00017447600000000067
+            }
+          ],
+          "minimum_signed_gap_mm": -0.0010471660000000004,
+          "maximum_signed_gap_mm": 0.0018811338000000002,
+          "interpenetrating_pair_count": 45,
+          "classification_tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "Z",
+      "force_n": [
+        0.0,
+        0.0,
+        -1000.0
+      ],
+      "loaded_displacement_mm": [
+        0.03618121,
+        0.6583366,
+        -0.6196102
+      ],
+      "reaction_wrench_n_nmm": [
+        1.2252433004184588e-05,
+        1.9378499996893514e-05,
+        1000.0000203749,
+        1472821.4236746603,
+        -984425.2962294491,
+        0.010086320902874535
+      ],
+      "residual_wrench": [
+        1.2252433004184588e-05,
+        1.9378499996893514e-05,
+        2.0374900032038568e-05,
+        0.06291556032374501,
+        -0.008721009129658341,
+        0.010086320902874535
+      ],
+      "gap": {
+        "left": {
+          "pairs": [
+            {
+              "board_node": 180,
+              "leg_node": 146735,
+              "signed_gap_mm": 4.340000000001114e-07
+            },
+            {
+              "board_node": 182,
+              "leg_node": 146736,
+              "signed_gap_mm": -0.00036591300000000026
+            },
+            {
+              "board_node": 183,
+              "leg_node": 146737,
+              "signed_gap_mm": -0.00016705049999999998
+            },
+            {
+              "board_node": 184,
+              "leg_node": 146738,
+              "signed_gap_mm": -0.00020065876000000001
+            },
+            {
+              "board_node": 2652,
+              "leg_node": 146739,
+              "signed_gap_mm": 5.884477000000001e-05
+            },
+            {
+              "board_node": 2685,
+              "leg_node": 146740,
+              "signed_gap_mm": -0.0002433890000000001
+            },
+            {
+              "board_node": 2686,
+              "leg_node": 146741,
+              "signed_gap_mm": -1.2340399999999927e-05
+            },
+            {
+              "board_node": 2687,
+              "leg_node": 146742,
+              "signed_gap_mm": -1.489099999999995e-05
+            },
+            {
+              "board_node": 2688,
+              "leg_node": 146743,
+              "signed_gap_mm": -1.743900000000017e-05
+            },
+            {
+              "board_node": 2689,
+              "leg_node": 146744,
+              "signed_gap_mm": -1.7726999999999934e-05
+            },
+            {
+              "board_node": 2690,
+              "leg_node": 146745,
+              "signed_gap_mm": -1.911499999999967e-05
+            },
+            {
+              "board_node": 2691,
+              "leg_node": 146746,
+              "signed_gap_mm": -2.160000000000009e-05
+            },
+            {
+              "board_node": 2692,
+              "leg_node": 146747,
+              "signed_gap_mm": -4.130799999999988e-05
+            },
+            {
+              "board_node": 2693,
+              "leg_node": 146748,
+              "signed_gap_mm": -0.00010538099999999988
+            },
+            {
+              "board_node": 2694,
+              "leg_node": 146749,
+              "signed_gap_mm": -5.23915e-05
+            },
+            {
+              "board_node": 2695,
+              "leg_node": 146750,
+              "signed_gap_mm": -1.2351900000000054e-05
+            },
+            {
+              "board_node": 2696,
+              "leg_node": 146751,
+              "signed_gap_mm": -1.751199999999991e-05
+            },
+            {
+              "board_node": 2697,
+              "leg_node": 146752,
+              "signed_gap_mm": -1.8070000000000022e-05
+            },
+            {
+              "board_node": 2698,
+              "leg_node": 146753,
+              "signed_gap_mm": -1.971500000000001e-05
+            },
+            {
+              "board_node": 2699,
+              "leg_node": 146754,
+              "signed_gap_mm": -2.2583000000000065e-05
+            },
+            {
+              "board_node": 2700,
+              "leg_node": 146755,
+              "signed_gap_mm": -3.1941000000000174e-05
+            },
+            {
+              "board_node": 2701,
+              "leg_node": 146756,
+              "signed_gap_mm": -6.594200000000026e-05
+            },
+            {
+              "board_node": 2702,
+              "leg_node": 146757,
+              "signed_gap_mm": -0.00019555099999999997
+            },
+            {
+              "board_node": 2703,
+              "leg_node": 146758,
+              "signed_gap_mm": -0.00018616834
+            },
+            {
+              "board_node": 2704,
+              "leg_node": 146759,
+              "signed_gap_mm": -0.0002441939999999999
+            },
+            {
+              "board_node": 2705,
+              "leg_node": 146760,
+              "signed_gap_mm": -0.000305664
+            },
+            {
+              "board_node": 2706,
+              "leg_node": 146761,
+              "signed_gap_mm": -0.0002991649999999999
+            },
+            {
+              "board_node": 2707,
+              "leg_node": 146762,
+              "signed_gap_mm": -0.00028887079999999994
+            },
+            {
+              "board_node": 2708,
+              "leg_node": 146763,
+              "signed_gap_mm": -0.00024389080000000003
+            },
+            {
+              "board_node": 2709,
+              "leg_node": 146764,
+              "signed_gap_mm": -0.00015552199999999995
+            },
+            {
+              "board_node": 2710,
+              "leg_node": 146765,
+              "signed_gap_mm": -0.00029085600000000014
+            },
+            {
+              "board_node": 2711,
+              "leg_node": 146766,
+              "signed_gap_mm": -0.00030472919999999996
+            },
+            {
+              "board_node": 2712,
+              "leg_node": 146767,
+              "signed_gap_mm": -0.00029694309999999996
+            },
+            {
+              "board_node": 2713,
+              "leg_node": 146768,
+              "signed_gap_mm": -0.0002700065
+            },
+            {
+              "board_node": 2714,
+              "leg_node": 146769,
+              "signed_gap_mm": -0.000225264
+            },
+            {
+              "board_node": 33462,
+              "leg_node": 146770,
+              "signed_gap_mm": -0.00012213199999999962
+            },
+            {
+              "board_node": 33463,
+              "leg_node": 146771,
+              "signed_gap_mm": -0.00011462000000000017
+            },
+            {
+              "board_node": 33464,
+              "leg_node": 146772,
+              "signed_gap_mm": -6.480199999999998e-05
+            },
+            {
+              "board_node": 33465,
+              "leg_node": 146773,
+              "signed_gap_mm": -0.00010836169999999993
+            },
+            {
+              "board_node": 33466,
+              "leg_node": 146774,
+              "signed_gap_mm": -0.0002257709999999996
+            },
+            {
+              "board_node": 33467,
+              "leg_node": 146775,
+              "signed_gap_mm": -8.877500000000014e-05
+            },
+            {
+              "board_node": 33468,
+              "leg_node": 146776,
+              "signed_gap_mm": -5.154300000000025e-05
+            },
+            {
+              "board_node": 33469,
+              "leg_node": 146777,
+              "signed_gap_mm": -0.00011680899999999984
+            },
+            {
+              "board_node": 33470,
+              "leg_node": 146778,
+              "signed_gap_mm": -0.00015728919999999998
+            },
+            {
+              "board_node": 33471,
+              "leg_node": 146779,
+              "signed_gap_mm": -0.00014354799999999985
+            },
+            {
+              "board_node": 33472,
+              "leg_node": 146780,
+              "signed_gap_mm": -2.6657000000000243e-05
+            },
+            {
+              "board_node": 33473,
+              "leg_node": 146781,
+              "signed_gap_mm": -8.419299999999977e-05
+            },
+            {
+              "board_node": 33474,
+              "leg_node": 146782,
+              "signed_gap_mm": -5.253100000000019e-05
+            },
+            {
+              "board_node": 33475,
+              "leg_node": 146783,
+              "signed_gap_mm": -8.110999999999882e-06
+            },
+            {
+              "board_node": 33476,
+              "leg_node": 146784,
+              "signed_gap_mm": -0.00017478289999999994
+            },
+            {
+              "board_node": 33477,
+              "leg_node": 146785,
+              "signed_gap_mm": -0.00014573569999999994
+            },
+            {
+              "board_node": 33478,
+              "leg_node": 146786,
+              "signed_gap_mm": -0.00013883569999999994
+            },
+            {
+              "board_node": 33479,
+              "leg_node": 146787,
+              "signed_gap_mm": -0.00014365100000000007
+            },
+            {
+              "board_node": 33480,
+              "leg_node": 146788,
+              "signed_gap_mm": -0.00013996000000000017
+            },
+            {
+              "board_node": 33481,
+              "leg_node": 146789,
+              "signed_gap_mm": -0.000124091
+            },
+            {
+              "board_node": 33482,
+              "leg_node": 146790,
+              "signed_gap_mm": -0.00013206800000000016
+            },
+            {
+              "board_node": 33483,
+              "leg_node": 146791,
+              "signed_gap_mm": -6.049100000000019e-05
+            },
+            {
+              "board_node": 33484,
+              "leg_node": 146792,
+              "signed_gap_mm": -0.00010688700000000017
+            },
+            {
+              "board_node": 33485,
+              "leg_node": 146793,
+              "signed_gap_mm": -7.517999999999761e-06
+            },
+            {
+              "board_node": 33486,
+              "leg_node": 146794,
+              "signed_gap_mm": -1.069200000000008e-05
+            },
+            {
+              "board_node": 33487,
+              "leg_node": 146795,
+              "signed_gap_mm": -8.642000000000111e-06
+            },
+            {
+              "board_node": 33488,
+              "leg_node": 146796,
+              "signed_gap_mm": -1.085600000000006e-05
+            },
+            {
+              "board_node": 33489,
+              "leg_node": 146797,
+              "signed_gap_mm": -1.0594999999999962e-05
+            },
+            {
+              "board_node": 33490,
+              "leg_node": 146798,
+              "signed_gap_mm": -1.1539999999999988e-05
+            },
+            {
+              "board_node": 33491,
+              "leg_node": 146799,
+              "signed_gap_mm": -1.0379000000000464e-05
+            },
+            {
+              "board_node": 33492,
+              "leg_node": 146800,
+              "signed_gap_mm": -1.352799999999963e-05
+            },
+            {
+              "board_node": 33493,
+              "leg_node": 146801,
+              "signed_gap_mm": -1.1304000000000175e-05
+            },
+            {
+              "board_node": 33494,
+              "leg_node": 146802,
+              "signed_gap_mm": -1.2980999999999583e-05
+            },
+            {
+              "board_node": 33495,
+              "leg_node": 146803,
+              "signed_gap_mm": -1.9043000000000705e-05
+            },
+            {
+              "board_node": 33496,
+              "leg_node": 146804,
+              "signed_gap_mm": -2.455899999999952e-05
+            },
+            {
+              "board_node": 33497,
+              "leg_node": 146805,
+              "signed_gap_mm": -3.857900000000039e-05
+            },
+            {
+              "board_node": 33498,
+              "leg_node": 146806,
+              "signed_gap_mm": -6.14830000000002e-05
+            }
+          ],
+          "minimum_signed_gap_mm": -0.00036591300000000026,
+          "maximum_signed_gap_mm": 5.884477000000001e-05,
+          "interpenetrating_pair_count": 67,
+          "classification_tolerance_mm": 1e-05
+        },
+        "right": {
+          "pairs": [
+            {
+              "board_node": 241,
+              "leg_node": 146807,
+              "signed_gap_mm": 0.0011212340000000005
+            },
+            {
+              "board_node": 243,
+              "leg_node": 146808,
+              "signed_gap_mm": 0.0004145099999999999
+            },
+            {
+              "board_node": 244,
+              "leg_node": 146809,
+              "signed_gap_mm": -0.0008447489999999997
+            },
+            {
+              "board_node": 245,
+              "leg_node": 146810,
+              "signed_gap_mm": -0.0008283099999999996
+            },
+            {
+              "board_node": 3366,
+              "leg_node": 146811,
+              "signed_gap_mm": 0.000585337
+            },
+            {
+              "board_node": 3399,
+              "leg_node": 146812,
+              "signed_gap_mm": 0.00012109999999999899
+            },
+            {
+              "board_node": 3400,
+              "leg_node": 146813,
+              "signed_gap_mm": -1.2444000000000344e-05
+            },
+            {
+              "board_node": 3401,
+              "leg_node": 146814,
+              "signed_gap_mm": -0.00014563499999999986
+            },
+            {
+              "board_node": 3402,
+              "leg_node": 146815,
+              "signed_gap_mm": -0.00018694599999999947
+            },
+            {
+              "board_node": 3403,
+              "leg_node": 146816,
+              "signed_gap_mm": -0.00016403800000000003
+            },
+            {
+              "board_node": 3404,
+              "leg_node": 146817,
+              "signed_gap_mm": -0.00010848800000000033
+            },
+            {
+              "board_node": 3405,
+              "leg_node": 146818,
+              "signed_gap_mm": -2.7830000000001257e-05
+            },
+            {
+              "board_node": 3406,
+              "leg_node": 146819,
+              "signed_gap_mm": 0.00011127999999999832
+            },
+            {
+              "board_node": 3407,
+              "leg_node": 146820,
+              "signed_gap_mm": 0.00036567999999999844
+            },
+            {
+              "board_node": 3408,
+              "leg_node": 146821,
+              "signed_gap_mm": -0.00017521700000000008
+            },
+            {
+              "board_node": 3409,
+              "leg_node": 146822,
+              "signed_gap_mm": -7.064800000000041e-05
+            },
+            {
+              "board_node": 3410,
+              "leg_node": 146823,
+              "signed_gap_mm": -0.00017983900000000021
+            },
+            {
+              "board_node": 3411,
+              "leg_node": 146824,
+              "signed_gap_mm": -0.0001820880000000004
+            },
+            {
+              "board_node": 3412,
+              "leg_node": 146825,
+              "signed_gap_mm": -0.0001402259999999985
+            },
+            {
+              "board_node": 3413,
+              "leg_node": 146826,
+              "signed_gap_mm": -7.338699999999941e-05
+            },
+            {
+              "board_node": 3414,
+              "leg_node": 146827,
+              "signed_gap_mm": 3.876000000000053e-05
+            },
+            {
+              "board_node": 3415,
+              "leg_node": 146828,
+              "signed_gap_mm": 0.00024100999999999984
+            },
+            {
+              "board_node": 3416,
+              "leg_node": 146829,
+              "signed_gap_mm": 0.0005613600000000003
+            },
+            {
+              "board_node": 3417,
+              "leg_node": 146830,
+              "signed_gap_mm": -0.0008619049999999996
+            },
+            {
+              "board_node": 3418,
+              "leg_node": 146831,
+              "signed_gap_mm": 0.000614463
+            },
+            {
+              "board_node": 3419,
+              "leg_node": 146832,
+              "signed_gap_mm": 0.00020941000000000015
+            },
+            {
+              "board_node": 3420,
+              "leg_node": 146833,
+              "signed_gap_mm": -5.099299999999918e-05
+            },
+            {
+              "board_node": 3421,
+              "leg_node": 146834,
+              "signed_gap_mm": -0.0003043260000000006
+            },
+            {
+              "board_node": 3422,
+              "leg_node": 146835,
+              "signed_gap_mm": -0.0004209249999999991
+            },
+            {
+              "board_node": 3423,
+              "leg_node": 146836,
+              "signed_gap_mm": 0.000833688
+            },
+            {
+              "board_node": 3424,
+              "leg_node": 146837,
+              "signed_gap_mm": 0.0003954290000000001
+            },
+            {
+              "board_node": 3425,
+              "leg_node": 146838,
+              "signed_gap_mm": 6.993599999999961e-05
+            },
+            {
+              "board_node": 3426,
+              "leg_node": 146839,
+              "signed_gap_mm": -0.00016146299999999884
+            },
+            {
+              "board_node": 3427,
+              "leg_node": 146840,
+              "signed_gap_mm": -0.0003141099999999994
+            },
+            {
+              "board_node": 3428,
+              "leg_node": 146841,
+              "signed_gap_mm": -0.0005824360000000004
+            },
+            {
+              "board_node": 43105,
+              "leg_node": 146842,
+              "signed_gap_mm": 0.0003458490000000005
+            },
+            {
+              "board_node": 43106,
+              "leg_node": 146843,
+              "signed_gap_mm": -0.00028078399999999963
+            },
+            {
+              "board_node": 43107,
+              "leg_node": 146844,
+              "signed_gap_mm": 0.0004553780000000002
+            },
+            {
+              "board_node": 43108,
+              "leg_node": 146845,
+              "signed_gap_mm": 0.00034606900000000006
+            },
+            {
+              "board_node": 43109,
+              "leg_node": 146846,
+              "signed_gap_mm": 0.00019761999999999991
+            },
+            {
+              "board_node": 43110,
+              "leg_node": 146847,
+              "signed_gap_mm": 0.00042179
+            },
+            {
+              "board_node": 43111,
+              "leg_node": 146848,
+              "signed_gap_mm": 0.00018438499999999958
+            },
+            {
+              "board_node": 43112,
+              "leg_node": 146849,
+              "signed_gap_mm": 0.00040766999999999887
+            },
+            {
+              "board_node": 43113,
+              "leg_node": 146850,
+              "signed_gap_mm": -0.0005141540000000002
+            },
+            {
+              "board_node": 43114,
+              "leg_node": 146851,
+              "signed_gap_mm": -0.0005452569999999995
+            },
+            {
+              "board_node": 43115,
+              "leg_node": 146852,
+              "signed_gap_mm": -0.000420901
+            },
+            {
+              "board_node": 43116,
+              "leg_node": 146853,
+              "signed_gap_mm": -6.558400000000004e-05
+            },
+            {
+              "board_node": 43117,
+              "leg_node": 146854,
+              "signed_gap_mm": -0.00015695930000000002
+            },
+            {
+              "board_node": 43118,
+              "leg_node": 146855,
+              "signed_gap_mm": -1.3763999999999877e-05
+            },
+            {
+              "board_node": 43119,
+              "leg_node": 146856,
+              "signed_gap_mm": -0.0003228500000000004
+            },
+            {
+              "board_node": 43120,
+              "leg_node": 146857,
+              "signed_gap_mm": 0.0002315809999999998
+            },
+            {
+              "board_node": 43121,
+              "leg_node": 146858,
+              "signed_gap_mm": 0.00012923900000000018
+            },
+            {
+              "board_node": 43122,
+              "leg_node": 146859,
+              "signed_gap_mm": 9.596999999999991e-05
+            },
+            {
+              "board_node": 43123,
+              "leg_node": 146860,
+              "signed_gap_mm": 3.497599999999993e-05
+            },
+            {
+              "board_node": 43124,
+              "leg_node": 146861,
+              "signed_gap_mm": -6.356599999999971e-05
+            },
+            {
+              "board_node": 43125,
+              "leg_node": 146862,
+              "signed_gap_mm": -6.037900000000016e-05
+            },
+            {
+              "board_node": 43126,
+              "leg_node": 146863,
+              "signed_gap_mm": -5.086739999999993e-05
+            },
+            {
+              "board_node": 43127,
+              "leg_node": 146864,
+              "signed_gap_mm": -0.00010376599999999993
+            },
+            {
+              "board_node": 43128,
+              "leg_node": 146865,
+              "signed_gap_mm": -4.765500000000018e-05
+            },
+            {
+              "board_node": 43129,
+              "leg_node": 146866,
+              "signed_gap_mm": -8.484000000000009e-05
+            },
+            {
+              "board_node": 43130,
+              "leg_node": 146867,
+              "signed_gap_mm": -0.00011257900000000024
+            },
+            {
+              "board_node": 43131,
+              "leg_node": 146868,
+              "signed_gap_mm": -0.00010982599999999993
+            },
+            {
+              "board_node": 43132,
+              "leg_node": 146869,
+              "signed_gap_mm": -0.00011413299999999977
+            },
+            {
+              "board_node": 43133,
+              "leg_node": 146870,
+              "signed_gap_mm": -9.613899999999986e-05
+            },
+            {
+              "board_node": 43134,
+              "leg_node": 146871,
+              "signed_gap_mm": -8.872200000000028e-05
+            },
+            {
+              "board_node": 43135,
+              "leg_node": 146872,
+              "signed_gap_mm": -6.339200000000066e-05
+            },
+            {
+              "board_node": 43136,
+              "leg_node": 146873,
+              "signed_gap_mm": -4.787599999999965e-05
+            },
+            {
+              "board_node": 43137,
+              "leg_node": 146874,
+              "signed_gap_mm": 2.4678999999999673e-05
+            },
+            {
+              "board_node": 43138,
+              "leg_node": 146875,
+              "signed_gap_mm": -1.6668000000000065e-05
+            },
+            {
+              "board_node": 43139,
+              "leg_node": 146876,
+              "signed_gap_mm": 0.00015139899999999998
+            },
+            {
+              "board_node": 43140,
+              "leg_node": 146877,
+              "signed_gap_mm": 6.754700000000027e-05
+            },
+            {
+              "board_node": 43141,
+              "leg_node": 146878,
+              "signed_gap_mm": 0.000211012
+            }
+          ],
+          "minimum_signed_gap_mm": -0.0008619049999999996,
+          "maximum_signed_gap_mm": 0.0011212340000000005,
+          "interpenetrating_pair_count": 43,
+          "classification_tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "scenario_300lb_2x_outward300": {
+    "climber_lb": 300,
+    "weight_factor": 2,
+    "horizontal_direction_deg": 90,
+    "force_n": [
+      1.8369701987210297e-14,
+      300.0,
+      -2668.9329691563
+    ],
+    "basis_coefficients": [
+      1.8369701987210297e-17,
+      0.3,
+      2.6689329691563
+    ],
+    "loaded_displacement_mm": [
+      0.10257377123296761,
+      1.9907123965422637,
+      -1.8511990708055288
+    ],
+    "loaded_displacement_magnitude_mm": 2.720366744401065,
+    "reaction_wrench_n_nmm": [
+      2.526719237928525e-05,
+      -299.9999490306225,
+      2668.9330115153525,
+      4531249.566231122,
+      -2627365.109522676,
+      -295327.55496476963
+    ],
+    "residual_wrench": [
+      2.526719239765495e-05,
+      5.09693775256892e-05,
+      4.235905271343654e-05,
+      0.16131251584738493,
+      -0.004020231310278177,
+      0.031287762336432934
+    ],
+    "gap": {
+      "left": {
+        "pairs": [
+          {
+            "board_node": 180,
+            "leg_node": 146735,
+            "signed_gap_mm": -2.3730283091384988e-05
+          },
+          {
+            "board_node": 182,
+            "leg_node": 146736,
+            "signed_gap_mm": -0.001094107269542891
+          },
+          {
+            "board_node": 183,
+            "leg_node": 146737,
+            "signed_gap_mm": -0.0005014053869640445
+          },
+          {
+            "board_node": 184,
+            "leg_node": 146738,
+            "signed_gap_mm": -0.0006010698801140217
+          },
+          {
+            "board_node": 2652,
+            "leg_node": 146739,
+            "signed_gap_mm": 0.00016045024671541993
+          },
+          {
+            "board_node": 2685,
+            "leg_node": 146740,
+            "signed_gap_mm": -0.0007291564264299815
+          },
+          {
+            "board_node": 2686,
+            "leg_node": 146741,
+            "signed_gap_mm": -3.464720041257592e-05
+          },
+          {
+            "board_node": 2687,
+            "leg_node": 146742,
+            "signed_gap_mm": -4.3735780843706575e-05
+          },
+          {
+            "board_node": 2688,
+            "leg_node": 146743,
+            "signed_gap_mm": -5.187092204911748e-05
+          },
+          {
+            "board_node": 2689,
+            "leg_node": 146744,
+            "signed_gap_mm": -5.2702874744232735e-05
+          },
+          {
+            "board_node": 2690,
+            "leg_node": 146745,
+            "signed_gap_mm": -5.6626653705421984e-05
+          },
+          {
+            "board_node": 2691,
+            "leg_node": 146746,
+            "signed_gap_mm": -6.362675213377692e-05
+          },
+          {
+            "board_node": 2692,
+            "leg_node": 146747,
+            "signed_gap_mm": -0.00012192248308990836
+          },
+          {
+            "board_node": 2693,
+            "leg_node": 146748,
+            "signed_gap_mm": -0.00031233512522266076
+          },
+          {
+            "board_node": 2694,
+            "leg_node": 146749,
+            "signed_gap_mm": -0.0001548387016535517
+          },
+          {
+            "board_node": 2695,
+            "leg_node": 146750,
+            "signed_gap_mm": -3.53684931417215e-05
+          },
+          {
+            "board_node": 2696,
+            "leg_node": 146751,
+            "signed_gap_mm": -5.1869854155865355e-05
+          },
+          {
+            "board_node": 2697,
+            "leg_node": 146752,
+            "signed_gap_mm": -5.375451875265372e-05
+          },
+          {
+            "board_node": 2698,
+            "leg_node": 146753,
+            "signed_gap_mm": -5.851061348691655e-05
+          },
+          {
+            "board_node": 2699,
+            "leg_node": 146754,
+            "signed_gap_mm": -6.675431324245761e-05
+          },
+          {
+            "board_node": 2700,
+            "leg_node": 146755,
+            "signed_gap_mm": -9.418598796782137e-05
+          },
+          {
+            "board_node": 2701,
+            "leg_node": 146756,
+            "signed_gap_mm": -0.00019480537785210566
+          },
+          {
+            "board_node": 2702,
+            "leg_node": 146757,
+            "signed_gap_mm": -0.0005815609110514834
+          },
+          {
+            "board_node": 2703,
+            "leg_node": 146758,
+            "signed_gap_mm": -0.0005583096204391002
+          },
+          {
+            "board_node": 2704,
+            "leg_node": 146759,
+            "signed_gap_mm": -0.0007437237174701536
+          },
+          {
+            "board_node": 2705,
+            "leg_node": 146760,
+            "signed_gap_mm": -0.000923221627084192
+          },
+          {
+            "board_node": 2706,
+            "leg_node": 146761,
+            "signed_gap_mm": -0.0009006457317176442
+          },
+          {
+            "board_node": 2707,
+            "leg_node": 146762,
+            "signed_gap_mm": -0.0008672108019465554
+          },
+          {
+            "board_node": 2708,
+            "leg_node": 146763,
+            "signed_gap_mm": -0.0007299091969939051
+          },
+          {
+            "board_node": 2709,
+            "leg_node": 146764,
+            "signed_gap_mm": -0.000483755893229125
+          },
+          {
+            "board_node": 2710,
+            "leg_node": 146765,
+            "signed_gap_mm": -0.0008808113676769249
+          },
+          {
+            "board_node": 2711,
+            "leg_node": 146766,
+            "signed_gap_mm": -0.0009187848085446242
+          },
+          {
+            "board_node": 2712,
+            "leg_node": 146767,
+            "signed_gap_mm": -0.0008925934295534758
+          },
+          {
+            "board_node": 2713,
+            "leg_node": 146768,
+            "signed_gap_mm": -0.0008092285497364998
+          },
+          {
+            "board_node": 2714,
+            "leg_node": 146769,
+            "signed_gap_mm": -0.0006737128163640245
+          },
+          {
+            "board_node": 33462,
+            "leg_node": 146770,
+            "signed_gap_mm": -0.00036330792138899656
+          },
+          {
+            "board_node": 33463,
+            "leg_node": 146771,
+            "signed_gap_mm": -0.00034210449692469516
+          },
+          {
+            "board_node": 33464,
+            "leg_node": 146772,
+            "signed_gap_mm": -0.00020270409426726668
+          },
+          {
+            "board_node": 33465,
+            "leg_node": 146773,
+            "signed_gap_mm": -0.00033048111372382385
+          },
+          {
+            "board_node": 33466,
+            "leg_node": 146774,
+            "signed_gap_mm": -0.0006736337653793865
+          },
+          {
+            "board_node": 33467,
+            "leg_node": 146775,
+            "signed_gap_mm": -0.00026466022433685454
+          },
+          {
+            "board_node": 33468,
+            "leg_node": 146776,
+            "signed_gap_mm": -0.00015290201202922127
+          },
+          {
+            "board_node": 33469,
+            "leg_node": 146777,
+            "signed_gap_mm": -0.00034656379119417727
+          },
+          {
+            "board_node": 33470,
+            "leg_node": 146778,
+            "signed_gap_mm": -0.0004703605315722193
+          },
+          {
+            "board_node": 33471,
+            "leg_node": 146779,
+            "signed_gap_mm": -0.000429262089856448
+          },
+          {
+            "board_node": 33472,
+            "leg_node": 146780,
+            "signed_gap_mm": -7.828724615880061e-05
+          },
+          {
+            "board_node": 33473,
+            "leg_node": 146781,
+            "signed_gap_mm": -0.00025241227347217593
+          },
+          {
+            "board_node": 33474,
+            "leg_node": 146782,
+            "signed_gap_mm": -0.00015654541780274912
+          },
+          {
+            "board_node": 33475,
+            "leg_node": 146783,
+            "signed_gap_mm": -2.296141531282596e-05
+          },
+          {
+            "board_node": 33476,
+            "leg_node": 146784,
+            "signed_gap_mm": -0.0005222583442547481
+          },
+          {
+            "board_node": 33477,
+            "leg_node": 146785,
+            "signed_gap_mm": -0.00043979771451307156
+          },
+          {
+            "board_node": 33478,
+            "leg_node": 146786,
+            "signed_gap_mm": -0.000420298177025893
+          },
+          {
+            "board_node": 33479,
+            "leg_node": 146787,
+            "signed_gap_mm": -0.0004316120899522718
+          },
+          {
+            "board_node": 33480,
+            "leg_node": 146788,
+            "signed_gap_mm": -0.0004214037583631161
+          },
+          {
+            "board_node": 33481,
+            "leg_node": 146789,
+            "signed_gap_mm": -0.0003711694610755746
+          },
+          {
+            "board_node": 33482,
+            "leg_node": 146790,
+            "signed_gap_mm": -0.00039608263937053467
+          },
+          {
+            "board_node": 33483,
+            "leg_node": 146791,
+            "signed_gap_mm": -0.00018002302423723426
+          },
+          {
+            "board_node": 33484,
+            "leg_node": 146792,
+            "signed_gap_mm": -0.00031916253827421037
+          },
+          {
+            "board_node": 33485,
+            "leg_node": 146793,
+            "signed_gap_mm": -2.1518838062116984e-05
+          },
+          {
+            "board_node": 33486,
+            "leg_node": 146794,
+            "signed_gap_mm": -3.1653531306219916e-05
+          },
+          {
+            "board_node": 33487,
+            "leg_node": 146795,
+            "signed_gap_mm": -2.5357818719449164e-05
+          },
+          {
+            "board_node": 33488,
+            "leg_node": 146796,
+            "signed_gap_mm": -3.2295536313162176e-05
+          },
+          {
+            "board_node": 33489,
+            "leg_node": 146797,
+            "signed_gap_mm": -3.1517644808212036e-05
+          },
+          {
+            "board_node": 33490,
+            "leg_node": 146798,
+            "signed_gap_mm": -3.424438646406486e-05
+          },
+          {
+            "board_node": 33491,
+            "leg_node": 146799,
+            "signed_gap_mm": -3.085415528687567e-05
+          },
+          {
+            "board_node": 33492,
+            "leg_node": 146800,
+            "signed_gap_mm": -3.999032520674538e-05
+          },
+          {
+            "board_node": 33493,
+            "leg_node": 146801,
+            "signed_gap_mm": -3.3481318283342526e-05
+          },
+          {
+            "board_node": 33494,
+            "leg_node": 146802,
+            "signed_gap_mm": -3.823401887261858e-05
+          },
+          {
+            "board_node": 33495,
+            "leg_node": 146803,
+            "signed_gap_mm": -5.613779053164486e-05
+          },
+          {
+            "board_node": 33496,
+            "leg_node": 146804,
+            "signed_gap_mm": -7.244842478950665e-05
+          },
+          {
+            "board_node": 33497,
+            "leg_node": 146805,
+            "signed_gap_mm": -0.0001138904650170823
+          },
+          {
+            "board_node": 33498,
+            "leg_node": 146806,
+            "signed_gap_mm": -0.00018224040574263585
+          }
+        ],
+        "minimum_signed_gap_mm": -0.001094107269542891,
+        "maximum_signed_gap_mm": 0.00016045024671541993,
+        "interpenetrating_pair_count": 71,
+        "classification_tolerance_mm": 1e-05
+      },
+      "right": {
+        "pairs": [
+          {
+            "board_node": 241,
+            "leg_node": 146807,
+            "signed_gap_mm": 0.0035568385287389967
+          },
+          {
+            "board_node": 243,
+            "leg_node": 146808,
+            "signed_gap_mm": 0.0012547135810449736
+          },
+          {
+            "board_node": 244,
+            "leg_node": 146809,
+            "signed_gap_mm": -0.0025576120567618165
+          },
+          {
+            "board_node": 245,
+            "leg_node": 146810,
+            "signed_gap_mm": -0.002519707467681851
+          },
+          {
+            "board_node": 3366,
+            "leg_node": 146811,
+            "signed_gap_mm": 0.00187990661736704
+          },
+          {
+            "board_node": 3399,
+            "leg_node": 146812,
+            "signed_gap_mm": 0.0003832647825648232
+          },
+          {
+            "board_node": 3400,
+            "leg_node": 146813,
+            "signed_gap_mm": -5.332780186818181e-05
+          },
+          {
+            "board_node": 3401,
+            "leg_node": 146814,
+            "signed_gap_mm": -0.00044893095296308014
+          },
+          {
+            "board_node": 3402,
+            "leg_node": 146815,
+            "signed_gap_mm": -0.0005723722428518895
+          },
+          {
+            "board_node": 3403,
+            "leg_node": 146816,
+            "signed_gap_mm": -0.0005051903263944627
+          },
+          {
+            "board_node": 3404,
+            "leg_node": 146817,
+            "signed_gap_mm": -0.00034128369995783253
+          },
+          {
+            "board_node": 3405,
+            "leg_node": 146818,
+            "signed_gap_mm": -0.0001039371045316248
+          },
+          {
+            "board_node": 3406,
+            "leg_node": 146819,
+            "signed_gap_mm": 0.0003081819608077088
+          },
+          {
+            "board_node": 3407,
+            "leg_node": 146820,
+            "signed_gap_mm": 0.00106647823816107
+          },
+          {
+            "board_node": 3408,
+            "leg_node": 146821,
+            "signed_gap_mm": -0.0005451924280566595
+          },
+          {
+            "board_node": 3409,
+            "leg_node": 146822,
+            "signed_gap_mm": -0.0002261417764049603
+          },
+          {
+            "board_node": 3410,
+            "leg_node": 146823,
+            "signed_gap_mm": -0.0005514232362401027
+          },
+          {
+            "board_node": 3411,
+            "leg_node": 146824,
+            "signed_gap_mm": -0.0005588395664877337
+          },
+          {
+            "board_node": 3412,
+            "leg_node": 146825,
+            "signed_gap_mm": -0.00043539049453290846
+          },
+          {
+            "board_node": 3413,
+            "leg_node": 146826,
+            "signed_gap_mm": -0.00023878118380747312
+          },
+          {
+            "board_node": 3414,
+            "leg_node": 146827,
+            "signed_gap_mm": 9.278764188450084e-05
+          },
+          {
+            "board_node": 3415,
+            "leg_node": 146828,
+            "signed_gap_mm": 0.0006936059348963616
+          },
+          {
+            "board_node": 3416,
+            "leg_node": 146829,
+            "signed_gap_mm": 0.0016558280315655816
+          },
+          {
+            "board_node": 3417,
+            "leg_node": 146830,
+            "signed_gap_mm": -0.0026145164707806583
+          },
+          {
+            "board_node": 3418,
+            "leg_node": 146831,
+            "signed_gap_mm": 0.0019235598590266884
+          },
+          {
+            "board_node": 3419,
+            "leg_node": 146832,
+            "signed_gap_mm": 0.0006621333530710226
+          },
+          {
+            "board_node": 3420,
+            "leg_node": 146833,
+            "signed_gap_mm": -0.00014694699889618648
+          },
+          {
+            "board_node": 3421,
+            "leg_node": 146834,
+            "signed_gap_mm": -0.0009303647947714634
+          },
+          {
+            "board_node": 3422,
+            "leg_node": 146835,
+            "signed_gap_mm": -0.0012964417100421108
+          },
+          {
+            "board_node": 3423,
+            "leg_node": 146836,
+            "signed_gap_mm": 0.002630369119189978
+          },
+          {
+            "board_node": 3424,
+            "leg_node": 146837,
+            "signed_gap_mm": 0.0012390678750605101
+          },
+          {
+            "board_node": 3425,
+            "leg_node": 146838,
+            "signed_gap_mm": 0.00022889059613091095
+          },
+          {
+            "board_node": 3426,
+            "leg_node": 146839,
+            "signed_gap_mm": -0.0004904746239988815
+          },
+          {
+            "board_node": 3427,
+            "leg_node": 146840,
+            "signed_gap_mm": -0.0009688055349416809
+          },
+          {
+            "board_node": 3428,
+            "leg_node": 146841,
+            "signed_gap_mm": -0.0017852654428235186
+          },
+          {
+            "board_node": 43105,
+            "leg_node": 146842,
+            "signed_gap_mm": 0.0010211507984497353
+          },
+          {
+            "board_node": 43106,
+            "leg_node": 146843,
+            "signed_gap_mm": -0.0008653190748115812
+          },
+          {
+            "board_node": 43107,
+            "leg_node": 146844,
+            "signed_gap_mm": 0.0014293915576284576
+          },
+          {
+            "board_node": 43108,
+            "leg_node": 146845,
+            "signed_gap_mm": 0.0010782180637029523
+          },
+          {
+            "board_node": 43109,
+            "leg_node": 146846,
+            "signed_gap_mm": 0.0005874771333646642
+          },
+          {
+            "board_node": 43110,
+            "leg_node": 146847,
+            "signed_gap_mm": 0.0012568289370604342
+          },
+          {
+            "board_node": 43111,
+            "leg_node": 146848,
+            "signed_gap_mm": 0.0005414246055178793
+          },
+          {
+            "board_node": 43112,
+            "leg_node": 146849,
+            "signed_gap_mm": 0.001196049303535951
+          },
+          {
+            "board_node": 43113,
+            "leg_node": 146850,
+            "signed_gap_mm": -0.0015691964618235882
+          },
+          {
+            "board_node": 43114,
+            "leg_node": 146851,
+            "signed_gap_mm": -0.0016646507839632556
+          },
+          {
+            "board_node": 43115,
+            "leg_node": 146852,
+            "signed_gap_mm": -0.001275956355650856
+          },
+          {
+            "board_node": 43116,
+            "leg_node": 146853,
+            "signed_gap_mm": -0.0002092200998491476
+          },
+          {
+            "board_node": 43117,
+            "leg_node": 146854,
+            "signed_gap_mm": -0.0004833028505856949
+          },
+          {
+            "board_node": 43118,
+            "leg_node": 146855,
+            "signed_gap_mm": -5.062819338746711e-05
+          },
+          {
+            "board_node": 43119,
+            "leg_node": 146856,
+            "signed_gap_mm": -0.0009986255090921117
+          },
+          {
+            "board_node": 43120,
+            "leg_node": 146857,
+            "signed_gap_mm": 0.0007188435659301832
+          },
+          {
+            "board_node": 43121,
+            "leg_node": 146858,
+            "signed_gap_mm": 0.00040109952800079264
+          },
+          {
+            "board_node": 43122,
+            "leg_node": 146859,
+            "signed_gap_mm": 0.0002945509970499289
+          },
+          {
+            "board_node": 43123,
+            "leg_node": 146860,
+            "signed_gap_mm": 0.00010309019952921099
+          },
+          {
+            "board_node": 43124,
+            "leg_node": 146861,
+            "signed_gap_mm": -0.00019917429311738961
+          },
+          {
+            "board_node": 43125,
+            "leg_node": 146862,
+            "signed_gap_mm": -0.00019602220374468834
+          },
+          {
+            "board_node": 43126,
+            "leg_node": 146863,
+            "signed_gap_mm": -0.00016627168091526076
+          },
+          {
+            "board_node": 43127,
+            "leg_node": 146864,
+            "signed_gap_mm": -0.0003291009984774723
+          },
+          {
+            "board_node": 43128,
+            "leg_node": 146865,
+            "signed_gap_mm": -0.00015174900064514416
+          },
+          {
+            "board_node": 43129,
+            "leg_node": 146866,
+            "signed_gap_mm": -0.00026157727310322084
+          },
+          {
+            "board_node": 43130,
+            "leg_node": 146867,
+            "signed_gap_mm": -0.0003451028047346482
+          },
+          {
+            "board_node": 43131,
+            "leg_node": 146868,
+            "signed_gap_mm": -0.00033627323227055934
+          },
+          {
+            "board_node": 43132,
+            "leg_node": 146869,
+            "signed_gap_mm": -0.0003501233265687147
+          },
+          {
+            "board_node": 43133,
+            "leg_node": 146870,
+            "signed_gap_mm": -0.00029612554672171776
+          },
+          {
+            "board_node": 43134,
+            "leg_node": 146871,
+            "signed_gap_mm": -0.00027510847088948586
+          },
+          {
+            "board_node": 43135,
+            "leg_node": 146872,
+            "signed_gap_mm": -0.00019952349878075808
+          },
+          {
+            "board_node": 43136,
+            "leg_node": 146873,
+            "signed_gap_mm": -0.00015496323483132728
+          },
+          {
+            "board_node": 43137,
+            "leg_node": 146874,
+            "signed_gap_mm": 5.983599674581029e-05
+          },
+          {
+            "board_node": 43138,
+            "leg_node": 146875,
+            "signed_gap_mm": -6.202407472989842e-05
+          },
+          {
+            "board_node": 43139,
+            "leg_node": 146876,
+            "signed_gap_mm": 0.0004362127825972943
+          },
+          {
+            "board_node": 43140,
+            "leg_node": 146877,
+            "signed_gap_mm": 0.00018777841526759938
+          },
+          {
+            "board_node": 43141,
+            "leg_node": 146878,
+            "signed_gap_mm": 0.0006155196836876084
+          }
+        ],
+        "minimum_signed_gap_mm": -0.0026145164707806583,
+        "maximum_signed_gap_mm": 0.0035568385287389967,
+        "interpenetrating_pair_count": 43,
+        "classification_tolerance_mm": 1e-05
+      }
+    }
+  },
+  "comparison": {
+    "bonded_compliance": {
+      "matrix_mm_per_n": [
+        [
+          6.713466999999999e-05,
+          1.990974e-05,
+          -3.605554e-05
+        ],
+        [
+          1.990974e-05,
+          0.0007765033999999999,
+          -0.0006562109
+        ],
+        [
+          -3.605554e-05,
+          -0.0006562109,
+          0.0006176475
+        ]
+      ],
+      "maximum_symmetry_residual_mm_per_n": 0.0,
+      "symmetric_eigenvalues_mm_per_n": [
+        3.0697595566908576e-05,
+        7.13460080696738e-05,
+        0.0013592419663634183
+      ],
+      "limits": "Reciprocity and positive compliance diagnostic only, not strength or full-matrix proof"
+    },
+    "released_compliance": {
+      "matrix_mm_per_n": [
+        [
+          6.715528e-05,
+          2.002849e-05,
+          -3.618121e-05
+        ],
+        [
+          2.002849e-05,
+          0.0007788538000000001,
+          -0.0006583366
+        ],
+        [
+          -3.618121e-05,
+          -0.0006583366,
+          0.0006196102
+        ]
+      ],
+      "maximum_symmetry_residual_mm_per_n": 0.0,
+      "symmetric_eigenvalues_mm_per_n": [
+        3.0710282812693405e-05,
+        7.137035728077828e-05,
+        0.0013635386399065276
+      ],
+      "limits": "Reciprocity and positive compliance diagnostic only, not strength or full-matrix proof"
+    },
+    "bonded_300lb_2x_outward300": {
+      "climber_lb": 300,
+      "weight_factor": 2,
+      "horizontal_direction_deg": 90,
+      "force_n": [
+        1.8369701987210297e-14,
+        300.0,
+        -2668.9329691563
+      ],
+      "basis_coefficients": [
+        1.8369701987210297e-17,
+        0.3,
+        2.6689329691563
+      ],
+      "loaded_displacement_mm": [
+        0.10220274142673373,
+        1.9843339257297279,
+        -1.8453230460669658
+      ],
+      "loaded_displacement_magnitude_mm": 2.7116864998563086,
+      "reaction_wrench_n_nmm": [
+        1.9672672322907034e-05,
+        -300.0000628292859,
+        2668.9328903830115,
+        4531249.326438055,
+        -2627365.0745618497,
+        -295327.67787964176
+      ],
+      "residual_wrench": [
+        1.9672672341276736e-05,
+        -6.282928592327153e-05,
+        -7.877328835093067e-05,
+        -0.07848055101931095,
+        0.03094059508293867,
+        -0.09162710979580879
+      ]
+    }
+  },
+  "omitted_diagnostic_artifacts_sha256": {
+    "K12.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "K12.frd": "19f04dd3519b6ce8309cbed87afe7eba557164c60e6943c1a301d14b5ceb362c",
+    "K12.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "replay_archives": {
+    "input.json.gz": {
+      "gzip_sha256": "4df83240bbc3bef79c045431cdf0d035a8ff6e3c34a68e198c875111a237ad74",
+      "uncompressed_sha256": "25545985df0e843a5dfd94a0567e9d6b60516d103b457fd44b26ae12f4df94d6"
+    },
+    "K12.inp.gz": {
+      "gzip_sha256": "15440e9371c26f2a88dffb218cbbb26f15892b47bbccf59c9fe976e90e716984",
+      "uncompressed_sha256": "ffe5b28914f4ba096fac14a2511e5bdb78ce5769fc46d0aef847926222e53629"
+    },
+    "K12.dat.gz": {
+      "gzip_sha256": "fe9ac425cfd43902d01525bebc0afa81bc9f29b0bf4e6ddc65f223b2f841fdcd",
+      "uncompressed_sha256": "085cd997e729af0d96d7c0deb8d9e0fdaa316c8dbf65659a3f35c286e7b2d705"
+    },
+    "K12.log.gz": {
+      "gzip_sha256": "f5a6440289e97648a9327aeb2f3bf84874995608eb1b00d57dd32d7712e13551",
+      "uncompressed_sha256": "e90f9cd2818655645a51561debd1b9c0574d34d1d0a865aca0aae54fc0978681"
+    },
+    "K12.sta.gz": {
+      "gzip_sha256": "ef11b786ea3086de1edb0767ba1ab2fb4edc9a9b5b9c268044953ec2f5f5795c",
+      "uncompressed_sha256": "92309906ae07ca70ed9bc6ea03391c51670a3aad8d33b096591b0fef2ba98776"
+    },
+    "K12.launch.json.gz": {
+      "gzip_sha256": "2cefdfc5050e3dbca0b9efd619410b5ef18df2fe5f2aedbf7234012e5dd0a67f",
+      "uncompressed_sha256": "49bf0901fefb1b51f48ce24ffc00280382a143bf86a98fe100898a6202a4fea5"
+    },
+    "K12.json.gz": {
+      "gzip_sha256": "b8eac35e37d8890b623b1bb3977baf08e9da04ba5feb2813fc06fbe1b946e846",
+      "uncompressed_sha256": "b87d631f1c4c745b73a49af685bee7f75b29540652685162cd6027586d7a04f6"
+    }
+  }
+}

@@ -74,6 +74,17 @@ before using a conditional axial limit. Lateral/axial interaction and prying
 remain separate. Assigning half the board force to each bolt is not a proven
 upper bound on joint demand.
 
+The [conditional bearing envelope](backing-bearing-envelope.md) now records
+the 2024 NDS material assumptions and a reproducible calculation: approximately
+997 N dry or 668 N with the stated wet-service adjustment per bearing plane.
+These are wood-bearing-only values, not qualified connection resistances.
+Both washers act in series, and assembly preload also consumes bearing pressure.
+
+The [aggregate base-action recovery](timber-base-demand.md) now covers six original
+and 216 asymmetric cases on the preserved timber mesh. It identifies fixed
+kicker-bottom support as well as post support. It does not split those actions
+among gussets, backing bolts or the header's bearing contacts.
+
 ## Achievable next stage and human gates
 
 The next analytical milestone is a source-backed **conditional connection

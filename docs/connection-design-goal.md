@@ -72,12 +72,28 @@ this task's edit/staging scope.
 - Final joint resistance checks and human/physical validation remain outstanding.
   The overall goal is not complete.
 
+Further progress: [aggregate base actions](timber-base-demand.md) are recovered
+for all six original and 216 asymmetric cases on the preserved timber mesh.
+Actual floor-node ownership includes the kicker bottom, an explicit fixed-floor
+model assumption. This does not yet isolate the gusset/backing joint actions.
+The [conditional washer/wood bearing envelope](backing-bearing-envelope.md)
+now has a matching 2024 NDS reference basis, separate from unqualified washer
+bending, local wood failure and complete connection resistance.
+
+The follow-up release solve and replay archive are complete. Forty-five focused
+tests passed across release preparation/audit/publication, physical mesh
+reconstruction, base recovery and bearing arithmetic. Independent correctness,
+testing and boundary reviews found no substantial remaining defects in these
+diagnostic additions. The goal remains active: physical joint qualification is
+not substituted by these numerical checks.
+
 ## Immediate continuation, without another broad redesign
 
-1. Run the bounded released-interface sensitivity described in its diagnostic
-   plan, checking relative interface motion before interpreting the result.
-2. Recover defensible base/gusset actions separately. Existing aggregate leg
-   actions do not establish these loads or their distribution among bolts.
+1. Develop the intended unilateral interface/load path after the completed
+   [released-interface sensitivity](timber-release-results.md). Its small
+   displacement change and tiny interpenetrations do not isolate real bolt loads.
+2. Isolate gusset and backing actions beyond the now-recovered aggregate base
+   wrench. Aggregate base and leg actions do not establish individual joint loads.
 3. Develop a conditional backing-bolt resistance envelope, beginning with washer
    and local timber bearing. Use it to decide whether the heavier principals
    are justified; do not choose them solely because their bonded FEA is stiffer.

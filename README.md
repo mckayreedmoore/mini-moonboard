@@ -19,6 +19,11 @@ deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg adde
 modeled mass. This does not establish that the heavier supports are necessary.
 [Remaining joint qualification](docs/connection-qualification-ledger.md) is explicit.
 
+Further connection diagnostics: [aggregate base actions](docs/timber-base-demand.md),
+[panel-edge bond sensitivity](docs/timber-release-results.md), and
+[conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not
+establish individual bolt capacity or qualify the wider variant's real joints.
+
 ![Wider central supports, climbing-side view](exports/wide-principal-development/wide-principal-development_front.png)
 
 **Preserved connection candidate: removable panels with threaded inserts.**

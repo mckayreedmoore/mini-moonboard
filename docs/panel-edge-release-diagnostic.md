@@ -4,6 +4,9 @@ This is a **transformation-only diagnostic**, not a new structural solution.
 No released-interface FEA has been run or published by this increment. Physical
 CAD, stock schedules and previously accepted meshes/results are unchanged.
 
+A later [three-basis sensitivity run](timber-release-results.md) is now recorded
+separately. The transformation proof below remains distinct from those results.
+
 ## Reason for the check
 
 The accepted `timber-base-development` 40 mm ideal-bonded mesh connects each leg
