@@ -107,3 +107,9 @@ for all 24 through-bolt stacks. Three focused tests pass. The
 [contact-surface preparation](timber-contact-plan.md) also passes two actual-mesh
 checks, providing verified paired faces for the next unilateral-contact control.
 Neither addition supplies an unverified structural rating.
+
+The [eccentric two-body contact control](panel-contact-control.md) now completes
+four nonlinear penalty/increment runs with all 36 endpoints audited. Contact
+force and moment agree with independent reactions on both bodies; 37 focused
+tests and independent reviews pass. Actual frame contact, opening/recontact and
+real fastener load sharing remain unfinished. The goal remains active.

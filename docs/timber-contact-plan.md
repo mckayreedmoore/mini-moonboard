@@ -6,6 +6,11 @@ redesign. The physical target is unilateral panel/leg contact while retaining
 the ideal rim/common-edge connection. Even a successful result would describe
 that ideal aggregate connection, not four real bolt forces.
 
+The [eccentric compression control](panel-contact-control.md) is now complete:
+four penalty/increment combinations pass independent force/moment and local-law
+checks. It is a limited output-validation prerequisite, not the actual frame
+contact solution or a separation/recontact test.
+
 ## Prepared geometry
 
 `fea/timber_contact_faces.py` reconstructs explicit CalculiX S1–S4 face labels
