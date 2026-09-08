@@ -80,3 +80,30 @@ member-specific bearing lengths and thread exposure. The three-member leg/rim
 stack is not covered by this single-shear kernel. Group action, splitting,
 axial loads and actual connection demand remain separate; passing the benchmark
 does not establish a resistance for any current frame joint.
+
+## Current member-specific thread exposure
+
+`fea/bolt_thread_bearing.py` authenticates the current part-local machining
+source closure and maps the six stitch and eight gusset bolts to their 28 raw
+member intervals. Each selected member has one uninterrupted axial material
+interval; this extraction does not include the recessed backing or three-member
+leg/rim joint. Its origins match the CAD under-head datum and 2.032 mm modeled
+head washer, not the older procurement document's nominal washer assumption.
+
+| Nut-side member | Current bolt length | Member bearing length | Nominal threaded bearing | Fraction |
+| --- | ---: | ---: | ---: | ---: |
+| Outer stitch ply, six bolts | 63.5 mm | 19.05 mm | 2.032 mm | 10.67% |
+| Base gusset, eight bolts | 76.2 mm | 19.05 mm | 8.382 mm | 44.00% |
+
+The other fourteen member intervals contain no threads under the selected
+25.4 mm reference thread-length assumption. All eight gussets exceed the
+quarter-length condition even nominally. Use an applicable reduced-diameter
+or detailed threaded-bearing method for their subsequent yield calculation;
+do not assign smooth-shank values. The stitch geometry meets that one condition
+nominally, but reference thread length is not a guaranteed maximum and runout,
+stock tolerances and delivered bolt geometry remain unresolved.
+
+The [complete member report](../fea/results/bolt-thread-bearing.json) records
+intervals, dimensions, source hashes and limitations. Seven interval/publication
+tests and the fourteen TR12 benchmark tests pass. These results determine the
+next calculation inputs, not joint resistance or manufacture approval.
