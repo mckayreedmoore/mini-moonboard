@@ -7,6 +7,15 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
+**Current development: lumber rims, service clearance and removable connections.**
+[Inspect the lumber-base revision](https://mckayreedmoore.github.io/mini-moonboard/?model=timber-base-development&view=rear).
+Full-width 2×8×10 ft side rims replace long plywood strips. A continuous lower
+backing rail, LED service pockets, full-depth base posts and nominal purchased
+hardware are modeled. **Fit development only; joint resistance remains
+unqualified.** [Stock, assembly, hardware and analysis limits](docs/timber-base-development.md).
+
+![Lumber-base development, climbing-side view](exports/timber-base-development/timber-base-development_front.png)
+
 **New layout comparison: panels over side framing and a horizontal base.**
 [Inspect the base-bearing concept](https://mckayreedmoore.github.io/mini-moonboard/?model=base-bearing-concept&view=rear).
 This separately selectable model uses corrected panel-edge hole datums and

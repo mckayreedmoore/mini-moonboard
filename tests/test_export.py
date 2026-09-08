@@ -96,7 +96,8 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert "ABCDEFGHIJK" in viewer_html
     assert "labelDecal" in viewer_html
     assert "new THREE.PlaneGeometry" in viewer_html
-    assert "mainFacePoint(1160, 80 + index * 200)" in viewer_html
+    assert "mainFacePoint(1160, station)" in viewer_html
+    assert "rowStations = design.tnut_row_stations_mm" in viewer_html
     assert "climberView.scale.x = -1" in viewer_html
     assert "assemblyView.position.set(0, -950, 0)" in viewer_html
     assert "mainFacePoint(1019.2 - index * 200, 2380)" in viewer_html
