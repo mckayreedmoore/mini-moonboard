@@ -47,8 +47,47 @@ The [supplemental ML letter](https://ssttoolbox.widen.net/content/iczmiabsx6/pdf
 provides directional values and installation figures, not a general combined-load
 rule for this frame. In the trial, the bend/F1 axis follows board slope S;
 outward backing retention is normal to that axis. F1 is not the desired
-board-normal retention rating. Loaded-member classification and signs must be
-resolved before selecting a directional value.
+board-normal retention rating. The figure interpretation below resolves a
+conditional direction mapping; installation applicability still must be
+established before assigning a connection allowable.
+
+## Loaded-backing interpretation of the installation figure
+
+The September 8 follow-up compares the letter's page 2 single/end figures with
+the actual trial flange and screw directions. Treat the backing rail as the
+projecting loaded member, and the side rim as the supporting member. The backing
+ends at the rim, with its grain along X. Its angle sits on its rear (+N) face;
+the backing-flange screws enter along -N. The supporting rim's grain runs S.
+This is a **single/end installation analogy**, not the bearing-table shortcut.
+
+Under that interpretation:
+
+| Manufacturer arrow on the loaded member | Trial direction | ML23Z single/end DF/SP value |
+| --- | --- | ---: |
+| F1, either direction along the bend | ±S | 405 lbf |
+| F2, projecting member pulling away from its supporting member | +X at left end, -X at right end | 300 lbf |
+| F3, transverse movement away from the angle-bearing face | -N at both ends | 300 lbf |
+| F4, opposite transverse movement | +N at both ends | 500 lbf |
+
+This sign mapping is our interpretation of the published arrows and modeled
+contact faces, not an application approval from Simpson. Mirror the rim-end
+direction X, not the common backing normal N. Do not apply both positive and
+negative F2 values: the opposite direction is member-end bearing, a separate
+load path rather than a published negative-F2 rating.
+
+Consequently, the relevant published value to investigate for outward backing
+retention is **F3 = 300 lbf (approximately 1,334 N) per ML23Z**, conditional on
+the single/end installation being applicable. The 405 lbf F1 and 500 lbf F4
+values are not outward-retention substitutes. Nor can two end connectors be
+assigned twice 1,334 N as a backing capacity without a valid load-transfer model.
+
+The remaining applicability questions are specific: minimum member dimensions
+and the trial's edge/end distances, cross-grain behavior of the supporting rim,
+combined directions, and repeated screw removal. The letter requires the
+designer to consider mechanical reinforcement where cross-grain bending or
+tension cannot be avoided; it does not establish that this particular rim
+needs none. The generic axial-SDS spacing shortfall above remains separate
+from the connector-specific evaluation route.
 
 ## Prepared supplier/reviewer question — not sent
 
@@ -60,8 +99,10 @@ The backing can load outward along −N, with additional S/X actions not yet
 resolved. The proposed backing screw axes have 22.225 mm nearest S-edge distance
 and 35.9029 mm minimum X-end distance; use the actual staggered factory holes.
 
-Please identify the applicable installation figure, directional signs and
-allowable loads; required member dimensions and edge/end/spacing limits;
+Our interpretation is the single/end figure with backing -N mapped to F3,
+±S to F1, and backing end separation mapped to F2. Please confirm or correct
+that interpretation and identify applicable allowable loads, required member
+dimensions and edge/end/spacing limits;
 combined-load and cross-grain requirements; and whether any repeated removal
 and reinstallation of the backing-flange SDS screws is supported. If not,
 what listed connector/fastener arrangement supports the required removable
