@@ -29,6 +29,11 @@ changed. No released-ply FE solve has yet been performed.
 
 ## Requirements for the next connection trial
 
+A [three-member lateral connector coupon](three-member-connector-coupon.md)
+now establishes a continuous-bolt linear formulation with independent region
+motions and limiting-case tests. It is not calibrated or integrated into the
+frame; the requirements below remain open.
+
 1. Duplicate shared ply nodes while preserving element coordinates and correct
    separate floor support membership. Keep the previous rim/panel and gusset
    releases; do not accidentally restore their bonded paths.
