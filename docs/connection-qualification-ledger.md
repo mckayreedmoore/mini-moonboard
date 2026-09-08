@@ -5,6 +5,10 @@
 separately purchased SDS25112 screws, and 56 panel machine-screw/insert pairs.
 Geometry checks establish modeled fit, not resistance or a climber weight rating.
 
+The [current fastener-fit audit](current-fastener-fit-audit.md) now verifies all
+48 washer support planes against actual machined CAD and checks the 24 nominal
+bolt stacks with dimensional tolerances. Those checks do not qualify resistance.
+
 ## Finite remaining checks
 
 | Family | Established information | Missing demand or resistance | Next bounded check |
