@@ -49,7 +49,8 @@ this task's edit/staging scope.
 - Nine asymmetric basis cases and 216 linear-combination scenarios are complete
   on the preserved timber mesh; [results and limitations](timber-asymmetric-results.md)
   include aggregate leg actions. These are not actual isolated bolt demands.
-- Wider solid-lumber principals and matched short base blocks are being developed
-  to resolve the backing-bolt edge geometry without an unsuitable angle rating.
+- Wider solid-lumber principals and matched short base blocks are implemented as
+  `wide-principal-development`. Geometry/export checks resolve the backing-bolt
+  edge-distance screen without relying on an unsuitable angle rating.
 - Final joint resistance checks and human/physical validation remain outstanding.
   The overall goal is not complete.

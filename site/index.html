@@ -69,7 +69,7 @@
         return `${feet} ft ${inches} in`;
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
-      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development'].includes(requestedModel) ? requestedModel : 'plywood';
+      const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development'].includes(requestedModel) ? requestedModel : 'plywood';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
       [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware'], ['selected-hardware-development', 'Selected products · fit unqualified'], ['top-joint-development', 'Revised top joint · strength unqualified'], ['wood-first-mvp', 'Wood-first MVP · housed joints'], ['commercial-bracket-mvp', 'Commercial-bracket MVP · factory connectors']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
@@ -83,6 +83,7 @@
       modelSelect.add(new Option('Horizontal base · corrected grid · layout only', 'base-bearing-concept'));
       modelSelect.add(new Option('Lumber base · backing and connections', 'timber-base-development'));
       modelSelect.add(new Option('Lumber base · removable panel inserts', 'panel-insert-development'));
+      modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });

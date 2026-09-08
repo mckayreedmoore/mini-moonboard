@@ -7,16 +7,23 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current connection candidate: removable panels with threaded inserts.**
+**Current audit candidate: wider central supports and removable panels.**
+[Inspect the wider-support revision](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development).
+Two nominal 4×6 central supports replace the narrow 2×6 receivers, providing
+44.45 mm backing-bolt edge distance. Matching base blocks come from the same
+stock. Panel inserts and purchased brackets remain; **joint resistance and
+physical validation are still unqualified.** [Cuts, assembly and audit limits](docs/wide-principal-development.md).
+
+![Wider central supports, climbing-side view](exports/wide-principal-development/wide-principal-development_front.png)
+
+**Preserved connection candidate: removable panels with threaded inserts.**
 [Inspect the panel-insert revision](https://mckayreedmoore.github.io/mini-moonboard/?model=panel-insert-development).
 56 panel wood screws become machine screws and flush receiver inserts; existing
 through-bolts and commercial-bracket screws stay unchanged. **Geometry candidate
 only; insert engagement, joint strength and the lower-backing detail remain
 unqualified.** [Hardware, drilling reservations, assembly and audit gates](docs/panel-insert-development.md).
 
-![Removable-panel insert candidate, climbing-side view](exports/panel-insert-development/panel-insert-development_front.png)
-
-**Current development: lumber rims, service clearance and removable connections.**
+**Preserved development: lumber rims, service clearance and removable connections.**
 [Inspect the lumber-base revision](https://mckayreedmoore.github.io/mini-moonboard/?model=timber-base-development&view=rear).
 Full-width 2×8×10 ft side rims replace long plywood strips. A continuous lower
 backing rail, LED service pockets, full-depth base posts and nominal purchased
@@ -30,8 +37,6 @@ compare easier disassembly without treating inserts as a proven structural upgra
 [Asymmetric floor-equilibrium screen](docs/timber-floor-screen.md): all 1,296
 selected cases have admissible reactions at assumed friction 0.20; low-friction
 cases expose limits. Actual floor friction and joint resistance remain unqualified.
-
-![Lumber-base development, climbing-side view](exports/timber-base-development/timber-base-development_front.png)
 
 **New layout comparison: panels over side framing and a horizontal base.**
 [Inspect the base-bearing concept](https://mckayreedmoore.github.io/mini-moonboard/?model=base-bearing-concept&view=rear).
