@@ -84,7 +84,6 @@ environment. Run heavy jobs sequentially. Preparation and publication refuse to
 overwrite existing evidence; use a fresh checkout/work location for reproduction.
 The publisher is `python3 -m fea.publish_wide_structural <60mm-result> <40mm-result>`.
 
-The frozen input records the original local geometry commit `893bf52` and exact
-source hashes. The user's evening publication policy may later change that
-unpublished commit's timestamp and ID. Preserve the original provenance and a
-commit mapping if that occurs; do not relabel an old solve as a new execution.
+The frozen input records the geometry revision and exact source hashes used
+for the solve. Preserve these provenance records; do not relabel an old solve
+as a new execution.
