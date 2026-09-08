@@ -171,6 +171,12 @@ stations. Certified minimum total retention reaches 5.462 N/N within the isolate
 normal-only model. Unlimited pressure and omitted compatibility make this an
 optimistic conditional bound, not physical contact FEA or joint qualification.
 
+The [backing-end retention trial](backing-end-retention-trial.md) identifies a
+smaller purchased ML23Z angle from official drawings and checks eight proposed
+screw axes/shaft envelopes in current wood receivers. It is not installed in the
+current model. Full hardware/tool clearance, installation limits, load transfer
+and repeated-disassembly behavior must be resolved before selection.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical
