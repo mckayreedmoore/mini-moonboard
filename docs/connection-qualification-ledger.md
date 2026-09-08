@@ -5,6 +5,11 @@
 separately purchased SDS25112 screws, and 56 panel machine-screw/insert pairs.
 Geometry checks establish modeled fit, not resistance or a climber weight rating.
 
+The [current bracket-axis audit](wide-bracket-axes.md) maps all eighteen angles
+and 108 screws to named members: twelve bend axes follow board-normal N and six
+header bend axes follow world Y. This resolves placement bookkeeping, not the
+loaded-member installation classification, mixed-axis rule or joint forces.
+
 The [current fastener-fit audit](current-fastener-fit-audit.md) now verifies all
 48 washer support planes against actual machined CAD and checks the 24 nominal
 bolt stacks with dimensional tolerances. Those checks do not qualify resistance.

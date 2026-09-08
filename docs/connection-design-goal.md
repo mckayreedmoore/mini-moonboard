@@ -133,6 +133,13 @@ replay and all CSV fields; independent reviews and representative browser-render
 SVG inspections are complete. Actual installation dimensions where marked
 unresolved, contact/load sharing and complete joint resistance are still open.
 
+The [current bracket-axis audit](wide-bracket-axes.md) now distinguishes all
+eighteen installed angles from the historical twenty-angle candidate. Its
+per-member schedule accounts for all 108 screws, intended grain and mirrored
+local axes; three tests pass. The manufacturer letter was re-downloaded with
+the same recorded hash and its installation figures inspected. Actual joint
+demands, loaded-member classification and mixed-direction resistance remain open.
+
 The advertised candidate is `wide-principal-development`. The 216 asymmetric
 scenarios and aggregate leg/base actions from the earlier section belong to the
 preserved narrower timber model, not this candidate. Their values cannot be transferred
