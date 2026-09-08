@@ -36,9 +36,11 @@ The nominal leg/gusset plywood thickness is not the purchased face plywood's
 
 The [current NDS plywood-bolt source check](plywood-bolt-resistance-basis.md)
 also excludes direct use of Table 12.3.3B for these 3/8-inch bolts: that table
-covers diameters at most 1/4 inch. A supported larger-dowel plywood method and
-member-specific threaded-bearing assessment remain necessary inputs. This is
-not a physical failure finding or permission to use solid-lumber properties.
+covers diameters at most 1/4 inch. The follow-up AWC TR12 Appendix A source
+supplies 5,600 psi plywood dowel-bearing strength for larger bolts. That resolves
+the bearing input, not the resistance calculation. Member-specific threaded
+bearing, yield modes and the other joint limit states still require evaluation;
+do not use solid-lumber properties or equate bearing stress with a joint rating.
 
 ## What the supplier information can establish
 
