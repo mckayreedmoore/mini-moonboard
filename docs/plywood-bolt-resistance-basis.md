@@ -58,3 +58,25 @@ supported bolt bending properties and the applicable diameter. Keep geometry,
 group effects, splitting, net section, independent-ply transfer and combined
 axial/lateral loading as separate checks. Do not multiply 5,600 psi by projected
 bearing area and report that number as the joint's allowable resistance.
+
+## Verified calculation kernel
+
+`fea/dowel_yield.py` implements the six single-shear yield modes from TR12
+Table 1-1. It takes bearing intensities, yield moments and reduction terms as
+explicit inputs and returns the minimum reference lateral value. It does not
+choose a bolt diameter, assign material properties or apply end-use factors.
+This keeps unresolved threaded-bearing assumptions outside the calculation.
+
+The regression reproduces all six modes in all nine published Example 3.1
+cases, including zero, 1/4-inch and 1/2-inch gaps and different grain directions.
+Each result agrees within the table's whole-pound rounding. Fourteen tests pass:
+
+```sh
+uv run pytest -q tests/test_dowel_yield.py
+```
+
+Next apply this to the two-member gusset and ply-stitch joints after determining
+member-specific bearing lengths and thread exposure. The three-member leg/rim
+stack is not covered by this single-shear kernel. Group action, splitting,
+axial loads and actual connection demand remain separate; passing the benchmark
+does not establish a resistance for any current frame joint.
