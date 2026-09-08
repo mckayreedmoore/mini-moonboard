@@ -1,0 +1,492 @@
+{
+  "design": {
+    "key": "base-bearing-concept",
+    "baseline": "bearing-lean-frame",
+    "status": "Geometry-only base concept \u2014 NOT build-ready; connections omitted",
+    "description": "Panels cover side framing; horizontal base supports flat-cut sloped members. Corrected panel-edge grid adapted to 1219.2 mm sheets. No transferred FEA or connection approval.",
+    "tnut_row_stations_mm": [
+      99.20000000000005,
+      299.20000000000005,
+      499.20000000000005,
+      699.2,
+      899.2,
+      1099.2,
+      1319.2,
+      1519.2,
+      1719.2,
+      1919.2,
+      2119.2,
+      2319.2
+    ]
+  },
+  "parts": [
+    {
+      "name": "main_lower_left",
+      "path": "hybrid/base-bearing-concept/models/main_lower_left.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        797.6717525945196,
+        945.696276349998
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          1219.2,
+          18.256249999999998
+        ],
+        "description": "Purchased 23/32 CAT face; unchanged main backplane; opt-in panel_grid_v2 datums; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "main_lower_right",
+      "path": "hybrid/base-bearing-concept/models/main_lower_right.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        797.6717525945196,
+        945.696276349998
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          1219.2,
+          18.256249999999998
+        ],
+        "description": "Purchased 23/32 CAT face; unchanged main backplane; opt-in panel_grid_v2 datums; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "main_upper_left",
+      "path": "hybrid/base-bearing-concept/models/main_upper_left.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        797.6717525945196,
+        945.696276349998
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          1219.2,
+          18.256249999999998
+        ],
+        "description": "Purchased 23/32 CAT face; unchanged main backplane; opt-in panel_grid_v2 datums; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "main_upper_right",
+      "path": "hybrid/base-bearing-concept/models/main_upper_right.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        797.6717525945196,
+        945.696276349998
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          1219.2,
+          18.256249999999998
+        ],
+        "description": "Purchased 23/32 CAT face; unchanged main backplane; opt-in panel_grid_v2 datums; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "kicker_left",
+      "path": "hybrid/base-bearing-concept/models/kicker_left.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        18.256249999999998,
+        225.0
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          225.0,
+          18.256249999999998
+        ],
+        "description": "225mm kicker; ten total active-zone T-nut holes; no main-grid LEDs in kicker; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "kicker_right",
+      "path": "hybrid/base-bearing-concept/models/kicker_right.stl",
+      "viewer_aabb_mm": [
+        1219.2,
+        18.256249999999998,
+        225.0
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1219.2,
+          225.0,
+          18.256249999999998
+        ],
+        "description": "225mm kicker; ten total active-zone T-nut holes; no main-grid LEDs in kicker; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_side_left",
+      "path": "hybrid/base-bearing-concept/models/base_side_left.stl",
+      "viewer_aabb_mm": [
+        38.09999999999991,
+        1809.1832547347763,
+        1993.780584077941
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2602.6957077845113,
+          177.8,
+          38.09999999999991
+        ],
+        "description": "Inset 38.1 mm laminated side rim behind face; grain S; level lower bearing cut; blank exceeds 8 ft plywood: longer stock or a redesigned joint required; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_side_right",
+      "path": "hybrid/base-bearing-concept/models/base_side_right.stl",
+      "viewer_aabb_mm": [
+        38.100000000000136,
+        1809.1832547347763,
+        1993.780584077941
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2602.6957077845113,
+          177.8,
+          38.09999999999991
+        ],
+        "description": "Inset 38.1 mm laminated side rim behind face; grain S; level lower bearing cut; blank exceeds 8 ft plywood: longer stock or a redesigned joint required; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_principal_left",
+      "path": "hybrid/base-bearing-concept/models/base_principal_left.stl",
+      "viewer_aabb_mm": [
+        38.10000000000009,
+        1734.9570290821594,
+        1940.1040828660507
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2532.626011836657,
+          139.7,
+          38.1
+        ],
+        "description": "Continuous 2x6 grain S; horizontal lower bearing cut; square top below top rail; requires 10 ft lumber; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_principal_right",
+      "path": "hybrid/base-bearing-concept/models/base_principal_right.stl",
+      "viewer_aabb_mm": [
+        38.1,
+        1734.9570290821594,
+        1940.1040828660507
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2532.626011836657,
+          139.7,
+          38.1
+        ],
+        "description": "Continuous 2x6 grain S; horizontal lower bearing cut; square top below top rail; requires 10 ft lumber; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_rail_top",
+      "path": "hybrid/base-bearing-concept/models/base_rail_top.stl",
+      "viewer_aabb_mm": [
+        2362.2000000000003,
+        131.50661663277833,
+        118.98372235604256
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2362.2000000000003,
+          139.7,
+          38.1
+        ],
+        "description": "Continuous square-cut 2x6 top crossmember; grain X; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_rail_mid_lower_left",
+      "path": "hybrid/base-bearing-concept/models/base_rail_mid_lower_left.stl",
+      "viewer_aabb_mm": [
+        1104.9,
+        131.50661663277833,
+        118.98372235604256
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1104.9,
+          139.7,
+          38.1
+        ],
+        "description": "Square-cut 2x6 seam rail; separate panel-edge bearing; grain X; row 7 LED exits obstructed: service pockets not yet designed; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_rail_mid_lower_right",
+      "path": "hybrid/base-bearing-concept/models/base_rail_mid_lower_right.stl",
+      "viewer_aabb_mm": [
+        1143.0000000000002,
+        131.50661663277833,
+        118.98372235604256
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1143.0000000000002,
+          139.7,
+          38.1
+        ],
+        "description": "Square-cut 2x6 seam rail; separate panel-edge bearing; grain X; row 7 LED exits obstructed: service pockets not yet designed; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_rail_mid_upper_left",
+      "path": "hybrid/base-bearing-concept/models/base_rail_mid_upper_left.stl",
+      "viewer_aabb_mm": [
+        1104.9,
+        131.50661663277833,
+        118.98372235604256
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1104.9,
+          139.7,
+          38.1
+        ],
+        "description": "Square-cut 2x6 seam rail; separate panel-edge bearing; grain X; row 7 LED exits obstructed: service pockets not yet designed; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_rail_mid_upper_right",
+      "path": "hybrid/base-bearing-concept/models/base_rail_mid_upper_right.stl",
+      "viewer_aabb_mm": [
+        1143.0000000000002,
+        131.50661663277833,
+        118.98372235604256
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1143.0000000000002,
+          139.7,
+          38.1
+        ],
+        "description": "Square-cut 2x6 seam rail; separate panel-edge bearing; grain X; row 7 LED exits obstructed: service pockets not yet designed; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_header",
+      "path": "hybrid/base-bearing-concept/models/base_header.stl",
+      "viewer_aabb_mm": [
+        2438.4,
+        285.75,
+        38.099999999999994
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          2438.4,
+          285.75,
+          38.1
+        ],
+        "description": "Horizontal nominal 2x12 flat header; grain X; direct sloped-member bearing, retention unresolved; does not back the main plywood bottom edge; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_post_outer_left",
+      "path": "hybrid/base-bearing-concept/models/base_post_outer_left.stl",
+      "viewer_aabb_mm": [
+        38.09999999999991,
+        88.9,
+        186.9
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          186.9,
+          88.9,
+          38.1
+        ],
+        "description": "Short vertical 2x4 kicker support; grain Z; square floor/header bearing; retention unresolved; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_post_center_left",
+      "path": "hybrid/base-bearing-concept/models/base_post_center_left.stl",
+      "viewer_aabb_mm": [
+        38.1,
+        88.9,
+        186.9
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          186.9,
+          88.9,
+          38.1
+        ],
+        "description": "Short vertical 2x4 kicker support; grain Z; square floor/header bearing; retention unresolved; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_post_center_right",
+      "path": "hybrid/base-bearing-concept/models/base_post_center_right.stl",
+      "viewer_aabb_mm": [
+        38.1,
+        88.9,
+        186.9
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          186.9,
+          88.9,
+          38.1
+        ],
+        "description": "Short vertical 2x4 kicker support; grain Z; square floor/header bearing; retention unresolved; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "base_post_outer_right",
+      "path": "hybrid/base-bearing-concept/models/base_post_outer_right.stl",
+      "viewer_aabb_mm": [
+        38.09999999999991,
+        88.9,
+        186.9
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          186.9,
+          88.9,
+          38.1
+        ],
+        "description": "Short vertical 2x4 kicker support; grain Z; square floor/header bearing; retention unresolved; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "leg_left_inner",
+      "path": "hybrid/base-bearing-concept/models/leg_left_inner.stl",
+      "viewer_aabb_mm": [
+        19.050000000000182,
+        727.5392893581999,
+        1782.1991070973563
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1782.1991070973556,
+          727.5392893581999,
+          19.05
+        ],
+        "description": "Historical undrilled plywood leg ply moved inward 38.1 mm with side rim; no attachment/stitch hardware transferred; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "leg_left_outer",
+      "path": "hybrid/base-bearing-concept/models/leg_left_outer.stl",
+      "viewer_aabb_mm": [
+        19.049999999999955,
+        727.5392893581999,
+        1782.1991070973563
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1782.1991070973556,
+          727.5392893581999,
+          19.05
+        ],
+        "description": "Historical undrilled plywood leg ply moved inward 38.1 mm with side rim; no attachment/stitch hardware transferred; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "leg_right_inner",
+      "path": "hybrid/base-bearing-concept/models/leg_right_inner.stl",
+      "viewer_aabb_mm": [
+        19.050000000000182,
+        727.5392893581999,
+        1782.1991070973563
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1782.1991070973556,
+          727.5392893581999,
+          19.05
+        ],
+        "description": "Historical undrilled plywood leg ply moved inward 38.1 mm with side rim; no attachment/stitch hardware transferred; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    },
+    {
+      "name": "leg_right_outer",
+      "path": "hybrid/base-bearing-concept/models/leg_right_outer.stl",
+      "viewer_aabb_mm": [
+        19.050000000000182,
+        727.5392893581999,
+        1782.1991070973563
+      ],
+      "fabrication": {
+        "dimensions_mm": [
+          1782.1991070973556,
+          727.5392893581999,
+          19.05
+        ],
+        "description": "Historical undrilled plywood leg ply moved inward 38.1 mm with side rim; no attachment/stitch hardware transferred; GEOMETRY CONCEPT ONLY; retention, service access and structural capacity unqualified; NOT build-ready",
+        "kind": "part",
+        "clearance_status": "Layout only; joints and hardware not designed"
+      }
+    }
+  ],
+  "bounds_mm": [
+    [
+      -1257.3000000000002,
+      -321.75,
+      -7.958078640513122e-13
+    ],
+    [
+      1257.3000000000002,
+      1549.5696063482067,
+      2218.780584077941
+    ]
+  ]
+}

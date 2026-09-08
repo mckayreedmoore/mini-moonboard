@@ -7,7 +7,16 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 
 [Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
 
-**Current development: lower bearing and purchased ledge angles.**
+**New layout comparison: panels over side framing and a horizontal base.**
+[Inspect the base-bearing concept](https://mckayreedmoore.github.io/mini-moonboard/?model=base-bearing-concept&view=rear).
+This separately selectable model uses corrected panel-edge hole datums and
+level bearing cuts. **Geometry only: connections are omitted.** Known LED
+obstructions, missing bottom-edge backing and long-stock requirements are
+listed in the [design notes and remaining work](docs/base-bearing-concept.md).
+
+![Base-bearing layout concept, climbing-side view](exports/base-bearing-concept/base-bearing-concept_front.png)
+
+**Preserved predecessor: lower bearing and purchased ledge angles.**
 **Known datum error:** the preserved models below use an incorrect main-panel
 hole layout. Do not use their drilling schedules. A panel-edge-referenced
 correction and revised kicker/base are in development; historical FEA does not
