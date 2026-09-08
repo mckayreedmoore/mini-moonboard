@@ -55,6 +55,11 @@ solution.
 
 ## Design consequence
 
+The subsequent [relaxed housing-contact bound](wide-backing-contact-bound.md)
+includes the real attachment S offsets and full housing envelopes. Its optimistic
+minimum total retention remains up to 5.462 N/N within that isolated normal-only
+model. It does not establish actual bolt demand or whole-frame performance.
+
 Do not assess the backing by allocating half a panel or board load to each bolt.
 Widening the principals corrects an edge-distance screen but does not, by itself,
 remove the backing's long overhangs or prove adequate retention. The next useful

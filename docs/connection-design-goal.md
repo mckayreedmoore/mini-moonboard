@@ -165,6 +165,12 @@ reasoning for that model but is not actual joint demand, a conservative bound
 or connection qualification. Finite housing contact and panel load sharing must
 be resolved before using the result to size hardware.
 
+The [relaxed housing-contact bound](wide-backing-contact-bound.md) now balances
+both normal-load moments using the full housing envelopes and actual attachment
+stations. Certified minimum total retention reaches 5.462 N/N within the isolated
+normal-only model. Unlimited pressure and omitted compatibility make this an
+optimistic conditional bound, not physical contact FEA or joint qualification.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical
