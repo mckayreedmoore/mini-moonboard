@@ -181,6 +181,13 @@ trial is rejected; no current geometry was changed to conceal the interference.
 An alternative arrangement, tool clearance, installation limits, load transfer
 and repeated-disassembly behavior must be resolved before selection.
 
+The subsequent [relocated-bolt end trial](backing-end-relocated-trial.md) clears
+the nominal hardware collisions by moving one existing gusset bolt per side
+45 mm rear-normal. Two focused tests check raw receiver bore envelopes and
+complete changed-hardware clearance. Existing stock and bolt lengths are retained;
+the trial remains unselected pending spacing, installation, demand/resistance,
+tool access and fresh manufacturing geometry checks.
+
 Assess the intended leg/rim or lower-backing load path with explicitly defined
 interfaces, then compare the resulting conditional demands to applicable
 connection resistance information. Establish the model assumptions and numerical
