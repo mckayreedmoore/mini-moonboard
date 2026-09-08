@@ -239,3 +239,26 @@ and asymmetric evidence replay, machining, bracket axes and hardware BOM. A
 second independent correctness, evidence and package-consistency review found
 no substantial remaining defects in the handoff corrections. These checks do
 not close the outstanding joint assessment above.
+
+## Active goal continuation: gusset load-path evidence
+
+The active goal remains the current wide timber-frame review package, not a
+return to earlier variant sweeps. New work has established a conditional
+[two-member bolt yield basis](two-member-bolt-yield.md), checked actual thread
+intrusion into member bearing lengths, and calculated a
+[gusset bolt-pair transfer envelope](gusset-group-envelope.md). These reference
+values are not final allowable joint capacities.
+
+The [gusset load-path audit](gusset-load-path-audit.md) now maps actual shared
+faces and recovers all nine archived basis displacement fields with native
+CalculiX. Original and reduced-precision recoveries pass the preset numerical
+checks. Header/rim/post edge forces remain separate to avoid double counting
+or inventing individual bolt demands. The bonded header path prevents a direct
+demand/resistance qualification of the intended bolted splice.
+
+Immediate work remains narrowly focused: replace idealized connection transfers
+with defensible fastener/bearing behavior, then compare demands and applicable
+resistances. In parallel with that engineering decision, obtain the already
+prepared supplier/reviewer answers for the end-angle installation and panel
+insert engagement. Do not change lumber sizes based on the bonded recovery or
+label the current machining package ready for construction.

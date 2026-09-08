@@ -133,3 +133,65 @@ including source/input/output hashes and every nodal displacement/force. This
 qualifies the narrow all-prescribed reaction mechanism on this affine element,
 not full gusset recovery, FRD rounding sensitivity or attribution of shared-edge
 forces to individual physical interfaces. Those remain the next checks.
+
+## Actual gusset recovery: numerical gates passed
+
+`fea/gusset_recovery.py` has now solved the two isolated gussets together using
+their original 1,622 C3D10 elements and 3,455 nodes. Each of the three parent hold
+runs supplies three prescribed displacement fields: a 1,000 N X force, a
+1,000 N Y force and a −1,000 N Z force. Six native CalculiX jobs cover the original
+six-significant-digit fields and five-digit rounding sensitivity, each with three
+steps. These are recovery solves, not eighteen new whole-frame load cases.
+
+The parent FRDs and decks were authenticated against their published run records;
+the basis meshes match the accepted current-wide parent mesh. The isolated bodies
+retain the parent's E = 7,000 MPa and Poisson ratio 0.3. All displacement components
+are prescribed, with no applied forces, gravity, springs or added free DOFs.
+
+Acceptance limits were set before the first recovery run:
+
+- Complete node/step output and imposed displacement agreement within 1e-8 mm.
+- Maximum reaction magnitude at a node not shared with another member ≤ 1 N
+  for each 1,000 N parent basis, including the reduced-precision rerun.
+- Every disjoint node bucket's rounding change in resultant force ≤ the greater
+  of 1 N and 1% of its original resultant magnitude; moment change ≤ the greater
+  of 1,000 N·mm and 1%. Moments use each gusset's node-coordinate centroid as
+  a fixed local origin, not the global origin.
+- Successful solver termination without reported errors.
+
+All nine recovered basis fields passed. Maximum unshared-node reaction was
+0.05199 N at original precision and 0.62817 N at reduced precision. Maximum
+bucket resultant change was 0.82318 N; maximum moment change was 131.745 N·mm.
+All comparisons used their individually calculated thresholds. These are
+numerical consistency controls, not estimates of physical accuracy or safety
+factors. Whole-body force/moment balance is also replay-tested, but balance alone
+cannot validate an arbitrarily prescribed displacement field.
+
+Interface edge nodes are retained in **separate overlapping-membership buckets**:
+header-only, rim-only, post-only, header/rim edge and header/post edge. Each node
+is counted once. The shared-edge buckets are not arbitrarily divided between
+interfaces or attributed to bolt pairs. Unshared nodes have their own residual
+bucket. The header transfers nonzero force and moment in these results; treating
+this as a two-interface rim-to-post bolt connection would omit a real load path
+in the *numerical model*, whether or not that load path is physically justified.
+
+The [portable recovery archive](../fea/results/gusset-recovery.tar.gz) includes
+all six decks, solver outputs/logs, selected prescribed fields, source hashes,
+parent FRD hashes and replayable reaction summaries. It reproduces the recovery
+from the selected fields without needing the large original FRDs. Independently
+re-extracting those fields still requires the hash-identified local parent FRDs;
+the archive does not claim to contain them. The first run was preserved locally
+and rerun with repository-relative provenance paths for portable verification.
+
+```sh
+uv run pytest -q tests/test_gusset_recovery.py tests/test_frd_displacements.py tests/test_prescribed_tet_control.py
+```
+
+**Design disposition:** retain the current gusset as an inspection candidate,
+not a qualified connection. Do not compare these bucket forces directly with
+the two-member bolt reference values or declare the splice adequate. The next
+connection model must explicitly replace the bonded header/rim/post transfers
+with the intended fasteners and admissible bearing/contact behavior. This
+recovery has established that the archived fields can support numerical force
+inspection; it has not established actual bolt demand, separation resistance,
+plywood failure resistance or unanchored support behavior.
