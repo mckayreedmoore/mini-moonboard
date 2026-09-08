@@ -14,6 +14,11 @@ Two nominal 4×6 central supports replace the narrow 2×6 receivers, providing
 stock. Panel inserts and purchased brackets remain; **joint resistance and
 physical validation are still unqualified.** [Cuts, assembly and audit limits](docs/wide-principal-development.md).
 
+[New structural diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
+deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg added
+modeled mass. This does not establish that the heavier supports are necessary.
+[Remaining joint qualification](docs/connection-qualification-ledger.md) is explicit.
+
 ![Wider central supports, climbing-side view](exports/wide-principal-development/wide-principal-development_front.png)
 
 **Preserved connection candidate: removable panels with threaded inserts.**

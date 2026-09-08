@@ -74,7 +74,9 @@ The new module has its own geometry, machining and connection schedule; it does
 not change global settings in earlier models. Automated checks cover the intended
 inventory and coordinate changes, nominal service clearance, receiver material,
 post/header contact and collisions. Their results must be reported after running,
-not inferred from this description. This revision has no transferred FEA result.
+not inferred from this description. This revision has its own
+[two-mesh stiffness diagnostics](wide-structural-results.md), not a transferred
+predecessor result or a connection strength qualification.
 Leg joints, base gusset joints, panel insert qualification, floor behavior and the
 lower housed connection's complete resistance remain separate validation work.
 

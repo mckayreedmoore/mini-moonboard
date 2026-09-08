@@ -44,13 +44,43 @@ this task's edit/staging scope.
   well as rim contact. [Aggregate leg-to-board actions](timber-joint-demand.md)
   are recovered; isolated bolt-group demand remains unresolved.
 - The A21 backing-angle trial is not selected: available rating/installation
-  restrictions do not establish suitability. The original backing edge-distance
-  concern remains open, not silently accepted.
+  restrictions do not establish suitability. The original narrow receiver's
+  edge-distance concern remains open in its preserved variant.
 - Nine asymmetric basis cases and 216 linear-combination scenarios are complete
   on the preserved timber mesh; [results and limitations](timber-asymmetric-results.md)
   include aggregate leg actions. These are not actual isolated bolt demands.
 - Wider solid-lumber principals and matched short base blocks are implemented as
   `wide-principal-development`. Geometry/export checks resolve the backing-bolt
   edge-distance screen without relying on an unsuitable angle rating.
+- The wider variant has completed its own 60/40 mm bonded stiffness diagnostics.
+  Its approximately 23.68 kg mass increase is a tradeoff, not a proven necessity.
+- The [connection qualification ledger](connection-qualification-ledger.md)
+  separates actual modeled fit from missing joint demand, resistance and human
+  inputs. In particular, no supplier-rated capacity is assigned to the inserts.
+- A [panel-edge release transformation](panel-edge-release-diagnostic.md) now
+  passes against the actual archived timber mesh. It removes the finite-area
+  ideal panel-edge bond while retaining the rim and common edge; no released
+  structural solution or bolt capacity is claimed.
+- Independent correctness, testing/evidence and module-boundary reviews found
+  no substantial remaining defects in this diagnostic increment. The reviews
+  do not constitute professional structural approval.
+- Final focused regression run: 88 tests passed, covering both insert/wider
+  geometry and exports, new and preserved structural evidence, asymmetric
+  recovery, the release proof and prior floor-screen behavior. Ruff and Git
+  whitespace checks passed. Real browser checks previously loaded all 275/291
+  selectable entries and exercised front/rear, selection and grid views.
 - Final joint resistance checks and human/physical validation remain outstanding.
   The overall goal is not complete.
+
+## Immediate continuation, without another broad redesign
+
+1. Run the bounded released-interface sensitivity described in its diagnostic
+   plan, checking relative interface motion before interpreting the result.
+2. Recover defensible base/gusset actions separately. Existing aggregate leg
+   actions do not establish these loads or their distribution among bolts.
+3. Develop a conditional backing-bolt resistance envelope, beginning with washer
+   and local timber bearing. Use it to decide whether the heavier principals
+   are justified; do not choose them solely because their bonded FEA is stiffer.
+4. Resolve insert engagement and application resistance with actual hardware
+   data and supplier/reviewer-supported testing. Keep bracket SDS screws and
+   transport through-bolts unchanged unless their own checks require changes.
