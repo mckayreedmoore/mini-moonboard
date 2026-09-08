@@ -5,7 +5,7 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-[Open the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/)
+[Open the current candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
 **Current audit candidate: wider central supports and removable panels.**
 [Inspect the wider-support revision](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development).
@@ -307,18 +307,20 @@ available as audit drawings. They are intentionally links rather than competing
 hero images: the CAD-derived climbing-face render above is the clearest visual
 summary of the assembly.
 
-The current design and build sequence are described in the
-[box-frame revision](docs/box-frame-revision.md). Generated cut and connection
-schedules describe this revision; older rail/spacer documents are historical.
+The historical V1 design and build sequence are described in the
+[box-frame revision](docs/box-frame-revision.md). The V1 cut and connection
+schedules describe that predecessor, not the current wider-principal candidate.
+Use the [current assembly and hardware package](docs/wide-principal-development.md)
+for the present audit; do not transfer the V1 panel-screw drilling instructions.
 The [relocation proposal](docs/relocation-design.md) identifies reusable-joint
 improvements for occasional moves. The [LED guide](docs/v1-led-installation.md)
 assumes removing the continuous strips before separating panels and reinstalling
 them afterward; structural relocation changes are not implemented yet.
-The [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
-uses current CAD geometry. The [clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
-checks the current fastener arrangement. The [earlier beam FEA](docs/v1-fixed-foot-fea-screen.md)
+The historical [unanchored stability screen](exports/mini_moonboard_v1_stability_screen.md)
+uses V1 CAD geometry. The [V1 clearance screen](exports/mini_moonboard_v1_fastener_clearance_screen.md)
+checks that predecessor's fastener arrangement. The [earlier beam FEA](docs/v1-fixed-foot-fea-screen.md)
 is a historical baseline and does not validate the new box frame.
-The new [bulk-frame FEA results](docs/box-frame-fea.md) include three mesh
+The historical [bulk-frame FEA results](docs/box-frame-fea.md) include three mesh
 sizes and a stiffness sensitivity run. They describe ideal bonded joints
 and fixed floor contacts. The [load-basis audit](exports/mini_moonboard_v1_stability_screen.md)
 separates downward loading from exploratory directional failures; dynamic

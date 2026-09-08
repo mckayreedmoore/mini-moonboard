@@ -59,8 +59,8 @@ this task's edit/staging scope.
   inputs. In particular, no supplier-rated capacity is assigned to the inserts.
 - A [panel-edge release transformation](panel-edge-release-diagnostic.md) now
   passes against the actual archived timber mesh. It removes the finite-area
-  ideal panel-edge bond while retaining the rim and common edge; no released
-  structural solution or bolt capacity is claimed.
+  ideal panel-edge bond while retaining the rim and common edge. The subsequent
+  released linear solution is archived below; no bolt capacity is claimed.
 - Independent correctness, testing/evidence and module-boundary reviews found
   no substantial remaining defects in this diagnostic increment. The reviews
   do not constitute professional structural approval.
@@ -114,15 +114,15 @@ force and moment agree with independent reactions on both bodies; 37 focused
 tests and independent reviews pass. Actual frame contact, opening/recontact and
 real fastener load sharing remain unfinished. The goal remains active.
 
-## Current-candidate evidence gap
+## Current-candidate completion audit
 
-**Update:** the four conditional asymmetric-evidence steps below are now
-complete, with [current-wide results](wide-asymmetric-results.md), nineteen
-replay archives and all 216 independently checked aggregate action cases.
-Eighteen focused tests pass. The [hardware BOM](wide-purchase-bom.md) and
+The advertised candidate is `wide-principal-development`. The current-wide
+conditional asymmetric work is complete, with
+[results](wide-asymmetric-results.md), nineteen replay archives and all 216
+independently checked aggregate action cases. Eighteen focused tests passed.
+The [hardware BOM](wide-purchase-bom.md) and
 [current assembly/access sequence](wide-principal-assembly.md) are also present.
-Part-local machining dimensions, actual contact/load sharing and complete joint
-resistance remain unfinished; the overall goal is not complete.
+These are candidate deliverables, not complete joint resistance or use approval.
 
 The subsequent [part-local machining package](wide-machining.md) now closes the
 dimensional handoff gap: 29 datum/profile references, 276 member-specific
@@ -140,26 +140,42 @@ local axes; three tests pass. The manufacturer letter was re-downloaded with
 the same recorded hash and its installation figures inspected. Actual joint
 demands, loaded-member classification and mixed-direction resistance remain open.
 
-The advertised candidate is `wide-principal-development`. The 216 asymmetric
-scenarios and aggregate leg/base actions from the earlier section belong to the
-preserved narrower timber model, not this candidate. Their values cannot be transferred
-to changed principals, posts and connector positions. Completing the current
-candidate's conditional demand package therefore requires:
+Completed current-wide evidence includes authentication of the accepted 40 mm
+mesh, CAD-derived leg and eleven-body base ownership, nine A12/K12/F6 Cartesian
+basis solves, and independent replay of all 216 aggregate action cases. The
+earlier narrower timber results remain separate historical evidence; do not
+transfer their node identities or forces to this candidate. The incomplete
+panel/leg contact attempt also belongs to the preserved timber model.
 
-1. Authenticate the existing wider 40 mm mesh and its archived solver inputs.
-2. Recover leg and base ownership against the actual wider CAD and mesh. The
-   leg shapes remain unchanged, but remeshing changes node and element IDs.
-   The wider base has eleven bodies: header, six posts, two kicker panels and
-   two gussets. Recompute unique floor nodes and moment references.
-3. Solve the nine A12/K12/F6 Cartesian basis cases and reconstruct the 216
-   prescribed linear scenarios. Reuse numerical helpers, not historical
-   geometry identities or old result labels.
-4. Independently replay aggregate force/moment and displacement results with
-   source-derived ownership. Retain fixed-floor/ideal-bonding limitations;
-   these results still do not establish real fastener sharing or resistance.
+| Goal requirement | Current evidence | Status and remaining boundary |
+| --- | --- | --- |
+| Model panel inserts/machine screws while retaining bolts and bracket screws | Current CAD/export, insert selection, 56 pairs, 24 bolts, 108 SDS screws | Nominal geometry complete; effective engagement and application resistance need physical/supplier evidence |
+| Conditional asymmetric leg/base demands | Current-wide nine bases, 216 scenarios, independent aggregate wrench replay | Complete within fixed-floor/ideal-bond assumptions; not individual bolt forces |
+| Resolve known connection defects and assess actual joints | Wider principals clear the backing edge-distance screen; all 48 washer seats and 24 stacks checked; conditional wood-bearing envelope | Edge-distance geometry corrected; complete joint assessment remains analytically unfinished |
+| Consistent manufacturing/audit package | 29 part drawings, local machining schedules, BOM, current assembly sequence | Candidate handoff present; marked installation/tooling details remain unresolved, not production instructions |
+| Independent review and explicit human gates | Geometry, testing and package reviews; qualification ledger | Reviews do not confer structural approval; goal remains active |
 
-The panel/leg contact diagnostic remains a separate same-mesh investigation of
-the preserved timber model. Its completion does not close this wider-candidate
-gap. The purchasing and part-local assembly/machining handoff also needs to
-identify the current candidate consistently; historical inspection packets
-must not silently act as its manufacturing instructions.
+### Next bounded analytical deliverable
+
+Assess the intended leg/rim or lower-backing load path with explicitly defined
+interfaces, then compare the resulting conditional demands to applicable
+connection resistance information. Establish the model assumptions and numerical
+acceptance gates before a new solve. Reuse existing force-recovery controls, but
+do not substitute aggregate floor actions, equal bolt sharing or optimistic
+bonded interfaces for isolated connection demand. An unsupported resistance
+must remain unknown, not become a pass by choosing an assumed value.
+
+This analytical assessment is outstanding work within this goal. Actual stock
+inspection, usable insert engagement, unpublished supplier installation data,
+floor friction and a professionally reviewed physical validation procedure are
+separate human/supplier gates. Full unanchored contact qualification is not
+retroactively required to call the explicitly conditional aggregate package
+complete; it is required before using those idealized results as actual support
+behavior. No construction or climbing approval is implied.
+
+Completion-audit regression on September 8, 2026: 101 tests passed across current
+and inherited insert/wide geometry and exports, washer seating, current structural
+and asymmetric evidence replay, machining, bracket axes and hardware BOM. A
+second independent correctness, evidence and package-consistency review found
+no substantial remaining defects in the handoff corrections. These checks do
+not close the outstanding joint assessment above.
