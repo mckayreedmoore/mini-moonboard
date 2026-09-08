@@ -34,6 +34,12 @@ maximum, a wood pilot specification or a resistance check; see the fit audit.
 The nominal leg/gusset plywood thickness is not the purchased face plywood's
 23/32-inch category thickness. Do not silently interchange these materials.
 
+The [current NDS plywood-bolt source check](plywood-bolt-resistance-basis.md)
+also excludes direct use of Table 12.3.3B for these 3/8-inch bolts: that table
+covers diameters at most 1/4 inch. A supported larger-dowel plywood method and
+member-specific threaded-bearing assessment remain necessary inputs. This is
+not a physical failure finding or permission to use solid-lumber properties.
+
 ## What the supplier information can establish
 
 The [selected bolt/nut/washer record](selected-bolt-hardware.md) identifies
