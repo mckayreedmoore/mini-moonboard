@@ -57,6 +57,19 @@ def test_actual_two_sawn_members_not_old_bonded_plywood():
     assert not result["steel_and_thread_geometry_qualified"]
 
 
+def test_directional_bearing_refinement_uses_lateral_vector_only():
+    along = resistance.model.geometry("2x8", 0.)[2].toTuple()
+    force = [-209.84610593164732, 599.6343996432636, -685.2047964928184]
+    result = resistance.directional_bolt_reference(force, along)
+    assert result["rim_leg_angle_deg"] == pytest.approx([81.1897, 26.1103], abs=.0001)
+    assert result["rim_leg_bearing_psi"] == pytest.approx([3680.061, 5074.865], abs=.001)
+    assert result["reference_lateral_n"] == pytest.approx(790.01096, abs=.0001)
+    assert result["governing_mode"] == "IV"
+    assert result["lateral_demand_reference_ratio"] == pytest.approx(1.152555, abs=.000001)
+    assert resistance.directional_bolt_reference([10000., *force[1:]], along) == result
+    assert resistance.directional_bolt_reference([0., 0., 0.], along)["lateral_demand_reference_ratio"] == 0
+
+
 def test_native_screen_retains_all_common_cases_and_eccentricities():
     path = Path("fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz")
     result = resistance.screen(path)
@@ -87,6 +100,10 @@ def test_native_screen_retains_all_common_cases_and_eccentricities():
 def test_invalid_inputs_rejected():
     with pytest.raises(ValueError):
         resistance.column_reference("2x8", float("nan"))
+    with pytest.raises(ValueError):
+        resistance.directional_bolt_reference([1., 2., 3.], [0., 0., 2.])
+    with pytest.raises(ValueError):
+        resistance.bolt_reference(float("nan"))
     with pytest.raises(ValueError):
         resistance.section_demand({"a": [0., 0., 0.]}, {"b": [0., 0., 0.]},
             [0., 0., 0.], [0., 0., 1.], [0., 1., 0.], resistance.section(38.1, 139.7))

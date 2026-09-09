@@ -165,10 +165,13 @@ fingerprint was added and every floor case rerun. This review is not structural
 approval and does not close the remaining tasks below.
 
 The [coupled-frame comparison](lumber-leg-response.md) now documents the independent
-leg meshes, revised connector points and first accepted 2×8/e0 native results.
+leg meshes, revised connector points and accepted native results for all four
+stock sizes at zero extension, plus 2×8 at +300 mm.
 The selectable viewer variants are available. Neither result ranks leg strength.
 
-Next are the remaining stock/extension response comparisons, mesh sensitivity
-and source-supported member/connection resistance checks.
+Conditional section and direction-dependent single-bolt references are included.
+A two-resolution leg-mesh check did not reverse the joint-development concern.
+The working development preference is 2×8/+300 mm with a revised bolt group;
+combined member/connection qualification remains open.
 No strength-based leg selection has been made. External material, connection
 and final installation verification remain open.

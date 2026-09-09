@@ -2,15 +2,16 @@
 
 This analysis replaces the current paired-plywood legs with the separately
 modeled [straight-lumber variants](leg-stock-comparison.md). The frame and its
-existing gusset releases remain unchanged. Native 2×6, 2×8 and 2×10 comparisons
-are recorded below; 2×12 and extension comparisons remain pending. Preparation
-alone is not a result.
+existing gusset releases remain unchanged. Native comparisons for all four
+lumber sizes, a 300 mm extended 2×8 footprint and a finer-leg mesh comparison
+are recorded below. Preparation alone is not a result.
 
 ## Native results: unchanged foot-centre position
 
 The native archives for [2×6](../fea/results/lumber-leg-response/2x6-e0-m40-E7000.tar.gz),
 [2×8](../fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz) and
-[2×10](../fea/results/lumber-leg-response/2x10-e0-m40-E7000.tar.gz)
+[2×10](../fea/results/lumber-leg-response/2x10-e0-m40-E7000.tar.gz) and
+[2×12](../fea/results/lumber-leg-response/2x12-e0-m40-E7000.tar.gz)
 each contain 27 solved basis cases (nine per spring stiffness) and 648 linear
 load combinations. All equilibrium, interpolation and energy gates pass, and
 the archives replay without a native solver. The mesh target is 40 mm and both
@@ -26,28 +27,94 @@ force. They are not a simultaneous force/displacement vector or a load rating.
 | New 2×6 / 100 | 6.626 | 308.2 | 13.5 |
 | New 2×8 / 100 | 6.478 | 305.1 | 11.0 |
 | New 2×10 / 100 | 6.295 | 302.9 | 9.1 |
+| New 2×12 / 100 | 6.126 | 303.7 | 8.3 |
 | Current bonded plywood / 1000 | 3.137 | 592.2 | 40.8 |
 | New 2×6 / 1000 | 2.930 | 602.4 | 91.9 |
 | New 2×8 / 1000 | 2.869 | 603.9 | 70.5 |
 | New 2×10 / 1000 | 2.816 | 598.6 | 52.7 |
+| New 2×12 / 1000 | 2.768 | 593.2 | 39.5 |
 | Current bonded plywood / 10000 | 2.369 | 770.9 | 85.6 |
 | New 2×6 / 10000 | 2.120 | 857.3 | 250.2 |
 | New 2×8 / 10000 | 2.064 | 910.5 | 209.8 |
 | New 2×10 / 10000 | 2.024 | 910.8 | 167.8 |
+| New 2×12 / 10000 | 1.994 | 937.0 | 135.6 |
 
 This is a whole-assembly comparison including the **changed bolt layout**, not
 an isolated material substitution. The new geometry is less flexible at the
 loaded hold in this trial, but its compact bolt group develops greater lateral
 and axial peaks at the stiffest assumed connection. Do not choose it on
-displacement alone. Connection resistance, member checks, the remaining stock,
-extension sensitivity and mesh sensitivity remain to be completed before a
-comparative recommendation. None of the spring values is a measured joint
+displacement alone. Connection qualification and combined member checks
+remain open; the recommendation below is for further development, not release.
+None of the spring values is a measured joint
 property or a guaranteed bound on the real joint.
 
 `fea.lumber_leg_summary` also reports 150, 200 and 300 lb cases, with the
 governing bolt, load case and signed simultaneous components for each peak.
 The current reference is
 [`coupled-leg-release.tar.gz`](../fea/results/coupled-leg-release.tar.gz).
+
+## Longer 2×8 comparison
+
+The [2×8 with 300 mm additional foot-centre extension](../fea/results/lumber-leg-response/2x8-e300-m40-E7000.tar.gz)
+also passes all 27 native numerical checks and 648 scenario replays. At 250 lb,
+its separate peak values are:
+
+| Spring stiffness, N/mm | Loaded-hold displacement, mm | Single-bolt lateral force, N | Single-bolt axial force, N |
+| --- | ---: | ---: | ---: |
+| 100 | 6.112 | 312.6 | 10.9 |
+| 1000 | 2.664 | 567.2 | 58.8 |
+| 10000 | 1.980 | 857.9 | 169.1 |
+
+The whole-frame response improves in several respects despite the longer
+individual leg: the changed angle and support leverage matter as well as member
+length. Do not substitute an isolated length-cubed strip comparison for this
+assembly result. The extra 300 mm (11.81 in) of footprint adds about 0.86 kg
+under the shared density assumption. It does not fix the joint on its own:
+the maximum direction-dependent lateral demand/reference ratio at 250 lb is
+still 1.090 in this trial, before axial/group checks.
+
+The separate [rigid-floor comparison](leg-stock-comparison.md#rigid-floor-comparison-results)
+improves from 678 to 696 feasible cases out of 1296 at assumed μ=0.1; both cover
+all cases at μ=0.2. A longer footprint cannot overcome insufficient friction.
+For example, the 150 lb, one-times-weight, 80%-mass, 300 N horizontal case
+requires μ≥0.1342 for the extended 2×8 from net-force balance alone. This is a
+necessary condition, not a sufficient friction specification. An independent
+test verifies an analogous bound above 0.1 for every variant, including plywood;
+this particular low-friction failure is not merely an inscribed-cone artifact.
+
+## Leg-mesh sensitivity
+
+A [30 mm target leg mesh](../fea/results/lumber-leg-response/2x8-e0-m30-E7000.tar.gz)
+repeats the 2×8/e0 trial with the rest of the frame unchanged. All native checks
+and scenario replays pass. For 250 lb, its separate peak values are:
+
+| Spring stiffness, N/mm | Loaded-hold displacement, mm | Single-bolt lateral force, N | Single-bolt axial force, N |
+| --- | ---: | ---: | ---: |
+| 100 | 6.479 | 305.0 | 11.0 |
+| 1000 | 2.870 | 602.4 | 70.4 |
+| 10000 | 2.065 | 891.9 | 208.4 |
+
+Compared with the 40 mm leg mesh, the listed displacement maxima change by less
+than 0.055%, lateral maxima by at most 2.05%, and axial maxima by less than 0.69%.
+The refined maximum directional lateral ratio remains 1.129 at 250 lb. This
+does not reverse the joint-development conclusion. It is a two-resolution
+**leg-mesh sensitivity check**, not convergence of the entire frame, local
+bolt-bearing stresses, contact behavior or orthotropic wood response.
+
+## Working recommendation
+
+Advance **2×8 straight legs with the +300 mm footprint** to the next joint
+experiment below. It uses ordinary straight stock and simple end cuts, avoids
+relying on a glued pair of leg plies, provides more side-edge room than 2×6,
+and reduces several of the present joint demands relative to 2×8/e0. The longer
+footprint is an explicit tradeoff, not a universal requirement.
+
+Keep 2×6 as a lighter alternative if the revised connection, lateral restraint
+and combined member checks support it. There is no present justification for
+choosing 2×10 or 2×12 solely from loaded-hold displacement: larger stock has not
+removed the joint concern. **Do not purchase or drill from this recommendation
+as though the new joint were validated.** The default/current construction
+candidate is unchanged, and no variant is approved for climbing.
 
 ## Member and connection demand screen
 
@@ -85,10 +152,38 @@ of the actual assembly's failure load**. Combined member interaction, lateral
 beam stability and torsional strength are not yet evaluated. Separate small
 stress or concentric-column demands cannot close those gaps.
 
+The report also evaluates direction-dependent bearing for every bolt/case using
+[NDS Appendix J, Eq. J-2](https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf)
+and the actual YZ lateral-force vector, not the axial X component. For the
+2×8/e0 peak lateral case, the rim and leg angles are 81.190° and 26.110°.
+Using 5600/3650 psi parallel/perpendicular references gives a refined lateral
+reference of **790.011 N** (yield mode IV), versus the same 910.531 N demand.
+The ratio remains 1.153 before the unresolved axial/group checks. Thus the
+conservative perpendicular-only shortcut does not by itself explain away this
+case. This case's simultaneous axial magnitude is 209.846 N, not an additional
+lateral force. Other cases retain their own directional ratios in the report;
+maximum force and maximum demand/reference ratio need not be the same case.
+
 ```sh
 uv run python -m fea.lumber_leg_resistance fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz
 uv run pytest -q tests/test_lumber_leg_resistance.py
 ```
+
+### Next joint experiment, not yet implemented
+
+The present model uses a 50×50 mm parallelogram bolt group and a square top
+120 mm beyond its centre. A preliminary geometry check suggests extending the
+top by 30 mm and testing **100 mm along-leg × 50 mm along-rim pitch**. At zero
+extra footprint, this would leave 85.689 mm to the leg top and 51.078 mm to the
+rim side edge. Even 2×6 would retain 49.351 mm to its side edge. These exceed the
+same nominal 7D/4D comparisons used above; they do not establish resistance.
+
+Read-only hardware–hardware checks found no overlaps above 0.01 mm³ for this
+pattern. The extended wood, new bores and complete assembly have **not** been
+regenerated or solved. Thus the viewer and native archives still represent the
+original 50×50 mm group. The proposed larger lever arm is a next experiment,
+not a drilling instruction or a demonstrated improvement. Increasing lumber
+width alone has not resolved the current conditional bolt demand concern.
 
 ## What the comparison models
 

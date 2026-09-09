@@ -20,8 +20,10 @@ with their coverage limits. Passing these checks does not close the gates below.
    [coupled joint FEA](coupled-leg-release.md) and
    [unanchored floor-equilibrium screen](wide-floor-screen.md).
 5. [Plywood versus 2×6–2×12 leg study](leg-stock-comparison.md): separate
-   straight-leg CAD variants and rigid-floor comparison; coupled frame solves
-   and strength-based selection are pending.
+   selectable straight-leg CAD variants, rigid-floor comparison and
+   [native coupled results](lumber-leg-response.md) for all four stock sizes
+   plus a longer 2×8 and a finer-leg mesh check. The present compact joint is
+   not qualified; joint revision and combined strength checks remain open.
 
 The viewer shows candidate geometry, not a live FE solution or a stress plot.
 Its 291 selectable entries comprise 103 bodies and 188 connection assemblies.

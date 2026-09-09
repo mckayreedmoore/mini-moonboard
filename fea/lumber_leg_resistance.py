@@ -20,7 +20,7 @@ PSI_MPA = 0.006894757293168361
 SOURCES = {
     "2024 Supplement Table4A pp32,34": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf",
     "2024 NDS 3.7,3.9": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240718_AWCWebsite_Chapter-3-Design-Provisions-and-Equations.pdf",
-    "2024 NDS Appendix G": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf",
+    "2024 NDS Appendices G and J": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf",
     "2024 NDS Chapter12": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
     "TR12 Table1-1": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf",
 }
@@ -64,14 +64,16 @@ def column_reference(size, length_mm):
         "reference_concentric_compression_n": fc*cp*38.1*width if valid else None}
 
 
-def bolt_reference():
+def bolt_reference(main_fe_psi=3650., side_fe_psi=3650.):
     """Two 38.1mm sawn members, root diameter throughout; assumed steel yield.
 
     Fe=3650 psi is conservative perpendicular bearing for US DF-L G=.50,
     3/8in nominal bolt. Ktheta=1.25 reduction bound. No group multiplication.
     """
+    if not all(math.isfinite(v) and v > 0 for v in (main_fe_psi, side_fe_psi)):
+        raise ValueError("Require positive finite bearing reference values")
     inputs = {"main_length_in": 1.5, "side_length_in": 1.5,
-        "main_bearing_lb_in": 3650*.298, "side_bearing_lb_in": 3650*.298,
+        "main_bearing_lb_in": main_fe_psi*.298, "side_bearing_lb_in": side_fe_psi*.298,
         "main_yield_moment_lb_in": 45000*.298**3/6,
         "side_yield_moment_lb_in": 45000*.298**3/6, "gap_in": 0.,
         "reduction_terms": {"Im": 5., "Is": 5., "II": 4.5, "IIIm": 4., "IIIs": 4., "IV": 4.}}
@@ -79,6 +81,32 @@ def bolt_reference():
     return {"inputs": inputs, **result,
         "reference_lateral_n": result["reference_lateral_lbf"]*4.4482216152605,
         "steel_Fyb_assumed_psi": 45000., "steel_and_thread_geometry_qualified": False}
+
+
+def directional_bolt_reference(force, along):
+    """NDS Appendix J Eq.J-2; only YZ lateral load sets bearing angles.
+
+    US DF-L G=.50: Fe_parallel5600psi, tabulated Fe_perpendicular3650psi.
+    Keep conservative reduction terms unchanged. Axial/group strength absent.
+    """
+    if len(force) != 3 or not all(math.isfinite(v) for v in force):
+        raise ValueError("Require finite XYZ force")
+    if (len(along) != 3 or not all(math.isfinite(v) for v in along)
+            or abs(math.hypot(*along)-1) > 1e-8 or abs(along[0]) > 1e-8):
+        raise ValueError("Require a unit leg-grain vector in the YZ plane")
+    lateral = math.hypot(force[1], force[2])
+    tangent = (model.b.point(0., 1., 0.)-model.b.point(0., 0., 0.)).normalized().toTuple()
+    bearing, angles = [], []
+    for grain in (tangent, along):
+        cos2 = min(1., ((force[1]*grain[1]+force[2]*grain[2])/lateral)**2) if lateral else 0.
+        bearing.append(5600*3650/(5600*(1-cos2)+3650*cos2))
+        angles.append(math.degrees(math.acos(math.sqrt(cos2))) if lateral else None)
+    reference = bolt_reference(*bearing)
+    return {"rim_leg_angle_deg": angles, "rim_leg_bearing_psi": bearing,
+        "reference_lateral_n": reference["reference_lateral_n"],
+        "governing_mode": reference["governing_mode"],
+        "lateral_demand_reference_ratio": lateral/reference["reference_lateral_n"],
+        "axial_strength_evaluated": False, "group_strength_evaluated": False}
 
 
 def section_demand(points, forces, origin, along, across, properties):
@@ -171,7 +199,9 @@ def screen(path):
                 "case": {k: case[k] for k in ("hold", "climber_lb", "weight_factor", "horizontal_direction_deg", "force_n")},
                 "sections": legs,
                 "bolts": {n: {"force_xyz_n": f, "lateral_n": math.hypot(f[1], f[2]),
-                              "axial_global_x_n": f[0]} for n, f in forces.items()}})
+                              "axial_global_x_n": f[0],
+                              "directional_reference": directional_bolt_reference(f, along)}
+                          for n, f in forces.items()}})
     return {"archive": str(path), "archive_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "stock": size, "extension_mm": extension, "native_leg_modulus_mpa": report["leg_modulus_mpa"],
         "qualified_for_design": False, "combined_strength_evaluated": False,

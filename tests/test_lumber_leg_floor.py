@@ -17,6 +17,21 @@ OPTIONS = [("plywood", 0.)]+[(size, extension) for size in candidate.WIDTHS for 
 
 
 @pytest.mark.parametrize("size,extension", OPTIONS)
+def test_low_friction_case_exceeds_even_circular_global_force_bound(size, extension):
+    report = json.loads(gzip.decompress((Path("fea/results/lumber-leg-floor")/
+        f"{size}-e{extension:g}.json.gz").read_bytes()))
+    row = next(r for r in report["cases"] if r["climber_lb"] == 150
+        and r["weight_factor"] == 1 and r["mass_fraction"] == .8
+        and r["hold"] == "A12" and r["horizontal_direction_deg"] == 0)
+    force = row["wrench_n_nmm"][:3]
+    # Triangle inequality: |sum(horizontal reactions)| <= mu*sum(normal).
+    # This independent necessary condition does not assume the 16-ray cone.
+    required_mu = np.linalg.norm(force[:2])/-force[2]
+    assert .1 < required_mu < .2
+    assert row["friction_results"]["0.1"]["status"] == "infeasible"
+
+
+@pytest.mark.parametrize("size,extension", OPTIONS)
 def test_floor_report_source_geometry_loads_and_witnesses(size, extension):
     path = Path("fea/results/lumber-leg-floor")/f"{size}-e{extension:g}.json.gz"
     report = json.loads(gzip.decompress(path.read_bytes()))
