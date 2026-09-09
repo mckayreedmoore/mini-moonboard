@@ -4,9 +4,10 @@ This trial advances the [thread-length checkpoint](solid-leg-connection-next.md)
 to an actual CAD connection. It retains the spread 100×50 mm pattern, all wood
 parts for either the zero-extension or +300 mm foot candidate. The +300 mm
 variant remains the API default. No larger holes or custom steel parts are
-required. It is **not build-ready**, not a procurement release, and not yet an
-option in the published viewer. The existing viewer and frozen FE evidence
-remain unchanged.
+required. It is **not build-ready** and not a procurement release. The compact
+variant has a separate [geometry viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=lumber-leg-hardware-2x6-e0).
+Existing viewer defaults and frozen FE evidence remain unchanged. The new
+hardware viewer is not a matching model for the existing joint-spring FEA.
 
 ## Proposed hardware per eight leg connections
 
