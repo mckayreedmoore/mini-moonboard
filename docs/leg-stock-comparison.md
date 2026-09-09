@@ -1,9 +1,9 @@
-# Leg stock comparison — initial geometry screen
+# Leg stock comparison — geometry and rigid-floor screens
 
 The current paired-plywood legs cannot simply be replaced with narrower straight
-lumber while retaining their bend and bolt pattern. This first comparison
-identifies the geometry and section tradeoffs before candidate-specific frame
-solves. **No new leg is selected or approved for construction yet.**
+lumber while retaining their bend and bolt pattern. This comparison identifies
+geometry, section and rigid-floor tradeoffs before candidate-specific elastic
+frame solves. **No new leg is selected or approved for construction yet.**
 
 ## Current leg and proposed directions
 
@@ -81,8 +81,86 @@ comparison value for every stock, **not** a selected material property. The
 Euler references are not NDS column resistances, and K=1 is not inferred from
 the cantilever fixture. No climber rating follows from either calculation.
 
-Next deliverables are actual leg/adapter CAD variants, checked joint geometry,
-candidate-specific coupled-frame response and floor-equilibrium comparisons,
-and source-supported member/connection resistance checks. Retain the current
-viewer and cut list until the replacement geometry and hardware are consistent.
-External material, connection and final installation verification remain open.
+## Straight-leg CAD comparison
+
+`mini_moonboard.lumber_leg_frame` now defines all four stock sizes with 0, 150
+and 300 mm additional foot-centre extension. These are **new-build alternatives**,
+not instructions to reuse or plug previously drilled rim holes. The existing
+viewer/default design remains unchanged while the comparison is developed.
+
+Each leg is one straight 38.1 mm thick member: grain along its length, a square
+top cut and a horizontal full-width floor cut. All variants fit a nominal 8 ft
+length geometrically, before allowing for stock end trimming and kerf. The new
+bolt group is centred at board station S=1680 mm and rim depth N=92.075 mm.
+Its four corners form a parallelogram with 50 mm side vectors along the leg
+grain and rim grain. Both members therefore have two grain-parallel rows.
+The upper cut is 120 mm along the leg beyond the group centre.
+
+The nominal spacing screen checks 50 mm in-row pitch, transverse row spacing
+against 35.719 mm at member thickness/bolt diameter = 4, loaded side edges
+against 4D and the leg top against 7D. These comparisons use
+[NDS 2024 Tables 12.5.1A–D](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf).
+They do not establish adjusted resistance, splitting resistance or installation
+tolerances. In particular, the compact pattern changes the bolt moment arms;
+the old four-bolt force results must not be transferred to it.
+
+The provisional joint has two 38.1 mm members and retains the existing nominal
+3/8-16 × 3¾ in bolt family, with 11.1125 mm clearance bores. Plywood stitch bolts
+are removed. Each assembly has 101 bodies and 182 connection assemblies; all
+non-leg/non-rim bodies and non-leg fasteners retain their current geometry.
+Rims are rebuilt before drilling so obsolete leg bores do not remain.
+
+```sh
+uv run pytest -q tests/test_lumber_leg_frame.py
+uv run python -m fea.lumber_leg_floor 2x8 --extension 150 --output /tmp/leg-2x8-e150.json.gz
+```
+
+CAD checks cover all twelve leg shapes and level feet. Full new-bolt/wood and
+new-bolt/other-hardware collision checks cover all twelve variants. These checks
+are not physical joint tests.
+The floor command recalculates drilled mass, CG and contact hull, then reuses
+the established 1296-case unanchored rigid-floor screen at assumed friction
+coefficients 0.1, 0.2 and 0.4. It refuses to overwrite an existing report.
+
+### Rigid-floor comparison results
+
+All thirteen models (current plywood plus twelve lumber/extension variants)
+have admissible compression-only equilibrium witnesses for all 1296 cases at
+assumed μ=0.2 and μ=0.4. No variant covers every case at μ=0.1. Counts below are
+feasible cases out of 1296 at that lower assumed friction, not safety factors:
+
+| Stock | Current foot centre | +150 mm | +300 mm |
+| --- | ---: | ---: | ---: |
+| Existing plywood | 683 | Not changed | Not changed |
+| 2×6 | 664 | 673 | 678 |
+| 2×8 | 678 | 685 | 696 |
+| 2×10 | 702 | 715 | 716 |
+| 2×12 | 714 | 721 | 736 |
+
+The [saved reports](../fea/results/lumber-leg-floor/) include actual model mass,
+CG, contact hull, source fingerprints, full cases and equilibrium witnesses.
+All wood uses the same assumed density of 600 kg/m³, with 80/100% included-mass
+sensitivity; this is not a measured stock-density comparison. Bolt, insert,
+hold and LED mass remain excluded. Each wider/longer leg changes both included
+mass and contact geometry, so the table does not isolate footprint alone.
+
+These finite rigid-body results do not justify choosing the widest or longest
+leg. They also do not establish actual friction, compliant floor contact, joint
+force distribution or structural adequacy. Infeasibility of the inscribed
+polygonal friction approximation is not proof that a circular friction cone
+is infeasible. The unresolved member/joint comparison still controls selection.
+
+```sh
+uv run pytest -q tests/test_lumber_leg_floor.py
+```
+
+Verification: the combined stock, CAD and saved-floor replay suite passed
+51 tests. Independent correctness, testing and package reviews found no
+substantial remaining issues in this stage after a missing contact-hull source
+fingerprint was added and every floor case rerun. This review is not structural
+approval and does not close the remaining tasks below.
+
+Next are candidate-specific coupled-frame response and source-supported
+member/connection resistance checks, followed by selectable viewer variants.
+No strength-based leg selection has been made. External material, connection
+and final installation verification remain open.
