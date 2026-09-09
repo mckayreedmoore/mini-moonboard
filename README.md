@@ -33,6 +33,12 @@ separates the requested 250 lb maximum from the 300 lb sensitivity; neither is
 qualified. [Current floor-equilibrium screening](docs/wide-floor-screen.md)
 does not establish actual friction or replace compliant unanchored validation.
 
+**Latest leg comparison:** [paired plywood versus 2×6–2×12](docs/lumber-leg-response.md),
+followed by [extended 2×6/2×8 legs with a wider bolt pattern](docs/spread-leg-response.md).
+The latter favors 2×6 as the next lighter development candidate, not a released
+design. Joint resistance, full-member stability and actual floor behavior remain
+unqualified; the default model above has not changed.
+
 Preserved predecessor diagnostics: [aggregate base actions](docs/timber-base-demand.md),
 [panel-edge bond sensitivity](docs/timber-release-results.md), and
 [conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not

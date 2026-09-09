@@ -152,6 +152,13 @@ def screen(path):
     for name, sha in report["source_sha256"].items():
         if hashlib.sha256(Path(name).read_bytes()).hexdigest() != sha:
             raise ValueError("Native source identity changed")
+    geometry_name = report.get("geometry")
+    if geometry_name == "spread-100x50-top150":
+        from mini_moonboard import lumber_leg_spread_frame as spread
+        if spread.geometry is not model.geometry:
+            raise ValueError("Revised leg axes require a new section mapping")
+    elif geometry_name is not None:
+        raise ValueError("Unsupported native leg geometry")
     size, extension = report["stock"], report["extension_mm"]
     centre, foot, along_v, across_v = model.geometry(size, extension)
     length = (centre-foot).Length
@@ -203,7 +210,8 @@ def screen(path):
                               "directional_reference": directional_bolt_reference(f, along)}
                           for n, f in forces.items()}})
     return {"archive": str(path), "archive_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-        "stock": size, "extension_mm": extension, "native_leg_modulus_mpa": report["leg_modulus_mpa"],
+        "stock": size, "geometry": geometry_name or "compact-50x50-top120",
+        "extension_mm": extension, "native_leg_modulus_mpa": report["leg_modulus_mpa"],
         "qualified_for_design": False, "combined_strength_evaluated": False,
         "limits": LIMITS, "sources": SOURCES, "section_properties": properties,
         "conditional_column_reference": column_reference(size, length),
