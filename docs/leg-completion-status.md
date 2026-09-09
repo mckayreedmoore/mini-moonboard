@@ -21,9 +21,10 @@ Actual spread-pattern 2×6 geometry:
 
 **Prioritize the zero-extension 2×6 version for the next complete comparison.**
 The +150/+300 versions remain historical/diagnostic alternatives, not the
-preferred final footprint. The separate hardware trial currently targets
-+300 mm and must be rechecked at the compact geometry before transfer. Its
-existing collision results do not certify that transfer.
+preferred final footprint. The separate hardware trial now checks both zero
+and +300 mm geometry at minimum, midpoint and maximum washer thickness, with
+nominal timber dimensions. Compact CAD transfer is checked; shipment compliance,
+washer behavior and complete joint/group strength remain open.
 
 ```sh
 uv run pytest -q tests/test_leg_rear_envelope.py
@@ -58,5 +59,12 @@ uv run pytest -q tests/test_leg_rear_envelope.py
   about their joining line unrestrained; side ties alone do not establish
   transverse racking restraint. Do not add a crossbar across the landing area.
 - Full joint strength, full-member bending/compression/buckling, local contact
-  acceptance, sensitivity checks, compact CAD/viewer and the synchronized build
+  acceptance, sensitivity checks and the synchronized build
   package remain required. None is marked complete by these preliminary checks.
+
+The compact native comparison now passes all three stiffness-run numerical
+gates. A separate [full-span demand report](leg-full-span-demands.md) includes
+the bolt-loaded region as well as the clear span. The compact long-bolt geometry
+is also available in the [viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=lumber-leg-hardware-2x6-e0),
+with all 283 meshes verified in a local browser. These close response/geometry
+coverage gaps, not the remaining connection, buckling or contact acceptance.
