@@ -2,8 +2,44 @@
 
 This analysis replaces the current paired-plywood legs with the separately
 modeled [straight-lumber variants](leg-stock-comparison.md). The frame and its
-existing gusset releases remain unchanged. Native solve results will be recorded
-after the preparation and output checks pass; preparation alone is not a result.
+existing gusset releases remain unchanged. The first 2×8 native comparison is
+recorded below; the other stock sizes remain pending. Preparation alone is not
+a result.
+
+## First native result: 2×8, unchanged foot-centre position
+
+The [native archive](../fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz)
+contains all 27 solved basis cases (nine per spring stiffness) and 648 linear
+load combinations. All equilibrium, interpolation and energy gates pass, and
+the archive replays without a native solver. The mesh target is 40 mm and both
+materials use the equal-modulus E=7000 MPa comparison assumption.
+
+For the intended 250 lb maximum climber, the following are **separate maxima**
+over the established load cases, including two-times-weight plus 300 N horizontal
+force. They are not a simultaneous force/displacement vector or a load rating.
+
+| Leg / per-axis spring stiffness, N/mm | Loaded-hold displacement, mm | Single-bolt lateral force, N | Single-bolt axial force, N |
+| --- | ---: | ---: | ---: |
+| Current bonded plywood / 100 | 6.658 | 310.9 | 8.2 |
+| New 2×8 / 100 | 6.478 | 305.1 | 11.0 |
+| Current bonded plywood / 1000 | 3.137 | 592.2 | 40.8 |
+| New 2×8 / 1000 | 2.869 | 603.9 | 70.5 |
+| Current bonded plywood / 10000 | 2.369 | 770.9 | 85.6 |
+| New 2×8 / 10000 | 2.064 | 910.5 | 209.8 |
+
+This is a whole-assembly comparison including the **changed bolt layout**, not
+an isolated material substitution. The new geometry is less flexible at the
+loaded hold in this trial, but its compact bolt group develops greater lateral
+and axial peaks at the stiffest assumed connection. Do not choose it on
+displacement alone. Connection resistance, member checks, other stock sizes,
+extension sensitivity and mesh sensitivity remain to be completed before a
+comparative recommendation. None of the spring values is a measured joint
+property or a guaranteed bound on the real joint.
+
+`fea.lumber_leg_summary` also reports 150, 200 and 300 lb cases, with the
+governing bolt, load case and signed simultaneous components for each peak.
+The current reference is
+[`coupled-leg-release.tar.gz`](../fea/results/coupled-leg-release.tar.gz).
 
 ## What the comparison models
 
@@ -58,6 +94,8 @@ the pinned image is unavailable; an archive replay does not require a solver.
 ```sh
 uv run pytest -q tests/test_lumber_leg_mesh.py tests/test_lumber_leg_response.py
 uv run python -m fea.lumber_leg_response 2x8 --output /tmp/leg-2x8-native.tar.gz
+uv run pytest -q tests/test_lumber_leg_native.py tests/test_lumber_leg_summary.py
+uv run python -m fea.lumber_leg_summary fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz
 ```
 
 The runner refuses to overwrite existing evidence, preserves failed native
