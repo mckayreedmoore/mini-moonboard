@@ -94,6 +94,36 @@ fit and arithmetic checks, not a strength check or release of either variant.
 
 ## Remaining work toward a complete leg
 
+### Through-bolt axial/lateral load path
+
+For this two-member through-bolt joint, NDS 2024 §12.3.9.1 separates the
+component perpendicular to the bolt axis (checked against adjusted lateral
+resistance) from the parallel component (requiring adequate bearing area).
+The screw-withdrawal interaction equation is not a substitute for this rule.
+See [AWC Chapter 12, printed page 96](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf).
+
+The compact archive's 250 lb family has a maximum absolute bolt-axis spring
+transfer of 172.847 N at `lumber_leg_bolt_left_4`, with simultaneous XYZ force
+(-172.847, 571.288, -575.779) N. The corresponding 300 lb sensitivity peak is
+202.962 N. These are model connector transfers, not demonstrated washer forces
+or bolt pretension. The lateral and axial checks must retain each same-case
+vector rather than combine unrelated maxima.
+
+The [MCX manufacturer](https://www.wroughtwasher.com/standard-washers/extra-thick-mil-carb-mcx/)
+publishes dimensional ranges and RC 38–45 hardness, but that page does not give
+a bending allowable or guaranteed tensile yield strength. Before accepting
+washer flexure, obtain a suitable material specification or published load
+rating and evaluate the actual head/nut/washer contact geometry. Two washers
+against one member give one wood-contact footprint; do not double its area or
+treat the stack as a bonded double-thickness plate.
+
+The current bilateral spring model omits tightening preload, local member-face
+contact and washer separation. A local joint-contact calculation with an
+explicit installation condition is therefore the next load-path step. It
+must not infer total washer pressure solely from the incremental spring-axis
+force. Actual material/stock identity and assembly seating still need human
+confirmation; no manufacturer contact or purchase has been made.
+
 1. Finish sourcing/receiving specifications and assess same-case lateral/axial
    connection demand, washer bearing/flexure, group action and splitting. The
    earlier favorable full-body reference remains conditional; a new hardware
