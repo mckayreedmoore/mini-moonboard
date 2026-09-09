@@ -25,14 +25,15 @@ def test_out_of_window_rejected():
 
 
 @pytest.mark.parametrize("thickness", [model.WASHER_MIN, model.WASHER_NOMINAL, model.WASHER_MAX])
-def test_new_hardware_preserves_bearing_planes_and_clears_assembly(thickness):
-    parts = model.parts()
-    assert parts is model.base.parts("2x6", 300.)
-    raw = {p.name: p for p in model.base.parts("2x6", 300., False)}
-    connections = model.connections(thickness)
+@pytest.mark.parametrize("extension", [0., 300.])
+def test_new_hardware_preserves_bearing_planes_and_clears_assembly(thickness, extension):
+    parts = model.parts(extension)
+    assert parts is model.base.parts("2x6", extension)
+    raw = {p.name: p for p in model.base.parts("2x6", extension, False)}
+    connections = model.connections(thickness, extension=extension)
     changed = [c for c in connections if isinstance(c, model.TrialBolt)]
     assert len(changed) == 8 and len(connections) == 182
-    retained = {c.name: c for c in model.base.connections("2x6", 300.)}
+    retained = {c.name: c for c in model.base.connections("2x6", extension)}
     hardware = {c.name: c.components() for c in connections}
     for c in connections:
         if not isinstance(c, model.TrialBolt):
@@ -51,3 +52,16 @@ def test_new_hardware_preserves_bearing_planes_and_clears_assembly(thickness):
                 if name != bolt.name:
                     for other in others:
                         assert overlap(component, other) < .01, (bolt.name, name)
+
+
+def test_default_remains_extended_and_invalid_extensions_rejected():
+    assert model.parts() is model.parts(300.)
+    def identity(bolt):
+        return (bolt.name, bolt.start.toTuple(), bolt.direction.toTuple(), bolt.length,
+                bolt.diameter, bolt.grip, bolt.members, getattr(bolt, "product_status", None))
+    assert list(map(identity, model.connections())) == list(map(identity, model.connections(extension=300.)))
+    for extension in (-1., 150., float("nan")):
+        with pytest.raises(ValueError, match="foot extension"):
+            model.parts(extension)
+        with pytest.raises(ValueError, match="foot extension"):
+            model.connections(extension=extension)

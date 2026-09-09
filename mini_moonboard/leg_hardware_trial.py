@@ -71,11 +71,13 @@ class TrialBolt(FrameBolt):
 
 
 @cache
-def connections(washer_thickness=WASHER_NOMINAL):
+def connections(washer_thickness=WASHER_NOMINAL, *, extension=300.):
     if not math.isfinite(washer_thickness) or not WASHER_MIN <= washer_thickness <= WASHER_MAX:
         raise ValueError("Require the published MCX thickness interval")
+    if extension not in (0., 300.):
+        raise ValueError("Hardware trial supports zero or 300 mm foot extension")
     result = []
-    for c in base.connections("2x6", 300.):
+    for c in base.connections("2x6", extension):
         if c.name.startswith("lumber_leg_bolt_"):
             c = TrialBolt(c.name, c.start-c.direction*(2*washer_thickness-WASHER),
                 c.direction, BOLT_LENGTH, c.diameter, c.members, c.kind, c.grip,
@@ -85,5 +87,7 @@ def connections(washer_thickness=WASHER_NOMINAL):
     return tuple(result)
 
 
-def parts():
-    return base.parts("2x6", 300.)
+def parts(extension=300.):
+    if extension not in (0., 300.):
+        raise ValueError("Hardware trial supports zero or 300 mm foot extension")
+    return base.parts("2x6", extension)

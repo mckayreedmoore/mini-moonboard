@@ -1,8 +1,9 @@
-# Extended 2×6 leg: standard-hardware development trial
+# 2×6 leg: standard-hardware development trial
 
 This trial advances the [thread-length checkpoint](solid-leg-connection-next.md)
 to an actual CAD connection. It retains the spread 100×50 mm pattern, all wood
-parts and the +300 mm foot extension. No larger holes or custom steel parts are
+parts for either the zero-extension or +300 mm foot candidate. The +300 mm
+variant remains the API default. No larger holes or custom steel parts are
 required. It is **not build-ready**, not a procurement release, and not yet an
 option in the published viewer. The existing viewer and frozen FE evidence
 remain unchanged.
@@ -67,14 +68,28 @@ and all other hardware, at minimum, midpoint and maximum washer thickness,
 with nominal 38.1 mm timber. These checks do not constitute a full tolerance
 stack CAD assessment for every possible timber dimension or a socket-fit test.
 
+The compact hardware variant uses `parts(extension=0.)` and
+`connections(extension=0.)`; the original calls without an extension still
+select +300 mm. Both variants reuse their existing spread-frame wood and
+non-leg connections. Zero extension means no added foot-centre offset in that
+geometry, not a new guarantee that the entire foot, hardware or tool envelope
+lies beneath the board's top projection. It does not inherit the extended
+candidate's floor equilibrium, joint demands or resistance conclusions.
+
 ```sh
 uv run pytest -q tests/test_leg_hardware_trial.py
 ```
 
-Verification: 28 hardware, spread-frame and thread-screen checks passed;
+Earlier extended-only verification: 28 hardware, spread-frame and thread-screen checks passed;
 Ruff and whitespace checks passed. Independent correctness, testing and
 package-consistency reviews found no substantial issues. This verifies the
 stated implementation scope, not structural adequacy.
+
+Compact-extension update: all 12 tests in `test_leg_hardware_trial.py` passed
+(34.88 s), including all eight hardware assemblies against all wood and other
+hardware for both extensions at minimum, midpoint and maximum washer thickness.
+The update also checks unchanged +300 mm defaults. Ruff passed. These are CAD
+fit and arithmetic checks, not a strength check or release of either variant.
 
 ## Remaining work toward a complete leg
 
