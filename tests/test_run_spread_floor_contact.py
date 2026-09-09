@@ -21,6 +21,8 @@ def test_invalid_runtime_and_existing_evidence_rejected(tmp_path):
 @pytest.mark.parametrize("exit_code,text", [(0, "Job finished"), (124, "bounded timeout"), (1, "*ERROR")])
 def test_terminal_evidence_never_becomes_acceptance(tmp_path, monkeypatch, exit_code, text):
     def prepare(directory, **settings):
+        assert settings == {"archive": runner.preparation.COMPACT_ARCHIVE,
+                            "initial_increment": .25, "max_increment": .5}
         directory.mkdir()
         (directory/"input.json").write_text(json.dumps({"source_sha256": {}}))
         (directory/"contact.inp").write_text("mock test deck\n")
@@ -33,7 +35,8 @@ def test_terminal_evidence_never_becomes_acceptance(tmp_path, monkeypatch, exit_
         return subprocess.CompletedProcess(command, exit_code)
     monkeypatch.setattr(runner.subprocess, "run", native)
     output = tmp_path/"result.tar.gz"
-    report = runner.run(output, 5)
+    report = runner.run(output, 5, archive=runner.preparation.COMPACT_ARCHIVE,
+                        initial_increment=.25, max_increment=.5)
     assert not report["qualified_for_design"]
     assert not report["local_contact_audited"] and not report["global_equilibrium_audited"]
     assert report["solver_terminated_normally"] == (exit_code == 0)

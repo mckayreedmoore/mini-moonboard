@@ -10,15 +10,18 @@ import pytest
 from fea import spread_floor_contact as model
 
 
-@pytest.fixture(scope="module")
-def prepared():
-    return model.prepare()
+@pytest.fixture(scope="module", params=[model.ARCHIVE, model.COMPACT_ARCHIVE], ids=["extended", "compact"])
+def prepared(request):
+    return model.prepare(archive=request.param)
 
 
 @pytest.mark.parametrize("settings", [
     {"mu": 0}, {"mu": -1}, {"mu": float("nan")}, {"mu": 1.01},
     {"stiffness": 0}, {"stiffness": 500}, {"stiffness": float("inf")},
     {"normal_penalty": 0}, {"normal_penalty": float("nan")},
+    {"initial_increment": 0}, {"initial_increment": .2}, {"max_increment": 1.01},
+    {"initial_increment": float("nan")}, {"max_increment": float("inf")},
+    {"initial_increment": True},
 ])
 def test_invalid_settings(settings):
     with pytest.raises(ValueError):
@@ -72,11 +75,19 @@ def test_complete_unpinned_topology_and_loading(prepared):
     assert [line.split(",")[:2] for line in cload] == [["41876","2"],["41876","3"]]
     assert [float(line.split(",")[2]) for line in cload] == pytest.approx(load["force_n"][1:])
     assert text.count("*CONTACT FILE\nCDIS,CSTR") == 2
+    assert text.count("*STATIC\n0.05,1,1e-6,0.1\n") == 2
+    assert record["initial_increment"] == .05 and record["max_increment"] == .1
+    if record["parent_report"]["extension_mm"] == 300:
+        with tarfile.open("fea/results/spread-floor-contact/untied-mu02-k1000.tar.gz") as archive:
+            assert text == archive.extractfile("contact.inp").read().decode()
+    for side in ("left", "right"):
+        assert {value["elements"][e][i] for e,f in groups[side.upper()] for i in model.floor.FACES[f-1]} == set(value["legs"][side]["floor_nodes"])
 
 
 def test_source_closure_and_exclusive_output(prepared, monkeypatch, tmp_path):
     text, record = prepared
-    assert record["archive_sha256"] == model.response.digest(model.ARCHIVE)
+    assert record["archive_sha256"] == model.response.digest(record["archive"])
+    assert record["parent_report"]["extension_mm"] == (0 if "-e0-" in record["archive"] else 300)
     model.response.unchanged(record["source_sha256"])
     assert record["deck_sha256"] == hashlib.sha256(text.encode()).hexdigest()
     assert not record["solved"] and not record["qualified_for_design"]
@@ -108,3 +119,32 @@ def test_altered_archive_artifact_rejected(tmp_path):
             archive.addfile(info, io.BytesIO(content))
     with pytest.raises(ValueError, match="artifact identity"):
         model.prepare(archive=path)
+
+
+@pytest.mark.parametrize("initial,maximum,minimum_text", [(.25, .5, "1e-6"), (1e-7, 1e-7, "1e-07")])
+def test_compact_larger_ramp_preserves_model(prepared, monkeypatch, initial, maximum, minimum_text):
+    original, record = prepared
+    files, report, value = model.authenticated_input(record["archive"])
+    monkeypatch.setattr(model, "authenticated_input", lambda path: (files, report, value))
+    text, changed = model.prepare(archive=record["archive"], initial_increment=initial, max_increment=maximum)
+    assert text == original.replace("0.05,1,1e-6,0.1", f"{initial:g},1,{minimum_text},{maximum:g}")
+    assert changed["initial_increment"] == initial and changed["max_increment"] == maximum
+    assert changed["minimum_increment"] <= initial
+    assert changed["archive_sha256"] == record["archive_sha256"]
+    assert changed["deck_sha256"] != record["deck_sha256"]
+
+
+def test_unsupported_identity_rejected(tmp_path):
+    # No artifacts are needed: valid source integrity closure reaches the
+    # independent geometry identity gate before mapped-input parsing.
+    path = tmp_path/"wrong.tar.gz"
+    source_path = "fea/spread_floor_contact.py"
+    report = {"artifact_sha256": {}, "source_sha256": {source_path: model.response.digest(source_path)}, "geometry": "spread-100x50-top150",
+              "stock": "2x6", "mesh_size_mm": 40., "leg_modulus_mpa": 7000., "extension_mm": 150.}
+    payload = json.dumps(report).encode()
+    with tarfile.open(path, "w:gz") as archive:
+        info = tarfile.TarInfo("report.json")
+        info.size = len(payload)
+        archive.addfile(info, io.BytesIO(payload))
+    with pytest.raises(ValueError, match="e0 or e300"):
+        model.authenticated_input(path)

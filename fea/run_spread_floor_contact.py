@@ -82,5 +82,10 @@ if __name__ == "__main__":
     parser.add_argument("--max-seconds", type=float, default=600.)
     parser.add_argument("--mu", type=float, default=.2)
     parser.add_argument("--stiffness", type=float, default=1000.)
+    parser.add_argument("--archive", type=Path, default=preparation.ARCHIVE)
+    parser.add_argument("--normal-penalty", type=float, default=100.)
+    parser.add_argument("--initial-increment", type=float, default=.05)
+    parser.add_argument("--max-increment", type=float, default=.1)
     args = parser.parse_args()
-    run(args.output, args.max_seconds, mu=args.mu, stiffness=args.stiffness)
+    run(args.output, args.max_seconds, mu=args.mu, stiffness=args.stiffness, archive=args.archive,
+        normal_penalty=args.normal_penalty, initial_increment=args.initial_increment, max_increment=args.max_increment)

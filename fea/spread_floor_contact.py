@@ -11,6 +11,7 @@ from fea import lumber_leg_response as response
 from fea.user_load_envelope import GRAVITY, LB_KG
 
 ARCHIVE = Path("fea/results/spread-leg-response/2x6-e300-m40-E7000.tar.gz")
+COMPACT_ARCHIVE = ARCHIVE.with_name("2x6-e0-m40-E7000.tar.gz")
 LIMITS = ("UNSOLVED contact preparation only; original spread wood and assumed connector stiffness; "
           "no hardware-trial transfer, bracing, calibrated friction, joint resistance or approval.")
 
@@ -27,9 +28,10 @@ def authenticated_input(path):
             for name, sha in report["artifact_sha256"].items()):
         raise ValueError("Archive artifact identity differs")
     response.unchanged(report["source_sha256"])
-    if (report["geometry"], report["stock"], report["extension_mm"], report["mesh_size_mm"],
-            report["leg_modulus_mpa"]) != ("spread-100x50-top150", "2x6", 300., 40., 7000.):
-        raise ValueError("Require the frozen 2x6/e300/m40/E7000 spread candidate")
+    if ((report["geometry"], report["stock"], report["mesh_size_mm"], report["leg_modulus_mpa"])
+            != ("spread-100x50-top150", "2x6", 40., 7000.)
+            or report["extension_mm"] not in (0., 300.)):
+        raise ValueError("Require frozen 2x6/e0 or e300/m40/E7000 spread evidence")
     if not report["passed"] or report["qualified_for_design"]:
         raise ValueError("Require accepted numerical evidence, not a qualification claim")
     value = json.loads(files["input.json"])
@@ -38,13 +40,17 @@ def authenticated_input(path):
     return files, report, value
 
 
-def prepare(mu=.2, stiffness=1000., normal_penalty=100., archive=ARCHIVE):
+def prepare(mu=.2, stiffness=1000., normal_penalty=100., archive=ARCHIVE,
+            initial_increment=.05, max_increment=.1):
     if not math.isfinite(mu) or not 0 < mu <= 1:
         raise ValueError("Require finite 0 < mu <= 1")
     if stiffness not in response.base.STIFFNESSES:
         raise ValueError("Require an archived connector stiffness")
     if not math.isfinite(normal_penalty) or normal_penalty <= 0:
         raise ValueError("Require positive finite normal contact penalty")
+    if (any(isinstance(v, bool) or not math.isfinite(v) for v in (initial_increment, max_increment))
+            or not 0 < initial_increment <= max_increment <= 1):
+        raise ValueError("Require finite 0 < initial_increment <= max_increment <= 1")
     files, report, value = authenticated_input(archive)
     nodes, elements = value["nodes"], value["elements"]
     original, context = response.deck(nodes, elements, value["points"], value["cases"],
@@ -98,8 +104,10 @@ def prepare(mu=.2, stiffness=1000., normal_penalty=100., archive=ARCHIVE):
               str(normal_penalty), "*FRICTION", f"{mu},{normal_penalty/100}",
               *floor.node_set("WOODN", sorted(context["nodes"])), "*BOUNDARY"]
     lines += [f"BOTTOM_{name},1,3,0" for name in ground]
+    minimum_increment = min(1e-6, initial_increment)
+    minimum_text = "1e-6" if minimum_increment == 1e-6 else f"{minimum_increment:g}"
     for loaded in (False, True):
-        lines += ["*STEP,NLGEOM,INC=200", "*STATIC", "0.05,1,1e-6,0.1",
+        lines += ["*STEP,NLGEOM,INC=200", "*STATIC", f"{initial_increment:g},1,{minimum_text},{max_increment:g}",
                   "*DLOAD,OP=NEW", "TIMBER,GRAV,9806.65,0,0,-1"]
         if loaded:
             lines += ["*CLOAD,OP=NEW"]+[f"{target},{i},{f:.12g}" for i,f in enumerate(force, 1) if f]
@@ -117,6 +125,8 @@ def prepare(mu=.2, stiffness=1000., normal_penalty=100., archive=ARCHIVE):
               "parent_report": report, "source_sha256": sources, "image": report["image"],
               "mu": mu, "connector_stiffness_n_mm": stiffness,
               "normal_penalty_n_mm3": normal_penalty, "density_tonne_mm3": 6e-10,
+              "initial_increment": initial_increment, "max_increment": max_increment,
+              "minimum_increment": minimum_increment,
               "load": {"hold": "A12", "node": target, "climber_lb": 250,
                        "weight_factor": 2, "force_n": force},
               "floor_faces": groups, "ground_nodes": ground, "bottom_nodes": bottom,
@@ -141,5 +151,9 @@ if __name__ == "__main__":
     parser.add_argument("--mu", type=float, default=.2)
     parser.add_argument("--stiffness", type=float, default=1000.)
     parser.add_argument("--normal-penalty", type=float, default=100.)
+    parser.add_argument("--archive", type=Path, default=ARCHIVE)
+    parser.add_argument("--initial-increment", type=float, default=.05)
+    parser.add_argument("--max-increment", type=float, default=.1)
     args = parser.parse_args()
-    print(write(args.output, mu=args.mu, stiffness=args.stiffness, normal_penalty=args.normal_penalty))
+    print(write(args.output, mu=args.mu, stiffness=args.stiffness, normal_penalty=args.normal_penalty,
+                archive=args.archive, initial_increment=args.initial_increment, max_increment=args.max_increment))
