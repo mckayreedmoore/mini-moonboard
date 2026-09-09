@@ -5,6 +5,11 @@ This is a separate development trial for **2×8 legs, +300 mm rear footprint,
 the group centre**. It does not inherit approval or joint forces from the
 [compact-pattern comparison](lumber-leg-response.md).
 
+[Open the revised 2×8/+300 mm geometry](https://mckayreedmoore.github.io/mini-moonboard/?model=lumber-leg-spread-2x8-e300).
+The viewer contains drilled stock and the eight repositioned bolt assemblies,
+with selectable metric/imperial part dimensions. It is a CAD view, not a stress
+plot or construction approval; the default board is unchanged.
+
 ## Native preparation and checks
 
 The new independent C3D10 leg meshes include the additional 30 mm of top stock.

@@ -70,6 +70,7 @@
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
       const lumberModels = ['2x6', '2x8', '2x10', '2x12'].flatMap(size => [0, 150, 300].map(extension => [`lumber-leg-${size}-e${extension}`, `${size} straight legs · +${extension} mm (${(extension / 25.4).toFixed(2)} in) · unqualified`]));
+      lumberModels.push(['lumber-leg-spread-2x8-e300', '2x8 +300 mm · spread100×50 / top150 · unqualified']);
       const model = ['2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', ...lumberModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'plywood';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';

@@ -169,7 +169,7 @@ uv run python -m fea.lumber_leg_resistance fea/results/lumber-leg-response/2x8-e
 uv run pytest -q tests/test_lumber_leg_resistance.py
 ```
 
-### Next joint experiment: isolated geometry, not yet solved
+### Revised joint experiment: separate geometry and evidence
 
 The present model uses a 50×50 mm parallelogram bolt group and a square top
 120 mm beyond its centre. A preliminary geometry check suggests extending the
@@ -180,18 +180,19 @@ same nominal 7D/4D comparisons used above; they do not establish resistance.
 
 `mini_moonboard.lumber_leg_spread_frame` now implements this separate geometry.
 The extended wood, new bores and complete assembly have been regenerated for
-2×8/+300 mm and the 2×6/e0 alternative. Their new-bolt/wood/hardware, extended-leg/
+2×8/+300 mm and the 2×6/e0 and +300 mm alternatives. Their new-bolt/wood/hardware, extended-leg/
 other-wood and extended-leg/retained-hardware checks found no overlaps above
 0.01 mm³. All twelve stock/extension combinations pass the nominal spacing,
 square-top and full-level-foot checks; full assembly collision checks are
-limited to the two specified cases. Obsolete compact-pattern bores are absent,
+limited to the three specified cases. Obsolete compact-pattern bores are absent,
 not plugged, and unrelated frame machining is retained.
 
-This experiment has **not** been natively solved or added to the viewer. The
-viewer and native archives still represent the original 50×50 mm group.
-The larger lever arm is not a drilling instruction or a demonstrated structural
-improvement. Increasing lumber width alone has not resolved the current
-conditional bolt demand concern.
+The [separate revised-joint report](spread-leg-response.md) records its native
+and floor studies. The [2×8/+300 mm spread-joint viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=lumber-leg-spread-2x8-e300)
+shows the actual new geometry; the original twelve viewer variants and the
+archives discussed above retain the compact 50×50 mm group. The larger lever
+arm is not a drilling instruction. Increasing lumber width alone has not
+resolved the compact joint's conditional bolt demand concern.
 
 ```sh
 uv run pytest -q tests/test_lumber_leg_spread_frame.py
