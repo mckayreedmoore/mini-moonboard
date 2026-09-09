@@ -5,6 +5,10 @@ the extended 2×6 geometry for now. This is not a hardware selection or a joint
 qualification. The [spread-joint native results](spread-leg-response.md) remain
 unchanged, including their uncalibrated springs and fixed-floor assumptions.
 
+The subsequent [standard-hardware CAD trial](leg-hardware-trial.md) uses a
+4¼-inch bolt and four thick hardened washers to improve the tolerance basis
+without larger bores. Its structural and receiving gates remain open.
+
 ## A material change affects the thread calculation
 
 The earlier plywood leg consisted of two adjacent 3/4-inch plies. Each current
