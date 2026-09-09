@@ -6,14 +6,15 @@ import pytest
 
 from mini_moonboard import spread_leg_exports as exports
 
-DIRECTORY = Path("site/hybrid")/exports.KEY
 
-
-def test_spread_package_reuses_only_unchanged_wide_assets():
-    data = json.loads((DIRECTORY/"parts.json").read_text())
-    manifest = json.loads((DIRECTORY/"manifest.json").read_text())
+@pytest.mark.parametrize("size", exports.SIZES)
+def test_spread_package_reuses_only_unchanged_wide_assets(size):
+    key = f"lumber-leg-spread-{size}-e300"
+    directory = Path("site/hybrid")/key
+    data = json.loads((directory/"parts.json").read_text())
+    manifest = json.loads((directory/"manifest.json").read_text())
     parent = json.loads(exports.base.VIEWER.read_text())
-    original = json.loads(Path("site/hybrid/lumber-leg-2x8-e300/parts.json").read_text())
+    original = json.loads(Path(f"site/hybrid/lumber-leg-{size}-e300/parts.json").read_text())
     inherited = {p["name"]: p for p in parent["parts"] if not exports.base.replaced(p["name"])}
     items = {p["name"]: p for p in data["parts"]}
     old = {p["name"]: p for p in original["parts"]}
@@ -25,23 +26,25 @@ def test_spread_package_reuses_only_unchanged_wide_assets():
     assert changed == {f"{prefix}_{side}" for prefix in ("base_side", "lumber_leg")
                        for side in ("left", "right")} | {
         f"fastener_lumber_leg_bolt_{side}_{i}" for side in ("left", "right") for i in range(1, 5)}
-    assert {p.name for p in (DIRECTORY/"models").iterdir()} == {name+".stl" for name in changed}
+    assert {p.name for p in (directory/"models").iterdir()} == {name+".stl" for name in changed}
     for name in changed:
         p = items[name]
-        assert p["path"] == f"hybrid/{exports.KEY}/models/{name}.stl"
+        assert p["path"] == f"hybrid/{key}/models/{name}.stl"
         assert exports.base.digest(Path("site")/p["path"]) != exports.base.digest(Path("site")/old[name]["path"])
         assert p["fabrication"]["dimensions_imperial"] == pytest.approx(
             [v/25.4 for v in p["fabrication"]["dimensions_mm"]])
         assert "NOT build-ready" in p["fabrication"]["clearance_status"]
         assert "spread100x50/top150" in p["fabrication"]["description"]
     assert data["design"] == manifest["design"]
-    assert data["design"]["key"] == exports.KEY
+    assert data["design"]["key"] == key
+    assert data["design"]["stock"] == size
+    assert f"38.1 × {exports.model.WIDTHS[size]:g} mm" in data["design"]["description"]
     assert data["design"]["tnut_row_stations_mm"] == parent["design"]["tnut_row_stations_mm"]
     assert [data["design"][n] for n in ("extra_foot_extension_mm", "along_leg_pitch_mm",
                                       "along_rim_pitch_mm", "top_extension_mm")] == [300., 100., 50., 150.]
     assert "not a native FE result or strength approval" in data["design"]["description"]
     assert manifest["viewer_artifacts"].keys() == {p["path"] for p in items.values()} | {
-        f"hybrid/{exports.KEY}/parts.json"}
+        f"hybrid/{key}/parts.json"}
     parent_manifest = json.loads(exports.base.PARENT.read_text())
     assert manifest["parent_viewer_artifacts"] == parent_manifest["viewer_artifacts"]
     assert manifest["sources"].items() >= parent_manifest["sources"].items()
@@ -55,12 +58,13 @@ def test_spread_package_reuses_only_unchanged_wide_assets():
             assert exports.base.digest(Path("site")/path) == sha, path
 
 
-def test_changed_leg_metadata_matches_spread_geometry():
-    data = json.loads((DIRECTORY/"parts.json").read_text())
+@pytest.mark.parametrize("size", exports.SIZES)
+def test_changed_leg_metadata_matches_spread_geometry(size):
+    data = json.loads(Path(f"site/hybrid/lumber-leg-spread-{size}-e300/parts.json").read_text())
     items = {p["name"]: p for p in data["parts"]}
     for side in ("left", "right"):
-        part = exports.model.leg(exports.SIZE, exports.EXTENSION, side)
-        old = exports.model.original.leg(exports.SIZE, exports.EXTENSION, side)
+        part = exports.model.leg(size, exports.EXTENSION, side)
+        old = exports.model.original.leg(size, exports.EXTENSION, side)
         item = items[part.name]
         assert item["fabrication"]["dimensions_mm"] == pytest.approx(part.blank)
         assert part.blank[0] == pytest.approx(old.blank[0]+30.)
@@ -76,3 +80,8 @@ def test_parent_hash_change_rejected_before_export(tmp_path, monkeypatch):
     monkeypatch.setattr(exports.base, "PARENT", path)
     with pytest.raises(RuntimeError, match="Parent geometry or viewer evidence changed"):
         exports.export()
+
+
+def test_unsupported_stock_rejected():
+    with pytest.raises(ValueError, match="Select spread 2x6 or 2x8"):
+        exports.export("2x10")

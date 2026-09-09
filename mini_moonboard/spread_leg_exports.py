@@ -1,4 +1,5 @@
-"""One isolated spread-joint viewer; original model/export sources stay frozen."""
+"""Isolated spread-joint viewers; original model/export sources stay frozen."""
+import argparse
 import json
 from pathlib import Path
 
@@ -10,9 +11,13 @@ from .box_exports import exact_bounds
 
 KEY = "lumber-leg-spread-2x8-e300"
 SIZE, EXTENSION = "2x8", 300.
+SIZES = ("2x6", "2x8")
 
 
-def export():
+def export(size=SIZE):
+    if size not in SIZES:
+        raise ValueError("Select spread 2x6 or 2x8")
+    key = f"lumber-leg-spread-{size}-e300"
     parent = json.loads(base.PARENT.read_text())
     sources = {**parent["sources"], str(base.PARENT): base.digest(base.PARENT)}
     for path in ("mini_moonboard/lumber_leg_frame.py", "mini_moonboard/lumber_leg_exports.py",
@@ -23,7 +28,7 @@ def export():
         raise RuntimeError("Parent geometry or viewer evidence changed")
     baseline = json.loads(base.VIEWER.read_text())
     items = [p for p in baseline["parts"] if not base.replaced(p["name"])]
-    parts, connections = model.parts(SIZE, EXTENSION), model.connections(SIZE, EXTENSION)
+    parts, connections = model.parts(size, EXTENSION), model.connections(size, EXTENSION)
     changed = [p for p in parts if p.name.startswith(("base_side_", "lumber_leg_"))]
     fasteners = [(c, cq.Compound.makeCompound(c.components())) for c in connections]
     for connection, shape in fasteners:
@@ -31,7 +36,7 @@ def export():
             changed.append(model.original.b.Part("fastener_"+connection.name, shape,
                 (connection.length, connection.diameter, connection.diameter),
                 connection.product_status+"; "+" + ".join(connection.members), 1))
-    directory = Path("site/hybrid")/KEY
+    directory = Path("site/hybrid")/key
     meshes = directory/"models"
     meshes.mkdir(parents=True, exist_ok=True)
     for part in changed:
@@ -48,11 +53,12 @@ def export():
     if len(changed) != 12 or len(items) != 283 or len({p["name"] for p in items}) != 283:
         raise RuntimeError("Expected 101 bodies and 182 connection assemblies")
     bounds = exact_bounds(cq.Compound.makeCompound([p.shape for p in parts]+[s for _, s in fasteners]))
-    design = {**baseline["design"], "key": KEY, "baseline": "wide-principal-development",
-        "status": model.LIMITS, "stock": SIZE, "extra_foot_extension_mm": EXTENSION,
+    design = {**baseline["design"], "key": key, "baseline": "wide-principal-development",
+        "status": model.LIMITS, "stock": size, "extra_foot_extension_mm": EXTENSION,
         "along_leg_pitch_mm": model.ALONG_LEG_PITCH, "along_rim_pitch_mm": model.ALONG_RIM_PITCH,
         "top_extension_mm": model.TOP_EXTENSION,
-        "description": "2×8 legs, actual 38.1 × 184.15 mm (1.5 × 7.25 in); +300 mm (11.81 in) footprint. "
+        "description": f"{size.replace('x', '×')} legs, actual 38.1 × {model.WIDTHS[size]:g} mm "
+            f"(1.5 × {model.WIDTHS[size]/25.4:g} in); +300 mm (11.81 in) footprint. "
             "Spread100×50 mm (3.94 × 1.97 in) bolt group; square top150 mm (5.91 in) beyond centroid. "
             "Other wide-frame parts retained. Geometry viewer only, not a native FE result or strength approval."}
     viewer = directory/"parts.json"
@@ -70,4 +76,8 @@ def export():
 
 
 if __name__ == "__main__":
-    print(export())
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("size", choices=(*SIZES, "all"), nargs="?", default=SIZE)
+    args = parser.parse_args()
+    for size in SIZES if args.size == "all" else (args.size,):
+        print(export(size), flush=True)
