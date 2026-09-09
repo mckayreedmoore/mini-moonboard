@@ -11,6 +11,7 @@ from test_lumber_leg_native import (  # noqa: F401 -- pytest collects shared aud
 
 ARCHIVES = [Path("fea/results/spread-leg-response")/f"{size}-e300-m40-E7000.tar.gz"
             for size in ("2x6", "2x8")]
+ARCHIVES.append(Path("fea/results/spread-leg-response/2x6-e0-m40-E7000.tar.gz"))
 
 
 @pytest.fixture(scope="module", params=ARCHIVES, ids=lambda p: p.stem)
