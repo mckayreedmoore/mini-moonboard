@@ -9,12 +9,13 @@ import pytest
 
 from fea import lumber_leg_response as response
 
-ARCHIVE = Path("fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz")
+ARCHIVES = sorted(Path("fea/results/lumber-leg-response").glob("*.tar.gz"))
+assert Path("fea/results/lumber-leg-response/2x8-e0-m40-E7000.tar.gz") in ARCHIVES
 
 
-@pytest.fixture(scope="module")
-def native():
-    with tarfile.open(ARCHIVE) as archive:
+@pytest.fixture(scope="module", params=ARCHIVES, ids=lambda p: p.stem)
+def native(request):
+    with tarfile.open(request.param) as archive:
         files = {m.name: archive.extractfile(m).read() for m in archive.getmembers() if m.isfile()}
     report = json.loads(files["report.json"])
     response.unchanged(report["source_sha256"])
@@ -24,7 +25,8 @@ def native():
     value["nodes"] = {int(n): p for n, p in value["nodes"].items()}
     value["elements"] = {int(e): ids for e, ids in value["elements"].items()}
     assert report["qualified_for_design"] is False
-    assert (report["stock"], report["extension_mm"], report["mesh_size_mm"], report["leg_modulus_mpa"]) == ("2x8", 0., 40., 7000.)
+    assert request.param.name == (f'{report["stock"]}-e{report["extension_mm"]:g}'
+        f'-m{report["mesh_size_mm"]:g}-E{report["leg_modulus_mpa"]:g}.tar.gz')
     return files, report, value
 
 
