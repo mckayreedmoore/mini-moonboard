@@ -12,7 +12,7 @@ from fea.timber_floor_screen import cases
 from fea.wide_structural import locations, mass_state
 from mini_moonboard import lumber_leg_spread_frame as candidate
 
-OPTIONS = [("2x6", 300.), ("2x8", 300.)]
+OPTIONS = [("2x6", 0.), ("2x6", 300.), ("2x8", 300.)]
 
 
 @pytest.mark.parametrize("size,extension", OPTIONS)
@@ -64,4 +64,3 @@ def test_floor_report_source_geometry_loads_and_witnesses(size, extension):
             assert np.abs(residual[3:]).max() < 1.
     for mu in ("0.1", "0.2", "0.4"):
         assert dict(Counter(r["friction_results"][mu]["status"] for r in report["cases"])) == report["summary"][mu]
-

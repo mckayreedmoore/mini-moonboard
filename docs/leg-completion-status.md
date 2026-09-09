@@ -45,6 +45,12 @@ uv run pytest -q tests/test_leg_rear_envelope.py
 - Investigate compact geometry under the same gravity/contact basis before
   deciding that extra bracing is necessary. Only the ground may be restrained;
   fixed timber floor nodes cannot stand in for the intended unanchored design.
+  The compact candidate's separate rigid-floor screen now has admissible
+  equilibrium witnesses for all 1,296 prescribed cases at assumed friction
+  coefficients 0.2 and 0.4. At 0.1, 666 cases were feasible and 630 were
+  infeasible under the inscribed friction-cone approximation. This does not
+  predict actual contact-force distribution or establish elastic stability;
+  it is not a substitute for the unfinished native contact calculation.
 - The actual front tie receiver is obstructed by the existing 19.05 mm base
   gusset. Reusing its Y=−80 mm, Z=300/380 mm bolt axes would create a rim/gusset/
   filler/rail stack and add loads to that connection. It is not a two-member
