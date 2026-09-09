@@ -19,6 +19,8 @@ with their coverage limits. Passing these checks does not close the gates below.
 4. [Current leg-bolt comparison](leg-bolt-resistance.md),
    [coupled joint FEA](coupled-leg-release.md) and
    [unanchored floor-equilibrium screen](wide-floor-screen.md).
+5. [Plywood versus 2×6–2×12 leg study](leg-stock-comparison.md): initial
+   stock/attachment geometry screen; replacement CAD and frame solves are pending.
 
 The viewer shows candidate geometry, not a live FE solution or a stress plot.
 Its 291 selectable entries comprise 103 bodies and 188 connection assemblies.
