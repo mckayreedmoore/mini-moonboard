@@ -22,6 +22,17 @@ washer bounds are OD 0.995–1.015 in, ID 0.433–0.453 in, thickness 0.110–0.
 (2.794–3.2004 mm). Small-quantity availability has not been confirmed; the
 manufacturer offers quotation. No order or third-party contact has been made.
 
+A retail sourcing lead checked on 2026-09-08 is
+[BoltsandNuts 37UNTX8Y](https://boltsandnuts.com/products/3-8-uss-grade-8-extra-thick-flat-washers-zinc-yellow),
+listed in single-piece quantities. Its live product data showed availability
+at that check; this is not a stock reservation or a purchase recommendation.
+The listed thickness and ID intervals match the MCX intervals, but OD is
+0.993–1.030 in, not 0.995–1.015 in. It is therefore **not an approved drop-in
+substitution** for the current CAD or bearing footprint. The linked technical
+drawing returned an invalid/404 URL during review. Resolve the product drawing
+and material basis, then repeat fit and bearing checks before selecting it;
+do not silently replace the MCX identity in existing evidence.
+
 The bolt drawing states ASME B18.2.1 and Class 2A threads; the nut drawing
 states ASME B18.2.2 and Class 2B. Nut maximum height is 0.337 in (8.5598 mm).
 The CAD uses the predecessor's conservative cylindrical head/nut envelopes,
