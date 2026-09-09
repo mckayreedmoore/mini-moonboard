@@ -105,6 +105,10 @@ material/fastener specifications together. Then reassess full-member combined
 bending/compression, net sections and unanchored contact with those details.
 The present default board, hardware schedule and release gates are unchanged.
 
+The [next connection checkpoint](solid-leg-connection-next.md) checks whether
+verified full-body 3/8-inch bolts could improve the conditional reference
+without larger holes. Nominal thread length alone does not establish that credit.
+
 ## Why no full-member strength pass is claimed
 
 The clear prismatic section checks exclude the bolt-loaded region and floor

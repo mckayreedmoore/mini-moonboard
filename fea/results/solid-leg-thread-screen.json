@@ -1,0 +1,1995 @@
+{
+  "archive": "fea/results/spread-leg-response/2x6-e300-m40-E7000.tar.gz",
+  "archive_sha256": "b269efa8ec7e1ffbfd2562393777dd41c22a4a628d6a7e4d59257cec7940e99d",
+  "source_sha256": {
+    "fea/solid_leg_thread_screen.py": "e846a9e38c613314ae2f66bdbb011907a48fe90cee390acfa8e9c068fda10081",
+    "fea/lumber_leg_resistance.py": "56ceb1e65f07504c1277930cb5f314dacf6b4608c0c54cefdcf223e4e8ab5609",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/bolt_thread_bearing.py": "e1a2e7f0fefde7c870a4e4067a677e3febf5faf2ac1172a746fba2f67db87407",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654"
+  },
+  "qualified_for_design": false,
+  "full_body_exception_verified": false,
+  "limits": "Same archived forces; full-body diameter is a conditional reference, not a new FE solve. Actual thread/runout, bearing lengths and steel bending yield remain unverified. No axial/group/washer/splitting resistance, slip calibration or construction approval. The 4in length is an arithmetic trial, not installed CAD or selected procurement. Length-shortfall scenarios hold nominal thread length fixed, excluding runout; the separate minimum-body-length comparison includes a generic five-pitch allowance.",
+  "stacks": [
+    {
+      "bolt": "lumber_leg_bolt_left_1",
+      "members": [
+        {
+          "member": "base_side_left",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_left",
+          "raw_interval_mm": [
+            40.131999999999834,
+            78.23199999999974
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.70699999999977,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999772
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.44449999999977763
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.38199999999975,
+              "threaded_fraction": 0.21999999999999395,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.143000000000228
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.90599999999975,
+              "threaded_fraction": 0.25999999999999407,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.38099999999977285
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.031999999999755,
+              "threaded_fraction": 0.05333333333332703,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.493000000000222
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999756,
+              "threaded_fraction": 0.09333333333332715,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.9690000000002215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_left_2",
+      "members": [
+        {
+          "member": "base_side_left",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_left",
+          "raw_interval_mm": [
+            40.131999999999834,
+            78.23199999999974
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.70699999999977,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999772
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.44449999999977763
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.38199999999975,
+              "threaded_fraction": 0.21999999999999395,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.143000000000228
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.90599999999975,
+              "threaded_fraction": 0.25999999999999407,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.38099999999977285
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.031999999999755,
+              "threaded_fraction": 0.05333333333332703,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.493000000000222
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999756,
+              "threaded_fraction": 0.09333333333332715,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.9690000000002215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_left_3",
+      "members": [
+        {
+          "member": "base_side_left",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_left",
+          "raw_interval_mm": [
+            40.131999999999834,
+            78.23199999999974
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.70699999999977,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999772
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.44449999999977763
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.38199999999975,
+              "threaded_fraction": 0.21999999999999395,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.143000000000228
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.90599999999975,
+              "threaded_fraction": 0.25999999999999407,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.38099999999977285
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.031999999999755,
+              "threaded_fraction": 0.05333333333332703,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.493000000000222
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999756,
+              "threaded_fraction": 0.09333333333332715,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.9690000000002215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_left_4",
+      "members": [
+        {
+          "member": "base_side_left",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_left",
+          "raw_interval_mm": [
+            40.131999999999834,
+            78.23199999999974
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.70699999999977,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999772
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.44449999999977763
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.38199999999975,
+              "threaded_fraction": 0.21999999999999395,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.143000000000228
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.90599999999975,
+              "threaded_fraction": 0.25999999999999407,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.38099999999977285
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.031999999999755,
+              "threaded_fraction": 0.05333333333332703,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.493000000000222
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999756,
+              "threaded_fraction": 0.09333333333332715,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.9690000000002215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_1",
+      "members": [
+        {
+          "member": "base_side_right",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_right",
+          "raw_interval_mm": [
+            40.13200000000006,
+            78.23199999999997
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.707,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999999
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.444500000000005
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.381999999999977,
+              "threaded_fraction": 0.21999999999999992,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.1430000000000007
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.905999999999977,
+              "threaded_fraction": 0.26,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.3810000000000002
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.0319999999999823,
+              "threaded_fraction": 0.053333333333333,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.492999999999995
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999983,
+              "threaded_fraction": 0.09333333333333312,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.968999999999994
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_2",
+      "members": [
+        {
+          "member": "base_side_right",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_right",
+          "raw_interval_mm": [
+            40.13200000000006,
+            78.23199999999997
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.707,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999999
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.444500000000005
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.381999999999977,
+              "threaded_fraction": 0.21999999999999992,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.1430000000000007
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.905999999999977,
+              "threaded_fraction": 0.26,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.3810000000000002
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.0319999999999823,
+              "threaded_fraction": 0.053333333333333,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.492999999999995
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999983,
+              "threaded_fraction": 0.09333333333333312,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.968999999999994
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_3",
+      "members": [
+        {
+          "member": "base_side_right",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_right",
+          "raw_interval_mm": [
+            40.13200000000006,
+            78.23199999999997
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.707,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999999
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.444500000000005
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.381999999999977,
+              "threaded_fraction": 0.21999999999999992,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.1430000000000007
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.905999999999977,
+              "threaded_fraction": 0.26,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.3810000000000002
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.0319999999999823,
+              "threaded_fraction": 0.053333333333333,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.492999999999995
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999983,
+              "threaded_fraction": 0.09333333333333312,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.968999999999994
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_4",
+      "members": [
+        {
+          "member": "base_side_right",
+          "raw_interval_mm": [
+            2.0319999999999254,
+            40.131999999999834
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 30.606999999999857,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": 31.305500000000137
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": 37.65550000000013
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 0.0,
+              "threaded_fraction": 0.0,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 9.524999999999977
+            }
+          ]
+        },
+        {
+          "member": "lumber_leg_right",
+          "raw_interval_mm": [
+            40.13200000000006,
+            78.23199999999997
+          ],
+          "minimum_full_body_length_for_quarter_condition_mm": 68.707,
+          "generic_runout_screen_not_product_certification": [
+            {
+              "nominal_length_mm": 95.25,
+              "generic_minimum_body_length_mm": 61.912499999999994,
+              "quarter_condition_margin_mm": -6.794499999999999
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "generic_minimum_body_length_mm": 68.26249999999999,
+              "quarter_condition_margin_mm": -0.444500000000005
+            }
+          ],
+          "scenarios": [
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 8.381999999999977,
+              "threaded_fraction": 0.21999999999999992,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 1.1430000000000007
+            },
+            {
+              "nominal_length_mm": 95.25,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 9.905999999999977,
+              "threaded_fraction": 0.26,
+              "nominal_quarter_length_condition": false,
+              "quarter_margin_mm": -0.3810000000000002
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 0.0,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 2.0319999999999823,
+              "threaded_fraction": 0.053333333333333,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 7.492999999999995
+            },
+            {
+              "nominal_length_mm": 101.6,
+              "length_shortfall_mm": 1.524,
+              "bearing_length_mm": 38.09999999999991,
+              "threaded_bearing_mm": 3.555999999999983,
+              "threaded_fraction": 0.09333333333333312,
+              "nominal_quarter_length_condition": true,
+              "quarter_margin_mm": 5.968999999999994
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "stiffness": "k100",
+      "climber_lb": 150,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -11.611912131533929,
+          101.62383230042037,
+          -178.12222813905493
+        ],
+        "lateral_n": 205.07299053908952,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.70599614126681,
+            5.0516542339037445
+          ],
+          "rim_leg_bearing_psi": [
+            3809.578968110751,
+            5576.898995735133
+          ],
+          "reference_lateral_n": 813.772721120498,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.2520027831072058,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.159008780904,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.19073735965028712
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -11.611912131533929,
+          101.62383230042037,
+          -178.12222813905493
+        ],
+        "lateral_n": 205.07299053908952,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.70599614126681,
+            5.0516542339037445
+          ],
+          "rim_leg_bearing_psi": [
+            3809.578968110751,
+            5576.898995735133
+          ],
+          "reference_lateral_n": 813.772721120498,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.2520027831072058,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.159008780904,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.19073735965028712
+      }
+    },
+    {
+      "stiffness": "k100",
+      "climber_lb": 200,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -14.706840208711904,
+          128.62650806722718,
+          -225.42376718540655
+        ],
+        "lateral_n": 259.53930991206096,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.70902442424786,
+            5.0546825168847365
+          ],
+          "rim_leg_bearing_psi": [
+            3809.5313608115557,
+            5576.871477047749
+          ],
+          "reference_lateral_n": 813.7688851838092,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.3189349146145319,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.150174495564,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.24139819354429337
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -14.706840208711904,
+          128.62650806722718,
+          -225.42376718540655
+        ],
+        "lateral_n": 259.53930991206096,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.70902442424786,
+            5.0546825168847365
+          ],
+          "rim_leg_bearing_psi": [
+            3809.5313608115557,
+            5576.871477047749
+          ],
+          "reference_lateral_n": 813.7688851838092,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.3189349146145319,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.150174495564,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.24139819354429337
+      }
+    },
+    {
+      "stiffness": "k100",
+      "climber_lb": 250,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -17.801768285889878,
+          155.62918383403394,
+          -272.7253062317582
+        ],
+        "lateral_n": 314.0056297585345,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.71100215645424,
+            5.05666024909114
+          ],
+          "rim_leg_bearing_psi": [
+            3809.5002729174107,
+            5576.853496288216
+          ],
+          "reference_lateral_n": 813.7663799531377,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.38586704672736305,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.1444044580317,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.29205902803058464
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -17.801768285889878,
+          155.62918383403394,
+          -272.7253062317582
+        ],
+        "lateral_n": 314.0056297585345,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.71100215645424,
+            5.05666024909114
+          ],
+          "rim_leg_bearing_psi": [
+            3809.5002729174107,
+            5576.853496288216
+          ],
+          "reference_lateral_n": 813.7663799531377,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.38586704672736305,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.1444044580317,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.29205902803058464
+      }
+    },
+    {
+      "stiffness": "k100",
+      "climber_lb": 300,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -20.896696363067857,
+          182.63185960084076,
+          -320.0268452781099
+        ],
+        "lateral_n": 368.47194986853543,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.71239520483192,
+            5.0580532974687715
+          ],
+          "rim_leg_bearing_psi": [
+            3809.478377453836,
+            5576.840827134432
+          ],
+          "reference_lateral_n": 813.7646153381139,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.4527991791771847,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.14034000871,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.34271986284651024
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -20.896696363067857,
+          182.63185960084076,
+          -320.0268452781099
+        ],
+        "lateral_n": 368.47194986853543,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            69.71239520483192,
+            5.0580532974687715
+          ],
+          "rim_leg_bearing_psi": [
+            3809.478377453836,
+            5576.840827134432
+          ],
+          "reference_lateral_n": 813.7646153381139,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.4527991791771847,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1075.14034000871,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.34271986284651024
+      }
+    },
+    {
+      "stiffness": "k1000",
+      "climber_lb": 150,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -54.250628067197724,
+          201.12161313044,
+          -307.4652672205787
+        ],
+        "lateral_n": 367.4027678382571,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.18981903481273,
+            8.535477127449585
+          ],
+          "rim_leg_bearing_psi": [
+            3759.490868775042,
+            5534.860612247672
+          ],
+          "reference_lateral_n": 809.3342053418846,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.45395680228670954,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.43521055937,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.3451621706925532
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -54.250628067197724,
+          201.12161313044,
+          -307.4652672205787
+        ],
+        "lateral_n": 367.4027678382571,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.18981903481273,
+            8.535477127449585
+          ],
+          "rim_leg_bearing_psi": [
+            3759.490868775042,
+            5534.860612247672
+          ],
+          "reference_lateral_n": 809.3342053418846,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.45395680228670954,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.43521055937,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.3451621706925532
+      }
+    },
+    {
+      "stiffness": "k1000",
+      "climber_lb": 200,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -68.71938075626362,
+          254.80711084058666,
+          -389.10359862743826
+        ],
+        "lateral_n": 465.1110342700435,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.2190541744643,
+            8.564712267101191
+          ],
+          "rim_leg_bearing_psi": [
+            3759.1102575306227,
+            5534.4221554841915
+          ],
+          "reference_lateral_n": 809.2968406852315,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.5747100580254756,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.3407362778141,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.43699448721338824
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -68.71938075626362,
+          254.80711084058666,
+          -389.10359862743826
+        ],
+        "lateral_n": 465.1110342700435,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.2190541744643,
+            8.564712267101191
+          ],
+          "rim_leg_bearing_psi": [
+            3759.1102575306227,
+            5534.4221554841915
+          ],
+          "reference_lateral_n": 809.2968406852315,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.5747100580254756,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.3407362778141,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.43699448721338824
+      }
+    },
+    {
+      "stiffness": "k1000",
+      "climber_lb": 250,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -83.18813344532953,
+          308.4926085507333,
+          -470.7419300342978
+        ],
+        "lateral_n": 562.8193797506015,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.23813857586393,
+            8.583796668500831
+          ],
+          "rim_leg_bearing_psi": [
+            3758.862155447427,
+            5534.135188478628
+          ],
+          "reference_lateral_n": 809.2724492371921,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.6954634131942913,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.2790267619725,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.5288269012149543
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -83.18813344532953,
+          308.4926085507333,
+          -470.7419300342978
+        ],
+        "lateral_n": 562.8193797506015,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.23813857586393,
+            8.583796668500831
+          ],
+          "rim_leg_bearing_psi": [
+            3758.862155447427,
+            5534.135188478628
+          ],
+          "reference_lateral_n": 809.2724492371921,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.6954634131942913,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.2790267619725,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.5288269012149543
+      }
+    },
+    {
+      "stiffness": "k1000",
+      "climber_lb": 300,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -97.65688613439544,
+          362.17810626088,
+          -552.3802614411574
+        ],
+        "lateral_n": 660.5277692001439,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.25157686870273,
+            8.597234961339556
+          ],
+          "rim_leg_bearing_psi": [
+            3758.68762344559,
+            5533.9327667026655
+          ],
+          "reference_lateral_n": 809.255273905778,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.816216823663295,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.2355561397917,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.6206593694313488
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -97.65688613439544,
+          362.17810626088,
+          -552.3802614411574
+        ],
+        "lateral_n": 660.5277692001439,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            73.25157686870273,
+            8.597234961339556
+          ],
+          "rim_leg_bearing_psi": [
+            3758.68762344559,
+            5533.9327667026655
+          ],
+          "reference_lateral_n": 809.255273905778,
+          "governing_mode": "IV",
+          "lateral_demand_reference_ratio": 0.816216823663295,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 1064.2355561397917,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.6206593694313488
+      }
+    },
+    {
+      "stiffness": "k10000",
+      "climber_lb": 150,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -89.79792368981029,
+          402.02050495233044,
+          -291.1543511209683
+        ],
+        "lateral_n": 496.37822532701693,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.91309379815533,
+            29.432564294481534
+          ],
+          "rim_leg_bearing_psi": [
+            3656.4671905596933,
+            4960.115256838322
+          ],
+          "reference_lateral_n": 784.3423148092122,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.6328591687007971,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.8780147104853,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.501961028501925
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 150,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1334.46648457815
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -89.79792368981029,
+          402.02050495233044,
+          -291.1543511209683
+        ],
+        "lateral_n": 496.37822532701693,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.91309379815533,
+            29.432564294481534
+          ],
+          "rim_leg_bearing_psi": [
+            3656.4671905596933,
+            4960.115256838322
+          ],
+          "reference_lateral_n": 784.3423148092122,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.6328591687007971,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.8780147104853,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.501961028501925
+      }
+    },
+    {
+      "stiffness": "k10000",
+      "climber_lb": 200,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -113.84456491974704,
+          510.27553993644057,
+          -368.5427314946243
+        ],
+        "lateral_n": 629.4480690215395,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.8384201811929,
+            29.507237911443973
+          ],
+          "rim_leg_bearing_psi": [
+            3656.7056970812414,
+            4957.496209112066
+          ],
+          "reference_lateral_n": 784.3125775114298,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.8025474626694565,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.6179799857217,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.6366949436127294
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 200,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -1779.2886461041999
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -113.84456491974704,
+          510.27553993644057,
+          -368.5427314946243
+        ],
+        "lateral_n": 629.4480690215395,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.8384201811929,
+            29.507237911443973
+          ],
+          "rim_leg_bearing_psi": [
+            3656.7056970812414,
+            4957.496209112066
+          ],
+          "reference_lateral_n": 784.3125775114298,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.8025474626694565,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.6179799857217,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.6366949436127294
+      }
+    },
+    {
+      "stiffness": "k10000",
+      "climber_lb": 250,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -137.8912061496838,
+          618.5305749205507,
+          -445.9311118682804
+        ],
+        "lateral_n": 762.5186087195694,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.78980975910484,
+            29.55584833353203
+          ],
+          "rim_leg_bearing_psi": [
+            3656.863279362427,
+            4955.790565379872
+          ],
+          "reference_lateral_n": 784.2935006512653,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.9722362968536469,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.4488915293551,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.7714294742541314
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 250,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2224.11080763025
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -137.8912061496838,
+          618.5305749205507,
+          -445.9311118682804
+        ],
+        "lateral_n": 762.5186087195694,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.78980975910484,
+            29.55584833353203
+          ],
+          "rim_leg_bearing_psi": [
+            3656.863279362427,
+            4955.790565379872
+          ],
+          "reference_lateral_n": 784.2935006512653,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 0.9722362968536469,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.4488915293551,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.7714294742541314
+      }
+    },
+    {
+      "stiffness": "k10000",
+      "climber_lb": 300,
+      "governing_root": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -161.9378473796206,
+          726.785609904661,
+          -523.3194922419365
+        ],
+        "lateral_n": 895.5895341755888,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.75564485063667,
+            29.59001324200021
+          ],
+          "rim_leg_bearing_psi": [
+            3656.9751284618765,
+            4954.591452363974
+          ],
+          "reference_lateral_n": 784.2802256157623,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 1.141925430381002,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.3301395771689,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.9061643456089918
+      },
+      "governing_conditional_full_body": {
+        "case": {
+          "hold": "A12",
+          "climber_lb": 300,
+          "weight_factor": 2,
+          "horizontal_direction_deg": 90,
+          "force_n": [
+            1.8369701987210297e-14,
+            300.0,
+            -2668.9329691563
+          ]
+        },
+        "bolt": "lumber_leg_bolt_left_4",
+        "force_xyz_n": [
+          -161.9378473796206,
+          726.785609904661,
+          -523.3194922419365
+        ],
+        "lateral_n": 895.5895341755888,
+        "root_reference": {
+          "rim_leg_angle_deg": [
+            85.75564485063667,
+            29.59001324200021
+          ],
+          "rim_leg_bearing_psi": [
+            3656.9751284618765,
+            4954.591452363974
+          ],
+          "reference_lateral_n": 784.2802256157623,
+          "governing_mode": "IIIm",
+          "lateral_demand_reference_ratio": 1.141925430381002,
+          "axial_strength_evaluated": false,
+          "group_strength_evaluated": false
+        },
+        "conditional_full_body_reference": {
+          "reference_lateral_n": 988.3301395771689,
+          "governing_mode": "II"
+        },
+        "conditional_full_body_ratio": 0.9061643456089918
+      }
+    }
+  ]
+}
