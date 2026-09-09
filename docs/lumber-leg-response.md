@@ -169,7 +169,7 @@ uv run python -m fea.lumber_leg_resistance fea/results/lumber-leg-response/2x8-e
 uv run pytest -q tests/test_lumber_leg_resistance.py
 ```
 
-### Next joint experiment, not yet implemented
+### Next joint experiment: isolated geometry, not yet solved
 
 The present model uses a 50×50 mm parallelogram bolt group and a square top
 120 mm beyond its centre. A preliminary geometry check suggests extending the
@@ -178,12 +178,24 @@ extra footprint, this would leave 85.689 mm to the leg top and 51.078 mm to the
 rim side edge. Even 2×6 would retain 49.351 mm to its side edge. These exceed the
 same nominal 7D/4D comparisons used above; they do not establish resistance.
 
-Read-only hardware–hardware checks found no overlaps above 0.01 mm³ for this
-pattern. The extended wood, new bores and complete assembly have **not** been
-regenerated or solved. Thus the viewer and native archives still represent the
-original 50×50 mm group. The proposed larger lever arm is a next experiment,
-not a drilling instruction or a demonstrated improvement. Increasing lumber
-width alone has not resolved the current conditional bolt demand concern.
+`mini_moonboard.lumber_leg_spread_frame` now implements this separate geometry.
+The extended wood, new bores and complete assembly have been regenerated for
+2×8/+300 mm and the 2×6/e0 alternative. Their new-bolt/wood/hardware, extended-leg/
+other-wood and extended-leg/retained-hardware checks found no overlaps above
+0.01 mm³. All twelve stock/extension combinations pass the nominal spacing,
+square-top and full-level-foot checks; full assembly collision checks are
+limited to the two specified cases. Obsolete compact-pattern bores are absent,
+not plugged, and unrelated frame machining is retained.
+
+This experiment has **not** been natively solved or added to the viewer. The
+viewer and native archives still represent the original 50×50 mm group.
+The larger lever arm is not a drilling instruction or a demonstrated structural
+improvement. Increasing lumber width alone has not resolved the current
+conditional bolt demand concern.
+
+```sh
+uv run pytest -q tests/test_lumber_leg_spread_frame.py
+```
 
 ## What the comparison models
 
