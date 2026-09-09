@@ -46,7 +46,7 @@ def test_extended_stock_and_nominal_geometry(size, extension):
         assert floors[0].Area() == pytest.approx(38.1*model.WIDTHS[size]/along.z)
 
 
-@pytest.mark.parametrize("size,extension", [("2x8", 300.), ("2x6", 0.)])
+@pytest.mark.parametrize("size,extension", [("2x8", 300.), ("2x6", 0.), ("2x6", 300.)])
 def test_actual_new_machining_and_complete_collisions(size, extension):
     parts = {p.name: p for p in model.parts(size, extension)}
     raw = {p.name: p for p in model.parts(size, extension, False)}
