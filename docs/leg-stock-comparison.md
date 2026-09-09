@@ -160,6 +160,10 @@ substantial remaining issues in this stage after a missing contact-hull source
 fingerprint was added and every floor case rerun. This review is not structural
 approval and does not close the remaining tasks below.
 
+The [coupled-frame setup](lumber-leg-response.md) now documents the independent
+leg meshes, revised connector points and numerical acceptance checks. Native
+results remain pending; this setup does not yet rank leg strength.
+
 Next are candidate-specific coupled-frame response and source-supported
 member/connection resistance checks, followed by selectable viewer variants.
 No strength-based leg selection has been made. External material, connection
