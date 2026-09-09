@@ -86,7 +86,11 @@ the cantilever fixture. No climber rating follows from either calculation.
 `mini_moonboard.lumber_leg_frame` now defines all four stock sizes with 0, 150
 and 300 mm additional foot-centre extension. These are **new-build alternatives**,
 not instructions to reuse or plug previously drilled rim holes. The existing
-viewer/default design remains unchanged while the comparison is developed.
+default design remains unchanged. All twelve alternatives are selectable in the
+[interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=lumber-leg-2x8-e150).
+Each displays the actual complete candidate assembly, including new leg/rim
+bores and bolts, with metric and imperial dimensions. These are unqualified
+comparison views, not a selected replacement or a retrofit drilling guide.
 
 Each leg is one straight 38.1 mm thick member: grain along its length, a square
 top cut and a horizontal full-width floor cut. All variants fit a nominal 8 ft
@@ -160,11 +164,11 @@ substantial remaining issues in this stage after a missing contact-hull source
 fingerprint was added and every floor case rerun. This review is not structural
 approval and does not close the remaining tasks below.
 
-The [coupled-frame setup](lumber-leg-response.md) now documents the independent
-leg meshes, revised connector points and numerical acceptance checks. Native
-results remain pending; this setup does not yet rank leg strength.
+The [coupled-frame comparison](lumber-leg-response.md) now documents the independent
+leg meshes, revised connector points and first accepted 2×8/e0 native results.
+The selectable viewer variants are available. Neither result ranks leg strength.
 
-Next are candidate-specific coupled-frame response and source-supported
-member/connection resistance checks, followed by selectable viewer variants.
+Next are the remaining stock/extension response comparisons, mesh sensitivity
+and source-supported member/connection resistance checks.
 No strength-based leg selection has been made. External material, connection
 and final installation verification remain open.
