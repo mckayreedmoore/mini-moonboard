@@ -5,12 +5,13 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [selective single-stock revision](docs/selective-2x6-layout.md).**
-[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear).
-Nine lumber members remain 2×6. Four single 3×6 shared receivers and one 2×10
-header resolve the preceding seam-edge and bearing fit failures. No paired
-framing; ordinary screws and bolts remain. Fit passes do not establish strength
-or floor stability. This is not build-ready. The all-2×6 baseline is preserved.
+**Current MVP: [paired horizontal rails and center base attachment](docs/paired-rail-base.md).**
+[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear).
+Four independent 2×6 seam rails give adjacent panels separate screw receivers.
+An added bracket connects the single center principal to the header. Single
+3×6 center principal/post and a single 2×10 header remain; ordinary panel screws
+and bolts are modeled. Insert development, strength and floor qualification
+remain unfinished. This is not build-ready. The all-2×6 baseline is preserved.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
@@ -37,14 +38,14 @@ release several artificial bonds. Peak loaded-hold displacement ranges from
 7.81 to 2.78 mm across three assumed connector stiffnesses. These are conditional
 results, not real stiffness bounds. The [leg-bolt comparison](docs/leg-bolt-resistance.md)
 separates the requested 250 lb maximum from the 300 lb sensitivity; neither is
-qualified. [Current floor-equilibrium screening](docs/wide-floor-screen.md)
+qualified. [Historical wide-frame floor-equilibrium screening](docs/wide-floor-screen.md)
 does not establish actual friction or replace compliant unanchored validation.
 
 **Latest leg comparison:** [paired plywood versus 2×6–2×12](docs/lumber-leg-response.md),
 followed by [extended 2×6/2×8 legs with a wider bolt pattern](docs/spread-leg-response.md).
 The latter favors 2×6 as the next lighter development candidate, not a released
 design. Joint resistance, full-member stability and actual floor behavior remain
-unqualified; the default model above has not changed.
+unqualified; these historical results do not qualify the current default model.
 
 Preserved predecessor diagnostics: [aggregate base actions](docs/timber-base-demand.md),
 [panel-edge bond sensitivity](docs/timber-release-results.md), and
@@ -448,7 +449,11 @@ interactive viewer's Design selector. These remain development candidates.
 
 | Variant | CAD render | Interactive model |
 | --- | --- | --- |
-| Current: nine 2×6s, four single 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
+| Current: paired horizontal 2×6 rails and center base bracket | [Render](exports/paired-rail-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear) |
+| Single-stock revision: nine 2×6s, four 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
 | Single-member all-2×6 baseline | [Render](exports/single-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear) |
 | Revised connections; paired seam rails retained | [Render](exports/square-2x6-revised-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear) |
 | Original stock substitution; paired seam rails retained | [Render](exports/square-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-development&view=rear) |
+
+The [current revision notes](docs/paired-rail-base.md) explain the center base
+attachment, independent rail connections and remaining strength checks.

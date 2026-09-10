@@ -1,0 +1,5578 @@
+{
+  "candidate": "selective-2x6-development",
+  "qualified_for_design": false,
+  "current_connection_demands_available": false,
+  "joint_strength_passed": false,
+  "limits": "Entry-section stock edge/end and screw spacing screen, not splitting or local service-pocket qualification. Loads may reverse; the toward-end bound is screened at both ends. No panel demand division by screw count, bracket capacity sum, group resistance or prior FE force transfer. Commercial bracket mixed-axis classification and plywood/washer/bolt combined action remain open.",
+  "reference": {
+    "checked_date": "2026-09-09",
+    "status": "Conditional reference data; no current joint demand or qualification",
+    "sources": {
+      "spax_report": "https://dxf82wtg340bb.cloudfront.net/resources/DrJ-Report-Altenloh-Brinck-Co-US-Inc-SPAX-6-Construction-Screw-2010-02.pdf",
+      "spax_product": "https://spax.us/products/unidrive-combination-ph-sq-flat-head-yellow-zinc",
+      "awc_tr12": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf"
+    },
+    "spax": {
+      "product": "XFT08P-2000 #8 x 2 in flat head T20",
+      "report_revision": "2025-11-04",
+      "report_renewal": "2027-01-01",
+      "table_19_mm": {
+        "edge_any_direction": 9.525,
+        "end_toward": 44.45,
+        "end_away_or_perpendicular": 31.75,
+        "same_row_parallel": 44.45,
+        "same_row_perpendicular": 31.75,
+        "rows_inline": 15.875,
+        "rows_staggered": 9.525
+      },
+      "nominal_thread_length_in_including_tip": 1.24,
+      "withdrawal_lbf_per_in": {
+        "Douglas_Fir_SG_050": 133,
+        "SPF_Hem_Fir_SG_042": 127
+      },
+      "plywood_head_pullthrough_lbf_SG_050_23_32": 212,
+      "lateral_lbf_SPF_042_plywood_PS1_SG_min_039_23_32": 51,
+      "limits": "References require applicable adjustments and actual product, material and installation verification. The lateral table specifies SPF framing; no Douglas-fir lateral capacity is assigned. Thread length includes the tapered tip; no full-size effective thread assumption. Table 19 requires larger spacing when needed to prevent splitting. No stagger reduction used here. No distributed fastener demand, combined-action or group resistance supplied."
+    },
+    "leg_bolt": {
+      "effective_diameter_in": 0.298,
+      "bearing_psi_each_member": 3650,
+      "bending_yield_psi_assumed": 45000,
+      "limits": "Supplied-input TR12 single-fastener lateral reference for two continuous 38.1 mm sawn members; purchased properties, axial/washer/group/splitting effects, adjustments and slip unqualified. No full-body diameter exception and no multiplication by bolt count."
+    }
+  },
+  "panel_kicker_screws": [
+    {
+      "connection": "timber_panel_lower_left_1",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        75.1046324608229,
+        2378.4000000000005
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54374999999997,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -75.1046324608229,
+          2378.4000000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_2",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1174.3046324608263,
+        1279.1999999999998
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1174.3046324608263,
+          1279.1999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_3",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        63.1046324608229,
+        2352.3
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375000000002,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -63.1046324608229,
+          -48.52167272329136
+        ],
+        [
+          -9.078327276707777,
+          31.478327276708676
+        ],
+        [
+          70.92167272329196,
+          131.47832727670848
+        ],
+        [
+          170.92167272329206,
+          231.47832727670857
+        ],
+        [
+          270.92167272329215,
+          331.4783272767087
+        ],
+        [
+          370.9216727232919,
+          431.4783272767088
+        ],
+        [
+          470.9216727232923,
+          531.4783272767085
+        ],
+        [
+          570.9216727232921,
+          631.478327276614
+        ],
+        [
+          670.9216727233865,
+          731.4783272768036
+        ],
+        [
+          770.9216727231974,
+          831.4783272768021
+        ],
+        [
+          870.9216727231978,
+          931.4783272768026
+        ],
+        [
+          970.9216727231976,
+          1031.4783272768022
+        ],
+        [
+          1070.9216727231974,
+          1131.4783272766144
+        ],
+        [
+          1170.9216727233866,
+          1251.478327276615
+        ],
+        [
+          1290.921672723387,
+          1351.4783272766147
+        ],
+        [
+          1390.9216727233866,
+          1451.478327276615
+        ],
+        [
+          1490.9216727233866,
+          1551.478327276614
+        ],
+        [
+          1590.9216727233866,
+          1651.478327276614
+        ],
+        [
+          1690.9216727233868,
+          1751.4783272768032
+        ],
+        [
+          1790.9216727231972,
+          1851.4783272766135
+        ],
+        [
+          1890.9216727233868,
+          1951.478327276614
+        ],
+        [
+          1990.9216727233866,
+          2051.478327276426
+        ],
+        [
+          2090.921672723575,
+          2151.478327276991
+        ],
+        [
+          2190.921672723007,
+          2251.478327276614
+        ],
+        [
+          2290.9216727233866,
+          2352.3
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_4",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1154.3046324608267,
+        1261.0999999999995
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1154.3046324608267,
+          -1139.721672723197
+        ],
+        [
+          -1100.2783272768029,
+          -1059.721672723103
+        ],
+        [
+          -1020.2783272768977,
+          -959.7216727231971
+        ],
+        [
+          -920.2783272768031,
+          -859.7216727231971
+        ],
+        [
+          -820.2783272768029,
+          -759.7216727231023
+        ],
+        [
+          -720.2783272768975,
+          -659.7216727231971
+        ],
+        [
+          -620.2783272768028,
+          -559.7216727231971
+        ],
+        [
+          -520.2783272768027,
+          -459.721672723197
+        ],
+        [
+          -420.2783272768029,
+          -359.7216727231969
+        ],
+        [
+          -320.27832727680277,
+          -259.72167272310253
+        ],
+        [
+          -220.27832727689724,
+          -159.72167272347917
+        ],
+        [
+          -120.27832727651887,
+          -59.72167272310333
+        ],
+        [
+          -20.27832727689833,
+          40.27832727689741
+        ],
+        [
+          79.7216727231027,
+          160.27832727651986
+        ],
+        [
+          199.7216727234818,
+          260.2783272770848
+        ],
+        [
+          299.72167272291347,
+          360.2783272768977
+        ],
+        [
+          399.7216727231024,
+          460.2783272768032
+        ],
+        [
+          499.721672723197,
+          560.2783272768979
+        ],
+        [
+          599.7216727231025,
+          660.2783272768977
+        ],
+        [
+          699.7216727231023,
+          760.2783272768975
+        ],
+        [
+          799.7216727231028,
+          860.2783272768029
+        ],
+        [
+          899.7216727231973,
+          960.2783272769911
+        ],
+        [
+          999.721672723007,
+          1060.2783272768017
+        ],
+        [
+          1099.7216727231962,
+          1160.2783272769914
+        ],
+        [
+          1199.7216727230073,
+          1261.0999999999995
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_5",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        421.5046324608238,
+        2031.9999999999998
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54374999999998,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -421.5046324608238,
+          2031.9999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_6",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        827.9046324608248,
+        1625.5999999999995
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54374999999996,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -827.9046324608248,
+          1625.5999999999995
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_7",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        385.5046324608235,
+        2029.9
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -385.5046324608235,
+          -370.92167272300856
+        ],
+        [
+          -331.47832727699245,
+          -290.9216727230082
+        ],
+        [
+          -251.47832727699236,
+          -190.9216727230081
+        ],
+        [
+          -151.47832727699227,
+          -90.92167272300836
+        ],
+        [
+          -51.47832727699217,
+          9.078327276991455
+        ],
+        [
+          48.521672723007576,
+          109.07832727670782
+        ],
+        [
+          148.52167272310194,
+          209.07832727708558
+        ],
+        [
+          248.52167272291194,
+          309.07832727708535
+        ],
+        [
+          348.52167272291206,
+          409.0783272770858
+        ],
+        [
+          448.52167272291183,
+          509.07832727689663
+        ],
+        [
+          548.5216727231024,
+          609.0783272770852
+        ],
+        [
+          648.521672722912,
+          709.0783272769908
+        ],
+        [
+          748.5216727230066,
+          809.0783272769916
+        ],
+        [
+          848.5216727230073,
+          929.0783272764259
+        ],
+        [
+          968.5216727235752,
+          1029.078327277179
+        ],
+        [
+          1068.5216727228185,
+          1129.0783272769922
+        ],
+        [
+          1168.521672723008,
+          1229.0783272766143
+        ],
+        [
+          1268.5216727233874,
+          1329.0783272768017
+        ],
+        [
+          1368.521672723197,
+          1429.078327276991
+        ],
+        [
+          1468.521672723008,
+          1529.0783272769904
+        ],
+        [
+          1568.5216727230072,
+          1629.07832727699
+        ],
+        [
+          1668.5216727230081,
+          1729.0783272769902
+        ],
+        [
+          1768.5216727230077,
+          1829.0783272769902
+        ],
+        [
+          1868.5216727230077,
+          1929.0783272768035
+        ],
+        [
+          1968.5216727231968,
+          2029.9
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_8",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        785.9046324608244,
+        1629.5000000000005
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -785.9046324608244,
+          -771.3216727231967
+        ],
+        [
+          -731.8783272768026,
+          -691.3216727232912
+        ],
+        [
+          -651.8783272767079,
+          -591.3216727232914
+        ],
+        [
+          -551.8783272767078,
+          -491.32167272329133
+        ],
+        [
+          -451.878327276708,
+          -391.3216727231967
+        ],
+        [
+          -351.87832727680245,
+          -291.32167272319685
+        ],
+        [
+          -251.8783272768024,
+          -191.32167272319674
+        ],
+        [
+          -151.87832727680262,
+          -91.32167272319666
+        ],
+        [
+          -51.87832727680254,
+          8.678327276803095
+        ],
+        [
+          48.12167272319756,
+          108.6783272768032
+        ],
+        [
+          148.12167272319766,
+          208.67832727680332
+        ],
+        [
+          248.1216727231974,
+          308.6783272766142
+        ],
+        [
+          348.1216727233863,
+          408.6783272768977
+        ],
+        [
+          448.1216727231031,
+          528.6783272768032
+        ],
+        [
+          568.1216727231977,
+          628.6783272768037
+        ],
+        [
+          668.1216727231974,
+          728.6783272768034
+        ],
+        [
+          768.1216727231979,
+          828.6783272768032
+        ],
+        [
+          868.1216727231977,
+          928.6783272768037
+        ],
+        [
+          968.1216727231979,
+          1028.678327276993
+        ],
+        [
+          1068.1216727230087,
+          1128.6783272768034
+        ],
+        [
+          1168.121672723197,
+          1228.6783272768034
+        ],
+        [
+          1268.1216727231968,
+          1328.6783272769906
+        ],
+        [
+          1368.1216727230064,
+          1428.6783272773664
+        ],
+        [
+          1468.1216727226285,
+          1528.6783272768023
+        ],
+        [
+          1568.1216727231968,
+          1629.5000000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_9",
+      "receiver": "base_rail_bottom_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        389.9500000000003,
+        759.4000000000001
+      ],
+      "edge_distances_mm": [
+        19.050000000000594,
+        19.05000000000014
+      ],
+      "gross_penetration_mm": 32.543749999999974,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -389.9500000000003,
+          759.4000000000001
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000594,
+          19.05000000000014
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_10",
+      "receiver": "base_rail_bottom_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        732.9500000000003,
+        416.4000000000001
+      ],
+      "edge_distances_mm": [
+        19.050000000000594,
+        19.05000000000014
+      ],
+      "gross_penetration_mm": 32.543749999999974,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -732.9500000000003,
+          416.4000000000001
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000594,
+          19.05000000000014
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_11",
+      "receiver": "base_rail_mid_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        389.9500000000003,
+        752.3800134132975
+      ],
+      "edge_distances_mm": [
+        15.874999999999783,
+        47.625000000000156
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -389.9500000000003,
+          -247.61998658670245
+        ],
+        [
+          -208.480013413297,
+          -47.61998658670245
+        ],
+        [
+          -8.480013413297002,
+          152.38001341329755
+        ],
+        [
+          191.519986586703,
+          352.38001341329755
+        ],
+        [
+          391.519986586703,
+          552.3800134132975
+        ],
+        [
+          591.519986586703,
+          752.3800134132975
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.874999999999783,
+          47.625000000000156
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_left_12",
+      "receiver": "base_rail_mid_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        717.9500000000003,
+        424.38001341329755
+      ],
+      "edge_distances_mm": [
+        15.874999999999783,
+        47.625000000000156
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -717.9500000000003,
+          -575.619986586607
+        ],
+        [
+          -536.4800134133925,
+          -375.61998658660696
+        ],
+        [
+          -336.4800134133925,
+          -175.61998658670245
+        ],
+        [
+          -136.480013413297,
+          24.380013413297547
+        ],
+        [
+          63.519986586703,
+          224.38001341329755
+        ],
+        [
+          263.519986586703,
+          424.38001341329755
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.874999999999783,
+          47.625000000000156
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_1",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        95.10463246082318,
+        2320.3
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.543750000000074,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -95.10463246082318,
+          2320.3
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          -40.6750000002794
+        ],
+        [
+          -29.47499999972024,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_2",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1194.3046324608263,
+        1221.1
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1194.3046324608263,
+          1221.1
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_3",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        75.1046324608229,
+        2378.4000000000005
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54374999999997,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -75.1046324608229,
+          2378.4000000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_4",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1174.3046324608263,
+        1279.1999999999998
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1174.3046324608263,
+          1279.1999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_5",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        441.5046324608238,
+        1973.9000000000005
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.543750000000024,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -441.5046324608238,
+          1973.9000000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_6",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        847.904632460825,
+        1567.4999999999995
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -847.904632460825,
+          1567.4999999999995
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_7",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        421.5046324608238,
+        2031.9999999999998
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54374999999998,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -421.5046324608238,
+          2031.9999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_8",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        827.9046324608248,
+        1625.5999999999995
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54374999999996,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -827.9046324608248,
+          1625.5999999999995
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_9",
+      "receiver": "base_rail_bottom_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        381.00000000000006,
+        768.3500000000004
+      ],
+      "edge_distances_mm": [
+        19.050000000000594,
+        19.05000000000014
+      ],
+      "gross_penetration_mm": 32.543749999999974,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -381.00000000000006,
+          768.3500000000004
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000594,
+          19.05000000000014
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_10",
+      "receiver": "base_rail_bottom_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        777.7,
+        371.6500000000003
+      ],
+      "edge_distances_mm": [
+        19.050000000000594,
+        19.05000000000014
+      ],
+      "gross_penetration_mm": 32.543749999999974,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -777.7,
+          371.6500000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000594,
+          19.05000000000014
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_11",
+      "receiver": "base_rail_mid_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        377.00000000000006,
+        772.3500000000004
+      ],
+      "edge_distances_mm": [
+        15.874999999999783,
+        47.625000000000156
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -377.00000000000006,
+          -247.5199865866071
+        ],
+        [
+          -208.38001341339265,
+          -47.519986586607104
+        ],
+        [
+          -8.380013413392646,
+          152.4800134133929
+        ],
+        [
+          191.61998658660735,
+          352.4800134133929
+        ],
+        [
+          391.61998658660735,
+          552.480013413393
+        ],
+        [
+          591.6199865866074,
+          772.3500000000004
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.874999999999783,
+          47.625000000000156
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_lower_right_12",
+      "receiver": "base_rail_mid_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        777.7,
+        371.6500000000003
+      ],
+      "edge_distances_mm": [
+        15.874999999999783,
+        47.625000000000156
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -777.7,
+          -648.2199865866071
+        ],
+        [
+          -609.0800134133926,
+          -448.2199865866071
+        ],
+        [
+          -409.08001341339263,
+          -248.2199865866071
+        ],
+        [
+          -209.08001341339263,
+          -48.21998658670259
+        ],
+        [
+          -9.080013413297138,
+          151.7800134132974
+        ],
+        [
+          190.91998658670286,
+          371.6500000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.874999999999783,
+          47.625000000000156
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_1",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1294.3046324608272,
+        1159.1999999999998
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1294.3046324608272,
+          1159.1999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_2",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2353.5046324608306,
+        99.99999999999923
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375000000025,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2353.5046324608306,
+          99.99999999999923
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_3",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1274.3046324608272,
+        1141.0999999999992
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1274.3046324608272,
+          -1259.7216727231971
+        ],
+        [
+          -1220.2783272768029,
+          -1179.7216727231503
+        ],
+        [
+          -1140.2783272768509,
+          -1079.7216727232449
+        ],
+        [
+          -1040.2783272767556,
+          -979.7216727231032
+        ],
+        [
+          -940.278327276898,
+          -879.721672723009
+        ],
+        [
+          -840.2783272769931,
+          -779.7216727230089
+        ],
+        [
+          -740.278327276993,
+          -679.7216727231037
+        ],
+        [
+          -640.2783272768984,
+          -579.7216727231971
+        ],
+        [
+          -540.2783272768031,
+          -479.72167272310344
+        ],
+        [
+          -440.2783272768985,
+          -379.721672723197
+        ],
+        [
+          -340.2783272768029,
+          -279.72167272319723
+        ],
+        [
+          -240.27832727680277,
+          -179.7216727231035
+        ],
+        [
+          -140.2783272768982,
+          -79.72167272319703
+        ],
+        [
+          -40.27832727680292,
+          40.27832727680277
+        ],
+        [
+          79.72167272319689,
+          140.27832727680288
+        ],
+        [
+          179.721672723197,
+          240.27832727680263
+        ],
+        [
+          279.7216727231971,
+          340.27832727689764
+        ],
+        [
+          379.7216727231023,
+          440.278327276991
+        ],
+        [
+          479.7216727230068,
+          540.2783272768978
+        ],
+        [
+          579.7216727231025,
+          640.2783272769911
+        ],
+        [
+          679.721672723007,
+          740.2783272769909
+        ],
+        [
+          779.7216727230068,
+          840.2783272766139
+        ],
+        [
+          879.7216727233862,
+          940.2783272769911
+        ],
+        [
+          979.721672723007,
+          1040.278327276803
+        ],
+        [
+          1079.7216727231976,
+          1141.0999999999992
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_4",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2305.5046324608306,
+        109.90000000000003
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.543749999999946,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2305.5046324608306,
+          -2290.9216727231496
+        ],
+        [
+          -2251.47832727685,
+          -2210.9216727231737
+        ],
+        [
+          -2171.4783272768263,
+          -2110.9216727232442
+        ],
+        [
+          -2071.4783272767554,
+          -2010.9216727231496
+        ],
+        [
+          -1971.4783272768505,
+          -1910.9216727231496
+        ],
+        [
+          -1871.4783272768502,
+          -1810.92167272315
+        ],
+        [
+          -1771.4783272768505,
+          -1710.9216727231499
+        ],
+        [
+          -1671.4783272768505,
+          -1610.9216727231496
+        ],
+        [
+          -1571.4783272768502,
+          -1510.92167272315
+        ],
+        [
+          -1471.47832727685,
+          -1410.9216727231028
+        ],
+        [
+          -1371.4783272768975,
+          -1310.92167272315
+        ],
+        [
+          -1271.4783272768505,
+          -1210.9216727231974
+        ],
+        [
+          -1171.478327276803,
+          -1110.9216727231499
+        ],
+        [
+          -1071.4783272768505,
+          -990.9216727231967
+        ],
+        [
+          -951.4783272768028,
+          -890.9216727232911
+        ],
+        [
+          -851.4783272767074,
+          -790.9216727231028
+        ],
+        [
+          -751.4783272768975,
+          -690.9216727232908
+        ],
+        [
+          -651.4783272767073,
+          -590.9216727231026
+        ],
+        [
+          -551.4783272768976,
+          -490.921672723291
+        ],
+        [
+          -451.4783272767078,
+          -390.92167272329095
+        ],
+        [
+          -351.47832727670766,
+          -290.92167272310263
+        ],
+        [
+          -251.47832727689735,
+          -190.92167272310255
+        ],
+        [
+          -151.4783272768979,
+          -90.92167272300918
+        ],
+        [
+          -51.47832727699334,
+          9.078327276614559
+        ],
+        [
+          48.52167272338731,
+          109.90000000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_5",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1640.704632460828,
+        812.8000000000003
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1640.704632460828,
+          812.8000000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_6",
+      "receiver": "base_side_left",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2047.1046324608296,
+        406.39999999999964
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.543749999999946,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2047.1046324608296,
+          406.39999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_7",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1605.7046324608277,
+        809.7000000000005
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375000000012,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1605.7046324608277,
+          -1591.121672723197
+        ],
+        [
+          -1551.678327276803,
+          -1511.12167272315
+        ],
+        [
+          -1471.6783272768503,
+          -1411.1216727231972
+        ],
+        [
+          -1371.6783272768025,
+          -1311.1216727231972
+        ],
+        [
+          -1271.678327276803,
+          -1211.121672723197
+        ],
+        [
+          -1171.6783272768027,
+          -1111.1216727230556
+        ],
+        [
+          -1071.678327276945,
+          -1011.1216727231497
+        ],
+        [
+          -971.67832727685,
+          -911.1216727231963
+        ],
+        [
+          -871.6783272768029,
+          -811.1216727231969
+        ],
+        [
+          -771.6783272768027,
+          -711.1216727231968
+        ],
+        [
+          -671.6783272768027,
+          -611.121672723197
+        ],
+        [
+          -571.6783272768025,
+          -511.1216727232915
+        ],
+        [
+          -471.6783272767083,
+          -411.12167272319687
+        ],
+        [
+          -371.67832727680275,
+          -291.12167272319675
+        ],
+        [
+          -251.67832727680292,
+          -191.1216727231024
+        ],
+        [
+          -151.67832727689708,
+          -91.12167272319718
+        ],
+        [
+          -51.67832727680272,
+          8.87832727689747
+        ],
+        [
+          48.321672723102765,
+          108.87832727689756
+        ],
+        [
+          148.32167272310258,
+          208.87832727670948
+        ],
+        [
+          248.32167272329275,
+          308.8783272768978
+        ],
+        [
+          348.32167272310244,
+          408.8783272768026
+        ],
+        [
+          448.3216727231971,
+          508.87832727670815
+        ],
+        [
+          548.3216727232917,
+          608.8783272767087
+        ],
+        [
+          648.3216727232922,
+          708.8783272768974
+        ],
+        [
+          748.3216727231029,
+          809.7000000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_8",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2006.1046324608292,
+        409.3000000000007
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.543749999999946,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2006.1046324608292,
+          -1991.5216727231495
+        ],
+        [
+          -1952.0783272768504,
+          -1911.5216727231495
+        ],
+        [
+          -1872.0783272768504,
+          -1811.5216727231966
+        ],
+        [
+          -1772.0783272768026,
+          -1711.5216727231966
+        ],
+        [
+          -1672.0783272768026,
+          -1611.5216727231968
+        ],
+        [
+          -1572.0783272768024,
+          -1511.5216727231973
+        ],
+        [
+          -1472.0783272768022,
+          -1411.5216727231973
+        ],
+        [
+          -1372.0783272768028,
+          -1311.521672723103
+        ],
+        [
+          -1272.0783272768983,
+          -1211.5216727230559
+        ],
+        [
+          -1172.0783272769454,
+          -1111.52167272315
+        ],
+        [
+          -1072.0783272768504,
+          -1011.5216727231029
+        ],
+        [
+          -972.078327276898,
+          -911.5216727232917
+        ],
+        [
+          -872.0783272767084,
+          -811.5216727231971
+        ],
+        [
+          -772.0783272768028,
+          -691.5216727231027
+        ],
+        [
+          -652.0783272768974,
+          -591.5216727231026
+        ],
+        [
+          -552.0783272768973,
+          -491.5216727231025
+        ],
+        [
+          -452.07832727689754,
+          -391.5216727231027
+        ],
+        [
+          -352.0783272768974,
+          -291.5216727231972
+        ],
+        [
+          -252.07832727680307,
+          -191.52167272300795
+        ],
+        [
+          -152.07832727699216,
+          -91.52167272310244
+        ],
+        [
+          -52.07832727689743,
+          8.478327276897662
+        ],
+        [
+          47.92167272310232,
+          108.4783272769904
+        ],
+        [
+          147.92167272291132,
+          208.47832727699014
+        ],
+        [
+          247.92167272300634,
+          308.47832727670817
+        ],
+        [
+          347.9216727232921,
+          409.3000000000007
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_9",
+      "receiver": "base_rail_mid_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        376.9500000000003,
+        772.4000000000001
+      ],
+      "edge_distances_mm": [
+        22.70315502677508,
+        15.874999999999462
+      ],
+      "gross_penetration_mm": 32.543749999999804,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -376.9500000000003,
+          772.4000000000001
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -22.70315502677508,
+          15.874999999999462
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_10",
+      "receiver": "base_rail_mid_left",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        757.9500000000003,
+        391.4000000000001
+      ],
+      "edge_distances_mm": [
+        16.268942262634056,
+        15.874999999999462
+      ],
+      "gross_penetration_mm": 32.543749999999804,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -757.9500000000003,
+          391.4000000000001
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -16.268942262634056,
+          15.874999999999462
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_11",
+      "receiver": "base_rail_top",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        361.9500000000003,
+        2000.2500000000005
+      ],
+      "edge_distances_mm": [
+        19.049999999999084,
+        19.050000000000367
+      ],
+      "gross_penetration_mm": 32.543749999999775,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -361.9500000000003,
+          2000.2500000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999084,
+          19.050000000000367
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_left_12",
+      "receiver": "base_rail_top",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        742.9500000000003,
+        1619.2500000000005
+      ],
+      "edge_distances_mm": [
+        19.049999999999084,
+        19.050000000000367
+      ],
+      "gross_penetration_mm": 32.543749999999775,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -742.9500000000003,
+          1619.2500000000005
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999084,
+          19.050000000000367
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_1",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1314.3046324608272,
+        1101.0999999999995
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1314.3046324608272,
+          1101.0999999999995
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_2",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2373.504632460831,
+        41.89999999999965
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.543750000000124,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2373.504632460831,
+          41.89999999999965
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": false,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_3",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1294.3046324608272,
+        1159.1999999999998
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1294.3046324608272,
+          1159.1999999999998
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_4",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2353.5046324608306,
+        99.99999999999923
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375000000025,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2353.5046324608306,
+          99.99999999999923
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_5",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1660.704632460828,
+        754.6999999999996
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1660.704632460828,
+          754.6999999999996
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_6",
+      "receiver": "base_principal_center",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2067.1046324608296,
+        348.30000000000075
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.543749999999946,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2067.1046324608296,
+          348.30000000000075
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_7",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1640.704632460828,
+        812.8000000000003
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375000000003,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1640.704632460828,
+          812.8000000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_8",
+      "receiver": "base_side_right",
+      "grain_xyz": [
+        0.0,
+        0.6427876096865427,
+        0.7660444431189752
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        2047.1046324608296,
+        406.39999999999964
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.543749999999946,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -2047.1046324608296,
+          406.39999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_9",
+      "receiver": "base_rail_mid_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        396.00000000000006,
+        753.3500000000004
+      ],
+      "edge_distances_mm": [
+        47.62499999999949,
+        15.874999999999462
+      ],
+      "gross_penetration_mm": 32.543749999999804,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -396.00000000000006,
+          753.3500000000004
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.62499999999949,
+          15.874999999999462
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_10",
+      "receiver": "base_rail_mid_right",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        789.7,
+        359.6500000000003
+      ],
+      "edge_distances_mm": [
+        47.62499999999949,
+        15.874999999999462
+      ],
+      "gross_penetration_mm": 32.543749999999804,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -789.7,
+          359.6500000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.62499999999949,
+          15.874999999999462
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_11",
+      "receiver": "base_rail_top",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1593.8500000000004,
+        768.3500000000004
+      ],
+      "edge_distances_mm": [
+        19.049999999999084,
+        19.050000000000367
+      ],
+      "gross_penetration_mm": 32.543749999999775,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1593.8500000000004,
+          768.3500000000004
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999084,
+          19.050000000000367
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_panel_upper_right_12",
+      "receiver": "base_rail_top",
+      "grain_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        1987.5500000000004,
+        374.6500000000003
+      ],
+      "edge_distances_mm": [
+        19.049999999999084,
+        19.050000000000367
+      ],
+      "gross_penetration_mm": 32.543749999999775,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -1987.5500000000004,
+          374.6500000000003
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999084,
+          19.050000000000367
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_left_0_1",
+      "receiver": "base_post_outer_left",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        60.0,
+        126.89999999999964
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -60.0,
+          126.89999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_left_0_2",
+      "receiver": "base_post_outer_left",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        140.0,
+        46.899999999999636
+      ],
+      "edge_distances_mm": [
+        19.049999999999727,
+        19.049999999999727
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -140.0,
+          46.899999999999636
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.049999999999727,
+          19.049999999999727
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_left_1_1",
+      "receiver": "base_post_center",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        50.0,
+        136.89999999999964
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -50.0,
+          136.89999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_left_1_2",
+      "receiver": "base_post_center",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        130.0,
+        56.899999999999636
+      ],
+      "edge_distances_mm": [
+        15.875,
+        47.625
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -130.0,
+          56.899999999999636
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -15.875,
+          47.625
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_right_0_1",
+      "receiver": "base_post_center",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        80.0,
+        106.89999999999964
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -80.0,
+          106.89999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_right_0_2",
+      "receiver": "base_post_center",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        160.0,
+        26.899999999999636
+      ],
+      "edge_distances_mm": [
+        47.625,
+        15.875
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -160.0,
+          26.899999999999636
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -47.625,
+          15.875
+        ]
+      ],
+      "passes_end_away_or_perpendicular": false,
+      "passes_reversible_end": false,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_right_1_1",
+      "receiver": "base_post_outer_right",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        60.0,
+        126.89999999999964
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -60.0,
+          126.89999999999964
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    },
+    {
+      "connection": "timber_kicker_right_1_2",
+      "receiver": "base_post_outer_right",
+      "grain_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "entry_section_offset_mm": 0.001,
+      "end_distances_mm": [
+        140.0,
+        46.899999999999636
+      ],
+      "edge_distances_mm": [
+        19.050000000000182,
+        19.050000000000182
+      ],
+      "gross_penetration_mm": 32.54375,
+      "entry_section_grain_material_runs_mm": [
+        [
+          -140.0,
+          46.899999999999636
+        ]
+      ],
+      "entry_section_cross_material_runs_mm": [
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ]
+      ],
+      "passes_end_away_or_perpendicular": true,
+      "passes_reversible_end": true,
+      "passes_edge": true
+    }
+  ],
+  "screw_spacing": [
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_lower_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1099.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_lower_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 346.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_lower_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 752.7999999999997,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_upper_left_1"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_upper_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 2278.4,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1565.6,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_1",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1972.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_lower_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 752.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_lower_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 346.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_upper_left_1"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 120.00000000000017,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_upper_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1179.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 466.3999999999999,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_2",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 872.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1091.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 322.39999999999986,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 722.7999999999997,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 32.000000000000014,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1131.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 378.3999999999998,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 784.8,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1211.2000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 2242.4,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1542.6,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1942.9999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1251.2000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 2310.4,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1597.6,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_3",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 2003.9999999999998,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 768.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 368.40000000000026,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1059.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 40.00000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 712.8000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 306.4000000000001,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 120.00000000000023,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1151.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 451.3999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 851.7999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 160.00000000000023,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 506.39999999999986,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_4",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 912.7999999999997,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_5",
+        "timber_panel_lower_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 406.39999999999986,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_5",
+        "timber_panel_upper_left_1"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 872.8000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_5",
+        "timber_panel_upper_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1932.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_5",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_5",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1625.6000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_6",
+        "timber_panel_upper_left_1"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 466.4000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_6",
+        "timber_panel_upper_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1525.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_6",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 812.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_6",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1219.2000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_lower_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 400.39999999999986,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_lower_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 290.39999999999986,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_lower_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 808.8000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 55.99999999999995,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 462.40000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 888.8000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1920.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1220.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1620.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 928.8000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1988.0000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1275.2000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_7",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1681.6,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_lower_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 690.7999999999997,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_lower_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 408.4000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 344.4,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 62.00000000000014,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 488.40000000000043,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1519.6000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 819.8000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1220.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 528.4000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1587.6000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 874.8000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_8",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1281.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_9",
+        "timber_panel_lower_left_10"
+      ],
+      "receiver": "base_rail_bottom_left",
+      "parallel_mm": 343.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_11",
+        "timber_panel_lower_left_12"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 328.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_11",
+        "timber_panel_upper_left_9"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 13.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_11",
+        "timber_panel_upper_left_10"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 368.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_12",
+        "timber_panel_upper_left_9"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 341.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_left_12",
+        "timber_panel_upper_left_10"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 40.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_lower_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1099.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 346.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 752.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1179.2000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 2210.4,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1510.6,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1911.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1219.2000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 2278.4,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1565.6,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_1",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1971.9999999999995,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_lower_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 752.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 346.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 80.0000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1111.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 411.39999999999975,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 811.7999999999997,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 120.00000000000017,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1179.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 466.39999999999986,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_2",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 872.7999999999997,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_lower_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1099.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_lower_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 346.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_lower_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 752.7999999999997,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_upper_right_3"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_upper_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 2278.4,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1565.6,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_3",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1972.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_lower_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 752.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_lower_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 346.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_upper_right_3"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 120.00000000000017,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_upper_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1179.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 466.3999999999999,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_4",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 872.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_lower_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 406.4000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 832.8000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1864.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1164.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1564.6,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 872.8000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1932.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_5",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1625.6,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_left_3"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 426.4000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1457.6000000000004,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 757.8,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1158.2,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 466.4000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1525.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 812.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_6",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1219.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_7",
+        "timber_panel_lower_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 406.39999999999986,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_7",
+        "timber_panel_upper_right_3"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 872.8000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_7",
+        "timber_panel_upper_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1932.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_7",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1219.2,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_7",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1625.6000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_8",
+        "timber_panel_upper_right_3"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 466.4000000000004,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_8",
+        "timber_panel_upper_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1525.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_8",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 812.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_8",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1219.2000000000003,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_9",
+        "timber_panel_lower_right_10"
+      ],
+      "receiver": "base_rail_bottom_right",
+      "parallel_mm": 396.7,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_11",
+        "timber_panel_lower_right_12"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 400.7,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_11",
+        "timber_panel_upper_right_9"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 19.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_11",
+        "timber_panel_upper_right_10"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 412.7,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_12",
+        "timber_panel_upper_right_9"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 381.7,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_lower_right_12",
+        "timber_panel_upper_right_10"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 12.0,
+      "perpendicular_mm": 31.749999999999968,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_1",
+        "timber_panel_upper_left_2"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 1059.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_1",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 346.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_1",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 752.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_2",
+        "timber_panel_upper_left_5"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 712.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_2",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 306.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_left_4"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1031.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 331.3999999999995,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 731.7999999999995,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 39.99999999999997,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1099.1999999999998,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 386.39999999999964,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_3",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 792.7999999999995,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_left_7"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 699.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 299.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 991.1999999999998,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 68.00000000000003,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 644.8000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_4",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 238.4000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_5",
+        "timber_panel_upper_left_6"
+      ],
+      "receiver": "base_side_left",
+      "parallel_mm": 406.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_7",
+        "timber_panel_upper_left_8"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 400.4,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_7",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 291.3999999999996,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_7",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 767.8000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_7",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 55.00000000000006,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_7",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 461.4,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_8",
+        "timber_panel_upper_right_1"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 691.7999999999996,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_8",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 367.4000000000002,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_8",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 345.4,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_8",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 60.99999999999997,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_9",
+        "timber_panel_upper_left_10"
+      ],
+      "receiver": "base_rail_mid_left",
+      "parallel_mm": 381.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_11",
+        "timber_panel_upper_left_12"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 381.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_11",
+        "timber_panel_upper_right_11"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 1231.9,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_11",
+        "timber_panel_upper_right_12"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 1625.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_12",
+        "timber_panel_upper_right_11"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 850.9000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_left_12",
+        "timber_panel_upper_right_12"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 1244.6000000000001,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_1",
+        "timber_panel_upper_right_2"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 1059.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_1",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 346.39999999999964,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_1",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 752.7999999999995,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_2",
+        "timber_panel_upper_right_5"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 712.8000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_2",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 306.40000000000026,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_3",
+        "timber_panel_upper_right_4"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 1059.1999999999998,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_3",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 346.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_3",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 752.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_4",
+        "timber_panel_upper_right_7"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 712.8,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_4",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 306.39999999999975,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_5",
+        "timber_panel_upper_right_6"
+      ],
+      "receiver": "base_principal_center",
+      "parallel_mm": 406.3999999999999,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_7",
+        "timber_panel_upper_right_8"
+      ],
+      "receiver": "base_side_right",
+      "parallel_mm": 406.4000000000002,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_9",
+        "timber_panel_upper_right_10"
+      ],
+      "receiver": "base_rail_mid_right",
+      "parallel_mm": 393.7,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_panel_upper_right_11",
+        "timber_panel_upper_right_12"
+      ],
+      "receiver": "base_rail_top",
+      "parallel_mm": 393.7,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_0_1",
+        "timber_kicker_left_0_2"
+      ],
+      "receiver": "base_post_outer_left",
+      "parallel_mm": 80.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_1_1",
+        "timber_kicker_left_1_2"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 80.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_1_1",
+        "timber_kicker_right_0_1"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 30.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_1_1",
+        "timber_kicker_right_0_2"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 110.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_1_2",
+        "timber_kicker_right_0_1"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 50.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_left_1_2",
+        "timber_kicker_right_0_2"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 30.0,
+      "perpendicular_mm": 31.75,
+      "rule": "rows_inline",
+      "required_mm": 15.875,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_right_0_1",
+        "timber_kicker_right_0_2"
+      ],
+      "receiver": "base_post_center",
+      "parallel_mm": 80.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    },
+    {
+      "connections": [
+        "timber_kicker_right_1_1",
+        "timber_kicker_right_1_2"
+      ],
+      "receiver": "base_post_outer_right",
+      "parallel_mm": 80.0,
+      "perpendicular_mm": 0.0,
+      "rule": "same_row_parallel",
+      "required_mm": 44.45,
+      "passed": true
+    }
+  ],
+  "all_tested_product_geometry_gates_passed": false,
+  "failures": [
+    {
+      "gate": "passes_reversible_end",
+      "connection": "timber_panel_upper_right_2",
+      "receiver": "base_principal_center"
+    },
+    {
+      "gate": "passes_end_away_or_perpendicular",
+      "connection": "timber_kicker_right_0_2",
+      "receiver": "base_post_center"
+    },
+    {
+      "gate": "passes_reversible_end",
+      "connection": "timber_kicker_right_0_2",
+      "receiver": "base_post_center"
+    }
+  ],
+  "leg_bolt_stacks": [
+    {
+      "connection": "lumber_leg_bolt_left_1",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13199999999961,
+            78.23199999999952
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_left_2",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13199999999961,
+            78.23199999999952
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_left_3",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13199999999961,
+            78.23199999999952
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_left_4",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13199999999961,
+            78.23199999999952
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_right_1",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13200000000006,
+            78.23199999999997
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_right_2",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13200000000006,
+            78.23199999999997
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_right_3",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13200000000006,
+            78.23199999999997
+          ]
+        ]
+      ]
+    },
+    {
+      "connection": "lumber_leg_bolt_right_4",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "raw_intervals_mm": [
+        [
+          [
+            2.0319999999999254,
+            40.131999999999834
+          ]
+        ],
+        [
+          [
+            40.13200000000006,
+            78.23199999999997
+          ]
+        ]
+      ]
+    }
+  ],
+  "conditional_leg_single_fastener_reference": {
+    "inputs": {
+      "main_length_in": 1.5,
+      "side_length_in": 1.5,
+      "main_bearing_lb_in": 1087.7,
+      "side_bearing_lb_in": 1087.7,
+      "main_yield_moment_lb_in": 198.47693999999998,
+      "side_yield_moment_lb_in": 198.47693999999998,
+      "gap_in": 0.0,
+      "reduction_terms": {
+        "Im": 5.0,
+        "Is": 5.0,
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0
+      }
+    },
+    "yield_values_lbf": {
+      "Im": 1631.5500000000002,
+      "Is": 1631.5500000000002,
+      "II": 675.8101376898234,
+      "IIIm": 668.971413145398,
+      "IIIs": 668.971413145398,
+      "IV": 657.0895945576981
+    },
+    "reference_values_lbf": {
+      "Im": 326.31000000000006,
+      "Is": 326.31000000000006,
+      "II": 150.18003059773852,
+      "IIIm": 167.2428532863495,
+      "IIIs": 167.2428532863495,
+      "IV": 164.27239863942452
+    },
+    "governing_mode": "II",
+    "reference_lateral_lbf": 150.18003059773852,
+    "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval",
+    "reference_lateral_n": 668.0340582853437,
+    "steel_Fyb_assumed_psi": 45000.0,
+    "steel_and_thread_geometry_qualified": false
+  },
+  "recommended_kicker_axis": {
+    "connection": "timber_kicker_right_0_2",
+    "current_z_mm": 160.0,
+    "preliminary_z_mm": 140.0,
+    "resulting_post_top_distance_mm": 46.900000000000006,
+    "status": "Recommendation only; fresh hardware, panel, repair-reserve and service collision checks required; no CAD changed"
+  },
+  "source_sha256": {
+    "fea/selective_connection_strength.py": "9211d899186d853fecdb59e8a572a7f1a8f0f3a052331d51b410e324a6fca11a",
+    "docs/selective-connection-reference.json": "6bdd5a620441b82c0acfe73243f76b2b13c50608f881cc62f70080670fdd062a",
+    "fea/lumber_leg_resistance.py": "56ceb1e65f07504c1277930cb5f314dacf6b4608c0c54cefdcf223e4e8ab5609",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/leg_stock_screen.py": "1e0056c6e4bd6d8375db6266862aeddc6f5d5f94c016266ad9e5cda90ebc7b9d",
+    "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
+    "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+    "docs/selective-stock-reference.json": "2cfc60beb99fdc8716e00a6f4513d32e1795373326fc50a7aa0a74bf638598c5",
+    "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+    "mini_moonboard/backing_end_relocated_trial.py": "c0718d3fdc866d60fb074e3b12c296f1b04958c8bafbe782eda0422256204a67",
+    "mini_moonboard/backing_end_trial.py": "6722c0055e2131057cec07bc748d3cdee9295de3c078f096fabc1f79fee9ba10",
+    "mini_moonboard/base_exports.py": "d549b37c8f4acc76d4164f8130356b6d11b76d2bce93b138b2f53cfdd75e64e5",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+    "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/compact_hardware_exports.py": "47c45a55c49e36076435c1065b06f9ff6605334da1d7d51d54dfaac78659ff8b",
+    "mini_moonboard/connection_engagement.py": "965b69721c7d86947a06883333d11f895e9469be7f7adce9cda7ae6366521c7a",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+    "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/hybrid_exports.py": "e1b979ec8703ab945bc83c2b5c2b95266718010bfd75318da2ad950169f2918d",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/insert_exports.py": "bd6ea3fc8891b24b4e4e16985d0082778a9add0d4511ecef147af2172f7e468c",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/leg_hardware_trial.py": "bfbafa71dd5e682a15a175937564643681bd032eead1a3836294ebeace81f7ba",
+    "mini_moonboard/lumber_leg_exports.py": "2ac4f58638cec4c8147eb782d8e21721f256747607061e7e40ad4795f50e2067",
+    "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+    "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+    "mini_moonboard/paired_rail_exports.py": "a4a9500cbacba338cb0e5424fd3a8ad72a2c5816a70eb6c6c175c9a5d3bf9f2a",
+    "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/ply_profile_audit.py": "7cdd955376244898f0fa433788a7cb04b5cd2e93fa35a6a37d6ae589e27a1c46",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/profile_clearance.py": "248384972bc46350559f63465fd728152a170f4da29bde0bf41f5dd4dfe6afc0",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/selective_2x6_exports.py": "c1d45dd6bce5a2432b086d767d651a7cac6504f29000eb957a0ba5a6188780d7",
+    "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+    "mini_moonboard/selective_2x6_viewer.py": "4c0abfb87f344cc0013e55848d0b2c3f7a9148e05f6ef2cd28e862a566dd9199",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/single_2x6_exports.py": "7200cfde3ed64ffbfa8d941276226a3fefb2c68423483e7143efa57aaf3e5e11",
+    "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+    "mini_moonboard/single_2x6_viewer.py": "747ec75c9741d71eee784a7f4d2280d79018fe33084b7b4f8ed0e18058101403",
+    "mini_moonboard/site_inputs.py": "8547ad0ffe03540b17c51df19bc50044443d91ed62eaab5bb0800be0a2f0eb5e",
+    "mini_moonboard/sketchup.py": "fb4e477562365711b74afe6a03dd4014786c40366c74eee79ddd567b01efd64f",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/spread_leg_exports.py": "841cbee3d6d42c590630232eb1af691a660297ae4c5cc48310412e72cba2ed4a",
+    "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+    "mini_moonboard/square_2x6_exports.py": "56351e541ce3c58342aa6763358c0b1aa9152a5176aeb3f617ea095ea3fba249",
+    "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+    "mini_moonboard/square_2x6_revised_exports.py": "3d8f384a509c4ff10e9255524aff00a39540b78a2ab330af544a21535eb7cb25",
+    "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+    "mini_moonboard/square_2x6_viewer.py": "a4863d85d3972ceb956c08c08f753e01d0f173cdbbb3495f14121cbf5558f381",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+    "mini_moonboard/tied_base.py": "bd0f5ae06d7d24f08c916d6196183d8e0327d81912a42c1c7a9e42cae2588663",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_exports.py": "138260d7f3b02ff7a4f44a7d68cb9100a2bf656e40eb24b289a32944005a8c29",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/wide_exports.py": "d31d5ee8ee2bc9f5f908f9cf915ccb99d0d23f470d2a916c5fd5bf682b4e9cba",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wide_machining.py": "bebf211263b4adec9da3b33884dee6dcd90cdcee67a0f16421df7ea05014b04b",
+    "mini_moonboard/wide_machining_features.py": "14175dc61178f323f936dc6ad10464fdd47884521bf2fb91096500d900eff5f6",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9"
+  }
+}

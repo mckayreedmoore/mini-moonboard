@@ -1,8 +1,10 @@
 # Current design review guide
 
-Current MVP development: [selective single-stock revision](selective-2x6-layout.md).
-Four wider single receivers and one wider header close the preceding fit defects;
-strength, actual floor behavior and repair resistance remain unqualified.
+Current MVP development: [paired horizontal rails and center base attachment](paired-rail-base.md).
+Four independent 2×6 seam rails and a direct principal-to-header bracket are
+modeled. The center principal/post remain single 3×6 stock. Strength, actual
+floor behavior and insert connections remain unqualified. Open the linked
+current revision for its matching viewer, render and audit.
 
 The review package below is the preserved **`wide-principal-development`**
 candidate. This is an auditable development package, not approved construction or climbing plans. Historical

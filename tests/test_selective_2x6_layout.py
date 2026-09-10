@@ -40,7 +40,10 @@ def test_selective_stock_resolves_bearing_edges_and_reserves(report):
 
 def test_published_audit_sources_and_artifacts(report):
     exported = Path('exports/selective-2x6-development')
-    assert report == json.loads((exported/'geometry-audit.json').read_text())
+    saved = json.loads((exported/'geometry-audit.json').read_text())
+    # New independent variants expand discovery without changing this frozen model.
+    assert {k: v for k, v in report.items() if k != 'source_sha256'} == {
+        k: v for k, v in saved.items() if k != 'source_sha256'}
     for directory in (exported, Path('site/hybrid/selective-2x6-development')):
         manifest = json.loads((directory/'manifest.json').read_text())
         for name, sha in manifest['artifact_sha256'].items():
