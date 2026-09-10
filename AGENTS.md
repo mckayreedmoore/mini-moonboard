@@ -13,12 +13,17 @@
 
 ## Current hardware decision
 
-Develop threaded inserts with machine screws for removable face and kicker
-panels where receiver geometry and connection resistance support them. Retain
-existing through-bolts/nuts. Retain manufacturer-specified structural screws in
-commercial brackets; insert substitution does not retain their published ratings.
-Do not claim the insert concept is installed, qualified or build-ready before
-model, hardware schedule and checks have actually been updated.
+For the next MVP candidate, use ordinary wood screws for face and kicker
+panels and retain through-bolts/nuts. Retain manufacturer-specified structural
+screws in commercial brackets. Do not include threaded inserts in new-build
+panel connections. Inserts may be evaluated as a later worn-hole repair, with
+receiver geometry and connection resistance checked for that repair; they are
+not an automatic substitute. Preserve historical insert variants and evidence.
+Keep a single-2x6 development baseline even when tests fail; record failures
+and enlarge members selectively or revise connections. Do not double-stack
+2x6s or introduce built-up substitutes. Prefer square-cut principals and open
+LED access over the former lower housing and continuous relieved backing.
+Reserve possible future insert space around panel screws without predrilling it.
 
 ## Communication
 

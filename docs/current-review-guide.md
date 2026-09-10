@@ -1,7 +1,10 @@
 # Current design review guide
 
-Current candidate: **`wide-principal-development`**. This is an auditable
-development package, not approved construction or climbing plans. Historical
+Current MVP development: [single-2×6 square-cut baseline](square-2x6-mvp.md),
+retained with explicit failed fit checks for selective revision.
+
+The review package below is the preserved **`wide-principal-development`**
+candidate. This is an auditable development package, not approved construction or climbing plans. Historical
 variants remain for comparison; their geometry and analysis must not be mixed
 into this candidate's schedules.
 

@@ -5,9 +5,16 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-[Open the current candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
+**Current MVP direction: [single-2×6 square-cut development](docs/square-2x6-mvp.md).**
+This retained starting candidate uses wood screws, reserves possible later insert
+space, and replaces the notched lower-backing detail with square rails clear of
+lower LED exits. It deliberately retains failed base/bolt checks for targeted
+revision. CAD and schedules are available; it is not build-ready. The viewer
+below remains the preserved wide-support comparison.
 
-**Current audit candidate: wider central supports and removable panels.**
+[Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
+
+**Preserved audit candidate: wider central supports and removable panels.**
 [Inspect the wider-support revision](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development).
 Two nominal 4×6 central supports replace the narrow 2×6 receivers, providing
 44.45 mm backing-bolt edge distance. Matching base blocks come from the same
