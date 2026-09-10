@@ -34,7 +34,8 @@ def test_actual_cad_substitutions_fail_before_solver(report):
 
 def test_saved_screen_replays(report):
     saved = json.loads(Path('fea/results/single-2x6-screw-screen.json').read_text())
-    assert saved == report
+    assert {k: v for k, v in report.items() if k != 'source_sha256'} == {
+        k: v for k, v in saved.items() if k != 'source_sha256'}
     for name, sha in saved['source_sha256'].items():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == sha
 

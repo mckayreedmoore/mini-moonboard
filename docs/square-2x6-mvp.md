@@ -1,5 +1,8 @@
 # Single-2×6 development baseline
 
+The [revised all-2×6 layout](square-2x6-revised.md) now has an interactive viewer
+and new render. This first failed baseline is also selectable in the viewer.
+
 This is the current MVP development direction: start with single 2×6 members,
 retain the candidate even when checks fail, and then enlarge individual members
 or change their connections in response to specific findings. This is an
@@ -18,8 +21,8 @@ rating. The previous wide-support viewer and its evidence remain separate.
 
 The inspection image omits the face and kicker panels to expose framing; the
 STEP retains them. Hardware that misses its receiver remains visible because
-this is the retained starting design. The existing website default has not
-been changed to this failed candidate.
+this is the retained starting design. The existing website default is unchanged; this baseline is available through
+the Design selector as “Single 2×6 · retained failed baseline”.
 
 ## Changes made
 

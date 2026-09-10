@@ -24,6 +24,8 @@ and enlarge members selectively or revise connections. Do not double-stack
 2x6s or introduce built-up substitutes. Prefer square-cut principals and open
 LED access over the former lower housing and continuous relieved backing.
 Reserve possible future insert space around panel screws without predrilling it.
+The first revised layout/render keeps all lumber, including the header, single
+2x6 even when bearing fails; larger stock remains a later option.
 
 ## Communication
 

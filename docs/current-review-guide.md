@@ -1,7 +1,7 @@
 # Current design review guide
 
-Current MVP development: [single-2×6 square-cut baseline](square-2x6-mvp.md),
-retained with explicit failed fit checks for selective revision.
+Current MVP development: [all-2×6 revised layout and render](square-2x6-revised.md),
+with corrected hardware placement and retained shallow-header bearing failures.
 
 The review package below is the preserved **`wide-principal-development`**
 candidate. This is an auditable development package, not approved construction or climbing plans. Historical
