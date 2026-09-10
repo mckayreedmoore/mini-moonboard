@@ -1,4 +1,8 @@
-# All-2×6 revised layout and interactive render
+# Historical all-2×6 connection layout
+
+Superseded by the [single-member layout](single-2x6-layout.md). This version
+uses single stock sections but retains touching paired middle rails and closely
+spaced center principals; it does not meet the no-stacked-framing requirement.
 
 All lumber remains **single nominal 2×6**, including the base header. Larger
 stock is only a later option. The original [failed baseline](square-2x6-mvp.md)

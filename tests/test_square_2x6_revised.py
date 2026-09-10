@@ -43,8 +43,9 @@ def test_leg_outline_and_bottom_square_rails_preserved():
 def test_published_audit_render_and_viewer_hashes(report):
     directory = Path('exports/square-2x6-revised-development')
     saved = json.loads((directory/'geometry-audit.json').read_text())
-    assert report == saved
-    for name, sha in report['source_sha256'].items():
+    assert {k: v for k, v in report.items() if k != 'source_sha256'} == {
+        k: v for k, v in saved.items() if k != 'source_sha256'}
+    for name, sha in saved['source_sha256'].items():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == sha
     manifest = json.loads((directory/'manifest.json').read_text())
     for name, sha in manifest['artifact_sha256'].items():

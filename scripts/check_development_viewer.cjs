@@ -171,7 +171,7 @@ const selectedProducts = ['selected-hardware-development', 'top-joint-developmen
   }
   await page.goto('http://127.0.0.1:8766/');
   await page.waitForSelector('#model');
-  assert.equal(await page.locator('#model').inputValue(),'plywood');
+  assert.equal(await page.locator('#model').inputValue(),'single-2x6-development');
   await page.selectOption('#model',model);
   await page.waitForURL('**/?model='+model);
   await page.waitForFunction(count => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === count,
@@ -197,6 +197,6 @@ const selectedProducts = ['selected-hardware-development', 'top-joint-developmen
     assert.equal(await page.locator('#model').inputValue(), model);
   }
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({loadedParts:manifest.parts.length,clicked,defaultModel:'plywood',selectorNavigation:true,errors}));
+  console.log(JSON.stringify({loadedParts:manifest.parts.length,clicked,defaultModel:'single-2x6-development',selectorNavigation:true,errors}));
   await browser.close();
 })().catch(error => {console.error(error);process.exit(1)});

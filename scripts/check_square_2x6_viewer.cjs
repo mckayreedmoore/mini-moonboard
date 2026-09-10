@@ -6,7 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const artifacts = process.argv[4] || 'fea/generated/square-2x6-viewer';
-const variants = ['square-2x6-development', 'square-2x6-revised-development'];
+const variants = process.argv[5] ? [process.argv[5]] : ['square-2x6-development', 'square-2x6-revised-development'];
 fs.mkdirSync(artifacts, { recursive: true });
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
@@ -35,6 +35,9 @@ fs.mkdirSync(artifacts, { recursive: true });
       assert.match(await page.locator('#design-details').innerText(), /NOT build-ready/);
       return manifest;
     }
+    await page.goto(base);
+    await loaded();
+    assert.equal(await page.locator('#model').inputValue(), 'single-2x6-development');
     for (const model of variants) {
       await page.goto(base+'?model='+model);
       await loaded();
@@ -47,18 +50,18 @@ fs.mkdirSync(artifacts, { recursive: true });
       await page.locator('#dimensions').uncheck();
       await page.screenshot({ path: path.join(artifacts, model+'-rear.png') });
       // Target the rear surface of the left principal at mid-height, away from rails.
-      await page.evaluate(() => {
-        const a = 40*Math.PI/180, x = -57.15, s = 700, n = 139.7;
+      await page.evaluate(model => {
+        const a = 40*Math.PI/180, x = model === 'single-2x6-development' ? 0 : -57.15, s = 700, n = 139.7;
         const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
         const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
         const {camera, controls} = window.cadTest;
         camera.setViewOffset(1600,1100,-380,-300,1600,1100);
         camera.position.set(-x, y-800*Math.cos(a), z+800*Math.sin(a));
         controls.target.set(-x,y,z); controls.update();
-      });
+      }, model);
       await page.waitForTimeout(250);
       await page.mouse.click(1180, 850);
-      assert.match(await page.locator('#part').innerText(), /^base_principal_left:/);
+      assert.match(await page.locator('#part').innerText(), model === 'single-2x6-development' ? /^base_principal_center:/ : /^base_principal_left:/);
       assert.match(await page.locator('#part').innerText(), /mm.*ft.*in/);
       await page.screenshot({ path: path.join(artifacts, model+'-principal.png') });
       await page.goto(base+'?model='+model+'&view=rear');
@@ -74,6 +77,10 @@ fs.mkdirSync(artifacts, { recursive: true });
       console.log(model+': '+manifest.parts.length+' meshes, full hardware, selection and corrected grid passed');
     }
     // Dropdown navigation must preserve the requested candidate through a real reload.
+    if (variants.length === 1) {
+      await page.goto(base+'?model=square-2x6-revised-development');
+      await loaded();
+    }
     await page.selectOption('#model', variants[0]);
     await page.waitForURL(url => url.searchParams.get('model') === variants[0]);
     await loaded();

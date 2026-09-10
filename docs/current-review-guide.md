@@ -1,7 +1,8 @@
 # Current design review guide
 
-Current MVP development: [all-2×6 revised layout and render](square-2x6-revised.md),
-with corrected hardware placement and retained shallow-header bearing failures.
+Current MVP development: [all-2×6 revised layout and render](single-2x6-layout.md),
+with one center upright/post and one seam rail per bay. Header-bearing and
+preliminary shared-seam screw edge checks remain failed.
 
 The review package below is the preserved **`wide-principal-development`**
 candidate. This is an auditable development package, not approved construction or climbing plans. Historical

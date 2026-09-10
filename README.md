@@ -5,13 +5,14 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [all-2×6 revised layout and render](docs/square-2x6-revised.md).**
-[Open the all-2×6 interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear).
-This retained starting candidate uses wood screws, reserves possible later insert
-space, and replaces the notched lower-backing detail with square rails clear of
-lower LED exits. The revised bolt/receiver checks pass, while the all-2×6 header
-still fails full-bearing geometry and remains a targeted revision item. CAD and schedules are available; it is not build-ready. The viewer
-below remains the preserved wide-support comparison.
+**Current MVP: [all-2×6 revised layout and render](docs/single-2x6-layout.md).**
+[Open the all-2×6 interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear).
+The current candidate has one center upright/post and one middle rail per bay;
+all 14 lumber members are single 2×6. Ordinary panel screws retain possible
+future insert space. Square bottom rails avoid lower LED relief cuts. Nominal
+receiver and collision checks pass, but three header-bearing checks and 28
+preliminary shared-seam screw edge checks fail. CAD and schedules are available;
+this is not build-ready. The comparison below remains historical.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
