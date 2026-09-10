@@ -91,6 +91,8 @@
       modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       lumberModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      // Entries above follow development order; display the newest designs first.
+      modelSelect.replaceChildren(...Array.from(modelSelect.options).reverse());
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });

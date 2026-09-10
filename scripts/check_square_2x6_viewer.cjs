@@ -39,9 +39,10 @@ fs.mkdirSync(artifacts, { recursive: true });
     await loaded();
     assert.equal(await page.locator('#model').inputValue(), 'selective-2x6-development');
     assert.deepEqual(await page.locator('#model option').evaluateAll(options =>
-      options.slice(-4).map(option => option.value)), [
-        'square-2x6-development', 'square-2x6-revised-development',
-        'single-2x6-development', 'selective-2x6-development']);
+      options.slice(0, 4).map(option => option.value)), [
+        'selective-2x6-development', 'single-2x6-development',
+        'square-2x6-revised-development', 'square-2x6-development']);
+    assert.equal(await page.locator('#model option').last().getAttribute('value'), 'plywood');
     for (const model of variants) {
       await page.goto(base+'?model='+model);
       await loaded();
