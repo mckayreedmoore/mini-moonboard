@@ -44,3 +44,28 @@ def test_terminal_evidence_never_becomes_acceptance(tmp_path, monkeypatch, exit_
         saved = json.load(archive.extractfile("run.json"))
         assert saved == report
         assert archive.extractfile("contact.log").read().decode() == text
+
+
+def test_preserved_compact_timeout_authenticates_without_acceptance():
+    import hashlib
+
+    from fea.floor_contact_results import blocks
+
+    path = "fea/results/spread-floor-contact/compact-mu02-k1000-ramp05.tar.gz"
+    with tarfile.open(path) as archive:
+        files = {m.name: archive.extractfile(m).read() for m in archive if m.isfile()}
+    report = json.loads(files["run.json"])
+    for name, sha in report["artifact_sha256"].items():
+        assert hashlib.sha256(files[name]).hexdigest() == sha
+    for name, sha in report["source_sha256"].items():
+        assert hashlib.sha256(files["launch_sources/"+name]).hexdigest() == sha
+    assert report["exit_code"] == 124 and report["max_seconds"] == 1800
+    assert not report["solver_terminated_normally"]
+    assert not report["qualified_for_design"]
+    assert not report["global_equilibrium_audited"] and not report["local_contact_audited"]
+    record = json.loads(files["input.json"])
+    assert record["parent_report"]["extension_mm"] == 0
+    assert hashlib.sha256(files["contact.inp"]).hexdigest() == record["deck_sha256"]
+    parsed = blocks(files["contact.dat"].decode())
+    assert ("displacements", "WOODN", 1.) in parsed
+    assert ("displacements", "WOODN", 2.) not in parsed

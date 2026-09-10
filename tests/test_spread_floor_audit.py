@@ -1,5 +1,8 @@
 """Synthetic free bodies test the auditor, not a physical board."""
 import copy
+import hashlib
+import json
+import tarfile
 
 import pytest
 
@@ -76,3 +79,39 @@ def test_mpc_error_fails_even_when_external_equilibrium_passes(monkeypatch):
     assert max(map(abs, endpoint["moment_residual_nmm"])) < 1e-10
     assert endpoint["maximum_interpolation_error_mm"] == pytest.approx(.01)
     assert not result["global_checks_passed"]
+
+
+@pytest.mark.parametrize("residual", [0., 1.])
+def test_gravity_only_never_becomes_complete_endpoint_acceptance(monkeypatch, residual):
+    record, weights, parsed = fixture()
+    parsed = {key: value for key, value in parsed.items() if key[2] == 1.}
+    parsed["forces", "GROUND_A", 1.][11][2] += residual
+    monkeypatch.setattr(audit, "blocks", lambda _: parsed)
+    with pytest.raises(ValueError, match="endpoint"):
+        audit.assess("", record, weights)
+    result = audit.assess("", record, weights, gravity_only=True)
+    assert result["requested_endpoint_checks_passed"] is (residual == 0.)
+    assert not result["global_checks_passed"] and not result["qualified_for_design"]
+    assert [row["time"] for row in result["endpoints"]] == [1.]
+    assert "climber endpoint not assessed" in result["scope"]
+
+
+def test_published_compact_gravity_snapshot_replays():
+    with tarfile.open("fea/results/spread-floor-contact/compact-gravity-audit-v1.tar.gz") as archive:
+        files = {m.name: archive.extractfile(m).read() for m in archive.getmembers() if m.isfile()}
+    saved = json.loads(files["audit.json"])
+    for name, sha in saved["artifact_sha256"].items():
+        assert hashlib.sha256(files[name]).hexdigest() == sha
+    for name, sha in saved["source_sha256"].items():
+        assert hashlib.sha256(files["audit_sources/"+name]).hexdigest() == sha
+    assert hashlib.sha256(files["input.json"]).hexdigest() == saved["input_sha256"]
+    weights = json.loads(files["weights.json"])
+    assert weights["input_sha256"] == saved["input_sha256"]
+    assert weights["source_sha256"] == saved["source_sha256"]
+    record = json.loads(files["input.json"])
+    assert record["deck_sha256"] == saved["artifact_sha256"]["contact.inp"]
+    assert record["parent_report"]["extension_mm"] == 0
+    result = audit.assess(files["contact.dat"].decode(), record, weights["weights"], gravity_only=True)
+    assert result["endpoints"] == saved["endpoints"]
+    assert result["requested_endpoint_checks_passed"]
+    assert not result["global_checks_passed"] and not saved["qualified_for_design"]

@@ -24,7 +24,7 @@ def integrate(record):
     return integrated_weights(elements, nodes)
 
 
-def assess(data, record, weights):
+def assess(data, record, weights, *, gravity_only=False):
     """Only noncontact ground-bottom reactions are external support forces."""
     nodes = {int(n): p for n, p in record["connector_context"]["nodes"].items()}
     physical = {int(n): p for n, p in record["mapped_input"]["nodes"].items()}
@@ -32,7 +32,8 @@ def assess(data, record, weights):
     if weights.keys() != physical.keys() or not all(math.isfinite(v) for v in weights.values()) or sum(weights.values()) <= 0:
         raise ValueError("Incomplete or invalid consistent gravity weights")
     parsed, results = blocks(data), []
-    for time, loaded in ((1., False), (2., True)):
+    endpoints = ((1., False),) if gravity_only else ((1., False), (2., True))
+    for time, loaded in endpoints:
         u = parsed.get(("displacements", "WOODN", time), {})
         if u.keys() != nodes.keys():
             raise ValueError(f"Missing complete wood/virtual endpoint at time {time}")
@@ -68,7 +69,10 @@ def assess(data, record, weights):
             "maximum_wood_displacement_mm": max(math.hypot(*u[n]) for n in physical),
             "global_checks_passed": max(map(abs, force)) <= FORCE_TOLERANCE_N
                 and max(map(abs, moment)) <= MOMENT_TOLERANCE_NMM and error <= 1e-5})
-    return {"endpoints": results, "global_checks_passed": all(r["global_checks_passed"] for r in results),
+    requested_passed = all(r["global_checks_passed"] for r in results)
+    return {"endpoints": results, "global_checks_passed": not gravity_only and requested_passed,
+        "requested_endpoint_checks_passed": requested_passed,
+        "scope": "gravity only; climber endpoint not assessed" if gravity_only else "gravity and climber endpoints",
         "gates": {"force_n": FORCE_TOLERANCE_N, "moment_nmm": MOMENT_TOLERANCE_NMM,
                   "interpolation_mm": 1e-5},
         "local_contact_audited": False, "qualified_for_design": False,
@@ -80,8 +84,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     parser.add_argument("--integrate", action="store_true")
+    parser.add_argument("--gravity-only", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.integrate and args.gravity_only:
+        parser.error("Gravity-only assessment is separate from volume integration")
     source = args.directory/"input.json"
     record = json.loads(source.read_text())
     sha = hashlib.sha256(source.read_bytes()).hexdigest()
@@ -97,7 +104,8 @@ if __name__ == "__main__":
             raise ValueError("Gravity integration/audit sources changed")
         if hashlib.sha256((args.directory/"contact.inp").read_bytes()).hexdigest() != record["deck_sha256"]:
             raise ValueError("Contact deck differs from preparation")
-        result = assess((args.directory/"contact.dat").read_text(), record, weights["weights"])
+        result = assess((args.directory/"contact.dat").read_text(), record, weights["weights"],
+                        gravity_only=args.gravity_only)
         result["input_sha256"] = sha
         result["source_sha256"] = source_hashes()
         result["artifact_sha256"] = {name: hashlib.sha256((args.directory/name).read_bytes()).hexdigest()

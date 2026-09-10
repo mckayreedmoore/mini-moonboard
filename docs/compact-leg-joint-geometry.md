@@ -42,10 +42,11 @@ geometry/export tests pass; this archived extraction is the left side only.
 For a future displacement-driven submodel, the fixed-floor leg archives lack
 the full rim-interface displacement field. Do not invent those displacements
 or simultaneously impose connector forces and connector displacement jumps.
-The pending compact floor-contact model requests the complete nodal field; if
-it finishes and passes the applicable audits, evaluate using its remote rim
-and foot fields. Otherwise obtain an output-expanded parent run with unchanged
-mechanics. Either route still requires explicit remote-interface ownership,
+The compact floor-contact model requests the complete nodal field, but its
+[first bounded trial](spread-floor-contact-trial.md) timed out before completing
+a climber increment. Only gravity has passed global endpoint checks. A future
+complete, audited run could supply remote rim and foot fields; otherwise obtain
+an output-expanded parent run with unchanged mechanics. Either route still requires explicit remote-interface ownership,
 body loads and a separate hardware contact idealization.
 
 Verification: six preparation/export tests passed (25.00 s), covering both

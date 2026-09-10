@@ -89,6 +89,19 @@ def test_actual_new_machining_and_complete_collisions(size, extension):
                 assert overlap(parts[name].shape, part.shape) < .01, (name, other)
 
 
+def test_compact_legs_stay_within_board_top_horizontal_reach():
+    parts = {p.name: p.shape for p in model.parts("2x6", 0., False)}
+    top_reach = max(exact_bounds(parts[f"main_upper_{side}"]).ymax
+                    for side in ("left", "right"))
+    assert top_reach == pytest.approx(1549.569606)
+    for side in ("left", "right"):
+        leg = exact_bounds(parts[f"lumber_leg_{side}"])
+        assert leg.zmin == pytest.approx(0., abs=1e-6)
+        assert leg.ymax == pytest.approx(1476.339362)
+        assert top_reach-leg.ymax == pytest.approx(73.230244)
+        assert leg.ymax <= top_reach
+
+
 def test_invalid_variant():
     with pytest.raises(ValueError):
         model.parts("2x4")
