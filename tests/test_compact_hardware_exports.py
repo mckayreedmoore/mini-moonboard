@@ -92,5 +92,5 @@ def test_selector_is_additive():
     text = Path("site/index.html").read_text()
     assert f"lumberModels.push(['{exports.KEY}'," in text
     assert "long bolts / four washers · geometry only" in text
-    assert "? requestedModel : 'single-2x6-development'" in text
+    assert "? requestedModel : 'selective-2x6-development'" in text
     assert "const model = ['plywood'," in text

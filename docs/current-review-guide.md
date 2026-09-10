@@ -1,8 +1,8 @@
 # Current design review guide
 
-Current MVP development: [all-2×6 revised layout and render](single-2x6-layout.md),
-with one center upright/post and one seam rail per bay. Header-bearing and
-preliminary shared-seam screw edge checks remain failed.
+Current MVP development: [selective single-stock revision](selective-2x6-layout.md).
+Four wider single receivers and one wider header close the preceding fit defects;
+strength, actual floor behavior and repair resistance remain unqualified.
 
 The review package below is the preserved **`wide-principal-development`**
 candidate. This is an auditable development package, not approved construction or climbing plans. Historical

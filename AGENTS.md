@@ -27,10 +27,14 @@ Reserve possible future insert space around panel screws without predrilling it.
 The first revised layout/render keeps all lumber, including the header, single
 2x6 even when bearing fails; larger stock remains a later option.
 
-The current single-member candidate is `single-2x6-development`: one center
+The preserved all-2x6 baseline is `single-2x6-development`: one center
 principal/post and one middle rail per bay. Earlier square-2x6 variants retain
 paired seam framing despite their single-stock descriptions. Check assembled
 adjacency as well as individual stock sizes; do not call those variants unstacked.
+
+The current `selective-2x6-development` retains nine single 2x6 members and
+selectively uses four single 3x6 shared receivers and one single 2x10 header.
+This addresses fit defects only; no strength or floor qualification transfers.
 
 ## Communication
 

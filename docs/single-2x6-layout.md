@@ -1,10 +1,14 @@
-# Single-member 2×6 layout: correction and recommendations
+# Preserved single-member 2×6 baseline
+
+The [selective single-stock revision](selective-2x6-layout.md) addresses the
+recorded seam-edge and bearing failures. This all-2×6 model remains available
+for comparison.
 
 The preceding model used individual 2×6 stock but still had paired framing.
 That did not satisfy the request to avoid stacked members. This revision removes
 those pairs while preserving the earlier models as historical evidence.
-The viewer now opens this corrected candidate by default; historical entries
-are explicitly labeled as having paired seam rails.
+The viewer now defaults to the selective revision. This all-2×6 baseline remains
+selectable, as do the older historical paired-rail entries.
 
 [Open the corrected interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear).
 [STEP](../exports/single-2x6-development/square-2x6.step),
