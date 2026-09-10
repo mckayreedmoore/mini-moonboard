@@ -440,3 +440,15 @@ Climbing instructs builders to seek professional advice if they have any doubt
 about construction. Have the completed frame design, connections, substrate,
 and installation reviewed by a qualified carpenter, climbing-wall builder, or
 structural engineer before producing a build guide or beginning construction.
+
+## Recent 2×6 design renders
+
+Oldest to newest; the latest design is last here and at the bottom of the
+interactive viewer's Design selector. These remain development candidates.
+
+| Variant | CAD render | Interactive model |
+| --- | --- | --- |
+| Original stock substitution; paired seam rails retained | [Render](exports/square-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-development&view=rear) |
+| Revised connections; paired seam rails retained | [Render](exports/square-2x6-revised-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear) |
+| Single-member all-2×6 baseline | [Render](exports/single-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear) |
+| Current: nine 2×6s, four single 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
