@@ -5,13 +5,14 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [additional principals instead of middle rails](docs/vertical-principal-development.md).**
-[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear).
-Four added single 2×6 principals replace the middle horizontal rails. Each has
-explicit end connections and an aligned full-depth base post. Existing gussets
-and bolts remain; no reduction in their loads is assumed. Horizontal plywood
-seam behavior, insert development, structural strength and floor qualification
-remain unfinished. This is not build-ready. Earlier baselines are preserved.
+**Current MVP: [separated center 2×6 principals](docs/split-center-development.md).**
+[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development&view=rear).
+Two separate center principals leave an open hold-bolt/LED corridor. All eight
+base posts support the full header depth. Bolt heads, nuts and washers are
+individually selectable. Existing gussets remain; no reduction in their loads
+is assumed. Panel seams, connection strength, actual floor behavior and insert
+development remain unqualified. This is not build-ready. Earlier baselines
+are preserved.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
@@ -155,9 +156,11 @@ and its [geometry/access audit](docs/product-frame-integration.md) remain availa
 
 ## Status
 
-The current review candidate is `wide-principal-development`, with matching
-CAD, hardware, machining and assembly documents linked in the
-[current review guide](docs/current-review-guide.md).
+The current review candidate is `split-center-development`, with matching
+CAD, geometry audit and wood/connection schedules linked in the
+[current review guide](docs/current-review-guide.md). Final machining and
+assembly instructions await the current release gates; the guide's preserved
+wide-principal instructions do not apply to this revision.
 It does **not** contain a structurally approved or build-ready design.
 Structural connections, actual material, floor interface, and stability still
 require human review.
@@ -314,7 +317,7 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 ## V1 concept render
 
-Historical V1 reference, not the current wide-support candidate shown above.
+Historical V1 reference; it does not describe the current split-center candidate.
 
 ![CAD-derived underside climbing-face rendering of the Mini MoonBoard V1 assembly](exports/mini_moonboard_v1_cad_front_render.png)
 
@@ -352,9 +355,10 @@ summary of the assembly.
 
 The historical V1 design and build sequence are described in the
 [box-frame revision](docs/box-frame-revision.md). The V1 cut and connection
-schedules describe that predecessor, not the current wider-principal candidate.
-Use the [current assembly and hardware package](docs/wide-principal-development.md)
-for the present audit; do not transfer the V1 panel-screw drilling instructions.
+schedules describe that predecessor, not the current split-center candidate.
+Use the [current geometry and connection package](docs/split-center-development.md)
+for the present review; do not transfer historical panel-screw drilling or
+assembly instructions into this revision.
 The [relocation proposal](docs/relocation-design.md) identifies reusable-joint
 improvements for occasional moves. The [LED guide](docs/v1-led-installation.md)
 assumes removing the continuous strips before separating panels and reinstalling
@@ -449,12 +453,13 @@ interactive viewer's Design selector. These remain development candidates.
 
 | Variant | CAD render | Interactive model |
 | --- | --- | --- |
-| Current: four added 2×6 principals; no middle rails | [Render](exports/vertical-principal-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear) |
+| Current: separated center 2×6s and inspectable bolt ends | [Render](exports/split-center-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development&view=rear) |
+| Four added 2×6 principals; no middle rails | [Render](exports/vertical-principal-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear) |
 | Paired horizontal 2×6 rails and center base bracket | [Render](exports/paired-rail-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear) |
 | Single-stock revision: nine 2×6s, four 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
 | Single-member all-2×6 baseline | [Render](exports/single-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear) |
 | Revised connections; paired seam rails retained | [Render](exports/square-2x6-revised-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear) |
 | Original stock substitution; paired seam rails retained | [Render](exports/square-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-development&view=rear) |
 
-The [current revision notes](docs/vertical-principal-development.md) explain the
-added principals, base supports, panel seam and remaining strength checks.
+The [current revision notes](docs/split-center-development.md) explain the
+center service corridor, base supports, bolt details and remaining release gates.

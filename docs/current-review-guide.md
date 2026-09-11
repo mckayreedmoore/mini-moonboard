@@ -1,9 +1,10 @@
 # Current design review guide
 
-Current MVP development: [additional principals instead of middle rails](vertical-principal-development.md).
-Four additional single 2×6 principals and aligned base posts replace the middle
-rails. Gussets and bolts remain. Horizontal panel seam behavior, structural
-strength, actual floor behavior and insert connections remain unqualified.
+Current MVP development: [separated center 2×6 principals](split-center-development.md).
+The center pair leaves an open hold-bolt/LED corridor; all posts support the
+full header depth. Each through-bolt end is independently selectable. Gussets
+remain. Both panel seam directions, current frame and connection strength,
+actual floor behavior and insert connections remain unqualified.
 Open the linked revision for its matching viewer, render and audit.
 
 The review package below is the preserved **`wide-principal-development`**

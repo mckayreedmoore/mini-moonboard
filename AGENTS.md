@@ -45,12 +45,20 @@ The header's rearward load transfer remains unresolved. The render still uses
 ordinary panel screws; the insert direction above requires a separate modeled
 and checked hardware revision. Historical results do not qualify this assembly.
 
-The current `vertical-principal-development` removes middle rails and adds
+The preserved `vertical-principal-development` removes middle rails and adds
 four independent full-height 2x6 principals with aligned single 2x10 posts and
 explicit connections. Top rail, split bottom backing and header remain. Retain
 existing gussets and bolts until actual joint-force analysis justifies changes.
 The four face panels retain unconnected horizontal seam edges between framing;
 do not tie those edges in analysis or transfer older strength/floor acceptance.
+
+The current `split-center-development` replaces the single center principal
+and post with two separated 2x6 principals and full-depth 2x10 posts. All eight
+posts now support the full header depth. Keep the center service corridor open;
+the adjacent panel edges have 50.95 mm overhang and remain independently acting.
+Through-bolt heads, nuts and washers are individually selectable; this does not
+change the bolt count or qualify the joint. Build readiness requires current
+frame/connection/panel and actual floor checks; geometry passes are insufficient.
 
 ## Communication
 
