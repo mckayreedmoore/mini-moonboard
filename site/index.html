@@ -21,6 +21,11 @@
       #design-details { margin-top: .5rem; max-width: 28rem; font-size: .85rem; }
       label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
       select { margin-left: .35rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; padding: .2rem; }
+      #hold-controls { margin: .55rem 0; padding: .5rem; border: 1px solid #59636b; border-radius: .2rem; }
+      #hold-controls label { margin: 0; }
+      #hold-controls p { margin-top: .25rem; font-size: .8rem; }
+      #hold-controls button { margin-top: .4rem; padding: .3rem .6rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; cursor: pointer; }
+      #hold-controls button:disabled { opacity: .5; cursor: default; }
       @media (max-width: 600px) { select { max-width: 100%; margin-left: 0; } }
       canvas { display: block; height: 100vh; width: 100vw; }
     </style>
@@ -34,6 +39,7 @@
       import * as THREE from 'three';
       import { OrbitControls } from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
       import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
+      import { createHoldMesh } from './hold-geometry.js';
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -67,6 +73,83 @@
       const assemblyView = new THREE.Group(); assemblyView.position.set(0, -950, 0); scene.add(assemblyView);
       const climberView = new THREE.Group(); climberView.scale.x = -1; assemblyView.add(climberView);
       const partCard = document.querySelector('#part'); let selected = [];
+      const holdGroup = new THREE.Group(), holdMeshes = [];
+      assemblyView.add(holdGroup);
+      const holdControls = document.createElement('section'); holdControls.id = 'hold-controls';
+      holdControls.setAttribute('aria-label', 'Mini MoonBoard 2025 holds');
+      holdControls.innerHTML = '<label><input id="show-holds" type="checkbox" checked disabled /> Mini MoonBoard 2025 holds</label><p id="hold-status" role="status">Loading approximate holds…</p><button id="hold-front" type="button" disabled>View holds from front</button>';
+      document.querySelector('#overlay').parentElement.before(holdControls);
+      const holdToggle = document.querySelector('#show-holds'), holdStatus = document.querySelector('#hold-status');
+      const holdFront = document.querySelector('#hold-front');
+      const holdFamilies = {original: 'Original School', 'school-f': 'School Set F', wood: 'Wood B/C', foot: 'Kicker foothold'};
+      holdToggle.checked = new URLSearchParams(location.search).get('holds') !== 'off';
+      holdToggle.addEventListener('change', () => {
+        updateBoltVisibility();
+        if (!holdToggle.checked && selected.some(mesh => mesh.userData.hold)) {
+          selected.forEach(mesh => mesh.material.emissive.setHex(mesh.userData.baseEmissive || 0)); selected = [];
+          partCard.textContent = 'Holds hidden. Click a visible part to inspect it.';
+        }
+        const url = new URL(location.href);
+        if (holdToggle.checked) url.searchParams.delete('holds'); else url.searchParams.set('holds', 'off');
+        history.replaceState(null, '', url);
+      });
+      holdFront.addEventListener('click', () => {
+        // Fit the board beside the controls on desktop, or below them on phones.
+        const header = document.querySelector('header').getBoundingClientRect();
+        const narrow = innerWidth <= 600;
+        const available = Math.min(innerWidth - (narrow ? 0 : header.width), innerHeight - (narrow ? header.height : 0));
+        const span = 2900 * innerHeight / Math.max(available, 180);
+        const distance = span * camera.zoom / (2 * Math.tan(camera.fov * Math.PI / 360));
+        const angle = Math.PI * 40 / 180;
+        controls.target.set(0, -245, 1090);
+        if (narrow) controls.target.addScaledVector(new THREE.Vector3(0, Math.sin(angle), Math.cos(angle)), span * header.height / (2 * innerHeight));
+        else controls.target.x += span * header.width / (2 * innerHeight);
+        camera.position.copy(controls.target).add(new THREE.Vector3(0, distance * Math.cos(angle), -distance * Math.sin(angle)));
+        camera.clearViewOffset(); controls.update();
+      });
+      async function loadHolds() {
+        try {
+          const response = await fetch('mini-2025-holds.json');
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const catalog = await response.json();
+          const positions = new Set();
+          if (!Array.isArray(catalog.holds) || catalog.holds.length !== 138) throw new Error('Incomplete hold catalog');
+          for (const hold of catalog.holds) {
+            if (!/^(?:[A-K](?:[1-9]|1[0-2])|KICK(?:[1-9]|10))$/.test(hold.position) || positions.has(hold.position) ||
+                !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge'].includes(hold.shape) ||
+                ![hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400) || !Number.isFinite(hold.rotation)) {
+              throw new Error('Invalid hold catalog');
+            }
+            positions.add(hold.position);
+          }
+          const angle = Math.PI * 40 / 180;
+          for (const hold of catalog.holds) {
+            const mesh = createHoldMesh(hold), kicker = hold.position.startsWith('KICK');
+            const right = new THREE.Vector3(-1, 0, 0);
+            const up = kicker ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(0, Math.sin(angle), Math.cos(angle));
+            const normal = new THREE.Vector3().crossVectors(right, up);
+            mesh.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(right, up, normal));
+            mesh.rotateZ(-hold.rotation * Math.PI / 180);
+            if (kicker) mesh.position.set(1219.2 - (100 + 248.56 * (Number(hold.position.slice(4)) - 1)), -18, 150);
+            else {
+              const station = rowStations[Number(hold.position.slice(1)) - 1];
+              mesh.position.set(1019.2 - (hold.position.charCodeAt(0) - 65) * 200,
+                -18 + station * Math.sin(angle), 225 + station * Math.cos(angle));
+            }
+            mesh.position.addScaledVector(normal, .5);
+            mesh.userData.hold = hold;
+            holdMeshes.push(mesh); holdGroup.add(mesh);
+          }
+          holdStatus.textContent = '138 loose approximations · yellow Originals, blue Set F, wood B/C. Shapes, sizes and rotations are estimates. Click a hold to inspect.';
+          holdToggle.disabled = false; holdFront.disabled = false;
+          updateBoltVisibility();
+        } catch (error) {
+          for (const mesh of holdMeshes) { mesh.geometry.dispose(); mesh.material.dispose(); }
+          holdMeshes.length = 0; holdGroup.clear();
+          holdStatus.textContent = `Holds unavailable: ${error.message}. Reload to retry.`;
+          holdToggle.disabled = true; holdFront.disabled = true;
+        }
+      }
       const feetAndInches = mm => {
         const hundredths = Math.round(mm / 25.4 * 100);
         const feet = Math.floor(hundredths / 1200);
@@ -129,6 +212,8 @@
       const weightNote = document.createElement('p'); weightNote.id = 'prototype-weight-note';
       weightNote.textContent = 'Estimates use assumed material densities; excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring.';
       boltLabel.before(weightLine, weightNote);
+      // Keep the requested hold preview accessible ahead of detailed frame controls.
+      document.querySelector('header p:nth-of-type(2)').after(holdControls);
       const designLabels = new Map(Array.from(modelSelect.options, option => [option.value, option.text]));
       const validWeight = row => row && Number.isFinite(row.mass_kg) && row.mass_kg > 0 && Number.isFinite(row.mass_lb) && row.mass_lb > 0;
       const formatWeight = row => `${row.mass_kg.toFixed(1)} kg (${row.mass_lb.toFixed(1)} lb)`;
@@ -185,6 +270,9 @@
         person.visible = !inspectedBolt && document.querySelector('#person').checked;
         dimensions.visible = !inspectedBolt && document.querySelector('#dimensions').checked;
         overlay.visible = !inspectedBolt; grid.visible = !inspectedBolt;
+        holdGroup.visible = !inspectedBolt && holdToggle.checked;
+        holdToggle.disabled = Boolean(inspectedBolt) || !holdMeshes.length;
+        holdFront.disabled = Boolean(inspectedBolt) || !holdMeshes.length;
         ['#person', '#dimensions', '#overlay'].forEach(id => { document.querySelector(id).disabled = Boolean(inspectedBolt); });
       }
       boltSelect.addEventListener('change', () => {
@@ -249,6 +337,7 @@
           details.textContent = `${design.status}. ${design.description}`;
           modelLabel.after(details);
         }
+        loadHolds();
         for (const {name, label} of representativeBolts(parts)) {
           const option = new Option(label, name); option.disabled = true; boltSelect.add(option);
         }
@@ -269,7 +358,10 @@
             if (option) option.disabled = false;
           }
         }, undefined, error => { partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`; }));
-      }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
+      }).catch(error => {
+        partCard.textContent = `Could not load CAD parts: ${error.message}`;
+        holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
+      });
       const overlay = new THREE.Group(); assemblyView.add(overlay);
       // Decal planes lie 0.5 mm in front of the actual underside face. Their
       // orientation and positions use the same 40° datum as the drilled-hole model.
@@ -352,9 +444,18 @@
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
         // The raycaster still intersects children of an invisible parent group.
-        const hit = raycaster.intersectObjects(meshes.filter(mesh => mesh.visible && (person.visible || mesh.userData.part !== personPart)))[0];
+        const hit = raycaster.intersectObjects([
+          ...meshes.filter(mesh => mesh.visible && (person.visible || mesh.userData.part !== personPart)),
+          ...(holdGroup.visible ? holdMeshes : []),
+        ])[0];
         if (!hit) return;
         selected.forEach(mesh => mesh.material.emissive.setHex(mesh.userData.baseEmissive || 0));
+        if (hit.object.userData.hold) {
+          selected = [hit.object]; hit.object.material.emissive.setHex(0x493322);
+          const hold = hit.object.userData.hold;
+          partCard.textContent = `${hold.position}: ${holdFamilies[hold.family]} · approximate ${hold.shape}; visual size ${hold.width} × ${hold.height} × ${hold.depth} mm; estimated rotation ${hold.rotation}°. Grid location identifies this preview, not a manufacturer hold number. Visual only; excluded from frame weight and engineering checks. Use the official setup for installation.`;
+          return;
+        }
         const part = hit.object.userData.part;
         selected = part === personPart ? personMeshes : [hit.object];
         selected.forEach(mesh => mesh.material.emissive.setHex(mesh.userData.baseEmissive || 0x5f3600));
