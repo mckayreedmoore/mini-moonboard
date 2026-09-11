@@ -6,7 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const artifacts = process.argv[4] || 'fea/generated/square-2x6-viewer';
-const variants = process.argv[5] ? [process.argv[5]] : ['paired-rail-base-development'];
+const variants = process.argv[5] ? [process.argv[5]] : ['vertical-principal-development'];
 fs.mkdirSync(artifacts, { recursive: true });
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
@@ -37,10 +37,10 @@ fs.mkdirSync(artifacts, { recursive: true });
     }
     await page.goto(base);
     await loaded();
-    assert.equal(await page.locator('#model').inputValue(), 'paired-rail-base-development');
+    assert.equal(await page.locator('#model').inputValue(), 'vertical-principal-development');
     assert.deepEqual(await page.locator('#model option').evaluateAll(options =>
-      options.slice(0, 5).map(option => option.value)), [
-        'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
+      options.slice(0, 6).map(option => option.value)), [
+        'vertical-principal-development', 'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
         'square-2x6-revised-development', 'square-2x6-development']);
     assert.equal(await page.locator('#model option').last().getAttribute('value'), 'plywood');
     for (const model of variants) {
@@ -50,6 +50,20 @@ fs.mkdirSync(artifacts, { recursive: true });
       await page.screenshot({ path: path.join(artifacts, model+'-front.png') });
       await page.goto(base+'?model='+model+'&view=rear');
       const manifest = await loaded();
+      if (model === 'vertical-principal-development') {
+        const names = ['left_1', 'left_2', 'right_1', 'right_2'];
+        const principals = manifest.parts.filter(p => /^base_principal_(left|right)_[12]$/.test(p.name));
+        assert.equal(principals.length, 4);
+        assert.ok(principals.every(p => p.fabrication.dimensions_mm[1] === 139.7 && p.fabrication.dimensions_mm[2] === 38.1));
+        assert.ok(!manifest.parts.some(p => p.name.startsWith('base_rail_mid_')));
+        for (const suffix of names) {
+          assert.ok(manifest.parts.some(p => p.name === 'base_post_'+suffix));
+          assert.ok(manifest.parts.some(p => p.name === 'clip_vertical_base_'+suffix));
+          assert.ok(manifest.parts.some(p => p.name === 'clip_vertical_header_'+suffix));
+        }
+        assert.equal(manifest.design.qualified_for_design, false);
+        assert.match(manifest.design.description, /seam is unsupported between principals/);
+      }
       if (model === 'paired-rail-base-development') {
         const rails = manifest.parts.filter(p => p.name.startsWith('base_rail_mid_'));
         assert.equal(rails.length, 4);
@@ -63,7 +77,7 @@ fs.mkdirSync(artifacts, { recursive: true });
       await page.screenshot({ path: path.join(artifacts, model+'-rear.png') });
       // Target the rear surface of the left principal at mid-height, away from rails.
       await page.evaluate(model => {
-        const a = 40*Math.PI/180, x = ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development'].includes(model) ? 0 : -57.15, s = 700, n = 139.7;
+        const a = 40*Math.PI/180, x = ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? 0 : -57.15, s = 700, n = 139.7;
         const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
         const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
         const {camera, controls} = window.cadTest;
@@ -73,7 +87,7 @@ fs.mkdirSync(artifacts, { recursive: true });
       }, model);
       await page.waitForTimeout(250);
       await page.mouse.click(1180, 850);
-      assert.match(await page.locator('#part').innerText(), ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development'].includes(model) ? /^base_principal_center:/ : /^base_principal_left:/);
+      assert.match(await page.locator('#part').innerText(), ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? /^base_principal_center:/ : /^base_principal_left:/);
       assert.match(await page.locator('#part').innerText(), /mm.*ft.*in/);
       await page.screenshot({ path: path.join(artifacts, model+'-principal.png') });
       await page.goto(base+'?model='+model+'&view=rear');

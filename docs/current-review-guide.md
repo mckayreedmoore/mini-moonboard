@@ -1,10 +1,10 @@
 # Current design review guide
 
-Current MVP development: [paired horizontal rails and center base attachment](paired-rail-base.md).
-Four independent 2×6 seam rails and a direct principal-to-header bracket are
-modeled. The center principal/post remain single 3×6 stock. Strength, actual
-floor behavior and insert connections remain unqualified. Open the linked
-current revision for its matching viewer, render and audit.
+Current MVP development: [additional principals instead of middle rails](vertical-principal-development.md).
+Four additional single 2×6 principals and aligned base posts replace the middle
+rails. Gussets and bolts remain. Horizontal panel seam behavior, structural
+strength, actual floor behavior and insert connections remain unqualified.
+Open the linked revision for its matching viewer, render and audit.
 
 The review package below is the preserved **`wide-principal-development`**
 candidate. This is an auditable development package, not approved construction or climbing plans. Historical

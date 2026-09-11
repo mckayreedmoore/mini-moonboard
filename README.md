@@ -5,13 +5,13 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [paired horizontal rails and center base attachment](docs/paired-rail-base.md).**
-[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear).
-Four independent 2×6 seam rails give adjacent panels separate screw receivers.
-An added bracket connects the single center principal to the header. Single
-3×6 center principal/post and a single 2×10 header remain; ordinary panel screws
-and bolts are modeled. Insert development, strength and floor qualification
-remain unfinished. This is not build-ready. The all-2×6 baseline is preserved.
+**Current MVP: [additional principals instead of middle rails](docs/vertical-principal-development.md).**
+[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear).
+Four added single 2×6 principals replace the middle horizontal rails. Each has
+explicit end connections and an aligned full-depth base post. Existing gussets
+and bolts remain; no reduction in their loads is assumed. Horizontal plywood
+seam behavior, insert development, structural strength and floor qualification
+remain unfinished. This is not build-ready. Earlier baselines are preserved.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
@@ -449,11 +449,12 @@ interactive viewer's Design selector. These remain development candidates.
 
 | Variant | CAD render | Interactive model |
 | --- | --- | --- |
-| Current: paired horizontal 2×6 rails and center base bracket | [Render](exports/paired-rail-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear) |
+| Current: four added 2×6 principals; no middle rails | [Render](exports/vertical-principal-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear) |
+| Paired horizontal 2×6 rails and center base bracket | [Render](exports/paired-rail-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear) |
 | Single-stock revision: nine 2×6s, four 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
 | Single-member all-2×6 baseline | [Render](exports/single-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=single-2x6-development&view=rear) |
 | Revised connections; paired seam rails retained | [Render](exports/square-2x6-revised-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear) |
 | Original stock substitution; paired seam rails retained | [Render](exports/square-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-development&view=rear) |
 
-The [current revision notes](docs/paired-rail-base.md) explain the center base
-attachment, independent rail connections and remaining strength checks.
+The [current revision notes](docs/vertical-principal-development.md) explain the
+added principals, base supports, panel seam and remaining strength checks.

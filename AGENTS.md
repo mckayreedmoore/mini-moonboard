@@ -38,12 +38,19 @@ The preserved `selective-2x6-development` retains nine single 2x6 members and
 selectively uses four single 3x6 shared receivers and one single 2x10 header.
 This addresses fit defects only; no strength or floor qualification transfers.
 
-The current `paired-rail-base-development` replaces the two 3x6 middle rails
+The preserved `paired-rail-base-development` replaces the two 3x6 middle rails
 with four independently clipped 2x6 rails and adds an ML24Z between the center
 principal side and header top. Center principal/post remain single 3x6 stock.
 The header's rearward load transfer remains unresolved. The render still uses
 ordinary panel screws; the insert direction above requires a separate modeled
 and checked hardware revision. Historical results do not qualify this assembly.
+
+The current `vertical-principal-development` removes middle rails and adds
+four independent full-height 2x6 principals with aligned single 2x10 posts and
+explicit connections. Top rail, split bottom backing and header remain. Retain
+existing gussets and bolts until actual joint-force analysis justifies changes.
+The four face panels retain unconnected horizontal seam edges between framing;
+do not tie those edges in analysis or transfer older strength/floor acceptance.
 
 ## Communication
 
