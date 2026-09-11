@@ -1,10 +1,10 @@
 # Current design review guide
 
-Current MVP development: [separated center 2×6 principals](split-center-development.md).
-The center pair leaves an open hold-bolt/LED corridor; all posts support the
-full header depth. Each through-bolt end is independently selectable. Gussets
-remain. Both panel seam directions, current frame and connection strength,
-actual floor behavior and insert connections remain unqualified.
+Current MVP development: [direct base angles instead of gussets](angle-base-development.md).
+Two rim-to-header angles replace the timber gussets and their eight bolts.
+The split-center geometry, 151 panel/kicker screws and eight leg bolts remain.
+Each bolt end stays independently selectable. Current panel/connection resistance,
+frame strength, actual floor behavior and insert connections remain unqualified.
 Open the linked revision for its matching viewer, render and audit.
 
 The review package below is the preserved **`wide-principal-development`**

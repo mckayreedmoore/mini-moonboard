@@ -5,14 +5,13 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [separated center 2×6 principals](docs/split-center-development.md).**
-[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development&view=rear).
-Two separate center principals leave an open hold-bolt/LED corridor. All eight
-base posts support the full header depth. Bolt heads, nuts and washers are
-individually selectable. Existing gussets remain; no reduction in their loads
-is assumed. Panel seams, connection strength, actual floor behavior and insert
-development remain unqualified. This is not build-ready. Earlier baselines
-are preserved.
+**Current MVP: [direct base angles instead of gussets](docs/angle-base-development.md).**
+[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=angle-base-development&view=rear).
+Two outer rim-to-header angles replace both timber gussets and their eight
+bolts. The split-center corridor, 151 panel/kicker screws and eight leg bolts
+remain. Ordinary bolts now appear steel gray. Connection resistance, panel
+seams, current frame strength and actual floor behavior remain unqualified.
+This is not build-ready. Earlier baselines are preserved.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
@@ -26,8 +25,9 @@ physical validation are still unqualified.** [Cuts, assembly and audit limits](d
 all 29 wooden parts, with metric/imperial schedules and explicit machining limits.
 
 **Start here: [current review guide and release gates](docs/current-review-guide.md).**
-It links the matching viewer, assembly sequence, machining schedules and hardware
-BOM, and separates the remaining engineering work from supplier/user inputs.
+It links current development geometry and evidence, and separates remaining
+engineering work from supplier/user inputs. Historical assembly and machining
+documents do not provide construction instructions for the current angle-base model.
 
 [Earlier bonded-frame diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
 deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg added
@@ -53,7 +53,7 @@ Preserved predecessor diagnostics: [aggregate base actions](docs/timber-base-dem
 [conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not
 establish individual bolt capacity or qualify the wider variant's real joints.
 
-![Wider central supports, climbing-side view](exports/wide-principal-development/wide-principal-development_front.png)
+![Current split-center frame with direct base angles, panels hidden](exports/angle-base-development/open-frame.png)
 
 <details>
 <summary>Preserved earlier candidates and investigations</summary>
@@ -156,7 +156,7 @@ and its [geometry/access audit](docs/product-frame-integration.md) remain availa
 
 ## Status
 
-The current review candidate is `split-center-development`, with matching
+The current review candidate is `angle-base-development`, with matching
 CAD, geometry audit and wood/connection schedules linked in the
 [current review guide](docs/current-review-guide.md). Final machining and
 assembly instructions await the current release gates; the guide's preserved
@@ -317,7 +317,7 @@ blank extension below it. The crash pad is a separate, excluded element.
 
 ## V1 concept render
 
-Historical V1 reference; it does not describe the current split-center candidate.
+Historical V1 reference; it does not describe the current angle-base candidate.
 
 ![CAD-derived underside climbing-face rendering of the Mini MoonBoard V1 assembly](exports/mini_moonboard_v1_cad_front_render.png)
 
@@ -355,8 +355,8 @@ summary of the assembly.
 
 The historical V1 design and build sequence are described in the
 [box-frame revision](docs/box-frame-revision.md). The V1 cut and connection
-schedules describe that predecessor, not the current split-center candidate.
-Use the [current geometry and connection package](docs/split-center-development.md)
+schedules describe that predecessor, not the current angle-base candidate.
+Use the [current geometry and connection package](docs/angle-base-development.md)
 for the present review; do not transfer historical panel-screw drilling or
 assembly instructions into this revision.
 The [relocation proposal](docs/relocation-design.md) identifies reusable-joint
@@ -453,7 +453,9 @@ interactive viewer's Design selector. These remain development candidates.
 
 | Variant | CAD render | Interactive model |
 | --- | --- | --- |
-| Current: separated center 2×6s and inspectable bolt ends | [Render](exports/split-center-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development&view=rear) |
+| Current: direct base angles replace timber gussets | [Render](exports/angle-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=angle-base-development&view=rear) |
+| Closer panel-screw rows on split-center frame | [Render](exports/infill-panel-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=infill-panel-development&view=rear) |
+| Separated center 2×6s and inspectable bolt ends | [Render](exports/split-center-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development&view=rear) |
 | Four added 2×6 principals; no middle rails | [Render](exports/vertical-principal-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=vertical-principal-development&view=rear) |
 | Paired horizontal 2×6 rails and center base bracket | [Render](exports/paired-rail-base-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=paired-rail-base-development&view=rear) |
 | Single-stock revision: nine 2×6s, four 3×6 receivers, one 2×10 header | [Render](exports/selective-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=selective-2x6-development&view=rear) |
@@ -461,5 +463,5 @@ interactive viewer's Design selector. These remain development candidates.
 | Revised connections; paired seam rails retained | [Render](exports/square-2x6-revised-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-revised-development&view=rear) |
 | Original stock substitution; paired seam rails retained | [Render](exports/square-2x6-development/open-frame.png) | [View](https://mckayreedmoore.github.io/mini-moonboard/?model=square-2x6-development&view=rear) |
 
-The [current revision notes](docs/split-center-development.md) explain the
-center service corridor, base supports, bolt details and remaining release gates.
+The [current revision notes](docs/angle-base-development.md) explain the
+gusset replacement, bolt display and remaining release gates.

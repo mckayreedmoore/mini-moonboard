@@ -52,13 +52,28 @@ existing gussets and bolts until actual joint-force analysis justifies changes.
 The four face panels retain unconnected horizontal seam edges between framing;
 do not tie those edges in analysis or transfer older strength/floor acceptance.
 
-The current `split-center-development` replaces the single center principal
+The preserved `split-center-development` replaces the single center principal
 and post with two separated 2x6 principals and full-depth 2x10 posts. All eight
 posts now support the full header depth. Keep the center service corridor open;
 the adjacent panel edges have 50.95 mm overhang and remain independently acting.
 Through-bolt heads, nuts and washers are individually selectable; this does not
 change the bolt count or qualify the joint. Build readiness requires current
 frame/connection/panel and actual floor checks; geometry passes are insufficient.
+
+The preserved `infill-panel-development` adds 71 panel screws to that frame,
+for 151 panel/kicker screws. Infill is uniform within each panel/principal line,
+with intervals at most 150 mm between the original endpoint screws. The rule
+does not bridge independent panel seams. Retain raw wood, old axes, the center
+service corridor and complete bolt stacks. More screws do not establish equal
+load sharing or connection adequacy; retain current numerical and resistance gates.
+
+The current `angle-base-development` implements the owner's requested gusset
+replacement: two direct ML24Z outer-rim/header angles with twelve specified
+SDS25112 screws replace both plywood gussets and their eight bolts. Eight leg
+bolts and all 151 panel/kicker axes remain. Fresh-build geometry omits the old
+gusset bores; this is not a drilled-stock repair. Current joint/frame resistance
+is unqualified. Ordinary bolts are steel gray; explicit clearance failures stay
+red, and neither color is a strength rating.
 
 ## Communication
 
