@@ -2,9 +2,9 @@ import json
 
 import numpy as np
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea import backing_retention_envelope as model
-from replay_roundoff import assert_roundoff_equal
 
 
 def test_hand_solved_lever_and_direct_load():

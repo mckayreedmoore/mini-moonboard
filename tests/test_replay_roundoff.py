@@ -2,7 +2,6 @@
 import copy
 
 import pytest
-
 from replay_roundoff import assert_roundoff_equal
 
 

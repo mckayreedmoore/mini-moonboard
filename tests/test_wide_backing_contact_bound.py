@@ -2,9 +2,9 @@ import json
 
 import numpy as np
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea import wide_backing_contact_bound as model
-from replay_roundoff import assert_roundoff_equal
 
 
 def test_exact_overhang_and_torsional_limits():
