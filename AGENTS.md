@@ -83,10 +83,18 @@ gusset bores; this is not a drilled-stock repair. Current joint/frame resistance
 is unqualified. Ordinary bolts are steel gray; explicit clearance failures stay
 red, and neither color is a strength rating.
 
-The current candidate is `horizontal-service-development`; its four horizontal
-service rails replace the four added intermediate principals and posts. Use its
-matching schedules and evidence; the preserved angle-base results do not qualify
-the revised load path.
+The preserved `horizontal-service-development` uses four horizontal service
+rails in place of the four added intermediate principals and posts.
+
+The current candidate is `round-bore-service-development`; it replaces the open
+wire grooves with enclosed round passages and uses 56 ordinary panel/kicker
+screws: twelve per main panel and four per kicker, with mirrored attachment
+positions. Leg bolts retain complete stacks with heads outside and nuts inside.
+Keep the owned Roseburg plywood; Structural I is an optional reference
+alternative, not a replacement purchase instruction. Use the matching schedules
+and evidence. The preserved grooved-frame and higher-count screw comparisons
+do not qualify this geometry or load path; insert development and actual
+frame/connection/panel/floor qualification remain open.
 
 ## Communication
 
