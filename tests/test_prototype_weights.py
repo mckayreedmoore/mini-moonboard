@@ -49,7 +49,7 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     saved = json.loads(Path('site/prototype-weights.json').read_text())
     assert saved['generator_sha256'] == weights.sha(Path(weights.__file__).read_bytes())
     assert saved['assumed_density_kg_m3'] == weights.DENSITIES
-    assert len(saved['models']) == 51
+    assert len(saved['models']) == 52
     generated = {'2x10', '2x12', '2x8-shallow', '2x8-foot100'}
     for key, row in saved['models'].items():
         assert 'T-nuts and hold bolts' in row['scope']
@@ -87,6 +87,10 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     current = saved['models']['round-bore-service-development']
     assert current['basis'] == 'audited CAD'
     assert current['excluded_mass_part_count'] == 263
+    current = saved['models']['round-insert-development']
+    assert current['basis'] == 'audited CAD'
+    assert current['excluded_mass_part_count'] == 263
+    assert current['mesh_part_count'] == 607
 
 
 def test_audited_total_rejects_same_name_changed_mesh(monkeypatch):

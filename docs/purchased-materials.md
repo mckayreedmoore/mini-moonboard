@@ -4,6 +4,10 @@
 
 The owner identified the purchased **face-panel plywood** as
 [Roseburg at Lowe’s, item 12235 / model 119055](https://www.lowes.com/pd/Roseburg-23-32-CAT-PS1-09-Square-Structural-Plywood-Douglas-Fir-Application-as-4-x-8/1000015973).
+On September 11, 2026, the owner reconfirmed **AC fir plywood** and this
+previously supplied product link. Retain that identification; the remaining
+unknowns concern the delivered sheet dimensions, layup and applicable properties,
+not whether to buy a different face-panel product.
 The listing specifies **23/32 CAT**, PS1-09 and Exterior exposure. The category
 converts to **18.25625 mm**; its listed “actual thickness” of **0.718 inch
 (18.2372 mm)** is product data, not a measurement of the purchased sheets.
@@ -29,6 +33,12 @@ and splice plies are separate, unpurchased material selections**. This material
 record does not assign plywood strengths or change existing acceptance gates.
 
 ## Selected remaining lumber
+
+The species/grade guidance below remains the procurement basis. The size table
+in this section describes the historical `lower-transition-development` layout.
+For current sizes and quantities, use the [insert-candidate build
+draft](round-insert-build-plan.md#materials-and-hardware) and its matching wood
+schedule; do not combine the historical table with the current frame.
 
 Use **grade-stamped No. 2 or better Douglas Fir–Larch (DF-L), kiln-dried,
 untreated, solid-sawn lumber**, dressed on four sides. Prefer KD-15 when readily

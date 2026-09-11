@@ -1,0 +1,107 @@
+{
+  "candidate": "round-insert-development",
+  "artifact_sha256": {
+    "fea/results/round-insert-floor-v1.json.gz": "7b7c1d10b21ed291ac31b695e370097a7f97d75dcd6b9aa0a60bfc6830e27b93",
+    "exports/round-insert-development/wiring.json": "5c490379861f6698415e9aea329ec709c2d30117a5343d2131ce760f711d4dba",
+    "exports/round-insert-development/manifest.json": "6b05c34b4b6066f95a1fa42284c63d7b1faeb848a3afe640fabfaceea2411833",
+    "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+    "/home/mckay-linux/repos/mini-moonboard/fea/round_floor_harness_assessment.py": "fc8d09b2f6259fe70a178eae1fc3c3707338c061bab0b268ea88fcf4684f559a",
+    "fea/split_center_floor.py": "15a533da9c19cdcf53023b6cc5b98d8f73fe07ef61f25cbd43d97f3efeb61c52",
+    "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e"
+  },
+  "basis": "Saved artifact identities bound by export manifest and measurement-reference hashes; force/hull bounds recomputed from raw wrenches. This summary does not revalidate complete source closures or solve changed geometry.",
+  "floor": {
+    "mass_kg": 167.59820643623854,
+    "minimum_sampled_mass_kg": 134.07856514899083,
+    "necessary_resultant_friction_maximum": 0.15135502071572962,
+    "governing_force_bound_case": {
+      "climber_lb": 150,
+      "hold": "A1",
+      "horizontal_direction_deg": 0,
+      "mass_fraction": 0.8,
+      "weight_factor": 1,
+      "wrench_n_nmm": [
+        300.0,
+        0.0,
+        -1982.094803207426,
+        -902282.0254518606,
+        -609059.0355179253,
+        -36769.58222440553
+      ]
+    },
+    "minimum_sampled_resultant_hull_margin_mm": 86.38123675258316,
+    "saved_friction_summary": {
+      "0.1": {
+        "analytic_failure_reasons": {
+          "horizontal_force_exceeds_circular_friction_bound": 720
+        },
+        "circular_cone_infeasibility_proven": 720,
+        "feasible": 533,
+        "infeasible": 763,
+        "polygon_infeasible_without_analytic_proof": 43
+      },
+      "0.2": {
+        "analytic_failure_reasons": {},
+        "circular_cone_infeasibility_proven": 0,
+        "feasible": 1296,
+        "polygon_infeasible_without_analytic_proof": 0
+      },
+      "0.4": {
+        "analytic_failure_reasons": {},
+        "circular_cone_infeasibility_proven": 0,
+        "feasible": 1296,
+        "polygon_infeasible_without_analytic_proof": 0
+      }
+    },
+    "friction_or_contact_measured": false
+  },
+  "harness": {
+    "segments": 131,
+    "passages": 32,
+    "longest_segment": {
+      "name": "wire_007_A7_A8",
+      "index": 7,
+      "datums": [
+        "A7",
+        "A8"
+      ],
+      "route_local_mm": [
+        [
+          -1019.2,
+          1199.2,
+          8.0
+        ],
+        [
+          -989.2,
+          1219.2,
+          35.0
+        ],
+        [
+          -989.2,
+          1399.2,
+          35.0
+        ],
+        [
+          -1019.2,
+          1419.2,
+          8.0
+        ]
+      ],
+      "corner_radius_mm": 8.0,
+      "routed_length_mm": 268.0041525752576,
+      "polyline_length_upper_bound_mm": 270.0888450364417,
+      "approximate_path_budget_mm": 304.8,
+      "nominal_budget_remaining_mm": 36.79584742474242,
+      "within_approximate_budget": true,
+      "string_connector_envelope": false,
+      "additional_slack_accommodation_modeled": false,
+      "qualified_for_installation": false
+    },
+    "minimum_nominal_radial_passage_gap_mm": 6.35,
+    "maximum_timber_traverse_mm": 38.10000000000061,
+    "shortest_pitch_reported_as_approximate_mm": 304.8,
+    "physical_feed_or_removal_trial_performed": false
+  },
+  "qualified_for_design": false,
+  "qualified_for_installation": false
+}

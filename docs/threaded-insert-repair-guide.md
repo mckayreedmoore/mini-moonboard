@@ -3,8 +3,13 @@
 **Current recommendation: assess the damaged receiver before choosing a repair.
 Do not convert a loose panel screw into an insert and resume climbing on the
 basis of nominal fit.** The insert/machine-screw pair below is a concrete
-dimensional-development candidate. The current round model has 56 ordinary panel/kicker screws. No insert is installed,
+dimensional-development candidate. The preserved `round-bore-service-development`
+model has 56 ordinary panel/kicker screws. No physical insert installation is verified,
 and no worn-wood repair capacity or physical repair test has been established.
+
+The newer [round-insert development model](round-insert-build-plan.md) places
+56 inserts in fresh receiver stock. Its nominal fit and machining reservations
+do not qualify this damaged-wood repair.
 
 This guide concerns the ordinary face/kicker wood screws only. Retain commercial
 bracket SDS screws, structural through-bolts, nuts and washers, and climbing-hold

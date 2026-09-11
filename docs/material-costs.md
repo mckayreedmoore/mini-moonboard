@@ -1,5 +1,12 @@
 # Materials cost ledger
 
+The current [insert-candidate build draft](round-insert-build-plan.md) retains
+the framing hardware priced here but replaces the panel screws with **56
+E-Z LOK 801420-13 inserts and 56 Dottie FMDD14114 machine screws**. Both new
+items remain unpriced and are excluded from every subtotal below. The SPAX
+comparisons on this page belong to the preserved screw candidate, not the new
+insert purchasing schedule.
+
 **The currently priced remaining-material scenario is $260.41 USD, before the selected panel screws, missing hold hardware, any demonstrated plywood shortage, tax and shipping. Retain the already purchased Roseburg face plywood.** This is neither a complete additional-spend total nor the full value of installed materials, and it is not a construction release. Prices were checked on **September 11, 2026**. Of that portion, $17.80 is a displayed price for unavailable 8-foot boards; the remaining listed-available portion is $242.61. Neither figure is a local delivered quote.
 
 Quantities follow the [round-service purchasing draft](round-service-build-plan.md), which retains the previous 18 lumber blanks. The [purchased-material record](purchased-materials.md) separately confirms owned Roseburg face plywood, Lowe’s item 12235 / model 119055. Its purchased quantity, receipt cost and verified usable yield are not recorded here. The current round candidate has 56 panel/kicker screws: twelve on each main face and four on each kicker. The 87- and 75-screw patterns remain historical comparison scenarios. Final hardware quantities must be reconciled with that candidate's released export; a cost entry does not qualify its strength, installation or delivered material.

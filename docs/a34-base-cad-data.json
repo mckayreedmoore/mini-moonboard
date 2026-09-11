@@ -1,0 +1,206 @@
+{
+  "product": "Simpson A34 US Drawing Finder",
+  "units": "inch",
+  "coordinate_convention": "Width station centered about 0; flange reach measured from exterior bend reference. SAT flange names reflect native axes. Do not assume front/top correspondence without registration.",
+  "sources": {
+    "front_dxf": {
+      "url": "https://ssttoolbox.widen.net/content/ltsehsicjl/original/C_A34_2DO_Cad_FR_Prod.dxf?u=cjmyin&download=true",
+      "sha256": "1d1c1f0d879279b5985363a0e115afe2ef72e9f0808710f10b47048a2b4f9af1",
+      "width": 2.5,
+      "thickness": 0.046875,
+      "flange_reach": 1.421875,
+      "hole_diameter": 0.148,
+      "hole_centers_width_reach": [
+        [
+          -1.000025,
+          0.703125
+        ],
+        [
+          1,
+          0.703125
+        ],
+        [
+          -0.250025,
+          1.203125
+        ],
+        [
+          0.359375,
+          0.796875
+        ]
+      ]
+    },
+    "top_dxf": {
+      "url": "https://ssttoolbox.widen.net/content/mk3xaivdr6/original/C_A34_2DO_Cad_T_Prod.dxf?u=cjmyin&download=true",
+      "sha256": "55401afc31fa46d37639d31760fddb9fd6f39234bdf7aa095de0e1a344dd9d48",
+      "width": 2.5,
+      "thickness": 0.046875,
+      "flange_reach": 1.421875,
+      "hole_diameter": 0.148,
+      "hole_centers_width_reach": [
+        [
+          -1.000025,
+          1.140625
+        ],
+        [
+          1,
+          1.145625
+        ],
+        [
+          -0.250025,
+          0.649225
+        ],
+        [
+          -0.921875,
+          0.390625
+        ]
+      ]
+    },
+    "right_dxf": {
+      "url": "https://ssttoolbox.widen.net/content/veqd5zqcku/original/C_A34_2DO_Cad_R_Prod.dxf?u=cjmyin&download=true",
+      "sha256": "deba8cadd3cb01b7eb62f2fc3bb46f750420273c64f7d219cfebaf47a36abe8f",
+      "thickness": 0.046875,
+      "vertical_flange_reach": 1.421875,
+      "horizontal_flange_reach": 1.375
+    },
+    "sat": {
+      "url": "https://ssttoolbox.widen.net/content/jfkfj566ja/original/C_A34_3d_Cad_MULT_Prod.sat?u=cjmyin&download=true",
+      "sha256": "1eb84618b421f2a634ab856179dbf34905f6e26c10ecb823284a090954de9458",
+      "width": 2.5,
+      "thickness": 0.046,
+      "flange_reaches": [
+        1.421,
+        1.421
+      ],
+      "hole_diameter": 0.148,
+      "through_x_leg_width_z_reach_minus_y": [
+        [
+          -1,
+          1.20225
+        ],
+        [
+          0.21875,
+          0.70225
+        ],
+        [
+          0.9375,
+          0.38975
+        ],
+        [
+          1.0625,
+          1.20225
+        ]
+      ],
+      "through_y_leg_width_z_reach_x": [
+        [
+          -1.03125,
+          0.671
+        ],
+        [
+          -0.375,
+          0.796
+        ],
+        [
+          0.1875,
+          1.20225
+        ],
+        [
+          1.03125,
+          0.671
+        ]
+      ]
+    }
+  },
+  "disagreements": [
+    "Right DXF horizontal reach1.375 differs from top DXF1.421875",
+    "SAT thickness.046 differs from DXF.046875",
+    "SAT hole patterns differ materially from DXF; source drawings do not establish one exact installed pattern"
+  ],
+  "limitations": [
+    "CAD extraction, not released manufacturing dimensions or installation qualification",
+    "Head geometry and installation clearances not established here"
+  ],
+  "sd9112": {
+    "source": {
+      "url": "https://ssttoolbox.widen.net/content/zpm9nibpvz/pdf/C-F-2025TECHSUP.pdf",
+      "sha256": "3a9284c792ed25b6fa21f44778a3841c24ecfccc6cc79532759e2b972a77e8c7",
+      "pages": [
+        33,
+        34,
+        70,
+        71
+      ]
+    },
+    "units": "inch",
+    "precision_dimensions_p33": {
+      "length": 1.5,
+      "thread_length": 1,
+      "major_diameter": 0.177,
+      "root_diameter": 0.113,
+      "shank_diameter": 0.132,
+      "head_diameter": 0.378
+    },
+    "commercial_dimensions_not_precision": {
+      "shank_p21": 0.131,
+      "head_p70": 0.37
+    },
+    "thread_penetration_statement_p70": "Embedded thread length is that portion held in the main member including the screw tip.",
+    "limitations": [
+      "No head height or complete head shape established",
+      "Generic wood-to-wood spacing table p71 is not A34-specific installation qualification",
+      "p34 says consult published evaluation report for most current dimensions; ESR-3046 not separately verified"
+    ],
+    "generic_wood_to_wood_minima_p71": {
+      "main_member_edge_load_perpendicular": 1,
+      "main_member_edge_load_parallel": 0.5,
+      "main_member_end": 2,
+      "sd9_axial_only": {
+        "end": 1.875,
+        "edge": 0.75,
+        "spacing_parallel_grain": 1.25,
+        "spacing_perpendicular_grain": 0.75
+      }
+    }
+  },
+  "registration_check": {
+    "method": "Sorted six pairwise hole-center distances on each flange; invariant under rigid registration, reflection and coordinate-datum shifts. Matching 2.5in widths and .148in holes establish common unit scale.",
+    "sorted_pairwise_distances_mm": {
+      "front_dxf": [
+        16.445189800611146,
+        18.602919467118593,
+        22.89525059919633,
+        34.196386108816014,
+        34.61077315952505,
+        50.80063499999999
+      ],
+      "top_dxf": [
+        18.285466571397627,
+        19.15313981309853,
+        22.774807134937497,
+        34.16253222723434,
+        50.800793747767614,
+        52.44733142058445
+      ],
+      "sat_x_leg": [
+        19.90714872382532,
+        20.880302470270873,
+        24.911613287029404,
+        33.460116767018306,
+        52.387499999999996,
+        53.36456279685986
+      ],
+      "sat_y_leg": [
+        16.96843692160536,
+        17.624110128244773,
+        25.325476612000806,
+        33.76937522556496,
+        35.85958346889294,
+        52.387499999999996
+      ]
+    },
+    "best_flange_correspondence_max_distance_mismatch_mm": {
+      "front_dxf_to_sat_y_leg": 2.430226012804475,
+      "top_dxf_to_sat_x_leg": 2.136806152091907
+    },
+    "conclusion": "Extracted source geometries disagree beyond datum/thickness rounding; different product/drawing revisions remain possible. Actual purchased hole pattern not established."
+  }
+}

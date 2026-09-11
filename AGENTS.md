@@ -86,7 +86,7 @@ red, and neither color is a strength rating.
 The preserved `horizontal-service-development` uses four horizontal service
 rails in place of the four added intermediate principals and posts.
 
-The current candidate is `round-bore-service-development`; it replaces the open
+The preserved `round-bore-service-development` replaces the open
 wire grooves with enclosed round passages and uses 56 ordinary panel/kicker
 screws: twelve per main panel and four per kicker, with mirrored attachment
 positions. Leg bolts retain complete stacks with heads outside and nuts inside.
@@ -95,6 +95,16 @@ alternative, not a replacement purchase instruction. Use the matching schedules
 and evidence. The preserved grooved-frame and higher-count screw comparisons
 do not qualify this geometry or load path; insert development and actual
 frame/connection/panel/floor qualification remain open.
+
+The current candidate is `round-insert-development`. It retains the round-bore
+frame and all 56 attachment axes, replacing ordinary panel/kicker screws with
+modeled E-Z LOK 801420-13 inserts and Dottie FMDD14114 machine screws. Keep the
+eight complete leg bolt stacks and all ML24Z/SDS connections. The insert's
+0.25 mm recess, 7 mm panel clearance and 17 mm receiver reserve are provisional
+CAD assumptions, not released machining dimensions. Effective thread engagement,
+actual installed resistance and plywood head bearing remain unqualified. Do not
+transfer SPAX capacity or spacing acceptance to inserts. Keep the preceding
+screw candidate and failed numerical trials available as historical evidence.
 
 ## Communication
 

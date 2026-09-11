@@ -1,0 +1,78 @@
+{
+  "candidate": "round-insert-development",
+  "qualified_for_design": false,
+  "batch_complete": false,
+  "launch_sha256": "fd3802df7cda3d11b88518bab678347a4bfb7f2927d833100fde693ffa2cfca4",
+  "cases": [
+    {
+      "case": "f10-contact",
+      "parameters": {
+        "hold": "F10",
+        "contact": true,
+        "panel_stiffness": 1000.0,
+        "samples": 3,
+        "penalty": 100.0
+      },
+      "report_sha256": "53e28ffc01bcd1e71435f321976c4eebc1fb8190e46129f9f626cc6c0b1e753a",
+      "contact_diagnostic_checks_passed": true,
+      "maximum_panel_displacement_mm": 25.043568247219184,
+      "contact_cycles": 21
+    },
+    {
+      "case": "f10-no-contact",
+      "parameters": {
+        "hold": "F10",
+        "contact": false,
+        "panel_stiffness": 1000.0,
+        "samples": 3,
+        "penalty": 100.0
+      },
+      "report_sha256": "a64337430d90ba6d1e9b5ccc561d5e9dac81c734fdaf8b0502b31ee19b157f3a",
+      "contact_diagnostic_checks_passed": true,
+      "maximum_panel_displacement_mm": 25.52258257181275,
+      "contact_cycles": 3
+    },
+    {
+      "case": "c6-contact",
+      "parameters": {
+        "hold": "C6",
+        "contact": true,
+        "panel_stiffness": 1000.0,
+        "samples": 3,
+        "penalty": 100.0
+      },
+      "report_sha256": "12218c38ad02da37424a842adaab4e5b2acc3a1d628bab52b890e625b4533be7",
+      "contact_diagnostic_checks_passed": true,
+      "maximum_panel_displacement_mm": 19.4336726616415,
+      "contact_cycles": 19
+    },
+    {
+      "case": "c10-contact",
+      "parameters": {
+        "hold": "C10",
+        "contact": true,
+        "panel_stiffness": 1000.0,
+        "samples": 3,
+        "penalty": 100.0
+      },
+      "report_sha256": "c3b9343c68f7bf5ba8c71b10671626cf2c794ce9687c58ec743ae78f9be2920a",
+      "contact_diagnostic_checks_passed": true,
+      "maximum_panel_displacement_mm": 16.322779035695024,
+      "contact_cycles": 19
+    },
+    {
+      "case": "f10-k100",
+      "parameters": {
+        "hold": "F10",
+        "contact": true,
+        "panel_stiffness": 100.0,
+        "samples": 3,
+        "penalty": 100.0
+      },
+      "report_sha256": "9077e7bb4faab8a881c76afe81a90086daae77916d7202503e2704b303c91694",
+      "contact_diagnostic_checks_passed": true,
+      "maximum_panel_displacement_mm": 36.342077068628036,
+      "contact_cycles": 25
+    }
+  ]
+}

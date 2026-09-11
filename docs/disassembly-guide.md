@@ -1,5 +1,10 @@
 # Round-service disassembly and maintenance draft
 
+For the newer insert candidate, use the [matching build and removal
+draft](round-insert-build-plan.md). Its machine screws and receiver inserts
+must not be confused with the wood screws described below. The temporary
+support and stage-stability requirements remain unresolved for both candidates.
+
 This guide covers `round-bore-service-development`. It separates panel
 maintenance from full frame teardown. The sequence was reviewed against the
 connection topology; **physical disassembly and temporary support stability

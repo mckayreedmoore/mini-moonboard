@@ -14,7 +14,8 @@ DENSITIES = {'wood/plywood': 600., 'steel': 7850., 'die-cast zinc assumption': 6
 AUDITED = {key+'-development': Path('fea/results')/(stem+'-floor-v1.json.gz') for key, stem in (
     ('selective-2x6', 'selective'), ('split-center', 'split-center'),
     ('infill-panel', 'infill-panel'), ('angle-base', 'angle-base'),
-    ('horizontal-service', 'horizontal-service'), ('round-bore-service', 'round-service'))}
+    ('horizontal-service', 'horizontal-service'), ('round-bore-service', 'round-service'),
+    ('round-insert', 'round-insert'))}
 WOOD_PREFIXES = {'base', 'box', 'cheek', 'cross', 'easy', 'kicker', 'lean', 'leg', 'lumber',
                  'main', 'mid', 'panel', 'rear', 'rib', 'seam', 'timber', 'wood'}
 
@@ -98,7 +99,7 @@ def audited_mass(key, parts, viewer_directory=None):
         if fabrication.get('kind') in ('light', 'wire'):
             electrical.append(part['name'])
             continue
-        if fabrication.get('connection_name'):
+        if fabrication.get('kind') == 'bolt' and fabrication.get('connection_name'):
             roles[fabrication['connection_name']].append(fabrication.get('hardware_role'))
         elif part['name'] in names:
             raise ValueError('Duplicate unsplit part identity')
