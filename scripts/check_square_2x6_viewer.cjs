@@ -99,6 +99,24 @@ fs.mkdirSync(artifacts, { recursive: true });
           assert.deepEqual(bolts.filter(p => p.fabrication.connection_name === connection)
             .map(p => p.fabrication.hardware_role).sort(), ['far_washer', 'head', 'near_washer', 'nut', 'shaft']);
         }
+        assert.equal(await page.locator('#bolt-view option').count(), connections.size+1);
+        const before = await page.evaluate(() => Object.fromEntries(window.cadTest.meshes
+          .filter(mesh => mesh.userData.part.fabrication?.hardware_role)
+          .map(mesh => { mesh.updateWorldMatrix(true, false); return [mesh.userData.part.name, mesh.matrixWorld.elements.slice()]; })));
+        for (const connection of connections) {
+          await page.selectOption('#bolt-view', connection);
+          assert.match(await page.locator('#bolt-view-note').innerText(), /wood hidden.*assembled positions/);
+          const visible = await page.evaluate(() => window.cadTest.meshes.filter(mesh => mesh.visible).map(mesh => mesh.userData.part));
+          assert.equal(visible.length, 5);
+          assert.ok(visible.every(part => part.fabrication.connection_name === connection));
+        }
+        const after = await page.evaluate(() => Object.fromEntries(window.cadTest.meshes
+          .filter(mesh => mesh.userData.part.fabrication?.hardware_role)
+          .map(mesh => { mesh.updateWorldMatrix(true, false); return [mesh.userData.part.name, mesh.matrixWorld.elements.slice()]; })));
+        assert.deepEqual(after, before);
+        await page.selectOption('#bolt-view', 'lumber_leg_bolt_right_1');
+        await page.waitForTimeout(250);
+        await page.screenshot({path: path.join(artifacts, model+'-bolt-isolated.png')});
         // Orbit to each physical end; select its exposed surface with a real click.
         for (const role of ['head', 'nut']) {
           const name = 'fastener_lumber_leg_bolt_right_1_'+role;
@@ -117,6 +135,11 @@ fs.mkdirSync(artifacts, { recursive: true });
           assert.ok((await page.locator('#part').innerText()).startsWith(name+':'));
           await page.screenshot({path: path.join(artifacts, model+'-bolt-'+role+'.png')});
         }
+        await page.selectOption('#bolt-view', '');
+        assert.equal(await page.locator('#bolt-view-note').isVisible(), false);
+        assert.equal(await page.evaluate(() => window.cadTest.meshes.filter(mesh =>
+          mesh.visible && mesh.userData.part.name !== 'McKay').length), manifest.parts.length);
+
       }
       if (['infill-panel-development', 'angle-base-development'].includes(model)) {
         const infill = manifest.parts.filter(p => p.name.startsWith('fastener_infill_'));
@@ -162,8 +185,9 @@ fs.mkdirSync(artifacts, { recursive: true });
     }
     // Dropdown navigation must preserve the requested candidate through a real reload.
     if (variants.length === 1) {
-      await page.goto(base+'?model=square-2x6-revised-development');
+      await page.goto(base+'?model=vertical-principal-development');
       await loaded();
+      assert.equal(await page.locator('#bolt-view').isVisible(), false);
     }
     await page.selectOption('#model', variants[0]);
     await page.waitForURL(url => url.searchParams.get('model') === variants[0]);

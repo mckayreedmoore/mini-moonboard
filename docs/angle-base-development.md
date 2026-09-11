@@ -107,3 +107,8 @@ menu ordering, and retained red precedence for explicit clearance failures.
 Independent correctness, testing and consistency reviews found no remaining
 substantive implementation defects after the solver-provenance guard was fixed.
 These software checks do not release the design for construction.
+
+The later [connection checkpoint](mvp-connection-checkpoint.md) records the panel
+plate prototype and current directional base-angle screen. It does not change
+this frame's installed schedule or establish build readiness. The viewer's new
+**Inspect bolt** control hides wood to expose both hardware ends without moving them.

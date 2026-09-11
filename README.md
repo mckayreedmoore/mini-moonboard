@@ -13,6 +13,10 @@ remain. Ordinary bolts now appear steel gray. Connection resistance, panel
 seams, current frame strength and actual floor behavior remain unqualified.
 This is not build-ready. Earlier baselines are preserved.
 
+[Latest connection checkpoint](docs/mvp-connection-checkpoint.md): a local screw-and-plate
+prototype and current base-angle directional screen identify remaining limits.
+Use **Inspect bolt** in the viewer to reveal both ends, including the nut.
+
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 
 **Preserved audit candidate: wider central supports and removable panels.**

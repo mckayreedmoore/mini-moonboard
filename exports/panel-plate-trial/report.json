@@ -1,0 +1,2101 @@
+{
+  "candidate": "single-joint-panel-plate-trial",
+  "parent": "angle-base-development",
+  "qualified_for_design": false,
+  "installed_in_current_frame": false,
+  "complete_frame_reanalysis_run": false,
+  "actual_connection_demands_available": false,
+  "reference": {
+    "product": "SPAX XFU10-3500 #10 x 3.5 in Unidrive flat head",
+    "url": "https://www.drjcertification.org/report/download/1936",
+    "report": "2010-02, revised 2025-11-04; Tables 4, 10 and 19",
+    "source_pdf_sha256": "e989b7a89cfd6dce92c22bd88d79f0171382f605d5939940fedb62dd661fe8ed",
+    "thread_including_tip_mm": 60.325,
+    "head_diameter_mm": 9.906,
+    "major_diameter_mm": 5.08,
+    "overall_length_mm": 88.9,
+    "withdrawal_lbf_per_in_DFL_SG050": 176.0,
+    "allowable_steel_tension_lbf": 690.0,
+    "minimum_edge_mm": 9.525,
+    "toward_end_distance_mm": 57.15,
+    "conditions": "Unadjusted conditional product references. Actual timber, installation, custom steel seat, combined loading and cyclic response are unqualified."
+  },
+  "plate_dimensions_mm": [
+    31.75,
+    50.8,
+    7.9375
+  ],
+  "plate_hole_mm": 5.8,
+  "assumed_countersink_included_angle_deg": 90.0,
+  "selected_source_location": {
+    "connection": "infill_main_lower_left_base_principal_center_left_2_1",
+    "panel": "main_lower_left",
+    "receiver": "base_principal_center_left",
+    "axis_x_s_mm": [
+      -70.0,
+      503.8666666666667
+    ],
+    "plate_inside_panel_s_bounds": true,
+    "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+    "nominal_receiver_side_edge_mm": 19.05,
+    "upper_end_axis_distance_mm": 1896.4333333333334,
+    "upper_toward_end_reference_passed": true,
+    "full_lower_end_and_split_resistance_checked": false,
+    "installed_or_qualified": false
+  },
+  "diagnostic_force_cases": {
+    "250lb_normal_only": {
+      "force_n": 1725.5855201072811,
+      "gross_wood_penetration_mm": 62.706250000000004,
+      "embedded_thread_including_tip_mm": 60.325,
+      "conditional_withdrawal_reference_n": 1859.356635178889,
+      "withdrawal_reference_exceeded": false,
+      "conditional_steel_tension_reference_n": 3069.272914529745,
+      "steel_tension_reference_exceeded": false,
+      "strip_bending_stress_mpa": 95.54144704269441,
+      "required_yield_mpa_at_assumed_1_67_divisor": 159.55421656129965,
+      "nominal_plate_contact_area_mm2": 1535.8297924292704,
+      "average_plywood_contact_pressure_mpa": 1.1235525763423746,
+      "qualification_passed": false
+    },
+    "300lb_normal_only": {
+      "force_n": 2022.908,
+      "gross_wood_penetration_mm": 62.706250000000004,
+      "embedded_thread_including_tip_mm": 60.325,
+      "conditional_withdrawal_reference_n": 1859.356635178889,
+      "withdrawal_reference_exceeded": true,
+      "conditional_steel_tension_reference_n": 3069.272914529745,
+      "steel_tension_reference_exceeded": false,
+      "strip_bending_stress_mpa": 112.0034650859999,
+      "required_yield_mpa_at_assumed_1_67_divisor": 187.04578669361985,
+      "nominal_plate_contact_area_mm2": 1535.8297924292704,
+      "average_plywood_contact_pressure_mpa": 1.3171433514128559,
+      "qualification_passed": false
+    }
+  },
+  "placements": [
+    {
+      "connection": "timber_panel_lower_left_3",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        48.0000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.090107224116572,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2352.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_left_4",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1139.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 17.853871994817084,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1261.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_left_7",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        370.40000000000003
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.090107224116558,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2029.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_left_8",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        770.8
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.05361072699926,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1629.5000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_right_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        80.00000000000023
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2320.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_right_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1179.2000000000003
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1221.1,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_right_5",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        426.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.34709009224569,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1973.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_lower_right_6",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        832.8000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.78208200505058,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1567.5,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_left_3",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1259.2000000000003
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 29.162136090694645,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1141.1,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_left_4",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        2290.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.09010722411653,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 109.90000000000009,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_left_7",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1590.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.071293460606746,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 809.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_left_8",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1991.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 15.037060735740909,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 409.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_right_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1299.2000000000003
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1101.1,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_right_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        2353.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.851172130170085,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 46.90000000000009,
+      "upper_toward_end_reference_passed": false,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_right_5",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1645.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.33181863966014,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 754.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "timber_panel_upper_right_6",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        2052.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.69746009870357,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 348.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_1_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        80.00000000000007
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2320.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_1_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        400.0000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2000.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_1_3",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        800.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1600.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_1_4",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1119.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1281.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_1_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1299.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1101.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_1_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1619.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 781.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_1_3",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        2019.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 381.10000000000014,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_1_4",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        2338.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 61.90000000000009,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_2_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        80.00000000000007
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2320.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_2_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        400.0000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2000.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_2_3",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        800.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1600.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_left_2_4",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1119.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1281.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_2_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1299.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1101.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_2_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1619.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 781.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_2_3",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        2019.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 381.10000000000014,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_left_2_4",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        2338.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 61.90000000000009,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_1_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        80.00000000000007
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2320.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_1_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        400.0000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2000.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_1_3",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        800.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1600.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_1_4",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1119.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1281.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_1_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1299.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1101.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_1_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1619.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 781.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_1_3",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        2019.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 381.10000000000014,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_1_4",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        2338.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 61.90000000000009,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_2_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        80.00000000000007
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2320.3,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_2_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        400.0000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2000.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_2_3",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        800.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1600.3000000000002,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_lower_right_2_4",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1119.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1281.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_2_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1299.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1101.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_2_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1619.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 781.1000000000001,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_2_3",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        2019.2
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 381.10000000000014,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "vertical_panel_upper_right_2_4",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        2338.4
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 61.90000000000009,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_1_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        155.4666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 19.44447662361746,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2244.8333333333335,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_1_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        262.9333333333334
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 16.57649613405364,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2137.366666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_2_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        503.8666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1896.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_2_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        637.3333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 17.173826851398708,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1762.966666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_3_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        893.6000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1506.7,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_center_left_3_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1016.4000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1383.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_1_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        186.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2213.6333333333337,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_1_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        293.33333333333337
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2106.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_2_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        533.3333333333335
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.450351755985253,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1866.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_2_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        666.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.079907122004414,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1733.6333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_3_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        906.4000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1493.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_1_3_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1012.8000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1387.5,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_1_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        186.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2213.6333333333337,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_1_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        293.33333333333337
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2106.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_2_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        533.3333333333335
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.450351755985253,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1866.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_2_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        666.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.079907122004414,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1733.6333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_3_1",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        906.4000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1493.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_left_base_principal_left_2_3_2",
+      "panel": "main_lower_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1012.8000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1387.5,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_1_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        195.4666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2204.8333333333335,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_1_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        310.9333333333334
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2089.366666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_2_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        561.8666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 54.28970365699712,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1838.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_2_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        697.3333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1702.966666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_3_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        948.2666666666669
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 57.04976791730866,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1452.0333333333333,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_center_right_3_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1063.7333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 54.01279215634136,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1336.5666666666668,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_1_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        186.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2213.6333333333337,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_1_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        293.33333333333337
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2106.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_2_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        533.3333333333335
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.450351755985253,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1866.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_2_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        666.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.079907122004414,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1733.6333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_3_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        906.4000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1493.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_1_3_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1012.8000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1387.5,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_1_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        186.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2213.6333333333337,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_1_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        293.33333333333337
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 2106.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_2_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        533.3333333333335
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.450351755985253,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1866.9666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_2_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        666.6666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.079907122004414,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1733.6333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_3_1",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        906.4000000000001
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1493.9,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_lower_right_base_principal_right_2_3_2",
+      "panel": "main_lower_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1012.8000000000002
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1387.5,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_center_left_1_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1369.666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 22.452012941411418,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 1030.6333333333332,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_center_left_1_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1480.1333333333337
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 17.50377851334138,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 920.1666666666665,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_center_left_2_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1724.0666666666666
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 676.2333333333336,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_center_left_2_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        1857.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 17.242807844080524,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 542.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_center_left_3_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_center_left",
+      "axis_x_s_mm": [
+        -70.0,
+        2140.7
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.924999999999955,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 259.60000000000036,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_1_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1405.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 994.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_1_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1512.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 887.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_2_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1752.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 647.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_2_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        1885.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 514.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_3_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        2125.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 274.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_1_3_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_1",
+      "axis_x_s_mm": [
+        -770.0,
+        2232.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 168.30000000000018,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_1_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1405.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 994.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_1_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1512.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 887.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_2_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1752.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 647.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_2_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        1885.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 514.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_3_1",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        2125.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 274.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_left_base_principal_left_2_3_2",
+      "panel": "main_upper_left",
+      "receiver": "base_principal_left_2",
+      "axis_x_s_mm": [
+        -370.0,
+        2232.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 168.30000000000018,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_1_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1414.666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 985.6333333333332,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_1_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1530.1333333333334
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 870.1666666666667,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_2_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1781.0666666666666
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 54.42239852878828,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 619.2333333333336,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_2_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        1916.5333333333335
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 483.76666666666665,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_3_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        2152.4666666666667
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.745780011092535,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 247.83333333333348,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_center_right_3_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_center_right",
+      "axis_x_s_mm": [
+        70.0,
+        2252.9333333333334
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 53.797019380490255,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 147.3666666666668,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_1_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1405.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 994.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_1_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1512.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 887.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_2_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1752.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 647.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_2_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        1885.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 514.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_3_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        2125.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 274.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_1_3_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_1",
+      "axis_x_s_mm": [
+        430.0,
+        2232.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 168.30000000000018,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_1_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1405.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 994.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_1_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1512.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 887.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_2_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1752.5333333333333
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 647.7666666666669,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_2_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        1885.8666666666668
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 14.256289973927117,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 514.4333333333334,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_3_1",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        2125.6
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 274.7000000000003,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    },
+    {
+      "connection": "infill_main_upper_right_base_principal_right_2_3_2",
+      "panel": "main_upper_right",
+      "receiver": "base_principal_right_2",
+      "axis_x_s_mm": [
+        830.0,
+        2232.0
+      ],
+      "plate_inside_panel_s_bounds": true,
+      "plate_to_extended_40mm_service_envelope_clearance_mm": 13.325000000000045,
+      "nominal_receiver_side_edge_mm": 19.05,
+      "upper_end_axis_distance_mm": 168.30000000000018,
+      "upper_toward_end_reference_passed": true,
+      "full_lower_end_and_split_resistance_checked": false,
+      "installed_or_qualified": false
+    }
+  ],
+  "extended_shaft_fit": {
+    "checked_extended_shaft_count": 119,
+    "failures": [],
+    "scope": "Nominal major-diameter extended shafts against retained fasteners/brackets and solid receiver coverage. Front plates, actual threads, driver/hold bodies and installation sequence still require full assembly checks.",
+    "complete_replacement_fit_qualified": false
+  },
+  "upper_end_reference_failures": [
+    "timber_panel_upper_right_2"
+  ],
+  "front_service_envelope_failures": [],
+  "plate_crosses_panel_edge": [],
+  "plate_screw_collision_volume_mm3": 0.0,
+  "limits": "Single-joint hypothesis, not a new full-frame schedule. Existing ideal point-restraint panel reactions are diagnostic only, not the redistributed forces of a plated joint. Steel grade/yield, actual countersink, plywood contact/bearing/punching, screw combined action, timber splitting, lower end distances and actual hold/tool shapes remain unqualified. No equal sharing, friction or stiffness benefit is credited. 40mm service circles are extended to the front for this placement screen; they are not actual hold-body envelopes. Render hides half the local wood for inspection.",
+  "source_sha256": {
+    "fea/split_center_panel_comparison.py": "1c386479b6757745449a0cf90616c842e44574b9cc6c6863d8930286c6d9d66c",
+    "fea/vertical_panel_comparison.py": "e3079c6d82219ccc255905a38f4b61bb0354bfd52454f490b1590dc8fa0e79ea",
+    "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+    "mini_moonboard/angle_base_exports.py": "f01beec0ebb2cab9e39e220b48339bc63cb61d243398abd8589d97f8be712eb7",
+    "mini_moonboard/angle_base_frame.py": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288",
+    "mini_moonboard/backing_end_relocated_trial.py": "c0718d3fdc866d60fb074e3b12c296f1b04958c8bafbe782eda0422256204a67",
+    "mini_moonboard/backing_end_trial.py": "6722c0055e2131057cec07bc748d3cdee9295de3c078f096fabc1f79fee9ba10",
+    "mini_moonboard/base_exports.py": "d549b37c8f4acc76d4164f8130356b6d11b76d2bce93b138b2f53cfdd75e64e5",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+    "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/compact_hardware_exports.py": "47c45a55c49e36076435c1065b06f9ff6605334da1d7d51d54dfaac78659ff8b",
+    "mini_moonboard/connection_engagement.py": "965b69721c7d86947a06883333d11f895e9469be7f7adce9cda7ae6366521c7a",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+    "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/hybrid_exports.py": "e1b979ec8703ab945bc83c2b5c2b95266718010bfd75318da2ad950169f2918d",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/infill_panel_exports.py": "9da25c5b5b15ae680654aaff5e14250af6e351be2f685f895decd80b17ca37d9",
+    "mini_moonboard/infill_panel_frame.py": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794",
+    "mini_moonboard/insert_exports.py": "bd6ea3fc8891b24b4e4e16985d0082778a9add0d4511ecef147af2172f7e468c",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/leg_hardware_trial.py": "bfbafa71dd5e682a15a175937564643681bd032eead1a3836294ebeace81f7ba",
+    "mini_moonboard/lumber_leg_exports.py": "2ac4f58638cec4c8147eb782d8e21721f256747607061e7e40ad4795f50e2067",
+    "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+    "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+    "mini_moonboard/paired_rail_exports.py": "a4a9500cbacba338cb0e5424fd3a8ad72a2c5816a70eb6c6c175c9a5d3bf9f2a",
+    "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/ply_profile_audit.py": "7cdd955376244898f0fa433788a7cb04b5cd2e93fa35a6a37d6ae589e27a1c46",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/profile_clearance.py": "248384972bc46350559f63465fd728152a170f4da29bde0bf41f5dd4dfe6afc0",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/selective_2x6_exports.py": "c1d45dd6bce5a2432b086d767d651a7cac6504f29000eb957a0ba5a6188780d7",
+    "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+    "mini_moonboard/selective_2x6_viewer.py": "4c0abfb87f344cc0013e55848d0b2c3f7a9148e05f6ef2cd28e862a566dd9199",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/single_2x6_exports.py": "7200cfde3ed64ffbfa8d941276226a3fefb2c68423483e7143efa57aaf3e5e11",
+    "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+    "mini_moonboard/single_2x6_viewer.py": "747ec75c9741d71eee784a7f4d2280d79018fe33084b7b4f8ed0e18058101403",
+    "mini_moonboard/site_inputs.py": "8547ad0ffe03540b17c51df19bc50044443d91ed62eaab5bb0800be0a2f0eb5e",
+    "mini_moonboard/sketchup.py": "fb4e477562365711b74afe6a03dd4014786c40366c74eee79ddd567b01efd64f",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/split_center_exports.py": "818e45b2b3e8753ada26f424a35188e6b5d85e84ba70ed47d909caf1dcb1c861",
+    "mini_moonboard/split_center_frame.py": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d",
+    "mini_moonboard/split_center_hardware.py": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f",
+    "mini_moonboard/spread_leg_exports.py": "841cbee3d6d42c590630232eb1af691a660297ae4c5cc48310412e72cba2ed4a",
+    "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+    "mini_moonboard/square_2x6_exports.py": "56351e541ce3c58342aa6763358c0b1aa9152a5176aeb3f617ea095ea3fba249",
+    "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+    "mini_moonboard/square_2x6_revised_exports.py": "3d8f384a509c4ff10e9255524aff00a39540b78a2ab330af544a21535eb7cb25",
+    "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+    "mini_moonboard/square_2x6_viewer.py": "a4863d85d3972ceb956c08c08f753e01d0f173cdbbb3495f14121cbf5558f381",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+    "mini_moonboard/tied_base.py": "bd0f5ae06d7d24f08c916d6196183d8e0327d81912a42c1c7a9e42cae2588663",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_exports.py": "138260d7f3b02ff7a4f44a7d68cb9100a2bf656e40eb24b289a32944005a8c29",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/vertical_principal_exports.py": "4ea4701ab40342430a63f8a6a2944c83adc08f85467074543a1977338e8ebc9d",
+    "mini_moonboard/vertical_principal_frame.py": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1",
+    "mini_moonboard/wide_exports.py": "d31d5ee8ee2bc9f5f908f9cf915ccb99d0d23f470d2a916c5fd5bf682b4e9cba",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wide_machining.py": "bebf211263b4adec9da3b33884dee6dcd90cdcee67a0f16421df7ea05014b04b",
+    "mini_moonboard/wide_machining_features.py": "14175dc61178f323f936dc6ad10464fdd47884521bf2fb91096500d900eff5f6",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
+    "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+    "docs/selective-stock-reference.json": "2cfc60beb99fdc8716e00a6f4513d32e1795373326fc50a7aa0a74bf638598c5",
+    "fea/infill_panel_comparison.py": "2c7e13cbbb120e3f80236feb1fd65a7f2633083514020d9ccca602bc3f905d22",
+    "fea/reuse_panel_job.py": "bbaf20e6eac0bdb59c552ef1b62837ffc015111928210c6453b9524834528371",
+    "fea/infill_connection_screen.py": "fe9dadff8cd2250883fe8f57939bb4ac5767dda25c2cc38436bcc62ed1cd0386",
+    "docs/infill-panel-hardware-reference.json": "836132a5c5f67abcc25c36be398c18781652628a2f2fab1f83b3c784143c8a25",
+    "fea/results/infill-connection-screen-v1.json": "c90fb39200222816ffacb78b7f5da32ebe239da29e5f96b494140ea2cde0e2e3",
+    "fea/panel_plate_trial.py": "1594135760b3b35b956809d17f4983fe7d871fc3e474dd96831f80714700b147"
+  },
+  "artifact_sha256": {
+    "section.png": "337c0dbaac25d5f96872a19c5d779e68248a49593da4cf2b141b744a50d0d150",
+    "panel-plate-trial.step": "9672a18dd46366d82109ea9aeb54297db209c5bb3e42593b00b3c2d155b9f97a"
+  }
+}

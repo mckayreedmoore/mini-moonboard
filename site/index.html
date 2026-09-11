@@ -7,6 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23121619'/%3E%3Cpath d='M12 50 27 12h25L37 50Z' fill='%23a65a16'/%3E%3C/svg%3E" />
     <style>
       * { box-sizing: border-box; }
+      label[hidden] { display: none; }
       body { margin: 0; background: #121619; color: #f5f0e6; font: 16px system-ui, sans-serif; }
       header { position: fixed; z-index: 1; inset: 0 auto auto 0; max-width: min(32rem, 100vw); max-height: 45vh; overflow: auto; padding: 1rem 1.25rem; background: #121619dd; }
       h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
@@ -100,6 +101,45 @@
       if (model === 'base-bearing-concept') document.querySelector('header p:nth-of-type(2)').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       let rowStations = Array.from({ length: 12 }, (_, index) => 80 + index * 200);
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'bolt' ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.fabrication.kind === 'insert' || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
+      const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect bolt ';
+      const boltSelect = document.createElement('select'); boltSelect.id = 'bolt-view';
+      boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('header p:nth-of-type(2)').after(boltLabel);
+      const boltNote = document.createElement('p'); boltNote.id = 'bolt-view-note'; boltNote.hidden = true;
+      boltNote.textContent = 'Isolated hardware view: wood hidden; head, shaft, two washers and nut remain in their assembled positions. Drag to orbit; click either end to inspect.';
+      boltLabel.after(boltNote);
+      let inspectedBolt = '', savedAssemblyView;
+      const boltMeshes = name => meshes.filter(mesh => mesh.userData.part.fabrication?.connection_name === name);
+      function updateBoltVisibility() {
+        meshes.forEach(mesh => { mesh.visible = !inspectedBolt || mesh.userData.part.fabrication?.connection_name === inspectedBolt; });
+        person.visible = !inspectedBolt && document.querySelector('#person').checked;
+        dimensions.visible = !inspectedBolt && document.querySelector('#dimensions').checked;
+        overlay.visible = !inspectedBolt; grid.visible = !inspectedBolt;
+        ['#person', '#dimensions', '#overlay'].forEach(id => { document.querySelector(id).disabled = Boolean(inspectedBolt); });
+      }
+      boltSelect.addEventListener('change', () => {
+        if (!inspectedBolt && boltSelect.value) savedAssemblyView = {position: camera.position.clone(), target: controls.target.clone()};
+        inspectedBolt = boltSelect.value; boltNote.hidden = !inspectedBolt;
+        selected.forEach(mesh => mesh.material.emissive.setHex(0)); selected = [];
+        updateBoltVisibility(); camera.clearViewOffset();
+        if (inspectedBolt) {
+          const pieces = boltMeshes(inspectedBolt), bounds = new THREE.Box3();
+          pieces.forEach(mesh => { mesh.updateWorldMatrix(true, false); bounds.union(new THREE.Box3().setFromObject(mesh)); });
+          const center = bounds.getCenter(new THREE.Vector3());
+          const head = pieces.find(mesh => mesh.userData.part.fabrication.hardware_role === 'head');
+          const nut = pieces.find(mesh => mesh.userData.part.fabrication.hardware_role === 'nut');
+          const axis = new THREE.Box3().setFromObject(nut).getCenter(new THREE.Vector3())
+            .sub(new THREE.Box3().setFromObject(head).getCenter(new THREE.Vector3())).normalize();
+          const side = new THREE.Vector3().crossVectors(axis, camera.up).normalize();
+          const distance = Math.max(80, bounds.getSize(new THREE.Vector3()).length()*2.3);
+          camera.position.copy(center).addScaledVector(side, distance).addScaledVector(camera.up, distance*.35);
+          controls.target.copy(center);
+          partCard.textContent = `${inspectedBolt}: head, near washer, shaft, far washer and nut shown together; no parts moved. Click a component for its dimensions.`;
+        } else if (savedAssemblyView) {
+          camera.position.copy(savedAssemblyView.position); controls.target.copy(savedAssemblyView.target);
+          partCard.textContent = 'Full assembly restored. Click wood or hardware to inspect.';
+        }
+        controls.update();
+      });
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
@@ -111,12 +151,32 @@
           details.textContent = `${design.status}. ${design.description}`;
           modelLabel.after(details);
         }
+        const boltConnections = new Map();
+        parts.forEach(part => {
+          const {connection_name: name, hardware_role: role} = part.fabrication;
+          if (name && role) {
+            if (!boltConnections.has(name)) boltConnections.set(name, new Set());
+            boltConnections.get(name).add(role);
+          }
+        });
+        for (const [name, roles] of boltConnections) {
+          if (['shaft', 'head', 'near_washer', 'far_washer', 'nut'].every(role => roles.has(role))) {
+            const option = new Option(name.replaceAll('_', ' '), name); option.disabled = true; boltSelect.add(option);
+          }
+        }
+        boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
         partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: .7, metalness: .05 }));
           mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
+          if (inspectedBolt) updateBoltVisibility();
+          const name = part.fabrication.connection_name;
+          if (name && boltMeshes(name).length === 5) {
+            const option = Array.from(boltSelect.options).find(option => option.value === name);
+            if (option) option.disabled = false;
+          }
         }, undefined, error => { partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`; }));
       }).catch(error => { partCard.textContent = `Could not load CAD parts: ${error.message}`; });
       const overlay = new THREE.Group(); assemblyView.add(overlay);
@@ -201,7 +261,7 @@
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
         // The raycaster still intersects children of an invisible parent group.
-        const hit = raycaster.intersectObjects(meshes.filter(mesh => person.visible || mesh.userData.part !== personPart))[0];
+        const hit = raycaster.intersectObjects(meshes.filter(mesh => mesh.visible && (person.visible || mesh.userData.part !== personPart)))[0];
         if (!hit) return;
         selected.forEach(mesh => mesh.material.emissive.setHex(0));
         const part = hit.object.userData.part;
