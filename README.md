@@ -16,6 +16,8 @@ This is not build-ready. Earlier baselines are preserved.
 [Latest connection checkpoint](docs/mvp-connection-checkpoint.md): a local screw-and-plate
 prototype and current base-angle directional screen identify remaining limits.
 Use **Inspect bolt** in the viewer to reveal both ends, including the nut.
+[Weight estimates for every prototype](docs/prototype-weights.md) also appear
+in the design menu and selected-model details.
 
 [Open the preserved wide-support candidate in the interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development)
 

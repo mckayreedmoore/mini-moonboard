@@ -107,6 +107,33 @@
       const boltNote = document.createElement('p'); boltNote.id = 'bolt-view-note'; boltNote.hidden = true;
       boltNote.textContent = 'Isolated hardware view: wood hidden; head, shaft, two washers and nut remain in their assembled positions. Drag to orbit; click either end to inspect.';
       boltLabel.after(boltNote);
+      const weightLine = document.createElement('p'); weightLine.id = 'prototype-weight'; weightLine.setAttribute('aria-live', 'polite');
+      weightLine.style.cssText = 'margin-top:.55rem;font-weight:600;color:#f5f0e6'; weightLine.textContent = 'Estimated frame weight: loading…';
+      const weightNote = document.createElement('p'); weightNote.id = 'prototype-weight-note';
+      weightNote.textContent = 'Estimates use assumed material densities; excludes holds, lights and wiring.';
+      boltLabel.before(weightLine, weightNote);
+      const designLabels = new Map(Array.from(modelSelect.options, option => [option.value, option.text]));
+      const validWeight = row => row && Number.isFinite(row.mass_kg) && row.mass_kg > 0 && Number.isFinite(row.mass_lb) && row.mass_lb > 0;
+      const formatWeight = row => `${row.mass_kg.toFixed(1)} kg (${row.mass_lb.toFixed(1)} lb)`;
+      function showWeights(catalog) {
+        const rows = catalog?.models || {};
+        for (const option of modelSelect.options) {
+          const row = rows[option.value];
+          option.text = `${designLabels.get(option.value)} · ${validWeight(row) ? formatWeight(row) : 'weight unavailable'}`;
+        }
+        const row = rows[model];
+        weightLine.textContent = `Estimated frame weight: ${validWeight(row) ? formatWeight(row) : 'unavailable'}`;
+        if (validWeight(row)) {
+          const basis = row.basis === 'audited CAD' ? 'Audited CAD volume estimate' : 'Mesh volume estimate';
+          const scope = typeof row.scope === 'string' && row.scope ? ` Scope: ${row.scope}.` : '';
+          weightNote.textContent = `${basis} using assumed material densities; excludes holds, lights and wiring.${scope}`;
+        }
+      }
+      // Weight metadata loads independently of the CAD manifest and individual meshes.
+      fetch('prototype-weights.json').then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }).then(showWeights).catch(() => showWeights(null));
       let inspectedBolt = '', savedAssemblyView;
       const boltMeshes = name => meshes.filter(mesh => mesh.userData.part.fabrication?.connection_name === name);
       function updateBoltVisibility() {
