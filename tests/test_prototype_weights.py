@@ -1,4 +1,5 @@
 """Weights follow geometry/materials, not rotated bounding-box dimensions."""
+import gzip
 import json
 from pathlib import Path
 
@@ -48,12 +49,16 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     saved = json.loads(Path('site/prototype-weights.json').read_text())
     assert saved['generator_sha256'] == weights.sha(Path(weights.__file__).read_bytes())
     assert saved['assumed_density_kg_m3'] == weights.DENSITIES
-    assert len(saved['models']) == 49
+    assert len(saved['models']) == 50
     generated = {'2x10', '2x12', '2x8-shallow', '2x8-foot100'}
     for key, row in saved['models'].items():
+        assert 'T-nuts and hold bolts' in row['scope']
         assert row['mass_kg'] > 0 and row['mass_lb'] == pytest.approx(row['mass_kg']/.45359237)
         assert row['mesh_mass_kg'] == pytest.approx(sum(row['mesh_material_mass_kg'].values()))
         assert row['mesh_part_count'] == len(row['mesh_sha256'])
+        excluded = row.get('excluded_mass_parts', [])
+        assert row.get('excluded_mass_part_count', 0) == len(excluded)
+        assert all(part['kind'] in ('light', 'wire') and part['path'] in row['mesh_sha256'] for part in excluded)
         manifest = Path('site', row['manifest_path'])
         if not manifest.exists():
             # These four historical assemblies are generated before the catalog
@@ -63,6 +68,8 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
         assert weights.sha(manifest.read_bytes()) == row['manifest_sha256']
         parts = json.loads(manifest.read_text())['parts']
         assert {p['path'] for p in parts} == row['mesh_sha256'].keys()
+        assert {part['name'] for part in excluded} == {
+            part['name'] for part in parts if part['fabrication'].get('kind') in ('light', 'wire')}
         for name, digest in row['mesh_sha256'].items():
             assert weights.sha(Path('site', name).read_bytes()) == digest
         if key in weights.AUDITED:
@@ -73,8 +80,10 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
         else:
             assert row['basis'] == 'mesh estimate'
             assert row['mass_kg'] == row['mesh_mass_kg']
-    current = saved['models']['angle-base-development']
-    assert current['mass_kg'] == pytest.approx(192.6599020241248)
+    assert saved['models']['angle-base-development']['mass_kg'] == pytest.approx(192.6599020241248)
+    current = saved['models']['horizontal-service-development']
+    assert current['mass_kg'] == pytest.approx(167.46863512295866)
+    assert current['excluded_mass_part_count'] == 263
 
 
 def test_audited_total_rejects_same_name_changed_mesh(monkeypatch):
@@ -102,3 +111,52 @@ def test_audited_total_rejects_incomplete_bolt_even_when_manifest_rehashed(tmp_p
     (tmp_path/'manifest.json').write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match='Incomplete or duplicate bolt roles'):
         weights.audited_mass('angle-base-development', record['parts'], tmp_path)
+
+
+def test_purchased_electrical_mass_is_unknown_but_all_meshes_are_hashed(tmp_path):
+    parts = []
+    for name, kind in (('base_header', 'part'), ('fastener_light', 'light'), ('wood_wire', 'wire')):
+        path = name+'.stl'
+        (tmp_path/path).write_bytes(tetrahedron())
+        parts.append({'name': name, 'path': path, 'fabrication': {'kind': kind}})
+    (tmp_path/'parts.json').write_text(json.dumps({'parts': parts}))
+    row = weights.build(tmp_path)['models']['plywood']
+    assert row['mass_kg'] == pytest.approx((1/6)/1e9*weights.DENSITIES['wood/plywood'])
+    assert row['mesh_material_mass_kg'] == {'wood/plywood': row['mass_kg']}
+    assert row['mesh_part_count'] == len(row['mesh_sha256']) == 3
+    assert row['excluded_mass_part_count'] == 2
+    assert {part['name'] for part in row['excluded_mass_parts']} == {'fastener_light', 'wood_wire'}
+    assert all('unknown' in part['reason'] for part in row['excluded_mass_parts'])
+    assert weights.material(parts[1]) is None and weights.material(parts[2]) is None
+    before = row['mesh_sha256']['fastener_light.stl']
+    (tmp_path/'fastener_light.stl').write_bytes(tetrahedron(offset=20.))
+    changed = weights.build(tmp_path)['models']['plywood']
+    assert changed['mass_kg'] == row['mass_kg']
+    assert changed['mesh_sha256']['fastener_light.stl'] != before
+    assert changed['mesh_sha256']['fastener_light.stl'] == weights.sha((tmp_path/'fastener_light.stl').read_bytes())
+
+
+def test_audited_mass_excludes_electrical_only_with_explicit_report_and_authenticates_meshes(tmp_path, monkeypatch):
+    key = 'electrical-audit-test'
+    parts = [{'name': name, 'path': name+'.stl', 'fabrication': {'kind': kind}}
+             for name, kind in (('base_header', 'part'), ('lamp', 'light'), ('cable', 'wire'))]
+    for part in parts:
+        (tmp_path/part['path']).write_bytes(tetrahedron())
+    (tmp_path/'parts.json').write_text(json.dumps({'parts': parts}))
+    (tmp_path/'manifest.json').write_text(json.dumps({'source_sha256': {}, 'artifact_sha256': {
+        path.name: weights.sha(path.read_bytes()) for path in tmp_path.iterdir()}}))
+    report = {'candidate': key, 'source_sha256': {}, 'mass_inventory': [{'name': 'base_header', 'mass_kg': 1.}],
+              'state': {'mass_kg': 1.}, 'electrical_mass_included': False}
+    source = tmp_path/'mass.json.gz'
+    source.write_bytes(gzip.compress(json.dumps(report).encode()))
+    monkeypatch.setitem(weights.AUDITED, key, source)
+    assert weights.audited_mass(key, parts, tmp_path)[0] == 1.
+    report['electrical_mass_included'] = True
+    source.write_bytes(gzip.compress(json.dumps(report).encode()))
+    with pytest.raises(ValueError, match='explicitly exclude'):
+        weights.audited_mass(key, parts, tmp_path)
+    report['electrical_mass_included'] = False
+    source.write_bytes(gzip.compress(json.dumps(report).encode()))
+    (tmp_path/'lamp.stl').write_bytes(tetrahedron(offset=1.))
+    with pytest.raises(ValueError, match='viewer artifact changed: lamp.stl'):
+        weights.audited_mass(key, parts, tmp_path)

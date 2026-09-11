@@ -6,7 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const artifacts = process.argv[4] || 'fea/generated/square-2x6-viewer';
-const variants = process.argv[5] ? [process.argv[5]] : ['angle-base-development'];
+const variants = process.argv[5] ? [process.argv[5]] : ['horizontal-service-development'];
 fs.mkdirSync(artifacts, { recursive: true });
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
@@ -48,10 +48,10 @@ fs.mkdirSync(artifacts, { recursive: true });
     }
     await page.goto(base);
     await loaded();
-    assert.equal(await page.locator('#model').inputValue(), 'angle-base-development');
+    assert.equal(await page.locator('#model').inputValue(), 'horizontal-service-development');
     assert.deepEqual(await page.locator('#model option').evaluateAll(options =>
-      options.slice(0, 9).map(option => option.value)), [
-        'angle-base-development', 'infill-panel-development', 'split-center-development', 'vertical-principal-development', 'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
+      options.slice(0, 10).map(option => option.value)), [
+        'horizontal-service-development', 'angle-base-development', 'infill-panel-development', 'split-center-development', 'vertical-principal-development', 'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
         'square-2x6-revised-development', 'square-2x6-development']);
     assert.equal(await page.locator('#model option').last().getAttribute('value'), 'plywood');
     for (const model of variants) {
@@ -86,7 +86,7 @@ fs.mkdirSync(artifacts, { recursive: true });
       await page.locator('#person').uncheck();
       await page.locator('#dimensions').uncheck();
       await page.screenshot({ path: path.join(artifacts, model+'-rear.png') });
-      if (['split-center-development', 'infill-panel-development', 'angle-base-development'].includes(model)) {
+      if (['split-center-development', 'infill-panel-development', 'angle-base-development', 'horizontal-service-development'].includes(model)) {
         assert.ok(!manifest.parts.some(p => p.name === 'base_principal_center'));
         for (const suffix of ['left', 'right']) {
           assert.ok(manifest.parts.some(p => p.name === 'base_principal_center_'+suffix));
@@ -94,7 +94,7 @@ fs.mkdirSync(artifacts, { recursive: true });
         }
         const bolts = manifest.parts.filter(p => p.fabrication.kind === 'bolt');
         const connections = new Set(bolts.map(p => p.fabrication.connection_name));
-        assert.equal(connections.size, model === 'angle-base-development' ? 8 : 16);
+        assert.equal(connections.size, ['angle-base-development', 'horizontal-service-development'].includes(model) ? 8 : 16);
         for (const connection of connections) {
           assert.deepEqual(bolts.filter(p => p.fabrication.connection_name === connection)
             .map(p => p.fabrication.hardware_role).sort(), ['far_washer', 'head', 'near_washer', 'nut', 'shaft']);
@@ -149,16 +149,26 @@ fs.mkdirSync(artifacts, { recursive: true });
         assert.ok(manifest.design.panel_kicker_screw_count > infill.length);
         assert.equal(manifest.design.maximum_infill_interval_mm, 150);
       }
-      if (model === 'angle-base-development') {
+      if (['angle-base-development', 'horizontal-service-development'].includes(model)) {
         assert.ok(!manifest.parts.some(p => p.name.includes('gusset') || p.name.startsWith('fastener_timber_base_')));
         for (const side of ['left', 'right']) {
           assert.ok(manifest.parts.some(p => p.name === 'clip_angle_base_'+side));
           assert.equal(manifest.parts.filter(p => p.name.startsWith('fastener_clip_angle_base_'+side+'_')).length, 6);
         }
       }
+      if (model === 'horizontal-service-development') {
+        assert.equal(manifest.parts.filter(p => p.name.startsWith('base_rail_service_')).length, 4);
+        assert.ok(!manifest.parts.some(p => /^base_principal_(left|right)_[12]$/.test(p.name)));
+        assert.ok(manifest.parts.some(p => p.fabrication.kind === 'light'));
+        assert.ok(manifest.parts.some(p => p.fabrication.kind === 'wire'));
+        const links = await page.locator('#model-documents a').evaluateAll(items => items.map(link => link.href));
+        assert.equal(links.length, 4);
+        assert.ok(links.every(link => link.startsWith('https://github.com/mckayreedmoore/mini-moonboard/blob/master/')));
+        assert.ok(links.some(link => link.endsWith('/docs/horizontal-service-drilling/drilling.pdf')));
+      }
       // Target the rear surface of the left principal at mid-height, away from rails.
       await page.evaluate(model => {
-        const a = 40*Math.PI/180, x = ['split-center-development', 'infill-panel-development', 'angle-base-development'].includes(model) ? -70 : ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? 0 : -57.15, s = 700, n = 139.7;
+        const a = 40*Math.PI/180, x = ['split-center-development', 'infill-panel-development', 'angle-base-development', 'horizontal-service-development'].includes(model) ? -70 : ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? 0 : -57.15, s = 700, n = 139.7;
         const y = -18*(1+Math.cos(a))+s*Math.sin(a)-n*Math.cos(a)-950;
         const z = 225+18*Math.sin(a)+s*Math.cos(a)+n*Math.sin(a);
         const {camera, controls} = window.cadTest;
@@ -168,7 +178,7 @@ fs.mkdirSync(artifacts, { recursive: true });
       }, model);
       await page.waitForTimeout(250);
       await page.mouse.click(1180, 850);
-      assert.match(await page.locator('#part').innerText(), ['split-center-development', 'infill-panel-development', 'angle-base-development'].includes(model) ? /^base_principal_center_left:/ : ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? /^base_principal_center:/ : /^base_principal_left:/);
+      assert.match(await page.locator('#part').innerText(), ['split-center-development', 'infill-panel-development', 'angle-base-development', 'horizontal-service-development'].includes(model) ? /^base_principal_center_left:/ : ['single-2x6-development', 'selective-2x6-development', 'paired-rail-base-development', 'vertical-principal-development'].includes(model) ? /^base_principal_center:/ : /^base_principal_left:/);
       assert.match(await page.locator('#part').innerText(), /mm.*ft.*in/);
       await page.screenshot({ path: path.join(artifacts, model+'-principal.png') });
       await page.goto(base+'?model='+model+'&view=rear');

@@ -1,76 +1,64 @@
 # Current design review guide
 
-Current MVP development: [direct base angles instead of gussets](angle-base-development.md).
-Two rim-to-header angles replace the timber gussets and their eight bolts.
-The split-center geometry, 151 panel/kicker screws and eight leg bolts remain.
-Each bolt end stays independently selectable. Current panel/connection resistance,
-frame strength, actual floor behavior and insert connections remain unqualified.
-Open the linked revision for its matching viewer, render and audit.
-
-The review package below is the preserved **`wide-principal-development`**
-candidate. This is an auditable development package, not approved construction or climbing plans. Historical
-variants remain for comparison; their geometry and analysis must not be mixed
-into this candidate's schedules.
+The current candidate is **`horizontal-service-development`**: four horizontal
+single-2x6 service rails replace four intermediate principals and their posts.
+The separated center pair, outer rims, direct base angles and eight leg bolt
+stacks remain. The model includes 132 LED bodies, 131 inter-LED routes and
+open-front timber grooves. It is a development package, **not build-ready**.
 
 ## Open these first
 
-The [latest local package audit](current-package-audit.md) records 57 passing
-geometry/hardware/machining tests and the current candidate's browser check,
-with their coverage limits. Passing these checks does not close the gates below.
+1. [Current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development&view=rear).
+2. [Purchasing schedule and assembly plan](horizontal-service-build-plan.md),
+   including named members, rail datums and exact-candidate export links.
+3. [Drilling references and datum rules](horizontal-service-drilling.md) and
+   [drilling PDF](horizontal-service-drilling/drilling.pdf).
+4. [Complete LED hookup schematic](horizontal-service-wiring.svg) and
+   [manufacturer wiring reference](led-wiring-reference.md). Dashed external
+   leads are schematic; their physical routes are not established by the 3D model.
+5. [Provisional floor and density assumptions](provisional-floor-load-assumptions.md)
+   for independent verification of numerical inputs.
 
-1. [Interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development&view=rear)
-   and [candidate overview with STEP and export links](wide-principal-development.md).
-2. [Assembly and disassembly sequence](wide-principal-assembly.md).
-3. [Metric/imperial machining and profile references](wide-machining.md) and
-   [structural hardware BOM](wide-purchase-bom.md).
-4. [Current leg-bolt comparison](leg-bolt-resistance.md),
-   [coupled joint FEA](coupled-leg-release.md) and
-   [unanchored floor-equilibrium screen](wide-floor-screen.md).
-5. [Plywood versus 2×6–2×12 leg study](leg-stock-comparison.md): separate
-   selectable straight-leg CAD variants, rigid-floor comparison and
-   [native coupled results](lumber-leg-response.md) for all four stock sizes
-   plus a longer 2×8 and a finer-leg mesh check. The present compact joint is
-   not qualified; joint revision and combined strength checks remain open.
+The CAD/CSV export passed its artifact check. The 16-page drilling PDF is
+generated and checked for text bounds. The verified inventory
+has 24 wood/plywood parts, 87 panel/kicker screws, 24 ML24Z angles, 144 SDS25112
+screws and eight full leg bolt stacks. There are zero installed panel inserts.
+The current geometry checks pass; geometry clearance does not establish strength.
+The viewer depicts assembled geometry, not a live FE solution or stress plot.
 
-The viewer shows candidate geometry, not a live FE solution or a stress plot.
-Its 291 selectable entries comprise 103 bodies and 188 connection assemblies.
-It does not visualize the ideal bonds, fixed floor or assumed springs used in
-individual analysis trials. The analysis report, not the render, defines those
-conditions. No 3D holds or pad are included as structural FE components.
+## Current evidence and release gates
 
-## Decisions required before releasing build plans
-
-| Item | What exists | What remains unresolved |
+| Topic | Current basis | Remaining qualification |
 | --- | --- | --- |
-| Leg/rim and stitch joints | Eight rim-bolt stacks, six stitch axes, separate-ply mesh ownership and conditional force/reference calculations | Individual-ply bolt/stitch transfer without glue credit; applicable material and bolt properties, slip, group/splitting and axial/washer checks. See [ply load path](leg-ply-load-path.md). |
-| Kicker/backing and base | Continuous backing, principal housings, retained through-bolts and released-gusset diagnostics | Complete bearing/retention and base-joint resistance. The [ML23Z end-angle trial](end-angle-installation-gate.md) is **not selected** and needs application confirmation; do not add it to the current BOM. |
-| Removable panel attachments | 56 machine screws and insert receivers in CAD and schedules | [Insert recess, usable thread engagement and anchorage](panel-insert-selection.md). Occupied CAD envelopes and pilot reservations are not final installation instructions. |
-| Unanchored stability | Current rigid floor-equilibrium screen and conditional fixed-floor FE results | Actual friction and compliant contact/uplift behavior. Fixed XYZ restraints are analysis assumptions, not permitted anchors. |
-| Materials and installed hardware | Purchased face-sheet identification, nominal stock and product families | [Delivered stock and remaining hardware details](remaining-material-hardware-closure.md), including actual ply thickness, hold-bolt fit, T-nut screws and wiring provisions. The user's offcut-test waiver remains unchanged. |
-| Final release | CAD, plans and numerical checks available for review | Close the above evidence gaps, synchronize any resulting changes, obtain appropriate structural review and establish a safe physical verification/inspection plan. No climbing approval is implied. |
+| Revised rails and panels | Current horizontal-rail geometry and replayed [conditional coupled frame/panel diagnostic](horizontal-frame-diagnostic.md) | Applicable directional material behavior, stress refinement, panel/member strength and serviceability |
+| Panel attachments | 87 ordinary SPAX panel/kicker screws in the installed model | Current individual reactions versus applicable withdrawal, head-bearing and combined-load resistance; assumed stiffness is not a product rating |
+| Commercial angles and leg bolts | 24 ML24Z stations with prescribed SDS screws; eight complete leg bolt stacks | Applicable angle/group/wood and bolt resistance under current demands, bearing, splitting and slip |
+| Removable-panel inserts | All 87 [prospective reserve and head-clearance checks passed](horizontal-insert-fit.md); none installed | Verify installation, effective thread engagement and connection resistance for the provisional product pair, then analyze the revised attachment behavior |
+| Floor behavior | Conditional rigid-floor feasibility and separately assumed restrained-frame diagnostics | Actual interface/friction and mass inputs; compatible compliant support, rocking/uplift and transient behavior; fixed restraints do not authorize anchors |
+| Lumber and plywood | Selected purchasing basis: dry DF-L No. 2 or better and APA PS 1 Structural I 23/32 category, 48/24 square-edge plywood | Delivered stamps, usable dimensions and thickness; applicable material-property verification; existing isotropic FE does not qualify selected stock |
+| Harness and timber grooves | Owned V5 kit, approximate 304.8 mm bulb-base pitch, modeled inter-LED paths and cutouts | Actual LED projection, cable/connector envelopes and slack, external leads and strain relief; residual timber section strength after machining |
+| Hold hardware | 132 main plus ten kicker hold positions; historical Escape 3/8-16 selection | Received T-nut/hold inventory, per-hold bolt lengths, retention screws and rear clearance; these complete bodies are not included in current modeled mass |
 
-One climber, **250 lb maximum**, is the owner's design request; 150/200 lb
-comparisons and 300 lb sensitivity remain in the analysis. At the stiffest
-assumed connector setting, peak leg-bolt lateral force is 770.90 N at 250 lb
-and 903.13 N at 300 lb. The 797.62 N bonded-laminate reference is conditional,
-not an adjusted allowable. Neither comparison proves adequacy or physical
-failure. Lower assumed stiffness produces different forces and displacements;
-the sweep is not a physical bound.
+The owner requests one climber with a 250 lb maximum; this is a design input,
+not an established load rating. Results at assumed materials, connectors and
+supports must retain those conditions. A numerically converged solve is not
+itself strength or construction approval.
 
-## Most useful human input now
+## Preserved evidence: compare without transferring approval
 
-- Give the prepared [end-angle application question](end-angle-installation-gate.md#prepared-supplierreviewer-question--not-sent)
-  to Simpson or the structural reviewer. No inquiry has been sent on the owner's
-  behalf. This asks whether a proposed detail is supported, not permission to
-  improvise an installation.
-- Confirm the insert's installed recess and usable internal thread dimensions
-  with the manufacturer, and obtain an applicable anchorage basis; the
-  [prepared insert application question](panel-insert-selection.md#prepared-manufacturerreviewer-question--not-sent)
-  can be forwarded as written. It has not been sent.
-- Provide grade stamps, actual thicknesses and bolt identification/certificates
-  when available. These resolve inputs; they are not substitutes for connection
-  and whole-frame evaluation.
+The [angle-base candidate](angle-base-development.md) retains the preceding
+151-screw infill arrangement. Its panel results and attachment checkpoint do
+not establish the revised horizontal-rail behavior.
 
-The [active work ledger](connection-design-goal.md) retains the detailed
-engineering history and next analysis steps. Keep this guide as the entry point;
-do not use a historical “next step” elsewhere as the current design decision.
+The [wide-principal package](wide-principal-development.md),
+[assembly sequence](wide-principal-assembly.md), [machining references](wide-machining.md)
+and [purchase BOM](wide-purchase-bom.md) describe historical geometry with different
+posts, inserts and backing. The [historical local package audit](current-package-audit.md),
+[leg-bolt study](leg-bolt-resistance.md), [coupled joint analysis](coupled-leg-release.md)
+and [wide-frame floor screen](wide-floor-screen.md) remain useful evidence for
+those identified models. Their counts, force results and passing tests must not
+be presented as current-candidate acceptance.
+
+The [active work ledger](connection-design-goal.md) preserves engineering history.
+Use this guide and the exact-candidate manifest as the entry point; a historical
+“next step” elsewhere is not the current design decision.

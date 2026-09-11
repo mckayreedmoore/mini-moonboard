@@ -75,13 +75,18 @@ does not bridge independent panel seams. Retain raw wood, old axes, the center
 service corridor and complete bolt stacks. More screws do not establish equal
 load sharing or connection adequacy; retain current numerical and resistance gates.
 
-The current `angle-base-development` implements the owner's requested gusset
+The preserved `angle-base-development` implements the owner's requested gusset
 replacement: two direct ML24Z outer-rim/header angles with twelve specified
 SDS25112 screws replace both plywood gussets and their eight bolts. Eight leg
 bolts and all 151 panel/kicker axes remain. Fresh-build geometry omits the old
 gusset bores; this is not a drilled-stock repair. Current joint/frame resistance
 is unqualified. Ordinary bolts are steel gray; explicit clearance failures stay
 red, and neither color is a strength rating.
+
+The current candidate is `horizontal-service-development`; its four horizontal
+service rails replace the four added intermediate principals and posts. Use its
+matching schedules and evidence; the preserved angle-base results do not qualify
+the revised load path.
 
 ## Communication
 

@@ -1,11 +1,12 @@
 # Prototype weight estimates
 
-Every viewer prototype displays its modeled weight in kg and lb, both in the
+All 50 viewer prototypes display their modeled weights in kg and lb, both in the
 design menu and beside the selected model. These are estimates, not measured
-weights or load ratings. Holds, LEDs, wiring and glue are excluded. Historical
-concepts include only hardware actually represented in their geometry.
+weights or load ratings. Holds, their unmodeled T-nuts and hold bolts, LEDs,
+wiring and glue are excluded. Historical concepts include only hardware actually
+represented in their geometry.
 
-Four recent totals use authenticated CAD mass inventories with unioned fastener
+Five recent totals use authenticated CAD mass inventories with unioned fastener
 components. Other totals integrate closed, oriented STL surfaces. Mesh estimates
 retain overlapping compound hardware envelopes and coarse tessellation, so they
 are less accurate. Assumed densities: wood/plywood 600 kg/m³, steel 7,850 kg/m³,
@@ -14,6 +15,7 @@ can change the built weight.
 
 | Prototype | kg | lb | Basis |
 | --- | ---: | ---: | --- |
+| [horizontal-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development) | 167.5 | 369.2 | audited CAD |
 | [angle-base-development](https://mckayreedmoore.github.io/mini-moonboard/?model=angle-base-development) | 192.7 | 424.7 | audited CAD |
 | [infill-panel-development](https://mckayreedmoore.github.io/mini-moonboard/?model=infill-panel-development) | 195.6 | 431.3 | audited CAD |
 | [split-center-development](https://mckayreedmoore.github.io/mini-moonboard/?model=split-center-development) | 195.2 | 430.4 | audited CAD |
@@ -63,6 +65,11 @@ can change the built weight.
 | [top-joint-development](https://mckayreedmoore.github.io/mini-moonboard/?model=top-joint-development) | 233.4 | 514.6 | mesh estimate |
 | [wide-principal-development](https://mckayreedmoore.github.io/mini-moonboard/?model=wide-principal-development) | 204.5 | 450.7 | mesh estimate |
 | [wood-first-mvp](https://mckayreedmoore.github.io/mini-moonboard/?model=wood-first-mvp) | 189.5 | 417.8 | mesh estimate |
+
+The current horizontal-service estimate excludes all 263 displayed electrical
+parts: 132 lights and 131 cable/connector bodies. Their purchased masses are
+unknown; no material density or zero-mass claim is assigned. Their names,
+counts and authenticated mesh hashes remain in the catalog.
 
 The [catalog](../site/prototype-weights.json) records source/mesh hashes and mass
 components. Deployment regenerates it after exporting the four historical hybrid

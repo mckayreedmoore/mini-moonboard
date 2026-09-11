@@ -29,7 +29,7 @@ const artifacts = process.argv[4];
     await page.waitForFunction(() => document.querySelector('#prototype-weight')?.textContent.includes('192.7 kg'));
     assert.equal(await page.locator('#design-details').count(), 0);
     assert.equal(await page.locator('#prototype-weight').innerText(), 'Estimated frame weight: 192.7 kg (424.7 lb)');
-    assert.match(await page.locator('#prototype-weight-note').innerText(), /assumed material densities; excludes holds, lights and wiring/);
+    assert.match(await page.locator('#prototype-weight-note').innerText(), /assumed material densities; excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring/);
     assert.match(await page.locator('#prototype-weight-note').innerText(), /frame and modeled hardware/);
     assert.match(await page.locator('#model option[value="plywood"]').innerText(), /100.0 kg \(220.5 lb\)/);
     assert.match(await page.locator('#model option[value="vertical-principal-development"]').innerText(), /weight unavailable/);

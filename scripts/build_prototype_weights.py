@@ -13,7 +13,8 @@ ROOT = Path('site')
 DENSITIES = {'wood/plywood': 600., 'steel': 7850., 'die-cast zinc assumption': 6700.}
 AUDITED = {key+'-development': Path('fea/results')/(stem+'-floor-v1.json.gz') for key, stem in (
     ('selective-2x6', 'selective'), ('split-center', 'split-center'),
-    ('infill-panel', 'infill-panel'), ('angle-base', 'angle-base'))}
+    ('infill-panel', 'infill-panel'), ('angle-base', 'angle-base'),
+    ('horizontal-service', 'horizontal-service'))}
 WOOD_PREFIXES = {'base', 'box', 'cheek', 'cross', 'easy', 'kicker', 'lean', 'leg', 'lumber',
                  'main', 'mid', 'panel', 'rear', 'rib', 'seam', 'timber', 'wood'}
 
@@ -54,6 +55,8 @@ def volume(data):
 
 def material(part):
     name, kind = part['name'], part['fabrication'].get('kind')
+    if kind in ('light', 'wire'):
+        return None  # Purchased component mass is unknown, not a material-density assumption.
     if kind == 'insert' or name.startswith('insert_'):
         return 'die-cast zinc assumption'
     if kind in ('screw', 'bolt') or name.startswith(('fastener_', 'analysis_', 'angle_', 'clip_')):
@@ -89,9 +92,12 @@ def audited_mass(key, parts, viewer_directory=None):
     for name, digest in report['source_sha256'].items():
         if sha(Path(name).read_bytes()) != digest:
             raise ValueError('Mass report source changed: '+name)
-    names, roles = set(), defaultdict(list)
+    names, roles, electrical = set(), defaultdict(list), []
     for part in parts:
         fabrication = part['fabrication']
+        if fabrication.get('kind') in ('light', 'wire'):
+            electrical.append(part['name'])
+            continue
         if fabrication.get('connection_name'):
             roles[fabrication['connection_name']].append(fabrication.get('hardware_role'))
         elif part['name'] in names:
@@ -104,6 +110,8 @@ def audited_mass(key, parts, viewer_directory=None):
         if 'fastener_'+name in names:
             raise ValueError('Split and unsplit hardware duplicate')
         names.add('fastener_'+name)
+    if electrical and report.get('electrical_mass_included') is not False:
+        raise ValueError('CAD mass report must explicitly exclude unknown electrical mass')
     if names != {r['name'] for r in report['mass_inventory']}:
         raise ValueError('CAD mass inventory differs from viewer assembly: '+key)
     value = math.fsum(r['mass_kg'] for r in report['mass_inventory'])
@@ -120,15 +128,20 @@ def build(root=ROOT):
         record = json.loads(data)
         key = 'plywood' if manifest.parent == root else manifest.parent.name
         totals = defaultdict(float)
-        assets = {}
+        assets, excluded = {}, []
         for part in record['parts']:
             path = root/part['path']
             if not path.resolve().is_relative_to(root.resolve()):
                 raise ValueError('Mesh path outside site')
             raw = path.read_bytes()
             mat = material(part)
-            totals[mat] += volume(raw)/1e9*DENSITIES[mat]
             assets[part['path']] = sha(raw)
+            if mat is None:
+                excluded.append({'name': part['name'], 'path': part['path'],
+                                 'kind': part['fabrication']['kind'],
+                                 'reason': 'Purchased component mass unknown; excluded from estimate'})
+            else:
+                totals[mat] += volume(raw)/1e9*DENSITIES[mat]
         if len(assets) != len(record['parts']):
             raise ValueError('Duplicate mesh path')
         mesh_mass = math.fsum(totals.values())
@@ -136,12 +149,15 @@ def build(root=ROOT):
         mass = audited[0] if audited else mesh_mass
         row = {'mass_kg': mass, 'mass_lb': mass/.45359237,
                'basis': 'audited CAD' if audited else 'mesh estimate',
-               'scope': 'Modeled frame, panels and represented hardware only; excludes holds, LEDs, wiring and glue. '
+               'scope': 'Modeled frame, panels and represented structural hardware only; excludes holds, their unmodeled '
+                        'T-nuts and hold bolts, LEDs, wiring and glue. '
                         'Hardware absent from a historical concept is not estimated. Assumed densities; not measured weight.',
                'mesh_mass_kg': mesh_mass, 'mesh_material_mass_kg': dict(totals),
                'mesh_part_count': len(record['parts']),
                'manifest_path': str(manifest.relative_to(root)), 'manifest_sha256': sha(data),
                'mesh_sha256': assets}
+        if excluded:
+            row.update(excluded_mass_part_count=len(excluded), excluded_mass_parts=excluded)
         if audited:
             row.update(mass_report=audited[1], mass_report_sha256=audited[2])
         result[key] = row

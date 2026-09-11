@@ -5,16 +5,32 @@ Mini MoonBoard.
 
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
-**Current MVP: [direct base angles instead of gussets](docs/angle-base-development.md).**
-[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=angle-base-development&view=rear).
-Two outer rim-to-header angles replace both timber gussets and their eight
-bolts. The split-center corridor, 151 panel/kicker screws and eight leg bolts
-remain. Ordinary bolts now appear steel gray. Connection resistance, panel
-seams, current frame strength and actual floor behavior remain unqualified.
-This is not build-ready. Earlier baselines are preserved.
+**Current development: [horizontal service rails and LED access](docs/horizontal-service-build-plan.md).**
+[Open the current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development&view=rear).
+Four horizontal single-2x6 rails replace four intermediate principals and their
+posts. The separated center pair, outer rims, direct base angles and eight leg
+bolt stacks remain. The owned LED harness receives modeled routing and open-front
+timber grooves. Ordinary panel/kicker screws remain installed; removable-panel
+inserts are a separate development option. Current geometry checks and the [coupled panel/frame diagnostic](docs/horizontal-frame-diagnostic.md)
+are complete; connection resistance and actual cable fit remain unqualified.
+**Not build-ready.** Earlier baselines remain preserved.
 
-[Latest connection checkpoint](docs/mvp-connection-checkpoint.md): a local screw-and-plate
-prototype and current base-angle directional screen identify remaining limits.
+[Purchasing and assembly plan](docs/horizontal-service-build-plan.md) ·
+[Drilling reference and datums](docs/horizontal-service-drilling.md) ·
+[Drilling PDF](docs/horizontal-service-drilling/drilling.pdf) ·
+[Complete LED hookup schematic](docs/horizontal-service-wiring.svg).
+The CAD/CSV package passed its artifact check. The 16-page drilling PDF is
+generated and checked for text bounds. Engineering qualification remains open.
+
+![Current horizontal-service frame, panels hidden, with modeled LEDs and wiring](exports/horizontal-service-development/open-frame.png)
+
+[Preserved direct-base-angle candidate](docs/angle-base-development.md): its
+151-screw panel arrangement and previous diagnostics do not qualify the revised
+horizontal-rail frame.
+
+[Preserved predecessor connection checkpoint](docs/mvp-connection-checkpoint.md):
+a local screw-and-plate prototype and the preceding base-angle directional screen
+identify historical limits. They do not qualify the horizontal-service load path.
 Use **Inspect bolt** in the viewer to reveal both ends, including the nut.
 [Weight estimates for every prototype](docs/prototype-weights.md) also appear
 in the design menu and selected-model details.
@@ -31,9 +47,12 @@ physical validation are still unqualified.** [Cuts, assembly and audit limits](d
 all 29 wooden parts, with metric/imperial schedules and explicit machining limits.
 
 **Start here: [current review guide and release gates](docs/current-review-guide.md).**
+For the new horizontal-service candidate, use the
+[provisional stiffness, capacity and load-assumption handoff](docs/provisional-design-assumptions.md)
+to independently verify the selected numbers before updating the analysis.
 It links current development geometry and evidence, and separates remaining
 engineering work from supplier/user inputs. Historical assembly and machining
-documents do not provide construction instructions for the current angle-base model.
+documents do not provide construction instructions for the current horizontal-service model.
 
 [Earlier bonded-frame diagnostics](docs/wide-structural-results.md): 1.76 mm loaded-point
 deflection at 2.4 kN in the ideal-bonded model, with approximately 23.68 kg added
@@ -59,7 +78,7 @@ Preserved predecessor diagnostics: [aggregate base actions](docs/timber-base-dem
 [conditional washer/wood bearing](docs/backing-bearing-envelope.md). These do not
 establish individual bolt capacity or qualify the wider variant's real joints.
 
-![Current split-center frame with direct base angles, panels hidden](exports/angle-base-development/open-frame.png)
+![Preserved split-center frame with direct base angles, panels hidden](exports/angle-base-development/open-frame.png)
 
 <details>
 <summary>Preserved earlier candidates and investigations</summary>

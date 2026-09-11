@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "directory": "c10-k1000",
+      "report_sha256": "03fcc958ffc22b1db311c2e4235f9ec1e0a18dd2cd6afa7d74e01792dc855adc",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c10-k100",
+      "report_sha256": "838d8dafdd0d89783e4aad86185d16c609cf697ae2bf41b84ea5caf5a5a36182",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c10-k10000",
+      "report_sha256": "24822522e7ae36d760d57624ed739ad034b72c36bb3b328ff0de75fb9d7d8a3a",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c10-300lb",
+      "report_sha256": "139f8ddabbca8a8a1f43a80b965f4d304678f9491601f391578ba987c9f3d48f",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "f10-k1000",
+      "report_sha256": "eb812e647329a4dbc5c8e60642b299f6b100c0aeb548ff23a28212678cab92a4",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c6-k1000",
+      "report_sha256": "50a22add62e2aa510f78428f6db564cff192cca535b984aa0ef701133110fcc9",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c7-k1000",
+      "report_sha256": "8774f0529dc2471349c89f21775de316897f60a01c0312cdefe88bff3edbf2c0",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "frame-only-c10",
+      "report_sha256": "29c545621507b40dee8caf244dfbc0baaa9edac3b4f2b95408aad55a66608aa8",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "panel-credit-c10",
+      "report_sha256": "15a72667668a7b8244957139e397a1374165a765027095ed74ded27cc58a13fc",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    },
+    {
+      "directory": "c10-refined",
+      "report_sha256": "0af4ed649e673fc894e60b85c93c43eb7a67964556f1c7a9862c6b605c58ab19",
+      "diagnostic_checks_passed": true,
+      "qualified_for_design": false
+    }
+  ],
+  "common_load_panel_credit": {
+    "identical_discrete_loads": true,
+    "diagnostic_comparison_checks_passed": true,
+    "work_ratio": 0.6357609341210595,
+    "timber_displacement_ratio": 0.6249281854538534,
+    "limits": "Passive stiffness surrogate under identical framing loads; not physical hold-force sharing or strength qualification."
+  },
+  "qualified_for_design": false,
+  "replay_source_sha256": {
+    "horizontal_panel_frame.py": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9",
+    "horizontal_frame_stress.py": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b",
+    "horizontal_frame_batch.py": "d36883e7334e57e31ccc0e846f5e7186cf48d0771c7766a6244101d7350f361b"
+  },
+  "verifier_sha256": "56b9d3a900765fe6f0e44b082c3d1374535e67f46c4072e6fb347589f24fc6c5"
+}

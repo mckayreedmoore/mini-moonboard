@@ -92,8 +92,9 @@ def test_selector_is_additive():
     text = Path("site/index.html").read_text()
     assert f"lumberModels.push(['{exports.KEY}'," in text
     assert "long bolts / four washers · geometry only" in text
-    assert "? requestedModel : 'angle-base-development'" in text
+    assert "? requestedModel : 'horizontal-service-development'" in text
     assert "const model = ['plywood'," in text
+    assert "['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified']" in text
     assert "['angle-base-development', '2×6 split center · base angles · unqualified']" in text
     assert "['infill-panel-development', '2×6 split center · panel screw infill · unqualified']" in text
     assert "['split-center-development', '2×6 split center · open service corridor · unqualified']" in text

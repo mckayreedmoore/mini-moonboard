@@ -2,8 +2,9 @@
 
 The next two investigations produced a panel-attachment prototype and a mapped
 base-angle resistance screen. They did **not** establish build readiness. The
-current full-frame hardware schedule remains the angle-base candidate while
-these proposed changes are checked.
+checkpoint describes the preserved angle-base candidate. The current
+`horizontal-service-development` uses a different panel/frame load path; these
+preceding results do not qualify its hardware schedule.
 
 ## Panel attachment trial
 
