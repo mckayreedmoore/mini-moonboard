@@ -5,6 +5,7 @@ import tarfile
 from pathlib import Path
 
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea.coupled_gussets import GATES, STIFFNESSES, audit, combine, deck, prepare
 from fea.floor_contact import mesh
@@ -48,7 +49,12 @@ def test_coupled_archive_replays_all_bases_and_superpositions():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == value
     nodes, elements, points, cases, _, remaps = prepare()
     assert json.loads(json.dumps(remaps)) == report["duplicate_nodes"]
-    assert points == report["points"] and cases == report["cases"]
+    assert_roundoff_equal(points, report["points"],
+                          paths=[(name, "weights") for name in report["points"]])
+    assert cases == report["cases"]
+    # Historical solver input is byte-exact; fresh reconstruction above checks
+    # the floating interpolation independently without changing archived data.
+    points = report["points"]
     prior = None
     for stiffness in STIFFNESSES:
         name = f"k{int(stiffness)}"

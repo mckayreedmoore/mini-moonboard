@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from fea import backing_retention_envelope as model
+from replay_roundoff import assert_roundoff_equal
 
 
 def test_hand_solved_lever_and_direct_load():
@@ -14,7 +15,12 @@ def test_hand_solved_lever_and_direct_load():
 
 def test_current_geometry_replay_and_independent_certificates():
     report = model.build()
-    assert report == json.loads(model.OUTPUT.read_text())
+    saved = json.loads(model.OUTPUT.read_text())
+    # The dot product used for the dual objective varies in its last bits across
+    # floating-point runtimes. Capacities, witnesses and all other fields stay exact.
+    paths = [('cases', name, 'rows', i, 'dual_objective_n')
+             for name, case in saved['cases'].items() for i in range(len(case['rows']))]
+    assert_roundoff_equal(report, saved, paths=paths, rel=0., abs=1e-12)
     bolts, corners = report["bolt_x_s_mm"], report["contact_corners_x_s_mm"]
     for case in report["cases"].values():
         caps = case["per_bolt_caps_n"]

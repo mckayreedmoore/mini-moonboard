@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from fea import wide_backing_contact_bound as model
+from replay_roundoff import assert_roundoff_equal
 
 
 def test_exact_overhang_and_torsional_limits():
@@ -16,7 +17,12 @@ def test_exact_overhang_and_torsional_limits():
 
 def test_actual_three_component_balance_and_dual_bound():
     report = model.build()
-    assert report == json.loads(model.OUTPUT.read_text())
+    saved = json.loads(model.OUTPUT.read_text())
+    # These cancellation residuals come from matrix/vector products. Keep the
+    # primal/dual witnesses, load ceilings and geometry exact, and recheck balance below.
+    paths = [('rows', i, key) for i in range(len(saved['rows']))
+             for key in ('equilibrium_residual', 'duality_gap')]
+    assert_roundoff_equal(report, saved, paths=paths, rel=0., abs=1e-12)
     points = report["bolt_x_s_mm"]+report["contact_corners_x_s_mm"]
     for r in report["rows"]:
         assert min(r["bolt_reactions_per_n"]+r["contact_reactions_per_n"]) >= -1e-8

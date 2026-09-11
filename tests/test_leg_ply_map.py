@@ -1,13 +1,18 @@
 import json
 
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea.leg_ply_map import OUTPUT, build
 
 
 def test_individual_plies_and_stitch_mapping_replay():
     result = build()
-    assert result == json.loads(OUTPUT.read_text())
+    # TRI6 weights from the 2x2 solve differ by a few ULPs across LAPACK builds.
+    assert_roundoff_equal(result, json.loads(OUTPUT.read_text()), paths=[
+        ("legs", side, "stitch_points", f"leg_stitch_{side}_{index}", "weights")
+        for side in ("left", "right") for index in (1, 2, 3)
+    ], rel=1e-12, abs=1e-14)
     for side, counts, shared in (("left", [1982, 1972], 1197), ("right", [1980, 1973], 1189)):
         leg = result["legs"][side]
         assert len(leg["shared_nodes"]) == shared

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea.gusset_connector_trial import (
     GATES,
@@ -48,7 +49,15 @@ def test_native_connector_trial_archive_replays_and_rejects_imbalanced_forces():
     for name, value in report["source_sha256"].items():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == value
     nodes, elements, points, fields, _ = prepare()
-    assert points == report["points"] and fields == report["fields"]
+    assert_roundoff_equal(points, report["points"],
+                          paths=[(name, "weights") for name in report["points"]])
+    assert_roundoff_equal(fields, report["fields"],
+                          paths=[(index, "anchor_u_mm", name)
+                                 for index, field in enumerate(report["fields"])
+                                 for name in field["anchor_u_mm"]])
+    # Replay the authenticated historical inputs, retaining exact native deck
+    # comparison and exact DAT-derived quantities below.
+    points, fields = report["points"], report["fields"]
     assert len(points) == 8 and len(fields) == 15
     for stiffness in STIFFNESSES:
         name = f"k{int(stiffness)}"

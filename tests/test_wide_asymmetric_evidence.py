@@ -5,9 +5,11 @@ import math
 from pathlib import Path
 
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea.floor_contact import mesh
 from fea.floor_contact_results import blocks
+from fea.publish_timber_asymmetric import compliance
 from fea.publish_wide_asymmetric import normalized, replay, sha
 
 
@@ -27,11 +29,31 @@ def evidence():
 
 def test_real_wide_evidence_reconstructs_geometry_and_every_case(evidence):
     report, payload = evidence
-    assert normalized(replay(payload)) == {k: v for k, v in report.items() if k != "replay_archives"}
+    assert_roundoff_equal(
+        normalized(replay(payload)), {k: v for k, v in report.items() if k != "replay_archives"},
+        paths=[("basis_results", hold, "compliance", "symmetric_eigenvalues_mm_per_n")
+               for hold in ("A12", "K12", "F6")], rel=1e-12, abs=1e-16)
     assert report["candidate"] == "wide-principal-development"
     assert report["basis_solve_count"] == 9 and report["scenario_count"] == 216
     assert len(report["ownership"]["base"]["members"]) == 11
     assert len([n for n in report["ownership"]["base"]["members"] if n.startswith("base_post_")]) == 6
+
+
+@pytest.mark.parametrize("hold", ["A12", "K12", "F6"])
+def test_archived_basis_compliance_roundoff(hold):
+    """Exercise the platform-sensitive eigensolve without rebuilding CAD or solving."""
+    directory = Path("fea/results/wide-asymmetric")
+    report = json.loads((directory/"summary.json").read_text())
+    name = hold+".json.gz"
+    raw = (directory/name).read_bytes()
+    assert sha(raw) == report["replay_archives"][name]["gzip_sha256"]
+    decoded = gzip.decompress(raw)
+    assert sha(decoded) == report["replay_archives"][name]["uncompressed_sha256"]
+    basis = json.loads(decoded)["basis"]
+    assert basis == report["basis_results"][hold]["basis"]
+    assert_roundoff_equal(
+        compliance(basis), report["basis_results"][hold]["compliance"],
+        paths=[("symmetric_eigenvalues_mm_per_n",)], rel=1e-12, abs=1e-16)
 
 
 def test_all_216_aggregate_actions_from_scalar_nodal_force_moments(evidence):

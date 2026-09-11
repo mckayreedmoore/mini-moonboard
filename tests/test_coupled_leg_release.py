@@ -5,6 +5,7 @@ import tarfile
 from pathlib import Path
 
 import pytest
+from replay_roundoff import assert_roundoff_equal
 
 from fea import coupled_gussets as base
 from fea import coupled_leg_release as leg
@@ -13,7 +14,10 @@ from fea.leg_connector_map import build
 
 def test_leg_interface_map_replays_current_cad_and_complete_faces():
     saved = json.loads(leg.MAP.read_text())
-    assert build() == saved
+    assert_roundoff_equal(build(), saved,
+                          paths=[("legs", side, "points", name, "weights")
+                                 for side, row in saved["legs"].items()
+                                 for name in row["points"]])
     for side, row in saved["legs"].items():
         assert len(row["shared_nodes"]) == 405
         assert len(row["interfaces"][f"base_side_{side}"]) == 148
@@ -53,6 +57,17 @@ def test_native_leg_release_archive_replay():
         assert hashlib.sha256(files[name]).hexdigest() == sha
     nodes, elements, points, cases, _, legs, remaps = leg.prepare()
     assert json.loads(json.dumps(remaps)) == report["leg_duplicate_nodes"]
+    # The leg report inherits the gusset preparation but does not duplicate its
+    # point map. Obtain the historical weights from that retained source report;
+    # the exact leg deck comparison below authenticates every emitted coefficient.
+    with tarfile.open("fea/results/coupled-gussets.tar.gz") as archive:
+        gussets = json.loads(archive.extractfile("report.json").read())
+    for source, digest in gussets["source_sha256"].items():
+        assert report["source_sha256"][source] == digest
+    fresh = {name: points[name] for name in gussets["points"]}
+    assert_roundoff_equal(fresh, gussets["points"],
+                          paths=[(name, "weights") for name in gussets["points"]])
+    points = {**points, **gussets["points"]}
     previous = None
     for k in base.STIFFNESSES:
         name = f"k{int(k)}"
