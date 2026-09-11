@@ -20,6 +20,9 @@ The connection inspector temporarily hides holds and restores that preference
 when returning to the assembly. Hold geometry is excluded from CAD exports,
 frame weight, and engineering calculations.
 
+Use [Problem highlights](viewer-problem-highlights.md) to mark start, hand,
+foot, and finish holds and share the selection through a link.
+
 ## Sources and observed layout
 
 The [official Mini MoonBoard 2025 product page](https://us.moonclimbing.com/products/mini-moonboard-2025-hold-set)
@@ -45,7 +48,8 @@ are not included in the repository or loaded by the viewer.
 
 ## Estimated appearance
 
-Every entry selects an original generic edge, pinch, sloper, jug, or wedge
+Every entry selects an original generic edge, pinch, sloper, jug, wedge,
+triangle, crescent, or tapered-pinch
 primitive. The broad categories and visual directions were chosen by looking
 at the product image. Width, height, and depth use deliberately rounded,
 reusable millimeter buckets. They are not traced silhouettes or measured
@@ -54,6 +58,27 @@ from the front, relative to an upright generic shape with local +Y up; they
 are not Moon's numbered orientation marks.
 An independent image review checks elongated axes and visible directional tips.
 Symmetric generic profiles cannot show every real hold's facing or grip details.
+
+Three additional analytic profiles make selected directional holds easier to
+distinguish: a rounded triangle with its tip at local +Y, a crescent opening
+toward local +Y, and an elongated pinch with its narrow end toward local +Y.
+An independent front-image review checked this limited refinement:
+
+| Position | Generic profile | Clockwise rotation | Visible direction |
+| --- | --- | ---: | --- |
+| D11 | Triangle | −10° | Tip up, slightly left |
+| G11 | Triangle | 180° | Tip down |
+| K11 | Crescent | 45° | Opening upper-right |
+| H9 | Tapered pinch | 0° | Narrow end up |
+| B6 | Crescent | −35° | Opening upper-left |
+| K6 | Triangle | 15° | Tip up, slightly right |
+| F5 | Tapered pinch | −90° | Narrow end left |
+| G2 | Crescent | 0° | Opening up |
+
+F5 swaps its width/height buckets to preserve its horizontal long axis with the
+new profile. E10 retains a symmetric pinch because its narrow-end direction is
+unclear in this reference. These category cues remain estimates, not measured
+gripping surfaces or manufacturer orientation marks.
 
 Wooden holds share a `wood` family because the photo alone does not establish
 which belong to Set B versus Set C. Grid labels such as A12 identify board
@@ -70,7 +95,7 @@ information must preserve the distinction between observed layout and estimated
 geometry. Faithful scans or reproductions remain subject to the project's
 [hold scanning and publication policy](hold-scanning-and-ip.md).
 
-An independent implementation review checked the five reusable parametric
+An independent implementation review checked the eight reusable parametric
 profiles against that policy: they do not trace distinctive individual hold
 outlines and have no branding, mounting bores, countersinks, or replacement-hold
 engineering. The review also checked the color layout against the source image;

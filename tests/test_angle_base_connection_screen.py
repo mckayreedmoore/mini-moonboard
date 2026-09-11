@@ -48,7 +48,12 @@ def test_published_directional_screen_replays_with_authenticated_sources(current
     saved = json.loads(Path('fea/results/angle-base-connection-screen-v1.json').read_text())
     for name, digest in saved['source_sha256'].items():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest, name
-    assert saved == current_report
+    # The package-wide source glob grows with unrelated later variants. Retain
+    # every authenticated historical input and compare all engineering output.
+    assert saved['source_sha256'].items() <= current_report['source_sha256'].items()
+    assert {k: v for k, v in saved.items() if k != 'source_sha256'} == {
+        k: v for k, v in current_report.items() if k != 'source_sha256'
+    }
     for flag in ('qualified_for_design', 'joint_strength_passed', 'current_frame_forces_available', 'frame_solve_run'):
         assert saved[flag] is False
     assert all(not probe['qualified_for_design'] and not probe['actual_installation_approved']

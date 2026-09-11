@@ -25,6 +25,9 @@
       #hold-controls label { margin: 0; }
       #hold-controls p { margin-top: .25rem; font-size: .8rem; }
       #hold-controls button { margin-top: .4rem; padding: .3rem .6rem; background: #222a2f; border: 1px solid #59636b; border-radius: .2rem; color: #f5f0e6; cursor: pointer; }
+      #problem-controls { margin-top: .5rem; border: 0; border-top: 1px solid #59636b; padding: .5rem 0 0; }
+      #problem-legend { display: flex; flex-wrap: wrap; gap: .2rem .7rem; }
+      #problem-link { width: 100%; margin-top: .4rem; }
       #hold-controls button:disabled { opacity: .5; cursor: default; }
       @media (max-width: 600px) { select { max-width: 100%; margin-left: 0; } }
       canvas { display: block; height: 100vh; width: 100vw; }
@@ -79,12 +82,12 @@
       const holdCount = holdSetup === '2020' ? 130 : 138;
       const holdControls = document.createElement('section'); holdControls.id = 'hold-controls';
       holdControls.setAttribute('aria-label', 'Mini MoonBoard holds');
-      holdControls.innerHTML = '<label>Hold setup <select id="hold-setup"><option value="2025">Mini MoonBoard 2025</option><option value="2020">Mini MoonBoard 2020</option></select></label><label><input id="show-holds" type="checkbox" checked disabled /> Show holds</label><p id="hold-status" role="status">Loading approximate holds…</p><button id="hold-front" type="button" disabled>View holds from front</button>';
+      holdControls.innerHTML = '<label>Hold setup <select id="hold-setup"><option value="2025">Mini MoonBoard 2025</option><option value="2020">Mini MoonBoard 2020</option></select></label><label><input id="show-holds" type="checkbox" checked disabled /> Show holds</label><p id="hold-status" role="status">Loading approximate holds…</p><button id="hold-front" type="button" disabled>View holds from front</button><details id="problem-tools"><summary>Problem highlights</summary><fieldset id="problem-controls" disabled><legend>Problem highlights</legend><label><input id="problem-edit" type="checkbox" /> Edit problem · click holds to mark</label><label>Mark as <select id="problem-role"><option value="s">Start</option><option value="h">Hand</option><option value="f">Foot</option><option value="t">Finish</option><option value="erase">Erase</option></select></label><label>Hold <select id="problem-position" aria-label="Hold grid position"></select></label><button id="problem-apply" type="button" disabled>Apply mark</button><p id="problem-legend"><span style="color:#4ade80">S · Start</span><span style="color:#60a5fa">H · Hand</span><span style="color:#facc15">F · Foot</span><span style="color:#f472b6">T · Finish</span></p><p id="problem-status" role="status">No holds marked.</p><button id="problem-clear" type="button">Clear</button> <button id="problem-share" type="button">Copy problem link</button><input id="problem-link" aria-label="Problem link; select and copy" readonly hidden /></fieldset></details>';
       document.querySelector('#overlay').parentElement.before(holdControls);
       const holdToggle = document.querySelector('#show-holds'), holdStatus = document.querySelector('#hold-status');
       const holdSetupSelect = document.querySelector('#hold-setup'); holdSetupSelect.value = holdSetup;
       holdSetupSelect.addEventListener('change', () => {
-        const url = new URL(location.href); url.searchParams.set('setup', holdSetupSelect.value); location.assign(url);
+        const url = new URL(location.href); url.searchParams.set('setup', holdSetupSelect.value); url.searchParams.delete('problem'); location.assign(url);
       });
       const holdFront = document.querySelector('#hold-front');
       const holdFamilies = {original: 'Original School', 'school-f': 'School Set F', wood: holdSetup === '2020' ? 'Wood A/B/C' : 'Wood B/C', foot: 'Kicker foothold'};
@@ -113,6 +116,71 @@
         camera.position.copy(controls.target).add(new THREE.Vector3(0, distance * Math.cos(angle), -distance * Math.sin(angle)));
         camera.clearViewOffset(); controls.update();
       });
+      const problemControls = document.querySelector('#problem-controls');
+      const problemEdit = document.querySelector('#problem-edit'), problemRole = document.querySelector('#problem-role');
+      const problemStatus = document.querySelector('#problem-status'), problemLink = document.querySelector('#problem-link');
+      const problemMarks = new Map();
+      const problemRoles = {s: {label: 'Start', color: '#4ade80'}, h: {label: 'Hand', color: '#60a5fa'},
+        f: {label: 'Foot', color: '#facc15'}, t: {label: 'Finish', color: '#f472b6'}};
+      function updateProblem(writeUrl = true) {
+        for (const mesh of holdMeshes) {
+          const role = problemMarks.get(mesh.userData.hold.position);
+          let marker = mesh.userData.problemMarker;
+          if (role && !marker) {
+            const radius = Math.hypot(mesh.userData.hold.width, mesh.userData.hold.height) / 2 + 9;
+            marker = new THREE.Mesh(new THREE.RingGeometry(radius, radius + 7, 48),
+              new THREE.MeshBasicMaterial({side: THREE.DoubleSide}));
+            marker.position.z = 2;
+            marker.raycast = () => {}; // Markers never intercept hold inspection.
+            mesh.add(marker); mesh.userData.problemMarker = marker;
+          }
+          if (marker) { marker.visible = Boolean(role); if (role) marker.material.color.set(problemRoles[role].color); }
+        }
+        const entries = [...problemMarks].sort(([a], [b]) => a.localeCompare(b, undefined, {numeric: true}));
+        problemStatus.textContent = entries.length ? entries.map(([position, role]) => `${position} ${problemRoles[role].label}`).join(' · ') : 'No holds marked.';
+        if (writeUrl) {
+          const url = new URL(location.href);
+          if (entries.length) url.searchParams.set('problem', `${holdSetup}:${entries.map(([position, role]) => `${position}.${role}`).join(',')}`);
+          else url.searchParams.delete('problem');
+          history.replaceState(null, '', url);
+        }
+        problemLink.hidden = true;
+      }
+      function markProblem(position) {
+        if (problemRole.value === 'erase') problemMarks.delete(position);
+        else problemMarks.set(position, problemRole.value);
+        updateProblem();
+      }
+      problemEdit.addEventListener('change', () => { document.querySelector('#problem-apply').disabled = !problemEdit.checked; });
+      document.querySelector('#problem-apply').addEventListener('click', () => {
+        if (problemEdit.checked) markProblem(document.querySelector('#problem-position').value);
+      });
+      function loadProblem(positions) {
+        const encoded = new URLSearchParams(location.search).get('problem');
+        if (!encoded) return;
+        document.querySelector('#problem-tools').open = true;
+        const entries = encoded.startsWith(`${holdSetup}:`) && encoded.length <= 2000 ? encoded.slice(5).split(',') : [];
+        const seen = new Set();
+        const valid = entries.length > 0 && entries.every(entry => {
+          const match = /^([A-K](?:[1-9]|1[0-2])|KICK(?:[1-9]|10))\.([shft])$/.exec(entry);
+          if (!match || !positions.has(match[1]) || seen.has(match[1])) return false;
+          seen.add(match[1]); return true;
+        });
+        if (valid) for (const entry of entries) { const [position, role] = entry.split('.'); problemMarks.set(position, role); }
+        updateProblem();
+        if (!valid) problemStatus.textContent = 'Invalid or different-setup problem link ignored. No holds marked.';
+      }
+      document.querySelector('#problem-clear').addEventListener('click', () => { problemMarks.clear(); updateProblem(); });
+      document.querySelector('#problem-share').addEventListener('click', async () => {
+        const url = new URL(location.href); url.searchParams.set('setup', holdSetup); url.searchParams.delete('holds');
+        try {
+          if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+          await navigator.clipboard.writeText(url.href); problemStatus.textContent = 'Problem link copied.';
+        } catch {
+          problemLink.value = url.href; problemLink.hidden = false; problemLink.focus(); problemLink.select();
+          problemStatus.textContent = 'Copy the selected problem link.';
+        }
+      });
       async function loadHolds() {
         try {
           const response = await fetch(`mini-${holdSetup}-holds.json`);
@@ -122,7 +190,7 @@
           if (!Array.isArray(catalog.holds) || catalog.holds.length !== holdCount) throw new Error('Incomplete hold catalog');
           for (const hold of catalog.holds) {
             if (!/^(?:[A-K](?:[1-9]|1[0-2])|KICK(?:[1-9]|10))$/.test(hold.position) || positions.has(hold.position) ||
-                !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge'].includes(hold.shape) ||
+                !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch'].includes(hold.shape) ||
                 ![hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400) || !Number.isFinite(hold.rotation)) {
               throw new Error('Invalid hold catalog');
             }
@@ -146,6 +214,9 @@
             mesh.userData.hold = hold;
             holdMeshes.push(mesh); holdGroup.add(mesh);
           }
+          const positionSelect = document.querySelector('#problem-position');
+          [...positions].sort((a, b) => a.localeCompare(b, undefined, {numeric: true})).forEach(position => positionSelect.add(new Option(position, position)));
+          loadProblem(positions);
           holdStatus.textContent = `${holdCount} loose approximations · yellow Originals, ${holdSetup === '2020' ? 'wood A/B/C' : 'blue Set F, wood B/C'}. Shapes, sizes and rotations are estimates. Click a hold to inspect.`;
           holdToggle.disabled = false; holdFront.disabled = false;
           updateBoltVisibility();
@@ -281,6 +352,7 @@
         holdGroup.visible = !inspectedBolt && holdToggle.checked;
         holdToggle.disabled = Boolean(inspectedBolt) || !holdMeshes.length;
         holdFront.disabled = Boolean(inspectedBolt) || !holdMeshes.length;
+        problemControls.disabled = Boolean(inspectedBolt) || !holdMeshes.length || !holdToggle.checked;
         ['#person', '#dimensions', '#overlay'].forEach(id => { document.querySelector(id).disabled = Boolean(inspectedBolt); });
       }
       boltSelect.addEventListener('change', () => {
@@ -448,7 +520,20 @@
       const personContext = personCanvas.getContext('2d'); personContext.fillStyle = '#121619dd'; personContext.fillRect(0, 0, 1024, 128); personContext.fillStyle = '#f5f0e6'; personContext.font = 'bold 58px system-ui'; personContext.textAlign = 'center'; personContext.textBaseline = 'middle'; personContext.fillText("MCKAY — 5'8\" / 1727.2 mm", 512, 68);
       const personLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(personCanvas), transparent: true, depthWrite: false })); personLabel.position.set(-250, 0, 1815); personLabel.scale.set(700, 88, 1); person.add(personLabel);
       document.querySelector('#person').addEventListener('change', event => { person.visible = event.target.checked; });
+      let pickStart;
+      const activePointers = new Set();
       renderer.domElement.addEventListener('pointerdown', event => {
+        activePointers.add(event.pointerId);
+        pickStart = activePointers.size === 1 ? {x: event.clientX, y: event.clientY, id: event.pointerId} : null;
+      });
+      renderer.domElement.addEventListener('pointermove', event => {
+        if (pickStart && Math.hypot(event.clientX - pickStart.x, event.clientY - pickStart.y) > 5) pickStart.moved = true;
+      });
+      renderer.domElement.addEventListener('pointercancel', event => { activePointers.delete(event.pointerId); pickStart = null; });
+      renderer.domElement.addEventListener('pointerup', event => {
+        activePointers.delete(event.pointerId);
+        const start = pickStart; pickStart = null;
+        if (!start || start.moved || start.id !== event.pointerId || event.button !== 0 || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 5) return;
         pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
         // The raycaster still intersects children of an invisible parent group.
@@ -461,6 +546,9 @@
         if (hit.object.userData.hold) {
           selected = [hit.object]; hit.object.material.emissive.setHex(0x493322);
           const hold = hit.object.userData.hold;
+          if (problemEdit.checked && !problemControls.disabled) {
+            markProblem(hold.position);
+          }
           partCard.textContent = `${hold.position}: ${holdFamilies[hold.family]} · approximate ${hold.shape}; visual size ${hold.width} × ${hold.height} × ${hold.depth} mm; estimated rotation ${hold.rotation}°. Grid location identifies this preview, not a manufacturer hold number. Visual only; excluded from frame weight and engineering checks. Use the official setup for installation.`;
           return;
         }
