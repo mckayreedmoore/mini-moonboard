@@ -5,6 +5,9 @@ The viewer includes 130 generic visual placeholders for the Mini MoonBoard
 hold setup control to preview them. The 2020 and 2025 layouts share the viewer's
 visibility, front-view, and hold-selection controls.
 
+Use [Problem highlights](viewer-problem-highlights.md) to mark start, hand,
+foot, and finish holds and share the selection through a link.
+
 ## Sources and observed layout
 
 The [official 2020 bundle page](https://us.moonclimbing.com/products/mini-moonboard-2020-hold-set)
@@ -25,8 +28,8 @@ are included in the repository or downloaded by the viewer.
 
 ## Approximation and orientation
 
-The holds reuse the viewer's original generic edge, pinch, sloper, jug, and
-wedge profiles. Shape categories, rounded millimeter dimensions, and visual
+The holds reuse the viewer's original generic edge, pinch, sloper, jug, wedge,
+triangle, and crescent profiles. Shape categories, rounded millimeter dimensions, and visual
 rotations are estimates from the setup image. No individual silhouette is
 traced, and no physical dimensions or grip details have been measured.
 
@@ -37,6 +40,21 @@ The wedge narrows toward local +Y. Rotation values align these generic shapes
 with broad visible directions in the source image. They are not Moon's
 manufacturer orientation marks, and symmetric envelopes cannot reproduce an
 individual hold's gripping direction or distinguish every 180-degree turn.
+
+The directional refinement uses two additional reusable mathematical envelopes:
+a rounded triangle whose tip faces local +Y and a crescent whose opening faces
+local +Y. These were independently compared with the official image:
+
+| Position | Generic profile | Clockwise rotation | Visible direction |
+| --- | --- | ---: | --- |
+| C12 | Triangle | 180° | Tip down |
+| E11 | Crescent | −10° | Opening up, slightly left |
+| K7 | Crescent | 45° | Opening upper-right |
+
+These broad directions replace symmetric placeholders; they do not establish
+the actual gripping surface. Other uncertain shapes retain their earlier
+envelopes. An independent implementation review confirmed the additional forms
+are reusable analytic categories, not individual hold traces or replacements.
 
 Wooden holds share the `wood` family because the reference image does not
 establish individual A/B/C membership. Grid labels identify positions, not

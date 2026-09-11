@@ -17,6 +17,9 @@ const PROFILES = {
   sloper: { exponent: 1, shoulder: 0.88, crown: 0.5, tilt: 0, center: 1 },
   jug: { exponent: 0.8, shoulder: 0.95, crown: 0.58, tilt: 0.1, center: 0.53 },
   wedge: { exponent: 0.65, shoulder: 0.82, crown: 0.5, tilt: 0.3, center: 0.75 },
+  triangle: { exponent: 1, shoulder: 0.86, crown: 0.5, tilt: 0.12, center: 0.9 },
+  crescent: { exponent: 1, shoulder: 0.88, crown: 0.64, tilt: 0.18, center: 0.6 },
+  'tapered-pinch': { exponent: 0.8, shoulder: 0.82, crown: 0.45, tilt: 0.16, center: 1 },
 };
 
 /** Local XY is the mounting plane at z=0; +Y is up and +Z protrudes, in mm. */
@@ -41,11 +44,22 @@ export function createHoldMesh(hold) {
       const angle = (i / segments) * Math.PI * 2;
       const cosine = Math.cos(angle);
       const sine = Math.sin(angle);
-      const x = Math.sign(cosine) * Math.abs(cosine) ** profile.exponent;
-      const y = Math.sign(sine) * Math.abs(sine) ** profile.exponent;
-      const taper = hold.shape === 'wedge' ? 0.83 - 0.17 * y : 1;
+      let x = Math.sign(cosine) * Math.abs(cosine) ** profile.exponent;
+      let y = Math.sign(sine) * Math.abs(sine) ** profile.exponent;
+      // Reusable directional cues: triangle tip, crescent horns, and pinch's
+      // narrow end face +Y. These formulas do not trace any individual hold.
+      if (hold.shape === 'triangle') {
+        const triangleRadius = 0.78 - 0.22 * Math.sin(3 * angle);
+        x *= triangleRadius;
+        y *= triangleRadius;
+      }
+      const taper = hold.shape === 'wedge' ? 0.83 - 0.17 * y
+        : hold.shape === 'tapered-pinch' ? 0.75 - 0.25 * y : 1;
       const z = elevation === 0 ? 0 : elevation + profile.tilt * y * elevation;
-      vertices.push((x * radius * taper * width) / 2, (y * radius * height) / 2, z * depth);
+      const curvedY = hold.shape === 'crescent'
+        ? 0.55 * y * radius + 0.95 * (x * radius) ** 2
+        : y * radius;
+      vertices.push((x * radius * taper * width) / 2, (curvedY * height) / 2, z * depth);
     }
   }
   for (let ring = 0; ring < rings.length - 1; ring += 1) {

@@ -23,7 +23,7 @@ for (const [row, columns] of Object.entries(yellowRows)) {
     .map(hold => hold.position[0]).sort().join(''), columns, `Official image yellow mask, row ${row}`);
 }
 assert.ok(catalog.holds.every(hold => [hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400)
-  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge'].includes(hold.shape)));
+  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch'].includes(hold.shape)));
 
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
@@ -50,6 +50,7 @@ assert.ok(catalog.holds.every(hold => [hold.width, hold.height, hold.depth].ever
       assert.match(await page.locator('#hold-status').innerText(), new RegExp(`${count} loose approximations`));
       assert.equal(await page.evaluate(() => window.holdsTest.holdGroup.children.length), count, 'No leaked hold meshes');
       assert.equal(new URL(page.url()).searchParams.get('model'), model);
+      console.log(`Mini ${setup}: catalog and CAD assembly loaded.`);
     }
     async function switchSetup(setup) {
       await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded' }), page.selectOption('#hold-setup', setup)]);

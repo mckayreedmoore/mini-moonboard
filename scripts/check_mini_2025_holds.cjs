@@ -20,7 +20,7 @@ const missing = [...'ABCDEFGHIJK'].flatMap(column => Array.from({ length: 12 }, 
 assert.deepEqual(missing, ['C1', 'D1', 'H1', 'I1']);
 assert.equal(catalog.holds.filter(hold => /^KICK(?:[1-9]|10)$/.test(hold.position)).length, 10);
 assert.ok(catalog.holds.every(hold => [hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400)
-  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge'].includes(hold.shape)));
+  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch'].includes(hold.shape)));
 
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });

@@ -49,6 +49,13 @@ manufacturer-supported connection model or another detail is needed before a
 strength verdict. Enlarging the timber alone does not fill those missing
 connection directions.
 
+The published v1 screen remains a historical record of the angle-base variant.
+Its replay test authenticates every recorded source file, requires that the
+current provenance contains every original path and digest, and checks that
+the current tree produces identical engineering results and qualification flags.
+Later variant modules expand the generator's package-wide provenance inventory;
+they do not retroactively become inputs to the original record.
+
 ```sh
 uv run pytest tests/test_angle_base_connection_screen.py -q
 uv run python -m fea.angle_base_connection_screen --output /tmp/base-angle-screen.json
