@@ -35,9 +35,10 @@ items, but must not silently substitute assumptions for supplier ratings or
 claim that an optimistic model validates the physical joints. Missing structural
 evidence remains visible and prevents construction/climbing approval.
 
-Local work and commits continue during Denver quiet hours. Publication follows
-the repository Git agreement. Another agent's untracked design notes are outside
-this task's edit/staging scope.
+Local edits and tests may continue during Denver quiet hours. Commit creation,
+amendments, author and committer timestamps, and publication must follow the
+allowed hours and explicit exception in [the repository Git agreement](../AGENTS.md).
+Another agent's untracked design notes are outside this task's edit/staging scope.
 
 ## Current implementation status
 
