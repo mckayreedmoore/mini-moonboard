@@ -23,17 +23,20 @@ def resolve(force, direction):
     return max(0., -axial), max(0., axial), math.sqrt(max(0., sum(f*f for f in force)-axial*axial))
 
 
-def build(root):
-    from mini_moonboard import horizontal_service_frame as model
+def build(root, model=None, screw_count=87, case_count=10, coupled_count=8):
+    if model is None:
+        from mini_moonboard import horizontal_service_frame as model
 
     screws = {c.name: c for c in model.connections() if isinstance(c, model.timber.PanelScrew)}
-    if len(screws) != 87 or any(abs(c.length-50.8) > 1e-6 or abs(c.diameter-4.1402) > 1e-6 for c in screws.values()):
-        raise ValueError('Expected current 87 SPAX #8 x2in panel/kicker screws')
+    if len(screws) != screw_count or any(abs(c.length-50.8) > 1e-6 or abs(c.diameter-4.1402) > 1e-6 for c in screws.values()):
+        raise ValueError(f'Expected current {screw_count} SPAX #8 x2in panel/kicker screws')
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     summary_path = root/'summary.json'
     summary = json.loads(summary_path.read_text())
-    if len(summary['cases']) != 10:
-        raise ValueError('Require complete ten-case native sensitivity batch')
+    if len({case['case'] for case in summary['cases']}) != len(summary['cases']):
+        raise ValueError('Duplicate native sensitivity case')
+    if len(summary['cases']) != case_count:
+        raise ValueError(f'Require complete {case_count}-case native sensitivity batch')
     hashes = {str(summary_path): digest(summary_path)}
     rows, omitted, differences = [], [], {}
     for case in summary['cases']:
@@ -80,15 +83,15 @@ def build(root):
                          'withdrawal_reference_ratio': tension/withdrawal,
                          'head_reference_ratio': tension/head,
                          'exceeds_unadjusted_axial_reference': tension > min(withdrawal, head)})
-    if len(rows) != 8*87:
-        raise ValueError('Require eight coupled cases and all 87 panel/kicker connectors')
+    if len(rows) != coupled_count*screw_count:
+        raise ValueError(f'Require {coupled_count} coupled cases and all {screw_count} panel/kicker connectors')
     worst = {key: max(rows, key=lambda r: r[key]) for key in
              ('withdrawal_tension_n', 'lateral_resultant_n', 'withdrawal_reference_ratio', 'head_reference_ratio')}
     hashes[str(Path(__file__).relative_to(Path.cwd()))] = digest(Path(__file__))
     return {'candidate': model.KEY, 'reference_url': REFERENCE, 'reference_revision': '2025-11-04',
             'qualified_for_design': False, 'actual_joint_demands_qualified': False,
             'adjusted_capacity_failure_established': False,
-            'limits': 'Maxima over eight finite coupled probes, not a bound on unknown slip/load cases. '
+            'limits': f'Maxima over {coupled_count} finite coupled probes, not a bound on unknown slip/load cases. '
                       'DF-L SG0.50 dry face-grain withdrawal, optimistic embedded thread. '
                       'Head reference requires23/32 plywood SG>=0.50, not established by lumber species. '
                       'NDS adjustments, combined action, splitting, grooves, cyclic response and actual '

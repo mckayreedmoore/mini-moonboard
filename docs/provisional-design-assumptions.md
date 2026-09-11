@@ -1,7 +1,8 @@
 # Provisional design assumptions — independent verification handoff
 
 Status: **provisional; not a construction release or an achieved user-weight rating**.
-Prepared September 11, 2026 for `horizontal-service-development`.
+Prepared September 11, 2026 for the historical `horizontal-service-development`
+diagnostic; retained during development of `round-bore-service-development`.
 
 This is the entry file for the next agent. It distinguishes numbers already used
 in the diagnostic from published reference values and proposed replacements.
@@ -9,7 +10,13 @@ The online references do not retrospectively qualify the existing calculations.
 Record the accepted value, source/table, applicable adjustments and resulting
 reruns against each ID below. Do not silently replace a value in an old result.
 
-## Values already used in the diagnostic
+The current round candidate retains the owned Roseburg plywood, uses enclosed
+25.4 mm wiring passages and has 56 panel/kicker screws. The table below describes
+the archived grooved-frame diagnostic; its geometry, demands and resistance
+references do not qualify the revised frame. See the
+[round-service plan](round-service-build-plan.md) for the current package and gates.
+
+## Values already used in the historical diagnostic
 
 | ID | Quantity | Current value and meaning | Verification needed |
 | --- | --- | --- | --- |
@@ -56,12 +63,17 @@ Review the lower panel's partly unsupported seam edge against that guidance.
 
 ## Provisional material and connection selections
 
-The proposed purchasing/reference basis is dry, grade-stamped **Douglas Fir–Larch No. 2 or better**
-and **APA PS 1 Structural I plywood, 23/32 Performance Category, 48/24, square edge**.
-This does not identify the previously recorded Roseburg AC sheets as Structural I
-or qualify their use with these values. Nor does it turn the isotropic model into
-an analysis of the proposed products. Verify stock stamps, actual thickness and
-panel strength-axis orientation.
+The remaining-lumber purchasing basis is dry, grade-stamped **Douglas Fir–Larch
+No. 2 or better**. **Retain the already purchased Roseburg AC exterior PS 1,
+23/32-category face plywood**, Lowe’s item 12235 / model 119055, recorded in the
+[purchased-material record](purchased-materials.md). Verify the actual lot's
+stamp, usable dimensions, thickness and strength-axis orientation.
+
+**APA PS 1 Structural I plywood, 23/32 Performance Category, 48/24, square edge**
+remains an optional research/reference alternative. It does not identify the
+owned sheets, require their replacement or establish that its reference values
+apply to them. Neither product choice turns the archived isotropic model into
+an analysis of the delivered materials.
 
 Detailed sourced values and their conditions are maintained in:
 

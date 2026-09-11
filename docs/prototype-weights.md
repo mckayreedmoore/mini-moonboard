@@ -1,12 +1,12 @@
 # Prototype weight estimates
 
-All 50 viewer prototypes display their modeled weights in kg and lb, both in the
+All 51 viewer prototypes display their modeled weights in kg and lb, both in the
 design menu and beside the selected model. These are estimates, not measured
 weights or load ratings. Holds, their unmodeled T-nuts and hold bolts, LEDs,
 wiring and glue are excluded. Historical concepts include only hardware actually
 represented in their geometry.
 
-Five recent totals use authenticated CAD mass inventories with unioned fastener
+Six recent totals use authenticated CAD mass inventories with unioned fastener
 components. Other totals integrate closed, oriented STL surfaces. Mesh estimates
 retain overlapping compound hardware envelopes and coarse tessellation, so they
 are less accurate. Assumed densities: wood/plywood 600 kg/m³, steel 7,850 kg/m³,
@@ -15,6 +15,7 @@ can change the built weight.
 
 | Prototype | kg | lb | Basis |
 | --- | ---: | ---: | --- |
+| [round-bore-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=round-bore-service-development) | 167.1 | 368.3 | audited CAD |
 | [horizontal-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development) | 167.5 | 369.2 | audited CAD |
 | [angle-base-development](https://mckayreedmoore.github.io/mini-moonboard/?model=angle-base-development) | 192.7 | 424.7 | audited CAD |
 | [infill-panel-development](https://mckayreedmoore.github.io/mini-moonboard/?model=infill-panel-development) | 195.6 | 431.3 | audited CAD |

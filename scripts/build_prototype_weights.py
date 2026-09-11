@@ -14,7 +14,7 @@ DENSITIES = {'wood/plywood': 600., 'steel': 7850., 'die-cast zinc assumption': 6
 AUDITED = {key+'-development': Path('fea/results')/(stem+'-floor-v1.json.gz') for key, stem in (
     ('selective-2x6', 'selective'), ('split-center', 'split-center'),
     ('infill-panel', 'infill-panel'), ('angle-base', 'angle-base'),
-    ('horizontal-service', 'horizontal-service'))}
+    ('horizontal-service', 'horizontal-service'), ('round-bore-service', 'round-service'))}
 WOOD_PREFIXES = {'base', 'box', 'cheek', 'cross', 'easy', 'kicker', 'lean', 'leg', 'lumber',
                  'main', 'mid', 'panel', 'rear', 'rib', 'seam', 'timber', 'wood'}
 

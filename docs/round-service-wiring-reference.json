@@ -1,0 +1,34 @@
+{
+  "status": "Provisional round-bore installation geometry; not machining or structural approval",
+  "route_reference": "docs/led-wiring-reference.json",
+  "user_measurements": {
+    "maximum_harness_outside_diameter_mm": 12.7,
+    "maximum_harness_outside_diameter_basis": "User reports largest outside diameter is 0.5 inch",
+    "approximate_bulb_base_pitch_mm": 304.8,
+    "pitch_basis": "User reports approximately 12 inches bulb-base to bulb-base; not guaranteed usable cable length"
+  },
+  "installation": {
+    "sequence": "Build the frame and install panels first; feed the strand through enclosed passages, then install lights from the rear",
+    "provisional_passage_diameter_mm": 25.4,
+    "passage_basis": "User prefers generous passages for feeding the entire strand; provisional 1-inch choice",
+    "front_open_grooves": false
+  },
+  "provisional_geometry_mm": {
+    "rear_body_projection": 12.0,
+    "connector_length": 30.0,
+    "cable_outside_diameter": 4.0,
+    "bulb_base_plane_N": 8.0,
+    "routing_plane_N": 35.0,
+    "vertical_run_lateral_offset": 30.0,
+    "endpoint_lead_distance": 20.0,
+    "modeled_corner_radius": 8.0
+  },
+  "unresolved": [
+    "Actual rear bulb projection, connector length, cable diameter and permitted bend radius",
+    "Feed access and practical handling of the complete supplied strand and branches",
+    "Additional harness slack, strain relief, controller and extension routing",
+    "Timber residual section, fastener clearances and structural resistance"
+  ],
+  "qualified_for_installation": false,
+  "qualified_for_machining": false
+}

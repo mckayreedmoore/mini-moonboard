@@ -8,11 +8,14 @@ connection resistance, or frame, panel, and floor adequacy.
 
 ## Viewer controls
 
-The holds appear by default after the selected frame's metadata loads. Use
-**Mini MoonBoard 2025 holds** to hide or show them, and **View holds from front**
+Choose **Mini MoonBoard 2025** in **Hold setup** (the default). The holds appear
+after the selected frame's metadata loads. Use **Show holds** to hide or show
+them, and **View holds from front**
 to fit the board beside the controls on desktop or below them on a phone.
 Click a hold to see its family, grid location, and estimated appearance. The
 `holds=off` URL option preserves a hidden preview when changing frame designs.
+The `setup=2020` URL option selects the alternative Mini 2020 hold layout;
+changing the setup preserves the selected frame and visibility preference.
 The connection inspector temporarily hides holds and restores that preference
 when returning to the assembly. Hold geometry is excluded from CAD exports,
 frame weight, and engineering calculations.
@@ -49,6 +52,8 @@ reusable millimeter buckets. They are not traced silhouettes or measured
 physical dimensions. Rotations are approximate clockwise degrees as viewed
 from the front, relative to an upright generic shape with local +Y up; they
 are not Moon's numbered orientation marks.
+An independent image review checks elongated axes and visible directional tips.
+Symmetric generic profiles cannot show every real hold's facing or grip details.
 
 Wooden holds share a `wood` family because the photo alone does not establish
 which belong to Set B versus Set C. Grid labels such as A12 identify board

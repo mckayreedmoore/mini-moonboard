@@ -75,13 +75,19 @@
       const partCard = document.querySelector('#part'); let selected = [];
       const holdGroup = new THREE.Group(), holdMeshes = [];
       assemblyView.add(holdGroup);
+      const holdSetup = new URLSearchParams(location.search).get('setup') === '2020' ? '2020' : '2025';
+      const holdCount = holdSetup === '2020' ? 130 : 138;
       const holdControls = document.createElement('section'); holdControls.id = 'hold-controls';
-      holdControls.setAttribute('aria-label', 'Mini MoonBoard 2025 holds');
-      holdControls.innerHTML = '<label><input id="show-holds" type="checkbox" checked disabled /> Mini MoonBoard 2025 holds</label><p id="hold-status" role="status">Loading approximate holds…</p><button id="hold-front" type="button" disabled>View holds from front</button>';
+      holdControls.setAttribute('aria-label', 'Mini MoonBoard holds');
+      holdControls.innerHTML = '<label>Hold setup <select id="hold-setup"><option value="2025">Mini MoonBoard 2025</option><option value="2020">Mini MoonBoard 2020</option></select></label><label><input id="show-holds" type="checkbox" checked disabled /> Show holds</label><p id="hold-status" role="status">Loading approximate holds…</p><button id="hold-front" type="button" disabled>View holds from front</button>';
       document.querySelector('#overlay').parentElement.before(holdControls);
       const holdToggle = document.querySelector('#show-holds'), holdStatus = document.querySelector('#hold-status');
+      const holdSetupSelect = document.querySelector('#hold-setup'); holdSetupSelect.value = holdSetup;
+      holdSetupSelect.addEventListener('change', () => {
+        const url = new URL(location.href); url.searchParams.set('setup', holdSetupSelect.value); location.assign(url);
+      });
       const holdFront = document.querySelector('#hold-front');
-      const holdFamilies = {original: 'Original School', 'school-f': 'School Set F', wood: 'Wood B/C', foot: 'Kicker foothold'};
+      const holdFamilies = {original: 'Original School', 'school-f': 'School Set F', wood: holdSetup === '2020' ? 'Wood A/B/C' : 'Wood B/C', foot: 'Kicker foothold'};
       holdToggle.checked = new URLSearchParams(location.search).get('holds') !== 'off';
       holdToggle.addEventListener('change', () => {
         updateBoltVisibility();
@@ -96,7 +102,7 @@
       holdFront.addEventListener('click', () => {
         // Fit the board beside the controls on desktop, or below them on phones.
         const header = document.querySelector('header').getBoundingClientRect();
-        const narrow = innerWidth <= 600;
+        const narrow = innerWidth < header.width + 400;
         const available = Math.min(innerWidth - (narrow ? 0 : header.width), innerHeight - (narrow ? header.height : 0));
         const span = 2900 * innerHeight / Math.max(available, 180);
         const distance = span * camera.zoom / (2 * Math.tan(camera.fov * Math.PI / 360));
@@ -109,11 +115,11 @@
       });
       async function loadHolds() {
         try {
-          const response = await fetch('mini-2025-holds.json');
+          const response = await fetch(`mini-${holdSetup}-holds.json`);
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const catalog = await response.json();
           const positions = new Set();
-          if (!Array.isArray(catalog.holds) || catalog.holds.length !== 138) throw new Error('Incomplete hold catalog');
+          if (!Array.isArray(catalog.holds) || catalog.holds.length !== holdCount) throw new Error('Incomplete hold catalog');
           for (const hold of catalog.holds) {
             if (!/^(?:[A-K](?:[1-9]|1[0-2])|KICK(?:[1-9]|10))$/.test(hold.position) || positions.has(hold.position) ||
                 !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge'].includes(hold.shape) ||
@@ -140,7 +146,7 @@
             mesh.userData.hold = hold;
             holdMeshes.push(mesh); holdGroup.add(mesh);
           }
-          holdStatus.textContent = '138 loose approximations · yellow Originals, blue Set F, wood B/C. Shapes, sizes and rotations are estimates. Click a hold to inspect.';
+          holdStatus.textContent = `${holdCount} loose approximations · yellow Originals, ${holdSetup === '2020' ? 'wood A/B/C' : 'blue Set F, wood B/C'}. Shapes, sizes and rotations are estimates. Click a hold to inspect.`;
           holdToggle.disabled = false; holdFront.disabled = false;
           updateBoltVisibility();
         } catch (error) {
@@ -161,8 +167,8 @@
       lumberModels.push(['lumber-leg-spread-2x8-e300', '2x8 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-spread-2x6-e300', '2x6 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-hardware-2x6-e0', '2x6 +0 mm (0 in) · long bolts / four washers · geometry only']);
-      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified']];
-      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'horizontal-service-development';
+      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified']];
+      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'round-bore-service-development';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
       [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware'], ['selected-hardware-development', 'Selected products · fit unqualified'], ['top-joint-development', 'Revised top joint · strength unqualified'], ['wood-first-mvp', 'Wood-first MVP · housed joints'], ['commercial-bracket-mvp', 'Commercial-bracket MVP · factory connectors']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
@@ -186,13 +192,15 @@
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
       if (model !== 'plywood') document.querySelector('header p:nth-of-type(2)').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
       if (model === 'base-bearing-concept') document.querySelector('header p:nth-of-type(2)').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
-      if (model === 'horizontal-service-development') {
+      if (['horizontal-service-development', 'round-bore-service-development'].includes(model)) {
+        const round = model === 'round-bore-service-development';
+        const stem = round ? 'round-service' : 'horizontal-service';
         const links = document.createElement('nav'); links.id = 'model-documents'; links.setAttribute('aria-label', 'Current candidate documents');
         links.style.cssText = 'display:flex;flex-wrap:wrap;gap:.25rem .75rem';
-        for (const [label, path] of [['Draft build plan', 'docs/horizontal-service-build-plan.md'],
-          ['Drilling PDF', 'docs/horizontal-service-drilling/drilling.pdf'],
-          ['Drilling datums', 'docs/horizontal-service-drilling.md'],
-          ['Timber cutlist', 'exports/horizontal-service-development/wood-parts.csv']]) {
+        for (const [label, path] of [['Draft build plan', `docs/${stem}-build-plan.md`],
+          ['Drilling PDF', `docs/${stem}-drilling/drilling.pdf`],
+          ['Drilling datums', round ? `docs/${stem}-drilling/drilling.json` : `docs/${stem}-drilling.md`],
+          ['Timber cutlist', `exports/${model}/wood-parts.csv`]]) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
           link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link);
