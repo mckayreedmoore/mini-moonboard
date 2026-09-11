@@ -99,11 +99,14 @@ fs.mkdirSync(artifacts, { recursive: true });
           assert.deepEqual(bolts.filter(p => p.fabrication.connection_name === connection)
             .map(p => p.fabrication.hardware_role).sort(), ['far_washer', 'head', 'near_washer', 'nut', 'shaft']);
         }
-        assert.equal(await page.locator('#bolt-view option').count(), connections.size+1);
+        const examples = await page.locator('#bolt-view option').evaluateAll(options => options.map(o => o.value).filter(Boolean));
+        assert.ok(examples.length < connections.size);
+        assert.ok(examples.includes('lumber_leg_bolt_left_1') && examples.includes('lumber_leg_bolt_right_1'));
+        if (model === 'horizontal-service-development' || model === 'angle-base-development') assert.equal(examples.length, 2);
         const before = await page.evaluate(() => Object.fromEntries(window.cadTest.meshes
           .filter(mesh => mesh.userData.part.fabrication?.hardware_role)
           .map(mesh => { mesh.updateWorldMatrix(true, false); return [mesh.userData.part.name, mesh.matrixWorld.elements.slice()]; })));
-        for (const connection of connections) {
+        for (const connection of examples) {
           await page.selectOption('#bolt-view', connection);
           assert.match(await page.locator('#bolt-view-note').innerText(), /wood hidden.*assembled positions/);
           const visible = await page.evaluate(() => window.cadTest.meshes.filter(mesh => mesh.visible).map(mesh => mesh.userData.part));

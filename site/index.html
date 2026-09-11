@@ -118,11 +118,11 @@
       }
       let rowStations = Array.from({ length: 12 }, (_, index) => 80 + index * 200);
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'light' ? 0x40ff65 : part.fabrication.kind === 'wire' ? 0x424a52 : part.fabrication.kind === 'bolt' ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.fabrication.kind === 'insert' || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
-      const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect bolt ';
+      const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect connection ';
       const boltSelect = document.createElement('select'); boltSelect.id = 'bolt-view';
       boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('header p:nth-of-type(2)').after(boltLabel);
       const boltNote = document.createElement('p'); boltNote.id = 'bolt-view-note'; boltNote.hidden = true;
-      boltNote.textContent = 'Isolated hardware view: wood hidden; head, shaft, two washers and nut remain in their assembled positions. Drag to orbit; click either end to inspect.';
+      boltNote.textContent = 'Representative connection hardware: wood hidden; head, shaft, two washers and nut remain in their assembled positions. Drag to orbit; click either end to inspect.';
       boltLabel.after(boltNote);
       const weightLine = document.createElement('p'); weightLine.id = 'prototype-weight'; weightLine.setAttribute('aria-live', 'polite');
       weightLine.style.cssText = 'margin-top:.55rem;font-weight:600;color:#f5f0e6'; weightLine.textContent = 'Estimated frame weight: loading…';
@@ -211,6 +211,33 @@
         }
         controls.update();
       });
+      // Numbered bolts at the same location share one example only when every
+      // role has matching dimensions. Keep left/right locations distinct.
+      function representativeBolts(parts) {
+        const roles = ['shaft', 'head', 'near_washer', 'far_washer', 'nut'];
+        const connections = new Map(), groups = new Map();
+        for (const part of parts) {
+          const f = part.fabrication;
+          if (!f.connection_name || !roles.includes(f.hardware_role)) continue;
+          if (!connections.has(f.connection_name)) connections.set(f.connection_name, new Map());
+          connections.get(f.connection_name).set(f.hardware_role, f);
+        }
+        for (const [name, pieces] of connections) {
+          if (!roles.every(role => pieces.has(role))) continue;
+          const known = name.match(/^(lumber_leg_bolt|timber_base)_(left|right)_\d+$/);
+          const location = known ? `${known[1]}_${known[2]}` : name;
+          const signature = JSON.stringify(roles.map(role => pieces.get(role).dimensions_mm.map(n => Math.round(n*1000)/1000)));
+          const key = location + signature;
+          if (!groups.has(key)) groups.set(key, {name, label: known ?
+            `${known[2] === 'left' ? 'Left' : 'Right'} ${known[1] === 'lumber_leg_bolt' ? 'leg' : 'base'} joint · example` : name.replaceAll('_', ' ')});
+        }
+        const result = [...groups.values()];
+        const labels = result.map(group => group.label);
+        for (const group of result) {
+          if (labels.filter(label => label === group.label).length > 1) group.label += ` (${group.name.split('_').at(-1)})`;
+        }
+        return result;
+      }
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
@@ -222,18 +249,8 @@
           details.textContent = `${design.status}. ${design.description}`;
           modelLabel.after(details);
         }
-        const boltConnections = new Map();
-        parts.forEach(part => {
-          const {connection_name: name, hardware_role: role} = part.fabrication;
-          if (name && role) {
-            if (!boltConnections.has(name)) boltConnections.set(name, new Set());
-            boltConnections.get(name).add(role);
-          }
-        });
-        for (const [name, roles] of boltConnections) {
-          if (['shaft', 'head', 'near_washer', 'far_washer', 'nut'].every(role => roles.has(role))) {
-            const option = new Option(name.replaceAll('_', ' '), name); option.disabled = true; boltSelect.add(option);
-          }
+        for (const {name, label} of representativeBolts(parts)) {
+          const option = new Option(label, name); option.disabled = true; boltSelect.add(option);
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
