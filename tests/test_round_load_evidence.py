@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
-from evidence_assertions import assert_replay_value
+from evidence_assertions import assert_replay_value, assert_stress_replay
 
 from fea import horizontal_frame_stress as stress
 from fea import horizontal_panel_frame as frame
@@ -70,8 +70,8 @@ def test_round_load_archive_authenticates_parent_and_replays(evidence, name, val
         np.array([expected['loads'][n] for n in actual_loads]), abs=1e-7, rel=0.)
     data = files[final+'frame.dat'].decode()
     for key, value in frame.assess(record, data).items():
-        assert_replay_value(report[key], value, key)
-    assert report['diagnostic_stress'] == json.loads(json.dumps(stress.assess(record, data)))
+        assert_replay_value(report[key], value, key, record, data)
+    assert_stress_replay(report['diagnostic_stress'], json.loads(json.dumps(stress.assess(record, data))))
     assert report['contact_diagnostic_checks_passed']
     assert report['closed_bearing_assumption_passed']
     assert not report['qualified_for_design']
