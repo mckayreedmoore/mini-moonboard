@@ -14,6 +14,15 @@ and [viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=round-insert
 The [preceding screw model](round-service-analysis.md) and its native evidence
 remain historical; their screw capacity references do not apply to inserts.
 
+The revised lower service rails and their attachment axes are centered at
+1134.2 mm along the panel slope, in line with the fourth lower-panel principal
+attachments. Upper rails and upper-panel attachment axes retain their previous
+positions. Kicker attachment rows are now 60 and 140 mm above the bottom edge.
+These changes belong only to the insert candidate; historical screw layouts
+remain unchanged. Insert resistance and end-distance acceptance remain unresolved.
+Earlier structural sweeps and floor-surface scenarios describe the preceding
+layout; their results do not qualify these moved rails and attachments.
+
 ## Attachment geometry and product information
 
 The [assembled geometry audit](../fea/results/round-insert-audit-v1.json) passes

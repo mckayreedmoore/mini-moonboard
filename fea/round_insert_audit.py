@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from collections import Counter
+from dataclasses import replace
 from itertools import combinations
 from pathlib import Path
 
@@ -25,17 +26,23 @@ def sources():
 
 
 def layout_gate(connections):
-    """Preserve named receiver ownership and every historical attachment axis."""
-    from mini_moonboard.round_panel_layout import panel_connections
+    """Check named receiver ownership and the current candidate attachment axes."""
+    from mini_moonboard import round_insert_frame as model
 
-    expected = {c.name: c for c in panel_connections()}
+    expected = {}
+    for row in model.attachment_datums():
+        start = (model.b.point(row['x'], row['s'], -model.PANEL)
+                 if row['panel'].startswith('main_') else
+                 cq.Vector(row['x'], model.base.HEADER_FRONT_Y+model.PANEL, row['s']))
+        direction = model.b.normal() if row['panel'].startswith('main_') else cq.Vector(0, -1, 0)
+        expected[row['name']] = (row['panel'], row['receiver']), start, direction
     actual = {c.name: c for c in connections}
     changed = [name for name in expected.keys() & actual.keys()
-               if expected[name].members != actual[name].members
-               or (expected[name].start-actual[name].start).Length > 1.e-7
-               or (expected[name].direction-actual[name].direction).Length > 1.e-7]
+               if expected[name][0] != actual[name].members
+               or (expected[name][1]-actual[name].start).Length > 1.e-7
+               or (expected[name][2]-actual[name].direction).Length > 1.e-7]
     counts = dict(Counter(c.members[0] for c in connections))
-    expected_counts = dict(Counter(c.members[0] for c in expected.values()))
+    expected_counts = dict(Counter(c[0][0] for c in expected.values()))
     return {'passed': actual.keys() == expected.keys() and not changed
             and len(actual) == len(connections) == 56 and counts == expected_counts,
             'changed_axes_or_members': sorted(changed),
@@ -139,6 +146,12 @@ def build():
     if set(inserts) != {'insert_'+name for name in panel_names}:
         failures.append({'gate': 'one_modeled_insert_per_panel_connection'})
     retained = {c.name: c for c in historical.connections() if c.name not in panel_names}
+    # The four lower clips and both sets of their screws follow the moved rails.
+    shift = model.b.point(0., model.LOWER_SERVICE_S, 0.)-model.b.point(
+        0., sum(historical.RAIL_SPANS['lower'])/2, 0.)
+    retained = {name: replace(c, start=c.start+shift)
+                if name.startswith('clip_horizontal_lower_') else c
+                for name, c in retained.items()}
     current_retained = {c.name: c for c in connections if c.name not in panel_names}
     changed = [name for name in retained.keys() & current_retained.keys()
                if retained[name] != current_retained[name]]

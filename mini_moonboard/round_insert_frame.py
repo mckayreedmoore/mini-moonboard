@@ -1,7 +1,8 @@
 """Fresh round-passage frame with 56 modeled insert/machine-screw attachments.
 
-Preserves the source round frame and all structural connections. The display
-cuts reserve insert bodies, not literal installation pilots or damaged wood.
+Revises lower service rail and kicker attachment heights independently of the
+historical screw frame. The display cuts reserve insert bodies, not literal
+installation pilots or damaged wood.
 """
 from dataclasses import replace
 from functools import cache
@@ -9,6 +10,7 @@ from functools import cache
 import cadquery as cq
 
 from . import round_insert_hardware as insert_hardware
+from . import round_panel_layout as historical_layout
 from . import round_service_frame as previous
 
 KEY = 'round-insert-development'
@@ -22,19 +24,71 @@ HEADER_DEPTH, LOWER_S, BAYS = previous.HEADER_DEPTH, previous.LOWER_S, previous.
 CENTER_SPLIT, ADDED_CENTERS = previous.CENTER_SPLIT, previous.ADDED_CENTERS
 CENTERS, UPRIGHTS = previous.CENTERS, previous.UPRIGHTS
 CENTER_CLEAR_GAP, CENTER_PANEL_OVERHANG = previous.CENTER_CLEAR_GAP, previous.CENTER_PANEL_OVERHANG
-RAIL_SPANS, REMOVED_NAMES = previous.RAIL_SPANS, previous.REMOVED_NAMES
-stations, bore_records = previous.stations, previous.bore_records
-uncut_wood_parts = previous.uncut_wood_parts
+LOWER_SERVICE_S = historical_layout.FACE_ROWS[-1]
+RAIL_SPANS = dict(previous.RAIL_SPANS, lower=(LOWER_SERVICE_S-19.05, LOWER_SERVICE_S+19.05))
+REMOVED_NAMES = previous.REMOVED_NAMES
+KICKER_ROWS = (60., 140.)
 wiring, electrical_parts = previous.wiring, previous.electrical_parts
 bolt_points, bottom_bays = previous.bolt_points, previous.bottom_bays
 
 
+def lower_rail_translation():
+    return b.point(0., LOWER_SERVICE_S, 0.)-b.point(0., sum(previous.RAIL_SPANS['lower'])/2, 0.)
+
+
+def attachment_datums():
+    """Candidate attachment positions; historical row dictionaries stay untouched."""
+    rows = []
+    for original in historical_layout.datums():
+        row = dict(original)
+        if row['receiver'].startswith('base_rail_service_lower_'):
+            row['s'] = LOWER_SERVICE_S
+        elif row['panel'].startswith('kicker_'):
+            row['s'] = KICKER_ROWS[int(row['name'].rsplit('_', 1)[1])-1]
+        rows.append(row)
+    return tuple(rows)
+
+
+@cache
+def stations():
+    translation = lower_rail_translation()
+    return tuple((name, origin+translation, u, v, beam, upright)
+                 if beam.startswith('base_rail_service_lower_')
+                 else (name, origin, u, v, beam, upright)
+                 for name, origin, u, v, beam, upright in previous.stations())
+
+
+@cache
+def uncut_wood_parts():
+    translation = lower_rail_translation()
+    return tuple(replace(p, shape=p.shape.translate(translation))
+                 if p.name.startswith('base_rail_service_lower_') else p
+                 for p in previous.uncut_wood_parts())
+
+
+@cache
+def bore_records():
+    return wiring.bore_records(uncut_wood_parts())
+
+
 @cache
 def connections():
-    return tuple(PanelMachineScrew(c.name, c.start, c.direction,
-                    insert_hardware.SCREW['nominal_overall_length'],
-                    insert_hardware.SCREW['nominal_thread_diameter'], c.members)
-                 if isinstance(c, timber.PanelScrew) else c for c in previous.connections())
+    datums = {row['name']: row for row in attachment_datums()}
+    translation = lower_rail_translation()
+    result = []
+    for c in previous.connections():
+        if isinstance(c, timber.PanelScrew):
+            row = datums[c.name]
+            start = (b.point(row['x'], row['s'], -wide.PANEL)
+                     if row['panel'].startswith('main_') else
+                     cq.Vector(row['x'], base.HEADER_FRONT_Y+wide.PANEL, row['s']))
+            c = PanelMachineScrew(c.name, start, c.direction,
+                insert_hardware.SCREW['nominal_overall_length'],
+                insert_hardware.SCREW['nominal_thread_diameter'], c.members)
+        elif c.name.startswith('clip_horizontal_lower_'):
+            c = replace(c, start=c.start+translation)
+        result.append(c)
+    return tuple(result)
 
 
 def panel_connections():
@@ -43,8 +97,14 @@ def panel_connections():
 
 @cache
 def wood_parts():
-    """Round-bored timber before attachment machining; preserve parent API."""
-    return tuple(replace(p, description=p.description+'; '+LIMITS) for p in previous.wood_parts())
+    """Recompute passages in moved raw timber before attachment machining."""
+    result = {p.name: replace(p, description=p.description+'; '+LIMITS)
+              for p in uncut_wood_parts()}
+    for record in bore_records():
+        part = result[record['member']]
+        result[part.name] = replace(part, shape=part.shape.cut(wiring.bore_shape(record)).clean(),
+            description=part.description+'; enclosed round strand passage, provisional diameter')
+    return tuple(result.values())
 
 
 @cache

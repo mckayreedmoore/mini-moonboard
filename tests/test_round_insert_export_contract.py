@@ -40,6 +40,14 @@ def test_schedule_preserves_axes_and_distinguishes_reservations_from_shop_dimens
         for row in rows:
             c = connections[row['name']]
             assert row['receiver'] == c.members[1]
+            if row['panel'].startswith('main_'):
+                actual = exports.model.b.point(row['x'], row['s'], -hardware.PANEL)
+            else:
+                import cadquery as cq
+                actual = cq.Vector(row['x'], exports.model.base.HEADER_FRONT_Y+hardware.PANEL, row['s'])
+            assert (actual-c.start).Length < 1e-7
+            assert row['from_bottom_mm'] == pytest.approx(
+                row['s']-(1219.2 if row['panel'].startswith('main_upper_') else 0.))
             assert row['insert_front_world_mm'] == pytest.approx(c.insert_start.toTuple())
             assert row['panel_clearance_reservation_mm'] < row['manufacturer_pilot_recommendation_mm']
             assert row['manufacturer_pilot_recommendation_mm'] < row['insert_body_nominal_od_mm']

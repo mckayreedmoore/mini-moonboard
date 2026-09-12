@@ -17,9 +17,13 @@ def panel_fastening_rows():
     """Keep panel-local datums and distinguish body, pilot and clearance envelopes."""
     connections = {c.name: c for c in model.panel_connections()}
     result = {}
+    datums = {row['name']: row for row in model.attachment_datums()}
     for panel, rows in previous.panel_fastening_rows().items():
         result[panel] = []
         for row in rows:
+            datum = datums[row['name']]
+            row = {**row, **datum,
+                   'from_bottom_mm': datum['s']-(1219.2 if panel.startswith('main_upper_') else 0.)}
             c = connections[row['name']]
             result[panel].append({**row,
                 'attachment': 'machine_screw_and_threaded_insert',
