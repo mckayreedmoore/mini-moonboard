@@ -3,11 +3,17 @@ import pytest
 
 from fea.round_member_connection_assessment import (
     bore_section,
+    build,
     cut_demand,
     irreducible_couple,
     member_actions,
     wrench,
 )
+
+
+def test_structural_screws_reject_historical_batch_without_current_native_runs():
+    with pytest.raises(ValueError, match='source-matched native runs'):
+        build('/not-a-current-run', structural_screws=True)
 
 
 def test_transverse_bore_removes_projected_strip_and_shifts_neutral_axis():

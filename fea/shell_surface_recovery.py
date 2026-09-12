@@ -40,6 +40,21 @@ def half_last_place(token):
     return .5*10.**(int(exponent)-places)
 
 
+def frd_roundoff(token):
+    """Bound double-to-float conversion followed by ASCII decimal rounding.
+
+    CalculiX 2.21 frdvector.c:42-44 and frd.c cast to float before %.5E.
+    Source: https://www.dhondt.de/ccx_2.21.src.tar.bz2
+    With binary32 unit roundoff u, |x-fl(x)| <= u*|x| (normal values).
+    |fl(x)| <= |printed|+decimal gives the bound below; half the smallest
+    subnormal spacing covers underflow. This also applies to coordinates.
+    """
+    decimal = half_last_place(token)
+    unit = 2.**-24
+    conversion = max(2.**-150, unit*(abs(float(token))+decimal)/(1.-unit))
+    return decimal+conversion
+
+
 def expanded_displacements(text):
     mesh_nodes, coordinates, coordinate_precision, in_mesh = set(), {}, {}, False
     precision, in_disp, blocks = {}, False, 0
@@ -50,14 +65,14 @@ def expanded_displacements(text):
             node = int(line[3:13])
             mesh_nodes.add(node)
             coordinates[node] = [float(line[i:i+12]) for i in (13, 25, 37)]
-            coordinate_precision[node] = [half_last_place(line[i:i+12].strip()) for i in (13, 25, 37)]
+            coordinate_precision[node] = [frd_roundoff(line[i:i+12].strip()) for i in (13, 25, 37)]
         elif in_mesh and line.startswith(' -3'):
             in_mesh = False
         if line.startswith(' -4  DISP'):
             in_disp = True
             blocks += 1
         elif in_disp and line.startswith(' -1'):
-            precision[int(line[3:13])] = [half_last_place(line[i:i+12].strip()) for i in (13, 25, 37)]
+            precision[int(line[3:13])] = [frd_roundoff(line[i:i+12].strip()) for i in (13, 25, 37)]
         elif in_disp and line.startswith(' -3'):
             in_disp = False
     if blocks != 1:
@@ -92,7 +107,7 @@ def recover(record, data, frd, expansion):
     common = u.keys() & expanded.keys()
     for node in common:
         radius = np.array(precision[node])+expanded_precision[node]
-        allowed = radius * 1.2 + 1.e-12
+        allowed = radius+1.e-12
         if np.any(abs(np.array(u[node])-expanded[node]) > allowed):
             raise ValueError('DAT/FRD original-node displacement intervals disagree')
     for node, (top, bottom) in faces.items():
@@ -116,5 +131,5 @@ def assess(record, data, frd, expansion):
                   mpc_printed_precision_audit=mpc, mpc_check_passed=mpc['passed'],
                   displacement_recovery={'method': 'opposite expanded S8 face average',
                     'shell_nodes_recovered': len(expanded_faces(record, expansion)),
-                    'raw_dat_modified': False, 'rounding_basis': 'Original DAT for non-shell nodes; half-sum of actual FRD face rounding intervals for shell nodes'})
+                    'raw_dat_modified': False, 'rounding_basis': 'Original DAT for non-shell nodes; half-sum of FRD decimal plus binary32 conversion intervals for shell nodes'})
     return result

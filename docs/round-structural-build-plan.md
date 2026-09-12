@@ -2,7 +2,9 @@
 
 The current `round-structural-development` candidate uses structural wood screws
 for the panels now and reserves space for a possible later insert conversion.
-It is a development design, not a released climbing structure.
+**It is not released for construction or climbing.** Centered-passage routing
+passes the current geometry audit and has matching drawings. The existing screw
+coordinates and selected hardware are retained; structural release tasks remain open.
 
 [Materials and hardware](#materials-and-hardware) · [Tools and equipment](#tools-and-equipment) ·
 [Assembly](#assembly) · [Removal and maintenance](#removal-maintenance-and-repairs)
@@ -43,10 +45,14 @@ not withdrawal or joint resistance.
 - Guided plywood saw and suitable lumber saw; clamps and supported work surfaces.
 - **1.5-inch (38.1 mm) wood bit for LED passages in nominal 2x6 members**;
   **1-inch (25.4 mm) bit for passages in other stock**, as individually scheduled.
-  Use a drilling guide and backing; do not enlarge hold or panel LED holes.
+  Use a secured drilling jig and backing. Locate each axis from the measured
+  timber depth, with entry/exit references and tool reach checked. The proposed
+  2x6 route centers on local N = 69.85 mm in nominal 139.7 mm depth; the
+  passage runs through the narrow stock thickness, not front-to-back along N.
+  Do not enlarge hold or panel LED holes.
 - Hold/leg clearance and panel LED bits matched to their separate schedules;
   the modeled values are 7/16 inch and 13 mm respectively.
-- SPAX head-matched T-STAR bit and controlled-depth 90-degree countersink;
+- **T20** SPAX T-STAR Plus driver bit and controlled-depth 90-degree countersink;
   use a plywood offcut to establish a flush seat without crushing the veneer.
 - 3/8-inch hex driver for SDS25112; matching sockets and backup wrench for leg bolts.
 - Dust extraction, eye/hearing protection, deburring tools and temporary supports.
@@ -60,7 +66,12 @@ installation guidance, including any applicable pilot requirement.
 
 1. Label stock and establish suitable temporary support for each assembly stage.
 2. Cut members and drill the scheduled routing passages. Preserve entry/exit
-   access and avoid breakout; larger holes require the revised structural review.
+   access and avoid breakout. Wait for the matching centered-passage drawings
+   and geometry audit before using their dimensions. A 38.1 mm hole centered
+   in exact 139.7 mm (5.5-inch) stock leaves 50.8 mm (2 inches) each side, with
+   **zero nominal edge-clearance tolerance margin**. Undersized stock, oversize
+   boring or centering error reduces one ligament; this is not automatic
+   structural acceptance.
 3. Assemble the frame with the scheduled brackets/SDS screws and complete leg
    bolt stacks. Do not substitute longer screws or overdrive bracket heads.
 4. Install hold T-nuts while rear access is available. Establish shallow, flush
@@ -96,8 +107,23 @@ and treat [worn-hole repair](threaded-insert-repair-guide.md) as a separate deci
 Confirm actual stock and received hardware match the schedule. Check screw tips
 against the candidate's [geometry audit](../fea/results/round-structural-audit-v1.json),
 including its limits for length tolerances, seating and wood dimensions.
-Remaining essential work is a focused structural review of the actual frame,
-base/leg connections, panel fastening and enlarged holes.
+Nominal minimum tip-to-first-exit margins are 107.156 mm for panel/kicker SPAX
+screws and 2.555 mm for bracket SDS screws; do not substitute longer screws
+or overdrive to consume that clearance.
+The completed focused reviews identify the finite release work:
+
+- [Panel fasteners](round-structural-fastener-review.md): establish current
+  signed axial/lateral demands, applicable adjusted resistance and combined
+  action, including kicker attachments and plywood head bearing.
+- [Base and legs](round-structural-base-review.md): resolve the actual ML24Z
+  mounting/load-direction applicability or calculate a specific replacement
+  detail, then check base/leg transfer under matching simultaneous demands.
+- [Timber and passages](round-structural-timber-review.md): adopt dimensional
+  acceptance for centered holes and check global net-section/member behavior,
+  bearing and concentrated fastener zones against current demands.
+
+The source-matched native runner is available but has not supplied current
+accepted demands here. Historical demand numbers do not close these tasks.
 
 Physical floor measurement/testing is outside the owner's requested scope.
 Document the selected floor/pad arrangement and use explicit conservative

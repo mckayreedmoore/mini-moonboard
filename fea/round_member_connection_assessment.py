@@ -136,8 +136,10 @@ def cut_demand(actions, origin, grain, section_u, section_v, section):
                       'local bore stress concentration, shear flow, torsion, instability and wood strength not qualified.'}
 
 
-def build(root=None, *, native_runs=None):
-    """Assess either the preserved three-case batch or distinct current insert runs."""
+def build(root=None, *, native_runs=None, structural_screws=False):
+    """Assess a preserved batch or authenticated runs from the selected candidate."""
+    if structural_screws and native_runs is None:
+        raise ValueError('Structural screws require source-matched native runs')
     if native_runs is None:
         from mini_moonboard import round_service_frame as model
 
@@ -151,15 +153,20 @@ def build(root=None, *, native_runs=None):
         mechanics_scope = 'Preserved three-case ordinary-panel-screw mechanics'
         authenticate = authenticated_input
     else:
-        from fea import round_insert_frame as native_model
-        from mini_moonboard import round_insert_frame as model
+        if structural_screws:
+            from fea import round_structural_frame as native_model
+            from mini_moonboard import round_structural_frame as model
+        else:
+            from fea import round_insert_frame as native_model
+            from mini_moonboard import round_insert_frame as model
 
         directories = [Path(p) for p in native_runs]
         if not directories or len({p.resolve() for p in directories}) != len(directories):
             raise ValueError('Require nonempty distinct completed native run directories')
         runs = [(p, str(p), digest(p/'report.json')) for p in directories]
         input_hashes = {}
-        mechanics_scope = 'Fresh insert mechanics; only the supplied completed native runs'
+        mechanics_scope = ('Fresh structural-screw mechanics' if structural_screws else 'Fresh insert mechanics')
+        mechanics_scope += '; only the supplied completed native runs'
         authenticate = native_model.authenticated_input
     sources = {str(Path(__file__).resolve().relative_to(Path.cwd())): digest(__file__),
                'fea/lumber_leg_resistance.py': digest('fea/lumber_leg_resistance.py'),
@@ -284,7 +291,7 @@ def build(root=None, *, native_runs=None):
                       'seating_contact_count': len(record.get('seating_contacts', [])),
                       'panel_attachment_stiffness_n_per_mm': record.get('panel_attachment_stiffness_n_per_mm', record['stiffness_n_per_mm']),
                       'force_recovery_basis': ('Corrected expanded S8 opposite-surface displacement recovery; '
-                          'full native force/MPC/stress replay authenticated by round_insert_frame.authenticated_input'
+                          'full native force/MPC/stress replay authenticated by the selected candidate runner'
                           if native_runs is not None else report.get('force_recovery_basis',
                           'Reported kDeltaU spring reconstruction; panel-shell printed displacements may average expanded surface nodes. '
                           'No independent native spring-force output or rigorous recovered-force error bound supplied.')),
@@ -318,9 +325,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--directory', type=Path, default=Path('fea/generated/round-frame-batch-v1'))
     parser.add_argument('--native-run', type=Path, action='append',
-                        help='Completed current insert native directory; repeat for multiple runs')
+                        help='Completed native directory; repeat for multiple runs')
+    parser.add_argument('--structural-screws', action='store_true',
+                        help='Require the current structural-screw candidate instead of inserts')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     with args.output.open('x') as stream:
-        json.dump(build(args.directory, native_runs=args.native_run), stream, indent=2, allow_nan=False)
+        json.dump(build(args.directory, native_runs=args.native_run,
+                        structural_screws=args.structural_screws), stream, indent=2, allow_nan=False)
         stream.write('\n')
