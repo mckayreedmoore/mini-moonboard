@@ -40,6 +40,12 @@ remains the shorter route identified in [the base review](round-structural-base-
 
 ## A specific supplemental uplift candidate: H3
 
+**Follow-up: H3 is rejected as a direct add-on to the unchanged base.** The
+[current US-dimension placement check](round-structural-h3-fit.md) finds
+insufficient rear reach and complete kicker interference at the front header
+face. The candidate investigation below is retained for its source and load-path
+reasoning; it is not a current hardware selection or an uncompleted fit task.
+
 The **H3 hurricane tie** is a better bounded candidate than a generic strap:
 the manufacturer explicitly identifies its
 [single-plate attachment](https://seblog.strongtie.com/2023/12/second-day-of-trivia-hurricane-ties/).
@@ -83,10 +89,11 @@ the problem. The former rigid-angle screw model must be revised to represent
 the selected detail; attaching a tie does not retroactively qualify its old
 moment demand.
 
-This identifies a specific part, fasteners, conditional uplift reference,
-placement constraints and a solvable load-path test. Actual placement and the
-source-matched wrench are the next bounded work; the current evidence does not
-support installing H3 or claiming that it completes the base.
+This identified a specific part, fasteners, conditional uplift reference,
+placement constraints and a load-path test. The subsequent necessary placement
+check rejected this unchanged-base option. Any reconsideration requires an
+explicit receiver/panel revision and then the actual hole and load-path checks;
+the current evidence does not support installing H3.
 
 ## The actual leg groups and their minimum calculation
 

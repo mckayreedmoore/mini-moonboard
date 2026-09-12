@@ -1,0 +1,118 @@
+{
+  "candidate": "round-structural-development",
+  "scope": "Nominal panel arithmetic; no current CAD geometry-match gate",
+  "current_geometry_authenticated": false,
+  "nominal_panel_mm": [
+    1219.2,
+    225.0,
+    18.25625
+  ],
+  "assumed_density_kg_m3": 600.0,
+  "dead_weight_scope": "One gross plywood panel; hold/bolt/accessory weight excluded",
+  "primary_source": "https://wood.tcaup.umich.edu/lectures/2021/D510.pdf",
+  "primary_pdf_sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a",
+  "source_sha256": {
+    "fea/round_structural_kicker_bearing.py": "6d8602602bcc277419adc3d8c18b4dcff274c88ff6bb163ea6e76a838d950640"
+  },
+  "cases": [
+    {
+      "species_group": 1,
+      "stress_relative_to_strength_axis": "parallel",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 70.05073409859054,
+      "flatwise_bending_reference_nmm_per_mm_width": 287.28097931890727,
+      "minimum_uniform_axial_width_mm": 38.521614046179565,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 1,
+      "stress_relative_to_strength_axis": "perpendicular",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 42.32231851789845,
+      "flatwise_bending_reference_nmm_per_mm_width": 168.66173624529392,
+      "minimum_uniform_axial_width_mm": 63.75991290402135,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 2,
+      "stress_relative_to_strength_axis": "parallel",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 51.137035891971095,
+      "flatwise_bending_reference_nmm_per_mm_width": 201.09668552323507,
+      "minimum_uniform_axial_width_mm": 52.76933430983502,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 2,
+      "stress_relative_to_strength_axis": "perpendicular",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 30.89529251806587,
+      "flatwise_bending_reference_nmm_per_mm_width": 118.06321537170574,
+      "minimum_uniform_axial_width_mm": 87.34234644386487,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 3,
+      "stress_relative_to_strength_axis": "parallel",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 45.53297716408385,
+      "flatwise_bending_reference_nmm_per_mm_width": 201.09668552323507,
+      "minimum_uniform_axial_width_mm": 59.26402160950702,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 3,
+      "stress_relative_to_strength_axis": "perpendicular",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 27.509507036633995,
+      "flatwise_bending_reference_nmm_per_mm_width": 118.06321537170574,
+      "minimum_uniform_axial_width_mm": 98.09217369849438,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 4,
+      "stress_relative_to_strength_axis": "parallel",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 42.73094780014023,
+      "flatwise_bending_reference_nmm_per_mm_width": 192.47825614366783,
+      "minimum_uniform_axial_width_mm": 63.15018696095011,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    },
+    {
+      "species_group": 4,
+      "stress_relative_to_strength_axis": "perpendicular",
+      "vertical_applied_n": 2669.0,
+      "panel_dead_n": 29.467342597454998,
+      "total_vertical_n": 2698.467342597455,
+      "axial_compression_reference_n_per_mm_width": 25.816614295918058,
+      "flatwise_bending_reference_nmm_per_mm_width": 113.00336328434695,
+      "minimum_uniform_axial_width_mm": 104.52444738364154,
+      "qualified_contact_length": false,
+      "qualified_for_design": false
+    }
+  ],
+  "reference_conditions": "APA-marked A-C 23/32 category with selected species group; dry service below16% moisture, ordinary temperature, CD=1.0. No impact or Structural I increase. Gross uniform full-thickness axial compression only.",
+  "kicker_resistance_qualified": false,
+  "limits": "Required axial width is a necessary reference under uniform stress, not proof of actual floor contact width or load spread from a hold. Local edge crushing/damage, gaps, eccentric contact, hold/T-nut transfer, holes, panel buckling, combined compression/bending and floor capacity remain separate."
+}

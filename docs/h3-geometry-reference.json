@@ -1,0 +1,49 @@
+{
+  "status": "Manufacturer nominal envelope only; no product hole coordinates or capacity assignment",
+  "retrieved_date": "2026-09-12",
+  "product": "Simpson Strong-Tie H3",
+  "product_page": "https://www.strongtie.com/seismicandhurricaneties_strapsandties/h3_htie/p/h3",
+  "sources": [
+    {
+      "name": "US C-C-2026 catalog page 299 dimensioned H3 graphic",
+      "url": "https://ssttoolbox.widen.net/content/orplhjaqw1/pdf/C-C-2026.pdf",
+      "page": 299,
+      "sha256": "26e5ada670aecfdeda1b57e7388ce70d707466ac73e9cec591118964f438d2c2",
+      "inspection": "Rendered page and enlarged H3 graphic inspected; embedded graphic dimension labels absent from PDF text extraction",
+      "role": "Controlling US nominal envelope"
+    },
+    {
+      "name": "H3 dimensioned manufacturer illustration",
+      "url": "https://strongtie.co.nz/sites/default/files/general_img/H3_Illustration.jpg",
+      "sha256": "50dc2f6ef37a2fb648b07a7def6fd75a55839ba2f8f5671c0e2b2247c151484a",
+      "role": "Supplementary regional installation reference, not controlling US dimensions"
+    },
+    {
+      "name": "H3 manufacturer installation guide",
+      "url": "https://strongtie.co.nz/sites/default/files/installation_guides/H3%20Installation%20Guides.pdf",
+      "sha256": "24139413715632982e62d8db9deafabee0517a1b1ed1546aa58258c323664aed",
+      "role": "Supplementary regional installation reference, not controlling US dimensions"
+    },
+    {
+      "name": "H3 manufacturer installation DXF",
+      "url": "https://strongtie.co.nz/sites/default/files/H3_Detail_Truss_Rafter-to-Top%20Plate%20Tie%20Down.dxf",
+      "limitation": "Projected isometric installation artwork, not accepted as manufactured hole coordinates",
+      "sha256": "4ff787ab760809ffd843ff96d9b96c90d3a5a61c0d05dfcc68bfe5f93d33369d",
+      "role": "Supplementary regional installation reference, not controlling US dimensions"
+    }
+  ],
+  "nominal_mm": {
+    "overall_height": 117.475,
+    "lower_wing_height": 38.1,
+    "wing_reach_from_bend": 39.6875
+  },
+  "installation": "Vertical bend; upper flange against rafter side and lower flange against perpendicular vertical plate side; four fasteners per member",
+  "hole_coordinates_available": false,
+  "geometry_scope": "US C-C-2026 p299 nominal envelope governs necessary reach rejection; no dimensional equivalence to regional illustration is assumed; no hole coordinates or detailed H3 solid invented",
+  "redistribution": "Links, inspected hashes and extracted dimensions only; no vendor drawing or model redistributed",
+  "us_dimension_labels_inch": {
+    "overall_height": "4 5/8",
+    "lower_wing_height": "1 1/2",
+    "each_wing_reach_from_bend": "1 9/16"
+  }
+}

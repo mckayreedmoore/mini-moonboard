@@ -98,6 +98,28 @@ Software success does not resolve these structural findings. Keep
 [issue #8](https://github.com/mckayreedmoore/mini-moonboard/issues/8) open until
 its current release requirements are satisfied.
 
+### Follow-up on the kicker and base decisions
+
+The [kicker axial reference](round-structural-kicker-bearing.md) identifies
+APA panel axial compression as the correct category for bottom-edge loading.
+Its 63.76 mm uniformly compressed width for one conditional Group 1 scenario
+is not an approved floor-contact length. Local contact and hold load spreading
+remain unresolved.
+
+The [kicker pitch calculation](round-structural-kicker-prying.md) then credits
+bottom-edge support explicitly. Eleven of 45 sampled cases still fail a
+generous conditional prying bound; 22 have restricted two-dimensional witnesses,
+and 12 remain inconclusive. Neither witness nor axial reference closes the
+complete panel/connection check. Bottom-edge bearing alone is insufficient to
+resolve the current reference/load combination.
+
+The [H3 placement check](round-structural-h3-fit.md) rejects the standard US
+vertical-uplift mounting on the unchanged base: the rear gap exceeds the
+nominal wing reach by 7.40 mm, while the front header face is covered by the
+kicker. H3 is withdrawn as a direct add-on; it is not selected hardware.
+The base still requires an applicable ML24Z mounting basis or a checked
+connection/receiver revision with a complete load path.
+
 ## Minimum remaining work and further simplification
 
 - Keep the current geometry and fastening pattern; no screw-count or symmetry

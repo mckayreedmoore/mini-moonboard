@@ -131,6 +131,11 @@ overturning sensitivities below the retained comparison. The current drawings
 remain drafts. No additional H3 ties, new screws or altered bores are selected
 by those calculations.
 
+Follow-up checks [reject H3 as a direct add-on](round-structural-h3-fit.md) and
+show that [kicker bottom-edge bearing alone does not resolve prying](round-structural-kicker-prying.md)
+under the current conditional references. Do not install a new tie or assume
+floor contact qualifies the kicker from these analytical comparisons.
+
 Physical floor measurement/testing is outside the owner's requested scope.
 Document the selected floor/pad arrangement and use explicit conservative
 stability assumptions; no measured friction or proven multi-surface rating is

@@ -91,6 +91,12 @@ detail would need its own resistance basis. Other panel-edge bearing and backing
 friction are also excluded. Compression-only normal backing contact is allowed
 optimistically; it cannot reduce the required net tensile force.
 
+The follow-up [edge-bearing compression reference](round-structural-kicker-bearing.md)
+and [pitch-equilibrium calculation](round-structural-kicker-prying.md) test that
+support alternative. Eleven of 45 sampled cases still exceed a generous
+conditional prying bound even with floor-bearing credit. Thus removing this
+screw-only tangential shortfall would not by itself qualify the kicker.
+
 Panel dead weight is omitted in the report to make the downward-load test
 optimistic. The function accepts explicit nonnegative panel dead load; its
 projection adds to both required components. This omission cannot rescue an
