@@ -6,6 +6,21 @@ uses only the completed F10, C6 and C10 contact runs in
 The failed 10,000 N/mm case and other sensitivity cases are outside this report.
 No historical screw-design force is transferred into these calculations.
 
+## Current check status (2026-09-12)
+
+| Check | Case coverage | Result | Evidence summary |
+| --- | --- | --- | --- |
+| Member and connection assessment execution | F10, C6, C10 | **PASS** | Three native cases replayed from authenticated reports with fixed node-to-member ownership and seating-force reconciliation. |
+| Angles processed per case | 24 | **PASS** | 24 angle recoveries per case, and whole-angle imbalance checks are within the runner limit (0.0166 N, 0.708 N·mm max). |
+| Full directional strength mapping | 24 | **NOT PASSED** | 22 brackets each case still have `unassessed_reason`; only `clip_angle_base_left/right` are mapped to ML24Z bearing-installation directional components. |
+| A34/ML24Z missing-direction check | 6 outer-angle states | **NOT PASSED** | F2 (uplift) remains unlisted for ML24Z bearing installation; five-to-six of the six outer states per current runs still include upward demands (`~-72 to +261 N`). |
+| Moment resistance for outer-angle pair | 24 outer-angle wrenches | **NOT PASSED** | Parallel couples are reported (`~1,875–10,086 N·mm`) with no tested moment resistance in ML24Z tables. |
+| Leg-bolt lateral demand | 8/hold, 3 holds | **PROVISIONAL** | Max lateral ratios are 0.710, 0.499, 0.917 (F10/C6/C10) from `lateral_demand_reference_ratio`; axial resistance, washer bearing, group action and splitting are still unqualified. |
+| Round-bore nominal cut demand | 32 sections/hold | **PASS (diagnostic only)** | Each case carries 32 cuts with reported axial/shear/moment/nominal stress values; no hole-concentration, edge splitting, torsion, instability, or transfer resistance check is yet complete. |
+
+Overall member/joint qualification remains false because several required directional and failure-mode mappings are unresolved, and connection capacity checks are not complete.
+
+
 Each input has 906 seating-contact records and assumed 1,000 N/mm panel
 attachment stiffness. Authentication reproduces the native deck, checks source
 and output hashes, and replays corrected expanded-S8 opposite-surface force
