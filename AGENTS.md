@@ -128,3 +128,16 @@ space alone does not qualify it. Preserve preceding designs and evidence.
 The owner does not require physical floor measurements/tests. Record explicit
 installation/floor assumptions and analytical limits without treating that
 scope choice as measured friction or a floor qualification.
+
+The separate `round-reinforcement-development` combines provisional fabricated
+steel base shoes with ten added kicker/header screws and 142 modeled owned-type
+Escape T-nuts. It is not the selected or build-ready design. The shoes replace
+only two outer ML24Z angles and twelve SDS screws, add sixteen complete bolt
+stacks and bearing plates, and require explicit 9.525 mm rim bearing-end trims.
+Eight original leg stacks and the other 22 ML24Z connections remain. Each
+independent kicker has nine screws; total panel/kicker count is 66. Geometry
+checks and conditional force witnesses do not qualify steel, welds, wood or
+plywood. Keep published US hold-bolt kit guidance separate from installed bolt
+geometry: wood uses 3.5-inch countersunk bolts; plastic kits contain 2.5- and
+3.5-inch cap heads without a per-hold mapping. Hold recess positions, T-nut
+barrel/thread display assumptions and retention screws remain unresolved.

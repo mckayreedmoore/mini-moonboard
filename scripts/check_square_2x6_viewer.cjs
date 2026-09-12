@@ -51,8 +51,8 @@ fs.mkdirSync(artifacts, { recursive: true });
     await loaded();
     assert.equal(await page.locator('#model').inputValue(), 'round-structural-development');
     assert.deepEqual(await page.locator('#model option').evaluateAll(options =>
-      options.slice(0, 13).map(option => option.value)), [
-        'round-structural-development', 'round-insert-development', 'round-bore-service-development', 'horizontal-service-development', 'angle-base-development', 'infill-panel-development', 'split-center-development', 'vertical-principal-development', 'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
+      options.slice(0, 14).map(option => option.value)), [
+        'round-reinforcement-development', 'round-structural-development', 'round-insert-development', 'round-bore-service-development', 'horizontal-service-development', 'angle-base-development', 'infill-panel-development', 'split-center-development', 'vertical-principal-development', 'paired-rail-base-development', 'selective-2x6-development', 'single-2x6-development',
         'square-2x6-revised-development', 'square-2x6-development']);
     assert.equal(await page.locator('#model option').last().getAttribute('value'), 'plywood');
     for (const model of variants) {

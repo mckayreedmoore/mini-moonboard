@@ -39,7 +39,8 @@ def test_material_conventions_include_hardware_and_zinc_inserts():
     for name, kind, expected in (
         ('base_header', 'part', 'wood/plywood'), ('angle_left_top', 'part', 'steel'),
         ('transition_seam_angle_left', 'part', 'steel'), ('analysis_leg_bolt', None, 'steel'),
-        ('insert_panel_1', 'insert', 'die-cast zinc assumption')):
+        ('insert_panel_1', 'insert', 'die-cast zinc assumption'),
+        ('hold_tnut_main_A1', 'tnut', 'steel')):
         assert weights.material({'name': name, 'fabrication': {'kind': kind}}) == expected
     with pytest.raises(ValueError, match='Unclassified'):
         weights.material({'name': 'mystery', 'fabrication': {}})
@@ -55,7 +56,11 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     assert available <= saved['models'].keys()
     assert saved['models'].keys() - available <= generated
     for key, row in saved['models'].items():
-        assert 'T-nuts and hold bolts' in row['scope']
+        if key == 'round-reinforcement-development':
+            assert 'T-nut envelopes' in row['scope']
+            assert 'excludes holds, hold bolts' in row['scope']
+        else:
+            assert 'T-nuts and hold bolts' in row['scope']
         assert row['mass_kg'] > 0 and row['mass_lb'] == pytest.approx(row['mass_kg']/.45359237)
         assert row['mesh_mass_kg'] == pytest.approx(sum(row['mesh_material_mass_kg'].values()))
         assert row['mesh_part_count'] == len(row['mesh_sha256'])

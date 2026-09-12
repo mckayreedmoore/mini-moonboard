@@ -1,5 +1,10 @@
 # Structural screws and larger 2x6 passages
 
+The subsequent [reinforcement development](round-reinforcement-development.md)
+contains explicit base-shoe and kicker-attachment CAD revisions plus modeled
+T-nuts. It is a separate, unqualified candidate; the selected geometry described
+below and its historical evidence remain unchanged.
+
 The owner selected structural panel screws for the current build, with future
 insert space retained. `round-structural-development` preserves both aligned
 service-rail rows (1134.2 and 1278.25 mm along the slope), all fixed upper

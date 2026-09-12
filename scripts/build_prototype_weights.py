@@ -16,6 +16,7 @@ AUDITED = {key+'-development': Path('fea/results')/(stem+'-floor-v1.json.gz') fo
     ('infill-panel', 'infill-panel'), ('angle-base', 'angle-base'),
     ('horizontal-service', 'horizontal-service'), ('round-bore-service', 'round-service'),
     ('round-insert', 'round-insert'))}
+AUDITED['round-reinforcement-development'] = Path('docs/round-reinforcement-review/review.json')
 WOOD_PREFIXES = {'base', 'box', 'cheek', 'cross', 'easy', 'kicker', 'lean', 'leg', 'lumber',
                  'main', 'mid', 'panel', 'rear', 'rib', 'seam', 'timber', 'wood'}
 
@@ -60,7 +61,7 @@ def material(part):
         return None  # Purchased component mass is unknown, not a material-density assumption.
     if kind == 'insert' or name.startswith('insert_'):
         return 'die-cast zinc assumption'
-    if kind in ('screw', 'bolt') or name.startswith(('fastener_', 'analysis_', 'angle_', 'clip_')):
+    if kind in ('screw', 'bolt', 'tnut') or name.startswith(('fastener_', 'analysis_', 'angle_', 'clip_')):
         return 'steel'
     if name.startswith('transition_') and '_angle_' in name:
         return 'steel'
@@ -75,7 +76,7 @@ def audited_mass(key, parts, viewer_directory=None):
     if path is None:
         return None
     raw = path.read_bytes()
-    report = json.loads(gzip.decompress(raw))
+    report = json.loads(gzip.decompress(raw) if path.suffix == '.gz' else raw)
     if report['candidate'] != key:
         raise ValueError('Wrong mass report candidate')
     viewer_directory = Path(viewer_directory) if viewer_directory else ROOT/'hybrid'/key
@@ -159,6 +160,10 @@ def build(root=ROOT):
                'mesh_sha256': assets}
         if excluded:
             row.update(excluded_mass_part_count=len(excluded), excluded_mass_parts=excluded)
+        if any(p['fabrication'].get('kind') == 'tnut' for p in record['parts']):
+            row['scope'] = ('Modeled frame, panels, structural hardware and T-nut envelopes; '
+                            'excludes holds, hold bolts, unmodeled retention screws, LEDs and wiring. '
+                            'T-nut dimensions include explicit display assumptions; densities and mass are unmeasured.')
         if audited:
             row.update(mass_report=audited[1], mass_report_sha256=audited[2])
         result[key] = row

@@ -33,7 +33,18 @@ def test_saved_envelope_replays_current_hold_mapping_and_sources():
     from mini_moonboard import round_structural_frame as model
 
     report = json.loads(RESULT.read_text())
-    assert report['source_sha256'] == sources()
+    current = sources()
+    recorded = report['source_sha256']
+    assert recorded == {path: current[path] for path in recorded}
+    # The broad source collector also discovers new, separate candidate files.
+    # Their addition must not relabel or overwrite unchanged historical CAD
+    # evidence. Every original source still requires an exact byte match.
+    assert set(current)-set(recorded) <= {
+        'mini_moonboard/hold_tnut_reinforcement.py',
+        'mini_moonboard/kicker_header_reinforcement.py',
+        'mini_moonboard/round_reinforcement_frame.py',
+        'mini_moonboard/steel_base_reinforcement.py',
+    }
     replay = envelope(report['state'], locations(model), weights=(250, 300))
     # JSON normalization converts saved vertex tuples to arrays.
     assert report['cases'] == json.loads(json.dumps(replay))
