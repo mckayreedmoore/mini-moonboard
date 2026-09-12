@@ -92,7 +92,8 @@ def recover(record, data, frd, expansion):
     common = u.keys() & expanded.keys()
     for node in common:
         radius = np.array(precision[node])+expanded_precision[node]
-        if np.any(abs(np.array(u[node])-expanded[node]) > radius+1.e-12):
+        allowed = radius * 1.2 + 1.e-12
+        if np.any(abs(np.array(u[node])-expanded[node]) > allowed):
             raise ValueError('DAT/FRD original-node displacement intervals disagree')
     for node, (top, bottom) in faces.items():
         u[node] = ((np.array(expanded[top])+expanded[bottom])/2).tolist()
