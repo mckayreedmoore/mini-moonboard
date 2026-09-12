@@ -157,4 +157,3 @@ The separate `round-reinforcement-development` candidate now contains actual CAD
 
 
 Historical-audit test follow-up `a73316f` excludes only the four unused successor modules from the preserved round-service source scan; all original source hashes remain exact. Twenty-seven related tests pass. CAD/viewer geometry is unchanged. Latest full CI: https://github.com/mckayreedmoore/mini-moonboard/actions/runs/34716399510 (running at handoff). The superseded known-failing CI run for `1b85ed8` was cancelled after the follow-up run started.
-
