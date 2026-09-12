@@ -25,9 +25,17 @@ def assert_stress_replay(expected, actual):
     assert len(expected['groups']) == len(actual['groups'])
     for saved, replay in zip(expected['groups'], actual['groups'], strict=True):
         assert saved.keys() == replay.keys()
-        assert {k: v for k, v in saved.items() if k != 'extrema'} == {k: v for k, v in replay.items() if k != 'extrema'}
+        computed_group = ('extrema', 'axes_xyz') if saved.get('element_type') == 'S8' else ('extrema',)
+        assert {k: v for k, v in saved.items() if k not in computed_group} == {k: v for k, v in replay.items() if k not in computed_group}
+        if saved.get('element_type') == 'S8':
+            assert np.shape(saved['axes_xyz']) == np.shape(replay['axes_xyz']) == (3, 3)
+            for saved_axis, replay_axis in zip(saved['axes_xyz'], replay['axes_xyz'], strict=True):
+                for a, b in zip(saved_axis, replay_axis, strict=True):
+                    bounded(a, b, 8*max(math.ulp(a), math.ulp(b)))
         assert saved['extrema'].keys() == replay['extrema'].keys()
         basis = np.abs(saved['axes_xyz'])
+        basis_delta = np.abs(np.array(saved['axes_xyz'])-replay['axes_xyz'])
+        largest_basis = np.maximum(basis, np.abs(replay['axes_xyz']))
         for field, extrema in saved['extrema'].items():
             assert extrema.keys() == replay['extrema'][field].keys()
             for label, witness in extrema.items():
@@ -39,7 +47,11 @@ def assert_stress_replay(expected, actual):
                 tensor = np.abs([[xx, xy, xz], [xy, yy, yz], [xz, yz, zz]])
                 # Two length-three matrix products: gamma_6*|B|*|S|*|B.T|.
                 # Both evaluations can round in opposite directions.
-                radius = 2*gamma(6)*(basis@tensor@basis.T)
+                radius = 2*gamma(6)*(largest_basis@tensor@largest_basis.T)
+                # S8 axes are themselves normalized via a platform norm.
+                # Propagate their verified few-ULP difference, including both
+                # appearances of B; raw lumber axes still compare exactly.
+                radius += basis_delta@tensor@largest_basis.T+largest_basis@tensor@basis_delta.T
                 assert np.shape(witness['local_tensor_mpa']) == np.shape(other['local_tensor_mpa']) == (3, 3)
                 for i in range(3):
                     for j in range(3):

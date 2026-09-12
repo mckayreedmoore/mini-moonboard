@@ -50,3 +50,18 @@ def test_signed_connector_components_and_gate_cannot_use_norm_tolerance():
         assert_replay_value(saved, replay, 'connector_forces')
     with pytest.raises(AssertionError):
         assert_replay_value(False, True, 'mpc_check_passed')
+
+
+def test_only_computed_shell_axes_allow_norm_roundoff():
+    saved = stress_result()
+    saved['groups'][0]['element_type'] = 'S8'
+    replay = copy.deepcopy(saved)
+    replay['groups'][0]['axes_xyz'][0][0] = math.nextafter(1., 2.)
+    assert_stress_replay(saved, replay)
+    saved['groups'][0]['element_type'] = replay['groups'][0]['element_type'] = 'C3D20'
+    with pytest.raises(AssertionError):
+        assert_stress_replay(saved, replay)
+    saved['groups'][0]['element_type'] = replay['groups'][0]['element_type'] = 'S8'
+    replay['groups'][0]['axes_xyz'][0][0] = 1.000001
+    with pytest.raises(AssertionError):
+        assert_stress_replay(saved, replay)

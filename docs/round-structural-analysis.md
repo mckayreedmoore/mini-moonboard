@@ -56,7 +56,7 @@ their reports before relying on them with the revised recovery code.
 
 | Review | What is established | What still closes the release gate |
 | --- | --- | --- |
-| [Panel fasteners](round-structural-fastener-review.md) | Selected SPAX product, T20 drive, installation basis and conditional individual references | Current signed axial/lateral demands with panel contact; applicable DF-L and plywood resistance, adjustments and combined action; all face and kicker attachments |
+| [Panel fasteners](round-structural-fastener-review.md) | Selected SPAX product, T20 drive, installation basis; [conditional DF-L/plywood lateral calculation and wood interaction equation](round-structural-screw-calculation.md) | Current signed axial/lateral demands with panel contact; applicable adjustments, plywood head resistance and combined steel action; all face and kicker attachments |
 | [Base and legs](round-structural-base-review.md) | Actual mounting and unsupported load-direction questions identified | Applicable rated ML24Z detail or a specific calculated replacement; matching simultaneous base/leg demands, bearing, splitting and fastener-group checks |
 | [Timber and passages](round-structural-timber-review.md) | Net-section implications and centered-hole detailing comparison | Accepted dimensional tolerances, current global beam/beam-column envelope, bearing and concentrated connection-zone checks |
 

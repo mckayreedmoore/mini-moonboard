@@ -59,9 +59,16 @@ assembly; a damaged attachment needs a supported repair detail.
 
 ## Smallest remaining closure
 
+The [conditional lateral calculation](round-structural-screw-calculation.md)
+now supplies a 52.983 lbf (235.680 N) single-screw reference for DF-L framing
+and other-grade plywood using conservative root-diameter/bearing-length inputs.
+It also implements the NDS wood-screw combined-load equation with a separately
+required head reference. It does not apply end-use adjustments or establish
+current demand, head-reference applicability or combined steel resistance.
+
 Obtain current signed axial and lateral demands with panel/receiver contact and
-a justified force-distribution model. Establish DF-L lateral resistance and
-applicable adjustment/combined-action checks; do not reuse an SPF table without
+a justified force-distribution model. Apply the applicable adjustments and
+complete combined-action checks; do not reuse an SPF table without
 a supported applicability basis. Include the kicker and every face attachment.
 Equal sharing is not established by symmetric screw placement. Nor is assigning
 an entire external force to one screw automatically a conservative bound:

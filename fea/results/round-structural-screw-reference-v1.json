@@ -1,0 +1,82 @@
+{
+  "candidate": "round-structural-development",
+  "product": "SPAX XFT08P-2000",
+  "qualified_for_design": false,
+  "current_demands_evaluated": false,
+  "installation_adjustments_applied": false,
+  "steel_interaction_evaluated": false,
+  "geometry_audit_sha256": "9e1bf73f353a6008f82b72fb3d74c98cbb9e536e1af7572a3823ffa17a5e2e45",
+  "basis": {
+    "method": "TR12 single shear and NDS 2018 Chapter12; 2024 equivalence not verified",
+    "receiver": "Douglas Fir-Larch, assigned G=0.50, Fe=4650psi",
+    "panel": "23/32-inch other-grade plywood, unknown ply species, G=0.42, Fe=3350psi",
+    "root_diameter_in": 0.1,
+    "Fyb_psi": 187000,
+    "nominal_penetration_in": 1.28125,
+    "excluded_head_zone_in": 0.16,
+    "tapered_tip_allowance_in": 0.326
+  },
+  "lateral_inputs": {
+    "main_length_in": 1.11825,
+    "side_length_in": 0.55875,
+    "main_bearing_lb_in": 465.0,
+    "side_bearing_lb_in": 335.0,
+    "main_yield_moment_lb_in": 31.166666666666675,
+    "side_yield_moment_lb_in": 31.166666666666675,
+    "gap_in": 0.0,
+    "reduction_terms": {
+      "Im": 2.2,
+      "Is": 2.2,
+      "II": 2.2,
+      "IIIm": 2.2,
+      "IIIs": 2.2,
+      "IV": 2.2
+    }
+  },
+  "lateral": {
+    "yield_values_lbf": {
+      "Im": 519.98625,
+      "Is": 187.18124999999998,
+      "II": 163.57880340410102,
+      "IIIm": 187.74691538789446,
+      "IIIs": 116.56250547324133,
+      "IV": 155.8041639366548
+    },
+    "reference_values_lbf": {
+      "Im": 236.35738636363635,
+      "Is": 85.08238636363635,
+      "II": 74.35400154731865,
+      "IIIm": 85.33950699449747,
+      "IIIs": 52.98295703329151,
+      "IV": 70.82007451666126
+    },
+    "governing_mode": "IIIs",
+    "reference_lateral_lbf": 52.98295703329151,
+    "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+  },
+  "reference_lateral_n": 235.67993471590563,
+  "reference_withdrawal_n": 733.6007087887615,
+  "conditional_head_reference_n": 943.0229824352259,
+  "head_reference_condition": "TER Table6 requires plywood assigned G>=0.50; the G=0.42 lateral default does not establish this condition",
+  "steel_isolated_reference_n": {
+    "tension": 2046.1819430198298,
+    "shear": 1534.6364572648724
+  },
+  "sources": {
+    "spax": "https://www.drjcertification.org/report/download/1936",
+    "nds2018": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf",
+    "tr12": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf"
+  },
+  "primary_pdf_sha256": {
+    "spax": "e989b7a89cfd6dce92c22bd88d79f0171382f605d5939940fedb62dd661fe8ed",
+    "nds2018": "9a2c8fec7440a46bd6ad2f000feb22da099167a8a5424d7e6f329bf9a7624660",
+    "tr12": "95abb7d382aadf6984121f8731a5b91c2b633516e7f134991ad0a34a1b916be2"
+  },
+  "source_sha256": {
+    "fea/round_structural_screw_reference.py": "bf345886ecb390bd742e6d5f3e97b1d9c1cf149ec67603a0a81138d9efa40fc6",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "docs/round-panel-countersink-reference.json": "8f1a827e112cd4b4bbb879351c06618f2683ce18218691817f77692926c1f628",
+    "fea/results/round-structural-audit-v1.json": "9e1bf73f353a6008f82b72fb3d74c98cbb9e536e1af7572a3823ffa17a5e2e45"
+  },
+  "limits": "Nominal single-fastener, one-plane, seated face-to-face wood connection. Root-diameter and reduced-length reference is not a calibrated spring stiffness. No end-use adjustments, group multiplier, load distribution, net-panel strength, splitting, cyclic allowance or physical assembly qualification. No SPF lateral table is reassigned to DF-L."
+}
