@@ -16,7 +16,7 @@
     "fea/leg_stock_screen.py": "1e0056c6e4bd6d8375db6266862aeddc6f5d5f94c016266ad9e5cda90ebc7b9d",
     "fea/lumber_leg_resistance.py": "56ceb1e65f07504c1277930cb5f314dacf6b4608c0c54cefdcf223e4e8ab5609",
     "fea/paired_rail_audit.py": "85fc7c10e1fc210558b51bb3234692185e453110db8a4d29dc44d9b29fe7292d",
-    "fea/round_insert_audit.py": "9bcfd7eb9e177ba2b65208858f1a685836bf68708bd7a87eb3670269d7a501be",
+    "fea/round_insert_audit.py": "cb8cb30fd4766c3c2c5df35286184e81ffbb0812cf246f2492e5ccb0519024a7",
     "fea/round_service_audit.py": "f7e654f1554a6c0766fa5e168d866f07c2d5bdf31107592a187b20b777893189",
     "fea/screw_insert_repair_reserve.py": "cd1807377e5095c34a6d30d763ca2321dc5ccf2ad4d931167b78ae2e77bec0db",
     "fea/selective_connection_strength.py": "9211d899186d853fecdb59e8a572a7f1a8f0f3a052331d51b410e324a6fca11a",
@@ -78,7 +78,7 @@
     "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
     "mini_moonboard/profile_clearance.py": "248384972bc46350559f63465fd728152a170f4da29bde0bf41f5dd4dfe6afc0",
     "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
-    "mini_moonboard/round_insert_frame.py": "880f73bd93eaa88e717e6a5cab1b073e6c9cfba365dcf708de4cf412b5d0301c",
+    "mini_moonboard/round_insert_frame.py": "a28786d88b92a478d1658a8c29a6cdf8465f1ffbad87fa7fff8cf95e9ad7ca8a",
     "mini_moonboard/round_insert_hardware.py": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5",
     "mini_moonboard/round_panel_hardware.py": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec",
     "mini_moonboard/round_panel_layout.py": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916",
@@ -2939,8 +2939,8 @@
     {
       "connection": "round_panel_upper_left_service_1",
       "receiver": "base_rail_service_upper_left",
-      "insert_volume_mm3": 940.3994254934672,
-      "insert_volume_inside_raw_receiver_mm3": 940.3994254934672,
+      "insert_volume_mm3": 940.3994254934673,
+      "insert_volume_inside_raw_receiver_mm3": 940.3994254934673,
       "passed": true,
       "raw_axial_intervals_mm": [
         [
@@ -3303,8 +3303,8 @@
     {
       "connection": "round_panel_upper_right_service_1",
       "receiver": "base_rail_service_upper_right",
-      "insert_volume_mm3": 940.3994254934672,
-      "insert_volume_inside_raw_receiver_mm3": 940.3994254934672,
+      "insert_volume_mm3": 940.3994254934673,
+      "insert_volume_inside_raw_receiver_mm3": 940.3994254934673,
       "passed": true,
       "raw_axial_intervals_mm": [
         [
@@ -4352,22 +4352,22 @@
         "member": "base_rail_service_upper_left",
         "start_mm": [
           -989.2,
-          724.4435106348363,
-          1192.2630839209257
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": -989.2,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "A7",
           "A8"
@@ -4375,7 +4375,7 @@
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
         "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614617,
+        "removed_timber_volume_mm3": 19305.5549536146,
         "front_ligament_mm": 22.3,
         "rear_ligament_mm": 92.00000000000004,
         "passed": true
@@ -4385,58 +4385,25 @@
         "member": "base_rail_service_upper_left",
         "start_mm": [
           -789.2,
-          724.4435106348363,
-          1192.2630839209257
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": -789.2,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "B8",
           "B7"
-        ],
-        "entry_face": "timber side face; enclosed round passage",
-        "qualified_for_machining": false,
-        "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.55495361462,
-        "front_ligament_mm": 22.3,
-        "rear_ligament_mm": 92.00000000000004,
-        "passed": true
-      },
-      {
-        "name": "bore_base_rail_service_upper_left_031",
-        "member": "base_rail_service_upper_left",
-        "start_mm": [
-          -589.2,
-          724.4435106348363,
-          1192.2630839209257
-        ],
-        "direction": [
-          0.0,
-          0.6427876096865427,
-          0.7660444431189752
-        ],
-        "length_mm": 40.09999999999991,
-        "diameter_mm": 25.4,
-        "axis_local": "S",
-        "center_x_mm": -589.2,
-        "center_s_mm": 1238.25,
-        "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
-        "datums": [
-          "C7",
-          "C8"
         ],
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
@@ -4447,26 +4414,59 @@
         "passed": true
       },
       {
-        "name": "bore_base_rail_service_upper_left_041",
+        "name": "bore_base_rail_service_upper_left_031",
         "member": "base_rail_service_upper_left",
         "start_mm": [
-          -389.20000000000005,
-          724.4435106348363,
-          1192.2630839209257
+          -589.2,
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
+        "diameter_mm": 25.4,
+        "axis_local": "S",
+        "center_x_mm": -589.2,
+        "center_s_mm": 1278.2499999999995,
+        "center_n_mm": 35.0,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
+        "datums": [
+          "C7",
+          "C8"
+        ],
+        "entry_face": "timber side face; enclosed round passage",
+        "qualified_for_machining": false,
+        "remaining_bore_volume_mm3": 0.0,
+        "removed_timber_volume_mm3": 19305.55495361459,
+        "front_ligament_mm": 22.3,
+        "rear_ligament_mm": 92.00000000000004,
+        "passed": true
+      },
+      {
+        "name": "bore_base_rail_service_upper_left_041",
+        "member": "base_rail_service_upper_left",
+        "start_mm": [
+          -389.20000000000005,
+          750.1550150222974,
+          1222.9048616456844
+        ],
+        "direction": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": -389.20000000000005,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "D8",
           "D7"
@@ -4474,7 +4474,7 @@
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
         "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.55495361462,
+        "removed_timber_volume_mm3": 19305.554953614603,
         "front_ligament_mm": 22.3,
         "rear_ligament_mm": 92.00000000000004,
         "passed": true
@@ -4484,22 +4484,22 @@
         "member": "base_rail_service_upper_left",
         "start_mm": [
           -189.20000000000005,
-          724.4435106348363,
-          1192.2630839209257
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": -189.20000000000005,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "E7",
           "E8"
@@ -4507,7 +4507,7 @@
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
         "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614617,
+        "removed_timber_volume_mm3": 19305.554953614603,
         "front_ligament_mm": 22.3,
         "rear_ligament_mm": 92.00000000000004,
         "passed": true
@@ -4847,91 +4847,25 @@
         "member": "base_rail_service_upper_right",
         "start_mm": [
           210.79999999999995,
-          724.4435106348363,
-          1192.2630839209257
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": 210.79999999999995,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "G7",
           "G8"
-        ],
-        "entry_face": "timber side face; enclosed round passage",
-        "qualified_for_machining": false,
-        "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614628,
-        "front_ligament_mm": 22.3,
-        "rear_ligament_mm": 92.00000000000004,
-        "passed": true
-      },
-      {
-        "name": "bore_base_rail_service_upper_right_089",
-        "member": "base_rail_service_upper_right",
-        "start_mm": [
-          410.79999999999995,
-          724.4435106348363,
-          1192.2630839209257
-        ],
-        "direction": [
-          0.0,
-          0.6427876096865427,
-          0.7660444431189752
-        ],
-        "length_mm": 40.09999999999991,
-        "diameter_mm": 25.4,
-        "axis_local": "S",
-        "center_x_mm": 410.79999999999995,
-        "center_s_mm": 1238.25,
-        "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
-        "datums": [
-          "H8",
-          "H7"
-        ],
-        "entry_face": "timber side face; enclosed round passage",
-        "qualified_for_machining": false,
-        "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614635,
-        "front_ligament_mm": 22.3,
-        "rear_ligament_mm": 92.00000000000004,
-        "passed": true
-      },
-      {
-        "name": "bore_base_rail_service_upper_right_103",
-        "member": "base_rail_service_upper_right",
-        "start_mm": [
-          610.8,
-          724.4435106348363,
-          1192.2630839209257
-        ],
-        "direction": [
-          0.0,
-          0.6427876096865427,
-          0.7660444431189752
-        ],
-        "length_mm": 40.09999999999991,
-        "diameter_mm": 25.4,
-        "axis_local": "S",
-        "center_x_mm": 610.8,
-        "center_s_mm": 1238.25,
-        "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
-        "datums": [
-          "I7",
-          "I8"
         ],
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
@@ -4942,26 +4876,92 @@
         "passed": true
       },
       {
-        "name": "bore_base_rail_service_upper_right_113",
+        "name": "bore_base_rail_service_upper_right_089",
         "member": "base_rail_service_upper_right",
         "start_mm": [
-          810.8,
-          724.4435106348363,
-          1192.2630839209257
+          410.79999999999995,
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
+        "diameter_mm": 25.4,
+        "axis_local": "S",
+        "center_x_mm": 410.79999999999995,
+        "center_s_mm": 1278.2499999999995,
+        "center_n_mm": 35.0,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
+        "datums": [
+          "H8",
+          "H7"
+        ],
+        "entry_face": "timber side face; enclosed round passage",
+        "qualified_for_machining": false,
+        "remaining_bore_volume_mm3": 0.0,
+        "removed_timber_volume_mm3": 19305.554953614617,
+        "front_ligament_mm": 22.3,
+        "rear_ligament_mm": 92.00000000000004,
+        "passed": true
+      },
+      {
+        "name": "bore_base_rail_service_upper_right_103",
+        "member": "base_rail_service_upper_right",
+        "start_mm": [
+          610.8,
+          750.1550150222974,
+          1222.9048616456844
+        ],
+        "direction": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "length_mm": 40.10000000000059,
+        "diameter_mm": 25.4,
+        "axis_local": "S",
+        "center_x_mm": 610.8,
+        "center_s_mm": 1278.2499999999995,
+        "center_n_mm": 35.0,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
+        "datums": [
+          "I7",
+          "I8"
+        ],
+        "entry_face": "timber side face; enclosed round passage",
+        "qualified_for_machining": false,
+        "remaining_bore_volume_mm3": 0.0,
+        "removed_timber_volume_mm3": 19305.5549536146,
+        "front_ligament_mm": 22.3,
+        "rear_ligament_mm": 92.00000000000004,
+        "passed": true
+      },
+      {
+        "name": "bore_base_rail_service_upper_right_113",
+        "member": "base_rail_service_upper_right",
+        "start_mm": [
+          810.8,
+          750.1550150222974,
+          1222.9048616456844
+        ],
+        "direction": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": 810.8,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "J8",
           "J7"
@@ -4969,7 +4969,7 @@
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
         "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614606,
+        "removed_timber_volume_mm3": 19305.55495361459,
         "front_ligament_mm": 22.3,
         "rear_ligament_mm": 92.00000000000004,
         "passed": true
@@ -4979,22 +4979,22 @@
         "member": "base_rail_service_upper_right",
         "start_mm": [
           1010.8,
-          724.4435106348363,
-          1192.2630839209257
+          750.1550150222974,
+          1222.9048616456844
         ],
         "direction": [
           0.0,
           0.6427876096865427,
           0.7660444431189752
         ],
-        "length_mm": 40.09999999999991,
+        "length_mm": 40.10000000000059,
         "diameter_mm": 25.4,
         "axis_local": "S",
         "center_x_mm": 1010.8,
-        "center_s_mm": 1238.25,
+        "center_s_mm": 1278.2499999999995,
         "center_n_mm": 35.0,
-        "member_entry_mm": 1219.2,
-        "member_exit_mm": 1257.3,
+        "member_entry_mm": 1259.1999999999994,
+        "member_exit_mm": 1297.3,
         "datums": [
           "K7",
           "K8"
@@ -5002,7 +5002,7 @@
         "entry_face": "timber side face; enclosed round passage",
         "qualified_for_machining": false,
         "remaining_bore_volume_mm3": 0.0,
-        "removed_timber_volume_mm3": 19305.554953614606,
+        "removed_timber_volume_mm3": 19305.554953614588,
         "front_ligament_mm": 22.3,
         "rear_ligament_mm": 92.00000000000004,
         "passed": true
@@ -10926,33 +10926,23 @@
               89.04999999999995
             ]
           ]
-        },
-        {
-          "member": "base_rail_service_upper_left",
-          "backing_intervals_x_mm": [
-            [
-              -1181.1000000000001,
-              -89.04999999999995
-            ]
-          ]
-        },
-        {
-          "member": "base_rail_service_upper_right",
-          "backing_intervals_x_mm": [
-            [
-              89.04999999999995,
-              1181.1000000000001
-            ]
-          ]
         }
       ],
       "unsupported_intervals_x_mm": [
         [
+          -1181.1000000000001,
+          -89.04999999999995
+        ],
+        [
           -50.950000000000045,
           50.950000000000045
+        ],
+        [
+          89.04999999999995,
+          1181.1000000000001
         ]
       ],
-      "maximum_clear_span_mm": 101.90000000000009
+      "maximum_clear_span_mm": 1092.0500000000002
     }
   ],
   "geometry_failures": [],

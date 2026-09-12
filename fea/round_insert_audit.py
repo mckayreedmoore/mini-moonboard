@@ -146,12 +146,13 @@ def build():
     if set(inserts) != {'insert_'+name for name in panel_names}:
         failures.append({'gate': 'one_modeled_insert_per_panel_connection'})
     retained = {c.name: c for c in historical.connections() if c.name not in panel_names}
-    # The four lower clips and both sets of their screws follow the moved rails.
-    shift = model.b.point(0., model.LOWER_SERVICE_S, 0.)-model.b.point(
-        0., sum(historical.RAIL_SPANS['lower'])/2, 0.)
-    retained = {name: replace(c, start=c.start+shift)
-                if name.startswith('clip_horizontal_lower_') else c
-                for name, c in retained.items()}
+    # Both service-rail clip groups follow their independently moved receivers.
+    for level in ('lower', 'upper'):
+        shift = model.b.point(0., model.SERVICE_S[level], 0.)-model.b.point(
+            0., sum(historical.RAIL_SPANS[level])/2, 0.)
+        retained = {name: replace(c, start=c.start+shift)
+                    if name.startswith('clip_horizontal_'+level+'_') else c
+                    for name, c in retained.items()}
     current_retained = {c.name: c for c in connections if c.name not in panel_names}
     changed = [name for name in retained.keys() & current_retained.keys()
                if retained[name] != current_retained[name]]

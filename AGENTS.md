@@ -100,7 +100,8 @@ The current candidate is `round-insert-development`. It retains the round-bore
 frame with 56 attachments, replacing ordinary panel/kicker screws with
 modeled E-Z LOK 801420-13 inserts and Dottie FMDD14114 machine screws. Its lower
 service rail and attachment axes now align at slope station 1134.2 mm; kicker
-rows are 60 and 140 mm. Upper attachment axes retain their original positions. Keep the
+rows are 60 and 140 mm. Upper service rails and their attachment axes align at
+1278.25 mm; upper principal/rim axes, including center screw #4, stay fixed. Keep the
 eight complete leg bolt stacks and all ML24Z/SDS connections. The insert's
 0.25 mm recess, 7 mm panel clearance and 17 mm receiver reserve are provisional
 CAD assumptions, not released machining dimensions. Effective thread engagement,

@@ -1,6 +1,6 @@
 """Fresh round-passage frame with 56 modeled insert/machine-screw attachments.
 
-Revises lower service rail and kicker attachment heights independently of the
+Revises service rail and kicker attachment heights independently of the
 historical screw frame. The display cuts reserve insert bodies, not literal
 installation pilots or damaged wood.
 """
@@ -25,15 +25,21 @@ CENTER_SPLIT, ADDED_CENTERS = previous.CENTER_SPLIT, previous.ADDED_CENTERS
 CENTERS, UPRIGHTS = previous.CENTERS, previous.UPRIGHTS
 CENTER_CLEAR_GAP, CENTER_PANEL_OVERHANG = previous.CENTER_CLEAR_GAP, previous.CENTER_PANEL_OVERHANG
 LOWER_SERVICE_S = historical_layout.FACE_ROWS[-1]
-RAIL_SPANS = dict(previous.RAIL_SPANS, lower=(LOWER_SERVICE_S-19.05, LOWER_SERVICE_S+19.05))
+UPPER_SERVICE_S = historical_layout.HALF+historical_layout.FACE_ROWS[0]
+SERVICE_S = {'lower': LOWER_SERVICE_S, 'upper': UPPER_SERVICE_S}
+RAIL_SPANS = {level: (s-19.05, s+19.05) for level, s in SERVICE_S.items()}
 REMOVED_NAMES = previous.REMOVED_NAMES
 KICKER_ROWS = (60., 140.)
 wiring, electrical_parts = previous.wiring, previous.electrical_parts
 bolt_points, bottom_bays = previous.bolt_points, previous.bottom_bays
 
 
+def rail_translation(level):
+    return b.point(0., SERVICE_S[level], 0.)-b.point(0., sum(previous.RAIL_SPANS[level])/2, 0.)
+
+
 def lower_rail_translation():
-    return b.point(0., LOWER_SERVICE_S, 0.)-b.point(0., sum(previous.RAIL_SPANS['lower'])/2, 0.)
+    return rail_translation('lower')
 
 
 def attachment_datums():
@@ -41,8 +47,8 @@ def attachment_datums():
     rows = []
     for original in historical_layout.datums():
         row = dict(original)
-        if row['receiver'].startswith('base_rail_service_lower_'):
-            row['s'] = LOWER_SERVICE_S
+        if row['receiver'].startswith('base_rail_service_'):
+            row['s'] = SERVICE_S[row['receiver'].split('_')[-2]]
         elif row['panel'].startswith('kicker_'):
             row['s'] = KICKER_ROWS[int(row['name'].rsplit('_', 1)[1])-1]
         rows.append(row)
@@ -51,18 +57,16 @@ def attachment_datums():
 
 @cache
 def stations():
-    translation = lower_rail_translation()
-    return tuple((name, origin+translation, u, v, beam, upright)
-                 if beam.startswith('base_rail_service_lower_')
+    return tuple((name, origin+rail_translation(beam.split('_')[-2]), u, v, beam, upright)
+                 if beam.startswith('base_rail_service_')
                  else (name, origin, u, v, beam, upright)
                  for name, origin, u, v, beam, upright in previous.stations())
 
 
 @cache
 def uncut_wood_parts():
-    translation = lower_rail_translation()
-    return tuple(replace(p, shape=p.shape.translate(translation))
-                 if p.name.startswith('base_rail_service_lower_') else p
+    return tuple(replace(p, shape=p.shape.translate(rail_translation(p.name.split('_')[-2])))
+                 if p.name.startswith('base_rail_service_') else p
                  for p in previous.uncut_wood_parts())
 
 
@@ -74,7 +78,6 @@ def bore_records():
 @cache
 def connections():
     datums = {row['name']: row for row in attachment_datums()}
-    translation = lower_rail_translation()
     result = []
     for c in previous.connections():
         if isinstance(c, timber.PanelScrew):
@@ -85,8 +88,8 @@ def connections():
             c = PanelMachineScrew(c.name, start, c.direction,
                 insert_hardware.SCREW['nominal_overall_length'],
                 insert_hardware.SCREW['nominal_thread_diameter'], c.members)
-        elif c.name.startswith('clip_horizontal_lower_'):
-            c = replace(c, start=c.start+translation)
+        elif c.name.startswith(('clip_horizontal_lower_', 'clip_horizontal_upper_')):
+            c = replace(c, start=c.start+rail_translation(c.name.split('_')[2]))
         result.append(c)
     return tuple(result)
 

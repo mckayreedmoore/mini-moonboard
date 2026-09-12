@@ -16,12 +16,18 @@ remain historical; their screw capacity references do not apply to inserts.
 
 The revised lower service rails and their attachment axes are centered at
 1134.2 mm along the panel slope, in line with the fourth lower-panel principal
-attachments. Upper rails and upper-panel attachment axes retain their previous
-positions. Kicker attachment rows are now 60 and 140 mm above the bottom edge.
+attachments. Upper service rails and their attachments are centered at
+1278.25 mm, 40 mm above their historical positions and aligned with the first
+upper-panel principal row. All upper principal/rim attachment axes, including
+upper center screw #4, retain their previous positions. Kicker attachment rows are now 60 and 140 mm above the bottom edge.
 These changes belong only to the insert candidate; historical screw layouts
 remain unchanged. Insert resistance and end-distance acceptance remain unresolved.
 Earlier structural sweeps and floor-surface scenarios describe the preceding
 layout; their results do not qualify these moved rails and attachments.
+
+The [symmetry review](round-insert-symmetry-review.md) records exact left/right
+mirroring, shared row heights, constrained top-rail offsets and provisional
+kicker-centering alternatives.
 
 ## Attachment geometry and product information
 
@@ -96,8 +102,8 @@ separate rigid-floor feasibility and geometric route length from physical fit.
 The actual floor material, foot treatment, friction, support contact and finished
 mass remain unverified. The [fresh insert-floor report](../fea/results/round-insert-floor-v1.json.gz)
 integrates 167.598 kg of modeled wood and structural hardware, including zinc
-inserts. It independently checks 3,125 feasible force witnesses. At assumed
-friction 0.1, 763 of 1,296 polygon cases fail, including 720 proven impossible
+inserts. It independently checks 3,126 feasible force witnesses. At assumed
+friction 0.1, 762 of 1,296 polygon cases fail, including 720 proven impossible
 under the stated circular-friction necessary condition. At assumed friction
 0.2 and 0.4, all 1,296 finite cases have feasible witnesses. These remain
 rigid-floor feasibility results with assumed densities and friction, not actual
