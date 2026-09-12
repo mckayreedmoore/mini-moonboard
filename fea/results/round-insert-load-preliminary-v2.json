@@ -1,0 +1,752 @@
+{
+  "candidate": "round-insert-development",
+  "hold": "F10",
+  "parameters": {
+    "hold": "F10",
+    "panel_stiffness": 1000.0,
+    "samples": 3,
+    "penalty": 100.0,
+    "contact": true
+  },
+  "provenance": {
+    "directory": "fea/generated/round-insert-frame-v2/f10-contact",
+    "report_sha256": "1d3923dbe8bbda7a9641d497e63c721593d02ce1034cddfe4eedb1dc510fc16a",
+    "input_sha256": "6b8523b5c6e9777defe8cddb95e706236e8bc1c4fac1df69af574045684edbb6",
+    "source_sha256": {
+      "fea/round_insert_frame.py": "3e828d21b271d4c93c9a2cb7e8c7461bdd15af52bcfe2e901a58834368aeccf3",
+      "fea/horizontal_panel_frame.py": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9",
+      "fea/horizontal_frame_stress.py": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b",
+      "fea/horizontal_frame_members.py": "7496205335f28021ec45d45fdbe718f2a080afbd8e5edb5709ba5eedf28be9db",
+      "fea/vertical_panel_comparison.py": "e3079c6d82219ccc255905a38f4b61bb0354bfd52454f490b1590dc8fa0e79ea",
+      "fea/shell_surface_recovery.py": "ba295b6545d4c1ceb33474d52343d0f8078388f2d468521b25ac18a23f819055",
+      "fea/frd_displacements.py": "8e580ffdb49ee24f669984b8e944e614a6c7c4b825d76ee7e2fa4d859baec01c",
+      "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+      "mini_moonboard/backing_end_relocated_trial.py": "c0718d3fdc866d60fb074e3b12c296f1b04958c8bafbe782eda0422256204a67",
+      "mini_moonboard/square_2x6_revised_exports.py": "3d8f384a509c4ff10e9255524aff00a39540b78a2ab330af544a21535eb7cb25",
+      "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+      "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/horizontal_service_exports.py": "5ffe094eba7061ead2d68fc7d7c2ced878cdb484f42be03f0d9804cb6fdeef3c",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+      "mini_moonboard/vertical_principal_frame.py": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1",
+      "mini_moonboard/lumber_leg_exports.py": "2ac4f58638cec4c8147eb782d8e21721f256747607061e7e40ad4795f50e2067",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/hybrid_exports.py": "e1b979ec8703ab945bc83c2b5c2b95266718010bfd75318da2ad950169f2918d",
+      "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+      "mini_moonboard/split_center_exports.py": "818e45b2b3e8753ada26f424a35188e6b5d85e84ba70ed47d909caf1dcb1c861",
+      "mini_moonboard/single_2x6_viewer.py": "747ec75c9741d71eee784a7f4d2280d79018fe33084b7b4f8ed0e18058101403",
+      "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+      "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+      "mini_moonboard/split_center_hardware.py": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f",
+      "mini_moonboard/leg_hardware_trial.py": "bfbafa71dd5e682a15a175937564643681bd032eead1a3836294ebeace81f7ba",
+      "mini_moonboard/lean_exports.py": "f68b89abf42c2cf3cdb91ae4faef4ca918438ef23b850fca39881b4855345ddc",
+      "mini_moonboard/tied_base.py": "bd0f5ae06d7d24f08c916d6196183d8e0327d81912a42c1c7a9e42cae2588663",
+      "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+      "mini_moonboard/split_center_frame.py": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d",
+      "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+      "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+      "mini_moonboard/connection_engagement.py": "965b69721c7d86947a06883333d11f895e9469be7f7adce9cda7ae6366521c7a",
+      "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+      "mini_moonboard/bearing_exports.py": "a5b73bbbc036ce4fdd8e9b9437e57dd9004542026cddcf27b4e06dd15419ae0d",
+      "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+      "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+      "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+      "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+      "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+      "mini_moonboard/angle_base_frame.py": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288",
+      "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+      "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+      "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+      "mini_moonboard/horizontal_service_drilling.py": "ff85530168eb5890578a5d871f4795f3af67e062075b012f077d526403f1cfff",
+      "mini_moonboard/site_inputs.py": "8547ad0ffe03540b17c51df19bc50044443d91ed62eaab5bb0800be0a2f0eb5e",
+      "mini_moonboard/infill_panel_frame.py": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794",
+      "mini_moonboard/wide_machining_features.py": "14175dc61178f323f936dc6ad10464fdd47884521bf2fb91096500d900eff5f6",
+      "mini_moonboard/square_2x6_exports.py": "56351e541ce3c58342aa6763358c0b1aa9152a5176aeb3f617ea095ea3fba249",
+      "mini_moonboard/round_service_frame.py": "477d5b068153093a84c6537f77fbce22db6e2879d401c78c6a7ca82433d4dcf8",
+      "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+      "mini_moonboard/round_insert_frame.py": "4e0c873b05e66e2fdca711b093f0ee341815543e0db0744a00e7b1adc68e3680",
+      "mini_moonboard/round_panel_hardware.py": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec",
+      "mini_moonboard/insert_exports.py": "bd6ea3fc8891b24b4e4e16985d0082778a9add0d4511ecef147af2172f7e468c",
+      "mini_moonboard/paired_rail_exports.py": "a4a9500cbacba338cb0e5424fd3a8ad72a2c5816a70eb6c6c175c9a5d3bf9f2a",
+      "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+      "mini_moonboard/mvp_exports.py": "5fd785e9bae1c0ff774e5fa3be43090aa3aca37c2ece465bca8785333f5a3465",
+      "mini_moonboard/round_insert_drilling.py": "514a98e5a23f9f64db200ab50496ba9f1f2a8619033e8b5d931d2e6029305c22",
+      "mini_moonboard/backing_end_trial.py": "6722c0055e2131057cec07bc748d3cdee9295de3c078f096fabc1f79fee9ba10",
+      "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+      "mini_moonboard/wide_machining.py": "bebf211263b4adec9da3b33884dee6dcd90cdcee67a0f16421df7ea05014b04b",
+      "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+      "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/square_2x6_viewer.py": "a4863d85d3972ceb956c08c08f753e01d0f173cdbbb3495f14121cbf5558f381",
+      "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+      "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/infill_panel_exports.py": "9da25c5b5b15ae680654aaff5e14250af6e351be2f685f895decd80b17ca37d9",
+      "mini_moonboard/selective_2x6_viewer.py": "4c0abfb87f344cc0013e55848d0b2c3f7a9148e05f6ef2cd28e862a566dd9199",
+      "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+      "mini_moonboard/round_insert_hardware.py": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5",
+      "mini_moonboard/horizontal_service_wiring.py": "5e5893d86032a312c6b2c0985856710e2a9e21ba8dfd589a541d98a56d1be994",
+      "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+      "mini_moonboard/wide_exports.py": "d31d5ee8ee2bc9f5f908f9cf915ccb99d0d23f470d2a916c5fd5bf682b4e9cba",
+      "mini_moonboard/round_service_drilling.py": "93395e5a107a8aefcd0af7de246f296762f9be48885b6d161e19c34dcd21bb88",
+      "mini_moonboard/horizontal_service_frame.py": "d253b9b74df4fb0fca83f690eec3474a5bd43c54c6b295f20b7d63f98c25f2b6",
+      "mini_moonboard/vertical_principal_exports.py": "4ea4701ab40342430a63f8a6a2944c83adc08f85467074543a1977338e8ebc9d",
+      "mini_moonboard/selective_2x6_exports.py": "c1d45dd6bce5a2432b086d767d651a7cac6504f29000eb957a0ba5a6188780d7",
+      "mini_moonboard/round_panel_layout.py": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916",
+      "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+      "mini_moonboard/spread_leg_exports.py": "841cbee3d6d42c590630232eb1af691a660297ae4c5cc48310412e72cba2ed4a",
+      "mini_moonboard/bolted_blocks.py": "8334b754a31157fae5635fc1d88b28fbf65d97456d272e1e048b14df21b03007",
+      "mini_moonboard/angle_base_exports.py": "f01beec0ebb2cab9e39e220b48339bc63cb61d243398abd8589d97f8be712eb7",
+      "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+      "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+      "mini_moonboard/joint_exports.py": "2712fe2fe688dc8f575cc7991b1e2a67d6675b85aeffb40b117f9043c52673c4",
+      "mini_moonboard/continuous_exports.py": "4ae10f0bfa979dafc827c93585f03fdfdc508359d51b68ec8fe8bc885b3a111e",
+      "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+      "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+      "mini_moonboard/single_2x6_exports.py": "7200cfde3ed64ffbfa8d941276226a3fefb2c68423483e7143efa57aaf3e5e11",
+      "mini_moonboard/easy_exports.py": "a80e15b093af1fffe5c2d7fdfd570f2971d88d892276f59d87cdb00da615b213",
+      "mini_moonboard/profile_clearance.py": "248384972bc46350559f63465fd728152a170f4da29bde0bf41f5dd4dfe6afc0",
+      "mini_moonboard/sketchup.py": "fb4e477562365711b74afe6a03dd4014786c40366c74eee79ddd567b01efd64f",
+      "mini_moonboard/round_insert_exports.py": "3ba1892554cce1ef9654db3fa9a7a9f2f8cdf88ae5c87cd54d0ee05a2c5ce577",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/compact_hardware_exports.py": "47c45a55c49e36076435c1065b06f9ff6605334da1d7d51d54dfaac78659ff8b",
+      "mini_moonboard/timber_exports.py": "138260d7f3b02ff7a4f44a7d68cb9100a2bf656e40eb24b289a32944005a8c29",
+      "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+      "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+      "mini_moonboard/ply_profile_audit.py": "7cdd955376244898f0fa433788a7cb04b5cd2e93fa35a6a37d6ae589e27a1c46",
+      "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+      "mini_moonboard/bolted_exports.py": "e96eec50af178132a86efa1e6035fbe857b09cda0f082def8b65af9f6a7c4a7f",
+      "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+      "mini_moonboard/base_exports.py": "d549b37c8f4acc76d4164f8130356b6d11b76d2bce93b138b2f53cfdd75e64e5",
+      "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+      "mini_moonboard/round_service_exports.py": "da58c1d7020cc7f7462ddb63b3f29d6b79a351025fa504c4a1765dc3b8edf742",
+      "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+      "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+      "docs/infill-panel-hardware-reference.json": "836132a5c5f67abcc25c36be398c18781652628a2f2fab1f83b3c784143c8a25",
+      "docs/ml23z-reference.json": "2efb4d3cc124eb6c96cf28e37dcfa4b2fb1ae21564205074d3ca4e0f0c43320c",
+      "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
+      "docs/selective-connection-reference.json": "6bdd5a620441b82c0acfe73243f76b2b13c50608f881cc62f70080670fdd062a",
+      "docs/round-insert-hardware-reference.json": "9c6ca054956ff371750a589dd21d4e8cac7ae1cbd0e44ae31dad0ee87b814695",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/selective-stock-reference.json": "2cfc60beb99fdc8716e00a6f4513d32e1795373326fc50a7aa0a74bf638598c5",
+      "docs/backing-angle-reference.json": "b1fb1d60f332cb819e63a51ff3b2d50657da1873c9c4923ecf1a82fc4293e0e2",
+      "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+      "docs/round-panel-countersink-reference.json": "8f1a827e112cd4b4bbb879351c06618f2683ce18218691817f77692926c1f628",
+      "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8"
+    }
+  },
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/round_insert_load_assessment.py": "33d3a7aaa824e81bfb68ee31a2b5ee47a0b76caeefb9fa257a8613e40580c6cc",
+    "fea/round_panel_load_diagnosis.py": "b0e9198a64924f9b3ac22479185cc8c92944b0a49833c83ed74a76267f754ce9",
+    "fea/round_insert_frame.py": "a4d831e559c1d73c175421e6073f34f3b6c5e520ff7d9f9751f046c527456f14",
+    "fea/shell_surface_recovery.py": "7720aefd672b312a19fec5d0174af7c18a2a5f671434dee97a119a1ac1cc9e17",
+    "fea/frd_displacements.py": "8e580ffdb49ee24f669984b8e944e614a6c7c4b825d76ee7e2fa4d859baec01c",
+    "fea/horizontal_panel_frame.py": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9",
+    "fea/horizontal_frame_stress.py": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b",
+    "fea/panel_screw_sensitivity.py": "c70ccbc75e1280d5dec76f172c3cdf28e16904c210350ef53cb7ecdcd4626b83",
+    "pyproject.toml": "88eff27cacb6a993778487bb2aaf3e32c72afb1bf216b39f300d7adfc43207d8",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "panels": [
+    {
+      "panel": "main_lower_left",
+      "attachment_count": 12,
+      "applied_force_xyz_n": [
+        1.9474981523270873e-17,
+        -3.2051726724102725e-18,
+        -158.69981019204826
+      ],
+      "force_residual_n": [
+        0.006600000000247538,
+        0.4726976214319407,
+        -0.44251029789600693
+      ],
+      "moment_residual_nmm": [
+        -587.4735170502754,
+        -76.01865481325876,
+        -97.84115174215549
+      ],
+      "force_rounding_interval_radius_n": [
+        0.036300000000000006,
+        37.96659850119352,
+        31.89108105186348
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        50040.98083238032,
+        9119.652936313252,
+        10828.100482838978
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 631.6255010658206,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_panel_lower_left_center_1",
+        "withdrawal_n": 150.27281299473984,
+        "compression_n": 0.0,
+        "shear_n": 262.96915206378856
+      },
+      "attachments": [
+        {
+          "connection": "round_panel_lower_left_center_1",
+          "withdrawal_n": 150.27281299473984,
+          "compression_n": 0.0,
+          "shear_n": 262.96915206378856
+        },
+        {
+          "connection": "round_panel_lower_left_center_2",
+          "withdrawal_n": 29.973872487305062,
+          "compression_n": 0.0,
+          "shear_n": 214.13396535196057
+        },
+        {
+          "connection": "round_panel_lower_left_center_3",
+          "withdrawal_n": 5.401285898822907,
+          "compression_n": 0.0,
+          "shear_n": 75.67081532955243
+        },
+        {
+          "connection": "round_panel_lower_left_center_4",
+          "withdrawal_n": 27.29967260794599,
+          "compression_n": 0.0,
+          "shear_n": 247.61703854036122
+        },
+        {
+          "connection": "round_panel_lower_left_edge_1",
+          "withdrawal_n": 28.020774663288375,
+          "compression_n": 0.0,
+          "shear_n": 177.35185957922553
+        },
+        {
+          "connection": "round_panel_lower_left_edge_2",
+          "withdrawal_n": 28.702096850597073,
+          "compression_n": 0.0,
+          "shear_n": 218.78585189616106
+        },
+        {
+          "connection": "round_panel_lower_left_rim_1",
+          "withdrawal_n": 120.18758451587746,
+          "compression_n": 0.0,
+          "shear_n": 262.1354484980595
+        },
+        {
+          "connection": "round_panel_lower_left_rim_2",
+          "withdrawal_n": 65.4662625198888,
+          "compression_n": 0.0,
+          "shear_n": 184.43949626714166
+        },
+        {
+          "connection": "round_panel_lower_left_rim_3",
+          "withdrawal_n": 42.14606421710558,
+          "compression_n": 0.0,
+          "shear_n": 118.57877024500483
+        },
+        {
+          "connection": "round_panel_lower_left_rim_4",
+          "withdrawal_n": 87.72915666256786,
+          "compression_n": 0.0,
+          "shear_n": 202.11428649458358
+        },
+        {
+          "connection": "round_panel_lower_left_service_1",
+          "withdrawal_n": 21.789491722815967,
+          "compression_n": 0.0,
+          "shear_n": 73.13840261081269
+        },
+        {
+          "connection": "round_panel_lower_left_service_2",
+          "withdrawal_n": 24.636425924865613,
+          "compression_n": 0.0,
+          "shear_n": 86.2126833571984
+        }
+      ],
+      "seating_contact_count": 192
+    },
+    {
+      "panel": "main_lower_right",
+      "attachment_count": 12,
+      "applied_force_xyz_n": [
+        4.73322010925703e-18,
+        -8.463553208964969e-18,
+        -158.8621263413867
+      ],
+      "force_residual_n": [
+        0.010000000000022885,
+        0.05047779038885736,
+        -0.03536719044050329
+      ],
+      "moment_residual_nmm": [
+        -51.03233399734745,
+        -6.3627193001775595,
+        -24.61664458319501
+      ],
+      "force_rounding_interval_radius_n": [
+        0.06599999999999999,
+        9.621835153159765,
+        8.067314520138584
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        10864.371790658515,
+        5092.854270916565,
+        6053.162811098218
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 519.1520827259608,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_panel_lower_right_rim_1",
+        "withdrawal_n": 105.63913163030487,
+        "compression_n": 0.0,
+        "shear_n": 301.1115138136619
+      },
+      "attachments": [
+        {
+          "connection": "round_panel_lower_right_center_1",
+          "withdrawal_n": 84.91956620175931,
+          "compression_n": 0.0,
+          "shear_n": 122.2469291615745
+        },
+        {
+          "connection": "round_panel_lower_right_center_2",
+          "withdrawal_n": 30.719961218407516,
+          "compression_n": 0.0,
+          "shear_n": 106.31085936412849
+        },
+        {
+          "connection": "round_panel_lower_right_center_3",
+          "withdrawal_n": 10.775796895053995,
+          "compression_n": 0.0,
+          "shear_n": 67.51609095820493
+        },
+        {
+          "connection": "round_panel_lower_right_center_4",
+          "withdrawal_n": 7.562209098016146,
+          "compression_n": 0.0,
+          "shear_n": 128.30309160171439
+        },
+        {
+          "connection": "round_panel_lower_right_edge_1",
+          "withdrawal_n": 23.640650101000094,
+          "compression_n": 0.0,
+          "shear_n": 136.55398652626218
+        },
+        {
+          "connection": "round_panel_lower_right_edge_2",
+          "withdrawal_n": 27.90823390644588,
+          "compression_n": 0.0,
+          "shear_n": 172.967098876963
+        },
+        {
+          "connection": "round_panel_lower_right_rim_1",
+          "withdrawal_n": 105.63913163030487,
+          "compression_n": 0.0,
+          "shear_n": 301.1115138136619
+        },
+        {
+          "connection": "round_panel_lower_right_rim_2",
+          "withdrawal_n": 68.30497422986996,
+          "compression_n": 0.0,
+          "shear_n": 176.00705724972173
+        },
+        {
+          "connection": "round_panel_lower_right_rim_3",
+          "withdrawal_n": 47.96307451447868,
+          "compression_n": 0.0,
+          "shear_n": 105.29267748575194
+        },
+        {
+          "connection": "round_panel_lower_right_rim_4",
+          "withdrawal_n": 66.42762417623918,
+          "compression_n": 0.0,
+          "shear_n": 192.67706250044486
+        },
+        {
+          "connection": "round_panel_lower_right_service_1",
+          "withdrawal_n": 22.335596615059675,
+          "compression_n": 0.0,
+          "shear_n": 21.75674655938545
+        },
+        {
+          "connection": "round_panel_lower_right_service_2",
+          "withdrawal_n": 22.955264139325426,
+          "compression_n": 0.0,
+          "shear_n": 31.13948551748732
+        }
+      ],
+      "seating_contact_count": 192
+    },
+    {
+      "panel": "main_upper_left",
+      "attachment_count": 12,
+      "applied_force_xyz_n": [
+        1.7442102449860553e-17,
+        300.00000000000074,
+        -2382.981714403746
+      ],
+      "force_residual_n": [
+        0.0020000000000415415,
+        -0.3792097052969159,
+        0.29217440035134423
+      ],
+      "moment_residual_nmm": [
+        1578.3286477868796,
+        210.43841844488009,
+        258.84652086326656
+      ],
+      "force_rounding_interval_radius_n": [
+        0.06599999999999999,
+        84.68466497214551,
+        71.10394454813311
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        232093.34714599524,
+        24887.12066079783,
+        29599.823684579445
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 2534.90520739388,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_panel_upper_left_center_3",
+        "withdrawal_n": 1548.822178091249,
+        "compression_n": 0.0,
+        "shear_n": 680.1329007640187
+      },
+      "attachments": [
+        {
+          "connection": "round_panel_upper_left_center_1",
+          "withdrawal_n": 114.79747146988129,
+          "compression_n": 0.0,
+          "shear_n": 375.06625018138067
+        },
+        {
+          "connection": "round_panel_upper_left_center_2",
+          "withdrawal_n": 91.91504852146917,
+          "compression_n": 0.0,
+          "shear_n": 83.66109153182293
+        },
+        {
+          "connection": "round_panel_upper_left_center_3",
+          "withdrawal_n": 1548.822178091249,
+          "compression_n": 0.0,
+          "shear_n": 680.1329007640187
+        },
+        {
+          "connection": "round_panel_upper_left_center_4",
+          "withdrawal_n": 271.71766726613976,
+          "compression_n": 0.0,
+          "shear_n": 1031.9462636089372
+        },
+        {
+          "connection": "round_panel_upper_left_edge_1",
+          "withdrawal_n": 50.197736101769124,
+          "compression_n": 0.0,
+          "shear_n": 210.28740740771244
+        },
+        {
+          "connection": "round_panel_upper_left_edge_2",
+          "withdrawal_n": 61.43064941136041,
+          "compression_n": 0.0,
+          "shear_n": 138.45287713116898
+        },
+        {
+          "connection": "round_panel_upper_left_rim_1",
+          "withdrawal_n": 10.60213225490426,
+          "compression_n": 0.0,
+          "shear_n": 359.7851492424048
+        },
+        {
+          "connection": "round_panel_upper_left_rim_2",
+          "withdrawal_n": 56.775443885632825,
+          "compression_n": 0.0,
+          "shear_n": 137.22073857893847
+        },
+        {
+          "connection": "round_panel_upper_left_rim_3",
+          "withdrawal_n": 14.020888913970342,
+          "compression_n": 0.0,
+          "shear_n": 60.002174652774606
+        },
+        {
+          "connection": "round_panel_upper_left_rim_4",
+          "withdrawal_n": 306.0755896303718,
+          "compression_n": 0.0,
+          "shear_n": 170.40957526330584
+        },
+        {
+          "connection": "round_panel_upper_left_service_1",
+          "withdrawal_n": 2.8032531496257023,
+          "compression_n": 0.0,
+          "shear_n": 33.41730641118474
+        },
+        {
+          "connection": "round_panel_upper_left_service_2",
+          "withdrawal_n": 5.74714869750656,
+          "compression_n": 0.0,
+          "shear_n": 13.422941102782051
+        }
+      ],
+      "seating_contact_count": 210
+    },
+    {
+      "panel": "main_upper_right",
+      "attachment_count": 12,
+      "applied_force_xyz_n": [
+        -9.343832199399e-18,
+        2.153793026630872e-18,
+        -159.00470682592322
+      ],
+      "force_residual_n": [
+        0.0029999999999716824,
+        0.5994246724585413,
+        -0.5245854614544978
+      ],
+      "moment_residual_nmm": [
+        -2025.0774101025308,
+        81.99217104585568,
+        87.40036801287351
+      ],
+      "force_rounding_interval_radius_n": [
+        0.06599999999999999,
+        66.46999968175372,
+        55.681647432774675
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        192593.24315986203,
+        17326.02954751076,
+        20617.85063948654
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 692.5839599907379,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_panel_upper_right_rim_4",
+        "withdrawal_n": 289.11696386059236,
+        "compression_n": 0.0,
+        "shear_n": 133.565212050267
+      },
+      "attachments": [
+        {
+          "connection": "round_panel_upper_right_center_1",
+          "withdrawal_n": 41.44996421901485,
+          "compression_n": 0.0,
+          "shear_n": 171.6774543941121
+        },
+        {
+          "connection": "round_panel_upper_right_center_2",
+          "withdrawal_n": 11.174936374806862,
+          "compression_n": 0.0,
+          "shear_n": 68.01420273750941
+        },
+        {
+          "connection": "round_panel_upper_right_center_3",
+          "withdrawal_n": 32.54766690061315,
+          "compression_n": 0.0,
+          "shear_n": 39.000115170685056
+        },
+        {
+          "connection": "round_panel_upper_right_center_4",
+          "withdrawal_n": 64.4830866194804,
+          "compression_n": 0.0,
+          "shear_n": 167.25162551085944
+        },
+        {
+          "connection": "round_panel_upper_right_edge_1",
+          "withdrawal_n": 66.47156094800344,
+          "compression_n": 0.0,
+          "shear_n": 189.7573585138023
+        },
+        {
+          "connection": "round_panel_upper_right_edge_2",
+          "withdrawal_n": 66.10640416019795,
+          "compression_n": 0.0,
+          "shear_n": 362.0291465766379
+        },
+        {
+          "connection": "round_panel_upper_right_rim_1",
+          "withdrawal_n": 11.392161792443959,
+          "compression_n": 0.0,
+          "shear_n": 377.66514007344483
+        },
+        {
+          "connection": "round_panel_upper_right_rim_2",
+          "withdrawal_n": 58.28651868966869,
+          "compression_n": 0.0,
+          "shear_n": 158.73560760689108
+        },
+        {
+          "connection": "round_panel_upper_right_rim_3",
+          "withdrawal_n": 12.839978309597734,
+          "compression_n": 0.0,
+          "shear_n": 39.12859874834608
+        },
+        {
+          "connection": "round_panel_upper_right_rim_4",
+          "withdrawal_n": 289.11696386059236,
+          "compression_n": 0.0,
+          "shear_n": 133.565212050267
+        },
+        {
+          "connection": "round_panel_upper_right_service_1",
+          "withdrawal_n": 20.898033506304316,
+          "compression_n": 0.0,
+          "shear_n": 23.34446004021912
+        },
+        {
+          "connection": "round_panel_upper_right_service_2",
+          "withdrawal_n": 17.816684610014097,
+          "compression_n": 0.0,
+          "shear_n": 25.615820609679773
+        }
+      ],
+      "seating_contact_count": 210
+    },
+    {
+      "panel": "kicker_left",
+      "attachment_count": 4,
+      "applied_force_xyz_n": [
+        -7.55976905424463e-20,
+        7.848289651903127e-21,
+        -29.41507963779933
+      ],
+      "force_residual_n": [
+        -1.914999999996788e-05,
+        1.823708080661568e-06,
+        -4.937799332083159e-06
+      ],
+      "moment_residual_nmm": [
+        0.00016631930819954732,
+        -0.0067180467704019975,
+        -0.004848666938066515
+      ],
+      "force_rounding_interval_radius_n": [
+        7.1005e-05,
+        0.20693902947771994,
+        2.11e-05
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        42.51760355614223,
+        0.022125804000000002,
+        139.29216126919638
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 1.7162763300000001,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_kicker_left_rim_2",
+        "withdrawal_n": 1.217896,
+        "compression_n": 0.0,
+        "shear_n": 23.410775045794384
+      },
+      "attachments": [
+        {
+          "connection": "round_kicker_left_center_1",
+          "withdrawal_n": 0.20560310000000004,
+          "compression_n": 0.0,
+          "shear_n": 12.64288472951412
+        },
+        {
+          "connection": "round_kicker_left_center_2",
+          "withdrawal_n": 0.12225022999999999,
+          "compression_n": 0.0,
+          "shear_n": 13.169927179551122
+        },
+        {
+          "connection": "round_kicker_left_rim_1",
+          "withdrawal_n": 0.17052700000000007,
+          "compression_n": 0.0,
+          "shear_n": 6.283446172312213
+        },
+        {
+          "connection": "round_kicker_left_rim_2",
+          "withdrawal_n": 1.217896,
+          "compression_n": 0.0,
+          "shear_n": 23.410775045794384
+        }
+      ],
+      "seating_contact_count": 81
+    },
+    {
+      "panel": "kicker_right",
+      "attachment_count": 4,
+      "applied_force_xyz_n": [
+        -1.6855955650360577e-19,
+        2.3127969926982654e-21,
+        -29.415079637799334
+      ],
+      "force_residual_n": [
+        -3.660000000493841e-05,
+        1.3627018540615654e-05,
+        -3.737799332270697e-06
+      ],
+      "moment_residual_nmm": [
+        -0.0014556428779570751,
+        -0.0019146467038808623,
+        0.015914762818824535
+      ],
+      "force_rounding_interval_radius_n": [
+        7.06e-05,
+        0.13978430274520645,
+        2.065e-05
+      ],
+      "moment_rounding_interval_radius_nmm": [
+        28.755926118836292,
+        0.0215308725,
+        116.01577249400579
+      ],
+      "wrench_balance_passed": true,
+      "total_withdrawal_n": 1.0916577999999997,
+      "total_compression_n": 0.0,
+      "maximum_withdrawal": {
+        "connection": "round_kicker_right_rim_2",
+        "withdrawal_n": 0.9123879999999999,
+        "compression_n": 0.0,
+        "shear_n": 21.96588608876558
+      },
+      "attachments": [
+        {
+          "connection": "round_kicker_right_center_1",
+          "withdrawal_n": 0.06025860000000001,
+          "compression_n": 0.0,
+          "shear_n": 12.435455228692017
+        },
+        {
+          "connection": "round_kicker_right_center_2",
+          "withdrawal_n": 0.05016329999999998,
+          "compression_n": 0.0,
+          "shear_n": 11.961386481654388
+        },
+        {
+          "connection": "round_kicker_right_rim_1",
+          "withdrawal_n": 0.0688478999999999,
+          "compression_n": 0.0,
+          "shear_n": 6.541327346445512
+        },
+        {
+          "connection": "round_kicker_right_rim_2",
+          "withdrawal_n": 0.9123879999999999,
+          "compression_n": 0.0,
+          "shear_n": 21.96588608876558
+        }
+      ],
+      "seating_contact_count": 81
+    }
+  ],
+  "maximum_withdrawal": {
+    "connection": "round_panel_upper_left_center_3",
+    "withdrawal_n": 1548.822178091249,
+    "compression_n": 0.0,
+    "shear_n": 680.1329007640187
+  },
+  "all_panel_wrench_intervals_passed": true,
+  "insert_product": "E-Z LOK 801420-13",
+  "machine_screw_product": "Dottie FMDD14114",
+  "qualified_withdrawal_resistance_n": null,
+  "qualified_head_pull_through_resistance_n": null,
+  "effective_thread_engagement_mm": null,
+  "insert_demands_qualified": false,
+  "insert_resistance_qualified": false,
+  "qualified_for_design": false,
+  "limits": "Finite native diagnostic with corrected shell displacement recovery. Measured insert stiffness, effective thread overlap, exact receiver/pilot resistance, head pull-through in owned plywood, combined/cyclic actions and actual floor remain unqualified. Manufacturer does not publish Hex Drive performance tests; SPAX references are not transferred.",
+  "resistance_source": "https://www.ezlok.com/testing"
+}

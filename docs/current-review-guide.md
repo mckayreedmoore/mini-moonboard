@@ -1,50 +1,56 @@
 # Current design review guide
 
-The current candidate is **`horizontal-service-development`**: four horizontal
-single-2x6 service rails replace four intermediate principals and their posts.
-The separated center pair, outer rims, direct base angles and eight leg bolt
-stacks remain. The model includes 132 LED bodies, 131 inter-LED routes and
-open-front timber grooves. It is a development package, **not build-ready**.
+The current candidate is **`round-bore-service-development`**: four horizontal
+single-2x6 service rails, separated center principals, direct base angles and
+eight complete leg bolt stacks. Its 32 enclosed round wiring passages replace
+the preceding open-front grooves. It remains **not build-ready**.
 
 ## Open these first
 
-1. [Current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development&view=rear).
-2. [Purchasing schedule and assembly plan](horizontal-service-build-plan.md),
-   including named members, rail datums and exact-candidate export links.
-3. [Drilling references and datum rules](horizontal-service-drilling.md) and
-   [drilling PDF](horizontal-service-drilling/drilling.pdf).
-4. [Complete LED hookup schematic](horizontal-service-wiring.svg) and
-   [manufacturer wiring reference](led-wiring-reference.md). Dashed external
-   leads are schematic; their physical routes are not established by the 3D model.
-5. [Provisional floor and density assumptions](provisional-floor-load-assumptions.md)
-   for independent verification of numerical inputs.
+1. [Current interactive model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-bore-service-development&view=rear).
+2. [Purchasing schedule, tools and assembly draft](round-service-build-plan.md).
+3. [Round-passage drilling PDF](round-service-drilling/drilling.pdf) and
+   [datum schedule](round-service-drilling/drilling.json), using the same revision
+   as the [connection schedule](../exports/round-bore-service-development/connections.csv).
+4. [Material cost ledger](material-costs.md), [disassembly guide](disassembly-guide.md)
+   and [worn-hole insert assessment](threaded-insert-repair-guide.md).
+5. [Current analysis and limits](round-service-analysis.md) and
+   [assumptions for independent verification](provisional-design-assumptions.md).
 
-The CAD/CSV export passed its artifact check. The 16-page drilling PDF is
-generated and checked for text bounds. The verified inventory
-has 24 wood/plywood parts, 87 panel/kicker screws, 24 ML24Z angles, 144 SDS25112
-screws and eight full leg bolt stacks. There are zero installed panel inserts.
-The current geometry checks pass; geometry clearance does not establish strength.
-The viewer depicts assembled geometry, not a live FE solution or stress plot.
+The local export inventory has 24 wood/plywood parts, 56 panel/kicker screws,
+24 ML24Z angles, 144 prescribed SDS25112 screws, eight bolts, eight nuts and
+16 washers. The leg nuts face inward. Each main panel has twelve mirrored
+attachments; each kicker has four. Panel screws have modeled 90-degree flush
+head seats. There are zero installed panel inserts. The viewer depicts assembled
+geometry, not an FE stress plot or a demonstration of installation access.
 
 ## Current evidence and release gates
 
 | Topic | Current basis | Remaining qualification |
 | --- | --- | --- |
-| Revised rails and panels | Current horizontal-rail geometry and replayed [conditional coupled frame/panel diagnostic](horizontal-frame-diagnostic.md) | Applicable directional material behavior, stress refinement, panel/member strength and serviceability |
-| Panel attachments | 87 ordinary SPAX panel/kicker screws in the installed model | Current individual reactions versus applicable withdrawal, head-bearing and combined-load resistance; assumed stiffness is not a product rating |
-| Commercial angles and leg bolts | 24 ML24Z stations with prescribed SDS screws; eight complete leg bolt stacks | Applicable angle/group/wood and bolt resistance under current demands, bearing, splitting and slip |
-| Removable-panel inserts | All 87 [prospective reserve and head-clearance checks passed](horizontal-insert-fit.md); none installed | Verify installation, effective thread engagement and connection resistance for the provisional product pair, then analyze the revised attachment behavior |
-| Floor behavior | Conditional rigid-floor feasibility and separately assumed restrained-frame diagnostics | Actual interface/friction and mass inputs; compatible compliant support, rocking/uplift and transient behavior; fixed restraints do not authorize anchors |
-| Lumber and plywood | Selected purchasing basis: dry DF-L No. 2 or better and APA PS 1 Structural I 23/32 category, 48/24 square-edge plywood | Delivered stamps, usable dimensions and thickness; applicable material-property verification; existing isotropic FE does not qualify selected stock |
-| Harness and timber grooves | Owned V5 kit, approximate 304.8 mm bulb-base pitch, modeled inter-LED paths and cutouts | Actual LED projection, cable/connector envelopes and slack, external leads and strain relief; residual timber section strength after machining |
-| Hold hardware | 132 main plus ten kicker hold positions; historical Escape 3/8-16 selection | Received T-nut/hold inventory, per-hold bolt lengths, retention screws and rear clearance; these complete bodies are not included in current modeled mass |
+| Revised rails and panels | Round-passage solids and their own geometry audit | Matching coupled panel/frame response, directional material properties, local drilled sections and resistance; historical grooved-frame FE does not transfer |
+| Panel attachments | 56 ordinary SPAX screws, with mirrored straight rows; [necessity and appearance audit](panel-screw-necessity.md#current-mirrored-twelve-screw-layout) | Individual reactions, stiffness, withdrawal, head-bearing and combined-load resistance; twelve per panel is not a demonstrated minimum |
+| Commercial angles and leg bolts | 24 ML24Z stations with specified SDS screws; eight complete inward-nut stacks | Applicable angle/group/wood and bolt resistance, bearing, splitting, slip and actual tool access |
+| Removable-panel inserts | Separate [repair/insert assessment](threaded-insert-repair-guide.md); none installed | Current location fit, actual sound-wood condition, recess, effective engagement and connection resistance; historical 87-location reserves do not qualify this candidate |
+| Floor behavior | Current source-bound rigid-floor feasibility at assumed friction | Actual friction, contact and mass; compatible flexible-frame response, rocking/uplift and transient behavior |
+| Lumber and plywood | Dry DF-L No. 2 or better lumber basis; retain the owned Roseburg plywood | Delivered stamps, usable dimensions, thickness, strength axis and applicable properties; Structural I remains a reference alternative, not a replacement instruction |
+| Lights and round passages | 132 LED bodies, 131 inter-light routes; owner reports approximately 304.8 mm bulb-base pitch and 12.7 mm maximum component diameter | Intact-strand feeding and withdrawal after panel assembly, bends, slack, strain relief and external lead placement |
+| Hold hardware | 132 main plus ten kicker positions; recorded Escape 3/8-16 selection | Received inventory, per-hold bolt lengths, retention screws and rear clearance; excluded hardware is not included in modeled mass |
+| Assembly and maintenance | Draft operations, tools and connection dependencies | Stage-specific temporary supports, handling and physical assembly/disassembly validation |
+
+The [LED hookup schematic](horizontal-service-wiring.svg) retains the factory
+connection topology; dashed external leads are schematic, not physically verified
+routes. Use round-candidate timber drawings for the new passages.
 
 The owner requests one climber with a 250 lb maximum; this is a design input,
-not an established load rating. Results at assumed materials, connectors and
-supports must retain those conditions. A numerically converged solve is not
-itself strength or construction approval.
+not an established load rating. A numerically converged solve or geometry pass
+is not itself strength or construction approval.
 
 ## Preserved evidence: compare without transferring approval
+
+The [preceding grooved horizontal package](horizontal-service-build-plan.md)
+and its 87/75-screw analyses are historical comparisons. They do not qualify
+the new round passages or repositioned 56-screw pattern.
 
 The [angle-base candidate](angle-base-development.md) retains the preceding
 151-screw infill arrangement. Its panel results and attachment checkpoint do

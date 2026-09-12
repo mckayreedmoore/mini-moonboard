@@ -1,6 +1,6 @@
 # Panel screw necessity audit
 
-The published horizontal-service layout has **87 panel screws**, including 39 on the two center
+The preserved horizontal-service layout has **87 panel screws**, including 39 on the two center
 principals. The dense center rows came from an inherited **150 mm maximum interval
 rule**, not a demonstrated minimum fastener count. No exact duplicate axis was
 found. No individual screw has yet been proved removable.
@@ -22,7 +22,7 @@ added service-rail screws; it is not proof that the screw is essential.
 | Kicker posts | 8 | Two at each of four kicker/post connections | Untested reductions; main-panel load samples do not establish kicker sufficiency |
 | Total | 87 | Four main panels: 20, 20, 19 and 20 screws; kickers: four each | This is neither a verified minimum nor an optimized schedule |
 
-The four center-principal rows currently have gaps of approximately 100–150 mm.
+The historical four center-principal rows have gaps of approximately 100–150 mm.
 Their original four-screw rows were supplemented when six interior principals
 existed; only two center principals remain. That history explains the dense-center,
 sparse-outer difference. It does not establish that either density is correct.
@@ -42,7 +42,42 @@ its reserved location, but its fit must be rechecked against the round-bore
 candidate. A removed screw does not need a pilot or reserved insert hole drilled.
 Reserves are possible future repair space, not approved insert substitutions.
 
-## Defined removal hypotheses
+## Current mirrored twelve-screw layout
+
+The current `round-bore-service-development` schedule has **56 panel/kicker
+screws**: twelve on each main panel and four on each kicker. Its four main-panel
+center-principal rows contain **16 screws total**, compared with 39 in the
+historical layout. Outer rims receive 16, top/bottom rails eight, service rails
+eight and kicker posts eight. This is 31 fewer installed screws overall, but
+positions also changed: it is not a validated instruction to remove 31 screws
+from an existing board.
+
+Each main panel uses four evenly spaced screws on its outer-rim line and four
+at the same heights on its center-principal line. Two further screws attach its
+edge rail and two attach its service rail. Left/right panels mirror across the
+board centerline. Rail attachments divide the distance between the two principal
+lines into thirds, giving repeated straight columns without individually nudging
+screws around obstacles. Kicker screws form mirrored two-by-two rectangles.
+
+The principal rows start 59.05 mm above each main panel's bottom edge and end
+85 mm below its top edge, at equal 358.383 mm intervals. These unequal end insets
+are deliberate: the top center principal ends below the panel edge, so the top
+row must leave the timber end-distance reference. Horizontal rail rows follow
+their actual receivers; forcing every edge inset to match would move screws off
+support or reduce end clearance. Use the matching datum drawings for drilling,
+not these rounded explanatory dimensions.
+
+The [current geometry audit](../fea/results/round-service-audit-v1.json)
+checks all 56 identities/positions and finds a minimum 39.279 mm separation
+between a main-panel screw axis and a modeled hold/light axis, above its 28 mm
+geometry threshold. It also checks the receiving solids, other hardware and
+product-spacing references. These checks support the appearance and fit of the
+pattern; they do not determine the necessary screw count or establish capacity.
+The [round-candidate analysis](round-service-analysis.md) records the remaining
+load-path checks. Historical 87/75-screw demand results cannot qualify this
+repositioned 56-screw layout.
+
+## Historical removal hypotheses
 
 The primary **75-screw candidate** removes twelve existing infill axes while
 retaining all 64 original/service axes and eleven infill axes. Within each original
@@ -54,7 +89,7 @@ criterion is a comparison hypothesis, not a manufacturer instruction.
 The [completed 75-screw comparison](panel-screw-sensitivity.md) found only a
 1.61% maximum panel-displacement increase but a 20% increase in the controlling
 F10 withdrawal demand. Neither pattern is qualified. A straight, symmetric
-12-screw-per-face layout is the next comparison requested by the owner; the
+12-screw-per-face layout is now the current round-passage candidate; the
 existing results do not prove that more than twelve screws per face are needed.
 
 The exact twelve removals are the `_1_1`, `_2_1` and `_3_1` infill positions in

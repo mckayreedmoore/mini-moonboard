@@ -271,7 +271,11 @@
         for (const [label, path] of [['Draft build plan', `docs/${stem}-build-plan.md`],
           ['Drilling PDF', `docs/${stem}-drilling/drilling.pdf`],
           ['Drilling datums', round ? `docs/${stem}-drilling/drilling.json` : `docs/${stem}-drilling.md`],
-          ['Timber cutlist', `exports/${model}/wood-parts.csv`]]) {
+          ['Timber cutlist', `exports/${model}/wood-parts.csv`],
+          ...(round ? [['Panel screw layout', 'docs/round-panel-screw-layout.svg'],
+            ['Material costs', 'docs/material-costs.md'],
+            ['Disassembly', 'docs/disassembly-guide.md'],
+            ['Insert repair', 'docs/threaded-insert-repair-guide.md']] : [])]) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
           link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link);
