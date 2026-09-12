@@ -1,0 +1,447 @@
+{
+  "candidate": "round-reinforcement-development",
+  "mass_evidence": "docs/round-reinforcement-review/review.json",
+  "mass_evidence_sha256": "548364b0bc097dadd3d689b8304cc3eb32c87b54b59e32fc1d48728bceb23586",
+  "source_sha256": {
+    "fea/reinforced_floor_envelope.py": "560fed4660aeef306048e42ea544159ae911542aeb850073159e947aa80dcd1c",
+    "fea/rigid_floor_screen.py": "e8da993de886c0315ebc159017fec23fe09c72167fbf02bfbed6f52f7a2d3e77",
+    "fea/round_structural_global_envelope.py": "83548b2a7863b63f56ff52a9003e704d48349cfc4e6da2598a685af63381bf36",
+    "fea/split_center_floor.py": "15a533da9c19cdcf53023b6cc5b98d8f73fe07ef61f25cbd43d97f3efeb61c52",
+    "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e"
+  },
+  "state": {
+    "mass_kg": 181.2058086342417,
+    "centre_xyz_mm": [
+      -0.16247846501736446,
+      577.9861823233708,
+      960.427590389041
+    ],
+    "centre_xy_mm": [
+      -0.16247846501736446,
+      577.9861823233708
+    ],
+    "part_count": 428,
+    "support_polygon_mm": [
+      [
+        -1257.3,
+        1331.6574137062973
+      ],
+      [
+        -1219.2,
+        -270.95
+      ],
+      [
+        1219.2000000000003,
+        -270.95
+      ],
+      [
+        1257.3,
+        1331.6574137062973
+      ],
+      [
+        1257.3,
+        1476.3393621974553
+      ],
+      [
+        -1257.3,
+        1476.3393621974553
+      ]
+    ]
+  },
+  "floor_vertices_mm": [
+    [
+      -1257.3,
+      1331.6574137062973,
+      0.0
+    ],
+    [
+      -1219.2,
+      -270.95,
+      0.0
+    ],
+    [
+      1219.2000000000003,
+      -270.95,
+      0.0
+    ],
+    [
+      1257.3,
+      1331.6574137062973,
+      0.0
+    ],
+    [
+      1257.3,
+      1476.3393621974553,
+      0.0
+    ],
+    [
+      -1257.3,
+      1476.3393621974553,
+      0.0
+    ]
+  ],
+  "all_hold_count": 142,
+  "boundary_locations": [
+    [
+      "A1",
+      [
+        -1019.2,
+        45.96082976945396,
+        300.8268944324205
+      ],
+      [
+        -0.0,
+        0.766044443118978,
+        -0.6427876096865393
+      ]
+    ],
+    [
+      "K1",
+      [
+        980.8,
+        45.96082976945396,
+        300.8268944324205
+      ],
+      [
+        -0.0,
+        0.766044443118978,
+        -0.6427876096865393
+      ]
+    ],
+    [
+      "K12",
+      [
+        980.8,
+        1472.9493232735708,
+        2001.4455581565517
+      ],
+      [
+        -0.0,
+        0.766044443118978,
+        -0.6427876096865393
+      ]
+    ],
+    [
+      "A12",
+      [
+        -1019.2,
+        1472.9493232735708,
+        2001.4455581565517
+      ],
+      [
+        -0.0,
+        0.766044443118978,
+        -0.6427876096865393
+      ]
+    ],
+    [
+      "kicker_1",
+      [
+        -1119.2,
+        -17.743750000000002,
+        150.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    [
+      "kicker_10",
+      [
+        1117.84,
+        -17.743750000000002,
+        150.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ]
+    ]
+  ],
+  "summary": {
+    "0.1": {
+      "enclosing_vertices": 768,
+      "feasible_vertices": 384,
+      "vertices_without_witness": 384,
+      "continuous_envelope_equilibrium_proven": false,
+      "actual_disk_boundary_failures_proven": 384,
+      "first_actual_failure": {
+        "hold": "A1",
+        "downward_n": 1112.055403815125,
+        "mass_scale": 0.8,
+        "standoff_mm": 0.0,
+        "horizontal_n": [
+          300.0,
+          0.0
+        ],
+        "wrench_n_nmm": [
+          300.0,
+          0.0,
+          -2533.6729584095137,
+          -872786.2922128455,
+          -1043389.7814767614,
+          -13788.248930836187
+        ],
+        "necessary_conditions": {
+          "required_total_normal_n": 2533.6729584095137,
+          "horizontal_force_n": 300.0,
+          "circular_friction_limit_n": 253.36729584095139,
+          "horizontal_friction_excess_n": 46.632704159048615,
+          "normal_resultant_xy_mm": [
+            -411.80917924456134,
+            344.47472366785956
+          ],
+          "inward_edge_distances_mm": [
+            821.7895774317552,
+            615.4247236678596,
+            1645.1752834698539,
+            1669.1091792445613,
+            1131.8646385295958,
+            845.4908207554386
+          ],
+          "force_tolerance_n": 0.00025336729584095135,
+          "distance_tolerance_mm": 0.00014763393621974551,
+          "moment_tolerance_nmm": 0.3740561119435241,
+          "circular_cone_infeasibility_proven": true,
+          "failure_reasons": [
+            "horizontal_force_exceeds_circular_friction_bound"
+          ],
+          "limits": "Necessary conditions only; passing does not prove circular-cone or yaw feasibility."
+        }
+      },
+      "maximum_force_residual_n": 1.8189894035458565e-12,
+      "maximum_moment_residual_nmm": 5.122274160385132e-09
+    },
+    "0.2": {
+      "enclosing_vertices": 768,
+      "feasible_vertices": 768,
+      "vertices_without_witness": 0,
+      "continuous_envelope_equilibrium_proven": true,
+      "actual_disk_boundary_failures_proven": 0,
+      "first_actual_failure": null,
+      "maximum_force_residual_n": 2.2737367544323206e-12,
+      "maximum_moment_residual_nmm": 3.725290298461914e-09
+    },
+    "0.4": {
+      "enclosing_vertices": 768,
+      "feasible_vertices": 768,
+      "vertices_without_witness": 0,
+      "continuous_envelope_equilibrium_proven": true,
+      "actual_disk_boundary_failures_proven": 0,
+      "first_actual_failure": null,
+      "maximum_force_residual_n": 1.8189894035458565e-12,
+      "maximum_moment_residual_nmm": 2.7939677238464355e-09
+    }
+  },
+  "representative_witnesses": {
+    "0.1": {
+      "hold": "A1",
+      "downward_n": 2668.9329691563,
+      "mass_scale": 0.8,
+      "standoff_mm": 0.0,
+      "horizontal_n": [
+        305.8773474624955,
+        0.0
+      ],
+      "wrench_n_nmm": [
+        305.8773474624955,
+        0.0,
+        -4090.5505237506886,
+        -944341.6769653731,
+        -2628391.331887844,
+        -14058.376697055875
+      ],
+      "status": "feasible",
+      "polygon_feasible": true,
+      "point_forces_n": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -197.87267156339252,
+          -21.18731435314995,
+          2563.1337491884688
+        ],
+        [
+          -24.935357675675824,
+          24.935357675675828,
+          352.63921007564807
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -43.40868077297652,
+          -43.40868077297651,
+          613.8914507386759
+        ],
+        [
+          -39.66063745045065,
+          39.66063745045066,
+          560.886113747896
+        ]
+      ],
+      "residual_wrench": [
+        -5.684341886080802e-14,
+        2.1316282072803006e-14,
+        0.0,
+        1.1641532182693481e-10,
+        -4.656612873077393e-10,
+        -1.0186340659856796e-10
+      ],
+      "minimum_normal_force_n": 0.0,
+      "maximum_friction_excess_n": 0.0,
+      "force_tolerance_n": 0.0004090550523750688,
+      "moment_tolerance_nmm": 0.6039040751270558,
+      "limits": "Rigid equilibrium feasibility only; no stiffness, pressure distribution, contact compatibility, dynamics, strength or approval. Forces are one admissible witness, not predicted reaction allocation. The 16-ray friction polygon is inscribed in the circular Coulomb cone: polygon infeasibility does not prove circular-cone infeasibility."
+    },
+    "0.2": {
+      "hold": "A1",
+      "downward_n": 1112.055403815125,
+      "mass_scale": 0.8,
+      "standoff_mm": 0.0,
+      "horizontal_n": [
+        305.8773474624955,
+        0.0
+      ],
+      "wrench_n_nmm": [
+        305.8773474624955,
+        0.0,
+        -2533.6729584095137,
+        -872786.2922128455,
+        -1041621.7172921186,
+        -14058.376697055875
+      ],
+      "status": "feasible",
+      "polygon_feasible": true,
+      "point_forces_n": [
+        [
+          -60.20995883884184,
+          60.20995883884184,
+          950.8218747908272
+        ],
+        [
+          -82.39383210824607,
+          -63.34182773511843,
+          728.6782992168224
+        ],
+        [
+          -166.40542541168404,
+          2.0378787159117247e-14,
+          832.0271270584201
+        ],
+        [
+          3.1318688962765644,
+          3.1318688962765635,
+          22.14565734344386
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "residual_wrench": [
+        1.1368683772161603e-13,
+        -2.220446049250313e-15,
+        -4.547473508864641e-13,
+        -2.3283064365386963e-10,
+        4.656612873077393e-10,
+        5.275069270282984e-11
+      ],
+      "minimum_normal_force_n": 0.0,
+      "maximum_friction_excess_n": 8.881784197001252e-16,
+      "force_tolerance_n": 0.00025336729584095135,
+      "moment_tolerance_nmm": 0.3740561119435241,
+      "limits": "Rigid equilibrium feasibility only; no stiffness, pressure distribution, contact compatibility, dynamics, strength or approval. Forces are one admissible witness, not predicted reaction allocation. The 16-ray friction polygon is inscribed in the circular Coulomb cone: polygon infeasibility does not prove circular-cone infeasibility."
+    },
+    "0.4": {
+      "hold": "A1",
+      "downward_n": 1112.055403815125,
+      "mass_scale": 0.8,
+      "standoff_mm": 0.0,
+      "horizontal_n": [
+        305.8773474624955,
+        0.0
+      ],
+      "wrench_n_nmm": [
+        305.8773474624955,
+        0.0,
+        -2533.6729584095137,
+        -872786.2922128455,
+        -1041621.7172921186,
+        -14058.376697055875
+      ],
+      "status": "feasible",
+      "polygon_feasible": true,
+      "point_forces_n": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          92.27956806953532,
+          -56.71451398889545,
+          787.6646919219244
+        ],
+        [
+          -341.4424015431354,
+          4.181463441429861e-14,
+          853.6060038578385
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -56.71451398889552,
+          56.71451398889551,
+          892.4022626297507
+        ]
+      ],
+      "residual_wrench": [
+        -1.1368683772161603e-13,
+        1.0658141036401503e-13,
+        -4.547473508864641e-13,
+        -2.3283064365386963e-10,
+        2.3283064365386963e-10,
+        -8.36735125631094e-11
+      ],
+      "minimum_normal_force_n": 0.0,
+      "maximum_friction_excess_n": 0.0,
+      "force_tolerance_n": 0.00025336729584095135,
+      "moment_tolerance_nmm": 0.3740561119435241,
+      "limits": "Rigid equilibrium feasibility only; no stiffness, pressure distribution, contact compatibility, dynamics, strength or approval. Forces are one admissible witness, not predicted reaction allocation. The 16-ray friction polygon is inscribed in the circular Coulomb cone: polygon infeasibility does not prove circular-cone infeasibility."
+    }
+  },
+  "proof": "External wrench is multi-affine in coplanar hold position, standoff, horizontal force, downward force and mass scale at fixed centre. Its image is contained in the convex hull of their product vertices. The circumscribed 16-gon encloses the 300N horizontal disk; the contact-force feasible set is convex. Feasible independently verified witnesses at every vertex therefore cover every interior load and horizontal azimuth, including H=0.",
+  "assumptions": [
+    "One resultant at one of 142 holds; no independent multi-hold couples.",
+    "Downward force 250 through 600 lbf covers intended 250 lb x1/x2 and 300 lb x1/x2 sensitivity; project load comparison, not impact certification.",
+    "Horizontal magnitude at most 300 N; outward hold standoff 0 through 100 mm.",
+    "Mass 80% through 100% of modeled 181.2058 kg at unchanged modeled centre; this is an assumed range, not a measured lower bound.",
+    "Rigid level floor beneath four posts and two leg feet; compression-only contact, identical assumed Coulomb coefficient at each contact.",
+    "No kicker support, anchor, additional ballast or pad credit in global equilibrium.",
+    "No physical floor test required by owner. Coefficient is an installation assumption; no claim of measured friction, floor bearing capacity, actual pressure allocation or flexible-frame compatibility."
+  ],
+  "build_ready": false
+}

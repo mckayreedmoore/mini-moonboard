@@ -1,0 +1,540 @@
+{
+  "candidate": "round-reinforcement-development",
+  "cases": [
+    {
+      "candidate": "round-reinforcement-development",
+      "parameters": {
+        "hold": "F10",
+        "stiffness": 1000.0,
+        "pounds": 250.0,
+        "frame_size": 200.0,
+        "panel_size": 200.0
+      },
+      "contact_active_set_converged": true,
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "force_residual_n": [
+        -7.105427357601002e-15,
+        -0.00010000000250443009,
+        0.00034228483725939896
+      ],
+      "moment_residual_nmm": [
+        0.4547420810886251,
+        -0.36110141659901274,
+        0.013077572194561071
+      ],
+      "maximum_panel_displacement_mm": 23.660992002560356,
+      "maximum_timber_displacement_mm": 22.372440874621525,
+      "native_archive": "fea/results/reinforced-F10-k1000-v4.tar.gz",
+      "native_archive_sha256": "8cd853bf5e3a5e4d694f93901f5b2d0acab9d7e32e3e3ff06fda7e6619b08d34",
+      "original_report_sha256": "6b8b1c620af5623b88243e48ad597e9aa2dfcf9449f6f7c00062e1a8fde22a6e",
+      "iteration_count": 14,
+      "floor_friction": [
+        {
+          "body": "base_post_outer_left",
+          "resultant_point_xyz_mm": [
+            -1200.15,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        },
+        {
+          "body": "base_post_outer_right",
+          "resultant_point_xyz_mm": [
+            1200.15,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        },
+        {
+          "body": "lumber_leg_left",
+          "resultant_point_xyz_mm": [
+            -1238.25,
+            1403.9983879518763,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            43.48864,
+            -429.0033,
+            0.0
+          ],
+          "total_compression_n": 1575.7298999999998,
+          "total_tangential_force_n": 431.2019169947411,
+          "necessary_force_only_coefficient": 0.27365217667998887,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 1.3682608833999443,
+              "necessary_force_bound_failed": true
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 0.6841304416999722,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.2758606391118965,
+          "force_xy_and_yaw_residual_n_nmm": [
+            1.3073986337985843e-12,
+            -1.5347723092418164e-12,
+            8.162714948412031e-11
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "lumber_leg_right",
+          "resultant_point_xyz_mm": [
+            1238.25,
+            1403.9983879518763,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            -49.80711,
+            -421.8097,
+            0.0
+          ],
+          "total_compression_n": 1541.57873,
+          "total_tangential_force_n": 424.7401219812441,
+          "necessary_force_only_coefficient": 0.2755228219717615,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 1.3776141098588073,
+              "necessary_force_bound_failed": true
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 0.6888070549294036,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.2826646073903629,
+          "force_xy_and_yaw_residual_n_nmm": [
+            1.4921397450962104e-13,
+            1.5916157281026244e-12,
+            3.228706191293895e-11
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "base_post_center_left",
+          "resultant_point_xyz_mm": [
+            -70.0,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            55.37207,
+            368.1801,
+            0.0
+          ],
+          "total_compression_n": 416.9228,
+          "total_tangential_force_n": 372.3206308708864,
+          "necessary_force_only_coefficient": 0.8930205564936397,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 4.465102782468198,
+              "necessary_force_bound_failed": true
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 2.232551391234099,
+              "necessary_force_bound_failed": true
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 2.176481010978487,
+          "force_xy_and_yaw_residual_n_nmm": [
+            1.1652900866465643e-12,
+            1.5347723092418164e-12,
+            6.730260793119669e-11
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "base_post_center_right",
+          "resultant_point_xyz_mm": [
+            70.0,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            -49.0536,
+            182.6328,
+            0.0
+          ],
+          "total_compression_n": 246.55966999999998,
+          "total_tangential_force_n": 189.10577809469493,
+          "necessary_force_only_coefficient": 0.7669777384707521,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 3.8348886923537604,
+              "necessary_force_bound_failed": true
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 1.9174443461768802,
+              "necessary_force_bound_failed": true
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 3.3179553685657277,
+          "force_xy_and_yaw_residual_n_nmm": [
+            -5.897504706808832e-13,
+            -1.2789769243681803e-12,
+            1.0822986951097846e-10
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "kicker_left",
+          "resultant_point_xyz_mm": [
+            -609.6,
+            -26.871875,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        },
+        {
+          "body": "kicker_right",
+          "resultant_point_xyz_mm": [
+            609.6,
+            -26.871875,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        }
+      ],
+      "assumed_mu_point4_rejected_by_necessary_force_bound": true,
+      "physical_response_qualified": false
+    },
+    {
+      "candidate": "round-reinforcement-development",
+      "parameters": {
+        "hold": "F10",
+        "stiffness": 10000.0,
+        "pounds": 250.0,
+        "frame_size": 200.0,
+        "panel_size": 200.0
+      },
+      "contact_active_set_converged": true,
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "force_residual_n": [
+        9.99999997253198e-07,
+        -2.3874235921539366e-12,
+        -0.00035771516300542316
+      ],
+      "moment_residual_nmm": [
+        -0.38983085686686536,
+        0.042038083966872364,
+        0.09760949175688438
+      ],
+      "maximum_panel_displacement_mm": 12.830780013103606,
+      "maximum_timber_displacement_mm": 11.799131263388759,
+      "native_archive": "fea/results/reinforced-F10-k10000-v5.tar.gz",
+      "native_archive_sha256": "032988d17e1ea7f1489fd3b9d2af1078d5b4d735fa49411f6cc1c5dc3d3c5c54",
+      "original_report_sha256": "526bc6de8ec62863f14dca70cbf866e2e476c1ec3ed56c802f343ed4581db04e",
+      "iteration_count": 11,
+      "floor_friction": [
+        {
+          "body": "base_post_outer_left",
+          "resultant_point_xyz_mm": [
+            -1200.15,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        },
+        {
+          "body": "base_post_outer_right",
+          "resultant_point_xyz_mm": [
+            1200.15,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        },
+        {
+          "body": "lumber_leg_left",
+          "resultant_point_xyz_mm": [
+            -1238.25,
+            1403.9983879518763,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            53.18102,
+            -298.17629999999997,
+            0.0
+          ],
+          "total_compression_n": 1622.0206,
+          "total_tangential_force_n": 302.8817042509012,
+          "necessary_force_only_coefficient": 0.18673110825528427,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 0.9336555412764214,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 0.4668277706382107,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.19806446986546716,
+          "force_xy_and_yaw_residual_n_nmm": [
+            9.599432360118954e-12,
+            0.0,
+            -3.3878677641041577e-10
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "lumber_leg_right",
+          "resultant_point_xyz_mm": [
+            1238.25,
+            1403.9983879518763,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            -54.85109,
+            -279.90479999999997,
+            0.0
+          ],
+          "total_compression_n": 1589.4683,
+          "total_tangential_force_n": 285.2285734936598,
+          "necessary_force_only_coefficient": 0.1794490481462636,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 0.8972452407313181,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 0.44862262036565903,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.19871263275914977,
+          "force_xy_and_yaw_residual_n_nmm": [
+            -2.4868995751603507e-13,
+            0.0,
+            9.094947017729282e-13
+          ],
+          "polygon_direction_count": 32
+        },
+        {
+          "body": "base_post_center_left",
+          "resultant_point_xyz_mm": [
+            -70.0,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            1.6700709999999999,
+            278.0811,
+            0.0
+          ],
+          "total_compression_n": 122.2702,
+          "total_tangential_force_n": 278.086114925494,
+          "necessary_force_only_coefficient": 2.2743572426109875,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": 11.371786213054937,
+              "necessary_force_bound_failed": true
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": 5.685893106527469,
+              "necessary_force_bound_failed": true
+            }
+          ],
+          "friction_wrench_feasible": false,
+          "sufficient_friction_coefficient": null,
+          "reason": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+        },
+        {
+          "body": "base_post_center_right",
+          "resultant_point_xyz_mm": [
+            70.0,
+            -153.475,
+            0.0
+          ],
+          "tangential_force_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_compression_n": 0,
+          "total_tangential_force_n": 0.0,
+          "necessary_force_only_coefficient": null,
+          "assumed_friction_checks": [
+            {
+              "coefficient": 0.2,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            },
+            {
+              "coefficient": 0.4,
+              "force_only_ratio": null,
+              "necessary_force_bound_failed": false
+            }
+          ],
+          "friction_wrench_feasible": true,
+          "sufficient_friction_coefficient": 0.0
+        }
+      ],
+      "assumed_mu_point4_rejected_by_necessary_force_bound": true,
+      "physical_response_qualified": false
+    }
+  ],
+  "changed_source_files": [
+    "fea/reinforced_frame_demand.py"
+  ],
+  "baseline_kicker_normal_and_tangential_reactions_all_zero": true,
+  "comparison_limits": [
+    "All CAD and reference source hashes match. The producer change removes only kicker-edge tangential restraint and its unused interpolation nodes; those reactions were zero in the baseline.",
+    "Both source-complete native cases pass equilibrium, expanded-shell constraints and unilateral contact, but both reject the assumed mu=0.4 floor through necessary shear/compression bounds.",
+    "Forces and section stresses remain conditional on gross timber, isotropic panels, assumed connection compliance, omitted hardware/hold weight and sticking post/leg footprints.",
+    "A 10x stiffness change reduces maximum total panel translation from 23.661 mm to 12.831 mm, while making the governing required force-only floor coefficient increase from 0.8930 to 2.2744. This is sensitivity evidence, not a conservative bound on the physical response.",
+    "No additional mesh or load sweep is presented as qualification of this physically inadmissible sticking load path."
+  ],
+  "qualified_for_design": false
+}

@@ -1,0 +1,750 @@
+{
+  "units": "N, mm, MPa; ASD service-demand comparison",
+  "sources": {
+    "A307": "https://store.astm.org/a0307-21.html",
+    "A36": "https://www.ssab.com/en-us/brands-and-products/commercial-steel/structural-steel/astm-a36",
+    "AISC_bolts_2016": "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_march-2021_linked.pdf",
+    "AISC_2022_design_cards": "https://www.aisc.org/media/vlynv2sw/p325-23aw.pdf",
+    "rectangle_torsion_research": "https://link.springer.com/article/10.1186/s10033-018-0214-9"
+  },
+  "bolt_capacities": {
+    "gross_area_mm2": 71.25573924808562,
+    "long_grip_factor": 0.96,
+    "tension_asd_n": 10611.886201793617,
+    "single_shear_asd_n": 6367.131721076171,
+    "basis": "AISC360-16 TableJ3.2 A307, ASD Omega2, both stresses reduced4%; no yield assumption"
+  },
+  "square_plate_capacities": {
+    "bearing_asd_n": 29024.646039573243,
+    "tearout_asd_n": 15912.133704766038,
+    "governing_asd_n": 15912.133704766038,
+    "clear_distance_mm": 10.44375,
+    "net_section_mm2": 122.55499999999998,
+    "net_tension_rupture_asd_n": 24504.62242186192,
+    "net_shear_rupture_asd_n": 14702.773453117152,
+    "gross_tension_yield_asd_n": 30201.514102384765,
+    "one_way_elastic_bending_screen_n": 2409.730833865732,
+    "one_way_plastic_bending_screen_n": 3614.5962507985982,
+    "bearing_contact_area_mm2": 927.0130215789945,
+    "bending_assumption": "32mm simply supported span, full axial load at center, net-width beam; wood contact not solved"
+  },
+  "shoe_hole_minimum_capacities": {
+    "bearing_asd_n": 43536.969059359864,
+    "tearout_asd_n": 44436.847356846636,
+    "governing_asd_n": 43536.969059359864,
+    "clear_distance_mm": 19.44375
+  },
+  "qualified": false,
+  "case_results": [
+    {
+      "path": "",
+      "producer_validity": {
+        "global_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "contact_active_set_converged": true,
+        "qualified_for_design": false,
+        "actual_joint_demands_qualified": false
+      },
+      "response_status": "converged_conditional_model",
+      "physical_friction_gate": {
+        "status": "whole_foot_friction_necessary_check",
+        "contacts": [
+          {
+            "body": "base_post_outer_left",
+            "normal_n": 0.0,
+            "shear_n": 0.0,
+            "required_mu": 0.0,
+            "mu_0_2_pass": true,
+            "mu_0_4_pass": true
+          },
+          {
+            "body": "base_post_outer_right",
+            "normal_n": 0.0,
+            "shear_n": 0.0,
+            "required_mu": 0.0,
+            "mu_0_2_pass": true,
+            "mu_0_4_pass": true
+          },
+          {
+            "body": "lumber_leg_left",
+            "normal_n": 1575.7298999999998,
+            "shear_n": 431.2019169947411,
+            "required_mu": 0.27365217667998887,
+            "mu_0_2_pass": false,
+            "mu_0_4_pass": true
+          },
+          {
+            "body": "lumber_leg_right",
+            "normal_n": 1541.57873,
+            "shear_n": 424.7401219812441,
+            "required_mu": 0.2755228219717615,
+            "mu_0_2_pass": false,
+            "mu_0_4_pass": true
+          },
+          {
+            "body": "base_post_center_left",
+            "normal_n": 416.9228,
+            "shear_n": 372.3206308708865,
+            "required_mu": 0.8930205564936398,
+            "mu_0_2_pass": false,
+            "mu_0_4_pass": false
+          },
+          {
+            "body": "base_post_center_right",
+            "normal_n": 246.55966999999998,
+            "shear_n": 189.10577809469493,
+            "required_mu": 0.7669777384707521,
+            "mu_0_2_pass": false,
+            "mu_0_4_pass": false
+          },
+          {
+            "body": "kicker_left",
+            "normal_n": 0.0,
+            "shear_n": 0.0,
+            "required_mu": 0.0,
+            "mu_0_2_pass": true,
+            "mu_0_4_pass": true
+          },
+          {
+            "body": "kicker_right",
+            "normal_n": 0.0,
+            "shear_n": 0.0,
+            "required_mu": 0.0,
+            "mu_0_2_pass": true,
+            "mu_0_4_pass": true
+          }
+        ],
+        "mu_0_2_pass": false,
+        "mu_0_4_pass": false,
+        "physical_admissibility_pass": false,
+        "scope": "Unmeasuredmu0.2/0.4 scenarios; whole-foot necessary conditions only, not local Coulomb or floor qualification"
+      },
+      "physical_response_admissible_for_mu_0_4": false,
+      "bolt_checks": [
+        {
+          "name": "steel_shoe_rim_left_1",
+          "tension_n": 0.0,
+          "shear_n": 580.7059969399324,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.09120370401914375,
+          "available_additional_prying_n": 9644.042873560396,
+          "shoe_bearing_tearout_ratio": 0.013338227476243858,
+          "square_plate_bearing_tearout_ratio": 0.0364945398093279,
+          "square_plate_net_shear_ratio": 0.039496357526805005,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_left_2",
+          "tension_n": 0.0,
+          "shear_n": 561.926832576983,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.08825431249002122,
+          "available_additional_prying_n": 9675.34148083198,
+          "shoe_bearing_tearout_ratio": 0.012906889127050434,
+          "square_plate_bearing_tearout_ratio": 0.03531436091494589,
+          "square_plate_net_shear_ratio": 0.03821910433217266,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_left_3",
+          "tension_n": 0.0,
+          "shear_n": 464.25780203675686,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.07291474754637056,
+          "available_additional_prying_n": 9838.123198399024,
+          "shoe_bearing_tearout_ratio": 0.010663530605535978,
+          "square_plate_bearing_tearout_ratio": 0.029176338676547276,
+          "square_plate_net_shear_ratio": 0.03157620591224773,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_left_4",
+          "tension_n": 141.66645,
+          "shear_n": 437.29574691849024,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.08202996887744801,
+          "available_additional_prying_n": 9741.393506929466,
+          "shoe_bearing_tearout_ratio": 0.010044239559310286,
+          "square_plate_bearing_tearout_ratio": 0.02748190500608416,
+          "square_plate_net_shear_ratio": 0.029742398487802222,
+          "square_plate_one_way_bending_screen_ratio": 0.058789325350805346,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.5396533932862448,
+          "wood_contact_pressure_average_mpa": 0.15282034524034788
+        },
+        {
+          "name": "steel_shoe_header_left_1",
+          "tension_n": 27.03000000000033,
+          "shear_n": 223.62365046637083,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.037668711905622876,
+          "available_additional_prying_n": 10212.150117682999,
+          "shoe_bearing_tearout_ratio": 0.005136408328321486,
+          "square_plate_bearing_tearout_ratio": 0.014053655821116597,
+          "square_plate_net_shear_ratio": 0.015209623625055593,
+          "square_plate_one_way_bending_screen_ratio": 0.011217020432376813,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.6725312679604674,
+          "wood_contact_pressure_average_mpa": 0.029158166466701562
+        },
+        {
+          "name": "steel_shoe_header_left_2",
+          "tension_n": 80.11799999999968,
+          "shear_n": 324.24301100409247,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.058474337788815826,
+          "available_additional_prying_n": 9991.363183453463,
+          "shoe_bearing_tearout_ratio": 0.007447532936020602,
+          "square_plate_bearing_tearout_ratio": 0.0203770919111228,
+          "square_plate_net_shear_ratio": 0.022053186906402976,
+          "square_plate_one_way_bending_screen_ratio": 0.0332476967444007,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.1578558856680297,
+          "wood_contact_pressure_average_mpa": 0.0864259704394805
+        },
+        {
+          "name": "steel_shoe_header_left_3",
+          "tension_n": 21.37800000000034,
+          "shear_n": 284.52354427456856,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.046700831284877314,
+          "available_additional_prying_n": 10116.302294669336,
+          "shoe_bearing_tearout_ratio": 0.006535217090712929,
+          "square_plate_bearing_tearout_ratio": 0.01788091713868313,
+          "square_plate_net_shear_ratio": 0.019351692058769115,
+          "square_plate_one_way_bending_screen_ratio": 0.008871530255395945,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.598098887077382,
+          "wood_contact_pressure_average_mpa": 0.02306116473270989
+        },
+        {
+          "name": "steel_shoe_header_left_4",
+          "tension_n": 73.63900000000001,
+          "shear_n": 367.5930163600939,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.0646722000421401,
+          "available_additional_prying_n": 9925.592174526795,
+          "shoe_bearing_tearout_ratio": 0.008443238569476538,
+          "square_plate_bearing_tearout_ratio": 0.023101428330129705,
+          "square_plate_net_shear_ratio": 0.025001610582672758,
+          "square_plate_one_way_bending_screen_ratio": 0.03055901471031395,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.1100521927624099,
+          "wood_contact_pressure_average_mpa": 0.07943685610216095
+        },
+        {
+          "name": "steel_shoe_rim_right_1",
+          "tension_n": 0.0,
+          "shear_n": 535.8465108041665,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.08415822607068633,
+          "available_additional_prying_n": 9718.808683786672,
+          "shoe_bearing_tearout_ratio": 0.012307850601027697,
+          "square_plate_bearing_tearout_ratio": 0.03367533988503808,
+          "square_plate_net_shear_ratio": 0.036445267453302226,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_right_2",
+          "tension_n": 0.0,
+          "shear_n": 511.2824019072047,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.08030027087625383,
+          "available_additional_prying_n": 9759.74886528161,
+          "shoe_bearing_tearout_ratio": 0.011743637946180956,
+          "square_plate_bearing_tearout_ratio": 0.03213160543982007,
+          "square_plate_net_shear_ratio": 0.03477455485099698,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_right_3",
+          "tension_n": 0.0,
+          "shear_n": 425.62395389592456,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.0668470470756942,
+          "available_additional_prying_n": 9902.51294530041,
+          "shoe_bearing_tearout_ratio": 0.009776150317575245,
+          "square_plate_bearing_tearout_ratio": 0.026748389737853994,
+          "square_plate_net_shear_ratio": 0.028948548738312194,
+          "square_plate_one_way_bending_screen_ratio": 0.0,
+          "square_plate_required_thickness_for_one_way_screen_mm": 0.0,
+          "wood_contact_pressure_average_mpa": 0.0
+        },
+        {
+          "name": "steel_shoe_rim_right_4",
+          "tension_n": 136.71460000000002,
+          "shear_n": 385.9514476407623,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.07349937587935819,
+          "available_additional_prying_n": 9831.919189059014,
+          "shoe_bearing_tearout_ratio": 0.008864913106710351,
+          "square_plate_bearing_tearout_ratio": 0.02425516620220211,
+          "square_plate_net_shear_ratio": 0.026250247878160448,
+          "square_plate_one_way_bending_screen_ratio": 0.05673438629686291,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.5125053029511184,
+          "wood_contact_pressure_average_mpa": 0.14747861876538917
+        },
+        {
+          "name": "steel_shoe_header_right_1",
+          "tension_n": 130.6400000000001,
+          "shear_n": 295.6931356360002,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.0587512795436206,
+          "available_additional_prying_n": 9988.424309066952,
+          "shoe_bearing_tearout_ratio": 0.0067917712699026335,
+          "square_plate_bearing_tearout_ratio": 0.01858287148174437,
+          "square_plate_net_shear_ratio": 0.020111384874348992,
+          "square_plate_one_way_bending_screen_ratio": 0.054213523835948574,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.4785211580748638,
+          "wood_contact_pressure_average_mpa": 0.14092574425489635
+        },
+        {
+          "name": "steel_shoe_header_right_2",
+          "tension_n": 146.2889999999999,
+          "shear_n": 489.9145536427433,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.09072970042861035,
+          "available_additional_prying_n": 9649.072945722379,
+          "shoe_bearing_tearout_ratio": 0.011252840154645956,
+          "square_plate_bearing_tearout_ratio": 0.030788740387218023,
+          "square_plate_net_shear_ratio": 0.033321233929430906,
+          "square_plate_one_way_bending_screen_ratio": 0.06070761013806697,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.5645710625574683,
+          "wood_contact_pressure_average_mpa": 0.15780684477422308
+        },
+        {
+          "name": "steel_shoe_header_right_3",
+          "tension_n": 79.40299999999966,
+          "shear_n": 368.336963171618,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.06533220630486802,
+          "available_additional_prying_n": 9918.588263174253,
+          "shoe_bearing_tearout_ratio": 0.008460326272814586,
+          "square_plate_bearing_tearout_ratio": 0.023148181759011545,
+          "square_plate_net_shear_ratio": 0.02505220966276444,
+          "square_plate_one_way_bending_screen_ratio": 0.03295098310736224,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.1526777591098971,
+          "wood_contact_pressure_average_mpa": 0.08565467598799356
+        },
+        {
+          "name": "steel_shoe_header_right_4",
+          "tension_n": 90.09200000000028,
+          "shear_n": 528.3827939481966,
+          "included_prying_n": 0.0,
+          "conservative_linear_interaction_ratio": 0.09147572556418752,
+          "available_additional_prying_n": 9641.156211879956,
+          "shoe_bearing_tearout_ratio": 0.012136416598679173,
+          "square_plate_bearing_tearout_ratio": 0.033206281681125785,
+          "square_plate_net_shear_ratio": 0.035937627389353105,
+          "square_plate_one_way_bending_screen_ratio": 0.0373867482350604,
+          "square_plate_required_thickness_for_one_way_screen_mm": 1.2278139743903482,
+          "wood_contact_pressure_average_mpa": 0.09718525835434899
+        }
+      ],
+      "shoe_checks": [
+        {
+          "side": "left",
+          "web_to_weld_force_n": [
+            -201.02880999999996,
+            -297.5690000000002,
+            163.5219999999995
+          ],
+          "web_to_weld_moment_nmm": [
+            4675.589065393098,
+            -27020.322432533838,
+            34490.95050654815
+          ],
+          "weld": {
+            "status": "conditional_elastic_diagnostic_only",
+            "qualification_pass": false,
+            "rotation_detail_gate": "unresolved_single_sided_root_bending",
+            "moment_reference_global_mm": [
+              -1230.2250000000001,
+              -128.1469356976076,
+              236.025
+            ],
+            "weld_leg_mm": 6.0,
+            "length_mm": 137.06776537988927,
+            "throat_mm": 4.242640687119285,
+            "E70_required_FEXX_mpa": 482.63301050999996,
+            "ASD_stress_limit_mpa": 144.78990315299998,
+            "direct_force_diagnostic_n": 84199.56788471196,
+            "pure_longitudinal_moment_diagnostic_nmm": 59538.08542425686,
+            "required_leg_pure_longitudinal_moment_diagnostic_mm": 4.042025802423534,
+            "utilization_diagnostic": 0.46545215882509755,
+            "elastic_screen_pass": true,
+            "corners": [
+              {
+                "u_mm": -2.1213203435596424,
+                "v_mm": -68.53388268994463,
+                "traction_uvn_mpa": [
+                  -1.6394360495789975,
+                  -0.4472349768746954,
+                  -67.2517405104036
+                ],
+                "resultant_mpa": 67.27320693533093,
+                "utilization_diagnostic": 0.46462636876166086
+              },
+              {
+                "u_mm": -2.1213203435596424,
+                "v_mm": 68.53388268994463,
+                "traction_uvn_mpa": [
+                  2.5259824693727175,
+                  -0.4472349768746954,
+                  -64.07779541998251
+                ],
+                "resultant_mpa": 64.12912343424982,
+                "utilization_diagnostic": 0.44291157075009824
+              },
+              {
+                "u_mm": 2.1213203435596424,
+                "v_mm": -68.53388268994463,
+                "traction_uvn_mpa": [
+                  -1.6394360495789975,
+                  -0.5761666336971799,
+                  64.16900774817178
+                ],
+                "resultant_mpa": 64.19253285184637,
+                "utilization_diagnostic": 0.443349511630061
+              },
+              {
+                "u_mm": 2.1213203435596424,
+                "v_mm": 68.53388268994463,
+                "traction_uvn_mpa": [
+                  2.5259824693727175,
+                  -0.5761666336971799,
+                  67.34295283859286
+                ],
+                "resultant_mpa": 67.39277299864064,
+                "utilization_diagnostic": 0.46545215882509755
+              }
+            ],
+            "sources": [
+              "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_june-2018.pdf",
+              "https://www.aisc.org/globalassets/modern-steel/archives/2024/january2024.pdf",
+              "https://www.aisc.org/globalassets/modern-steel/archives/2025/january2025.pdf"
+            ],
+            "limits": "Finite-throat elastic traction omits unfused-root notch/fracture, local yielding and prying compatibility; no directional strength increase. A larger leg alone does not resolve the rotation detail."
+          },
+          "web_root_section_screen": {
+            "elastic_von_mises_screen_ratio": 0.14180448492397912,
+            "weak_axis_plastic_upper_bound_nmm": 462072.71270750335,
+            "weak_axis_moment_over_plastic_upper_bound": 0.05691270745775592,
+            "required_thickness_weak_axis_elastic_mm": 2.78301301323235,
+            "saint_venant_torsion_shear_upper_bound_mpa": 9.171991101929882,
+            "torsion_assumption": "Unrestrained Saint-Venant rectangle; restrained warping stresses not included"
+          },
+          "web_perforated_section_screens": {
+            "checked_cut_count": 225,
+            "governing_elastic_section": {
+              "z_mm": 234.525,
+              "net_width_mm": 137.06776537988927,
+              "net_area_mm2": 1305.5704652434454,
+              "force_n": [
+                -201.02880999999996,
+                -297.5690000000002,
+                163.5219999999995
+              ],
+              "moment_nmm": [
+                5121.94256539311,
+                -26297.809122533836,
+                36354.47636904817
+              ],
+              "elastic_von_mises_screen_ratio": 0.14180448492397912,
+              "normal_stress_over_net_rupture_allowable_screen": 0.06494360710413807,
+              "saint_venant_torsion_shear_upper_bound_mpa": 9.171991101929883
+            },
+            "governing_net_rupture_section": {
+              "z_mm": 234.525,
+              "net_width_mm": 137.06776537988927,
+              "net_area_mm2": 1305.5704652434454,
+              "force_n": [
+                -201.02880999999996,
+                -297.5690000000002,
+                163.5219999999995
+              ],
+              "moment_nmm": [
+                5121.94256539311,
+                -26297.809122533836,
+                36354.47636904817
+              ],
+              "elastic_von_mises_screen_ratio": 0.14180448492397912,
+              "normal_stress_over_net_rupture_allowable_screen": 0.06494360710413807,
+              "saint_venant_torsion_shear_upper_bound_mpa": 9.171991101929883
+            },
+            "qualification_pass": false,
+            "limits": "Net beam-section elastic screen; actual holes plus1/16in net deduction at bolt bores; equal-twist Saint-Venant strip torsion, no restrained warping; local buckling and bolt-zone stress require separate treatment"
+          },
+          "foot_prying_necessary_check": {
+            "status": "best_case_static_feasibility_only",
+            "qualification_pass": false,
+            "external_force_n": [
+              -0.00010000000003174137,
+              0.0019999999989295247,
+              163.5219999999995
+            ],
+            "external_moment_about_inboard_corner_nmm": [
+              27064.334071248864,
+              -2686.9173872160954,
+              0.20245688830618747
+            ],
+            "in_plane_equilibrium_tolerances": "1N force,100Nmm moment; native printed-force precision allowance",
+            "header_bolt_available_tension_n": [
+              10239.180117683,
+              10071.481183453463,
+              10137.680294669337,
+              9999.231174526794
+            ],
+            "foot_section_upper_bounds": [
+              {
+                "x_outward_mm": 1060.0,
+                "plastic_moment_upper_bound_nmm": 632423.2445438709
+              },
+              {
+                "x_outward_mm": 1110.0,
+                "plastic_moment_upper_bound_nmm": 632423.2445438709
+              },
+              {
+                "x_outward_mm": 1181.1,
+                "plastic_moment_upper_bound_nmm": 718049.8458840325
+              },
+              {
+                "x_outward_mm": 1219.2,
+                "plastic_moment_upper_bound_nmm": 718049.8458840325
+              }
+            ],
+            "solver_success": true,
+            "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "compression_contact_model": "arbitrary nonnegative corner reactions; no wood stress or compatibility limit",
+            "minimum_possible_bolt_utilization": 0.006724295963043576,
+            "best_case_bolt_tensions_n": [
+              68.85127753021185,
+              67.72362026376545,
+              68.16876268007144,
+              67.23778982041
+            ],
+            "best_case_contact_reactions_n": [
+              49.377221764766276,
+              0.0,
+              59.082228529692955,
+              0.0
+            ],
+            "necessary_bolt_and_foot_limits_satisfied": true
+          },
+          "web_root_excludes_LED_and_bolt_holes": true
+        },
+        {
+          "side": "right",
+          "web_to_weld_force_n": [
+            384.5479,
+            -308.96,
+            138.77499999999986
+          ],
+          "web_to_weld_moment_nmm": [
+            10368.951380240149,
+            59886.307254780375,
+            -63628.320866019014
+          ],
+          "weld": {
+            "status": "conditional_elastic_diagnostic_only",
+            "qualification_pass": false,
+            "rotation_detail_gate": "unresolved_single_sided_root_bending",
+            "moment_reference_global_mm": [
+              1230.2250000000001,
+              -128.1469356976076,
+              236.025
+            ],
+            "weld_leg_mm": 6.0,
+            "length_mm": 137.06776537988927,
+            "throat_mm": 4.242640687119285,
+            "E70_required_FEXX_mpa": 482.63301050999996,
+            "ASD_stress_limit_mpa": 144.78990315299998,
+            "direct_force_diagnostic_n": 84199.56788471196,
+            "pure_longitudinal_moment_diagnostic_nmm": 59538.08542425686,
+            "required_leg_pure_longitudinal_moment_diagnostic_mm": 6.0175205911438,
+            "utilization_diagnostic": 1.0279863837871905,
+            "elastic_screen_pass": false,
+            "corners": [
+              {
+                "u_mm": -2.1213203435596424,
+                "v_mm": -68.53388268994463,
+                "traction_uvn_mpa": [
+                  -3.2985277198848495,
+                  -0.4094936402088162,
+                  148.1727124984351
+                ],
+                "resultant_mpa": 148.20998852744077,
+                "utilization_diagnostic": 1.0236210212173895
+              },
+              {
+                "u_mm": -2.1213203435596424,
+                "v_mm": 68.53388268994463,
+                "traction_uvn_mpa": [
+                  4.571189940525829,
+                  -0.4094936402088162,
+                  142.50307422717214
+                ],
+                "resultant_mpa": 142.57696036424912,
+                "utilization_diagnostic": 0.9847161801993027
+              },
+              {
+                "u_mm": 2.1213203435596424,
+                "v_mm": -68.53388268994463,
+                "traction_uvn_mpa": [
+                  -3.2985277198848495,
+                  -0.6530839858284604,
+                  -143.10076617737604
+                ],
+                "resultant_mpa": 143.14026716603348,
+                "utilization_diagnostic": 0.9886066918269617
+              },
+              {
+                "u_mm": 2.1213203435596424,
+                "v_mm": 68.53388268994463,
+                "traction_uvn_mpa": [
+                  4.571189940525829,
+                  -0.6530839858284604,
+                  -148.770404448639
+                ],
+                "resultant_mpa": 148.84204895115,
+                "utilization_diagnostic": 1.0279863837871905
+              }
+            ],
+            "sources": [
+              "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_june-2018.pdf",
+              "https://www.aisc.org/globalassets/modern-steel/archives/2024/january2024.pdf",
+              "https://www.aisc.org/globalassets/modern-steel/archives/2025/january2025.pdf"
+            ],
+            "limits": "Finite-throat elastic traction omits unfused-root notch/fracture, local yielding and prying compatibility; no directional strength increase. A larger leg alone does not resolve the rotation detail."
+          },
+          "web_root_section_screen": {
+            "elastic_von_mises_screen_ratio": 0.2800083947263909,
+            "weak_axis_plastic_upper_bound_nmm": 462072.71270750335,
+            "weak_axis_moment_over_plastic_upper_bound": 0.1289711533020215,
+            "required_thickness_weak_axis_elastic_mm": 4.189448977544072,
+            "saint_venant_torsion_shear_upper_bound_mpa": 16.541152284985383,
+            "torsion_assumption": "Unrestrained Saint-Venant rectangle; restrained warping stresses not included"
+          },
+          "web_perforated_section_screens": {
+            "checked_cut_count": 225,
+            "governing_elastic_section": {
+              "z_mm": 234.525,
+              "net_width_mm": 137.06776537988927,
+              "net_area_mm2": 1305.5704652434454,
+              "force_n": [
+                384.5479,
+                -308.96,
+                138.77499999999986
+              ],
+              "moment_nmm": [
+                10832.39138024018,
+                59594.05066728035,
+                -65563.18286601905
+              ],
+              "elastic_von_mises_screen_ratio": 0.280008394726391,
+              "normal_stress_over_net_rupture_allowable_screen": 0.14615235955277436,
+              "saint_venant_torsion_shear_upper_bound_mpa": 16.54115228498539
+            },
+            "governing_net_rupture_section": {
+              "z_mm": 234.525,
+              "net_width_mm": 137.06776537988927,
+              "net_area_mm2": 1305.5704652434454,
+              "force_n": [
+                384.5479,
+                -308.96,
+                138.77499999999986
+              ],
+              "moment_nmm": [
+                10832.39138024018,
+                59594.05066728035,
+                -65563.18286601905
+              ],
+              "elastic_von_mises_screen_ratio": 0.280008394726391,
+              "normal_stress_over_net_rupture_allowable_screen": 0.14615235955277436,
+              "saint_venant_torsion_shear_upper_bound_mpa": 16.54115228498539
+            },
+            "qualification_pass": false,
+            "limits": "Net beam-section elastic screen; actual holes plus1/16in net deduction at bolt bores; equal-twist Saint-Venant strip torsion, no restrained warping; local buckling and bolt-zone stress require separate treatment"
+          },
+          "foot_prying_necessary_check": {
+            "status": "best_case_static_feasibility_only",
+            "qualification_pass": false,
+            "external_force_n": [
+              -0.00073000000003276,
+              0.0019999999995263806,
+              138.77499999999986
+            ],
+            "external_moment_about_inboard_corner_nmm": [
+              29991.519378804653,
+              37033.598477280386,
+              0.45259793095465284
+            ],
+            "in_plane_equilibrium_tolerances": "1N force,100Nmm moment; native printed-force precision allowance",
+            "header_bolt_available_tension_n": [
+              10119.064309066951,
+              9795.36194572238,
+              9997.991263174254,
+              9731.248211879956
+            ],
+            "foot_section_upper_bounds": [
+              {
+                "x_outward_mm": 1060.0,
+                "plastic_moment_upper_bound_nmm": 632423.2445438709
+              },
+              {
+                "x_outward_mm": 1110.0,
+                "plastic_moment_upper_bound_nmm": 632423.2445438709
+              },
+              {
+                "x_outward_mm": 1181.1,
+                "plastic_moment_upper_bound_nmm": 718049.8458840325
+              },
+              {
+                "x_outward_mm": 1219.2,
+                "plastic_moment_upper_bound_nmm": 718049.8458840325
+              }
+            ],
+            "solver_success": true,
+            "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "compression_contact_model": "arbitrary nonnegative corner reactions; no wood stress or compatibility limit",
+            "minimum_possible_bolt_utilization": 0.011755528940334627,
+            "best_case_bolt_tensions_n": [
+              118.95495333434376,
+              115.14966083399193,
+              117.5316756394577,
+              114.39596998033441
+            ],
+            "best_case_contact_reactions_n": [
+              0.0,
+              0.0,
+              249.93409366543779,
+              77.32316612269015
+            ],
+            "necessary_bolt_and_foot_limits_satisfied": true
+          },
+          "web_root_excludes_LED_and_bolt_holes": true
+        }
+      ],
+      "max_bolt_interaction_ratio": 0.09147572556418752,
+      "max_square_plate_bending_screen_ratio": 0.06070761013806697,
+      "qualified": false,
+      "remaining_conditions": [
+        "Single-sided weld rotation detail must be resolved",
+        "Rigid shoe forces omit flexible plate prying unless explicitly supplied",
+        "Foot plate/contact solution and web sections through LED/bolt holes are not completed by root-section screen",
+        "Fatigue, nut/washer product certification and timber connection resistance are separate checks"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/reinforced_steel_capacity.py": "615ea121201ff228baa399798d6137a5c88eac96df338daac7effd5d6489a5a2",
+    "/home/mckay-linux/repos/mini-moonboard/fea/reinforced_weld_capacity.py": "bc88c7feb6a2b1c7da285d00255e5dc612b10541af3391a03b9dca0c382f98e0",
+    "/home/mckay-linux/repos/mini-moonboard/mini_moonboard/steel_base_reinforcement.py": "3e7d4c07fc9320a060a5ab56bb8f73c6f509bf30fa3ba2099f0f5c4b0783f7e9",
+    "/tmp/reinforced-F10-k1000-v4/report.json": "6b8b1c620af5623b88243e48ad597e9aa2dfcf9449f6f7c00062e1a8fde22a6e"
+  }
+}

@@ -8,6 +8,12 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 development candidate is `round-structural-development`. Its geometry and numerical
 checks do not establish connection strength, actual cable fit or a load rating.
 
+The latest assessed revision is `round-reinforcement-development`, with steel
+base shoes, ten added kicker screws and 142 selectable T-nuts. Read the
+**[finite release checks and results](docs/reinforced-release-checks.md)** and
+[inspect that revision](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear).
+The older drawing package below is not the reinforced revision's fabrication schedule.
+
 **[Open the 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear)** ·
 **[Read the build-plan draft](docs/round-structural-build-plan.md)** ·
 **[Open the drilling PDF](docs/round-structural-drilling/drilling.pdf)**
@@ -32,7 +38,7 @@ GitHub account, Git, Python or a copy of this repository to inspect the design.
 | Check material assumptions and what was purchased | [Purchased plywood](docs/purchased-materials.md) and [provisional design assumptions](docs/provisional-design-assumptions.md) |
 | Plan panel removal or a move | [Panel removal and temporary-support requirements](docs/round-structural-build-plan.md#removal-maintenance-and-repairs) |
 | Assess a worn panel-screw hole | [Threaded-insert repair guide and replacement limits](docs/threaded-insert-repair-guide.md) |
-| See remaining engineering work | [Current structural-screw analysis](docs/round-structural-analysis.md) and [remaining release gates](docs/round-structural-build-plan.md#receiving-and-qualification-checks) |
+| See remaining engineering work | [Latest reinforced revision: finite release checks and results](docs/reinforced-release-checks.md) |
 | Open the model in CAD software | [STEP assembly](exports/round-structural-development/round-structural-development.step) |
 
 The viewer lets you rotate, pan and zoom, select individual parts, change units
@@ -51,13 +57,13 @@ references, not full-size drill templates.
 
 Four horizontal single-2×6 rails replace the preceding intermediate principals
 and posts. The separated center principals, outer rims and direct base angles
-remain. Panel/kicker attachments now model 56 threaded inserts with machine screws.
-Commercial bracket screws and complete through-bolt stacks remain. Modeled
-inserts are not verified installed hardware or qualified connections.
+remain. Panel/kicker attachments use 56 SPAX structural wood screws.
+Commercial bracket screws and complete through-bolt stacks remain. Future
+insert space is reserved geometrically; no inserts are installed.
 
 Its lighting detail uses **enclosed round timber passages**, with intact factory
 strands installed after frame and panel assembly. The mirrored development
-pattern uses twelve insert/machine-screw connections per main panel and four
+pattern uses twelve structural wood screws per main panel and four
 per kicker: 56 in total.
 The [screw-pattern review](docs/panel-screw-reference-review.md) and
 [historical 87/75-screw comparison](docs/panel-screw-sensitivity.md) explain the

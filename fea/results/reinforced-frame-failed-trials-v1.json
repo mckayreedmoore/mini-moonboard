@@ -1,0 +1,395 @@
+{
+  "description": "Compact preserved debugging history; no archived trial is an authenticated build-release input. Full temporary native outputs are not embedded in this summary.",
+  "trials": [
+    {
+      "candidate": "round-reinforcement-development",
+      "parameters": {
+        "hold": "F10",
+        "stiffness": 1000.0,
+        "pounds": 250.0,
+        "frame_size": 200.0,
+        "panel_size": 200.0
+      },
+      "contact_cycles": [
+        {
+          "directory": "cycle-00",
+          "active_count": 602,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-01",
+          "active_count": 310,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-02",
+          "active_count": 231,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-03",
+          "active_count": 179,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-04",
+          "active_count": 157,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-05",
+          "active_count": 132,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-06",
+          "active_count": 111,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-07",
+          "active_count": 99,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-08",
+          "active_count": 90,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-09",
+          "active_count": 78,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-10",
+          "active_count": 69,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-11",
+          "active_count": 71,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-12",
+          "active_count": 69,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-13",
+          "active_count": 65,
+          "contact_passed": true
+        }
+      ],
+      "contact_active_set_converged": true,
+      "global_equilibrium_passed": false,
+      "mpc_check_passed": false,
+      "force_residual_n": [
+        1.9999999949579313e-06,
+        -0.00010000000230547812,
+        -3780.790757715163
+      ],
+      "moment_residual_nmm": [
+        -4354981.567855217,
+        -42723.12672191625,
+        0.1466211771230519
+      ],
+      "maximum_panel_displacement_mm": 24.000448798489167,
+      "maximum_timber_displacement_mm": 22.739112390825635,
+      "original_run": "reinforced-F10-k1000",
+      "original_report_sha256": "56f333f3149029e4f8d999938bfe531eebbe62409cae7963fe6382da415edd94",
+      "limitations": [
+        "Missing shoe-foot/header contact.",
+        "Raw shell translations and incomplete fixed-node support reactions used.",
+        "Producer snapshot path was absolute; source closure is incomplete."
+      ],
+      "qualified_for_design": false,
+      "source_closure_complete": false
+    },
+    {
+      "candidate": "round-reinforcement-development",
+      "parameters": {
+        "hold": "F10",
+        "stiffness": 1000.0,
+        "pounds": 250.0,
+        "frame_size": 200.0,
+        "panel_size": 200.0
+      },
+      "contact_cycles": [
+        {
+          "directory": "cycle-00",
+          "active_count": 614,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-01",
+          "active_count": 301,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-02",
+          "active_count": 234,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-03",
+          "active_count": 189,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-04",
+          "active_count": 152,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-05",
+          "active_count": 132,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-06",
+          "active_count": 113,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-07",
+          "active_count": 102,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-08",
+          "active_count": 92,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-09",
+          "active_count": 88,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-10",
+          "active_count": 76,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-11",
+          "active_count": 95,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-12",
+          "active_count": 89,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-13",
+          "active_count": 81,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-14",
+          "active_count": 81,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-15",
+          "active_count": 79,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-16",
+          "active_count": 79,
+          "contact_passed": false
+        }
+      ],
+      "contact_active_set_converged": false,
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "force_residual_n": [
+        3.000000006636583e-06,
+        -0.0004000000024007022,
+        0.00034228483684728417
+      ],
+      "moment_residual_nmm": [
+        0.42336995679943357,
+        -0.3857519160374068,
+        0.03204703057599545
+      ],
+      "maximum_panel_displacement_mm": 23.66303936656331,
+      "maximum_timber_displacement_mm": 22.43435534264377,
+      "original_run": "reinforced-F10-k1000-v2",
+      "original_report_sha256": "b3a57d28fc731e42ad2e34a2c1f02a42b5a89cefbc0cfd29a6bd3d21406dca97",
+      "limitations": [
+        "Corner sticking restraint toggled with normal contact; active set cycled.",
+        "Producer snapshot path was absolute; source closure is incomplete."
+      ],
+      "qualified_for_design": false,
+      "source_closure_complete": false
+    },
+    {
+      "candidate": "round-reinforcement-development",
+      "parameters": {
+        "hold": "F10",
+        "stiffness": 1000.0,
+        "pounds": 250.0,
+        "frame_size": 200.0,
+        "panel_size": 200.0
+      },
+      "contact_cycles": [
+        {
+          "directory": "cycle-00",
+          "active_count": 560,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-01",
+          "active_count": 281,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-02",
+          "active_count": 205,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-03",
+          "active_count": 162,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-04",
+          "active_count": 139,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-05",
+          "active_count": 113,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-06",
+          "active_count": 96,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-07",
+          "active_count": 91,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-08",
+          "active_count": 82,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-09",
+          "active_count": 85,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-10",
+          "active_count": 76,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-11",
+          "active_count": 80,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-12",
+          "active_count": 72,
+          "contact_passed": false
+        },
+        {
+          "directory": "cycle-13",
+          "active_count": 70,
+          "contact_passed": true
+        }
+      ],
+      "contact_active_set_converged": true,
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "force_residual_n": [
+        -7.105427357601002e-15,
+        -0.00010000000250443009,
+        0.00034228483725939896
+      ],
+      "moment_residual_nmm": [
+        0.4547420810886251,
+        -0.36110141659901274,
+        0.013077572194561071
+      ],
+      "maximum_panel_displacement_mm": 23.660992002560356,
+      "maximum_timber_displacement_mm": 22.372440874621525,
+      "original_run": "reinforced-F10-k1000-v3",
+      "original_report_sha256": "cdda192eb793c527c0e510c80de270f915c45d0098bca12e1a167464ca248fda",
+      "limitations": [
+        "Contact/equilibrium/MPC checks pass, but assumed floor friction fails necessary force bounds.",
+        "Inactive direct rim/header bearing bypasses were present.",
+        "Transitive import fea/horizontal_frame_stress.py was not captured."
+      ],
+      "qualified_for_design": false,
+      "source_closure_complete": false,
+      "floor_friction_comparisons": [
+        {
+          "body": "base_post_outer_left",
+          "normal_n": 0,
+          "tangential_n": 0.0,
+          "necessary_force_only_mu": null,
+          "sufficient_force_and_yaw_polygon_mu": 0.0
+        },
+        {
+          "body": "base_post_outer_right",
+          "normal_n": 0,
+          "tangential_n": 0.0,
+          "necessary_force_only_mu": null,
+          "sufficient_force_and_yaw_polygon_mu": 0.0
+        },
+        {
+          "body": "lumber_leg_left",
+          "normal_n": 1575.7298999999998,
+          "tangential_n": 431.2019169947411,
+          "necessary_force_only_mu": 0.27365217667998887,
+          "sufficient_force_and_yaw_polygon_mu": 0.2758606391118965
+        },
+        {
+          "body": "lumber_leg_right",
+          "normal_n": 1541.57873,
+          "tangential_n": 424.7401219812441,
+          "necessary_force_only_mu": 0.2755228219717615,
+          "sufficient_force_and_yaw_polygon_mu": 0.2826646073903629
+        },
+        {
+          "body": "base_post_center_left",
+          "normal_n": 416.9228,
+          "tangential_n": 372.3206308708864,
+          "necessary_force_only_mu": 0.8930205564936397,
+          "sufficient_force_and_yaw_polygon_mu": 2.176481010978487
+        },
+        {
+          "body": "base_post_center_right",
+          "normal_n": 246.55966999999998,
+          "tangential_n": 189.10577809469493,
+          "necessary_force_only_mu": 0.7669777384707521,
+          "sufficient_force_and_yaw_polygon_mu": 3.3179553685657277
+        },
+        {
+          "body": "kicker_left",
+          "normal_n": 0,
+          "tangential_n": 0.0,
+          "necessary_force_only_mu": null,
+          "sufficient_force_and_yaw_polygon_mu": 0.0
+        },
+        {
+          "body": "kicker_right",
+          "normal_n": 0,
+          "tangential_n": 0.0,
+          "necessary_force_only_mu": null,
+          "sufficient_force_and_yaw_polygon_mu": 0.0
+        }
+      ]
+    }
+  ]
+}

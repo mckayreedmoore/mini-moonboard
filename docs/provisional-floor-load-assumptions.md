@@ -1,5 +1,11 @@
 # Provisional floor-friction and mass assumptions
 
+> Historical reference. For the reinforced candidate, use the completed
+> [continuous floor envelope](reinforced-floor-envelope.md). The owner has
+> excluded physical floor measurements/tests; the historical measurement
+> handoff below is not a current release requirement. Current mass includes
+> the 142 modeled T-nuts.
+
 Reference checkpoint: 2026-09-11. This document supplies another reviewer with
 sources and assumptions to verify. It does not change any FE input, establish
 a climbing-load rating, or approve the actual floor. Climber-load criteria are

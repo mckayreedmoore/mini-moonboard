@@ -1,0 +1,1034 @@
+{
+  "candidate": "round-reinforcement-development",
+  "checked_date": "2026-09-12",
+  "spax_head": {
+    "product": "XFT08P-2000 carbon steel #8 flat",
+    "reference_lbf": 120,
+    "reference_n": 533.78659383126,
+    "table": "TER2010-02 Table6,19/32-inch plywood column(G=.39),footnotes1-3",
+    "minimum_panel_thickness_mm": 15.081249999999999,
+    "selected_panel_nominal_mm": 18.256249999999998,
+    "selected_panel_G": 0.42,
+    "assigned_table_G": 0.39,
+    "reference_applicability_resolved": true,
+    "dry_normal_temperature_normal_duration_ASD_factors": {
+      "CD": 1,
+      "CM": 1,
+      "Ct": 1
+    },
+    "adjusted_n_under_stated_factors": 533.78659383126,
+    "actual_demand_checked": false,
+    "source_url": "https://www.drjcertification.org/report/download/1936",
+    "pdf_sha256": "e989b7a89cfd6dce92c22bd88d79f0171382f605d5939940fedb62dd661fe8ed"
+  },
+  "ML24Z": {
+    "source_url": "https://ssttoolbox.widen.net/content/iczmiabsx6/pdf/L-C-MLZ25.pdf",
+    "pdf_sha256": "88d9051a9eadc08508a1a1c591914217309d6a2c1a281b375149d0cc57e584ff",
+    "direction_order": [
+      "F1",
+      "F2",
+      "F3",
+      "F4"
+    ],
+    "DF_SP_single_end_lbf": [
+      595,
+      450,
+      450,
+      750
+    ],
+    "DF_SP_bearing_lbf": [
+      595,
+      null,
+      450,
+      750
+    ],
+    "DF_SP_single_end_n": [
+      2646.691861079997,
+      2001.6997268672249,
+      2001.6997268672249,
+      3336.1662114453748
+    ],
+    "DF_SP_bearing_n": [
+      2646.691861079997,
+      null,
+      2001.6997268672249,
+      3336.1662114453748
+    ],
+    "conservative_F3_F4_sign_independent_reference_n": 2001.6997268672249,
+    "fasteners": "Six SDS25112,three per flange",
+    "duration_increase_allowed": false,
+    "null_meaning": "Unlisted, not zero",
+    "station_count": 22,
+    "stations": [
+      {
+        "name": "clip_single_top_left_1",
+        "origin_mm": [
+          -1181.1000000000001,
+          1442.9929485611815,
+          2132.450472293974
+        ],
+        "first_member": "base_rail_top",
+        "second_member": "base_side_left",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_single_top_right_2",
+        "origin_mm": [
+          1181.1000000000001,
+          1442.9929485611815,
+          2132.450472293974
+        ],
+        "first_member": "base_rail_top",
+        "second_member": "base_side_right",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_timber_header_outer_left",
+        "origin_mm": [
+          -1181.1000000000001,
+          -105.85,
+          186.9
+        ],
+        "first_member": "base_header",
+        "second_member": "base_post_outer_left",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "bend_axis": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_timber_header_outer_right",
+        "origin_mm": [
+          1181.1000000000001,
+          -105.85,
+          186.9
+        ],
+        "first_member": "base_header",
+        "second_member": "base_post_outer_right",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "bend_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_top_center_left",
+        "origin_mm": [
+          -89.05,
+          1442.9929485611815,
+          2132.450472293974
+        ],
+        "first_member": "base_rail_top",
+        "second_member": "base_principal_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_base_center_left",
+        "origin_mm": [
+          -89.05,
+          -135.0,
+          225.0
+        ],
+        "first_member": "base_header",
+        "second_member": "base_principal_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bend_axis": [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_header_center_left",
+        "origin_mm": [
+          -89.05,
+          -153.475,
+          186.9
+        ],
+        "first_member": "base_header",
+        "second_member": "base_post_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "bend_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_top_center_right",
+        "origin_mm": [
+          89.05,
+          1442.9929485611815,
+          2132.450472293974
+        ],
+        "first_member": "base_rail_top",
+        "second_member": "base_principal_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_base_center_right",
+        "origin_mm": [
+          89.05,
+          -135.0,
+          225.0
+        ],
+        "first_member": "base_header",
+        "second_member": "base_principal_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bend_axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_split_header_center_right",
+        "origin_mm": [
+          89.05,
+          -153.475,
+          186.9
+        ],
+        "first_member": "base_header",
+        "second_member": "base_post_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "bend_axis": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "classification": "bearing analogy; wood grain/member class applicability unresolved",
+        "F1_axis": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "F2_separation_axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "F3_F4_axis_unsigned": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": null,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_bottom_left_1",
+        "origin_mm": [
+          -1181.1000000000001,
+          -49.68843865290005,
+          353.54206648308326
+        ],
+        "first_member": "base_rail_bottom_left",
+        "second_member": "base_side_left",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_bottom_left_2",
+        "origin_mm": [
+          -89.05,
+          -49.68843865290005,
+          353.54206648308326
+        ],
+        "first_member": "base_rail_bottom_left",
+        "second_member": "base_principal_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_lower_left_1",
+        "origin_mm": [
+          -1181.1000000000001,
+          616.9144519725254,
+          1147.9684562196192
+        ],
+        "first_member": "base_rail_service_lower_left",
+        "second_member": "base_side_left",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_lower_left_2",
+        "origin_mm": [
+          -89.05,
+          616.9144519725254,
+          1147.9684562196192
+        ],
+        "first_member": "base_rail_service_lower_left",
+        "second_member": "base_principal_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_upper_left_1",
+        "origin_mm": [
+          -1181.1000000000001,
+          733.9982150769285,
+          1287.5034515337413
+        ],
+        "first_member": "base_rail_service_upper_left",
+        "second_member": "base_side_left",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_upper_left_2",
+        "origin_mm": [
+          -89.05,
+          733.9982150769285,
+          1287.5034515337413
+        ],
+        "first_member": "base_rail_service_upper_left",
+        "second_member": "base_principal_center_left",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_bottom_right_1",
+        "origin_mm": [
+          89.05,
+          -49.68843865290005,
+          353.54206648308326
+        ],
+        "first_member": "base_rail_bottom_right",
+        "second_member": "base_principal_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_bottom_right_2",
+        "origin_mm": [
+          1181.1000000000001,
+          -49.68843865290005,
+          353.54206648308326
+        ],
+        "first_member": "base_rail_bottom_right",
+        "second_member": "base_side_right",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_lower_right_1",
+        "origin_mm": [
+          89.05,
+          616.9144519725254,
+          1147.9684562196192
+        ],
+        "first_member": "base_rail_service_lower_right",
+        "second_member": "base_principal_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_lower_right_2",
+        "origin_mm": [
+          1181.1000000000001,
+          616.9144519725254,
+          1147.9684562196192
+        ],
+        "first_member": "base_rail_service_lower_right",
+        "second_member": "base_side_right",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          -0.0,
+          -0.6427876096865427,
+          -0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_upper_right_1",
+        "origin_mm": [
+          89.05,
+          733.9982150769285,
+          1287.5034515337413
+        ],
+        "first_member": "base_rail_service_upper_right",
+        "second_member": "base_principal_center_right",
+        "u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          -0.7660444431189752,
+          0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      },
+      {
+        "name": "clip_horizontal_upper_right_2",
+        "origin_mm": [
+          1181.1000000000001,
+          733.9982150769285,
+          1287.5034515337413
+        ],
+        "first_member": "base_rail_service_upper_right",
+        "second_member": "base_side_right",
+        "u": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "v": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "bend_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "classification": "single/end rail joint geometric analogy",
+        "F1_axis": [
+          0.0,
+          0.7660444431189752,
+          -0.6427876096865427
+        ],
+        "F2_separation_axis": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "F3_F4_axis_unsigned": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ],
+        "signed_F3_F4_mapping_released": false,
+        "F2_catalog_allowable_lbf": 450,
+        "independent_moment_allowable": null
+      }
+    ]
+  },
+  "limits": "Force-axis geometry lookup only. Requires loaded-member/grain applicability and source-matched simultaneous force/couple demands. No missing moment or separation rating invented."
+}

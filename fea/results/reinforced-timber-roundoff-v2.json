@@ -1,0 +1,256 @@
+{
+  "source_and_input_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/reinforced_timber_roundoff.py": "df0af873aaa68cf821efcc8ae197a9b581400752025499ab909e15ae4c0916d0",
+    "fea/reinforced_timber_resistance.py": "d86bb65d75dbf7320a2ea45bfdf0ca6241f554d5b0295745604cf858cdcfbc22",
+    "/tmp/reinforced-F10-k1000-v4/report.json": "6b8b1c620af5623b88243e48ad597e9aa2dfcf9449f6f7c00062e1a8fde22a6e",
+    "/tmp/reinforced-F10-k10000-v5/report.json": "526bc6de8ec62863f14dca70cbf866e2e476c1ec3ed56c802f343ed4581db04e",
+    "fea/results/reinforced-frame-k1000-roundoff-v1.json": "7be0a74dfc08595da7b9d26c60325cf8fd5084c7be7dd30d54c5a44c12ed00e4",
+    "fea/results/reinforced-frame-k10000-roundoff-v1.json": "37036074bbf60d579a8ca172b552c0a1a7d398a0a7f7c5f324029ad35850d912"
+  },
+  "cases": [
+    {
+      "native_report": "/tmp/reinforced-F10-k1000-v4/report.json",
+      "roundoff_report": "fea/results/reinforced-frame-k1000-roundoff-v1.json",
+      "members": {
+        "base_side_left": {
+          "maximum_necessary_interaction_lower_bound": 0.5537067369867847,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_side_right": {
+          "maximum_necessary_interaction_lower_bound": 0.5470045849530683,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_top": {
+          "maximum_necessary_interaction_lower_bound": 1.176855238890119,
+          "failure_even_fully_braced_and_after_roundoff": true
+        },
+        "base_header": {
+          "maximum_necessary_interaction_lower_bound": 0.43369308137799684,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_outer_left": {
+          "maximum_necessary_interaction_lower_bound": 0.0018525423405268257,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_outer_right": {
+          "maximum_necessary_interaction_lower_bound": 0.0007981074906488842,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "lumber_leg_left": {
+          "maximum_necessary_interaction_lower_bound": 0.2594847035672576,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "lumber_leg_right": {
+          "maximum_necessary_interaction_lower_bound": 0.24784008680089317,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_principal_center_left": {
+          "maximum_necessary_interaction_lower_bound": 0.5407862261609135,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_center_left": {
+          "maximum_necessary_interaction_lower_bound": 0.028542474305962705,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_principal_center_right": {
+          "maximum_necessary_interaction_lower_bound": 0.09703637423473985,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_center_right": {
+          "maximum_necessary_interaction_lower_bound": 0.02133347439023682,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_bottom_left": {
+          "maximum_necessary_interaction_lower_bound": 0.07289834337009837,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_lower_left": {
+          "maximum_necessary_interaction_lower_bound": 0.04125088319098386,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_upper_left": {
+          "maximum_necessary_interaction_lower_bound": 0.02623521913104237,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_bottom_right": {
+          "maximum_necessary_interaction_lower_bound": 0.07456034558546662,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_lower_right": {
+          "maximum_necessary_interaction_lower_bound": 0.03629839418688013,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_upper_right": {
+          "maximum_necessary_interaction_lower_bound": 0.02862282250642966,
+          "failure_even_fully_braced_and_after_roundoff": false
+        }
+      },
+      "leg_bolts": {
+        "lumber_leg_bolt_left_1": {
+          "lateral_force_lower_bound_n": 468.59747465401387,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.29065724981542534
+        },
+        "lumber_leg_bolt_left_2": {
+          "lateral_force_lower_bound_n": 601.8666248087611,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.37332018925575855
+        },
+        "lumber_leg_bolt_left_3": {
+          "lateral_force_lower_bound_n": 276.11004421722885,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.17126295048399445
+        },
+        "lumber_leg_bolt_left_4": {
+          "lateral_force_lower_bound_n": 712.9236105481427,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.44220557552813006
+        },
+        "lumber_leg_bolt_right_1": {
+          "lateral_force_lower_bound_n": 435.51586572343564,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.2701376994735658
+        },
+        "lumber_leg_bolt_right_2": {
+          "lateral_force_lower_bound_n": 570.7494190570937,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.35401910050704455
+        },
+        "lumber_leg_bolt_right_3": {
+          "lateral_force_lower_bound_n": 272.9636048546583,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.1693113065650617
+        },
+        "lumber_leg_bolt_right_4": {
+          "lateral_force_lower_bound_n": 665.0374342725078,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.4125031869040144
+        }
+      },
+      "qualified_for_design": false,
+      "scope": "Same conditional sticking model; does not repair inadmissible floor friction"
+    },
+    {
+      "native_report": "/tmp/reinforced-F10-k10000-v5/report.json",
+      "roundoff_report": "fea/results/reinforced-frame-k10000-roundoff-v1.json",
+      "members": {
+        "base_side_left": {
+          "maximum_necessary_interaction_lower_bound": 0.43922878690130646,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_side_right": {
+          "maximum_necessary_interaction_lower_bound": 0.439724250105327,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_top": {
+          "maximum_necessary_interaction_lower_bound": 1.029638491824198,
+          "failure_even_fully_braced_and_after_roundoff": true
+        },
+        "base_header": {
+          "maximum_necessary_interaction_lower_bound": 0.33551183887579317,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_outer_left": {
+          "maximum_necessary_interaction_lower_bound": 0.0028809946647709492,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_outer_right": {
+          "maximum_necessary_interaction_lower_bound": 0.003910198986951791,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "lumber_leg_left": {
+          "maximum_necessary_interaction_lower_bound": 0.3620686931892756,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "lumber_leg_right": {
+          "maximum_necessary_interaction_lower_bound": 0.3629918707408124,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_principal_center_left": {
+          "maximum_necessary_interaction_lower_bound": 0.48955126010224526,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_center_left": {
+          "maximum_necessary_interaction_lower_bound": 0.012008374002912808,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_principal_center_right": {
+          "maximum_necessary_interaction_lower_bound": 0.09715775381916483,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_post_center_right": {
+          "maximum_necessary_interaction_lower_bound": 0.0026709701702681823,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_bottom_left": {
+          "maximum_necessary_interaction_lower_bound": 0.05875873426323412,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_lower_left": {
+          "maximum_necessary_interaction_lower_bound": 0.056314912182793095,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_upper_left": {
+          "maximum_necessary_interaction_lower_bound": 0.0337658605278,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_bottom_right": {
+          "maximum_necessary_interaction_lower_bound": 0.06161235261083018,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_lower_right": {
+          "maximum_necessary_interaction_lower_bound": 0.04278278191639024,
+          "failure_even_fully_braced_and_after_roundoff": false
+        },
+        "base_rail_service_upper_right": {
+          "maximum_necessary_interaction_lower_bound": 0.028833163834961383,
+          "failure_even_fully_braced_and_after_roundoff": false
+        }
+      },
+      "leg_bolts": {
+        "lumber_leg_bolt_left_1": {
+          "lateral_force_lower_bound_n": 1018.9003817369783,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.6319939795028096
+        },
+        "lumber_leg_bolt_left_2": {
+          "lateral_force_lower_bound_n": 1035.5747554899465,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.6423366037796703
+        },
+        "lumber_leg_bolt_left_3": {
+          "lateral_force_lower_bound_n": 390.56443956555995,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.24225565014759343
+        },
+        "lumber_leg_bolt_left_4": {
+          "lateral_force_lower_bound_n": 1298.751322726881,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.8055772983767353
+        },
+        "lumber_leg_bolt_right_1": {
+          "lateral_force_lower_bound_n": 1056.2511097562974,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.6551615390222348
+        },
+        "lumber_leg_bolt_right_2": {
+          "lateral_force_lower_bound_n": 1055.1211677305125,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.6544606691724603
+        },
+        "lumber_leg_bolt_right_3": {
+          "lateral_force_lower_bound_n": 415.5896472647511,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.25777805143939986
+        },
+        "lumber_leg_bolt_right_4": {
+          "lateral_force_lower_bound_n": 1323.602883805813,
+          "full_shank_best_bearing_ModeII_capacity_upper_bound_n": 1612.199506296798,
+          "ratio_lower_bound_to_optimistic_ModeII": 0.8209919917703685
+        }
+      },
+      "qualified_for_design": false,
+      "scope": "Same conditional sticking model; does not repair inadmissible floor friction"
+    }
+  ]
+}
