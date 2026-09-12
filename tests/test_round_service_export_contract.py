@@ -17,6 +17,9 @@ def test_saved_screw_audit_matches_recorded_sources_and_requested_layout():
                  for name in ('frame', 'hardware', 'exports', 'drilling')}
     successor |= {f'mini_moonboard/round_structural_{name}.py'
                   for name in ('frame', 'wiring', 'exports', 'drilling')}
+    successor |= {f'mini_moonboard/{name}.py' for name in (
+        'hold_tnut_reinforcement', 'kicker_header_reinforcement',
+        'round_reinforcement_frame', 'steel_base_reinforcement')}
     assert report['source_sha256'] == {path: digest for path, digest in audit.sources().items()
                                      if path not in successor}
     assert report['panel_layout_gate']['passed']
