@@ -5,6 +5,7 @@ import tarfile
 from pathlib import Path
 
 import pytest
+from evidence_assertions import assert_replay_value
 
 from fea import horizontal_frame_stress as stress
 from fea import horizontal_panel_frame as frame
@@ -65,7 +66,7 @@ def test_round_final_cycle_replays_diagnostics_without_qualification(evidence, c
     data = evidence[final+'frame.dat'].decode()
     replay = frame.assess(record, data)
     for key, value in replay.items():
-        assert report[key] == value, key
+        assert_replay_value(report[key], value, key)
     assert report['diagnostic_stress'] == json.loads(json.dumps(stress.assess(record, data)))
     for gate in ('qualified_for_design', 'member_strength_passed', 'plywood_strength_passed'):
         assert report['diagnostic_stress'][gate] is False
