@@ -1,0 +1,4438 @@
+{
+  "candidate": "wider-leg-development",
+  "qualified_for_construction": false,
+  "assumptions": {
+    "climber_lb": 250,
+    "vertical_multiplier": 2,
+    "horizontal_force_n": 300,
+    "equipment_allowance_kg": 25,
+    "equipment_y_mm": 1549.5537675854687,
+    "actual_assembly_mass_kg": 194.58255293440797,
+    "combined_mass_kg": 219.58255293440797,
+    "entire_rear_load_assigned_to_one_leg": true,
+    "no_sliding_assumed": true,
+    "prying_amplification_assumed": 2.0,
+    "plate_minimum_yield_psi_assumed": 33000,
+    "front_resultant_bounds_mm": [
+      -270.95,
+      -36.0
+    ],
+    "front_bounds_basis": "Unchanged prior front bearing footprint; widened members do not change its Y extrema"
+  },
+  "joint_depth_offset_mm": 3.279784672679051,
+  "local_rim_notch_bounds_sq_d_mm": [
+    [
+      1636.6333333333337,
+      75.30312498457653,
+      33.54375003084694
+    ]
+  ],
+  "actual_supported_span_mm": 1641.3393257757232,
+  "joint_centroid_xyz_mm": [
+    0.0,
+    980.159423110034,
+    1585.6718810080795
+  ],
+  "foot_polygon_xyz_mm": [
+    [
+      -1257.3,
+      1308.639830991795,
+      0.0
+    ],
+    [
+      -1219.2,
+      1308.639830991795,
+      0.0
+    ],
+    [
+      -1257.3,
+      1499.3569449119577,
+      0.0
+    ],
+    [
+      -1219.2,
+      1499.3569449119577,
+      0.0
+    ]
+  ],
+  "hardware_dimensional_window": {
+    "minimum_smooth_body_mm": 82.931,
+    "required_smooth_body_mm": 81.1,
+    "minimum_nut_seat_mm": 97.0872,
+    "maximum_nut_seat_mm": 100.3256,
+    "minimum_tip_projection_mm": 12.6028,
+    "smooth_body_margin_mm": 1.831000000000003,
+    "nut_seating_margin_mm": 1.8371999999999957,
+    "two_thread_margin_mm": 8.695107692307692,
+    "dimensional_pass": true
+  },
+  "pressure_scopes": {
+    "middle_third": {
+      "evaluated_unique_load_cases": 212,
+      "hold_positions_scanned": 142,
+      "peak_metrics": {
+        "lateral": 0.8174646162300189,
+        "leg_member": 0.6929096703557749,
+        "leg_parallel": 0.2773813261634665,
+        "rim_parallel": 0.1645238934067361,
+        "leg_splitting": 0.1747563180404228,
+        "rim_splitting": 0.5964356267545954,
+        "wood_plate_bearing": 0.11871842703676014,
+        "plate_plastic_bending": 0.8217164734031295,
+        "washer_bending": 0.1310105525597618,
+        "steel_direct": 0.07594815541502065,
+        "conservative_lateral_plus_axial": 0.8601090457478755
+      },
+      "minimum_placement_margin_mm": -12.754993639790413,
+      "necessary_checks_pass": false,
+      "governing_cases": [
+        {
+          "compression_n": 1771.1736979790319,
+          "joint_moment_nmm": -44534.77488689592,
+          "foot_xyz_mm": [
+            -1238.25,
+            1372.2122022985159,
+            0.0
+          ],
+          "member_moment_transport_allowance_nmm": 5809.068347283904,
+          "member_moment_input_nmm": 50343.84323417982,
+          "NDS_duration_factor": 1.0,
+          "permanent_only": false,
+          "metrics": {
+            "lateral": 0.31559709725709767,
+            "leg_member": 0.20318222249960627,
+            "leg_parallel": 0.1121374681734246,
+            "rim_parallel": 0.06420921688157648,
+            "leg_splitting": 0.05874512326250221,
+            "rim_splitting": 0.24884136647237154,
+            "wood_plate_bearing": 0.04953100432652904,
+            "plate_plastic_bending": 0.3428317171580117,
+            "washer_bending": 0.05465945268672768,
+            "steel_direct": 0.03049861714415919,
+            "conservative_lateral_plus_axial": 0.3333889554856209
+          },
+          "placement": {
+            "minimum_margin_mm": -12.754993639790413,
+            "passes": false,
+            "witnesses": [
+              {
+                "member": "lumber_leg_left",
+                "bolt": 1,
+                "positive_depth_force_n": 143.17419187200846,
+                "minimum_margin_mm": 41.867045609547986
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 1,
+                "positive_depth_force_n": 368.9022881385324,
+                "minimum_margin_mm": 18.822099441378533
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 2,
+                "positive_depth_force_n": 66.71549268491268,
+                "minimum_margin_mm": 3.557476264189809
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 2,
+                "positive_depth_force_n": 235.33612523867316,
+                "minimum_margin_mm": 18.822099441378427
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 3,
+                "positive_depth_force_n": 38.22934959354757,
+                "minimum_margin_mm": 41.86704560954802
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 3,
+                "positive_depth_force_n": 308.8275959201001,
+                "minimum_margin_mm": 41.36145345941544
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 4,
+                "positive_depth_force_n": -38.22934959354821,
+                "minimum_margin_mm": 35.30747626418966
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 4,
+                "positive_depth_force_n": 175.26143302024073,
+                "minimum_margin_mm": 41.361453459415785
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 5,
+                "positive_depth_force_n": -66.71549268491302,
+                "minimum_margin_mm": 10.117045609548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 5,
+                "positive_depth_force_n": 248.7529037016681,
+                "minimum_margin_mm": -12.754993639790413
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 6,
+                "positive_depth_force_n": -143.1741918720088,
+                "minimum_margin_mm": 18.87316873161548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 6,
+                "positive_depth_force_n": 115.1867408018087,
+                "minimum_margin_mm": -12.754993639790072
+              }
+            ]
+          },
+          "lateral": {
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -229.28734271421575,
+                  300.6560650243931
+                ],
+                "demand_n": 378.10944839411025,
+                "reference_n": 1198.0764451901393,
+                "ratio": 0.31559709725709767,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -126.96972583605455,
+                  214.80139043898942
+                ],
+                "demand_n": 249.5214391859065,
+                "reference_n": 1248.9502859117895,
+                "ratio": 0.19978492498902364,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -127.95614957510091,
+                  327.95824841426946
+                ],
+                "demand_n": 352.0360619553646,
+                "reference_n": 1312.5908128607925,
+                "ratio": 0.26819939504840945,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -25.63853269693969,
+                  242.10357382886556
+                ],
+                "demand_n": 243.4573367544322,
+                "reference_n": 1380.8569293742744,
+                "ratio": 0.1763088786213016,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -26.624956435986412,
+                  355.2604318041458
+                ],
+                "demand_n": 356.25673707438335,
+                "reference_n": 1385.393892386256,
+                "ratio": 0.2571519472059697,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  75.6926604421748,
+                  269.40575721874194
+                ],
+                "demand_n": 279.83716848806574,
+                "reference_n": 1402.6623849286395,
+                "ratio": 0.19950429375940132,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9509202912950326,
+            "peak_ratio": 0.31559709725709767
+          },
+          "wood": {
+            "leg": {
+              "rows": [
+                {
+                  "q_mm": -31.157954390452094,
+                  "indices": [
+                    0,
+                    4,
+                    2
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 1049.862444189838,
+                  "ratio": 0.1121374681734246
+                },
+                {
+                  "q_mm": 37.71752373581024,
+                  "indices": [
+                    1,
+                    5,
+                    3
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 721.3112537891933,
+                  "ratio": 0.07704439587543976
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 19256.69415884427,
+                  "demand_n": 1771.1736979790312,
+                  "ratio": 0.09197703839345453
+                }
+              ],
+              "net_tension_ratio": 0.057526849911226245,
+              "parallel_peak_ratio": 0.1121374681734246,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 129.7925237358104,
+                  "demand_n": 372.17855122570506,
+                  "resistance_n": 6883.046503201304,
+                  "ratio": 0.05407177636423128
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 123.2329543904521,
+                  "demand_n": 372.1785512257031,
+                  "resistance_n": 6335.479960823736,
+                  "ratio": 0.05874512326250221
+                }
+              ],
+              "splitting_peak_ratio": 0.05874512326250221,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            },
+            "rim": {
+              "rows": [
+                {
+                  "q_mm": -54.02999363979791,
+                  "indices": [
+                    5,
+                    4
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 510.0621750762352,
+                  "ratio": 0.06420921688157648
+                },
+                {
+                  "q_mm": 0.08645345940817606,
+                  "indices": [
+                    3,
+                    2
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 337.96393248542165,
+                  "ratio": 0.04254461612618798
+                },
+                {
+                  "q_mm": 54.202900558614374,
+                  "indices": [
+                    1,
+                    0
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 165.86568989460784,
+                  "ratio": 0.020880015370799435
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 15162.999814447368,
+                  "demand_n": 848.0261075616568,
+                  "ratio": 0.055927330867184606
+                },
+                {
+                  "rows": [
+                    0,
+                    2
+                  ],
+                  "resistance_n": 22382.246382114594,
+                  "demand_n": 1013.8917974562646,
+                  "ratio": 0.04529892934546795
+                },
+                {
+                  "rows": [
+                    1,
+                    2
+                  ],
+                  "resistance_n": 15162.99981444739,
+                  "demand_n": 503.8296223800295,
+                  "ratio": 0.03322756898671052
+                }
+              ],
+              "net_tension_ratio": 0.04103391601595688,
+              "parallel_peak_ratio": 0.06420921688157648,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 146.27790055861448,
+                  "demand_n": 2178.4006302315347,
+                  "resistance_n": 8754.174039119815,
+                  "ratio": 0.24884136647237154
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 146.1049936397979,
+                  "demand_n": 0.0,
+                  "resistance_n": 8729.09473775967,
+                  "ratio": 0.0
+                }
+              ],
+              "splitting_peak_ratio": 0.24884136647237154,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            }
+          },
+          "member": {
+            "sections": [
+              {
+                "station_mm": -95.00193212330286,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20156081453771582,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": -80.71443212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20156081453771582,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": -46.916918731615326,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960624,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": -32.62941873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960624,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": -29.001932123302783,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": -14.714432123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": 19.083081268384728,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": 33.370581268384726,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": 36.99806787669708,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": 51.28556787669707,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": 85.08308126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": 99.37058126838458,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": -87.85818212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20156081453771582,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": -63.8156754274591,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.18016832278797035,
+                "stability": 0.1430798605320964
+              },
+              {
+                "station_mm": -39.77316873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960624,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": -30.815675427459055,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.18016832278797035,
+                "stability": 0.1430798605320964
+              },
+              {
+                "station_mm": -21.858182123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": 2.184324572540973,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.18016832278797035,
+                "stability": 0.1430798605320964
+              },
+              {
+                "station_mm": 26.22683126838473,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              },
+              {
+                "station_mm": 35.1843245725409,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.18016832278797035,
+                "stability": 0.1430798605320964
+              },
+              {
+                "station_mm": 44.141817876697075,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2015608145377158,
+                "stability": 0.1552388373753691
+              },
+              {
+                "station_mm": 68.18432457254083,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.18016832278797035,
+                "stability": 0.1430798605320964
+              },
+              {
+                "station_mm": 92.22683126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.20318222249960627,
+                "stability": 0.15529163653207412
+              }
+            ],
+            "peak_interaction": 0.20318222249960627,
+            "Cp": 0.1739077750378954,
+            "CL": 0.9299758734534683,
+            "self_weight_moment_nmm": 8082.125045987711,
+            "effective_length_mm": 1641.3393257757232,
+            "meets_member_criteria": true,
+            "scope": "Conditional NDS 3.9-3/4 leg check; full supplied moment, no joint release"
+          },
+          "hardware": [
+            {
+              "tension_n": 516.5923285772177,
+              "plate": {
+                "wood_bearing_ratio": 0.0495310043265289,
+                "radial_strip_moment_nmm_per_mm": 236.46261159928773,
+                "plate_plastic_bending_ratio": 0.3428317171580107,
+                "plate_elastic_first_yield_ratio": 0.30793268008204555,
+                "required_yield_psi_for_plastic_check": 11313.446666214353,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.054659452686727526,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.642845036885898,
+                "direct_shear_stress_mpa": 4.535908890509571,
+                "steel_direct_interaction_ratio": 0.03049861714415919,
+                "remaining_bending_yield_psi": 91181.57452148793,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.3333889554856209
+              }
+            },
+            {
+              "tension_n": 516.5923285772178,
+              "plate": {
+                "wood_bearing_ratio": 0.04953100432652891,
+                "radial_strip_moment_nmm_per_mm": 236.46261159928778,
+                "plate_plastic_bending_ratio": 0.3428317171580108,
+                "plate_elastic_first_yield_ratio": 0.3079326800820456,
+                "required_yield_psi_for_plastic_check": 11313.446666214357,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.05465945268672754,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.642845036885899,
+                "direct_shear_stress_mpa": 2.993330421080603,
+                "steel_direct_interaction_ratio": 0.024161438952388023,
+                "remaining_bending_yield_psi": 91181.57452148793,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.2175767832175469
+              }
+            },
+            {
+              "tension_n": 1.4495071809506044e-12,
+              "plate": {
+                "wood_bearing_ratio": 1.3897911850285528e-16,
+                "radial_strip_moment_nmm_per_mm": 6.634907926014003e-13,
+                "plate_plastic_bending_ratio": 9.619520236524055e-16,
+                "plate_elastic_first_yield_ratio": 8.640287637596458e-16,
+                "required_yield_psi_for_plastic_check": 3.1744416780529385e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 1.533690393631127e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 1.5833267258313493e-14,
+                "direct_shear_stress_mpa": 4.22312510302292,
+                "steel_direct_interaction_ratio": 0.023063104119273453,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.2681993950484095
+              }
+            },
+            {
+              "tension_n": 4.831690603168681e-13,
+              "plate": {
+                "wood_bearing_ratio": 4.63263728342851e-17,
+                "radial_strip_moment_nmm_per_mm": 2.2116359753380013e-13,
+                "plate_plastic_bending_ratio": 3.2065067455080186e-16,
+                "plate_elastic_first_yield_ratio": 2.8800958791988196e-16,
+                "required_yield_psi_for_plastic_check": 1.0581472260176463e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 5.112301312103757e-17,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.277755752771164e-15,
+                "direct_shear_stress_mpa": 2.9205837170542734,
+                "steel_direct_interaction_ratio": 0.015949735021409287,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.17630887862130162
+              }
+            },
+            {
+              "tension_n": 516.5923285772192,
+              "plate": {
+                "wood_bearing_ratio": 0.04953100432652904,
+                "radial_strip_moment_nmm_per_mm": 236.4626115992884,
+                "plate_plastic_bending_ratio": 0.3428317171580117,
+                "plate_elastic_first_yield_ratio": 0.30793268008204644,
+                "required_yield_psi_for_plastic_check": 11313.446666214386,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.05465945268672768,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.642845036885914,
+                "direct_shear_stress_mpa": 4.27375752672357,
+                "steel_direct_interaction_ratio": 0.02934770615590344,
+                "remaining_bending_yield_psi": 91181.57452148793,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.274943805434493
+              }
+            },
+            {
+              "tension_n": 516.5923285772182,
+              "plate": {
+                "wood_bearing_ratio": 0.049531004326528946,
+                "radial_strip_moment_nmm_per_mm": 236.46261159928792,
+                "plate_plastic_bending_ratio": 0.342831717158011,
+                "plate_elastic_first_yield_ratio": 0.3079326800820458,
+                "required_yield_psi_for_plastic_check": 11313.446666214364,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.054659452686727575,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.642845036885903,
+                "direct_shear_stress_mpa": 3.357006564715652,
+                "steel_direct_interaction_ratio": 0.025547072696156865,
+                "remaining_bending_yield_psi": 91181.57452148793,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.2172961519879246
+              }
+            }
+          ],
+          "couple": {
+            "unamplified_signed_axial_n": [
+              258.29616428860885,
+              258.2961642886089,
+              -7.247535904753022e-13,
+              -2.4158453015843406e-13,
+              -258.2961642886096,
+              -258.2961642886091
+            ],
+            "bolt_tension_envelope_n": [
+              516.5923285772177,
+              516.5923285772178,
+              1.4495071809506044e-12,
+              4.831690603168681e-13,
+              516.5923285772192,
+              516.5923285772182
+            ],
+            "peak_tension_n": 516.5923285772192,
+            "amplification_assumed": 2.0,
+            "target_couple_xyz_nmm": [
+              0.0,
+              -65842.14046908212,
+              -17740.185802420772
+            ],
+            "contact_amplification_is_assumed": true
+          },
+          "necessary_checks_pass": false,
+          "load": {
+            "hold": "K1",
+            "front_y_mm": -270.95,
+            "offset_mm": 0.0,
+            "horizontal_n": 0.0
+          }
+        },
+        {
+          "compression_n": 4245.239083923243,
+          "joint_moment_nmm": -128582.36675585971,
+          "foot_xyz_mm": [
+            -1238.25,
+            1372.2122022985159,
+            0.0
+          ],
+          "member_moment_transport_allowance_nmm": 13923.470079309507,
+          "member_moment_input_nmm": 142505.8368351692,
+          "NDS_duration_factor": 1.0,
+          "permanent_only": false,
+          "metrics": {
+            "lateral": 0.8174646162300189,
+            "leg_member": 0.6929096703557749,
+            "leg_parallel": 0.2773813261634665,
+            "rim_parallel": 0.1645238934067361,
+            "leg_splitting": 0.16961098385791645,
+            "rim_splitting": 0.5964356267545954,
+            "wood_plate_bearing": 0.11871842703676014,
+            "plate_plastic_bending": 0.8217164734031295,
+            "washer_bending": 0.1310105525597618,
+            "steel_direct": 0.07594815541502065,
+            "conservative_lateral_plus_axial": 0.8601090457478755
+          },
+          "placement": {
+            "minimum_margin_mm": -12.754993639790413,
+            "passes": false,
+            "witnesses": [
+              {
+                "member": "lumber_leg_left",
+                "bolt": 1,
+                "positive_depth_force_n": 413.3775571116081,
+                "minimum_margin_mm": 41.867045609547986
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 1,
+                "positive_depth_force_n": 946.4128078444572,
+                "minimum_margin_mm": 18.822099441378533
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 2,
+                "positive_depth_force_n": 192.62331448841496,
+                "minimum_margin_mm": 3.557476264189809
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 2,
+                "positive_depth_force_n": 560.7758895535325,
+                "minimum_margin_mm": 18.822099441378427
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 3,
+                "positive_depth_force_n": 110.37712131159554,
+                "minimum_margin_mm": 41.86704560954802
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 3,
+                "positive_depth_force_n": 772.9630457833773,
+                "minimum_margin_mm": 41.36145345941544
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 4,
+                "positive_depth_force_n": -110.3771213115974,
+                "minimum_margin_mm": 35.30747626418966
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 4,
+                "positive_depth_force_n": 387.32612749245214,
+                "minimum_margin_mm": 41.361453459415785
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 5,
+                "positive_depth_force_n": -192.62331448841593,
+                "minimum_margin_mm": 10.117045609548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 5,
+                "positive_depth_force_n": 599.5132837222981,
+                "minimum_margin_mm": -12.754993639790413
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 6,
+                "positive_depth_force_n": -413.3775571116088,
+                "minimum_margin_mm": 18.87316873161548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 6,
+                "positive_depth_force_n": 213.8763654313729,
+                "minimum_margin_mm": -12.754993639790072
+              }
+            ]
+          },
+          "lateral": {
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -624.3462582627188,
+                  728.2900589021383
+                ],
+                "demand_n": 959.2781974496959,
+                "reference_n": 1173.4797793128864,
+                "ratio": 0.8174646162300189,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -328.9312399444291,
+                  480.4074259870308
+                ],
+                "demand_n": 582.2259488848501,
+                "reference_n": 1220.3160080161279,
+                "ratio": 0.47711080167781866,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -331.7792772212059,
+                  807.1178820311104
+                ],
+                "demand_n": 872.6492790851381,
+                "reference_n": 1306.156782867385,
+                "ratio": 0.6681045419137397,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -36.36425890291619,
+                  559.2352491160025
+                ],
+                "demand_n": 560.4162945341576,
+                "reference_n": 1386.720257506892,
+                "ratio": 0.40413074771237506,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -39.21229617969405,
+                  885.9457051600825
+                ],
+                "demand_n": 886.8130562093005,
+                "reference_n": 1389.3009393342554,
+                "ratio": 0.6383160272203199,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  256.2027221385956,
+                  638.0630722449745
+                ],
+                "demand_n": 687.5785911398943,
+                "reference_n": 1398.1315730125903,
+                "ratio": 0.4917838953156254,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9509202912950326,
+            "peak_ratio": 0.8174646162300189
+          },
+          "wood": {
+            "leg": {
+              "rows": [
+                {
+                  "q_mm": -31.157954390452094,
+                  "indices": [
+                    0,
+                    4,
+                    2
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 2596.921812147796,
+                  "ratio": 0.2773813261634665
+                },
+                {
+                  "q_mm": 37.71752373581024,
+                  "indices": [
+                    1,
+                    5,
+                    3
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 1648.3172717754455,
+                  "ratio": 0.17605937485082793
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 19256.69415884427,
+                  "demand_n": 4245.239083923241,
+                  "ratio": 0.22045523748288204
+                }
+              ],
+              "net_tension_ratio": 0.13788327587338367,
+              "parallel_peak_ratio": 0.2773813261634665,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 129.7925237358104,
+                  "demand_n": 1074.566989367433,
+                  "resistance_n": 6883.046503201304,
+                  "ratio": 0.15611793249800826
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 123.2329543904521,
+                  "demand_n": 1074.5669893674278,
+                  "resistance_n": 6335.479960823736,
+                  "ratio": 0.16961098385791645
+                }
+              ],
+              "splitting_peak_ratio": 0.16961098385791645,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            },
+            "rim": {
+              "rows": [
+                {
+                  "q_mm": -54.02999363979791,
+                  "indices": [
+                    5,
+                    4
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 1306.9372124226743,
+                  "ratio": 0.1645238934067361
+                },
+                {
+                  "q_mm": 0.08645345940817606,
+                  "indices": [
+                    3,
+                    2
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 810.0491198466825,
+                  "ratio": 0.1019730969331177
+                },
+                {
+                  "q_mm": 54.202900558614374,
+                  "indices": [
+                    1,
+                    0
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 313.1610272706895,
+                  "ratio": 0.03942230045949913
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 15162.999814447368,
+                  "demand_n": 2116.986332269357,
+                  "ratio": 0.1396152712639542
+                },
+                {
+                  "rows": [
+                    0,
+                    2
+                  ],
+                  "resistance_n": 22382.246382114594,
+                  "demand_n": 2430.147359540046,
+                  "ratio": 0.10857477475906753
+                },
+                {
+                  "rows": [
+                    1,
+                    2
+                  ],
+                  "resistance_n": 15162.99981444739,
+                  "demand_n": 1123.210147117372,
+                  "ratio": 0.07407572122022787
+                }
+              ],
+              "net_tension_ratio": 0.09835217417474677,
+              "parallel_peak_ratio": 0.1645238934067361,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 146.27790055861448,
+                  "demand_n": 5221.301279741235,
+                  "resistance_n": 8754.174039119815,
+                  "ratio": 0.5964356267545954
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 146.1049936397979,
+                  "demand_n": 0.0,
+                  "resistance_n": 8729.09473775967,
+                  "ratio": 0.0
+                }
+              ],
+              "splitting_peak_ratio": 0.5964356267545954,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            }
+          },
+          "member": {
+            "sections": [
+              {
+                "station_mm": -95.00193212330286,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": -80.71443212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": -46.916918731615326,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557747,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": -32.62941873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557747,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": -29.001932123302783,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825651,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": -14.714432123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825651,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": 19.083081268384728,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": 33.370581268384726,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": 36.99806787669708,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": 51.28556787669707,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": 85.08308126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": 99.37058126838458,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": -87.85818212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": -63.8156754274591,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.601555702450099,
+                "stability": 0.3452951696715241
+              },
+              {
+                "station_mm": -39.77316873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557747,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": -30.815675427459055,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.601555702450099,
+                "stability": 0.3452951696715241
+              },
+              {
+                "station_mm": -21.858182123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825651,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": 2.184324572540973,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.601555702450099,
+                "stability": 0.3452951696715241
+              },
+              {
+                "station_mm": 26.22683126838473,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              },
+              {
+                "station_mm": 35.1843245725409,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.601555702450099,
+                "stability": 0.3452951696715241
+              },
+              {
+                "station_mm": 44.141817876697075,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6886264639825652,
+                "stability": 0.3751143494244194
+              },
+              {
+                "station_mm": 68.18432457254083,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.601555702450099,
+                "stability": 0.3452951696715241
+              },
+              {
+                "station_mm": 92.22683126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6929096703557749,
+                "stability": 0.37545131118290537
+              }
+            ],
+            "peak_interaction": 0.6929096703557749,
+            "Cp": 0.1739077750378954,
+            "CL": 0.9299758734534683,
+            "self_weight_moment_nmm": 8082.125045987711,
+            "effective_length_mm": 1641.3393257757232,
+            "meets_member_criteria": true,
+            "scope": "Conditional NDS 3.9-3/4 leg check; full supplied moment, no joint release"
+          },
+          "hardware": [
+            {
+              "tension_n": 1238.1947328109459,
+              "plate": {
+                "wood_bearing_ratio": 0.11871842703675978,
+                "radial_strip_moment_nmm_per_mm": 566.7655983110368,
+                "plate_plastic_bending_ratio": 0.821716473403127,
+                "plate_elastic_first_yield_ratio": 0.7380686886854435,
+                "required_yield_psi_for_plastic_check": 27116.643622303192,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13101055255976143,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.525057605837313,
+                "direct_shear_stress_mpa": 11.507775123748665,
+                "steel_direct_interaction_ratio": 0.07594815541502065,
+                "remaining_bending_yield_psi": 90038.35624217859,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.8601090457478755
+              }
+            },
+            {
+              "tension_n": 1238.1947328109463,
+              "plate": {
+                "wood_bearing_ratio": 0.11871842703675983,
+                "radial_strip_moment_nmm_per_mm": 566.765598311037,
+                "plate_plastic_bending_ratio": 0.8217164734031274,
+                "plate_elastic_first_yield_ratio": 0.7380686886854437,
+                "required_yield_psi_for_plastic_check": 27116.643622303203,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13101055255976146,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.525057605837318,
+                "direct_shear_stress_mpa": 6.984548704214026,
+                "steel_direct_interaction_ratio": 0.057214376069142245,
+                "remaining_bending_yield_psi": 90038.35624217859,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.5197552311956752
+              }
+            },
+            {
+              "tension_n": 3.467448550509289e-12,
+              "plate": {
+                "wood_bearing_ratio": 3.3245985210486954e-16,
+                "radial_strip_moment_nmm_per_mm": 1.5871740528896245e-12,
+                "plate_plastic_bending_ratio": 2.301140135011637e-15,
+                "plate_elastic_first_yield_ratio": 2.0668923368368e-15,
+                "required_yield_psi_for_plastic_check": 7.593762445538403e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 3.668828000450931e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 3.7875658931651883e-14,
+                "direct_shear_stress_mpa": 10.468549887103809,
+                "steel_direct_interaction_ratio": 0.05717028270160935,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.6681045419137398
+              }
+            },
+            {
+              "tension_n": 1.1937117960769683e-12,
+              "plate": {
+                "wood_bearing_ratio": 1.1445339170823377e-16,
+                "radial_strip_moment_nmm_per_mm": 5.464041821423297e-13,
+                "plate_plastic_bending_ratio": 7.921957841843341e-16,
+                "plate_elastic_first_yield_ratio": 7.115530995667671e-16,
+                "required_yield_psi_for_plastic_check": 2.6142460878083024e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 1.263039147696222e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 1.3039161271552289e-14,
+                "direct_shear_stress_mpa": 6.722913864121022,
+                "steel_direct_interaction_ratio": 0.03671481631508955,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.4041307477123751
+              }
+            },
+            {
+              "tension_n": 1238.1947328109495,
+              "plate": {
+                "wood_bearing_ratio": 0.11871842703676014,
+                "radial_strip_moment_nmm_per_mm": 566.7655983110385,
+                "plate_plastic_bending_ratio": 0.8217164734031295,
+                "plate_elastic_first_yield_ratio": 0.7380686886854456,
+                "required_yield_psi_for_plastic_check": 27116.643622303276,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.1310105525597618,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.525057605837352,
+                "direct_shear_stress_mpa": 10.638462601143473,
+                "steel_direct_interaction_ratio": 0.07206905241580755,
+                "remaining_bending_yield_psi": 90038.35624217859,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.6809604567381766
+              }
+            },
+            {
+              "tension_n": 1238.1947328109472,
+              "plate": {
+                "wood_bearing_ratio": 0.1187184270367599,
+                "radial_strip_moment_nmm_per_mm": 566.7655983110375,
+                "plate_plastic_bending_ratio": 0.821716473403128,
+                "plate_elastic_first_yield_ratio": 0.7380686886854443,
+                "required_yield_psi_for_plastic_check": 27116.643622303225,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13101055255976157,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.525057605837327,
+                "direct_shear_stress_mpa": 8.24838907813993,
+                "steel_direct_interaction_ratio": 0.06202949962568589,
+                "remaining_bending_yield_psi": 90038.35624217859,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.534428324833482
+              }
+            }
+          ],
+          "couple": {
+            "unamplified_signed_axial_n": [
+              619.0973664054729,
+              619.0973664054732,
+              -1.7337242752546445e-12,
+              -5.968558980384842e-13,
+              -619.0973664054748,
+              -619.0973664054736
+            ],
+            "bolt_tension_envelope_n": [
+              1238.1947328109459,
+              1238.1947328109463,
+              3.467448550509289e-12,
+              1.1937117960769683e-12,
+              1238.1947328109495,
+              1238.1947328109472
+            ],
+            "peak_tension_n": 1238.1947328109495,
+            "amplification_assumed": 2.0,
+            "target_couple_xyz_nmm": [
+              0.0,
+              -157813.7866474916,
+              -42520.578422336344
+            ],
+            "contact_amplification_is_assumed": true
+          },
+          "necessary_checks_pass": false,
+          "load": {
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "offset_mm": 100.0,
+            "horizontal_n": 300.0
+          }
+        },
+        {
+          "compression_n": 4087.1126127644097,
+          "joint_moment_nmm": 132483.0530904818,
+          "foot_xyz_mm": [
+            -1238.25,
+            1435.7845736052368,
+            0.0
+          ],
+          "member_moment_transport_allowance_nmm": 13404.84930285794,
+          "member_moment_input_nmm": 145887.90239333973,
+          "NDS_duration_factor": 1.0,
+          "permanent_only": false,
+          "metrics": {
+            "lateral": 0.812056145528971,
+            "leg_member": 0.6596156324237874,
+            "leg_parallel": 0.27047331287148446,
+            "rim_parallel": 0.16262315079031364,
+            "leg_splitting": 0.1747563180404228,
+            "rim_splitting": 0.5742196198189045,
+            "wood_plate_bearing": 0.1142964084984069,
+            "plate_plastic_bending": 0.7911092157991035,
+            "washer_bending": 0.12613067749234885,
+            "steel_direct": 0.0743111471526054,
+            "conservative_lateral_plus_axial": 0.8531121572873246
+          },
+          "placement": {
+            "minimum_margin_mm": -12.754993639790413,
+            "passes": false,
+            "witnesses": [
+              {
+                "member": "lumber_leg_left",
+                "bolt": 1,
+                "positive_depth_force_n": -425.91781615915136,
+                "minimum_margin_mm": 10.117045609547986
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 1,
+                "positive_depth_force_n": 181.15602044975765,
+                "minimum_margin_mm": 18.822099441378533
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 2,
+                "positive_depth_force_n": -198.4667528191247,
+                "minimum_margin_mm": 35.30747626418981
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 2,
+                "positive_depth_force_n": 578.4916552541163,
+                "minimum_margin_mm": 18.822099441378427
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 3,
+                "positive_depth_force_n": -113.7255316700123,
+                "minimum_margin_mm": 10.117045609548022
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 3,
+                "positive_depth_force_n": 359.8675702169212,
+                "minimum_margin_mm": 41.36145345941544
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 4,
+                "positive_depth_force_n": 113.72553167001416,
+                "minimum_margin_mm": 3.55747626418966
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 4,
+                "positive_depth_force_n": 757.20320502128,
+                "minimum_margin_mm": 41.361453459415785
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 5,
+                "positive_depth_force_n": 198.4667528191257,
+                "minimum_margin_mm": 41.867045609548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 5,
+                "positive_depth_force_n": 538.5791199840837,
+                "minimum_margin_mm": -12.754993639790413
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 6,
+                "positive_depth_force_n": 425.91781615915227,
+                "minimum_margin_mm": 3.557476264189688
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 6,
+                "positive_depth_force_n": 935.9147547884429,
+                "minimum_margin_mm": -12.754993639790072
+              }
+            ]
+          },
+          "lateral": {
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  276.4152257813348,
+                  611.2475757655411
+                ],
+                "demand_n": 670.8419902801235,
+                "reference_n": 1394.8732110719916,
+                "ratio": 0.4809340268027416,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -27.961529313695053,
+                  866.6499987047192
+                ],
+                "demand_n": 867.1009557003443,
+                "reference_n": 1390.6737257753823,
+                "ratio": 0.6235114244478047,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -25.027093719899312,
+                  530.0284246479421
+                ],
+                "demand_n": 530.6189653177163,
+                "reference_n": 1388.9492727338422,
+                "ratio": 0.38202904579323416,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -329.4038488149292,
+                  785.4308475871206
+                ],
+                "demand_n": 851.7091709941319,
+                "reference_n": 1303.5669156459835,
+                "ratio": 0.6533682013340043,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -326.46941322113236,
+                  448.8092735303429
+                ],
+                "demand_n": 554.9883258013493,
+                "reference_n": 1207.916812416826,
+                "ratio": 0.45945906216084265,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -630.8461683161623,
+                  704.2116964695216
+                ],
+                "demand_n": 945.4528023776044,
+                "reference_n": 1164.2702386812666,
+                "ratio": 0.812056145528971,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9509202912950326,
+            "peak_ratio": 0.812056145528971
+          },
+          "wood": {
+            "leg": {
+              "rows": [
+                {
+                  "q_mm": -31.157954390452094,
+                  "indices": [
+                    0,
+                    4,
+                    2
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 1554.865559529489,
+                  "ratio": 0.1660776496584197
+                },
+                {
+                  "q_mm": 37.71752373581024,
+                  "indices": [
+                    1,
+                    5,
+                    3
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 2532.2470532349234,
+                  "ratio": 0.27047331287148446
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 19256.69415884427,
+                  "demand_n": 4087.1126127644125,
+                  "ratio": 0.21224373088395712
+                }
+              ],
+              "net_tension_ratio": 0.13274740592244366,
+              "parallel_peak_ratio": 0.27047331287148446,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 129.7925237358104,
+                  "demand_n": 1107.1651509724325,
+                  "resistance_n": 6883.046503201304,
+                  "ratio": 0.1608539402512376
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 123.2329543904521,
+                  "demand_n": 1107.1651509724381,
+                  "resistance_n": 6335.479960823736,
+                  "ratio": 0.1747563180404228
+                }
+              ],
+              "splitting_peak_ratio": 0.1747563180404228,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            },
+            "rim": {
+              "rows": [
+                {
+                  "q_mm": -54.02999363979791,
+                  "indices": [
+                    5,
+                    4
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 267.9147124960066,
+                  "ratio": 0.033726464578264705
+                },
+                {
+                  "q_mm": 0.08645345940817606,
+                  "indices": [
+                    3,
+                    2
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 779.8764472940904,
+                  "ratio": 0.09817480768428913
+                },
+                {
+                  "q_mm": 54.202900558614374,
+                  "indices": [
+                    1,
+                    0
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 1291.838182092175,
+                  "ratio": 0.16262315079031364
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 15162.999814447368,
+                  "demand_n": 1047.791159790097,
+                  "ratio": 0.06910183819904538
+                },
+                {
+                  "rows": [
+                    0,
+                    2
+                  ],
+                  "resistance_n": 22382.246382114594,
+                  "demand_n": 2339.629341882272,
+                  "ratio": 0.10453058651663508
+                },
+                {
+                  "rows": [
+                    1,
+                    2
+                  ],
+                  "resistance_n": 15162.99981444739,
+                  "demand_n": 2071.714629386265,
+                  "ratio": 0.13662960197442753
+                }
+              ],
+              "net_tension_ratio": 0.09468875689114829,
+              "parallel_peak_ratio": 0.16262315079031364,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 146.27790055861448,
+                  "demand_n": 5026.818488571903,
+                  "resistance_n": 8754.174039119815,
+                  "ratio": 0.5742196198189045
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 146.1049936397979,
+                  "demand_n": 0.0,
+                  "resistance_n": 8729.09473775967,
+                  "ratio": 0.0
+                }
+              ],
+              "splitting_peak_ratio": 0.5742196198189045,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            }
+          },
+          "member": {
+            "sections": [
+              {
+                "station_mm": -95.00193212330286,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": -80.71443212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": -46.916918731615326,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": -32.62941873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": -29.001932123302783,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": -14.714432123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": 19.083081268384728,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": 33.370581268384726,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": 36.99806787669708,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": 51.28556787669707,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": 85.08308126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": 99.37058126838458,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": -87.85818212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": -63.8156754274591,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.5739194284427604,
+                "stability": 0.33273809824564765
+              },
+              {
+                "station_mm": -39.77316873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": -30.815675427459055,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.5739194284427604,
+                "stability": 0.33273809824564765
+              },
+              {
+                "station_mm": -21.858182123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": 2.184324572540973,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.5739194284427604,
+                "stability": 0.33273809824564765
+              },
+              {
+                "station_mm": 26.22683126838473,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              },
+              {
+                "station_mm": 35.1843245725409,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.5739194284427604,
+                "stability": 0.33273809824564765
+              },
+              {
+                "station_mm": 44.141817876697075,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6553714611417583,
+                "stability": 0.3614963341786205
+              },
+              {
+                "station_mm": 68.18432457254083,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.5739194284427604,
+                "stability": 0.33273809824564765
+              },
+              {
+                "station_mm": 92.22683126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.6596156324237874,
+                "stability": 0.36183752604157504
+              }
+            ],
+            "peak_interaction": 0.6596156324237874,
+            "Cp": 0.1739077750378954,
+            "CL": 0.9299758734534683,
+            "self_weight_moment_nmm": 8082.125045987711,
+            "effective_length_mm": 1641.3393257757232,
+            "meets_member_criteria": true,
+            "scope": "Conditional NDS 3.9-3/4 leg check; full supplied moment, no joint release"
+          },
+          "hardware": [
+            {
+              "tension_n": 1192.0745120562865,
+              "plate": {
+                "wood_bearing_ratio": 0.1142964084984066,
+                "radial_strip_moment_nmm_per_mm": 545.6547392372705,
+                "plate_plastic_bending_ratio": 0.7911092157991014,
+                "plate_elastic_first_yield_ratio": 0.7105771399393127,
+                "required_yield_psi_for_plastic_check": 26106.604121370347,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.12613067749234852,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.021276878968445,
+                "direct_shear_stress_mpa": 8.04761203604492,
+                "steel_direct_interaction_ratio": 0.06014255670842393,
+                "remaining_bending_yield_psi": 90111.42345911573,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.5219900385610952
+              }
+            },
+            {
+              "tension_n": 1192.0745120562865,
+              "plate": {
+                "wood_bearing_ratio": 0.1142964084984066,
+                "radial_strip_moment_nmm_per_mm": 545.6547392372705,
+                "plate_plastic_bending_ratio": 0.7911092157991014,
+                "plate_elastic_first_yield_ratio": 0.7105771399393127,
+                "required_yield_psi_for_plastic_check": 26106.604121370347,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.12613067749234852,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.021276878968445,
+                "direct_shear_stress_mpa": 10.401990615772728,
+                "steel_direct_interaction_ratio": 0.07008999791455728,
+                "remaining_bending_yield_psi": 90111.42345911573,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.6645674362061582
+              }
+            },
+            {
+              "tension_n": 3.296918293926865e-12,
+              "plate": {
+                "wood_bearing_ratio": 3.1610936757512183e-16,
+                "radial_strip_moment_nmm_per_mm": 1.5091163125835774e-12,
+                "plate_plastic_bending_ratio": 2.1879693086995893e-15,
+                "plate_elastic_first_yield_ratio": 1.9652418940415474e-15,
+                "required_yield_psi_for_plastic_check": 7.220298718708646e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 3.488393836494328e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 3.601292160714442e-14,
+                "direct_shear_stress_mpa": 6.365456595913804,
+                "steel_direct_interaction_ratio": 0.034762689869923855,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.38202904579323427
+              }
+            },
+            {
+              "tension_n": 1.1937117960769683e-12,
+              "plate": {
+                "wood_bearing_ratio": 1.1445339170823377e-16,
+                "radial_strip_moment_nmm_per_mm": 5.464041821423297e-13,
+                "plate_plastic_bending_ratio": 7.921957841843341e-16,
+                "plate_elastic_first_yield_ratio": 7.115530995667671e-16,
+                "required_yield_psi_for_plastic_check": 2.6142460878083024e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 1.263039147696222e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 1.3039161271552289e-14,
+                "direct_shear_stress_mpa": 10.21734637219131,
+                "steel_direct_interaction_ratio": 0.05579842355033596,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.6533682013340043
+              }
+            },
+            {
+              "tension_n": 1192.0745120562897,
+              "plate": {
+                "wood_bearing_ratio": 0.1142964084984069,
+                "radial_strip_moment_nmm_per_mm": 545.654739237272,
+                "plate_plastic_bending_ratio": 0.7911092157991035,
+                "plate_elastic_first_yield_ratio": 0.7105771399393145,
+                "required_yield_psi_for_plastic_check": 26106.60412137042,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.12613067749234885,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.02127687896848,
+                "direct_shear_stress_mpa": 6.657798401555563,
+                "steel_direct_interaction_ratio": 0.05484148378693342,
+                "remaining_bending_yield_psi": 90111.42345911573,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.5005150739191963
+              }
+            },
+            {
+              "tension_n": 1192.0745120562876,
+              "plate": {
+                "wood_bearing_ratio": 0.1142964084984067,
+                "radial_strip_moment_nmm_per_mm": 545.6547392372711,
+                "plate_plastic_bending_ratio": 0.7911092157991022,
+                "plate_elastic_first_yield_ratio": 0.7105771399393134,
+                "required_yield_psi_for_plastic_check": 26106.604121370376,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.12613067749234866,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 13.021276878968457,
+                "direct_shear_stress_mpa": 11.341921737411324,
+                "steel_direct_interaction_ratio": 0.0743111471526054,
+                "remaining_bending_yield_psi": 90111.42345911573,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.8531121572873246
+              }
+            }
+          ],
+          "couple": {
+            "unamplified_signed_axial_n": [
+              596.0372560281432,
+              596.0372560281432,
+              -1.6484591469634324e-12,
+              -5.968558980384842e-13,
+              -596.0372560281448,
+              -596.0372560281438
+            ],
+            "bolt_tension_envelope_n": [
+              1192.0745120562865,
+              1192.0745120562865,
+              3.296918293926865e-12,
+              1.1937117960769683e-12,
+              1192.0745120562897,
+              1192.0745120562876
+            ],
+            "peak_tension_n": 1192.0745120562897,
+            "amplification_assumed": 2.0,
+            "target_couple_xyz_nmm": [
+              0.0,
+              -151935.5459431497,
+              -40936.77386277245
+            ],
+            "contact_amplification_is_assumed": true
+          },
+          "necessary_checks_pass": false,
+          "load": {
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "offset_mm": 100.0,
+            "horizontal_n": 300.0
+          }
+        }
+      ]
+    },
+    "whole_foot": {
+      "evaluated_unique_load_cases": 212,
+      "hold_positions_scanned": 142,
+      "peak_metrics": {
+        "lateral": 1.728335171064131,
+        "leg_member": 0.9670156369455103,
+        "leg_parallel": 0.39749144723350666,
+        "rim_parallel": 0.30566103938337025,
+        "leg_splitting": 0.5411861559019095,
+        "rim_splitting": 0.7192931295612343,
+        "wood_plate_bearing": 0.12349638380531695,
+        "plate_plastic_bending": 0.8547873780969344,
+        "washer_bending": 0.13628321976046065,
+        "steel_direct": 0.1266461107192602,
+        "conservative_lateral_plus_axial": 1.7726958736639498
+      },
+      "minimum_placement_margin_mm": -12.927900558621467,
+      "necessary_checks_pass": false,
+      "governing_cases": [
+        {
+          "compression_n": 4416.093510834512,
+          "joint_moment_nmm": -410274.11785823037,
+          "foot_xyz_mm": [
+            -1238.25,
+            1308.639830991795,
+            0.0
+          ],
+          "member_moment_transport_allowance_nmm": 14483.83580995245,
+          "member_moment_input_nmm": 424757.95366818283,
+          "NDS_duration_factor": 1.0,
+          "permanent_only": false,
+          "metrics": {
+            "lateral": 1.728335171064131,
+            "leg_member": 0.9670156369455103,
+            "leg_parallel": 0.39749144723350666,
+            "rim_parallel": 0.30566103938337025,
+            "leg_splitting": 0.5411861559019095,
+            "rim_splitting": 0.7192931295612343,
+            "wood_plate_bearing": 0.12349638380531695,
+            "plate_plastic_bending": 0.8547873780969344,
+            "washer_bending": 0.13628321976046065,
+            "steel_direct": 0.1266461107192602,
+            "conservative_lateral_plus_axial": 1.7726958736639498
+          },
+          "placement": {
+            "minimum_margin_mm": -12.754993639790413,
+            "passes": false,
+            "witnesses": [
+              {
+                "member": "lumber_leg_left",
+                "bolt": 1,
+                "positive_depth_force_n": 1318.9842189510512,
+                "minimum_margin_mm": 41.867045609547986
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 1,
+                "positive_depth_force_n": 1772.1632893915084,
+                "minimum_margin_mm": 18.822099441378533
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 2,
+                "positive_depth_force_n": 614.6127375358914,
+                "minimum_margin_mm": 3.557476264189809
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 2,
+                "positive_depth_force_n": 541.6924988998142,
+                "minimum_margin_mm": 18.822099441378427
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 3,
+                "positive_depth_force_n": 352.18574070757666,
+                "minimum_margin_mm": 41.86704560954802
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 3,
+                "positive_depth_force_n": 1218.7285539938835,
+                "minimum_margin_mm": 41.36145345941544
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 4,
+                "positive_depth_force_n": -352.1857407075827,
+                "minimum_margin_mm": 35.30747626418966
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 4,
+                "positive_depth_force_n": -11.74223649781149,
+                "minimum_margin_mm": 41.1885465405843
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 5,
+                "positive_depth_force_n": -614.6127375358946,
+                "minimum_margin_mm": 10.117045609548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 5,
+                "positive_depth_force_n": 665.2938185962616,
+                "minimum_margin_mm": -12.754993639790413
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 6,
+                "positive_depth_force_n": -1318.9842189510541,
+                "minimum_margin_mm": 18.87316873161548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 6,
+                "positive_depth_force_n": -565.1769718954338,
+                "minimum_margin_mm": 18.995006360209928
+              }
+            ]
+          },
+          "lateral": {
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -1596.285537424654,
+                  854.6176303616854
+                ],
+                "demand_n": 1810.6625337472851,
+                "reference_n": 1047.6339104020346,
+                "ratio": 1.728335171064131,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -653.6902259482773,
+                  63.68625215242071
+                ],
+                "demand_n": 656.7852390344439,
+                "reference_n": 1022.8604786260773,
+                "ratio": 0.6421063798619421,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -662.7775993637594,
+                  1106.137464790692
+                ],
+                "demand_n": 1289.5015460370598,
+                "reference_n": 1246.4144284650665,
+                "ratio": 1.0345688533348047,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  279.8177121126172,
+                  315.2060865814257
+                ],
+                "demand_n": 421.48882432386836,
+                "reference_n": 1338.858099170068,
+                "ratio": 0.31481217059906574,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  270.73033869713174,
+                  1357.6572992196989
+                ],
+                "demand_n": 1384.3873223977423,
+                "reference_n": 1403.1583914666087,
+                "ratio": 0.9866222735914749,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  1213.3256501735086,
+                  566.7259210104323
+                ],
+                "demand_n": 1339.1554812321422,
+                "reference_n": 1177.6669721957207,
+                "ratio": 1.1371257858538153,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9509202912950326,
+            "peak_ratio": 1.728335171064131
+          },
+          "wood": {
+            "leg": {
+              "rows": [
+                {
+                  "q_mm": -31.157954390452094,
+                  "indices": [
+                    0,
+                    4,
+                    2
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 3721.4264699800287,
+                  "ratio": 0.39749144723350666
+                },
+                {
+                  "q_mm": 37.71752373581024,
+                  "indices": [
+                    1,
+                    5,
+                    3
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 694.6670408544777,
+                  "ratio": 0.07419848535020113
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 19256.69415884427,
+                  "demand_n": 4416.093510834507,
+                  "ratio": 0.2293277067396467
+                }
+              ],
+              "net_tension_ratio": 0.1434325435622658,
+              "parallel_peak_ratio": 0.39749144723350666,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 129.7925237358104,
+                  "demand_n": 3428.674045791797,
+                  "resistance_n": 6883.046503201304,
+                  "ratio": 0.4981332095020891
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 123.2329543904521,
+                  "demand_n": 3428.6740457917786,
+                  "resistance_n": 6335.479960823736,
+                  "ratio": 0.5411861559019095
+                }
+              ],
+              "splitting_peak_ratio": 0.5411861559019095,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            },
+            "rim": {
+              "rows": [
+                {
+                  "q_mm": -54.02999363979791,
+                  "indices": [
+                    5,
+                    4
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 2428.0958740158485,
+                  "ratio": 0.30566103938337025
+                },
+                {
+                  "q_mm": 0.08645345940817606,
+                  "indices": [
+                    3,
+                    2
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 842.650458759611,
+                  "ratio": 0.1060771190370448
+                },
+                {
+                  "q_mm": 54.202900558614374,
+                  "indices": [
+                    1,
+                    0
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 742.7949564966293,
+                  "ratio": 0.09350680130928103
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 15162.999814447368,
+                  "demand_n": 3270.7463327754595,
+                  "ratio": 0.21570575564203853
+                },
+                {
+                  "rows": [
+                    0,
+                    2
+                  ],
+                  "resistance_n": 22382.246382114594,
+                  "demand_n": 4013.5412892720888,
+                  "ratio": 0.17931807293834748
+                },
+                {
+                  "rows": [
+                    1,
+                    2
+                  ],
+                  "resistance_n": 15162.99981444739,
+                  "demand_n": 1585.4454152562403,
+                  "ratio": 0.10456014209969317
+                }
+              ],
+              "net_tension_ratio": 0.16243480478267736,
+              "parallel_peak_ratio": 0.30566103938337025,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 146.27790055861448,
+                  "demand_n": 6296.817241322202,
+                  "resistance_n": 8754.174039119815,
+                  "ratio": 0.7192931295612343
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 146.1049936397979,
+                  "demand_n": 865.378812589868,
+                  "resistance_n": 8729.09473775967,
+                  "ratio": 0.0991372918484292
+                }
+              ],
+              "splitting_peak_ratio": 0.7192931295612343,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            }
+          },
+          "member": {
+            "sections": [
+              {
+                "station_mm": -95.00193212330286,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": -80.71443212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": -46.916918731615326,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455102,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": -32.62941873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455102,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": -29.001932123302783,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798775,
+                "stability": 0.4212630654310838
+              },
+              {
+                "station_mm": -14.714432123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798775,
+                "stability": 0.4212630654310838
+              },
+              {
+                "station_mm": 19.083081268384728,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": 33.370581268384726,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": 36.99806787669708,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": 51.28556787669707,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": 85.08308126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": 99.37058126838458,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": -87.85818212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": -63.8156754274591,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.8447476072545919,
+                "stability": 0.38578821051411816
+              },
+              {
+                "station_mm": -39.77316873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455102,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": -30.815675427459055,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.8447476072545919,
+                "stability": 0.38578821051411816
+              },
+              {
+                "station_mm": -21.858182123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798775,
+                "stability": 0.4212630654310838
+              },
+              {
+                "station_mm": 2.184324572540973,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.8447476072545919,
+                "stability": 0.38578821051411816
+              },
+              {
+                "station_mm": 26.22683126838473,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              },
+              {
+                "station_mm": 35.1843245725409,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.8447476072545919,
+                "stability": 0.38578821051411816
+              },
+              {
+                "station_mm": 44.141817876697075,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9572778042798776,
+                "stability": 0.4212630654310839
+              },
+              {
+                "station_mm": 68.18432457254083,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.8447476072545919,
+                "stability": 0.38578821051411816
+              },
+              {
+                "station_mm": 92.22683126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.9670156369455103,
+                "stability": 0.4231267216481682
+              }
+            ],
+            "peak_interaction": 0.9670156369455103,
+            "Cp": 0.1739077750378954,
+            "CL": 0.9299758734534683,
+            "self_weight_moment_nmm": 8082.125045987711,
+            "effective_length_mm": 1641.3393257757232,
+            "meets_member_criteria": true,
+            "scope": "Conditional NDS 3.9-3/4 leg check; full supplied moment, no joint release"
+          },
+          "hardware": [
+            {
+              "tension_n": 1288.0272739933994,
+              "plate": {
+                "wood_bearing_ratio": 0.12349638380531659,
+                "radial_strip_moment_nmm_per_mm": 589.5757179717099,
+                "plate_plastic_bending_ratio": 0.854787378096932,
+                "plate_elastic_first_yield_ratio": 0.7677730940990407,
+                "required_yield_psi_for_plastic_check": 28207.983477198755,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13628321976046023,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 14.06938877788798,
+                "direct_shear_stress_mpa": 21.72122468618224,
+                "steel_direct_interaction_ratio": 0.1266461107192602,
+                "remaining_bending_yield_psi": 89959.40768040833,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 1.7726958736639498
+              }
+            },
+            {
+              "tension_n": 1288.0272739933998,
+              "plate": {
+                "wood_bearing_ratio": 0.12349638380531663,
+                "radial_strip_moment_nmm_per_mm": 589.5757179717101,
+                "plate_plastic_bending_ratio": 0.8547873780969323,
+                "plate_elastic_first_yield_ratio": 0.7677730940990409,
+                "required_yield_psi_for_plastic_check": 28207.983477198766,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13628321976046026,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 14.069388777887983,
+                "direct_shear_stress_mpa": 7.878983234998666,
+                "steel_direct_interaction_ratio": 0.06180052460371548,
+                "remaining_bending_yield_psi": 89959.40768040833,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.6864670824617609
+              }
+            },
+            {
+              "tension_n": 3.581135388230905e-12,
+              "plate": {
+                "wood_bearing_ratio": 3.433601751247013e-16,
+                "radial_strip_moment_nmm_per_mm": 1.6392125464269892e-12,
+                "plate_plastic_bending_ratio": 2.3765873525530023e-15,
+                "plate_elastic_first_yield_ratio": 2.1346592987003016e-15,
+                "required_yield_psi_for_plastic_check": 7.842738263424908e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 3.7891174430886664e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 3.9117483814656865e-14,
+                "direct_shear_stress_mpa": 15.469228689833624,
+                "steel_direct_interaction_ratio": 0.08447972134737601,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 1.034568853334805
+              }
+            },
+            {
+              "tension_n": 1.3073986337985843e-12,
+              "plate": {
+                "wood_bearing_ratio": 1.2535371472806557e-16,
+                "radial_strip_moment_nmm_per_mm": 5.984426756796945e-13,
+                "plate_plastic_bending_ratio": 8.676430017256993e-16,
+                "plate_elastic_first_yield_ratio": 7.793200614302688e-16,
+                "required_yield_psi_for_plastic_check": 2.863221905694808e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 1.3833285903339577e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 1.428098615455727e-14,
+                "direct_shear_stress_mpa": 5.056300268668033,
+                "steel_direct_interaction_ratio": 0.027613195609840845,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.3148121705990658
+              }
+            },
+            {
+              "tension_n": 1288.0272739934032,
+              "plate": {
+                "wood_bearing_ratio": 0.12349638380531695,
+                "radial_strip_moment_nmm_per_mm": 589.5757179717116,
+                "plate_plastic_bending_ratio": 0.8547873780969344,
+                "plate_elastic_first_yield_ratio": 0.7677730940990429,
+                "required_yield_psi_for_plastic_check": 28207.98347719884,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13628321976046065,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 14.06938877788802,
+                "direct_shear_stress_mpa": 16.607505552274567,
+                "steel_direct_interaction_ratio": 0.10096355574382995,
+                "remaining_bending_yield_psi": 89959.40768040833,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 1.0309829761912939
+              }
+            },
+            {
+              "tension_n": 1288.0272739934007,
+              "plate": {
+                "wood_bearing_ratio": 0.12349638380531672,
+                "radial_strip_moment_nmm_per_mm": 589.5757179717104,
+                "plate_plastic_bending_ratio": 0.8547873780969327,
+                "plate_elastic_first_yield_ratio": 0.7677730940990414,
+                "required_yield_psi_for_plastic_check": 28207.983477198784,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.13628321976046037,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 14.069388777887994,
+                "direct_shear_stress_mpa": 16.064891472281218,
+                "steel_direct_interaction_ratio": 0.09831023656350422,
+                "remaining_bending_yield_psi": 89959.40768040833,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 1.1814864884536342
+              }
+            }
+          ],
+          "couple": {
+            "unamplified_signed_axial_n": [
+              644.0136369966997,
+              644.0136369966999,
+              -1.7905676941154525e-12,
+              -6.536993168992922e-13,
+              -644.0136369967016,
+              -644.0136369967004
+            ],
+            "bolt_tension_envelope_n": [
+              1288.0272739933994,
+              1288.0272739933998,
+              3.581135388230905e-12,
+              1.3073986337985843e-12,
+              1288.0272739934032,
+              1288.0272739934007
+            ],
+            "peak_tension_n": 1288.0272739934032,
+            "amplification_assumed": 2.0,
+            "target_couple_xyz_nmm": [
+              0.0,
+              -164165.1801834798,
+              -44231.86697750769
+            ],
+            "contact_amplification_is_assumed": true
+          },
+          "necessary_checks_pass": false,
+          "load": {
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "offset_mm": 100.0,
+            "horizontal_n": 300.0
+          }
+        },
+        {
+          "compression_n": 1643.9667045248873,
+          "joint_moment_nmm": 171237.02021819667,
+          "foot_xyz_mm": [
+            -1238.25,
+            1499.3569449119577,
+            0.0
+          ],
+          "member_moment_transport_allowance_nmm": 5391.856799895416,
+          "member_moment_input_nmm": 176628.87701809208,
+          "NDS_duration_factor": 1.0,
+          "permanent_only": false,
+          "metrics": {
+            "lateral": 0.7046616561617192,
+            "leg_member": 0.2812719245348784,
+            "leg_parallel": 0.15526409287730533,
+            "rim_parallel": 0.12278981492559168,
+            "leg_splitting": 0.22587606842897728,
+            "rim_splitting": 0.281556330597113,
+            "wood_plate_bearing": 0.04597365128411921,
+            "plate_plastic_bending": 0.3182092918983359,
+            "washer_bending": 0.050733770723371194,
+            "steel_direct": 0.050804799413662026,
+            "conservative_lateral_plus_axial": 0.7211756900888793
+          },
+          "placement": {
+            "minimum_margin_mm": -12.927900558621467,
+            "passes": false,
+            "witnesses": [
+              {
+                "member": "lumber_leg_left",
+                "bolt": 1,
+                "positive_depth_force_n": -550.5073743063867,
+                "minimum_margin_mm": 10.117045609547986
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 1,
+                "positive_depth_force_n": -263.10974926907636,
+                "minimum_margin_mm": -12.927900558621467
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 2,
+                "positive_depth_force_n": -256.52228396274734,
+                "minimum_margin_mm": 35.30747626418981
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 2,
+                "positive_depth_force_n": 250.45457872037406,
+                "minimum_margin_mm": 18.822099441378427
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 3,
+                "positive_depth_force_n": -146.99254517181842,
+                "minimum_margin_mm": 10.117045609548022
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 3,
+                "positive_depth_force_n": -32.121463999074265,
+                "minimum_margin_mm": 41.188546540584625
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 4,
+                "positive_depth_force_n": 146.9925451718209,
+                "minimum_margin_mm": 3.55747626418966
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 4,
+                "positive_depth_force_n": 481.4428639903766,
+                "minimum_margin_mm": 41.361453459415785
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 5,
+                "positive_depth_force_n": 256.5222839627487,
+                "minimum_margin_mm": 41.867045609548
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 5,
+                "positive_depth_force_n": 198.86682127092675,
+                "minimum_margin_mm": -12.754993639790413
+              },
+              {
+                "member": "lumber_leg_left",
+                "bolt": 6,
+                "positive_depth_force_n": 550.5073743063881,
+                "minimum_margin_mm": 3.557476264189688
+              },
+              {
+                "member": "base_side_left",
+                "bolt": 6,
+                "positive_depth_force_n": 712.4311492603777,
+                "minimum_margin_mm": -12.754993639790072
+              }
+            ]
+          },
+          "lateral": {
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  515.0451324309709,
+                  204.48078090559588
+                ],
+                "demand_n": 554.1514939081177,
+                "reference_n": 1152.8741221463117,
+                "ratio": 0.4806695572942959,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  121.63203279052092,
+                  534.5935677142095
+                ],
+                "demand_n": 548.2559931657487,
+                "reference_n": 1403.227554421961,
+                "ratio": 0.3907106808429191,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  125.4248500254968,
+                  99.50338872147594
+                ],
+                "demand_n": 160.10095993146172,
+                "reference_n": 1277.365195123416,
+                "ratio": 0.12533687354460377,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -267.98824961495313,
+                  429.6161755300903
+                ],
+                "demand_n": 506.3474698354755,
+                "reference_n": 1238.7564002469744,
+                "ratio": 0.40875467503903395,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -264.19543237997595,
+                  -5.474003462644021
+                ],
+                "demand_n": 264.25213566658545,
+                "reference_n": 1040.1819693073785,
+                "ratio": 0.2540441417596787,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -657.608532020426,
+                  324.63878334597035
+                ],
+                "demand_n": 733.3752934469578,
+                "reference_n": 1040.7481193763847,
+                "ratio": 0.7046616561617192,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9509202912950326,
+            "peak_ratio": 0.7046616561617192
+          },
+          "wood": {
+            "leg": {
+              "rows": [
+                {
+                  "q_mm": -31.157954390452094,
+                  "indices": [
+                    0,
+                    4,
+                    2
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 190.34069799698062,
+                  "ratio": 0.020330591004438597
+                },
+                {
+                  "q_mm": 37.71752373581024,
+                  "indices": [
+                    1,
+                    5,
+                    3
+                  ],
+                  "critical_spacing_mm": 65.99999999999986,
+                  "resistance_n": 9362.280612276605,
+                  "demand_n": 1453.6260065279098,
+                  "ratio": 0.15526409287730533
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 19256.69415884427,
+                  "demand_n": 1643.9667045248905,
+                  "ratio": 0.0853711800667429
+                }
+              ],
+              "net_tension_ratio": 0.053395229377088585,
+              "parallel_peak_ratio": 0.15526409287730533,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 129.7925237358104,
+                  "demand_n": 1431.0333051614286,
+                  "resistance_n": 6883.046503201304,
+                  "ratio": 0.2079069645244813
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 123.2329543904521,
+                  "demand_n": 1431.0333051614366,
+                  "resistance_n": 6335.479960823736,
+                  "ratio": 0.22587606842897728
+                }
+              ],
+              "splitting_peak_ratio": 0.22587606842897728,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            },
+            "rim": {
+              "rows": [
+                {
+                  "q_mm": -54.02999363979791,
+                  "indices": [
+                    5,
+                    4
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 348.02976080760027,
+                  "ratio": 0.043811753713355425
+                },
+                {
+                  "q_mm": 0.08645345940817606,
+                  "indices": [
+                    3,
+                    2
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 313.69111508955183,
+                  "ratio": 0.03948903060611807
+                },
+                {
+                  "q_mm": 54.202900558614374,
+                  "indices": [
+                    1,
+                    0
+                  ],
+                  "critical_spacing_mm": 84.0,
+                  "resistance_n": 7943.753246780168,
+                  "demand_n": 975.411990986705,
+                  "ratio": 0.12278981492559168
+                }
+              ],
+              "group_tear_out": [
+                {
+                  "rows": [
+                    0,
+                    1
+                  ],
+                  "resistance_n": 15162.999814447368,
+                  "demand_n": 661.7208758971522,
+                  "ratio": 0.043640498845529355
+                },
+                {
+                  "rows": [
+                    0,
+                    2
+                  ],
+                  "resistance_n": 22382.246382114594,
+                  "demand_n": 1637.132866883857,
+                  "ratio": 0.0731442608098565
+                },
+                {
+                  "rows": [
+                    1,
+                    2
+                  ],
+                  "resistance_n": 15162.99981444739,
+                  "demand_n": 1289.1031060762568,
+                  "ratio": 0.08501636363854548
+                }
+              ],
+              "net_tension_ratio": 0.06625753629254771,
+              "parallel_peak_ratio": 0.12278981492559168,
+              "splitting": [
+                {
+                  "force_sign": -1,
+                  "he_mm": 146.27790055861448,
+                  "demand_n": 2464.7931198630827,
+                  "resistance_n": 8754.174039119815,
+                  "ratio": 0.281556330597113
+                },
+                {
+                  "force_sign": 1,
+                  "he_mm": 146.1049936397979,
+                  "demand_n": 442.8468199022259,
+                  "resistance_n": 8729.09473775967,
+                  "ratio": 0.05073227330052818
+                }
+              ],
+              "splitting_peak_ratio": 0.281556330597113,
+              "splitting_basis": {
+                "kmod": 0.8,
+                "gammaM": 1.3,
+                "additional_load_factor": 1.5
+              },
+              "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+            }
+          },
+          "member": {
+            "sections": [
+              {
+                "station_mm": -95.00193212330286,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": -80.71443212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": -46.916918731615326,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.28127192453487837,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": -32.62941873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.28127192453487837,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": -29.001932123302783,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.27786706808825445,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": -14.714432123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.27786706808825445,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": 19.083081268384728,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": 33.370581268384726,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": 36.99806787669708,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": 51.28556787669707,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": 85.08308126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": 99.37058126838458,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": -87.85818212330287,
+                "removed_intervals_mm": [
+                  [
+                    -38.301704390452095,
+                    -24.014204390452093
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823074,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": -63.8156754274591,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.2530710553859177,
+                "stability": 0.13783026742893068
+              },
+              {
+                "station_mm": -39.77316873161533,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581024,
+                    44.86127373581024
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.17250199647002,
+                "strong_modulus_mm3": 199252.3188119585,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.28127192453487837,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": -30.815675427459055,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.2530710553859177,
+                "stability": 0.13783026742893068
+              },
+              {
+                "station_mm": -21.858182123302782,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045205,
+                    -24.014204390452054
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.620762518823069,
+                "strong_modulus_mm3": 203228.81146411816,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.27786706808825445,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": 2.184324572540973,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.2530710553859177,
+                "stability": 0.13783026742893068
+              },
+              {
+                "station_mm": 26.22683126838473,
+                "removed_intervals_mm": [
+                  [
+                    30.573773735810388,
+                    44.861273735810386
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470032,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              },
+              {
+                "station_mm": 35.1843245725409,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.2530710553859177,
+                "stability": 0.13783026742893068
+              },
+              {
+                "station_mm": 44.141817876697075,
+                "removed_intervals_mm": [
+                  [
+                    -38.30170439045207,
+                    -24.014204390452075
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": 2.6207625188230708,
+                "strong_modulus_mm3": 203228.81146411813,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2778670680882545,
+                "stability": 0.14993088467424
+              },
+              {
+                "station_mm": 68.18432457254083,
+                "removed_intervals_mm": [],
+                "area_mm2": 7016.115000000001,
+                "centroid_mm": 0.0,
+                "strong_modulus_mm3": 215336.26287500001,
+                "weak_modulus_mm3": 44552.330250000006,
+                "interaction": 0.2530710553859177,
+                "stability": 0.13783026742893068
+              },
+              {
+                "station_mm": 92.22683126838459,
+                "removed_intervals_mm": [
+                  [
+                    30.57377373581036,
+                    44.86127373581036
+                  ]
+                ],
+                "area_mm2": 6471.7612500000005,
+                "centroid_mm": -3.172501996470029,
+                "strong_modulus_mm3": 199252.31881195845,
+                "weak_modulus_mm3": 41095.683937500005,
+                "interaction": 0.2812719245348784,
+                "stability": 0.15025870217942397
+              }
+            ],
+            "peak_interaction": 0.2812719245348784,
+            "Cp": 0.1739077750378954,
+            "CL": 0.9299758734534683,
+            "self_weight_moment_nmm": 8082.125045987711,
+            "effective_length_mm": 1641.3393257757232,
+            "meets_member_criteria": true,
+            "scope": "Conditional NDS 3.9-3/4 leg check; full supplied moment, no joint release"
+          },
+          "hardware": [
+            {
+              "tension_n": 479.4902888197588,
+              "plate": {
+                "wood_bearing_ratio": 0.04597365128411907,
+                "radial_strip_moment_nmm_per_mm": 219.47969348110288,
+                "plate_plastic_bending_ratio": 0.3182092918983349,
+                "plate_elastic_first_yield_ratio": 0.2858167292500014,
+                "required_yield_psi_for_plastic_check": 10500.906632645054,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.05073377072337104,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.237571769510178,
+                "direct_shear_stress_mpa": 6.6477595272547685,
+                "steel_direct_interaction_ratio": 0.039883854718351444,
+                "remaining_bending_yield_psi": 91240.35443935063,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.497183591221456
+              }
+            },
+            {
+              "tension_n": 479.4902888197589,
+              "plate": {
+                "wood_bearing_ratio": 0.04597365128411908,
+                "radial_strip_moment_nmm_per_mm": 219.4796934811029,
+                "plate_plastic_bending_ratio": 0.31820929189833497,
+                "plate_elastic_first_yield_ratio": 0.28581672925000146,
+                "required_yield_psi_for_plastic_check": 10500.906632645056,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.05073377072337105,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.23757176951018,
+                "direct_shear_stress_mpa": 6.577035417225536,
+                "steel_direct_interaction_ratio": 0.03953260698544558,
+                "remaining_bending_yield_psi": 91240.35443935063,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.4072247147700792
+              }
+            },
+            {
+              "tension_n": 1.3358203432289883e-12,
+              "plate": {
+                "wood_bearing_ratio": 1.280787954830235e-16,
+                "radial_strip_moment_nmm_per_mm": 6.114522990640356e-13,
+                "plate_plastic_bending_ratio": 8.865048061110405e-16,
+                "plate_elastic_first_yield_ratio": 7.962618018961441e-16,
+                "required_yield_psi_for_plastic_check": 2.925465860166434e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 1.4134009509933916e-16,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 1.4591442375308515e-14,
+                "direct_shear_stress_mpa": 1.9206168230297673,
+                "steel_direct_interaction_ratio": 0.010488769497038343,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.12533687354460382
+              }
+            },
+            {
+              "tension_n": 4.831690603168681e-13,
+              "plate": {
+                "wood_bearing_ratio": 4.63263728342851e-17,
+                "radial_strip_moment_nmm_per_mm": 2.2116359753380013e-13,
+                "plate_plastic_bending_ratio": 3.2065067455080186e-16,
+                "plate_elastic_first_yield_ratio": 2.8800958791988196e-16,
+                "required_yield_psi_for_plastic_check": 1.0581472260176463e-11,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 5.112301312103757e-17,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.277755752771164e-15,
+                "direct_shear_stress_mpa": 6.074288806768513,
+                "steel_direct_interaction_ratio": 0.03317257996945472,
+                "remaining_bending_yield_psi": 92000.0,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.40875467503903395
+              }
+            },
+            {
+              "tension_n": 479.4902888197602,
+              "plate": {
+                "wood_bearing_ratio": 0.04597365128411921,
+                "radial_strip_moment_nmm_per_mm": 219.47969348110354,
+                "plate_plastic_bending_ratio": 0.3182092918983359,
+                "plate_elastic_first_yield_ratio": 0.2858167292500023,
+                "required_yield_psi_for_plastic_check": 10500.906632645085,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.050733770723371194,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.237571769510194,
+                "direct_shear_stress_mpa": 3.170044061572509,
+                "steel_direct_interaction_ratio": 0.02392532630493983,
+                "remaining_bending_yield_psi": 91240.35443935063,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.2705581756868389
+              }
+            },
+            {
+              "tension_n": 479.49028881975926,
+              "plate": {
+                "wood_bearing_ratio": 0.045973651284119114,
+                "radial_strip_moment_nmm_per_mm": 219.47969348110306,
+                "plate_plastic_bending_ratio": 0.3182092918983352,
+                "plate_elastic_first_yield_ratio": 0.2858167292500017,
+                "required_yield_psi_for_plastic_check": 10500.906632645061,
+                "plate_steel_yield_requirement_psi": 33000.0,
+                "minimum_plate_thickness_mm": 4.5
+              },
+              "washer": {
+                "single_washer_elastic_bending_ratio": 0.05073377072337109,
+                "washers_act_compositely": false
+              },
+              "steel": {
+                "axial_stress_mpa": 5.2375717695101836,
+                "direct_shear_stress_mpa": 8.797779393650133,
+                "steel_direct_interaction_ratio": 0.050804799413662026,
+                "remaining_bending_yield_psi": 91240.35443935063,
+                "nds_45000psi_bending_assumption_retained": true,
+                "lateral_ratio_supplied": null,
+                "linear_lateral_axial_interaction_ratio": null,
+                "linear_interaction_is_additional_assessment_screen": true,
+                "conservative_lateral_plus_axial_ratio": 0.7211756900888793
+              }
+            }
+          ],
+          "couple": {
+            "unamplified_signed_axial_n": [
+              239.7451444098794,
+              239.74514440987946,
+              -6.679101716144942e-13,
+              -2.4158453015843406e-13,
+              -239.7451444098801,
+              -239.74514440987963
+            ],
+            "bolt_tension_envelope_n": [
+              479.4902888197588,
+              479.4902888197589,
+              1.3358203432289883e-12,
+              4.831690603168681e-13,
+              479.4902888197602,
+              479.49028881975926
+            ],
+            "peak_tension_n": 479.4902888197602,
+            "amplification_assumed": 2.0,
+            "target_couple_xyz_nmm": [
+              0.0,
+              -61113.30967105582,
+              -16466.07265258189
+            ],
+            "contact_amplification_is_assumed": true
+          },
+          "necessary_checks_pass": false,
+          "load": {
+            "hold": "K1",
+            "front_y_mm": -270.95,
+            "offset_mm": 0.0,
+            "horizontal_n": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/wider_leg_assessment.py": "da781284482031401d85efe52fa7987587042220aa582ca32f3f6f70e2e896d0",
+    "docs/wider-leg-review/review.json": "3ad10c6ce88617acf4ab2808b061c72cc2c02c1044eed931a29d8feeadbdde0f",
+    "fea/wider_leg_wood_checks.py": "856ad16642d666031f876f49de5d3c94a9a14e21c387cdafb4a26dad21e1b3ac",
+    "fea/leg_bolt_pattern_search.py": "a2acf8b0a02fc2a5d4d5768b94d214d693a4422c01e53c0bc4f27680b9cd3c7d",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/leg_completion_assessment.py": "e8acf1a9c54dfe2782ded210537b666378aef97e558b2d01c776fe3363e411b8",
+    "fea/leg_only_load_check.py": "fcac947ee51071ad48109eb85914fe932c9ed02fb2625ec84a0980bc5fc7605c",
+    "fea/round_structural_global_envelope.py": "83548b2a7863b63f56ff52a9003e704d48349cfc4e6da2598a685af63381bf36",
+    "fea/reinforced_timber_resistance.py": "d86bb65d75dbf7320a2ea45bfdf0ca6241f554d5b0295745604cf858cdcfbc22",
+    "mini_moonboard/wider_leg_hardware.py": "9540e573f995d4c3630f072c3fe333778e7d402d29fdfd2ec6fc76b53d7c0e52",
+    "mini_moonboard/wider_leg_frame.py": "d57f0e66e8e4a39102c6b71c21b0b3ec4dc3602b9d54ef327049c54c05abb4fd"
+  },
+  "limits": [
+    "Middle-third pressure is an explicit assessment assumption, not an established installed bound.",
+    "Whole-foot pressure endpoints bound the planar pressure-resultant position; axial load-direction and prying assumptions remain.",
+    "Twofold prying is assumed, not a solved contact bound. Plate33ksi and hardware receipt dimensions require confirmation.",
+    "Local rim net/tear-out/splitting checks do not constitute a whole-frame rating.",
+    "No panel, T-nut or floor-friction qualification is introduced."
+  ]
+}

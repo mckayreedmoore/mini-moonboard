@@ -1,0 +1,426 @@
+{
+  "candidate": "round-reinforcement-development",
+  "source_sha256": {
+    "fea/leg_only_load_check.py": "fcac947ee51071ad48109eb85914fe932c9ed02fb2625ec84a0980bc5fc7605c",
+    "fea/leg_member_capacity.py": "5e8c6ef5024c7afb8875d7a12d6d25c00c828c212036833590ffa03a32dd9ead",
+    "fea/reinforced_timber_resistance.py": "d86bb65d75dbf7320a2ea45bfdf0ca6241f554d5b0295745604cf858cdcfbc22",
+    "fea/round_structural_global_envelope.py": "83548b2a7863b63f56ff52a9003e704d48349cfc4e6da2598a685af63381bf36",
+    "docs/round-reinforcement-review/review.json": "548364b0bc097dadd3d689b8304cc3eb32c87b54b59e32fc1d48728bceb23586",
+    "fea/results/reinforced-F10-k1000-v4.tar.gz": "8cd853bf5e3a5e4d694f93901f5b2d0acab9d7e32e3e3ff06fda7e6619b08d34"
+  },
+  "support_span_mm": 1612.0462863367457,
+  "vertical_cosine": 0.9655662054381139,
+  "member_criterion_compression_full_stock_n": 3930.5254856032525,
+  "member_criterion_compression_support_span_n": 4567.2848517909115,
+  "equipment_allowance": {
+    "mass_kg": 25.0,
+    "y_mm": 1549.5537675854687,
+    "basis": "Assumed maximum equipment mass, placed at rear-most hold projection; not measured kit mass"
+  },
+  "combined_dead_mass_kg": 206.2058086342417,
+  "cases": [
+    {
+      "climber_lb": 150,
+      "vertical_multiplier": 1,
+      "entire_rear_compression_assigned_to_one_leg_n": 2319.1840090002424,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 2319.1840090002424,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.38477321942517356,
+        "NDS_3_9_4_stability": 0.32432751722804926,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 2319.1840090002424,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.32052943991527283,
+        "NDS_3_9_4_stability": 0.2578386795499368,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 150,
+      "vertical_multiplier": 2,
+      "entire_rear_compression_assigned_to_one_leg_n": 3070.2632710650932,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 3070.2632710650932,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.6185702127756607,
+        "NDS_3_9_4_stability": 0.42936002250745037,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 3070.2632710650932,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.4930057820488841,
+        "NDS_3_9_4_stability": 0.3413398356048336,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 200,
+      "vertical_multiplier": 1,
+      "entire_rear_compression_assigned_to_one_leg_n": 2569.543763021859,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 2569.543763021859,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.4547047737813552,
+        "NDS_3_9_4_stability": 0.35933820400199595,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 2569.543763021859,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.37330891380351805,
+        "NDS_3_9_4_stability": 0.28567228031990055,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 200,
+      "vertical_multiplier": 2,
+      "entire_rear_compression_assigned_to_one_leg_n": 3570.982779108326,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 3570.982779108326,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.8219743924816313,
+        "NDS_3_9_4_stability": 0.49938243428965223,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 3570.982779108326,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.6343504965611437,
+        "NDS_3_9_4_stability": 0.3970078625497733,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 250,
+      "vertical_multiplier": 1,
+      "entire_rear_compression_assigned_to_one_leg_n": 2819.903517043476,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 2819.903517043476,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.5323256662476819,
+        "NDS_3_9_4_stability": 0.3943490390951297,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 2819.903517043476,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.4306781762261642,
+        "NDS_3_9_4_stability": 0.31350599900486625,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 250,
+      "vertical_multiplier": 2,
+      "entire_rear_compression_assigned_to_one_leg_n": 4071.70228715156,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 4071.70228715156,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 1.0791069725731885,
+        "NDS_3_9_4_stability": 0.5694054393486021,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 4071.70228715156,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.8018947707792753,
+        "NDS_3_9_4_stability": 0.45267636115472015,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 300,
+      "vertical_multiplier": 1,
+      "entire_rear_compression_assigned_to_one_leg_n": 3070.2632710650932,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 3070.2632710650932,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 0.6185702127756607,
+        "NDS_3_9_4_stability": 0.42936002250745037,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 3070.2632710650932,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.4930057820488841,
+        "NDS_3_9_4_stability": 0.3413398356048336,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "climber_lb": 300,
+      "vertical_multiplier": 2,
+      "entire_rear_compression_assigned_to_one_leg_n": 4572.421795194794,
+      "governing_hold": "K12",
+      "front_support_y_mm": -270.95,
+      "standoff_mm": 100.0,
+      "horizontal_force_n": 300.0,
+      "full_stock_length_check": {
+        "compression_n": 4572.421795194794,
+        "effective_length_mm": 1807.9717682704706,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 6588.831674062113,
+        "Cp": 0.13814528058796763,
+        "CL": 0.9421562205599978,
+        "weak_axis_column_slenderness": 47.45332725119346,
+        "NDS_3_9_3_interaction": 1.415180395293052,
+        "NDS_3_9_4_stability": 0.6394290376842996,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      },
+      "actual_support_span_check": {
+        "compression_n": 4572.421795194794,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 1.002251875483069,
+        "NDS_3_9_4_stability": 0.5083453314196738,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    }
+  ],
+  "climber_rating_established": false,
+  "limits": [
+    "Panel construction accepted as owner-specified design basis; no comparison frame.",
+    "Feet assumed prevented from sliding. No friction measurement, coefficient or qualification gate.",
+    "Planar two-force rear-leg idealization; no extra imposed top-joint couples or transverse point loads.",
+    "All rear axial compression assigned to one leg; no equal left/right sharing credit.",
+    "Modeled assembly plus explicit equipment allowance; installed equipment must remain within assumed mass and rearward extent.",
+    "Self-weight bending plus full half-width eccentricity and worst one-bore net section retained.",
+    "Conditional member criterion only; four-bolt joint capacity and additional frame-imposed moments remain separate.",
+    "Reference crossings are allowable-design comparisons, not physical breaking loads."
+  ]
+}

@@ -141,3 +141,70 @@ plywood. Keep published US hold-bolt kit guidance separate from installed bolt
 geometry: wood uses 3.5-inch countersunk bolts; plastic kits contain 2.5- and
 3.5-inch cap heads without a per-hold mapping. Hold recess positions, T-nut
 barrel/thread display assumptions and retention screws remain unresolved.
+
+## Floor scope clarification, 2026-09-12
+
+The owner excludes floor-friction qualification from the current assessment.
+Use an explicit no-slip support assumption for member/connection calculations;
+do not add a friction test or a friction-driven tie as a release prerequisite.
+This does not verify floor properties or imply an installed anchor. The two
+exploratory reinforced-frame stiffness cases do not establish a climber failure
+weight or prove their proposed member/attachment redesigns necessary. See
+`docs/reinforced-assumption-review.md` for the response-model limitations.
+
+## Leg-only scope clarification, 2026-09-12
+
+The owner accepts the panel construction as the design basis and explicitly
+excludes another frame comparison. Current verification concerns the single
+2x6 rear support legs, including their integral attachment assumptions. Do not
+reopen panel, T-nut or floor-friction qualification as prerequisites for this
+task. See `docs/leg-only-assessment.md` for the conditional member result and
+the remaining leg-specific checks; this scope choice is not a whole-frame rating.
+
+## Completed leg assessment, 2026-09-12
+
+The owner authorized explicit assessment assumptions for later confirmation.
+`docs/leg-completion-decision.md` records the resulting negative connection
+decision: the single 2x6 member passes the selected full-contact pressure cases,
+but the existing four-bolt joint and isolated smooth-bolt hardware candidate
+do not pass the lateral connection check. The candidate in
+`mini_moonboard/leg_smooth_hardware.py` is modeled and fit-checked, not selected
+or qualified for construction. Do not equate owner approval of assumptions
+with an established zero joint moment, or describe a nominal-pin model as an
+installed hinge. Preserve the earlier axial-only results as historical evidence.
+
+## Larger-bolt investigation, 2026-09-12
+
+The authorized larger-bolt/wider-pattern search is recorded in
+`docs/leg-bolt-pattern-decision.md`. No passing candidate was found within its
+bounded four-bolt parallelogram search; no new drilling or hardware is selected.
+The corrected calculation uses diameter-dependent perpendicular wood bearing
+and group action. Do not reuse the earlier diameter-only sensitivity as a
+capacity qualification or present the tested family as all possible connections.
+
+## Wider single-stock preference, 2026-09-12
+
+The owner permits larger dimensional-lumber support legs and prefers no custom
+steel fabrication. Preserve the older single-2x6 baseline. The preliminary
+six-bolt option in `docs/wider-leg-feasibility.md` uses single 2x8 legs and
+matching single 2x8 outer rims with six 1/2-inch bolts per leg. Its passing
+lateral/placement screen is not a selected or construction-qualified design;
+The subsequent actual-CAD assessment is recorded in
+`docs/wider-leg-decision.md` and `docs/wider-leg-review/README.md`.
+Catalog hardware and nominal CAD fit are complete, but the actual rear rim
+loaded-edge distance fails and the full-foot-pressure sensitivity fails lateral
+resistance. Keep this candidate unselected. The assumed 2x prying bound and
+BP1/2 plate yield floor remain unverified; do not call the detail build-ready.
+Do not introduce doubled vertical stock or assume custom plate washers have
+been accepted for this option.
+
+## Criterion-source clarification, 2026-09-12
+
+`docs/wider-leg-criteria-review.md` and `docs/wider-leg-criteria-sources.md`
+audit the wider-leg criteria. NDS specifies 4D loaded-edge distance for
+perpendicular loading; using it for this oblique joint is a conservative
+screen, not an explicit oblique minimum. Whole-foot endpoint pressure is a
+limiting sensitivity, not established normal contact. Preserve the historical
+numbers while applying these qualifications to their interpretation. Numerical
+weight crossings are conditional resistance limits, not safe climber ratings
+or physical failure predictions; they do not qualify edge geometry or prying.

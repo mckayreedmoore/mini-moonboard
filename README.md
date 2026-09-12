@@ -8,11 +8,21 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 development candidate is `round-structural-development`. Its geometry and numerical
 checks do not establish connection strength, actual cable fit or a load rating.
 
-The latest assessed revision is `round-reinforcement-development`, with steel
-base shoes, ten added kicker screws and 142 selectable T-nuts. Read the
-**[finite release checks and results](docs/reinforced-release-checks.md)** and
-[inspect that revision](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear).
-The older drawing package below is not the reinforced revision's fabrication schedule.
+The latest support-leg comparison is published as two separately selectable designs:
+
+| Design | Open the model | Review the assessment |
+| --- | --- | --- |
+| Single 2×6 legs and outer rims; four ⅜-inch leg bolts per side | [2×6 leg design](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear) | [150 lb comparison](docs/leg-150-comparison.md) |
+| Single 2×8 legs and outer rims; six ½-inch leg bolts per side | [2×8 leg design](https://mckayreedmoore.github.io/mini-moonboard/?model=wider-leg-development&view=rear) | [CAD, drilling and hardware package](docs/wider-leg-review/README.md) |
+
+Both are **development designs, not released for construction**. Read the
+[criterion-source review and conditional limits](docs/wider-leg-criteria-review.md)
+and [published lumber/bolt specifications](docs/leg-material-basis.md). The 2×6
+comparison retains the preceding reinforcement candidate; both include its
+historical base shoes, added kicker screws and 142 selectable T-nuts. The new
+2×8 leg hardware is catalog hardware, but this is not a fabrication-free redesign
+of the whole board. The older drawing package below does not describe either
+reinforced comparison's complete fabrication schedule.
 
 **[Open the 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear)** ·
 **[Read the build-plan draft](docs/round-structural-build-plan.md)** ·

@@ -1,0 +1,492 @@
+{
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/leg_bolt_pattern_search.py": "a2acf8b0a02fc2a5d4d5768b94d214d693a4422c01e53c0bc4f27680b9cd3c7d",
+    "fea/results/leg-completion-assessment-v2.json": "4b58a36b58d22c7d22db266716cbf52457223ff1e93de0218f177340ede7daa0",
+    "fea/results/reinforced-F10-k1000-v4.tar.gz": "8cd853bf5e3a5e4d694f93901f5b2d0acab9d7e32e3e3ff06fda7e6619b08d34",
+    "docs/round-reinforcement-review/review.json": "548364b0bc097dadd3d689b8304cc3eb32c87b54b59e32fc1d48728bceb23586",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/leg_completion_assessment.py": "e8acf1a9c54dfe2782ded210537b666378aef97e558b2d01c776fe3363e411b8",
+    "fea/leg_attachment_check.py": "c7de32b3585f050c851e4894359681ecff8e8cea6edb602440076262571f0ebf",
+    "fea/leg_only_load_check.py": "fcac947ee51071ad48109eb85914fe932c9ed02fb2625ec84a0980bc5fc7605c"
+  },
+  "search_grid": {
+    "pitches_mm": [
+      38,
+      110,
+      2
+    ],
+    "centre_shifts_mm": [
+      -24,
+      24,
+      4
+    ]
+  },
+  "original_centre_xyz_mm": [
+    -1219.2000000000003,
+    984.6125240353585,
+    1556.5374156887747
+  ],
+  "results": [
+    {
+      "diameter_in": 0.375,
+      "examined_count": 195364,
+      "geometry_passing_count": 13142,
+      "best": {
+        "diameter_in": 0.375,
+        "leg_pitch_mm": 102,
+        "rim_pitch_mm": 44,
+        "shift_leg_mm": -16,
+        "shift_rim_mm": 4,
+        "points_xyz_mm": [
+          [
+            -1219.2000000000003,
+            990.4728967422133,
+            1478.0556799482795
+          ],
+          [
+            -1219.2000000000003,
+            1018.7555515684212,
+            1511.7616354455142
+          ],
+          [
+            -1219.2000000000003,
+            963.9368360335018,
+            1576.5434329029672
+          ],
+          [
+            -1219.2000000000003,
+            992.2194908597096,
+            1610.249388400202
+          ]
+        ],
+        "geometry": {
+          "passes": true,
+          "minimum_margin_mm": 0.3588813994707678,
+          "cross_row_minimum_mm": 35.71875,
+          "parallel_minimum_mm": 38.099999999999994
+        },
+        "cases": [
+          {
+            "joint_moment_nmm": -98690.74719554193,
+            "compression_n": 4153.577875852117,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -798.7642121176145,
+                  1009.6229134048112
+                ],
+                "demand_n": 1287.385992556969,
+                "reference_n": 1004.3689859489942,
+                "ratio": 1.2817858880225794,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -529.1964703865142,
+                  783.4287207409493
+                ],
+                "demand_n": 945.4149696040068,
+                "reference_n": 1024.2680535013378,
+                "ratio": 0.9230151876476269,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -11.095660358452164,
+                  1221.8484935481658
+                ],
+                "demand_n": 1221.8988726014572,
+                "reference_n": 1134.3482154406909,
+                "ratio": 1.0771814650642821,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  258.4720813726481,
+                  995.6543008843048
+                ],
+                "demand_n": 1028.657038919446,
+                "reference_n": 1142.7713145153568,
+                "ratio": 0.9001425095761123,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9877333939453294,
+            "peak_ratio": 1.2817858880225794
+          },
+          {
+            "joint_moment_nmm": 95067.25780113453,
+            "compression_n": 4035.679936870451,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  246.73155920073214,
+                  967.4511674436603
+                ],
+                "demand_n": 998.4178602637904,
+                "reference_n": 1142.8193951112708,
+                "ratio": 0.8736444835770217,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -12.938842800011855,
+                  1185.3405059901438
+                ],
+                "demand_n": 1185.4111222668587,
+                "reference_n": 1134.2035897680573,
+                "ratio": 1.0451484486213567,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -512.0172738947084,
+                  763.0175755132203
+                ],
+                "demand_n": 918.8892802229449,
+                "reference_n": 1025.0760695132662,
+                "ratio": 0.8964108201835774,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -771.6876758954523,
+                  980.9069140597031
+                ],
+                "demand_n": 1248.0706082506128,
+                "reference_n": 1005.0904300195862,
+                "ratio": 1.2417495689679303,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9877333939453294,
+            "peak_ratio": 1.2417495689679303
+          }
+        ],
+        "peak_lateral_ratio": 1.2817858880225794
+      }
+    },
+    {
+      "diameter_in": 0.4375,
+      "examined_count": 184041,
+      "geometry_passing_count": 1696,
+      "best": {
+        "diameter_in": 0.4375,
+        "leg_pitch_mm": 92,
+        "rim_pitch_mm": 46,
+        "shift_leg_mm": -16,
+        "shift_rim_mm": 4,
+        "points_xyz_mm": [
+          [
+            -1219.2000000000003,
+            988.529321842884,
+            1482.117466532351
+          ],
+          [
+            -1219.2000000000003,
+            1018.097551888465,
+            1517.3555109158237
+          ],
+          [
+            -1219.2000000000003,
+            964.5948357134579,
+            1570.9495574326577
+          ],
+          [
+            -1219.2000000000003,
+            994.1630657590389,
+            1606.1876018161304
+          ]
+        ],
+        "geometry": {
+          "passes": true,
+          "minimum_margin_mm": 0.014398735810345897,
+          "cross_row_minimum_mm": 37.703125,
+          "parallel_minimum_mm": 44.449999999999996
+        },
+        "cases": [
+          {
+            "joint_moment_nmm": -98690.74719554147,
+            "compression_n": 4153.577875852117,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -848.8121502405395,
+                  1028.9145238077735
+                ],
+                "demand_n": 1333.8467542032502,
+                "reference_n": 1113.7243430108822,
+                "ratio": 1.1976453263087357,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -520.1099829518282,
+                  753.1006564686392
+                ],
+                "demand_n": 915.245864857988,
+                "reference_n": 1143.9762470080216,
+                "ratio": 0.8000567033203184,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -20.182147793138483,
+                  1252.176557820475
+                ],
+                "demand_n": 1252.3391916907644,
+                "reference_n": 1290.0436776832294,
+                "ratio": 0.9707727058821932,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  308.52001949557297,
+                  976.3626904813405
+                ],
+                "demand_n": 1023.9476089104903,
+                "reference_n": 1299.1529773450604,
+                "ratio": 0.788165540753347,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9861043373363036,
+            "peak_ratio": 1.1976453263087357
+          },
+          {
+            "joint_moment_nmm": 95067.257801135,
+            "compression_n": 4035.679936870451,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  294.94195755267407,
+                  948.8678599736735
+                ],
+                "demand_n": 993.6503278397397,
+                "reference_n": 1299.3023945970124,
+                "ratio": 0.7647567894677261,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -21.691714452186886,
+                  1214.5550573712642
+                ],
+                "demand_n": 1214.7487468040417,
+                "reference_n": 1289.8766198674687,
+                "ratio": 0.9417557680275296,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -503.2644022425331,
+                  733.8030241321012
+                ],
+                "demand_n": 889.7988181549531,
+                "reference_n": 1145.1315132991658,
+                "ratio": 0.777027623308881,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -819.8980742473941,
+                  999.4902215296918
+                ],
+                "demand_n": 1292.754251622503,
+                "reference_n": 1114.696924995458,
+                "ratio": 1.159736088468864,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9861043373363036,
+            "peak_ratio": 1.159736088468864
+          }
+        ],
+        "peak_lateral_ratio": 1.1976453263087357
+      }
+    },
+    {
+      "diameter_in": 0.4724409448818898,
+      "examined_count": 173056,
+      "geometry_passing_count": 225,
+      "best": {
+        "diameter_in": 0.4724409448818898,
+        "leg_pitch_mm": 86,
+        "rim_pitch_mm": 52,
+        "shift_leg_mm": -20,
+        "shift_rim_mm": 0,
+        "points_xyz_mm": [
+          [
+            -1219.2000000000003,
+            984.2899660330067,
+            1475.7895892250801
+          ],
+          [
+            -1219.2000000000003,
+            1017.7149217367069,
+            1515.6239002672667
+          ],
+          [
+            -1219.2000000000003,
+            961.9164246511518,
+            1558.8282828927581
+          ],
+          [
+            -1219.2000000000003,
+            995.3413803548522,
+            1598.6625939349447
+          ]
+        ],
+        "geometry": {
+          "passes": true,
+          "minimum_margin_mm": 0.1933914053031458,
+          "cross_row_minimum_mm": 38.8125,
+          "parallel_minimum_mm": 48.0
+        },
+        "cases": [
+          {
+            "joint_moment_nmm": -85067.9061415422,
+            "compression_n": 4153.577875852117,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -787.5989976491173,
+                  1049.1792346822813
+                ],
+                "demand_n": 1311.9029108841828,
+                "reference_n": 1194.4406594175487,
+                "ratio": 1.0983408012281772,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -452.0919250798386,
+                  767.6553738320277
+                ],
+                "demand_n": 890.8882543257514,
+                "reference_n": 1239.724166785873,
+                "ratio": 0.7186181234455414,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -88.2002056651279,
+                  1237.6218404570875
+                ],
+                "demand_n": 1240.7606925816756,
+                "reference_n": 1369.179769059935,
+                "ratio": 0.906207293315157,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  247.30686690415092,
+                  956.0979796068319
+                ],
+                "demand_n": 987.5646981470194,
+                "reference_n": 1386.4011650369916,
+                "ratio": 0.7123224670116816,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9854436196247462,
+            "peak_ratio": 1.0983408012281772
+          },
+          {
+            "joint_moment_nmm": 108303.41900192147,
+            "compression_n": 4035.679936870451,
+            "bolts": [
+              {
+                "force_xyz_n": [
+                  0.0,
+                  396.3123630941008,
+                  914.9262706594726
+                ],
+                "demand_n": 997.0724998133691,
+                "reference_n": 1379.4447156841843,
+                "ratio": 0.7228071473084268,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -30.835367544987037,
+                  1273.3457738969469
+                ],
+                "demand_n": 1273.7190741261784,
+                "reference_n": 1374.7865073510893,
+                "ratio": 0.9264849977181944,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -494.12074914973255,
+                  675.0123076064174
+                ],
+                "demand_n": 836.5386602903858,
+                "reference_n": 1199.3539917757043,
+                "ratio": 0.6974910376975925,
+                "mode": "II"
+              },
+              {
+                "force_xyz_n": [
+                  0.0,
+                  -921.2684797888203,
+                  1033.431810843894
+                ],
+                "demand_n": 1384.4554595639738,
+                "reference_n": 1160.5573284671736,
+                "ratio": 1.1929229393540752,
+                "mode": "II"
+              }
+            ],
+            "group_factor": 0.9854436196247462,
+            "peak_ratio": 1.1929229393540752
+          }
+        ],
+        "peak_lateral_ratio": 1.1929229393540752
+      }
+    },
+    {
+      "diameter_in": 0.5,
+      "examined_count": 152100,
+      "geometry_passing_count": 0,
+      "best": null
+    },
+    {
+      "diameter_in": 0.625,
+      "examined_count": 97344,
+      "geometry_passing_count": 0,
+      "best": null
+    }
+  ],
+  "qualified_for_construction": false,
+  "limits": [
+    "Same 38.1 by 139.7 mm leg and rim, fresh-build bores only.",
+    "Original full-contact forces retained; moments recomputed about moved centroid.",
+    "Force-dependent loaded edges, 4D parallel pitch, 7D leg end screen.",
+    "Smooth shank over both members; Fyb >=45 ksi assumed.",
+    "Lateral and spacing search only; net sections, splitting, prying and hardware fit remain separate."
+  ]
+}

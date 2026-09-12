@@ -1,0 +1,386 @@
+{
+  "candidate": "round-reinforcement-development",
+  "assessment_complete": true,
+  "decision": "No passing leg-assembly design established by the conservative assessment",
+  "qualified_for_construction": false,
+  "necessary_checks_pass": false,
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/leg_completion_assessment.py": "e8acf1a9c54dfe2782ded210537b666378aef97e558b2d01c776fe3363e411b8",
+    "fea/leg_member_capacity.py": "5de08f3e5141eda154bbbb2b386b45bbe2ae0817c476b76cb9eef9f1f98e78a3",
+    "fea/leg_only_load_check.py": "fcac947ee51071ad48109eb85914fe932c9ed02fb2625ec84a0980bc5fc7605c",
+    "fea/leg_attachment_check.py": "c7de32b3585f050c851e4894359681ecff8e8cea6edb602440076262571f0ebf",
+    "fea/leg_smooth_bolt_check.py": "7f17590cbbc3bbb66d234d64321596d51b28112ecc4dc678b1fd7ccc565f8d9f",
+    "fea/reinforced_timber_resistance.py": "d86bb65d75dbf7320a2ea45bfdf0ca6241f554d5b0295745604cf858cdcfbc22",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "docs/round-reinforcement-review/review.json": "548364b0bc097dadd3d689b8304cc3eb32c87b54b59e32fc1d48728bceb23586",
+    "fea/results/reinforced-F10-k1000-v4.tar.gz": "8cd853bf5e3a5e4d694f93901f5b2d0acab9d7e32e3e3ff06fda7e6619b08d34"
+  },
+  "load_assumptions": {
+    "climber_lb": 250,
+    "vertical_multiplier": 2,
+    "horizontal_n": 300,
+    "hold_projection_mm": 100,
+    "equipment_allowance_kg": 25,
+    "hardware_allowance_kg": 2,
+    "rear_load_share_one_leg": 1.0,
+    "feet_do_not_slide": true,
+    "primary_foot_pressure": "Nonnegative linear pressure over full rectangular foot face; resultant spans middle third"
+  },
+  "axial_compression_n": 4093.780238244222,
+  "supported_span_mm": 1612.0462863367457,
+  "axial_only_member": {
+    "compression_n": 4093.780238244222,
+    "effective_length_mm": 1612.0462863367457,
+    "face_eccentricity_mm": 19.05,
+    "net_area_mm2": 4899.183749999999,
+    "net_centroid_shift_mm": -1.7714886345679017,
+    "section_moduli_strong_weak_mm3": [
+      118102.49945799503,
+      31109.816812499997
+    ],
+    "self_weight_n": 56.032561836588435,
+    "self_weight_moment_nmm": 5874.816088323337,
+    "additional_strong_moment_nmm": 0.0,
+    "Cp": 0.17217443279653538,
+    "CL": 0.9529162876570437,
+    "weak_axis_column_slenderness": 42.31092615057075,
+    "NDS_3_9_3_interaction": 0.8099788693856107,
+    "NDS_3_9_4_stability": 0.45513093263850735,
+    "meets_member_criteria": true,
+    "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+  },
+  "smooth_bolt_moment_interval_nmm": [
+    -18709.858055564353,
+    18709.858055564353
+  ],
+  "full_contact_cases": [
+    {
+      "scope": "full-face linear pressure",
+      "foot_pressure_resultant_xyz_mm": [
+        -1238.25,
+        1379.8847298700166,
+        0.0
+      ],
+      "joint_moment_nmm": -85067.90614154245,
+      "axial_compression_n": 4153.577875852117,
+      "current_bolt_lateral_ratio": 1.7727787584031913,
+      "smooth_bolt_lateral_ratio": 1.3867862638804729,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 4153.577875852118,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.6274481716867047
+        },
+        "rim": {
+          "absolute_parallel_n": 2377.676759330541,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.5028475623024158
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 5108.5653952496405,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 0.8508868407219565,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 4153.577875852117,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 85067.90614154245,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.9323434244691149,
+        "NDS_3_9_4_stability": 0.46462292591582266,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "scope": "full-face linear pressure",
+      "foot_pressure_resultant_xyz_mm": [
+        -1238.25,
+        1428.112046033736,
+        0.0
+      ],
+      "joint_moment_nmm": 108303.41900192123,
+      "axial_compression_n": 4035.679936870451,
+      "current_bolt_lateral_ratio": 1.9182236243722792,
+      "smooth_bolt_lateral_ratio": 1.519686080565517,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 4035.6799368704515,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.6096382621410696
+        },
+        "rim": {
+          "absolute_parallel_n": 2310.1871882021387,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.488574399985639
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 4963.560450294941,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 0.826734698201417,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 4035.679936870451,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 108303.41900192123,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 0.9166842811750937,
+        "NDS_3_9_4_stability": 0.4530328043090283,
+        "meets_member_criteria": true,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    }
+  ],
+  "whole_foot_sensitivity_cases": [
+    {
+      "scope": "whole-foot extreme sensitivity",
+      "foot_pressure_resultant_xyz_mm": [
+        -1257.3,
+        1331.6574137062973,
+        0.0
+      ],
+      "joint_moment_nmm": -289915.1018664242,
+      "axial_compression_n": 4278.571627731803,
+      "current_bolt_lateral_ratio": 3.6706394210669964,
+      "smooth_bolt_lateral_ratio": 2.9169347932745726,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 4278.571627731804,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.6463299895876347
+        },
+        "rim": {
+          "absolute_parallel_n": 4497.306589431091,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.9511215713185306
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 7924.303819982265,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 1.3198785413563539,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 4278.571627731803,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 289915.1018664242,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 1.2455966664984222,
+        "NDS_3_9_4_stability": 0.5032065943910489,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "scope": "whole-foot extreme sensitivity",
+      "foot_pressure_resultant_xyz_mm": [
+        -1257.3,
+        1476.3393621974553,
+        0.0
+      ],
+      "joint_moment_nmm": 291149.11761184444,
+      "axial_compression_n": 3924.290251531638,
+      "current_bolt_lateral_ratio": 3.6130724078548515,
+      "smooth_bolt_lateral_ratio": 2.871188206775322,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 3924.290251531639,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.5928115030192711
+        },
+        "rim": {
+          "absolute_parallel_n": 4516.449252602522,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.9551699944163955
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 7728.965247662983,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 1.2873427885936608,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 3924.290251531638,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 291149.11761184444,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 1.1082141260913527,
+        "NDS_3_9_4_stability": 0.46393379825031306,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "scope": "whole-foot extreme sensitivity",
+      "foot_pressure_resultant_xyz_mm": [
+        -1219.2,
+        1331.6574137062973,
+        0.0
+      ],
+      "joint_moment_nmm": -289915.1018664242,
+      "axial_compression_n": 4278.571627731803,
+      "current_bolt_lateral_ratio": 3.6706394210669964,
+      "smooth_bolt_lateral_ratio": 2.9169347932745726,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 4278.571627731804,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.6463299895876347
+        },
+        "rim": {
+          "absolute_parallel_n": 4497.306589431091,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.9511215713185306
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 7924.303819982265,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 1.3198785413563539,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 4278.571627731803,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 289915.1018664242,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 1.2455966664984222,
+        "NDS_3_9_4_stability": 0.5032065943910489,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    },
+    {
+      "scope": "whole-foot extreme sensitivity",
+      "foot_pressure_resultant_xyz_mm": [
+        -1219.2,
+        1476.3393621974553,
+        0.0
+      ],
+      "joint_moment_nmm": 291149.11761184444,
+      "axial_compression_n": 3924.290251531638,
+      "current_bolt_lateral_ratio": 3.6130724078548515,
+      "smooth_bolt_lateral_ratio": 2.871188206775322,
+      "parallel_local_checks": {
+        "leg": {
+          "absolute_parallel_n": 3924.290251531639,
+          "conservative_reference_n": 6619.794372316807,
+          "ratio": 0.5928115030192711
+        },
+        "rim": {
+          "absolute_parallel_n": 4516.449252602522,
+          "conservative_reference_n": 4728.424551654863,
+          "ratio": 0.9551699944163955
+        }
+      },
+      "supplemental_splitting": {
+        "factored_transverse_demand_n": 7728.965247662983,
+        "design_resistance_n": 6003.812905268518,
+        "ratio": 1.2873427885936608,
+        "kmod": 0.8,
+        "gamma_m": 1.3,
+        "scope": "Supplemental EC5 splitting screen; not an NDS tensile value"
+      },
+      "member": {
+        "compression_n": 3924.290251531638,
+        "effective_length_mm": 1612.0462863367457,
+        "face_eccentricity_mm": 19.05,
+        "net_area_mm2": 4899.183749999999,
+        "net_centroid_shift_mm": -1.7714886345679017,
+        "section_moduli_strong_weak_mm3": [
+          118102.49945799503,
+          31109.816812499997
+        ],
+        "self_weight_n": 56.032561836588435,
+        "self_weight_moment_nmm": 5874.816088323337,
+        "additional_strong_moment_nmm": 291149.11761184444,
+        "Cp": 0.17217443279653538,
+        "CL": 0.9529162876570437,
+        "weak_axis_column_slenderness": 42.31092615057075,
+        "NDS_3_9_3_interaction": 1.1082141260913527,
+        "NDS_3_9_4_stability": 0.46393379825031306,
+        "meets_member_criteria": false,
+        "scope": "Conditional leg compression plus stated eccentricity; no connection or frame rating"
+      }
+    }
+  ],
+  "limits": [
+    "Primary cases use finite full-face triangular pressure at the middle-third boundaries. Whole-foot corners are a separate extreme sensitivity.",
+    "Horizontal foot reaction follows the chosen axial load direction; no-slip alone does not enforce that direction.",
+    "A failure within this stated envelope defeats a pass; this envelope is not claimed to bound all possible frame actions.",
+    "Full joint sagittal moment is conservatively carried throughout the member in addition to its existing self-weight bending allowance.",
+    "Prying and bolt combined-action qualification cannot turn a failed lateral/member check into a passing assembly.",
+    "No physical breaking weight, whole-frame comparison or floor-friction qualification is claimed."
+  ]
+}

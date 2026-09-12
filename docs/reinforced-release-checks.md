@@ -1,5 +1,19 @@
 # Reinforced candidate: release decision and exact remaining work
 
+> Current leg-only decision: [completed conservative assessment](leg-completion-decision.md).
+
+> **Historical assessment; current scope superseded:** the owner accepts panel
+> construction as the design basis and requests only support-leg verification,
+> with no comparison frame. The current result and remaining leg-specific work
+> are in [the leg-only assessment](leg-only-assessment.md). The broad redesign
+> conclusions below are retained as history, not current task requirements.
+
+> **Subsequent owner clarification and assumption audit:** floor friction is
+> outside scope; assume no sliding for structural calculations. The diagnostic
+> models below do not establish a physical failure weight or prove that their
+> listed member/attachment redesigns are necessary. Read the
+> [assumption audit](reinforced-assumption-review.md) before using this report.
+
 **Decision: do not release `round-reinforcement-development` for construction.**
 The missing work was structural response and resistance, not another fit check.
 Those calculations have now been run. They identify a failed sticking-floor

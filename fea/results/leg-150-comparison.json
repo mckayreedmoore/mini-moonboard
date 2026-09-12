@@ -1,0 +1,4725 @@
+{
+  "climber_rating_established": false,
+  "assumptions": {
+    "climber_lb": 150.0,
+    "downward_multiplier": 2.0,
+    "horizontal_force_n": 300.0,
+    "standoff_mm": 100.0,
+    "equipment_mass_kg": 25.0,
+    "support_no_slip_assumed": true,
+    "2x6_combined_dead_mass_kg": 206.2058086342417,
+    "2x8_combined_dead_mass_kg": 219.58255293440797,
+    "2x6_foot_half_length_mm": 72.34097424557899,
+    "2x8_foot_half_length_mm": 95.35855696008139,
+    "2x6_member_span_mm": 1612.0462863367457,
+    "2x8_member_span_mm": 1641.3393257757232
+  },
+  "method_limits": [
+    "Each design retains its own actual mass and geometry; identical additional equipment allowance.",
+    "All hold positions, two front-resultant bounds, zero/100 mm standoff and zero/300 N horizontal load are scanned.",
+    "One leg receives all or ideal half of the total rear resultant, including dead load; local leg weight is conservatively included again.",
+    "Existing 2x6 functions retain conservative historical 1.25 angle reduction, bearing references and thread-root or smooth-bolt assumptions.",
+    "2x8 historical ratios and exact-angle sensitivities are both reported; do not treat them as identical methods.",
+    "2x6 smooth-bolt entry changes connection resistance only on the original assembly mass; it excludes the historical 1.213 kg hardware increment and is not a complete hardware-variant assessment.",
+    "Edge geometry, prying assumptions, plate material and real force/contact distribution are not qualified by these numbers.",
+    "These endpoint comparisons are pressure sensitivities, not proof of actual pressure position or a continuous-pressure envelope."
+  ],
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/leg_150_comparison.py": "aaafd75d1b6ae6f85f80de870940670499b67ae1fc460345891aed8c82830bde",
+    "docs/round-reinforcement-review/review.json": "548364b0bc097dadd3d689b8304cc3eb32c87b54b59e32fc1d48728bceb23586",
+    "fea/results/reinforced-F10-k1000-v4.tar.gz": "8cd853bf5e3a5e4d694f93901f5b2d0acab9d7e32e3e3ff06fda7e6619b08d34",
+    "docs/wider-leg-review/review.json": "3ad10c6ce88617acf4ab2808b061c72cc2c02c1044eed931a29d8feeadbdde0f",
+    "fea/leg_attachment_check.py": "c7de32b3585f050c851e4894359681ecff8e8cea6edb602440076262571f0ebf",
+    "fea/leg_member_capacity.py": "5de08f3e5141eda154bbbb2b386b45bbe2ae0817c476b76cb9eef9f1f98e78a3",
+    "fea/leg_completion_assessment.py": "e8acf1a9c54dfe2782ded210537b666378aef97e558b2d01c776fe3363e411b8",
+    "fea/leg_smooth_bolt_check.py": "7f17590cbbc3bbb66d234d64321596d51b28112ecc4dc678b1fd7ccc565f8d9f",
+    "fea/wider_leg_limits.py": "1f3c2863ba138188f89ff36fc5d030ef284c62661b997bef797ba98ac82b7ce7",
+    "fea/wider_leg_assessment.py": "da781284482031401d85efe52fa7987587042220aa582ca32f3f6f70e2e896d0",
+    "fea/wider_leg_wood_checks.py": "856ad16642d666031f876f49de5d3c94a9a14e21c387cdafb4a26dad21e1b3ac",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/reinforced_timber_resistance.py": "d86bb65d75dbf7320a2ea45bfdf0ca6241f554d5b0295745604cf858cdcfbc22",
+    "mini_moonboard/wider_leg_hardware.py": "9540e573f995d4c3630f072c3fe333778e7d402d29fdfd2ec6fc76b53d7c0e52"
+  },
+  "scenarios": [
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": -72.34097424557899,
+      "peak_metrics": {
+        "leg_member": 0.78256259454622,
+        "current_thread_root_lateral": 2.7311516842995363,
+        "smooth_3_8_lateral": 2.1703552051233648,
+        "parallel_local": 0.7059890503519575,
+        "supplemental_rim_splitting": 0.9830862295470004
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.78256259454622,
+            "current_thread_root_lateral": 2.7311516842995363,
+            "smooth_3_8_lateral": 2.1703552051233648,
+            "parallel_local": 0.7059890503519575,
+            "supplemental_rim_splitting": 0.9830862295470004
+          },
+          "load": {
+            "compression_n": 3208.853567303403,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -215195.29534550066
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.78256259454622,
+            "current_thread_root_lateral": 2.7311516842995363,
+            "smooth_3_8_lateral": 2.1703552051233648,
+            "parallel_local": 0.7059890503519575,
+            "supplemental_rim_splitting": 0.9830862295470004
+          },
+          "load": {
+            "compression_n": 3208.853567303403,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -215195.29534550066
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.78256259454622,
+            "current_thread_root_lateral": 2.7311516842995363,
+            "smooth_3_8_lateral": 2.1703552051233648,
+            "parallel_local": 0.7059890503519575,
+            "supplemental_rim_splitting": 0.9830862295470004
+          },
+          "load": {
+            "compression_n": 3208.853567303403,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -215195.29534550066
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.78256259454622,
+            "current_thread_root_lateral": 2.7311516842995363,
+            "smooth_3_8_lateral": 2.1703552051233648,
+            "parallel_local": 0.7059890503519575,
+            "supplemental_rim_splitting": 0.9830862295470004
+          },
+          "load": {
+            "compression_n": 3208.853567303403,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -215195.29534550066
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.78256259454622,
+            "current_thread_root_lateral": 2.7311516842995363,
+            "smooth_3_8_lateral": 2.1703552051233648,
+            "parallel_local": 0.7059890503519575,
+            "supplemental_rim_splitting": 0.9830862295470004
+          },
+          "load": {
+            "compression_n": 3208.853567303403,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -215195.29534550066
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "front_edge"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": -24.11365808185966,
+      "peak_metrics": {
+        "leg_member": 0.5744152258600621,
+        "current_thread_root_lateral": 1.3081842941764874,
+        "smooth_3_8_lateral": 1.0212506538875548,
+        "parallel_local": 0.47057510758146126,
+        "supplemental_rim_splitting": 0.6381501846375828
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.5744152258600621,
+            "current_thread_root_lateral": 1.3081842941764874,
+            "smooth_3_8_lateral": 1.0212506538875548,
+            "parallel_local": 0.47057510758146126,
+            "supplemental_rim_splitting": 0.6381501846375828
+          },
+          "load": {
+            "compression_n": 3115.1104489201325,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -60888.92288447599
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.5744152258600621,
+            "current_thread_root_lateral": 1.3081842941764874,
+            "smooth_3_8_lateral": 1.0212506538875548,
+            "parallel_local": 0.47057510758146126,
+            "supplemental_rim_splitting": 0.6381501846375828
+          },
+          "load": {
+            "compression_n": 3115.1104489201325,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -60888.92288447599
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.5744152258600621,
+            "current_thread_root_lateral": 1.3081842941764874,
+            "smooth_3_8_lateral": 1.0212506538875548,
+            "parallel_local": 0.47057510758146126,
+            "supplemental_rim_splitting": 0.6381501846375828
+          },
+          "load": {
+            "compression_n": 3115.1104489201325,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -60888.92288447599
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.5744152258600621,
+            "current_thread_root_lateral": 1.3081842941764874,
+            "smooth_3_8_lateral": 1.0212506538875548,
+            "parallel_local": 0.47057510758146126,
+            "supplemental_rim_splitting": 0.6381501846375828
+          },
+          "load": {
+            "compression_n": 3115.1104489201325,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -60888.92288447599
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.5744152258600621,
+            "current_thread_root_lateral": 1.3081842941764874,
+            "smooth_3_8_lateral": 1.0212506538875548,
+            "parallel_local": 0.47057510758146126,
+            "supplemental_rim_splitting": 0.6381501846375828
+          },
+          "load": {
+            "compression_n": 3115.1104489201325,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -60888.92288447599
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_front"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 0.0,
+      "peak_metrics": {
+        "leg_member": 0.5077616958693711,
+        "current_thread_root_lateral": 0.9899369633644476,
+        "smooth_3_8_lateral": 0.7453746239871215,
+        "parallel_local": 0.46380039898287023,
+        "supplemental_rim_splitting": 0.6289629550680538
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.5077616958693711,
+            "current_thread_root_lateral": 0.9899369633644476,
+            "smooth_3_8_lateral": 0.7453746239871215,
+            "parallel_local": 0.46380039898287023,
+            "supplemental_rim_splitting": 0.6289629550680538
+          },
+          "load": {
+            "compression_n": 3070.2632710650932,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500859
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.5077616958693711,
+            "current_thread_root_lateral": 0.9899369633644476,
+            "smooth_3_8_lateral": 0.7453746239871215,
+            "parallel_local": 0.46380039898287023,
+            "supplemental_rim_splitting": 0.6289629550680538
+          },
+          "load": {
+            "compression_n": 3070.2632710650932,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500859
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.5077616958693711,
+            "current_thread_root_lateral": 0.9899369633644476,
+            "smooth_3_8_lateral": 0.7453746239871215,
+            "parallel_local": 0.46380039898287023,
+            "supplemental_rim_splitting": 0.6289629550680538
+          },
+          "load": {
+            "compression_n": 3070.2632710650932,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500859
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.5077616958693711,
+            "current_thread_root_lateral": 0.9899369633644476,
+            "smooth_3_8_lateral": 0.7453746239871215,
+            "parallel_local": 0.46380039898287023,
+            "supplemental_rim_splitting": 0.6289629550680538
+          },
+          "load": {
+            "compression_n": 3070.2632710650932,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500859
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.5077616958693711,
+            "current_thread_root_lateral": 0.9899369633644476,
+            "smooth_3_8_lateral": 0.7453746239871215,
+            "parallel_local": 0.46380039898287023,
+            "supplemental_rim_splitting": 0.6289629550680538
+          },
+          "load": {
+            "compression_n": 3070.2632710650932,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500859
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "center"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 24.11365808185966,
+      "peak_metrics": {
+        "leg_member": 0.5790288488382598,
+        "current_thread_root_lateral": 1.4669282756864281,
+        "smooth_3_8_lateral": 1.164596686359936,
+        "parallel_local": 0.4572179882548979,
+        "supplemental_rim_splitting": 0.6200365019817337
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.5790288488382598,
+            "current_thread_root_lateral": 1.4669282756864281,
+            "smooth_3_8_lateral": 1.164596686359936,
+            "parallel_local": 0.4572179882548979,
+            "supplemental_rim_splitting": 0.6200365019817337
+          },
+          "load": {
+            "compression_n": 3026.6890655717843,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 84810.74821518376
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.5790288488382598,
+            "current_thread_root_lateral": 1.4669282756864281,
+            "smooth_3_8_lateral": 1.164596686359936,
+            "parallel_local": 0.4572179882548979,
+            "supplemental_rim_splitting": 0.6200365019817337
+          },
+          "load": {
+            "compression_n": 3026.6890655717843,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 84810.74821518376
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.5790288488382598,
+            "current_thread_root_lateral": 1.4669282756864281,
+            "smooth_3_8_lateral": 1.164596686359936,
+            "parallel_local": 0.4572179882548979,
+            "supplemental_rim_splitting": 0.6200365019817337
+          },
+          "load": {
+            "compression_n": 3026.6890655717843,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 84810.74821518376
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.5790288488382598,
+            "current_thread_root_lateral": 1.4669282756864281,
+            "smooth_3_8_lateral": 1.164596686359936,
+            "parallel_local": 0.4572179882548979,
+            "supplemental_rim_splitting": 0.6200365019817337
+          },
+          "load": {
+            "compression_n": 3026.6890655717843,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 84810.74821518376
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.5790288488382598,
+            "current_thread_root_lateral": 1.4669282756864281,
+            "smooth_3_8_lateral": 1.164596686359936,
+            "parallel_local": 0.4572179882548979,
+            "supplemental_rim_splitting": 0.6200365019817337
+          },
+          "load": {
+            "compression_n": 3026.6890655717843,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 84810.74821518376
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_rear"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 72.34097424557899,
+      "peak_metrics": {
+        "leg_member": 0.720304027143901,
+        "current_thread_root_lateral": 2.7514384602278965,
+        "smooth_3_8_lateral": 2.1864764297277683,
+        "parallel_local": 0.7303353425602873,
+        "supplemental_rim_splitting": 0.9784381117482926
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.720304027143901,
+            "current_thread_root_lateral": 2.7514384602278965,
+            "smooth_3_8_lateral": 2.1864764297277683,
+            "parallel_local": 0.7303353425602873,
+            "supplemental_rim_splitting": 0.9784381117482926
+          },
+          "load": {
+            "compression_n": 2943.148758137516,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 222616.3842982649
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.720304027143901,
+            "current_thread_root_lateral": 2.7514384602278965,
+            "smooth_3_8_lateral": 2.1864764297277683,
+            "parallel_local": 0.7303353425602873,
+            "supplemental_rim_splitting": 0.9784381117482926
+          },
+          "load": {
+            "compression_n": 2943.148758137516,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 222616.3842982649
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.720304027143901,
+            "current_thread_root_lateral": 2.7514384602278965,
+            "smooth_3_8_lateral": 2.1864764297277683,
+            "parallel_local": 0.7303353425602873,
+            "supplemental_rim_splitting": 0.9784381117482926
+          },
+          "load": {
+            "compression_n": 2943.148758137516,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 222616.3842982649
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.720304027143901,
+            "current_thread_root_lateral": 2.7514384602278965,
+            "smooth_3_8_lateral": 2.1864764297277683,
+            "parallel_local": 0.7303353425602873,
+            "supplemental_rim_splitting": 0.9784381117482926
+          },
+          "load": {
+            "compression_n": 2943.148758137516,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 222616.3842982649
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.720304027143901,
+            "current_thread_root_lateral": 2.7514384602278965,
+            "smooth_3_8_lateral": 2.1864764297277683,
+            "parallel_local": 0.7303353425602873,
+            "supplemental_rim_splitting": 0.9784381117482926
+          },
+          "load": {
+            "compression_n": 2943.148758137516,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 222616.3842982649
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "rear_edge"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": -72.34097424557899,
+      "peak_metrics": {
+        "leg_member": 0.30826872361556923,
+        "current_thread_root_lateral": 1.3221210621158028,
+        "smooth_3_8_lateral": 1.0506455373613581,
+        "parallel_local": 0.3383247126802851,
+        "supplemental_rim_splitting": 0.4779450848060199
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.30826872361556923,
+            "current_thread_root_lateral": 1.3221210621158028,
+            "smooth_3_8_lateral": 1.0506455373613581,
+            "parallel_local": 0.3383247126802851,
+            "supplemental_rim_splitting": 0.4779450848060199
+          },
+          "load": {
+            "compression_n": 1604.4267836517015,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -103126.08450742913
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.30826872361556923,
+            "current_thread_root_lateral": 1.3221210621158028,
+            "smooth_3_8_lateral": 1.0506455373613581,
+            "parallel_local": 0.3383247126802851,
+            "supplemental_rim_splitting": 0.4779450848060199
+          },
+          "load": {
+            "compression_n": 1604.4267836517015,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -103126.08450742913
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.30826872361556923,
+            "current_thread_root_lateral": 1.3221210621158028,
+            "smooth_3_8_lateral": 1.0506455373613581,
+            "parallel_local": 0.3383247126802851,
+            "supplemental_rim_splitting": 0.4779450848060199
+          },
+          "load": {
+            "compression_n": 1604.4267836517015,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -103126.08450742913
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.30826872361556923,
+            "current_thread_root_lateral": 1.3221210621158028,
+            "smooth_3_8_lateral": 1.0506455373613581,
+            "parallel_local": 0.3383247126802851,
+            "supplemental_rim_splitting": 0.4779450848060199
+          },
+          "load": {
+            "compression_n": 1604.4267836517015,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -103126.08450742913
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.30826872361556923,
+            "current_thread_root_lateral": 1.3221210621158028,
+            "smooth_3_8_lateral": 1.0506455373613581,
+            "parallel_local": 0.3383247126802851,
+            "supplemental_rim_splitting": 0.4779450848060199
+          },
+          "load": {
+            "compression_n": 1604.4267836517015,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 258.2941150334336
+          },
+          "moment_nmm": -103126.08450742913
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "front_edge"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": -24.11365808185966,
+      "peak_metrics": {
+        "leg_member": 0.21268318559687743,
+        "current_thread_root_lateral": 0.61266475312408,
+        "smooth_3_8_lateral": 0.47417658640101784,
+        "parallel_local": 0.23528755379073063,
+        "supplemental_rim_splitting": 0.3190750923187914
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.21268318559687743,
+            "current_thread_root_lateral": 0.61266475312408,
+            "smooth_3_8_lateral": 0.47417658640101784,
+            "parallel_local": 0.23528755379073063,
+            "supplemental_rim_splitting": 0.3190750923187914
+          },
+          "load": {
+            "compression_n": 1557.5552244600663,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -24623.845408297348
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.21268318559687743,
+            "current_thread_root_lateral": 0.61266475312408,
+            "smooth_3_8_lateral": 0.47417658640101784,
+            "parallel_local": 0.23528755379073063,
+            "supplemental_rim_splitting": 0.3190750923187914
+          },
+          "load": {
+            "compression_n": 1557.5552244600663,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -24623.845408297348
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.21268318559687743,
+            "current_thread_root_lateral": 0.61266475312408,
+            "smooth_3_8_lateral": 0.47417658640101784,
+            "parallel_local": 0.23528755379073063,
+            "supplemental_rim_splitting": 0.3190750923187914
+          },
+          "load": {
+            "compression_n": 1557.5552244600663,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -24623.845408297348
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.21268318559687743,
+            "current_thread_root_lateral": 0.61266475312408,
+            "smooth_3_8_lateral": 0.47417658640101784,
+            "parallel_local": 0.23528755379073063,
+            "supplemental_rim_splitting": 0.3190750923187914
+          },
+          "load": {
+            "compression_n": 1557.5552244600663,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -24623.845408297348
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.21268318559687743,
+            "current_thread_root_lateral": 0.61266475312408,
+            "smooth_3_8_lateral": 0.47417658640101784,
+            "parallel_local": 0.23528755379073063,
+            "supplemental_rim_splitting": 0.3190750923187914
+          },
+          "load": {
+            "compression_n": 1557.5552244600663,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 348.809302136704
+          },
+          "moment_nmm": -24623.845408297348
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_front"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 0.0,
+      "peak_metrics": {
+        "leg_member": 0.19620728003142812,
+        "current_thread_root_lateral": 0.5310321580389941,
+        "smooth_3_8_lateral": 0.40370324149292974,
+        "parallel_local": 0.23190019949143512,
+        "supplemental_rim_splitting": 0.3144814775340269
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.19620728003142812,
+            "current_thread_root_lateral": 0.5310321580389941,
+            "smooth_3_8_lateral": 0.40370324149292974,
+            "parallel_local": 0.23190019949143512,
+            "supplemental_rim_splitting": 0.3144814775340269
+          },
+          "load": {
+            "compression_n": 1535.1316355325466,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500742
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.19620728003142812,
+            "current_thread_root_lateral": 0.5310321580389941,
+            "smooth_3_8_lateral": 0.40370324149292974,
+            "parallel_local": 0.23190019949143512,
+            "supplemental_rim_splitting": 0.3144814775340269
+          },
+          "load": {
+            "compression_n": 1535.1316355325466,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500742
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.19620728003142812,
+            "current_thread_root_lateral": 0.5310321580389941,
+            "smooth_3_8_lateral": 0.40370324149292974,
+            "parallel_local": 0.23190019949143512,
+            "supplemental_rim_splitting": 0.3144814775340269
+          },
+          "load": {
+            "compression_n": 1535.1316355325466,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500742
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.19620728003142812,
+            "current_thread_root_lateral": 0.5310321580389941,
+            "smooth_3_8_lateral": 0.40370324149292974,
+            "parallel_local": 0.23190019949143512,
+            "supplemental_rim_splitting": 0.3144814775340269
+          },
+          "load": {
+            "compression_n": 1535.1316355325466,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500742
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.19620728003142812,
+            "current_thread_root_lateral": 0.5310321580389941,
+            "smooth_3_8_lateral": 0.40370324149292974,
+            "parallel_local": 0.23190019949143512,
+            "supplemental_rim_splitting": 0.3144814775340269
+          },
+          "load": {
+            "compression_n": 1535.1316355325466,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 392.1122214828024
+          },
+          "moment_nmm": 12990.284936500742
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "center"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 24.11365808185966,
+      "peak_metrics": {
+        "leg_member": 0.23382510164906997,
+        "current_thread_root_lateral": 0.7965159660789426,
+        "smooth_3_8_lateral": 0.6329646877107331,
+        "parallel_local": 0.22860899412744892,
+        "supplemental_rim_splitting": 0.31001825099086683
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.23382510164906997,
+            "current_thread_root_lateral": 0.7965159660789426,
+            "smooth_3_8_lateral": 0.6329646877107331,
+            "parallel_local": 0.22860899412744892,
+            "supplemental_rim_splitting": 0.31001825099086683
+          },
+          "load": {
+            "compression_n": 1513.3445327858922,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 49575.04301015209
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.23382510164906997,
+            "current_thread_root_lateral": 0.7965159660789426,
+            "smooth_3_8_lateral": 0.6329646877107331,
+            "parallel_local": 0.22860899412744892,
+            "supplemental_rim_splitting": 0.31001825099086683
+          },
+          "load": {
+            "compression_n": 1513.3445327858922,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 49575.04301015209
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.23382510164906997,
+            "current_thread_root_lateral": 0.7965159660789426,
+            "smooth_3_8_lateral": 0.6329646877107331,
+            "parallel_local": 0.22860899412744892,
+            "supplemental_rim_splitting": 0.31001825099086683
+          },
+          "load": {
+            "compression_n": 1513.3445327858922,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 49575.04301015209
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.23382510164906997,
+            "current_thread_root_lateral": 0.7965159660789426,
+            "smooth_3_8_lateral": 0.6329646877107331,
+            "parallel_local": 0.22860899412744892,
+            "supplemental_rim_splitting": 0.31001825099086683
+          },
+          "load": {
+            "compression_n": 1513.3445327858922,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 49575.04301015209
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.23382510164906997,
+            "current_thread_root_lateral": 0.7965159660789426,
+            "smooth_3_8_lateral": 0.6329646877107331,
+            "parallel_local": 0.22860899412744892,
+            "supplemental_rim_splitting": 0.31001825099086683
+          },
+          "load": {
+            "compression_n": 1513.3445327858922,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 434.18600173595723
+          },
+          "moment_nmm": 49575.04301015209
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_rear"
+    },
+    {
+      "candidate": "2x6_four_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 72.34097424557899,
+      "peak_metrics": {
+        "leg_member": 0.30645000292087854,
+        "current_thread_root_lateral": 1.4592924724677296,
+        "smooth_3_8_lateral": 1.159651084787689,
+        "parallel_local": 0.39311495648353006,
+        "supplemental_rim_splitting": 0.5151245009380778
+      },
+      "witnesses": {
+        "leg_member": {
+          "metrics": {
+            "leg_member": 0.30645000292087854,
+            "current_thread_root_lateral": 1.4592924724677296,
+            "smooth_3_8_lateral": 1.159651084787689,
+            "parallel_local": 0.39311495648353006,
+            "supplemental_rim_splitting": 0.5151245009380778
+          },
+          "load": {
+            "compression_n": 1471.574379068758,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 119826.9139203121
+        },
+        "current_thread_root_lateral": {
+          "metrics": {
+            "leg_member": 0.30645000292087854,
+            "current_thread_root_lateral": 1.4592924724677296,
+            "smooth_3_8_lateral": 1.159651084787689,
+            "parallel_local": 0.39311495648353006,
+            "supplemental_rim_splitting": 0.5151245009380778
+          },
+          "load": {
+            "compression_n": 1471.574379068758,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 119826.9139203121
+        },
+        "smooth_3_8_lateral": {
+          "metrics": {
+            "leg_member": 0.30645000292087854,
+            "current_thread_root_lateral": 1.4592924724677296,
+            "smooth_3_8_lateral": 1.159651084787689,
+            "parallel_local": 0.39311495648353006,
+            "supplemental_rim_splitting": 0.5151245009380778
+          },
+          "load": {
+            "compression_n": 1471.574379068758,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 119826.9139203121
+        },
+        "parallel_local": {
+          "metrics": {
+            "leg_member": 0.30645000292087854,
+            "current_thread_root_lateral": 1.4592924724677296,
+            "smooth_3_8_lateral": 1.159651084787689,
+            "parallel_local": 0.39311495648353006,
+            "supplemental_rim_splitting": 0.5151245009380778
+          },
+          "load": {
+            "compression_n": 1471.574379068758,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 119826.9139203121
+        },
+        "supplemental_rim_splitting": {
+          "metrics": {
+            "leg_member": 0.30645000292087854,
+            "current_thread_root_lateral": 1.4592924724677296,
+            "smooth_3_8_lateral": 1.159651084787689,
+            "parallel_local": 0.39311495648353006,
+            "supplemental_rim_splitting": 0.5151245009380778
+          },
+          "load": {
+            "compression_n": 1471.574379068758,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 514.8496993863973
+          },
+          "moment_nmm": 119826.9139203121
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "rear_edge"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": -95.35855696008139,
+      "peak_metrics": {
+        "lateral": 1.3041455350922366,
+        "leg_member": 0.6461497259568298,
+        "leg_parallel": 0.30088530645445044,
+        "rim_parallel": 0.23089584735389723,
+        "leg_splitting": 0.40761992977660516,
+        "rim_splitting": 0.5443930247326125,
+        "wood_plate_bearing": 0.09380040891234759,
+        "plate_plastic_bending": 0.649244966759536,
+        "washer_bending": 0.10351251872746871,
+        "steel_direct": 0.09568474995335051,
+        "conservative_lateral_plus_axial": 1.3378392507727026,
+        "exact_angle_lateral": 1.2702556832612242,
+        "exact_angle_combined_connection": 1.3039493989416902
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 1.3041455350922366,
+            "leg_member": 0.6461497259568298,
+            "leg_parallel": 0.30088530645445044,
+            "rim_parallel": 0.23089584735389723,
+            "leg_splitting": 0.40761992977660516,
+            "rim_splitting": 0.5443930247326125,
+            "wood_plate_bearing": 0.09380040891234759,
+            "plate_plastic_bending": 0.649244966759536,
+            "washer_bending": 0.10351251872746871,
+            "steel_direct": 0.09568474995335051,
+            "conservative_lateral_plus_axial": 1.3378392507727026,
+            "exact_angle_lateral": 1.2702556832612242,
+            "exact_angle_combined_connection": 1.3039493989416902
+          },
+          "load": {
+            "compression_n": 3354.1984335707148,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -309017.3414207627
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "front_edge"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": -31.786185653360462,
+      "peak_metrics": {
+        "lateral": 0.6102023152294658,
+        "leg_member": 0.4564114015766297,
+        "leg_parallel": 0.2092009091471634,
+        "rim_parallel": 0.12313357148171117,
+        "leg_splitting": 0.123867192226507,
+        "rim_splitting": 0.45301654959928234,
+        "wood_plate_bearing": 0.09017136096093013,
+        "plate_plastic_bending": 0.6241263010318793,
+        "washer_bending": 0.09950771855239686,
+        "steel_direct": 0.057181183191099966,
+        "conservative_lateral_plus_axial": 0.6425924533319267,
+        "exact_angle_lateral": 0.5965006962629213,
+        "exact_angle_combined_connection": 0.6288908343653823
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.6102023152294658,
+            "leg_member": 0.4564114015766297,
+            "leg_parallel": 0.2092009091471634,
+            "rim_parallel": 0.12313357148171117,
+            "leg_splitting": 0.123867192226507,
+            "rim_splitting": 0.45301654959928234,
+            "wood_plate_bearing": 0.09017136096093013,
+            "plate_plastic_bending": 0.6241263010318793,
+            "washer_bending": 0.09950771855239686,
+            "steel_direct": 0.057181183191099966,
+            "conservative_lateral_plus_axial": 0.6425924533319267,
+            "exact_angle_lateral": 0.5965006962629213,
+            "exact_angle_combined_connection": 0.6288908343653823
+          },
+          "load": {
+            "compression_n": 3224.427709805831,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -93903.92283337914
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_front"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 0.0,
+      "peak_metrics": {
+        "lateral": 0.4028777326375561,
+        "leg_member": 0.381280686894737,
+        "leg_parallel": 0.1719556562594055,
+        "rim_parallel": 0.08156711981498094,
+        "leg_splitting": 0.018745537242869665,
+        "rim_splitting": 0.44441946789026643,
+        "wood_plate_bearing": 0.0884601418924876,
+        "plate_plastic_bending": 0.6122819990710271,
+        "washer_bending": 0.09761931957927002,
+        "steel_direct": 0.04741599731236897,
+        "conservative_lateral_plus_axial": 0.4346531897441914,
+        "exact_angle_lateral": 0.3739681546385048,
+        "exact_angle_combined_connection": 0.4057436117451401
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.170402136511194,
+            "leg_member": 0.11394127196033163,
+            "leg_parallel": 0.06796523410853,
+            "rim_parallel": 0.03496388140425989,
+            "leg_splitting": 0.018745537242869665,
+            "rim_splitting": 0.16406727502681714,
+            "wood_plate_bearing": 0.03265701769925525,
+            "plate_plastic_bending": 0.22603744073686588,
+            "washer_bending": 0.03603833069998962,
+            "steel_direct": 0.018429706727426966,
+            "conservative_lateral_plus_axial": 0.1821327492248216,
+            "exact_angle_lateral": 0.16178173187118225,
+            "exact_angle_combined_connection": 0.17351234458480982
+          },
+          "load": {
+            "compression_n": 1167.778679027846,
+            "hold": "kicker_10",
+            "front_y_mm": -36.0,
+            "standoff_mm": 0.0,
+            "horizontal_n": 0.0,
+            "front_vertical_reaction_n": 2360.268099411911
+          },
+          "moment_nmm": 14211.022717829606
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.4028777326375561,
+            "leg_member": 0.381280686894737,
+            "leg_parallel": 0.1719556562594055,
+            "rim_parallel": 0.08156711981498094,
+            "leg_splitting": 0.010112563417942705,
+            "rim_splitting": 0.44441946789026643,
+            "wood_plate_bearing": 0.0884601418924876,
+            "plate_plastic_bending": 0.6122819990710271,
+            "washer_bending": 0.09761931957927002,
+            "steel_direct": 0.04741599731236897,
+            "conservative_lateral_plus_axial": 0.4346531897441914,
+            "exact_angle_lateral": 0.3739681546385048,
+            "exact_angle_combined_connection": 0.4057436117451401
+          },
+          "load": {
+            "compression_n": 3163.2364166609386,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 7666.351014961709
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "center"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 31.786185653360462,
+      "peak_metrics": {
+        "lateral": 0.6311444026931107,
+        "leg_member": 0.4439092512600443,
+        "leg_parallel": 0.20737244003724103,
+        "rim_parallel": 0.12591061060664652,
+        "leg_splitting": 0.13922008722143625,
+        "rim_splitting": 0.4361426098873921,
+        "wood_plate_bearing": 0.08681266223361032,
+        "plate_plastic_bending": 0.6008788731276817,
+        "washer_bending": 0.09580125960469127,
+        "steel_direct": 0.057132523122275757,
+        "conservative_lateral_plus_axial": 0.6623280744135284,
+        "exact_angle_lateral": 0.6209726262082569,
+        "exact_angle_combined_connection": 0.6521562979286746
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.6311444026931107,
+            "leg_member": 0.4439092512600443,
+            "leg_parallel": 0.20737244003724103,
+            "rim_parallel": 0.12591061060664652,
+            "leg_splitting": 0.13922008722143625,
+            "rim_splitting": 0.4361426098873921,
+            "wood_plate_bearing": 0.08681266223361032,
+            "plate_plastic_bending": 0.6008788731276817,
+            "washer_bending": 0.09580125960469127,
+            "steel_direct": 0.057132523122275757,
+            "conservative_lateral_plus_axial": 0.6623280744135284,
+            "exact_angle_lateral": 0.6209726262082569,
+            "exact_angle_combined_connection": 0.6521562979286746
+          },
+          "load": {
+            "compression_n": 3104.3243740033254,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 105542.97786448382
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_rear"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 1.0,
+      "offset_mm": 95.35855696008139,
+      "peak_metrics": {
+        "lateral": 1.2141724588034397,
+        "leg_member": 0.5662790041341558,
+        "leg_parallel": 0.27449266480735374,
+        "rim_parallel": 0.2134565884851314,
+        "leg_splitting": 0.38386822109365315,
+        "rim_splitting": 0.49713242893775045,
+        "wood_plate_bearing": 0.0836951877111825,
+        "plate_plastic_bending": 0.5793010925384873,
+        "washer_bending": 0.09236100125585225,
+        "steel_direct": 0.08837471947949577,
+        "conservative_lateral_plus_axial": 1.2442363134418453,
+        "exact_angle_lateral": 1.1801715543033078,
+        "exact_angle_combined_connection": 1.2102354089417133
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 1.2141724588034397,
+            "leg_member": 0.5662790041341558,
+            "leg_parallel": 0.27449266480735374,
+            "rim_parallel": 0.2134565884851314,
+            "leg_splitting": 0.38386822109365315,
+            "rim_splitting": 0.49713242893775045,
+            "wood_plate_bearing": 0.0836951877111825,
+            "plate_plastic_bending": 0.5793010925384873,
+            "washer_bending": 0.09236100125585225,
+            "steel_direct": 0.08837471947949577,
+            "conservative_lateral_plus_axial": 1.2442363134418453,
+            "exact_angle_lateral": 1.1801715543033078,
+            "exact_angle_combined_connection": 1.2102354089417133
+          },
+          "load": {
+            "compression_n": 2992.8469478271213,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 291011.1318729876
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "rear_edge"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": -95.35855696008139,
+      "peak_metrics": {
+        "lateral": 0.6342201312308631,
+        "leg_member": 0.26883860537961546,
+        "leg_parallel": 0.14831083228447353,
+        "rim_parallel": 0.11281577741089807,
+        "leg_splitting": 0.19667271096011218,
+        "rim_splitting": 0.2691258208063673,
+        "wood_plate_bearing": 0.046900204456173794,
+        "plate_plastic_bending": 0.324622483379768,
+        "washer_bending": 0.051756259363734354,
+        "steel_direct": 0.0467910068878722,
+        "conservative_lateral_plus_axial": 0.6510669890710961,
+        "exact_angle_lateral": 0.6186012567758988,
+        "exact_angle_combined_connection": 0.6354481146161318
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.6342201312308631,
+            "leg_member": 0.26883860537961546,
+            "leg_parallel": 0.14831083228447353,
+            "rim_parallel": 0.11281577741089807,
+            "leg_splitting": 0.19667271096011218,
+            "rim_splitting": 0.2691258208063673,
+            "wood_plate_bearing": 0.046900204456173794,
+            "plate_plastic_bending": 0.324622483379768,
+            "washer_bending": 0.051756259363734354,
+            "steel_direct": 0.0467910068878722,
+            "conservative_lateral_plus_axial": 0.6510669890710961,
+            "exact_angle_lateral": 0.6186012567758988,
+            "exact_angle_combined_connection": 0.6354481146161318
+          },
+          "load": {
+            "compression_n": 1677.0992167853574,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 249.13507352302076
+          },
+          "moment_nmm": -149097.9067294763
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "front_edge"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": -31.786185653360462,
+      "peak_metrics": {
+        "lateral": 0.28346785685920467,
+        "leg_member": 0.18037002413431102,
+        "leg_parallel": 0.10152047402095832,
+        "rim_parallel": 0.0577639526095553,
+        "leg_splitting": 0.05162194054353813,
+        "rim_splitting": 0.22650827479964122,
+        "wood_plate_bearing": 0.04508568048046507,
+        "plate_plastic_bending": 0.31206315051593964,
+        "washer_bending": 0.04975385927619843,
+        "steel_direct": 0.027586812108121753,
+        "conservative_lateral_plus_axial": 0.29966292591043514,
+        "exact_angle_lateral": 0.27511376636513873,
+        "exact_angle_combined_connection": 0.2913088354163692
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.28346785685920467,
+            "leg_member": 0.18037002413431102,
+            "leg_parallel": 0.10152047402095832,
+            "rim_parallel": 0.0577639526095553,
+            "leg_splitting": 0.05162194054353813,
+            "rim_splitting": 0.22650827479964122,
+            "wood_plate_bearing": 0.04508568048046507,
+            "plate_plastic_bending": 0.31206315051593964,
+            "washer_bending": 0.04975385927619843,
+            "steel_direct": 0.027586812108121753,
+            "conservative_lateral_plus_axial": 0.29966292591043514,
+            "exact_angle_lateral": 0.27511376636513873,
+            "exact_angle_combined_connection": 0.2913088354163692
+          },
+          "load": {
+            "compression_n": 1612.2138549029155,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 374.43729884563754
+          },
+          "moment_nmm": -39134.67831292575
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_front"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 0.0,
+      "peak_metrics": {
+        "lateral": 0.2174698500062159,
+        "leg_member": 0.15762122584979887,
+        "leg_parallel": 0.08953188848726204,
+        "rim_parallel": 0.044244265239089316,
+        "leg_splitting": 0.02127162501191284,
+        "rim_splitting": 0.2222097339451333,
+        "wood_plate_bearing": 0.0442300709462438,
+        "plate_plastic_bending": 0.30614099953551355,
+        "washer_bending": 0.04880965978963501,
+        "steel_direct": 0.02438894238148885,
+        "conservative_lateral_plus_axial": 0.23335757855953357,
+        "exact_angle_lateral": 0.20465953766894993,
+        "exact_angle_combined_connection": 0.22054726622226759
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.10802711911039908,
+            "leg_member": 0.061442401225859866,
+            "leg_parallel": 0.03753667741182426,
+            "rim_parallel": 0.021870117266055117,
+            "leg_splitting": 0.02127162501191284,
+            "rim_splitting": 0.08203363751340861,
+            "wood_plate_bearing": 0.016328508849627624,
+            "plate_plastic_bending": 0.11301872036843294,
+            "washer_bending": 0.01801916534999481,
+            "steel_direct": 0.010238881930602552,
+            "conservative_lateral_plus_axial": 0.11389242546721287,
+            "exact_angle_lateral": 0.10537491512095407,
+            "exact_angle_combined_connection": 0.11124022147776785
+          },
+          "load": {
+            "compression_n": 583.889339513923,
+            "hold": "kicker_10",
+            "front_y_mm": -36.0,
+            "standoff_mm": 0.0,
+            "horizontal_n": 0.0,
+            "front_vertical_reaction_n": 2360.268099411911
+          },
+          "moment_nmm": 16126.054024108062
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.2174698500062159,
+            "leg_member": 0.15762122584979887,
+            "leg_parallel": 0.08953188848726204,
+            "rim_parallel": 0.044244265239089316,
+            "leg_splitting": 0.01695513809944944,
+            "rim_splitting": 0.2222097339451333,
+            "wood_plate_bearing": 0.0442300709462438,
+            "plate_plastic_bending": 0.30614099953551355,
+            "washer_bending": 0.04880965978963501,
+            "steel_direct": 0.02438894238148885,
+            "conservative_lateral_plus_axial": 0.23335757855953357,
+            "exact_angle_lateral": 0.20465953766894993,
+            "exact_angle_combined_connection": 0.22054726622226759
+          },
+          "load": {
+            "compression_n": 1581.6182083304693,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 433.5215435734026
+          },
+          "moment_nmm": 12853.718172674171
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "center"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 31.786185653360462,
+      "peak_metrics": {
+        "lateral": 0.34614595293713984,
+        "leg_member": 0.19094544229689225,
+        "leg_parallel": 0.10771436018111565,
+        "rim_parallel": 0.06792882529987332,
+        "leg_splitting": 0.08309610082195869,
+        "rim_splitting": 0.21807130494369614,
+        "wood_plate_bearing": 0.04340633111680516,
+        "plate_plastic_bending": 0.30043943656384087,
+        "washer_bending": 0.047900629802345635,
+        "steel_direct": 0.030068756958276783,
+        "conservative_lateral_plus_axial": 0.3617377887973487,
+        "exact_angle_lateral": 0.34318244273530124,
+        "exact_angle_combined_connection": 0.3587742785955101
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.34614595293713984,
+            "leg_member": 0.19094544229689225,
+            "leg_parallel": 0.10771436018111565,
+            "rim_parallel": 0.06792882529987332,
+            "leg_splitting": 0.08309610082195869,
+            "rim_splitting": 0.21807130494369614,
+            "wood_plate_bearing": 0.04340633111680516,
+            "plate_plastic_bending": 0.30043943656384087,
+            "washer_bending": 0.047900629802345635,
+            "steel_direct": 0.030068756958276783,
+            "conservative_lateral_plus_axial": 0.3617377887973487,
+            "exact_angle_lateral": 0.34318244273530124,
+            "exact_angle_combined_connection": 0.3587742785955101
+          },
+          "load": {
+            "compression_n": 1552.1621870016627,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 490.4050210569226
+          },
+          "moment_nmm": 62995.29115886461
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "middle_third_rear"
+    },
+    {
+      "candidate": "2x8_six_bolt",
+      "rear_load_share": 0.5,
+      "offset_mm": 95.35855696008139,
+      "peak_metrics": {
+        "lateral": 0.6489405612385852,
+        "leg_member": 0.2545568226883402,
+        "leg_parallel": 0.1422226321760437,
+        "rim_parallel": 0.11287250110436552,
+        "leg_splitting": 0.20859456939959212,
+        "rim_splitting": 0.2579761839164146,
+        "wood_plate_bearing": 0.04184759385559125,
+        "plate_plastic_bending": 0.28965054626924364,
+        "washer_bending": 0.04618050062792613,
+        "steel_direct": 0.04669882740391647,
+        "conservative_lateral_plus_axial": 0.663972488557788,
+        "exact_angle_lateral": 0.6288130100472008,
+        "exact_angle_combined_connection": 0.6438449373664036
+      },
+      "witnesses": {
+        "lateral": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "leg_member": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "leg_parallel": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "rim_parallel": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "leg_splitting": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "rim_splitting": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "wood_plate_bearing": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "plate_plastic_bending": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "washer_bending": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "steel_direct": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "conservative_lateral_plus_axial": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "exact_angle_lateral": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        },
+        "exact_angle_combined_connection": {
+          "metrics": {
+            "lateral": 0.6489405612385852,
+            "leg_member": 0.2545568226883402,
+            "leg_parallel": 0.1422226321760437,
+            "rim_parallel": 0.11287250110436552,
+            "leg_splitting": 0.20859456939959212,
+            "rim_splitting": 0.2579761839164146,
+            "wood_plate_bearing": 0.04184759385559125,
+            "plate_plastic_bending": 0.28965054626924364,
+            "washer_bending": 0.04618050062792613,
+            "steel_direct": 0.04669882740391647,
+            "conservative_lateral_plus_axial": 0.663972488557788,
+            "exact_angle_lateral": 0.6288130100472008,
+            "exact_angle_combined_connection": 0.6438449373664036
+          },
+          "load": {
+            "compression_n": 1496.4234739135607,
+            "hold": "K12",
+            "front_y_mm": -270.95,
+            "standoff_mm": 100.0,
+            "horizontal_n": 300.0,
+            "front_vertical_reaction_n": 598.0438564418873
+          },
+          "moment_nmm": 158135.88728597527
+        }
+      },
+      "unique_load_cases": 104,
+      "pressure_resultant": "rear_edge"
+    }
+  ]
+}

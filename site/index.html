@@ -238,7 +238,7 @@
       lumberModels.push(['lumber-leg-spread-2x8-e300', '2x8 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-spread-2x6-e300', '2x6 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-hardware-2x6-e0', '2x6 +0 mm (0 in) · long bolts / four washers · geometry only']);
-      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Proposed steel shoes · kicker reinforcement · T-nuts']];
+      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Latest 2×6 legs · four bolts per leg · assessed / unqualified'], ['wider-leg-development', 'Latest 2×8 legs and rims · six bolts per leg · assessed / unqualified']];
       const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'round-structural-development';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
@@ -282,9 +282,9 @@
         }
         document.querySelector('header h1').after(links);
       }
-      if (model === 'round-reinforcement-development') {
+      if (['round-reinforcement-development', 'wider-leg-development'].includes(model)) {
         const links = document.createElement('nav'); links.id = 'model-documents';
-        for (const [label, path] of [['Revision review', 'docs/round-reinforcement-development.md'], ['T-nuts and hold bolt guidance', 'docs/moonboard-hold-hardware.md']]) {
+        for (const [label, path] of (model === 'wider-leg-development' ? [['2×8 assessment', 'docs/wider-leg-decision.md'], ['CAD and drilling package', 'docs/wider-leg-review/README.md'], ['Catalog hardware', 'docs/wider-leg-hardware.md'], ['150 lb comparison', 'docs/leg-150-comparison.md']] : [['2×6 assessment', 'docs/leg-completion-decision.md'], ['150 lb comparison', 'docs/leg-150-comparison.md'], ['Revision review', 'docs/round-reinforcement-development.md'], ['T-nuts and hold bolt guidance', 'docs/moonboard-hold-hardware.md']])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
           link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
@@ -297,12 +297,12 @@
       const boltSelect = document.createElement('select'); boltSelect.id = 'bolt-view';
       boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('header p:nth-of-type(2)').after(boltLabel);
       const boltNote = document.createElement('p'); boltNote.id = 'bolt-view-note'; boltNote.hidden = true;
-      boltNote.textContent = 'Representative connection hardware: wood hidden; head, shaft, two washers and nut remain in their assembled positions. Drag to orbit; click either end to inspect.';
+      boltNote.textContent = 'Representative connection hardware: wood hidden; the complete bolt stack remains in its assembled position. Drag to orbit; click individual components to inspect.';
       boltLabel.after(boltNote);
       const weightLine = document.createElement('p'); weightLine.id = 'prototype-weight'; weightLine.setAttribute('aria-live', 'polite');
       weightLine.style.cssText = 'margin-top:.55rem;font-weight:600;color:#f5f0e6'; weightLine.textContent = 'Estimated frame weight: loading…';
       const weightNote = document.createElement('p'); weightNote.id = 'prototype-weight-note';
-      const excludedMass = model === 'round-reinforcement-development' ? 'excludes holds, hold bolts, retention screws, lights and wiring; includes provisional T-nut envelopes' : 'excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring';
+      const excludedMass = ['round-reinforcement-development', 'wider-leg-development'].includes(model) ? 'excludes holds, hold bolts, retention screws, lights and wiring; includes provisional T-nut envelopes' : 'excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring';
       weightNote.textContent = `Estimates use assumed material densities; ${excludedMass}.`;
       boltLabel.before(weightLine, weightNote);
       // Keep the requested hold preview accessible ahead of detailed frame controls.
@@ -386,7 +386,7 @@
           const distance = Math.max(80, bounds.getSize(new THREE.Vector3()).length()*2.3);
           camera.position.copy(center).addScaledVector(side, distance).addScaledVector(camera.up, distance*.35);
           controls.target.copy(center);
-          partCard.textContent = `${inspectedBolt}: head, near washer, shaft, far washer and nut shown together; no parts moved. Click a component for its dimensions.`;
+          partCard.textContent = `${inspectedBolt}: complete ${pieces.length}-piece bolt stack shown together; no parts moved. Click a component for its dimensions.`;
         } else if (savedAssemblyView) {
           camera.position.copy(savedAssemblyView.position); controls.target.copy(savedAssemblyView.target);
           partCard.textContent = 'Full assembly restored. Click wood or hardware to inspect.';
@@ -400,15 +400,16 @@
         const connections = new Map(), groups = new Map();
         for (const part of parts) {
           const f = part.fabrication;
-          if (!f.connection_name || !roles.includes(f.hardware_role)) continue;
+          if (!f.connection_name || !(f.stack_roles || roles).includes(f.hardware_role)) continue;
           if (!connections.has(f.connection_name)) connections.set(f.connection_name, new Map());
           connections.get(f.connection_name).set(f.hardware_role, f);
         }
         for (const [name, pieces] of connections) {
-          if (!roles.every(role => pieces.has(role))) continue;
+          const stackRoles = pieces.values().next().value.stack_roles || roles;
+          if (!stackRoles.every(role => pieces.has(role))) continue;
           const known = name.match(/^(lumber_leg_bolt|timber_base)_(left|right)_\d+$/);
           const location = known ? `${known[1]}_${known[2]}` : name;
-          const signature = JSON.stringify(roles.map(role => pieces.get(role).dimensions_mm.map(n => Math.round(n*1000)/1000)));
+          const signature = JSON.stringify(stackRoles.map(role => pieces.get(role).dimensions_mm.map(n => Math.round(n*1000)/1000)));
           const key = location + signature;
           if (!groups.has(key)) groups.set(key, {name, label: known ?
             `${known[2] === 'left' ? 'Left' : 'Right'} ${known[1] === 'lumber_leg_bolt' ? 'leg' : 'base'} joint · example` : name.replaceAll('_', ' ')});

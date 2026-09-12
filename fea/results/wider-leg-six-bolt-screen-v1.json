@@ -1,0 +1,152 @@
+{
+  "leg_depth_mm": 184.15,
+  "rim_depth_mm": 184.15,
+  "bolt_diameter_in": 0.5,
+  "bolts_per_leg": 6,
+  "best": {
+    "ratio": 0.8178417887129344,
+    "a": 66,
+    "b": 84,
+    "shift_leg": -20,
+    "shift_rim": 4,
+    "margin": 2.50962953739797,
+    "moments": [
+      -129091.44672956917,
+      131234.29648697475
+    ],
+    "cg": 0.9509202912950326,
+    "points": [
+      [
+        -1219.2000000000003,
+        982.5601362491248,
+        1444.3890331825758
+      ],
+      [
+        -1219.2000000000003,
+        1036.5542954627942,
+        1508.7367664045698
+      ],
+      [
+        -1219.2000000000003,
+        965.3897440258409,
+        1508.1164027414914
+      ],
+      [
+        -1219.2000000000003,
+        1019.3839032395105,
+        1572.4641359634854
+      ],
+      [
+        -1219.2000000000003,
+        948.219351802557,
+        1571.8437723004067
+      ],
+      [
+        -1219.2000000000003,
+        1002.2135110162266,
+        1636.1915055224008
+      ]
+    ],
+    "forces": [
+      [
+        [
+          0,
+          -625.6477026675268,
+          726.8293935912384
+        ],
+        [
+          0,
+          -329.0630848656283,
+          477.96535018080954
+        ],
+        [
+          0,
+          -331.9223980177725,
+          805.9693097943897
+        ],
+        [
+          0,
+          -35.33778021587395,
+          557.1052663839603
+        ],
+        [
+          0,
+          -38.19709336801924,
+          885.109225997541
+        ],
+        [
+          0,
+          258.38752443387926,
+          636.2451825871117
+        ]
+      ],
+      [
+        [
+          0,
+          272.56462825539586,
+          610.1074878611087
+        ],
+        [
+          0,
+          -28.943137380134118,
+          863.1025428029689
+        ],
+        [
+          0,
+          -26.03636114155276,
+          529.6538908949532
+        ],
+        [
+          0,
+          -327.54412677708274,
+          782.6489458368139
+        ],
+        [
+          0,
+          -324.6373505385003,
+          449.2002939287977
+        ],
+        [
+          0,
+          -626.1451161740302,
+          702.1953488706583
+        ]
+      ]
+    ],
+    "loads": [
+      {
+        "foot": [
+          -1238.25,
+          1372.2122022985159,
+          0.0
+        ],
+        "compression_n": 4235.052661852033
+      },
+      {
+        "foot": [
+          -1238.25,
+          1435.7845736052368,
+          0.0
+        ],
+        "compression_n": 4077.3056140764324
+      }
+    ]
+  },
+  "qualified_for_construction": false,
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/wider_leg_six_bolt_screen.py": "13452ca4049151efae4bb7f8fe378adf87bba6b39de3e51bef12a86260afece3",
+    "fea/wider_leg_pattern_screen.py": "b01974ef6082bfb4558fd7d11667624f5cb0425c22c081c086d6d6698218cc80",
+    "fea/leg_bolt_pattern_search.py": "a2acf8b0a02fc2a5d4d5768b94d214d693a4422c01e53c0bc4f27680b9cd3c7d",
+    "fea/leg_completion_assessment.py": "e8acf1a9c54dfe2782ded210537b666378aef97e558b2d01c776fe3363e411b8",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/results/leg-completion-assessment-v2.json": "4b58a36b58d22c7d22db266716cbf52457223ff1e93de0218f177340ede7daa0"
+  },
+  "limits": [
+    "Lateral capacity and placement screen only; material/bearing assumptions follow the preceding search.",
+    "Larger wood is centered on the existing axes; actual CAD installation and other connections not revised.",
+    "Full-contact pressure range grows with leg width; extra wood mass included approximately at previous centers of gravity.",
+    "Smaller original group stiffness and six-fastener/max-pitch factor retained conservatively.",
+    "Fresh stock and unthreaded shank through both members assumed; final washer and bolt stack not specified.",
+    "Member net sections, splitting, prying and final hardware/collision checks remain outstanding."
+  ]
+}
