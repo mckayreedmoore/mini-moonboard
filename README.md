@@ -5,14 +5,14 @@ material schedules, drilling drawings and documented engineering studies.
 This is an independent project, not affiliated with or endorsed by Moon Climbing.
 
 **Development project — not released for construction or climbing.** The current
-development candidate is `round-insert-development`. Its geometry and numerical
+development candidate is `round-structural-development`. Its geometry and numerical
 checks do not establish connection strength, actual cable fit or a load rating.
 
-**[Open the 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-insert-development&view=rear)** ·
-**[Read the build-plan draft](docs/round-insert-build-plan.md)** ·
-**[Open the drilling PDF](docs/round-insert-drilling/drilling.pdf)**
+**[Open the 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear)** ·
+**[Read the build-plan draft](docs/round-structural-build-plan.md)** ·
+**[Open the drilling PDF](docs/round-structural-drilling/drilling.pdf)**
 
-![Current development frame with face panels hidden, showing horizontal rails, LEDs and wiring](exports/round-insert-development/open-frame.png)
+![Current development frame with face panels hidden, showing horizontal rails, LEDs and wiring](exports/round-structural-development/open-frame.png)
 
 ## Start here — no software installation needed
 
@@ -21,19 +21,19 @@ GitHub account, Git, Python or a copy of this repository to inspect the design.
 
 | What you want to do | Open this |
 | --- | --- |
-| Understand the layout and proposed assembly | [Build-plan draft and purchasing list](docs/round-insert-build-plan.md) |
-| Plan tools and equipment | [Complete tools and equipment checklist](docs/round-insert-build-plan.md#tools-and-equipment) |
-| Rotate the frame and inspect a member | [Interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=round-insert-development&view=rear) |
-| Read hole dimensions and measuring directions | [Passage schedule](docs/round-insert-drilling/drilling.json) and [drilling PDF](docs/round-insert-drilling/drilling.pdf) |
-| Check lumber and hardware quantities | [Wood schedule](exports/round-insert-development/wood-parts.csv) and [connection schedule](exports/round-insert-development/connections.csv) |
+| Understand the layout and proposed assembly | [Build-plan draft and purchasing list](docs/round-structural-build-plan.md) |
+| Plan tools and equipment | [Complete tools and equipment checklist](docs/round-structural-build-plan.md#tools-and-equipment) |
+| Rotate the frame and inspect a member | [Interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear) |
+| Read hole dimensions and measuring directions | [Passage schedule](docs/round-structural-drilling/drilling.json) and [drilling PDF](docs/round-structural-drilling/drilling.pdf) |
+| Check lumber and hardware quantities | [Wood schedule](exports/round-structural-development/wood-parts.csv) and [connection schedule](exports/round-structural-development/connections.csv) |
 | Estimate material costs | [Dated partial price list, exclusions and pending items](docs/material-costs.md) |
-| Review panel screw alignment | [Front-view placement diagram](docs/round-panel-screw-layout.svg) — mirrored rows and columns |
+| Review panel screw alignment | [Front-view placement diagram](docs/round-structural-screw-layout.svg) — mirrored rows and columns |
 | Understand the proposed lighting route | [LED hookup schematic](docs/horizontal-service-wiring.svg) and [kit/reference notes](docs/led-wiring-reference.md) |
 | Check material assumptions and what was purchased | [Purchased plywood](docs/purchased-materials.md) and [provisional design assumptions](docs/provisional-design-assumptions.md) |
-| Plan panel removal or a move | [Panel removal and temporary-support requirements](docs/round-insert-build-plan.md#removal-maintenance-and-repairs) |
+| Plan panel removal or a move | [Panel removal and temporary-support requirements](docs/round-structural-build-plan.md#removal-maintenance-and-repairs) |
 | Assess a worn panel-screw hole | [Threaded-insert repair guide and replacement limits](docs/threaded-insert-repair-guide.md) |
-| See remaining engineering work | [Insert-candidate analysis](docs/round-insert-analysis.md) and [remaining release gates](docs/round-insert-build-plan.md#receiving-and-qualification-checks) |
-| Open the model in CAD software | [STEP assembly](exports/round-insert-development/round-insert-development.step) |
+| See remaining engineering work | [Current structural-screw analysis](docs/round-structural-analysis.md) and [remaining release gates](docs/round-structural-build-plan.md#receiving-and-qualification-checks) |
+| Open the model in CAD software | [STEP assembly](exports/round-structural-development/round-structural-development.step) |
 
 The viewer lets you rotate, pan and zoom, select individual parts, change units
 and hide categories. Use **Inspect connection** to view representative leg

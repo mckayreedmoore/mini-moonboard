@@ -21,8 +21,9 @@
 
 ## Current hardware decision
 
-Develop threaded inserts with machine screws for removable face and kicker
-panels where receiver geometry and connection resistance support them. Retain
+Use the selected structural wood screws for face and kicker panels now.
+Reserve space for a possible future insert/machine-screw conversion where
+receiver geometry and connection resistance support it. Retain
 existing through-bolts/nuts and manufacturer-specified structural screws in
 commercial brackets. Do not claim inserts are installed, qualified or build-ready
 before the model, hardware schedule and checks are updated. Existing screw-based
@@ -96,7 +97,7 @@ and evidence. The preserved grooved-frame and higher-count screw comparisons
 do not qualify this geometry or load path; insert development and actual
 frame/connection/panel/floor qualification remain open.
 
-The current candidate is `round-insert-development`. It retains the round-bore
+The preserved insert candidate is `round-insert-development`. It retains the round-bore
 frame with 56 attachments, replacing ordinary panel/kicker screws with
 modeled E-Z LOK 801420-13 inserts and Dottie FMDD14114 machine screws. Its lower
 service rail and attachment axes now align at slope station 1134.2 mm; kicker
@@ -113,3 +114,17 @@ screw candidate and failed numerical trials available as historical evidence.
 
 Keep chat concise. Documentation, website text, code and commits use normal prose.
 Preserve changes belonging to other agents, including untracked files.
+
+## Current simplified screw candidate
+
+The owner selected `round-structural-development`: 56 SPAX XFT08P-2000
+#8 x 2-inch panel/kicker screws, retaining ML24Z/SDS screws and complete leg
+bolt stacks. Keep the aligned lower/upper service rails and fixed upper
+principal attachment rows. Enlarge enclosed LED passages to 38.1 mm (1.5 inches)
+only in nominal 2x6 stock; retain 25.4 mm in other members. Reserve future
+insert space geometrically without cutting insert pilots or installing inserts.
+A later conversion must establish installation/repair and resistance details;
+space alone does not qualify it. Preserve preceding designs and evidence.
+The owner does not require physical floor measurements/tests. Record explicit
+installation/floor assumptions and analytical limits without treating that
+scope choice as measured friction or a floor qualification.

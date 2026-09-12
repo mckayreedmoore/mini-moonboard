@@ -15,6 +15,8 @@ def test_saved_screw_audit_matches_recorded_sources_and_requested_layout():
     # Authenticate every original input without regenerating historical evidence.
     successor = {f'mini_moonboard/round_insert_{name}.py'
                  for name in ('frame', 'hardware', 'exports', 'drilling')}
+    successor |= {f'mini_moonboard/round_structural_{name}.py'
+                  for name in ('frame', 'wiring', 'exports', 'drilling')}
     assert report['source_sha256'] == {path: digest for path, digest in audit.sources().items()
                                      if path not in successor}
     assert report['panel_layout_gate']['passed']
