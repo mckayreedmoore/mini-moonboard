@@ -1,95 +1,82 @@
 # Independent DIY frame plans for the Mini MoonBoard
 
 Explore a freestanding Mini MoonBoard frame through an interactive 3D model,
-material schedules, drilling drawings and documented engineering studies.
-This is an independent project, not affiliated with or endorsed by Moon Climbing.
+CAD downloads and documented engineering studies. This is an independent
+project, not affiliated with or endorsed by Moon Climbing.
 
-**Development project — not released for construction or climbing.** The current
-development candidate is `round-structural-development`. Its geometry and numerical
-checks do not establish connection strength, actual cable fit or a load rating.
+**Development project — not released for construction or climbing.** The latest
+candidate is `no-shoes-development`: single 2×6 support legs and outer rims,
+commercial base angles, and a raised kicker for a 5-inch pad. Geometry checks
+have passed; whole-frame structural assessment remains pending.
 
-A separate [2×6 support-leg candidate without custom steel shoes](docs/no-shoes-candidate.md)
-restores commercial base angles and original timber bearing ends. Its whole-frame
-assessment is pending; prior reinforced results do not transfer.
+**[Open the latest 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear)** ·
+**[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step)** ·
+**[Read the candidate notes](docs/no-shoes-candidate.md)**
 
-The latest support-leg comparison is published as two separately selectable designs:
+## Latest candidate: no custom steel shoes
 
-| Design | Open the model | Review the assessment |
-| --- | --- | --- |
-| Single 2×6 legs and outer rims; four ⅜-inch leg bolts per side | [2×6 leg design](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear) | [150 lb comparison](docs/leg-150-comparison.md) |
-| Single 2×8 legs and outer rims; six ½-inch leg bolts per side | [2×8 leg design](https://mckayreedmoore.github.io/mini-moonboard/?model=wider-leg-development&view=rear) | [CAD, drilling and hardware package](docs/wider-leg-review/README.md) |
+- Single nominal 2×6 support legs and outer rims, with four ⅜-inch bolts per leg.
+  Other members retain their existing stock sizes; this is not an all-2×6 frame.
+- Two standard Simpson ML24Z base angles and twelve specified SDS screws replace
+  the custom steel shoes. Fresh timber uses the original bearing detail, without
+  shoe holes or shoe-clearance cuts.
+- **277 mm (10.91 inches) floor-to-main-face kicker datum:** 150 mm of exposed
+  kicker above a 127 mm (5-inch) pad allowance. This is 52 mm above the preceding
+  225 mm datum. Posts, rear legs and kicker plywood extend to the floor; the pad
+  is not a structural support.
+- Existing plywood, 142 selectable T-nuts and enclosed LED passages remain.
+  Panel attachments total 66 SPAX structural screws: twelve per main panel and
+  nine per kicker. Hold bolts are not modeled.
 
-Both are **development designs, not released for construction**. Read the
-[criterion-source review and conditional limits](docs/wider-leg-criteria-review.md)
-and [published lumber/bolt specifications](docs/leg-material-basis.md). The 2×6
-comparison retains the preceding reinforcement candidate; both include its
-historical base shoes, added kicker screws and 142 selectable T-nuts. The new
-2×8 leg hardware is catalog hardware, but this is not a fabrication-free redesign
-of the whole board. The older drawing package below does not describe either
-reinforced comparison's complete fabrication schedule.
-
-**[Open the 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear)** ·
-**[Read the build-plan draft](docs/round-structural-build-plan.md)** ·
-**[Open the drilling PDF](docs/round-structural-drilling/drilling.pdf)**
-
-![Current development frame with face panels hidden, showing horizontal rails, LEDs and wiring](exports/round-structural-development/open-frame.png)
+Focused checks cover the restored hardware, extended members and floor contact,
+retained leg sections, kicker-screw clearance against the base angles, export
+provenance and browser placement. These are geometry checks, not a load rating.
+The next assessment must determine whole-frame load sharing and connection forces
+for this geometry. Earlier reinforced calculations do not transfer to it.
+Published [material specifications](docs/leg-material-basis.md) and the accepted
+panel/T-nut construction are the design basis; no panel or T-nut upgrade is
+proposed. The frame analysis retains the owner's no-sliding assumption.
 
 ## Start here — no software installation needed
 
-Click the links below to read the plans in your browser. You do not need a
-GitHub account, Git, Python or a copy of this repository to inspect the design.
-
 | What you want to do | Open this |
 | --- | --- |
-| Understand the layout and proposed assembly | [Build-plan draft and purchasing list](docs/round-structural-build-plan.md) |
-| Plan tools and equipment | [Complete tools and equipment checklist](docs/round-structural-build-plan.md#tools-and-equipment) |
-| Rotate the frame and inspect a member | [Interactive 3D viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=round-structural-development&view=rear) |
-| Read hole dimensions and measuring directions | [Passage schedule](docs/round-structural-drilling/drilling.json) and [drilling PDF](docs/round-structural-drilling/drilling.pdf) |
-| Check lumber and hardware quantities | [Wood schedule](exports/round-structural-development/wood-parts.csv) and [connection schedule](exports/round-structural-development/connections.csv) |
-| Estimate material costs | [Dated partial price list, exclusions and pending items](docs/material-costs.md) |
-| Review panel screw alignment | [Front-view placement diagram](docs/round-structural-screw-layout.svg) — mirrored rows and columns |
-| Understand the proposed lighting route | [LED hookup schematic](docs/horizontal-service-wiring.svg) and [kit/reference notes](docs/led-wiring-reference.md) |
-| Check material assumptions and what was purchased | [Purchased plywood](docs/purchased-materials.md) and [provisional design assumptions](docs/provisional-design-assumptions.md) |
-| Plan panel removal or a move | [Panel removal and temporary-support requirements](docs/round-structural-build-plan.md#removal-maintenance-and-repairs) |
-| Assess a worn panel-screw hole | [Threaded-insert repair guide and replacement limits](docs/threaded-insert-repair-guide.md) |
-| See remaining engineering work | [Latest reinforced revision: finite release checks and results](docs/reinforced-release-checks.md) |
-| Open the model in CAD software | [STEP assembly](exports/round-structural-development/round-structural-development.step) |
+| Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear) |
+| Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
+| Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step) |
+| Check specified lumber and bolt materials | [Material basis](docs/leg-material-basis.md) |
+| Review purchased plywood and hold hardware | [Purchased materials](docs/purchased-materials.md) and [T-nuts and hold-bolt guidance](docs/moonboard-hold-hardware.md) |
+| Understand the lighting route | [LED hookup schematic](docs/horizontal-service-wiring.svg) and [kit notes](docs/led-wiring-reference.md) |
 
 The viewer lets you rotate, pan and zoom, select individual parts, change units
-and hide categories. Use **Inspect connection** to view representative leg
-connections with their heads, washers and nuts; individual parts remain selectable.
-Use **Design** to compare older candidates; each has its own geometry and limits.
-The [prototype weight comparison](docs/prototype-weights.md) explains the displayed
-estimates.
+and hide categories. Use **Inspect connection** to view representative complete
+bolt stacks. Use **Design** to compare candidates, each with its own geometry and
+limits. The [prototype weight notes](docs/prototype-weights.md) explain the
+estimates; displayed frame weight is not climber capacity.
 
-PDF links open drawings; CSV links open tables. On GitHub's file page, use the
-download control to save a copy. STEP is a CAD exchange file, not a picture;
-use the browser viewer if you only want to look around. Drawings are dimensioned
-references, not full-size drill templates.
+## Preserved comparisons and older plans
 
-## What the current candidate contains
+The two preceding leg comparisons retain custom steel base shoes and the older
+225 mm kicker datum. They remain available for reviewing the design changes.
 
-Four horizontal single-2×6 rails replace the preceding intermediate principals
-and posts. The separated center principals, outer rims and direct base angles
-remain. Panel/kicker attachments use 56 SPAX structural wood screws.
-Commercial bracket screws and complete through-bolt stacks remain. Future
-insert space is reserved geometrically; no inserts are installed.
+| Design | Open the model | Review the evidence |
+| --- | --- | --- |
+| 2×6 legs and outer rims; four ⅜-inch leg bolts per side; custom base shoes | [2×6 reinforced comparison](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear) | [Conditional 150 lb comparison](docs/leg-150-comparison.md) |
+| 2×8 legs and outer rims; six ½-inch leg bolts per side; custom base shoes | [2×8 comparison](https://mckayreedmoore.github.io/mini-moonboard/?model=wider-leg-development&view=rear) | [CAD and hardware package](docs/wider-leg-review/README.md) |
 
-Its lighting detail uses **enclosed round timber passages**, with intact factory
-strands installed after frame and panel assembly. The mirrored development
-pattern uses twelve structural wood screws per main panel and four
-per kicker: 56 in total.
-The [screw-pattern review](docs/panel-screw-reference-review.md) and
-[historical 87/75-screw comparison](docs/panel-screw-sensitivity.md) explain the
-investigation; they do not qualify the new count or load path. Keep the owned
-Roseburg plywood; Structural I remains an optional reference alternative.
-Do not combine one candidate's cut list or analysis with another's drawings.
+Both are unqualified development designs. See the
+[criterion-source review and conditional limits](docs/wider-leg-criteria-review.md).
 
-The project retains the one-climber 250 lb design request and a 300 lb sensitivity
-case. These are analysis inputs, not approved user weight limits. Actual materials,
-panel behavior, screw/bolt/bracket resistance and the floor interface still need
-resolution. See the [assumptions and remaining checks](docs/provisional-design-assumptions.md)
-before treating a result as applicable to a physical build.
+The earlier `round-structural-development` retains its
+[build-plan draft](docs/round-structural-build-plan.md),
+[drilling PDF](docs/round-structural-drilling/drilling.pdf),
+[wood schedule](exports/round-structural-development/wood-parts.csv),
+[connection schedule](exports/round-structural-development/connections.csv),
+[tools checklist](docs/round-structural-build-plan.md#tools-and-equipment) and
+[dated partial costs](docs/material-costs.md). These documents describe that older
+candidate, including its 225 mm kicker and 56 panel/kicker screws. **They are not
+an updated fabrication package for the latest raised, shoe-free candidate.**
+Do not combine one candidate's cut list or analysis with another's geometry.
 
 ## Earlier designs and engineering evidence
 
