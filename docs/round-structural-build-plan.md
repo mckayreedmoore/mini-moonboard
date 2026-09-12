@@ -125,6 +125,12 @@ The completed focused reviews identify the finite release work:
 The source-matched native runner is available but has not supplied current
 accepted demands here. Historical demand numbers do not close these tasks.
 
+The [September 12 calculation update](round-structural-analysis.md#september-12-calculation-update)
+identifies a conditional kicker screw-only force shortfall and two global
+overturning sensitivities below the retained comparison. The current drawings
+remain drafts. No additional H3 ties, new screws or altered bores are selected
+by those calculations.
+
 Physical floor measurement/testing is outside the owner's requested scope.
 Document the selected floor/pad arrangement and use explicit conservative
 stability assumptions; no measured friction or proven multi-surface rating is

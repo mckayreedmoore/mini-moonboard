@@ -74,6 +74,16 @@ Equal sharing is not established by symmetric screw placement. Nor is assigning
 an entire external force to one screw automatically a conservative bound:
 eccentricity, contact and prying can create larger internal reactions.
 
+The [new head calculation](round-structural-head-calculation.md) supplies a
+304.125 N conditional reference using the NDS other-grade-plywood default.
+Countersunk-head applicability is still unresolved; a numerical thickness
+reduction alone is not proof of installed resistance. The separate
+[force-equilibrium screen](round-structural-panel-equilibrium.md) finds that
+four kicker screws cannot balance the evaluated downward loads under the
+unchanged conditional references without panel-edge support or backing
+friction. Resolve that load path before interpreting a detailed stiffness solve
+as an attachment qualification.
+
 Historical peak withdrawal around 1.55 kN exceeds the present unadjusted reference,
 so the earlier diagnostic result is a reason to resolve demand, not a current
 failure verdict or permission to release construction. No larger screw is

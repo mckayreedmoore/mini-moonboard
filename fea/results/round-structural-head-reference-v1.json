@@ -1,0 +1,47 @@
+{
+  "candidate": "round-structural-development",
+  "product": "SPAX XFT08P-2000",
+  "qualified_for_design": false,
+  "current_demands_evaluated": false,
+  "installation_adjustments_applied": false,
+  "actual_head_seat_verified": false,
+  "governing_edition_reconciled": false,
+  "actual_head_geometry_applicability_unresolved": true,
+  "basis": {
+    "method": "NDS 2018 Eq.12.2-6a, Tables12.2F/12.3.3B; Commentary C12.2.5",
+    "head_shape": "Circular perimeter, nominal 90-degree flat countersunk head",
+    "head_diameter_in": 0.32,
+    "panel_thickness_in": 0.71875,
+    "panel_specific_gravity": 0.42,
+    "specific_gravity_basis": "Other-grade plywood with unknown ply species; Table12.2F footnote2 invokes Table12.3.3B",
+    "excluded_head_zone_in": 0.16,
+    "net_thickness_in": 0.55875,
+    "thickness_choice": "Exclude entire ideal cone to apex; discretionary reduction, not prescribed countersink depth or measured installation",
+    "table_range_satisfied": true
+  },
+  "reference_head_lbf": 68.36991794667114,
+  "reference_head_n": 304.1245468439693,
+  "full_thickness_comparison_n": 391.21166540331626,
+  "geometry_audit_sha256": "9e1bf73f353a6008f82b72fb3d74c98cbb9e536e1af7572a3823ffa17a5e2e45",
+  "source_sha256": {
+    "fea/round_structural_screw_reference.py": "bf345886ecb390bd742e6d5f3e97b1d9c1cf149ec67603a0a81138d9efa40fc6",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "docs/round-panel-countersink-reference.json": "8f1a827e112cd4b4bbb879351c06618f2683ce18218691817f77692926c1f628",
+    "fea/results/round-structural-audit-v1.json": "9e1bf73f353a6008f82b72fb3d74c98cbb9e536e1af7572a3823ffa17a5e2e45",
+    "fea/round_structural_head_reference.py": "e18f389034406281fbdd27d8ca3dc732e03ba05643e2733b440f7cacdea9983d"
+  },
+  "sources": {
+    "nds2018": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf",
+    "commentary2018": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf",
+    "underlying_research": "https://web-media.awc.org/wp-content/uploads/2021/12/17210650/2018-nds-head-pull-through-paper.pdf",
+    "drawing": "https://dxf82wtg340bb.cloudfront.net/resources/8-Flat-Head-Unidrive-and-T-Star-Plus-2D-11-5-21.pdf",
+    "counterevidence": "https://www.buildsite.com/pdf/simpsonstrongtie/Simpson-Strong-Tie-Fastening-Systems-Technical-Guide-2895928.pdf#page=20"
+  },
+  "primary_pdf_sha256": {
+    "nds2018": "9a2c8fec7440a46bd6ad2f000feb22da099167a8a5424d7e6f329bf9a7624660",
+    "underlying_research": "b0f7b80cfa891b4babea733894ee856b3da944abb8ce9a982477cb90c4887e2f",
+    "drawing": "ad119b2dbfff8c6c55a230f3edc02d079e2cd9742120c578cdee139f5eb5e9d5"
+  },
+  "adjustment_basis": "For ASD head pull-through, Table11.3.1 lists CD, CM, Ct. Their end-use applicability is not established here. No impact-duration increase; no shank-friction bonus.",
+  "limits": "Conditional nominal reference for intact plywood and supported flush seat. Not a SPAX product-specific test value or an adjusted allowable. Does not establish TER Table6 G>=0.50, actual seat damage/tolerances, panel bending, group sharing, steel action, cyclic behavior or frame release. Simpson C-F-2025TECHSUP p20 reports flathead geometry underperformance for its dimensional-lumber screws; its factors do not transfer here. Reduced thickness is a smaller equation reference, not proof of a lower bound on the SPAX countersunk plywood seat. 2018 inspected; equivalence to project 2024 provisions remains unresolved."
+}

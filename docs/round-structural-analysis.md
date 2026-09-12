@@ -30,7 +30,7 @@ There is **zero nominal tolerance margin** for a two-inch edge-clearance basis:
 50.8 + 38.1 + 50.8 = 139.7 mm exactly. Actual stock depth, bit diameter and
 centering require a dimensional acceptance rule. Conventional joist detailing
 is a comparison, not automatic structural approval of this custom frame.
-See the [timber review](round-structural-timber-review.md#centered-hole-alternative-what-conventional-detailing-can-simplify).
+See the [timber review](round-structural-timber-review.md#current-centered-holes-what-conventional-detailing-can-simplify).
 
 The centered wiring implementation passes the regenerated
 [geometry audit](../fea/results/round-structural-audit-v1.json), including its
@@ -65,6 +65,38 @@ applicability decision or a defensible calculated connection detail can resolve
 the base question without an invented experimental program. Current demands
 and compatible adjusted capacities remain necessary even when conventional
 member calculations replace additional local FEA.
+
+## September 12 calculation update
+
+The following bounded calculations add current evidence without changing CAD:
+
+- [Head pull-through](round-structural-head-calculation.md): a 304.125 N
+  conditional NDS reference for other-grade plywood. Actual countersunk-head
+  applicability remains unresolved; the smaller thickness assumption is not
+  proof of a physical lower bound for the SPAX plywood seat.
+- [Panel force equilibrium](round-structural-panel-equilibrium.md): under the
+  stated unchanged references and no panel-edge bearing or backing friction,
+  the four kicker screws have an optimistic tangential sum of 1009.42 N.
+  The 1200 N diagnostic and inherited 250/300 lb downward cases exceed that
+  bound. A supported kicker load path or a justified resistance revision is
+  required; nonfailure of the main-panel force sums is not acceptance.
+- [Timber reference and dimensional rule](round-structural-timber-calculation.md):
+  independently verified 1170 psi conditional bending reference, and actual
+  stock depth at least actual bore diameter + 101.6 mm + twice centering error
+  for the two-inch-edge comparison. Nominal geometry has zero tolerance margin.
+- [Base resolution](round-structural-base-resolution.md): corrected two
+  four-bolt leg groups and equilibrium-preserving demand equations. H3 is a
+  specific supplemental uplift candidate to investigate, not selected hardware;
+  neither its placement nor a complete base moment path is established.
+- [Current global envelope](round-structural-global-envelope.md): current mass,
+  all 142 holds and 48 grouped load sensitivities. Two groups fall below the
+  retained 1.5 overturning comparison. No floor tests, internal member demands
+  or connection acceptance are supplied by this rigid-body screen.
+
+The earlier full software CI and viewer deployment passed at `df6d1e5`.
+Software success does not resolve these structural findings. Keep
+[issue #8](https://github.com/mckayreedmoore/mini-moonboard/issues/8) open until
+its current release requirements are satisfied.
 
 ## Minimum remaining work and further simplification
 
