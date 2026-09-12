@@ -208,3 +208,16 @@ limiting sensitivity, not established normal contact. Preserve the historical
 numbers while applying these qualifications to their interpretation. Numerical
 weight crossings are conditional resistance limits, not safe climber ratings
 or physical failure predictions; they do not qualify edge geometry or prying.
+
+## Shoe-free candidate and pad allowance, 2026-09-12
+
+The owner requests a separate single-2x6 support-leg candidate without custom
+steel base shoes, retaining accepted panel/T-nut construction. Restore the
+preceding commercial base-angle connections and fresh timber bearing geometry;
+do not leave shoe clearance gaps or shoe drilling. The requested kicker datum
+is 150 mm exposed above a 5-inch (127 mm) pad allowance: 277 mm from floor to
+main-face datum, compared with the preceding 225 mm. Extend floor-supported
+members appropriately; do not float the frame or treat the pad as a support.
+Retain historical variants. Whole-frame analysis should use published material
+properties and investigate specific shortcomings before enlarging members;
+previous reinforced load results do not qualify this changed assembly.

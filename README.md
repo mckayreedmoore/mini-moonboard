@@ -8,6 +8,10 @@ This is an independent project, not affiliated with or endorsed by Moon Climbing
 development candidate is `round-structural-development`. Its geometry and numerical
 checks do not establish connection strength, actual cable fit or a load rating.
 
+A separate [2×6 support-leg candidate without custom steel shoes](docs/no-shoes-candidate.md)
+restores commercial base angles and original timber bearing ends. Its whole-frame
+assessment is pending; prior reinforced results do not transfer.
+
 The latest support-leg comparison is published as two separately selectable designs:
 
 | Design | Open the model | Review the assessment |

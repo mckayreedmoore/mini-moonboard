@@ -204,11 +204,11 @@
             const normal = new THREE.Vector3().crossVectors(right, up);
             mesh.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(right, up, normal));
             mesh.rotateZ(-hold.rotation * Math.PI / 180);
-            if (kicker) mesh.position.set(1219.2 - (100 + 248.56 * (Number(hold.position.slice(4)) - 1)), -18, 150);
+            if (kicker) mesh.position.set(1219.2 - (100 + 248.56 * (Number(hold.position.slice(4)) - 1)), -18, kickerHoldHeight);
             else {
               const station = rowStations[Number(hold.position.slice(1)) - 1];
               mesh.position.set(1019.2 - (hold.position.charCodeAt(0) - 65) * 200,
-                -18 + station * Math.sin(angle), 225 + station * Math.cos(angle));
+                -18 + station * Math.sin(angle), mainFaceHeight + station * Math.cos(angle));
             }
             mesh.position.addScaledVector(normal, .5);
             mesh.userData.hold = hold;
@@ -238,7 +238,7 @@
       lumberModels.push(['lumber-leg-spread-2x8-e300', '2x8 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-spread-2x6-e300', '2x6 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-hardware-2x6-e0', '2x6 +0 mm (0 in) · long bolts / four washers · geometry only']);
-      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Latest 2×6 legs · four bolts per leg · assessed / unqualified'], ['wider-leg-development', 'Latest 2×8 legs and rims · six bolts per leg · assessed / unqualified']];
+      const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Latest 2×6 legs · four bolts per leg · assessed / unqualified'], ['wider-leg-development', 'Latest 2×8 legs and rims · six bolts per leg · assessed / unqualified'], ['no-shoes-development', '2×6 legs · standard base angles · no custom shoes · unassessed']];
       const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'round-structural-development';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
@@ -282,15 +282,16 @@
         }
         document.querySelector('header h1').after(links);
       }
-      if (['round-reinforcement-development', 'wider-leg-development'].includes(model)) {
+      if (['round-reinforcement-development', 'wider-leg-development', 'no-shoes-development'].includes(model)) {
         const links = document.createElement('nav'); links.id = 'model-documents';
-        for (const [label, path] of (model === 'wider-leg-development' ? [['2×8 assessment', 'docs/wider-leg-decision.md'], ['CAD and drilling package', 'docs/wider-leg-review/README.md'], ['Catalog hardware', 'docs/wider-leg-hardware.md'], ['150 lb comparison', 'docs/leg-150-comparison.md']] : [['2×6 assessment', 'docs/leg-completion-decision.md'], ['150 lb comparison', 'docs/leg-150-comparison.md'], ['Revision review', 'docs/round-reinforcement-development.md'], ['T-nuts and hold bolt guidance', 'docs/moonboard-hold-hardware.md']])) {
+        for (const [label, path] of (model === 'no-shoes-development' ? [['Candidate changes', 'docs/no-shoes-candidate.md'], ['Material specifications', 'docs/leg-material-basis.md']] : model === 'wider-leg-development' ? [['2×8 assessment', 'docs/wider-leg-decision.md'], ['CAD and drilling package', 'docs/wider-leg-review/README.md'], ['Catalog hardware', 'docs/wider-leg-hardware.md'], ['150 lb comparison', 'docs/leg-150-comparison.md']] : [['2×6 assessment', 'docs/leg-completion-decision.md'], ['150 lb comparison', 'docs/leg-150-comparison.md'], ['Revision review', 'docs/round-reinforcement-development.md'], ['T-nuts and hold bolt guidance', 'docs/moonboard-hold-hardware.md']])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
           link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
         }
         document.querySelector('header h1').after(links);
       }
+      let mainFaceHeight = 225, kickerHoldHeight = 150;
       let rowStations = Array.from({ length: 12 }, (_, index) => 80 + index * 200);
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'light' ? 0x40ff65 : part.fabrication.kind === 'wire' ? 0x424a52 : ['bolt', 'tnut'].includes(part.fabrication.kind) ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.fabrication.kind === 'insert' || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect connection ';
@@ -302,7 +303,7 @@
       const weightLine = document.createElement('p'); weightLine.id = 'prototype-weight'; weightLine.setAttribute('aria-live', 'polite');
       weightLine.style.cssText = 'margin-top:.55rem;font-weight:600;color:#f5f0e6'; weightLine.textContent = 'Estimated frame weight: loading…';
       const weightNote = document.createElement('p'); weightNote.id = 'prototype-weight-note';
-      const excludedMass = ['round-reinforcement-development', 'wider-leg-development'].includes(model) ? 'excludes holds, hold bolts, retention screws, lights and wiring; includes provisional T-nut envelopes' : 'excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring';
+      const excludedMass = ['round-reinforcement-development', 'wider-leg-development', 'no-shoes-development'].includes(model) ? 'excludes holds, hold bolts, retention screws, lights and wiring; includes provisional T-nut envelopes' : 'excludes holds, their unmodeled T-nuts and hold bolts, lights and wiring';
       weightNote.textContent = `Estimates use assumed material densities; ${excludedMass}.`;
       boltLabel.before(weightLine, weightNote);
       // Keep the requested hold preview accessible ahead of detailed frame controls.
@@ -424,6 +425,8 @@
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
+          mainFaceHeight = design.main_face_height_mm ?? 225;
+          kickerHoldHeight = design.kicker_hold_height_mm ?? 150;
           if (design.tnut_row_stations_mm) {
             rowStations = design.tnut_row_stations_mm;
             if (overlaySelect.value !== 'none') makeGridOverlay(overlaySelect.value === 'grid' ? '#f0b429' : '#f5f0e6');
@@ -444,6 +447,7 @@
           const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: luminous ? .25 : .7, metalness: .05,
             emissive: luminous ? 0x00ff35 : 0x000000, emissiveIntensity: luminous ? 1.5 : 1 }));
+          if (part.translation_mm) mesh.position.fromArray(part.translation_mm);
           mesh.userData.baseEmissive = mesh.material.emissive.getHex();
           mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
           updateBoltVisibility();
@@ -474,7 +478,7 @@
         );
         decal.position.fromArray(position); decal.rotation.x = 230 * Math.PI / 180; overlay.add(decal);
       };
-      const mainFacePoint = (x, distance) => [x, -18 + .5 * Math.cos(Math.PI / 180 * 40) + distance * Math.sin(Math.PI / 180 * 40), 225 - .5 * Math.sin(Math.PI / 180 * 40) + distance * Math.cos(Math.PI / 180 * 40)];
+      const mainFacePoint = (x, distance) => [x, -18 + .5 * Math.cos(Math.PI / 180 * 40) + distance * Math.sin(Math.PI / 180 * 40), mainFaceHeight - .5 * Math.sin(Math.PI / 180 * 40) + distance * Math.cos(Math.PI / 180 * 40)];
       const makeGridOverlay = color => {
         overlay.clear();
         // In climber-facing coordinates, +X is left and -X is right. A starts
