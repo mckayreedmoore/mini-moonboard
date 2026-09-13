@@ -24,7 +24,7 @@ fs.mkdirSync(output, {recursive: true});
       await page.waitForFunction(n => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === n,
         manifest.parts.length, {timeout: 120000});
       assert.equal(await page.locator('#model').inputValue(), key);
-      assert.deepEqual(await page.locator('#model optgroup').evaluateAll(groups => groups.map(g => g.label)), ['Current design', 'Historical / archive designs']);
+      assert.deepEqual(await page.locator('#model optgroup').evaluateAll(groups => groups.map(g => g.label)), ['Current design', 'Development candidates', 'Historical / archive designs']);
       assert.equal(await page.locator('#model optgroup').first().locator('option').count(), 1);
       assert.match(await page.locator('#design-details').innerText(), /NOT build-ready/);
       assert.ok(await page.locator('#model-documents a').count() >= 2);
@@ -59,10 +59,22 @@ fs.mkdirSync(output, {recursive: true});
       assert.ok(floor.every(z => Math.abs(z) < .01));
 
     }
+    const pivot = 'thick-leg-centered-pivot-development';
+    await page.locator('#model').selectOption(pivot);
+    await page.waitForURL('**model='+pivot+'*');
+    const pivotManifest = await page.evaluate(async key => (await fetch('hybrid/'+key+'/parts.json')).json(), pivot);
+    await page.waitForFunction(n => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === n,
+      pivotManifest.parts.length, {timeout:120000});
+    assert.equal(pivotManifest.design.leg_stock, '4x6');
+    assert.equal(pivotManifest.design.leg_bolt_count, 2);
+    assert.equal(pivotManifest.parts.filter(p => p.fabrication.kind === 'bolt').length, 10);
+    assert.match(await page.locator('#design-details').innerText(), /Free relative rotation is an analysis assumption/);
+    assert.equal(await page.locator('#model optgroup').nth(1).locator('option:checked').count(), 1);
+    await page.screenshot({path:path.join(output, pivot+'-rear.png')});
     await page.locator('#model').selectOption('round-reinforcement-development');
     await page.waitForURL('**model=round-reinforcement-development*');
     await page.waitForFunction(() => document.querySelector('#model')?.value === 'round-reinforcement-development');
-    assert.equal(await page.locator('#model optgroup').nth(1).locator('option:checked').count(), 1);
+    assert.equal(await page.locator('#model optgroup').nth(2).locator('option:checked').count(), 1);
     assert.deepEqual(errors, []);
     console.log('Shoe-free candidate loaded; 277mm datum, standalone meshes and floor contact verified');
   } finally {

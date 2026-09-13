@@ -48,6 +48,7 @@ proposed. The frame analysis retains the owner's no-sliding assumption.
 | What you want to do | Open this |
 | --- | --- |
 | Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear) |
+| Inspect the unselected solid 4×6 pivot option | [Development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=thick-leg-centered-pivot-development&view=rear) |
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
 | Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step) |
 | Find current cuts, drilling, hardware and pad-height changes | [Current construction package](docs/current-construction-package.md) |

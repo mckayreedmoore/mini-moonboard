@@ -11,6 +11,8 @@ quickly: thicker members with a simpler upper connection, and a connected
 triangular side frame. It does not add a general historical, panel or floor-test
 campaign to the [agreed DIY scope](current-diy-completion-record.md).
 
+The [development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=thick-leg-centered-pivot-development&view=rear) now includes this candidate, with independently selectable bolt components. The baseline remains the default. The viewer states that free relative rotation is an analytical assumption.
+
 ## Solid-member candidate
 
 The geometry uses actual 88.9 × 139.7 mm single-stock legs and outer inclined
@@ -148,3 +150,7 @@ an unrun load envelope or qualification of the actual installed connection.
 
 Validation: **369 default tests passed, 15 deselected, in 25.37 seconds**.
 Repository lint and whitespace checks passed. Historical models were not rerun.
+
+Rebuild its standalone viewer meshes and STEP with
+`uv run python -m mini_moonboard.thick_leg_exports`; add `--check` to compare a
+fresh rebuild against the published assets.

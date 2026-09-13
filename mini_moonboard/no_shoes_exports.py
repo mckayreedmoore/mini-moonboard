@@ -52,7 +52,7 @@ def sources():
     return {str(path.relative_to(ROOT)): digest(path) for path in sorted(paths)}
 
 
-def viewer_parts(parts, connections):
+def viewer_parts(parts, connections, *, electrical_parts=None):
     """Yield CAD bodies and presentation metadata, preserving selectable bolt stacks."""
     for part in parts:
         kind = 'tnut' if part.name.startswith('hold_tnut_') else 'part'
@@ -60,7 +60,7 @@ def viewer_parts(parts, connections):
             'dimensions_mm': list(part.blank), 'kind': kind,
             'description': part.description, 'clearance_status': STATUS,
         }
-    for part in model.electrical_parts():
+    for part in model.electrical_parts() if electrical_parts is None else electrical_parts:
         bounds = exact_bounds(part.shape)
         yield part.name, part.shape, {
             'dimensions_mm': [bounds.xlen, bounds.ylen, bounds.zlen],
@@ -114,18 +114,22 @@ def design_metadata(parts, connections):
     }
 
 
-def export(root=Path('site')):
+def export(root=Path('site'), *, candidate=None, metadata=None, source_reader=None):
     """Regenerate every current asset; ``root`` may be an empty directory."""
-    source_hashes = sources()
+    candidate = model if candidate is None else candidate
+    source_reader = sources if source_reader is None else source_reader
+    if candidate is not model and metadata is None:
+        raise ValueError('Alternative candidate requires explicit design metadata')
+    source_hashes = source_reader()
     root = Path(root)
-    directory = root/'hybrid'/model.KEY
+    directory = root/'hybrid'/candidate.KEY
     meshes = directory/'models'
     meshes.mkdir(parents=True, exist_ok=True)
-    parts, connections = model.parts(), model.connections()
-    design = design_metadata(parts, connections)
+    parts, connections = candidate.parts(), candidate.connections()
+    design = (metadata or design_metadata)(parts, connections)
     items, shapes = [], []
     names = set()
-    for name, shape, fabrication in viewer_parts(parts, connections):
+    for name, shape, fabrication in viewer_parts(parts, connections, electrical_parts=candidate.electrical_parts()):
         if name in names:
             raise ValueError('Duplicate viewer identity: '+name)
         if not shape.isValid():
@@ -143,13 +147,13 @@ def export(root=Path('site')):
                  'bounds_mm': [[getattr(bounds, axis+end) for axis in 'xyz']
                                for end in ('min', 'max')]}
     (directory/'parts.json').write_text(json.dumps(inventory, indent=2, allow_nan=False)+'\n')
-    assembly = cq.Assembly(name=model.KEY)
+    assembly = cq.Assembly(name=candidate.KEY)
     for part in parts:
         assembly.add(part.shape, name=part.name)
     for connection in connections:
         assembly.add(cq.Compound.makeCompound(connection.components()), name='fastener_'+connection.name)
     _export_step(assembly, directory/'assembly.step')
-    if sources() != source_hashes:
+    if source_reader() != source_hashes:
         raise ValueError('Source changed during export')
     artifacts = [directory/'parts.json', directory/'assembly.step',
                  *(meshes/(name+'.stl') for name in sorted(names))]
@@ -161,11 +165,13 @@ def export(root=Path('site')):
     return directory
 
 
-def check(root=Path('site')):
+def check(root=Path('site'), *, candidate=None, exporter=None):
     """Rebuild into an empty directory and compare all committed current assets."""
-    published = Path(root)/'hybrid'/model.KEY
+    candidate = model if candidate is None else candidate
+    exporter = export if exporter is None else exporter
+    published = Path(root)/'hybrid'/candidate.KEY
     with TemporaryDirectory(prefix='moonboard-current-rebuild-') as temporary:
-        rebuilt = export(Path(temporary))
+        rebuilt = exporter(Path(temporary))
         manifest = json.loads((rebuilt/'manifest.json').read_text())
         for name, expected in manifest['artifact_sha256'].items():
             path = published/name
