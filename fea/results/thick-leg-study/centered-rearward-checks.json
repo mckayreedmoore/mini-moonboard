@@ -1,0 +1,902 @@
+{
+  "bolt": {
+    "candidate": "thick-leg-centered-pivot-development",
+    "producer_validity": {
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "contact_active_set_converged": true,
+      "closed_bearing_assumption_passed": true,
+      "member_equilibrium_passed": true,
+      "numerically_accepted": true
+    },
+    "bolts": {
+      "lumber_leg_bolt_left_1": {
+        "diameter_mm": 15.875,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.89999999999964
+        ],
+        "bearing_psi": [
+          5593.0969419602725,
+          3307.6661096113053
+        ],
+        "lateral_demand_n": 2990.1944921899862,
+        "lateral_reference_n": 3430.2081313793187,
+        "lateral_ratio": 0.8717239239321612,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 12234.89956053811,
+            "Is": 7235.5196147747,
+            "II": 3991.5541302971315,
+            "IIIm": 4121.654703505685,
+            "IIIs": 3158.9142536095283,
+            "IV": 3084.5658585096703
+          },
+          "reference_values_lbf": {
+            "Im": 2446.979912107622,
+            "Is": 1447.1039229549401,
+            "II": 887.0120289549182,
+            "IIIm": 1030.4136758764212,
+            "IIIs": 789.7285634023821,
+            "IV": 771.1414646274176
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 771.1414646274176,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_left": {
+            "depth_force_on_member_n": 105.96161197673734,
+            "margins_mm": {
+              "grain_positive": 62.980437969929426,
+              "grain_negative": 1551.6687127939074,
+              "depth_positive": 3.3499999999999517,
+              "depth_negative": 43.037499999999966
+            },
+            "minimum_margin_mm": 3.3499999999999517,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_left": {
+            "depth_force_on_member_n": -2510.9153594353843,
+            "margins_mm": {
+              "grain_positive": 659.7912541401383,
+              "grain_negative": 1623.1574265907893,
+              "depth_positive": 43.03749999999262,
+              "depth_negative": 3.3500000000072845
+            },
+            "minimum_margin_mm": 3.3500000000072845,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 90.23003074089641,
+          "steel_direct_ratio": 0.12440670633887538,
+          "axial_stress_mpa": 0.6188355193010804,
+          "remaining_bending_yield_mpa": 633.6988354521881,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.015955897119012886,
+              "elastic_bending_ratio": 0.03082186128383623,
+              "net_bearing_area_mm2": 1312.2931978189104,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.015955897119012886,
+              "elastic_bending_ratio": 0.03082186128383623,
+              "net_bearing_area_mm2": 1312.2931978189104,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      },
+      "lumber_leg_bolt_right_1": {
+        "diameter_mm": 15.875,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.90000000000009
+        ],
+        "bearing_psi": [
+          5584.416246936459,
+          3276.926007260514
+        ],
+        "lateral_demand_n": 901.1399054550324,
+        "lateral_reference_n": 3419.1609123653684,
+        "lateral_ratio": 0.26355586313474366,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 12215.91054017352,
+            "Is": 7168.2756408823825,
+            "II": 3972.655336517686,
+            "IIIm": 4108.536623798548,
+            "IIIs": 3137.7552688904643,
+            "IV": 3074.6318039868015
+          },
+          "reference_values_lbf": {
+            "Im": 2443.182108034704,
+            "Is": 1433.6551281764764,
+            "II": 882.8122970039302,
+            "IIIm": 1027.134155949637,
+            "IIIs": 784.4388172226161,
+            "IV": 768.6579509967004
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 768.6579509967004,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_right": {
+            "depth_force_on_member_n": 48.01687479589492,
+            "margins_mm": {
+              "grain_positive": 62.980437969929426,
+              "grain_negative": 1551.6687127939074,
+              "depth_positive": 3.3499999999999517,
+              "depth_negative": 43.037499999999966
+            },
+            "minimum_margin_mm": 3.3499999999999517,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_right": {
+            "depth_force_on_member_n": -765.3233365619794,
+            "margins_mm": {
+              "grain_positive": 659.7912541401383,
+              "grain_negative": 1623.1574265907893,
+              "depth_positive": 43.03749999999262,
+              "depth_negative": 3.3500000000072845
+            },
+            "minimum_margin_mm": 3.3500000000072845,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 28.76534499449599,
+          "steel_direct_ratio": 0.03749237364019726,
+          "axial_stress_mpa": 0.19728484032839208,
+          "remaining_bending_yield_mpa": 634.1203861311608,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.005086741981093671,
+              "elastic_bending_ratio": 0.009826013201170282,
+              "net_bearing_area_mm2": 1312.2931978189104,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.005086741981093671,
+              "elastic_bending_ratio": 0.009826013201170282,
+              "net_bearing_area_mm2": 1312.2931978189104,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      }
+    },
+    "status": "CONDITIONAL_COMPARISONS_ONLY",
+    "qualified_for_design": false
+  },
+  "local": {
+    "candidate": "thick-leg-centered-pivot-development",
+    "producer_validity": {
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "contact_active_set_converged": true,
+      "closed_bearing_assumption_passed": true,
+      "member_equilibrium_passed": true,
+      "numerically_accepted": true
+    },
+    "local_members": {
+      "lumber_leg_left": {
+        "joint_wood": {
+          "rows": [
+            {
+              "q_mm": -5.684341886080802e-14,
+              "indices": [
+                0
+              ],
+              "critical_spacing_mm": 177.1054379699293,
+              "resistance_n": 19540.026359667354,
+              "demand_n": 2988.31645544956,
+              "ratio": 0.15293308209746104
+            }
+          ],
+          "group_tear_out": [],
+          "net_tension_ratio": 0.05335685047351863,
+          "parallel_peak_ratio": 0.15293308209746104,
+          "splitting": [
+            {
+              "force_sign": -1,
+              "he_mm": 69.84999999999994,
+              "demand_n": 0.0,
+              "resistance_n": 9052.62716901079,
+              "ratio": 0.0
+            },
+            {
+              "force_sign": 1,
+              "he_mm": 69.85000000000005,
+              "demand_n": 158.94241796510602,
+              "resistance_n": 9052.627169010804,
+              "ratio": 0.017557601235274767
+            }
+          ],
+          "splitting_peak_ratio": 0.017557601235274767,
+          "splitting_basis": {
+            "kmod": 0.8,
+            "gammaM": 1.3,
+            "additional_load_factor": 1.5
+          },
+          "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+        },
+        "sampled_net_peak": {
+          "station_mm_from_cad_centre": 753.8076520405396,
+          "active_hole_count": 1,
+          "actual_area_mm2": 10866.91375,
+          "actual_moduli_mm3": [
+            288598.627900716,
+            161011.43872916666
+          ],
+          "actual_cut_box_properties": {
+            "area_mm2": 10866.91375,
+            "centroid_uv_mm": [
+              0.0,
+              8.034617130388203e-15
+            ],
+            "second_moments_u2_v2_uv_mm4": [
+              7156958.451511459,
+              20158614.158865016,
+              0.0
+            ],
+            "strong_modulus_mm3": 288598.627900716,
+            "weak_modulus_mm3": 161011.43872916666,
+            "scope": "Actual cut-box union, including product inertia; conservative linear stress over stock bounding corners."
+          },
+          "comparison": {
+            "references": {
+              "Fb_star_mpa": 8.066866033006981,
+              "Ft_mpa": 5.15383107664335,
+              "Fc_star_mpa": 10.238714580355017,
+              "Fv_mpa": 1.241056312770305,
+              "Fc_perp_mpa": 4.309223308230226,
+              "Emin_mpa": 3998.9592300376494
+            },
+            "net_area_mm2": 12419.33,
+            "section_moduli_strong_weak_mm3": [
+              289163.4001666666,
+              184013.07283333337
+            ],
+            "stress_mpa": {
+              "compression": 0.2749921941222327,
+              "tension": 0.0,
+              "bending_strong": 2.5952030536877e-15,
+              "bending_weak": 0.8249765823666994,
+              "net_average_resultant_shear": 0.01280710545598999,
+              "gross_rectangular_resultant_shear": 0.019210658183984985
+            },
+            "column_slenderness_strong_weak": [
+              13.192599399120498,
+              20.731227627189348
+            ],
+            "beam_slenderness": 7.778799523729755,
+            "Cp": 0.5835064485031103,
+            "CL": 0.9944048602242754,
+            "FcE_strong_weak_mpa": [
+              18.886785322936834,
+              7.648367610114921
+            ],
+            "FbE_mpa": 79.30545563630282,
+            "adjusted_Fc_mpa": 5.974355982019969,
+            "adjusted_Fb_strong_mpa": 8.021730790000262,
+            "compression_biaxial_interaction_NDS_3_9_3": 0.10820003219643322,
+            "stability_interaction_NDS_3_9_4": 0.03595436413889902,
+            "necessary_compression_interaction_even_if_fully_braced": 0.10298865309111022,
+            "tension_conservative_interaction": 0.10226729674091117,
+            "shear_ratio": 0.0154792800184084,
+            "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+            "within_slenderness_limits": true,
+            "Euler_denominators_positive": true,
+            "conditional_checked_failure": false,
+            "torsion_demand_nmm": 4709.993652365955,
+            "torsion_resistance_evaluated": false,
+            "local_opening_resistance_evaluated": false,
+            "qualified_for_design": false,
+            "section_metadata_basis": "Equivalent gross section with scaled actions; enclosing actual_cut_box_properties records net geometry.",
+            "conservative_net_section_envelope_ratio": 0.10298865309111022
+          }
+        },
+        "all_opening_centres_sampled": true,
+        "all_openings_represented": true,
+        "sampled_full_length_unbraced_sensitivity_failed": false,
+        "qualified_for_design": false,
+        "limits": [
+          "Net sections use only cut boxes intersecting each sampled native section; actual partial-width extents and product inertia are retained conservatively.",
+          "Raw end cuts, local opening stress concentrations, torsion and unsampled opening stations are not qualified.",
+          "NDS Appendix E parallel checks and supplemental EC5 splitting retain their separate reference conventions."
+        ]
+      },
+      "base_side_left": {
+        "joint_wood": {
+          "rows": [
+            {
+              "q_mm": 5.201172825763933e-12,
+              "indices": [
+                0
+              ],
+              "critical_spacing_mm": 773.9162541401381,
+              "resistance_n": 85386.10773002316,
+              "demand_n": 1623.7509534638634,
+              "ratio": 0.01901657068850002
+            }
+          ],
+          "group_tear_out": [],
+          "net_tension_ratio": 0.04068536011062284,
+          "parallel_peak_ratio": 0.04068536011062284,
+          "splitting": [
+            {
+              "force_sign": -1,
+              "he_mm": 69.8500000000052,
+              "demand_n": 3766.373039153076,
+              "resistance_n": 9052.627169011472,
+              "ratio": 0.41605303839817326
+            },
+            {
+              "force_sign": 1,
+              "he_mm": 69.8499999999948,
+              "demand_n": 0.0,
+              "resistance_n": 9052.627169010122,
+              "ratio": 0.0
+            }
+          ],
+          "splitting_peak_ratio": 0.41605303839817326,
+          "splitting_basis": {
+            "kmod": 0.8,
+            "gammaM": 1.3,
+            "additional_load_factor": 1.5
+          },
+          "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+        },
+        "sampled_net_peak": {
+          "station_mm_from_cad_centre": 511.44675177819016,
+          "active_hole_count": 1,
+          "actual_area_mm2": 10866.91375,
+          "actual_moduli_mm3": [
+            288598.627900713,
+            161011.43872916666
+          ],
+          "actual_cut_box_properties": {
+            "area_mm2": 10866.91375,
+            "centroid_uv_mm": [
+              0.0,
+              -7.445411874159736e-13
+            ],
+            "second_moments_u2_v2_uv_mm4": [
+              7156958.451511459,
+              20158614.15886502,
+              0.0
+            ],
+            "strong_modulus_mm3": 288598.627900713,
+            "weak_modulus_mm3": 161011.43872916666,
+            "scope": "Actual cut-box union, including product inertia; conservative linear stress over stock bounding corners."
+          },
+          "comparison": {
+            "references": {
+              "Fb_star_mpa": 8.066866033006981,
+              "Ft_mpa": 5.15383107664335,
+              "Fc_star_mpa": 10.238714580355017,
+              "Fv_mpa": 1.241056312770305,
+              "Fc_perp_mpa": 4.309223308230226,
+              "Emin_mpa": 3998.9592300376494
+            },
+            "net_area_mm2": 12419.33,
+            "section_moduli_strong_weak_mm3": [
+              289163.4001666666,
+              184013.07283333337
+            ],
+            "stress_mpa": {
+              "compression": 0.05370107368768644,
+              "tension": 0.0,
+              "bending_strong": 4.412506884392399,
+              "bending_weak": 0.5599920589494737,
+              "net_average_resultant_shear": 0.16170610284804737,
+              "gross_rectangular_resultant_shear": 0.24255915427207106
+            },
+            "column_slenderness_strong_weak": [
+              17.982211185389612,
+              28.257760434183677
+            ],
+            "beam_slenderness": 9.039098178689205,
+            "Cp": 0.3612150781523344,
+            "CL": 0.9921729909698965,
+            "FcE_strong_weak_mpa": [
+              10.165590392519347,
+              4.116644043251637
+            ],
+            "FbE_mpa": 58.732436179647024,
+            "adjusted_Fc_mpa": 3.698378087322383,
+            "adjusted_Fb_strong_mpa": 8.003726599722,
+            "compression_biaxial_interaction_NDS_3_9_3": 0.625186079624358,
+            "stability_interaction_NDS_3_9_4": 0.01868922763936242,
+            "necessary_compression_interaction_even_if_fully_braced": 0.6164377633825155,
+            "tension_conservative_interaction": 0.6164102543659497,
+            "shear_ratio": 0.1954457277854111,
+            "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+            "within_slenderness_limits": true,
+            "Euler_denominators_positive": true,
+            "conditional_checked_failure": false,
+            "torsion_demand_nmm": -29373.194738605278,
+            "torsion_resistance_evaluated": false,
+            "local_opening_resistance_evaluated": false,
+            "qualified_for_design": false,
+            "section_metadata_basis": "Equivalent gross section with scaled actions; enclosing actual_cut_box_properties records net geometry.",
+            "conservative_net_section_envelope_ratio": 0.6164377633825155
+          }
+        },
+        "all_opening_centres_sampled": false,
+        "all_openings_represented": true,
+        "sampled_full_length_unbraced_sensitivity_failed": false,
+        "qualified_for_design": false,
+        "limits": [
+          "Net sections use only cut boxes intersecting each sampled native section; actual partial-width extents and product inertia are retained conservatively.",
+          "Raw end cuts, local opening stress concentrations, torsion and unsampled opening stations are not qualified.",
+          "NDS Appendix E parallel checks and supplemental EC5 splitting retain their separate reference conventions."
+        ]
+      },
+      "lumber_leg_right": {
+        "joint_wood": {
+          "rows": [
+            {
+              "q_mm": -5.684341886080802e-14,
+              "indices": [
+                0
+              ],
+              "critical_spacing_mm": 177.1054379699293,
+              "resistance_n": 19540.026359667354,
+              "demand_n": 899.859716254895,
+              "ratio": 0.046052123968077084
+            }
+          ],
+          "group_tear_out": [],
+          "net_tension_ratio": 0.01606713380030302,
+          "parallel_peak_ratio": 0.046052123968077084,
+          "splitting": [
+            {
+              "force_sign": -1,
+              "he_mm": 69.84999999999994,
+              "demand_n": 0.0,
+              "resistance_n": 9052.62716901079,
+              "ratio": 0.0
+            },
+            {
+              "force_sign": 1,
+              "he_mm": 69.85000000000005,
+              "demand_n": 72.02531219384238,
+              "resistance_n": 9052.627169010804,
+              "ratio": 0.007956288362388474
+            }
+          ],
+          "splitting_peak_ratio": 0.007956288362388474,
+          "splitting_basis": {
+            "kmod": 0.8,
+            "gammaM": 1.3,
+            "additional_load_factor": 1.5
+          },
+          "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+        },
+        "sampled_net_peak": {
+          "station_mm_from_cad_centre": 753.8076520405396,
+          "active_hole_count": 1,
+          "actual_area_mm2": 10866.91375,
+          "actual_moduli_mm3": [
+            288598.627900716,
+            161011.43872916666
+          ],
+          "actual_cut_box_properties": {
+            "area_mm2": 10866.91375,
+            "centroid_uv_mm": [
+              0.0,
+              8.034617130388203e-15
+            ],
+            "second_moments_u2_v2_uv_mm4": [
+              7156958.451511459,
+              20158614.158865016,
+              0.0
+            ],
+            "strong_modulus_mm3": 288598.627900716,
+            "weak_modulus_mm3": 161011.43872916666,
+            "scope": "Actual cut-box union, including product inertia; conservative linear stress over stock bounding corners."
+          },
+          "comparison": {
+            "references": {
+              "Fb_star_mpa": 8.066866033006981,
+              "Ft_mpa": 5.15383107664335,
+              "Fc_star_mpa": 10.238714580355017,
+              "Fv_mpa": 1.241056312770305,
+              "Fc_perp_mpa": 4.309223308230226,
+              "Emin_mpa": 3998.9592300376494
+            },
+            "net_area_mm2": 12419.33,
+            "section_moduli_strong_weak_mm3": [
+              289163.4001666666,
+              184013.07283333337
+            ],
+            "stress_mpa": {
+              "compression": 0.08280729349258845,
+              "tension": 0.0,
+              "bending_strong": 8.043413273463628e-16,
+              "bending_weak": 0.24842188047776576,
+              "net_average_resultant_shear": 0.005150845291855458,
+              "gross_rectangular_resultant_shear": 0.007726267937783187
+            },
+            "column_slenderness_strong_weak": [
+              13.192599399120498,
+              20.731227627189348
+            ],
+            "beam_slenderness": 7.778799523729755,
+            "Cp": 0.5835064485031103,
+            "CL": 0.9944048602242754,
+            "FcE_strong_weak_mpa": [
+              18.886785322936834,
+              7.648367610114921
+            ],
+            "FbE_mpa": 79.30545563630282,
+            "adjusted_Fc_mpa": 5.974355982019969,
+            "adjusted_Fb_strong_mpa": 8.021730790000262,
+            "compression_biaxial_interaction_NDS_3_9_3": 0.031324516097309,
+            "stability_interaction_NDS_3_9_4": 0.010826793077136654,
+            "necessary_compression_interaction_even_if_fully_braced": 0.030860750108965482,
+            "tension_conservative_interaction": 0.03079533978391427,
+            "shear_ratio": 0.006225557904408458,
+            "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+            "within_slenderness_limits": true,
+            "Euler_denominators_positive": true,
+            "conditional_checked_failure": false,
+            "torsion_demand_nmm": -2134.3500846775246,
+            "torsion_resistance_evaluated": false,
+            "local_opening_resistance_evaluated": false,
+            "qualified_for_design": false,
+            "section_metadata_basis": "Equivalent gross section with scaled actions; enclosing actual_cut_box_properties records net geometry.",
+            "conservative_net_section_envelope_ratio": 0.030860750108965482
+          }
+        },
+        "all_opening_centres_sampled": true,
+        "all_openings_represented": true,
+        "sampled_full_length_unbraced_sensitivity_failed": false,
+        "qualified_for_design": false,
+        "limits": [
+          "Net sections use only cut boxes intersecting each sampled native section; actual partial-width extents and product inertia are retained conservatively.",
+          "Raw end cuts, local opening stress concentrations, torsion and unsampled opening stations are not qualified.",
+          "NDS Appendix E parallel checks and supplemental EC5 splitting retain their separate reference conventions."
+        ]
+      },
+      "base_side_right": {
+        "joint_wood": {
+          "rows": [
+            {
+              "q_mm": 5.201172825763933e-12,
+              "indices": [
+                0
+              ],
+              "critical_spacing_mm": 773.9162541401381,
+              "resistance_n": 85386.10773002316,
+              "demand_n": 475.7450154411962,
+              "ratio": 0.005571691087564546
+            }
+          ],
+          "group_tear_out": [],
+          "net_tension_ratio": 0.011920459373876351,
+          "parallel_peak_ratio": 0.011920459373876351,
+          "splitting": [
+            {
+              "force_sign": -1,
+              "he_mm": 69.8500000000052,
+              "demand_n": 1147.9850048429691,
+              "resistance_n": 9052.627169011472,
+              "ratio": 0.12681235882249714
+            },
+            {
+              "force_sign": 1,
+              "he_mm": 69.8499999999948,
+              "demand_n": 0.0,
+              "resistance_n": 9052.627169010122,
+              "ratio": 0.0
+            }
+          ],
+          "splitting_peak_ratio": 0.12681235882249714,
+          "splitting_basis": {
+            "kmod": 0.8,
+            "gammaM": 1.3,
+            "additional_load_factor": 1.5
+          },
+          "scope": "NDS Appendix E parallel stresses plus separate supplemental EC5 splitting; no global rim qualification"
+        },
+        "sampled_net_peak": {
+          "station_mm_from_cad_centre": 483.5963392516624,
+          "active_hole_count": 1,
+          "actual_area_mm2": 12280.452165835977,
+          "actual_moduli_mm3": [
+            276721.78772650624,
+            178077.99683818992
+          ],
+          "actual_cut_box_properties": {
+            "area_mm2": 12280.452165835977,
+            "centroid_uv_mm": [
+              0.2872448782936225,
+              -0.6002527378470882
+            ],
+            "second_moments_u2_v2_uv_mm4": [
+              8088571.030133333,
+              19789358.131642476,
+              189350.3156020533
+            ],
+            "strong_modulus_mm3": 276721.78772650624,
+            "weak_modulus_mm3": 178077.99683818992,
+            "scope": "Actual cut-box union, including product inertia; conservative linear stress over stock bounding corners."
+          },
+          "comparison": {
+            "references": {
+              "Fb_star_mpa": 8.066866033006981,
+              "Ft_mpa": 5.15383107664335,
+              "Fc_star_mpa": 10.238714580355017,
+              "Fv_mpa": 1.241056312770305,
+              "Fc_perp_mpa": 4.309223308230226,
+              "Emin_mpa": 3998.9592300376494
+            },
+            "net_area_mm2": 12419.33,
+            "section_moduli_strong_weak_mm3": [
+              289163.4001666666,
+              184013.07283333337
+            ],
+            "stress_mpa": {
+              "compression": 0.0,
+              "tension": 0.021067059614327595,
+              "bending_strong": 1.1727709207678185,
+              "bending_weak": 0.12018946221729658,
+              "net_average_resultant_shear": 0.027778136986254604,
+              "gross_rectangular_resultant_shear": 0.0416672054793819
+            },
+            "column_slenderness_strong_weak": [
+              17.982211185389612,
+              28.257760434183677
+            ],
+            "beam_slenderness": 9.039098178689205,
+            "Cp": 0.3612150781523344,
+            "CL": 0.9921729909698965,
+            "FcE_strong_weak_mpa": [
+              10.165590392519347,
+              4.116644043251637
+            ],
+            "FbE_mpa": 58.732436179647024,
+            "adjusted_Fc_mpa": 3.698378087322383,
+            "adjusted_Fb_strong_mpa": 8.003726599722,
+            "compression_biaxial_interaction_NDS_3_9_3": 0.16143320351561463,
+            "stability_interaction_NDS_3_9_4": 0.00039872213583370475,
+            "necessary_compression_interaction_even_if_fully_braced": 0.16028038369482567,
+            "tension_conservative_interaction": 0.1643680340855809,
+            "shear_ratio": 0.03357398455705183,
+            "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+            "within_slenderness_limits": true,
+            "Euler_denominators_positive": true,
+            "conditional_checked_failure": false,
+            "torsion_demand_nmm": -72866.57723267844,
+            "torsion_resistance_evaluated": false,
+            "local_opening_resistance_evaluated": false,
+            "qualified_for_design": false,
+            "section_metadata_basis": "Equivalent gross section with scaled actions; enclosing actual_cut_box_properties records net geometry.",
+            "conservative_net_section_envelope_ratio": 0.1643680340855809
+          }
+        },
+        "all_opening_centres_sampled": false,
+        "all_openings_represented": true,
+        "sampled_full_length_unbraced_sensitivity_failed": false,
+        "qualified_for_design": false,
+        "limits": [
+          "Net sections use only cut boxes intersecting each sampled native section; actual partial-width extents and product inertia are retained conservatively.",
+          "Raw end cuts, local opening stress concentrations, torsion and unsampled opening stations are not qualified.",
+          "NDS Appendix E parallel checks and supplemental EC5 splitting retain their separate reference conventions."
+        ]
+      }
+    },
+    "header_gross": {
+      "base_header": {
+        "width_mm": 38.099999999999994,
+        "depth_mm": 234.95,
+        "gross_length_mm": 2540.0,
+        "section_valid_from_mm": 0.0,
+        "gross_section_peak": {
+          "station_along_grain_mm": 1138.7072600000001,
+          "include_station_loads": true,
+          "actions": {
+            "station_along_grain_mm": 1138.7072600000001,
+            "include_station_loads": true,
+            "origin_xyz_mm": [
+              -131.29273999999987,
+              -153.475,
+              257.95
+            ],
+            "axial_n_tension_positive": 1164.222959366255,
+            "shear_u_n": 756.3157677815329,
+            "shear_v_n": -353.839309993966,
+            "moment_u_nmm": -121700.31809017071,
+            "moment_v_nmm": -910378.3853300515,
+            "torsion_nmm": 7642.408531245956,
+            "upper_load_force_xyz_n": [
+              1164.222959366255,
+              756.3157677815329,
+              -353.839309993966
+            ],
+            "upper_load_moment_xyz_nmm": [
+              7642.408531245956,
+              -121700.31809017071,
+              -910378.3853300515
+            ]
+          },
+          "necessary_gross_section_ratio": 0.7239763066189131,
+          "full_length_unbraced_ratio": 0.8775325531456921,
+          "references": {
+            "Fb_star_mpa": 6.825809720236678,
+            "Ft_mpa": 4.360933987928989,
+            "Fc_star_mpa": 9.307922345777287,
+            "Fv_mpa": 1.241056312770305,
+            "Fc_perp_mpa": 4.309223308230226,
+            "Emin_mpa": 3998.9592300376494
+          },
+          "net_area_mm2": 8951.594999999998,
+          "section_moduli_strong_weak_mm3": [
+            350529.540875,
+            56842.62824999998
+          ],
+          "stress_mpa": {
+            "compression": 0.0,
+            "tension": 0.1300575997200784,
+            "bending_strong": 2.5971516781653947,
+            "bending_weak": 2.141004415821866,
+            "net_average_resultant_shear": 0.09327885027612318,
+            "gross_rectangular_resultant_shear": 0.13991827541418475
+          },
+          "column_slenderness_strong_weak": [
+            10.81081081081081,
+            66.66666666666667
+          ],
+          "beam_slenderness": 28.00347200695736,
+          "Cp": 0.07813547722043634,
+          "CL": 0.7687347542418105,
+          "FcE_strong_weak_mpa": [
+            28.125630017671924,
+            0.7396075095954631
+          ],
+          "FbE_mpa": 6.119338271319699,
+          "adjusted_Fc_mpa": 0.7272789544180717,
+          "adjusted_Fb_strong_mpa": 5.247237157787504,
+          "compression_biaxial_interaction_NDS_3_9_3": 0.8775325531456921,
+          "stability_interaction_NDS_3_9_4": 0.1801298574516673,
+          "necessary_compression_interaction_even_if_fully_braced": 0.694152970590421,
+          "tension_conservative_interaction": 0.7239763066189131,
+          "shear_ratio": 0.11274127851769838,
+          "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+          "within_slenderness_limits": true,
+          "Euler_denominators_positive": true,
+          "conditional_checked_failure": false,
+          "torsion_demand_nmm": 7642.408531245956,
+          "torsion_resistance_evaluated": false,
+          "local_opening_resistance_evaluated": true,
+          "qualified_for_design": false
+        },
+        "full_length_unbraced_peak": {
+          "station_along_grain_mm": 1138.7072600000001,
+          "include_station_loads": true,
+          "actions": {
+            "station_along_grain_mm": 1138.7072600000001,
+            "include_station_loads": true,
+            "origin_xyz_mm": [
+              -131.29273999999987,
+              -153.475,
+              257.95
+            ],
+            "axial_n_tension_positive": 1164.222959366255,
+            "shear_u_n": 756.3157677815329,
+            "shear_v_n": -353.839309993966,
+            "moment_u_nmm": -121700.31809017071,
+            "moment_v_nmm": -910378.3853300515,
+            "torsion_nmm": 7642.408531245956,
+            "upper_load_force_xyz_n": [
+              1164.222959366255,
+              756.3157677815329,
+              -353.839309993966
+            ],
+            "upper_load_moment_xyz_nmm": [
+              7642.408531245956,
+              -121700.31809017071,
+              -910378.3853300515
+            ]
+          },
+          "necessary_gross_section_ratio": 0.7239763066189131,
+          "full_length_unbraced_ratio": 0.8775325531456921,
+          "references": {
+            "Fb_star_mpa": 6.825809720236678,
+            "Ft_mpa": 4.360933987928989,
+            "Fc_star_mpa": 9.307922345777287,
+            "Fv_mpa": 1.241056312770305,
+            "Fc_perp_mpa": 4.309223308230226,
+            "Emin_mpa": 3998.9592300376494
+          },
+          "net_area_mm2": 8951.594999999998,
+          "section_moduli_strong_weak_mm3": [
+            350529.540875,
+            56842.62824999998
+          ],
+          "stress_mpa": {
+            "compression": 0.0,
+            "tension": 0.1300575997200784,
+            "bending_strong": 2.5971516781653947,
+            "bending_weak": 2.141004415821866,
+            "net_average_resultant_shear": 0.09327885027612318,
+            "gross_rectangular_resultant_shear": 0.13991827541418475
+          },
+          "column_slenderness_strong_weak": [
+            10.81081081081081,
+            66.66666666666667
+          ],
+          "beam_slenderness": 28.00347200695736,
+          "Cp": 0.07813547722043634,
+          "CL": 0.7687347542418105,
+          "FcE_strong_weak_mpa": [
+            28.125630017671924,
+            0.7396075095954631
+          ],
+          "FbE_mpa": 6.119338271319699,
+          "adjusted_Fc_mpa": 0.7272789544180717,
+          "adjusted_Fb_strong_mpa": 5.247237157787504,
+          "compression_biaxial_interaction_NDS_3_9_3": 0.8775325531456921,
+          "stability_interaction_NDS_3_9_4": 0.1801298574516673,
+          "necessary_compression_interaction_even_if_fully_braced": 0.694152970590421,
+          "tension_conservative_interaction": 0.7239763066189131,
+          "shear_ratio": 0.11274127851769838,
+          "shear_scope": "Conservative sum-vector magnitude of gross rectangular shear components",
+          "within_slenderness_limits": true,
+          "Euler_denominators_positive": true,
+          "conditional_checked_failure": false,
+          "torsion_demand_nmm": 7642.408531245956,
+          "torsion_resistance_evaluated": false,
+          "local_opening_resistance_evaluated": true,
+          "qualified_for_design": false
+        },
+        "full_length_unbraced_sensitivity_failed": true,
+        "force_residual_n": [
+          -0.004037198454703628,
+          -0.8307254208496815,
+          7.904340649235763
+        ],
+        "moment_residual_nmm": [
+          895.9926181973482,
+          -1544.4386808027048,
+          -695.7401753464001
+        ],
+        "limits": [
+          "Dry, unincised Douglas Fir-Larch No. 2 with CD=CM=Ct=1 is assumed.",
+          "The gross section omits service bores, bolt holes and local load introduction.",
+          "The full current member length is an unbraced pin-end sensitivity. Actual restraint is not established by this calculation.",
+          "A necessary gross-section screen below unity does not establish stability, torsion or opening resistance."
+        ],
+        "qualified_for_design": false
+      }
+    },
+    "scope": "Local pivot timber and sampled net sections; header gross actions include modeled cantilever load transfer, not local header connection qualification.",
+    "qualified_for_design": false
+  }
+}

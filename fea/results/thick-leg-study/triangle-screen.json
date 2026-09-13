@@ -1,0 +1,56 @@
+{
+  "source": "/home/mckay-linux/repos/mini-moonboard/fea/results/thick-leg-study/triangle-input.json",
+  "source_sha256": "b112e857f811c81401f310a51f00df092023268d477755d9d15807e0304f8177",
+  "baseline_moment_nm": -352.7717680584597,
+  "baseline_force_xyz_n": [
+    -48.93845018185928,
+    678.2105736104836,
+    -2864.92318372778
+  ],
+  "conditional_upper_smooth_bolt_moment_limit_nm": 66.4052755548067,
+  "fixed_resultant_required_moment_relief_nm": 286.36649250365303,
+  "rail_cases": [
+    {
+      "joint_height_mm": 69.85,
+      "required_horizontal_transfer_n": 4099.735039422378,
+      "four_rear_bolt_comparison_reference_n": 4273.694490499698,
+      "transfer_over_comparison_reference": 0.9592953002457177
+    },
+    {
+      "joint_height_mm": 169.05,
+      "required_horizontal_transfer_n": 1693.97511093554,
+      "four_rear_bolt_comparison_reference_n": 4273.694490499698,
+      "transfer_over_comparison_reference": 0.3963725331095142
+    }
+  ],
+  "ml24_front_fit": {
+    "receiver_thickness_mm": 38.1,
+    "top_bottom_screw_row_span_mm": 76.2,
+    "side_orientation_max_flange_hole_offset_mm": 42.24274,
+    "top_bottom_row_fits": false,
+    "side_flange_all_holes_fit": false
+  },
+  "lsta12_front_alternative": {
+    "envelope_y_mm": [
+      -188.4,
+      116.4
+    ],
+    "length_mm": 304.8,
+    "width_mm": 31.75,
+    "center_z_mm": 169.05,
+    "fasteners": "10 SD9112; five in each member",
+    "source": "https://icc-es.org/wp-content/uploads/report-directory/ESR-3096.pdf",
+    "table": 26,
+    "published_tension_lbf_at_cd_1_6": 1235,
+    "normal_duration_resistance_qualified": false,
+    "limitation": "Table note explicitly excludes other load durations; no CD=1 qualification by division."
+  },
+  "decision": "Reject ML24 front placement. LSTA12 is a plausible geometry alternative with unresolved normal-duration resistance.",
+  "limits": [
+    "Required rail force holds baseline upper resultant and contact lever geometry fixed; it is not a prediction.",
+    "Upper comparison assumes smooth 3/8-inch shanks, equal elastic bolts and no out-of-plane demand.",
+    "Rear comparison assumes equal pure-horizontal fastener force; excludes group moments, axial demand and local wood modes.",
+    "Rail stiffness can redistribute forces; current no-slip supports already prevent simple foot spreading.",
+    "This rejects the specified receivers and ML24 placement, not every triangular side frame."
+  ]
+}

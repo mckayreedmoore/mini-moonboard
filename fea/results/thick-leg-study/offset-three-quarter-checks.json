@@ -1,0 +1,195 @@
+{
+  "bolt": {
+    "candidate": "thick-leg-pivot-development",
+    "producer_validity": {
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "contact_active_set_converged": true,
+      "closed_bearing_assumption_passed": true,
+      "member_equilibrium_passed": true,
+      "numerically_accepted": true
+    },
+    "bolts": {
+      "lumber_leg_bolt_left_1": {
+        "diameter_mm": 19.05,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.89999999999964
+        ],
+        "bearing_psi": [
+          5594.7023675238925,
+          3078.682362288575
+        ],
+        "lateral_demand_n": 2979.3205335442212,
+        "lateral_reference_n": 4321.594227964771,
+        "lateral_ratio": 0.6894031175498202,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 14686.093714750237,
+            "Is": 8081.541201007478,
+            "II": 4653.4197393244,
+            "IIIm": 5079.704348928886,
+            "IIIs": 3886.1321235782775,
+            "IV": 4341.699726205471
+          },
+          "reference_values_lbf": {
+            "Im": 2937.2187429500473,
+            "Is": 1616.3082402014957,
+            "II": 1034.0932754054222,
+            "IIIm": 1269.9260872322216,
+            "IIIs": 971.5330308945694,
+            "IV": 1085.4249315513678
+          },
+          "governing_mode": "IIIs",
+          "reference_lateral_lbf": 971.5330308945694,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_left": {
+            "depth_force_on_member_n": 84.6808088902801,
+            "margins_mm": {
+              "grain_positive": 47.01281506586861,
+              "grain_negative": 1526.4195572808696,
+              "depth_positive": -21.349999999999945,
+              "depth_negative": 50.274999999999864
+            },
+            "minimum_margin_mm": -21.349999999999945,
+            "passes_directional_screen": false,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_left": {
+            "depth_force_on_member_n": -2490.3702397079282,
+            "margins_mm": {
+              "grain_positive": 631.3088770441851,
+              "grain_negative": 1597.120608112621,
+              "depth_positive": 26.274999999999984,
+              "depth_negative": 2.649999999999878
+            },
+            "minimum_margin_mm": 2.649999999999878,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 90.61201519091986,
+          "steel_direct_ratio": 0.08354395800039502,
+          "axial_stress_mpa": 0.4205057019273493,
+          "remaining_bending_yield_mpa": 633.8971652695618,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.01242519819339834,
+              "elastic_bending_ratio": 0.012172015864374367,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.01242519819339834,
+              "elastic_bending_ratio": 0.012172015864374367,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      },
+      "lumber_leg_bolt_right_1": {
+        "diameter_mm": 19.05,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.90000000000009
+        ],
+        "bearing_psi": [
+          5588.449553136762,
+          3054.3070595139893
+        ],
+        "lateral_demand_n": 917.837503941601,
+        "lateral_reference_n": 4299.152948209402,
+        "lateral_ratio": 0.2134926379681096,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 14669.680076984017,
+            "Is": 8017.556031224231,
+            "II": 4635.5612684085845,
+            "IIIm": 5066.427115210089,
+            "IIIs": 3865.9521220438405,
+            "IV": 4329.712186966435
+          },
+          "reference_values_lbf": {
+            "Im": 2933.9360153968037,
+            "Is": 1603.5112062448463,
+            "II": 1030.1247263130188,
+            "IIIm": 1266.6067788025223,
+            "IIIs": 966.4880305109601,
+            "IV": 1082.4280467416088
+          },
+          "governing_mode": "IIIs",
+          "reference_lateral_lbf": 966.4880305109601,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_right": {
+            "depth_force_on_member_n": 38.54205565682199,
+            "margins_mm": {
+              "grain_positive": 47.01281506586861,
+              "grain_negative": 1526.4195572808696,
+              "depth_positive": -21.349999999999945,
+              "depth_negative": 50.274999999999864
+            },
+            "minimum_margin_mm": -21.349999999999945,
+            "passes_directional_screen": false,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_right": {
+            "depth_force_on_member_n": -773.9765623709893,
+            "margins_mm": {
+              "grain_positive": 631.3088770441851,
+              "grain_negative": 1597.120608112621,
+              "depth_positive": 26.274999999999984,
+              "depth_negative": 2.649999999999878
+            },
+            "minimum_margin_mm": 2.649999999999878,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 29.174362204899065,
+          "steel_direct_ratio": 0.025737636517002407,
+          "axial_stress_mpa": 0.1353902750248421,
+          "remaining_bending_yield_mpa": 634.1822806964643,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.0040005426631123655,
+              "elastic_bending_ratio": 0.003919025516018108,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.0040005426631123655,
+              "elastic_bending_ratio": 0.003919025516018108,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      }
+    },
+    "status": "CONDITIONAL_COMPARISONS_ONLY",
+    "qualified_for_design": false
+  }
+}

@@ -67,7 +67,11 @@ layouts against saved resultants; no alternative is selected or qualified by
 that screen. The current joint decision therefore remains unresolved. The subsequent
 [assembled MVP study](current-leg-mvp-study.md) also rejects the nine-bolt
 2×10 full-sole and relieved-sole candidates under the governing 250 lb scenario;
-neither becomes the selected replacement.
+neither becomes the selected replacement. The later
+[solid-4×6 pivot study](thick-leg-pivot-study.md) meets its listed conditional
+comparisons in two cases, but leaves actual rotational behavior and final
+hardware unresolved. It is the leading development candidate, not a released
+replacement.
 
 The [resistance assumption audit](current-response-resistance-basis.md) explains
 why the nominal bolt-diameter comparison is conditional and why increasing

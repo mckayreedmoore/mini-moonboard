@@ -14,6 +14,8 @@ connection shortfalls still preventing construction release.
 **[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step)** ·
 **[Read the candidate notes](docs/no-shoes-candidate.md)**
 
+Latest development comparison: [solid 4×6 pivot and triangular side frame](docs/thick-leg-pivot-study.md). The centered pivot meets listed conditional checks; it has not replaced the selected frame.
+
 ## Latest candidate: no custom steel shoes
 
 - Single nominal 2×6 support legs and outer rims, with four ⅜-inch bolts per leg.

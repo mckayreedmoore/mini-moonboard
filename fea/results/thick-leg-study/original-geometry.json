@@ -1,0 +1,457 @@
+{
+  "candidate": "thick-leg-pivot-development",
+  "geometries_by_bolt_name": {
+    "lumber_leg_bolt_left_1": {
+      "diameter_mm": 19.05,
+      "bending_yield_psi": 45000.0,
+      "members": {
+        "lumber_leg_left": {
+          "grain": [
+            0.0,
+            -0.26015745792854417,
+            0.9655662054381139
+          ],
+          "bearing_length_mm": 88.90000000000009,
+          "specific_gravity": 0.5,
+          "parallel_bearing_psi": 5600.0,
+          "edge_distances_mm": {
+            "grain_positive": 180.3628150658686,
+            "grain_negative": 1659.7695572808695,
+            "depth_positive": 54.85000000000006,
+            "depth_negative": 78.84999999999987
+          },
+          "nominal_edge_distances_mm": {
+            "grain_positive": 183.3628150658686,
+            "grain_negative": 1662.8765425741658,
+            "depth_positive": 57.85000000000006,
+            "depth_negative": 81.84999999999987
+          },
+          "axis_material_intervals_mm": [
+            [
+              4.762499999999818,
+              93.66249999999991
+            ]
+          ]
+        },
+        "base_side_left": {
+          "grain": [
+            0.0,
+            0.6427876096865427,
+            0.7660444431189752
+          ],
+          "bearing_length_mm": 88.89999999999964,
+          "specific_gravity": 0.5,
+          "parallel_bearing_psi": 5600.0,
+          "edge_distances_mm": {
+            "grain_positive": 764.6588770441851,
+            "grain_negative": 1730.470608112621,
+            "depth_positive": 54.84999999999999,
+            "depth_negative": 78.84999999999988
+          },
+          "nominal_edge_distances_mm": {
+            "grain_positive": 767.6588770441851,
+            "grain_negative": 1734.386829980618,
+            "depth_positive": 57.84999999999999,
+            "depth_negative": 81.84999999999988
+          },
+          "axis_material_intervals_mm": [
+            [
+              93.66250000000014,
+              182.56249999999977
+            ]
+          ]
+        }
+      }
+    },
+    "lumber_leg_bolt_right_1": {
+      "diameter_mm": 19.05,
+      "bending_yield_psi": 45000.0,
+      "members": {
+        "lumber_leg_right": {
+          "grain": [
+            0.0,
+            -0.26015745792854417,
+            0.9655662054381139
+          ],
+          "bearing_length_mm": 88.90000000000009,
+          "specific_gravity": 0.5,
+          "parallel_bearing_psi": 5600.0,
+          "edge_distances_mm": {
+            "grain_positive": 180.3628150658686,
+            "grain_negative": 1659.7695572808695,
+            "depth_positive": 54.85000000000006,
+            "depth_negative": 78.84999999999987
+          },
+          "nominal_edge_distances_mm": {
+            "grain_positive": 183.3628150658686,
+            "grain_negative": 1662.8765425741658,
+            "depth_positive": 57.85000000000006,
+            "depth_negative": 81.84999999999987
+          },
+          "axis_material_intervals_mm": [
+            [
+              4.7625000000000455,
+              93.66250000000014
+            ]
+          ]
+        },
+        "base_side_right": {
+          "grain": [
+            0.0,
+            0.6427876096865427,
+            0.7660444431189752
+          ],
+          "bearing_length_mm": 88.90000000000009,
+          "specific_gravity": 0.5,
+          "parallel_bearing_psi": 5600.0,
+          "edge_distances_mm": {
+            "grain_positive": 764.6588770441851,
+            "grain_negative": 1730.470608112621,
+            "depth_positive": 54.84999999999999,
+            "depth_negative": 78.84999999999988
+          },
+          "nominal_edge_distances_mm": {
+            "grain_positive": 767.6588770441851,
+            "grain_negative": 1734.386829980618,
+            "depth_positive": 57.84999999999999,
+            "depth_negative": 81.84999999999988
+          },
+          "axis_material_intervals_mm": [
+            [
+              93.66249999999991,
+              182.5625
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "hardware": {
+    "tensile_area_mm2": 215.48344,
+    "shear_area_mm2": 194.7783549650781,
+    "steel_yield_mpa": 634.3176709714892,
+    "steel_safety_factor": 2.0,
+    "washers": [
+      {
+        "outer_diameter_mm": 50.8,
+        "hole_diameter_mm": 20.6375,
+        "seat_diameter_mm": 26.639519999999997,
+        "thickness_mm": 4.7625,
+        "wood_bearing_mpa": 4.309223308230226,
+        "yield_mpa": 227.52699067455592,
+        "safety_factor": 1.67
+      },
+      {
+        "outer_diameter_mm": 50.8,
+        "hole_diameter_mm": 20.6375,
+        "seat_diameter_mm": 26.639519999999997,
+        "thickness_mm": 4.7625,
+        "wood_bearing_mpa": 4.309223308230226,
+        "yield_mpa": 227.52699067455592,
+        "safety_factor": 1.67
+      }
+    ],
+    "provisional_assumptions_only": true,
+    "catalog_or_receipt_verified": false,
+    "basis": "Assumed 3/4 UNC Grade 5 stress areas and 92 ksi yield; washer 33 ksi yield floor and uniform annular pressure. Actual delivery, head seat and thread/runout dimensions remain unverified."
+  },
+  "receiver_fit": [
+    {
+      "bolt": "lumber_leg_bolt_left_1",
+      "member": "lumber_leg_left",
+      "axis_material_intervals_mm": [
+        [
+          4.762499999999818,
+          93.66249999999991
+        ]
+      ],
+      "full_hole_supported_volume_mm3": 29737.593112143386,
+      "expected_mm3": 29737.593112143448,
+      "wood_remaining_in_drilled_hole_mm3": 0.0,
+      "unsupported_washer_mm3": 0.0,
+      "passes": true
+    },
+    {
+      "bolt": "lumber_leg_bolt_left_1",
+      "member": "base_side_left",
+      "axis_material_intervals_mm": [
+        [
+          93.66250000000014,
+          182.56249999999977
+        ]
+      ],
+      "full_hole_supported_volume_mm3": 29737.59311214322,
+      "expected_mm3": 29737.593112143295,
+      "wood_remaining_in_drilled_hole_mm3": 0.0,
+      "unsupported_washer_mm3": 0.0,
+      "passes": true
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_1",
+      "member": "lumber_leg_right",
+      "axis_material_intervals_mm": [
+        [
+          4.7625000000000455,
+          93.66250000000014
+        ]
+      ],
+      "full_hole_supported_volume_mm3": 29737.593112143382,
+      "expected_mm3": 29737.593112143448,
+      "wood_remaining_in_drilled_hole_mm3": 0.0,
+      "unsupported_washer_mm3": 0.0,
+      "passes": true
+    },
+    {
+      "bolt": "lumber_leg_bolt_right_1",
+      "member": "base_side_right",
+      "axis_material_intervals_mm": [
+        [
+          93.66249999999991,
+          182.5625
+        ]
+      ],
+      "full_hole_supported_volume_mm3": 29737.59311214337,
+      "expected_mm3": 29737.593112143448,
+      "wood_remaining_in_drilled_hole_mm3": 0.0,
+      "unsupported_washer_mm3": 0.0,
+      "passes": true
+    }
+  ],
+  "receiver_fit_pass": true,
+  "header_overlap": {
+    "base_side_left": {
+      "actual_overlap_xy_mm": [
+        88.89999999999964,
+        182.3653983197193
+      ],
+      "area_mm2": 16212.28391062298,
+      "full_rim_face_area_mm2": 16212.28391062298,
+      "header_end_extension_mm": 50.800000000000004,
+      "header_cantilever_qualified": false
+    },
+    "base_side_right": {
+      "actual_overlap_xy_mm": [
+        88.89999999999986,
+        182.3653983197193
+      ],
+      "area_mm2": 16212.283910623022,
+      "full_rim_face_area_mm2": 16212.283910623062,
+      "header_end_extension_mm": 50.800000000000004,
+      "header_cantilever_qualified": false
+    }
+  },
+  "stack": {
+    "bolt_length_mm": 228.6,
+    "bolt_diameter_mm": 19.05,
+    "wood_grip_mm": 177.8,
+    "washer_thickness_mm": 4.7625,
+    "nut_height_mm": 17.4625,
+    "nominal_tip_projection_mm": 23.812499999999986,
+    "smooth_shank_across_wood_demonstrated": false,
+    "catalog_selection_complete": false,
+    "moment_release_is_installed_hinge": false
+  },
+  "placement_assumptions": {
+    "drill_position_radius_mm": 1.0,
+    "inward_cut_normal_mm": 2.0
+  },
+  "source_sha256": {
+    "mini_moonboard/thick_leg_frame.py": "2d025fd16696dfdf056f0a5010a43cfb1c8690690ac8e963e23a372646b46df3",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "scripts/thick_leg_geometry.py": "d20c43fd9b01efce9c3b86074a53b7677abd76a5bd738f203200195704a220ef"
+  },
+  "scope": "Actual material intervals, receiver/washer support and header overlap; no full-assembly collision, local opening, cantilever or free-pivot qualification.",
+  "native_checks": {
+    "candidate": "thick-leg-pivot-development",
+    "producer_validity": {
+      "global_equilibrium_passed": true,
+      "mpc_check_passed": true,
+      "contact_active_set_converged": true,
+      "closed_bearing_assumption_passed": true,
+      "member_equilibrium_passed": true,
+      "numerically_accepted": true
+    },
+    "bolts": {
+      "lumber_leg_bolt_left_1": {
+        "diameter_mm": 19.05,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.89999999999964
+        ],
+        "bearing_psi": [
+          5594.7023675238925,
+          3078.682362288575
+        ],
+        "lateral_demand_n": 2979.3205335442212,
+        "lateral_reference_n": 4321.594227964771,
+        "lateral_ratio": 0.6894031175498202,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 14686.093714750237,
+            "Is": 8081.541201007478,
+            "II": 4653.4197393244,
+            "IIIm": 5079.704348928886,
+            "IIIs": 3886.1321235782775,
+            "IV": 4341.699726205471
+          },
+          "reference_values_lbf": {
+            "Im": 2937.2187429500473,
+            "Is": 1616.3082402014957,
+            "II": 1034.0932754054222,
+            "IIIm": 1269.9260872322216,
+            "IIIs": 971.5330308945694,
+            "IV": 1085.4249315513678
+          },
+          "governing_mode": "IIIs",
+          "reference_lateral_lbf": 971.5330308945694,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_left": {
+            "depth_force_on_member_n": 84.6808088902801,
+            "margins_mm": {
+              "grain_positive": 47.01281506586861,
+              "grain_negative": 1526.4195572808696,
+              "depth_positive": -21.349999999999945,
+              "depth_negative": 50.274999999999864
+            },
+            "minimum_margin_mm": -21.349999999999945,
+            "passes_directional_screen": false,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_left": {
+            "depth_force_on_member_n": -2490.3702397079282,
+            "margins_mm": {
+              "grain_positive": 631.3088770441851,
+              "grain_negative": 1597.120608112621,
+              "depth_positive": 26.274999999999984,
+              "depth_negative": 2.649999999999878
+            },
+            "minimum_margin_mm": 2.649999999999878,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 90.61201519091986,
+          "steel_direct_ratio": 0.08354395800039502,
+          "axial_stress_mpa": 0.4205057019273493,
+          "remaining_bending_yield_mpa": 633.8971652695618,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.01242519819339834,
+              "elastic_bending_ratio": 0.012172015864374367,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.01242519819339834,
+              "elastic_bending_ratio": 0.012172015864374367,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      },
+      "lumber_leg_bolt_right_1": {
+        "diameter_mm": 19.05,
+        "bearing_lengths_mm": [
+          88.90000000000009,
+          88.90000000000009
+        ],
+        "bearing_psi": [
+          5588.449553136762,
+          3054.3070595139893
+        ],
+        "lateral_demand_n": 917.837503941601,
+        "lateral_reference_n": 4299.152948209402,
+        "lateral_ratio": 0.2134926379681096,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 14669.680076984017,
+            "Is": 8017.556031224231,
+            "II": 4635.5612684085845,
+            "IIIm": 5066.427115210089,
+            "IIIs": 3865.9521220438405,
+            "IV": 4329.712186966435
+          },
+          "reference_values_lbf": {
+            "Im": 2933.9360153968037,
+            "Is": 1603.5112062448463,
+            "II": 1030.1247263130188,
+            "IIIm": 1266.6067788025223,
+            "IIIs": 966.4880305109601,
+            "IV": 1082.4280467416088
+          },
+          "governing_mode": "IIIs",
+          "reference_lateral_lbf": 966.4880305109601,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "placement": {
+          "lumber_leg_right": {
+            "depth_force_on_member_n": 38.54205565682199,
+            "margins_mm": {
+              "grain_positive": 47.01281506586861,
+              "grain_negative": 1526.4195572808696,
+              "depth_positive": -21.349999999999945,
+              "depth_negative": 50.274999999999864
+            },
+            "minimum_margin_mm": -21.349999999999945,
+            "passes_directional_screen": false,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          },
+          "base_side_right": {
+            "depth_force_on_member_n": -773.9765623709893,
+            "margins_mm": {
+              "grain_positive": 631.3088770441851,
+              "grain_negative": 1597.120608112621,
+              "depth_positive": 26.274999999999984,
+              "depth_negative": 2.649999999999878
+            },
+            "minimum_margin_mm": 2.649999999999878,
+            "passes_directional_screen": true,
+            "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+          }
+        },
+        "hardware": {
+          "absolute_axial_increment_n": 29.174362204899065,
+          "steel_direct_ratio": 0.025737636517002407,
+          "axial_stress_mpa": 0.1353902750248421,
+          "remaining_bending_yield_mpa": 634.1822806964643,
+          "washers": [
+            {
+              "wood_bearing_ratio": 0.0040005426631123655,
+              "elastic_bending_ratio": 0.003919025516018108,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            },
+            {
+              "wood_bearing_ratio": 0.0040005426631123655,
+              "elastic_bending_ratio": 0.003919025516018108,
+              "net_bearing_area_mm2": 1692.3238071420333,
+              "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+            }
+          ],
+          "preload_or_prying_bound_established": false
+        },
+        "retained_bending_yield_under_axial_increment": true,
+        "qualified_for_design": false,
+        "limits": [
+          "Single fastener; no group redistribution factor. Actual installation must establish smooth bearing through both supplied lengths.",
+          "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+          "Local splitting, net sections, free pivot travel, complete hardware fit and prying remain separate checks."
+        ]
+      }
+    },
+    "status": "CONDITIONAL_COMPARISONS_ONLY",
+    "qualified_for_design": false
+  }
+}

@@ -1,5 +1,9 @@
 # Assembled leg MVP study
 
+> Subsequent study: the [solid-4×6 centered-pivot candidate](thick-leg-pivot-study.md)
+> meets its listed conditional comparisons. Physical joint behavior remains open.
+> The failed nine-bolt results below remain unchanged.
+
 **Decision: no replacement is selected. The current leg connection remains unresolved.**
 The fixed-resultant nine-bolt screen did not survive an assembled-frame calculation.
 Neither larger-stock trial below supports releasing its drilling or purchasing its
