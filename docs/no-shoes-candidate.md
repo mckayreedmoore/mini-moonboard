@@ -33,8 +33,9 @@ absent. Original rim bearing geometry and commercial angle connections replace
 them. Shoe holes and the 9.525 mm shoe-clearance cuts are not retained in the
 new timber. Panel attachment layout and LED access remain unchanged.
 
-This candidate is intended for the next whole-frame comparison using published
-material properties and the owner's no-sliding assumption. Removing the shoes
+The [current equilibrium calculation](current-frame-equilibrium.md) uses this
+candidate and the agreed assumption that the feet do not slide. Internal member
+and connection forces still need to be calculated using published material properties. Removing the shoes
 changes joint stiffness, load transfer and assembly weight. Neither the previous
 2×6/2×8 force comparison nor the shoes' analytical results qualify this candidate.
 The commercial angles' ability to carry the resulting frame actions remains to
@@ -52,7 +53,7 @@ before adding material or changing those components.
 - Export provenance: [manifest.json](../site/hybrid/no-shoes-development/manifest.json)
 - Complete CAD assembly: [assembly.step](../site/hybrid/no-shoes-development/assembly.step)
 
-Status: **geometry candidate; not released for construction or climbing**.
+**This is a development candidate and has not been released for construction or climbing.**
 
 Four focused checks passed for the restored hardware inventory, raised datum,
 floor-contact extensions, retained leg sections, kicker-screw clearance against
