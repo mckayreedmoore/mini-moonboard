@@ -45,6 +45,7 @@ proposed. The frame analysis retains the owner's no-sliding assumption.
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
 | Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step) |
 | Check specified lumber and bolt materials | [Material basis](docs/leg-material-basis.md) |
+| See settled choices and calculation scope | [Current design basis and decision log](docs/current-design-basis.md) |
 | Review purchased plywood and hold hardware | [Purchased materials](docs/purchased-materials.md) and [T-nuts and hold-bolt guidance](docs/moonboard-hold-hardware.md) |
 | Understand the lighting route | [LED hookup schematic](docs/horizontal-service-wiring.svg) and [kit notes](docs/led-wiring-reference.md) |
 
@@ -54,62 +55,23 @@ bolt stacks. Use **Design** to compare candidates, each with its own geometry an
 limits. The [prototype weight notes](docs/prototype-weights.md) explain the
 estimates; displayed frame weight is not climber capacity.
 
-## Preserved comparisons and older plans
+## Engineering status
 
-The two preceding leg comparisons retain custom steel base shoes and the older
-225 mm kicker datum. They remain available for reviewing the design changes.
+See the [design review and finite verification plan](docs/current-design-review.md)
+for what remains necessary, what is historical, and which checks should not drive
+additional reinforcement. Geometry acceptance and structural acceptance are separate.
 
-| Design | Open the model | Review the evidence |
-| --- | --- | --- |
-| 2×6 legs and outer rims; four ⅜-inch leg bolts per side; custom base shoes | [2×6 reinforced comparison](https://mckayreedmoore.github.io/mini-moonboard/?model=round-reinforcement-development&view=rear) | [Conditional 150 lb comparison](docs/leg-150-comparison.md) |
-| 2×8 legs and outer rims; six ½-inch leg bolts per side; custom base shoes | [2×8 comparison](https://mckayreedmoore.github.io/mini-moonboard/?model=wider-leg-development&view=rear) | [CAD and hardware package](docs/wider-leg-review/README.md) |
+The [current whole-frame equilibrium screen](docs/current-frame-equilibrium.md)
+uses the current CAD mass, all 142 hold positions and actual timber footprints.
+It checks compression-only support equilibrium; internal member and joint strength
+remain to be assessed. Published base-angle directions and capacities are recorded
+in the [current connection basis](docs/current-base-connection-basis.md).
 
-Both are unqualified development designs. See the
-[criterion-source review and conditional limits](docs/wider-leg-criteria-review.md).
+## Historical designs and studies
 
-The earlier `round-structural-development` retains its
-[build-plan draft](docs/round-structural-build-plan.md),
-[drilling PDF](docs/round-structural-drilling/drilling.pdf),
-[wood schedule](exports/round-structural-development/wood-parts.csv),
-[connection schedule](exports/round-structural-development/connections.csv),
-[tools checklist](docs/round-structural-build-plan.md#tools-and-equipment) and
-[dated partial costs](docs/material-costs.md). These documents describe that older
-candidate, including its 225 mm kicker and 56 panel/kicker screws. **They are not
-an updated fabrication package for the latest raised, shoe-free candidate.**
-Do not combine one candidate's cut list or analysis with another's geometry.
-
-## Earlier designs and engineering evidence
-
-Older models remain available so changes and failed checks can be reviewed.
-They are development history, not alternate approved construction packages.
-
-<details>
-<summary>Open the design and analysis index</summary>
-
-| Study or predecessor | Notes and artifacts |
-| --- | --- |
-| Single-member all-2×6 baseline | [Layout and known failures](docs/single-2x6-layout.md) |
-| Selective member enlargement | [Single 3×6 receivers and 2×10 header](docs/selective-2x6-layout.md) |
-| Paired horizontal rails | [Separate rail connections and center-base attachment](docs/paired-rail-base.md) |
-| Additional vertical principals | [Layout and independent-panel comparison](docs/vertical-principal-development.md) |
-| Separated center principals | [Service corridor, bolt inspection and floor/panel screens](docs/split-center-development.md) |
-| Denser panel screw rows | [Infill candidate and connection diagnostics](docs/infill-panel-development.md) |
-| Round passages with wood panel screws | [Preserved screw-candidate analysis](docs/round-service-analysis.md), [build draft](docs/round-service-build-plan.md) |
-| Grooved horizontal service rails | [Previous build draft](docs/horizontal-service-build-plan.md), [archived viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development&view=rear) |
-| Direct base angles | [Gusset replacement candidate](docs/angle-base-development.md) |
-| Wider supports and panel inserts | [Wide-principal package](docs/wide-principal-development.md), [machining references](docs/wide-machining.md), [insert development](docs/panel-insert-development.md) |
-| Lumber leg alternatives | [Stock comparison](docs/leg-stock-comparison.md), [lumber response](docs/lumber-leg-response.md), [spread-bolt revision](docs/spread-leg-response.md) |
-| Joint and connection studies | [Coupled leg/rim study](docs/coupled-leg-release.md), [qualification ledger](docs/connection-qualification-ledger.md), [connection checkpoint](docs/mvp-connection-checkpoint.md) |
-| Contact and numerical checks | [Numerical acceptance basis](docs/numerical-acceptance-basis.md), [floor-contact history](docs/floor-contact-study.md), [increment refinement](docs/full-frame-increment-refinement.md) |
-| Original V1 concept | [Box-frame revision](docs/box-frame-revision.md), [V1 render](exports/mini_moonboard_v1_cad_front_render.png), [V1 viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=plywood) |
-| Official geometry and conventions | [Requirements](docs/requirements.md), [orientation](docs/orientation.md), [panel-grid notes](docs/panel-grid.md), [artwork policy](docs/panel-artwork.md) |
-
-The [documentation folder](docs/) contains the remaining investigations.
-[Archived results](fea/results/) retain their source snapshots and numerical
-limits. Early V1 hole layouts and assembly instructions are historical; they
-do not replace the current panel datums or hardware schedule.
-
-</details>
+[Open the historical design archive](docs/history/README.md) for earlier 2×6/2×8
+comparisons, custom-shoe designs, old plans and numerical studies. Their dimensions,
+hardware schedules and results do not transfer automatically to the current candidate.
 
 ## Working on the models or analysis
 
@@ -128,28 +90,19 @@ The complete test suite includes CAD and evidence checks and can take time.
 Running tests is separate from launching new finite-element solves. Individual
 study documents describe their solver commands and assumptions.
 
-The current candidate's Python module exposes `wood_parts()`, `parts()`
-and `connections()`: raw timber, machined/model parts, and connection records.
-CadQuery dimensions are in millimetres. The exporter needs the matching current
-audit and refuses to overwrite an existing output directory:
+The current model is [`no_shoes_frame.py`](mini_moonboard/no_shoes_frame.py).
+Its `uncut_wood_parts()`, `parts()` and `connections()` expose raw stock,
+machined parts and connections. Its matching exporter regenerates the viewer
+inventory, source hashes and STEP assembly:
 
 ```sh
-uv run python -m mini_moonboard.round_service_exports --help
+uv run python -m mini_moonboard.no_shoes_exports
 ```
 
-Regenerate drilling references into a new directory, then print the authenticated
-SVG pages to PDF without a browser. Run from the repository root; replace
-`NEW_DRAWING_DIRECTORY` with a path that does not exist yet:
-
-```sh
-uv run python -m mini_moonboard.round_service_drilling --output NEW_DRAWING_DIRECTORY
-uv run --with pymupdf python scripts/print_drilling_svg.py NEW_DRAWING_DIRECTORY
-```
-
-The generator refuses to overwrite a directory. The PDF printer verifies the
-source and drawing hashes, refuses to replace an existing `drilling.pdf`, and
-records the PDF hash and renderer in the manifest. It does not establish
-machining tolerances or structural adequacy.
+Outputs are in [`site/hybrid/no-shoes-development/`](site/hybrid/no-shoes-development/).
+The current candidate does not yet have a released cut/drilling package.
+Historical drawing generators are described with their corresponding designs in
+[the archive](docs/history/README.md).
 
 The older `uv run python -m mini_moonboard.export` command regenerates the
 reference/V1 artifacts checked by CI; it does not regenerate every development

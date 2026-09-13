@@ -19,13 +19,29 @@ fs.mkdirSync(output, {recursive: true});
           'window.cadTest = {meshes, camera, controls, THREE};</script>\n  </body>')});
       });
     for (const key of ['no-shoes-development']) {
-      await page.goto(base+'?model='+key+'&view=rear');
+      await page.goto(base+'?view=rear');
       const manifest = await page.evaluate(async key => (await fetch('hybrid/'+key+'/parts.json')).json(), key);
       await page.waitForFunction(n => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === n,
         manifest.parts.length, {timeout: 120000});
       assert.equal(await page.locator('#model').inputValue(), key);
+      assert.deepEqual(await page.locator('#model optgroup').evaluateAll(groups => groups.map(g => g.label)), ['Current design', 'Historical / archive designs']);
+      assert.equal(await page.locator('#model optgroup').first().locator('option').count(), 1);
       assert.match(await page.locator('#design-details').innerText(), /NOT build-ready/);
       assert.ok(await page.locator('#model-documents a').count() >= 2);
+      const panel = page.locator('header');
+      const before = await panel.boundingBox();
+      await page.mouse.move(before.x + before.width - 3, before.y + before.height - 3);
+      await page.mouse.down();
+      await page.mouse.move(before.x + before.width + 180, before.y + before.height + 180, {steps: 12});
+      await page.mouse.up();
+      const after = await panel.boundingBox();
+      assert.ok(after.width > before.width + 100, 'Information panel grows horizontally');
+      assert.ok(after.height > before.height + 100, 'Information panel grows vertically');
+      await page.screenshot({path: path.join(output, key+'-resized-panel.png')});
+      await page.setViewportSize({width: 390, height: 700});
+      const mobile = await panel.boundingBox();
+      assert.ok(mobile.width <= 390 && mobile.height <= 700, 'Panel stays inside smaller viewport');
+      await page.setViewportSize({width: 1600, height: 1100});
       await page.screenshot({path: path.join(output, key+'-rear.png')});
       assert.equal(manifest.design.main_face_height_mm, 277);
       assert.ok(!manifest.parts.some(p => p.name.includes('steel_shoe')));
@@ -40,6 +56,10 @@ fs.mkdirSync(output, {recursive: true});
       assert.ok(floor.every(z => Math.abs(z) < .01));
 
     }
+    await page.locator('#model').selectOption('round-reinforcement-development');
+    await page.waitForURL('**model=round-reinforcement-development*');
+    await page.waitForFunction(() => document.querySelector('#model')?.value === 'round-reinforcement-development');
+    assert.equal(await page.locator('#model optgroup').nth(1).locator('option:checked').count(), 1);
     assert.deepEqual(errors, []);
     console.log('Shoe-free candidate loaded; 277mm datum, inherited transforms and floor contact verified');
   } finally {
