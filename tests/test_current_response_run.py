@@ -4,6 +4,22 @@ import numpy as np
 from fea.current_response_run import physical_forces
 
 
+def test_inclined_square_brace_keeps_actual_normal_end_stations():
+    from types import SimpleNamespace
+
+    import cadquery as cq
+
+    from fea.current_response_model import gross_member_record
+
+    grain, across = cq.Vector(0., .6, .8), cq.Vector(1., 0., 0.)
+    origin = cq.Vector(20., 300., 800.)
+    plane = cq.Plane(origin=origin, xDir=across, normal=grain)
+    shape = cq.Workplane(plane).rect(88.9, 139.7).extrude(900.).val()
+    record = gross_member_record(SimpleNamespace(name='knee', shape=shape), grain, across, square_ends=True)
+    np.testing.assert_allclose(record['start'], origin.toTuple(), atol=1.e-6)
+    np.testing.assert_allclose(record['end'], (origin+grain*900.).toTuple(), atol=1.e-6)
+
+
 def test_rotated_connector_preserves_force_and_action_reaction():
     root = 2**-.5
     basis = [[root, 0., root], [0., 1., 0.], [-root, 0., root]]

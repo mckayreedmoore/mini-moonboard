@@ -24,7 +24,17 @@ def cutters(model=model):
                 result.append((name, c.name, 'screw_head_recess', c.components()[1]))
     result.extend((member, name, 'service_passage', shape)
                   for member, name, shape in model.service_cutters())
+    result.extend(getattr(model, 'additional_machining_cutters', lambda: ())())
     return result
+
+
+def bearing_length_check(actual_mm, full_width_mm, bolt_name, member_name, overrides):
+    """Accept a reduced tab only when explicitly specified for this receiver."""
+    expected = overrides.get(bolt_name, {}).get(member_name, full_width_mm)
+    if (not math.isfinite(expected) or expected <= 0 or expected > full_width_mm+1.e-5
+            or not math.isfinite(actual_mm) or actual_mm < 0):
+        raise ValueError('Invalid expected or measured receiver bearing length')
+    return expected, abs(actual_mm-expected) < 1.e-5
 
 
 def build(model=model):
@@ -33,6 +43,11 @@ def build(model=model):
     machining = cutters(model)
     bolts = [c for c in model.connections() if c.kind == 'bolt']
     groups = {c.name for c in bolts}
+    overrides = getattr(model, 'EXPECTED_BEARING_LENGTHS_MM', {})
+    bolt_members = {c.name:set(c.members) for c in bolts}
+    if any(name not in bolt_members or set(values)-bolt_members[name]
+           for name,values in overrides.items()):
+        raise ValueError('Expected bearing override names an absent bolt or receiver')
     members = {}
     for name in sorted({n for c in bolts for n in c.members}):
         part = raw[name]
@@ -46,7 +61,7 @@ def build(model=model):
         centre = grain*((min(gs)+max(gs))/2)+normal*((min(qs)+max(qs))/2)+cq.Vector((bb.xmin+bb.xmax)/2,0,0)
         profile = [[(v-centre).dot(grain),(v-centre).dot(normal)] for v in vertices]
         ends = [max(s for s,q in profile if s < 0), min(s for s,q in profile if s > 0)]
-        records, boxes = [], []
+        records, boxes, non_square_sources = [], [], []
         unrepresented = part.shape.cut(drilled[name].shape)
         for member, source, kind, cutter in machining:
             if member != name:
@@ -56,7 +71,12 @@ def build(model=model):
             if actual.Volume() <= 1.e-6 or source in groups:
                 continue
             bounds = local_bounds(actual, centre, grain, normal)
-            boxes.append(square_box(bounds, model.DEPTH))
+            # Long end-tab machining is a 3D section removal, not a dowel hole.
+            # Preserve its actual X extent instead of a full-width square.
+            if kind == 'tab_notch':
+                non_square_sources.append(source)
+            else:
+                boxes.append(square_box(bounds, max(qs)-min(qs)))
             cut_bb = actual.BoundingBox()
             records.append({'source':source,'kind':kind,'actual_removed_volume_mm3':actual.Volume(),
                 'section_box_sxq_mm':[bounds[0],bounds[1],cut_bb.xmin-centre.x,cut_bb.xmax-centre.x,bounds[2],bounds[3]]})
@@ -66,6 +86,7 @@ def build(model=model):
         members[name] = {'grain':grain.toTuple(),'centre_mm':centre.toTuple(),
             'end_stations_mm':ends,'depth_mm':max(qs)-min(qs),'width_mm':bb.xlen,
             'profile_sq_mm':profile,'additional_section_boxes':boxes,'opening_records':records,
+            'section_only_cut_sources':non_square_sources,
             'all_openings_represented':True,'unrepresented_removed_volume_mm3':residual,
             'specific_gravity':.5,'parallel_bearing_psi':5600.}
     geometries, fits = {}, []
@@ -88,9 +109,12 @@ def build(model=model):
             washer = c.components()[1 if index == 0 else 2]
             washer = washer.translate(c.direction*(1 if index == 0 else -1)*washer.BoundingBox().xlen)
             unsupported = max(0.,washer.Volume()-washer.intersect(drilled[name].shape).Volume())
-            fit = abs(length-members[name]['width_mm'])<1.e-5 and abs(supported-expected)<.01 and remaining<.01 and unsupported<.01
+            expected_length, length_matches = bearing_length_check(
+                length,members[name]['width_mm'],c.name,name,overrides)
+            fit = length_matches and abs(supported-expected)<.01 and remaining<.01 and unsupported<.01
             fits.append({'bolt':c.name,'member':name,'axis_material_intervals_mm':intervals,
-                'bearing_length_mm':length,'unsupported_washer_mm3':unsupported,
+                'bearing_length_mm':length,'expected_bearing_length_mm':expected_length,
+                'bearing_length_matches':length_matches,'unsupported_washer_mm3':unsupported,
                 'hole_support_error_mm3':supported-expected,'remaining_wood_mm3':remaining,'passes':fit})
             geometry[name] = {**members[name],'bearing_length_mm':length,'edge_distances_mm':adjusted,
                 'nominal_edge_distances_mm':nominal,'axis_material_intervals_mm':intervals}

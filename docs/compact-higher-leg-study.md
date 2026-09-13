@@ -136,6 +136,11 @@ retaining the preferred 4×6 members and compact 2×6 base. It is a proposed nex
 study, not an installed or qualified connection. More bolt-grade substitutions
 alone do not fix insufficient wood edge distance.
 
+The subsequent [knee-brace study](compact-knee-study.md) now has a numerically
+accepted paired-bolt trial. It improves the worst individual bolt ratio to
+0.472, but an upper-leg bolt still fails directional placement and the brace
+tabs require explicit stiffness/local-detail assessment. It is not released.
+
 ## Reproduction
 
 ```sh

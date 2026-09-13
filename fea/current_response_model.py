@@ -93,7 +93,7 @@ def mass_by_body(module,raw,materials):
     return result,inventory
 
 
-def gross_member_record(part, grain, section_u):
+def gross_member_record(part, grain, section_u, *, square_ends=False):
     """Preserve full gross section; level bevels use plane-section end offsets."""
     grain, section_u = grain.normalized(), section_u.normalized()
     section_v = grain.cross(section_u).normalized()
@@ -101,8 +101,13 @@ def gross_member_record(part, grain, section_u):
     bb=local.BoundingBox()
     centre=section_u*((bb.xmin+bb.xmax)/2)+section_v*((bb.ymin+bb.ymax)/2)
     low,high=bb.zmin,bb.zmax
+    if square_ends:
+        stations = [v.Center().dot(grain) for v in part.shape.Vertices()]
+        if (len(stations) != 8 or sum(abs(s-low)<1.e-6 for s in stations) != 4
+                or sum(abs(s-high)<1.e-6 for s in stations) != 4):
+            raise ValueError('Square-ended gross member requires two full normal end faces')
     world=part.shape.BoundingBox()
-    bevel=1.e-8 < abs(grain.z) < 1-1.e-8
+    bevel=not square_ends and 1.e-8 < abs(grain.z) < 1-1.e-8
     if bevel:
         low=(world.zmin-centre.z)/grain.z
     width,depth=bb.xlen,bb.ylen
@@ -348,7 +353,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     foot_samples([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[1.,1.,0.]], leg_floor_grid)
     raw={p.name:p for p in module.wood_parts()}
     body_mass,hardware_mass=mass_by_body(module,raw,materials)
-    records = [gross_member_record(p, *(getattr(module, 'MEMBER_AXES', {}).get(p.name) or axes(module, p.name))) for p in module.uncut_wood_parts()
+    records = [gross_member_record(p, *(getattr(module, 'MEMBER_AXES', {}).get(p.name) or axes(module, p.name)),
+               square_ends=p.name in getattr(module, 'NATIVE_SQUARE_END_MEMBERS', ())) for p in module.uncut_wood_parts()
                if not p.name.startswith(('main_', 'kicker_'))]
     by_name={r['name']:r for r in records}
     connections=module.connections()
@@ -518,4 +524,3 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     structure.layered_panels()
     metadata['panel_formulation']='Four bonded C3D20 equivalent layers; exact directional reference EA/EI, physical midsurface nodes'
     return structure,metadata
-

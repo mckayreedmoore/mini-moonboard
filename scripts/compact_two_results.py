@@ -19,6 +19,7 @@ def main():
     parser.add_argument('--expected-candidate', default='compact-two-development')
     parser.add_argument('--model-source', default='mini_moonboard/compact_two_frame.py')
     parser.add_argument('--geometry', type=Path)
+    parser.add_argument('--bolt-prefix', nargs='+', default=['lumber_leg_bolt_'])
     parser.add_argument('--output', type=Path, default=Path('fea/results/compact-two-study'))
     args = parser.parse_args()
     out = args.output
@@ -58,7 +59,7 @@ def main():
         washer_thickness_mm=row['washer_thickness_mm'])
         for name, row in geometry['hardware_by_name'].items()}
     result = assess(report, geometry['geometries_by_bolt_name'], hardware,
-                    bolt_prefixes=('lumber_leg_bolt_',))
+                    bolt_prefixes=tuple(args.bolt_prefix))
     result['receiver_fit_pass'] = geometry['receiver_fit_pass']
     (out/'checks.json').write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')
     print(json.dumps({key:result.get(key) for key in ('candidate', 'status', 'metrics', 'receiver_fit_pass')}, indent=2))
