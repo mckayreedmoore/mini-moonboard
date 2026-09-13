@@ -1,5 +1,9 @@
 # Current DIY construction package
 
+> Preserved September 12 single-2×6 baseline package. The owner now prefers
+> `compact-thick-development`; use its [matching package](compact-construction-package.md).
+> Neither package releases unresolved connection drilling.
+
 This package records the **277 mm, shoe-free `no-shoes-development` candidate**
 with single 2×6 support legs. It supplies a current stock schedule, connection
 coordinates, panel drilling coordinates, hardware inventory and assembly sequence.

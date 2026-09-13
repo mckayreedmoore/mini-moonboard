@@ -1,5 +1,9 @@
 # Solid 4×6 pivot and triangular side-frame comparison
 
+> Preserved single-pivot study. The owner selected the 4×6 direction and requested
+> multiple bolts, flush rims and a compact base on September 13, 2026.
+> See the [preferred compact candidate](compact-thick-study.md); the results below do not transfer.
+
 **The centered ⅝-inch pivot in solid 4×6 legs and rims is the leading development
 candidate. It is not a released construction detail.** Its two completed assembled
 cases meet the listed bolt, directional placement and sampled member comparisons.

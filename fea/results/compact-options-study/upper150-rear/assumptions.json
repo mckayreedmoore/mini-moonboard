@@ -1,0 +1,402 @@
+{
+  "candidate": "compact-leg-upper150-development",
+  "producer_validity": {
+    "global_equilibrium_passed": true,
+    "mpc_check_passed": true,
+    "contact_active_set_converged": true,
+    "closed_bearing_assumption_passed": true,
+    "member_equilibrium_passed": true,
+    "numerically_accepted": true
+  },
+  "status": "ASSUMPTION_SENSITIVITY_ONLY",
+  "bolts": {
+    "lumber_leg_bolt_left_1": {
+      "angles_to_grain_deg": {
+        "lumber_leg_left": 25.890742275549634,
+        "base_side_left": 29.889876067788624
+      },
+      "maximum_angle_deg": 29.889876067788624,
+      "lateral_demand_n": 2435.7264593443465,
+      "signed_axial_increment_n": 353.7598034639883,
+      "original_reported_ratio": 0.5084846217359743,
+      "comparisons": {
+        "original_fixed_1_25": {
+          "Ktheta": 1.25,
+          "reduction_terms": {
+            "Im": 5.0,
+            "Is": 5.0,
+            "II": 4.5,
+            "IIIm": 4.0,
+            "IIIs": 4.0,
+            "IV": 4.0
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 12014.855904861228,
+              "Is": 11385.822785820947,
+              "II": 4845.926118888329,
+              "IIIm": 4814.738475570316,
+              "IIIs": 4696.502439734801,
+              "IV": 4597.75438066708
+            },
+            "reference_values_lbf": {
+              "Im": 2402.9711809722457,
+              "Is": 2277.1645571641893,
+              "II": 1076.8724708640732,
+              "IIIm": 1203.684618892579,
+              "IIIs": 1174.1256099337002,
+              "IV": 1149.43859516677
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 1076.8724708640732,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 4790.167401776553,
+          "ratio_CD_1": 0.5084846217359745,
+          "hypothetical_reference_lateral_n_CD_1_6": 7664.267842842484,
+          "hypothetical_ratio_CD_1_6": 0.3178028885849841
+        },
+        "actual_angle": {
+          "Ktheta": 1.083027433521635,
+          "reduction_terms": {
+            "Im": 4.33210973408654,
+            "Is": 4.33210973408654,
+            "II": 3.898898760677886,
+            "IIIm": 3.465687787269232,
+            "IIIs": 3.465687787269232,
+            "IV": 3.465687787269232
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 12014.855904861228,
+              "Is": 11385.822785820947,
+              "II": 4845.926118888329,
+              "IIIm": 4814.738475570316,
+              "IIIs": 4696.502439734801,
+              "IV": 4597.75438066708
+            },
+            "reference_values_lbf": {
+              "Im": 2773.4421892234586,
+              "Is": 2628.2396995240792,
+              "II": 1242.8961140929414,
+              "IIIm": 1389.2591517495177,
+              "IIIs": 1355.1429695966299,
+              "IV": 1326.649906998649
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 1242.8961140929414,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 5528.677360231502,
+          "ratio_CD_1": 0.4405622358911455,
+          "hypothetical_reference_lateral_n_CD_1_6": 8845.883776370403,
+          "hypothetical_ratio_CD_1_6": 0.2753513974319659
+        }
+      },
+      "duration_factor_adopted": 1.0,
+      "hypothetical_duration_factor": 1.6,
+      "hypothetical_duration_applicability_established": false,
+      "qualified_for_design": false
+    },
+    "lumber_leg_bolt_left_2": {
+      "angles_to_grain_deg": {
+        "lumber_leg_left": 13.955191324511027,
+        "base_side_left": 41.82542701882722
+      },
+      "maximum_angle_deg": 41.82542701882722,
+      "lateral_demand_n": 5233.868253270492,
+      "signed_axial_increment_n": -473.8230480365366,
+      "original_reported_ratio": 1.0964058560586905,
+      "comparisons": {
+        "original_fixed_1_25": {
+          "Ktheta": 1.25,
+          "reduction_terms": {
+            "Im": 5.0,
+            "Is": 5.0,
+            "II": 4.5,
+            "IIIm": 4.0,
+            "IIIs": 4.0,
+            "IV": 4.0
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 13761.85976696928,
+              "Is": 9663.130508808197,
+              "II": 4829.226081997936,
+              "IIIm": 5080.3120077217845,
+              "IIIs": 4318.966330220145,
+              "IV": 4530.814453128658
+            },
+            "reference_values_lbf": {
+              "Im": 2752.371953393856,
+              "Is": 1932.6261017616393,
+              "II": 1073.1613515550969,
+              "IIIm": 1270.0780019304461,
+              "IIIs": 1079.7415825550363,
+              "IV": 1132.7036132821645
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 1073.1613515550969,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 4773.659520649554,
+          "ratio_CD_1": 1.0964058560586902,
+          "hypothetical_reference_lateral_n_CD_1_6": 7637.855233039287,
+          "hypothetical_ratio_CD_1_6": 0.6852536600366814
+        },
+        "actual_angle": {
+          "Ktheta": 1.1161817417189646,
+          "reduction_terms": {
+            "Im": 4.464726966875858,
+            "Is": 4.464726966875858,
+            "II": 4.018254270188272,
+            "IIIm": 3.5717815735006866,
+            "IIIs": 3.5717815735006866,
+            "IV": 3.5717815735006866
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 13761.85976696928,
+              "Is": 9663.130508808197,
+              "II": 4829.226081997936,
+              "IIIm": 5080.3120077217845,
+              "IIIs": 4318.966330220145,
+              "IV": 4530.814453128658
+            },
+            "reference_values_lbf": {
+              "Im": 3082.3519263483618,
+              "Is": 2164.32731060593,
+              "II": 1201.821924965357,
+              "IIIm": 1422.3467765814678,
+              "IIIs": 1209.19105531617,
+              "IV": 1268.5026673364093
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 1201.821924965357,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 5345.970264324884,
+          "ratio_CD_1": 0.9790305584371691,
+          "hypothetical_reference_lateral_n_CD_1_6": 8553.552422919814,
+          "hypothetical_ratio_CD_1_6": 0.6118940990232307
+        }
+      },
+      "duration_factor_adopted": 1.0,
+      "hypothetical_duration_factor": 1.6,
+      "hypothetical_duration_applicability_established": false,
+      "qualified_for_design": false
+    },
+    "lumber_leg_bolt_right_1": {
+      "angles_to_grain_deg": {
+        "lumber_leg_right": 50.92400084365066,
+        "base_side_right": 73.29538081301109
+      },
+      "maximum_angle_deg": 73.29538081301109,
+      "lateral_demand_n": 138.58624480082025,
+      "signed_axial_increment_n": 83.81120689081844,
+      "original_reported_ratio": 0.0431831240192197,
+      "comparisons": {
+        "original_fixed_1_25": {
+          "Ktheta": 1.25,
+          "reduction_terms": {
+            "Im": 5.0,
+            "Is": 5.0,
+            "II": 4.5,
+            "IIIm": 4.0,
+            "IIIs": 4.0,
+            "IV": 4.0
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 8614.713011149634,
+              "Is": 7083.408670980948,
+              "II": 3246.625288986422,
+              "IIIm": 3572.6473458273354,
+              "IIIs": 3307.578475500711,
+              "IV": 3749.1793048401564
+            },
+            "reference_values_lbf": {
+              "Im": 1722.9426022299267,
+              "Is": 1416.6817341961896,
+              "II": 721.4722864414272,
+              "IIIm": 893.1618364568338,
+              "IIIs": 826.8946188751778,
+              "IV": 937.2948262100391
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 721.4722864414272,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 3209.268619360171,
+          "ratio_CD_1": 0.0431831240192197,
+          "hypothetical_reference_lateral_n_CD_1_6": 5134.829790976274,
+          "hypothetical_ratio_CD_1_6": 0.02698945251201231
+        },
+        "actual_angle": {
+          "Ktheta": 1.203598280036142,
+          "reduction_terms": {
+            "Im": 4.814393120144568,
+            "Is": 4.814393120144568,
+            "II": 4.332953808130111,
+            "IIIm": 3.8515144961156547,
+            "IIIs": 3.8515144961156547,
+            "IV": 3.8515144961156547
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 8614.713011149634,
+              "Is": 7083.408670980948,
+              "II": 3246.625288986422,
+              "IIIm": 3572.6473458273354,
+              "IIIs": 3307.578475500711,
+              "IV": 3749.1793048401564
+            },
+            "reference_values_lbf": {
+              "Im": 1789.3663429983774,
+              "Is": 1471.2983535437268,
+              "II": 749.286845129675,
+              "IIIm": 927.595456133019,
+              "IIIs": 858.7734717957011,
+              "IV": 973.4298828736836
+            },
+            "governing_mode": "II",
+            "reference_lateral_lbf": 749.286845129675,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 3332.993940536167,
+          "ratio_CD_1": 0.04158010703689619,
+          "hypothetical_reference_lateral_n_CD_1_6": 5332.790304857867,
+          "hypothetical_ratio_CD_1_6": 0.02598756689806012
+        }
+      },
+      "duration_factor_adopted": 1.0,
+      "hypothetical_duration_factor": 1.6,
+      "hypothetical_duration_applicability_established": false,
+      "qualified_for_design": false
+    },
+    "lumber_leg_bolt_right_2": {
+      "angles_to_grain_deg": {
+        "lumber_leg_right": 9.804147980554134,
+        "base_side_right": 45.97647036278412
+      },
+      "maximum_angle_deg": 45.97647036278412,
+      "lateral_demand_n": 684.1029710627757,
+      "signed_axial_increment_n": -117.99756232793985,
+      "original_reported_ratio": 0.14680784566180788,
+      "comparisons": {
+        "original_fixed_1_25": {
+          "Ktheta": 1.25,
+          "reduction_terms": {
+            "Im": 5.0,
+            "Is": 5.0,
+            "II": 4.5,
+            "IIIm": 4.0,
+            "IIIs": 4.0,
+            "IV": 4.0
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 14216.826051014454,
+              "Is": 9153.01452992659,
+              "II": 4805.593306341146,
+              "IIIm": 5124.226956668249,
+              "IIIs": 4190.306456789144,
+              "IV": 4487.1855255161445
+            },
+            "reference_values_lbf": {
+              "Im": 2843.365210202891,
+              "Is": 1830.6029059853179,
+              "II": 1067.9096236313658,
+              "IIIm": 1281.0567391670622,
+              "IIIs": 1047.576614197286,
+              "IV": 1121.7963813790361
+            },
+            "governing_mode": "IIIs",
+            "reference_lateral_lbf": 1047.576614197286,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 4659.8529389137775,
+          "ratio_CD_1": 0.14680784566180788,
+          "hypothetical_reference_lateral_n_CD_1_6": 7455.764702262044,
+          "hypothetical_ratio_CD_1_6": 0.09175490353862993
+        },
+        "actual_angle": {
+          "Ktheta": 1.1277124176744002,
+          "reduction_terms": {
+            "Im": 4.510849670697601,
+            "Is": 4.510849670697601,
+            "II": 4.059764703627841,
+            "IIIm": 3.6086797365580807,
+            "IIIs": 3.6086797365580807,
+            "IV": 3.6086797365580807
+          },
+          "all_modes": {
+            "yield_values_lbf": {
+              "Im": 14216.826051014454,
+              "Is": 9153.01452992659,
+              "II": 4805.593306341146,
+              "IIIm": 5124.226956668249,
+              "IIIs": 4190.306456789144,
+              "IV": 4487.1855255161445
+            },
+            "reference_values_lbf": {
+              "Im": 3151.6958198289567,
+              "Is": 2029.110965365219,
+              "II": 1183.7122732868795,
+              "IIIm": 1419.9727686435485,
+              "IIIs": 1161.1743802972699,
+              "IV": 1243.4424368719328
+            },
+            "governing_mode": "IIIs",
+            "reference_lateral_lbf": 1161.1743802972699,
+            "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+          },
+          "reference_lateral_n_CD_1": 5165.160977525032,
+          "ratio_CD_1": 0.13244562445187807,
+          "hypothetical_reference_lateral_n_CD_1_6": 8264.257564040052,
+          "hypothetical_ratio_CD_1_6": 0.08277851528242378
+        }
+      },
+      "duration_factor_adopted": 1.0,
+      "hypothetical_duration_factor": 1.6,
+      "hypothetical_duration_applicability_established": false,
+      "qualified_for_design": false
+    }
+  },
+  "governing": {
+    "original_fixed_1_25_CD_1": {
+      "bolt": "lumber_leg_bolt_left_2",
+      "ratio": 1.0964058560586902
+    },
+    "original_fixed_1_25_hypothetical_CD_1_6": {
+      "bolt": "lumber_leg_bolt_left_2",
+      "ratio": 0.6852536600366814
+    },
+    "actual_angle_CD_1": {
+      "bolt": "lumber_leg_bolt_left_2",
+      "ratio": 0.9790305584371691
+    },
+    "actual_angle_hypothetical_CD_1_6": {
+      "bolt": "lumber_leg_bolt_left_2",
+      "ratio": 0.6118940990232307
+    }
+  },
+  "matched_direct_model_source_sha256": {
+    "mini_moonboard/compact_leg_options.py": "f7e4eff9fa64246b761bce984fe8149844b2aca1d506143a7297379201c80b42"
+  },
+  "reference_source": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+  "duration_factor_adopted": 1.0,
+  "limits": [
+    "Ktheta uses the greatest acute angle of this recovered bolt force to either joined timber grain, per NDS Table12.3.1B.",
+    "Bearing strength, thickness, nominal diameter and all six yield modes are recomputed. Existing ratios remain preserved and checked separately.",
+    "Cd1.6 is arithmetic sensitivity only; the project retains Cd1. Doubling applied downward load does not establish duration-factor eligibility.",
+    "No source load, native solution, thread condition, spacing, local wood resistance or construction selection is changed."
+  ],
+  "qualified_for_design": false,
+  "source_sha256": {
+    "fea/results/compact-options-study/upper150-rear/report.json.gz": "dfc34b47bdfceca7a95342f995ec0dd9558e9301c305830fc805d84e3cacece3",
+    "fea/results/compact-options-study/upper150-rear/geometry.json": "d3f7311846615ad48559f26a1a1eeb94af4ca68601ad15aebbbbb15953ac2a71",
+    "/home/mckay-linux/repos/mini-moonboard/fea/compact_assumption_checks.py": "404711377b48977da7a9712f4d4fe43e75b8641beea36ed9110461141f2e1e1d",
+    "fea/results/compact-options-study/upper150-rear/checks.json": "ee97fff862ef0dd7132cb901037a7dc924ee9be74965698e0fbdbc3729beffe3"
+  }
+}

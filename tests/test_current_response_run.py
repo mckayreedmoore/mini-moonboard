@@ -57,3 +57,35 @@ def test_solver_rejects_source_changes_after_import_before_building(tmp_path, mo
     with pytest.raises(ValueError, match='Sources changed after this process imported'):
         current_response_run.run(tmp_path/'rejected')
     assert not (tmp_path/'rejected'/'model.pkl').exists()
+
+
+def test_mixed_bolts_use_their_own_stiffness_and_reject_invalid_values():
+    import pytest
+
+    from fea.current_response_model import named_bolt_properties
+
+    upper = {'axial_n_per_mm': 200., 'lateral_n_per_mm': 100.}
+    rail = {'axial_n_per_mm': 90., 'lateral_n_per_mm': 60.}
+    properties = {**upper, 'by_name': {'upper': upper, 'rail': rail}}
+    assert named_bolt_properties(properties, 'rail', 'post', 'rail', 2.) == rail
+    scaled = named_bolt_properties(properties, 'upper', 'lumber_leg_left', 'rim', 2.)
+    assert scaled['lateral_n_per_mm'] == 200.
+    assert upper['lateral_n_per_mm'] == 100.
+    with pytest.raises(ValueError, match='positive finite'):
+        named_bolt_properties({'by_name': {'rail': {**rail, 'lateral_n_per_mm': -1.}}},
+                              'rail', 'post', 'rail', 1.)
+
+
+def test_floor_contact_search_changes_one_corner_without_relaxing_other_contacts():
+    import pytest
+
+    from fea.current_response_run import next_contact_names
+
+    rows = [{'name': 'floor_post_1', 'active': False, 'opening_mm': -.05},
+            {'name': 'floor_post_3', 'active': False, 'opening_mm': -.2},
+            {'name': 'floor_other_1', 'active': True, 'opening_mm': .1},
+            {'name': 'seating_1', 'active': False, 'opening_mm': -.3}]
+    assert next_contact_names(rows) == {'floor_post_1', 'floor_post_3', 'seating_1'}
+    assert next_contact_names(rows, 'one_per_floor_body') == {'floor_post_3', 'seating_1'}
+    with pytest.raises(ValueError, match='Unknown contact'):
+        next_contact_names(rows, 'ignore_contacts')

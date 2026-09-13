@@ -1,6 +1,11 @@
 # Current DIY completion record
 
-This record defines the agreed endpoint for the `no-shoes-development` project:
+The preferred development candidate is now `compact-thick-development` (September
+13, 2026). Its [study](compact-thick-study.md) and [construction package](compact-construction-package.md)
+track the three-bolt, flush-4×6 and compact-2×6-base revision. The baseline
+numbers below remain identified historical evidence and do not qualify it.
+
+This record defines the agreed endpoint for the project:
 a documented **engineer-unreviewed DIY design**. The owner has explicitly removed
 independent engineering review as a completion requirement. This package does
 not claim professional certification, a verified climber weight rating, or
@@ -15,15 +20,15 @@ all three as “testing complete.”
 
 | Item | Agreed basis |
 | --- | --- |
-| Current geometry | Shoe-free frame with a 277 mm floor-to-main-face datum: 150 mm exposed kicker plus a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear on the floor; the pad provides no structural support. |
-| Main design task | Resolve the single-2×6 rear support legs and their integral connections, using the assembled-frame response to establish their demands. Preserve the baseline and identify any selected revision explicitly. |
+| Current geometry | Preferred compact solid-4×6 frame with a 139.7 mm-deep 2×6 base, three ½-inch bolts per leg, and a 277 mm floor-to-main-face datum: 150 mm exposed kicker plus a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear on the floor; the pad provides no structural support. |
+| Main design task | Resolve the preferred solid-4×6 support legs and their three-bolt connections, using the revised assembled-frame response. Preserve the single-2×6 baseline and prior pivot evidence. |
 | Panels and holds | Retain the accepted plywood, panel layout and T-nut construction. Neither a general plywood/T-nut test campaign nor comparison with another frame is a completion prerequisite. This owner decision is a design premise, not evidence that Moon has tested this particular frame. |
 | Floor | Assume the timber feet do not slide. Permit compression contact and uplift in the calculation. Physical floor-friction qualification is excluded; the assumption does not establish friction or imply an installed anchor. |
 | Timber | Use the documented dry, unincised Douglas Fir–Larch No. 2 basis and actual nominal-member geometry. Published grade values do not establish the species, grade or condition of subsequently purchased stock. |
 | Load inquiry | Retain the existing 250 lb one-climber target and 150 lb comparison. Treat static downward loading and twice-downward-force loading separately, with the documented horizontal cases up to 300 N and eccentricity up to 100 mm. |
 | Load interpretation | The doubled downward force and horizontal force are project scenarios, not a measured impact spectrum. They do not establish a safe body-weight limit or encompass every climbing action. |
 | Resistance factors | The published climbing-case comparisons use normal-duration factors of 1.0. No additional short-duration capacity increase is credited merely because the downward load is doubled. |
-| Weight and equipment | The current response uses 171.039 kg modeled assembly mass plus a separate 25 kg equipment allowance. A geometry or hardware revision must update its weight or justify the retained value. Equipment placement differs between the response case and the separate equilibrium envelope and must remain labeled. |
+| Weight and equipment | The preserved baseline response uses 171.039 kg modeled assembly mass plus a separate 25 kg equipment allowance. The compact candidate uses its own CAD mass. A geometry or hardware revision must update its weight or justify the retained value. Equipment placement differs between the response case and the separate equilibrium envelope and must remain labeled. |
 | External review and testing | Independent engineer review is not a gate. No physical load test is added automatically. If a consequential joint assumption cannot be resolved by published evidence or calculation, report the unresolved limitation explicitly rather than inventing a passing result. |
 
 Other pad heights require the coordinated changes described in the
@@ -35,7 +40,7 @@ kicker of 277 mm minus the new pad height.
 These choices preserve the owner's scope without converting a leg-focused
 assessment into qualification of every part of the frame.
 
-## Evidence already available
+## Preserved baseline evidence
 
 The [assembled-frame response report](current-frame-response.md) contains nine
 calculated cases: six distinct loading situations and additional numerical
@@ -94,13 +99,13 @@ calling them measured failures.
 
 | Deliverable | Completion evidence | Current disposition |
 | --- | --- | --- |
-| Leg and integral connection decision | One identified current detail, its governing simultaneous force/moment cases, applicable member and connection comparisons, geometric installation requirements, and an explicit pass or unresolved result. A revision must be evaluated with its changed load transfer. | Open: the existing four-bolt detail does not meet its conditional reference in the demanding upper-left cases. Historical larger-bolt and wider-stock candidates do not close this item. |
+| Leg and integral connection decision | One identified current detail, its governing simultaneous force/moment cases, applicable member and connection comparisons, geometric installation requirements, and an explicit pass or unresolved result. A revision must be evaluated with its changed load transfer. | Open: the compact three-bolt joint reaches an individual lateral ratio of 3.185 in the first demanding upper-left case. Its baseline and pivot predecessors do not close this item. |
 | Matching construction package | Cutting dimensions, drilling coordinates and diameters, complete hardware specifications, and assembly instructions refer to the same selected geometry. Any unresolved connection drilling is marked as such. | A package may document the current candidate before the joint decision, but final connection instructions must follow the selected and checked detail. |
 | Assumptions and limitations | The owner-approved endpoint, load scenarios, floor premise, material premises, analytical limitations and omitted claims are explicit and linked to their evidence. | Recorded here. Update only for an actual design or evidence change. |
 | Final consistency check | The selected model, schedules, construction instructions and calculation identify the same configuration; required current-candidate rebuild and affected focused checks pass. | Run after the final detail is selected. Historical variants remain available but need not be repeatedly rebuilt for documentation-only changes. |
 
-The [current construction package](current-construction-package.md) provides
-the candidate's stock, hardware and attachment schedules. These documentation
+The [compact construction package](compact-construction-package.md) provides
+the preferred candidate's stock, hardware and attachment schedules. These documentation
 deliverables can be prepared in parallel with the joint work. Their completion
 does not make unresolved joint drilling suitable for issue as a final
 construction detail.

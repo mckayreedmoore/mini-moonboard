@@ -221,3 +221,21 @@ members appropriately; do not float the frame or treat the pad as a support.
 Retain historical variants. Whole-frame analysis should use published material
 properties and investigate specific shortcomings before enlarging members;
 previous reinforced load results do not qualify this changed assembly.
+
+## Preferred compact 4×6 revision, 2026-09-13
+
+The owner now prefers the solid-4×6 direction and requires at least two bolts
+per leg, with three the first candidate. `compact-thick-development` uses three
+½-inch bolts per leg, 4×6 rims flush with panel edges, shortened horizontal
+rails, and a nominal 2×6 header/posts. The owner explicitly asks to make the
+2×6 base work before considering 2×8. The candidate retains 7 mm of rear
+inclined-member overhang to limit its end cuts; preserve the 277 mm kicker and
+accepted panel/T-nut/no-slip-floor scope. No doubled vertical stock or custom
+fabricated steel is introduced.
+
+The compact three-bolt upper-hold case is numerically accepted but fails its
+conditional lateral reference (3.185); the former single-pivot pass does not
+transfer. Two compact-base cases meet the listed header/end-cut comparisons.
+Keep the earlier baseline and pivot evidence. See `docs/compact-thick-study.md`
+for current results and the unresolved joint load path; do not call the new
+viewer default build-ready or release its drilling.

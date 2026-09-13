@@ -1,0 +1,1263 @@
+{
+  "candidate": "compact-three-leg-upper225-refined-development",
+  "producer_validity": {
+    "global_equilibrium_passed": true,
+    "mpc_check_passed": true,
+    "contact_active_set_converged": true,
+    "closed_bearing_assumption_passed": true,
+    "member_equilibrium_passed": true,
+    "numerically_accepted": true
+  },
+  "status": "CONDITIONAL_FIRST_STAGE_EXCEEDED",
+  "metrics": {
+    "nominal_lateral": 0.8437413770604231,
+    "full_root_lateral_sensitivity": 1.281619639840656,
+    "minimum_directional_edge_end_margin_mm": -29.402518305830466,
+    "steel_direct": 0.1797594268733714,
+    "washer_bearing": 0.22331708612747928,
+    "washer_bending": 0.25461138330679856
+  },
+  "bolts": {
+    "lumber_leg_bolt_left_1": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        3176.184478324076,
+        4715.316129434096
+      ],
+      "lateral_demand_n": 1747.9397357272142,
+      "lateral_reference_n": 2796.8607375135034,
+      "lateral_ratio": 0.6249648801896326,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 5558.322837067139,
+          "Is": 8251.803226509677,
+          "II": 2843.782987553071,
+          "IIIm": 2515.03722558995,
+          "IIIs": 3013.408871384393,
+          "IV": 2667.743703227249
+        },
+        "reference_values_lbf": {
+          "Im": 1111.6645674134277,
+          "Is": 1650.3606453019354,
+          "II": 631.9517750117935,
+          "IIIm": 628.7593063974875,
+          "IIIs": 753.3522178460983,
+          "IV": 666.9359258068123
+        },
+        "governing_mode": "IIIm",
+        "reference_lateral_lbf": 628.7593063974875,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_left": {
+          "depth_force_on_member_n": -1736.1486952307314,
+          "margins_mm": {
+            "grain_positive": 147.47585030970993,
+            "grain_negative": 1677.8493181103788,
+            "depth_positive": 56.09962164205132,
+            "depth_negative": 7.750378357948804
+          },
+          "minimum_margin_mm": 7.750378357948804,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_left": {
+          "depth_force_on_member_n": 860.852299903112,
+          "margins_mm": {
+            "grain_positive": 500.3544559327063,
+            "grain_negative": 1788.905033451727,
+            "depth_positive": -29.402518305830466,
+            "depth_negative": 93.25251830583032
+          },
+          "minimum_margin_mm": -29.402518305830466,
+          "passes_directional_screen": false,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 546.9415240674932,
+        "steel_direct_ratio": 0.11605257787606804,
+        "axial_stress_mpa": 5.9743555872214955,
+        "remaining_bending_yield_mpa": 628.3433153842677,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.15911806939991852,
+            "elastic_bending_ratio": 0.1814159071370547,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.15911806939991852,
+            "elastic_bending_ratio": 0.1814159071370547,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 1952.2094570530298,
+        "lateral_ratio": 0.895364854120637,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 4508.911485428864,
+            "Is": 6693.862777344651,
+            "II": 2306.8767595030513,
+            "IIIm": 1893.3443267237963,
+            "IIIs": 2321.305551651822,
+            "IV": 1755.4965789974053
+          },
+          "reference_values_lbf": {
+            "Im": 901.7822970857727,
+            "Is": 1338.77255546893,
+            "II": 512.639279889567,
+            "IIIm": 473.33608168094906,
+            "IIIs": 580.3263879129555,
+            "IV": 438.87414474935133
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 438.87414474935133,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    },
+    "lumber_leg_bolt_left_2": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        5586.015734527467,
+        3831.5355496624375
+      ],
+      "lateral_demand_n": 2737.9505920195306,
+      "lateral_reference_n": 3245.011642736418,
+      "lateral_ratio": 0.8437413770604231,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 9775.52753542308,
+          "Is": 6705.187211909273,
+          "II": 3395.4685169493473,
+          "IIIm": 3502.365855983092,
+          "IIIs": 2918.0305509993177,
+          "IV": 2919.336410764568
+        },
+        "reference_values_lbf": {
+          "Im": 1955.105507084616,
+          "Is": 1341.0374423818546,
+          "II": 754.5485593220772,
+          "IIIm": 875.591463995773,
+          "IIIs": 729.5076377498294,
+          "IV": 729.834102691142
+        },
+        "governing_mode": "IIIs",
+        "reference_lateral_lbf": 729.5076377498294,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_left": {
+          "depth_force_on_member_n": -155.7607037691036,
+          "margins_mm": {
+            "grain_positive": 107.34961662375461,
+            "grain_negative": 1731.4970811701585,
+            "depth_positive": 1.2007567158973451,
+            "depth_negative": 62.649243284102766
+          },
+          "minimum_margin_mm": 1.2007567158973451,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_left": {
+          "depth_force_on_member_n": -2114.953803067801,
+          "margins_mm": {
+            "grain_positive": 432.3544559327063,
+            "grain_negative": 1856.905033451727,
+            "depth_positive": 2.3474816941692254,
+            "depth_negative": 61.50251830583065
+          },
+          "minimum_margin_mm": 2.3474816941692254,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 342.2053389666753,
+        "steel_direct_ratio": 0.1797594268733714,
+        "axial_stress_mpa": 3.7379798184427004,
+        "remaining_bending_yield_mpa": 630.5796911530465,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.0995555292086449,
+            "elastic_bending_ratio": 0.11350663510441705,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.0995555292086449,
+            "elastic_bending_ratio": 0.11350663510441705,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 2136.32072020989,
+        "lateral_ratio": 1.281619639840656,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 7929.907936735202,
+            "Is": 5439.247866300803,
+            "II": 2754.404060949311,
+            "IIIm": 2715.821835935417,
+            "IIIs": 2218.4873934375028,
+            "IV": 1921.0560129295911
+          },
+          "reference_values_lbf": {
+            "Im": 1585.9815873470404,
+            "Is": 1087.8495732601607,
+            "II": 612.0897913220691,
+            "IIIm": 678.9554589838542,
+            "IIIs": 554.6218483593757,
+            "IV": 480.2640032323978
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 480.2640032323978,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    },
+    "lumber_leg_bolt_left_3": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        3158.817581258062,
+        4489.744414797559
+      ],
+      "lateral_demand_n": 1728.4726621386856,
+      "lateral_reference_n": 2727.798623805446,
+      "lateral_ratio": 0.6336511233103272,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 5527.930767201615,
+          "Is": 7857.052725895738,
+          "II": 2759.550865229462,
+          "IIIm": 2487.832665205399,
+          "IIIs": 2917.914793549654,
+          "IV": 2636.9313344658453
+        },
+        "reference_values_lbf": {
+          "Im": 1105.586153440323,
+          "Is": 1571.4105451791477,
+          "II": 613.2335256065471,
+          "IIIm": 621.9581663013497,
+          "IIIs": 729.4786983874135,
+          "IV": 659.2328336164613
+        },
+        "governing_mode": "II",
+        "reference_lateral_lbf": 613.2335256065471,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_left": {
+          "depth_force_on_member_n": 1727.6823637049645,
+          "margins_mm": {
+            "grain_positive": 71.47585030971003,
+            "grain_negative": 1753.8493181103786,
+            "depth_positive": 24.349621642051474,
+            "depth_negative": 39.500378357948655
+          },
+          "minimum_margin_mm": 24.349621642051474,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_left": {
+          "depth_force_on_member_n": -977.2973706437881,
+          "margins_mm": {
+            "grain_positive": 455.50748887193265,
+            "grain_negative": 1885.2371022136863,
+            "depth_positive": 63.70503661163555,
+            "depth_negative": 0.14496338836431732
+          },
+          "minimum_margin_mm": 0.14496338836431732,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 767.6148151967066,
+        "steel_direct_ratio": 0.11628340010676566,
+        "axial_stress_mpa": 8.384815667128834,
+        "remaining_bending_yield_mpa": 625.9328553043604,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.22331708612747928,
+            "elastic_bending_ratio": 0.25461138330679856,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.22331708612747928,
+            "elastic_bending_ratio": 0.25461138330679856,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 1929.6614897886143,
+        "lateral_ratio": 0.8957387973410984,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 4484.25743835395,
+            "Is": 6373.641171246623,
+            "II": 2238.5476618741404,
+            "IIIm": 1872.7464886709224,
+            "IIIs": 2242.6361130823557,
+            "IV": 1735.2206402383647
+          },
+          "reference_values_lbf": {
+            "Im": 896.8514876707901,
+            "Is": 1274.7282342493247,
+            "II": 497.4550359720312,
+            "IIIm": 468.1866221677306,
+            "IIIs": 560.6590282705889,
+            "IV": 433.8051600595912
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 433.8051600595912,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    },
+    "lumber_leg_bolt_right_1": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        4485.37774943741,
+        5163.300348374872
+      ],
+      "lateral_demand_n": 233.6442100340642,
+      "lateral_reference_n": 3336.3480972260822,
+      "lateral_ratio": 0.07002992590261234,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 7849.411061515476,
+          "Is": 9035.775609656035,
+          "II": 3494.499377450538,
+          "IIIm": 3204.9993948851816,
+          "IIIs": 3434.202079796176,
+          "IV": 3000.163558200503
+        },
+        "reference_values_lbf": {
+          "Im": 1569.8822123030952,
+          "Is": 1807.155121931207,
+          "II": 776.5554172112306,
+          "IIIm": 801.2498487212954,
+          "IIIs": 858.550519949044,
+          "IV": 750.0408895501257
+        },
+        "governing_mode": "IV",
+        "reference_lateral_lbf": 750.0408895501257,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_right": {
+          "depth_force_on_member_n": -132.42894115593424,
+          "margins_mm": {
+            "grain_positive": 147.47585030970993,
+            "grain_negative": 1677.8493181103788,
+            "depth_positive": 56.09962164205132,
+            "depth_negative": 7.750378357948804
+          },
+          "minimum_margin_mm": 7.750378357948804,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_right": {
+          "depth_force_on_member_n": -77.25850375583036,
+          "margins_mm": {
+            "grain_positive": 500.3544559327063,
+            "grain_negative": 1788.905033451727,
+            "depth_positive": 2.3474816941695344,
+            "depth_negative": 61.50251830583032
+          },
+          "minimum_margin_mm": 2.3474816941695344,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 261.1003016243393,
+        "steel_direct_ratio": 0.01775287598126729,
+        "axial_stress_mpa": 2.852052691545312,
+        "remaining_bending_yield_mpa": 631.4656182799439,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.07596017871386644,
+            "elastic_bending_ratio": 0.0866047758098046,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.07596017871386644,
+            "elastic_bending_ratio": 0.0866047758098046,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 2195.4686516323,
+        "lateral_ratio": 0.10642110961609633,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 6367.442253101355,
+            "Is": 7329.821174552977,
+            "II": 2834.7378949878766,
+            "IIIm": 2457.4936566142133,
+            "IIIs": 2652.248319793743,
+            "IV": 1974.2439487280155
+          },
+          "reference_values_lbf": {
+            "Im": 1273.4884506202711,
+            "Is": 1465.9642349105955,
+            "II": 629.9417544417504,
+            "IIIm": 614.3734141535533,
+            "IIIs": 663.0620799484358,
+            "IV": 493.5609871820039
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 493.5609871820039,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    },
+    "lumber_leg_bolt_right_2": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        5579.891336747485,
+        3854.3789460736584
+      ],
+      "lateral_demand_n": 385.8179302437094,
+      "lateral_reference_n": 3251.456720209457,
+      "lateral_ratio": 0.11866002331990295,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 9764.80983930811,
+          "Is": 6745.16315562891,
+          "II": 3402.1576524384022,
+          "IIIm": 3504.3657026191972,
+          "IIIs": 2929.2471749370575,
+          "IV": 2923.826195218957
+        },
+        "reference_values_lbf": {
+          "Im": 1952.9619678616223,
+          "Is": 1349.032631125782,
+          "II": 756.0350338752005,
+          "IIIm": 876.0914256547993,
+          "IIIs": 732.3117937342644,
+          "IV": 730.9565488047392
+        },
+        "governing_mode": "IV",
+        "reference_lateral_lbf": 730.9565488047392,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_right": {
+          "depth_force_on_member_n": -26.3344758150983,
+          "margins_mm": {
+            "grain_positive": 107.34961662375461,
+            "grain_negative": 1731.4970811701585,
+            "depth_positive": 1.2007567158973451,
+            "depth_negative": 62.649243284102766
+          },
+          "minimum_margin_mm": 1.2007567158973451,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_right": {
+          "depth_force_on_member_n": -295.2186084194271,
+          "margins_mm": {
+            "grain_positive": 432.3544559327063,
+            "grain_negative": 1856.905033451727,
+            "depth_positive": 2.3474816941692254,
+            "depth_negative": 61.50251830583065
+          },
+          "minimum_margin_mm": 2.3474816941692254,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 108.2383969587346,
+        "steel_direct_ratio": 0.02554968748973479,
+        "axial_stress_mpa": 1.1823104356993677,
+        "remaining_bending_yield_mpa": 633.1353605357898,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.03148907881583801,
+            "elastic_bending_ratio": 0.03590176665560016,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.03148907881583801,
+            "elastic_bending_ratio": 0.03590176665560016,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 2139.6062680911896,
+        "lateral_ratio": 0.18032192931828983,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 7921.2137416467385,
+            "Is": 5471.676351846172,
+            "II": 2759.8302876580315,
+            "IIIm": 2717.182792648273,
+            "IIIs": 2227.744532093385,
+            "IV": 1924.0104951163848
+          },
+          "reference_values_lbf": {
+            "Im": 1584.2427483293477,
+            "Is": 1094.3352703692344,
+            "II": 613.2956194795626,
+            "IIIm": 679.2956981620682,
+            "IIIs": 556.9361330233462,
+            "IV": 481.0026237790962
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 481.0026237790962,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    },
+    "lumber_leg_bolt_right_3": {
+      "diameter_mm": 12.7,
+      "bearing_lengths_mm": [
+        88.90000000000009,
+        88.90000000000009
+      ],
+      "bearing_psi": [
+        4096.2746271442065,
+        3180.440141498581
+      ],
+      "lateral_demand_n": 213.77734709357978,
+      "lateral_reference_n": 2600.8852979339645,
+      "lateral_ratio": 0.08219406955908269,
+      "dowel_reference": {
+        "yield_values_lbf": {
+          "Im": 7168.48059750237,
+          "Is": 5565.770247622523,
+          "II": 2631.160237284496,
+          "IIIm": 2758.1868573005177,
+          "IIIs": 2463.0406597668903,
+          "IV": 2591.1115114380045
+        },
+        "reference_values_lbf": {
+          "Im": 1433.696119500474,
+          "Is": 1113.1540495245047,
+          "II": 584.7022749521102,
+          "IIIm": 689.5467143251294,
+          "IIIs": 615.7601649417226,
+          "IV": 647.7778778595011
+        },
+        "governing_mode": "II",
+        "reference_lateral_lbf": 584.7022749521102,
+        "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+      },
+      "placement": {
+        "lumber_leg_right": {
+          "depth_force_on_member_n": 147.2702268935728,
+          "margins_mm": {
+            "grain_positive": 71.47585030971003,
+            "grain_negative": 1753.8493181103786,
+            "depth_positive": 24.349621642051474,
+            "depth_negative": 39.500378357948655
+          },
+          "minimum_margin_mm": 24.349621642051474,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        },
+        "base_side_right": {
+          "depth_force_on_member_n": -212.0068029829199,
+          "margins_mm": {
+            "grain_positive": 455.50748887193265,
+            "grain_negative": 1885.2371022136863,
+            "depth_positive": 63.70503661163555,
+            "depth_negative": 0.14496338836431732
+          },
+          "minimum_margin_mm": 0.14496338836431732,
+          "passes_directional_screen": true,
+          "basis": "7D both ends; 4D force-directed loaded edge, 1.5D unloaded. Applying perpendicular edge rule to oblique force is a conservative screen."
+        }
+      },
+      "hardware": {
+        "absolute_axial_increment_n": 327.70768523637844,
+        "steel_direct_ratio": 0.017987045460887172,
+        "axial_stress_mpa": 3.579618943003824,
+        "remaining_bending_yield_mpa": 630.7380520284853,
+        "washers": [
+          {
+            "wood_bearing_ratio": 0.09533782298067764,
+            "elastic_bending_ratio": 0.1086978851976973,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          },
+          {
+            "wood_bearing_ratio": 0.09533782298067764,
+            "elastic_bending_ratio": 0.1086978851976973,
+            "net_bearing_area_mm2": 797.6684143605139,
+            "scope": "Uniform annular pressure and independent radial strips; local contact and preload unresolved."
+          }
+        ],
+        "preload_or_prying_bound_established": false
+      },
+      "retained_bending_yield_under_axial_increment": true,
+      "qualified_for_design": false,
+      "limits": [
+        "Individual native force in this actual assembled joint; local group/splitting resistance and row applicability require separate evidence.",
+        "Material, edge direction and axial force reflect only this solved case; load reversal may change the controlling edge.",
+        "This first-stage check does not qualify local wood/net sections, joint fit, low-rail member forces or prying."
+      ],
+      "fully_threaded_sensitivity": {
+        "root_diameter_mm": 10.30224,
+        "reference_lateral_n": 1896.1313228062174,
+        "lateral_ratio": 0.11274395635065809,
+        "dowel_reference": {
+          "yield_values_lbf": {
+            "Im": 5815.071460693923,
+            "Is": 4514.9528248713905,
+            "II": 2134.3971844851835,
+            "IIIm": 2110.254731627336,
+            "IIIs": 1855.7806059253267,
+            "IV": 1705.069114633287
+          },
+          "reference_values_lbf": {
+            "Im": 1163.0142921387846,
+            "Is": 902.9905649742781,
+            "II": 474.3104854411519,
+            "IIIm": 527.563682906834,
+            "IIIs": 463.94515148133166,
+            "IV": 426.26727865832174
+          },
+          "governing_mode": "IV",
+          "reference_lateral_lbf": 426.26727865832174,
+          "limits": "Supplied-input single-fastener lateral yield only; not adjusted joint resistance, multi-member/group analysis or approval"
+        },
+        "scope": "Full-root bearing sensitivity; nominal geometry remains unchanged."
+      },
+      "nominal_diameter_condition": "Delivered thread/runout must establish the NDS 12.3.7.2 nominal-diameter condition for each actual bearing length; no more than one quarter threaded bearing in either member."
+    }
+  },
+  "joint_resultants": {
+    "base_side_left / lumber_leg_left": {
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "bolt_names": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_left_3"
+      ],
+      "centroid_xyz_mm": [
+        -1219.2,
+        1144.7124655602402,
+        1760.4440005036515
+      ],
+      "force_on_first_named_member_xyz_n": [
+        121.53204783746196,
+        -530.2375876529022,
+        2839.5278451994923
+      ],
+      "moment_about_centroid_xyz_nmm": [
+        228702.76200466545,
+        -43919.75198827733,
+        -27875.05660444469
+      ],
+      "scope": "Actual same-case group wrench; capacity is checked per recovered bolt, never divided from this resultant."
+    },
+    "base_side_right / lumber_leg_right": {
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "bolt_names": [
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2",
+        "lumber_leg_bolt_right_3"
+      ],
+      "centroid_xyz_mm": [
+        1219.2,
+        1144.7124655602402,
+        1760.4440005036515
+      ],
+      "force_on_first_named_member_xyz_n": [
+        -41.631013346695454,
+        -163.98708600493137,
+        713.8633543428006
+      ],
+      "moment_about_centroid_xyz_nmm": [
+        18310.26135480949,
+        20291.739858197805,
+        10332.980635261314
+      ],
+      "scope": "Actual same-case group wrench; capacity is checked per recovered bolt, never divided from this resultant."
+    }
+  },
+  "force_directed_end_branch": {
+    "individual_end_checks": {
+      "lumber_leg_bolt_left_1": {
+        "members": {
+          "lumber_leg_left": {
+            "parallel_force_on_member_n": -202.684552402873,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -202.684552402873,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 236.37585030970993,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 210.97585030970993,
+                "full_reference_margin_mm": 185.57585030970995,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 202.684552402873,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1766.749318110379,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1722.2993181103789,
+                "full_reference_margin_mm": 1677.8493181103788,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_left": {
+            "parallel_force_on_member_n": 1521.2582415506074,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": 1521.2582415506074,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 589.2544559327063,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 544.8044559327062,
+                "full_reference_margin_mm": 500.3544559327063,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": -1521.2582415506074,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 1877.805033451727,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 1852.405033451727,
+                "full_reference_margin_mm": 1827.005033451727,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      },
+      "lumber_leg_bolt_left_2": {
+        "members": {
+          "lumber_leg_left": {
+            "parallel_force_on_member_n": -2733.516425321321,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -2733.516425321321,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 196.2496166237546,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 170.8496166237546,
+                "full_reference_margin_mm": 145.4496166237546,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 2733.516425321321,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1820.3970811701586,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1775.9470811701585,
+                "full_reference_margin_mm": 1731.4970811701585,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_left": {
+            "parallel_force_on_member_n": 1738.7765397626983,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": 1738.7765397626983,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 521.2544559327063,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 476.8044559327063,
+                "full_reference_margin_mm": 432.3544559327063,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": -1738.7765397626983,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 1945.805033451727,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 1920.405033451727,
+                "full_reference_margin_mm": 1895.005033451727,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      },
+      "lumber_leg_bolt_left_3": {
+        "members": {
+          "lumber_leg_left": {
+            "parallel_force_on_member_n": 52.262739151547464,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": 52.262739151547464,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 160.37585030971002,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 115.92585030971003,
+                "full_reference_margin_mm": 71.47585030971003,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": -52.262739151547464,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 1842.7493181103787,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 1817.3493181103786,
+                "full_reference_margin_mm": 1791.9493181103787,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_left": {
+            "parallel_force_on_member_n": -1425.660405950005,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -1425.660405950005,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 544.4074888719326,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 519.0074888719327,
+                "full_reference_margin_mm": 493.6074888719326,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 1425.660405950005,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1974.1371022136864,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1929.6871022136863,
+                "full_reference_margin_mm": 1885.2371022136863,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      },
+      "lumber_leg_bolt_right_1": {
+        "members": {
+          "lumber_leg_right": {
+            "parallel_force_on_member_n": -192.4894605602084,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -192.4894605602084,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 236.37585030970993,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 210.97585030970993,
+                "full_reference_margin_mm": 185.57585030970995,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 192.4894605602084,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1766.749318110379,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1722.2993181103789,
+                "full_reference_margin_mm": 1677.8493181103788,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_right": {
+            "parallel_force_on_member_n": 220.50111219640652,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": 220.50111219640652,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 589.2544559327063,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 544.8044559327062,
+                "full_reference_margin_mm": 500.3544559327063,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": -220.50111219640652,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 1877.805033451727,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 1852.405033451727,
+                "full_reference_margin_mm": 1827.005033451727,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      },
+      "lumber_leg_bolt_right_2": {
+        "members": {
+          "lumber_leg_right": {
+            "parallel_force_on_member_n": -384.9181350379375,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -384.9181350379375,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 196.2496166237546,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 170.8496166237546,
+                "full_reference_margin_mm": 145.4496166237546,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 384.9181350379375,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1820.3970811701586,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1775.9470811701585,
+                "full_reference_margin_mm": 1731.4970811701585,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_right": {
+            "parallel_force_on_member_n": 248.39776275247894,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": 248.39776275247894,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 521.2544559327063,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 476.8044559327063,
+                "full_reference_margin_mm": 432.3544559327063,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": -248.39776275247894,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 1945.805033451727,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 1920.405033451727,
+                "full_reference_margin_mm": 1895.005033451727,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      },
+      "lumber_leg_bolt_right_3": {
+        "members": {
+          "lumber_leg_right": {
+            "parallel_force_on_member_n": -154.95881517708014,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -154.95881517708014,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 160.37585030971002,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 134.97585030971,
+                "full_reference_margin_mm": 109.57585030971002,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 154.95881517708014,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1842.7493181103787,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1798.2993181103786,
+                "full_reference_margin_mm": 1753.8493181103786,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          },
+          "base_side_right": {
+            "parallel_force_on_member_n": -27.456686240882476,
+            "ends": {
+              "grain_positive": {
+                "parallel_force_toward_end_n": -27.456686240882476,
+                "interpretation": "compression away from end or perpendicular component",
+                "actual_end_distance_mm": 544.4074888719326,
+                "minimum_end_distance_mm": 25.4,
+                "full_reference_end_distance_mm": 50.8,
+                "minimum_margin_mm": 519.0074888719327,
+                "full_reference_margin_mm": 493.6074888719326,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              },
+              "grain_negative": {
+                "parallel_force_toward_end_n": 27.456686240882476,
+                "interpretation": "softwood tension toward end",
+                "actual_end_distance_mm": 1974.1371022136864,
+                "minimum_end_distance_mm": 44.449999999999996,
+                "full_reference_end_distance_mm": 88.89999999999999,
+                "minimum_margin_mm": 1929.6871022136863,
+                "full_reference_margin_mm": 1885.2371022136863,
+                "factor_before_applicability_check": 1.0,
+                "applicable": true,
+                "end_distance_factor": 1.0
+              }
+            },
+            "applicable": true,
+            "end_distance_factor": 1.0
+          }
+        },
+        "applicable": true,
+        "end_distance_factor": 1.0,
+        "basis": "NDS 12.5.1.2(a), Table12.5.1A; explicit force-component interpretation for oblique action.",
+        "limits": "End-distance factor only. Other spacing/geometry factors, material assumptions and conservative oblique edge interpretation remain separate."
+      }
+    },
+    "joint_groups": {
+      "base_side_left / lumber_leg_left": {
+        "bolt_names": [
+          "lumber_leg_bolt_left_1",
+          "lumber_leg_bolt_left_2",
+          "lumber_leg_bolt_left_3"
+        ],
+        "applicable": true,
+        "group_minimum_end_distance_factor": 1.0,
+        "nominal_lateral_ratios": {
+          "lumber_leg_bolt_left_1": 0.6249648801896326,
+          "lumber_leg_bolt_left_2": 0.8437413770604231,
+          "lumber_leg_bolt_left_3": 0.6336511233103272
+        },
+        "full_root_lateral_ratios": {
+          "lumber_leg_bolt_left_1": 0.895364854120637,
+          "lumber_leg_bolt_left_2": 1.281619639840656,
+          "lumber_leg_bolt_left_3": 0.8957387973410984
+        }
+      },
+      "base_side_right / lumber_leg_right": {
+        "bolt_names": [
+          "lumber_leg_bolt_right_1",
+          "lumber_leg_bolt_right_2",
+          "lumber_leg_bolt_right_3"
+        ],
+        "applicable": true,
+        "group_minimum_end_distance_factor": 1.0,
+        "nominal_lateral_ratios": {
+          "lumber_leg_bolt_right_1": 0.07002992590261234,
+          "lumber_leg_bolt_right_2": 0.11866002331990295,
+          "lumber_leg_bolt_right_3": 0.08219406955908269
+        },
+        "full_root_lateral_ratios": {
+          "lumber_leg_bolt_right_1": 0.10642110961609633,
+          "lumber_leg_bolt_right_2": 0.18032192931828983,
+          "lumber_leg_bolt_right_3": 0.11274395635065809
+        }
+      }
+    },
+    "all_end_distances_above_absolute_minimum": true,
+    "peak_nominal_lateral_ratio_after_end_factor": 0.8437413770604231,
+    "minimum_conservative_depth_edge_margin_mm": -29.402518305830466,
+    "status": "END_FACTOR_BRANCH_EXCEEDED_OR_INAPPLICABLE",
+    "limits": [
+      "Original strict 7D-both-ends result is retained separately; this branch does not erase it.",
+      "Factors apply to every bolt sharing a joined member pair, using the worst end-distance ratio in that group.",
+      "No result below the tabulated absolute minimum receives a capacity factor or a pass.",
+      "This branch checks end-adjusted lateral strength and the retained force-directed 4D/1.5D depth-edge screen; hardware, other group spacing and local wood checks remain separate."
+    ],
+    "qualified_for_design": false
+  },
+  "qualified_for_design": false,
+  "limits": [
+    "No group reference capacity is divided among bolts; actual individual recovered forces govern.",
+    "Force-directed 4D edge screening is conservative for oblique forces, not a universal oblique minimum.",
+    "Nominal and full-root lateral branches are separate; neither verifies delivered hardware.",
+    "Connection splitting/net sections, low-rail/header/post member resistance, end trims and all contact assumptions need matching checks before selecting this trial."
+  ],
+  "receiver_fit_pass": true
+}

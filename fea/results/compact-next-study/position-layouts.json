@@ -1,0 +1,562 @@
+{
+  "cases": [
+    {
+      "candidate": "compact-three-leg-upper225-development",
+      "actual_grain_axes": {
+        "leg": [
+          0.0,
+          -0.23915183196324324,
+          0.9709821838059775
+        ],
+        "rim": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ]
+      },
+      "source_sha256": {
+        "fea/results/compact-options-study/upper150-rear/report.json.gz": "dfc34b47bdfceca7a95342f995ec0dd9558e9301c305830fc805d84e3cacece3",
+        "/home/mckay-linux/repos/mini-moonboard/scripts/compact_layout_options.py": "34354cefee04ea2f3cfcfc1dde01537fc609e15ee42d5969b603bc9dcc68bb5e"
+      },
+      "source_resultants_on_legs": [
+        {
+          "side": "left",
+          "force_xyz_n": [
+            -120.06324457254829,
+            594.2904072169106,
+            -2833.307249430507
+          ],
+          "moment_x_nmm": -293721.00890408293,
+          "centroid_xyz_mm": [
+            -1219.2,
+            1082.6170955981947,
+            1717.5560968051266
+          ]
+        },
+        {
+          "side": "right",
+          "force_xyz_n": [
+            34.18635543712141,
+            198.51727894744846,
+            -735.1915963251256
+          ],
+          "moment_x_nmm": -24084.744848342096,
+          "centroid_xyz_mm": [
+            1219.2,
+            1082.6170955981947,
+            1717.5560968051266
+          ]
+        }
+      ],
+      "bounds": {
+        "diameters_in": [
+          0.5
+        ],
+        "bearing_lengths_mm": [
+          88.9,
+          88.9
+        ],
+        "two_bolt_lengths_mm": "ceil(4D) through220 in5mm steps",
+        "two_bolt_angle_degrees": "0 through170 in10degree steps, measuredfrom+worldY toward+Z",
+        "three_four_bolt_layouts": "LEG/RIM parallelogram a,b=ceil(4D) through150 in5mm steps;3bolts useeach of4 possible omittedcorners",
+        "centroid_depth_offsets_mm": "\u221240 through40 in5mm steps independentlyalongLEGnormal andRIMnormal",
+        "minimum_pair_distance_mm": "4D",
+        "minimum_edge_end_reserve_mm": 3.0,
+        "directional_edges": "4D loaded and1.5D unloaded usingeach predictedsamecaseboltforce; conservativeoblique interpretation",
+        "end_distance": "7D fromconservativefull-depth CADendinterval",
+        "yield_bending_psi": 45000.0,
+        "specific_gravity": 0.5,
+        "parallel_bearing_psi": 5600.0,
+        "ktheta": "1 + max acute force-to-grain angle in degrees / 360; Rd bases 4, 3.6, 3.2",
+        "ktheta_primary_source": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+        "extra_group_reduction_applied": false,
+        "full_root_penalty_applied": false,
+        "bolt_counts_per_leg": [
+          3
+        ]
+      },
+      "results": [
+        {
+          "bolt_count_per_leg": 3,
+          "diameter_in": 0.5,
+          "layouts_with_at_least_one_eligible_shift": 3,
+          "best": {
+            "ratio": 0.8867521353061596,
+            "selected_fyb_psi": 45000.0,
+            "same_layout_fyb_45ksi_ratio_cd_1_0": 0.8867521353061596,
+            "ratio_cd_1_0": 0.8867521353061596,
+            "hypothetical_ratio_cd_1_6": 0.5542200845663497,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 0.6802071028398863,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 0.4251294392749289,
+            "same_layout_modes_at_45ksi": [
+              "IV"
+            ],
+            "left_axes_xyz_mm": [
+              [
+                -1219.2,
+                1152.0322908885205,
+                1736.644965077676
+              ],
+              [
+                -1219.2,
+                1094.646707468435,
+                1763.710900016673
+              ],
+              [
+                -1219.2,
+                1133.856751659314,
+                1810.4396110469304
+              ]
+            ],
+            "right_axes_xyz_mm": [
+              [
+                1219.2,
+                1152.0322908885205,
+                1736.644965077676
+              ],
+              [
+                1219.2,
+                1094.646707468435,
+                1763.710900016673
+              ],
+              [
+                1219.2,
+                1133.856751659314,
+                1810.4396110469304
+              ]
+            ],
+            "margin": 3.5974816941779295,
+            "shift_LN_RN": [
+              -5.0,
+              5.000000000000001
+            ],
+            "points_relative_depth_center": [
+              [
+                0.0,
+                22.68724121309467,
+                -44.37795800787722
+              ],
+              [
+                0.0,
+                -34.698342206990915,
+                -17.312023068880414
+              ],
+              [
+                0.0,
+                4.5117019838881856,
+                29.41668796137707
+              ]
+            ],
+            "parameters": [
+              76,
+              61,
+              0
+            ]
+          },
+          "best_hypothetical_fyb_90ksi": {
+            "ratio": 0.6802071028398863,
+            "selected_fyb_psi": 90000.0,
+            "same_layout_fyb_45ksi_ratio_cd_1_0": 0.8867521353061596,
+            "ratio_cd_1_0": 0.6802071028398863,
+            "hypothetical_ratio_cd_1_6": 0.4251294392749289,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 0.6802071028398863,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 0.4251294392749289,
+            "same_layout_modes_at_45ksi": [
+              "IV"
+            ],
+            "left_axes_xyz_mm": [
+              [
+                -1219.2,
+                1152.0322908885205,
+                1736.644965077676
+              ],
+              [
+                -1219.2,
+                1094.646707468435,
+                1763.710900016673
+              ],
+              [
+                -1219.2,
+                1133.856751659314,
+                1810.4396110469304
+              ]
+            ],
+            "right_axes_xyz_mm": [
+              [
+                1219.2,
+                1152.0322908885205,
+                1736.644965077676
+              ],
+              [
+                1219.2,
+                1094.646707468435,
+                1763.710900016673
+              ],
+              [
+                1219.2,
+                1133.856751659314,
+                1810.4396110469304
+              ]
+            ],
+            "margin": 3.5974816941779295,
+            "shift_LN_RN": [
+              -5.0,
+              5.000000000000001
+            ],
+            "points_relative_depth_center": [
+              [
+                0.0,
+                22.68724121309467,
+                -44.37795800787722
+              ],
+              [
+                0.0,
+                -34.698342206990915,
+                -17.312023068880414
+              ],
+              [
+                0.0,
+                4.5117019838881856,
+                29.41668796137707
+              ]
+            ],
+            "parameters": [
+              76,
+              61,
+              0
+            ]
+          }
+        }
+      ],
+      "any_fixed_resultant_pass": true,
+      "scope": "Bounded fixed-resultant planar elastic redistribution of current assembled wrenches. No frame reanalysis, no out-of-plane moment/axial interaction, no fastener-row qualification or construction release. A failed bound is not proof that every connection is impossible.",
+      "hypothetical_duration_ranking": "Cd1.6 is shown only as arithmetic ranking; current adopted Cd remains1.0. No load-duration acceptance transfers.",
+      "higher_grade_comparison": "90ksi bending yield is hypothetical, not a verified bolt product or tensile-to-bending conversion. Optimized independently within the same bounded placement family; same-layout comparisons are also retained. Modes Im,Is,II are independent of Fyb.",
+      "qualified_for_design": false,
+      "source_candidate": "compact-leg-upper150-development",
+      "held_wrench_only": true,
+      "proposed_leg_geometry": {
+        "lumber_leg_left": {
+          "grain": [
+            0.0,
+            -0.23915183196324324,
+            0.9709821838059775
+          ],
+          "centre_mm": [
+            -1263.65,
+            1327.5108762894824,
+            976.448333370485
+          ],
+          "end_stations_mm": [
+            -988.4255282068384,
+            1005.6295055209789
+          ],
+          "depth_mm": 139.70000000000005,
+          "width_mm": 88.90000000000009
+        },
+        "lumber_leg_right": {
+          "grain": [
+            0.0,
+            -0.23915183196324324,
+            0.9709821838059775
+          ],
+          "centre_mm": [
+            1263.65,
+            1327.5108762894824,
+            976.448333370485
+          ],
+          "end_stations_mm": [
+            -988.4255282068384,
+            1005.6295055209789
+          ],
+          "depth_mm": 139.70000000000005,
+          "width_mm": 88.90000000000009
+        }
+      },
+      "note": "The only solved forces are the archived upper150 wrenches. Leg axes/ends here are the proposed physical stock. No native result exists for this placement."
+    },
+    {
+      "candidate": "compact-three-leg-upper300-development",
+      "actual_grain_axes": {
+        "leg": [
+          0.0,
+          -0.24545127568782427,
+          0.9694089288134392
+        ],
+        "rim": [
+          0.0,
+          0.6427876096865427,
+          0.7660444431189752
+        ]
+      },
+      "source_sha256": {
+        "fea/results/compact-options-study/upper150-rear/report.json.gz": "dfc34b47bdfceca7a95342f995ec0dd9558e9301c305830fc805d84e3cacece3",
+        "/home/mckay-linux/repos/mini-moonboard/scripts/compact_layout_options.py": "34354cefee04ea2f3cfcfc1dde01537fc609e15ee42d5969b603bc9dcc68bb5e"
+      },
+      "source_resultants_on_legs": [
+        {
+          "side": "left",
+          "force_xyz_n": [
+            -120.06324457254829,
+            594.2904072169106,
+            -2833.307249430507
+          ],
+          "moment_x_nmm": -293721.00890408293,
+          "centroid_xyz_mm": [
+            -1219.2,
+            1082.6170955981947,
+            1717.5560968051266
+          ]
+        },
+        {
+          "side": "right",
+          "force_xyz_n": [
+            34.18635543712141,
+            198.51727894744846,
+            -735.1915963251256
+          ],
+          "moment_x_nmm": -24084.744848342096,
+          "centroid_xyz_mm": [
+            1219.2,
+            1082.6170955981947,
+            1717.5560968051266
+          ]
+        }
+      ],
+      "bounds": {
+        "diameters_in": [
+          0.5
+        ],
+        "bearing_lengths_mm": [
+          88.9,
+          88.9
+        ],
+        "two_bolt_lengths_mm": "ceil(4D) through220 in5mm steps",
+        "two_bolt_angle_degrees": "0 through170 in10degree steps, measuredfrom+worldY toward+Z",
+        "three_four_bolt_layouts": "LEG/RIM parallelogram a,b=ceil(4D) through150 in5mm steps;3bolts useeach of4 possible omittedcorners",
+        "centroid_depth_offsets_mm": "\u221240 through40 in5mm steps independentlyalongLEGnormal andRIMnormal",
+        "minimum_pair_distance_mm": "4D",
+        "minimum_edge_end_reserve_mm": 3.0,
+        "directional_edges": "4D loaded and1.5D unloaded usingeach predictedsamecaseboltforce; conservativeoblique interpretation",
+        "end_distance": "7D fromconservativefull-depth CADendinterval",
+        "yield_bending_psi": 45000.0,
+        "specific_gravity": 0.5,
+        "parallel_bearing_psi": 5600.0,
+        "ktheta": "1 + max acute force-to-grain angle in degrees / 360; Rd bases 4, 3.6, 3.2",
+        "ktheta_primary_source": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+        "extra_group_reduction_applied": false,
+        "full_root_penalty_applied": false,
+        "bolt_counts_per_leg": [
+          3
+        ]
+      },
+      "results": [
+        {
+          "bolt_count_per_leg": 3,
+          "diameter_in": 0.5,
+          "layouts_with_at_least_one_eligible_shift": 92,
+          "best": {
+            "ratio": 0.40669421945614825,
+            "selected_fyb_psi": 45000.0,
+            "same_layout_fyb_45ksi_ratio_cd_1_0": 0.40669421945614825,
+            "ratio_cd_1_0": 0.40669421945614825,
+            "hypothetical_ratio_cd_1_6": 0.25418388716009266,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 0.29199203821471015,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 0.18249502388419384,
+            "same_layout_modes_at_45ksi": [
+              "IV"
+            ],
+            "left_axes_xyz_mm": [
+              [
+                -1219.2,
+                1155.2327437168235,
+                1752.997818820894
+              ],
+              [
+                -1219.2,
+                1188.0149118108372,
+                1792.0660854199618
+              ],
+              [
+                -1219.2,
+                1171.8151276154408,
+                1856.0470747216489
+              ]
+            ],
+            "right_axes_xyz_mm": [
+              [
+                1219.2,
+                1155.2327437168235,
+                1752.997818820894
+              ],
+              [
+                1219.2,
+                1188.0149118108372,
+                1792.0660854199618
+              ],
+              [
+                1219.2,
+                1171.8151276154408,
+                1856.0470747216489
+              ]
+            ],
+            "margin": 3.3593721058522306,
+            "shift_LN_RN": [
+              -15.0,
+              20.0
+            ],
+            "points_relative_depth_center": [
+              [
+                0.0,
+                -22.2895112480881,
+                -85.44046174955302
+              ],
+              [
+                0.0,
+                10.492656845925577,
+                -46.37219515048528
+              ],
+              [
+                0.0,
+                -5.707127349470821,
+                17.608794151201707
+              ]
+            ],
+            "parameters": [
+              66,
+              51,
+              2
+            ]
+          },
+          "best_hypothetical_fyb_90ksi": {
+            "ratio": 0.2919040106378657,
+            "selected_fyb_psi": 90000.0,
+            "same_layout_fyb_45ksi_ratio_cd_1_0": 0.406699442630791,
+            "ratio_cd_1_0": 0.2919040106378657,
+            "hypothetical_ratio_cd_1_6": 0.18244000664866605,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 0.2919040106378657,
+            "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 0.18244000664866605,
+            "same_layout_modes_at_45ksi": [
+              "IV"
+            ],
+            "left_axes_xyz_mm": [
+              [
+                -1219.2,
+                1153.090118351202,
+                1750.4443373438307
+              ],
+              [
+                -1219.2,
+                1189.0862244936482,
+                1793.3428261584934
+              ],
+              [
+                -1219.2,
+                1172.8864402982517,
+                1857.3238154601804
+              ]
+            ],
+            "right_axes_xyz_mm": [
+              [
+                1219.2,
+                1153.090118351202,
+                1750.4443373438307
+              ],
+              [
+                1219.2,
+                1189.0862244936482,
+                1793.3428261584934
+              ],
+              [
+                1219.2,
+                1172.8864402982517,
+                1857.3238154601804
+              ]
+            ],
+            "margin": 3.3593721058522306,
+            "shift_LN_RN": [
+              -15.0,
+              20.0
+            ],
+            "points_relative_depth_center": [
+              [
+                0.0,
+                -24.43213661370991,
+                -87.99394322661627
+              ],
+              [
+                0.0,
+                11.563969528736482,
+                -45.09545441195366
+              ],
+              [
+                0.0,
+                -4.635814666659917,
+                18.88553488973333
+              ]
+            ],
+            "parameters": [
+              66,
+              56,
+              2
+            ]
+          }
+        }
+      ],
+      "any_fixed_resultant_pass": true,
+      "scope": "Bounded fixed-resultant planar elastic redistribution of current assembled wrenches. No frame reanalysis, no out-of-plane moment/axial interaction, no fastener-row qualification or construction release. A failed bound is not proof that every connection is impossible.",
+      "hypothetical_duration_ranking": "Cd1.6 is shown only as arithmetic ranking; current adopted Cd remains1.0. No load-duration acceptance transfers.",
+      "higher_grade_comparison": "90ksi bending yield is hypothetical, not a verified bolt product or tensile-to-bending conversion. Optimized independently within the same bounded placement family; same-layout comparisons are also retained. Modes Im,Is,II are independent of Fyb.",
+      "qualified_for_design": false,
+      "source_candidate": "compact-leg-upper150-development",
+      "held_wrench_only": true,
+      "proposed_leg_geometry": {
+        "lumber_leg_left": {
+          "grain": [
+            0.0,
+            -0.24545127568782427,
+            0.9694089288134392
+          ],
+          "centre_mm": [
+            -1263.65,
+            1388.5383719008075,
+            1005.0308871561724
+          ],
+          "end_stations_mm": [
+            -1019.0602605224142,
+            1036.7460596699214
+          ],
+          "depth_mm": 139.70000000000005,
+          "width_mm": 88.90000000000009
+        },
+        "lumber_leg_right": {
+          "grain": [
+            0.0,
+            -0.24545127568782427,
+            0.9694089288134392
+          ],
+          "centre_mm": [
+            1263.65,
+            1388.5383719008075,
+            1005.0308871561724
+          ],
+          "end_stations_mm": [
+            -1019.0602605224142,
+            1036.7460596699214
+          ],
+          "depth_mm": 139.70000000000005,
+          "width_mm": 88.90000000000009
+        }
+      },
+      "note": "The only solved forces are the archived upper150 wrenches. Leg axes/ends here are the proposed physical stock. No native result exists for this placement."
+    }
+  ],
+  "source_sha256": {
+    "scripts/compact_layout_options.py": "34354cefee04ea2f3cfcfc1dde01537fc609e15ee42d5969b603bc9dcc68bb5e",
+    "mini_moonboard/compact_three_leg_options.py": "45cf5723887bb4e46a1999c766655a7cccb0c6902d76461827f000b43c8e5d52",
+    "fea/results/compact-options-study/upper150-rear/report.json.gz": "dfc34b47bdfceca7a95342f995ec0dd9558e9301c305830fc805d84e3cacece3",
+    "fea/results/compact-options-study/upper150-rear/geometry.json": "d3f7311846615ad48559f26a1a1eeb94af4ca68601ad15aebbbbb15953ac2a71"
+  },
+  "launch_source": "import copy,hashlib,json,tempfile\nfrom pathlib import Path\nimport numpy as np\nfrom mini_moonboard.compact_three_leg_options import option\n\nsource=Path('scripts/compact_layout_options.py')\ncode=source.read_text().replace('for n in (4, 2, 3):','for n in (3,):').replace('for d in (0.375, 0.5, 0.625, 0.75, 0.875, 1.):','for d in (0.5,):')\nns={'__file__':str(source.resolve()),'__name__':'bounded_position_screen'}\nexec(compile(code,str(source), 'exec'),ns)\noriginal_geometry=Path('fea/results/compact-options-study/upper150-rear/geometry.json')\nreport=Path('fea/results/compact-options-study/upper150-rear/report.json.gz')\nbase=json.loads(original_geometry.read_text())\nresults=[]\nfor label in ('upper225','upper300'):\n c=option(label); _,foot,grain,normal,top,_,_=c.leg_datums()\n geo=copy.deepcopy(base)\n center=(foot+top)/2\n bottom=[]\n for offset in (-69.85,69.85):\n  point=foot+normal*offset\n  point-=grain*(point.z/grain.z)\n  bottom.append(point)\n ends=[max((p-center).dot(grain) for p in bottom),(top-center).dot(grain)]\n for side in ('left','right'):\n  row=geo['members']['lumber_leg_'+side]\n  row.update(grain=list(grain.toTuple()),centre_mm=[row['centre_mm'][0],center.y,center.z],end_stations_mm=ends)\n with tempfile.TemporaryDirectory(prefix='compact-position-') as directory:\n  gp=Path(directory)/'geometry.json';gp.write_text(json.dumps(geo))\n  r=ns['build'](report,gp,expected_candidate='compact-leg-upper150-development')\n  r['source_sha256'].pop(str(gp))\n r.update(candidate=c.KEY,source_candidate=base['candidate'],held_wrench_only=True,\n          proposed_leg_geometry={name:{key:geo['members'][name][key] for key in ('grain','centre_mm','end_stations_mm','depth_mm','width_mm')} for name in ('lumber_leg_left','lumber_leg_right')},\n          note='The only solved forces are the archived upper150 wrenches. Leg axes/ends here are the proposed physical stock. No native result exists for this placement.')\n r['bounds']['diameters_in']=[.5]\n r['bounds']['bolt_counts_per_leg']=[3]\n results.append(r)\n print(label,json.dumps(r['results'][0]),flush=True)\nout=Path('fea/results/compact-next-study/position-layouts.json');out.parent.mkdir(parents=True,exist_ok=True)\nout.write_text(json.dumps({'cases':results,'source_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in (source,Path('mini_moonboard/compact_three_leg_options.py'),report,original_geometry)},'launch_source':Path(__file__).read_text(),'scope':'Held upper150 wrenches only; actual proposed grain and full-depth end bounds; no assembly prediction.'},indent=2)+'\\n')\n",
+  "scope": "Held upper150 wrenches only; actual proposed grain and full-depth end bounds; no assembly prediction."
+}

@@ -117,12 +117,50 @@ def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-develop
     timber_names = {row['name'] for row in record['members']}
     timber_nodes = {n for _,ids,group in record['elements'].values() if group in timber_names for n in ids}
     result['maximum_timber_displacement_mm'] = max(float(np.linalg.norm(displacements[n])) for n in timber_nodes)
+    result['clearance_monitors'] = [{**monitor, 'deformed_gap_mm':
+        float(np.dot(np.asarray(monitor['second_point'])-monitor['first_point']+
+                     np.asarray(displacements[monitor['second_node']])-displacements[monitor['first_node']],
+                     monitor['normal']))}
+        for monitor in record.get('clearance_monitor_nodes', [])]
+    result['sampled_unmodeled_gaps_remain_open'] = all(
+        m['deformed_gap_mm'] >= 0 for m in result['clearance_monitors'])
     result['panel_displacement_scope'] = 'Physical panel midsurface translations'
     return result
 
 
+def next_contact_names(bearings, strategy='all'):
+    """Optionally change one normal contact per floor body to avoid bulk cycling.
+
+    This changes the active-set search only, not stiffnesses, unilateral gates
+    or the rule that tangential support requires a contacting floor body.
+    """
+    proposed = frame.next_bearing_set(bearings)
+    if strategy == 'all':
+        return proposed
+    if strategy != 'one_per_floor_body':
+        raise ValueError('Unknown contact update strategy')
+    current = {row['name'] for row in bearings if row['active']}
+    changes = {}
+    for row in bearings:
+        name = row['name']
+        if name.startswith('floor_') and ((name in proposed) != (name in current)):
+            changes.setdefault(name.rsplit('_', 1)[0], []).append(row)
+    for rows in changes.values():
+        selected = max(rows, key=lambda row: (abs(row['opening_mm']), row['name']))['name']
+        for row in rows:
+            name = row['name']
+            if name != selected:
+                if name in current:
+                    proposed.add(name)
+                else:
+                    proposed.discard(name)
+    return proposed
+
+
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
-        module=None, expected_candidate='no-shoes-development', bolt_stiffness=None, **parameters):
+        module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
+        contact_update_strategy='all', initial_contact_names=None, **parameters):
+    next_contact_names([], contact_update_strategy)
     directory = Path(output)
     directory.mkdir(parents=True, exist_ok=False)
     before = source_hashes()
@@ -166,6 +204,11 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         pickle.dump({'model': (structure,metadata), 'source_sha256': before}, target)
     active = {s['name'] for s in structure.springs if s['bearing_closed_assumption']}
     spring_names = {s['name'] for s in structure.springs}
+    if initial_contact_names is not None:
+        normals = set(initial_contact_names)
+        if not normals <= active or any(name.endswith('_friction') for name in normals):
+            raise ValueError('Initial contact inventory must contain actual normal contacts')
+        active = active_with_friction(normals, spring_names, metadata['connection_ownership'])
     seen, history = set(), []
     report = {'contact_active_set_converged': False}
     for iteration in range(max_cycles):
@@ -200,8 +243,10 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         if report['closed_bearing_assumption_passed']:
             report['contact_active_set_converged'] = True
             break
-        active = active_with_friction(frame.next_bearing_set(report['bearings']),spring_names,metadata['connection_ownership'])
+        active = active_with_friction(next_contact_names(report['bearings'], contact_update_strategy),spring_names,metadata['connection_ownership'])
     report.setdefault('contact_active_set_converged',False)
+    report['contact_update_strategy'] = contact_update_strategy
+    report['initial_contact_names'] = sorted(initial_contact_names) if initial_contact_names is not None else None
     report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
         contact_cycles=history,solver_image=frame.panel_kernel.IMAGE,assumptions=__doc__,qualified_for_design=False)
     report['numerically_accepted'] = all(report.get(k,False) for k in (

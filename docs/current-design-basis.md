@@ -1,6 +1,7 @@
 # Current design basis and decision log
 
-The current candidate is **no-shoes-development**, dated September 12, 2026.
+The preferred development candidate is **compact-thick-development**, selected September 13, 2026.
+See the [compact study](compact-thick-study.md) for its current verification status.
 This document records the project's design choices and the scope of its
 calculations. It does not establish an approved climber weight limit.
 
@@ -8,9 +9,9 @@ calculations. It does not establish an approved climber weight limit.
 | --- | --- |
 | Geometry | The published candidate has no custom steel base shoes. Its main climbing face begins at a datum 277 mm above the floor. |
 | Pad allowance | The design provides 150 mm of exposed kicker above a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear directly on the floor; the pad carries no structural load. |
-| Support legs and outer rims | Each support leg and outer rim uses a single nominal 2×6 member. Other members retain their existing sizes, and no doubled vertical members are introduced. |
+| Support legs and outer rims | Each support leg and outer rim uses a single nominal 4×6 member. Outer rims sit flush with panel edges; affected horizontal rails are shortened. The header and posts use nominal 2×6 stock with a 139.7 mm front-to-back depth. No doubled vertical members are introduced. |
 | Base connection | The rims bear directly on the timber header. Two restored ML24Z angles each use six specified SDS screws. |
-| Leg connection | Each leg retains four modeled ⅜-inch bolt assemblies. The separately proposed Grade 5 catalog bolts require verification of their grip length and complete hardware arrangement before they can replace the modeled bolts. |
+| Leg connection | Each leg uses three modeled ½-inch bolts in a noncollinear group. Changed moment transfer, placement and actual hardware remain subject to the compact-candidate checks. |
 | Panels and hold attachment | The accepted plywood and T-nut construction remains the design basis. Additional testing or an upgrade requires a specific identified deficiency. |
 | Material calculations | The calculations use published values for the specified species and grade. The lumber basis is dry, unincised Douglas Fir–Larch No. 2. |
 | Supports | Timber contact with the floor can carry compression, and the feet are assumed not to slide. Physical floor-friction testing is outside the agreed scope. |
@@ -24,7 +25,10 @@ For other pad heights, follow the coordinated geometry changes in the
 [current construction package](current-construction-package.md#adapting-to-a-different-pad-height).
 The main-face datum must equal pad height plus 150 mm to preserve the exposed kicker.
 
-## Evidence and remaining decisions
+## Preserved baseline evidence and remaining decisions
+
+The following September 12 evidence describes `no-shoes-development`, not the
+new compact 4×6 candidate. It is retained for traceability; no acceptance transfers.
 
 Geometry and browser checks are complete. The
 [whole-body equilibrium calculation](current-frame-equilibrium.md) evaluates

@@ -1,0 +1,46 @@
+{
+  "a12": {
+    "termination": "Contact active set repeated without convergence",
+    "contact_active_set_converged": false,
+    "numerically_accepted": false,
+    "global_equilibrium_passed": true,
+    "mpc_check_passed": true,
+    "member_equilibrium_passed": true,
+    "contact_update_strategy": null,
+    "sampled_unmodeled_gaps_remain_open": null,
+    "contact_cycle_count": 18,
+    "load": {
+      "hold": "A12",
+      "pounds": 250.0,
+      "force_xyz_n": [
+        0.0,
+        300.0,
+        -2224.11080763025
+      ],
+      "standoff_from_front_mm": 100.0,
+      "equipment_kg": 25.0
+    }
+  },
+  "a12-contact": {
+    "termination": "Contact active set repeated without convergence",
+    "contact_active_set_converged": false,
+    "numerically_accepted": false,
+    "global_equilibrium_passed": true,
+    "mpc_check_passed": true,
+    "member_equilibrium_passed": true,
+    "contact_update_strategy": "one_per_floor_body",
+    "sampled_unmodeled_gaps_remain_open": true,
+    "contact_cycle_count": 12,
+    "load": {
+      "hold": "A12",
+      "pounds": 250.0,
+      "force_xyz_n": [
+        0.0,
+        300.0,
+        -2224.11080763025
+      ],
+      "standoff_from_front_mm": 100.0,
+      "equipment_kg": 25.0
+    }
+  }
+}

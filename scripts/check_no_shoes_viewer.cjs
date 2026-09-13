@@ -1,4 +1,4 @@
-// Check the raised shoe-free candidate and standalone world-coordinate meshes.
+// Check the preferred compact candidate and retained pivot viewer option.
 const {chromium} = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -18,7 +18,7 @@ fs.mkdirSync(output, {recursive: true});
         await route.fulfill({response, body: (await response.text()).replace('</script>\n  </body>',
           'window.cadTest = {meshes, camera, controls, THREE};</script>\n  </body>')});
       });
-    for (const key of ['no-shoes-development']) {
+    for (const key of ['compact-thick-development']) {
       await page.goto(base+'?view=rear');
       const manifest = await page.evaluate(async key => (await fetch('hybrid/'+key+'/parts.json')).json(), key);
       await page.waitForFunction(n => window.cadTest?.meshes.filter(m => m.userData.part.name !== 'McKay').length === n,
@@ -44,6 +44,10 @@ fs.mkdirSync(output, {recursive: true});
       await page.setViewportSize({width: 1600, height: 1100});
       await page.screenshot({path: path.join(output, key+'-rear.png')});
       assert.equal(manifest.design.main_face_height_mm, 277);
+      assert.equal(manifest.design.leg_bolt_count, 6);
+      assert.equal(manifest.design.bolts_per_leg, 3);
+      assert.equal(manifest.parts.filter(p => p.fabrication.kind === 'bolt').length, 30);
+      assert.match(await page.locator('#design-details').innerText(), /Three-bolt joints retain moment transfer/);
       assert.ok(!manifest.parts.some(p => p.name.includes('steel_shoe')));
       assert.ok(manifest.parts.every(p => p.path.startsWith('hybrid/'+key+'/models/')),
         'Current meshes do not depend on historical assets');
@@ -76,7 +80,7 @@ fs.mkdirSync(output, {recursive: true});
     await page.waitForFunction(() => document.querySelector('#model')?.value === 'round-reinforcement-development');
     assert.equal(await page.locator('#model optgroup').nth(2).locator('option:checked').count(), 1);
     assert.deepEqual(errors, []);
-    console.log('Shoe-free candidate loaded; 277mm datum, standalone meshes and floor contact verified');
+    console.log('Compact candidate loaded; six complete bolts, 277mm datum, standalone meshes and floor contact verified');
   } finally {
     await browser.close();
   }

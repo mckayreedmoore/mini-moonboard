@@ -1,0 +1,295 @@
+{
+  "candidate": "compact-thick-development",
+  "source_sha256": {
+    "fea/generated/compact-three-a12/report.json": "552517695409215ad32b0a2ff6f6b11313527afff21bcc2b0c480695bb6de9c0",
+    "fea/results/compact-thick-study/geometry.json": "48226a029c1a72f134fe4e38117afa5c5b01b8073c153fffefd725ce3b3a5ee0",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/compact_joint_screen.py": "eb3910d6b4dd1c8019ea137e7fa1e0700551840f83676b92e2f035c7f13d93dd"
+  },
+  "source_resultants_on_legs": [
+    {
+      "side": "left",
+      "force_xyz_n": [
+        -107.80568563086734,
+        307.93316484963543,
+        -2988.6836722290373
+      ],
+      "moment_x_nmm": -723147.4968191942,
+      "centroid_xyz_mm": [
+        -1219.2,
+        982.2792601784662,
+        1597.9781209705395
+      ]
+    },
+    {
+      "side": "right",
+      "force_xyz_n": [
+        56.13815316006537,
+        222.77910260505553,
+        -960.3560127787372
+      ],
+      "moment_x_nmm": -55136.63435638737,
+      "centroid_xyz_mm": [
+        1219.2,
+        982.2792601784662,
+        1597.9781209705395
+      ]
+    }
+  ],
+  "bounds": {
+    "diameters_in": [
+      0.375,
+      0.5,
+      0.625,
+      0.75
+    ],
+    "bearing_lengths_mm": [
+      88.9,
+      88.9
+    ],
+    "two_bolt_lengths_mm": "ceil(4D) through220 in5mm steps",
+    "two_bolt_angle_degrees": "0 through170 in10degree steps, measuredfrom+worldY toward+Z",
+    "three_four_bolt_layouts": "LEG/RIM parallelogram a,b=ceil(4D) through150 in5mm steps;3bolts useeach of4 possible omittedcorners",
+    "centroid_depth_offsets_mm": "\u221240 through40 in5mm steps independentlyalongLEGnormal andRIMnormal",
+    "minimum_pair_distance_mm": "4D",
+    "minimum_edge_end_reserve_mm": 3.0,
+    "directional_edges": "4D loaded and1.5D unloaded usingeach predictedsamecaseboltforce; conservativeoblique interpretation",
+    "end_distance": "7D fromconservativefull-depth CADendinterval",
+    "yield_bending_psi": 45000.0,
+    "specific_gravity": 0.5,
+    "parallel_bearing_psi": 5600.0,
+    "extra_group_reduction_applied": false,
+    "full_root_penalty_applied": false
+  },
+  "results": [
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 48,
+      "best": {
+        "ratio": 4.0411722449417145,
+        "margin": 3.4618571981422335,
+        "shift_LN_RN": [
+          0.0,
+          0.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -13.200740235650951,
+            -59.74056737521957
+          ],
+          [
+            0.0,
+            31.151604832720498,
+            -6.883500800010282
+          ],
+          [
+            0.0,
+            -31.151604832720498,
+            6.883500800010282
+          ],
+          [
+            0.0,
+            13.200740235650951,
+            59.74056737521957
+          ]
+        ],
+        "parameters": [
+          69,
+          69,
+          null
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 156,
+      "best": {
+        "ratio": 5.654956600977474,
+        "margin": 3.249999999999787,
+        "shift_LN_RN": [
+          0.0,
+          0.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -9.897946127015034,
+            -56.134041921695854
+          ],
+          [
+            0.0,
+            9.897946127015034,
+            56.134041921695854
+          ]
+        ],
+        "parameters": [
+          114,
+          1.3962634015954636
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 37,
+      "best": {
+        "ratio": 4.0144679847119935,
+        "margin": 5.47868060948074,
+        "shift_LN_RN": [
+          2.675343359006392e-16,
+          15.000000000000002
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -40.04946243249802,
+            -25.564948138302483
+          ],
+          [
+            0.0,
+            49.56804309161291,
+            -9.762963970611821
+          ]
+        ],
+        "parameters": [
+          91,
+          0.17453292519943295
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 11,
+      "best": {
+        "ratio": 2.81674866460964,
+        "margin": 4.040420393165483,
+        "shift_LN_RN": [
+          2.675343359006392e-16,
+          15.000000000000002
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -36.60263529695529,
+            -24.957179516468226
+          ],
+          [
+            0.0,
+            46.12121595607018,
+            -10.370732592446078
+          ]
+        ],
+        "parameters": [
+          84,
+          0.17453292519943295
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 1,
+      "best": {
+        "ratio": 2.2350034222111668,
+        "margin": 4.100701090632612,
+        "shift_LN_RN": [
+          1.5163243658535958e-17,
+          5.000000000000001
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -36.91356989014752,
+            -5.8879853514857174
+          ],
+          [
+            0.0,
+            40.08643010985248,
+            -5.8879853514857174
+          ]
+        ],
+        "parameters": [
+          77,
+          0.0
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 142,
+      "best": {
+        "ratio": 4.836770061717023,
+        "margin": 4.257815079044477,
+        "shift_LN_RN": [
+          10.0,
+          10.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -10.86333075761727,
+            -55.71666059191228
+          ],
+          [
+            0.0,
+            30.275076262321463,
+            -6.689816232297861
+          ],
+          [
+            0.0,
+            13.624998954894634,
+            55.10642091574143
+          ]
+        ],
+        "parameters": [
+          64,
+          64,
+          2
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    }
+  ],
+  "any_fixed_resultant_pass": false,
+  "scope": "Bounded fixed-resultant planar elastic redistribution of current assembled wrenches. No frame reanalysis, no out-of-plane moment/axial interaction, no fastener-row qualification or construction release. A failed bound is not proof that every connection is impossible.",
+  "qualified_for_design": false
+}

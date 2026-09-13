@@ -4,54 +4,35 @@ Explore a freestanding Mini MoonBoard frame through an interactive 3D model,
 CAD downloads and documented engineering studies. This is an independent
 project, not affiliated with or endorsed by Moon Climbing.
 
-**Development project — not released for construction or climbing.** The latest
-candidate is `no-shoes-development`: single 2×6 support legs and outer rims,
-commercial base angles, and a raised kicker for a 5-inch pad. Geometry checks
-have passed. Selected whole-frame response cases are now calculated, with
-connection shortfalls still preventing construction release.
+**Development project — not released for construction or climbing.** The preferred
+candidate is `compact-thick-development`: solid 4×6 legs and flush outer rims,
+three bolts per leg, and a shallower 2×6 kicker base. Its changed connections and
+base require their own engineering checks; the preceding single-pivot results
+do not qualify this revision.
 
-**[Open the latest 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear)** ·
-**[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step)** ·
-**[Read the candidate notes](docs/no-shoes-candidate.md)**
+**[Open the preferred 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-thick-development&view=rear)** ·
+**[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-thick-development/assembly.step)** ·
+**[Read the candidate study](docs/compact-thick-study.md)**
 
-Latest development comparison: [solid 4×6 pivot and triangular side frame](docs/thick-leg-pivot-study.md). The centered pivot meets listed conditional checks; it has not replaced the selected frame.
+The inclined members retain a 7 mm rear overhang above the 139.7 mm-deep base,
+limiting the triangular end cuts. The top and service rails are shortened to
+fit between the inward-shifted rims. The 277 mm kicker datum, 66 SPAX
+panel/kicker screws and accepted plywood/T-nut construction remain.
 
-## Latest candidate: no custom steel shoes
-
-- Single nominal 2×6 support legs and outer rims, with four ⅜-inch bolts per leg.
-  Other members retain their existing stock sizes; this is not an all-2×6 frame.
-- Two standard Simpson ML24Z base angles and twelve specified SDS screws replace
-  the custom steel shoes. Fresh timber uses the original bearing detail, without
-  shoe holes or shoe-clearance cuts.
-- **277 mm (10.91 inches) floor-to-main-face kicker datum:** 150 mm of exposed
-  kicker above a 127 mm (5-inch) pad covering the entire lower front section
-  across the full board width. This is 52 mm above the preceding
-  225 mm datum. Posts, rear legs and kicker plywood extend to the floor; the pad
-  is not a structural support.
-- Existing plywood, 142 selectable T-nuts and enclosed LED passages remain.
-  Panel attachments total 66 SPAX structural screws: twelve per main panel and
-  nine per kicker. Hold bolts are not modeled.
-
-Focused checks cover the restored hardware, extended members and floor contact,
-retained leg sections, kicker-screw clearance against the base angles, export
-provenance and browser placement. These are geometry checks, not a load rating.
-The [assembled-frame response report](docs/current-frame-response.md) now records
-load sharing, member forces, joint moments and deflections for selected cases.
-It identifies the leg connection as a priority; earlier reinforced calculations
-do not transfer to this geometry.
-Published [material specifications](docs/leg-material-basis.md) and the accepted
-panel/T-nut construction are the design basis; no panel or T-nut upgrade is
-proposed. The frame analysis retains the owner's no-sliding assumption.
+The [single-2×6 baseline](docs/no-shoes-candidate.md) and
+[single-pivot 4×6 study](docs/thick-leg-pivot-study.md) remain preserved comparisons.
+Published [material specifications](docs/leg-material-basis.md) and the owner's
+no-sliding floor assumption remain the design basis.
 
 ## Start here — no software installation needed
 
 | What you want to do | Open this |
 | --- | --- |
-| Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear) |
+| Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-thick-development&view=rear) |
 | Inspect the unselected solid 4×6 pivot option | [Development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=thick-leg-centered-pivot-development&view=rear) |
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
-| Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step) |
-| Find current cuts, drilling, hardware and pad-height changes | [Current construction package](docs/current-construction-package.md) |
+| Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-thick-development/assembly.step) |
+| Find current cuts, drilling, hardware and pad-height changes | [Compact construction package](docs/compact-construction-package.md) |
 | Check specified lumber and bolt materials | [Material basis](docs/leg-material-basis.md) |
 | See settled choices and calculation scope | [Current design basis and decision log](docs/current-design-basis.md) |
 | Review purchased plywood and hold hardware | [Purchased materials](docs/purchased-materials.md) and [T-nuts and hold-bolt guidance](docs/moonboard-hold-hardware.md) |
@@ -105,7 +86,7 @@ The complete test suite includes CAD and evidence checks and can take time.
 Running tests is separate from launching new finite-element solves. Individual
 study documents describe their solver commands and assumptions.
 
-The current model is [`no_shoes_frame.py`](mini_moonboard/no_shoes_frame.py).
+The preferred model is [`compact_thick_frame.py`](mini_moonboard/compact_thick_frame.py).
 Its `uncut_wood_parts()`, `parts()` and `connections()` expose raw stock,
 machined parts and connections. Named face/header datums and explicit floor-member
 roles define the current height change. Historical geometry factories remain
@@ -114,9 +95,9 @@ Its matching exporter regenerates every current viewer mesh, the inventory,
 source hashes and a normalized STEP assembly directly from CAD:
 
 ```sh
-uv run python -m mini_moonboard.no_shoes_exports
+uv run python -m mini_moonboard.compact_thick_exports
 # Rebuild into an empty temporary directory and compare every current artifact:
-uv run python -m mini_moonboard.no_shoes_exports --check
+uv run python -m mini_moonboard.compact_thick_exports --check
 ```
 
 Outputs are in [`site/hybrid/no-shoes-development/`](site/hybrid/no-shoes-development/).

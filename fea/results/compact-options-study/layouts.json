@@ -1,0 +1,554 @@
+{
+  "candidate": "compact-two-development",
+  "source_sha256": {
+    "fea/results/compact-two-study/report.json.gz": "012046c00a2f2f614bdae96b17e38bbf1f679bcb4f1e6ec6bd238fef3c01342d",
+    "fea/results/compact-two-study/geometry.json": "8e8aac00524db9c9243e2fc2769ee0f3bea8f836d47d68622131ede3fc69073b",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/compact_layout_options.py": "916c5c8cefa62fd064c3a01d344f6a41a8a9911adc5b750c8cce4edc96c8f2f9"
+  },
+  "source_resultants_on_legs": [
+    {
+      "side": "left",
+      "force_xyz_n": [
+        -115.72634752806852,
+        318.0799163416567,
+        -2973.858864552817
+      ],
+      "moment_x_nmm": -701700.2386626215,
+      "centroid_xyz_mm": [
+        -1219.2,
+        986.1989541452135,
+        1602.6494303372804
+      ]
+    },
+    {
+      "side": "right",
+      "force_xyz_n": [
+        47.65111390583921,
+        222.56056098737622,
+        -977.1167040841067
+      ],
+      "moment_x_nmm": -55641.74990772091,
+      "centroid_xyz_mm": [
+        1219.2,
+        986.1989541452135,
+        1602.6494303372804
+      ]
+    }
+  ],
+  "bounds": {
+    "diameters_in": [
+      0.375,
+      0.5,
+      0.625,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "bearing_lengths_mm": [
+      88.9,
+      88.9
+    ],
+    "two_bolt_lengths_mm": "ceil(4D) through220 in5mm steps",
+    "two_bolt_angle_degrees": "0 through170 in10degree steps, measuredfrom+worldY toward+Z",
+    "three_four_bolt_layouts": "LEG/RIM parallelogram a,b=ceil(4D) through150 in5mm steps;3bolts useeach of4 possible omittedcorners",
+    "centroid_depth_offsets_mm": "\u221240 through40 in5mm steps independentlyalongLEGnormal andRIMnormal",
+    "minimum_pair_distance_mm": "4D",
+    "minimum_edge_end_reserve_mm": 3.0,
+    "directional_edges": "4D loaded and1.5D unloaded usingeach predictedsamecaseboltforce; conservativeoblique interpretation",
+    "end_distance": "7D fromconservativefull-depth CADendinterval",
+    "yield_bending_psi": 45000.0,
+    "specific_gravity": 0.5,
+    "parallel_bearing_psi": 5600.0,
+    "ktheta": "1 + max acute force-to-grain angle in degrees / 360; Rd bases 4, 3.6, 3.2",
+    "ktheta_primary_source": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+    "extra_group_reduction_applied": false,
+    "full_root_penalty_applied": false
+  },
+  "results": [
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 48,
+      "best": {
+        "ratio": 3.828268212115982,
+        "ratio_cd_1_0": 3.828268212115982,
+        "hypothetical_ratio_cd_1_6": 2.3926676325724885,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 2.706994412988111,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 1.6918715081175695,
+        "same_layout_modes_at_45ksi": [
+          "IV"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            971.4117837997084,
+            1548.7968483135526
+          ],
+          [
+            -1219.2,
+            1015.7641288680799,
+            1601.6539148887618
+          ],
+          [
+            -1219.2,
+            953.4609192026388,
+            1615.4209164887825
+          ],
+          [
+            -1219.2,
+            997.8132642710103,
+            1668.2779830639918
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            971.4117837997084,
+            1548.7968483135526
+          ],
+          [
+            1219.2,
+            1015.7641288680799,
+            1601.6539148887618
+          ],
+          [
+            1219.2,
+            953.4609192026388,
+            1615.4209164887825
+          ],
+          [
+            1219.2,
+            997.8132642710103,
+            1668.2779830639918
+          ]
+        ],
+        "margin": 3.4618571981422335,
+        "shift_LN_RN": [
+          0.0,
+          0.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -13.200740235650951,
+            -59.74056737521957
+          ],
+          [
+            0.0,
+            31.151604832720498,
+            -6.883500800010282
+          ],
+          [
+            0.0,
+            -31.151604832720498,
+            6.883500800010282
+          ],
+          [
+            0.0,
+            13.200740235650951,
+            59.74056737521957
+          ]
+        ],
+        "parameters": [
+          69,
+          69,
+          null
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 0.875,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 4,
+      "diameter_in": 1.0,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 156,
+      "best": {
+        "ratio": 5.376504511389327,
+        "ratio_cd_1_0": 5.376504511389327,
+        "hypothetical_ratio_cd_1_6": 3.360315319618329,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 3.80176279908346,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 2.3761017494271623,
+        "same_layout_modes_at_45ksi": [
+          "IV"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            974.7145779083443,
+            1552.4033737670763
+          ],
+          [
+            -1219.2,
+            994.5104701623744,
+            1664.671457610468
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            974.7145779083443,
+            1552.4033737670763
+          ],
+          [
+            1219.2,
+            994.5104701623744,
+            1664.671457610468
+          ]
+        ],
+        "margin": 3.249999999999787,
+        "shift_LN_RN": [
+          0.0,
+          0.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -9.897946127015034,
+            -56.134041921695854
+          ],
+          [
+            0.0,
+            9.897946127015034,
+            56.134041921695854
+          ]
+        ],
+        "parameters": [
+          114,
+          1.3962634015954636
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 38,
+      "best": {
+        "ratio": 3.6143249196801923,
+        "ratio_cd_1_0": 3.6143249196801923,
+        "hypothetical_ratio_cd_1_6": 2.25895307480012,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 2.555713660117387,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 1.5973210375733666,
+        "same_layout_modes_at_45ksi": [
+          "IV"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            944.5630616028614,
+            1582.9724675504697
+          ],
+          [
+            -1219.2,
+            1034.1805671269722,
+            1598.7744517181602
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            944.5630616028614,
+            1582.9724675504697
+          ],
+          [
+            1219.2,
+            1034.1805671269722,
+            1598.7744517181602
+          ]
+        ],
+        "margin": 5.47868060948074,
+        "shift_LN_RN": [
+          2.675343359006392e-16,
+          15.000000000000002
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -40.04946243249802,
+            -25.564948138302483
+          ],
+          [
+            0.0,
+            49.56804309161291,
+            -9.762963970611821
+          ]
+        ],
+        "parameters": [
+          91,
+          0.17453292519943295
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 14,
+      "best": {
+        "ratio": 2.336295960575394,
+        "ratio_cd_1_0": 2.336295960575394,
+        "hypothetical_ratio_cd_1_6": 1.4601849753596212,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 2.0274421271733107,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 1.2671513294833192,
+        "same_layout_modes_at_45ksi": [
+          "IV"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            941.6989541452118,
+            1602.6494303372865
+          ],
+          [
+            -1219.2,
+            1030.698954145212,
+            1602.6494303372865
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            941.6989541452118,
+            1602.6494303372865
+          ],
+          [
+            1219.2,
+            1030.698954145212,
+            1602.6494303372865
+          ]
+        ],
+        "margin": 3.0698038580039224,
+        "shift_LN_RN": [
+          1.5163243658535958e-17,
+          5.000000000000001
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -42.91356989014752,
+            -5.8879853514857174
+          ],
+          [
+            0.0,
+            46.08643010985248,
+            -5.8879853514857174
+          ]
+        ],
+        "parameters": [
+          89,
+          0.0
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 1,
+      "best": {
+        "ratio": 1.969627392863738,
+        "ratio_cd_1_0": 1.969627392863738,
+        "hypothetical_ratio_cd_1_6": 1.2310171205398361,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 1.969627392863738,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 1.2310171205398361,
+        "same_layout_modes_at_45ksi": [
+          "II",
+          "IIIm"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            947.6989541452118,
+            1602.6494303372865
+          ],
+          [
+            -1219.2,
+            1024.698954145212,
+            1602.6494303372865
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            947.6989541452118,
+            1602.6494303372865
+          ],
+          [
+            1219.2,
+            1024.698954145212,
+            1602.6494303372865
+          ]
+        ],
+        "margin": 4.100701090632612,
+        "shift_LN_RN": [
+          1.5163243658535958e-17,
+          5.000000000000001
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -36.91356989014752,
+            -5.8879853514857174
+          ],
+          [
+            0.0,
+            40.08643010985248,
+            -5.8879853514857174
+          ]
+        ],
+        "parameters": [
+          77,
+          0.0
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 0.875,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 2,
+      "diameter_in": 1.0,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.375,
+      "layouts_with_at_least_one_eligible_shift": 142,
+      "best": {
+        "ratio": 4.490911959940883,
+        "ratio_cd_1_0": 4.490911959940883,
+        "hypothetical_ratio_cd_1_6": 2.8068199749630516,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_0": 3.175554300585967,
+        "same_layout_hypothetical_fyb_90ksi_ratio_cd_1_6": 1.9847214378662295,
+        "same_layout_modes_at_45ksi": [
+          "IV"
+        ],
+        "left_axes_xyz_mm": [
+          [
+            -1219.2,
+            973.749193277742,
+            1552.8207550968598
+          ],
+          [
+            -1219.2,
+            1014.8876002976808,
+            1601.8475994564742
+          ],
+          [
+            -1219.2,
+            998.237522990254,
+            1663.6438366045136
+          ]
+        ],
+        "right_axes_xyz_mm": [
+          [
+            1219.2,
+            973.749193277742,
+            1552.8207550968598
+          ],
+          [
+            1219.2,
+            1014.8876002976808,
+            1601.8475994564742
+          ],
+          [
+            1219.2,
+            998.237522990254,
+            1663.6438366045136
+          ]
+        ],
+        "margin": 4.257815079044477,
+        "shift_LN_RN": [
+          10.0,
+          10.0
+        ],
+        "points_relative_depth_center": [
+          [
+            0.0,
+            -10.86333075761727,
+            -55.71666059191228
+          ],
+          [
+            0.0,
+            30.275076262321463,
+            -6.689816232297861
+          ],
+          [
+            0.0,
+            13.624998954894634,
+            55.10642091574143
+          ]
+        ],
+        "parameters": [
+          64,
+          64,
+          2
+        ]
+      }
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.5,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.625,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.75,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 0.875,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    },
+    {
+      "bolt_count_per_leg": 3,
+      "diameter_in": 1.0,
+      "layouts_with_at_least_one_eligible_shift": 0,
+      "best": null
+    }
+  ],
+  "any_fixed_resultant_pass": false,
+  "scope": "Bounded fixed-resultant planar elastic redistribution of current assembled wrenches. No frame reanalysis, no out-of-plane moment/axial interaction, no fastener-row qualification or construction release. A failed bound is not proof that every connection is impossible.",
+  "hypothetical_duration_ranking": "Cd1.6 is shown only as arithmetic ranking; current adopted Cd remains1.0. No load-duration acceptance transfers.",
+  "higher_grade_comparison": "90ksi bending yield is hypothetical, not a verified bolt product or tensile-to-bending conversion. Compared at best45ksi layout only, not reoptimized. Modes Im,Is,II are independent of Fyb.",
+  "qualified_for_design": false
+}

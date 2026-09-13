@@ -198,6 +198,15 @@ def leg_bolt_properties(properties, first, second, scale):
             for key, value in properties.items()}
 
 
+def named_bolt_properties(properties, name, first, second, scale):
+    """Use explicitly supplied properties for mixed-diameter bolt assemblies."""
+    selected = properties.get('by_name', {}).get(name, properties)
+    for key in ('axial_n_per_mm', 'lateral_n_per_mm'):
+        if not np.isfinite(selected.get(key, float('nan'))) or selected[key] <= 0:
+            raise ValueError('Each bolt requires positive finite stiffnesses')
+    return leg_bolt_properties(selected, first, second, scale)
+
+
 def add_member_floor(structure,name,ownership,shape,stiffnesses,grid=None):
     points=level_face_points(shape,True)
     for index,(point,fraction) in enumerate(foot_samples(points, grid)):
@@ -321,7 +330,8 @@ class CurrentStructure(Structure):
 def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             horizontal_force=(0., 300.), dynamic_factor=2., equipment_kg=25.,
             frame_size=150., panel_size=120., patch_size=40.,
-            leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development'):
+            leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development',
+            clearance_monitors=()):
     """Build the current independent-panel, gross-member contact diagnostic."""
     mode = 'coupled'
     load_kind = 'full'
@@ -338,7 +348,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     foot_samples([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[1.,1.,0.]], leg_floor_grid)
     raw={p.name:p for p in module.wood_parts()}
     body_mass,hardware_mass=mass_by_body(module,raw,materials)
-    records = [gross_member_record(p, *axes(module, p.name)) for p in module.uncut_wood_parts()
+    records = [gross_member_record(p, *(getattr(module, 'MEMBER_AXES', {}).get(p.name) or axes(module, p.name))) for p in module.uncut_wood_parts()
                if not p.name.startswith(('main_', 'kicker_'))]
     by_name={r['name']:r for r in records}
     connections=module.connections()
@@ -377,6 +387,9 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             for point in points:
                 bearings.append(('base_header',name,point))
                 planned[name].append(point);planned['base_header'].append(point)
+    for monitor in clearance_monitors:
+        for role in ('first', 'second'):
+            planned[monitor[role]].append(np.asarray(monitor[role+'_point'], dtype=float))
     structure=CurrentStructure(materials)
     for r in records:structure.member(r,planned[r['name']],frame_size)
     for name,entries in angles.items():
@@ -386,8 +399,11 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         for (screw,member,point),tag in zip(entries,steel,strict=True):
             wood=structure.attachment(member,point)
             directional_connector(structure,wood,tag,stiffnesses['sds'],screw,ownership[screw])
+    supplied_bolts = set(stiffnesses['bolt'].get('by_name', {}))
+    if supplied_bolts and supplied_bolts != {row[0] for row in bolts}:
+        raise ValueError('Per-bolt stiffness inventory must match actual bolts')
     for name,first,second,point in bolts:
-        directional_connector(structure,structure.attachment(first,point),structure.attachment(second,point),leg_bolt_properties(stiffnesses['bolt'],first,second,leg_bolt_scale),name,ownership[name])
+        directional_connector(structure,structure.attachment(first,point),structure.attachment(second,point),named_bolt_properties(stiffnesses['bolt'],name,first,second,leg_bolt_scale),name,ownership[name])
     for index,(first,second,point) in enumerate(bearings):
         name = 'bearing_'+first+'_'+second+'_'+str(index)
         structure.spring(endpoint_attachment(structure,first,point),endpoint_attachment(structure,second,point),stiffnesses['bearing'],
@@ -490,6 +506,10 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
               'connection_ownership': ownership,
               'gravity_points': {name: {'point': point.tolist(), 'force': [0.,0.,-body_mass[name]['mass_kg']*9.80665]} for name,point in gravity_points.items()},
               'limits':__doc__}
+    metadata['clearance_monitor_nodes'] = [{**monitor,
+        'first_node':structure.attachment(monitor['first'], monitor['first_point']),
+        'second_node':structure.attachment(monitor['second'], monitor['second_point'])}
+        for monitor in clearance_monitors]
     metadata['hardware_mass_inventory'] = hardware_mass
     metadata['modeled_mass_kg'] = sum(row['mass_kg'] for row in body_mass.values())
     metadata['angle_stations'] = [{'name':name,'origin':list(origin.toTuple()),'u':list(u.toTuple()),'v':list(v.toTuple()),'members':[beam,upright]} for name,origin,u,v,beam,upright in module.stations()]
