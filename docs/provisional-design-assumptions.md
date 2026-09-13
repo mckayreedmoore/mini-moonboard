@@ -1,5 +1,12 @@
 # Provisional design assumptions — independent verification handoff
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 Status: **provisional; not a construction release or an achieved user-weight rating**.
 Prepared September 11, 2026 for the historical `horizontal-service-development`
 diagnostic; retained during development of `round-bore-service-development`.

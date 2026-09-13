@@ -1,5 +1,12 @@
 # Round-passage frame with removable-panel inserts: build draft
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 [Materials and hardware](#materials-and-hardware) ·
 [Tools and equipment](#tools-and-equipment) ·
 [Proposed assembly sequence](#proposed-assembly-sequence) ·

@@ -1,5 +1,12 @@
 # Round-service disassembly and maintenance draft
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 For the newer insert candidate, use the [matching build and removal
 draft](round-insert-build-plan.md). Its machine screws and receiver inserts
 must not be confused with the wood screws described below. The temporary

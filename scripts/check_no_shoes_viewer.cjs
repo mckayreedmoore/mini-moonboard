@@ -1,4 +1,4 @@
-// Check the raised shoe-free candidate and its displayed transforms.
+// Check the raised shoe-free candidate and standalone world-coordinate meshes.
 const {chromium} = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -45,10 +45,13 @@ fs.mkdirSync(output, {recursive: true});
       await page.screenshot({path: path.join(output, key+'-rear.png')});
       assert.equal(manifest.design.main_face_height_mm, 277);
       assert.ok(!manifest.parts.some(p => p.name.includes('steel_shoe')));
-      const transformed = await page.evaluate(() => window.cadTest.meshes
-        .filter(m => m.userData.part.translation_mm)
-        .every(m => m.position.toArray().every((v, i) => v === m.userData.part.translation_mm[i])));
-      assert.ok(transformed);
+      assert.ok(manifest.parts.every(p => p.path.startsWith('hybrid/'+key+'/models/')),
+        'Current meshes do not depend on historical assets');
+      assert.ok(manifest.parts.every(p => !p.translation_mm), 'Meshes use world coordinates');
+      const positioned = await page.evaluate(() => window.cadTest.meshes
+        .filter(m => m.userData.part.name !== 'McKay')
+        .every(m => m.position.toArray().every(v => v === 0)));
+      assert.ok(positioned);
       const floor = await page.evaluate(() => window.cadTest.meshes
         .filter(m => /^(lumber_leg_|base_post_)/.test(m.userData.part.name))
         .map(m => { m.geometry.computeBoundingBox(); return m.geometry.boundingBox.min.z + m.position.z; }));
@@ -61,7 +64,7 @@ fs.mkdirSync(output, {recursive: true});
     await page.waitForFunction(() => document.querySelector('#model')?.value === 'round-reinforcement-development');
     assert.equal(await page.locator('#model optgroup').nth(1).locator('option:checked').count(), 1);
     assert.deepEqual(errors, []);
-    console.log('Shoe-free candidate loaded; 277mm datum, inherited transforms and floor contact verified');
+    console.log('Shoe-free candidate loaded; 277mm datum, standalone meshes and floor contact verified');
   } finally {
     await browser.close();
   }

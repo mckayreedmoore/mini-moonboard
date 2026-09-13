@@ -4,6 +4,12 @@ on:
   push:
     branches: [master]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      include_historical:
+        description: Also test preserved historical models and V1 exports
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,10 +30,13 @@ jobs:
       - name: Lint
         run: uv run ruff check .
       - name: Test
-        run: uv run pytest
+        run: uv run pytest ${{ inputs.include_historical && '--include-historical' || '' }}
       - name: Smoke-test CadQuery
         run: uv run scripts/smoke_test.py
-      - name: Verify committed exports
+      - name: Rebuild and verify the current candidate
+        run: uv run python -m mini_moonboard.no_shoes_exports --check
+      - name: Verify historical reference/V1 exports
+        if: ${{ inputs.include_historical }}
         run: |
           uv run python -m mini_moonboard.export
           git diff --exit-code -- exports

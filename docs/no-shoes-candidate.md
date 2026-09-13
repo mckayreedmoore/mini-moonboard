@@ -55,8 +55,12 @@ before adding material or changing those components.
 
 **This is a development candidate and has not been released for construction or climbing.**
 
-Four focused checks passed for the restored hardware inventory, raised datum,
+Focused checks cover the restored hardware inventory, raised datum,
 floor-contact extensions, retained leg sections, kicker-screw clearance against
-the restored angles, and source/artifact provenance. A browser check loaded all
-703 viewer parts and verified the inherited mesh translations and floor-contact
-coordinates. These checks establish the intended geometry, not structural capacity.
+the restored angles, and source/artifact provenance. The current exporter builds
+all 703 viewer parts in assembled world coordinates directly from CAD, including
+separate bolt components and electrical display envelopes. It no longer reads
+historical meshes or their manifests. The browser check verifies standalone
+mesh loading and floor-contact coordinates. A clean temporary rebuild check is
+available with `uv run python -m mini_moonboard.no_shoes_exports --check` and
+runs in CI. These checks establish the intended geometry, not structural capacity.

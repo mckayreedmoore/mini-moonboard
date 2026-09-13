@@ -3,9 +3,9 @@
 Translate the existing upper frame by 52 mm, extend ground-bearing stock,
 and preserve every occupied bore. Historical modules and caches stay untouched.
 """
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from functools import cache
-from types import SimpleNamespace
+from typing import ClassVar
 
 import cadquery as cq
 
@@ -27,21 +27,56 @@ LIMITS = ('Single 2x6 support legs with four existing bolts per leg; original tw
           'legs extended along grain to level feet. 66 panel/kicker screws and '
           '142 T-nuts retained. Whole-frame response and connection resistance '
           'not assessed; NOT build-ready.')
-# These API datums describe this candidate; historic factories are deliberately
-# not forwarded, since their cached transforms use the old 225 mm kicker.
-b = SimpleNamespace(HALF=previous.b.HALF, LENGTH=previous.b.LENGTH,
-    V1_KICKER_HEIGHT_MM=KICKER_HEIGHT_MM, Part=previous.b.Part,
-    point=lambda *args: previous.b.point(*args)+SHIFT,
-    block=lambda *args: previous.b.block(*args).translate(SHIFT),
-    normal=previous.b.normal)
-base = SimpleNamespace(HEADER_TOP=previous.base.HEADER_TOP+HEIGHT_CHANGE_MM,
-    HEADER_BOTTOM=previous.base.HEADER_BOTTOM+HEIGHT_CHANGE_MM,
-    HEADER_FRONT_Y=previous.base.HEADER_FRONT_Y, INNER_EDGE=previous.base.INNER_EDGE)
+
+
+@dataclass(frozen=True)
+class FaceDatums:
+    """Current board-local coordinates; no historical part factories.
+
+    X spans the board, S follows the slope and N points into the frame.
+    The short ``b`` alias below preserves the interface shared by grid consumers.
+    """
+
+    HALF: float = previous.b.HALF
+    LENGTH: float = previous.b.LENGTH
+    V1_KICKER_HEIGHT_MM: float = KICKER_HEIGHT_MM
+    Part: ClassVar[type] = previous.b.Part
+
+    @staticmethod
+    def point(x: float, s: float, n: float) -> cq.Vector:
+        return previous.b.point(x, s, n)+SHIFT
+
+    @staticmethod
+    def normal() -> cq.Vector:
+        return previous.b.normal()
+
+    @staticmethod
+    def block(x0: float, x1: float, s0: float, s1: float,
+              n0: float, n1: float) -> cq.Shape:
+        return previous.b.block(x0, x1, s0, s1, n0, n1).translate(SHIFT)
+
+
+@dataclass(frozen=True)
+class HeaderDatums:
+    """Header faces in world coordinates, measured from the floor."""
+
+    HEADER_TOP: float = previous.base.HEADER_TOP+HEIGHT_CHANGE_MM
+    HEADER_BOTTOM: float = previous.base.HEADER_BOTTOM+HEIGHT_CHANGE_MM
+    HEADER_FRONT_Y: float = previous.base.HEADER_FRONT_Y
+    INNER_EDGE: float = previous.base.INNER_EDGE
+
+
+b = FaceDatums()
+base = HeaderDatums()
 wide = previous.wide
 
-
-def changed_mesh(name):
-    return name.startswith(('base_post_', 'kicker_', 'lumber_leg_')) or name == 'base_header'
+# Explicit ownership of floor extensions. Blank axes differ for plywood and
+# posts; parts merely sharing a prefix must not acquire a floor extension.
+KICKER_PANELS = frozenset(('kicker_left', 'kicker_right'))
+POSTS = frozenset(('base_post_outer_left', 'base_post_outer_right',
+                  'base_post_center_left', 'base_post_center_right'))
+LEGS = frozenset(('lumber_leg_left', 'lumber_leg_right'))
+GROUND_BLANK_AXES = {**dict.fromkeys(POSTS, 0), **dict.fromkeys(KICKER_PANELS, 1)}
 
 
 @cache
@@ -56,7 +91,7 @@ def panel_connections():
 
 def attachment_datums():
     return tuple({**row, 's': row['s']+HEIGHT_CHANGE_MM}
-                 if row['panel'].startswith('kicker_') else dict(row)
+                 if row['panel'] in KICKER_PANELS else dict(row)
                  for row in kicker.attachment_datums())
 
 
@@ -73,15 +108,15 @@ def extend_ground_part(part):
     """Extend stock along its grain without stretching any occupied holes."""
     shape = part.shape.translate(SHIFT)
     blank = part.blank
-    if part.name.startswith(('base_post_', 'kicker_')):
+    if part.name in GROUND_BLANK_AXES:
         bounds = shape.BoundingBox()
         extension = cq.Solid.makeBox(bounds.xlen, bounds.ylen, HEIGHT_CHANGE_MM,
                                     cq.Vector(bounds.xmin, bounds.ymin, 0.))
         shape = shape.fuse(extension).clean()
-        index = 1 if part.name.startswith('kicker_') else 0
+        index = GROUND_BLANK_AXES[part.name]
         blank = tuple(value+HEIGHT_CHANGE_MM if i == index else value
                       for i, value in enumerate(blank))
-    elif part.name.startswith('lumber_leg_'):
+    elif part.name in LEGS:
         _, _, along, _ = leg_source.geometry('2x6', 0.)
         # The existing level foot is a parallelogram. Sweep that face down
         # along the original grain to preserve the exact 38.1 x 139.7 section.

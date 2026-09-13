@@ -92,20 +92,32 @@ study documents describe their solver commands and assumptions.
 
 The current model is [`no_shoes_frame.py`](mini_moonboard/no_shoes_frame.py).
 Its `uncut_wood_parts()`, `parts()` and `connections()` expose raw stock,
-machined parts and connections. Its matching exporter regenerates the viewer
-inventory, source hashes and STEP assembly:
+machined parts and connections. Named face/header datums and explicit floor-member
+roles define the current height change. Historical geometry factories remain
+source dependencies; historical meshes and manifests are not build inputs.
+Its matching exporter regenerates every current viewer mesh, the inventory,
+source hashes and a normalized STEP assembly directly from CAD:
 
 ```sh
 uv run python -m mini_moonboard.no_shoes_exports
+# Rebuild into an empty temporary directory and compare every current artifact:
+uv run python -m mini_moonboard.no_shoes_exports --check
 ```
 
 Outputs are in [`site/hybrid/no-shoes-development/`](site/hybrid/no-shoes-development/).
+Use `--root /path/to/empty-directory` to generate a standalone candidate bundle.
+Meshes use assembled world coordinates and retain individually selectable bolt
+components. The manifest records transitive local Python dependencies, geometry
+reference data and the locked toolchain. It does not authenticate unrelated
+historical exports. CI runs the current-candidate rebuild and current/shared
+regression tests by default. Historical tests and the reference/V1 export check
+are opt-in; see [Contributing](CONTRIBUTING.md#checks).
 The current candidate does not yet have a released cut/drilling package.
 Historical drawing generators are described with their corresponding designs in
 [the archive](docs/history/README.md).
 
 The older `uv run python -m mini_moonboard.export` command regenerates the
-reference/V1 artifacts checked by CI; it does not regenerate every development
+reference/V1 artifacts checked by the optional historical CI run; it does not regenerate every development
 variant. Check [.github/workflows/ci.yml](.github/workflows/ci.yml) for the actual
 lint, test, smoke and export checks. A passing workflow is not structural approval.
 

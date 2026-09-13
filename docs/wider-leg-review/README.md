@@ -1,5 +1,12 @@
 # Single-2×8 leg connection review package
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](../current-design-basis.md) and
+> [current design review](../current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 This package implements the six-bolt connection in actual frame geometry.
 **Assessment failed; do not use these drilling coordinates for construction.**
 See the [decision and specific failures](../wider-leg-decision.md). It is

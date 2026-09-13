@@ -1,5 +1,12 @@
 # Audited next design milestone
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 ## Goal statement
 
 Deliver one independently reviewed, product-specific Mini MoonBoard design candidate ready for human audit, not construction approval. Build on the current 2×8-foot100 transition design; incorporate the purchased Roseburg Lowe’s item 12235/model 119055 23/32-CAT face plywood as a documented nominal assumption pending actual sheet measurements, separately specify leg/splice plywood, and integrate the selected DF-L lumber and real fastener families. Complete joints, hole/head/washer/tool clearances, front-driven panel screws, LED/wiring and hold-hardware provisions; distinguish sourced geometry from explicit allowances. Preserve all earlier variants/results and other agents’ changes. Test member orientation, floor seating, unintended intersections, bearing/contact, edge/end distances and fastener engagement; publish synchronized CAD, viewer, metric/imperial cut lists, hardware schedule and assembly/audit notes. Preserve one-climber 250 lb intended maximum, 150/200 lb comparisons and 300 lb sensitivity; no anchors, pad support, assumed ballast or unverified composite-action credit. Separate geometric readiness from structural qualification. Use existing failed FEA evidence honestly; permit only bounded numerical work with stated acceptance criteria that answers a design decision, and never size joints from rejected force recovery. Defer 2×6 and tied-base comparisons until the product-specific joint baseline and numerical prerequisites are ready. Use independent subagent design/software reviews, fix confirmed findings, verify publication, and commit/push reasonably sized increments. Finish this milestone with an inspectable candidate, clear retain/change recommendation and exact unresolved product/human/structural verification list; do not imply use approval or mark failed safety checks passed.

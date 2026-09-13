@@ -56,11 +56,6 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     assert available <= saved['models'].keys()
     assert saved['models'].keys() - available <= generated
     for key, row in saved['models'].items():
-        if key == 'round-reinforcement-development':
-            assert 'T-nut envelopes' in row['scope']
-            assert 'excludes holds, hold bolts' in row['scope']
-        else:
-            assert 'T-nuts and hold bolts' in row['scope']
         assert row['mass_kg'] > 0 and row['mass_lb'] == pytest.approx(row['mass_kg']/.45359237)
         assert row['mesh_mass_kg'] == pytest.approx(sum(row['mesh_material_mass_kg'].values()))
         assert row['mesh_part_count'] == len(row['mesh_sha256'])
@@ -75,6 +70,11 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
             continue
         assert weights.sha(manifest.read_bytes()) == row['manifest_sha256']
         parts = json.loads(manifest.read_text())['parts']
+        if any(p['fabrication'].get('kind') == 'tnut' for p in parts):
+            assert 'T-nut envelopes' in row['scope']
+            assert 'excludes holds, hold bolts' in row['scope']
+        else:
+            assert 'T-nuts and hold bolts' in row['scope']
         assert {p['path'] for p in parts} == row['mesh_sha256'].keys()
         assert {part['name'] for part in excluded} == {
             part['name'] for part in parts if part['fabrication'].get('kind') in ('light', 'wire')}
@@ -103,6 +103,33 @@ def test_published_catalog_reconciles_and_authenticates_available_geometry():
     assert current['basis'] == 'mesh estimate'
     assert current['excluded_mass_part_count'] == 263
     assert current['mesh_part_count'] == 551
+
+
+def test_current_candidate_weight_authenticates_its_complete_geometry():
+    saved = json.loads(Path('site/prototype-weights.json').read_text())
+    assert saved['generator_sha256'] == weights.sha(Path(weights.__file__).read_bytes())
+    assert saved['assumed_density_kg_m3'] == weights.DENSITIES
+    row = saved['models']['no-shoes-development']
+    manifest = Path('site', row['manifest_path'])
+    assert weights.sha(manifest.read_bytes()) == row['manifest_sha256']
+    parts = json.loads(manifest.read_text())['parts']
+    assert row['basis'] == 'mesh estimate'
+    assert row['mass_kg'] > 0
+    assert row['mass_lb'] == pytest.approx(row['mass_kg'] / .45359237)
+    assert row['mass_kg'] == row['mesh_mass_kg']
+    assert row['mesh_mass_kg'] == pytest.approx(sum(row['mesh_material_mass_kg'].values()))
+    assert row['mesh_part_count'] == len(parts) == len(row['mesh_sha256'])
+    assert {part['path'] for part in parts} == row['mesh_sha256'].keys()
+    for path, digest in row['mesh_sha256'].items():
+        assert weights.sha(Path('site', path).read_bytes()) == digest
+    excluded = row['excluded_mass_parts']
+    assert row['excluded_mass_part_count'] == len(excluded)
+    assert {part['name'] for part in excluded} == {
+        part['name'] for part in parts if part['fabrication'].get('kind') in ('light', 'wire')}
+    assert all(part['kind'] in ('light', 'wire') and part['path'] in row['mesh_sha256']
+               for part in excluded)
+    assert 'T-nut envelopes' in row['scope']
+    assert 'excludes holds, hold bolts' in row['scope']
 
 
 def test_audited_total_rejects_same_name_changed_mesh(monkeypatch):

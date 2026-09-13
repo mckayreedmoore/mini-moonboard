@@ -1,5 +1,12 @@
 # Shallow-frame development: next five steps
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 The next candidate is a **2×8 rim with reoriented rear 2×4 crossmembers**.
 This is a comparison milestone, not authorization to build or climb. Keep the
 plywood, 2×10, 2×12 and original timber-only 2×8 results unchanged so the cost

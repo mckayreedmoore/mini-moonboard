@@ -5,6 +5,32 @@ are preserved for traceability, not as current construction instructions.
 Source files and assets remain at their original paths because the current
 model reuses them and their evidence records file hashes.
 
+## Which guidance controls
+
+As of September 12, 2026, use the [current design basis](../current-design-basis.md)
+and [current design review](../current-design-review.md) for `no-shoes-development`.
+The current candidate has a 277 mm kicker datum, commercial base angles and
+66 panel/kicker screws. It does not yet have a released fabrication package.
+
+Older entry documents now carry a dated historical banner. Their original
+wording, including “current,” “selected,” “next,” and unfinished release gates,
+describes the revision and assessment scope recorded at the time. It does not
+override later owner decisions or revive superseded work. Historical failures
+and unresolved requirements remain evidence for those identified designs.
+
+| Historical entry point | Scope retained below its banner |
+| --- | --- |
+| [Former current review guide](../current-review-guide.md) | Round-bore service frame with 56 panel/kicker screws |
+| [Former current package audit](../current-package-audit.md) | Wide-principal package consistency checks |
+| [Former candidate review packet](../candidate-review-packet.md) | Top-joint development handoff |
+| [Original design basis](../design-basis.md) | Reference/V1 decisions and readiness gates |
+| [Earlier development goal](../current-goal.md), [decision status](../design-decision-status.md) and [connection work ledger](../connection-design-goal.md) | Prior design objectives and historical sequencing |
+| [Insert workstream status](../round-insert-workstream-status.md) | September 11 insert-candidate issue snapshot, not a live issue-status feed |
+
+Shared material specifications, purchase records and source references remain
+usable within their stated scope. A historical-document banner does not
+withdraw a manufacturer's data or change a saved calculation.
+
 ## Preserved comparisons and older plans
 
 The two preceding leg comparisons retain custom steel base shoes and the older
@@ -61,4 +87,3 @@ limits. Early V1 hole layouts and assembly instructions are historical; they
 do not replace the current panel datums or hardware schedule.
 
 </details>
-

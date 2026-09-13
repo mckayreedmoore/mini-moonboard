@@ -93,10 +93,20 @@ and the viewer opens that candidate by default. The [historical archive](history
 candidates and their evidence.
 
 The archive organizes documentation and navigation while retaining the original
-locations of Python modules and authenticated assets. Moving those files would
-break imports and source hashes. Shared geometry can be extracted when a
-specific change requires it; completing this design does not require a wholesale
-rewrite of the codebase.
+locations of Python modules and authenticated assets. Superseded entry points
+carry dated banners directing readers to the current basis and this review.
+Shared geometry can be extracted when a specific change requires it; completing
+this design does not require a wholesale rewrite of the codebase.
+
+The current model now exposes named face/header datums and explicit ownership of
+floor-member extensions. Its exporter generates all current meshes and STEP
+directly from CAD, without reading predecessor meshes, inventories or manifests.
+The source manifest follows local Python imports and records the geometry data
+and locked toolchain; historical geometry factories still remain source
+dependencies. `uv run python -m mini_moonboard.no_shoes_exports --check` performs
+a clean temporary rebuild and compares every current artifact and the manifest.
+CI runs this check alongside current/shared tests by default. This reduces export coupling
+without claiming the current geometry has been fully extracted from its history.
 
 Recommended future test separation:
 
@@ -105,12 +115,14 @@ Recommended future test separation:
 - Changes to material calculations or solvers should receive numerical correctness checks and regression checks for affected dependencies and published variants.
 - Comprehensive historical CAD regression should run on a schedule, on request, or when changes to shared dependencies require it.
 
-The current four candidate tests and browser checks are useful. The complete
+The current candidate tests and browser checks are useful. The complete
 historical suite is useful regression evidence, but it is not a structural
-qualification. CI has not been narrowed by this review: its existing full suite
-remains enabled. Any reduction in routine coverage should follow an
-implementation of test selection that accounts for dependencies. Timing measurements are needed before
-claiming a speed improvement.
+qualification. Historical model tests are now opt-in through
+`uv run pytest --include-historical`. The explicit inventory preserves shared
+geometry, hardware and numerical checks in the default suite, and newly added
+tests run by default. The manual CI workflow can also include historical tests
+and reference/V1 export verification. See [test scope and known historical
+failures](../CONTRIBUTING.md#checks).
 
 Evidence: [current tests](../tests/test_no_shoes_frame.py),
 [older response-model audit](reinforced-assumption-review.md),

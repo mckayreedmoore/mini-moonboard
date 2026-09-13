@@ -1,5 +1,12 @@
 # Current candidate: review packet
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 **Recommendation:** retain the `top-joint-development` candidate for the next
 human design review. Keep the 2×8 backing and independent plywood leg plies;
 do not buy deeper framing to compensate for an unidentified joint or stability

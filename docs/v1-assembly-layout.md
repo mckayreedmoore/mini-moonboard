@@ -1,5 +1,12 @@
 # Historical V1 assembly placement layout
 
+> **Historical document — superseded as current guidance on September 12, 2026.**
+> Start with the [current design basis](current-design-basis.md) and
+> [current design review](current-design-review.md) for `no-shoes-development`.
+> The original text below preserves its candidate-specific decisions and evidence;
+> “current,” “next,” and release requirements below refer to that historical scope.
+> Its dimensions, schedules and results do not qualify the latest candidate.
+
 > Superseded rail-and-spacer design. Do not use these dimensions, hardware
 > counts, assembly steps or analysis results for the current box frame.
 > Start with [box-frame-revision.md](box-frame-revision.md), which links the

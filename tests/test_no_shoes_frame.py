@@ -61,7 +61,7 @@ def test_new_kicker_screws_clear_restored_angles(parts):
                 assert component.intersect(parts['clip_angle_base_'+side].shape).Volume() < .01
 
 
-def test_published_asset_provenance_and_translations():
+def test_published_asset_provenance_and_world_coordinates():
     root = Path(__file__).resolve().parents[1]
     directory = root/'site/hybrid'/model.KEY
     manifest = json.loads((directory/'manifest.json').read_text())
@@ -73,6 +73,35 @@ def test_published_asset_provenance_and_translations():
     assert data['design']['main_face_height_mm'] == 277.
     assert data['design']['qualified_for_design'] is False
     assert data['bounds_mm'][0][2] == pytest.approx(0., abs=1.e-6)
+    assert manifest['inherited_mesh_sha256'] == {}
     for part in data['parts']:
-        inherited = part['path'] in manifest['inherited_mesh_sha256']
-        assert part.get('translation_mm', [0., 0., 0.]) == ([0., 0., 52.] if inherited else [0., 0., 0.])
+        assert part['path'].startswith('hybrid/'+model.KEY+'/models/')
+        assert 'translation_mm' not in part
+
+
+def test_current_datums_preserve_local_axes_and_header_shift():
+    """Grid/response consumers see the raised frame without changing local axes."""
+    for coordinates in ((0., 0., 0.), (123., 456., 19.05)):
+        expected = model.previous.b.point(*coordinates)+model.SHIFT
+        assert model.b.point(*coordinates).toTuple() == pytest.approx(expected.toTuple())
+    assert model.b.normal().toTuple() == pytest.approx(model.previous.b.normal().toTuple())
+    assert model.base.HEADER_TOP-model.base.HEADER_BOTTOM == pytest.approx(
+        model.previous.base.HEADER_TOP-model.previous.base.HEADER_BOTTOM)
+    assert model.base.HEADER_FRONT_Y == model.previous.base.HEADER_FRONT_Y
+
+
+def test_floor_extension_ownership_is_explicit(parts):
+    """Newly named accessories must not accidentally become ground-bearing stock."""
+    import cadquery as cq
+
+    expected = model.POSTS | model.LEGS | model.KICKER_PANELS
+    actual = {name for name, part in parts.items()
+              if abs(part.shape.BoundingBox().zmin) < 1.e-6}
+    assert actual == expected
+    for name in ('kicker_accessory', 'base_post_accessory', 'lumber_leg_accessory'):
+        source = model.b.Part(name, cq.Solid.makeBox(10., 20., 30.),
+                              (10., 20., 30.), 'Test accessory')
+        shifted = model.extend_ground_part(source)
+        assert shifted.blank == source.blank
+        assert shifted.shape.Volume() == pytest.approx(source.shape.Volume())
+        assert shifted.shape.BoundingBox().zmin == pytest.approx(model.HEIGHT_CHANGE_MM)
