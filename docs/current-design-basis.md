@@ -7,7 +7,7 @@ calculations. It does not establish an approved climber weight limit.
 | Item | Current decision |
 | --- | --- |
 | Geometry | The published candidate has no custom steel base shoes. Its main climbing face begins at a datum 277 mm above the floor. |
-| Pad allowance | The design provides 150 mm of exposed kicker above a 127 mm (5-inch) pad allowance. The pad carries no structural load. |
+| Pad allowance | The design provides 150 mm of exposed kicker above a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear directly on the floor; the pad carries no structural load. |
 | Support legs and outer rims | Each support leg and outer rim uses a single nominal 2×6 member. Other members retain their existing sizes, and no doubled vertical members are introduced. |
 | Base connection | The rims bear directly on the timber header. Two restored ML24Z angles each use six specified SDS screws. |
 | Leg connection | Each leg retains four modeled ⅜-inch bolt assemblies. The separately proposed Grade 5 catalog bolts require verification of their grip length and complete hardware arrangement before they can replace the modeled bolts. |
@@ -17,7 +17,12 @@ calculations. It does not establish an approved climber weight limit.
 | Vertical loading | The calculations retain the 250 lb one-climber design inquiry and include a 150 lb comparison. Static loads and loads with twice the downward force are evaluated separately; neither represents a verified impact spectrum. |
 | Horizontal loading | The initial cases apply either zero or 300 N horizontally along one axis. An additional analytical envelope covers every horizontal direction at 300 N. These scenarios do not represent every possible climbing action. |
 | Weight | Current geometry determines the modeled volume, which is converted to mass using stated material densities. A separate 25 kg equipment allowance is evaluated at the locations defined in the equilibrium report. |
+| Completion endpoint | Engineer-unreviewed DIY documentation; independent engineer sign-off is not required. Unresolved calculated limitations remain explicit. |
 | Design changes | Members or hardware should be enlarged only when a justified calculation identifies a governing shortfall. |
+
+For other pad heights, follow the coordinated geometry changes in the
+[current construction package](current-construction-package.md#adapting-to-a-different-pad-height).
+The main-face datum must equal pad height plus 150 mm to preserve the exposed kicker.
 
 ## Evidence and remaining decisions
 
@@ -29,12 +34,27 @@ manufacturer's published load directions and the limits of applying them to
 this installation. These results do not establish internal joint forces or
 member strength.
 
-The next engineering deliverable is a calculation of how the current frame
-transfers loads through its members and connections. It must account for bearing
-between the rims and header, rotation at the leg joints, and sideways movement
-of the frame. Once those forces are established, the governing members and
-connections can be checked and a matching set of construction drawings and
-schedules can be reviewed.
+The [assembled-frame response calculation](current-frame-response.md) now
+provides internal member forces, joint moments and deflections for selected
+cases. Its numerical checks pass, but the demanding upper-left case exceeds the
+leg joint's conditional bolt reference. The 2×6 leg's gross-section comparison
+is below its reference. Selected panel-screw comparisons and base-angle
+applicability also remain unresolved.
+
+An [independent leg-response audit](current-leg-response-audit.md) reproduces
+the joint moment from both bolt forces and the floor/leg free body. It found no
+coordinate or explicit support-clamp error that would justify removing that moment.
+
+The [bounded replacement screen](current-leg-revision-screen.md) identifies
+larger exploratory layouts using current stock boundaries and saved joint
+resultants. It does not select an upgrade: the changed assembly must supply its
+own demands, and the screen does not establish that larger stock is necessary.
+
+The next design action is a targeted connection revision evaluated in this
+assembled model, followed by completion of the load-case envelope and applicable
+strength/serviceability checks. A fresh preparation after the dependency refactor produced byte-identical
+analysis input, as recorded in the response report. Neither
+source cleanup nor solver convergence establishes construction readiness.
 
 A targeted physical test would be appropriate if a remaining uncertainty affects
 the design decision and cannot be resolved adequately through calculation or

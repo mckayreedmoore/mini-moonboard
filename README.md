@@ -7,7 +7,8 @@ project, not affiliated with or endorsed by Moon Climbing.
 **Development project — not released for construction or climbing.** The latest
 candidate is `no-shoes-development`: single 2×6 support legs and outer rims,
 commercial base angles, and a raised kicker for a 5-inch pad. Geometry checks
-have passed; whole-frame structural assessment remains pending.
+have passed. Selected whole-frame response cases are now calculated, with
+connection shortfalls still preventing construction release.
 
 **[Open the latest 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear)** ·
 **[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step)** ·
@@ -21,7 +22,8 @@ have passed; whole-frame structural assessment remains pending.
   the custom steel shoes. Fresh timber uses the original bearing detail, without
   shoe holes or shoe-clearance cuts.
 - **277 mm (10.91 inches) floor-to-main-face kicker datum:** 150 mm of exposed
-  kicker above a 127 mm (5-inch) pad allowance. This is 52 mm above the preceding
+  kicker above a 127 mm (5-inch) pad covering the entire lower front section
+  across the full board width. This is 52 mm above the preceding
   225 mm datum. Posts, rear legs and kicker plywood extend to the floor; the pad
   is not a structural support.
 - Existing plywood, 142 selectable T-nuts and enclosed LED passages remain.
@@ -31,8 +33,10 @@ have passed; whole-frame structural assessment remains pending.
 Focused checks cover the restored hardware, extended members and floor contact,
 retained leg sections, kicker-screw clearance against the base angles, export
 provenance and browser placement. These are geometry checks, not a load rating.
-The next assessment must determine whole-frame load sharing and connection forces
-for this geometry. Earlier reinforced calculations do not transfer to it.
+The [assembled-frame response report](docs/current-frame-response.md) now records
+load sharing, member forces, joint moments and deflections for selected cases.
+It identifies the leg connection as a priority; earlier reinforced calculations
+do not transfer to this geometry.
 Published [material specifications](docs/leg-material-basis.md) and the accepted
 panel/T-nut construction are the design basis; no panel or T-nut upgrade is
 proposed. The frame analysis retains the owner's no-sliding assumption.
@@ -44,6 +48,7 @@ proposed. The frame analysis retains the owner's no-sliding assumption.
 | Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=no-shoes-development&view=rear) |
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
 | Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/no-shoes-development/assembly.step) |
+| Find current cuts, drilling, hardware and pad-height changes | [Current construction package](docs/current-construction-package.md) |
 | Check specified lumber and bolt materials | [Material basis](docs/leg-material-basis.md) |
 | See settled choices and calculation scope | [Current design basis and decision log](docs/current-design-basis.md) |
 | Review purchased plywood and hold hardware | [Purchased materials](docs/purchased-materials.md) and [T-nuts and hold-bolt guidance](docs/moonboard-hold-hardware.md) |
@@ -57,14 +62,21 @@ estimates; displayed frame weight is not climber capacity.
 
 ## Engineering status
 
+The agreed endpoint is an **engineer-unreviewed DIY design**. The
+[completion record](docs/current-diy-completion-record.md) states the finite
+deliverables and remaining calculated limitations; external sign-off is not a
+completion requirement.
+
 See the [design review and finite verification plan](docs/current-design-review.md)
 for what remains necessary, what is historical, and which checks should not drive
 additional reinforcement. Geometry acceptance and structural acceptance are separate.
 
 The [current whole-frame equilibrium screen](docs/current-frame-equilibrium.md)
 uses the current CAD mass, all 142 hold positions and actual timber footprints.
-It checks compression-only support equilibrium; internal member and joint strength
-remain to be assessed. Published base-angle directions and capacities are recorded
+It checks compression-only support equilibrium. The subsequent
+[internal-response calculation](docs/current-frame-response.md) evaluates the
+assembled frame and compares its member and connection demands with stated
+references; it does not release the design for construction. Published base-angle directions and capacities are recorded
 in the [current connection basis](docs/current-base-connection-basis.md).
 
 ## Historical designs and studies

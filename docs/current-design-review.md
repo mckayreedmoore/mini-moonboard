@@ -9,8 +9,8 @@ whether this assembly meets a stated load basis without speculative reinforcemen
 
 The project has accumulated useful geometry and evidence, but too much effort
 has been directed at variations of uncertain historical response models.
-The missing deliverable is a concise, auditable calculation for the current
-assembly. Whole-frame behavior matters; that does not require a highly detailed
+The assembled response report below now supplies an auditable internal-force
+calculation for the published current assembly. Whole-frame behavior matters; that does not require a highly detailed
 nonlinear solid model of every screw and T-nut. The analysis should begin with equilibrium and a suitably simple frame model.
 Additional detail is warranted when it changes a design decision.
 Component resistance checks remain necessary after whole-frame forces are known.
@@ -31,32 +31,28 @@ as demonstrated normal operating conditions or automatically trigger larger stoc
 Published material variability and timber grade adjustments belong in the design
 values; they are not reasons to request a new materials-testing campaign.
 
-## Next engineering deliverable
+## Completed internal-response deliverable
 
-The next task is to calculate the **internal member and connection forces in the
-current assembly**. The completed [equilibrium screen](current-frame-equilibrium.md)
-establishes that the evaluated loads can be balanced by compressive foot
-reactions. It does not determine the actual distribution of those reactions,
-the moments at the joints, or frame deflection.
+The [assembled-frame response report](current-frame-response.md) now supplies
+member and connection forces, joint moments, deflections, and numerical audits
+for nine selected cases including mesh and stiffness comparisons. It uses the
+published 277 mm shoe-free geometry, independent panels, explicit fasteners,
+and compression-only contacts under the agreed no-sliding assumption.
 
-The calculation should use the [current design basis](current-design-basis.md)
-and the simplest model that represents the load path adequately. It should
-include asymmetric climbing loads, sideways movement, possible foot uplift,
-and compression between the rims and header. Published material properties
-should be used, while assumptions about joint restraint should be supported by
-the connection detail. Equal sharing between the legs must not be imposed: the
-equilibrium results already show that it is incompatible with the governing
-off-center case.
+The demanding upper-left 150 lb doubled-load case produces approximately
+1.816 kN at the governing leg bolt against a conditional nominal-diameter
+reference of 0.917 kN. The leg's gross-section ratio is 0.462. The result therefore
+supports prioritizing the connection rather than automatically enlarging the
+leg stock. The [resistance audit](current-response-resistance-basis.md) explains
+why using a stronger bolt steel alone does not resolve governing Mode II.
 
-The deliverable should identify the governing load case and the force and
-moment at each critical connection. It should also report the frame's
-calculated deflection and demonstrate that the model balances forces and
-moments. A numerical model should include appropriate verification of its
-formulation and resolution.
+This is a selected-case response study, not an exhaustive internal-force envelope
+or a construction release. Its [pinned source evidence](../fea/results/current-frame-response.json)
+remains separate from the concurrent dependency refactor and rebuild check.
 
 ## Work that follows the force calculation
 
-1. **Check the governing members and connections.** Evaluate the legs, their
+1. **Resolve the governing member and connection comparisons.** Use the calculated demands for the legs, their
    four-bolt joints, bearing between the rims and header, the restored ML24Z
    angles, and any other member or attachment that carries a governing demand.
    The angle checks must address the manufacturer's applicable load directions
@@ -67,13 +63,17 @@ formulation and resolution.
    uncertainty affects acceptance and cannot be resolved adequately by
    calculation or published evidence. Its loading and acceptance criteria must
    be defined before testing.
-3. **Complete and review the construction package.** Prepare consistent cutting,
-   drilling and hardware schedules, assembly details, and installation checks
-   for the 277 mm candidate. Arrange independent review of the calculations and
-   details. The older plans do not provide this current package.
+3. **Keep the construction package consistent with the selected detail.** The
+   [current package](current-construction-package.md) supplies cutting, drilling,
+   hardware and assembly schedules for the 277 mm candidate, including pad-height
+   adaptation. Leg drilling remains provisional until the connection decision.
+   The agreed endpoint is engineer-unreviewed DIY documentation; independent
+   engineering review is not a completion requirement. See the
+   [completion record](current-diy-completion-record.md) for the finite checklist.
 
 The assessment is complete when the current load basis, load path, governing
-strength and serviceability checks, and matching drawings have been reviewed.
+strength and serviceability comparisons, and matching drawings have been recorded
+with a supported connection decision and explicit remaining limitations.
 It does not require every historical experiment to pass or every material
 property to be measured again.
 
@@ -81,7 +81,8 @@ CWA's [design specification](https://www.cwapro.org/file/secure/cwadesignpecfina
 sections 4.1–4.2 and 4.5–4.7, addresses design loads, complete load paths and
 stability; section 8.2 addresses qualified review. The simple-model-first approach
 above is this project's engineering recommendation, not a mandated analysis
-method quoted from that specification.
+method quoted from that specification. The owner-selected engineer-unreviewed
+endpoint does not claim compliance with that specification.
 
 ## Repository architecture and test policy recommendation
 
