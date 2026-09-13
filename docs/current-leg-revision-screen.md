@@ -1,5 +1,9 @@
 # Current leg connection revision screen
 
+> Follow-up: the [assembled MVP study](current-leg-mvp-study.md) found ratios
+> 1.535 and 1.606 for the larger full-sole and relieved-sole candidates. The
+> fixed-resultant passing screen below does not select a replacement.
+
 A nine-bolt connection in single 2×10 legs and single 2×10 outer rims is an **exploratory candidate that passes this bounded screen**. Its fixed-resultant lateral ratio is **0.847** across the saved current-frame cases, including the 250 lb doubled-downward-load comparison. This is not a selected detail or a construction release. Widening the rims also changes their base bearing footprint; the header relationship must be resolved before treating the option as a complete frame revision.
 
 The accepted panels, T-nuts and no-slip floor assumption remain the project basis. This investigation concerns the leg connection. No custom steel fabrication or doubled vertical stock is proposed.

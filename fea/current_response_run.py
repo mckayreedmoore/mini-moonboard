@@ -67,8 +67,8 @@ def physical_forces(record, result, precision=None):
     return rows
 
 
-def assess(record, data, frd, expansion):
-    if record.get('candidate') != 'no-shoes-development' or any(e[0] == 'S8' for e in record['elements'].values()):
+def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-development'):
+    if record.get('candidate') != expected_candidate or any(e[0] == 'S8' for e in record['elements'].values()):
         raise ValueError('Require the current candidate with physical layered panel solids')
     ordinary = {**record, 'springs': [dict(s, bearing_closed_assumption=False)
         if s['name'].endswith('_friction') else s for s in record['springs']]}
@@ -121,13 +121,14 @@ def assess(record, data, frd, expansion):
     return result
 
 
-def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1., **parameters):
+def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
+        module=None, expected_candidate='no-shoes-development', bolt_stiffness=None, **parameters):
     directory = Path(output)
     directory.mkdir(parents=True, exist_ok=False)
     before = source_hashes()
     if before != LOADED_SOURCE_SHA256:
         raise ValueError('Sources changed after this process imported the solver; restart from a frozen snapshot')
-    if cache and (connection_scale != 1. or panel_group_factor != 1.):
+    if cache and (connection_scale != 1. or panel_group_factor != 1. or bolt_stiffness is not None):
         raise ValueError('Material or stiffness changes require a fresh preparation')
     if cache:
         with Path(cache).open('rb') as source:
@@ -135,6 +136,8 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         if not isinstance(cached, dict) or cached.get('source_sha256') != before:
             raise ValueError('Cached model does not authenticate current producer sources')
         structure, metadata = cached['model']
+        if module is not None or metadata.get('candidate') != expected_candidate:
+            raise ValueError('Cached candidate must match explicit expected candidate; module requires fresh preparation')
         if parameters:
             raise ValueError('Cached model cannot be silently given new parameters')
     else:
@@ -142,7 +145,14 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         from fea.current_response_model import prepare
         from mini_moonboard import no_shoes_frame
         stiffnesses = {**connection_stiffnesses(scale=connection_scale), 'floor': 1.e5, 'bearing': 1.e6, 'seating_per_area': 100.}
-        structure, metadata = prepare(no_shoes_frame, materials=materials(panel_group_factor=panel_group_factor), stiffnesses=stiffnesses, **parameters)
+        if bolt_stiffness is not None:
+            if any(not np.isfinite(bolt_stiffness.get(key, float('nan'))) or bolt_stiffness[key] <= 0
+                   for key in ('axial_n_per_mm', 'lateral_n_per_mm')):
+                raise ValueError('Explicit bolt stiffness requires positive finite axial and lateral values')
+            if not bolt_stiffness.get('basis'):
+                raise ValueError('Explicit bolt stiffness requires a recorded geometry/property basis')
+            stiffnesses['bolt'] = dict(bolt_stiffness)
+        structure, metadata = prepare(no_shoes_frame if module is None else module, expected_candidate=expected_candidate, materials=materials(panel_group_factor=panel_group_factor), stiffnesses=stiffnesses, **parameters)
     if before != source_hashes():
         raise ValueError('Consumed sources changed during preparation')
     for name,digest in before.items():
@@ -179,7 +189,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         (job/'frame.log').write_text(log)
         if native.returncode or '*ERROR' in log.upper():
             raise ValueError('Native current-frame solve failed; inspect '+str(job/'frame.log'))
-        report = assess(record,(job/'frame.dat').read_text(),(job/'frame.frd').read_text(),(job/'frame.12d').read_text())
+        report = assess(record,(job/'frame.dat').read_text(),(job/'frame.frd').read_text(),(job/'frame.12d').read_text(), expected_candidate=expected_candidate)
         (job/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
         history.append({'directory':job.name,'active_count':len(active),
             'contact_passed':report['closed_bearing_assumption_passed']})
@@ -192,7 +202,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
             break
         active = active_with_friction(frame.next_bearing_set(report['bearings']),spring_names,metadata['connection_ownership'])
     report.setdefault('contact_active_set_converged',False)
-    report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm')},source_sha256=before,
+    report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
         contact_cycles=history,solver_image=frame.panel_kernel.IMAGE,assumptions=__doc__,qualified_for_design=False)
     report['numerically_accepted'] = all(report.get(k,False) for k in (
         'contact_active_set_converged','global_equilibrium_passed','member_equilibrium_passed','mpc_check_passed'))
@@ -208,7 +218,12 @@ if __name__ == '__main__':
     parser.add_argument('--cache',type=Path)
     parser.add_argument('--hold',default='A12')
     parser.add_argument('--pounds',type=float,default=150.)
+    parser.add_argument('--leg-bolt-scale',type=float,default=1.)
+    parser.add_argument('--leg-floor-grid',type=int)
     args = parser.parse_args()
-    result = run(args.output,cache=args.cache,**({} if args.cache else {'hold':args.hold,'pounds':args.pounds}))
+    if args.cache and (args.leg_bolt_scale != 1. or args.leg_floor_grid is not None):
+        parser.error('Leg sensitivity changes require fresh preparation')
+    result = run(args.output,cache=args.cache,**({} if args.cache else {'hold':args.hold,'pounds':args.pounds,
+        'leg_bolt_scale':args.leg_bolt_scale,'leg_floor_grid':args.leg_floor_grid}))
     print(json.dumps({k:result.get(k) for k in ('numerically_accepted','contact_active_set_converged',
         'maximum_panel_displacement_mm','maximum_timber_displacement_mm')}))

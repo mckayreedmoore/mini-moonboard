@@ -1,0 +1,134 @@
+{
+  "candidate": "leg-mvp-sole-development",
+  "feet": {
+    "lumber_leg_left": {
+      "land_area_mm2": 2857.499999999993,
+      "normal_stiffness_n_per_mm": 400000.0,
+      "opening_plane_at_land_center_mm_and_slopes": [
+        0.011883986222222222,
+        0.0004680701312335947,
+        -0.0014073766000000003
+      ],
+      "opening_fit_maximum_residual_mm": 3.777777778102287e-09,
+      "opening_fit_passed": true,
+      "relieved_corner_remaining_gaps_mm": [
+        4.055743872722222,
+        4.176090794324641,
+        3.8336356314288293,
+        3.950190627722222,
+        3.9680240997222223,
+        4.0735773447222225,
+        4.1939242663246405,
+        3.851469103428829
+      ],
+      "relief_clearance_with_cut_tolerance_passed": true,
+      "land_corner_pressure_mpa": [
+        0.0,
+        6.972440563818424,
+        0.0,
+        4.476066530572585
+      ],
+      "floor_resultant_xyz_n": [
+        59.49359,
+        -404.99769999999995,
+        3106.7239999999997
+      ],
+      "neck_top_moment_xyz_nmm": [
+        75643.11149999998,
+        6413.200761111135,
+        0.0
+      ],
+      "neck_top_reference_xyz_mm": [
+        -1238.25,
+        1418.009,
+        5.0
+      ],
+      "neck_axial_compression_mpa": 1.087217497812776,
+      "neck_bending_stress_envelope_mpa": 2.471181730801593,
+      "neck_tension_envelope_mpa": 1.383964232988817,
+      "neck_shear_mpa": 0.21487881320205118,
+      "neck_torsion_estimate_mpa": 0.0,
+      "conditional_reference_ratios": {
+        "land_pressure": 1.6180272093353099,
+        "neck_compression_envelope": 0.8257634784946394,
+        "neck_bending_reference": 0.3982384530618733,
+        "neck_shear_plus_torsion_reference": 0.17314187196098732
+      },
+      "short_neck_compression_displacement_proxy_mm": 0.03225638587869686,
+      "scalar_screen_passed": false,
+      "qualified_for_design": false
+    },
+    "lumber_leg_right": {
+      "land_area_mm2": 2857.499999999993,
+      "normal_stiffness_n_per_mm": 400000.0,
+      "opening_plane_at_land_center_mm_and_slopes": [
+        0.02379767611111111,
+        -0.0024008622703412,
+        0.0001633809933333331
+      ],
+      "opening_fit_maximum_residual_mm": 3.888888891467879e-09,
+      "opening_fit_passed": true,
+      "relieved_corner_remaining_gaps_mm": [
+        4.063407315111111,
+        4.049436356949655,
+        4.089191646817375,
+        4.075660889611111,
+        3.984188037111111,
+        3.9719344626111113,
+        3.9579635044496557,
+        3.9977187943173753
+      ],
+      "relief_clearance_with_cut_tolerance_passed": true,
+      "land_corner_pressure_mpa": [
+        0.0,
+        0.0,
+        3.9286841489258024,
+        2.2133981296782066
+      ],
+      "floor_resultant_xyz_n": [
+        -44.03289,
+        -170.0348,
+        892.4366666666667
+      ],
+      "neck_top_moment_xyz_nmm": [
+        -9926.895111111113,
+        -11113.781216666708,
+        0.0
+      ],
+      "neck_top_reference_xyz_mm": [
+        1238.25,
+        1418.009,
+        5.0
+      ],
+      "neck_axial_compression_mpa": 0.31231379410907045,
+      "neck_bending_stress_envelope_mpa": 0.8904123798051112,
+      "neck_tension_envelope_mpa": 0.5780985856960408,
+      "neck_shear_mpa": 0.0922014461079921,
+      "neck_torsion_estimate_mpa": 0.0,
+      "conditional_reference_ratios": {
+        "land_pressure": 0.9116919379467692,
+        "neck_compression_envelope": 0.27910509339747697,
+        "neck_bending_reference": 0.14349266357100574,
+        "neck_shear_plus_torsion_reference": 0.07429271754976098
+      },
+      "short_neck_compression_displacement_proxy_mm": 0.010902542710838943,
+      "scalar_screen_passed": false,
+      "qualified_for_design": false
+    }
+  },
+  "references": {
+    "compression_mpa": 4.309223308230226,
+    "bending_mpa": 6.205281563851525,
+    "shear_mpa": 1.241056312770305,
+    "off_grain_modulus_proxy_mpa": 551.5805834534689
+  },
+  "numerically_accepted": true,
+  "conditional_screen_passed": false,
+  "limits": [
+    "Conditional relieved-foot contact and short-neck screens from native forces.\n\nReferences retain dry Douglas Fir-Larch No. 2 base values used by the repository:\nFc-perpendicular 625 psi, Fb 900 psi and Fv 180 psi, without duration/size uplift.\nA horizontal neck cuts oblique grain. These scalar reference comparisons do not\nqualify notch concentration, rolling shear or perpendicular-to-grain tension.\n",
+    "Opening extrapolation assumes a rigid planar gross foot section. Finite-area pressure is the specified Winkler law, not measured contact.",
+    "The compression displacement uses 0.05E as an off-grain elastic proxy, not a proven upper bound for the oblique notched neck.",
+    "Horizontal cut stresses are scalar screens; no perpendicular tension resistance is assumed. Notch stress concentrations and rolling shear are not represented."
+  ],
+  "qualified_for_design": false
+}

@@ -27,8 +27,8 @@ class CurrentModule:
     """Supply explicit shifted-current APIs without mutating historical modules."""
     def __init__(self, module):
         self.module = module
-        self.hardware = module.previous.hardware
-        self.timber = module.previous.timber
+        self.hardware = getattr(module, "hardware", None) or module.previous.hardware
+        self.timber = getattr(module, "timber", None) or module.previous.timber
         self.leg = module.leg_source
 
     def __getattr__(self, name):
@@ -125,6 +125,35 @@ def level_face_points(shape, bottom):
     return [np.array(p) for p in points]
 
 
+def header_bearing_points(corners, header_shape):
+    """Clip the rectangular bearing footprint to the gross header top envelope.
+
+    Local holes and crushing are outside this gross-member spring model. This
+    prevents a wider rear rim from receiving fictional support beyond the header.
+    """
+    points = np.asarray(corners, dtype=float)
+    bounds = header_shape.BoundingBox()
+    if np.max(abs(points[:, 2]-bounds.zmax)) > 1.e-5:
+        raise ValueError('Member bearing face must meet the header top')
+    low, high = points.min(axis=0), points.max(axis=0)
+    expected = {(x, y) for x in (low[0], high[0]) for y in (low[1], high[1])}
+    # Coordinate noise can reverse lexicographic order within a nominal edge.
+    # Match each Cartesian corner geometrically, retaining original points.
+    expected_xy = np.array(sorted(expected))
+    matches = np.all(abs(points[:, None, :2]-expected_xy[None, :, :]) <= 1.e-6, axis=2)
+    if len(expected) != 4 or not np.all(matches.sum(axis=0) == 1) or not np.all(matches.sum(axis=1) == 1):
+        raise ValueError('Header clipping requires axis-aligned rectangular bearing')
+    clipped_low = np.maximum(low[:2], [bounds.xmin, bounds.ymin])
+    clipped_high = np.minimum(high[:2], [bounds.xmax, bounds.ymax])
+    if np.any(clipped_high-clipped_low <= 1.e-6):
+        raise ValueError('Member has no positive-area header bearing overlap')
+    # Preserve the original node coordinates/order when fully supported.
+    if np.all(low[:2] >= np.array([bounds.xmin, bounds.ymin])-1.e-6) and np.all(high[:2] <= np.array([bounds.xmax, bounds.ymax])+1.e-6):
+        return list(corners)
+    return [np.array([x, y, low[2]]) for x in (clipped_low[0], clipped_high[0])
+            for y in (clipped_low[1], clipped_high[1])]
+
+
 def endpoint_attachment(structure, name, point):
     entry=structure.members[name]
     station=float(np.dot(np.asarray(point)-entry['start'],entry['axis']))
@@ -133,11 +162,48 @@ def endpoint_attachment(structure, name, point):
     return structure.attachment(name,point)
 
 
-def add_member_floor(structure,name,ownership,shape,stiffnesses):
+def foot_samples(corners, grid=None):
+    """Return points and stiffness fractions for corner or finite-area contact.
+
+    Interior midpoint cells represent equal tributary areas on the rectangular
+    cut foot. Total normal stiffness is preserved, not rotational stiffness.
+    """
+    corners = np.asarray(corners, dtype=float)
+    if corners.shape != (4, 3) or not np.all(np.isfinite(corners)):
+        raise ValueError('Require four finite bearing-face corners')
+    if grid is None:
+        return [(point, .25) for point in corners]
+    if isinstance(grid, bool) or not isinstance(grid, int) or grid < 2:
+        raise ValueError('Leg floor grid must be an integer at least two')
+    centre = corners.mean(axis=0)
+    order = np.argsort(np.arctan2(corners[:, 1]-centre[1], corners[:, 0]-centre[0]))
+    a, b, c, d = corners[order]
+    u, v = b-a, d-a
+    if (not np.allclose(a+c, b+d, atol=1.e-6, rtol=0.)
+            or abs(float(u@v)) > 1.e-6
+            or min(np.linalg.norm(u), np.linalg.norm(v)) < 1.e-6
+            or np.ptp(corners[:, 2]) > 1.e-6):
+        raise ValueError('Finite-area foot sampling requires a horizontal rectangle')
+    return [(a+(i+.5)/grid*u+(j+.5)/grid*v, 1./grid**2)
+            for i in range(grid) for j in range(grid)]
+
+
+def leg_bolt_properties(properties, first, second, scale):
+    """Scale only leg-bolt elastic stiffness, without changing resistance."""
+    if not np.isfinite(scale) or scale <= 0:
+        raise ValueError('Leg bolt stiffness scale must be positive and finite')
+    if not any(name.startswith('lumber_leg_') for name in (first, second)):
+        return properties
+    return {key: value*scale if key in ('axial_n_per_mm', 'lateral_n_per_mm') else value
+            for key, value in properties.items()}
+
+
+def add_member_floor(structure,name,ownership,shape,stiffnesses,grid=None):
     points=level_face_points(shape,True)
-    for index,point in enumerate(points):
+    for index,(point,fraction) in enumerate(foot_samples(points, grid)):
         wood=floor_attachment(structure,name,point)
-        add_floor(structure,'floor_'+name+'_'+str(index),wood,point,ownership,name,stiffnesses['floor'])
+        add_floor(structure,'floor_'+name+'_'+str(index),wood,point,ownership,name,4.*fraction*stiffnesses['floor'])
+        ownership['floor_'+name+'_'+str(index)]['normal_stiffness_fraction'] = fraction
     point=np.mean(points,axis=0)
     wood=floor_attachment(structure,name,point)
     ground=structure.node(point);structure.fixed.add(ground)
@@ -254,19 +320,22 @@ class CurrentStructure(Structure):
 
 def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             horizontal_force=(0., 300.), dynamic_factor=2., equipment_kg=25.,
-            frame_size=150., panel_size=120., patch_size=40.):
+            frame_size=150., panel_size=120., patch_size=40.,
+            leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development'):
     """Build the current independent-panel, gross-member contact diagnostic."""
     mode = 'coupled'
     load_kind = 'full'
     module = CurrentModule(module)
     from fea.horizontal_frame_members import axes
     from mini_moonboard import panel_grid_v2
-    if module.KEY != 'no-shoes-development' or mode != 'coupled':
+    if module.KEY != expected_candidate or mode != 'coupled':
         raise ValueError('Require current shoe-free candidate with independent coupled panels')
     if len(module.panel_connections()) != 66:
         raise ValueError('Require all 66 current panel/kicker attachments')
     if pounds <= 0 or equipment_kg < 0 or dynamic_factor <= 0:
         raise ValueError('Positive climber load and nonnegative equipment mass required')
+    leg_bolt_properties({}, 'lumber_leg_validation', '', leg_bolt_scale)
+    foot_samples([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[1.,1.,0.]], leg_floor_grid)
     raw={p.name:p for p in module.wood_parts()}
     body_mass,hardware_mass=mass_by_body(module,raw,materials)
     records = [gross_member_record(p, *axes(module, p.name)) for p in module.uncut_wood_parts()
@@ -289,7 +358,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             ownership[c.name] = {'first': c.members[1], 'second': c.members[0], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
         elif c.kind=='bolt':
             if len(c.members)!=2:raise ValueError('Expected two-member current bolt')
-            point=np.asarray((c.start+c.direction*(2.032+38.1)).toTuple())
+            interface = getattr(module, 'bolt_interface_point', None)
+            point=np.asarray((interface(c) if interface is not None else c.start+c.direction*(2.032+38.1)).toTuple())
             bolts.append((c.name,*c.members,point))
             for name in c.members:planned[name].append(point)
             ownership[c.name] = {'first': c.members[0], 'second': c.members[1], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
@@ -298,7 +368,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         name=r['name'];centre=body_mass[name]['centre_xyz_mm']
         gravity_points[name]=centre;planned[name].append(centre)
         if name.startswith(('base_principal_', 'base_side_')):
-            points=level_face_points(raw[name].shape, bottom=True)
+            points=header_bearing_points(level_face_points(raw[name].shape, bottom=True), raw['base_header'].shape)
             for point in points:
                 bearings.append((name,'base_header',point))
                 planned[name].append(point);planned['base_header'].append(point)
@@ -317,7 +387,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             wood=structure.attachment(member,point)
             directional_connector(structure,wood,tag,stiffnesses['sds'],screw,ownership[screw])
     for name,first,second,point in bolts:
-        directional_connector(structure,structure.attachment(first,point),structure.attachment(second,point),stiffnesses['bolt'],name,ownership[name])
+        directional_connector(structure,structure.attachment(first,point),structure.attachment(second,point),leg_bolt_properties(stiffnesses['bolt'],first,second,leg_bolt_scale),name,ownership[name])
     for index,(first,second,point) in enumerate(bearings):
         name = 'bearing_'+first+'_'+second+'_'+str(index)
         structure.spring(endpoint_attachment(structure,first,point),endpoint_attachment(structure,second,point),stiffnesses['bearing'],
@@ -325,7 +395,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         ownership[name] = {'first': first, 'second': second, 'point': point.tolist()}
     for r in records:
         if r['name'].startswith(('base_post_','lumber_leg_')):
-            add_member_floor(structure, r['name'], ownership, raw[r['name']].shape, stiffnesses)
+            add_member_floor(structure, r['name'], ownership, raw[r['name']].shape, stiffnesses,
+                             grid=leg_floor_grid if r['name'].startswith('lumber_leg_') else None)
         tag=structure.attachment(r['name'],gravity_points[r['name']])
         add_load(structure,tag,[0,0,-body_mass[r['name']]['mass_kg']*9.80665])
     # Panel attachment points exist even in the frame-only reference so applied
@@ -405,7 +476,11 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     contacts = shared.seating_contacts(structure, SeatingModule(module), samples=2, penalty=stiffnesses['seating_per_area'])
     for c in contacts:
         ownership[c['name']] = {'first': c['member'], 'second': c['panel'], 'point': c['point_xyz_mm'], 'scalar_normal': c['inward_xyz']}
-    metadata={'candidate':module.KEY,'mode':mode,'hold':hold,'pounds':pounds,'load_kind':load_kind,
+    metadata={'candidate':module.KEY,'leg_bolt_scale':leg_bolt_scale,
+              'leg_floor_grid':leg_floor_grid,
+              'header_bearing_assumption':'Normal springs at corners of actual rectangular overlap with gross header top; local holes and crushing require separate checks',
+              'leg_floor_pressure_assumption':('Four corner normal springs' if leg_floor_grid is None else f'{leg_floor_grid}x{leg_floor_grid} midpoint tributary-area normal springs; unchanged total stiffness'),
+              'leg_joint_assumption':'Finite elastic bolt springs; leg stiffness scaled independently; no installed hinge or resistance qualification','mode':mode,'hold':hold,'pounds':pounds,'load_kind':load_kind,
               'force_xyz_n':force.tolist(),'moment_at_panel_midplane_nmm':moment.tolist(),
               'target_xyz_mm':target.tolist(),'standoff_from_front_mm':100.,'stiffnesses':stiffnesses,'materials':materials,'equipment_kg':equipment_kg,
               'frame_size_mm':frame_size,'panel_size_mm':panel_size,'members':records,'panel_load':panel_loads,

@@ -64,7 +64,10 @@ The [independent mechanism audit](current-leg-response-audit.md) reproduces
 the joint moment from the leg/floor free body. The
 [replacement screen](current-leg-revision-screen.md) records bounded alternative
 layouts against saved resultants; no alternative is selected or qualified by
-that screen. The current joint decision therefore remains unresolved.
+that screen. The current joint decision therefore remains unresolved. The subsequent
+[assembled MVP study](current-leg-mvp-study.md) also rejects the nine-bolt
+2×10 full-sole and relieved-sole candidates under the governing 250 lb scenario;
+neither becomes the selected replacement.
 
 The [resistance assumption audit](current-response-resistance-basis.md) explains
 why the nominal bolt-diameter comparison is conditional and why increasing
