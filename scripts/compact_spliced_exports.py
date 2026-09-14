@@ -4,7 +4,7 @@ import ast
 import json
 from pathlib import Path
 
-from mini_moonboard import compact_spliced_trimmed as model
+from mini_moonboard import compact_spliced_kicker as model
 from mini_moonboard import no_shoes_exports as shared
 
 STATUS = 'Conditional build package · 4×6 legs/rims · spliced 2×6 knees'
@@ -53,6 +53,7 @@ def metadata(parts, connections):
             'leg_bolt_count': len(upper), 'bolts_per_leg': len(upper)//2,
             'total_bolt_count': len(bolts), 'knee_piece_count': len(model.KNEE_NAMES),
             'upper_bolt_pitch_mm': model.UPPER_BOLT_PITCH_MM,
+            'lower_kicker_screw_height_mm': model.LOWER_KICKER_Z_MM,
             'bolt_installation': 'Heads inside; nuts and threaded ends outside',
             'leg_top_projection_mm': model.LEG_TOP_PROJECTION_MM,
             'end_trim_note': 'Knee tips flush; leg tops retain 18 mm beyond rim for bolt end distance',

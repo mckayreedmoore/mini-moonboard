@@ -92,6 +92,13 @@ fs.mkdirSync(output, {recursive: true});
         .filter(m => m.userData.part.name !== 'McKay')
         .every(m => m.position.toArray().every(v => v === 0)));
       assert.ok(positioned);
+      const lowerKickerHeights = await page.evaluate(() => window.cadTest.meshes
+        .filter(m => /^fastener_round_kicker_(left|right)_(rim|center)_1$/.test(m.userData.part.name))
+        .map(m => { m.geometry.computeBoundingBox(); const b = m.geometry.boundingBox;
+          return (b.min.z + b.max.z) / 2 + m.position.z; }));
+      assert.equal(lowerKickerHeights.length, 4);
+      assert.ok(lowerKickerHeights.every(z => Math.abs(z - 60) < .01), 'Four lower kicker screws at Z60');
+
       const floor = await page.evaluate(() => window.cadTest.meshes
         .filter(m => /^(lumber_leg_|base_post_)/.test(m.userData.part.name))
         .map(m => { m.geometry.computeBoundingBox(); return m.geometry.boundingBox.min.z + m.position.z; }));

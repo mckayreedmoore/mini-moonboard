@@ -137,7 +137,9 @@ controlled flush head seat; establish the countersink on an offcut without
 crushing face veneer. Screw occupied diameters are not pilot instructions.
 Retain the factory LED harness and connectors; keep wiring clear of bolts.
 
-Keep all nine kicker screws per half. The upper post row is nominally 46.9 mm
+Keep all nine kicker screws per half. The four lower post screws are at Z60 mm
+from the floor, lowered 52 mm from the preceding installation. Maintain at least
+44.45 mm from the actual post bottom. The upper post row is nominally 46.9 mm
 below the post top, with only 2.45 mm reserve above the 44.45 mm loaded-end
 reference. Mark from the actual post top and verify that minimum before driving;
 do not round the row upward. The header row remains centered at Z257.95 mm.
@@ -192,3 +194,16 @@ The exporter produces the complete candidate viewer/STEP bundle. The schedule
 generator refuses a stale export manifest and creates the CSV, profile and
 SVG files from matching model data. Generated dimensions apply to this selected revision and its stated
 material, hardware, load and installation conditions.
+
+## Lower kicker screw update
+
+The current `compact_spliced_kicker` adapter moves four lower kicker screws from
+Z112 to Z60 mm. Horizontal positions, the Z192 upper row, the Z257.95 header
+row, screw product and count remain unchanged. Fresh-stock geometry closes the
+old bores and represents the new bores and head seats. This is not an instruction
+to repair already-drilled stock.
+
+The existing accepted panel-construction scope is retained. Local placement and
+receiver checks support this installation change; the six archived native solves
+still contain the preceding screw axes. Do not describe those archives as six
+fresh solves of this screw relocation or as a new panel-resistance qualification.

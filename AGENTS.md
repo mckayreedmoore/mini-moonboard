@@ -286,3 +286,12 @@ These are preserved failed alternatives, not released drilling or viewer default
 See `docs/compact-2x12-study.md`. Retain current kicker screw axes and all nine
 screws per half; `docs/kicker-screw-placement-review.md` records the tight upper
 post end distance and installation checks.
+
+## Current lower kicker row
+
+Current exports and schedules use `compact_spliced_kicker`, wrapping the preserved
+trimmed design. Four lower post screws move from Z112 to Z60 mm, at unchanged
+X positions; upper post and header axes remain fixed. Retain all 66 panel screws
+and 20 bolt stacks. This fresh-stock drilling revision keeps the accepted panel
+scope and local placement checks; frozen native cases retain the previous axes.
+Do not transfer a claim of six fresh frame solves to the relocation.

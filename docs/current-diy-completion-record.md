@@ -89,3 +89,18 @@ Validation for this update: 445 default tests passed, 15 historical tests
 deselected; lint and clean current CAD regeneration passed. Functional browser
 checks confirmed all 767 meshes and every outward-facing head/nut pair. Updated
 leg and knee drawings were independently rendered and visually inspected.
+
+## Lower kicker row update
+
+The current export adapter is `compact_spliced_kicker`. Four lower kicker screws
+move from Z112 to Z60 mm; all other axes, stock sizes and hardware counts remain
+fixed. Fresh-stock drilling and schedules reflect the relocation. Local receiver
+and interference checks apply; the accepted panel basis is retained. The frozen
+six native cases still contain the preceding screw locations. This update does
+not claim a new assembled response or new panel qualification. See the
+[kicker placement review](kicker-screw-placement-review.md).
+
+Validation: 448 default tests passed, 15 historical checks deselected; Ruff and
+the clean current export rebuild passed. Browser checks loaded all 767 parts
+and confirmed the four lower screw meshes at Z60. The construction packet and
+current mass record were regenerated; historical model outputs remain unchanged.

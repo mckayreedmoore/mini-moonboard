@@ -10,7 +10,7 @@ from pathlib import Path
 
 import cadquery as cq
 
-from mini_moonboard import compact_spliced_trimmed as model
+from mini_moonboard import compact_spliced_kicker as model
 from mini_moonboard import no_shoes_frame as baseline
 from mini_moonboard import panel_grid_v2 as grid
 from scripts import compact_spliced_exports as exporter
