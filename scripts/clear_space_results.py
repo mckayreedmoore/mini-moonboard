@@ -57,7 +57,7 @@ def floor_bearing_check(report, geometry):
         'scope':'625 psi perpendicular-grain timber bearing on each modeled equal-area floor cell; not measured floor pressure or friction.'}
 
 
-def expected_joint_inventory(rows, exterior):
+def expected_joint_inventory(rows, exterior, front_count=2):
     expected = {}
     for side in ('left', 'right'):
         rim, leg = f'base_side_{side}', f'lumber_leg_{side}'
@@ -67,7 +67,7 @@ def expected_joint_inventory(rows, exterior):
             pairs += [(rim,a,2), (leg,b,2), (a,b,4)]
         else:
             rail = f'base_floor_{side}'
-            pairs += [(f'base_post_outer_{side}',rail,2), (leg,rail,2)]
+            pairs += [(f'base_post_outer_{side}',rail,front_count), (leg,rail,2)]
         expected.update({tuple(sorted((a,b))):count for a,b,count in pairs})
     actual = {}
     for row in rows.values():
@@ -78,7 +78,7 @@ def expected_joint_inventory(rows, exterior):
 
 def checks(report, geometry):
     candidate = report.get('candidate')
-    if candidate not in {'compact-floor-rail-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
+    if candidate not in {'compact-floor-rail-development', 'compact-floor-rail-2x4-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
         raise ValueError('Require matching clear-space candidate identities')
     if not all(report.get(key) is True for key in VALIDITY):
         return {'candidate':candidate, 'status':'INVALID_RESPONSE_DIAGNOSTIC_ONLY', 'qualified_for_design':False}
@@ -110,9 +110,10 @@ def checks(report, geometry):
     stage = assess(report, geometry['geometries_by_bolt_name'], hardware, bolt_prefixes=PREFIXES)
     actual = {name:compare_bolt(row, geometry['geometries_by_bolt_name'][name], stage['bolts'][name]['lateral_ratio'])
               for name, row in rows.items()}
-    if set(rows) != set(geometry['geometries_by_bolt_name']) or not expected_joint_inventory(rows, bool(pieces)):
+    if set(rows) != set(geometry['geometries_by_bolt_name']) or not expected_joint_inventory(rows, bool(pieces), 3 if '2x4' in candidate else 2):
         raise ValueError('Require complete actual bolt inventory at every joint')
-    groups = local_groups(rows, geometry, actual)
+    groups = local_groups(rows, geometry, actual,
+        allowed_counts=(2, 3) if candidate == 'compact-floor-rail-2x4-development' else (2, 4))
     root_bolts = {name:actual_root_comparison(stage['bolts'][name],
         geometry['geometries_by_bolt_name'][name], actual[name], hardware[name]['root_diameter_mm']) for name in rows}
     root_groups = {key:max(root_bolts[name]['actual_Ktheta_root_ratio_CD_1'] for name in group['bolt_names'])
@@ -171,13 +172,14 @@ def checks(report, geometry):
         criteria['floor_rail_wood_bearing'] = floor['peak_ratio'] <= 1.
     if floor is not None:
         cutouts = report['parameters'].get('native_panel_cutouts', {})
-        expected = {'kicker_left':[-1219.2,-1179.1,0.,141.7],
-                    'kicker_right':[1179.1,1219.2,0.,141.7]}
+        notch_height = 90.9 if '2x4' in candidate else 141.7
+        expected = {'kicker_left':[-1219.2,-1179.1,0.,notch_height],
+                    'kicker_right':[1179.1,1219.2,0.,notch_height]}
         criteria['actual_kicker_cutouts'] = set(cutouts) == set(expected) and all(
             len(cutouts[name]['rectangles_xz_mm']) == 1
             and all(math.isclose(a,b,abs_tol=1.e-6) for a,b in zip(
                 cutouts[name]['rectangles_xz_mm'][0], rectangle, strict=True))
-            and math.isclose(cutouts[name]['retained_area_mm2'],1219.2*277.-40.1*141.7,abs_tol=1.e-5)
+            and math.isclose(cutouts[name]['retained_area_mm2'],1219.2*277.-40.1*notch_height,abs_tol=1.e-5)
             for name, rectangle in expected.items())
     criteria['component_layouts'] = all(m['layout']['component_spacing_screen_passed'] for m in all_local)
     return {'candidate':candidate, 'status':'LISTED_CONDITIONAL_CRITERIA_MET' if all(criteria.values()) else 'LISTED_CRITERIA_NOT_MET',

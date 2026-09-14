@@ -4,8 +4,9 @@ const {chromium} = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const candidates = [
-  {key: 'compact-floor-rail-development', meshes: 725, bolts: 12, knees: 0, rails: 2},
-  {key: 'compact-exterior-brace-development', meshes: 767, bolts: 20, knees: 4, rails: 0},
+  {key: 'compact-floor-rail-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'clear-space'},
+  {key: 'compact-floor-rail-2x4-development', meshes: 735, bolts: 14, knees: 0, rails: 2, accepted: false, documents: 'floor-rail-2x4'},
+  {key: 'compact-exterior-brace-development', meshes: 767, bolts: 20, knees: 4, rails: 0, accepted: false, documents: 'clear-space'},
 ];
 
 (async () => {
@@ -26,7 +27,8 @@ const candidates = [
             'window.cadTest = {meshes, THREE};'+marker)});
         });
       const url = new URL(base);
-      url.searchParams.set('model', expected.key);
+      if (expected.key !== 'compact-floor-rail-development') url.searchParams.set('model', expected.key);
+      else url.searchParams.delete('model');
       url.searchParams.set('view', 'rear');
       console.log('Loading', expected.key);
       await page.goto(url.href, {waitUntil: 'domcontentloaded', timeout: 30000});
@@ -41,15 +43,15 @@ const candidates = [
       assert.equal(await page.locator('#model').inputValue(), expected.key);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').count(), 1);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'),
-        'compact-spliced-knee-development');
-      for (const candidate of candidates) {
+        'compact-floor-rail-development');
+      for (const candidate of candidates.filter(row => row.key !== 'compact-floor-rail-development')) {
         assert.equal(await page.locator('#model optgroup[label="Development candidates"] option[value="'+candidate.key+'"]').count(), 1);
       }
-      for (const document of ['clear-space-study.md', 'clear-space-hardware.md']) {
+      for (const document of [expected.documents+'-study.md', expected.documents+'-hardware.md']) {
         assert.equal(await page.locator('#model-documents a[href$="'+document+'"]').count(), 1);
       }
       assert.equal(manifest.design.main_face_height_mm, 277);
-      assert.ok(manifest.design.status.startsWith(expected.rails ? 'Conditional listed checks met' : 'NOT ACCEPTED'));
+      assert.ok(manifest.design.status.startsWith(expected.accepted ? 'Conditional listed checks met' : 'NOT ACCEPTED'));
       assert.equal(manifest.parts.filter(p => /^base_knee_(left|right)_(rim|leg)$/.test(p.name)).length, expected.knees);
       assert.equal(manifest.parts.filter(p => /^base_floor_(left|right)$/.test(p.name)).length, expected.rails);
       assert.ok(manifest.parts.every(p => p.path.startsWith('hybrid/'+expected.key+'/models/')));

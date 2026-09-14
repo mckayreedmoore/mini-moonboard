@@ -1,11 +1,44 @@
 # Current design review and finite verification plan
 
+The selected candidate is **`compact-floor-rail-development`**, September 14,
+2026: solid 4×6 legs and flush rims, compact 2×6 header/posts, two single 2×6
+floor rails and 12 complete bolt stacks. The rails replace the raised knees.
+Use the [floor-rail study](clear-space-study.md) for the current finite
+assessment and [matching fabrication package](clear-space-study.md#candidate-specific-fabrication-packages).
+
+All six corrected floor cases meet their 25 listed conditional criteria, as
+does the separate refined floor-contact sensitivity. The governing six-case
+bolt ratio is 0.825. The passing nominal-diameter route depends on the
+specified body/thread-transition conditions; its full-thread-root sensitivity
+reaches 1.038 and does not qualify fully threaded substitutes.
+
+This is a finite engineer-unreviewed DIY assessment under the stated loads,
+materials, hardware and installation assumptions. No-slip floor support is
+assumed; local floor pressure is not converged or measured. Commercial-angle
+unlisted separation and independent flange couples remain unqualified even
+where rated force-component comparisons pass. These limitations remain in
+the selected package; this selection creates no new general panel, floor-test
+or external-review campaign.
+
+The prior [spliced-knee result](compact-splice-study.md) remains a preserved
+reference, not the selected assembly's force evidence. The
+[completion record](current-diy-completion-record.md) identifies the current
+finite deliverables. The separate 2×4 rail exploration is not selected and
+has no acceptance assigned here.
+
+## Preserved September 12 review of the shoe-free baseline
+
+The following work plan and software observations describe
+`no-shoes-development` at that stage. They are retained as historical context;
+references below to “current,” remaining work, commands and test coverage do
+not override the selected floor-rail authority above.
+
 This review concerns `no-shoes-development`: single 2×6 legs and outer rims, four bolts per leg,
 commercial base angles and a 277 mm kicker datum. It is an engineering work
 plan, not a completed structural assessment. The objective is to establish
 whether this assembly meets a stated load basis without speculative reinforcement.
 
-## Engineering judgment
+### Engineering judgment
 
 The project has accumulated useful geometry and evidence, but too much effort
 has been directed at variations of uncertain historical response models.
@@ -15,7 +48,7 @@ nonlinear solid model of every screw and T-nut. The analysis should begin with e
 Additional detail is warranted when it changes a design decision.
 Component resistance checks remain necessary after whole-frame forces are known.
 
-## What is unnecessary as a current design prerequisite
+### What is unnecessary as a current design prerequisite
 
 | Work | Disposition |
 | --- | --- |
@@ -31,7 +64,7 @@ as demonstrated normal operating conditions or automatically trigger larger stoc
 Published material variability and timber grade adjustments belong in the design
 values; they are not reasons to request a new materials-testing campaign.
 
-## Completed internal-response deliverable
+### Completed internal-response deliverable
 
 The [assembled-frame response report](current-frame-response.md) now supplies
 member and connection forces, joint moments, deflections, and numerical audits
@@ -50,7 +83,7 @@ This is a selected-case response study, not an exhaustive internal-force envelop
 or a construction release. Its [pinned source evidence](../fea/results/current-frame-response.json)
 remains separate from the concurrent dependency refactor and rebuild check.
 
-## Work that follows the force calculation
+### Work that follows the force calculation
 
 1. **Resolve the governing member and connection comparisons.** Use the calculated demands for the legs, their
    four-bolt joints, bearing between the rims and header, the restored ML24Z
@@ -84,7 +117,7 @@ above is this project's engineering recommendation, not a mandated analysis
 method quoted from that specification. The owner-selected engineer-unreviewed
 endpoint does not claim compliance with that specification.
 
-## Repository architecture and test policy recommendation
+### Repository architecture and test policy recommendation
 
 The repository is currently an experimental design history with a current
 candidate assembled from earlier Python modules. That preserves traceability,

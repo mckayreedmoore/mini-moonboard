@@ -21,10 +21,10 @@ def hardware_assumptions(diameter_mm, *, washer_od_mm, hole_diameter_mm,
     Delivered thread/runout, washer dimensions and washer yield are not verified
     by these assumptions. The supplied washer geometry must match the CAD stack.
     """
-    values={9.525:(.0775,.298,.551),12.7:(.1419,.4056,.736),19.05:(.334,.620,1.100)}
+    values={6.35:(.0318,.1887,.428),9.525:(.0775,.298,.551),12.7:(.1419,.4056,.736),19.05:(.334,.620,1.100)}
     diameter=next((d for d in values if math.isclose(diameter_mm,d,abs_tol=1e-8)),None)
     if diameter is None:
-        raise ValueError('Supported provisional hardware is 3/8, 1/2 or 3/4 inch')
+        raise ValueError('Supported provisional hardware is 1/4, 3/8, 1/2 or 3/4 inch')
     tensile,root,hex_min=values[diameter]
     washer={'outer_diameter_mm':positive(washer_od_mm),
         'hole_diameter_mm':positive(hole_diameter_mm),
@@ -37,6 +37,17 @@ def hardware_assumptions(diameter_mm, *, washer_od_mm, hole_diameter_mm,
         'steel_yield_mpa':92000*PSI_MPA,'steel_safety_factor':2.,
         'washers':[dict(washer),dict(washer)],
         'root_diameter_mm':root*25.4,'nominal_diameter_mm':diameter,
+        **({'quarter_reference_basis':{
+            'tensile_area_in2':.0318,'calculated_root_reference_in':.1887,
+            'minimum_hex_across_flats_in':.428,
+            'root_scope':'Calculated 1/4-20 UNC basic external root reference: 0.25 - 1.226869/20, rounded; not a delivered minor-diameter lower bound.',
+            'seat_scope':'95% of the published minimum hex across-flats dimension is an assessment bearing-seat assumption.',
+            'sources':{
+                'tensile_area':'https://www.imageindustries.com/products/weld-stud/advanced-process-apa-inch-threaded-aluminum/part-number/APA25-75/mechanical-properties/FTA25/',
+                'hex_dimensions_and_grade5':'https://www.valuefastener.com/documents/products/capscrewgr5-8.pdf',
+                'nut_dimensions':'https://boltdepot.com/Product-Details?product=2569'},
+            'material_scope':'Thread area only is taken from the stud manufacturer; its aluminum properties are not used.'
+            }} if diameter==6.35 else {}),
         **({'three_quarter_reference_basis':{
             'tensile_area_in2':.334,'calculated_root_reference_in':.620,
             'minimum_hex_across_flats_in':1.100,

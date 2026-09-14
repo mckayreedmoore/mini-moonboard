@@ -1,12 +1,14 @@
 """Run or geometrically audit a separate clear-space support candidate."""
 import argparse
+import hashlib
 import importlib
 import json
 from pathlib import Path
 
 from scripts.compact_rail_study import bolt_properties
 
-MODELS = {'floor': 'compact_floor_rail_frame', 'exterior': 'compact_exterior_brace_frame'}
+MODELS = {'floor': 'compact_floor_rail_frame', 'exterior': 'compact_exterior_brace_frame',
+          'floor2x4': 'compact_floor_rail_2x4_frame'}
 
 
 def geometry(model):
@@ -21,7 +23,12 @@ def geometry(model):
     result['hardware_resistance_bounds_by_name'] = {}
     for name, row in result['geometries_by_bolt_name'].items():
         row['bending_yield_psi'] = 90000.
-        result['hardware_resistance_bounds_by_name'][name] = half if row['diameter_mm'] > 10 else three_eighths
+        if row['diameter_mm'] < 7.:
+            path = Path('docs/floor-rail-2x4-hardware-reference.json')
+            result['hardware_resistance_bounds_by_name'][name] = json.loads(path.read_text())['washer_resistance_bounds']
+            result['source_sha256'][str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
+        else:
+            result['hardware_resistance_bounds_by_name'][name] = half if row['diameter_mm'] > 10 else three_eighths
     return result
 
 
@@ -44,7 +51,7 @@ if __name__ == '__main__':
         from fea.current_response_run import run
 
         if args.floor_grid:
-            if args.candidate != 'floor':
+            if not args.candidate.startswith('floor'):
                 parser.error('--floor-grid requires floor candidate')
             model.FLOOR_RAIL_GRID = tuple(args.floor_grid)
         by_name = {c.name:bolt_properties(c) for c in model.connections() if c.kind == 'bolt'}

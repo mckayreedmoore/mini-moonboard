@@ -60,7 +60,7 @@ def actual_root_comparison(nominal, geometry, actual_angle, root_diameter_mm):
         'scope':'Entire bearing length and yield moment use supplied root diameter; nominal-D bearing stress, holes, spacing and edge criteria retained. Cd=1. Root dimension and Fyb remain specified material inputs.'}
 
 
-def connection_groups(rows):
+def connection_groups(rows, *, allowed_counts=(2, 4)):
     """Group by physical member pair, not all fasteners touching one member."""
     groups = {}
     for name, row in rows.items():
@@ -68,15 +68,15 @@ def connection_groups(rows):
         if pair[0] == pair[1]:
             raise ValueError('A bolt must connect two different members')
         groups.setdefault(pair, []).append(name)
-    if any(len(names) not in (2, 4) for names in groups.values()):
-        raise ValueError('This candidate requires two-bolt endpoints and four-bolt splices')
+    if any(len(names) not in allowed_counts for names in groups.values()):
+        raise ValueError(f'Connection bolt counts must be one of {allowed_counts}')
     return groups
 
 
-def local_groups(rows, geometry, actual):
+def local_groups(rows, geometry, actual, *, allowed_counts=(2, 4)):
     """NDS parallel checks and supplemental EC5 splitting for each actual joint."""
     result = {}
-    for pair, names in connection_groups(rows).items():
+    for pair, names in connection_groups(rows, allowed_counts=allowed_counts).items():
         diameters = {geometry['geometries_by_bolt_name'][name]['diameter_mm'] for name in names}
         holes = {geometry['hardware_by_name'][name]['hole_diameter_mm'] for name in names}
         if len(diameters) != 1 or len(holes) != 1:

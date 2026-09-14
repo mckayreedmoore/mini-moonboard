@@ -1,7 +1,8 @@
 # Current design basis and decision log
 
-The preferred development candidate is **compact-spliced-knee-development**, selected September 13, 2026.
-See the [spliced-knee study](compact-splice-study.md) for its current verification status.
+The selected candidate is **compact-floor-rail-development**, selected September 14, 2026.
+Use the [floor-rail study and conditional fabrication package](clear-space-study.md)
+for its current verification status. The spliced-knee assembly remains a preserved reference.
 This document records the project's design choices and the scope of its
 calculations. It does not establish an approved climber weight limit.
 
@@ -10,9 +11,10 @@ calculations. It does not establish an approved climber weight limit.
 | Geometry | The published candidate has no custom steel base shoes. Its main climbing face begins at a datum 277 mm above the floor. |
 | Pad allowance | The design provides 150 mm of exposed kicker above a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear directly on the floor; the pad carries no structural load. |
 | Support legs and outer rims | Each support leg and outer rim uses a single nominal 4×6 member. Outer rims sit flush with panel edges; affected horizontal rails are shortened. The header and posts use nominal 2×6 stock with a 139.7 mm front-to-back depth. No doubled vertical members are introduced. |
-| Base connection | The rims bear directly on the timber header. Two restored ML24Z angles each use six specified SDS screws. |
-| Leg connection | Each leg uses two centered ½-inch upper bolts at 56 mm pitch. Four independent unnotched diagonal 2×6 pieces form two knees; each side has four ⅜-inch splice bolts and two ⅜-inch bolts at each endpoint. Total: 20 complete bolt stacks. No composite action is assumed across the lap. |
-| End finish and bolt orientation | Knee ends terminate flush with adjoining host outlines. Rear-leg tops retain 18 mm normal projection beyond the rim for bolt end distance. Only inward-facing bolt tips are reversed; all nuts/tips now face away from the central climbing space. The [trim assessment](compact-spliced-construction/end-trim-check.json) uses the retained six-case response with explicit exterior-tail stiffness/gravity assumptions. |
+| Base connection | The rims bear directly on the timber header. Two ML24Z base angles each use six specified SDS screws, with the corrected placement at Y = −105.85 mm and 19.05 mm header-edge clearances. Unlisted angle separation and independent flange couples remain unqualified. |
+| Leg connection | Two centered ½-inch upper bolts per leg remain at 56 mm pitch. Two continuous single 2×6 floor rails replace the raised knees, with two ⅜-inch bolts at each rail end. Total: 12 complete bolt stacks. |
+| Floor rails and kicker clearances | Each rail is 1880 × 139.7 × 38.1 mm, with its bottom at floor level. Outer posts move inward 38.1 mm; matching kicker notches are 40.1 × 141.7 mm, with 2 mm rail clearance. Use the floor-specific relocated attachment axes and stock profiles. |
+| End finish and bolt orientation | Inclined rim ends retain 7 mm rear projection; rear-leg tops retain 18 mm projection normal to the rim rear face. Nuts and threaded ends face outward. Use the [floor-specific package](clear-space-study.md#candidate-specific-fabrication-packages), not the preceding knee drilling sheets. |
 | Panels and hold attachment | The accepted plywood and T-nut construction remains the design basis. Additional testing or an upgrade requires a specific identified deficiency. |
 | Material calculations | The calculations use published values for the specified species and grade. The lumber basis is dry, unincised Douglas Fir–Larch No. 2. |
 | Supports | Timber contact with the floor can carry compression, and the feet are assumed not to slide. Physical floor-friction testing is outside the agreed scope. |
@@ -22,9 +24,10 @@ calculations. It does not establish an approved climber weight limit.
 | Completion endpoint | Engineer-unreviewed DIY documentation; independent engineer sign-off is not required. Unresolved calculated limitations remain explicit. |
 | Design changes | Members or hardware should be enlarged only when a justified calculation identifies a governing shortfall. |
 
-For other pad heights, follow the coordinated geometry changes in the
-[current construction package](current-construction-package.md#adapting-to-a-different-pad-height).
-The main-face datum must equal pad height plus 150 mm to preserve the exposed kicker.
+The selected floor-rail package uses the stated 127 mm pad allowance. A different
+pad height requires coordinated geometry and schedule changes; the main-face datum
+must equal pad height plus 150 mm to preserve the exposed kicker. Historical
+pad-adaptation instructions do not constitute a checked floor-rail variant.
 
 ## Preserved baseline evidence and remaining decisions
 
@@ -55,9 +58,16 @@ larger exploratory layouts using current stock boundaries and saved joint
 resultants. It does not select an upgrade: the changed assembly must supply its
 own demands, and the screen does not establish that larger stock is necessary.
 
-The selected spliced-knee assembly supersedes those historical connection
-trials. Its current decision is recorded in the [completion record](current-diy-completion-record.md)
-and [study](compact-splice-study.md), with matching [build instructions](compact-spliced-build-package.md).
+The selected floor-rail assembly supersedes those historical connection trials
+and the earlier selected inboard spliced knees. Its current decision is recorded
+in the [completion record](current-diy-completion-record.md) and
+[floor-rail study](clear-space-study.md). All six corrected cases meet their
+25 listed conditional criteria; the separate refined floor-contact sensitivity
+also meets those criteria. The stated hardware/thread conditions, no-slip
+assumption and unqualified commercial-angle actions remain explicit limits.
+The [spliced-knee study](compact-splice-study.md) and
+[build package](compact-spliced-build-package.md) remain reference evidence.
+No acceptance transfers between these assemblies.
 
 A targeted physical test would be appropriate if a remaining uncertainty affects
 the design decision and cannot be resolved adequately through calculation or

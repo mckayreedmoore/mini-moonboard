@@ -47,7 +47,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     model = importlib.import_module('mini_moonboard.'+MODELS[args.candidate])
     if args.floor_grid:
-        if args.candidate != 'floor':
+        if not args.candidate.startswith('floor'):
             parser.error('--floor-grid requires floor candidate')
         model.FLOOR_RAIL_GRID = tuple(args.floor_grid)
     print('Building actual receiver geometry', flush=True)

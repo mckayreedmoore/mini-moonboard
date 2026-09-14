@@ -16,8 +16,19 @@ from scripts.clear_space_study import MODELS
 PACKAGE = 'docs/clear-space-study.md'
 
 
+def package_path(kind):
+    return 'docs/floor-rail-2x4-study.md' if kind == 'floor2x4' else PACKAGE
+
+
+def hardware_path(kind):
+    return 'docs/floor-rail-2x4-hardware.md' if kind == 'floor2x4' else 'docs/clear-space-hardware.md'
+
+
 def sources(model, kind):
     hashes = shared.sources()
+    if kind == 'floor2x4':
+        reference = 'docs/floor-rail-2x4-hardware-reference.json'
+        hashes[reference] = shared.digest(shared.ROOT/reference)
     pending = [Path(__file__).resolve(), Path(model.__file__).resolve()]
     visited = set()
     while pending:
@@ -55,7 +66,8 @@ def native_source_requirements(active):
         shared.ROOT/'fea/current_response_model.py', shared.ROOT/'fea/current_response_materials.py'])
     required = {str(path.relative_to(shared.ROOT)):shared.digest(path) for path in native}
     required.update({name:sha for name, sha in active.items()
-                     if name.startswith('mini_moonboard/') and name.endswith('.py')})
+                     if (name.startswith('mini_moonboard/') and name.endswith('.py'))
+                     or (name.startswith('docs/') and name.endswith('-reference.json'))})
     return required
 
 
@@ -92,7 +104,9 @@ def status(kind, model):
             geometry = json.loads((path.parent/'geometry.json').read_text())
             cases.append(validate_case(report, geometry, json.loads(path.read_text()), model.KEY, case, required))
     passed = len(cases) == len(CASES) and all(r.get('criteria') and all(r['criteria'].values()) for r in cases)
-    label = '2×6 floor rails · no raised knees' if kind == 'floor' else 'Exterior 4×6 / 2×6 braces · no inboard knee wood'
+    label = {'floor':'2×6 floor rails · no raised knees',
+             'floor2x4':'2×4 floor rails · no raised knees',
+             'exterior':'Exterior 4×6 / 2×6 braces · no inboard knee wood'}[kind]
     decision = ('Conditional listed checks met' if passed else
         'NOT ACCEPTED · numerical response rejected' if any(
             row.get('status') == 'INVALID_RESPONSE_DIAGNOSTIC_ONLY' for row in cases) else
@@ -103,13 +117,14 @@ def status(kind, model):
 def export(kind, root=Path('site')):
     model = importlib.import_module('mini_moonboard.'+MODELS[kind])
     label = status(kind, model)
+    package = package_path(kind)
     scope = ('Finite recorded load cases and material/hardware assumptions apply. '
         'No-slip floor and accepted panel basis retained. Unlisted commercial-angle separation '
-        'and independent flange moments remain explicit limits. See '+PACKAGE+'.')
+        'and independent flange moments remain explicit limits. See '+package+'.')
     def metadata(parts, connections):
         bolts = [c for c in connections if c.kind == 'bolt']
         return {**shared.design_metadata(parts, connections), 'key':model.KEY,
-            'status':label, 'description':label+'. '+scope, 'build_package':PACKAGE,
+            'status':label, 'description':label+'. '+scope, 'build_package':package,
             'assessment_scope':scope, 'leg_stock':'4x6', 'outer_rim_stock':'4x6',
             'leg_bolt_count':4, 'bolts_per_leg':2, 'total_bolt_count':len(bolts),
             'knee_piece_count':len(model.KNEE_NAMES), 'upper_bolt_pitch_mm':56.,
@@ -124,9 +139,9 @@ def export(kind, root=Path('site')):
         if not fabrication.get('clearance_status', '').startswith('FAIL'):
             fabrication['clearance_status'] = label+'. '+scope
         fabrication['description'] = part['name']+'. '+label+'. '+scope
-        fabrication['build_package'] = PACKAGE
+        fabrication['build_package'] = package
         if fabrication['kind'] == 'bolt':
-            fabrication['hardware_reference'] = 'docs/clear-space-hardware.md'
+            fabrication['hardware_reference'] = hardware_path(kind)
     inventory_path.write_text(json.dumps(inventory, indent=2, allow_nan=False)+'\n')
     manifest_path = directory/'manifest.json'
     manifest = json.loads(manifest_path.read_text())

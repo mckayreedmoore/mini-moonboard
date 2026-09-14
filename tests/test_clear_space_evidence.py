@@ -45,3 +45,34 @@ def test_floor_bearing_uses_cell_area_and_requires_every_contact():
     del missing['physical_connection_forces']['floor_base_floor_left_3']
     with pytest.raises(ValueError, match='inventory differs'):
         floor_bearing_check(missing, geometry)
+
+
+def test_short_floor_candidate_keeps_its_own_package_and_hardware_reference():
+    from mini_moonboard import compact_floor_rail_2x4_frame as short
+    from mini_moonboard import compact_floor_rail_frame as original
+    from scripts.clear_space_construction import kicker_notch_records
+
+    quarter = 'docs/floor-rail-2x4-hardware-reference.json'
+    current = exports.sources(short, 'floor2x4')
+    historical = exports.sources(original, 'floor')
+    assert quarter in current and quarter not in historical
+    assert quarter in exports.native_source_requirements(current)
+    assert quarter not in exports.native_source_requirements(historical)
+    assert exports.package_path('floor2x4') == 'docs/floor-rail-2x4-study.md'
+    assert exports.hardware_path('floor2x4') == 'docs/floor-rail-2x4-hardware.md'
+    assert exports.package_path('floor') == 'docs/clear-space-study.md'
+    records = kicker_notch_records(short)
+    assert len(records) == 2
+    assert all(row['width_mm'] == pytest.approx(40.1) and row['height_mm'] == pytest.approx(90.9)
+               for row in records)
+
+
+def test_three_bolt_trial_groups_require_explicit_opt_in():
+    from scripts.compact_splice_results import connection_groups
+    rows = {f'bolt_{i}': {'first': 'post', 'second': 'rail'} for i in range(3)}
+    with pytest.raises(ValueError, match='bolt counts'):
+        connection_groups(rows)
+    assert len(connection_groups(rows, allowed_counts=(2, 3))[('post', 'rail')]) == 3
+    rows['bolt_4'] = {'first': 'post', 'second': 'rail'}
+    with pytest.raises(ValueError, match='bolt counts'):
+        connection_groups(rows, allowed_counts=(2, 3))

@@ -1,12 +1,56 @@
 # Current DIY completion record
 
+The selected candidate is **`compact-floor-rail-development`**, September 14,
+2026. Its [study and conditional fabrication package](clear-space-study.md)
+are the current authorities. The agreed endpoint remains documented,
+engineer-unreviewed DIY design under explicit assumptions, not certification
+or an unconditional climber weight rating.
+
+## Selected detail and finite completion
+
+Two continuous single 2×6 floor rails replace the raised knees. Retain the
+solid 4×6 legs and flush rims, compact 2×6 header/posts, two centered ½-inch
+upper bolts per leg at 56 mm pitch, and two ⅜-inch bolts at each rail end:
+**12 complete bolt stacks**. The floor-specific package includes moved outer
+posts, shifted clips and kicker screws, and the required kicker notches.
+The 277 mm main-face datum, 127 mm pad allowance, accepted panel/T-nut basis
+and 66 panel/kicker screws remain. Pads do not support the timber.
+
+| Deliverable | Evidence and disposition |
+| --- | --- |
+| Current assembled response | Six corrected floor cases meet all 25 listed conditional criteria per case; maximum adopted bolt ratio 0.825. Earlier notch-omitted runs are superseded diagnostics. |
+| Contact sensitivity | The separate 14×2 rail-contact refinement also meets all 25 criteria. Global bolt/deflection results are stable in this comparison; local pressure is not converged. |
+| Hardware and installation | Use the [floor hardware schedule](clear-space-hardware.md). Full-body/thread-transition conditions govern the passing nominal-diameter route; the 1.038 full-thread-root sensitivity does not qualify fully threaded substitutes. |
+| Matching fabrication | The [floor packet](clear-space-study.md#candidate-specific-fabrication-packages) supplies stock, actual profiles, connection axes, notch sheets, hardware and assembly guidance for this exact candidate. Do not mix it with knee or exterior-brace schedules. |
+| Software/artifact evidence | The [study](clear-space-study.md#software-and-artifact-verification) records clean exports, checksum and browser checks for the floor geometry. These checks do not add structural qualification. |
+
+The finite floor-rail assessment and conditional package are complete under
+their stated scope. **Commercial-angle unlisted separation and independent
+flange couples remain unqualified**; rated component-force checks do not
+supply those capacities. No-slip support remains an explicit analytical
+assumption, not measured floor friction or an installed anchor. Accepted
+panel construction is retained. No new general panel campaign, floor-friction
+test, external engineer review or failure-weight search is added.
+
+The previous spliced-knee selection and its completed evidence remain below
+as a reference. They do not transfer acceptance to the floor assembly. A
+separate 2×4 floor-rail trial is not selected or accepted by this record;
+optional exploration does not reopen the completed 2×6 package.
+
+## Preserved spliced-knee completion record, September 13
+
+The following records the preceding selection, including its original
+completion and subsequent installation changes. References to “current” or
+“selected” within this historical record apply to the spliced-knee candidate,
+not today's floor-rail assembly.
+
 The selected candidate is **`compact-spliced-knee-development`**, September 13,
 2026. Its [study](compact-splice-study.md) and [build package](compact-spliced-build-package.md)
 are the current authorities. The agreed endpoint is a documented
 **engineer-unreviewed DIY design**, not professional certification, physical
 inspection or an unconditional climber weight rating.
 
-## Selected detail and scope
+### Selected detail and scope
 
 The frame uses solid 4×6 legs and flush outer rims, a compact 2×6 header/posts,
 and two centered ½-inch upper bolts per leg at 56 mm pitch. Four independent
@@ -27,7 +71,7 @@ multipliers and 300 N horizontal scenarios. The study defines their exact
 positions, directions and equipment assumptions. These finite scenarios are
 not a measured impact spectrum or every possible climbing action.
 
-## Finite completion gates
+### Finite completion gates
 
 | Deliverable | Evidence and disposition |
 | --- | --- |
@@ -42,7 +86,7 @@ Those are not added completion gates. Explicit analytical/material/installation
 assumptions remain limitations of the DIY package; owner acceptance does not
 turn a failed calculation into a passing one.
 
-## Historical evidence
+### Historical evidence
 
 The [original response](current-frame-response.md), [compact three-bolt study](compact-thick-study.md),
 [solid-4×6 pivot study](thick-leg-pivot-study.md) and intervening knee trials
@@ -54,7 +98,7 @@ The finite task ends when this selected detail has its supported recorded
 result, matching instructions and explicit scope limits. Speculative further
 improvements are not unfinished requirements.
 
-## Completion
+### Completion
 
 Completed September 13, 2026. The selected detail meets the finite analytical
 gates and has matching CAD, viewer, dimensional sheets, stock and hardware
@@ -68,7 +112,7 @@ headless renderer. The current rear image was inspected separately; leg and
 knee SVG sheets were rendered independently for visual inspection. No browser
 JavaScript errors occurred during the passing functional run.
 
-## End-finish and bolt-installation update
+### End-finish and bolt-installation update
 
 The current viewer and drawings use `compact_spliced_trimmed`, wrapping the
 outward-bolt installation and the frozen `compact_spliced_knee_frame` analysis
@@ -90,7 +134,7 @@ deselected; lint and clean current CAD regeneration passed. Functional browser
 checks confirmed all 767 meshes and every outward-facing head/nut pair. Updated
 leg and knee drawings were independently rendered and visually inspected.
 
-## Lower kicker row update
+### Lower kicker row update
 
 The current export adapter is `compact_spliced_kicker`. Four lower kicker screws
 move from Z112 to Z60 mm; all other axes, stock sizes and hardware counts remain

@@ -1,6 +1,6 @@
 # Prototype weight estimates
 
-All 57 viewer prototypes display their modeled weights in kg and lb, both in the
+All 58 viewer prototypes display their modeled weights in kg and lb, both in the
 design menu and beside the selected model. These are estimates, not measured
 weights or load ratings. Current candidates include modeled T-nut envelopes;
 holds, hold bolts, unmodeled retention screws, LEDs and wiring are excluded.
@@ -15,6 +15,7 @@ can change the built weight.
 
 | Prototype | kg | lb | Basis |
 | --- | ---: | ---: | --- |
+| [compact-floor-rail-2x4-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-rail-2x4-development) | 209.2 | 461.3 | mesh estimate; unaccepted trial |
 | [compact-floor-rail-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-rail-development) | 213.9 | 471.6 | mesh estimate |
 | [compact-exterior-brace-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-exterior-brace-development) | 215.0 | 474.0 | mesh estimate |
 | [compact-spliced-knee-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development) | 209.5 | 461.8 | mesh estimate |

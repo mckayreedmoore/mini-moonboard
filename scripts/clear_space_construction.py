@@ -22,6 +22,8 @@ OUT = None
 INVENTORY = None
 model = None
 PACKET_STATUS = None
+PACKAGE = exporter.PACKAGE
+HARDWARE = exporter.hardware_path('floor')
 
 
 def member_grain(candidate, name):
@@ -85,7 +87,7 @@ def kicker_notch_sheets():
             '<text x="25" y="450">Outer post screws: world X = ±1162.05; Z = 60 and 192. All nine axes: panel-attachment-axes.csv.</text>',
             '<text x="25" y="475">Notch-edge clearance to lower outer screw axis: 17.05. Hold/LED drilling: panel-hole-axes.csv.</text>',
             '<text x="25" y="500">SPAX axes shown; occupied diameter does not specify a pilot. Do not bridge the independent center seam.</text>',
-            '<text x="25" y="525">Conditions: ../clear-space-study.md. Hardware: ../clear-space-hardware.md.</text>',
+            f'<text x="25" y="525">Conditions: ../{Path(PACKAGE).name}. Hardware: ../{Path(HARDWARE).name}.</text>',
             '</svg>'])
         (OUT/(name+'-notch-sheet.svg')).write_text('\n'.join(lines)+'\n')
 
@@ -205,7 +207,7 @@ def joined_member_sheets(datums):
         text(25,foot+24,'Full raw side profile shown; these sheets do not include every machining operation.')
         text(25,foot+46,'LED passages: timber-passages.json. Panel/SDS screw axes: connection-axes.csv; no pilot size inferred.')
         text(25,foot+68,'Panel operations: panel-attachment-axes.csv + panel-hole-axes.csv. End details: stock-profiles.json.')
-        text(25,foot+90,'Conditions and installation: ../clear-space-study.md; hardware: ../clear-space-hardware.md + bolt-hardware.csv.')
+        text(25,foot+90,f'Conditions and installation: ../{Path(PACKAGE).name}; hardware: ../{Path(HARDWARE).name} + bolt-hardware.csv.')
         if trim:
             normal = cq.Vector(*trim['keep_normal_xyz'])
             ends = sorted({(round((v-origin).dot(along),3),round((v-origin).dot(cross),3))
@@ -261,8 +263,9 @@ def end_trim_diagram():
 
 
 def generate(kind):
-    global OUT, INVENTORY, model, PACKET_STATUS
+    global OUT, INVENTORY, model, PACKET_STATUS, PACKAGE, HARDWARE
     root = ROOT
+    PACKAGE, HARDWARE = exporter.package_path(kind), exporter.hardware_path(kind)
     model = importlib.import_module('mini_moonboard.'+MODELS[kind])
     OUT = root / ('docs/clear-space-'+kind+'-construction')
     INVENTORY = root / 'site/hybrid' / model.KEY / 'parts.json'
@@ -340,9 +343,10 @@ def generate(kind):
     write_csv('bolt-member-datums.csv', member_datums)
     joined_member_sheets(member_datums)
     end_trim_diagram()
-    if kind == 'floor':
+    if kind in ('floor', 'floor2x4'):
         kicker_notch_sheets()
-    expected_stock, expected_axes, expected_bolts = (26, 222, 12) if kind == 'floor' else (28, 230, 20)
+    expected_stock, expected_axes, expected_bolts = {
+        'floor':(26, 222, 12), 'floor2x4':(26, 224, 14), 'exterior':(28, 230, 20)}[kind]
     if (len(stock)!=expected_stock or len(axes)!=expected_axes or len(panel)!=66
             or sum(c.kind=='bolt' for c in connections)!=expected_bolts
             or sum(r['kind']=='hold' for r in holes)!=142):
@@ -353,7 +357,7 @@ def generate(kind):
     (OUT/'manifest.json').write_text(json.dumps({'candidate': model.KEY,
         'main_face_height_mm': baseline.KICKER_HEIGHT_MM,'source_sha256': sources,
         'assessment_status': PACKET_STATUS,
-        'artifact_sha256': artifacts,'scope': 'Conditional clear-space '+kind+' fabrication packet. Applies only to the recorded candidate and stated loads, hardware/material conditions and installation details. See docs/clear-space-study.md and docs/clear-space-hardware.md. No unconditional qualification.'},indent=2)+'\n')
+        'artifact_sha256': artifacts,'scope': 'Conditional clear-space '+kind+' fabrication packet. Applies only to the recorded candidate and stated loads, hardware/material conditions and installation details. See '+PACKAGE+' and '+HARDWARE+'. No unconditional qualification.'},indent=2)+'\n')
     return OUT
 
 
