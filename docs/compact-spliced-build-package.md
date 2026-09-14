@@ -1,22 +1,33 @@
 # Compact frame with independent spliced knees: DIY build package
 
-**Status: completed conditional DIY build package.** The selected
-`compact-spliced-knee-development` passes all 21 listed conditional criteria
-in all six current assembled load cases. The worst adopted bolt ratio is
-**0.674**, against a limit of 1.0. See the [complete assessment](compact-splice-study.md)
-for the finite load set, numerical checks and remaining analytical limits.
-This is the project's engineer-unreviewed DIY endpoint; it does not establish
-an unconditional climber weight rating. Construction follows the exact stock,
-hardware and installation conditions below.
+**Status: completed conditional DIY build package with a checked end-trim
+revision.** The preserved assembled baseline passes all 21 listed conditional
+criteria in six load cases; its worst adopted bolt ratio is **0.674**, against
+a limit of 1.0. The current package adds outward bolt ends and exterior timber
+trims. Their [installation check](compact-spliced-construction/bolt-installation-check.json)
+and [end-detail check](compact-spliced-construction/end-trim-check.json) accompany
+the [baseline assessment](compact-splice-study.md).
+
+The trim assessment reuses the six baseline force cases and checks current
+receiver fit, end distances, local connections and hardware. It retains the
+original connected-section/stability results and approximates the stiffness
+and gravity effects of the removed exterior tails; no new assembled native
+solve was performed. This is the project's engineer-unreviewed DIY endpoint,
+not an unconditional climber weight rating. Construction follows the exact
+stock, hardware and installation conditions below.
 
 ## Design and package
 
-The frame retains flush single 4×6 legs and outer rims, the compact single
+The frame retains single 4×6 legs and panel-edge-flush outer rims, the compact single
 2×6 header/posts and the 277 mm floor-to-main-face datum. Each leg connects
 to its rim with two ½-inch bolts at 56 mm pitch. Each diagonal knee comprises
 two separate, unnotched single 2×6 pieces: four ⅜-inch bolts connect their
 overlap, and two ⅜-inch bolts attach each endpoint to its host member.
 There is no assumed composite action between overlapping knee pieces.
+The knee tips are cut flush to their adjoining host's exterior depth face.
+Rear-leg tops retain **18 mm projection normal to the rim's rear face**;
+cutting them completely flush would violate the retained upper-bolt end-distance
+reference. Use the individual profiles for these cuts, not an assumed square end.
 
 The [generated packet](compact-spliced-construction/) contains the following:
 
@@ -32,16 +43,20 @@ The [generated packet](compact-spliced-construction/) contains the following:
 | `timber-passages.json` | Enclosed LED passage dimensions and coordinates. |
 | `panel-attachment-axes.csv`, `panel-hole-axes.csv` | Accepted panel screw, hold and LED layouts. |
 | `stock-profiles.json`, `outer-rim-end-trim.svg` | Raw profiles and the retained 7 mm rear-overhang trim detail. |
+| `bolt-installation-check.json` | Outward bolt installation, unchanged axes and hardware equivalence evidence. |
+| `end-trim-check.json` | Current trim geometry, receiver/local checks using six retained force cases, removed mass and explicit response approximation. |
 | `manifest.json` | Source/inventory/generator hashes and generated artifact hashes. |
 
-The eight bolt sheets show nominal profiles and dimensions, not a complete
+The eight bolt sheets show profiles, bolt ordinates and the new end-cut
+angles/endpoints. They are not a complete
 machining definition by themselves. Use the passage and screw-axis schedules
 too. Identify datum D on the actual minimum-X side-face profile, then follow
 the positive grain and cross-grain arrows. Cross-grain ordinates are signed.
 The short H labels map to full connection IDs in each sheet's table and CSV.
 Use the stated dimensions, not image scale. Left/right sheets are individual
-parts; do not substitute an assumed mirror jig. Use the installation dimensions and acceptance conditions below; displayed
-fastener body dimensions are not screw pilot sizes.
+parts; do not substitute an assumed mirror jig. Use the installation dimensions
+and acceptance conditions below; displayed fastener body dimensions are not
+screw pilot sizes.
 
 ## Hardware and material basis
 
@@ -74,6 +89,15 @@ stock schedule: 88.9 × 139.7 mm for legs/rims and 38.1 × 139.7 mm for knee
 pieces. Do not reuse the abandoned three-bolt holes or substitute smaller
 finished sections. Check dimensions before transferring the individual datums.
 
+The nominal end-cut angles measured from square are **36.16° at the rear-leg
+top**, **4.27° at the rim-end knee tip**, and **49.57° at the leg-end knee tip**.
+The last exceeds a common 45° miter-stop range: use an appropriate saw setup
+or a securely clamped cutting jig, following its tool instructions. The
+rim-end knee cut retains only **0.361 mm** beyond the adopted end-distance
+reference after the existing 3 mm geometric allowance. That reserve is not
+extra cutting tolerance; preserve the specified line and verify the finished
+bolt-to-end distances before assembly.
+
 Clamp a drill guide and back the exit face. Target each bolt centre within
 ±0.5 mm of its sheet ordinate, and each cut edge within ±1 mm of its specified
 position. These are project fabrication targets: the resistance geometry
@@ -88,13 +112,18 @@ plus 1/32 inch and plus 1/16 inch. Align the two members accurately; bolts must
 enter without being driven. Do not enlarge a misaligned hole to force assembly.
 These requirements follow [NDS §12.1.3](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf).
 
-Fit the scheduled washer beneath both head and nut, with full, flat wood
-seating. Confirm full usable nut engagement and freedom from thread runout
-before tightening. For the specified nominal-diameter resistance route,
+Install all 20 bolts with heads toward the board center and nuts/threaded
+ends outward: toward negative X on the left and positive X on the right.
+The installation model reverses the four upper bolts, four rim-end bolts and
+eight splice bolts; the four leg-end bolts already face outward. The bolt
+reversal leaves hole locations, bolt sizes and counts unchanged; the exterior
+wood trims are assessed separately. Fit the scheduled
+washer beneath both head and nut, with full, flat wood seating. Confirm full
+usable nut engagement and freedom from thread runout before tightening. For the specified nominal-diameter resistance route,
 measure from under the head to the first reduced shank/thread transition:
-minimum **158.9278 mm for upper bolts**, **107.4166 mm for knee endpoints**,
-and **69.3166 mm for knee splices**, using the maximum head-washer thickness
-and scheduled wood grip. Recalculate these limits for actual grip and washer
+minimum **158.9278 mm for upper bolts**, **120.1166 mm for rim endpoints**,
+**107.4166 mm for leg endpoints**, and **69.3166 mm for knee splices**, using
+the maximum head-washer thickness and scheduled wood grip. Recalculate these limits for actual grip and washer
 dimensions as described in the hardware assessments. Catalog minimum thread
 length does not guarantee these shank lengths. Reject unsuitable hardware;
 do not silently switch to the root-diameter sensitivity as a build basis.
@@ -122,14 +151,16 @@ friction or destructive proof-test requirement.
    Confirm actual stock and hardware against the final specification before
    laying out holes.
 2. Cut the raw member lengths and end profiles. Preserve the specified
-   header depth and 7 mm rear projection; keep all four knee pieces unnotched.
+   header depth and 7 mm rear projection. Apply the drawn knee tip cuts and
+   retain the 18 mm rear-leg top projection; add no notches to the knee pieces.
    Lay out bolt holes from each member's own datum, and complete the scheduled
    LED passages and screw operations using the final installation details.
 3. Assemble each leg/rim side pair with its two upper bolts while supported
    in its required geometry. Position its two knee pieces on their specified
    opposite faces. Fit their endpoint and four overlap bolts with complete
-   washer/nut stacks. Keep the overlap pieces independent; add no adhesive
-   or unscheduled fastening to imply composite action.
+   washer/nut stacks, heads inward and nuts/threaded ends outward. Keep the
+   overlap pieces independent; add no adhesive or unscheduled fastening to
+   imply composite action.
 4. With temporary support maintaining alignment, assemble the header, posts,
    principals and shortened rails using the scheduled commercial angles and
    screws. Check floor contact, member positions, trim bearing and service

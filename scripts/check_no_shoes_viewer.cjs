@@ -64,6 +64,19 @@ fs.mkdirSync(output, {recursive: true});
       for (const roles of stacks.values()) {
         assert.deepEqual(roles.sort(), ['far_washer', 'head', 'near_washer', 'nut', 'shaft']);
       }
+      const outwardStacks = await page.evaluate(() => {
+        const ends = new Map();
+        for (const mesh of window.cadTest.meshes) {
+          const f = mesh.userData.part.fabrication;
+          if (f?.kind !== 'bolt' || !['head', 'nut'].includes(f.hardware_role)) continue;
+          mesh.geometry.computeBoundingBox();
+          const row = ends.get(f.connection_name) || {};
+          row[f.hardware_role] = Math.abs(mesh.geometry.boundingBox.getCenter(new window.cadTest.THREE.Vector3()).x);
+          ends.set(f.connection_name, row);
+        }
+        return ends.size === 20 && [...ends.values()].every(r => r.nut > r.head);
+      });
+      assert.ok(outwardStacks, 'Threaded ends face away from the central climbing space');
       assert.equal(manifest.design.total_bolt_count, 20);
       assert.equal(manifest.design.knee_piece_count, 4);
       assert.equal(manifest.design.upper_bolt_pitch_mm, 56);

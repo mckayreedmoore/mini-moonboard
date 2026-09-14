@@ -67,3 +67,25 @@ run after screenshot capture stalled during viewport changes in the local
 headless renderer. The current rear image was inspected separately; leg and
 knee SVG sheets were rendered independently for visual inspection. No browser
 JavaScript errors occurred during the passing functional run.
+
+## End-finish and bolt-installation update
+
+The current viewer and drawings use `compact_spliced_trimmed`, wrapping the
+outward-bolt installation and the frozen `compact_spliced_knee_frame` analysis
+definition. Sixteen inward-facing stacks were reversed; four already-outward
+endpoint stacks were retained. All 40 actual receivers/washer seats pass after
+the end cuts. Knee tips are flush; leg tops retain 18 mm projection.
+
+[Current trim checks](compact-spliced-construction/end-trim-check.json) reapply
+the six saved force cases to current end geometry and hardware. The highest
+bolt ratio remains 0.674; updated local parallel ratio is 0.276. Cuts remove
+1.410 kg of modeled wood and remain beyond every bolt bore's full-section span.
+Original native stiffness and gravity placement are retained as an explicit
+small exterior-tail approximation. These are not six newly solved trimmed
+assemblies. See the matching build package for tighter rim-end bolt shank
+acceptance, cutting datums and the retained geometric tolerances.
+
+Validation for this update: 445 default tests passed, 15 historical tests
+deselected; lint and clean current CAD regeneration passed. Functional browser
+checks confirmed all 767 meshes and every outward-facing head/nut pair. Updated
+leg and knee drawings were independently rendered and visually inspected.

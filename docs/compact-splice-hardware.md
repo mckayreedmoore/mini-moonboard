@@ -35,9 +35,13 @@ unverified threaded regions may be analyzed at full nominal diameter.
 
 ## Stack and thread feasibility
 
-Both connections have their heads on a 38.1 mm brace. Splices contain two
-38.1 mm pieces, giving **76.2 mm** wood grip; brace-to-host connections contain
-38.1 + 88.9 mm, giving **127 mm** grip. The following arithmetic uses the
+Install all bolt heads toward the board center and nuts/threaded ends toward
+the outside. At the rim endpoint, the head seats on the 88.9 mm rim and the
+nut on the 38.1 mm knee piece; at the leg endpoint, the head seats on the
+38.1 mm knee piece and the nut on the 88.9 mm leg. At each splice, the head
+seats on the inboard knee piece and the nut on the outboard knee piece.
+Splices contain two 38.1 mm pieces, giving **76.2 mm** wood grip; brace-to-host
+connections contain 38.1 + 88.9 mm, giving **127 mm** grip. The following arithmetic uses the
 shortest catalog bolt, two thickest washers (2.6416 mm each), and tallest nut
 (8.5598 mm). It assumes the stated wood grips without additional stock variation.
 
@@ -60,14 +64,29 @@ Therefore the model's exact 25.4 mm thread length cannot serve as a maximum
 thread-penetration guarantee. For the established quarter-bearing conditional
 nominal-diameter route, count the entire transition as threaded material.
 With a maximum-thickness head washer, the first reduced/transition section
-must begin no earlier than **69.3166 mm** from under the head for the splice
-(76.2 + 2.6416 − 38.1/4), or **107.4166 mm** for the endpoint
-(127 + 2.6416 − 88.9/4). Check actual wood and washer dimensions when applying
-these thresholds. Hardware that does not meet these conditions is outside the selected nominal-
-diameter build basis; the reference-root sensitivity does not qualify an
+must begin no earlier than the following distances from under the head:
+
+| Connection | Nut-side wood thickness | Minimum full-body shank through transition |
+| --- | ---: | ---: |
+| Splice | 38.1 mm | **69.3166 mm** = 76.2 + 2.6416 − 38.1/4 |
+| Rim endpoint | 38.1 mm | **120.1166 mm** = 127 + 2.6416 − 38.1/4 |
+| Leg endpoint | 88.9 mm | **107.4166 mm** = 127 + 2.6416 − 88.9/4 |
+
+Reversing the rim-end bolts places their threads in the thinner knee member,
+so their required unthreaded length increases. The scheduled 6-inch bolt
+remains usable only when its actual transition satisfies this tighter limit.
+Check actual wood and washer dimensions when applying these thresholds.
+Hardware that does not meet these conditions is outside the selected
+nominal-diameter build basis; the reference-root sensitivity does not qualify an
 unmeasured thread root.
 
-No model or native-source geometry changed during this procurement review.
-The [current six-case assessment](compact-splice-study.md) checks this
+The installation orientation is supplied by
+`mini_moonboard/compact_spliced_installation.py`; the archived six-case native
+model retains its original hardware orientation. Timber geometry, holes,
+bolt diameters, grips and matched washer envelopes remain unchanged. Both
+washer seats use the same conservative resistance inputs; reversing head and
+nut does not change those comparisons. See the current build package for the
+installation revision and its equivalence evidence. The
+[current six-case assessment](compact-splice-study.md) checks this
 minimum-dimension resistance envelope and passes every listed conditional
 criterion. Catalog availability alone does not qualify delivered components.

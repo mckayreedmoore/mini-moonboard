@@ -39,7 +39,10 @@
     "total_bolt_count": 20,
     "knee_piece_count": 4,
     "upper_bolt_pitch_mm": 56.0,
-    "joint_note": "Two upper bolts per leg; each knee has two independent unnotched members, four splice bolts and two bolts at each host end. No composite action or free-rotation hinge is assumed."
+    "bolt_installation": "Heads inside; nuts and threaded ends outside",
+    "leg_top_projection_mm": 18.0,
+    "end_trim_note": "Knee tips flush; leg tops retain 18 mm beyond rim for bolt end distance",
+    "joint_note": "Knee ends trimmed flush; rear-leg tops retain 18 mm beyond rim for bolt end distance. Heads inside; nuts and threaded ends outside. Two upper bolts per leg; each knee has two independent unnotched members, four splice bolts and two bolts at each host end. No composite action or free-rotation hinge is assumed."
   },
   "parts": [
     {
@@ -287,8 +290,8 @@
       "path": "hybrid/compact-spliced-knee-development/models/lumber_leg_left.stl",
       "viewer_aabb_mm": [
         88.90000000000032,
-        620.7568508126907,
-        1969.6014222036026
+        592.2380538738098,
+        1952.9574663269061
       ],
       "fabrication": {
         "dimensions_mm": [
@@ -307,8 +310,8 @@
       "path": "hybrid/compact-spliced-knee-development/models/lumber_leg_right.stl",
       "viewer_aabb_mm": [
         88.90000000000032,
-        620.7568508126907,
-        1969.6014222036026
+        592.2380538738098,
+        1952.9574663269061
       ],
       "fabrication": {
         "dimensions_mm": [
@@ -3846,9 +3849,9 @@
       "name": "base_knee_left_rim",
       "path": "hybrid/compact-spliced-knee-development/models/base_knee_left_rim.stl",
       "viewer_aabb_mm": [
-        38.09999999999991,
-        503.30868801621637,
-        416.78038081649674
+        38.100000000000136,
+        475.1075073673786,
+        390.4021213500614
       ],
       "fabrication": {
         "dimensions_mm": [
@@ -3866,8 +3869,8 @@
       "name": "base_knee_left_leg",
       "path": "hybrid/compact-spliced-knee-development/models/base_knee_left_leg.stl",
       "viewer_aabb_mm": [
-        38.09999999999991,
-        552.0155576489321,
+        38.100000000000136,
+        510.0806628779271,
         451.8180869426352
       ],
       "fabrication": {
@@ -3886,9 +3889,9 @@
       "name": "base_knee_right_rim",
       "path": "hybrid/compact-spliced-knee-development/models/base_knee_right_rim.stl",
       "viewer_aabb_mm": [
-        38.100000000000136,
-        503.30868801621637,
-        416.78038081649674
+        38.100000000000364,
+        475.1075073673786,
+        390.4021213500614
       ],
       "fabrication": {
         "dimensions_mm": [
@@ -3906,8 +3909,8 @@
       "name": "base_knee_right_leg",
       "path": "hybrid/compact-spliced-knee-development/models/base_knee_right_leg.stl",
       "viewer_aabb_mm": [
-        38.09999999999991,
-        552.0155576489321,
+        38.100000000000136,
+        510.0806628779271,
         451.8180869426352
       ],
       "fabrication": {

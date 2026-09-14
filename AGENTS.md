@@ -259,3 +259,16 @@ engineer-unreviewed DIY under explicit loads, catalog hardware, lumber material
 and no-slip floor assumptions. Do not add external review or a floor test as a
 new gate, claim an unconditional rating, or retain historical three-bolt failure
 as the selected model's decision.
+
+## Current exterior finish and bolt installation
+
+Current exports and construction schedules use `compact_spliced_trimmed`,
+wrapping `compact_spliced_installation`; the six-case native definition remains
+frozen in `compact_spliced_knee_frame`. Keep all 20 bolt tips facing away from
+the central climbing space: 16 were reversed, four were already outward. Knee
+ends are flush to adjoining host depth faces. Rear-leg tops retain 18 mm normal
+projection beyond the rim to preserve end distance. Do not remove that reserve
+to make a visually flush top without rechecking the joint. The current trim
+assessment uses retained native forces/stiffness/gravity with an explicit small
+exterior-tail approximation; do not claim an identical native mesh or six new
+trimmed solves. Preserve both installation/trim evidence and baseline archives.

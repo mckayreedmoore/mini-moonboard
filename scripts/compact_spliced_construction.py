@@ -10,7 +10,7 @@ from pathlib import Path
 
 import cadquery as cq
 
-from mini_moonboard import compact_spliced_knee_frame as model
+from mini_moonboard import compact_spliced_trimmed as model
 from mini_moonboard import no_shoes_frame as baseline
 from mini_moonboard import panel_grid_v2 as grid
 from scripts import compact_spliced_exports as exporter
@@ -92,7 +92,8 @@ def joined_member_sheets(datums):
         scale = min(860/(xmax-xmin), 140/(ymax-ymin))
         def xy(a, c, xmin=xmin, ymin=ymin, scale=scale):
             return 70+(a-xmin)*scale, 270-(c-ymin)*scale
-        height = 640+len(holes)*27
+        trim = model.trim_planes().get(name)
+        height = 640+len(holes)*27+(75 if trim else 0)
         lines = [f'<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}">',
             f'<title>{escape(name)} nominal side-face profile and bolt coordinates</title>',
             '<rect width="100%" height="100%" fill="white"/>',
@@ -134,6 +135,15 @@ def joined_member_sheets(datums):
         text(25,foot+46,'LED passages: timber-passages.json. Panel/SDS screw axes: connection-axes.csv; no pilot size inferred.')
         text(25,foot+68,'Panel operations: panel-attachment-axes.csv + panel-hole-axes.csv. End details: stock-profiles.json.')
         text(25,foot+90,'Conditions and installation: ../compact-spliced-build-package.md; hardware: bolt-hardware.csv.')
+        if trim:
+            normal = cq.Vector(*trim['keep_normal_xyz'])
+            ends = sorted({(round((v-origin).dot(along),3),round((v-origin).dot(cross),3))
+                           for v in vertices if abs(v.x-origin.x)<1.e-6
+                           and abs(v.dot(normal)-trim['offset_mm'])<1.e-5})
+            if len(ends) != 2:
+                raise ValueError('Expected two side-profile trim endpoints: '+name)
+            text(25,foot+118,f'End cut: {trim["angle_from_square_deg"]:.3f}° off square. Connect these two (A, C) points from D:')
+            text(25,foot+142,' to '.join(f'({a:.3f}, {c:.3f}) mm' for a,c in ends))
         lines.append('</svg>')
         (OUT/(name+'-bolt-sheet.svg')).write_text('\n'.join(lines)+'\n')
 

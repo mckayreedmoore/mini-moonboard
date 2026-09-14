@@ -9,13 +9,16 @@ owner accepts the panel construction and excludes floor-friction qualification;
 the calculations use explicit no-slip support assumptions. Neither the model
 nor this study establishes an unconditional climber weight rating.
 
-**All six archived load cases meet all 21 listed conditional criteria.** The
+**All six archived baseline load cases meet all 21 listed conditional criteria.** The
 largest adopted bolt comparison is 0.67414, the largest sampled net-member
 comparison is 0.44477, and every sampled member passes the implemented
 stability gate. The finite analytical task is complete under the stated
 assumptions; this decision does not depend on another speculative design
 iteration. Component conformity and the documented assembly checks remain
-part of using the selected detail.
+part of using the selected detail. The current installation adds outward bolt
+ends and exterior timber trims. The end-detail assessment below reuses these
+baseline forces with an explicit unloaded-tail response approximation; the
+six native archives are not newly solved trimmed assemblies.
 
 ## Physical arrangement and analytical load path
 
@@ -28,7 +31,7 @@ bolts, eight knee endpoint bolts and eight splice bolts: **20 bolts total**.
 The compact 2x6 base and the small existing inclined-member end trims remain.
 
 The two knee pieces occupy their actual neighboring X positions. Native
-analysis represents separate rectangular timber members, individual finite
+baseline analysis represents separate rectangular timber members, individual finite
 bolt springs and compression-only contact over the overlap. It credits no
 glue, tensile wood tie, interface friction or composite action between the
 pieces. This removes the earlier notched 4x6 brace's unresolved shoulder
@@ -75,7 +78,7 @@ native recovery sample. Contact pressure uses actual compression force divided
 by its tributary area and the assumed 625 psi wood-bearing reference. Opening
 contacts carry no tensile reaction.
 
-Across all six cases, the other governing quantities are:
+Across all six baseline cases, the other governing quantities are:
 
 | Comparison or geometric reserve | Governing value |
 | --- | ---: |
@@ -93,14 +96,68 @@ Across all six cases, the other governing quantities are:
 
 The spacing reserve is reported by its own geometric screen; it must not be
 read as an additional unallocated drilling tolerance. All six cases also pass
-actual receiver fit, machining completeness and the existing base end-cut
-geometry gate.
+baseline receiver fit, machining completeness and the existing base end-cut
+geometry gate. The new exterior-trim distances are reported separately below.
 
 The force-directed 4D loaded-edge rule is a conservative interpretation for
 oblique loading; it is not presented as an explicit universal NDS oblique
 minimum. Supplemental EC5 splitting is an additional check, not an NDS
 perpendicular-tension allowable. The selected finite case set is not an
 exhaustive proof of all possible climbing actions.
+
+## Current outward-bolt and exterior-trim revision
+
+`mini_moonboard/compact_spliced_installation.py` reverses the sixteen bolt
+stacks that formerly pointed inward; four leg-end stacks already pointed
+outward. All twenty now have heads inward and nuts/threaded ends outward.
+The [bolt installation evidence](compact-spliced-construction/bolt-installation-check.json)
+checks the unchanged wood, axes, interfaces and hardware envelopes for that
+orientation-only revision. The rim-end nominal-diameter shank requirement
+increases to **120.1166 mm** because its threads now enter the thinner knee
+piece; the hardware and build schedules give all four applicable thresholds.
+
+`mini_moonboard/compact_spliced_trimmed.py` then cuts the six exterior timber
+tails. Both rear-leg tops retain **18 mm normal projection** beyond the rim
+rear face to preserve the upper-bolt end-distance reference. Rim-end knee
+tips finish at the rim rear face; leg-end tips finish at the leg outer depth
+face. Existing shorter portions remain unchanged. These are plain end cuts,
+not shoulder notches or reduced-width tabs. Nominal angles from square are
+36.16°, 4.27° and 49.57°, respectively.
+
+The [current end-detail evidence](compact-spliced-construction/end-trim-check.json)
+records all forty actual bolt receivers, revised directional edge/end geometry,
+washer seating, the six retained force cases, local connection and hardware
+comparisons, and removed timber volume/mass. The rim-end cut leaves only
+**0.361 mm** beyond the adopted 7D end-distance reference after the existing
+3 mm geometric allowance. The build instructions preserve that allowance;
+it is not additional shop tolerance.
+
+Every cut lies beyond the outermost bolt bore stations across the full member
+section. The smallest longitudinal separation is approximately **1.138 mm**
+at the leg-end knee tip; upper-leg and rim-end separations are approximately
+25.650 mm and 57.411 mm. The bolted overlap and the full-section span between
+connections remain intact. This geometric observation supports the bounded
+**unloaded-tail stiffness approximation**; it does not establish identical
+member stiffness. The current detail assessment retains the original native
+stiffness, gravity placement, connected-section and stability results while
+rechecking end distances, local connections and hardware against all six saved
+force cases. Removed timber mass is reported explicitly. No new native solve
+or measured behavior is claimed for the trimmed geometry.
+
+For the bevel-ended members, the local parallel-to-grain comparison uses
+end stations bounded across the complete bolt-group shear band: the outer
+bolt rows plus half the clearance-hole diameter on each side, including the
+space between rows. The cut plane is eroded by the retained 3 mm allowance
+before obtaining the shortest end station across that band. This avoids
+substituting a distant, unrelated bevel corner for every row's available
+shear length. The interpretation follows the row shear-line geometry of
+[NDS Appendix E, E.3](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210113_AWCWebsite_Appendix.pdf).
+The wood resistance inputs are unchanged; the refined geometric comparison
+remains a conditional application to this beveled detail.
+
+The generated profiles and build instructions apply to this current revision;
+the archived six-case CAD/source snapshots remain unchanged as its analytical
+baseline. This distinction is part of the conditional DIY basis.
 
 ## Material and installation basis
 
@@ -180,8 +237,9 @@ listed criteria. Its output records the postprocessor and input hashes.
 Historical failed upper joints, single-bolt knees and notched-knee results
 remain separate evidence; they are not overwritten or relabeled as passing.
 
-The selected DIY decision is conditional on this exact geometry, the finite
-load set and the documented material, hardware and installation basis. The
+The selected DIY decision is conditional on the current installation/trim
+geometry, the retained baseline load set and response approximation, and the
+documented material, hardware and installation basis. The
 machine-readable `qualified_for_design` field remains false: meeting the
 listed analytical criteria is not professional certification or an unrestricted
 whole-board rating.
