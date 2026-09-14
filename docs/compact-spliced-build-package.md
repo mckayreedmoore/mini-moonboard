@@ -137,6 +137,13 @@ controlled flush head seat; establish the countersink on an offcut without
 crushing face veneer. Screw occupied diameters are not pilot instructions.
 Retain the factory LED harness and connectors; keep wiring clear of bolts.
 
+Keep all nine kicker screws per half. The upper post row is nominally 46.9 mm
+below the post top, with only 2.45 mm reserve above the 44.45 mm loaded-end
+reference. Mark from the actual post top and verify that minimum before driving;
+do not round the row upward. The header row remains centered at Z257.95 mm.
+See the [kicker placement review](kicker-screw-placement-review.md) for receiver,
+embedment, hardware-clearance and pad-access checks.
+
 Inspect the completed member datums, floor and header bearing contacts,
 washer seats, hardware counts, panel seating and service clearance. Loose
 hardware, splitting, crushed seats or changed bearing gaps require correction

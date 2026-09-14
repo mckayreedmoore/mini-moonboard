@@ -272,3 +272,17 @@ to make a visually flush top without rechecking the joint. The current trim
 assessment uses retained native forces/stiffness/gravity with an explicit small
 exterior-tail approximation; do not claim an identical native mesh or six new
 trimmed solves. Preserve both installation/trim evidence and baseline archives.
+
+## Unbraced 2x12 alternative, 2026-09-13
+
+The owner accepted the current braced/trimmed assembly as a viable candidate.
+Keep it selected. Separate `compact-2x12-leg-development` and
+`compact-2x12-staggered-development` trials replace the legs with single 2x12s,
+remove both knees and use four half-inch bolts per leg against retained 4x6
+rims. Their fresh A12 rearward cases fail conditional bolt lateral resistance
+at 1.949 and 2.079 respectively. The staggered pattern fixes the original row's
+127 mm cross-grain layout violation, but does not fix the force shortfall.
+These are preserved failed alternatives, not released drilling or viewer defaults.
+See `docs/compact-2x12-study.md`. Retain current kicker screw axes and all nine
+screws per half; `docs/kicker-screw-placement-review.md` records the tight upper
+post end distance and installation checks.

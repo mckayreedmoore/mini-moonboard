@@ -320,6 +320,10 @@ test_wider_leg_six_bolt_screen.py
 test_wider_leg_viewer.py
 test_wider_leg_wood_checks.py
 
+# Rejected unbraced 2x12 alternatives; retain as explicit opt-in evidence.
+test_compact_2x12_leg_frame.py
+test_compact_2x12_staggered_frame.py
+
 # Archived checks within otherwise active shared test modules.
 test_bolt_thread_bearing.py::test_actual_current_stacks_and_publication
 test_joint_math.py::test_committed_joint_results_have_complete_cases_and_balanced_evidence
