@@ -321,7 +321,10 @@ def member_sections(record, connections):
         length = float(np.linalg.norm(end-start))
         low = max(0., member['verification_grain_interval_mm'][0]-float(np.dot(start,axis)))
         stations = [float(np.dot(p-start,axis)) for p,_ in entries]
-        cuts = sorted({low, length, *(s for s in stations if low <= s <= length)})
+        recovery_stations = member.get('additional_recovery_stations_mm', ())
+        if any(not np.isfinite(s) or not low <= s <= length for s in recovery_stations):
+            raise ValueError('Additional section recovery station lies outside member')
+        cuts = sorted({low, length, *recovery_stations, *(s for s in stations if low <= s <= length)})
         sections = []
         for station in cuts:
             origin = start+station*axis

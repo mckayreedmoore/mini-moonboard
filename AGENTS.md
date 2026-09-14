@@ -239,3 +239,23 @@ transfer. Two compact-base cases meet the listed header/end-cut comparisons.
 Keep the earlier baseline and pivot evidence. See `docs/compact-thick-study.md`
 for current results and the unresolved joint load path; do not call the new
 viewer default build-ready or release its drilling.
+
+## Selected spliced-knee DIY candidate, 2026-09-13
+
+The current selected direction is `compact-spliced-knee-development`, superseding
+`compact-thick-development` as the current authority. Preserve older candidates
+and failed trials as history. Retain solid 4×6 legs/rims and the compact 2×6
+base, with two centered ½-inch upper bolts per leg at 56 mm pitch. Four
+independent unnotched diagonal 2×6 pieces form two spliced knees: four ⅜-inch
+lap bolts per side and two ⅜-inch bolts at each endpoint, 20 complete bolt
+stacks overall. This diagonal splice does not introduce doubled vertical
+stock; no composite action is assumed.
+
+Use `docs/compact-splice-study.md`, `docs/compact-spliced-build-package.md` and
+`docs/current-diy-completion-record.md` for the current evidence, instructions
+and final completion gates. Final release follows the remaining assembled-case
+and consistency results, not a prior candidate's pass. The endpoint remains
+engineer-unreviewed DIY under explicit loads, catalog hardware, lumber material
+and no-slip floor assumptions. Do not add external review or a floor test as a
+new gate, claim an unconditional rating, or retain historical three-bolt failure
+as the selected model's decision.

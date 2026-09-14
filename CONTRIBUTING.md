@@ -76,8 +76,8 @@ additional workers did not improve this reduced suite in that trial.
 Regenerate the current candidate after changes to its source or geometry inputs:
 
 ```bash
-uv run python -m mini_moonboard.no_shoes_exports
-uv run python -m mini_moonboard.no_shoes_exports --check
+uv run python -m scripts.compact_spliced_exports
+uv run python -m scripts.compact_spliced_exports --check
 ```
 
 The current exporter builds all meshes, metadata and STEP from CAD without

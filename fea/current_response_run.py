@@ -75,6 +75,9 @@ def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-develop
     result = frame.assess(ordinary, data)
     physical = physical_forces(record, result, frame.displacement_roundoff(data))
     result['physical_connection_forces'] = physical
+    result['member_contacts'] = record.get('member_contacts', [])
+    if 'splice_assumptions' in record:
+        result['splice_assumptions'] = record['splice_assumptions']
     result['member_section_demands'] = member_sections(record, physical)
     nodes = {int(n): np.array(p) for n,p in record['nodes'].items()}
     loads = [(nodes[int(n)], np.array(f)) for n,f in record['loads'].items()]

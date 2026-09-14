@@ -1,7 +1,7 @@
 # Current design basis and decision log
 
-The preferred development candidate is **compact-thick-development**, selected September 13, 2026.
-See the [compact study](compact-thick-study.md) for its current verification status.
+The preferred development candidate is **compact-spliced-knee-development**, selected September 13, 2026.
+See the [spliced-knee study](compact-splice-study.md) for its current verification status.
 This document records the project's design choices and the scope of its
 calculations. It does not establish an approved climber weight limit.
 
@@ -11,7 +11,7 @@ calculations. It does not establish an approved climber weight limit.
 | Pad allowance | The design provides 150 mm of exposed kicker above a 127 mm (5-inch) pad covering the entire lower front section across the full board width. Timber feet bear directly on the floor; the pad carries no structural load. |
 | Support legs and outer rims | Each support leg and outer rim uses a single nominal 4×6 member. Outer rims sit flush with panel edges; affected horizontal rails are shortened. The header and posts use nominal 2×6 stock with a 139.7 mm front-to-back depth. No doubled vertical members are introduced. |
 | Base connection | The rims bear directly on the timber header. Two restored ML24Z angles each use six specified SDS screws. |
-| Leg connection | Each leg uses three modeled ½-inch bolts in a noncollinear group. Changed moment transfer, placement and actual hardware remain subject to the compact-candidate checks. |
+| Leg connection | Each leg uses two centered ½-inch upper bolts at 56 mm pitch. Four independent unnotched diagonal 2×6 pieces form two knees; each side has four ⅜-inch splice bolts and two ⅜-inch bolts at each endpoint. Total: 20 complete bolt stacks. No composite action is assumed across the lap. |
 | Panels and hold attachment | The accepted plywood and T-nut construction remains the design basis. Additional testing or an upgrade requires a specific identified deficiency. |
 | Material calculations | The calculations use published values for the specified species and grade. The lumber basis is dry, unincised Douglas Fir–Larch No. 2. |
 | Supports | Timber contact with the floor can carry compression, and the feet are assumed not to slide. Physical floor-friction testing is outside the agreed scope. |
@@ -54,11 +54,9 @@ larger exploratory layouts using current stock boundaries and saved joint
 resultants. It does not select an upgrade: the changed assembly must supply its
 own demands, and the screen does not establish that larger stock is necessary.
 
-The next design action is a targeted connection revision evaluated in this
-assembled model, followed by completion of the load-case envelope and applicable
-strength/serviceability checks. A fresh preparation after the dependency refactor produced byte-identical
-analysis input, as recorded in the response report. Neither
-source cleanup nor solver convergence establishes construction readiness.
+The selected spliced-knee assembly supersedes those historical connection
+trials. Its current decision is recorded in the [completion record](current-diy-completion-record.md)
+and [study](compact-splice-study.md), with matching [build instructions](compact-spliced-build-package.md).
 
 A targeted physical test would be appropriate if a remaining uncertainty affects
 the design decision and cannot be resolved adequately through calculation or

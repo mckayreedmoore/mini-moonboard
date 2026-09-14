@@ -1,6 +1,6 @@
 # Prototype weight estimates
 
-All 52 viewer prototypes display their modeled weights in kg and lb, both in the
+All 55 viewer prototypes display their modeled weights in kg and lb, both in the
 design menu and beside the selected model. These are estimates, not measured
 weights or load ratings. Holds, their unmodeled T-nuts and hold bolts, LEDs,
 wiring and glue are excluded. Historical concepts include only hardware actually
@@ -15,6 +15,7 @@ can change the built weight.
 
 | Prototype | kg | lb | Basis |
 | --- | ---: | ---: | --- |
+| [compact-spliced-knee-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development) | 210.9 | 464.9 | mesh estimate |
 | [round-insert-development](https://mckayreedmoore.github.io/mini-moonboard/?model=round-insert-development) | 167.6 | 369.5 | audited CAD |
 | [round-bore-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=round-bore-service-development) | 167.1 | 368.3 | audited CAD |
 | [horizontal-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=horizontal-service-development) | 167.5 | 369.2 | audited CAD |

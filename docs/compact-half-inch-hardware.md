@@ -81,17 +81,18 @@ thread length starts its threads at 7.5 inches, beyond the approximately
 7.25-inch nut bearing face; it cannot simply replace the 8-inch bolt without a
 different documented thread length or an assessed spacer stack.
 
-## Remaining hardware check
+## Completed current hardware comparison
 
 Do not transfer the existing 0.125-inch washer bending result to every 15025
 washer. Its 0.086-inch catalog minimum increases a simple plate bending-demand
 ratio by approximately (0.125/0.086)² = **2.113**, before accounting for the
-larger permitted bore and other dimensions. Recheck at catalog lower-bound
-dimensions and a supported washer yield assumption, or explicitly require and
-measure suitable washers. The supplier's washer grade label alone does not
+larger permitted bore and other dimensions. The current assessment uses catalog lower-bound
+dimensions and the stated washer-yield assumption. The supplier's washer grade label alone does not
 establish a 92 ksi plate-yield input.
 
-The finite next action is a 90 ksi bolt-yield comparison with the existing
-assembled forces, retaining Cd = 1 and all wood, spacing, local-section,
-hardware and numerical gates. Purchasing availability supports that comparison;
-it does not resolve any failing joint check or select new drilling.
+The selected [spliced-knee assessment](compact-splice-study.md) completes that
+comparison with its own six assembled load cases, 90 ksi Fyb, Cd = 1, and
+catalog-minimum washer dimensions with the explicit 33 ksi washer-yield
+assumption. Every listed conditional criterion passes. The preceding compact
+three-bolt trial remains historical; no earlier failure is relabeled. Delivered
+hardware must still meet the specified shank, thread and material conditions.

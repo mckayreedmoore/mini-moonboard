@@ -1,8 +1,9 @@
 # Current DIY construction package
 
-> Preserved September 12 single-2×6 baseline package. The owner now prefers
-> `compact-thick-development`; use its [matching package](compact-construction-package.md).
-> Neither package releases unresolved connection drilling.
+> Historical September 12 single-2×6 baseline package. Current selection is
+> `compact-spliced-knee-development`; use the [matching build package](compact-spliced-build-package.md)
+> and [current study](compact-splice-study.md). The baseline drilling below is
+> preserved evidence, not the selected construction detail.
 
 This package records the **277 mm, shoe-free `no-shoes-development` candidate**
 with single 2×6 support legs. It supplies a current stock schedule, connection

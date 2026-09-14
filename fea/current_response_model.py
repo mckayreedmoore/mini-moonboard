@@ -245,6 +245,18 @@ class CurrentStructure(Structure):
         super().__init__()
         self.materials=materials
 
+    def member(self, record, attachment_points=(), size=100.):
+        if 'tab_cut_boxes_sxq_mm' in record:
+            from fea.knee_tab_mesh import mesh_member
+            return mesh_member(self, record, attachment_points, size)
+        return super().member(record, attachment_points, size)
+
+    def attachment(self, member_name, point):
+        if 'tab_faces' in self.members[member_name]:
+            from fea.knee_tab_mesh import attachment
+            return attachment(self, member_name, point)
+        return super().attachment(member_name, point)
+
     def layered_panels(self):
         """Replace temporary S8 meshing topology with four bonded solid layers.
 
@@ -336,7 +348,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             horizontal_force=(0., 300.), dynamic_factor=2., equipment_kg=25.,
             frame_size=150., panel_size=120., patch_size=40.,
             leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development',
-            clearance_monitors=()):
+            clearance_monitors=(), tab_geometry=False, member_contacts=()):
     """Build the current independent-panel, gross-member contact diagnostic."""
     mode = 'coupled'
     load_kind = 'full'
@@ -356,7 +368,33 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     records = [gross_member_record(p, *(getattr(module, 'MEMBER_AXES', {}).get(p.name) or axes(module, p.name)),
                square_ends=p.name in getattr(module, 'NATIVE_SQUARE_END_MEMBERS', ())) for p in module.uncut_wood_parts()
                if not p.name.startswith(('main_', 'kicker_'))]
+    if tab_geometry:
+        knees = set(module.KNEE_NAMES)
+        cutters = module.additional_machining_cutters()
+        for record in records:
+            if record['name'] not in knees:
+                continue
+            start = cq.Vector(*record['start'])
+            directions = [cq.Vector(*record[k]) for k in ('axis', 'section_u', 'section_v')]
+            boxes = []
+            gross = next(p.shape for p in module.uncut_wood_parts() if p.name == record['name'])
+            for name, _, kind, cutter in cutters:
+                if name != record['name'] or kind != 'tab_notch':
+                    continue
+                removed = gross.intersect(cutter)
+                bounds = [[(v.Center()-start).dot(d) for v in removed.Vertices()] for d in directions]
+                box = [value for values in bounds for value in (min(values), max(values))]
+                if abs(np.prod([box[i+1]-box[i] for i in (0, 2, 4)])-removed.Volume()) > .01:
+                    raise ValueError('Tab mesh requires exact rectangular CAD removals')
+                boxes.append(box)
+            if len(boxes) != 2:
+                raise ValueError('Explicit tab geometry requires both actual end cuts')
+            record['tab_cut_boxes_sxq_mm'] = boxes
     by_name={r['name']:r for r in records}
+    if getattr(module, 'NATIVE_RECTANGULAR_KNEES', False):
+        for name in module.KNEE_NAMES:
+            record = by_name[name]
+            record['native_section_geometry'] = 'UNNOTCHED_RECTANGULAR'
     connections=module.connections()
     planned={name:[] for name in by_name}
     angles={};bolts=[];panel_points={};bearings=[];gravity_points={}
@@ -396,6 +434,20 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     for monitor in clearance_monitors:
         for role in ('first', 'second'):
             planned[monitor[role]].append(np.asarray(monitor[role+'_point'], dtype=float))
+    contact_names = set()
+    for contact in member_contacts:
+        name = contact['name']
+        point = np.asarray(contact['point_xyz_mm'], dtype=float)
+        normal = np.asarray(contact['normal_xyz'], dtype=float)
+        if (name in contact_names or name in ownership or contact['first'] == contact['second']
+                or point.shape != (3,) or normal.shape != (3,)
+                or not np.all(np.isfinite(point)) or not np.all(np.isfinite(normal))
+                or abs(np.linalg.norm(normal)-1.) > 1.e-8
+                or not np.isfinite(contact['stiffness_n_per_mm']) or contact['stiffness_n_per_mm'] <= 0):
+            raise ValueError('Invalid independent-member normal contact')
+        contact_names.add(name)
+        for role in ('first', 'second'):
+            planned[contact[role]].append(point)
     structure=CurrentStructure(materials)
     for r in records:structure.member(r,planned[r['name']],frame_size)
     for name,entries in angles.items():
@@ -410,6 +462,14 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         raise ValueError('Per-bolt stiffness inventory must match actual bolts')
     for name,first,second,point in bolts:
         directional_connector(structure,structure.attachment(first,point),structure.attachment(second,point),named_bolt_properties(stiffnesses['bolt'],name,first,second,leg_bolt_scale),name,ownership[name])
+    for contact in member_contacts:
+        name, point = contact['name'], contact['point_xyz_mm']
+        first = structure.attachment(contact['first'], point)
+        second = structure.attachment(contact['second'], point)
+        shared.normal_contact(structure, name, first, [second], [1.], point,
+                              contact['normal_xyz'], contact['stiffness_n_per_mm'])
+        ownership[name] = {'first':contact['first'], 'second':contact['second'],
+                          'point':point, 'scalar_normal':contact['normal_xyz']}
     for index,(first,second,point) in enumerate(bearings):
         name = 'bearing_'+first+'_'+second+'_'+str(index)
         structure.spring(endpoint_attachment(structure,first,point),endpoint_attachment(structure,second,point),stiffnesses['bearing'],
@@ -499,6 +559,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     for c in contacts:
         ownership[c['name']] = {'first': c['member'], 'second': c['panel'], 'point': c['point_xyz_mm'], 'scalar_normal': c['inward_xyz']}
     metadata={'candidate':module.KEY,'leg_bolt_scale':leg_bolt_scale,
+              'tab_geometry':tab_geometry,
               'leg_floor_grid':leg_floor_grid,
               'header_bearing_assumption':'Normal springs at corners of actual rectangular overlap with gross header top; local holes and crushing require separate checks',
               'leg_floor_pressure_assumption':('Four corner normal springs' if leg_floor_grid is None else f'{leg_floor_grid}x{leg_floor_grid} midpoint tributary-area normal springs; unchanged total stiffness'),
@@ -517,6 +578,11 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         'second_node':structure.attachment(monitor['second'], monitor['second_point'])}
         for monitor in clearance_monitors]
     metadata['hardware_mass_inventory'] = hardware_mass
+    metadata['member_contacts'] = list(member_contacts)
+    if getattr(module, 'NATIVE_RECTANGULAR_KNEES', False) and member_contacts:
+        metadata['splice_assumptions'] = {'independent_members':True,
+            'compression_only_overlap':True, 'no_tensile_tie':True, 'no_composite_action':True,
+            'scope':'Independent timber solids joined only by actual finite bolt springs and compression-only normal contact; no interply friction or bonded interface.'}
     metadata['modeled_mass_kg'] = sum(row['mass_kg'] for row in body_mass.values())
     metadata['angle_stations'] = [{'name':name,'origin':list(origin.toTuple()),'u':list(u.toTuple()),'v':list(v.toTuple()),'members':[beam,upright]} for name,origin,u,v,beam,upright in module.stations()]
     metadata['seating_contacts'] = contacts

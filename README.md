@@ -4,35 +4,32 @@ Explore a freestanding Mini MoonBoard frame through an interactive 3D model,
 CAD downloads and documented engineering studies. This is an independent
 project, not affiliated with or endorsed by Moon Climbing.
 
-**Development project — not released for construction or climbing.** The preferred
-candidate is `compact-thick-development`: solid 4×6 legs and flush outer rims,
-three bolts per leg, and a shallower 2×6 kicker base. Its changed connections and
-base require their own engineering checks; the preceding single-pivot results
-do not qualify this revision.
+**Selected DIY candidate: `compact-spliced-knee-development`.** Solid 4×6 legs
+and flush rims retain the compact 2×6 base. Each leg has two ½-inch upper bolts
+at 56 mm pitch. Four independent, unnotched diagonal 2×6 pieces form the knee
+braces, with four ⅜-inch splice bolts per side and two ⅜-inch bolts at each
+brace endpoint: 20 complete bolt stacks in total.
 
-**[Open the preferred 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-thick-development&view=rear)** ·
-**[Download the STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-thick-development/assembly.step)** ·
-**[Read the candidate study](docs/compact-thick-study.md)**
+**[Open the selected 3D model](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development&view=rear)** ·
+**[Build package](docs/compact-spliced-build-package.md)** ·
+**[Current calculation and limits](docs/compact-splice-study.md)**
 
-The inclined members retain a 7 mm rear overhang above the 139.7 mm-deep base,
-limiting the triangular end cuts. The top and service rails are shortened to
-fit between the inward-shifted rims. The 277 mm kicker datum, 66 SPAX
-panel/kicker screws and accepted plywood/T-nut construction remain.
-
-The [single-2×6 baseline](docs/no-shoes-candidate.md) and
-[single-pivot 4×6 study](docs/thick-leg-pivot-study.md) remain preserved comparisons.
-Published [material specifications](docs/leg-material-basis.md) and the owner's
-no-sliding floor assumption remain the design basis.
+The endpoint is an **engineer-unreviewed DIY package**, conditional on its
+stated load cases, specified lumber/catalog hardware and no-slip floor
+assumption. The [completion record](docs/current-diy-completion-record.md)
+tracks the final evidence gates. No unconditional climber rating is claimed.
+The 277 mm kicker datum, 66 panel/kicker screws and accepted plywood/T-nut
+construction remain. Earlier failed joints are preserved historical studies.
 
 ## Start here — no software installation needed
 
 | What you want to do | Open this |
 | --- | --- |
-| Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-thick-development&view=rear) |
+| Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development&view=rear) |
 | Inspect the unselected solid 4×6 pivot option | [Development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=thick-leg-centered-pivot-development&view=rear) |
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
-| Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-thick-development/assembly.step) |
-| Find current cuts, drilling, hardware and pad-height changes | [Compact construction package](docs/compact-construction-package.md) |
+| Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-spliced-knee-development/assembly.step) |
+| Find current cuts, drilling, hardware and pad-height changes | [Spliced-knee build package](docs/compact-spliced-build-package.md) |
 | Check specified lumber and bolt materials | [Material basis](docs/leg-material-basis.md) |
 | See settled choices and calculation scope | [Current design basis and decision log](docs/current-design-basis.md) |
 | Review purchased plywood and hold hardware | [Purchased materials](docs/purchased-materials.md) and [T-nuts and hold-bolt guidance](docs/moonboard-hold-hardware.md) |
@@ -51,17 +48,11 @@ The agreed endpoint is an **engineer-unreviewed DIY design**. The
 deliverables and remaining calculated limitations; external sign-off is not a
 completion requirement.
 
-See the [design review and finite verification plan](docs/current-design-review.md)
-for what remains necessary, what is historical, and which checks should not drive
-additional reinforcement. Geometry acceptance and structural acceptance are separate.
-
-The [current whole-frame equilibrium screen](docs/current-frame-equilibrium.md)
-uses the current CAD mass, all 142 hold positions and actual timber footprints.
-It checks compression-only support equilibrium. The subsequent
-[internal-response calculation](docs/current-frame-response.md) evaluates the
-assembled frame and compares its member and connection demands with stated
-references; it does not release the design for construction. Published base-angle directions and capacities are recorded
-in the [current connection basis](docs/current-base-connection-basis.md).
+The [spliced-knee study](docs/compact-splice-study.md) is the authority for this
+assembly's numerical, connection, member and hardware comparisons. Earlier
+whole-frame reports remain historical evidence; their failures or passing
+results do not transfer to the changed load path. Use the matching
+[build package](docs/compact-spliced-build-package.md) for dimensions and hardware.
 
 ## Historical designs and studies
 
@@ -95,12 +86,12 @@ Its matching exporter regenerates every current viewer mesh, the inventory,
 source hashes and a normalized STEP assembly directly from CAD:
 
 ```sh
-uv run python -m mini_moonboard.compact_thick_exports
+uv run python -m scripts.compact_spliced_exports
 # Rebuild into an empty temporary directory and compare every current artifact:
-uv run python -m mini_moonboard.compact_thick_exports --check
+uv run python -m scripts.compact_spliced_exports --check
 ```
 
-Outputs are in [`site/hybrid/no-shoes-development/`](site/hybrid/no-shoes-development/).
+Outputs are in [`site/hybrid/compact-spliced-knee-development/`](site/hybrid/compact-spliced-knee-development/).
 Use `--root /path/to/empty-directory` to generate a standalone candidate bundle.
 Meshes use assembled world coordinates and retain individually selectable bolt
 components. The manifest records transitive local Python dependencies, geometry
@@ -108,7 +99,8 @@ reference data and the locked toolchain. It does not authenticate unrelated
 historical exports. CI runs the current-candidate rebuild and current/shared
 regression tests by default. Historical tests and the reference/V1 export check
 are opt-in; see [Contributing](CONTRIBUTING.md#checks).
-The current candidate does not yet have a released cut/drilling package.
+Generate the matching [cut/drilling packet](docs/compact-spliced-build-package.md)
+with `uv run python -m scripts.compact_spliced_construction`.
 Historical drawing generators are described with their corresponding designs in
 [the archive](docs/history/README.md).
 

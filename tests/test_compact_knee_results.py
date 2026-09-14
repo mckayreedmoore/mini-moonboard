@@ -46,3 +46,20 @@ def test_intersected_tab_still_reports_unsampled_shoulders(monkeypatch):
     del geometry['members']['host']
     with pytest.raises(ValueError, match='every upper and knee'):
         knee.sampled_sections(report, geometry, rows)
+
+
+def test_native_tab_labels_require_both_actual_meshes_and_cut_metadata():
+    report = {'member_section_demands': {name: {'member': {}}
+              for name in ('base_knee_left', 'base_knee_right')}}
+    assert knee.native_tab_basis(report) is False
+    for name, data in report['member_section_demands'].items():
+        data['member'].update(native_section_geometry=knee.ACTUAL_TAB_BASIS,
+                              tab_cut_boxes_sxq_mm=[[0.]*6]*2,
+                              additional_recovery_stations_mm=[200., 700.])
+        if name == 'base_knee_left':
+            with pytest.raises(ValueError, match='consistent recognized'):
+                knee.native_tab_basis(report)
+    assert knee.native_tab_basis(report) is True
+    del report['member_section_demands']['base_knee_left']['member']['tab_cut_boxes_sxq_mm']
+    with pytest.raises(ValueError, match='recorded cuts'):
+        knee.native_tab_basis(report)

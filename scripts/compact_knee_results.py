@@ -1,8 +1,8 @@
 """Conditional all-bolt and sampled net-section checks for one knee-brace trial.
 
 Consume an immutable compact_two_results archive made with both upper and knee
-bolt prefixes. The native brace uses gross stiffness; these postprocessed net
-sections do not correct that stiffness or qualify the tab shoulders.
+bolt prefixes. Archived gross-brace and actual-tab mesh runs remain distinct.
+Postprocessed net sections do not correct native stiffness or qualify shoulders.
 """
 import argparse
 import gzip
@@ -21,10 +21,29 @@ from fea.thick_leg_checks import (
 )
 
 PREFIXES = ('lumber_leg_bolt_', 'knee_bolt_')
+ACTUAL_TAB_BASIS = 'Conforming solid half-width strips with actual opposite end-tab removals'
 
 
 def dot(a, b):
     return sum(x*y for x, y in zip(a, b, strict=True))
+
+
+def native_tab_basis(report):
+    """Require a consistent native brace formulation across both sides."""
+    knees = {name: data['member'] for name, data in report['member_section_demands'].items()
+             if name.startswith('base_knee_')}
+    if set(knees) != {'base_knee_left', 'base_knee_right'}:
+        raise ValueError('Require both native knee member records')
+    formulations = {member.get('native_section_geometry') for member in knees.values()}
+    if formulations == {None}:
+        return False
+    if formulations != {ACTUAL_TAB_BASIS}:
+        raise ValueError('Require consistent recognized native tab meshing on both knees')
+    for member in knees.values():
+        if (len(member.get('tab_cut_boxes_sxq_mm', ())) != 2 or
+                len(member.get('additional_recovery_stations_mm', ())) != 2):
+            raise ValueError('Actual tab mesh requires recorded cuts and shoulder stations')
+    return True
 
 
 def cut_inventory(name, member, rows, hardware):
@@ -117,6 +136,7 @@ def checks(report, geometry):
             if name.startswith(PREFIXES)}
     if any(not any(name.startswith(prefix) for name in rows) for prefix in PREFIXES):
         raise ValueError('Require both upper and knee bolt families')
+    actual_tabs = native_tab_basis(report)
     hardware = {name: hardware_assumptions(row['diameter_mm'],
                 washer_od_mm=row['washer_od_mm'], hole_diameter_mm=row['hole_diameter_mm'],
                 washer_thickness_mm=row['washer_thickness_mm'])
@@ -133,12 +153,15 @@ def checks(report, geometry):
             'minimum_directional_edge_end_margin_mm': min(p['minimum_margin_mm']
                 for n in names for p in stage['bolts'][n]['placement'].values()),
             'hardware_by_bolt': {n: stage['bolts'][n]['hardware'] for n in names}}
-    return {'candidate': report['candidate'], 'status': 'GROSS_STIFFNESS_KNEE_SCREEN_ONLY',
+    return {'candidate': report['candidate'], 'status':
+            'ACTUAL_TAB_MESH_KNEE_SCREEN_ONLY' if actual_tabs else 'GROSS_STIFFNESS_KNEE_SCREEN_ONLY',
             'stage_one': stage, 'actual_angle_all_bolts': actual, 'joint_groups': groups,
             'sampled_net_members': sampled_sections(report, geometry, rows),
             'receiver_fit_pass': geometry['receiver_fit_pass'],
-            'native_brace_stiffness_basis': 'Gross section; reduced end tabs not represented in stiffness.',
-            'limits': ['Postprocessing net stresses does not correct the gross-stiffness native force distribution.',
+            'native_brace_stiffness_basis': ACTUAL_TAB_BASIS if actual_tabs else
+                'Gross section; reduced end tabs not represented in stiffness.',
+            'limits': [('Native stiffness includes tab removals; bores and local notch-root resistance remain separate.'
+                        if actual_tabs else 'Postprocessing net stresses does not correct the gross-stiffness native force distribution.'),
                        'Cut boxes bound all recorded machining and bolt holes; only actual sampled native stations receive stress comparisons.',
                        'Unsampled tab shoulders, notch stress concentration, splitting, local contact and prying remain unqualified.',
                        'Actual Ktheta retains Cd1.0; nominal bolt diameter and provisional hardware assumptions do not establish delivered properties.'],
