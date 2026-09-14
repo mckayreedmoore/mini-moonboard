@@ -226,6 +226,44 @@ def add_member_floor(structure,name,ownership,shape,stiffnesses,grid=None):
     ownership[spring]={'first':name,'second':'floor','point':point.tolist()}
 
 
+
+def floor_rail_samples(shape, grid):
+    """Equal-area bottom cells for an axis-aligned Y rail resting at Z=0.
+
+    Grid order is longitudinal Y, transverse X. Sampling changes contact
+    distribution but preserves the existing four-spring total per-body penalty.
+    """
+    if (not isinstance(grid, (tuple, list)) or len(grid) != 2
+            or any(isinstance(n, bool) or not isinstance(n, int) or n < 2 for n in grid)):
+        raise ValueError('Floor rail grid requires two integers at least two')
+    corners = np.asarray(level_face_points(shape, True))
+    foot_samples(corners, 2)  # Validate a finite horizontal rectangular face.
+    low, high = corners.min(axis=0), corners.max(axis=0)
+    expected = np.array([[x, y, 0.] for x in (low[0], high[0]) for y in (low[1], high[1])])
+    if not np.all(np.any(np.all(abs(corners[:, None]-expected[None]) < 1.e-6, axis=2), axis=1)):
+        raise ValueError('Floor rail requires an axis-aligned bottom face at Z=0')
+    ny, nx = grid
+    return [(np.array([low[0]+(i+.5)/nx*(high[0]-low[0]),
+                       low[1]+(j+.5)/ny*(high[1]-low[1]), 0.]), 1./(nx*ny))
+            for j in range(ny) for i in range(nx)]
+
+
+def add_floor_rail(structure, name, ownership, samples, stiffnesses):
+    """Attach each rail contact to its actual meshed section, never an end arm."""
+    for index, (point, fraction) in enumerate(samples):
+        contact = 'floor_'+name+'_'+str(index)
+        wood = structure.attachment(name, point)
+        add_floor(structure, contact, wood, point, ownership, name, 4.*fraction*stiffnesses['floor'])
+        ownership[contact]['normal_stiffness_fraction'] = fraction
+    point = sum(point*fraction for point, fraction in samples)
+    wood = structure.attachment(name, point)
+    ground = structure.node(point)
+    structure.fixed.add(ground)
+    spring = 'floor_'+name+'_friction'
+    structure.spring(wood, ground, stiffnesses['floor'], spring, dofs=(1, 2), bearing=True)
+    ownership[spring] = {'first':name, 'second':'floor', 'point':point.tolist()}
+
+
 def add_floor(structure,name,wood,point,ownership,body,stiffness):
     ground=structure.node(point);structure.fixed.add(ground)
     shared.normal_contact(structure,name,wood,[ground],[1.],point,[0.,0.,1.],stiffness)
@@ -237,6 +275,50 @@ def add_panel_floor(structure,name,ownership,stiffness):
     for index,node in enumerate(structure.panels[name]['nodes']):
         if abs(structure.nodes[node][2])<1.e-6:
             add_floor(structure,'floor_'+name+'_'+str(index),node,structure.nodes[node],ownership,name,stiffness)
+
+
+
+def cut_panel_mesh(xs, ys, cutouts, attachments=()):
+    """Remove exactly imprinted rectangular edge openings from an S8 grid."""
+    bounds = (min(xs), max(xs), min(ys), max(ys))
+    for rectangle in cutouts:
+        if len(rectangle) != 4 or not all(np.isfinite(rectangle)):
+            raise ValueError('Panel edge cutout requires four finite coordinates')
+        x0, x1, y0, y1 = rectangle
+        if (not bounds[0] <= x0 < x1 <= bounds[1] or not bounds[2] <= y0 < y1 <= bounds[3]
+                or not any(abs(a-b) < 1.e-7 for a, b in zip(rectangle, bounds, strict=True))):
+            raise ValueError('Panel cutout must lie inside and reach a panel edge')
+        if not all(any(abs(value-axis) < 1.e-7 for axis in axes)
+                   for value, axes in ((x0, xs), (x1, xs), (y0, ys), (y1, ys))):
+            raise ValueError('Panel cutout edges must be imprinted in the mesh')
+    local, elements, lookup = panel_kernel.grid(xs, ys)
+    def removed(ids):
+        centre = np.mean([local[n] for n in ids[:4]], axis=0)
+        return any(x0 < centre[0] < x1 and y0 < centre[1] < y1 for x0, x1, y0, y1 in cutouts)
+    elements = {n:ids for n, ids in elements.items() if not removed(ids)}
+    if not elements:
+        raise ValueError('Panel edge cutouts remove the entire panel')
+    used = {n for ids in elements.values() for n in ids}
+    local = {n:p for n, p in local.items() if n in used}
+    lookup = {xy:n for xy, n in lookup.items() if n in used}
+    for x, y in attachments:
+        if (round(x, 8), round(y, 8)) not in lookup:
+            raise ValueError('Panel attachment lies in a removed edge cutout')
+    return local, elements, lookup
+
+
+def retained_panel_weights(local, elements):
+    """Consistent unit self-weight over only the retained rectangular elements."""
+    area, weights = 0., {}
+    for ids in elements.values():
+        corners = np.array([local[n] for n in ids[:4]])
+        cell = np.ptp(corners[:, 0])*np.ptp(corners[:, 1])
+        area += cell
+        for n, coefficient in zip(ids, (-1/12,)*4+(1/3,)*4, strict=True):
+            weights[n] = weights.get(n, 0.)+cell*coefficient
+    if area <= 0:
+        raise ValueError('Require positive retained panel area')
+    return {n:w/area for n, w in weights.items()}, float(area)
 
 
 class CurrentStructure(Structure):
@@ -448,6 +530,17 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         contact_names.add(name)
         for role in ('first', 'second'):
             planned[contact[role]].append(point)
+    floor_rails = tuple(getattr(module, 'FLOOR_RAIL_NAMES', ()))
+    floor_rail_grid = getattr(module, 'FLOOR_RAIL_GRID', (7, 2))
+    if (len(set(floor_rails)) != len(floor_rails)
+            or any(name not in by_name or name.startswith(('base_post_', 'lumber_leg_')) for name in floor_rails)):
+        raise ValueError('Floor rail names must identify distinct non-foot timber members')
+    rail_samples = {name:floor_rail_samples(raw[name].shape, floor_rail_grid) for name in floor_rails}
+    for name, samples in rail_samples.items():
+        if not np.allclose(by_name[name]['axis'], [0., 1., 0.], atol=1.e-8, rtol=0.):
+            raise ValueError('Floor rail contact adapter requires positive Y grain')
+        planned[name].extend(point for point, _ in samples)
+        planned[name].append(sum(point*fraction for point, fraction in samples))
     structure=CurrentStructure(materials)
     for r in records:structure.member(r,planned[r['name']],frame_size)
     for name,entries in angles.items():
@@ -479,6 +572,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         if r['name'].startswith(('base_post_','lumber_leg_')):
             add_member_floor(structure, r['name'], ownership, raw[r['name']].shape, stiffnesses,
                              grid=leg_floor_grid if r['name'].startswith('lumber_leg_') else None)
+        if r['name'] in rail_samples:
+            add_floor_rail(structure, r['name'], ownership, rail_samples[r['name']], stiffnesses)
         tag=structure.attachment(r['name'],gravity_points[r['name']])
         add_load(structure,tag,[0,0,-body_mass[r['name']]['mass_kg']*9.80665])
     # Panel attachment points exist even in the frame-only reference so applied
@@ -496,6 +591,10 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     loaded_left=-module.b.HALF if hx<0 else 0.
     loaded_low=0. if hs<module.b.HALF else module.b.HALF
     patch=contained_patch(hx,hs,patch_size,(loaded_left,loaded_left+module.b.HALF,loaded_low,loaded_low+module.b.HALF))
+    edge_cutouts = getattr(module, 'panel_edge_cutouts', dict)()
+    if any(name not in raw or not name.startswith('kicker_') for name in edge_cutouts):
+        raise ValueError('Current edge-cutout adapter supports named kicker panels only')
+    panel_cutout_records = {}
     panel_loads={}
     for name in raw:
         if not name.startswith(('main_','kicker_')):continue
@@ -508,10 +607,20 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             y=float(np.dot(point-np.asarray(module.b.point(0,0,0).toTuple()),along)) if main else point[2]
             coords.append((float(point[0]),y))
         landmarks_x=[x for x,_ in coords];landmarks_y=[y for _,y in coords]
+        cutouts = edge_cutouts.get(name, ())
+        for rectangle in cutouts:
+            if len(rectangle) != 4:
+                raise ValueError('Panel edge cutout requires four coordinates')
+            landmarks_x.extend(rectangle[:2]);landmarks_y.extend(rectangle[2:])
         if name==loaded_name:
             landmarks_x+=list(patch[:2]);landmarks_y+=list(patch[2:])
         xs=panel_kernel.mesh_axes(left,right,panel_size,landmarks_x);ys=panel_kernel.mesh_axes(low,high,panel_size,landmarks_y)
-        local,elements,lookup=panel_kernel.grid(xs,ys)
+        local,elements,lookup = (cut_panel_mesh(xs, ys, cutouts, coords) if cutouts
+                                 else panel_kernel.grid(xs, ys))
+        if cutouts:
+            _, retained_area = retained_panel_weights(local, elements)
+            panel_cutout_records[name] = {'rectangles_xz_mm':list(cutouts),
+                'retained_area_mm2':retained_area, 'retained_nodes':len(local), 'retained_elements':len(elements)}
         tags={}
         if mode!='frame_only':
             for n,(x,y,_) in local.items():
@@ -532,7 +641,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         # The control pair loads the same receiver nodes; actual coupled mode
         # applies panel self-weight and climber loading to physical panel nodes.
         if mode=='coupled':
-            area_weights,_=panel_kernel.pressure_load(local,elements,(left,right,low,high),1.)
+            area_weights,_ = (retained_panel_weights(local, elements) if cutouts else
+                              panel_kernel.pressure_load(local,elements,(left,right,low,high),1.))
             loadtags=[tags[n] for n in area_weights];positions=[structure.nodes[n] for n in loadtags]
         else:
             loadtags=[n for _,n,_ in receiver_tags[name]];positions=[p for _,_,p in receiver_tags[name]]
@@ -577,6 +687,12 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         'first_node':structure.attachment(monitor['first'], monitor['first_point']),
         'second_node':structure.attachment(monitor['second'], monitor['second_point'])}
         for monitor in clearance_monitors]
+    if floor_rails:
+        metadata['floor_rail_support'] = {'members':list(floor_rails), 'grid_yx':list(floor_rail_grid),
+            'normal_penalty_per_body_n_per_mm':4.*stiffnesses['floor'],
+            'scope':'Equal-area midpoint normal contacts at actual member stations; unchanged total normal penalty per body; centroid no-slip spring conditional on bearing. No floor property qualification.'}
+    if panel_cutout_records:
+        metadata['native_panel_cutouts'] = panel_cutout_records
     metadata['hardware_mass_inventory'] = hardware_mass
     metadata['member_contacts'] = list(member_contacts)
     if getattr(module, 'NATIVE_RECTANGULAR_KNEES', False) and member_contacts:

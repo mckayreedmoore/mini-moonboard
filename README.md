@@ -21,11 +21,17 @@ tracks the final evidence gates. No unconditional climber rating is claimed.
 The 277 mm kicker datum, 66 panel/kicker screws and accepted plywood/T-nut
 construction remain. Earlier failed joints are preserved historical studies.
 
+Two separate [clear-space alternatives](docs/clear-space-study.md) address the
+inboard knee obstruction: continuous 2×6 floor rails or exterior 4×6/2×6
+braces. Each has its own force cases, geometry and fabrication packet. Both
+include the revised base-angle placement; the selected reference stays available.
+
 ## Start here — no software installation needed
 
 | What you want to do | Open this |
 | --- | --- |
 | Rotate the latest frame and inspect parts | [Interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development&view=rear) |
+| Compare floor rails and exterior braces | [Assessment and fabrication packages](docs/clear-space-study.md) · [Dimensioned comparison](docs/clear-space-comparison.svg) |
 | Inspect the unselected solid 4×6 pivot option | [Development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=thick-leg-centered-pivot-development&view=rear) |
 | Understand the shoe removal and pad allowance | [Candidate changes and assessment status](docs/no-shoes-candidate.md) |
 | Open the latest geometry in CAD software | [STEP assembly](https://mckayreedmoore.github.io/mini-moonboard/hybrid/compact-spliced-knee-development/assembly.step) |

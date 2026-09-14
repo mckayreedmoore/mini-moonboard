@@ -250,7 +250,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
     report.setdefault('contact_active_set_converged',False)
     report['contact_update_strategy'] = contact_update_strategy
     report['initial_contact_names'] = sorted(initial_contact_names) if initial_contact_names is not None else None
-    report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
+    report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','floor_rail_support','native_panel_cutouts','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
         contact_cycles=history,solver_image=frame.panel_kernel.IMAGE,assumptions=__doc__,qualified_for_design=False)
     report['numerically_accepted'] = all(report.get(k,False) for k in (
         'contact_active_set_converged','global_equilibrium_passed','member_equilibrium_passed','mpc_check_passed'))
