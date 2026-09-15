@@ -96,3 +96,20 @@ require fresh geometry, connections and force assessment, not a documentation
 change or a transfer of the old passing result.
 
 No design or acceptance threshold was changed in this review.
+
+## Bracket-relocation diagnostic
+
+For the accepted A12-left response, the first recovered full left-rim section
+has cut-side stress contributions of −0.004071 MPa axial, +0.188131 MPa
+in-plane bending and ±0.006877 MPa out-of-plane bending when coincident station
+loads are excluded. Including those loads gives +0.020718, +0.113761 and
+±0.067493 MPa respectively. These are adjacent gross-section diagnostics,
+not stresses recovered inside the partial heel cut.
+
+Even suppressing the entire out-of-plane contribution leaves a tensile mean
+on this face. Moving an angle inward along X therefore has no demonstrated
+route to compression-only classification: for fixed forces an X shift changes
+moments about Y/Z, not the dominant moment about X. Any beneficial redistribution
+would require actual new forces. The concrete geometric investigation concerns
+the Y/Z support footprint and cut depth or the Y/Z attachment load path; a
+cosmetic lateral angle move alone is not a supported fix.
