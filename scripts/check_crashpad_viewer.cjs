@@ -22,7 +22,7 @@ const key = process.argv[4] || 'compact-exterior-brace-development';
     await page.goto(url.href, {waitUntil: 'domcontentloaded'});
     await page.waitForFunction(() => window.padTest?.crashPadMeshes.length === 2);
     assert.equal(await page.locator('#model').inputValue(), key);
-    assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'), 'compact-exterior-brace-development');
+    assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'), 'compact-floor-flush-development');
     assert.equal(await page.locator('#model optgroup[label="Development candidates"] option[value="compact-floor-taper-development"]').count(), 1);
     assert.ok(await page.locator('#show-crash-pads').isChecked());
     const geometry = await page.evaluate(() => {

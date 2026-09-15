@@ -1,3 +1,56 @@
+# Current checkpoint: flush floor-beam development
+
+The owner selected the outboard tapered floor-beam direction with whole kickers
+and requested flush runner ends, lower rim ends and leg tops. Current model is
+`compact-floor-flush-development`; upper bolt relocation retains two half-inch
+bolts per leg at 56 mm pitch. It is a development revision, not a completed DIY
+release. See the [current package status](floor-flush-build-package.md) and
+[finite completion plan](tapered-runner-completion-plan.md).
+
+Old native passes do not transfer to these cuts or relocated bolts. Remaining
+work includes the rim end-cut screen, taper-method/contact justification,
+matching force checks, fabrication allowances and builder instructions.
+No push is authorized; local commits follow the repository time rule.
+
+## Revised native checkpoint
+
+The A12 left-load continuation converged normal contact and the explicit
+Coulomb force law at a maximum residual of 0.009729 N. All 482 native artifact
+hashes and 211 source hashes were verified. The archived result is
+`fea/results/clear-space-floorflush/a12-left/`; preceding exhausted searches
+remain preserved. Numerical acceptance does not establish design completion.
+
+The current assessment meets 37 of 38 implemented criteria; the existing rim
+end-cut screen fails. Bolt lateral ratio is 0.8792, sampled net-member ratio
+0.7488 and explicit timber face-bearing ratio 0.1196. See
+[fresh assessment](floor-flush-a12-left-assessment.json). The independently
+reviewed native model retains gross rim end assumptions and finite contact
+penalty/sampling; it is not an exact solid model of all cuts and bolt bores.
+
+The [cut-method review](flush-cut-method-review.md) distinguishes the terminal
+seat screen from the NDS support-edge measurement. Nearby cut-side tension
+prevents assuming the compression-only rule applies. The
+[taper review](taper-method-applicability-review.md) also identifies a tensile
+corner on the actual side taper and missing local resistance justification.
+These are open technical gates, not documentation-only qualifications. Remaining
+cases should follow a supported disposition of this first case, rather than
+accumulating results for a detail still failing its adopted screen.
+
+## Local verification checkpoint
+
+The default suite passed 547 tests with 15 historical tests deselected. Five
+subsequently added construction/analytic-diagnostic tests passed separately.
+The six-candidate browser check passed, and the selected candidate's two loose
+crash pads passed their browser checks. Current documents and construction
+manifest are reachable from the local viewer. The selected frame mass is
+210.575 kg, excluding pads. These are implementation/artifact checks, not a
+structural release.
+
+## Preserved preceding checkpoint
+
+The following is historical. Its references to "current" or "selected" apply
+to the candidate described there, not the flush revision above.
+
 # Current completion checkpoint
 
 - Selected exterior candidate: six current cases pass all 25 listed conditional

@@ -53,7 +53,7 @@ def rectangular_shear(width_mm, depth_mm, shear_u_n, shear_v_n, torsion_nmm, *, 
 
 def checks(report, geometry, sections=None):
     """Actual section stress and sampled taper geometry, retaining external gates."""
-    if report.get('candidate') != CANDIDATE or geometry.get('candidate') != CANDIDATE:
+    if report.get('candidate') not in {CANDIDATE, 'compact-floor-flush-development'} or geometry.get('candidate') != report.get('candidate'):
         raise ValueError('Require matching isolated taper candidate')
     rows = {name: row for name, row in report['physical_connection_forces'].items()
             if name in geometry['hardware_by_name']}

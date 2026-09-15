@@ -1,3 +1,22 @@
+# Current completion record: flush floor-beam development
+
+The owner selected the outboard tapered floor-beam direction with whole kickers
+and requested flush runner ends, lower rim ends and leg tops. Current model is
+`compact-floor-flush-development`; upper bolt relocation retains two half-inch
+bolts per leg at 56 mm pitch. It is a development revision, not a completed DIY
+release. See the [current package status](floor-flush-build-package.md) and
+[finite completion plan](tapered-runner-completion-plan.md).
+
+Old native passes do not transfer to these cuts or relocated bolts. Remaining
+work includes the rim end-cut screen, taper-method/contact justification,
+matching force checks, fabrication allowances and builder instructions.
+No push is authorized; local commits follow the repository time rule.
+
+## Preserved preceding completion record
+
+The following is historical. Its references to "current" or "selected" apply
+to the candidate described there, not the flush revision above.
+
 # Current DIY completion record
 
 The selected candidate is **`compact-floor-rail-development`**, September 14,

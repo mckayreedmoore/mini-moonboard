@@ -295,3 +295,19 @@ X positions; upper post and header axes remain fixed. Retain all 66 panel screws
 and 20 bolt stacks. This fresh-stock drilling revision keeps the accepted panel
 scope and local placement checks; frozen native cases retain the previous axes.
 Do not transfer a claim of six fresh frame solves to the relocation.
+
+
+## Flush floor-beam direction, September 14, 2026
+
+The owner prefers outboard tapered runners with whole kickers and requests
+front/rear runner ends flush to posts/legs, lower side rims flush to posts,
+and rear-leg tops flush to side rims. Move bolts and angle brackets as needed
+for a supported detail. `compact-floor-flush-development` is the current
+selected development direction; preserve preceding designs and native evidence.
+Its upper pair is relocated at 56 mm pitch, retaining twelve total bolt stacks.
+Removal of 7 mm rim and 18 mm leg-top reserves requires current geometry and
+resistance checks. Receiver fit is insufficient; the initial flush rim end-cut
+screen fails. Taper-method applicability and omitted runner/leg contact remain
+explicit completion gates. Use `docs/tapered-runner-completion-plan.md` and
+`docs/floor-flush-build-package.md`; do not claim construction release or transfer
+the earlier six-case pass. Local commits only; no push without new authorization.

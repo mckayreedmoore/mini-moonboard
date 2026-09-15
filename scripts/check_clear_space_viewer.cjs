@@ -4,6 +4,7 @@ const {chromium} = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const candidates = [
+  {key: 'compact-floor-flush-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: null, documents: 'floor-flush'},
   {key: 'compact-floor-rail-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'clear-space'},
   {key: 'compact-floor-taper-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'floor-runner-taper'},
   {key: 'compact-floor-recess-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: null, documents: 'floor-runner-recess'},
@@ -29,7 +30,7 @@ const candidates = [
             'window.cadTest = {meshes, THREE};'+marker)});
         });
       const url = new URL(base);
-      if (expected.key !== 'compact-exterior-brace-development') url.searchParams.set('model', expected.key);
+      if (expected.key !== 'compact-floor-flush-development') url.searchParams.set('model', expected.key);
       else url.searchParams.delete('model');
       url.searchParams.set('view', 'rear');
       console.log('Loading', expected.key);
@@ -45,11 +46,11 @@ const candidates = [
       assert.equal(await page.locator('#model').inputValue(), expected.key);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').count(), 1);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'),
-        'compact-exterior-brace-development');
-      for (const candidate of candidates.filter(row => row.key !== 'compact-exterior-brace-development')) {
+        'compact-floor-flush-development');
+      for (const candidate of candidates.filter(row => row.key !== 'compact-floor-flush-development')) {
         assert.equal(await page.locator('#model optgroup[label="Development candidates"] option[value="'+candidate.key+'"]').count(), 1);
       }
-      for (const document of [expected.documents+'-study.md', expected.documents+'-hardware.md']) {
+      for (const document of (expected.key === 'compact-floor-flush-development' ? ['floor-flush-build-package.md', 'floor-runner-taper-hardware.md'] : [expected.documents+'-study.md', expected.documents+'-hardware.md'])) {
         assert.equal(await page.locator('#model-documents a[href$="'+document+'"]').count(), 1);
       }
       assert.equal(manifest.design.main_face_height_mm, 277);
@@ -102,7 +103,7 @@ const candidates = [
       assert.equal(geometry.baseClips.length, 2);
       assert.ok(geometry.baseClips.every(c => c.minY >= geometry.header.minY+19.04 && c.maxY <= geometry.header.maxY-19.04));
       assert.equal(geometry.rims.length, 2);
-      assert.ok(geometry.rims.every(r => Math.abs(geometry.header.minY-r.minY-7) < .01));
+      assert.ok(geometry.rims.every(r => Math.abs(geometry.header.minY-r.minY-(expected.key === 'compact-floor-flush-development' ? 0 : 7)) < .01));
       assert.equal(geometry.stacks.length, expected.bolts);
       assert.ok(geometry.stacks.every(row => row.nut > row.head), 'Every bolt tip faces outward');
       assert.equal(geometry.knees.length, expected.knees);
@@ -110,7 +111,7 @@ const candidates = [
         'All exterior knee wood stays outside panel edges');
       assert.equal(geometry.rails.length, expected.rails);
       assert.ok(geometry.rails.every(row => Math.abs(row.minZ) < .01), 'Rails reach floor');
-      if (['compact-floor-recess-development', 'compact-floor-taper-development'].includes(expected.key)) {
+      if (['compact-floor-flush-development', 'compact-floor-recess-development', 'compact-floor-taper-development'].includes(expected.key)) {
         assert.ok(geometry.rails.every(row => row.name.endsWith('left') ? row.maxX <= -1219.19 : row.minX >= 1219.19), 'Recess runners remain outboard');
         assert.equal(geometry.outerKickerX.length, 2);
         assert.ok(geometry.outerKickerX.every(x => Math.abs(x-1200.15) < .01), 'Original outer kicker attachment positions retained');

@@ -133,7 +133,7 @@ def expected_joint_inventory(rows, exterior, front_count=2):
 
 def checks(report, geometry):
     candidate = report.get('candidate')
-    if candidate not in {'compact-floor-rail-development', 'compact-floor-rail-2x4-development', 'compact-floor-recess-development', 'compact-floor-taper-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
+    if candidate not in {'compact-floor-rail-development', 'compact-floor-rail-2x4-development', 'compact-floor-recess-development', 'compact-floor-taper-development', 'compact-floor-flush-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
         raise ValueError('Require matching clear-space candidate identities')
     if not all(report.get(key) is True for key in VALIDITY):
         return {'candidate':candidate, 'status':'INVALID_RESPONSE_DIAGNOSTIC_ONLY', 'qualified_for_design':False}
@@ -228,7 +228,7 @@ def checks(report, geometry):
     if floor is not None:
         cutouts = report['parameters'].get('native_panel_cutouts') or {}
         notch_height = 90.9 if '2x4' in candidate else 141.7
-        expected = ({} if candidate in {'compact-floor-recess-development', 'compact-floor-taper-development'} else
+        expected = ({} if candidate in {'compact-floor-recess-development', 'compact-floor-taper-development', 'compact-floor-flush-development'} else
             {'kicker_left':[-1219.2,-1179.1,0.,notch_height],
              'kicker_right':[1179.1,1219.2,0.,notch_height]})
         criteria['actual_kicker_cutouts'] = set(cutouts) == set(expected) and all(
@@ -243,7 +243,7 @@ def checks(report, geometry):
         recess = recess_checks(report, geometry, sections)
         criteria.update({'recess_'+key:value for key,value in recess['criteria'].items()})
     taper = None
-    if candidate == 'compact-floor-taper-development':
+    if candidate in {'compact-floor-taper-development', 'compact-floor-flush-development'}:
         from scripts.floor_taper_checks import checks as taper_checks
         taper = taper_checks(report, geometry, sections)
         criteria.update({'taper_'+key:value for key,value in taper['criteria'].items()})

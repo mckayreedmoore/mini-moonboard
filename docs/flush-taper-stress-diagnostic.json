@@ -1,0 +1,327 @@
+{
+  "candidate": "compact-floor-flush-development",
+  "report_path": "fea/generated/floor-flush-first/a12-left/block-01/report.json",
+  "report_sha256": "91831a6abf62ecee7a14795e5100a2587daaa77cfe2709c8b1a9e6ab5c2224ee",
+  "status": "DIAGNOSTIC_ONLY_NO_LOCAL_RESISTANCE_QUALIFICATION",
+  "members": {
+    "lumber_leg_left": {
+      "method": "ANALYTIC_NOMINAL_PLANE_SECTION_EXTREMA",
+      "taper_interval_mm": [
+        -211.8535446235847,
+        245.3464553764153
+      ],
+      "load_interval_count": 1,
+      "extrema_candidates": [
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": -0.802018054862469,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": -1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.2284097553119712,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": -1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": -0.221027065631272,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": 1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.10883561411801505,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": 1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": -0.5594850817431664,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": -1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.3371713272388081,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": -1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": 0.0215059074880306,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": 1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.21759718604485195,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": 1,
+          "on_cut_face": true
+        }
+      ],
+      "maximum_nominal_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": 0.0215059074880306,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": 1,
+        "corner_v_sign": 1,
+        "on_cut_face": true
+      },
+      "minimum_nominal_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": -0.802018054862469,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": -1,
+        "corner_v_sign": -1,
+        "on_cut_face": false
+      },
+      "maximum_nominal_cut_face_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": 0.0215059074880306,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": 1,
+        "corner_v_sign": 1,
+        "on_cut_face": true
+      },
+      "minimum_nominal_cut_face_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": -0.5594850817431664,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": 1,
+        "corner_v_sign": -1,
+        "on_cut_face": true
+      },
+      "cut_face_compression_only_in_nominal_model": false,
+      "nominal_face_stress_times_slope_squared_mpa": 0.0001493465797779903,
+      "slope_identity_scope": "For an ideal smooth traction-free face only. Multiplying nominal longitudinal stress by slope squared is a diagnostic, not a recovered local transverse stress or resistance check."
+    },
+    "lumber_leg_right": {
+      "method": "ANALYTIC_NOMINAL_PLANE_SECTION_EXTREMA",
+      "taper_interval_mm": [
+        -211.8535446235847,
+        245.3464553764153
+      ],
+      "load_interval_count": 1,
+      "extrema_candidates": [
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": -0.23586110074563715,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": -1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.05466596672821501,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": -1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": -0.6257760105554339,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": 1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.26533769092013665,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": -1,
+          "corner_v_sign": 1,
+          "on_cut_face": true
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": 0.40097910328293607,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": -1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": 0.13688231533585182,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": -1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 0.0,
+          "longitudinal_stress_mpa": 0.011064193473139408,
+          "grain_station_mm": -211.85354462358472,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": 1,
+          "on_cut_face": false
+        },
+        {
+          "fraction": 1.0,
+          "longitudinal_stress_mpa": -0.07378940885606977,
+          "grain_station_mm": 245.34645537641532,
+          "interval_mm": [
+            -211.85354462358472,
+            245.34645537641535
+          ],
+          "corner_u_sign": 1,
+          "corner_v_sign": 1,
+          "on_cut_face": false
+        }
+      ],
+      "maximum_nominal_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": 0.40097910328293607,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": 1,
+        "corner_v_sign": -1,
+        "on_cut_face": false
+      },
+      "minimum_nominal_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": -0.6257760105554339,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": -1,
+        "corner_v_sign": 1,
+        "on_cut_face": true
+      },
+      "maximum_nominal_cut_face_longitudinal_stress": {
+        "fraction": 1.0,
+        "longitudinal_stress_mpa": -0.05466596672821501,
+        "grain_station_mm": 245.34645537641532,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": -1,
+        "corner_v_sign": -1,
+        "on_cut_face": true
+      },
+      "minimum_nominal_cut_face_longitudinal_stress": {
+        "fraction": 0.0,
+        "longitudinal_stress_mpa": -0.6257760105554339,
+        "grain_station_mm": -211.85354462358472,
+        "interval_mm": [
+          -211.85354462358472,
+          245.34645537641535
+        ],
+        "corner_u_sign": -1,
+        "corner_v_sign": 1,
+        "on_cut_face": true
+      },
+      "cut_face_compression_only_in_nominal_model": true,
+      "nominal_face_stress_times_slope_squared_mpa": -0.00037962476894593764,
+      "slope_identity_scope": "For an ideal smooth traction-free face only. Multiplying nominal longitudinal stress by slope squared is a diagnostic, not a recovered local transverse stress or resistance check."
+    }
+  },
+  "limits": [
+    "Plane sections and the actual lumped connector/gravity load model; no local stress recovery.",
+    "No perpendicular-grain tensile allowable, fracture acceptance or taper-transition qualification.",
+    "No torsional/local shear interaction acceptance or construction release."
+  ]
+}

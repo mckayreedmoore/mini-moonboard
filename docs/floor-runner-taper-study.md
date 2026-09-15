@@ -6,7 +6,16 @@ The full 38.1 mm recess clears the runner before a 457.2 mm runout along grain
 returns the leg to its full 88.9 mm thickness. The taper is 1:12; the remaining
 foot thickness is 50.8 mm. No shoulder bearing or composite action is credited.
 
-**All six current native cases meet all 35 listed conditional criteria.**
+**All six current native cases meet all 35 implemented conditional criteria.**
+
+**September 14 completion review: additional method and contact checks remain
+open.** The passing count does not resolve whether the support-notch method
+and uniform-section shear comparison adequately cover this side-width taper,
+or whether omitted runner/leg contact affects the load path. The current notch
+factor is 1.0 in both legs in all six cases, and native clearance-monitor and
+member-contact lists are empty. These require specific justification or corrected
+checks before asserting completion. See the
+[completion plan](tapered-runner-completion-plan.md).
 These are finite-case comparisons under the assumptions below, not an unconditional
 climber rating or a change to the selected design.
 

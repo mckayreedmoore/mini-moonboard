@@ -30,7 +30,7 @@ fs.mkdirSync(output, {recursive: true});
       assert.equal(await page.locator('#model').inputValue(), key);
       assert.deepEqual(await page.locator('#model optgroup').evaluateAll(groups => groups.map(g => g.label)), ['Current design', 'Development candidates', 'Historical / archive designs']);
       assert.equal(await page.locator('#model optgroup').first().locator('option').count(), 1);
-      assert.equal(await page.locator('#model optgroup').first().locator('option').getAttribute('value'), 'compact-exterior-brace-development');
+      assert.equal(await page.locator('#model optgroup').first().locator('option').getAttribute('value'), 'compact-floor-flush-development');
       assert.equal(await page.locator('#model optgroup').nth(2).locator('option[value="'+key+'"]').count(), 1);
       assert.match(await page.locator('#design-details').innerText(), /conditional/i);
       assert.ok(await page.locator('#model-documents a').count() >= 2);
