@@ -23,7 +23,7 @@ for (const [row, columns] of Object.entries(yellowRows)) {
     .map(hold => hold.position[0]).sort().join(''), columns, `Official image yellow mask, row ${row}`);
 }
 assert.ok(catalog.holds.every(hold => [hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400)
-  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch'].includes(hold.shape)));
+  && Number.isFinite(hold.rotation) && ['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch', 'fin', 'waisted', 'soft-lobed'].includes(hold.shape)));
 
 (async () => {
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });

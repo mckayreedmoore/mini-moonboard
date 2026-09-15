@@ -49,7 +49,7 @@ are not included in the repository or loaded by the viewer.
 ## Estimated appearance
 
 Every entry selects an original generic edge, pinch, sloper, jug, wedge,
-triangle, crescent, or tapered-pinch
+triangle, crescent, tapered-pinch, fin, waisted, or soft-lobed
 primitive. The broad categories and visual directions were chosen by looking
 at the product image. Width, height, and depth use deliberately rounded,
 reusable millimeter buckets. They are not traced silhouettes or measured
@@ -59,26 +59,40 @@ are not Moon's numbered orientation marks.
 An independent image review checks elongated axes and visible directional tips.
 Symmetric generic profiles cannot show every real hold's facing or grip details.
 
-Three additional analytic profiles make selected directional holds easier to
-distinguish: a rounded triangle with its tip at local +Y, a crescent opening
-toward local +Y, and an elongated pinch with its narrow end toward local +Y.
-An independent front-image review checked this limited refinement:
+Six additional analytic profiles make selected directional holds easier to
+distinguish: a rounded triangle, crescent, elongated tapered pinch, fin,
+waisted bar, and soft three-lobed volume. These are reusable formulas rather
+than copied outlines. An independent front-image review checked this limited
+refinement:
 
 | Position | Generic profile | Clockwise rotation | Visible direction |
 | --- | --- | ---: | --- |
+| K12 | Waisted | 0° | Long axis horizontal |
+| B11 | Soft-lobed | 0° | Broad asymmetric volume |
 | D11 | Triangle | −10° | Tip up, slightly left |
+| F11 | Soft-lobed | 20° | Lobes turned slightly right |
 | G11 | Triangle | 180° | Tip down |
 | K11 | Crescent | 45° | Opening upper-right |
+| C10 | Fin | 35° | Long tapered axis upper-right |
+| I10 | Fin | −40° | Long tapered axis upper-left |
 | H9 | Tapered pinch | 0° | Narrow end up |
+| K7 | Fin | 20° | Long tapered axis slightly right |
+| A6 | Waisted | −20° | Long axis slightly left |
 | B6 | Crescent | −35° | Opening upper-left |
+| H6 | Waisted | 0° | Long axis horizontal |
 | K6 | Triangle | 15° | Tip up, slightly right |
 | F5 | Tapered pinch | −90° | Narrow end left |
+| H5 | Fin | −40° | Long tapered axis upper-left |
+| J4 | Soft-lobed | 25° | Lobes turned slightly right |
+| K3 | Soft-lobed | 20° | Tall asymmetric volume |
 | G2 | Crescent | 0° | Opening up |
 
-F5 swaps its width/height buckets to preserve its horizontal long axis with the
-new profile. E10 retains a symmetric pinch because its narrow-end direction is
-unclear in this reference. These category cues remain estimates, not measured
-gripping surfaces or manufacturer orientation marks.
+F5 swaps its width/height buckets to preserve its horizontal long axis. Six
+newly reviewed positions use smaller or taller rounded front-view size buckets
+where the previous shared bucket visibly distorted their proportions. E10
+retains a symmetric pinch because its narrow-end direction is unclear in this
+reference. These category cues remain estimates, not measured gripping
+surfaces or manufacturer orientation marks.
 
 Wooden holds share a `wood` family because the photo alone does not establish
 which belong to Set B versus Set C. Grid labels such as A12 identify board
@@ -95,7 +109,7 @@ information must preserve the distinction between observed layout and estimated
 geometry. Faithful scans or reproductions remain subject to the project's
 [hold scanning and publication policy](hold-scanning-and-ip.md).
 
-An independent implementation review checked the eight reusable parametric
+An independent implementation review checked the eleven reusable parametric
 profiles against that policy: they do not trace distinctive individual hold
 outlines and have no branding, mounting bores, countersinks, or replacement-hold
 engineering. The review also checked the color layout against the source image;

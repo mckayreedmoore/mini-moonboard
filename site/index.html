@@ -191,7 +191,7 @@
           if (!Array.isArray(catalog.holds) || catalog.holds.length !== holdCount) throw new Error('Incomplete hold catalog');
           for (const hold of catalog.holds) {
             if (!/^(?:[A-K](?:[1-9]|1[0-2])|KICK(?:[1-9]|10))$/.test(hold.position) || positions.has(hold.position) ||
-                !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch'].includes(hold.shape) ||
+                !holdFamilies[hold.family] || !['edge', 'pinch', 'sloper', 'jug', 'wedge', 'triangle', 'crescent', 'tapered-pinch', 'fin', 'waisted', 'soft-lobed'].includes(hold.shape) ||
                 ![hold.width, hold.height, hold.depth].every(value => Number.isFinite(value) && value > 0 && value < 400) || !Number.isFinite(hold.rotation)) {
               throw new Error('Invalid hold catalog');
             }

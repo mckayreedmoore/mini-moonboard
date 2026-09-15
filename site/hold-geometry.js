@@ -20,6 +20,9 @@ const PROFILES = {
   triangle: { exponent: 1, shoulder: 0.86, crown: 0.5, tilt: 0.12, center: 0.9 },
   crescent: { exponent: 1, shoulder: 0.88, crown: 0.64, tilt: 0.18, center: 0.6 },
   'tapered-pinch': { exponent: 0.8, shoulder: 0.82, crown: 0.45, tilt: 0.16, center: 1 },
+  fin: { exponent: 0.8, shoulder: 0.86, crown: 0.5, tilt: 0.22, center: 0.82 },
+  waisted: { exponent: 0.8, shoulder: 0.88, crown: 0.52, tilt: 0.08, center: 0.8 },
+  'soft-lobed': { exponent: 1, shoulder: 0.88, crown: 0.54, tilt: 0.1, center: 0.78 },
 };
 
 /** Local XY is the mounting plane at z=0; +Y is up and +Z protrudes, in mm. */
@@ -53,12 +56,20 @@ export function createHoldMesh(hold) {
         x *= triangleRadius;
         y *= triangleRadius;
       }
+      if (hold.shape === 'soft-lobed') {
+        const lobeRadius = 0.84 + 0.16 * Math.cos(3 * angle);
+        x *= lobeRadius;
+        y *= lobeRadius;
+      }
       const taper = hold.shape === 'wedge' ? 0.83 - 0.17 * y
-        : hold.shape === 'tapered-pinch' ? 0.75 - 0.25 * y : 1;
+        : hold.shape === 'tapered-pinch' ? 0.75 - 0.25 * y
+        : hold.shape === 'fin' ? 0.68 - 0.28 * y : 1;
       const z = elevation === 0 ? 0 : elevation + profile.tilt * y * elevation;
       const curvedY = hold.shape === 'crescent'
         ? 0.55 * y * radius + 0.95 * (x * radius) ** 2
-        : y * radius;
+        : hold.shape === 'waisted'
+          ? y * (0.55 + 0.45 * Math.abs(x)) * radius
+          : y * radius;
       vertices.push((x * radius * taper * width) / 2, (curvedY * height) / 2, z * depth);
     }
   }
