@@ -1,0 +1,795 @@
+{
+  "candidate": "compact-exterior-brace-development",
+  "mu_assumed": 0.4,
+  "source_cycles": [
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-26",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-27",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-28",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-29"
+  ],
+  "source_sha256": {
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-26/report.json": "b1f65ede7049b07455c97e93d291d45f562980b4f9c15eaad01e3468a470f09c",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-26/input.json": "e891930cfa2b1d3b1dce9e2148f3e60513d10a705bad974b18cbebf5d6935cf7",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-27/report.json": "2a4edc024230fd7c6e2b648c4fdc97deed498c2ff9eeae26e79965aa7021353c",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-27/input.json": "80a469b7eabef63673d504733e8c8423388d7896a66acf8c79062ef5e695d301",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-28/report.json": "5dd975ef61626b527c51e2c9fcd02a64fdecaae10f0f0c0f475cf7dcce9955c3",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-28/input.json": "6753fe302c522c8ce3d77d33fd44f9fb6f4d316c33f2b7dee7ec39e6044fe07f",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-29/report.json": "d86774bebe62f53188e44ad965689ac04aaa6e530340ab64356bfea02d57e8ab",
+    "fea/generated/exterior-mirror-finish/a1-rear/block-03/cycle-29/input.json": "6ce526a34b453f7a20fc7158e11b85d42ba91c67721ffe62b137cb6069032b19",
+    "/tmp/guarded_coulomb_aitken_seed.py": "c3b9fee5ff4cea45360a1f07a26dabc21a2408ee0f66758792a19eeca44a8a90"
+  },
+  "initial_contact_names": [
+    "bearing_base_header_base_post_center_left_20",
+    "bearing_base_header_base_post_center_left_21",
+    "bearing_base_header_base_post_center_left_22",
+    "bearing_base_header_base_post_center_left_23",
+    "bearing_base_header_base_post_center_right_28",
+    "bearing_base_header_base_post_center_right_29",
+    "bearing_base_header_base_post_center_right_30",
+    "bearing_base_header_base_post_center_right_31",
+    "bearing_base_header_base_post_outer_left_10",
+    "bearing_base_header_base_post_outer_left_11",
+    "bearing_base_header_base_post_outer_left_8",
+    "bearing_base_header_base_post_outer_left_9",
+    "bearing_base_header_base_post_outer_right_12",
+    "bearing_base_header_base_post_outer_right_13",
+    "bearing_base_principal_center_left_base_header_17",
+    "bearing_base_principal_center_left_base_header_19",
+    "bearing_base_principal_center_right_base_header_25",
+    "bearing_base_principal_center_right_base_header_27",
+    "bearing_base_side_left_base_header_0",
+    "bearing_base_side_left_base_header_1",
+    "bearing_base_side_left_base_header_2",
+    "bearing_base_side_left_base_header_3",
+    "bearing_base_side_right_base_header_5",
+    "floor_base_post_center_left_0",
+    "floor_base_post_center_left_1",
+    "floor_base_post_center_left_2",
+    "floor_base_post_center_left_3",
+    "floor_base_post_center_right_0",
+    "floor_base_post_center_right_1",
+    "floor_base_post_center_right_2",
+    "floor_base_post_center_right_3",
+    "floor_base_post_outer_left_0",
+    "floor_base_post_outer_left_1",
+    "floor_base_post_outer_left_2",
+    "floor_base_post_outer_left_3",
+    "floor_base_post_outer_right_2",
+    "floor_base_post_outer_right_3",
+    "floor_lumber_leg_left_0",
+    "floor_lumber_leg_left_1",
+    "floor_lumber_leg_left_2",
+    "floor_lumber_leg_left_3",
+    "floor_lumber_leg_left_4",
+    "floor_lumber_leg_left_5",
+    "floor_lumber_leg_left_6",
+    "floor_lumber_leg_left_7",
+    "floor_lumber_leg_left_8",
+    "floor_lumber_leg_right_0",
+    "floor_lumber_leg_right_1",
+    "floor_lumber_leg_right_2",
+    "floor_lumber_leg_right_3",
+    "floor_lumber_leg_right_4",
+    "floor_lumber_leg_right_5",
+    "floor_lumber_leg_right_6",
+    "floor_lumber_leg_right_7",
+    "floor_lumber_leg_right_8",
+    "knee_splice_contact_left_0_0",
+    "knee_splice_contact_left_0_1",
+    "knee_splice_contact_left_0_2",
+    "knee_splice_contact_right_2_0",
+    "knee_splice_contact_right_2_1",
+    "knee_splice_contact_right_2_2",
+    "seating_126",
+    "seating_136",
+    "seating_149",
+    "seating_19",
+    "seating_203",
+    "seating_206",
+    "seating_220",
+    "seating_226",
+    "seating_232",
+    "seating_238",
+    "seating_240",
+    "seating_269",
+    "seating_271",
+    "seating_272",
+    "seating_275",
+    "seating_277",
+    "seating_278",
+    "seating_282",
+    "seating_283",
+    "seating_284",
+    "seating_285",
+    "seating_287",
+    "seating_305",
+    "seating_319",
+    "seating_33",
+    "seating_331",
+    "seating_34",
+    "seating_346",
+    "seating_354",
+    "seating_366",
+    "seating_396",
+    "seating_413",
+    "seating_414",
+    "seating_477",
+    "seating_488",
+    "seating_498",
+    "seating_512",
+    "seating_518",
+    "seating_526",
+    "seating_527",
+    "seating_533",
+    "seating_553",
+    "seating_556",
+    "seating_564",
+    "seating_574",
+    "seating_582",
+    "seating_584",
+    "seating_610",
+    "seating_611",
+    "seating_637",
+    "seating_640",
+    "seating_650",
+    "seating_660",
+    "seating_666"
+  ],
+  "initial_tangent_secants": {
+    "floor_base_post_outer_left_0_friction": 25000.0,
+    "floor_base_post_outer_left_1_friction": 25000.0,
+    "floor_base_post_outer_left_2_friction": 25000.0,
+    "floor_base_post_outer_left_3_friction": 25000.0,
+    "floor_base_post_outer_right_0_friction": 0.0,
+    "floor_base_post_outer_right_1_friction": 0.0,
+    "floor_base_post_outer_right_2_friction": 1473.2965683398852,
+    "floor_base_post_outer_right_3_friction": 600.1676664110281,
+    "floor_lumber_leg_left_0_friction": 113.24267078666692,
+    "floor_lumber_leg_left_1_friction": 561.766081791685,
+    "floor_lumber_leg_left_2_friction": 987.3443631762617,
+    "floor_lumber_leg_left_3_friction": 320.9198134189392,
+    "floor_lumber_leg_left_4_friction": 1146.7012283901083,
+    "floor_lumber_leg_left_5_friction": 1823.7959616642372,
+    "floor_lumber_leg_left_6_friction": 581.9530692089005,
+    "floor_lumber_leg_left_7_friction": 2495.653091411562,
+    "floor_lumber_leg_left_8_friction": 3930.4435902536834,
+    "floor_lumber_leg_right_0_friction": 11111.111111111111,
+    "floor_lumber_leg_right_1_friction": 11111.111111111111,
+    "floor_lumber_leg_right_2_friction": 11111.111111111111,
+    "floor_lumber_leg_right_3_friction": 11111.111111111111,
+    "floor_lumber_leg_right_4_friction": 11111.111111111111,
+    "floor_lumber_leg_right_5_friction": 11111.111111111111,
+    "floor_lumber_leg_right_6_friction": 11111.111111111111,
+    "floor_lumber_leg_right_7_friction": 11111.111111111111,
+    "floor_lumber_leg_right_8_friction": 8903.38893096015,
+    "floor_base_post_center_left_0_friction": 11137.431654375028,
+    "floor_base_post_center_left_1_friction": 25000.0,
+    "floor_base_post_center_left_2_friction": 25000.0,
+    "floor_base_post_center_left_3_friction": 25000.0,
+    "floor_base_post_center_right_0_friction": 25000.0,
+    "floor_base_post_center_right_1_friction": 25000.0,
+    "floor_base_post_center_right_2_friction": 25000.0,
+    "floor_base_post_center_right_3_friction": 25000.0
+  },
+  "cell_details": {
+    "floor_base_post_outer_left_0_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_left_1_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_left_2_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_left_3_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_right_0_friction": {
+      "target_secants_n_per_mm": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_right_1_friction": {
+      "target_secants_n_per_mm": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_outer_right_2_friction": {
+      "target_secants_n_per_mm": [
+        1473.1817282776378,
+        1473.2214112629638,
+        1473.260096338106,
+        1473.2965683398852
+      ],
+      "increments_n_per_mm": [
+        0.03968298532595327,
+        0.038685075142211645,
+        0.0364720017792024
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "contraction_rates": [
+        0.974852945776512,
+        0.942792579441201
+      ],
+      "reason": "Contraction not sufficiently consistent"
+    },
+    "floor_base_post_outer_right_3_friction": {
+      "target_secants_n_per_mm": [
+        599.965244486325,
+        599.977771501742,
+        599.9896880093822,
+        600.0008567183854
+      ],
+      "increments_n_per_mm": [
+        0.01252701541704937,
+        0.01191650764019414,
+        0.01116870900318645
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9512647061945558,
+        0.9372468293910725
+      ],
+      "unclipped_aitken_secant_n_per_mm": 600.1676664110281,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_0_friction": {
+      "target_secants_n_per_mm": [
+        113.91177477005938,
+        113.85141961931164,
+        113.7964634713798,
+        113.74646861131176
+      ],
+      "increments_n_per_mm": [
+        -0.06035515074773912,
+        -0.054956147931847,
+        -0.04999486006803977
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9105461133142085,
+        0.9097227871582285
+      ],
+      "unclipped_aitken_secant_n_per_mm": 113.24267078666692,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_1_friction": {
+      "target_secants_n_per_mm": [
+        563.5738974112851,
+        563.4105073136807,
+        563.2614571905657,
+        563.1259169156642
+      ],
+      "increments_n_per_mm": [
+        -0.16339009760440604,
+        -0.14905012311498922,
+        -0.1355402749014729
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9122347394385171,
+        0.9093603686385839
+      ],
+      "unclipped_aitken_secant_n_per_mm": 561.766081791685,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_2_friction": {
+      "target_secants_n_per_mm": [
+        990.2644399604611,
+        990.0011145420483,
+        989.761350224034,
+        989.5432239595211
+      ],
+      "increments_n_per_mm": [
+        -0.2633254184128191,
+        -0.23976431801429499,
+        -0.21812626451287542
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9105247775146909,
+        0.9097528202669027
+      ],
+      "unclipped_aitken_secant_n_per_mm": 987.3443631762617,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_3_friction": {
+      "target_secants_n_per_mm": [
+        321.27986626447586,
+        321.2512846125164,
+        321.22562568090945,
+        321.2019529875759
+      ],
+      "increments_n_per_mm": [
+        -0.02858165195948459,
+        -0.02565893160692667,
+        -0.02367269333353761
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.8977413776956991,
+        0.9225907647357822
+      ],
+      "unclipped_aitken_secant_n_per_mm": 320.9198134189392,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_4_friction": {
+      "target_secants_n_per_mm": [
+        1148.7627845577051,
+        1148.5760172717132,
+        1148.4061957341207,
+        1148.2517569177046
+      ],
+      "increments_n_per_mm": [
+        -0.18676728599189119,
+        -0.1698215375924974,
+        -0.15443881641613189
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.909268112403103,
+        0.9094183141052592
+      ],
+      "unclipped_aitken_secant_n_per_mm": 1146.7012283901083,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_5_friction": {
+      "target_secants_n_per_mm": [
+        1828.1429172474234,
+        1827.7560411872257,
+        1827.4040318985112,
+        1827.083312521684
+      ],
+      "increments_n_per_mm": [
+        -0.38687606019766463,
+        -0.3520092887144983,
+        -0.32071937682712814
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9098761203643565,
+        0.9111105505151932
+      ],
+      "unclipped_aitken_secant_n_per_mm": 1823.7959616642372,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_6_friction": {
+      "target_secants_n_per_mm": [
+        581.6859099180423,
+        581.712579504291,
+        581.7366393681204,
+        581.7582921557366
+      ],
+      "increments_n_per_mm": [
+        0.026669586248772248,
+        0.02405986382939318,
+        0.021652787616176283
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9021461227393729,
+        0.899954703389624
+      ],
+      "unclipped_aitken_secant_n_per_mm": 581.9530692089005,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_7_friction": {
+      "target_secants_n_per_mm": [
+        2497.089363796068,
+        2496.950281077422,
+        2496.8240979334664,
+        2496.7101891594334
+      ],
+      "increments_n_per_mm": [
+        -0.13908271864602284,
+        -0.12618314395558627,
+        -0.11390877403300692
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9072524982541715,
+        0.9027257560891044
+      ],
+      "unclipped_aitken_secant_n_per_mm": 2495.653091411562,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_left_8_friction": {
+      "target_secants_n_per_mm": [
+        3939.504213563755,
+        3938.69238476279,
+        3937.953386685268,
+        3937.280594422181
+      ],
+      "increments_n_per_mm": [
+        -0.8118288009650314,
+        -0.7389980775219556,
+        -0.6727922630871035
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": true,
+      "contraction_rates": [
+        0.9102880763080824,
+        0.9104113847537241
+      ],
+      "unclipped_aitken_secant_n_per_mm": 3930.4435902536834,
+      "reason": "Consistent bounded monotone contraction"
+    },
+    "floor_lumber_leg_right_0_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_1_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_2_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_3_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_4_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_5_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_6_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_7_friction": {
+      "target_secants_n_per_mm": [
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111,
+        11111.111111111111
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_lumber_leg_right_8_friction": {
+      "target_secants_n_per_mm": [
+        8903.448916980662,
+        8903.430072851947,
+        8903.407518852626,
+        8903.38893096015
+      ],
+      "increments_n_per_mm": [
+        -0.01884412871550012,
+        -0.022553999320734874,
+        -0.01858789247489767
+      ],
+      "elastic_bound_n_per_mm": 11111.111111111111,
+      "extrapolated": false,
+      "reason": "Small or nonmonotone increments"
+    },
+    "floor_base_post_center_left_0_friction": {
+      "target_secants_n_per_mm": [
+        11137.055133415071,
+        11137.191351870839,
+        11137.322176083373,
+        11137.431654375028
+      ],
+      "increments_n_per_mm": [
+        0.13621845576744818,
+        0.13082421253420762,
+        0.10947829165525036
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Small or nonmonotone increments"
+    },
+    "floor_base_post_center_left_1_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_left_2_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_left_3_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_right_0_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_right_1_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_right_2_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    },
+    "floor_base_post_center_right_3_friction": {
+      "target_secants_n_per_mm": [
+        25000.0,
+        25000.0,
+        25000.0,
+        25000.0
+      ],
+      "increments_n_per_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elastic_bound_n_per_mm": 25000.0,
+      "extrapolated": false,
+      "reason": "Retain open/stick target"
+    }
+  },
+  "cell_count": 34,
+  "extrapolated_count": 10,
+  "guards": {
+    "cycle_count": 4,
+    "normal_and_friction_classifications_identical": true,
+    "maximum_contraction_rate": 0.98,
+    "maximum_rate_change": 0.03,
+    "minimum_increment_relative_to_max_one_current": 1e-05,
+    "maximum_step_relative_to_max_one_current": 0.5
+  },
+  "scope": "Numerical search initialization only. No native or resistance acceptance; fresh strict native verification mandatory.",
+  "damping": 1.0,
+  "provenance": {
+    "/tmp/finish_exterior_mirrored_cases.py": "0c848bcf42141dd6140045acdba7f2ed6c0c915a2e6a37a4660890ef2924a066",
+    "/tmp/guarded_coulomb_aitken_seed.py": "c3b9fee5ff4cea45360a1f07a26dabc21a2408ee0f66758792a19eeca44a8a90",
+    "fea/generated/exterior-revised-geometry.json": "e7438060eff18587c6f680e3c7b5c7396ec7ed127a388133f29d63401aa3fe5d",
+    "fea/results/exterior-revised-cells04/a12-forward/report.json.gz": "2c88e975ff0ad81a69e9cd69da197712989da74c1229aafbb0c90ab80b183256",
+    "fea/results/exterior-revised-cells04/a12-forward/assessment.json": "a7782b830aa82233c4dc705e6cef3eabb7dd5268489b30424cfe6e53f00377d4",
+    "/tmp/mirror_exterior_seed.py": "04d7322a5b27948bbd37be1c2668522f9b5ba87e9a8310e7d1d0cac80b16298d",
+    "fea/generated/exterior-finish-control/k12-right/block-00/report.json": "ff2897b6d267702193cfdb9ecdf86f02e7ed56045ae8f780400bb3cf3e3f43c8"
+  }
+}

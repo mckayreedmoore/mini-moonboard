@@ -42,8 +42,13 @@ def floor_bearing_check(report, geometry):
     for name in sorted(names):
         expected = {f'floor_{name}_{index}' for index in range(count)}
         actual = {n for n,r in physical.items() if r['first'] == name and r['second'] == 'floor' and 'scalar_normal' in r}
-        if actual != expected or not expected <= bearings.keys() or f'floor_{name}_friction' not in physical:
+        distributed = report['parameters'].get('floor_friction_assumption', {}).get('per_cell_coulomb') is True
+        tangent_names = {n+'_friction' for n in expected} if distributed else {f'floor_{name}_friction'}
+        if actual != expected or not expected <= bearings.keys() or not tangent_names <= physical.keys():
             raise ValueError('Floor contact inventory differs from support grid')
+        if distributed and (f'floor_{name}_friction' in physical or any(
+                physical[n+'_friction'].get('normal_contact') != n for n in expected)):
+            raise ValueError('Distributed rail friction must match each normal cell')
         member = geometry['members'][name]
         stations = [point[0] for point in member['profile_sq_mm']]
         area = member['width_mm']*(max(stations)-min(stations))/count
@@ -55,6 +60,56 @@ def floor_bearing_check(report, geometry):
                 'compression_n':force, 'wood_bearing_ratio':force/(area*625*.006894757293168361)}
     return {'cells':cells, 'peak_ratio':max(row['wood_bearing_ratio'] for row in cells.values()),
         'scope':'625 psi perpendicular-grain timber bearing on each modeled equal-area floor cell; not measured floor pressure or friction.'}
+
+
+def friction_evidence_check(report):
+    """Recompute the per-cell circular force cap from saved physical reactions."""
+    basis = report['parameters'].get('floor_friction_assumption', {})
+    law = report.get('floor_friction_law', {})
+    physical = report['physical_connection_forces']
+    elastic = basis.get('elastic_tangent_n_per_mm', {})
+    names = {name for name,row in physical.items()
+             if row['second'] == 'floor' and name.endswith('_friction')}
+    mu = basis.get('mu', float('nan'))
+    if (basis.get('per_cell_coulomb') is not True
+            or basis.get('centroid_tangent_springs_removed') is not True
+            or not math.isfinite(mu) or mu <= 0
+            or not names or set(elastic) != names or set(law.get('feet', {})) != names):
+        return False
+    normals = {name for name,row in physical.items()
+               if row['second'] == 'floor' and 'scalar_normal' in row}
+    cells = report['parameters'].get('floor_tangent_cells', {})
+    if (len(names) != len(normals) or set(cells) != names
+            or {physical[name].get('normal_contact') for name in names} != normals
+            or any(physical[name]['scalar_normal'] != [0., 0., 1.] for name in normals)):
+        return False
+    for name in names:
+        tangent, saved = physical[name], law['feet'][name]
+        cell = cells[name]
+        if (cell.get('normal_contact') != tangent.get('normal_contact')
+                or cell.get('body') != tangent['first']
+                or cell.get('point_xyz_mm') != tangent['point']
+                or cell.get('elastic_tangent_n_per_mm') != elastic[name]):
+            return False
+        normal = physical.get(tangent.get('normal_contact'), {})
+        if (normal.get('second') != 'floor' or normal.get('first') != tangent['first']
+                or normal.get('point') != tangent['point']):
+            return False
+        slip = saved.get('slip_xy_mm', ())
+        if len(slip) != 2 or not all(math.isfinite(v) for v in slip) or elastic[name] <= 0:
+            return False
+        pressure = max(0., normal['force_on_first_xyz_n'][2])
+        length = math.hypot(*slip)
+        stiffness = min(elastic[name], mu*pressure/length) if length else elastic[name]
+        if pressure == 0:
+            stiffness = 0.
+        actual = tangent['force_on_first_xyz_n'][:2]
+        residual = math.hypot(*(force+stiffness*motion for force,motion in zip(actual,slip,strict=True)))
+        radius = math.hypot(*tangent['force_rounding_radius_xyz_n'][:2])
+        if (not all(math.isfinite(v) for v in (*actual, radius, residual))
+                or residual > .01+radius or math.hypot(*actual) > mu*pressure+.01+radius):
+            return False
+    return True
 
 
 def expected_joint_inventory(rows, exterior, front_count=2):
@@ -78,7 +133,7 @@ def expected_joint_inventory(rows, exterior, front_count=2):
 
 def checks(report, geometry):
     candidate = report.get('candidate')
-    if candidate not in {'compact-floor-rail-development', 'compact-floor-rail-2x4-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
+    if candidate not in {'compact-floor-rail-development', 'compact-floor-rail-2x4-development', 'compact-floor-recess-development', 'compact-floor-taper-development', 'compact-exterior-brace-development'} or geometry.get('candidate') != candidate:
         raise ValueError('Require matching clear-space candidate identities')
     if not all(report.get(key) is True for key in VALIDITY):
         return {'candidate':candidate, 'status':'INVALID_RESPONSE_DIAGNOSTIC_ONLY', 'qualified_for_design':False}
@@ -171,16 +226,37 @@ def checks(report, geometry):
         metrics['floor_rail_wood_bearing'] = floor['peak_ratio']
         criteria['floor_rail_wood_bearing'] = floor['peak_ratio'] <= 1.
     if floor is not None:
-        cutouts = report['parameters'].get('native_panel_cutouts', {})
+        cutouts = report['parameters'].get('native_panel_cutouts') or {}
         notch_height = 90.9 if '2x4' in candidate else 141.7
-        expected = {'kicker_left':[-1219.2,-1179.1,0.,notch_height],
-                    'kicker_right':[1179.1,1219.2,0.,notch_height]}
+        expected = ({} if candidate in {'compact-floor-recess-development', 'compact-floor-taper-development'} else
+            {'kicker_left':[-1219.2,-1179.1,0.,notch_height],
+             'kicker_right':[1179.1,1219.2,0.,notch_height]})
         criteria['actual_kicker_cutouts'] = set(cutouts) == set(expected) and all(
             len(cutouts[name]['rectangles_xz_mm']) == 1
             and all(math.isclose(a,b,abs_tol=1.e-6) for a,b in zip(
                 cutouts[name]['rectangles_xz_mm'][0], rectangle, strict=True))
             and math.isclose(cutouts[name]['retained_area_mm2'],1219.2*277.-40.1*notch_height,abs_tol=1.e-5)
             for name, rectangle in expected.items())
+    recess = None
+    if candidate == 'compact-floor-recess-development':
+        from scripts.floor_recess_checks import checks as recess_checks
+        recess = recess_checks(report, geometry, sections)
+        criteria.update({'recess_'+key:value for key,value in recess['criteria'].items()})
+    taper = None
+    if candidate == 'compact-floor-taper-development':
+        from scripts.floor_taper_checks import checks as taper_checks
+        taper = taper_checks(report, geometry, sections)
+        criteria.update({'taper_'+key:value for key,value in taper['criteria'].items()})
+    friction = report.get('floor_friction_law')
+    if report['parameters'].get('floor_friction_assumption') is not None:
+        criteria['finite_floor_friction_law'] = bool(friction and friction.get('passed') is True
+            and friction_evidence_check(report))
+    leg_feet = None
+    if pieces and report['parameters'].get('floor_friction_assumption') is not None:
+        from scripts.leg_foot_bearing import leg_foot_bearing_check
+        leg_feet = leg_foot_bearing_check(report, geometry)
+        metrics['leg_foot_normal_bearing'] = leg_feet['peak_ratio']
+        criteria['leg_foot_normal_bearing'] = leg_feet['passed']
     criteria['component_layouts'] = all(m['layout']['component_spacing_screen_passed'] for m in all_local)
     return {'candidate':candidate, 'status':'LISTED_CONDITIONAL_CRITERIA_MET' if all(criteria.values()) else 'LISTED_CRITERIA_NOT_MET',
         'criteria':criteria, 'metrics':metrics, 'stage_one':stage, 'actual_angle_all_bolts':actual,
@@ -192,6 +268,10 @@ def checks(report, geometry):
                   'Hardware is conditional on specified material, delivered dimensions and nominal-diameter thread coverage; full-root sensitivity remains separately reported.',
                   'Commercial angle rated force components are checked; unlisted separation and independent flange moments are recorded, not assigned invented catalog capacities.',
                   'The listed criteria are not a climber weight rating or acceptance of unmodeled installation conditions.'],
+        **({'leg_foot_normal_bearing':leg_feet} if leg_feet is not None else {}),
+        **({'recess':recess} if recess is not None else {}),
+        **({'taper':taper} if taper is not None else {}),
+        **({'floor_friction_law':friction} if friction is not None else {}),
         'qualified_for_design':False}
 
 

@@ -22,7 +22,7 @@ def main():
            ('<style>text{font-family:Arial,sans-serif;fill:#26313a}.title{font-size:26px;font-weight:bold}'
             '.head{font-size:21px;font-weight:bold}.body{font-size:16px}.small{font-size:13px}</style>'),
            '<text x="30" y="38" class="title">Two ways to open the space beneath the climbing face</text>',
-           '<text x="30" y="67" class="body">Floor rails: listed conditional checks met · exterior brace: NOT ACCEPTED (contact solve unresolved)</text>']
+           '<text x="30" y="67" class="body">Selected exterior knees: six conditional cases pass · floor rails: preserved no-slip alternative</text>']
     for index, (model, heading) in enumerate(((floor, 'Floor-level 2×6 side rails'), (exterior, 'Knees moved outside the panel edges'))):
         column = 30 + index*620
         origin = column+72

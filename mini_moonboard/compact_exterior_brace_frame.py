@@ -14,11 +14,16 @@ import cadquery as cq
 
 from . import compact_base_finish as previous
 from . import compact_knee_frame as knee_geometry
+from . import compact_spliced_trimmed as trimmed_source
 
 KEY = 'compact-exterior-brace-development'
 RIM_KNEE_THICKNESS_MM = 88.9
 LEG_KNEE_THICKNESS_MM = 38.1
 SPLICE_PITCH_MM = 51.
+UPPER_BOLT_PITCH_MM = 64.
+LEG_TOP_PROJECTION_MM = 24.
+UPPER_WASHER_MINIMUM_THICKNESS_MM = 3.0
+UPPER_JOINT_REVISION = '64mm-24mm-tail-thick-round-washers'
 LAP_START_MM = 120.
 RIM_PIECE_END_SHORT_OF_LEG_MM = 180.
 KNEE_NAMES = previous.KNEE_NAMES
@@ -32,11 +37,30 @@ parameters = dict(previous.parameters,
     knee_splice_plane_abs_x_mm=previous.b.HALF+RIM_KNEE_THICKNESS_MM,
     climbing_space_knee_intrusion_mm=0., knee_end_finish='square unnotched ends',
     knee_splice_pitch_mm=SPLICE_PITCH_MM, knee_lap_start_mm=LAP_START_MM,
+    upper_bolt_pitch_mm=UPPER_BOLT_PITCH_MM, upper_joint_revision=UPPER_JOINT_REVISION,
+    leg_top_projection_normal_to_rim_mm=LEG_TOP_PROJECTION_MM,
+    upper_washer_minimum_thickness_mm=UPPER_WASHER_MINIMUM_THICKNESS_MM,
     rim_knee_end_short_of_leg_mm=RIM_PIECE_END_SHORT_OF_LEG_MM)
 
 
 def __getattr__(name):
     return getattr(previous, name)
+
+
+
+def bolt_points():
+    points = previous.bolt_points()
+    centre = (points[0]+points[1])/2
+    direction = (points[1]-points[0]).normalized()
+    return tuple(centre+direction*offset for offset in (-UPPER_BOLT_PITCH_MM/2, UPPER_BOLT_PITCH_MM/2))
+
+
+def trim_planes():
+    planes = {name:dict(plane) for name,plane in previous.trim_planes().items()
+              if name.startswith('lumber_leg_')}
+    for name in ('lumber_leg_left','lumber_leg_right'):
+        planes[name]['offset_mm'] -= LEG_TOP_PROJECTION_MM-trimmed_source.LEG_TOP_PROJECTION_MM
+    return planes
 
 
 def splice_stations():
@@ -46,9 +70,6 @@ def splice_stations():
     return tuple(centre+multiple*SPLICE_PITCH_MM for multiple in (-1.5, -0.5, 0.5, 1.5))
 
 
-def trim_planes():
-    return {name: plane for name, plane in previous.trim_planes().items()
-            if name.startswith('lumber_leg_')}
 
 
 @cache
@@ -67,6 +88,12 @@ def raw_changed_parts():
             shape = knee_geometry._prism(side, xlo, xhi, slo, shi)
             result.append(replace(originals[name], shape=shape,
                 blank=(shi-slo, 139.7, hi-lo), description=LIMITS))
+    # Restore actual original stock before extending the old trimmed top.
+    # Cutting a larger half-space out of an already trimmed leg cannot add wood.
+    planes = trim_planes()
+    for part in trimmed_source.installed.uncut_wood_parts():
+        if part.name in ('lumber_leg_left','lumber_leg_right'):
+            result.append(replace(part,shape=trimmed_source._clip(part.shape,planes[part.name]),description=LIMITS))
     return tuple(result)
 
 
@@ -84,6 +111,9 @@ def additional_machining_cutters():
 def connections():
     result = []
     for c in previous.connections():
+        if c.name.startswith('lumber_leg_bolt_'):
+            point = bolt_points()[int(c.name.rsplit('_',1)[1])-1]
+            c = replace(c,start=cq.Vector(c.start.x,point.y,point.z),product_status=LIMITS)
         if not c.name.startswith(('knee_bolt_', 'knee_splice_bolt_')):
             result.append(c)
             continue
@@ -124,6 +154,8 @@ def bolt_dimensions(c):
 
 
 def bolt_interface_point(c):
+    if c.name.startswith('lumber_leg_bolt_'):
+        return c.start+c.direction*(3.175+88.9)
     if c.name.startswith(('knee_bolt_', 'knee_splice_bolt_')):
         return c.start+c.direction*(2.032+88.9)
     return previous.bolt_interface_point(c)

@@ -5,8 +5,10 @@ const assert = require('node:assert/strict');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const candidates = [
   {key: 'compact-floor-rail-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'clear-space'},
+  {key: 'compact-floor-taper-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'floor-runner-taper'},
+  {key: 'compact-floor-recess-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: null, documents: 'floor-runner-recess'},
   {key: 'compact-floor-rail-2x4-development', meshes: 735, bolts: 14, knees: 0, rails: 2, accepted: false, documents: 'floor-rail-2x4'},
-  {key: 'compact-exterior-brace-development', meshes: 767, bolts: 20, knees: 4, rails: 0, accepted: false, documents: 'clear-space'},
+  {key: 'compact-exterior-brace-development', meshes: 767, bolts: 20, knees: 4, rails: 0, accepted: true, documents: 'clear-space'},
 ];
 
 (async () => {
@@ -27,7 +29,7 @@ const candidates = [
             'window.cadTest = {meshes, THREE};'+marker)});
         });
       const url = new URL(base);
-      if (expected.key !== 'compact-floor-rail-development') url.searchParams.set('model', expected.key);
+      if (expected.key !== 'compact-exterior-brace-development') url.searchParams.set('model', expected.key);
       else url.searchParams.delete('model');
       url.searchParams.set('view', 'rear');
       console.log('Loading', expected.key);
@@ -43,15 +45,22 @@ const candidates = [
       assert.equal(await page.locator('#model').inputValue(), expected.key);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').count(), 1);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'),
-        'compact-floor-rail-development');
-      for (const candidate of candidates.filter(row => row.key !== 'compact-floor-rail-development')) {
+        'compact-exterior-brace-development');
+      for (const candidate of candidates.filter(row => row.key !== 'compact-exterior-brace-development')) {
         assert.equal(await page.locator('#model optgroup[label="Development candidates"] option[value="'+candidate.key+'"]').count(), 1);
       }
       for (const document of [expected.documents+'-study.md', expected.documents+'-hardware.md']) {
         assert.equal(await page.locator('#model-documents a[href$="'+document+'"]').count(), 1);
       }
       assert.equal(manifest.design.main_face_height_mm, 277);
-      assert.ok(manifest.design.status.startsWith(expected.accepted ? 'Conditional listed checks met' : 'NOT ACCEPTED'));
+      assert.ok(Math.abs(manifest.design.upper_bolt_pitch_mm-(expected.key === 'compact-exterior-brace-development' ? 64 : 56)) < 1.e-6);
+      if (expected.key === 'compact-exterior-brace-development') {
+        assert.equal(manifest.design.floor_friction_assumption.kind, 'per_cell_coulomb');
+        assert.equal(manifest.design.floor_friction_assumption.mu_assumed, .4);
+        assert.equal(manifest.design.floor_friction_assumption.measured_floor, false);
+      }
+      if (expected.accepted === null) assert.match(manifest.design.status, /^(Development|NOT ACCEPTED)/);
+      else assert.ok(manifest.design.status.startsWith(expected.accepted ? 'Conditional listed checks met' : 'NOT ACCEPTED'));
       assert.equal(manifest.parts.filter(p => /^base_knee_(left|right)_(rim|leg)$/.test(p.name)).length, expected.knees);
       assert.equal(manifest.parts.filter(p => /^base_floor_(left|right)$/.test(p.name)).length, expected.rails);
       assert.ok(manifest.parts.every(p => p.path.startsWith('hybrid/'+expected.key+'/models/')));
@@ -68,7 +77,7 @@ const candidates = [
       }
       const geometry = await page.evaluate(() => {
         const stacks = new Map();
-        const knees = [], rails = [], lowerKicker = [], baseClips = [], rims = [];
+        const knees = [], rails = [], lowerKicker = [], outerKickerX = [], baseClips = [], rims = [];
         let header;
         for (const mesh of window.cadTest.meshes) {
           const part = mesh.userData.part;
@@ -84,10 +93,11 @@ const candidates = [
             stacks.set(f.connection_name, row);
           }
           if (/^base_knee_(left|right)_(rim|leg)$/.test(part.name)) knees.push({name: part.name, minX: box.min.x, maxX: box.max.x});
-          if (/^base_floor_(left|right)$/.test(part.name)) rails.push({name: part.name, minZ: box.min.z});
+          if (/^base_floor_(left|right)$/.test(part.name)) rails.push({name: part.name, minZ: box.min.z, minX: box.min.x, maxX: box.max.x});
           if (/^fastener_round_kicker_(left|right)_(rim|center)_1$/.test(part.name)) lowerKicker.push((box.min.z+box.max.z)/2);
+          if (/^fastener_round_kicker_(left|right)_rim_1$/.test(part.name)) outerKickerX.push(Math.abs((box.min.x+box.max.x)/2));
         }
-        return {stacks: [...stacks.values()], knees, rails, lowerKicker, baseClips, header, rims};
+        return {stacks: [...stacks.values()], knees, rails, lowerKicker, outerKickerX, baseClips, header, rims};
       });
       assert.equal(geometry.baseClips.length, 2);
       assert.ok(geometry.baseClips.every(c => c.minY >= geometry.header.minY+19.04 && c.maxY <= geometry.header.maxY-19.04));
@@ -100,6 +110,11 @@ const candidates = [
         'All exterior knee wood stays outside panel edges');
       assert.equal(geometry.rails.length, expected.rails);
       assert.ok(geometry.rails.every(row => Math.abs(row.minZ) < .01), 'Rails reach floor');
+      if (['compact-floor-recess-development', 'compact-floor-taper-development'].includes(expected.key)) {
+        assert.ok(geometry.rails.every(row => row.name.endsWith('left') ? row.maxX <= -1219.19 : row.minX >= 1219.19), 'Recess runners remain outboard');
+        assert.equal(geometry.outerKickerX.length, 2);
+        assert.ok(geometry.outerKickerX.every(x => Math.abs(x-1200.15) < .01), 'Original outer kicker attachment positions retained');
+      }
       assert.equal(geometry.lowerKicker.length, 4);
       assert.ok(geometry.lowerKicker.every(z => Math.abs(z-60) < .01));
       assert.deepEqual(errors, []);

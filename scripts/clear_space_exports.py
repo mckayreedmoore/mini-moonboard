@@ -1,4 +1,4 @@
-"""Standalone viewer exports for the two clear-space support alternatives."""
+"""Standalone viewer exports for the clear-space support candidates."""
 import argparse
 import ast
 import gzip
@@ -17,11 +17,15 @@ PACKAGE = 'docs/clear-space-study.md'
 
 
 def package_path(kind):
-    return 'docs/floor-rail-2x4-study.md' if kind == 'floor2x4' else PACKAGE
+    return {'floortaper':'docs/floor-runner-taper-study.md',
+            'floor2x4':'docs/floor-rail-2x4-study.md',
+            'floorrecess':'docs/floor-runner-recess-study.md'}.get(kind, PACKAGE)
 
 
 def hardware_path(kind):
-    return 'docs/floor-rail-2x4-hardware.md' if kind == 'floor2x4' else 'docs/clear-space-hardware.md'
+    return {'floortaper':'docs/floor-runner-taper-hardware.md',
+            'floor2x4':'docs/floor-rail-2x4-hardware.md',
+            'floorrecess':'docs/floor-runner-recess-hardware.md'}.get(kind, 'docs/clear-space-hardware.md')
 
 
 def sources(model, kind):
@@ -51,19 +55,63 @@ def sources(model, kind):
                 for source in (dependency.with_suffix('.py'), dependency/'__init__.py'):
                     if source.is_file() and source.is_relative_to(shared.ROOT):
                         pending.append(source)
+    coulomb = False
     for case in CASES:
         directory = shared.ROOT/'fea/results'/('clear-space-'+kind)/case
         for path in directory.glob('*'):
             if path.is_file():
                 hashes[str(path.relative_to(shared.ROOT))] = shared.digest(path)
+        report_path = directory/'report.json.gz'
+        if report_path.exists():
+            report = json.loads(gzip.decompress(report_path.read_bytes()))
+            coulomb |= floor_basis(report)['kind'] == 'per_cell_coulomb'
+    if kind == 'floortaper':
+        for path in repository_source_closure([shared.ROOT/'fea/floor_taper_run.py']):
+            hashes[str(path.relative_to(shared.ROOT))] = shared.digest(path)
+    if coulomb:
+        for path in repository_source_closure([shared.ROOT/'fea/current_coulomb_run.py']):
+            hashes[str(path.relative_to(shared.ROOT))] = shared.digest(path)
     return dict(sorted(hashes.items()))
 
 
 
-def native_source_requirements(active):
-    """Separate native producer inputs from postprocessing/export dependencies."""
-    native = repository_source_closure([shared.ROOT/'fea/current_response_run.py',
-        shared.ROOT/'fea/current_response_model.py', shared.ROOT/'fea/current_response_materials.py'])
+def floor_basis(report):
+    """Identify a reproducible floor law without treating assumed friction as measured."""
+    parameters = report['parameters']
+    assumption = parameters.get('floor_friction_assumption')
+    if assumption is None:
+        if report.get('contact_update_strategy') == 'nested_normal_energy_coulomb_secant':
+            raise ValueError('Coulomb report is missing its floor-law assumptions')
+        return {'kind':'original_no_slip'}
+    mu = assumption.get('mu')
+    elastic = assumption.get('elastic_tangent_n_per_mm')
+    if (assumption.get('per_cell_coulomb') is not True
+            or assumption.get('centroid_tangent_springs_removed') is not True
+            or assumption.get('monotonic_zero_initial_slip') is not True
+            or assumption.get('measured_floor') is not False
+            or assumption.get('original_no_slip_basis') is not False
+            or isinstance(mu, bool) or not isinstance(mu, (int, float))
+            or not math.isfinite(mu) or mu <= 0
+            or not isinstance(elastic, dict) or not elastic
+            or any(isinstance(value, bool) or not isinstance(value, (int, float))
+                   or not math.isfinite(value) or value <= 0 for value in elastic.values())):
+        raise ValueError('Unsupported or incomplete per-cell Coulomb floor basis')
+    return {'kind':'per_cell_coulomb', 'mu_assumed':mu,
+        'monotonic_zero_initial_slip':True, 'measured_floor':False,
+        'elastic_tangent_n_per_mm':elastic,
+        'leg_floor_grid':parameters.get('leg_floor_grid'),
+        'floor_rail_support':parameters.get('floor_rail_support')}
+
+
+def native_source_requirements(active, report=None):
+    """Authenticate the actual producer; preserve the original no-slip closure."""
+    roots = [shared.ROOT/'fea/current_response_run.py',
+        shared.ROOT/'fea/current_response_model.py', shared.ROOT/'fea/current_response_materials.py']
+    if report is not None and floor_basis(report)['kind'] == 'per_cell_coulomb':
+        roots.append(shared.ROOT/'fea/current_coulomb_run.py')
+        if report.get('candidate') == 'compact-floor-taper-development':
+            roots.append(shared.ROOT/'fea/floor_taper_run.py')
+    native = repository_source_closure(roots)
     required = {str(path.relative_to(shared.ROOT)):shared.digest(path) for path in native}
     required.update({name:sha for name, sha in active.items()
                      if (name.startswith('mini_moonboard/') and name.endswith('.py'))
@@ -73,6 +121,7 @@ def native_source_requirements(active):
 
 def validate_case(report, geometry, assessment, candidate, case, required):
     """Require the named load case and reproduce its present assessment."""
+    floor_basis(report)
     if report['candidate'] != candidate or any(report['source_sha256'].get(name) != sha
                                                for name, sha in required.items()):
         raise ValueError('Case evidence does not match current candidate sources')
@@ -90,9 +139,10 @@ def validate_case(report, geometry, assessment, candidate, case, required):
     return fresh
 
 
-def status(kind, model):
+def status(kind, model, *, with_basis=False):
     cases = []
-    required = native_source_requirements(sources(model, kind))
+    basis = None
+    active = sources(model, kind)
     for case in CASES:
         path = shared.ROOT/'fea/results'/('clear-space-'+kind)/case/'assessment.json'
         if path.exists():
@@ -102,32 +152,68 @@ def status(kind, model):
                     raise ValueError('Case archive changed: '+name)
             report = json.loads(gzip.decompress((path.parent/'report.json.gz').read_bytes()))
             geometry = json.loads((path.parent/'geometry.json').read_text())
+            current_basis = floor_basis(report)
+            if basis is not None and current_basis != basis:
+                raise ValueError('Cannot combine different floor laws, assumed friction coefficients or cell stiffness/grid bases')
+            basis = current_basis
+            required = native_source_requirements(active, report)
             cases.append(validate_case(report, geometry, json.loads(path.read_text()), model.KEY, case, required))
     passed = len(cases) == len(CASES) and all(r.get('criteria') and all(r['criteria'].values()) for r in cases)
     label = {'floor':'2×6 floor rails · no raised knees',
              'floor2x4':'2×4 floor rails · no raised knees',
+             'floortaper':'Outboard 2×6 floor rails · tapered leg ends · no raised knees',
+             'floorrecess':'Outboard 2×6 floor rails · recessed leg ends · no raised knees',
              'exterior':'Exterior 4×6 / 2×6 braces · no inboard knee wood'}[kind]
     decision = ('Conditional listed checks met' if passed else
         'NOT ACCEPTED · numerical response rejected' if any(
             row.get('status') == 'INVALID_RESPONSE_DIAGNOSTIC_ONLY' for row in cases) else
         'Development · listed checks incomplete or failed')
-    return decision+' · '+label
+    if basis is not None and basis['kind'] == 'per_cell_coulomb':
+        label += f" · per-cell Coulomb μ={basis['mu_assumed']:g} assumed"
+    result = decision+' · '+label
+    return (result, basis) if with_basis else result
+
+
+
+def upper_bolt_pitch_mm(connections):
+    """Measure the actual symmetric two-bolt upper joints for viewer metadata."""
+    pitches = []
+    for side in ('left', 'right'):
+        pair = [connection for connection in connections
+                if connection.name.startswith(f'lumber_leg_bolt_{side}_')]
+        if len(pair) != 2:
+            raise ValueError('Clear-space viewer requires two upper bolts per leg')
+        pitches.append(math.dist(pair[0].start.toTuple(), pair[1].start.toTuple()))
+    if not math.isfinite(pitches[0]) or pitches[0] <= 0 or not math.isclose(
+            pitches[0], pitches[1], rel_tol=1.e-9, abs_tol=1.e-6):
+        raise ValueError('Upper bolt pitches must be positive and symmetric')
+    return pitches[0]
 
 
 def export(kind, root=Path('site')):
     model = importlib.import_module('mini_moonboard.'+MODELS[kind])
-    label = status(kind, model)
+    label, basis = status(kind, model, with_basis=True)
     package = package_path(kind)
-    scope = ('Finite recorded load cases and material/hardware assumptions apply. '
-        'No-slip floor and accepted panel basis retained. Unlisted commercial-angle separation '
-        'and independent flange moments remain explicit limits. See '+package+'.')
+    floor_scope = (f"Per-cell Coulomb floor law with assumed μ={basis['mu_assumed']:g}; "
+        'each collocated cell is limited by its own positive normal reaction. '
+        'Monotonic zero-initial-slip case; floor friction is not measured and no no-slip restraint is assumed. '
+        'Accepted panel basis retained. '
+        if basis is not None and basis['kind'] == 'per_cell_coulomb' else
+        'No-slip floor and accepted panel basis retained. ')
+    if kind == 'floortaper' and basis is None:
+        floor_scope = ('Actual tapered-leg native geometry and a declared per-cell friction case remain to be checked. '
+                       'Accepted panel basis retained. ')
+    scope = ('Finite recorded load cases and material/hardware assumptions apply. '+floor_scope+
+        'Unlisted commercial-angle separation and independent flange moments remain explicit limits. See '+package+'.')
     def metadata(parts, connections):
         bolts = [c for c in connections if c.kind == 'bolt']
         return {**shared.design_metadata(parts, connections), 'key':model.KEY,
             'status':label, 'description':label+'. '+scope, 'build_package':package,
-            'assessment_scope':scope, 'leg_stock':'4x6', 'outer_rim_stock':'4x6',
+            'assessment_scope':scope,
+            **({'floor_friction_assumption':basis} if basis is not None and basis['kind'] == 'per_cell_coulomb' else {}),
+            'leg_stock':'4x6', 'outer_rim_stock':'4x6',
             'leg_bolt_count':4, 'bolts_per_leg':2, 'total_bolt_count':len(bolts),
-            'knee_piece_count':len(model.KNEE_NAMES), 'upper_bolt_pitch_mm':56.,
+            'knee_piece_count':len(model.KNEE_NAMES), 'upper_bolt_pitch_mm':upper_bolt_pitch_mm(connections),
             'lower_kicker_screw_height_mm':60., 'base_clip_center_y_mm':model.CLIP_CENTER_Y_MM,
             'joint_note':label+'. Heads inside; nuts and tips outside. '+scope}
     source_reader = lambda: sources(model, kind)

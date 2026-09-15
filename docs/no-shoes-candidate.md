@@ -1,5 +1,7 @@
 # Single-2×6 support-leg candidate without custom steel shoes
 
+> Historical `no-shoes-development` baseline. Forward-looking analysis notes below describe that earlier stage, not the selected exterior revision. See the [current design basis](current-design-basis.md) and [completed exterior assessment and package](clear-space-study.md). Historical force results and machining do not transfer to the selected assembly.
+
 This separate development candidate removes the custom steel base shoes from
 the published four-bolt 2×6 support-leg design. It restores the preceding
 rim-to-header detail: two Simpson ML24Z angles with twelve specified SDS screws,

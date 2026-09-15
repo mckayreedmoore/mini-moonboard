@@ -92,6 +92,167 @@ def kicker_notch_sheets():
         (OUT/(name+'-notch-sheet.svg')).write_text('\n'.join(lines)+'\n')
 
 
+
+def leg_recess_sheets():
+    """Record the actual open-bottom leg recess and its remaining thickness."""
+    from html import escape
+
+    records = model.leg_recess_records()
+    if set(records) != {'lumber_leg_left', 'lumber_leg_right'}:
+        raise ValueError('Recess packet requires both leg records')
+    if model.panel_edge_cutouts():
+        raise ValueError('Outboard recess packet must retain unnotched kickers')
+    raw = {p.name:p for p in model.uncut_wood_parts() if p.name in records}
+    if set(raw) != set(records):
+        raise ValueError('Recess sheet requires both actual raw leg shapes')
+    for name, record in records.items():
+        vertices = [v.Center() for v in raw[name].shape.Vertices()]
+        # OCC bounding boxes include tolerances. Select the physical face from
+        # actual vertex coordinates, not the padded bounding-box minimum.
+        face_x = min(v.x for v in vertices)
+        profile = sorted({(v.y, v.z) for v in vertices if abs(v.x-face_x) <= 1.e-6})
+        if len(profile) < 3 or abs(min(z for _, z in profile)-record['bottom_z_mm']) > 1.e-5:
+            raise ValueError('Recess sheet requires a physical side profile reaching the recorded floor: '+name)
+        record['side_profile_yz_mm'] = profile
+    (OUT/'leg-recess-geometry.json').write_text(json.dumps(records, indent=2)+'\n')
+    rows = []
+    for name, record in records.items():
+        cut_lo, cut_hi = record['cut_inner_x_band_mm']
+        keep_lo, keep_hi = record['retained_x_band_mm']
+        rows.append({'member':name, 'cut_from':record['cut_from'],
+            'depth_x_mm':record['depth_x_mm'], 'cut_inner_x_min_mm':cut_lo,
+            'cut_inner_x_max_mm':cut_hi, 'cut_bottom_z_mm':record['bottom_z_mm'],
+            'cut_top_z_mm':record['notch_top_z_mm'],
+            'remaining_leg_thickness_mm':record['remaining_leg_thickness_mm'],
+            'retained_x_min_mm':keep_lo, 'retained_x_max_mm':keep_hi,
+            'runner_top_z_mm':record['runner_top_z_mm'],
+            'shoulder_gap_mm':record['shoulder_gap_mm'],
+            'transverse_clearance_mm':record['transverse_clearance_mm'],
+            'operation':record['operation'], 'assessment_status':PACKET_STATUS})
+        # The raw side profile is convex; order its vertices before clipping
+        # at the drawing's upper edge and the actual horizontal recess shoulder.
+        points = sorted(set(map(tuple, record['side_profile_yz_mm'])))
+        def turn(a, b, c):
+            return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+        lower, upper = [], []
+        for target, ordered in ((lower, points), (upper, reversed(points))):
+            for point in ordered:
+                while len(target)>1 and turn(target[-2], target[-1], point)<=0:
+                    target.pop()
+                target.append(point)
+        profile = lower[:-1]+upper[:-1]
+        def below(polygon, height):
+            result = []
+            for first, second in zip(polygon, polygon[1:]+polygon[:1], strict=True):
+                first_in, second_in = first[1]<=height, second[1]<=height
+                if first_in:
+                    result.append(first)
+                if first_in != second_in:
+                    fraction = (height-first[1])/(second[1]-first[1])
+                    result.append((first[0]+fraction*(second[0]-first[0]), height))
+            return result
+        shoulder = record['notch_top_z_mm']
+        shown = below(profile, shoulder+100.)
+        removed = below(profile, shoulder)
+        if len(shown) < 3 or len(removed) < 3:
+            raise ValueError('Actual recess profile must cross the floor and shoulder: '+name)
+        min_y, max_y = min(p[0] for p in shown), max(p[0] for p in shown)
+        scale = min(550/(max_y-min_y), 290/(shoulder+100.))
+        def polygon_text(polygon, min_y=min_y, scale=scale):
+            return ' '.join(f'{75+(y-min_y)*scale:.3f},{385-z*scale:.3f}' for y,z in polygon)
+        raw_xlo, raw_xhi = record['raw_bounds_xyz_mm'][0]
+        width = raw_xhi-raw_xlo
+        band_scale = 260/width
+        cut_x = 690+(cut_lo-raw_xlo)*band_scale
+        lines = ['<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="710" viewBox="0 0 1060 710">',
+            f'<title>{escape(name)} open-bottom inner-face recess</title>',
+            '<rect width="100%" height="100%" fill="white"/>',
+            '<style>text{font-family:sans-serif;font-size:14px;fill:#17202a}</style>',
+            f'<text x="25" y="30">{escape(name)} — actual leg recess, dimensions in mm</text>',
+            '<text x="25" y="55">Side projection of lower leg; red is removed only within the inner X band.</text>',
+            f'<polygon points="{polygon_text(shown)}" fill="#eee1c7" stroke="#333" stroke-width="2"/>',
+            f'<polygon points="{polygon_text(removed)}" fill="#e9a39a" stroke="#a33" stroke-width="2"/>',
+            f'<text x="75" y="415">World Y increasing right; floor Z = 0. View clipped at Z = {shoulder+100.:g}.</text>',
+            '<text x="690" y="105">Transverse thickness schedule</text>',
+            '<rect x="690" y="125" width="260" height="70" fill="#eee1c7" stroke="#333"/>',
+            f'<rect x="{cut_x:.3f}" y="125" width="{record["depth_x_mm"]*band_scale:.3f}" height="70" fill="#e9a39a" stroke="#a33"/>',
+            '<text x="690" y="220">X increases right; inner face faces board center.</text>',
+            f'<text x="690" y="250">Remove {record["depth_x_mm"]:g}; retain {record["remaining_leg_thickness_mm"]:g}.</text>',
+            f'<text x="690" y="280">Cut X = {cut_lo:.3f} to {cut_hi:.3f}.</text>',
+            f'<text x="690" y="310">Retain X = {keep_lo:.3f} to {keep_hi:.3f}.</text>',
+            f'<text x="25" y="465">Cut from inner side, open through foot end, to horizontal shoulder Z = {shoulder:g} above floor.</text>',
+            f'<text x="25" y="490">Runner top Z = {record["runner_top_z_mm"]:g}; shoulder gap = {record["shoulder_gap_mm"]:g}. Shoulder bearing is not credited.</text>',
+            f'<text x="25" y="515">Transverse clearance = {record["transverse_clearance_mm"]:g}. Preserve the full opposite-face leg thickness.</text>',
+            '<text x="25" y="540">Matching bolt axes: bolt-member-datums.csv and leg bolt sheet. Do not use the image as a drill template.</text>',
+            '<text x="25" y="565">Kickers remain unnotched; original outer-post attachment axes retained. See panel-attachment-axes.csv.</text>',
+            f'<text x="25" y="590">Assessment: {escape(PACKET_STATUS)}</text>',
+            f'<text x="25" y="620">Conditions: ../{Path(PACKAGE).name}. Hardware: ../{Path(HARDWARE).name}.</text>',
+            '</svg>']
+        (OUT/(name+'-recess-sheet.svg')).write_text('\n'.join(lines)+'\n')
+    write_csv('leg-recess-cuts.csv', rows)
+
+
+def leg_taper_sheets():
+    """Dimension the actual X/grain cutter polygon and retain full cut vertices."""
+    from html import escape
+
+    records = model.leg_recess_records()
+    if set(records) != {'lumber_leg_left', 'lumber_leg_right'} or model.panel_edge_cutouts():
+        raise ValueError('Taper packet requires two actual tapered legs and unnotched kickers')
+    raw = {p.name:p for p in model.uncut_wood_parts() if p.name in records}
+    cutters = {name:cutter for name, _, _, cutter in model.additional_machining_cutters()}
+    rows = []
+    for name, record in records.items():
+        shape = raw[name].shape.cut(cutters[name]).clean()
+        record['retained_profile_vertices_world_mm'] = sorted({
+            tuple(round(v, 9) for v in vertex.Center().toTuple()) for vertex in shape.Vertices()})
+        low, high = record['grain_bounds_mm']
+        start, end = record['taper_start_station_mm'], record['taper_end_station_mm']
+        inner, sign = record['inner_face_x_mm'], record['outward_sign']
+        depth = record['max_recess_depth_mm']
+        width = record['raw_bounds_xyz_mm'][0][1]-record['raw_bounds_xyz_mm'][0][0]
+        if end-start <= 0 or abs((end-start)/depth-record['taper_ratio']) > 1.e-6:
+            raise ValueError('Taper run and depth do not match the recorded slope')
+        rows.append({'member':name, 'datum':'A = grain dot world XYZ minus lowest raw-leg grain station; D = depth from inner face toward outer face',
+            'grain_origin_station_mm':low, 'inner_face_world_x_mm':inner,
+            'depth_direction_world_x':sign, 'full_recess_depth_mm':depth,
+            'taper_start_A_mm':start-low, 'taper_end_A_mm':end-low,
+            'run_along_grain_mm':end-start, 'run_per_depth':record['taper_ratio'],
+            'minimum_remaining_thickness_mm':width-depth,
+            'minimum_runner_clearance_mm':record['minimum_vertical_runner_clearance_mm'],
+            'operation':record['operation'], 'assessment_status':PACKET_STATUS})
+        # This transverse/grain projection defines the removal envelope. The
+        # existing foot bevel remains defined by the full 3D retained vertices.
+        scale = min(820/(high-low), 190/width)
+        def xy(a, d, low=low, scale=scale):
+            return 70+(a-low)*scale, 145+d*scale
+        polygon = ' '.join(f'{xy(station, (x-inner)*sign)[0]:.3f},{xy(station, (x-inner)*sign)[1]:.3f}'
+                           for x,station in record['cut_profile_xs_mm'])
+        lines = ['<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="660" viewBox="0 0 1060 660">',
+            '<rect width="100%" height="100%" fill="white"/>',
+            '<style>text{font-family:sans-serif;font-size:14px;fill:#17202a}</style>',
+            f'<title>{escape(name)} inner-face taper cut</title>',
+            f'<text x="25" y="30">{escape(name)} — inner-face taper, dimensions in mm</text>',
+            f'<text x="25" y="56">{escape(PACKET_STATUS)}</text>',
+            '<text x="25" y="82">X/grain removal envelope; retain existing foot/end bevels. Numerical coordinates govern.</text>',
+            f'<rect x="70" y="145" width="{(high-low)*scale:.3f}" height="{width*scale:.3f}" fill="#eee1c7" stroke="#333"/>',
+            f'<polygon points="{polygon}" fill="#e9a39a" stroke="#a33" stroke-width="2"/>',
+            '<text x="70" y="125">+A along grain →; +D into timber from inner face ↓</text>',
+            f'<text x="25" y="365">A origin: absolute grain station {low:.6f}; inner face X = {inner:.6f}; D direction X = {sign:+g}.</text>',
+            f'<text x="25" y="390">Full depth D = {depth:.3f} until A = {start-low:.3f}; return to D = 0 at A = {end-low:.3f}.</text>',
+            f'<text x="25" y="415">Run {end-start:.3f}; slope 1:{record["taper_ratio"]:g}; retain at least {width-depth:.3f} thickness.</text>',
+            f'<text x="25" y="440">Grain axis world XYZ: {escape(str(record["grain_axis_xyz"]))}.</text>',
+            '<text x="25" y="465">Exact cutter and cut-member vertices: leg-taper-geometry.json. Cut coordinates: leg-taper-cuts.csv.</text>',
+            '<text x="25" y="490">Bolt drilling: bolt-member-datums.csv and member bolt sheets. Raw profile sheets omit this removal.</text>',
+            '<text x="25" y="515">Other machining: timber-passages.json; connection-axes.csv; panel-attachment-axes.csv; panel-hole-axes.csv.</text>',
+            '<text x="25" y="540">Kickers remain unnotched. No shoulder bearing credited; preserve recorded runner clearance.</text>',
+            f'<text x="25" y="575">Conditions: ../{Path(PACKAGE).name}; hardware: ../{Path(HARDWARE).name}.</text>',
+            '</svg>']
+        (OUT/(name+'-taper-sheet.svg')).write_text('\n'.join(lines)+'\n')
+    write_csv('leg-taper-cuts.csv', rows)
+    (OUT/'leg-taper-geometry.json').write_text(json.dumps(records, indent=2, allow_nan=False)+'\n')
+
+
 def write_csv(name, rows):
     with (OUT/name).open('w', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(dict.fromkeys(
@@ -345,8 +506,13 @@ def generate(kind):
     end_trim_diagram()
     if kind in ('floor', 'floor2x4'):
         kicker_notch_sheets()
+    elif kind == 'floorrecess':
+        leg_recess_sheets()
+    elif kind == 'floortaper':
+        leg_taper_sheets()
     expected_stock, expected_axes, expected_bolts = {
-        'floor':(26, 222, 12), 'floor2x4':(26, 224, 14), 'exterior':(28, 230, 20)}[kind]
+        'floor':(26, 222, 12), 'floor2x4':(26, 224, 14),
+        'floorrecess':(26, 222, 12), 'floortaper':(26, 222, 12), 'exterior':(28, 230, 20)}[kind]
     if (len(stock)!=expected_stock or len(axes)!=expected_axes or len(panel)!=66
             or sum(c.kind=='bolt' for c in connections)!=expected_bolts
             or sum(r['kind']=='hold' for r in holes)!=142):

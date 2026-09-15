@@ -1,10 +1,12 @@
 # Prototype weight estimates
 
-All 58 viewer prototypes display their modeled weights in kg and lb, both in the
+All 60 viewer prototypes display their modeled weights in kg and lb, both in the
 design menu and beside the selected model. These are estimates, not measured
 weights or load ratings. Current candidates include modeled T-nut envelopes;
 holds, hold bolts, unmodeled retention screws, LEDs and wiring are excluded.
 Historical concepts include only hardware represented in their geometry.
+The two displayed crash pads are separate user equipment and excluded from
+these structural model weight estimates.
 
 Seven recent totals use authenticated CAD mass inventories with unioned fastener
 components. Other totals integrate closed, oriented STL surfaces. Mesh estimates
@@ -15,9 +17,11 @@ can change the built weight.
 
 | Prototype | kg | lb | Basis |
 | --- | ---: | ---: | --- |
+| [compact-floor-taper-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-taper-development) | 211.5 | 466.2 | mesh estimate; development trial |
+| [compact-floor-recess-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-recess-development) | 213.0 | 469.7 | mesh estimate; unaccepted trial |
 | [compact-floor-rail-2x4-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-rail-2x4-development) | 209.2 | 461.3 | mesh estimate; unaccepted trial |
 | [compact-floor-rail-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-rail-development) | 213.9 | 471.6 | mesh estimate |
-| [compact-exterior-brace-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-exterior-brace-development) | 215.0 | 474.0 | mesh estimate |
+| [compact-exterior-brace-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-exterior-brace-development) | 215.1 | 474.2 | mesh estimate |
 | [compact-spliced-knee-development](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-spliced-knee-development) | 209.5 | 461.8 | mesh estimate |
 | [round-insert-development](https://mckayreedmoore.github.io/mini-moonboard/?model=round-insert-development) | 167.6 | 369.5 | audited CAD |
 | [round-bore-service-development](https://mckayreedmoore.github.io/mini-moonboard/?model=round-bore-service-development) | 167.1 | 368.3 | audited CAD |

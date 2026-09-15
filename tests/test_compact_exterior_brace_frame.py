@@ -7,13 +7,13 @@ from mini_moonboard import compact_base_finish as selected
 from mini_moonboard import compact_exterior_brace_frame as model
 
 
-def test_exterior_brace_preserves_selected_nonbrace_connections():
+def test_exterior_brace_preserves_other_selected_connections():
     before = {c.name: c for c in selected.connections()}
     after = {c.name: c for c in model.connections()}
     assert before.keys() == after.keys()
     assert sum(c.kind == 'bolt' for c in after.values()) == 20
     for name, c in after.items():
-        if name.startswith(('knee_bolt_', 'knee_splice_bolt_')):
+        if name.startswith(('knee_bolt_', 'knee_splice_bolt_', 'lumber_leg_bolt_')):
             continue
         original = before[name]
         assert c.start.toTuple() == original.start.toTuple()

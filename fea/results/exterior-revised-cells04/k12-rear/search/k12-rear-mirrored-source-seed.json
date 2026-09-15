@@ -1,0 +1,671 @@
+{
+  "scope": "Only floor normal and friction states reflected; current K12-right initial non-floor contacts retained because panel seating mesh lacks exact reflection. Different hold needs full fresh native acceptance",
+  "initial_contact_names": [
+    "bearing_base_header_base_post_center_left_21",
+    "bearing_base_header_base_post_center_left_23",
+    "bearing_base_header_base_post_center_right_28",
+    "bearing_base_header_base_post_center_right_29",
+    "bearing_base_header_base_post_center_right_30",
+    "bearing_base_header_base_post_center_right_31",
+    "bearing_base_header_base_post_outer_right_13",
+    "bearing_base_header_base_post_outer_right_15",
+    "bearing_base_principal_center_left_base_header_17",
+    "bearing_base_principal_center_left_base_header_19",
+    "bearing_base_principal_center_right_base_header_25",
+    "bearing_base_principal_center_right_base_header_27",
+    "bearing_base_side_right_base_header_5",
+    "floor_base_post_center_left_0",
+    "floor_base_post_center_left_1",
+    "floor_base_post_center_left_2",
+    "floor_base_post_center_left_3",
+    "floor_base_post_center_right_0",
+    "floor_base_post_center_right_1",
+    "floor_base_post_outer_left_0",
+    "floor_base_post_outer_left_1",
+    "floor_base_post_outer_left_2",
+    "floor_base_post_outer_left_3",
+    "floor_lumber_leg_left_0",
+    "floor_lumber_leg_left_1",
+    "floor_lumber_leg_left_3",
+    "floor_lumber_leg_right_0",
+    "floor_lumber_leg_right_1",
+    "floor_lumber_leg_right_2",
+    "floor_lumber_leg_right_3",
+    "floor_lumber_leg_right_4",
+    "floor_lumber_leg_right_5",
+    "floor_lumber_leg_right_6",
+    "floor_lumber_leg_right_7",
+    "floor_lumber_leg_right_8",
+    "knee_splice_contact_left_0_0",
+    "knee_splice_contact_left_0_1",
+    "knee_splice_contact_left_0_2",
+    "knee_splice_contact_right_2_0",
+    "knee_splice_contact_right_2_1",
+    "knee_splice_contact_right_2_2",
+    "seating_109",
+    "seating_119",
+    "seating_121",
+    "seating_123",
+    "seating_127",
+    "seating_129",
+    "seating_136",
+    "seating_14",
+    "seating_149",
+    "seating_187",
+    "seating_191",
+    "seating_193",
+    "seating_205",
+    "seating_206",
+    "seating_217",
+    "seating_22",
+    "seating_221",
+    "seating_223",
+    "seating_232",
+    "seating_234",
+    "seating_236",
+    "seating_238",
+    "seating_239",
+    "seating_270",
+    "seating_274",
+    "seating_280",
+    "seating_283",
+    "seating_287",
+    "seating_289",
+    "seating_308",
+    "seating_322",
+    "seating_328",
+    "seating_332",
+    "seating_404",
+    "seating_414",
+    "seating_425",
+    "seating_485",
+    "seating_491",
+    "seating_497",
+    "seating_500",
+    "seating_518",
+    "seating_526",
+    "seating_527",
+    "seating_553",
+    "seating_556",
+    "seating_564",
+    "seating_574",
+    "seating_582",
+    "seating_584",
+    "seating_594",
+    "seating_610",
+    "seating_611",
+    "seating_637",
+    "seating_640",
+    "seating_650",
+    "seating_660",
+    "seating_665",
+    "seating_666",
+    "seating_85",
+    "seating_93"
+  ],
+  "initial_tangent_secants": {
+    "floor_base_post_outer_right_2_friction": 0.0,
+    "floor_base_post_outer_right_3_friction": 0.0,
+    "floor_base_post_outer_right_0_friction": 0.0,
+    "floor_base_post_outer_right_1_friction": 0.0,
+    "floor_base_post_outer_left_2_friction": 12705.642925635791,
+    "floor_base_post_outer_left_3_friction": 1295.1402474367362,
+    "floor_base_post_outer_left_0_friction": 25000.0,
+    "floor_base_post_outer_left_1_friction": 25000.0,
+    "floor_lumber_leg_right_6_friction": 6988.228137136176,
+    "floor_lumber_leg_right_7_friction": 7758.324614940923,
+    "floor_lumber_leg_right_8_friction": 1713.743242290895,
+    "floor_lumber_leg_right_3_friction": 11111.111111111111,
+    "floor_lumber_leg_right_4_friction": 11111.111111111111,
+    "floor_lumber_leg_right_5_friction": 3569.2218691746248,
+    "floor_lumber_leg_right_0_friction": 9768.77611587971,
+    "floor_lumber_leg_right_1_friction": 10195.601333717108,
+    "floor_lumber_leg_right_2_friction": 4592.279732059933,
+    "floor_lumber_leg_left_6_friction": 0.0,
+    "floor_lumber_leg_left_7_friction": 0.0,
+    "floor_lumber_leg_left_8_friction": 0.0,
+    "floor_lumber_leg_left_3_friction": 11111.111111111111,
+    "floor_lumber_leg_left_4_friction": 0.0,
+    "floor_lumber_leg_left_5_friction": 0.0,
+    "floor_lumber_leg_left_0_friction": 11111.111111111111,
+    "floor_lumber_leg_left_1_friction": 11111.111111111111,
+    "floor_lumber_leg_left_2_friction": 0.0,
+    "floor_base_post_center_right_2_friction": 0.0,
+    "floor_base_post_center_right_3_friction": 0.0,
+    "floor_base_post_center_right_0_friction": 4.339115030669701,
+    "floor_base_post_center_right_1_friction": 43.868054251084416,
+    "floor_base_post_center_left_2_friction": 135.50055425170152,
+    "floor_base_post_center_left_3_friction": 78.95606668766892,
+    "floor_base_post_center_left_0_friction": 152.06972657663022,
+    "floor_base_post_center_left_1_friction": 95.90338808435436
+  },
+  "reflection_xyz": [
+    -1,
+    1,
+    1
+  ],
+  "normal_mapping": {
+    "floor_base_post_outer_left_0": "floor_base_post_outer_right_2",
+    "floor_base_post_outer_left_1": "floor_base_post_outer_right_3",
+    "floor_base_post_outer_left_2": "floor_base_post_outer_right_0",
+    "floor_base_post_outer_left_3": "floor_base_post_outer_right_1",
+    "floor_base_post_outer_right_0": "floor_base_post_outer_left_2",
+    "floor_base_post_outer_right_1": "floor_base_post_outer_left_3",
+    "floor_base_post_outer_right_2": "floor_base_post_outer_left_0",
+    "floor_base_post_outer_right_3": "floor_base_post_outer_left_1",
+    "floor_lumber_leg_left_0": "floor_lumber_leg_right_6",
+    "floor_lumber_leg_left_1": "floor_lumber_leg_right_7",
+    "floor_lumber_leg_left_2": "floor_lumber_leg_right_8",
+    "floor_lumber_leg_left_3": "floor_lumber_leg_right_3",
+    "floor_lumber_leg_left_4": "floor_lumber_leg_right_4",
+    "floor_lumber_leg_left_5": "floor_lumber_leg_right_5",
+    "floor_lumber_leg_left_6": "floor_lumber_leg_right_0",
+    "floor_lumber_leg_left_7": "floor_lumber_leg_right_1",
+    "floor_lumber_leg_left_8": "floor_lumber_leg_right_2",
+    "floor_lumber_leg_right_0": "floor_lumber_leg_left_6",
+    "floor_lumber_leg_right_1": "floor_lumber_leg_left_7",
+    "floor_lumber_leg_right_2": "floor_lumber_leg_left_8",
+    "floor_lumber_leg_right_3": "floor_lumber_leg_left_3",
+    "floor_lumber_leg_right_4": "floor_lumber_leg_left_4",
+    "floor_lumber_leg_right_5": "floor_lumber_leg_left_5",
+    "floor_lumber_leg_right_6": "floor_lumber_leg_left_0",
+    "floor_lumber_leg_right_7": "floor_lumber_leg_left_1",
+    "floor_lumber_leg_right_8": "floor_lumber_leg_left_2",
+    "floor_base_post_center_left_0": "floor_base_post_center_right_2",
+    "floor_base_post_center_left_1": "floor_base_post_center_right_3",
+    "floor_base_post_center_left_2": "floor_base_post_center_right_0",
+    "floor_base_post_center_left_3": "floor_base_post_center_right_1",
+    "floor_base_post_center_right_0": "floor_base_post_center_left_2",
+    "floor_base_post_center_right_1": "floor_base_post_center_left_3",
+    "floor_base_post_center_right_2": "floor_base_post_center_left_0",
+    "floor_base_post_center_right_3": "floor_base_post_center_left_1"
+  },
+  "nonfloor_mapping_rejections": [
+    {
+      "name": "seating_175",
+      "matches": 2
+    },
+    {
+      "name": "seating_176",
+      "matches": 2
+    },
+    {
+      "name": "seating_177",
+      "matches": 2
+    },
+    {
+      "name": "seating_178",
+      "matches": 2
+    },
+    {
+      "name": "seating_253",
+      "matches": 2
+    },
+    {
+      "name": "seating_254",
+      "matches": 2
+    },
+    {
+      "name": "seating_255",
+      "matches": 2
+    },
+    {
+      "name": "seating_256",
+      "matches": 2
+    },
+    {
+      "name": "seating_359",
+      "matches": 0
+    },
+    {
+      "name": "seating_360",
+      "matches": 0
+    },
+    {
+      "name": "seating_361",
+      "matches": 0
+    },
+    {
+      "name": "seating_362",
+      "matches": 0
+    },
+    {
+      "name": "seating_363",
+      "matches": 0
+    },
+    {
+      "name": "seating_364",
+      "matches": 0
+    },
+    {
+      "name": "seating_365",
+      "matches": 0
+    },
+    {
+      "name": "seating_366",
+      "matches": 0
+    },
+    {
+      "name": "seating_441",
+      "matches": 0
+    },
+    {
+      "name": "seating_442",
+      "matches": 0
+    },
+    {
+      "name": "seating_443",
+      "matches": 0
+    },
+    {
+      "name": "seating_444",
+      "matches": 0
+    },
+    {
+      "name": "seating_445",
+      "matches": 0
+    },
+    {
+      "name": "seating_446",
+      "matches": 0
+    },
+    {
+      "name": "seating_447",
+      "matches": 0
+    },
+    {
+      "name": "seating_448",
+      "matches": 0
+    },
+    {
+      "name": "seating_449",
+      "matches": 0
+    },
+    {
+      "name": "seating_450",
+      "matches": 0
+    },
+    {
+      "name": "seating_505",
+      "matches": 0
+    },
+    {
+      "name": "seating_506",
+      "matches": 0
+    },
+    {
+      "name": "seating_507",
+      "matches": 0
+    },
+    {
+      "name": "seating_508",
+      "matches": 0
+    },
+    {
+      "name": "seating_509",
+      "matches": 0
+    },
+    {
+      "name": "seating_510",
+      "matches": 0
+    },
+    {
+      "name": "seating_511",
+      "matches": 0
+    },
+    {
+      "name": "seating_512",
+      "matches": 0
+    },
+    {
+      "name": "seating_513",
+      "matches": 0
+    },
+    {
+      "name": "seating_514",
+      "matches": 0
+    },
+    {
+      "name": "seating_515",
+      "matches": 0
+    },
+    {
+      "name": "seating_516",
+      "matches": 0
+    },
+    {
+      "name": "seating_517",
+      "matches": 0
+    },
+    {
+      "name": "seating_518",
+      "matches": 0
+    },
+    {
+      "name": "seating_533",
+      "matches": 0
+    },
+    {
+      "name": "seating_534",
+      "matches": 0
+    },
+    {
+      "name": "seating_535",
+      "matches": 0
+    },
+    {
+      "name": "seating_536",
+      "matches": 0
+    },
+    {
+      "name": "seating_537",
+      "matches": 0
+    },
+    {
+      "name": "seating_538",
+      "matches": 0
+    },
+    {
+      "name": "seating_539",
+      "matches": 0
+    },
+    {
+      "name": "seating_540",
+      "matches": 0
+    },
+    {
+      "name": "seating_541",
+      "matches": 0
+    },
+    {
+      "name": "seating_542",
+      "matches": 0
+    },
+    {
+      "name": "seating_543",
+      "matches": 0
+    },
+    {
+      "name": "seating_544",
+      "matches": 0
+    },
+    {
+      "name": "seating_545",
+      "matches": 0
+    },
+    {
+      "name": "seating_546",
+      "matches": 0
+    },
+    {
+      "name": "seating_561",
+      "matches": 0
+    },
+    {
+      "name": "seating_562",
+      "matches": 0
+    },
+    {
+      "name": "seating_563",
+      "matches": 0
+    },
+    {
+      "name": "seating_564",
+      "matches": 0
+    },
+    {
+      "name": "seating_565",
+      "matches": 0
+    },
+    {
+      "name": "seating_566",
+      "matches": 0
+    },
+    {
+      "name": "seating_567",
+      "matches": 0
+    },
+    {
+      "name": "seating_568",
+      "matches": 0
+    },
+    {
+      "name": "seating_569",
+      "matches": 0
+    },
+    {
+      "name": "seating_570",
+      "matches": 0
+    },
+    {
+      "name": "seating_571",
+      "matches": 0
+    },
+    {
+      "name": "seating_572",
+      "matches": 0
+    },
+    {
+      "name": "seating_573",
+      "matches": 0
+    },
+    {
+      "name": "seating_574",
+      "matches": 0
+    },
+    {
+      "name": "seating_591",
+      "matches": 0
+    },
+    {
+      "name": "seating_592",
+      "matches": 0
+    },
+    {
+      "name": "seating_593",
+      "matches": 0
+    },
+    {
+      "name": "seating_594",
+      "matches": 0
+    },
+    {
+      "name": "seating_595",
+      "matches": 0
+    },
+    {
+      "name": "seating_596",
+      "matches": 0
+    },
+    {
+      "name": "seating_597",
+      "matches": 0
+    },
+    {
+      "name": "seating_598",
+      "matches": 0
+    },
+    {
+      "name": "seating_599",
+      "matches": 0
+    },
+    {
+      "name": "seating_600",
+      "matches": 0
+    },
+    {
+      "name": "seating_601",
+      "matches": 0
+    },
+    {
+      "name": "seating_602",
+      "matches": 0
+    },
+    {
+      "name": "seating_603",
+      "matches": 0
+    },
+    {
+      "name": "seating_604",
+      "matches": 0
+    },
+    {
+      "name": "seating_619",
+      "matches": 0
+    },
+    {
+      "name": "seating_620",
+      "matches": 0
+    },
+    {
+      "name": "seating_621",
+      "matches": 0
+    },
+    {
+      "name": "seating_622",
+      "matches": 0
+    },
+    {
+      "name": "seating_623",
+      "matches": 0
+    },
+    {
+      "name": "seating_624",
+      "matches": 0
+    },
+    {
+      "name": "seating_625",
+      "matches": 0
+    },
+    {
+      "name": "seating_626",
+      "matches": 0
+    },
+    {
+      "name": "seating_627",
+      "matches": 0
+    },
+    {
+      "name": "seating_628",
+      "matches": 0
+    },
+    {
+      "name": "seating_629",
+      "matches": 0
+    },
+    {
+      "name": "seating_630",
+      "matches": 0
+    },
+    {
+      "name": "seating_631",
+      "matches": 0
+    },
+    {
+      "name": "seating_632",
+      "matches": 0
+    },
+    {
+      "name": "seating_647",
+      "matches": 0
+    },
+    {
+      "name": "seating_648",
+      "matches": 0
+    },
+    {
+      "name": "seating_649",
+      "matches": 0
+    },
+    {
+      "name": "seating_650",
+      "matches": 0
+    },
+    {
+      "name": "seating_651",
+      "matches": 0
+    },
+    {
+      "name": "seating_652",
+      "matches": 0
+    },
+    {
+      "name": "seating_653",
+      "matches": 0
+    },
+    {
+      "name": "seating_654",
+      "matches": 0
+    },
+    {
+      "name": "seating_655",
+      "matches": 0
+    },
+    {
+      "name": "seating_656",
+      "matches": 0
+    },
+    {
+      "name": "seating_657",
+      "matches": 0
+    },
+    {
+      "name": "seating_658",
+      "matches": 0
+    },
+    {
+      "name": "seating_659",
+      "matches": 0
+    },
+    {
+      "name": "seating_660",
+      "matches": 0
+    }
+  ],
+  "cell_mapping": {
+    "floor_base_post_outer_left_0_friction": "floor_base_post_outer_right_2_friction",
+    "floor_base_post_outer_left_1_friction": "floor_base_post_outer_right_3_friction",
+    "floor_base_post_outer_left_2_friction": "floor_base_post_outer_right_0_friction",
+    "floor_base_post_outer_left_3_friction": "floor_base_post_outer_right_1_friction",
+    "floor_base_post_outer_right_0_friction": "floor_base_post_outer_left_2_friction",
+    "floor_base_post_outer_right_1_friction": "floor_base_post_outer_left_3_friction",
+    "floor_base_post_outer_right_2_friction": "floor_base_post_outer_left_0_friction",
+    "floor_base_post_outer_right_3_friction": "floor_base_post_outer_left_1_friction",
+    "floor_lumber_leg_left_0_friction": "floor_lumber_leg_right_6_friction",
+    "floor_lumber_leg_left_1_friction": "floor_lumber_leg_right_7_friction",
+    "floor_lumber_leg_left_2_friction": "floor_lumber_leg_right_8_friction",
+    "floor_lumber_leg_left_3_friction": "floor_lumber_leg_right_3_friction",
+    "floor_lumber_leg_left_4_friction": "floor_lumber_leg_right_4_friction",
+    "floor_lumber_leg_left_5_friction": "floor_lumber_leg_right_5_friction",
+    "floor_lumber_leg_left_6_friction": "floor_lumber_leg_right_0_friction",
+    "floor_lumber_leg_left_7_friction": "floor_lumber_leg_right_1_friction",
+    "floor_lumber_leg_left_8_friction": "floor_lumber_leg_right_2_friction",
+    "floor_lumber_leg_right_0_friction": "floor_lumber_leg_left_6_friction",
+    "floor_lumber_leg_right_1_friction": "floor_lumber_leg_left_7_friction",
+    "floor_lumber_leg_right_2_friction": "floor_lumber_leg_left_8_friction",
+    "floor_lumber_leg_right_3_friction": "floor_lumber_leg_left_3_friction",
+    "floor_lumber_leg_right_4_friction": "floor_lumber_leg_left_4_friction",
+    "floor_lumber_leg_right_5_friction": "floor_lumber_leg_left_5_friction",
+    "floor_lumber_leg_right_6_friction": "floor_lumber_leg_left_0_friction",
+    "floor_lumber_leg_right_7_friction": "floor_lumber_leg_left_1_friction",
+    "floor_lumber_leg_right_8_friction": "floor_lumber_leg_left_2_friction",
+    "floor_base_post_center_left_0_friction": "floor_base_post_center_right_2_friction",
+    "floor_base_post_center_left_1_friction": "floor_base_post_center_right_3_friction",
+    "floor_base_post_center_left_2_friction": "floor_base_post_center_right_0_friction",
+    "floor_base_post_center_left_3_friction": "floor_base_post_center_right_1_friction",
+    "floor_base_post_center_right_0_friction": "floor_base_post_center_left_2_friction",
+    "floor_base_post_center_right_1_friction": "floor_base_post_center_left_3_friction",
+    "floor_base_post_center_right_2_friction": "floor_base_post_center_left_0_friction",
+    "floor_base_post_center_right_3_friction": "floor_base_post_center_left_1_friction"
+  },
+  "normal_count": 34,
+  "cell_count": 34,
+  "coordinate_match_tolerance_mm": 1e-05,
+  "source_sha256": {
+    "fea/generated/exterior-accelerated-a12-rear/cycle-24/input.json": "7b70820762ace8d2778cc481037455e8f1c776ee2031bf23917f0a31b2a5c0fc",
+    "fea/generated/exterior-mirror-finish/k12-right/block-00/cycle-16/input.json": "d7076c02a1fbae37abe0221eb907795902502f47e26f16d8f5123103ff12762b",
+    "fea/generated/exterior-mirror-finish/k12-right/block-00/report.json": "21325b8a06a167e4704856c07b83b0aee094301763890df7b86e1848fe5ea562",
+    "fea/results/exterior-revised-cells04/a12-rear/report.json.gz": "006dc75f23692b35be46dfebc210a4092cba3428d455eabea8add69c02d177de",
+    "/tmp/mirror_exterior_seed.py": "04d7322a5b27948bbd37be1c2668522f9b5ba87e9a8310e7d1d0cac80b16298d"
+  }
+}

@@ -76,3 +76,26 @@ def test_three_bolt_trial_groups_require_explicit_opt_in():
     rows['bolt_4'] = {'first': 'post', 'second': 'rail'}
     with pytest.raises(ValueError, match='bolt counts'):
         connection_groups(rows, allowed_counts=(2, 3))
+
+
+def test_saved_friction_pass_cannot_override_local_force_cap():
+    from scripts.clear_space_results import friction_evidence_check
+    normal = {'first':'leg', 'second':'floor', 'point':[0.,0.,0.], 'scalar_normal':[0.,0.,1.], 'force_on_first_xyz_n':[0.,0.,100.]}
+    tangent = {**normal, 'normal_contact':'normal', 'force_on_first_xyz_n':[-40.,0.,0.],
+               'force_rounding_radius_xyz_n':[0.,0.,0.]}
+    tangent.pop('scalar_normal')
+    report = {'parameters':{'floor_tangent_cells':{'cell_friction':{'normal_contact':'normal',
+        'body':'leg', 'point_xyz_mm':[0.,0.,0.], 'elastic_tangent_n_per_mm':1000.}},
+        'floor_friction_assumption':{'mu':.4, 'per_cell_coulomb':True,
+        'centroid_tangent_springs_removed':True, 'elastic_tangent_n_per_mm':{'cell_friction':1000.}}},
+        'physical_connection_forces':{'normal':normal, 'cell_friction':tangent},
+        'floor_friction_law':{'passed':True, 'feet':{'cell_friction':{'slip_xy_mm':[1.,0.]}}}}
+    assert friction_evidence_check(report)
+    missing = copy.deepcopy(report)
+    missing['physical_connection_forces']['unpaired_normal'] = dict(normal)
+    assert not friction_evidence_check(missing)
+    tangent['force_on_first_xyz_n'][0] = -41.
+    assert not friction_evidence_check(report)
+    tangent['force_on_first_xyz_n'][0] = -40.
+    normal['force_on_first_xyz_n'][2] = 0.
+    assert not friction_evidence_check(report)

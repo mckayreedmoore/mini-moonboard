@@ -6,6 +6,20 @@ brace's force results or establish that either trial passes structural checks.
 No order was placed and no supplied lot has been measured. Retain the existing
 [half-inch upper-joint hardware basis](compact-half-inch-hardware.md).
 
+## Revised exterior upper joint
+
+The current exterior revision uses two half-inch bolts per leg at **64 mm
+pitch**, with the leg top projecting **24 mm** normal to the rim rear face.
+Its upper round washers require **3.0–3.3528 mm delivered thickness**; the
+3.0 mm lower bound is used in the revised washer-bending assessment. Retain
+the existing 34.7472 mm minimum outside diameter, 14.6558 mm maximum bore,
+33 ksi yield reference and complete plain-body/thread-transition requirements.
+The nominal CAD thickness remains 3.175 mm. These limits apply to the four
+upper bolt stacks only; the three-eighths-inch washers below are unchanged.
+See [the revision and its current evidence](exterior-upper-joint-revision.md).
+The preserved floor-rail upper joint retains its original 56 mm pattern and
+hardware basis. Do not transfer the revised exterior result to that geometry.
+
 ## Purchasable three-eighths-inch hardware
 
 | Use | Catalog product | Published length and thread limits |

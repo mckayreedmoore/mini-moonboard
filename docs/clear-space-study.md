@@ -7,14 +7,17 @@ triangulation. Neither inherits the selected inboard-brace assembly's passing
 forces. Each has its own actual geometry, native force cases, connection checks,
 viewer export and fabrication schedule.
 
-**Current result: all six corrected floor-rail cases meet all 25 listed
-conditional criteria per case.** The refined floor-contact sensitivity also meets all 25 criteria;
-the exterior-brace alternative is **not accepted** because its A12-left
-response failed the numerical gate after three bounded solver attempts.
-The existing compact spliced-knee design remains the preserved viable candidate.
-The floor package completes the requested conditional design under the explicit
-analytical limits below. The exterior CAD and dimensional packet are retained
-for comparison only, not as construction instructions or a passing substitute. See the [side-by-side comparison](clear-space-comparison.svg).
+**All six current exterior cases meet all 25 listed conditional criteria.** The separate 5×5 A12-left leg-foot-grid sensitivity also
+meets all 25 criteria. The corrected floor-rail design retains its six passing
+cases and refined contact sensitivity under its original no-slip assumption.
+The exterior evidence uses assumed μ = 0.4, collocated per-cell Coulomb friction;
+it does not establish measured floor properties or transfer to the floor-rail model.
+
+These are conditional analytical results under the loads, material, hardware
+and installation assumptions below, not unconditional qualification or a safe
+climber rating. The revised exterior is selected as the current conditional candidate. The
+prior compact spliced-knee design and preceding failed trials remain references.
+See the [side-by-side comparison](clear-space-comparison.svg).
 
 ## Geometry and practical differences
 
@@ -25,13 +28,13 @@ for comparison only, not as construction instructions or a passing substitute. S
 | Added support stock | Two continuous single 2×6 floor rails | Two solid 4×6 rim-end pieces and two solid 2×6 leg-end pieces |
 | Leg and inclined rim stock | Retained solid 4×6 | Retained solid 4×6 |
 | Compact header/posts | Nominal 2×6 | Nominal 2×6 |
-| Upper leg joint | Two centered ½-inch bolts per leg, 56 mm pitch | Same |
+| Upper leg joint | Two centered ½-inch bolts per leg, 56 mm pitch | Two ½-inch bolts per leg, revised 64 mm pitch and thicker round washers |
 | Other bolts | Two ⅜-inch bolts at each rail end | Two ⅜-inch bolts at each brace endpoint, four per splice |
 | Total complete bolt stacks | 12 | 20 |
 | Panel/kicker SPAX screws | 66, including nine per kicker half | 66, including nine per kicker half |
 | Commercial angles / specified SDS screws | 24 / 144 | 24 / 144 |
 | Main-face datum above floor | 277 mm | 277 mm |
-| Estimated modeled mass | 213.92 kg | 215.00 kg |
+| Estimated modeled mass | 213.92 kg | 215.11 kg |
 
 Mass uses closed mesh volumes at 600 kg/m³ wood/plywood and 7850 kg/m³ steel,
 including modeled T-nut envelopes. Holds, hold bolts, LEDs and wiring are
@@ -76,26 +79,31 @@ between their footprints and both header depth edges. All twelve relocated
 SDS screws retain full nominal receiver penetration. The inclined rim ends
 retain their **7 mm rear projection**. A fully flush cut fails the retained
 quarter-depth end-cut comparison by 4.970 mm after the 3 mm allowance; the
-current projection retains 0.393 mm of margin. Rear-leg tops also retain the
-existing 18 mm projection normal to the rim rear face for bolt end distance.
+current projection retains 0.393 mm of margin. Floor-rail rear-leg tops retain the
+18 mm projection normal to the rim rear face; the current exterior revision
+increases that projection to 24 mm for its revised upper joint.
 
 ## Finite assessment and current results
 
 The analysis applies a 250 lb climber load with a **2.0 downward multiplier**
 (approximately 2224 N downward), plus the horizontal component below. It
-retains the accepted panel construction, explicit no-slip floor assumption,
-recorded material properties and specified hardware basis. The multiplier
+retains the accepted panel construction, recorded material properties and
+specified hardware basis. Floor-rail cases use the explicit no-slip assumption;
+current exterior cases use assumed μ = 0.4 with collocated per-cell friction. The multiplier
 is a static design action; these calculations are not a physical fall test
 or a safe climber weight rating.
 
-| Case | Hold | Horizontal action | Corrected floor result | Exterior result |
-|---|---|---|---|---|
-| `a12-rear` | A12 | +300 N Y | 25/25 met; bolt .825 | Listed criteria met; bolt 0.707473 |
-| `a12-forward` | A12 | −300 N Y | 25/25 met; bolt .759 | Listed criteria met; bolt 0.588735 |
-| `a12-left` | A12 | −300 N X | 25/25 met; bolt .812 | Numerical gate failed; diagnostic only |
-| `k12-right` | K12 | +300 N X | 25/25 met; bolt .800 | Not run; numerical gate stopped batch |
-| `k12-rear` | K12 | +300 N Y | 25/25 met; bolt .818 | Not run; numerical gate stopped batch |
-| `a1-rear` | A1 | +300 N Y | 25/25 met; bolt .128 | Not run; numerical gate stopped batch |
+| Case | Hold | Horizontal action | Corrected floor bolt ratio, no-slip | Current exterior bolt ratio, μ = 0.4 | Exterior criteria |
+|---|---|---|---:|---:|---|
+| `a12-rear` | A12 | +300 N Y | .825 | 0.707702 | 25/25 |
+| `a12-forward` | A12 | −300 N Y | .759 | 0.942397 | 25/25 |
+| `a12-left` | A12 | −300 N X | .812 | 0.985043 | 25/25 |
+| `k12-right` | K12 | +300 N X | .800 | 0.969421 | 25/25 |
+| `k12-rear` | K12 | +300 N Y | .818 | 0.698719 | 25/25 |
+| `a1-rear` | A1 | +300 N Y | .128 | 0.095861 | 25/25 |
+
+All six corrected floor cases meet 25/25 criteria. Each exterior value above
+comes from its own current archived assessment.
 
 **The first six floor cases omitted the kicker clearance notches in their
 native panel representation. Those results are superseded diagnostics, not
@@ -106,17 +114,17 @@ all 25 listed criteria and is reported separately from the six-case maxima
 below. Contact-state seeds only accelerate
 finding the new equilibrium; they do not transfer acceptance between cases.
 
-| Governing comparison | Corrected floor: six accepted cases | Exterior: two accepted cases only, not qualification |
-|---|---:|---:|
-| Actual-angle bolt lateral demand/reference, CD = 1 | 0.825 | 0.707; incomplete case set |
-| Additional bolt-group reduction sensitivity | 0.825 | 0.707; incomplete case set |
-| Local parallel-grain wood comparison | 0.475 | 0.557; incomplete case set |
-| Supplemental splitting comparison | 0.325 | 0.419; incomplete case set |
-| Sampled net-member and stability comparisons | 0.442 net; stability gates met | 0.459 net; only two cases |
-| Header, bearing and end-notch comparisons | 0.264 header; 0.066 quarter-area bearing; 0.258 end notch | 0.429 header; 0.083 quarter-area bearing; 0.173 end notch; only two cases |
-| Catalog angle rated force components | 0.615 | 0.563; only two cases |
-| Complete receiver and placement checks | Met in all six cases | Geometry fits; numerical acceptance incomplete |
-| Overall listed-criteria decision | 25/25 met in all six cases | NOT ACCEPTED: A12-left numerical gate failed |
+| Governing comparison | Corrected floor: six accepted cases |
+|---|---:|
+| Actual-angle bolt lateral demand/reference, CD = 1 | 0.825 |
+| Additional bolt-group reduction sensitivity | 0.825 |
+| Local parallel-grain wood comparison | 0.475 |
+| Supplemental splitting comparison | 0.325 |
+| Sampled net-member and stability comparisons | 0.442 net; stability gates met |
+| Header, bearing and end-notch comparisons | 0.264 header; 0.066 quarter-area bearing; 0.258 end notch |
+| Catalog angle rated force components | 0.615 |
+| Complete receiver and placement checks | Met in all six cases |
+| Overall listed-criteria decision | 25/25 met in all six cases |
 
 The corrected floor cases also give a maximum floor-rail wood-bearing ratio
 of 0.00273, direct steel ratio of 0.119, washer-bearing ratio of 0.101, and
@@ -149,21 +157,36 @@ compression-only rail/floor cells and a no-slip tangential support assumption.
 The exterior model includes actual independent brace sections and
 compression-only contact across the bolted splice faces.
 
-The original exterior A12-rear trial, with 40 mm splice pitch, failed its
-component-spacing comparison by **7.625 mm** despite an actual-angle bolt
-lateral ratio of **0.707785**. That trial is preserved at
-`fea/results/clear-space-exterior-trials/40mm-splice/a12-rear/`. Its strength
-result does not qualify the 51 mm pattern and extended overlap. The revised A12-rear and A12-forward cases meet their listed criteria using
-their own fresh forces. A12-left did not produce an accepted numerical
-response after three bounded attempts, including an alternative floor-contact
-initialization that cycled for 23 iterations. Its archived status is
-`INVALID_RESPONSE_DIAGNOSTIC_ONLY`; its forces must not be used as a resistance
-pass or physical failure prediction. The batch stopped there, so K12-right,
-K12-rear and A1-rear were not run. The exterior alternative clears the climbing
-space geometrically but **has not demonstrated the required passing case set**.
-The two accepted-case maxima above are diagnostic comparisons only, not
-qualification of that alternative. This finite investigation is closed with
-that negative numerical decision; no further exterior solve is promised.
+### Exterior refinement and earlier trials
+
+The passing current geometry uses 51 mm splice pitch with extended overlap,
+64 mm upper-leg bolt pitch, 24 mm leg-top projection and thicker round washers.
+A12-left gives bolt ratio **0.985043** and washer-bending ratio **0.757756**.
+Its separate 5×5 leg-foot sensitivity gives bolt ratio **0.961255** and normal
+foot-bearing ratio **0.569322**, versus **0.203852** with the 3×3 grid.
+Foot bearing uses actual horizontal cell area and the angle between vertical
+compression and leg grain under NDS 3.10.3. The 625 psi perpendicular-grain
+screen is diagnostic, not the governing actual-angle capacity. Tangential
+traction remains in independent member shear/combined-action checks.
+The pressure change does **not** establish a converged physical pressure field;
+small global-response changes cannot substitute for pressure convergence.
+
+The original 40 mm splice trial failed component spacing. The later no-slip
+batch stopped at A12-left contact cycling. Correcting the friction-cell
+collocation produced a converged response, exposing bolt lateral 1.029 and
+washer-bending 1.595 shortfalls in the preceding 56 mm upper joint. These are
+historical failures, not results of the current 64 mm/24 mm revision. See the
+[contact investigation](exterior-knee-contact-verification.md) and preserved
+`fea/results/clear-space-exterior-trials/pre-coulomb-64mm-revision/`, other `clear-space-exterior-trials/` and
+`exterior-cells04-verified/` archives for those distinct geometries and responses.
+
+The separate [runner recess study](floor-runner-recess-study.md) obtained a
+converged A12-rear response and met 31 of 33 criteria. Actual cut-member ratio
+was 0.5666; local notch resistance remains unqualified. Its artificial full-height
+50.8 mm continuous-band diagnostic reached 1.1458 above the recess and is not
+evidence that the actual cut section failed. No further recess cases followed
+that first design gate. Neither that trial nor the [recess concept](floor-runner-leg-recess.md)
+qualifies a modification to the preserved floor-rail assembly.
 
 The resistance assessment reports actual-angle lateral resistance at CD = 1,
 additional group-action sensitivity, direct steel stress, washer bearing and
@@ -187,12 +210,10 @@ with those explicit analytical limits retained.
 
 ## Candidate-specific fabrication packages
 
-The floor directory is the completed conditional fabrication package. The
-exterior directory is an **unaccepted dimensional reference only**, retained
-to review the evaluated concept; do not build from it. Do not combine floor
+The exterior directory is the selected conditional fabrication package, regenerated and checked against the passing revised sources and hardware identities. The floor package remains a separate conditional alternative. Do not combine floor
 bolt coordinates with exterior profiles or earlier inboard knee schedules.
 
-| Artifact | Floor rails: conditional fabrication package | Exterior braces: NOT ACCEPTED reference only |
+| Artifact | Floor rails: conditional fabrication package | Exterior braces: selected conditional package |
 |---|---|---|
 | Stock blanks | [stock.csv](clear-space-floor-construction/stock.csv) | [stock.csv](clear-space-exterior-construction/stock.csv) |
 | All connection axes | [connection-axes.csv](clear-space-floor-construction/connection-axes.csv) | [connection-axes.csv](clear-space-exterior-construction/connection-axes.csv) |
@@ -210,11 +231,23 @@ with [left](clear-space-floor-construction/kicker_left-notch-sheet.svg) and
 sheets. Each directory also contains individual joined-member SVG drill/profile
 sheets and the retained end-trim detail. Use numerical dimensions rather than
 scaling the drawings. The floor export and construction packet have been generated together and their
-links above are current. The exterior export and packet identify the concept
-as not accepted; their dimensional completeness does not resolve its numerical
-gate or authorize construction.
+links above are current. The exterior export and packet have also been regenerated and verified against the current revision.
 
-## Floor-rail conditional assembly guidance
+## Selected exterior assembly detail
+
+Use the exterior stock profiles and drill sheets together: the 64 mm upper
+pattern and 24 mm top projection require fresh stock, not extra holes in the
+preceding 56 mm joint. Fit the independent exterior knee pieces directly to
+their adjoining rims/legs and splice faces without spacers or composite-action
+assumptions. Retain the 51 mm splice pitch and prescribed square ends. All
+20 bolt stacks retain flat washer seating and outward threaded ends. The eight
+upper washers require 3.0–3.3528 mm delivered thickness and the scheduled
+outside/bore dimensions; inspect supplied bolt shanks and runout against the
+[hardware requirements](clear-space-hardware.md). Retain all 66 SPAX screws,
+144 specified SDS screws and the independent panel seams. The kicker remains
+whole and the legs have no floor-runner recesses in this selected candidate.
+
+## Preserved floor-rail conditional assembly guidance
 
 1. Use the complete floor-rail package and verify its final result and manifest.
    Use the [retained material basis](leg-material-basis.md) and
@@ -244,10 +277,9 @@ gate or authorize construction.
 
 ## Evidence and reproducibility
 
-The six accepted floor cases are in `fea/results/clear-space-floor/`. The
-exterior archive at `fea/results/clear-space-exterior/` contains two accepted
-cases and the rejected A12-left diagnostic; it does not contain a complete
-passing six-case set. Archives retain source/geometry identity, native report
+The six accepted floor cases are in `fea/results/clear-space-floor/`. The six current exterior cases are in `fea/results/clear-space-exterior/`. The earlier two accepted no-slip cases and rejected A12-left diagnostic are preserved under `fea/results/clear-space-exterior-trials/pre-coulomb-64mm-revision/`. The original revised-run archives remain under `fea/results/exterior-revised-cells04/`, with the
+5×5 sensitivity under `fea/results/exterior-revised-grid5/`. Current case
+completion is reported above. Archives retain source/geometry identity, native report
 and `assessment.json`. Superseded
 notch-omitted floor reports remain historical diagnostics and must not occupy
 the role of corrected current acceptance evidence.
@@ -258,22 +290,19 @@ actual recorded forces and geometry. `scripts.clear_space_exports` binds the
 standalone viewer status to the current six cases; `scripts.clear_space_construction`
 generates the matching dimensions and checksums. The corrected six-case floor decision and refined A12-rear contact sensitivity
 are complete. The refinement is archived separately at
-`fea/results/clear-space-floor-refinement/a12-rear/`. The exterior investigation
-ends with an unaccepted numerical result and preserves its geometry and
-dimensions for comparison. The selected prior braced baseline remains available.
+`fea/results/clear-space-floor-refinement/a12-rear/`. All six current exterior cases and the separate 5×5 sensitivity meet their listed criteria. The prior braced
+baseline remains available.
 
 ## Software and artifact verification
 
-The default suite passed 467 tests, with 15 historical tests deselected; Ruff
-and the CadQuery smoke test passed. Both new candidates were exported from
-empty directories. Every earlier floor CAD/viewer artifact matched its clean
-rebuild; its provenance manifest was refreshed for the completed tooling. The
-preserved selected spliced-knee export also passed its clean-rebuild check.
+The current default suite passes **518 tests**, with 15 historical tests
+explicitly deselected. Ruff passes for the changed analysis, model, export and
+test code. All four clear-space exports and construction packets have been
+regenerated and checked against fresh builds. The original floor, 2×4 floor
+and recessed-floor STL inventories match their preceding geometry exactly;
+only the exterior stock and upper drilling change. Historical weight rows are
+preserved, and the revised exterior mesh mass is 215.11 kg.
 
-Browser checks verified 725 floor meshes and 767 exterior meshes, complete
-outward bolt stacks, 60 mm lower kicker screws, the 19.05 mm base-clip edge
-clearance and retained 7 mm rim reserve. The exterior model displays its
-NOT ACCEPTED status. Both dimensional packets passed source/artifact checksum
-verification; exterior sheets explicitly prohibit using them as a build release.
+Browser checks pass for all four refreshed variants: 725 original-floor meshes, 725 recessed-floor meshes, 735 2×4-floor meshes and 767 exterior meshes. They verify complete outward bolt stacks, exterior knee position, outboard recessed runners, retained kicker screw locations, base clip clearances and the selected 64 mm upper pattern. CadQuery smoke testing also passes.
 These software and geometry checks do not override the engineering decisions
 and analytical limits above.

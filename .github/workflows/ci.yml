@@ -34,7 +34,7 @@ jobs:
       - name: Smoke-test CadQuery
         run: uv run scripts/smoke_test.py
       - name: Rebuild and verify the current candidate
-        run: uv run python -m scripts.clear_space_exports floor --check
+        run: uv run python -m scripts.clear_space_exports exterior --check
       - name: Verify historical reference/V1 exports
         if: ${{ inputs.include_historical }}
         run: |
