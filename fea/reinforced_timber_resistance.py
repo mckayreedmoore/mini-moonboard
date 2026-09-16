@@ -19,8 +19,15 @@ SIZE_FACTORS = {139.7: (1.3, 1.3, 1.1), 184.15: (1.2, 1.2, 1.05),
                 234.95: (1.1, 1.1, 1.), 285.75: (1., 1., 1.)}
 
 
-def adjusted_reference(depth_mm):
+def adjusted_reference(depth_mm, reference_override=None):
     """US DF-L No.2 dry unincised, CD=1; no repetitive/flat-use increases."""
+    if reference_override is not None:
+        required = {'Fb_star_mpa', 'Ft_mpa', 'Fc_star_mpa', 'Fv_mpa',
+                    'Fc_perp_mpa', 'Emin_mpa'}
+        if set(reference_override) != required or not all(
+                math.isfinite(v) and v > 0 for v in reference_override.values()):
+            raise ValueError('Require all six positive finite reference values in MPa')
+        return dict(reference_override)
     stock = next((d for d in SIZE_FACTORS if abs(d-depth_mm) < 1.e-3), None)
     if stock is None:
         raise ValueError('Require an enumerated nominal 2x stock depth')
@@ -40,13 +47,17 @@ def stability_factor(ratio, c):
 def member_check(*, width_mm, depth_mm, axial_n, moment_strong_nmm,
                  moment_weak_nmm, shear_strong_n, shear_weak_n, torsion_nmm,
                  column_effective_strong_mm, column_effective_weak_mm,
-                 beam_effective_mm, centered_hole_diameter_mm=0.):
+                 beam_effective_mm, centered_hole_diameter_mm=0., reference_override=None):
     """Strong dimension is depth; effective lengths must be externally justified.
 
     Gross rectangular stability equations combined with conservatively increased
     net-section stress provide a conditional screen, not hole qualification.
     The optional centered transverse hole removes a full-width rectangular strip.
+    An explicit complete reference override supports separately classified stock;
+    omitted overrides preserve the historical dimension-lumber assumptions.
     """
+    if width_mm > depth_mm and math.isclose(width_mm, depth_mm, abs_tol=1.e-9):
+        depth_mm = width_mm
     values = (width_mm, depth_mm, axial_n, moment_strong_nmm, moment_weak_nmm,
               shear_strong_n, shear_weak_n, torsion_nmm, column_effective_strong_mm,
               column_effective_weak_mm, beam_effective_mm, centered_hole_diameter_mm)
@@ -56,7 +67,7 @@ def member_check(*, width_mm, depth_mm, axial_n, moment_strong_nmm,
             or width_mm > depth_mm or not 0 <= centered_hole_diameter_mm < depth_mm):
         raise ValueError('Require finite actions, positive effective lengths and strong depth')
     b, d, hole = width_mm, depth_mm, centered_hole_diameter_mm
-    ref = adjusted_reference(d)
+    ref = adjusted_reference(d, reference_override)
     area = b*(d-hole)
     ss = b*(d**3-hole**3)/(6*d)
     sw = (d-hole)*b*b/6
@@ -218,7 +229,8 @@ def section_report(native_report, bored_members=None):
                 torsion_nmm=section['torsion_nmm'], column_effective_strong_mm=length,
                 column_effective_weak_mm=length,
                 beam_effective_mm=effective_beam_length(length, depth),
-                centered_hole_diameter_mm=bored_members.get(name, 0.))
+                centered_hole_diameter_mm=bored_members.get(name, 0.),
+                reference_override=member.get('reference_override'))
             rows.append({'station_along_grain_mm': section['station_along_grain_mm'],
                          'include_station_loads': section['include_station_loads'], **check})
         results[name] = {'unsupported_length_assumed_mm': length, 'checks': rows,

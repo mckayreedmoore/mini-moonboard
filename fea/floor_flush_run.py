@@ -1,21 +1,22 @@
-"""Fresh flush-runner response with explicit unilateral bolted-face contact."""
+"""Fresh flush-runner response under the accepted conditional no-slip support."""
 import hashlib
 import itertools
+import math
 from pathlib import Path
 
 import numpy as np
 from scipy.spatial import ConvexHull
 
-from fea import current_coulomb_run as native
+from fea import current_response_run as native
 from fea.floor_flush_mesh import prepare_flush
 from mini_moonboard import compact_floor_flush_frame as candidate
 
-ORIGINAL_SOURCES = native.sources
+ORIGINAL_SOURCES = native.source_hashes
 
 
 def sources():
     result = ORIGINAL_SOURCES()
-    for source in native.base.repository_source_closure([Path(__file__), Path(candidate.__file__)]):
+    for source in native.repository_source_closure([Path(__file__), Path(candidate.__file__)]):
         result[str(source.resolve().relative_to(Path.cwd()))] = hashlib.sha256(source.read_bytes()).hexdigest()
     return result
 
@@ -30,6 +31,8 @@ def face_contacts(module=candidate, *, stiffness_per_area=100.):
     deduction. This is a mesh-dependent contact idealization, not a resolved
     pressure field or a physical installation preload.
     """
+    if not math.isfinite(stiffness_per_area) or stiffness_per_area <= 0:
+        raise ValueError('Contact stiffness per area must be positive and finite')
     raw = {p.name: p for p in module.uncut_wood_parts()}
     groups = {}
     for bolt in module.connections():
@@ -95,19 +98,20 @@ def taper_top_monitors(module=candidate):
     return result
 
 
-def run(output, *, module=candidate, **kwargs):
+def run(output, *, module=candidate, contact_stiffness_per_area=100., **kwargs):
     if module.KEY != candidate.KEY:
         raise ValueError('Flush producer requires the exact flush candidate')
-    if ORIGINAL_SOURCES() != native.LOADED_SOURCES or sources() != LOADED_SOURCES:
+    if ORIGINAL_SOURCES() != native.LOADED_SOURCE_SHA256 or sources() != LOADED_SOURCES:
         raise ValueError('Restart flush runner after source changes')
     if 'member_contacts' in kwargs or 'clearance_monitors' in kwargs:
         raise ValueError('Flush face contacts cannot be silently overridden')
-    contacts = face_contacts(module)
-    old = native.prepare, native.prepare_recess, native.sources, native.LOADED_SOURCES
+    contacts = face_contacts(module, stiffness_per_area=contact_stiffness_per_area)
+    old = native.source_hashes, native.LOADED_SOURCE_SHA256
     try:
-        native.prepare = prepare_flush; native.prepare_recess = prepare_flush
-        native.sources = sources; native.LOADED_SOURCES = LOADED_SOURCES
-        return native.run(output, module=module, member_contacts=contacts,
+        native.source_hashes = sources
+        native.LOADED_SOURCE_SHA256 = LOADED_SOURCES
+        return native.run(output, module=module, expected_candidate=candidate.KEY,
+                          prepare_factory=prepare_flush, member_contacts=contacts,
                           clearance_monitors=taper_top_monitors(module), **kwargs)
     finally:
-        native.prepare, native.prepare_recess, native.sources, native.LOADED_SOURCES = old
+        native.source_hashes, native.LOADED_SOURCE_SHA256 = old

@@ -52,7 +52,8 @@ def member_comparisons(report):
                 torsion_nmm=section['torsion_nmm'],
                 column_effective_strong_mm=length,
                 column_effective_weak_mm=length,
-                beam_effective_mm=effective_beam_length(length, depth))
+                beam_effective_mm=effective_beam_length(length, depth),
+                reference_override=member.get('reference_override'))
             necessary = max(check['necessary_compression_interaction_even_if_fully_braced'],
                             check['tension_conservative_interaction'], check['shear_ratio'])
             ratios = [necessary, check['stability_interaction_NDS_3_9_4']]

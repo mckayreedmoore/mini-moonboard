@@ -37,6 +37,27 @@ def validate_constants(constants):
     return tuple(constants)
 
 
+def df_l_no2_post_timber():
+    """2024 Table 4D US DF-L No.2 Posts and Timbers; dry, unincised, CD=CF=1.
+
+    Only longitudinal E comes from Table 4D. The other elastic constants retain
+    the existing explicit FPL ratios, scaled to this timber's E. They remain
+    response analogies, not measured properties of purchased stock.
+    """
+    psi = LBF_N / IN_MM**2
+    e = 1_300_000 * psi
+    return {
+        'constants': validate_constants((e, .068*e, .05*e, .292, .449, .390,
+                                        .064*e, .078*e, .007*e)),
+        'reference_override': {
+            'Fb_star_mpa': 750*psi, 'Ft_mpa': 475*psi, 'Fc_star_mpa': 700*psi,
+            'Fv_mpa': 170*psi, 'Fc_perp_mpa': 625*psi, 'Emin_mpa': 470_000*psi},
+        'specific_gravity': .50,
+        'basis': '2024 NDS Supplement Table 4D, US DF-L No.2 Posts and Timbers; '
+                 'dry unincised, CD=CF=1; FPL orthotropic ratios are an explicit analogy',
+    }
+
+
 def equivalent_layers(thickness_mm, ea=APA_EA, ei=APA_EI, ga=APA_GA):
     """Fit symmetric quarter/half/quarter layers to independent axial/bending EA/EI.
 

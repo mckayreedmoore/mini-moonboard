@@ -1,5 +1,9 @@
 # Tapered-runner DIY completion plan
 
+Execution order, worker ownership, and live task status are tracked in the
+[engineering execution plan](engineering-execution-plan.md). This document
+retains the detailed completion gates.
+
 Requested September 14, 2026. This is the finite work plan for
 `compact-floor-flush-development`, following the owner's preference for tapered
 outboard floor beams, whole kicker panels and flush adjoining timber faces.
@@ -27,18 +31,20 @@ installation inspections are specified in the plans, not falsely marked done.
 
 The accepted panel/T-nut construction remains the design basis. No new general
 panel campaign, floor-friction test, external engineering sign-off, destructive
-test, or search for a failure weight is added. The current native floor scenario
-uses assumed per-cell Coulomb friction at mu = 0.4; it must not be described as
-measured friction or as the older no-slip model. Publishing remains outside the
+test, or search for a failure weight is added. Current member and connection
+calculations use the owner's explicit conditional no-slip support assumption;
+normal floor contact may still open. This does not qualify actual floor friction
+or imply an installed anchor. Earlier per-cell Coulomb cases remain historical
+evidence under their recorded assumptions. Publishing remains outside the
 authorized local-only scope.
 
 ## Current execution checkpoint
 
 The flush geometry, relocated bolts, viewer, draft assembly guide and current
-construction drawings are implemented. All 24 receivers fit. One fresh A12-left
-case is numerically accepted and archived with verified source/native hashes.
-Its current assessment meets 37 of 38 implemented criteria; the rim end-cut
-screen remains negative. The subsequent source review has not established an
+construction drawings are implemented. All 24 receivers fit. See the
+[generated recorded-evidence inventory](current-candidate-status.md) for saved
+assessment criteria and completion gates. The archived A12-left case has verified
+source/native hashes; the rim end-cut screen remains negative. The subsequent source review has not established an
 applicable passing alternative for the tensile cut-face state. The leg taper
 also retains an unresolved local stress/resistance method. These findings keep
 the design-release gates open; they are not a reason to label the six old cases
@@ -181,14 +187,21 @@ See [current checkpoint](current-completion-status.md),
 - [ ] Save a local commit during allowed hours with real author/committer times.
   Do not push without new authorization.
 
-## Evidence already available
+## Historical evidence: preceding taper candidate
 
-Six native cases currently pass all 35 listed conditional criteria. The prior
-audit matched 1,760 native artifact hashes and all saved assessments to the
-current checker. All 24 bolt receivers fit; 22 construction artifacts and matching
-CAD/viewer exports exist. The recorded test run has 534 passes and 15 deselections,
+The following evidence belongs to `compact-floor-taper-development`, not the
+selected flush revision. Six archived taper cases passed their 35 implemented
+conditional criteria. That audit matched 1,760 native artifact hashes and all
+saved assessments to the checker used at that checkpoint. All 24 taper bolt
+receivers fit; 22 construction artifacts and matching CAD/viewer exports were
+recorded. The historical test run had 534 passes and 15 deselections,
 with five browser variants checked. These are substantial completed evidence,
 not a substitute for the applicability, tolerance and build-guide gates above.
+
+Selected configuration and recorded assessment references are listed in
+[`current-candidate.json`](../current-candidate.json). Run
+`uv run python -m scripts.current_candidate` to check configuration consistency;
+this does not close any mechanical or fabrication gate.
 
 See [taper study](floor-runner-taper-study.md),
 [hardware requirements](floor-runner-taper-hardware.md), and

@@ -1,0 +1,179 @@
+{
+  "candidate": "compact-floor-flush-development",
+  "header_y_mm": [
+    -175.7,
+    -36.0
+  ],
+  "header_top_z_mm": 277.0,
+  "rims": {
+    "base_side_left": {
+      "seat_y_mm": [
+        -175.7000000000002,
+        -41.49733120798088
+      ],
+      "contact_y_mm": [
+        -175.7,
+        -41.49733120798088
+      ],
+      "seat_fully_supported_geometrically": true,
+      "contact_inner_edge_local_grain_station_mm": -1183.6199903374072,
+      "depth_at_contact_inner_edge_mm": 139.7,
+      "depth_at_header_inner_edge_mm": 139.7,
+      "terminal_seat_projected_depth_mm": 102.80520867986272,
+      "existing_screen_margin_mm": -4.9697913201454185,
+      "seat_length_needed_for_existing_screen_mm": 140.69027060779746,
+      "forward_extension_needed_for_existing_screen_mm": 6.4876018157781346,
+      "required_seat_excess_over_header_width_mm": 0.9902706077974699,
+      "full_header_width_projection_screen_margin_mm": -0.7585912962873067,
+      "bearing_points": {
+        "bearing_base_side_left_base_header_0": {
+          "point_xyz_mm": [
+            -1219.2,
+            -175.70000000000005,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_left_base_header_1": {
+          "point_xyz_mm": [
+            -1219.2,
+            -41.497331207980935,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_left_base_header_2": {
+          "point_xyz_mm": [
+            -1130.3,
+            -175.70000000000005,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_left_base_header_3": {
+          "point_xyz_mm": [
+            -1130.3,
+            -41.497331207980935,
+            277.0
+          ],
+          "compression_n": 401.89999999995507
+        }
+      },
+      "total_native_header_compression_n": 401.89999999995507,
+      "adjacent_full_section_diagnostic": [
+        {
+          "include_station_loads": false,
+          "origin_xyz_mm": [
+            -1174.75,
+            -95.00553555984541,
+            321.8987145366084
+          ],
+          "cut_side_nominal_longitudinal_stress_mpa": [
+            0.1771826158680973,
+            0.1909361974109099
+          ]
+        },
+        {
+          "include_station_loads": true,
+          "origin_xyz_mm": [
+            -1174.75,
+            -95.00553555984541,
+            321.8987145366084
+          ],
+          "cut_side_nominal_longitudinal_stress_mpa": [
+            0.20197246054486004,
+            0.06698697402709722
+          ]
+        }
+      ]
+    },
+    "base_side_right": {
+      "seat_y_mm": [
+        -175.7000000000002,
+        -41.49733120798088
+      ],
+      "contact_y_mm": [
+        -175.7,
+        -41.49733120798088
+      ],
+      "seat_fully_supported_geometrically": true,
+      "contact_inner_edge_local_grain_station_mm": -1183.6199903374072,
+      "depth_at_contact_inner_edge_mm": 139.7,
+      "depth_at_header_inner_edge_mm": 139.7,
+      "terminal_seat_projected_depth_mm": 102.80520867986272,
+      "existing_screen_margin_mm": -4.9697913201454185,
+      "seat_length_needed_for_existing_screen_mm": 140.69027060779746,
+      "forward_extension_needed_for_existing_screen_mm": 6.4876018157781346,
+      "required_seat_excess_over_header_width_mm": 0.9902706077974699,
+      "full_header_width_projection_screen_margin_mm": -0.7585912962873067,
+      "bearing_points": {
+        "bearing_base_side_right_base_header_4": {
+          "point_xyz_mm": [
+            1130.3,
+            -41.497331207980935,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_right_base_header_5": {
+          "point_xyz_mm": [
+            1130.3000000000002,
+            -175.70000000000005,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_right_base_header_6": {
+          "point_xyz_mm": [
+            1219.1999999999998,
+            -175.70000000000005,
+            277.0
+          ],
+          "compression_n": 0.0
+        },
+        "bearing_base_side_right_base_header_7": {
+          "point_xyz_mm": [
+            1219.2,
+            -41.497331207980935,
+            277.0
+          ],
+          "compression_n": 0.0
+        }
+      },
+      "total_native_header_compression_n": 0.0,
+      "adjacent_full_section_diagnostic": [
+        {
+          "include_station_loads": false,
+          "origin_xyz_mm": [
+            1174.75,
+            -95.00553555984541,
+            321.8987145366084
+          ],
+          "cut_side_nominal_longitudinal_stress_mpa": [
+            -0.017889250493310263,
+            0.0007633430466813824
+          ]
+        },
+        {
+          "include_station_loads": true,
+          "origin_xyz_mm": [
+            1174.75,
+            -95.00553555984541,
+            321.8987145366084
+          ],
+          "cut_side_nominal_longitudinal_stress_mpa": [
+            -0.017889250493310263,
+            0.0007633430466813824
+          ]
+        }
+      ]
+    }
+  },
+  "qualified_for_design": false,
+  "scope": "Saved geometry and current reactions only. Inner-edge depth does not establish compression-face classification. Adjacent nominal stresses exclude the partial heel region; no local cut resistance or redesigned support is qualified.",
+  "input_sha256": {
+    "docs/floor-flush-geometry.json": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+    "fea/generated/floor-flush-first/a12-left/block-01/report.json": "91831a6abf62ecee7a14795e5100a2587daaa77cfe2709c8b1a9e6ab5c2224ee",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/flush_rim_support_diagnostic.py": "dbb175d2e39a86c85d85318966a6cab9abc1f7f06e035b817ea409d3f3ccf1bb"
+  }
+}

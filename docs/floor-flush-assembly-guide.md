@@ -1,6 +1,7 @@
 # Flush floor-beam candidate: workshop planning guide
 
-**Draft for `compact-floor-flush-development`; not a fabrication release.**
+**Historical draft for superseded `compact-floor-flush-development`; not a
+fabrication release and not the current candidate.**
 The [build-package status](floor-flush-build-package.md) controls this guide.
 Current resistance, rim-end-cut and taper-method gates remain open. The sequence
 below makes the proposed build reviewable; it does not authorize cutting or
@@ -9,7 +10,7 @@ using the frame before those gates are resolved.
 ## Use one matching model
 
 Open the local viewer with `?model=compact-floor-flush-development&view=rear`.
-The selected [parts inventory](../site/hybrid/compact-floor-flush-development/parts.json)
+The preserved [parts inventory](../site/hybrid/compact-floor-flush-development/parts.json)
 and [artifact manifest](../site/hybrid/compact-floor-flush-development/manifest.json)
 identify the current geometry. Earlier `floortaper` construction sheets have
 **different runner ends, leg tops and all three bolt-pair layouts**. They are
@@ -26,7 +27,7 @@ use them as distances from a sawn end.
 
 ## Stock planning inventory
 
-These quantities come from the selected model. Listed lengths are model blank
+These quantities come from the historical floor-flush model. Listed lengths are model blank
 envelopes, without saw kerf, trimming allowance or a lumber cutting optimization.
 In particular, rim and leg envelope lengths are inherited blanks, not the new
 flush finished lengths. Lumber species, grade, condition and minimum finished
@@ -173,5 +174,9 @@ and inspection limits still need to be established before fabrication.
    crushed seats after initial settling, relocation or unusual impact.
 
 The endpoint remains conditional, engineer-unreviewed DIY under the documented
-loads, material and no-slip support assumptions. This sequence adds no floor
+loads, material and explicit no-slip floor support assumption. Normal floor
+contact may open. This assumption does not qualify floor friction or imply an
+installed anchor; earlier per-cell Coulomb cases remain historical evidence.
+The [fabrication review](floor-flush-fabrication-review.md) records the current
+dimensional budgets and the unresolved drilling-error envelope. This sequence adds no floor
 friction test, panel requalification campaign or external signoff requirement.

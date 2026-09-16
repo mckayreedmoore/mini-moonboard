@@ -4,6 +4,7 @@ from fea.wider_leg_wood_checks import (
     joint_local_checks,
     member_net_check,
     section_envelope,
+    shear_band_ends,
 )
 
 
@@ -42,6 +43,13 @@ def test_parallel_rows_and_directional_splitting():
     reverse=joint_local_checks(points,[(0,-100,-500)]*6,**args)
     assert reverse['parallel_peak_ratio']==pytest.approx(result['parallel_peak_ratio'])
     assert reverse['splitting_peak_ratio']==pytest.approx(result['splitting_peak_ratio'])
+
+
+def test_shear_band_ends_ignore_remote_bevel_corner():
+    profile=[(-300,-70),(205,-70),(290,70),(-300,70)]
+    lower,upper=shear_band_ends(profile,-22,22)
+    assert lower > -300
+    assert 220 < upper < 290
 
 
 def test_edge_crossing_hole_rejected():

@@ -1,0 +1,104 @@
+{
+  "candidate": "compact-floor-flush-development",
+  "scope": "A12-left timber-face penalty sensitivity only; fixed contact points, timber mesh, loads, floor law and connection properties. No contact-point or mesh convergence claim. No resistance-method or fabrication release.",
+  "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+  "cases": [
+    {
+      "report": "fea/generated/floor-flush-first/a12-left/block-01/report.json",
+      "report_sha256": "91831a6abf62ecee7a14795e5100a2587daaa77cfe2709c8b1a9e6ab5c2224ee",
+      "verified_source_snapshots": 211,
+      "contact_penalty_n_per_mm3": 100.0,
+      "contacts": 72,
+      "numerically_accepted": true,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.8792006403585914,
+        "additional_group_reduction_sensitivity": 0.8792006403585914,
+        "local_parallel": 0.4748999195051995,
+        "supplemental_EC5_splitting": 0.3204640995238125,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.748767623649892,
+        "header_gross_full_length_stability": 0.14461139936655995,
+        "base_bearing_average": 0.018653343746198432,
+        "base_bearing_quarter_area_sensitivity": 0.040322084471709416,
+        "base_end_notch_shear": 0.1828646664516088,
+        "angle_rated_force_components": 0.47551509426584576,
+        "floor_rail_wood_bearing": 0.0029742760593223583,
+        "flush_face_wood_bearing": 0.11962712607988221
+      },
+      "maximum_timber_displacement_mm": 5.670328115286275,
+      "failed_implemented_criteria": [
+        "base_end_cut_geometry"
+      ],
+      "relative_changes_from_penalty_100_percent": {
+        "actual_angle_lateral_CD_1": 0.0,
+        "sampled_net_member": 0.0,
+        "flush_face_wood_bearing": 0.0
+      }
+    },
+    {
+      "report": "fea/generated/floor-flush-contact-review/penalty-10-native/report.json",
+      "report_sha256": "5e296ec9f1553c5e651748b0f27251687c5c30c3bc865a7f95522718e5283adb",
+      "verified_source_snapshots": 211,
+      "contact_penalty_n_per_mm3": 10.0,
+      "contacts": 72,
+      "numerically_accepted": true,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.8812237817441922,
+        "additional_group_reduction_sensitivity": 0.8812237817441922,
+        "local_parallel": 0.47495235164829486,
+        "supplemental_EC5_splitting": 0.3212336387943356,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.7461508252669445,
+        "header_gross_full_length_stability": 0.14503034546731078,
+        "base_bearing_average": 0.018689198105224313,
+        "base_bearing_quarter_area_sensitivity": 0.040485471424231784,
+        "base_end_notch_shear": 0.18340120886914413,
+        "angle_rated_force_components": 0.4789796715684051,
+        "floor_rail_wood_bearing": 0.0030227759697181084,
+        "flush_face_wood_bearing": 0.11204803405704725
+      },
+      "maximum_timber_displacement_mm": 5.718632247181838,
+      "failed_implemented_criteria": [
+        "base_end_cut_geometry"
+      ],
+      "relative_changes_from_penalty_100_percent": {
+        "actual_angle_lateral_CD_1": 0.23011145496616425,
+        "sampled_net_member": -0.3494807067367378,
+        "flush_face_wood_bearing": -6.335596508248431
+      }
+    },
+    {
+      "report": "fea/generated/floor-flush-contact-review/penalty-1000-native/report.json",
+      "report_sha256": "821d4509060dbbff7ae4e57d49cfd6d6e2cffcbc2d9d6e7ed91f8d75efb0f89c",
+      "verified_source_snapshots": 212,
+      "contact_penalty_n_per_mm3": 1000.0,
+      "contacts": 72,
+      "numerically_accepted": true,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.8789787079855927,
+        "additional_group_reduction_sensitivity": 0.8789787079855927,
+        "local_parallel": 0.47489547417026834,
+        "supplemental_EC5_splitting": 0.32037831540788836,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.7619161312169426,
+        "header_gross_full_length_stability": 0.14448498856195904,
+        "base_bearing_average": 0.018649259072385658,
+        "base_bearing_quarter_area_sensitivity": 0.04030029954470669,
+        "base_end_notch_shear": 0.1826782185542353,
+        "angle_rated_force_components": 0.47514625727379567,
+        "floor_rail_wood_bearing": 0.002968997212280059,
+        "flush_face_wood_bearing": 0.12043933741109938
+      },
+      "maximum_timber_displacement_mm": 5.665198718730615,
+      "failed_implemented_criteria": [
+        "base_end_cut_geometry"
+      ],
+      "relative_changes_from_penalty_100_percent": {
+        "actual_angle_lateral_CD_1": -0.025242517215195992,
+        "sampled_net_member": 1.7560197786006926,
+        "flush_face_wood_bearing": 0.6789524732666585
+      }
+    }
+  ],
+  "qualified_for_design": false
+}

@@ -162,7 +162,8 @@ def next_contact_names(bearings, strategy='all'):
 
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
         module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
-        contact_update_strategy='all', initial_contact_names=None, **parameters):
+        contact_update_strategy='all', initial_contact_names=None, prepare_factory=None,
+        **parameters):
     next_contact_names([], contact_update_strategy)
     directory = Path(output)
     directory.mkdir(parents=True, exist_ok=False)
@@ -193,7 +194,11 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
             if not bolt_stiffness.get('basis'):
                 raise ValueError('Explicit bolt stiffness requires a recorded geometry/property basis')
             stiffnesses['bolt'] = dict(bolt_stiffness)
-        structure, metadata = prepare(no_shoes_frame if module is None else module, expected_candidate=expected_candidate, materials=materials(panel_group_factor=panel_group_factor), stiffnesses=stiffnesses, **parameters)
+        factory = prepare if prepare_factory is None else prepare_factory
+        structure, metadata = factory(no_shoes_frame if module is None else module,
+            expected_candidate=expected_candidate,
+            materials=materials(panel_group_factor=panel_group_factor),
+            stiffnesses=stiffnesses, **parameters)
     if before != source_hashes():
         raise ValueError('Consumed sources changed during preparation')
     for name,digest in before.items():
@@ -245,6 +250,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
             'panel_displacement_mm':report['maximum_panel_displacement_mm']}),flush=True)
         if report['closed_bearing_assumption_passed']:
             report['contact_active_set_converged'] = True
+            report['termination'] = 'Normal contact active set converged'
             break
         active = active_with_friction(next_contact_names(report['bearings'], contact_update_strategy),spring_names,metadata['connection_ownership'])
     report.setdefault('contact_active_set_converged',False)

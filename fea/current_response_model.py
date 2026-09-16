@@ -400,6 +400,15 @@ class CurrentStructure(Structure):
                 raise ValueError('Require nine finite engineering elastic constants')
             materials += [f'*MATERIAL,NAME={name.upper()}', '*ELASTIC,TYPE=ENGINEERING CONSTANTS',
                           ','.join(map(str,constants[:8])),str(constants[8])]
+        overrides = self.materials.get('timber_by_name', {})
+        if set(overrides)-set(self.members):
+            raise ValueError('Timber material overrides must name existing members')
+        from fea.current_response_materials import validate_constants
+        for name, constants in overrides.items():
+            constants = validate_constants(constants)
+            materials += [f'*MATERIAL,NAME=TIMBER_MEMBER_{name}',
+                          '*ELASTIC,TYPE=ENGINEERING CONSTANTS',
+                          ','.join(map(str,constants[:8])), str(constants[8])]
         if getattr(self,'panel_solid_layers',False):
             for index,layer in enumerate(self.layer_materials):
                 constants=layer['constants']
@@ -409,7 +418,8 @@ class CurrentStructure(Structure):
         for name,member in self.members.items():
             axes=[*member['axis'],*member['u']]
             old=f'*SOLID SECTION,ELSET={name},MATERIAL=ASSUMED_WOOD'
-            new=f'*ORIENTATION,NAME=ORI_{name}\n'+','.join(map(str,axes))+f'\n*SOLID SECTION,ELSET={name},MATERIAL=TIMBER,ORIENTATION=ORI_{name}'
+            material = f'TIMBER_MEMBER_{name}' if name in overrides else 'TIMBER'
+            new=f'*ORIENTATION,NAME=ORI_{name}\n'+','.join(map(str,axes))+f'\n*SOLID SECTION,ELSET={name},MATERIAL={material},ORIENTATION=ORI_{name}'
             text=text.replace(old,new)
         # Panel local first direction follows sheet width; second follows slope/vertical.
         for name in self.panels:

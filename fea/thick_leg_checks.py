@@ -189,7 +189,8 @@ def bounded_section_check(data, member, section, properties):
         shear_strong_n=section['shear_v_n']*b*d/properties['area_mm2'],
         shear_weak_n=section['shear_u_n']*b*d/properties['area_mm2'],
         torsion_nmm=section['torsion_nmm'],column_effective_strong_mm=data['length_mm'],
-        column_effective_weak_mm=data['length_mm'],beam_effective_mm=effective_beam_length(data['length_mm'],d))
+        column_effective_weak_mm=data['length_mm'],beam_effective_mm=effective_beam_length(data['length_mm'],d),
+        reference_override=member.get('reference_override'))
     check['local_opening_resistance_evaluated'] = False
     check['section_metadata_basis'] = 'Equivalent gross section with scaled actions; enclosing actual_cut_box_properties records net geometry.'
     check['conservative_net_section_envelope_ratio'] = max(check['necessary_compression_interaction_even_if_fully_braced'],check['tension_conservative_interaction'],check['shear_ratio'])

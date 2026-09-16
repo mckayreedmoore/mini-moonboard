@@ -6,7 +6,26 @@ Inputs must describe current geometry and actions; this module supplies neither.
 import itertools
 import math
 
+import numpy as np
+from scipy.spatial import ConvexHull
+
 from fea.reinforced_timber_resistance import adjusted_reference, stability_factor
+
+
+def shear_band_ends(profile, low_q, high_q, inset_mm=3.):
+    """Bound grain ends across a complete fastener group's hole-width band."""
+    equations = ConvexHull(np.asarray(profile, dtype=float)).equations
+    if low_q > high_q:
+        raise ValueError('Invalid shear band')
+    lower, upper = [], []
+    for a,b,c in equations:
+        if abs(a) < 1e-10:
+            if max(b*low_q+c+inset_mm,b*high_q+c+inset_mm) > 1e-7:
+                raise ValueError('Shear band outside toleranced stock')
+            continue
+        stations = [-(b*q+c+inset_mm)/a for q in (low_q,high_q)]
+        (upper if a > 0 else lower).append(min(stations) if a > 0 else max(stations))
+    return [float(max(lower)),float(min(upper))]
 
 
 def dot(a, b):
@@ -83,7 +102,8 @@ def member_net_check(compression_n, moment_strong_nmm, *, holes_sq_d,
 
 
 def joint_local_checks(points, forces, *, grain, centre, end_stations_mm,
-                       depth_mm=184.15, width_mm=38.1, hole_mm=14.2875, kmod=.8, additional_section_boxes=(), duration_factor=1.):
+                       depth_mm=184.15, width_mm=38.1, hole_mm=14.2875, kmod=.8,
+                       additional_section_boxes=(), duration_factor=1., reference_override=None):
     """Actual-row Appendix E and directional supplemental EC5 splitting.
 
     Forces are ON the member being checked. No cancellation across bolts is
@@ -95,7 +115,7 @@ def joint_local_checks(points, forces, *, grain, centre, end_stations_mm,
     normal = (0.,grain[2],-grain[1])
     local = [(dot([p[i]-centre[i] for i in range(3)],grain),dot([p[i]-centre[i] for i in range(3)],normal)) for p in points]
     sections = section_envelope([(s,q,hole_mm) for s,q in local]+list(additional_section_boxes),depth_mm=depth_mm,width_mm=width_mm)
-    ref = adjusted_reference(depth_mm)
+    ref = adjusted_reference(depth_mm, reference_override)
     if not math.isfinite(duration_factor) or duration_factor <= 0:
         raise ValueError('Positive finite duration factor required')
     for key in ('Fb_star_mpa','Ft_mpa','Fc_star_mpa','Fv_mpa'):
