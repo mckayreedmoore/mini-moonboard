@@ -1,15 +1,19 @@
-# Current completion record: flush floor-beam development
+# Current completion record: compact spliced flush-top development
 
-The owner selected the outboard tapered floor-beam direction with whole kickers
-and requested flush runner ends, lower rim ends and leg tops. Current model is
-`compact-floor-flush-development`; upper bolt relocation retains two half-inch
-bolts per leg at 56 mm pitch. It is a development revision, not a completed DIY
-release. See the [current package status](floor-flush-build-package.md) and
-[finite completion plan](tapered-runner-completion-plan.md).
+The selected development is `compact-spliced-flush-top-development`: solid
+4×6 legs/rims, compact 2×6 base, four independent spliced 2×6 knees, flush
+0 mm rear-leg tops, retained 7 mm rim reserve, 20 complete outward-facing bolt
+stacks and 66 panel/kicker screws. No floor runners or 1:12 taper are included.
+The two upper half-inch bolt pairs per leg are relocated at 56 mm pitch.
 
-Old native passes do not transfer to these cuts or relocated bolts. Remaining
-work includes the rim end-cut screen, taper-method/contact justification,
-matching force checks, fabrication allowances and builder instructions.
+Six fresh assembled no-slip cases meet the listed conditional checks. This is
+engineer-unreviewed conditional DIY evidence, not a construction release or
+unconditional climber rating. The 0.361 mm directional placement margin and
+1.9 mm group-spacing margin are tight installation limits. Full-root lateral
+values above 1.0 are non-adopted sensitivities. Retained ML24Z/SDS separation
+capacity and independent flange-couple applicability remain an open connection
+gate, so finite completion is not established. Earlier floor-flush/taper and
+compact-spliced-kicker evidence remains historical and does not transfer.
 No push is authorized; local commits follow the repository time rule.
 
 ## Preserved preceding completion record

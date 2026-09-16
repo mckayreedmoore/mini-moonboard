@@ -4,6 +4,7 @@ const {chromium} = require(process.argv[2] || 'playwright');
 const assert = require('node:assert/strict');
 const base = process.argv[3] || 'http://127.0.0.1:8767/';
 const candidates = [
+  {key: 'compact-spliced-flush-top-development', meshes: 767, bolts: 20, knees: 4, rails: 0, accepted: null, documents: 'compact-spliced-flush-top'},
   {key: 'compact-floor-flush-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: null, documents: 'floor-flush'},
   {key: 'compact-floor-rail-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'clear-space'},
   {key: 'compact-floor-taper-development', meshes: 725, bolts: 12, knees: 0, rails: 2, accepted: true, documents: 'floor-runner-taper'},
@@ -30,7 +31,7 @@ const candidates = [
             'window.cadTest = {meshes, THREE};'+marker)});
         });
       const url = new URL(base);
-      if (expected.key !== 'compact-floor-flush-development') url.searchParams.set('model', expected.key);
+      if (expected.key !== 'compact-spliced-flush-top-development') url.searchParams.set('model', expected.key);
       else url.searchParams.delete('model');
       url.searchParams.set('view', 'rear');
       console.log('Loading', expected.key);
@@ -46,11 +47,19 @@ const candidates = [
       assert.equal(await page.locator('#model').inputValue(), expected.key);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').count(), 1);
       assert.equal(await page.locator('#model optgroup[label="Current design"] option').getAttribute('value'),
-        'compact-floor-flush-development');
-      for (const candidate of candidates.filter(row => row.key !== 'compact-floor-flush-development')) {
-        assert.equal(await page.locator('#model optgroup[label="Development candidates"] option[value="'+candidate.key+'"]').count(), 1);
+        'compact-spliced-flush-top-development');
+      for (const candidate of candidates.filter(row => row.key !== 'compact-spliced-flush-top-development')) {
+        assert.equal(await page.locator('#model optgroup[label="Historical / archive designs"] option[value="'+candidate.key+'"]').count(), 1);
       }
-      for (const document of (expected.key === 'compact-floor-flush-development' ? ['floor-flush-build-package.md', 'floor-runner-taper-hardware.md'] : [expected.documents+'-study.md', expected.documents+'-hardware.md'])) {
+      const documents = expected.key === 'compact-spliced-flush-top-development' ?
+        ['compact-spliced-flush-top-build-package.md', 'compact-spliced-flush-top-evidence.json',
+          'compact-spliced-flush-top-angle-ledger.md', 'compact-spliced-flush-top-angle-options.md',
+          'current-panel-screw-purchase.md', 'current-crash-pad-construction.md',
+          'leg-material-basis.md'] :
+        expected.key === 'compact-floor-flush-development' ?
+          ['floor-flush-build-package.md', 'floor-runner-taper-hardware.md'] :
+          [expected.documents+'-study.md', expected.documents+'-hardware.md'];
+      for (const document of documents) {
         assert.equal(await page.locator('#model-documents a[href$="'+document+'"]').count(), 1);
       }
       assert.equal(manifest.design.main_face_height_mm, 277);
@@ -59,6 +68,13 @@ const candidates = [
         assert.equal(manifest.design.floor_friction_assumption.kind, 'per_cell_coulomb');
         assert.equal(manifest.design.floor_friction_assumption.mu_assumed, .4);
         assert.equal(manifest.design.floor_friction_assumption.measured_floor, false);
+      }
+      if (expected.key === 'compact-spliced-flush-top-development') {
+        assert.equal(manifest.design.leg_top_projection_mm, 0);
+        assert.equal(manifest.design.rear_rim_overhang_mm, 7);
+        assert.equal(manifest.design.panel_screw_purchase.product,
+          'Fas-n-Tite/Hillman model 42605');
+        assert.equal(manifest.design.panel_screw_purchase.quantity_required, 66);
       }
       if (expected.accepted === null) assert.match(manifest.design.status, /^(Development|NOT ACCEPTED)/);
       else assert.ok(manifest.design.status.startsWith(expected.accepted ? 'Conditional listed checks met' : 'NOT ACCEPTED'));
@@ -101,14 +117,30 @@ const candidates = [
         return {stacks: [...stacks.values()], knees, rails, lowerKicker, outerKickerX, baseClips, header, rims};
       });
       assert.equal(geometry.baseClips.length, 2);
-      assert.ok(geometry.baseClips.every(c => c.minY >= geometry.header.minY+19.04 && c.maxY <= geometry.header.maxY-19.04));
+      if (expected.key === 'compact-spliced-flush-top-development') {
+        assert.ok(geometry.baseClips.every(c => Math.abs(c.minY+185.8)<.01 && Math.abs(c.maxY+84.2)<.01),
+          'Selected retained base-angle bounds differ: '+JSON.stringify(geometry.baseClips));
+      } else {
+        assert.ok(geometry.baseClips.every(c => c.minY >= geometry.header.minY+19.04 && c.maxY <= geometry.header.maxY-19.04),
+          'Base-angle/header viewer bounds differ: '+JSON.stringify({baseClips:geometry.baseClips,header:geometry.header}));
+      }
       assert.equal(geometry.rims.length, 2);
       assert.ok(geometry.rims.every(r => Math.abs(geometry.header.minY-r.minY-(expected.key === 'compact-floor-flush-development' ? 0 : 7)) < .01));
       assert.equal(geometry.stacks.length, expected.bolts);
       assert.ok(geometry.stacks.every(row => row.nut > row.head), 'Every bolt tip faces outward');
       assert.equal(geometry.knees.length, expected.knees);
-      assert.ok(geometry.knees.every(row => row.name.includes('_left_') ? row.maxX <= -1219.19 : row.minX >= 1219.19),
-        'All exterior knee wood stays outside panel edges');
+      if (expected.key === 'compact-spliced-flush-top-development') {
+        assert.ok(geometry.knees.every(row => Math.abs(row.maxX-row.minX-38.1)<.01));
+        assert.ok(geometry.knees.every(row => {
+          const boundary = row.name.includes('_left_') ? -1219.2 : 1219.2;
+          return Math.abs((row.name.includes('_leg') ?
+            (row.name.includes('_left_') ? row.minX : row.maxX) :
+            (row.name.includes('_left_') ? row.maxX : row.minX))-boundary)<.01;
+        }), 'Selected splice pieces no longer meet at panel edge: '+JSON.stringify(geometry.knees));
+      } else {
+        assert.ok(geometry.knees.every(row => row.name.includes('_left_') ? row.maxX <= -1219.19 : row.minX >= 1219.19),
+          'All exterior knee wood stays outside panel edges: '+JSON.stringify(geometry.knees));
+      }
       assert.equal(geometry.rails.length, expected.rails);
       assert.ok(geometry.rails.every(row => Math.abs(row.minZ) < .01), 'Rails reach floor');
       if (['compact-floor-flush-development', 'compact-floor-recess-development', 'compact-floor-taper-development'].includes(expected.key)) {
@@ -119,7 +151,7 @@ const candidates = [
       assert.equal(geometry.lowerKicker.length, 4);
       assert.ok(geometry.lowerKicker.every(z => Math.abs(z-60) < .01));
       assert.deepEqual(errors, []);
-      console.log(expected.key+': '+expected.meshes+' meshes, '+expected.bolts+' outward bolt stacks, '+expected.knees+' exterior knee pieces, '+expected.rails+' floor rails verified');
+      console.log(expected.key+': '+expected.meshes+' meshes, '+expected.bolts+' outward bolt stacks, '+expected.knees+' knee pieces, '+expected.rails+' floor rails verified');
       await page.close();
     }
   } finally {

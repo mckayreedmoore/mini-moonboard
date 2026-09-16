@@ -1,0 +1,23 @@
+{
+  "candidate": "compact-spliced-flush-top-development",
+  "model_module": "mini_moonboard.compact_spliced_flush_top",
+  "export_module": "scripts.compact_spliced_flush_top_exports",
+  "construction_module": "scripts.compact_spliced_flush_top_construction",
+  "viewer_manifest": "site/hybrid/compact-spliced-flush-top-development/manifest.json",
+  "construction_manifest": "docs/compact-spliced-flush-top-construction/manifest.json",
+  "geometry": "fea/results/compact-spliced-flush-top/a12-left-07/geometry.json",
+  "aggregate_evidence": "docs/compact-spliced-flush-top-evidence.json",
+  "build_package": "docs/compact-spliced-flush-top-build-package.md",
+  "completion_plan": "docs/engineering-execution-plan.md",
+  "hardware_schedule": "docs/compact-spliced-flush-top-construction/bolt-hardware.csv",
+  "recorded_assessments": {
+    "a12-left": "fea/results/compact-spliced-flush-top/a12-left-07/splice-checks.json",
+    "a12-forward": "fea/results/compact-spliced-flush-top/a12-forward-03/splice-checks.json",
+    "a12-rear": "fea/results/compact-spliced-flush-top/a12-rear-03/splice-checks.json",
+    "a1-rear": "fea/results/compact-spliced-flush-top/a1-rear-03/splice-checks.json",
+    "k12-right": "fea/results/compact-spliced-flush-top/k12-right-03/splice-checks.json",
+    "k12-rear": "fea/results/compact-spliced-flush-top/k12-rear-03/splice-checks.json"
+  },
+  "scope": "Engineer-unreviewed development candidate under the recorded loads, catalog hardware, lumber material and no-slip support assumptions. Six fresh assembled cases meet the listed splice/member criteria, but retained ML24Z/SDS separation and flange-couple applicability remain an open connection gate. This is not a fabrication release or unconditional rating. Exact export, construction and assessment revisions remain hash-authenticated.",
+  "status_document": "docs/current-candidate-status.md"
+}

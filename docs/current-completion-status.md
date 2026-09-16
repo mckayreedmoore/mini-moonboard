@@ -1,18 +1,33 @@
-# Current checkpoint: flush floor-beam development
+# Current checkpoint: compact spliced flush-top development
 
-The owner selected the outboard tapered floor-beam direction with whole kickers
-and requested flush runner ends, lower rim ends and leg tops. Current model is
-`compact-floor-flush-development`; upper bolt relocation retains two half-inch
-bolts per leg at 56 mm pitch. It is a development revision, not a completed DIY
-release. See the [current package status](floor-flush-build-package.md) and
-[finite completion plan](tapered-runner-completion-plan.md).
+`compact-spliced-flush-top-development` is the selected conditional DIY
+candidate. It has solid 4×6 legs/rims, a compact 2×6 base, four independent
+spliced 2×6 knees, 0 mm rear-leg-top projection, a retained 7 mm rear rim
+reserve, 20 complete outward-facing bolt stacks and 66 panel/kicker screws.
+No floor runners or 1:12 taper are selected.
 
-Old native passes do not transfer to these cuts or relocated bolts. Remaining
-work includes the rim end-cut screen, taper-method/contact justification,
-matching force checks, fabrication allowances and builder instructions.
+Six fresh assembled no-slip cases meet the listed conditional criteria. The
+maximum adopted nominal lateral ratio is 0.746. The tightest directional
+placement margin is 0.361 mm and minimum group-spacing margin is 1.9 mm.
+Full-root lateral sensitivity exceeds 1.0 in four cases (maximum 1.081), and is
+not adopted. This remains engineer-unreviewed conditional evidence, not an
+unconditional rating or construction release. Retained ML24Z/SDS separation
+capacity and independent flange-couple applicability remain an open completion
+gate. Historical floor-flush/taper and
+compact-spliced-kicker evidence is preserved and does not transfer.
+The [online angle-options review](compact-spliced-flush-top-angle-options.md)
+found no catalog-only larger ML angle or screw substitution. Written
+applicability for the unchanged ML24Z assembly is the shortest completion path;
+otherwise a connection redesign and fresh affected cases are required.
 No push is authorized; local commits follow the repository time rule.
 
-## Revised native checkpoint
+## Preserved floor-flush checkpoint
+
+The following is historical. References to current selection, unfinished gates
+or verification counts apply to the preceding floor-flush investigation, not
+the compact spliced flush-top candidate above.
+
+### Revised native checkpoint
 
 The A12 left-load continuation converged normal contact and the explicit
 Coulomb force law at a maximum residual of 0.009729 N. All 482 native artifact
@@ -36,7 +51,7 @@ These are open technical gates, not documentation-only qualifications. Remaining
 cases should follow a supported disposition of this first case, rather than
 accumulating results for a detail still failing its adopted screen.
 
-## Local verification checkpoint
+### Local verification checkpoint
 
 The default suite passed 547 tests with 15 historical tests deselected. Five
 subsequently added construction/analytic-diagnostic tests passed separately.

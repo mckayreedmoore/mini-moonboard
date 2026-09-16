@@ -1,16 +1,16 @@
 # Current design review and finite verification plan
 
-The selected candidate is **`compact-floor-rail-development`**, September 14,
-2026: solid 4×6 legs and flush rims, compact 2×6 header/posts, two single 2×6
-floor rails and 12 complete bolt stacks. The rails replace the raised knees.
-Use the [floor-rail study](clear-space-study.md) for the current finite
-assessment and [matching fabrication package](clear-space-study.md#candidate-specific-fabrication-packages).
+The selected candidate is **`compact-spliced-flush-top-development`**,
+September 14, 2026: compact 4×6 legs/rims, compact 2×6 base and four
+independent spliced 2×6 knees. Rear-leg tops are 0 mm flush to the rims; the
+7 mm rear rim reserve remains. There are 20 complete outward-facing bolt
+stacks and 66 panel/kicker screws. No runners or side taper are selected.
 
-All six corrected floor cases meet their 25 listed conditional criteria, as
-does the separate refined floor-contact sensitivity. The governing six-case
-bolt ratio is 0.825. The passing nominal-diameter route depends on the
-specified body/thread-transition conditions; its full-thread-root sensitivity
-reaches 1.038 and does not qualify fully threaded substitutes.
+Six fresh assembled no-slip cases meet the listed conditional criteria. The
+maximum adopted nominal lateral ratio is 0.746; the tightest directional
+placement margin is 0.361 mm and minimum group-spacing margin is 1.9 mm.
+Full-root lateral sensitivity exceeds 1.0 in four cases (maximum 1.081), so it
+is recorded but not adopted and does not qualify fully threaded substitutes.
 
 This is a finite engineer-unreviewed DIY assessment under the stated loads,
 materials, hardware and installation assumptions. No-slip floor support is
@@ -19,9 +19,12 @@ unlisted separation and independent flange couples remain unqualified even
 where rated force-component comparisons pass. These limitations remain in
 the selected package; this selection creates no new general panel, floor-test
 or external-review campaign.
+The [current six-case angle ledger](compact-spliced-flush-top-angle-ledger.md)
+records the exact affected connections and envelope demands without new solves.
 
-The prior [spliced-knee result](compact-splice-study.md) remains a preserved
-reference, not the selected assembly's force evidence. The
+The prior [spliced-knee result](compact-splice-study.md), floor-flush/taper
+studies and compact-spliced-kicker result remain preserved references, not this
+assembly's force evidence. The
 [completion record](current-diy-completion-record.md) identifies the current
 finite deliverables. The separate 2×4 rail exploration is not selected and
 has no acceptance assigned here.
@@ -31,7 +34,7 @@ has no acceptance assigned here.
 The following work plan and software observations describe
 `no-shoes-development` at that stage. They are retained as historical context;
 references below to “current,” remaining work, commands and test coverage do
-not override the selected floor-rail authority above.
+not override the selected flush-top authority above.
 
 This review concerns `no-shoes-development`: single 2×6 legs and outer rims, four bolts per leg,
 commercial base angles and a 277 mm kicker datum. It is an engineering work

@@ -14,7 +14,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Create or refresh the repository-local environment:
 
 ```bash
-uv sync
+uv sync --locked
 ```
 
 Open the repository from WSL with `code .`, select `.venv/bin/python`, and
@@ -39,6 +39,10 @@ uv run pytest
 uv run scripts/smoke_test.py
 ```
 
+Lint excludes immutable launch and search-controller snapshots under
+`fea/results/`; preserve those source witnesses rather than reformatting them.
+Maintained analysis code remains linted.
+
 The default test run covers the current candidate and shared geometry, hardware,
 and analysis utilities. Preserved historical-model tests are opt-in:
 
@@ -52,6 +56,9 @@ modules. New tests run by default unless explicitly added to that inventory.
 Historical modules are excluded before import during normal discovery. Even an
 explicit historical test path requires `--include-historical` to execute.
 Shared calculations remain active even when their filenames name an older model.
+The preserved no-shoes asset-provenance check is historical: its manifest records
+its original environment hashes. Its geometry tests remain active, while the
+selected candidate's artifact provenance and rebuild are checked in CI.
 CI uses the same default; its manual workflow can also include historical tests
 and the historical reference/V1 export comparison.
 
@@ -76,9 +83,27 @@ additional workers did not improve this reduced suite in that trial.
 Regenerate the current candidate after changes to its source or geometry inputs:
 
 ```bash
-uv run python -m scripts.compact_spliced_exports
-uv run python -m scripts.compact_spliced_exports --check
+uv run python -m scripts.compact_spliced_flush_top_geometry --output fea/generated/compact-spliced-flush-top/geometry.json
+uv run python -m scripts.compact_spliced_flush_top_exports
+uv run python -m scripts.compact_spliced_flush_top_construction
+uv run python -m scripts.current_candidate --check-exports
 ```
+
+The selected modules and package references are recorded in
+[`current-candidate.json`](current-candidate.json). Update that authority when
+selection changes. `scripts.current_candidate` checks candidate identities,
+source/artifact hashes, drawing-to-viewer links, the viewer default and leading
+document references. Its reported manifest hashes identify the exact export and
+drawing snapshots; a candidate name alone does not identify a revision.
+Recorded assessments retain their own input revisions and open gates.
+The [recorded-evidence inventory](docs/current-candidate-status.md) is checked
+against those files, including criteria counts, geometry-snapshot agreement and
+open gates. After an intentional assessment or geometry update, review the
+inputs and refresh only that summary with
+`uv run python -m scripts.current_candidate --write-status`; this command does
+not recalculate or qualify the evidence. A passing
+configuration check does not establish mechanical acceptance or fabrication release.
+Use `uv run python -m scripts.current_candidate` for this check without a CAD rebuild.
 
 The current exporter builds all meshes, metadata and STEP from CAD without
 reading historical export bundles. `--check` uses an empty temporary output
@@ -116,6 +141,7 @@ starting detailed frame design:
 uv run python -m mini_moonboard.site_inputs design_inputs.toml
 ```
 
-The reference model is not a structurally approved climbing-wall design. Do
-not turn provisional observations into construction instructions without a
-documented design decision and qualified structural review.
+The reference model is not a structurally approved climbing-wall design.
+Construction release follows the selected candidate's documented completion
+gates and explicit conditional DIY scope; consistent software artifacts alone
+do not establish resistance or release.

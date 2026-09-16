@@ -311,3 +311,61 @@ screen fails. Taper-method applicability and omitted runner/leg contact remain
 explicit completion gates. Use `docs/tapered-runner-completion-plan.md` and
 `docs/floor-flush-build-package.md`; do not claim construction release or transfer
 the earlier six-case pass. Local commits only; no push without new authorization.
+
+## Selected spliced flush-top direction, September 14, 2026
+
+The owner superseded the tapered-runner/flush-floor direction with a narrow
+revision of the preserved spliced-knee assembly. The selected development is
+`compact-spliced-flush-top-development`: retain solid 4x6 legs/rims, the compact
+2x6 base, four independent spliced-knee pieces, all 20 complete outward-facing
+bolt stacks, the lower kicker row and the 7 mm rear rim reserve. Remove only the
+18 mm rear-leg-top projection and relocate the two half-inch upper bolts per leg
+at 56 mm pitch to preserve placement in the flush top.
+
+This is fresh-stock geometry. Do not transfer the six native
+`compact-spliced-knee-development` passes or the later trim approximation to
+the relocated joint. Require current receiver/washer fit, end/edge distances,
+six fresh no-slip assembled cases, member/connection/contact resistance and a
+matching export/construction package before conditional completion. Preserve
+the prior spliced-kicker package and all floor-runner, floor-flush, uncut and
+taper evidence as historical. The selected hybrid has no floor runners and no
+1:12 side taper. Do not reintroduce the taper qualification as its gate.
+
+The six fresh assembled cases meet their 21 listed bolt/splice, member, contact
+and geometry criteria, but those criteria omit retained ML24Z/SDS connection
+separation and independent flange-couple applicability. Treat that commercial-
+angle issue as an open completion gate; do not call the current development
+package a fabrication release.
+
+The September 15 public-product search found no catalog-only larger ML angle or
+screw substitution that closes the gate. ML26Z/ML28Z/ML210Z add screws but do
+not add a bearing F2 or moment/couple rating; substituting another screw loses
+the published ML assembly. Keep written applicability for the unchanged detail
+as the MVP route. Any physical replacement changes connection geometry or
+stiffness and requires current CAD/resistance checks and fresh affected cases.
+See `docs/compact-spliced-flush-top-angle-options.md`.
+
+## Purchased panel screws, September 15, 2026
+
+The owner purchased Lowe's item 755741, Fas-n-Tite/Hillman model 42605 #10 ×
+2 1/2-inch ceramic-coated deck screws, for the 66 panel/kicker locations. Record
+them separately from the 144 Simpson SDS25112 screws in the 24 ML24Z angles;
+they do not address the open ML24Z separation or flange-couple gate. Public
+information supplies nominal retail identity but no product-specific structural
+design values or complete geometry. CAD intersections confirm all 66 axes enter
+the 139.7 mm wide dimension of nominal 2x6 receivers: nominal penetration after
+the 18.25625 mm panel is 45.24375 mm, leaving 94.45625 mm before the rear face.
+Use the purchased screws within the owner's accepted panel-construction scope,
+but do not transfer SPAX resistance/stiffness or describe the retained SPAX
+viewer/response geometry as the purchased screw. See
+`docs/current-panel-screw-purchase.md`.
+
+## Current crash-pad arrangement, September 15, 2026
+
+The viewer uses two owner-built 48 × 72 × 5-inch pads side by side. Their
+center seam runs front to back. Each owner-reported stack is two 0.5-inch black
+1.7 lb/ft³ nominal-density polyethylene layers, a 3-inch 44-ILD polyurethane core, and two
+more 0.5-inch polyethylene layers. Pads remain a selectable viewer-only
+placement preview, excluded from CAD inventory, frame mass, floor support and
+structural calculations. Do not describe the DIY stack as impact-certified.
+See `docs/current-crash-pad-construction.md`.

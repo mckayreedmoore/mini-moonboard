@@ -1,15 +1,27 @@
-# Current design basis: flush floor-beam development
+# Current design basis: compact spliced flush-top development
 
-The owner selected the outboard tapered floor-beam direction with whole kickers
-and requested flush runner ends, lower rim ends and leg tops. Current model is
-`compact-floor-flush-development`; upper bolt relocation retains two half-inch
-bolts per leg at 56 mm pitch. It is a development revision, not a completed DIY
-release. See the [current package status](floor-flush-build-package.md) and
-[finite completion plan](tapered-runner-completion-plan.md).
+The selected development is `compact-spliced-flush-top-development`, a narrow
+hybrid of the accepted spliced-knee assembly. It retains solid 4×6 legs/rims,
+the compact 2×6 base, four independent unnotched spliced 2×6 knees, 20 complete
+outward-facing bolt stacks and 66 panel/kicker screws. Rear-leg tops are flush
+(0 mm projection) to the side rims while the 7 mm rear rim reserve remains.
+The two upper half-inch bolt pairs per leg are relocated at 56 mm pitch. No
+floor runners or 1:12 side taper are part of this candidate.
 
-Old native passes do not transfer to these cuts or relocated bolts. Remaining
-work includes the rim end-cut screen, taper-method/contact justification,
-matching force checks, fabrication allowances and builder instructions.
+Six fresh assembled no-slip cases meet the listed conditional checks. The
+minimum directional placement margin is 0.361 mm and minimum group-spacing
+margin is 1.9 mm. Full-root lateral values above 1.0 occur in sensitivity
+results (maximum 1.081); they are explicitly not adopted acceptance criteria.
+This is engineer-unreviewed conditional DIY evidence, not an unconditional
+climber rating or construction release. Retained ML24Z/SDS separation capacity
+and independent flange-couple applicability remain an open connection gate.
+See the [completion record](current-diy-completion-record.md)
+and [execution plan](engineering-execution-plan.md).
+
+Prior floor-flush/tapered-runner and compact-spliced-kicker documents and
+archives remain historical; their passes do not transfer to this relocated
+joint. The current package must retain its own cuts, drilling, hardware and
+installation limits.
 No push is authorized; local commits follow the repository time rule.
 
 ## Preserved preceding design basis
@@ -36,7 +48,7 @@ calculations. It does not establish an approved climber weight limit.
 | End finish and bolt orientation | Inclined rim ends retain 7 mm rear projection; rear-leg tops retain 24 mm projection normal to the rim rear face. Nuts and threaded ends face outward. Use the [exterior-specific package](clear-space-study.md#candidate-specific-fabrication-packages), not the floor-rail or preceding upper-joint drilling sheets. |
 | Panels and hold attachment | The accepted plywood and T-nut construction remains the design basis. Additional testing or an upgrade requires a specific identified deficiency. |
 | Material calculations | The calculations use published values for the specified species and grade. The lumber basis is dry, unincised Douglas Fir–Larch No. 2. |
-| Supports | Compression-only floor cells can open. Each cell has collocated elastic/Coulomb tangential response with assumed μ = 0.4, under monotonic loading from zero initial slip. This is not measured friction or an arbitrary cyclic-slip model. The older floor-rail results retain their separate no-slip basis; physical floor testing remains outside scope. |
+| Supports | Compression-only floor cells can open. Current member and connection calculations use the owner's explicit conditional no-slip tangential support assumption. This does not qualify floor friction or imply an installed anchor. Recorded per-cell Coulomb cases remain historical evidence under their own assumptions; physical floor testing remains outside scope. |
 | Vertical loading | All six current cases apply a 250 lb climber with a 2.0 downward multiplier: 2224.1108 N downward. Earlier 150 lb and unmultiplied comparisons do not qualify this assembly; the multiplier is not a verified impact spectrum. |
 | Horizontal loading | Each current case adds 300 N along one axis: A12 rear (+Y), forward (−Y), left (−X); K12 right (+X), rear (+Y); A1 rear (+Y). No continuous all-direction envelope is claimed for this candidate. |
 | Weight | Current geometry determines modeled timber/plywood and steel self-weight using stated densities. Each current native case also includes a 25 kg equipment allowance at its recorded load locations. Viewer mass estimates exclude equipment; an older whole-body equilibrium envelope does not establish current internal-force acceptance. |
@@ -83,9 +95,9 @@ trials. Its current decision is recorded in the
 [support study](clear-space-study.md). All six current cases meet their 25 listed
 conditional criteria; the separate 5×5 A12-left foot-grid sensitivity also
 meets those criteria. This does not demonstrate converged local floor pressure.
-The specified hardware/thread conditions, assumed μ = 0.4 monotonic contact law
-and unqualified commercial-angle actions remain explicit limits. The floor-rail
-six-case and refinement results remain separate no-slip evidence. The
+The specified hardware/thread conditions, conditional no-slip support assumption
+and unqualified commercial-angle actions remain explicit limits. Recorded
+Coulomb and earlier floor-rail cases retain their own historical evidence. The
 [spliced-knee study](compact-splice-study.md) and
 [build package](compact-spliced-build-package.md) remain references.
 No acceptance transfers between these assemblies.
@@ -103,9 +115,10 @@ a settled material choice.
 
 ## Crash-pad viewer arrangement
 
-Two user-specified pads, each 96 × 36 × 5 inches, span the 96-inch board
-width and sit front-to-back for 96 × 72 inches of coverage. They rest at
-Z = 0 and occupy Y = 0–1828.8 mm, behind the kicker/header. The viewer
-provides a Crash pads toggle and selectable dimensions. These objects do
-not change frame mass, timber supports, contact friction or load assumptions.
-The depiction does not establish impact-attenuation performance.
+Two user-specified pads, each 48 × 72 × 5 inches, sit side by side for
+96 × 72 inches of coverage. Their center seam is X = 0 and runs front to
+back. They rest at Z = 0 and occupy Y = 0–1828.8 mm, behind the kicker/header.
+The viewer provides a Crash pads toggle and selectable dimensions. These
+objects do not change frame mass, timber supports, contact friction or load
+assumptions. The depiction does not establish impact-attenuation performance.
+See the [current crash-pad construction record](current-crash-pad-construction.md).
