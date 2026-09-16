@@ -144,7 +144,8 @@ def status_markdown(selection, records):
         aggregate = Path(os.path.relpath(selection['aggregate_evidence'], Path(selection['status_document']).parent)).as_posix()
         lines.extend([f'Authenticated six-case summary: [aggregate evidence]({aggregate}).', ''])
     else:
-        lines.extend(['Fresh selected-candidate assessments: **pending**. Historical cases are not promoted here.', ''])
+        lines.extend([('Authenticated six-case selected-candidate aggregate: **pending**. '
+                       'See completion plan for partial-case work; historical cases are not promoted here.'), ''])
     lines.extend([f'Full scope and remaining checks: [build package]({package}) and [completion plan]({plan}).', '',
              '| Recorded case | Implemented criteria met | Matches selected geometry snapshot | Recorded status |',
              '| --- | --- | --- | --- |'])

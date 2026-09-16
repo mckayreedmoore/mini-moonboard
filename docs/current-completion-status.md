@@ -1,8 +1,10 @@
 # Current checkpoint: flush floor-runner development
 
-`compact-floor-flush-development` is selected. Authority promotion and frozen
-criteria are complete; fresh selected-candidate no-slip cases and aggregate
-evidence remain pending. Historical finite-friction, tapered-runner and
+`compact-floor-flush-development` is selected. Authority promotion, frozen
+criteria and nominal FR-3 shop geometry are complete. Two fresh no-slip cases
+pass 36 adopted checks each; A12-forward fails numerical contact convergence
+after three bounded searches, so the remaining cases and aggregate evidence
+remain pending. See the [case log](floor-runner-mvp-case-log.md). Historical finite-friction, tapered-runner and
 spliced-knee results do not transfer. See the [MVP master
 plan](floor-runner-mvp-master-plan.md) and [criteria
 ledger](floor-runner-mvp-criteria.md). This is not a fabrication release.
