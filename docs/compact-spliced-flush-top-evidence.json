@@ -1,0 +1,369 @@
+{
+  "candidate": "compact-spliced-flush-top-development",
+  "status": "ALL_SIX_LISTED_SPLICE_MEMBER_CRITERIA_MET_WITH_OPEN_ANGLE_GATE",
+  "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+  "source_sha256": {
+    "scripts/compact_spliced_flush_top_evidence.py": "37a5cfe0205e950d92dd885a77d0177c31a235ff105d4a9d883cad19ae1a3f82",
+    "scripts/compact_spliced_flush_top_study.py": "272523043c5f94546c1738a35c9ed43aef7566967d08e42f9d1d43c89636e0ce"
+  },
+  "cases": {
+    "a12-left": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-left-07",
+      "manifest_sha256": "314905b8b18482130762d66a8749e036032b63ce4f368e48f906df3315ec39dc",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "e1c9c97d92ae66bce46754d0381119517a9bc010bedf14e2ef83e3376d753272",
+      "checks_sha256": "f356877a0e10a63e440d0c130ceec204554e23fe3117c5c5381f55b1fda0e0c3",
+      "splice_checks_sha256": "4eec9a18d7a50c65fe11de849f305bdd66cdb86cf533188fa59fd0e456c4c24f",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          -300.0,
+          0.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.6703619680358833,
+        "additional_group_reduction_sensitivity": 0.6703619680358832,
+        "local_parallel": 0.2839790008915744,
+        "supplemental_EC5_splitting": 0.3404981392822481,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.4181023369770961,
+        "header_gross_full_length_stability": 0.1574491450387826,
+        "base_bearing_average": 0.017502827288860042,
+        "base_bearing_quarter_area_sensitivity": 0.04699319967759284,
+        "base_end_notch_shear": 9.4046892834985e-06,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.13497186412898562,
+        "washer_bearing": 0.07145092497628908,
+        "washer_bending": 0.16787137455133952,
+        "overlap_contact_wood_bearing": 0.0008354173693294171,
+        "maximum_timber_displacement_mm": 6.394312147846553,
+        "maximum_panel_displacement_mm": 14.954795665611785
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 0.9705306872849495,
+        "actual_Ktheta_with_additional_group_reduction": 0.9705306872849493,
+        "fixed_maximum_Ktheta_ratio": 1.016115967774891,
+        "adopted_as_design_basis": false
+      }
+    },
+    "a12-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-rear-03",
+      "manifest_sha256": "08dd3f549bc91ea8f92523aa0d1bae1cd69a2c1231604faae3bb961d53f777ad",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "2e04423792637aeb80d55a2521ce0d3072010240def08c806ac0cf91804af145",
+      "checks_sha256": "9a8401b114166d2dc90f930c555118bf9fd88fd653a88fac69b15e37b1f9efa2",
+      "splice_checks_sha256": "e0c85f495f21106f37bacea4f9e5748a205928366051f9d136816f11f82047d0",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7124102546870746,
+        "additional_group_reduction_sensitivity": 0.7124102546870745,
+        "local_parallel": 0.3024301794083094,
+        "supplemental_EC5_splitting": 0.3649574020329604,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.4547821509944755,
+        "header_gross_full_length_stability": 0.3120002697757981,
+        "base_bearing_average": 0.011806068877612408,
+        "base_bearing_quarter_area_sensitivity": 0.04722427551044963,
+        "base_end_notch_shear": 3.385518400777937e-06,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.14352795451447098,
+        "washer_bearing": 0.03683109028692055,
+        "washer_bending": 0.08653331996390005,
+        "overlap_contact_wood_bearing": 0.0008238143503068021,
+        "maximum_timber_displacement_mm": 6.931691087752901,
+        "maximum_panel_displacement_mm": 17.001080697925175
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 1.031684172637303,
+        "actual_Ktheta_with_additional_group_reduction": 1.0316841726373027,
+        "fixed_maximum_Ktheta_ratio": 1.0805968844786396,
+        "adopted_as_design_basis": false
+      }
+    },
+    "a12-forward": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-forward-03",
+      "manifest_sha256": "0bb9e94b92cedaa9a6d7615e001358f6d2e08710687da5b9eea9eefb5b1b4564",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "48a57c02b5d5c0ca317fa86614ef99756c528855bc3022de12aafea215944967",
+      "checks_sha256": "4ffb4c847c1b9343be0b1cc0e730abbb90cb832ced1d084cdb544e2a393e87f1",
+      "splice_checks_sha256": "eb1122f6c557089c10ced8b44956607ebb3ee1b7996e3f40a28dbb0b0fe493c5",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          0.0,
+          -300.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.594820838022406,
+        "additional_group_reduction_sensitivity": 0.5948208380224059,
+        "local_parallel": 0.25195983904388697,
+        "supplemental_EC5_splitting": 0.3019581328427214,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.38742772536658887,
+        "header_gross_full_length_stability": 0.12840818883109845,
+        "base_bearing_average": 0.027452638844770675,
+        "base_bearing_quarter_area_sensitivity": 0.06298203937585187,
+        "base_end_notch_shear": 9.401912679672432e-06,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.11969807275797095,
+        "washer_bearing": 0.03960717905135162,
+        "washer_bending": 0.09305564052050899,
+        "overlap_contact_wood_bearing": 0.0007425932171787698,
+        "maximum_timber_displacement_mm": 4.616500116888334,
+        "maximum_panel_displacement_mm": 13.68214222493963
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 0.8611564956228356,
+        "actual_Ktheta_with_additional_group_reduction": 0.8611564956228354,
+        "fixed_maximum_Ktheta_ratio": 0.9015914387754783,
+        "adopted_as_design_basis": false
+      }
+    },
+    "k12-right": {
+      "archive": "fea/results/compact-spliced-flush-top/k12-right-03",
+      "manifest_sha256": "80a12f2bc35287412ca5375482e9505fdc361ed854c480559b7836e9a43a0d4f",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "efb3d66fa3ee2b196fedf4ea0985bf61758cecc5bc75a639327574420111973d",
+      "checks_sha256": "6aaeb169bbb748ad4f9dc35e556cd73df466496982b85c7fee0ca203abd62581",
+      "splice_checks_sha256": "327bdef28d7d6f1efd45f01ae6fe55986f10052ffddae8d1ef0c9019fb5a5fd5",
+      "load": {
+        "hold": "K12",
+        "horizontal_force_xy_n": [
+          300.0,
+          0.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.6614182858132939,
+        "additional_group_reduction_sensitivity": 0.6614182858132938,
+        "local_parallel": 0.28000675813472853,
+        "supplemental_EC5_splitting": 0.3360391660302431,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.4104240870643759,
+        "header_gross_full_length_stability": 0.1626340913836224,
+        "base_bearing_average": 0.01663279176668346,
+        "base_bearing_quarter_area_sensitivity": 0.046433015840377616,
+        "base_end_notch_shear": 8.838903215522615e-06,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.13310436225716438,
+        "washer_bearing": 0.07178833332876441,
+        "washer_bending": 0.1686641033219458,
+        "overlap_contact_wood_bearing": 0.0008354173693242643,
+        "maximum_timber_displacement_mm": 6.631314172868376,
+        "maximum_panel_displacement_mm": 14.220007016438847
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 0.9575033767647865,
+        "actual_Ktheta_with_additional_group_reduction": 0.9575033767647863,
+        "fixed_maximum_Ktheta_ratio": 1.0023462198852355,
+        "adopted_as_design_basis": false
+      }
+    },
+    "k12-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/k12-rear-03",
+      "manifest_sha256": "5e7ccc3704ce9ddc7fc42ed7d4f5fb30fe41552131a32a9a67ccc29dd029dd42",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "526e61d86cf6c909cb6242405985c19bf8ca1027a93d86e2b645600c2406dbc3",
+      "checks_sha256": "3f89c60d912ba852035db5c1cba2454c824a35d2f899a7dd742140aaf3a80596",
+      "splice_checks_sha256": "a52fa13eae89690f67c1b46fe6d33a3590fdc45bc299bcd9c3e8096d7026f078",
+      "load": {
+        "hold": "K12",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7037075129198579,
+        "additional_group_reduction_sensitivity": 0.7037075129198578,
+        "local_parallel": 0.2983518236265663,
+        "supplemental_EC5_splitting": 0.36055465235676737,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.4479668862698726,
+        "header_gross_full_length_stability": 0.31366651141813884,
+        "base_bearing_average": 0.012565818206836981,
+        "base_bearing_quarter_area_sensitivity": 0.050263272827347924,
+        "base_end_notch_shear": 3.3443334858812473e-06,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.14168588492040446,
+        "washer_bearing": 0.04203992223478746,
+        "washer_bending": 0.09877128300196461,
+        "overlap_contact_wood_bearing": 0.0008238143503068021,
+        "maximum_timber_displacement_mm": 7.22032750552681,
+        "maximum_panel_displacement_mm": 16.495430395901284
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 1.0189141269182607,
+        "actual_Ktheta_with_additional_group_reduction": 1.0189141269182604,
+        "fixed_maximum_Ktheta_ratio": 1.0669477961406972,
+        "adopted_as_design_basis": false
+      }
+    },
+    "a1-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/a1-rear-03",
+      "manifest_sha256": "46e95a3c0ca588c15ebf623e8c7ea2380c672e0ca1551a33c087e023828457a6",
+      "geometry_sha256": "be18d0a1149757ac91212b3d4bc701cb646c680a9015a06d9068d00b7040a14e",
+      "native_report_sha256": "6cee68b74c4ef0ef2e6832b9a5e9b1d682500840e0ad610460e70ae60e4a8748",
+      "checks_sha256": "509b8064b045dc95b1807a35862161aab475d796740147ae1c8ac39bed4cfa79",
+      "splice_checks_sha256": "5a368993bccc6ffb74a78dd45309912946dcebb93272339ffd8ca83787c462b4",
+      "load": {
+        "hold": "A1",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ],
+        "vertical_force_n": -2224.11080763025
+      },
+      "criteria_met": 21,
+      "criteria_total": 21,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.09356499657787057,
+        "additional_group_reduction_sensitivity": 0.09356499657787055,
+        "local_parallel": 0.05587506271801926,
+        "supplemental_EC5_splitting": 0.04816934443107427,
+        "minimum_group_spacing_margin_mm": 1.9000000000001123,
+        "sampled_net_member": 0.11612193053565317,
+        "header_gross_full_length_stability": 0.21069887496695383,
+        "base_bearing_average": 0.031592617844513386,
+        "base_bearing_quarter_area_sensitivity": 0.06307644072619703,
+        "base_end_notch_shear": 1.5744926348805088e-05,
+        "minimum_directional_edge_end_margin_mm": 0.361103178829552,
+        "steel_direct": 0.02007178257958338,
+        "washer_bearing": 0.025883401312583248,
+        "washer_bending": 0.060812119057229934,
+        "overlap_contact_wood_bearing": 0.0004992314962863764,
+        "maximum_timber_displacement_mm": 1.9416256239089038,
+        "maximum_panel_displacement_mm": 8.475204911594542
+      },
+      "non_adopted_full_root": {
+        "actual_Ktheta_ratio_CD_1": 0.1313938114136516,
+        "actual_Ktheta_with_additional_group_reduction": 0.13139381141365158,
+        "fixed_maximum_Ktheta_ratio": 0.14229126756338195,
+        "adopted_as_design_basis": false
+      }
+    }
+  },
+  "governing_adopted": {
+    "actual_angle_lateral_CD_1": {
+      "case": "a12-rear",
+      "value": 0.7124102546870746
+    },
+    "additional_group_reduction_sensitivity": {
+      "case": "a12-rear",
+      "value": 0.7124102546870745
+    },
+    "local_parallel": {
+      "case": "a12-rear",
+      "value": 0.3024301794083094
+    },
+    "supplemental_EC5_splitting": {
+      "case": "a12-rear",
+      "value": 0.3649574020329604
+    },
+    "sampled_net_member": {
+      "case": "a12-rear",
+      "value": 0.4547821509944755
+    },
+    "header_gross_full_length_stability": {
+      "case": "k12-rear",
+      "value": 0.31366651141813884
+    },
+    "base_bearing_average": {
+      "case": "a1-rear",
+      "value": 0.031592617844513386
+    },
+    "base_bearing_quarter_area_sensitivity": {
+      "case": "a1-rear",
+      "value": 0.06307644072619703
+    },
+    "base_end_notch_shear": {
+      "case": "a1-rear",
+      "value": 1.5744926348805088e-05
+    },
+    "steel_direct": {
+      "case": "a12-rear",
+      "value": 0.14352795451447098
+    },
+    "washer_bearing": {
+      "case": "k12-right",
+      "value": 0.07178833332876441
+    },
+    "washer_bending": {
+      "case": "k12-right",
+      "value": 0.1686641033219458
+    },
+    "overlap_contact_wood_bearing": {
+      "case": "a12-left",
+      "value": 0.0008354173693294171
+    },
+    "maximum_timber_displacement_mm": {
+      "case": "k12-rear",
+      "value": 7.22032750552681
+    },
+    "maximum_panel_displacement_mm": {
+      "case": "a12-rear",
+      "value": 17.001080697925175
+    }
+  },
+  "minimum_reserves": {
+    "minimum_group_spacing_margin_mm": {
+      "case": "a12-left",
+      "value": 1.9000000000001123
+    },
+    "minimum_directional_edge_end_margin_mm": {
+      "case": "a12-left",
+      "value": 0.361103178829552
+    }
+  },
+  "non_adopted_full_root_sensitivity": {
+    "actual_Ktheta": {
+      "case": "a12-rear",
+      "value": 1.031684172637303
+    },
+    "actual_Ktheta_with_additional_group_reduction": {
+      "case": "a12-rear",
+      "value": 1.0316841726373027
+    },
+    "fixed_maximum_Ktheta": {
+      "case": "a12-rear",
+      "value": 1.0805968844786396
+    },
+    "adopted_as_design_basis": false,
+    "interpretation": "Reference-root sensitivity only; nominal-diameter strength and delivered full-body acceptance remain the adopted basis."
+  },
+  "scope": "Six fresh assembled cases for current leg, spliced knees, relocated upper joint and retained base under recorded loads, materials and conditional no-slip support.",
+  "open_completion_gates": [
+    "Retained ML24Z/SDS connection separation capacity and independent flange-couple applicability are not established."
+  ],
+  "limits": [
+    "Conditional engineer-unreviewed DIY evidence, not an unconditional climber rating.",
+    "No floor-friction qualification, installed anchor or measured floor property is claimed.",
+    "Panel and T-nut construction remain accepted scope and are not requalified here.",
+    "Catalog hardware, specified lumber, drilling and assembly requirements remain mandatory.",
+    "Full-root calculations are non-adopted sensitivities and include values above 1.0."
+  ],
+  "qualified_for_design": false
+}

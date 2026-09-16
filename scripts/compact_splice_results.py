@@ -22,7 +22,7 @@ from fea.compact_thick_checks import (
 from fea.current_response_resistance import VALIDITY, member_comparisons
 from fea.dowel_yield import single_shear
 from fea.thick_leg_checks import vector
-from fea.wider_leg_wood_checks import joint_local_checks
+from fea.wider_leg_wood_checks import joint_local_checks, shear_band_ends
 from scripts.compact_knee_results import dot, sampled_sections
 from scripts.compact_thick_results import base_comparisons
 
@@ -85,7 +85,15 @@ def local_groups(rows, geometry, actual, *, allowed_counts=(2, 4)):
         points = [vector(rows[name]['point']) for name in names]
         pitch = max(math.dist(a, b) for a, b in itertools.combinations(points, 2))
         area = min(geometry['members'][name]['width_mm']*geometry['members'][name]['depth_mm'] for name in pair)
-        cg = conservative_group_factor(len(names), diameter, pitch, area)
+        modulus_override = {}
+        if any('elastic_modulus_psi' in geometry['members'][name] for name in pair):
+            moduli = [geometry['members'][name].get('elastic_modulus_psi', 1_600_000.) for name in pair]
+            if not all(math.isfinite(value) and value > 0 for value in moduli):
+                raise ValueError('Require positive finite member elastic modulus in psi')
+            # Independent minimum E and area bound each actual member's EA;
+            # this remains the existing equal-EA sensitivity, not a new joint law.
+            modulus_override['modulus_mpa'] = min(moduli)*.006894757293168361
+        cg = conservative_group_factor(len(names), diameter, pitch, area, **modulus_override)
         per_member = {}
         for member_name in pair:
             member = geometry['members'][member_name]
@@ -99,9 +107,14 @@ def local_groups(rows, geometry, actual, *, allowed_counts=(2, 4)):
                 extra.append([dot(offset, grain), dot(offset, normal), geometry['hardware_by_name'][other]['hole_diameter_mm']])
             forces = [vector(rows[name]['force_on_first_xyz_n'] if rows[name]['first'] == member_name
                              else rows[name]['force_on_second_xyz_n']) for name in names]
+            qs = [dot([value-centre[i] for i,value in enumerate(rows[name]['point'])], normal)
+                  for name in names]
+            end_stations = (shear_band_ends(member['profile_sq_mm'],min(qs)-hole/2,max(qs)+hole/2)
+                            if 'profile_sq_mm' in member else member['end_stations_mm'])
             local = joint_local_checks(points, forces, grain=grain, centre=centre,
-                end_stations_mm=member['end_stations_mm'], depth_mm=member['depth_mm'],
-                width_mm=member['width_mm'], hole_mm=hole, additional_section_boxes=extra)
+                end_stations_mm=end_stations, depth_mm=member['depth_mm'],
+                width_mm=member['width_mm'], hole_mm=hole, additional_section_boxes=extra,
+                reference_override=member.get('reference_override'))
             per_member[member_name] = {'wood':local, 'layout':layout_check(points, member, diameter),
                                      'other_group_holes_in_net_envelope':len(extra)-len(member['additional_section_boxes'])}
         peak = max(actual[name]['comparisons']['actual_angle']['ratio_CD_1'] for name in names)
@@ -146,11 +159,11 @@ def overlap_contact_check(report):
             'basis':'Bolts resist signed relative opening; overlap contact transmits compression only, with no friction or composite wood tie credited.'}
 
 
-def checks(report, geometry):
-    if report.get('candidate') != CANDIDATE or geometry.get('candidate') != CANDIDATE:
+def checks(report, geometry, *, expected_candidate=CANDIDATE):
+    if report.get('candidate') != expected_candidate or geometry.get('candidate') != expected_candidate:
         raise ValueError('Require matching spliced-knee candidate identities')
     if not all(report.get(key) is True for key in VALIDITY):
-        return {'candidate':CANDIDATE, 'status':'INVALID_RESPONSE_DIAGNOSTIC_ONLY', 'qualified_for_design':False}
+        return {'candidate':expected_candidate, 'status':'INVALID_RESPONSE_DIAGNOSTIC_ONLY', 'qualified_for_design':False}
     for path, sha in geometry['source_sha256'].items():
         if path.startswith('mini_moonboard/') and report['source_sha256'].get(path) != sha:
             raise ValueError('Native and geometry model sources differ: '+path)
@@ -165,7 +178,8 @@ def checks(report, geometry):
             raise ValueError('Require unnotched standard 2x6 knee pieces')
         if any(record['kind'] == 'tab_notch' for record in member['opening_records']):
             raise ValueError('Spliced knee must not inherit the old end notches')
-        if report['member_section_demands'][name]['member'].get('native_section_geometry') != 'UNNOTCHED_RECTANGULAR':
+        if report['member_section_demands'][name]['member'].get('native_section_geometry') not in {
+                'UNNOTCHED_RECTANGULAR', 'ACTUAL_UNCUT_PRISM_C3D20'}:
             raise ValueError('Require native independent rectangular knee pieces')
         if sum(name in (row['first'], row['second']) for row in rows.values()) != 6:
             raise ValueError('Each knee piece needs two endpoint and four splice bolts')
@@ -226,7 +240,7 @@ def checks(report, geometry):
         'all_bolt_centres_sampled':all(not c['unsampled_stations_mm'] for v in sections.values()
                                       for c in v['cut_coverage'] if c['kind'] == 'bolt_bore'),
         'base_end_cut_geometry':all(v['quarter_depth_margin_after_3mm_allowance_mm'] >= 0 for v in base.values())})
-    return {'candidate':CANDIDATE, 'status':'LISTED_CONDITIONAL_SPLICE_CRITERIA_MET' if all(criteria.values()) else 'LISTED_SPLICE_CRITERIA_NOT_MET',
+    return {'candidate':expected_candidate, 'status':'LISTED_CONDITIONAL_SPLICE_CRITERIA_MET' if all(criteria.values()) else 'LISTED_SPLICE_CRITERIA_NOT_MET',
         'criteria':criteria, 'metrics':metrics, 'stage_one':stage, 'actual_angle_all_bolts':actual,
         'actual_root':root_summary,
         'joint_groups':groups, 'sampled_net_members':sections, 'base':base, 'header_gross':header,
@@ -242,6 +256,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--archive', type=Path, required=True)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--expected-candidate', default=CANDIDATE)
     args = parser.parse_args()
     manifest = json.loads((args.archive/'manifest.json').read_text())
     for name, sha in manifest['files'].items():
@@ -250,14 +265,20 @@ def main():
     raw = gzip.decompress((args.archive/'report.json.gz').read_bytes())
     if hashlib.sha256(raw).hexdigest() != manifest['native_report_sha256']:
         raise ValueError('Native report changed')
-    result = checks(json.loads(raw), json.loads((args.archive/'geometry.json').read_text()))
+    result = checks(json.loads(raw), json.loads((args.archive/'geometry.json').read_text()),
+                    expected_candidate=args.expected_candidate)
     sources = [args.archive/'report.json.gz', args.archive/'geometry.json', Path(__file__),
                Path('scripts/compact_knee_results.py'), Path('scripts/compact_thick_results.py'),
                Path('fea/compact_rail_checks.py'), Path('fea/compact_thick_checks.py'),
                Path('fea/thick_leg_checks.py'), Path('fea/wider_leg_wood_checks.py'),
                Path('fea/compact_assumption_checks.py'), Path('fea/current_response_resistance.py'),
                Path('fea/reinforced_timber_resistance.py'), Path('fea/dowel_yield.py')]
-    result['source_sha256'] = {str(path):hashlib.sha256(path.read_bytes()).hexdigest() for path in sources}
+    repository = Path(__file__).resolve().parents[1]
+    result['source_sha256'] = {
+        path.resolve().relative_to(repository).as_posix():
+            hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sources
+    }
     output = args.output or args.archive/'splice-checks.json'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')

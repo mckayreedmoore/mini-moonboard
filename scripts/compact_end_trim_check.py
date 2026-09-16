@@ -11,10 +11,10 @@ import json
 from pathlib import Path
 
 import numpy as np
-from scipy.spatial import ConvexHull
 
 from fea.compact_assumption_checks import compare_bolt
 from fea.compact_rail_checks import assess, hardware_assumptions
+from fea.wider_leg_wood_checks import shear_band_ends
 from mini_moonboard import compact_spliced_trimmed as model
 from scripts.compact_splice_results import PREFIXES, local_groups
 from scripts.compact_thick_geometry import build
@@ -22,28 +22,6 @@ from scripts.compact_thick_geometry import build
 ROOT = Path.cwd()
 ARCHIVES = Path('fea/results/compact-splice-study')
 OUT = Path('docs/compact-spliced-construction/end-trim-check.json')
-
-
-def shear_band_ends(profile, low_q, high_q, inset_mm=3.):
-    """Conservative end planes across the complete group's hole-width band.
-
-    Convex side-profile halfspaces are eroded by the existing 3 mm allowance.
-    Both extremes of every group shear path are bounded; remote bevel corners
-    outside that band do not shorten the group's grain-parallel tear-out path.
-    """
-    equations = ConvexHull(np.asarray(profile)).equations
-    if low_q > high_q:
-        raise ValueError('Invalid shear band')
-    lower, upper = [], []
-    for a,b,c in equations:
-        if abs(a) < 1e-10:
-            if max(b*low_q+c+inset_mm,b*high_q+c+inset_mm) > 1e-7:
-                raise ValueError('Shear band outside toleranced stock')
-            continue
-        stations = [-(b*q+c+inset_mm)/a for q in (low_q,high_q)]
-        (upper if a > 0 else lower).append(min(stations) if a > 0 else max(stations))
-    return [max(lower),min(upper)]
-
 
 
 def check():

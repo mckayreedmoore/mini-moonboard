@@ -1,0 +1,3955 @@
+{
+  "candidate": "compact-spliced-flush-top-development",
+  "derivation": "Read-only evaluation of selected authenticated report archives with fea.current_response_resistance.angle_comparisons; no native solves.",
+  "case_count": 6,
+  "inventory_per_case": {
+    "ML24Z_connections": 24,
+    "SDS25112_screws": 144
+  },
+  "inventory_across_six_case_records": {
+    "ML24Z_connection_records": 144,
+    "SDS25112_screw_records": 864
+  },
+  "envelope_maxima": {
+    "listed_force_component_interaction": {
+      "case": "k12-rear",
+      "station": "clip_single_top_right_2",
+      "rated_force_component_unity": 0.6151208319687604
+    },
+    "unlisted_positive_F2_separation": {
+      "case": "k12-right",
+      "station": "clip_angle_base_right",
+      "unlisted_positive_F2_separation_n": 240.8149595556144
+    },
+    "absolute_force_parallel_loaded_flange_couple": {
+      "case": "k12-right",
+      "station": "clip_angle_base_right",
+      "absolute_force_parallel_couple_nmm": 16339.710932733213
+    }
+  },
+  "completion_gate": {
+    "status": "OPEN",
+    "reason": "Listed force-component interactions omit positive F2 separation at bearing-like installations, and no applicable complete-wrench resistance resolves loaded-flange couples.",
+    "qualified_for_design": false
+  },
+  "input_sha256": {
+    "current-candidate.json": "5d2b0bcbefbc2c425deb86acfc178f8e5204c204809474a79fb16e92d3a8981c",
+    "fea/current_response_resistance.py": "0054509a15aa2c3f6e420a2396cb6d2a00a9d252853a968fdba352b14080d427",
+    "scripts/compact_spliced_flush_top_angle_ledger.py": "ca4f00edf7acc23cfa25723258bccb3518e8d7bd495f4b633b0174f27cd9601a"
+  },
+  "cases": {
+    "a12-left": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-left-07",
+      "manifest_sha256": "314905b8b18482130762d66a8749e036032b63ce4f368e48f906df3315ec39dc",
+      "report_json_gz_sha256": "63d0bb36ac3ef66ecc99fa27d9ccaad208af189212b0cedb4598d990097fbfb4",
+      "native_report_sha256": "e1c9c97d92ae66bce46754d0381119517a9bc010bedf14e2ef83e3376d753272",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 6,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "a12-left",
+          "station": "clip_single_top_left_1",
+          "rated_force_component_unity": 0.5308059016375185
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "a12-left",
+          "station": "clip_angle_base_left",
+          "unlisted_positive_F2_separation_n": 240.5998133585494
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "a12-left",
+          "station": "clip_angle_base_left",
+          "absolute_force_parallel_couple_nmm": 16050.494346130345
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 1016.5333703015822,
+            "F2": -187.74515271331165,
+            "F34": 105.96212496576459
+          },
+          "rated_force_component_unity": 0.5308059016375185,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -187.74515271331165,
+            710.59859854048,
+            -734.5867522738615
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -9191.024659732531,
+            -8046.324372919526,
+            -18519.799709601946
+          ],
+          "force_parallel_couple_nmm": 9250.191107219669,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -325.01583463156,
+            "F2": -20.452779078282305,
+            "F34": 3.830482524793638
+          },
+          "rated_force_component_unity": 0.13493210448966142,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            20.452779078282305,
+            246.51438733912414,
+            -211.8504713056796
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2397.727528593301,
+            525.9280270466161,
+            1346.7238126399025
+          ],
+          "force_parallel_couple_nmm": -628.5146465493073,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 351.82731049542497,
+            "F2": 45.152920669653085,
+            "F34": -39.412077334603026
+          },
+          "rated_force_component_unity": 0.15262027322151073,
+          "unlisted_positive_F2_separation_n": 45.152920669653085,
+          "loaded_flange_force_xyz_n": [
+            -39.412077334603026,
+            351.82731049542497,
+            -45.152920669653085
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            16572.150158645487,
+            1623.2283043323978,
+            7903.564018370409
+          ],
+          "force_parallel_couple_nmm": -1229.8152943380258,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -1.5958476884205142,
+            "F2": 12.423226676179457,
+            "F34": -9.798199281566957
+          },
+          "rated_force_component_unity": 0.005497898992417063,
+          "unlisted_positive_F2_separation_n": 12.423226676179457,
+          "loaded_flange_force_xyz_n": [
+            9.798199281566957,
+            1.5958476884205142,
+            -12.423226676179457
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -74.05410327311931,
+            -425.9505263497548,
+            -730.2956876165559
+          ],
+          "force_parallel_couple_nmm": 482.1444852449563,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 150.76284873853066,
+            "F2": 0.416710711675762,
+            "F34": 2.535357799899643
+          },
+          "rated_force_component_unity": 0.0584375316221911,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -0.416710711675762,
+            -117.12073908483563,
+            94.96629441624245
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -7387.470273898599,
+            -3169.8494111655787,
+            -3739.392494297739
+          ],
+          "force_parallel_couple_nmm": 127.44854078484477,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 126.5248856275982,
+            "F2": -32.03980625969821,
+            "F34": 57.36097860180849
+          },
+          "rated_force_component_unity": 0.07646105283323198,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -57.36097860180849,
+            126.5248856275982,
+            -32.03980625969821
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -11336.465633219888,
+            -1742.724762078485,
+            3779.9424701151615
+          ],
+          "force_parallel_couple_nmm": 2165.0443126406985,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -107.85275772149893,
+            "F2": 63.118024462814496,
+            "F34": -69.90666406650163
+          },
+          "rated_force_component_unity": 0.07567367602434978,
+          "unlisted_positive_F2_separation_n": 63.118024462814496,
+          "loaded_flange_force_xyz_n": [
+            69.90666406650163,
+            107.85275772149893,
+            -63.118024462814496
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1279.3220992796164,
+            -2616.28234441804,
+            4061.0819521850503
+          ],
+          "force_parallel_couple_nmm": -3136.1912985699605,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -130.02608902710188,
+            "F2": 5.531448854252076,
+            "F34": -7.840953974038499
+          },
+          "rated_force_component_unity": 0.05580830144348658,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            5.531448854252076,
+            -94.56569489707013,
+            89.58567818318423
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4259.306117411163,
+            334.7678300727325,
+            777.4112140684106
+          ],
+          "force_parallel_couple_nmm": 110.65546613706442,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 104.5926291855632,
+            "F2": 39.34520804728841,
+            "F34": -28.36335080484836
+          },
+          "rated_force_component_unity": 0.05368788260014352,
+          "unlisted_positive_F2_separation_n": 39.34520804728841,
+          "loaded_flange_force_xyz_n": [
+            -28.36335080484836,
+            -104.5926291855632,
+            39.34520804728841
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -5145.092508227288,
+            -1324.4571891131409,
+            553.8604346568969
+          ],
+          "force_parallel_couple_nmm": 2656.3287464036553,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 11.424571738781825,
+            "F2": -32.25400482573804,
+            "F34": 34.199836741831646
+          },
+          "rated_force_component_unity": 0.021401945843476326,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            34.199836741831646,
+            11.424571738781825,
+            32.25400482573804
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1071.0104675746202,
+            -1287.866851731439,
+            -374.2035597395952
+          ],
+          "force_parallel_couple_nmm": 203.5100491043179,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -449.88088432590104,
+            "F2": 240.5998133585494,
+            "F34": -234.48541412526288
+          },
+          "rated_force_component_unity": 0.28712171629953687,
+          "unlisted_positive_F2_separation_n": 240.5998133585494,
+          "loaded_flange_force_xyz_n": [
+            -234.48541412526288,
+            -449.88088432590104,
+            240.5998133585494
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -9859.340854239135,
+            -9183.176769700103,
+            10677.029991790665
+          ],
+          "force_parallel_couple_nmm": 16050.494346130345,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -49.02061342321403,
+            "F2": 43.920691661496384,
+            "F34": 32.2321381548898
+          },
+          "rated_force_component_unity": 0.03462385028983028,
+          "unlisted_positive_F2_separation_n": 43.920691661496384,
+          "loaded_flange_force_xyz_n": [
+            32.2321381548898,
+            -49.02061342321403,
+            43.920691661496384
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1599.6353848789158,
+            1440.1152009184623,
+            -6199.455122257767
+          ],
+          "force_parallel_couple_nmm": -3975.0668233045317,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 59.45381494518733,
+            "F2": -128.51883094924028,
+            "F34": 80.25517202647498
+          },
+          "rated_force_component_unity": 0.12676180632718764,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -128.51883094924028,
+            6.042765630895498,
+            99.6952041578016
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4080.903004769499,
+            -15702.590275137243,
+            -12362.634346883504
+          ],
+          "force_parallel_couple_nmm": -11377.415634873634,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 51.759297955271165,
+            "F2": 14.695997765123213,
+            "F34": -9.808700292849778
+          },
+          "rated_force_component_unity": 0.03179816869275703,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -14.695997765123213,
+            33.34501156300222,
+            -40.784135765279345
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3991.7014484486563,
+            -2268.502716515756,
+            -1946.436267035101
+          ],
+          "force_parallel_couple_nmm": -1004.1985674906092,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -43.93396466934897,
+            "F2": -92.10232751853397,
+            "F34": 64.1579968140276
+          },
+          "rated_force_component_unity": 0.09466339532675236,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -92.10232751853397,
+            -74.89533491350578,
+            -20.90766880716692
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4178.401851624751,
+            -8497.099194669356,
+            -14904.744795042361
+          ],
+          "force_parallel_couple_nmm": 11057.61673623105,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -36.91439556251065,
+            "F2": -32.84297757212878,
+            "F34": 21.800536965484717
+          },
+          "rated_force_component_unity": 0.04124592907461497,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            32.84297757212878,
+            14.264952545830003,
+            -40.42829628606911
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1410.9182625669941,
+            180.3184484526157,
+            1877.467183695006
+          ],
+          "force_parallel_couple_nmm": -2215.8716712313435,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 81.04899872266571,
+            "F2": -87.63580603856497,
+            "F34": 43.43401238783188
+          },
+          "rated_force_component_unity": 0.09610201665292815,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -87.63580603856497,
+            -34.16829008998485,
+            85.36967598848929
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3203.0572436610764,
+            -14822.038083113534,
+            -13666.423365496386
+          ],
+          "force_parallel_couple_nmm": -7407.620009895049,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 48.4711726330022,
+            "F2": 5.241294729086015,
+            "F34": -5.392885830428192
+          },
+          "rated_force_component_unity": 0.02362644605647404,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -5.241294729086015,
+            33.664592254718514,
+            -35.287859418245816
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1969.382746291212,
+            471.0858973983493,
+            885.8917491228767
+          ],
+          "force_parallel_couple_nmm": -524.4414904441569,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -21.822985633195405,
+            "F2": -4.7535888591239654,
+            "F34": -1.4428349726177903
+          },
+          "rated_force_component_unity": 0.011340963171127717,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -4.7535888591239654,
+            15.789940433353433,
+            -15.132820484497014
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4022.7030053103144,
+            -1059.6772205514471,
+            -1178.9312648397959
+          ],
+          "force_parallel_couple_nmm": -804.8678271763681,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -10.414681045898933,
+            "F2": -59.85046180778245,
+            "F34": 38.980628966482996
+          },
+          "rated_force_component_unity": 0.05330856515216745,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            59.85046180778245,
+            17.078156775376215,
+            36.55532214419797
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1496.4523406972617,
+            7652.091214215955,
+            6101.957068219959
+          ],
+          "force_parallel_couple_nmm": 6141.625978693733,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 29.18209680140109,
+            "F2": -22.020846052591274,
+            "F34": 17.096163463850957
+          },
+          "rated_force_component_unity": 0.03056777301529391,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -22.020846052591274,
+            11.365581045534165,
+            -31.854311268750585
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            521.554801355994,
+            -232.69928205518175,
+            -1480.7777233344045
+          ],
+          "force_parallel_couple_nmm": 818.650080256124,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -4.559123860340828,
+            "F2": -32.97570765066418,
+            "F34": 20.944346556905167
+          },
+          "rated_force_component_unity": 0.028659708699925287,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            32.97570765066418,
+            -9.97027496105442,
+            -18.974848623128608
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2704.234745139154,
+            2677.512390930986,
+            4831.514641602765
+          ],
+          "force_parallel_couple_nmm": -5277.0625731869895,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -29.256178705697145,
+            "F2": 1.7007970528409544,
+            "F34": -5.03062082944629
+          },
+          "rated_force_component_unity": 0.014416717555156337,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            1.7007970528409544,
+            19.177912386195878,
+            -22.659188310633297
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2604.1034976156966,
+            -595.6201228754171,
+            -923.0500392434353
+          ],
+          "force_parallel_couple_nmm": 468.21021714145587,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -4.796803303298035,
+            "F2": -30.629780681225384,
+            "F34": 18.508032386151655
+          },
+          "rated_force_component_unity": 0.026360420991326232,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            30.629780681225384,
+            8.222169382269335,
+            17.261301091940958
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            833.8208679531257,
+            4541.728503328226,
+            3909.498049240773
+          ],
+          "force_parallel_couple_nmm": 3610.502239429565,
+          "independent_couple_resolved": false
+        }
+      }
+    },
+    "a12-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-rear-03",
+      "manifest_sha256": "08dd3f549bc91ea8f92523aa0d1bae1cd69a2c1231604faae3bb961d53f777ad",
+      "report_json_gz_sha256": "fabcd242eea163ab13902537b0ac20600f4ca99646e22a2ac140e838784ea915",
+      "native_report_sha256": "2e04423792637aeb80d55a2521ce0d3072010240def08c806ac0cf91804af145",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 5,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "a12-rear",
+          "station": "clip_single_top_left_1",
+          "rated_force_component_unity": 0.5580822960081524
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "a12-rear",
+          "station": "clip_angle_base_left",
+          "unlisted_positive_F2_separation_n": 100.93968135208951
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "a12-rear",
+          "station": "clip_single_top_left_1",
+          "absolute_force_parallel_couple_nmm": 10600.953893883086
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 1030.9268669574892,
+            "F2": -213.57627804363153,
+            "F34": 123.84431299007696
+          },
+          "rated_force_component_unity": 0.5580822960081524,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -213.57627804363153,
+            710.130207774676,
+            -757.5372643511764
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -8318.507350408438,
+            -8758.965693365935,
+            -20700.22746763835
+          ],
+          "force_parallel_couple_nmm": 10600.953893883086,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -332.38389736320266,
+            "F2": -24.529444536883517,
+            "F34": 5.121271604877251
+          },
+          "rated_force_component_unity": 0.1403974291888339,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            24.529444536883517,
+            251.32894762385456,
+            -217.57537253900938
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3391.8126470133784,
+            180.36828481530938,
+            1099.5569549040015
+          ],
+          "force_parallel_couple_nmm": -831.3275376345625,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 3.5404976762450606,
+            "F2": 23.761770803596526,
+            "F34": -17.89175597698874
+          },
+          "rated_force_component_unity": 0.010275988460741629,
+          "unlisted_positive_F2_separation_n": 23.761770803596526,
+          "loaded_flange_force_xyz_n": [
+            -17.89175597698874,
+            3.5404976762450606,
+            -23.761770803596526
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -561.6952559008823,
+            797.0118393791084,
+            1328.4675068526399
+          ],
+          "force_parallel_couple_nmm": -624.1202536613375,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -38.61985483652869,
+            "F2": -51.92570443280063,
+            "F34": 55.373940652420565
+          },
+          "rated_force_component_unity": 0.042255205958708825,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -55.373940652420565,
+            38.61985483652869,
+            51.92570443280063
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            659.8184930653018,
+            2116.895778758506,
+            -1185.7623804299574
+          ],
+          "force_parallel_couple_nmm": -192.01547623563275,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 155.91154108724282,
+            "F2": 48.01989036598705,
+            "F34": -49.100441606868735
+          },
+          "rated_force_component_unity": 0.10742701348517816,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -48.01989036598705,
+            -87.87401417296533,
+            137.83112726564352
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -7292.520475934462,
+            -593.5939610172563,
+            -3656.281143165844
+          ],
+          "force_parallel_couple_nmm": -596.367744489301,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -28.953368921881438,
+            "F2": -27.219235012104903,
+            "F34": 48.43350806072945
+          },
+          "rated_force_component_unity": 0.03513564648285526,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -48.43350806072945,
+            -28.953368921881438,
+            -27.219235012104903
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -8200.87567424235,
+            -1461.4088565764332,
+            2329.155537094378
+          ],
+          "force_parallel_couple_nmm": 6003.410367834859,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -101.53171923726897,
+            "F2": 69.81259502080079,
+            "F34": -70.87329607688994
+          },
+          "rated_force_component_unity": 0.0737683026661813,
+          "unlisted_positive_F2_separation_n": 69.81259502080079,
+          "loaded_flange_force_xyz_n": [
+            70.87329607688994,
+            101.53171923726897,
+            -69.81259502080079
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4008.4555399900946,
+            -2765.103439363157,
+            4776.647107565137
+          ],
+          "force_parallel_couple_nmm": -2322.4231249566515,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -129.10006522338128,
+            "F2": -19.111587935886917,
+            "F34": 23.816033053214888
+          },
+          "rated_force_component_unity": 0.07022348251997254,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -19.111587935886917,
+            -114.20503852916019,
+            64.7397825577609
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4363.555624690366,
+            1719.37833058061,
+            735.0943312292638
+          ],
+          "force_parallel_couple_nmm": -492.81031197331083,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -116.50601802287159,
+            "F2": -34.70768083823129,
+            "F34": 60.14891754430854
+          },
+          "rated_force_component_unity": 0.07406840831201814,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            60.14891754430854,
+            116.50601802287159,
+            -34.70768083823129
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -10099.522650854142,
+            1850.6985823466262,
+            -4165.338354929445
+          ],
+          "force_parallel_couple_nmm": -1823.2256170478106,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 90.98301167951078,
+            "F2": 27.232350595911583,
+            "F34": -32.6795448780349
+          },
+          "rated_force_component_unity": 0.05070202319456973,
+          "unlisted_positive_F2_separation_n": 27.232350595911583,
+          "loaded_flange_force_xyz_n": [
+            -32.6795448780349,
+            90.98301167951078,
+            -27.232350595911583
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1381.6716353810084,
+            1190.8118531092202,
+            -3043.962949046665
+          ],
+          "force_parallel_couple_nmm": 1454.5082858372732,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -135.0729187574085,
+            "F2": 100.93968135208951,
+            "F34": -101.53841485660202
+          },
+          "rated_force_component_unity": 0.10176071920216864,
+          "unlisted_positive_F2_separation_n": 100.93968135208951,
+          "loaded_flange_force_xyz_n": [
+            -101.53841485660202,
+            -135.0729187574085,
+            100.93968135208951
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            769.7125588476345,
+            -3894.927390254369,
+            8869.379244986041
+          ],
+          "force_parallel_couple_nmm": 6824.111655954474,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -187.89640326791988,
+            "F2": 98.6513839307012,
+            "F34": 111.16475951980573
+          },
+          "rated_force_component_unity": 0.1265281098859564,
+          "unlisted_positive_F2_separation_n": 98.6513839307012,
+          "loaded_flange_force_xyz_n": [
+            111.16475951980573,
+            -187.89640326791988,
+            98.6513839307012
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1907.0225424493863,
+            4052.8815715287683,
+            -6974.6562008927185
+          ],
+          "force_parallel_couple_nmm": -5165.826967651028,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 36.63350167537972,
+            "F2": -89.90996616321384,
+            "F34": 56.0328393338662
+          },
+          "rated_force_component_unity": 0.08675068135184574,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -89.90996616321384,
+            7.954324468951643,
+            66.47120618025183
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3736.2282517652793,
+            -11849.803426203449,
+            -9675.151051392422
+          ],
+          "force_parallel_couple_nmm": -9574.83848520494,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 37.160964833981076,
+            "F2": 0.9569529987698786,
+            "F34": -1.792749352374944
+          },
+          "rated_force_component_unity": 0.015414216889802254,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -0.9569529987698786,
+            27.314593541030668,
+            -25.259933438572336
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3037.6789827999037,
+            -7.832999370586322,
+            78.29284836557747
+          ],
+          "force_parallel_couple_nmm": -136.99689436289472,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -41.67347882953525,
+            "F2": -98.39558528865152,
+            "F34": 67.66986911012282
+          },
+          "rated_force_component_unity": 0.09870771766850928,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -98.39558528865152,
+            -75.4210902958988,
+            -25.05093135423828
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3614.0572789007756,
+            -8002.887610339492,
+            -14609.62173720058
+          ],
+          "force_parallel_couple_nmm": 10477.24726548077,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -33.698006217569564,
+            "F2": -30.216774064763946,
+            "F34": 20.379917200448553
+          },
+          "rated_force_component_unity": 0.038008986712303156,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            30.216774064763946,
+            12.714212144271858,
+            -37.272583190422225
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2156.0149525587995,
+            476.2430405379189,
+            2107.0928582406614
+          ],
+          "force_parallel_couple_nmm": -2772.654493853388,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 73.29478406486957,
+            "F2": -82.79239287047923,
+            "F34": 41.757032707195506
+          },
+          "rated_force_component_unity": 0.08991481246010112,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -82.79239287047923,
+            -29.306158801037572,
+            79.10072191803323
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3679.912760211048,
+            -14475.44247044406,
+            -13452.347120783226
+          ],
+          "force_parallel_couple_nmm": -7991.2811944760415,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 49.08234834346007,
+            "F2": -6.412714840798984,
+            "F34": 2.1089417630013365
+          },
+          "rated_force_component_unity": 0.02280200160910515,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            6.412714840798984,
+            38.95486183854518,
+            -29.933982251086224
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1437.641925864953,
+            1408.7605504654912,
+            1415.294221110868
+          ],
+          "force_parallel_couple_nmm": 438.6342087657585,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -45.686310380599124,
+            "F2": 28.81755209733516,
+            "F34": -20.844507396601845
+          },
+          "rated_force_component_unity": 0.04207161048183656,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            28.81755209733516,
+            21.599153109111555,
+            -45.33441330566201
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3621.60440344169,
+            3175.6523721375684,
+            2255.159437917041
+          ],
+          "force_parallel_couple_nmm": 1221.472052912581,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -27.82920689161879,
+            "F2": -78.79690883200574,
+            "F34": 50.0955914204363
+          },
+          "rated_force_component_unity": 0.07490623971703397,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            78.79690883200574,
+            10.882416169243058,
+            56.263718809719734
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1313.4648803174002,
+            9722.688532758588,
+            7659.281943912736
+          ],
+          "force_parallel_couple_nmm": 6571.180883614973,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 32.432440352479404,
+            "F2": -23.34104732210211,
+            "F34": 17.33303286608526
+          },
+          "rated_force_component_unity": 0.032573725076771816,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -23.34104732210211,
+            13.703231944195242,
+            -34.12504431993479
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            941.9887422718357,
+            161.78188022934913,
+            -1054.2409881825042
+          ],
+          "force_parallel_couple_nmm": 372.0739126838346,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -3.3253514791779546,
+            "F2": -27.58717513678485,
+            "F34": 18.727877421608827
+          },
+          "rated_force_component_unity": 0.02439428032582928,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            27.58717513678485,
+            -9.490680540296774,
+            -16.48388115890517
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2987.241003917762,
+            3010.359394445347,
+            5002.659369608713
+          ],
+          "force_parallel_couple_nmm": -5772.895651744297,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -33.35846415620545,
+            "F2": 10.604824600263536,
+            "F34": -9.85901763858055
+          },
+          "rated_force_component_unity": 0.022827066499460834,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            10.604824600263536,
+            19.216811716084045,
+            -28.994853114428103
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2944.0756949069764,
+            256.2839790236842,
+            -326.9429709008549
+          ],
+          "force_parallel_couple_nmm": 1254.6515093430976,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -8.30643351941734,
+            "F2": -40.73733049888929,
+            "F34": 24.50932055778421
+          },
+          "rated_force_component_unity": 0.03573404477600857,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            40.73733049888929,
+            9.391190336692507,
+            24.114501364878702
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            635.329977040439,
+            5042.165249699491,
+            4018.8063809394525
+          ],
+          "force_parallel_couple_nmm": 3525.4364695274517,
+          "independent_couple_resolved": false
+        }
+      }
+    },
+    "a12-forward": {
+      "archive": "fea/results/compact-spliced-flush-top/a12-forward-03",
+      "manifest_sha256": "0bb9e94b92cedaa9a6d7615e001358f6d2e08710687da5b9eea9eefb5b1b4564",
+      "report_json_gz_sha256": "18ba4d66a11d954d1aefee0b43db0f2d021fed92da1f2f1d7aefead5b696b329",
+      "native_report_sha256": "48a57c02b5d5c0ca317fa86614ef99756c528855bc3022de12aafea215944967",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 6,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "a12-forward",
+          "station": "clip_single_top_left_1",
+          "rated_force_component_unity": 0.45810081407004016
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "a12-forward",
+          "station": "clip_angle_base_left",
+          "unlisted_positive_F2_separation_n": 75.05021652213242
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "a12-forward",
+          "station": "clip_horizontal_lower_left_1",
+          "absolute_force_parallel_couple_nmm": 9087.368443005922
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 864.9895748219103,
+            "F2": -166.17898434834842,
+            "F34": 96.60749396950655
+          },
+          "rated_force_component_unity": 0.45810081407004016,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -166.17898434834842,
+            600.5223570217032,
+            -630.010215122545
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -7828.8376347508965,
+            -6083.974741712433,
+            -15239.240995299362
+          ],
+          "force_parallel_couple_nmm": 8180.098199169753,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -297.73517337380906,
+            "F2": -16.07083443905387,
+            "F34": 0.1237050950374794
+          },
+          "rated_force_component_unity": 0.12058372117946926,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            16.07083443905387,
+            227.9988589817259,
+            -191.47524401319805
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2658.5958584826444,
+            458.0199095234384,
+            1020.1427168477958
+          ],
+          "force_parallel_couple_nmm": -448.16894837752346,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 211.56248494513127,
+            "F2": 61.16325488686424,
+            "F34": -60.80685761070906
+          },
+          "rated_force_component_unity": 0.11031229877375157,
+          "unlisted_positive_F2_separation_n": 61.16325488686424,
+          "loaded_flange_force_xyz_n": [
+            -60.80685761070906,
+            211.56248494513127,
+            -61.16325488686424
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            10446.706087820377,
+            2376.6035339519417,
+            3962.314491282965
+          ],
+          "force_parallel_couple_nmm": -1640.4098327156312,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 25.132594707709913,
+            "F2": -12.05374317849304,
+            "F34": 14.500941944327153
+          },
+          "rated_force_component_unity": 0.016740166485256905,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -14.500941944327153,
+            -25.132594707709913,
+            12.05374317849304
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2004.8725332617705,
+            529.2341379805079,
+            -467.4754106572054
+          ],
+          "force_parallel_couple_nmm": 322.61870309893294,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 142.41320077494305,
+            "F2": 14.791686891508348,
+            "F34": -15.015849486211259
+          },
+          "rated_force_component_unity": 0.06869911470882989,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -14.791686891508348,
+            -99.44283908177741,
+            103.04424897155837
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -6011.671145979937,
+            -1683.9005069262894,
+            -2917.657932911916
+          ],
+          "force_parallel_couple_nmm": -307.52896000430394,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -275.8452053521445,
+            "F2": 46.35243017007909,
+            "F34": -34.13333829235137
+          },
+          "rated_force_component_unity": 0.12127481422410229,
+          "unlisted_positive_F2_separation_n": 46.35243017007909,
+          "loaded_flange_force_xyz_n": [
+            34.13333829235137,
+            -275.8452053521445,
+            46.35243017007909
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -5032.120291438898,
+            1577.095072551946,
+            640.0438989047932
+          ],
+          "force_parallel_couple_nmm": -2048.1019730845605,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -285.66290971924127,
+            "F2": 4.526064810548661,
+            "F34": -7.550903313905724
+          },
+          "rated_force_component_unity": 0.11170430764014158,
+          "unlisted_positive_F2_separation_n": 4.526064810548661,
+          "loaded_flange_force_xyz_n": [
+            7.550903313905724,
+            285.66290971924127,
+            -4.526064810548661
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3612.6396696350303,
+            -229.9080824714863,
+            400.89098016940585
+          ],
+          "force_parallel_couple_nmm": -140.70043537159225,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -128.76669665403878,
+            "F2": -23.936480627897552,
+            "F34": 28.391731378902797
+          },
+          "rated_force_component_unity": 0.07479383011281442,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -23.936480627897552,
+            -116.89086557852048,
+            61.02030909614659
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4106.407890805882,
+            2293.8986595690462,
+            1143.5179290524393
+          ],
+          "force_parallel_couple_nmm": -746.672708045147,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 102.36267126381186,
+            "F2": -0.25558256982827743,
+            "F34": 16.98379468781213
+          },
+          "rated_force_component_unity": 0.047160390619391444,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            16.98379468781213,
+            -102.36267126381186,
+            -0.25558256982827743
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -5963.523569856674,
+            340.0605380510613,
+            -1682.357113274165
+          ],
+          "force_parallel_couple_nmm": -1307.4371130544778,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 224.21879181270737,
+            "F2": 29.75160144069269,
+            "F34": -35.135972065285806
+          },
+          "rated_force_component_unity": 0.10226968951586095,
+          "unlisted_positive_F2_separation_n": 29.75160144069269,
+          "loaded_flange_force_xyz_n": [
+            -35.135972065285806,
+            224.21879181270737,
+            -29.75160144069269
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3444.6744626472155,
+            1275.1026096731143,
+            -437.72678255342004
+          ],
+          "force_parallel_couple_nmm": 777.1756822820614,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -289.20032064947304,
+            "F2": 75.05021652213242,
+            "F34": -49.97964275418745
+          },
+          "rated_force_component_unity": 0.13423720387790505,
+          "unlisted_positive_F2_separation_n": 75.05021652213242,
+          "loaded_flange_force_xyz_n": [
+            -49.97964275418745,
+            -289.20032064947304,
+            75.05021652213242
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -13111.121349479881,
+            -2359.109671277741,
+            6025.030162612063
+          ],
+          "force_parallel_couple_nmm": 5908.021768228203,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -41.4364784707019,
+            "F2": 5.818207558807112,
+            "F34": 7.524392238072082
+          },
+          "rated_force_component_unity": 0.019414952625285635,
+          "unlisted_positive_F2_separation_n": 5.818207558807112,
+          "loaded_flange_force_xyz_n": [
+            7.524392238072082,
+            -41.4364784707019,
+            5.818207558807112
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2191.885523421151,
+            222.4382920629464,
+            -5129.514582510747
+          ],
+          "force_parallel_couple_nmm": -530.8598073658765,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 24.40072722816661,
+            "F2": -81.03183641483658,
+            "F34": 51.58721234130608
+          },
+          "rated_force_component_unity": 0.07547254877717448,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -81.03183641483658,
+            14.467579410061346,
+            55.202582479662695
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3207.929533901842,
+            -10549.66348289379,
+            -8530.321806911556
+          ],
+          "force_parallel_couple_nmm": -8914.016764621769,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 20.320666348951622,
+            "F2": -18.377744938894892,
+            "F34": 7.7874545036765985
+          },
+          "rated_force_component_unity": 0.020749251285484747,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            18.377744938894892,
+            20.572212803050128,
+            -7.096336301097082
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3927.725170839347,
+            2639.566597743934,
+            2368.8452177837717
+          ],
+          "force_parallel_couple_nmm": 3850.43803973729,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -29.023746730964454,
+            "F2": -80.79455824886196,
+            "F34": 53.8674035223422
+          },
+          "rated_force_component_unity": 0.07823985410541562,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -80.79455824886196,
+            -56.858779451894634,
+            -22.608720348193508
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3554.597152121183,
+            -6455.278417434341,
+            -11799.607405357787
+          ],
+          "force_parallel_couple_nmm": 9087.368443005922,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -33.39859185436359,
+            "F2": -25.630301634752435,
+            "F34": 18.49413047916914
+          },
+          "rated_force_component_unity": 0.034662477293783335,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            25.630301634752435,
+            13.697007774097727,
+            -35.635526908847595
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1067.2808603154392,
+            417.4637981578756,
+            1845.892889872756
+          ],
+          "force_parallel_couple_nmm": -1901.0636681118708,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 72.09342251683665,
+            "F2": -50.4993191004622,
+            "F34": 20.216435547521435
+          },
+          "rated_force_component_unity": 0.06256692258313853,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -50.4993191004622,
+            -42.23189142247777,
+            61.82744684457112
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1894.9344545096844,
+            -11359.364401229921,
+            -11371.936023153994
+          ],
+          "force_parallel_couple_nmm": -3532.88013516322,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 30.083426637029813,
+            "F2": -0.19261295117470212,
+            "F34": -4.435483970298252
+          },
+          "rated_force_component_unity": 0.013678509298935486,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            0.19261295117470212,
+            20.194167666203057,
+            -22.735031747187126
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1504.984531694308,
+            1179.2977687073158,
+            1539.450342264187
+          ],
+          "force_parallel_couple_nmm": -358.26703899207115,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -28.51653293487854,
+            "F2": 9.817704367097303,
+            "F34": -10.236250558296414
+          },
+          "rated_force_component_unity": 0.020792869237985512,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            9.817704367097303,
+            15.265196563263057,
+            -26.17149690031462
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3298.0525062308816,
+            416.7694344785016,
+            -131.5304990976622
+          ],
+          "force_parallel_couple_nmm": 1324.4899499699472,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -7.469616675450782,
+            "F2": -49.46479617440016,
+            "F34": 31.941013527693897
+          },
+          "rated_force_component_unity": 0.04349058875126598,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            49.46479617440016,
+            14.809229389973979,
+            29.26961296856567
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            984.5269428217728,
+            6637.093021063685,
+            5422.519897673958
+          ],
+          "force_parallel_couple_nmm": 5150.611431946835,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 30.642127665276096,
+            "F2": -19.07979445195912,
+            "F34": 15.077065608803867
+          },
+          "rated_force_component_unity": 0.02864144791226997,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -19.07979445195912,
+            13.781880659556755,
+            -31.24608232583711
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            705.791022904873,
+            27.622346591021113,
+            -1017.4974259253804
+          ],
+          "force_parallel_couple_nmm": 478.211273346119,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -7.739089602335016,
+            "F2": -27.855722039865405,
+            "F34": 17.74591353698179
+          },
+          "rated_force_component_unity": 0.025705518096828986,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            27.855722039865405,
+            -5.478366759472005,
+            -18.5687493597096
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2520.982074559546,
+            2289.0465679996896,
+            4115.097022254879
+          ],
+          "force_parallel_couple_nmm": -4692.3162322739445,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -31.16378774137366,
+            "F2": 6.176578770848547,
+            "F34": -7.869396201757684
+          },
+          "rated_force_component_unity": 0.018791642772738898,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            6.176578770848547,
+            18.814496051614356,
+            -26.0600038621144
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2507.1298427302463,
+            -44.48152515428228,
+            -491.7592253376057
+          ],
+          "force_parallel_couple_nmm": 839.1003418318902,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -2.4987208970518946,
+            "F2": -27.59828742242952,
+            "F34": 16.59517771722818
+          },
+          "rated_force_component_unity": 0.023022061418531223,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            27.59828742242952,
+            8.753043359088611,
+            14.318790505544287
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            613.5903180968039,
+            3989.4624608870804,
+            3402.1277679224354
+          ],
+          "force_parallel_couple_nmm": 3113.5423833228306,
+          "independent_couple_resolved": false
+        }
+      }
+    },
+    "k12-right": {
+      "archive": "fea/results/compact-spliced-flush-top/k12-right-03",
+      "manifest_sha256": "80a12f2bc35287412ca5375482e9505fdc361ed854c480559b7836e9a43a0d4f",
+      "report_json_gz_sha256": "c3e5d7a1b55dd014f671dab8634996d2348509a1a8f267dd39a472c860a2a3f8",
+      "native_report_sha256": "efb3d66fa3ee2b196fedf4ea0985bf61758cecc5bc75a639327574420111973d",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 6,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "k12-right",
+          "station": "clip_single_top_right_2",
+          "rated_force_component_unity": 0.5797431342474898
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "k12-right",
+          "station": "clip_angle_base_right",
+          "unlisted_positive_F2_separation_n": 240.8149595556144
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "k12-right",
+          "station": "clip_angle_base_right",
+          "absolute_force_parallel_couple_nmm": 16339.710932733213
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 344.7679223650241,
+            "F2": -21.662783515149357,
+            "F34": 3.8722479105781247
+          },
+          "rated_force_component_unity": 0.14302039233490602,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -21.662783515149357,
+            261.6185181148468,
+            -224.5788627078868
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2637.326000464245,
+            -565.8385741640368,
+            -1431.1987880511929
+          ],
+          "force_parallel_couple_nmm": 667.2512457471308,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -1142.5158220524172,
+            "F2": -191.6406261809824,
+            "F34": 104.74345078513522
+          },
+          "rated_force_component_unity": 0.5797431342474898,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            191.6406261809824,
+            807.890104298265,
+            -814.6331527131872
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -10242.449738821218,
+            8103.297927962856,
+            18662.231757165693
+          ],
+          "force_parallel_couple_nmm": -9129.252447729034,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 1.6328886405692267,
+            "F2": 12.691464904658943,
+            "F34": -9.980375916702492
+          },
+          "rated_force_component_unity": 0.005602905151834947,
+          "unlisted_positive_F2_separation_n": 12.691464904658943,
+          "loaded_flange_force_xyz_n": [
+            -9.980375916702492,
+            1.6328886405692267,
+            -12.691464904658943
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -84.62623034329691,
+            434.65080807655414,
+            744.7951081075438
+          ],
+          "force_parallel_couple_nmm": -486.70262032803714,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -348.25903210507045,
+            "F2": 42.19087919613666,
+            "F34": -36.10400619933975
+          },
+          "rated_force_component_unity": 0.1496194389820271,
+          "unlisted_positive_F2_separation_n": 42.19087919613666,
+          "loaded_flange_force_xyz_n": [
+            36.10400619933975,
+            348.25903210507045,
+            -42.19087919613666
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            16531.271154406728,
+            -1500.4609048618677,
+            -8008.651665655105
+          ],
+          "force_parallel_couple_nmm": 1168.8028661281464,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 130.82555624432024,
+            "F2": 5.815429487397225,
+            "F34": -8.277302814090291
+          },
+          "rated_force_component_unity": 0.05647022317293419,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -5.815429487397225,
+            -94.89764268838968,
+            90.43382840894589
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4650.438119973907,
+            -348.95393107184736,
+            -815.7358182836133
+          ],
+          "force_parallel_couple_nmm": -103.72900018208617,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -90.35547621518617,
+            "F2": 33.91994325586225,
+            "F34": -21.651255543724005
+          },
+          "rated_force_component_unity": 0.04495545899535066,
+          "unlisted_positive_F2_separation_n": 33.91994325586225,
+          "loaded_flange_force_xyz_n": [
+            21.651255543724005,
+            -90.35547621518617,
+            33.91994325586225
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -5635.171596126702,
+            1087.306420980834,
+            -284.1947035707856
+          ],
+          "force_parallel_couple_nmm": -2324.2281187766016,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -10.331462373404158,
+            "F2": -29.17980242309052,
+            "F34": 31.054511393174714
+          },
+          "rated_force_component_unity": 0.01941760890016943,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -31.054511393174714,
+            10.331462373404158,
+            29.17980242309052
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1191.2689459052951,
+            1164.7394343653655,
+            500.37670606670406
+          ],
+          "force_parallel_couple_nmm": -236.27288848734088,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -154.01936578163196,
+            "F2": 3.8275650553989635,
+            "F34": -2.011778968395461
+          },
+          "rated_force_component_unity": 0.061110353869110574,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            3.8275650553989635,
+            -116.69253269541541,
+            100.54285207573545
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -7981.817697646379,
+            2999.5317952179444,
+            3776.137950262081
+          ],
+          "force_parallel_couple_nmm": -5.907378778704094,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -109.45746437097478,
+            "F2": -40.9478465769361,
+            "F34": 67.60344225844727
+          },
+          "rated_force_component_unity": 0.07512934956571451,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            67.60344225844727,
+            109.45746437097478,
+            -40.9478465769361
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -11376.704207074605,
+            2113.4603322139446,
+            -4241.6734278462045
+          ],
+          "force_parallel_couple_nmm": -2696.697186295121,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 113.484803628297,
+            "F2": 64.8657974685215,
+            "F34": -71.97170384591162
+          },
+          "rated_force_component_unity": 0.07883327594449102,
+          "unlisted_positive_F2_separation_n": 64.8657974685215,
+          "loaded_flange_force_xyz_n": [
+            -71.97170384591162,
+            113.484803628297,
+            -64.8657974685215
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1276.410828408811,
+            2690.1049923052187,
+            -4182.4012214366885
+          ],
+          "force_parallel_couple_nmm": 3248.3496744945714,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -51.34184642455209,
+            "F2": 45.701435436060066,
+            "F34": -35.73128195246066
+          },
+          "rated_force_component_unity": 0.03724896838212009,
+          "unlisted_positive_F2_separation_n": 45.701435436060066,
+          "loaded_flange_force_xyz_n": [
+            -35.73128195246066,
+            -51.34184642455209,
+            45.701435436060066
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1646.0110597281196,
+            -1541.1594353122196,
+            6505.500115312649
+          ],
+          "force_parallel_couple_nmm": 4100.035161700108,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -445.46683752814147,
+            "F2": 240.8149595556144,
+            "F34": 235.49595746673378
+          },
+          "rated_force_component_unity": 0.28595879893072307,
+          "unlisted_positive_F2_separation_n": 240.8149595556144,
+          "loaded_flange_force_xyz_n": [
+            235.49595746673378,
+            -445.46683752814147,
+            240.8149595556144
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -9680.4583611206,
+            9201.579086180971,
+            -11405.282803125865
+          ],
+          "force_parallel_couple_nmm": -16339.710932733213,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 12.507803516919582,
+            "F2": -62.43622894238507,
+            "F34": 40.6689449661186
+          },
+          "rated_force_component_unity": 0.05623463685874514,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -62.43622894238507,
+            16.559960543484706,
+            39.194080423876244
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1499.0210909174957,
+            -7980.368908887757,
+            -6362.799172150617
+          ],
+          "force_parallel_couple_nmm": -6288.4832294791495,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 23.626880002852374,
+            "F2": -2.5076724604885072,
+            "F34": -2.7535521082044756
+          },
+          "rated_force_component_unity": 0.011555326289929361,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            2.5076724604885072,
+            16.329290956643803,
+            -17.29640901271283
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4046.4324984953573,
+            778.9324334325447,
+            952.6250900160973
+          ],
+          "force_parallel_couple_nmm": 267.13710997676736,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 3.4232013277718476,
+            "F2": -34.0992831991845,
+            "F34": 21.733911231019277
+          },
+          "rated_force_component_unity": 0.02918628075937793,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -34.0992831991845,
+            -11.347964494509263,
+            -18.84953332471767
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2804.029554580638,
+            -2823.273339950024,
+            -5063.794507355911
+          ],
+          "force_parallel_couple_nmm": 5497.703106165296,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -29.537072592829453,
+            "F2": -22.582633826851772,
+            "F34": 17.4531580709125
+          },
+          "rated_force_component_unity": 0.03116089467652048,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            22.582633826851772,
+            11.408036567855548,
+            -32.35595904418235
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            535.2017604907039,
+            225.7966587053851,
+            1500.3348935203467
+          ],
+          "force_parallel_couple_nmm": -824.927735955199,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 6.130277580662657,
+            "F2": -32.99731487274934,
+            "F34": 20.02550806964949
+          },
+          "rated_force_component_unity": 0.02880510326160418,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -32.99731487274934,
+            8.176083389405104,
+            19.28089565017834
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            868.2224195753251,
+            -4803.169457069975,
+            -4102.58252634296
+          ],
+          "force_parallel_couple_nmm": -3761.848448091044,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 29.527812354792268,
+            "F2": 1.7440114970160465,
+            "F34": -5.014730094569346
+          },
+          "rated_force_component_unity": 0.014532999193094002,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -1.7440114970160465,
+            19.396210201137038,
+            -22.821618045496024
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2680.1726025892954,
+            602.6242805530865,
+            932.2842934703775
+          ],
+          "force_parallel_couple_nmm": -475.374018075668,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -53.714720686678,
+            "F2": 16.62336197527652,
+            "F34": -10.958043933077313
+          },
+          "rated_force_component_unity": 0.03407403401393121,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            16.62336197527652,
+            34.10416842913466,
+            -42.92150557755751
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4091.496257890156,
+            2464.11338543752,
+            2085.097108191675
+          ],
+          "force_parallel_couple_nmm": 1091.9849719302856,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -64.16418936013791,
+            "F2": -134.78554270365115,
+            "F34": 84.53711848331803
+          },
+          "rated_force_component_unity": 0.133811378281848,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            134.78554270365115,
+            5.186791613112732,
+            106.00313575771392
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            4198.277461736003,
+            16535.344340967808,
+            13032.450792311025
+          ],
+          "force_parallel_couple_nmm": 11851.168612510432,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 38.09661928526483,
+            "F2": -34.19805907158061,
+            "F34": 22.769295032892167
+          },
+          "rated_force_component_unity": 0.04285354199756346,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -34.19805907158061,
+            14.547882776655882,
+            -41.93032678119715
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1443.9255662820399,
+            -179.9617734053512,
+            -1947.8016426590489
+          ],
+          "force_parallel_couple_nmm": 2292.246745041674,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 49.35367331795342,
+            "F2": -98.82834707959233,
+            "F34": 68.58811094901068
+          },
+          "rated_force_component_unity": 0.10228445497189059,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            98.82834707959233,
+            -81.89469508255742,
+            -20.8176115552196
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4540.497126034131,
+            9111.885868624948,
+            15977.269040710955
+          ],
+          "force_parallel_couple_nmm": -11747.924665953125,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -48.51438707717661,
+            "F2": 5.281422427247577,
+            "F34": -5.621601038294948
+          },
+          "rated_force_component_unity": 0.023777081086820626,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            5.281422427247577,
+            33.55068113777716,
+            -35.49084314156375
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2196.723202730601,
+            -539.5275848586846,
+            -976.0196017209818
+          ],
+          "force_parallel_couple_nmm": 572.8404496706366,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -87.49751981720857,
+            "F2": -97.66155708689828,
+            "F34": 50.3471781490895
+          },
+          "rated_force_component_unity": 0.10700072902089795,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            97.66155708689828,
+            -34.664446545749264,
+            94.8104976646355
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3492.8183304524973,
+            15997.181492965476,
+            14547.906067627979
+          ],
+          "force_parallel_couple_nmm": 8300.526224689665,
+          "independent_couple_resolved": false
+        }
+      }
+    },
+    "k12-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/k12-rear-03",
+      "manifest_sha256": "5e7ccc3704ce9ddc7fc42ed7d4f5fb30fe41552131a32a9a67ccc29dd029dd42",
+      "report_json_gz_sha256": "6088e5fa1f44e00a64e587908fb3aa6d2ab6d29f629d00c9627cf2faefc41d98",
+      "native_report_sha256": "526e61d86cf6c909cb6242405985c19bf8ca1027a93d86e2b645600c2406dbc3",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 5,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "k12-rear",
+          "station": "clip_single_top_right_2",
+          "rated_force_component_unity": 0.6151208319687604
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "k12-rear",
+          "station": "clip_angle_base_left",
+          "unlisted_positive_F2_separation_n": 103.69442313690169
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "k12-rear",
+          "station": "clip_horizontal_lower_right_2",
+          "absolute_force_parallel_couple_nmm": 11285.378600122773
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 355.10234801459995,
+            "F2": -24.950476692977475,
+            "F34": 4.452011130101482
+          },
+          "rated_force_component_unity": 0.1488571361843868,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -24.950476692977475,
+            269.16248284246893,
+            -231.66582786130158
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3675.276128176335,
+            -188.5597487013472,
+            -1099.9434750978749
+          ],
+          "force_parallel_couple_nmm": 830.7901724298438,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -1177.099724375551,
+            "F2": -218.37678544214418,
+            "F34": 122.66692687653767
+          },
+          "rated_force_component_unity": 0.6151208319687604,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            218.37678544214418,
+            822.8619221402047,
+            -850.5934358823022
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -9484.371388424315,
+            8882.43080932881,
+            20950.00075127739
+          ],
+          "force_parallel_couple_nmm": -10454.986238877244,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 38.619384725111004,
+            "F2": -49.58740481275949,
+            "F34": 52.93279362988302
+          },
+          "rated_force_component_unity": 0.041035491265132396,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            52.93279362988302,
+            38.619384725111004,
+            49.58740481275949
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            675.9402137800913,
+            -2023.11460640305,
+            1153.351420792591
+          ],
+          "force_parallel_couple_nmm": 180.59259365315282,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -3.599145850478923,
+            "F2": 24.079705642873435,
+            "F34": -18.1417937070365
+          },
+          "rated_force_component_unity": 0.010423060215871511,
+          "unlisted_positive_F2_separation_n": 24.079705642873435,
+          "loaded_flange_force_xyz_n": [
+            18.1417937070365,
+            3.599145850478923,
+            -24.079705642873435
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -575.1140752773225,
+            -807.8586363334296,
+            -1346.749669675708
+          ],
+          "force_parallel_couple_nmm": 628.6646300370949,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 129.7853228381325,
+            "F2": -19.259751744483154,
+            "F34": 23.69551207163655
+          },
+          "rated_force_component_unity": 0.07049620318894562,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            19.259751744483154,
+            -114.65250692337949,
+            65.27258209018366
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4787.173679264175,
+            -1734.491447017028,
+            -751.5967001237341
+          ],
+          "force_parallel_couple_nmm": 432.053951212149,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 127.02706833635848,
+            "F2": -35.52752057912965,
+            "F34": 62.15325829637856
+          },
+          "rated_force_component_unity": 0.07904489778949168,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -62.15325829637856,
+            127.02706833635848,
+            -35.52752057912965
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -10605.109375520558,
+            -1906.3205962086545,
+            4304.626751827981
+          ],
+          "force_parallel_couple_nmm": 1810.929571918416,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -88.02840926388424,
+            "F2": 27.390604977222257,
+            "F34": -32.95008513652279
+          },
+          "rated_force_component_unity": 0.049720840567292354,
+          "unlisted_positive_F2_separation_n": 27.390604977222257,
+          "loaded_flange_force_xyz_n": [
+            32.95008513652279,
+            88.02840926388424,
+            -27.390604977222257
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1372.8460300096012,
+            -1200.6953023493397,
+            3049.625565682628
+          ],
+          "force_parallel_couple_nmm": -1470.7549078587147,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -159.65576400030858,
+            "F2": 51.67336294628541,
+            "F34": -53.97308983665547
+          },
+          "rated_force_component_unity": 0.11310113427662669,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            51.67336294628541,
+            -87.6101774208501,
+            143.97053246176827
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -7989.492123083152,
+            437.5384891342578,
+            3727.8866788107675
+          ],
+          "force_parallel_couple_nmm": 485.2000638884186,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 43.21228345164583,
+            "F2": -33.57607975007896,
+            "F34": 56.106316580428086
+          },
+          "rated_force_component_unity": 0.04435624099944084,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            56.106316580428086,
+            -43.21228345164583,
+            -33.57607975007896
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -8408.528970825748,
+            1732.6633841993985,
+            -2654.5385212984725
+          ],
+          "force_parallel_couple_nmm": -5837.54307690397,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 105.35990164187008,
+            "F2": 69.21753212452683,
+            "F34": -70.4649022017232
+          },
+          "rated_force_component_unity": 0.07501068187767532,
+          "unlisted_positive_F2_separation_n": 69.21753212452683,
+          "loaded_flange_force_xyz_n": [
+            -70.4649022017232,
+            105.35990164187008,
+            -69.21753212452683
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3956.344881279817,
+            2744.8195264599763,
+            -4866.736739183354
+          ],
+          "force_parallel_couple_nmm": 2404.6146820897447,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -187.43647811206964,
+            "F2": 103.69442313690169,
+            "F34": -116.7741491548284
+          },
+          "rated_force_component_unity": 0.12915664952632122,
+          "unlisted_positive_F2_separation_n": 103.69442313690169,
+          "loaded_flange_force_xyz_n": [
+            -116.7741491548284,
+            -187.43647811206964,
+            103.69442313690169
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1926.9347271663269,
+            -4256.580831846361,
+            7501.109813509449
+          ],
+          "force_parallel_couple_nmm": 5536.12244613776,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -132.75168575606835,
+            "F2": 102.337977295713,
+            "F34": 103.26252975833788
+          },
+          "rated_force_component_unity": 0.10174501281593917,
+          "unlisted_positive_F2_separation_n": 102.337977295713,
+          "loaded_flange_force_xyz_n": [
+            103.26252975833788,
+            -132.75168575606835,
+            102.337977295713
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            768.9558724484687,
+            3949.8873490338183,
+            -9668.62428032857
+          ],
+          "force_parallel_couple_nmm": -7285.980404027898,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 31.01058636328569,
+            "F2": -83.12143999540324,
+            "F34": 52.97859633629319
+          },
+          "rated_force_component_unity": 0.07970896875022733,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -83.12143999540324,
+            10.298497942098052,
+            60.5171800110952
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1362.733357993074,
+            -10251.894645158696,
+            -8069.574915794032
+          ],
+          "force_parallel_couple_nmm": -6843.934267522449,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 47.29697444987899,
+            "F2": 30.431302912626844,
+            "F34": -21.866963817160695
+          },
+          "rated_force_component_unity": 0.04399715230022749,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -30.431302912626844,
+            22.175771050535104,
+            -47.15297527206284
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3747.564093445191,
+            -3398.6474163946373,
+            -2439.727929103496
+          ],
+          "force_parallel_couple_nmm": -1232.4697079924442,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 1.715613433702016,
+            "F2": -29.151538015878472,
+            "F34": 19.72142046112031
+          },
+          "rated_force_component_unity": 0.025063939695142583,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -29.151538015878472,
+            -11.362448580399104,
+            -16.210259612849512
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3149.924130532366,
+            -3208.6664420458656,
+            -5317.044391403242
+          ],
+          "force_parallel_couple_nmm": 6086.509397727241,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -32.957187174587084,
+            "F2": -24.07970564287395,
+            "F34": 17.872204108282133
+          },
+          "rated_force_component_unity": 0.03341036250292609,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            24.07970564287395,
+            13.758638737331715,
+            -34.87537420938246
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            990.5979831653195,
+            -167.8430585114737,
+            1086.144530020019
+          ],
+          "force_parallel_couple_nmm": -366.6153147261936,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 9.93808746158139,
+            "F2": -43.59627465559065,
+            "F34": 26.41441879791893
+          },
+          "rated_force_component_unity": 0.03873053136498132,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -43.59627465559065,
+            9.365844445198801,
+            26.6226982226489
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            642.7937498042869,
+            -5370.5209436499035,
+            -4264.516500671013
+          ],
+          "force_parallel_couple_nmm": -3694.236066005044,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 33.55601590099767,
+            "F2": 10.631061941369326,
+            "F34": -9.88865117420846
+          },
+          "rated_force_component_unity": 0.022929619223325634,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -10.631061941369326,
+            19.349097062877757,
+            -29.14453753355023
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3068.1940683809084,
+            -239.83078702887792,
+            348.35122442683235
+          ],
+          "force_parallel_couple_nmm": -1296.7193091247436,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -38.89590129772084,
+            "F2": 2.1450538859336916,
+            "F34": -2.4809235804273797
+          },
+          "rated_force_component_unity": 0.017007069151176186,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            2.1450538859336916,
+            28.201282111145296,
+            -26.9023011443549
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3174.2455653057727,
+            138.05139691888826,
+            19.058317289534898
+          ],
+          "force_parallel_couple_nmm": 261.040654605773,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -41.717372357831636,
+            "F2": -97.00003037548566,
+            "F34": 60.88657381037633
+          },
+          "rated_force_component_unity": 0.0946383493624276,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            97.00003037548566,
+            7.179773965332991,
+            73.45723158828616
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3897.7109536641246,
+            12774.63565380245,
+            10412.01688607718
+          ],
+          "force_parallel_couple_nmm": 10129.314235453297,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 34.96665882867531,
+            "F2": -31.80274416594478,
+            "F34": 21.523891005360692
+          },
+          "rated_force_component_unity": 0.03985213482519735,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -31.80274416594478,
+            12.9507242396543,
+            -38.964392146164094
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2218.346926929778,
+            -484.34331512974813,
+            -2199.9029165590023
+          ],
+          "force_parallel_couple_nmm": 2888.063804482101,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 47.89126565964979,
+            "F2": -106.32667049295935,
+            "F34": 72.90247530053438
+          },
+          "rated_force_component_unity": 0.10763324181662391,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            106.32667049295935,
+            -83.54764577117203,
+            -25.062623915363208
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4020.2835305453445,
+            8706.058281329559,
+            15848.75682377365
+          ],
+          "force_parallel_couple_nmm": -11285.378600122773,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -50.736844206118555,
+            "F2": -6.837142417506186,
+            "F34": 2.216180755251962
+          },
+          "rated_force_component_unity": 0.02369272759410334,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -6.837142417506186,
+            40.291211095792015,
+            -30.91532185778148
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1692.1248049302392,
+            -1494.714704248513,
+            -1501.9101294806528
+          ],
+          "force_parallel_couple_nmm": -494.91509795560154,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -78.95402420403774,
+            "F2": -94.2321822671021,
+            "F34": 49.6850973430128
+          },
+          "rated_force_component_unity": 0.1017287480365901,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            94.2321822671021,
+            -28.54532654522579,
+            88.81166121868716
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3990.8376209409707,
+            15806.255254564589,
+            14445.649890373565
+          ],
+          "force_parallel_couple_nmm": 9108.877349791286,
+          "independent_couple_resolved": false
+        }
+      }
+    },
+    "a1-rear": {
+      "archive": "fea/results/compact-spliced-flush-top/a1-rear-03",
+      "manifest_sha256": "46e95a3c0ca588c15ebf623e8c7ea2380c672e0ca1551a33c087e023828457a6",
+      "report_json_gz_sha256": "c21e1dad554c246f9a2614d372ace73a5e42bb393095f12d2e16f83638003ba7",
+      "native_report_sha256": "6cee68b74c4ef0ef2e6832b9a5e9b1d682500840e0ad610460e70ae60e4a8748",
+      "ML24Z_connection_count": 24,
+      "SDS25112_screw_count": 144,
+      "positive_unlisted_F2_station_count": 1,
+      "maxima": {
+        "listed_force_component_interaction": {
+          "case": "a1-rear",
+          "station": "clip_horizontal_bottom_left_1",
+          "rated_force_component_unity": 0.28093978987103185
+        },
+        "unlisted_positive_F2_separation": {
+          "case": "a1-rear",
+          "station": "clip_split_header_center_right",
+          "unlisted_positive_F2_separation_n": 9.458975092518099
+        },
+        "absolute_force_parallel_loaded_flange_couple": {
+          "case": "a1-rear",
+          "station": "clip_horizontal_lower_left_1",
+          "absolute_force_parallel_couple_nmm": 5861.587704937089
+        }
+      },
+      "connections": {
+        "clip_single_top_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 216.038884012339,
+            "F2": -35.39466394400918,
+            "F34": 18.383074329540634
+          },
+          "rated_force_component_unity": 0.10849204202460727,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -35.39466394400918,
+            153.67897418830162,
+            -152.9493697912273
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1397.4433111903945,
+            -1288.3370372061834,
+            -3164.7774457738687
+          ],
+          "force_parallel_couple_nmm": 1527.256831557551,
+          "independent_couple_resolved": false
+        },
+        "clip_single_top_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -216.83372111053637,
+            "F2": -31.17261583496949,
+            "F34": 15.90266784436578
+          },
+          "rated_force_component_unity": 0.10544397381978927,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            31.17261583496949,
+            155.8822292862171,
+            -151.56017962502332
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -971.4043421391067,
+            874.4650765591039,
+            2467.0159122004125
+          ],
+          "force_parallel_couple_nmm": -1219.5851865979091,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -72.94203073057072,
+            "F2": -130.35112338221137,
+            "F34": 133.43154934156377
+          },
+          "rated_force_component_unity": 0.09421882240336478,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            133.43154934156377,
+            -72.94203073057072,
+            130.35112338221137
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -484.9727677262206,
+            -5139.949242589132,
+            -1754.7751073152367
+          ],
+          "force_parallel_couple_nmm": 406.76476184060004,
+          "independent_couple_resolved": false
+        },
+        "clip_timber_header_outer_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -33.608212776068115,
+            "F2": -10.057053430971608,
+            "F34": 10.219094928878512
+          },
+          "rated_force_component_unity": 0.017803405026077374,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -10.219094928878512,
+            33.608212776068115,
+            10.057053430971608
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            506.8955662568549,
+            400.21310668760987,
+            -576.7465594067952
+          ],
+          "force_parallel_couple_nmm": 67.60102292562294,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 154.55337284177887,
+            "F2": -13.580910768136889,
+            "F34": 18.57943130756381
+          },
+          "rated_force_component_unity": 0.07446144173659888,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            13.580910768136889,
+            -130.3373806702641,
+            85.11232298849009
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1365.5824732816122,
+            -1858.8342574998687,
+            -1235.659613386133
+          ],
+          "force_parallel_couple_nmm": 758.7471622638687,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -110.28332326659725,
+            "F2": -64.22672992109447,
+            "F34": 74.63333232883258
+          },
+          "rated_force_component_unity": 0.07895334430998194,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -74.63333232883258,
+            -110.28332326659725,
+            -64.22672992109447
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -2070.2113303273354,
+            -2730.807816983555,
+            934.7166785952207
+          ],
+          "force_parallel_couple_nmm": 2676.0478320332195,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -93.4000727108048,
+            "F2": -51.51422884236122,
+            "F34": 52.17349891632351
+          },
+          "rated_force_component_unity": 0.0613539621959591,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -52.17349891632351,
+            93.4000727108048,
+            51.51422884236122
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1578.2467959146952,
+            2017.4875623859189,
+            -1022.9445346113249
+          ],
+          "force_parallel_couple_nmm": 449.6740432772471,
+          "independent_couple_resolved": false
+        },
+        "clip_split_top_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -128.57531840126745,
+            "F2": -15.350603991976527,
+            "F34": 20.469016690121613
+          },
+          "rated_force_component_unity": 0.06647423504257739,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -15.350603991976527,
+            -111.65163849442106,
+            66.96644508825963
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -632.2232289864536,
+            2116.7938395510514,
+            1438.050348006961
+          ],
+          "force_parallel_couple_nmm": -994.2110800176855,
+          "independent_couple_resolved": false
+        },
+        "clip_split_base_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 115.86505521339296,
+            "F2": -16.62302243321554,
+            "F34": 25.09347908695459
+          },
+          "rated_force_component_unity": 0.05631339752343313,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            25.09347908695459,
+            -115.86505521339296,
+            -16.62302243321554
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1762.1915362144682,
+            816.4088626747965,
+            -1221.7339764345663
+          ],
+          "force_parallel_couple_nmm": -989.9164113052273,
+          "independent_couple_resolved": false
+        },
+        "clip_split_header_center_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 79.33329268658319,
+            "F2": 9.458975092518099,
+            "F34": -12.26769804015441
+          },
+          "rated_force_component_unity": 0.03610315090166789,
+          "unlisted_positive_F2_separation_n": 9.458975092518099,
+          "loaded_flange_force_xyz_n": [
+            -12.26769804015441,
+            79.33329268658319,
+            -9.458975092518099
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1237.7276862015262,
+            432.1233394681982,
+            43.00800147517592
+          ],
+          "force_parallel_couple_nmm": 231.23255162002656,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_left": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": 109.91874769507055,
+            "F2": -76.43894355311895,
+            "F34": 77.6669690805906
+          },
+          "rated_force_component_unity": 0.08033112704677162,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            77.6669690805906,
+            109.91874769507055,
+            -76.43894355311895
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -3031.3185753737753,
+            3021.587009910681,
+            5638.414386653365
+          ],
+          "force_parallel_couple_nmm": -2159.815498877438,
+          "independent_couple_resolved": false
+        },
+        "clip_angle_base_right": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": true,
+          "loaded_flange": "upright",
+          "projected_loaded_flange_force_n": {
+            "F1": -14.164182294643451,
+            "F2": -13.230183265245719,
+            "F34": -13.436237449453955
+          },
+          "rated_force_component_unity": 0.012064069302097276,
+          "unlisted_positive_F2_separation_n": 0.0,
+          "loaded_flange_force_xyz_n": [
+            -13.436237449453955,
+            -14.164182294643451,
+            -13.230183265245719
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -309.5017938111225,
+            -547.0975127132108,
+            -3143.1947551213084
+          ],
+          "force_parallel_couple_nmm": 2268.202554557587,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -586.9817952134676,
+            "F2": 54.941084877411754,
+            "F34": -63.480204267584384
+          },
+          "rated_force_component_unity": 0.28093978987103185,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            54.941084877411754,
+            408.8498536717031,
+            -425.93328280202104
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1316.0639402747584,
+            4131.073321134222,
+            1272.525195041142
+          ],
+          "force_parallel_couple_nmm": 2056.283238233015,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 194.7860203676372,
+            "F2": 46.29100392443185,
+            "F34": -43.069744637160326
+          },
+          "rated_force_component_unity": 0.1182384668619828,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -46.29100392443185,
+            121.53005029475794,
+            -158.1993789783177
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            3881.078258100841,
+            -3099.0000017414986,
+            -938.5901897263875
+          ],
+          "force_parallel_couple_nmm": -1991.2777595852667,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 36.906678697478526,
+            "F2": -55.04829065316895,
+            "F34": 43.50960773610168
+          },
+          "rated_force_component_unity": 0.06318156056710583,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -55.04829065316895,
+            0.3047193750929793,
+            -57.05344900994854
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -4031.668625548068,
+            -1048.5180117811067,
+            -4260.856206459702
+          ],
+          "force_parallel_couple_nmm": 5861.587704937089,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -63.201124604261786,
+            "F2": -23.880703127453657,
+            "F34": 18.55419308158275
+          },
+          "rated_force_component_unity": 0.045078722281202147,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            23.880703127453657,
+            36.48846488139152,
+            -54.83823632057777
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1036.9529373610987,
+            -310.8412712937759,
+            930.9622884332365
+          ],
+          "force_parallel_couple_nmm": -1243.9760017194699,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 2.892281013635735,
+            "F2": -27.181950207020762,
+            "F34": 16.062370724293586
+          },
+          "rated_force_component_unity": 0.022696591173789644,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -27.181950207020762,
+            8.109077085333602,
+            14.163612235958695
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1191.7485535095955,
+            -4079.156103923629,
+            -3540.457741090314
+          ],
+          "force_parallel_couple_nmm": -3646.6477390769696,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_left_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 31.916953768405484,
+            "F2": 2.877063355794661,
+            "F34": -5.019264622168734
+          },
+          "rated_force_component_unity": 0.0160039990743537,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -2.877063355794661,
+            21.223483966704187,
+            -24.360802193625272
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2191.375807360601,
+            233.02412423312762,
+            526.5389697237354
+          ],
+          "force_parallel_couple_nmm": -437.34104571684003,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -27.002391104732496,
+            "F2": 11.344100270238084,
+            "F34": -10.581598589207745
+          },
+          "rated_force_component_unity": 0.021155858072422505,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            11.344100270238084,
+            13.883311192886234,
+            -25.462777232610343
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            2017.507031390905,
+            539.8748058043645,
+            -36.276465877558394
+          ],
+          "force_parallel_couple_nmm": 1005.2769837626104,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_bottom_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 8.892976996697046,
+            "F2": -21.084450782264177,
+            "F34": 12.206828968029495
+          },
+          "rated_force_component_unity": 0.019991540257036648,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            21.084450782264177,
+            14.65881402531677,
+            3.634678072358426
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            760.4258395362397,
+            3334.0261526981303,
+            2955.8903948508832
+          ],
+          "force_parallel_couple_nmm": 2916.8509162389587,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 28.69439093143939,
+            "F2": -13.942770003172676,
+            "F34": 11.021010224217008
+          },
+          "rated_force_component_unity": 0.023312897434757625,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            -13.942770003172676,
+            14.89700990335726,
+            -26.886982598049983
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            170.3361761092828,
+            94.88206907380831,
+            -652.6291044337571
+          ],
+          "force_parallel_couple_nmm": 491.3925210469608,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_lower_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -15.241734460118423,
+            "F2": -21.631258578126037,
+            "F34": 14.45965387723748
+          },
+          "rated_force_component_unity": 0.02378891999281884,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            21.631258578126037,
+            2.3813596340244816,
+            -20.873935563178044
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            -1445.4956106644445,
+            1380.4282344773728,
+            2743.7587253340243
+          ],
+          "force_parallel_couple_nmm": -2827.2128207418023,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": -31.796570673919426,
+            "F2": 5.271668309848284,
+            "F34": -6.599348607785508
+          },
+          "rated_force_component_unity": 0.01794417164354415,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            5.271668309848284,
+            20.115606757909084,
+            -25.493835988916924
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1666.3603917698367,
+            47.72994868174749,
+            -312.26104066105563
+          ],
+          "force_parallel_couple_nmm": 538.1679577092411,
+          "independent_couple_resolved": false
+        },
+        "clip_horizontal_upper_right_2": {
+          "product": "Simpson Strong-Tie ML24Z",
+          "fastener": "Simpson SDS25112",
+          "screw_count": 6,
+          "bearing_like": false,
+          "loaded_flange": "beam",
+          "projected_loaded_flange_force_n": {
+            "F1": 3.6118015091305433,
+            "F2": -15.90232897423617,
+            "F34": 8.302759811139893
+          },
+          "rated_force_component_unity": 0.01345691514594496,
+          "unlisted_positive_F2_separation_n": null,
+          "loaded_flange_force_xyz_n": [
+            15.90232897423617,
+            8.103711608522284,
+            4.038661757158998
+          ],
+          "loaded_flange_moment_xyz_nmm": [
+            1001.335207537273,
+            2682.5049134049546,
+            2456.7274128521353
+          ],
+          "force_parallel_couple_nmm": 2600.29920858161,
+          "independent_couple_resolved": false
+        }
+      }
+    }
+  },
+  "qualified_for_design": false
+}
