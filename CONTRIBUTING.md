@@ -83,9 +83,8 @@ additional workers did not improve this reduced suite in that trial.
 Regenerate the current candidate after changes to its source or geometry inputs:
 
 ```bash
-uv run python -m scripts.compact_spliced_flush_top_geometry --output fea/generated/compact-spliced-flush-top/geometry.json
-uv run python -m scripts.compact_spliced_flush_top_exports
-uv run python -m scripts.compact_spliced_flush_top_construction
+uv run python -m scripts.floor_flush_exports
+uv run python -m scripts.floor_flush_construction
 uv run python -m scripts.current_candidate --check-exports
 ```
 

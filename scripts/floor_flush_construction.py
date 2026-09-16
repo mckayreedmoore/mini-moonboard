@@ -6,6 +6,7 @@ acceptance or machining tolerance is inferred from this dimensional packet.
 """
 import argparse
 import json
+import tempfile
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -197,8 +198,24 @@ All timber profiles assume fresh stock; previous holes are not repair instructio
     return output
 
 
+def check(saved=OUT):
+    """Rebuild in an empty directory and require byte-identical package files."""
+    saved = Path(saved)
+    with tempfile.TemporaryDirectory() as directory:
+        rebuilt = generate(Path(directory) / saved.name)
+        saved_files = {path.relative_to(saved) for path in saved.rglob('*') if path.is_file()}
+        rebuilt_files = {path.relative_to(rebuilt) for path in rebuilt.rglob('*') if path.is_file()}
+        if saved_files != rebuilt_files:
+            raise ValueError('Construction package file inventory differs')
+        for name in saved_files:
+            if (saved / name).read_bytes() != (rebuilt / name).read_bytes():
+                raise ValueError('Construction package differs: ' + str(name))
+    return saved
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=OUT)
+    parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
-    print(generate(args.output))
+    print(check(args.output) if args.check else generate(args.output))

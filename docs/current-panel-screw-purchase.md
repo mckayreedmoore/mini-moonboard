@@ -2,7 +2,7 @@
 
 The owner purchased Lowe's item 755741, Fas-n-Tite/Hillman model 42605,
 UPC 00038902075949, for the 66 panel and kicker attachment locations in
-`compact-spliced-flush-top-development`. The retailer identifies it as a #10 ×
+`compact-floor-flush-development`. The retailer identifies it as a #10 ×
 2 1/2-inch carbon-steel exterior deck screw with a gray ceramic coating, coarse
 thread, flat head and #2 Phillips drive. It is sold for wood-to-wood use and is
 listed as compatible with ACQ, CA and CCA treated lumber.
@@ -26,9 +26,9 @@ dimension of their nominal 2x6 receivers. A 63.5 mm screw through the assumed
 18.25625 mm panel has 45.24375 mm nominal timber penetration and terminates
 94.45625 mm before the receiver's rear face. No rear tip projection occurs.
 
-The viewer retains its historical SPAX occupied-geometry proxy and the frozen
-six-case archives retain their SPAX stiffness assumptions. This preserves the
-authenticated analysis rather than inventing unpublished model 42605 geometry.
+The viewer retains its historical SPAX occupied-geometry proxy. Historical
+archives retain their own SPAX stiffness assumptions; fresh floor-runner cases
+must not invent unpublished model 42605 stiffness or resistance.
 It is not a claim that model 42605 has SPAX resistance or stiffness. Confirm the
 delivered screw seats flush without crushing the face veneer; no separate
 countersink or pilot dimension is released from retailer data.

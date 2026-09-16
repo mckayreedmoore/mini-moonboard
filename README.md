@@ -3,24 +3,20 @@
 This independent project provides CAD, an interactive viewer and conditional
 DIY design studies. It is not affiliated with or endorsed by Moon Climbing.
 
-## Current direction: compact spliced knees, flush leg tops
+## Current direction: flush floor runners
 
-**`compact-spliced-flush-top-development` is the selected conditional DIY
-development. It is not an unconditional rating or construction release.** It
-retains the compact 4×6 legs/rims, compact 2×6 base, four independent spliced
-2×6 knee pieces, 20 complete outward-facing bolt stacks, 66 panel/kicker
-screws, and a 7 mm rear rim reserve. Rear-leg tops are 0 mm projection at the
-rim; the two upper bolt pairs per leg remain at 56 mm pitch after relocation.
+**`compact-floor-flush-development` is the selected DIY development. It is not
+an unconditional rating or fabrication release.** It retains solid 4×6
+legs/rims, compact 2×6 base members, two outboard 2×6 floor runners, whole
+kickers, the 1:12 rear recess, twelve complete outward-facing bolt stacks, 24
+ML24Z angles and 66 panel/kicker screw axes. Runner ends, lower rim ends and
+rear-leg tops use the selected flush geometry.
 
-Use the [current design basis](docs/current-design-basis.md), [completion
-record](docs/current-diy-completion-record.md), and [execution plan](docs/engineering-execution-plan.md).
-Six fresh no-slip cases meet the listed conditional checks. The tightest
-directional placement margin is 0.361 mm and the minimum group-spacing margin
-is 1.9 mm; these are installation limits, not safety factors. Full-root lateral
-results above 1.0 are recorded sensitivities, not adopted criteria. Retained
-ML24Z/SDS separation and independent flange-couple applicability remain an open
-connection gate; this package is not ready for fabrication. No floor
-runners or 1:12 taper belong to this selected hybrid.
+Use the [current design basis](docs/current-design-basis.md), [MVP master
+plan](docs/floor-runner-mvp-master-plan.md) and [frozen criteria
+ledger](docs/floor-runner-mvp-criteria.md). Fresh selected-candidate no-slip
+cases and aggregate evidence remain pending. Historical finite-friction,
+taper-runner and spliced-knee results are preserved but do not transfer.
 
 The earlier [taper study](docs/floor-runner-taper-study.md) records six cases
 passing its 35 implemented criteria, with later applicability/contact gaps
@@ -34,7 +30,7 @@ remain historical alternatives with their own assumptions and limits.
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local viewer](http://localhost:8767/?model=compact-spliced-flush-top-development&view=rear).
+Open [the local viewer](http://localhost:8767/?model=compact-floor-flush-development&view=rear).
 Select individual timber or hardware, orbit the assembly, hide panels and use
 the crash-pad toggle to inspect the two 48 x 72 x 5-inch pads. They sit side by
 side, so their center seam runs front to back. Pads are excluded
@@ -42,8 +38,8 @@ from frame weight and structural supports. The default now shows the flush
 revision; older designs remain in the menu. Current work has not been pushed,
 so the public website may still show the preceding design.
 
-The [assembly STEP](site/hybrid/compact-spliced-flush-top-development/assembly.step)
-and [part inventory](site/hybrid/compact-spliced-flush-top-development/parts.json)
+The [assembly STEP](site/hybrid/compact-floor-flush-development/assembly.step)
+and [part inventory](site/hybrid/compact-floor-flush-development/parts.json)
 are generated from the same model. Drawings are dimensional instructions only
 when explicitly identified as such; this preview does not release drilling.
 
@@ -67,14 +63,13 @@ See [design decisions](docs/current-design-basis.md),
 ## Reproduce and check
 
 The selected model is
-[compact_spliced_flush_top.py](mini_moonboard/compact_spliced_flush_top.py).
-Historical floor-flush and tapered-runner tools do not reproduce this candidate.
+[compact_floor_flush_frame.py](mini_moonboard/compact_floor_flush_frame.py).
+Historical spliced-knee and tapered-runner tools do not reproduce this candidate.
 
 ```sh
 uv sync --locked
-uv run python -m scripts.compact_spliced_flush_top_geometry --output fea/generated/compact-spliced-flush-top/geometry.json
-uv run python -m scripts.compact_spliced_flush_top_exports
-uv run python -m scripts.compact_spliced_flush_top_construction
+uv run python -m scripts.floor_flush_exports
+uv run python -m scripts.floor_flush_construction
 uv run python -m scripts.current_candidate --check-exports
 uv run pytest -q
 ```

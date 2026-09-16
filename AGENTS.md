@@ -337,6 +337,25 @@ separation and independent flange-couple applicability. Treat that commercial-
 angle issue as an open completion gate; do not call the current development
 package a fabrication release.
 
+## Returned flush floor-runner direction, September 16, 2026
+
+The owner returned to `compact-floor-flush-development`; it supersedes the
+spliced flush-top branch as current development authority. Preserve all spliced
+geometry and six-case evidence as history without transferring acceptance.
+The selected floor-runner assembly retains solid 4x6 legs/rims, compact single
+2x6 base members, two outboard 2x6 runners, whole kickers, the 1:12 rear recess,
+twelve outward-facing bolt stacks, 24 ML24Z angles and 66 panel/kicker axes.
+Use `docs/floor-runner-mvp-master-plan.md` and
+`docs/floor-runner-mvp-criteria.md` for current scope and gates.
+
+Fresh no-slip cases and aggregate evidence remain pending. Preserve the old
+finite-friction A12-left case as historical evidence. Its projected-seat scalar
+is a non-adopted sensitivity; do not delete it or use it as a release gate.
+Retained-section, bearing, contact, gross/net member, bolt and listed ML24Z
+criteria remain adopted. Unlisted ML24Z separation and independent flange
+couples remain disclosed manufacturer-unqualified actions, not invented passes.
+No fabrication release or unconditional rating is established.
+
 The September 15 public-product search found no catalog-only larger ML angle or
 screw substitution that closes the gate. ML26Z/ML28Z/ML210Z add screws but do
 not add a bearing F2 or moment/couple rating; substituting another screw loses

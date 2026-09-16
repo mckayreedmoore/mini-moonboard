@@ -8,7 +8,7 @@ Candidate: `compact-floor-flush-development`. The
 [build package](floor-flush-build-package.md) controls status. This review closes
 the question of whether nominal receiver fit alone demonstrates the proposed
 dimensional envelope: it does not. It leaves the supported fabrication-allowance
-gate in the [completion plan](tapered-runner-completion-plan.md) open.
+gate in the [MVP master plan](floor-runner-mvp-master-plan.md) open.
 
 ## Reproduce the dimensional comparison
 
@@ -100,12 +100,14 @@ question and do not certify the maximum-size fit.
 The 2 mm runner/recess clearance remains nominal CAD geometry. Taper depth,
 runner height, foot cuts, stock variation and relative displacement can consume
 it. It is not permission to deepen the recess or a released gap tolerance.
-The current negative rim-end-cut screen also prevents treating an inward cut
-allowance as an accepted finished section.
+The historical negative projected-seat scalar is retained as a non-adopted
+sensitivity. It does not grant extra inward cut allowance; adopted retained
+section, bearing, contact and gross/net checks control.
 
 ## Concrete remaining release constraints
 
-1. Resolve the current rim-end and taper resistance methods and load-path gates.
+1. Apply the frozen retained-section, bearing, contact and gross/net checks and
+   retain the taper local-fracture method limitation and inspection controls.
 2. Define a practical paired-hole drilling/inspection method whose actual pitch,
    registration and angular errors fit the entire connection budget. Check both
    mirrored pairs; the present independent 1 mm radius does not work at the front.

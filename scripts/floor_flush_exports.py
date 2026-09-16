@@ -7,7 +7,7 @@ from scripts import clear_space_exports as existing
 
 shared = existing.shared
 PACKAGE = 'docs/floor-flush-build-package.md'
-STATUS = 'Development · flush runner, rim and leg ends · current checks incomplete'
+STATUS = 'Selected floor-runner development · fresh no-slip cases pending'
 
 
 def sources():
@@ -20,7 +20,7 @@ def metadata(parts, connections):
     return {**shared.design_metadata(parts, connections),
         'key': model.KEY, 'status': STATUS, 'description': STATUS,
         'build_package': PACKAGE, 'assessment_scope':
-        'Fresh geometry revision. Previous six taper cases do not qualify changed ends, bearing, bolt distances or support footprint.',
+        'Selected development. Fresh no-slip cases remain pending; historical finite-friction and taper cases do not transfer.',
         'leg_stock': '4x6', 'outer_rim_stock': '4x6',
         'total_bolt_count': sum(c.kind == 'bolt' for c in connections),
         'leg_bolt_count': 4, 'bolts_per_leg': 2, 'knee_piece_count': 0,

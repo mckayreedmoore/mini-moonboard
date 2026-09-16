@@ -9,6 +9,26 @@ from pathlib import Path
 from scripts.clear_space_results import checks as existing_checks
 
 CANDIDATE = 'compact-floor-flush-development'
+FROZEN_ADOPTED_CRITERIA = frozenset({
+    'actual_angle_lateral_CD_1', 'additional_group_reduction_sensitivity',
+    'local_parallel', 'supplemental_EC5_splitting', 'sampled_net_member',
+    'header_gross_full_length_stability', 'base_bearing_average',
+    'base_bearing_quarter_area_sensitivity', 'base_end_notch_shear',
+    'group_spacing', 'catalog_washer_bounds', 'directional_edges',
+    'steel_direct', 'washer_bearing', 'washer_bending', 'receiver_fit',
+    'overlap_contact', 'all_machining_represented', 'sampled_member_stability',
+    'all_bolt_centres_sampled', 'angle_rated_force_components',
+    'floor_rail_wood_bearing', 'actual_kicker_cutouts',
+    'taper_native_actual_taper', 'taper_native_matches_cad_taper',
+    'taper_actual_mesh_volume', 'taper_taper_at_least_one_in_ten',
+    'taper_intended_stock_and_runout', 'taper_taper_bounds_sampled',
+    'taper_actual_net_section_normal_resistance',
+    'taper_sampled_rectangular_shear_torsion',
+    'taper_taper_region_unbored_torsion_applicable', 'component_layouts',
+    'flush_face_normal_contact', 'flush_face_wood_bearing',
+    'flush_sampled_taper_top_clearance',
+})
+CONDITIONAL_CRITERIA = frozenset({'finite_floor_friction_law'})
 
 
 def face_contact_check(report):
@@ -99,6 +119,31 @@ def checks(report, geometry):
     result['criteria'].update({'flush_face_normal_contact': contacts['normal_contact_passed'],
         'flush_face_wood_bearing': contacts['peak_wood_bearing_ratio'] <= 1.,
         'flush_sampled_taper_top_clearance': monitored})
+    projected_seat = result['criteria'].pop('base_end_cut_geometry')
+    result['non_adopted_sensitivities'] = {
+        'base_end_cut_geometry': {
+            'recorded_result': projected_seat,
+            'minimum_quarter_depth_margin_after_3mm_allowance_mm': min(
+                row['quarter_depth_margin_after_3mm_allowance_mm']
+                for row in result['base'].values()),
+            'adopted_as_acceptance_criterion': False,
+            'reason': ('Historical projected-seat scalar has no established mapping to '
+                       'this supported terminal bevel. Retained-section, bearing, '
+                       'contact and gross/net checks remain adopted.'),
+        },
+    }
+    names = set(result['criteria'])
+    missing = FROZEN_ADOPTED_CRITERIA - names
+    unexpected = names - FROZEN_ADOPTED_CRITERIA - CONDITIONAL_CRITERIA
+    if missing or unexpected:
+        raise ValueError(f'Floor-runner criteria ledger drift: missing={sorted(missing)}, '
+                         f'unexpected={sorted(unexpected)}')
+    result['criteria_ledger'] = {
+        'revision': 'floor-runner-mvp-2026-09-16',
+        'document': 'docs/floor-runner-mvp-criteria.md',
+        'required_adopted': sorted(FROZEN_ADOPTED_CRITERIA),
+        'conditional_adopted': sorted(names & CONDITIONAL_CRITERIA),
+    }
     result['metrics']['flush_face_wood_bearing'] = contacts['peak_wood_bearing_ratio']
     result['flush_face_contact'] = contacts
     result['rim_cut_side_stress_diagnostic'] = rim_cut_side_stress_diagnostic(report)

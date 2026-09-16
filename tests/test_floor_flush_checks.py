@@ -2,7 +2,11 @@ import copy
 
 import pytest
 
-from scripts.floor_flush_checks import checks, face_contact_check
+from scripts.floor_flush_checks import (
+    FROZEN_ADOPTED_CRITERIA,
+    checks,
+    face_contact_check,
+)
 
 
 def contact_report():
@@ -46,3 +50,37 @@ def test_historical_or_mismatched_candidate_cannot_enter_flush_assessment():
                              {'candidate': 'compact-floor-taper-development'})):
         with pytest.raises(ValueError, match='actual flush identities'):
             checks(report, geometry)
+
+
+def test_projected_seat_scalar_is_preserved_but_not_adopted(monkeypatch):
+    result = {
+        'criteria': {**dict.fromkeys(FROZEN_ADOPTED_CRITERIA, True),
+                     'base_end_cut_geometry': False},
+        'metrics': {},
+        'base': {'base_side_left': {
+            'quarter_depth_margin_after_3mm_allowance_mm': -4.97}},
+        'limits': [],
+    }
+    monkeypatch.setattr('scripts.floor_flush_checks.existing_checks',
+                        lambda report, geometry: copy.deepcopy(result))
+    monkeypatch.setattr('scripts.floor_flush_checks.face_contact_check', lambda report: {
+        'normal_contact_passed': True, 'peak_wood_bearing_ratio': .12})
+    monkeypatch.setattr('scripts.floor_flush_checks.rim_cut_side_stress_diagnostic',
+                        lambda report: {})
+    report = {'candidate': 'compact-floor-flush-development',
+              'clearance_monitors': [
+                  {'name': f'flush_taper_top_{side}_{depth}_{station}',
+                   'deformed_gap_mm': 1.}
+                  for side in ('left', 'right') for depth in range(3) for station in range(3)]}
+    assessed = checks(report, {'candidate': 'compact-floor-flush-development'})
+    assert 'base_end_cut_geometry' not in assessed['criteria']
+    assert set(assessed['criteria']) == FROZEN_ADOPTED_CRITERIA
+    assert assessed['non_adopted_sensitivities']['base_end_cut_geometry'] == {
+        'recorded_result': False,
+        'minimum_quarter_depth_margin_after_3mm_allowance_mm': -4.97,
+        'adopted_as_acceptance_criterion': False,
+        'reason': ('Historical projected-seat scalar has no established mapping to '
+                   'this supported terminal bevel. Retained-section, bearing, '
+                   'contact and gross/net checks remain adopted.'),
+    }
+    assert assessed['status'] == 'IMPLEMENTED_FLUSH_CRITERIA_MET_COMPLETION_GATES_OPEN'

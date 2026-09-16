@@ -23,7 +23,25 @@ def write_json(path, value):
 def configuration(tmp_path):
     """Small complete artifact chain; no CAD or native solver needed."""
     selection = json.loads(Path('current-candidate.json').read_text())
-    key = selection['candidate']
+    key = 'fixture-development'
+    selection.update({
+        'candidate': key,
+        'model_module': 'mini_moonboard.fixture_model',
+        'export_module': 'scripts.fixture_exports',
+        'construction_module': 'scripts.fixture_construction',
+        'viewer_manifest': 'site/hybrid/fixture-development/manifest.json',
+        'construction_manifest': 'docs/fixture-construction/manifest.json',
+        'geometry': 'fea/results/fixture/a12-left/geometry.json',
+        'aggregate_evidence': 'docs/fixture-evidence.json',
+        'build_package': 'docs/fixture-build-package.md',
+        'completion_plan': 'docs/fixture-plan.md',
+        'hardware_schedule': 'docs/fixture-construction/bolt-hardware.csv',
+        'recorded_assessments': {
+            label: f'fea/results/fixture/{label}/splice-checks.json'
+            for label in ('a12-left', 'a12-rear', 'a12-forward',
+                          'k12-right', 'k12-rear', 'a1-rear')},
+        'status_document': 'docs/current-candidate-status.md',
+    })
     write_json(tmp_path / 'current-candidate.json', selection)
     model = tmp_path / (selection['model_module'].replace('.', '/') + '.py')
     model.parent.mkdir(parents=True)
@@ -128,6 +146,20 @@ def test_consistency_authenticates_six_case_aggregate(configuration):
             'k12-right', 'k12-rear', 'a1-rear',
         ],
     }
+
+
+def test_pending_authority_does_not_promote_historical_evidence(configuration):
+    root, selection = configuration
+    selection['aggregate_evidence'] = None
+    selection['recorded_assessments'] = {}
+    write_json(root / 'current-candidate.json', selection)
+    (root / 'site/index.html').write_text(
+        f"const model = ok ? requestedModel : '{selection['candidate']}';\n"
+        f"(option.value === '{selection['candidate']}' ? currentDesigns : historicalDesigns).append(option);\n")
+    (root / selection['status_document']).write_text(status_markdown(selection, {}))
+    result = check(root)
+    assert result['aggregate_evidence'] is None
+    assert result['recorded_assessments'] == {}
 
 
 def test_rejects_viewer_without_selected_aggregate_link(configuration):

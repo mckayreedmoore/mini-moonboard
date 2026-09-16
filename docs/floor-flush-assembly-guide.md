@@ -1,9 +1,9 @@
 # Flush floor-beam candidate: workshop planning guide
 
-**Historical draft for superseded `compact-floor-flush-development`; not a
-fabrication release and not the current candidate.**
+**Current selected-development draft; not a fabrication release.**
 The [build-package status](floor-flush-build-package.md) controls this guide.
-Current resistance, rim-end-cut and taper-method gates remain open. The sequence
+Fresh no-slip cases, exact shop checks and disclosed taper-method limitations
+remain open. The sequence
 below makes the proposed build reviewable; it does not authorize cutting or
 using the frame before those gates are resolved.
 
@@ -27,7 +27,7 @@ use them as distances from a sawn end.
 
 ## Stock planning inventory
 
-These quantities come from the historical floor-flush model. Listed lengths are model blank
+These quantities come from the selected floor-flush model. Listed lengths are model blank
 envelopes, without saw kerf, trimming allowance or a lumber cutting optimization.
 In particular, rim and leg envelope lengths are inherited blanks, not the new
 flush finished lengths. Lumber species, grade, condition and minimum finished
@@ -69,9 +69,9 @@ per bolt, with heads inward and nuts/threaded tips outward.
 | 16 | ⅜-inch Grade 5 USS washers | Bolt Depot 15023 reference |
 | 24 | Simpson ML24Z angles | All retained commercial timber connections |
 | 144 | Specified SDS25112 screws | Six per ML24Z; no generic substitution |
-| 66 | SPAX XFT08P-2000 #8 × 2-inch screws | 48 main-panel screws and nine per kicker |
+| 66 | Fas-n-Tite/Hillman 42605 #10 × 2-1/2-inch deck screws | 48 main-panel screws and nine per kicker; accepted panel scope only |
 | 142 | Modeled owned-type Escape T-nuts | Accepted panel basis; not 142 additional through-bolts |
-| 2 | Crash pads, each 96 × 36 × 5 inches | Separate from structural support and frame mass |
+| 2 | Crash pads, each 48 × 72 × 5 inches | Side by side; front-to-back centre seam; separate from structural support and frame mass |
 
 The [half-inch hardware assessment](compact-half-inch-hardware.md) and
 [runner hardware assessment](floor-runner-recess-hardware.md) contain catalog
@@ -93,8 +93,9 @@ harness and connector clearances, with no invented electrical shopping list.
   Thus its bottom edge is 1815.646483 mm long and top edge 1781.238528 mm long.
   This is an inclined end across the runner depth, not a square rear crosscut.
 - The lower side-rim plane also ends at Y = −175.7. Its remaining normal depth
-  is 102.805 mm; the existing end-cut screen fails. Do not cut that detail on
-  the strength of this dimensional description.
+  is 102.805 mm. The historical projected-seat scalar is a non-adopted
+  sensitivity; do not cut this detail until the adopted fresh-case and shop
+  checks are complete.
 - Leg tops terminate on the rim rear face; the previous 18 mm normal projection
   is removed. Both upper bolt axes have moved. A previous leg sheet cannot be
   shortened and reused for drilling.
@@ -138,7 +139,8 @@ and inspection limits still need to be established before fabrication.
 
 1. **Freeze the packet.** Record the selected model identifier and manifest;
    verify all cut sheets, hardware schedule and instructions describe that same
-   revision. Resolve the open end-cut and taper checks before cutting stock.
+   revision. Resolve the adopted fresh-case, shop and taper-limit checks before
+   cutting stock.
 2. **Receive and label stock.** Check actual sections against the released
    minimums, identify grain direction and damaged connection regions, and label
    the mirrored member faces. Lay out from the final member-local datums.
@@ -164,9 +166,10 @@ and inspection limits still need to be established before fabrication.
    retain the upper-post and header rows. The tight upper-row receiver detail
    requires its [placement instructions](kicker-screw-placement-review.md).
 8. **Route services and install pads.** Keep the harness clear of bolt tips and
-   preserve LED passages. Two pads span 96 inches across by 72 inches in floor
-   depth. Their 127 mm thickness leaves 150 mm exposed kicker; they carry no
-   frame load and are excluded from structural mass.
+   preserve LED passages. Place two 48 × 72 × 5-inch pads side by side, spanning
+   96 inches across by 72 inches in floor depth, with the centre seam running
+   front to back. Their 127 mm thickness leaves 150 mm exposed kicker; they
+   carry no frame load and are excluded from structural mass.
 9. **Record the final inspection.** Check hardware counts, flush faces, retained
    sections, hole locations, washer seating, intended contacts/gaps and wiring
    access against the released packet. Record departures for assessment rather

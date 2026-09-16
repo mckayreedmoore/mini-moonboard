@@ -1,4 +1,4 @@
-# Selected flush-top commercial-angle ledger
+# Historical flush-top commercial-angle ledger
 
 Candidate: `compact-spliced-flush-top-development`.
 

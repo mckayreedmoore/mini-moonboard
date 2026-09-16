@@ -1,10 +1,16 @@
 # Current design review and finite verification plan
 
-The selected candidate is **`compact-spliced-flush-top-development`**,
-September 14, 2026: compact 4×6 legs/rims, compact 2×6 base and four
-independent spliced 2×6 knees. Rear-leg tops are 0 mm flush to the rims; the
-7 mm rear rim reserve remains. There are 20 complete outward-facing bolt
-stacks and 66 panel/kicker screws. No runners or side taper are selected.
+The selected candidate is **`compact-floor-flush-development`**: compact 4×6
+legs/rims, compact 2×6 base members, two outboard floor runners, whole kickers,
+the 1:12 rear recess, twelve complete bolt stacks and 66 panel/kicker axes.
+Fresh no-slip cases remain pending. The [MVP master
+plan](floor-runner-mvp-master-plan.md) and [criteria
+ledger](floor-runner-mvp-criteria.md) are current authority.
+
+## Preserved spliced flush-top review
+
+The following paragraphs describe the preceding selected candidate and remain
+historical. Their six-case results do not transfer to the floor-runner design.
 
 Six fresh assembled no-slip cases meet the listed conditional criteria. The
 maximum adopted nominal lateral ratio is 0.746; the tightest directional

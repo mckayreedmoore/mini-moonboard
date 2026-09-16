@@ -1,6 +1,11 @@
 # Flush-end floor-beam revision
 
-**Development geometry: fabrication release is pending.**
+**Selected development geometry: fabrication release is pending.**
+
+Current work is governed by the [floor-runner MVP master
+plan](floor-runner-mvp-master-plan.md) and [frozen criteria
+ledger](floor-runner-mvp-criteria.md). Fresh no-slip cases remain pending; the
+finite-friction A12-left result below is historical comparison evidence.
 
 `compact-floor-flush-development` implements the owner's requested finish of
 `compact-floor-taper-development`: floor-runner front ends terminate at the
@@ -18,7 +23,7 @@ joined timber, retaining 56 mm pitch; new forces must confirm the adopted
 force-directed edge interpretation and connection resistance.
 
 The complete finite task is tracked in the
-[DIY completion plan](tapered-runner-completion-plan.md). Required work includes
+[floor-runner MVP master plan](floor-runner-mvp-master-plan.md). Required work includes
 source-method applicability, local runner/leg contact, justified fabrication
 allowances, a consolidated hardware list and practical assembly instructions.
 No drilling or cut tolerances are released by this preview.
@@ -33,12 +38,13 @@ the [current construction sheets](floor-flush-construction/), supported
 fabrication allowances and remaining resistance decisions must be reviewed
 together before release.
 
-## Current force evidence
+## Historical force evidence
 
 The fresh A12-left case converged with 72 explicit timber face contacts and
 18 clearance monitors. Its [assessment](floor-flush-a12-left-assessment.json)
 meets 37 of 38 implemented criteria, with bolt lateral ratio 0.8792 and sampled
-net-member ratio 0.7488. The rim end-cut screen remains negative. The
+net-member ratio 0.7488. Its historical rim projected-seat scalar is negative
+and now retained as a non-adopted sensitivity. The
 [cut-method review](flush-cut-method-review.md) and
 [taper-method review](taper-method-applicability-review.md) preserve the unresolved
 local resistance issues. One converged case does not release this design or
@@ -48,10 +54,11 @@ supply the remaining five current cases.
 
 All 24 bolt receivers fit the requested geometry, including complete washer
 seats. This does not establish joint resistance. The lower rim ends have
-102.805 mm retained normal depth. The existing quarter-depth end-cut screen
-with its 3 mm fabrication allowance has a **negative 4.970 mm margin** on
-both rims. Preserve that failing screen until its applicability or a revised
-detail is justified; moving a bracket does not restore removed timber.
+102.805 mm retained normal depth. The historical quarter-depth projected-seat
+screen has a **negative 4.970 mm margin** on both rims. It remains recorded as
+a non-adopted sensitivity because its mapping to this supported terminal bevel
+was not established. Adopted retained-section, bearing, contact and gross/net
+checks are frozen in the [criteria ledger](floor-runner-mvp-criteria.md).
 With the original upper axes, the upper leg bolt had only 67.102 mm adjusted
 distance to the newly flush end. The revised pair addresses that geometric
 shortfall; the old force response does not establish its resistance.
@@ -89,8 +96,9 @@ require current joint forces, local resistance and full receiver-fit checks.
 Solid 4x6 legs and rims, compact 2x6 header/posts, two full 2x6 outboard runners,
 66 panel/kicker screws and twelve complete bolt stacks remain. Upper bolts
 retain 56 mm pitch. The main-face datum remains 277 mm above the floor, including
-127 mm pad allowance and 150 mm exposed kicker. Two 96 x 36 x 5-inch crash pads
-remain separate from the structural assembly and weight.
+127 mm pad allowance and 150 mm exposed kicker. Two 48 x 72 x 5-inch crash pads
+sit side by side with their centre seam running front to back. They remain
+separate from the structural assembly and weight.
 
 The [preceding taper hardware requirements](floor-runner-taper-hardware.md)
 provide the initial bolt specification: four half-inch x 8-inch upper bolts,

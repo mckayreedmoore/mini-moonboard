@@ -1,10 +1,16 @@
-# Current checkpoint: compact spliced flush-top development
+# Current checkpoint: flush floor-runner development
 
-`compact-spliced-flush-top-development` is the selected conditional DIY
-candidate. It has solid 4×6 legs/rims, a compact 2×6 base, four independent
-spliced 2×6 knees, 0 mm rear-leg-top projection, a retained 7 mm rear rim
-reserve, 20 complete outward-facing bolt stacks and 66 panel/kicker screws.
-No floor runners or 1:12 taper are selected.
+`compact-floor-flush-development` is selected. Authority promotion and frozen
+criteria are complete; fresh selected-candidate no-slip cases and aggregate
+evidence remain pending. Historical finite-friction, tapered-runner and
+spliced-knee results do not transfer. See the [MVP master
+plan](floor-runner-mvp-master-plan.md) and [criteria
+ledger](floor-runner-mvp-criteria.md). This is not a fabrication release.
+
+## Preserved spliced flush-top checkpoint
+
+The following checkpoint is historical and describes
+`compact-spliced-flush-top-development`.
 
 Six fresh assembled no-slip cases meet the listed conditional criteria. The
 maximum adopted nominal lateral ratio is 0.746. The tightest directional

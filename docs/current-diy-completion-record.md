@@ -1,10 +1,16 @@
-# Current completion record: compact spliced flush-top development
+# Current completion record: flush floor-runner development
 
-The selected development is `compact-spliced-flush-top-development`: solid
-4×6 legs/rims, compact 2×6 base, four independent spliced 2×6 knees, flush
-0 mm rear-leg tops, retained 7 mm rim reserve, 20 complete outward-facing bolt
-stacks and 66 panel/kicker screws. No floor runners or 1:12 taper are included.
-The two upper half-inch bolt pairs per leg are relocated at 56 mm pitch.
+The selected development is `compact-floor-flush-development`: solid 4×6
+legs/rims, compact 2×6 base members, two outboard floor runners, whole kickers,
+the 1:12 rear recess, twelve complete outward-facing bolt stacks and 66
+panel/kicker axes. Authority and criteria are frozen. Fresh no-slip cases,
+exact shop closure and aggregate evidence remain pending under the [MVP master
+plan](floor-runner-mvp-master-plan.md). This is not a fabrication release.
+
+## Preserved spliced flush-top completion record
+
+The following record is historical and does not qualify the selected
+floor-runner assembly.
 
 Six fresh assembled no-slip cases meet the listed conditional checks. This is
 engineer-unreviewed conditional DIY evidence, not a construction release or

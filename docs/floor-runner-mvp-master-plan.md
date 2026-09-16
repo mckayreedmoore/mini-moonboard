@@ -8,10 +8,9 @@ spliced-knee investigations.
 
 ## Selected direction
 
-The owner-selected direction is `compact-floor-flush-development`. Promotion
-to current repository authority occurs in task FR-1 so the viewer, manifests,
-documents and generated artifacts change together. Until then, the existing
-current-candidate files continue to describe the preserved spliced-knee branch.
+The owner-selected direction is `compact-floor-flush-development`. Task FR-1
+promoted it to current repository authority; the spliced-knee branch remains
+preserved history.
 
 Freeze this physical configuration for the MVP:
 
@@ -71,8 +70,8 @@ criteria work passes.
 | ID | Finite deliverable | Dependencies | Status |
 | --- | --- | --- | --- |
 | FR-0 | Create this master plan, freeze scope, classify the old diagnostics, and define hard stop conditions. | Owner direction | Complete |
-| FR-1 | Promote `compact-floor-flush-development` to selected authority in `current-candidate.json`, `AGENTS.md`, README, current-authority documents and viewer default. Preserve the spliced-knee branch and its six cases as historical. | FR-0 | Ready |
-| FR-2 | Freeze one floor-runner criteria ledger implementing the gate decisions above. Remove the projected-seat scalar from adopted acceptance without deleting its history. State exact member, bolt, contact, commercial-angle and numerical criteria before more solves. | FR-0 | Ready |
+| FR-1 | Promote `compact-floor-flush-development` to selected authority in `current-candidate.json`, `AGENTS.md`, README, current-authority documents and viewer default. Preserve the spliced-knee branch and its six cases as historical. | FR-0 | Complete |
+| FR-2 | Freeze one floor-runner criteria ledger implementing the gate decisions above. Remove the projected-seat scalar from adopted acceptance without deleting its history. State exact member, bolt, contact, commercial-angle and numerical criteria before more solves. | FR-0 | Complete |
 | FR-3 | Close exact CAD and shop geometry: all 24 bolt receivers and washer seats, paired-hole fixture limits, delivered-bolt inspection rules, runner/leg interface, Hillman screw containment, pad dimensions and full left/right fabrication datums. | FR-1; may overlap FR-2 | Ready |
 | FR-4 | Run a fresh exact A12-left case using the current no-slip producer and frozen criteria. Preserve the old finite-friction archive as history; do not relabel or promote it. Record the new authenticated sources and assessment. | FR-2–FR-3 | Pending |
 | FR-5 | Run the five other exact floor-flush cases in two bounded batches. Stop only for non-convergence, an adopted ratio above 1.0, failed exact geometry, or a missing physical load path. Save authenticated sources and case assessments. | FR-4 passes | Pending |
@@ -118,8 +117,8 @@ criteria work passes.
 
 ## Completion checklist
 
-- [ ] Floor-runner authority is consistent across code, documents and viewer.
-- [ ] One frozen criteria ledger governs all six exact cases.
+- [x] Floor-runner authority is consistent across code, documents and viewer.
+- [x] One frozen criteria ledger governs all six exact cases.
 - [ ] Exact geometry, hardware inspection and fabrication rules are buildable.
 - [ ] Six exact cases converge and meet every adopted numerical criterion.
 - [ ] Commercial-angle listed interactions pass and unlisted actions are plainly

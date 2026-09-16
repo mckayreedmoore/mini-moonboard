@@ -1,4 +1,4 @@
-"""Build read-only commercial-angle demand ledger from selected case archives.
+"""Build read-only commercial-angle demand ledger from preserved case archives.
 
 No CAD construction or native solve occurs.  The existing ML24Z force evaluator
 is applied to authenticated archived reports; unresolved resistance stays open.
@@ -32,19 +32,21 @@ def maximum(rows, field, *, positive=False):
 
 def build(root=ROOT):
     root = Path(root)
-    selection_path = root / 'current-candidate.json'
-    selection = json.loads(selection_path.read_text())
-    if set(selection.get('recorded_assessments', ())) != set(CANONICAL_CASES):
-        raise ValueError('Require exactly six canonical selected cases')
+    evidence_path = root / 'docs/compact-spliced-flush-top-evidence.json'
+    evidence = json.loads(evidence_path.read_text())
+    candidate = 'compact-spliced-flush-top-development'
+    if (evidence.get('candidate') != candidate
+            or set(evidence.get('cases', ())) != set(CANONICAL_CASES)):
+        raise ValueError('Require exactly six canonical preserved flush-top cases')
 
     cases = {}
     envelope_rows = []
     for case in CANONICAL_CASES:
-        archive = (root / selection['recorded_assessments'][case]).parent
+        archive = root / evidence['cases'][case]['archive']
         manifest_path = archive / 'manifest.json'
         report_path = archive / 'report.json.gz'
         manifest = json.loads(manifest_path.read_text())
-        if manifest.get('candidate') != selection['candidate']:
+        if manifest.get('candidate') != candidate:
             raise ValueError('Archive candidate differs: ' + case)
         if digest(report_path) != manifest.get('files', {}).get('report.json.gz'):
             raise ValueError('Archived report hash differs: ' + case)
@@ -52,7 +54,7 @@ def build(root=ROOT):
         if hashlib.sha256(raw).hexdigest() != manifest.get('native_report_sha256'):
             raise ValueError('Archived native report hash differs: ' + case)
         report = json.loads(raw)
-        if report.get('candidate') != selection['candidate']:
+        if report.get('candidate') != candidate:
             raise ValueError('Report candidate differs: ' + case)
 
         evaluated = angle_comparisons(
@@ -109,8 +111,8 @@ def build(root=ROOT):
         }
 
     return {
-        'candidate': selection['candidate'],
-        'derivation': 'Read-only evaluation of selected authenticated report archives with fea.current_response_resistance.angle_comparisons; no native solves.',
+        'candidate': candidate,
+        'derivation': 'Read-only evaluation of preserved authenticated report archives with fea.current_response_resistance.angle_comparisons; no native solves.',
         'case_count': len(cases),
         'inventory_per_case': {
             'ML24Z_connections': CONNECTIONS_PER_CASE,
@@ -134,7 +136,7 @@ def build(root=ROOT):
             'qualified_for_design': False,
         },
         'input_sha256': {
-            'current-candidate.json': digest(selection_path),
+            'docs/compact-spliced-flush-top-evidence.json': digest(evidence_path),
             'fea/current_response_resistance.py': digest(
                 root / 'fea/current_response_resistance.py'),
             'scripts/compact_spliced_flush_top_angle_ledger.py': digest(Path(__file__)),
@@ -146,7 +148,7 @@ def build(root=ROOT):
 
 def markdown(ledger):
     lines = [
-        '# Selected flush-top commercial-angle ledger', '',
+        '# Historical flush-top commercial-angle ledger', '',
         f"Candidate: `{ledger['candidate']}`.", '',
         ('This deterministic ledger reads six authenticated report archives and applies '
          '`fea.current_response_resistance.angle_comparisons`. It runs no native solve and '
