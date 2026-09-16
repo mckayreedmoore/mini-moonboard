@@ -38,6 +38,31 @@ the [current construction sheets](floor-flush-construction/), supported
 fabrication allowances and remaining resistance decisions must be reviewed
 together before release.
 
+## FR-3 shop acceptance rules
+
+FR-3 is ready for the exact shop/geometry closure work; these rules make the
+remaining inspection decisions reproducible without claiming a fabrication
+release. For each mirrored front runner/post pair, use a registered paired-hole
+fixture and accept only finished 39.0–40.0 mm centre pitch, pair midpoint within
+0.5 mm of the datum, and each hole within 0.5 mm perpendicular to the pair
+line. Reject and reassess otherwise; never elongate holes. Apply the same
+receiver, edge/end-distance and maximum-washer-seat checks to all 24 receivers.
+
+Inspect delivered bolts against the recorded budgets: minimum full-body lengths
+to first thread transition are 158.928 mm upper, 69.317 mm front and 78.842 mm
+rear; extra thread/runout budgets are 1.600, 5.359 and 7.518 mm; and shortest
+stack tip budgets beyond the nut are 2.743, 10.033 and 9.017 mm. Measure actual
+shank, runout, grip, nut engagement and washer dimensions. Require complete,
+flat seating of the maximum washer envelope on sound stock; reject incompatible
+hardware or unsupported/rocking seats and do not improvise spacers.
+
+The 1:12 recess must have sound, check-free stock, a smooth continuous
+transition, no overcut, and no split or damaged bearing surface. Reject or
+reassess defects. Contain all 66 purchased Hillman 42605 panel/kicker screws in
+their receivers with no tip protrusion; do not transfer SPAX capacity claims.
+Place two 48 × 72 × 5 inch pads side by side with the seam front-to-back; pads
+remain non-structural and viewer/layout items.
+
 ## Historical force evidence
 
 The fresh A12-left case converged with 72 explicit timber face contacts and

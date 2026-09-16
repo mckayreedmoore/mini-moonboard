@@ -51,6 +51,23 @@ def rectangular_shear(width_mm, depth_mm, shear_u_n, shear_v_n, torsion_nmm, *, 
         'scope':'Unbored rectangular section; sum of maximum transverse and torsional shear, no shape-factor strength increase.'}
 
 
+def leg_floor_points(report, name):
+    tangent_cells = report['parameters'].get('floor_tangent_cells')
+    if tangent_cells is not None:
+        floor = [c['point_xyz_mm'] for c in tangent_cells.values() if c['body'] == name]
+    else:
+        # The selected no-slip producer has normal cells and a separate
+        # conditional centroid tangent spring, not finite-Coulomb cells.
+        if report['parameters'].get('floor_friction_assumption') is not None:
+            raise ValueError('Finite-friction support lacks tangent-cell geometry')
+        floor = [c['point'] for c in report['physical_connection_forces'].values()
+                 if c['first'] == name and c['second'] == 'floor'
+                 and c.get('scalar_normal') == [0., 0., 1.]]
+    if not floor:
+        raise ValueError('Require actual floor support cells for each leg')
+    return floor
+
+
 def checks(report, geometry, sections=None):
     """Actual section stress and sampled taper geometry, retaining external gates."""
     if report.get('candidate') not in {CANDIDATE, 'compact-floor-flush-development'} or geometry.get('candidate') != report.get('candidate'):
@@ -70,9 +87,7 @@ def checks(report, geometry, sections=None):
         grain = member['grain']
         retained_band = taper['retained_x_band_mm']
         sign = 1 if sum(retained_band)/2 > member['centre_mm'][0] else -1
-        floor = [c['point_xyz_mm'] for c in report['parameters']['floor_tangent_cells'].values() if c['body'] == name]
-        if not floor:
-            raise ValueError('Require actual floor support cells for each leg')
+        floor = leg_floor_points(report, name)
         support_distance = max(abs(start-dot(p,grain)) for p in floor)
         kv = notch_factor(b,b-removed,run,support_distance)
         cuts = cut_inventory(name,member,rows,geometry['hardware_by_name'])

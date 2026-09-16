@@ -1,14 +1,17 @@
 # Flush floor-beam fabrication budget review
 
 **Development review only. The recorded independent drilling-error envelope
-does not preserve the front bolt-pair spacing screen. No machining tolerances,
-drilling instructions or fabrication release are established here.**
+does not preserve the front bolt-pair spacing screen. The shop acceptance rules
+below define the FR-3 inspection limits; they do not constitute a fabrication
+release.**
 
 Candidate: `compact-floor-flush-development`. The
 [build package](floor-flush-build-package.md) controls status. This review closes
 the question of whether nominal receiver fit alone demonstrates the proposed
 dimensional envelope: it does not. It leaves the supported fabrication-allowance
-gate in the [MVP master plan](floor-runner-mvp-master-plan.md) open.
+work in the [MVP master plan](floor-runner-mvp-master-plan.md) ready for exact
+closure. The finished acceptance limits are stated below rather than left as a
+generic tolerance.
 
 ## Reproduce the dimensional comparison
 
@@ -49,6 +52,13 @@ hole diameter, mating-member registration, retained sections and hardware seats
 must all be checked together. Common movement of a fixture preserves its pitch,
 but independent pitch error does not disappear merely because a jig is proposed.
 
+For the finished front paired holes, use one registered fixture on each mirrored
+joint and measure the hole centres after drilling. Accept only a centre-to-centre
+pitch of **39.0–40.0 mm**, a pair midpoint no more than **0.5 mm** from the
+member datum, and each hole no more than **0.5 mm** perpendicular to the
+specified pair line. Reject and reassess any pair outside those limits. Never
+elongate a hole or pull a misregistered joint together with the bolt.
+
 The tightest saved A12 directional boundary margin is **0.497 mm**, at
 `rail_front_bolt_left_2` in `base_floor_left`, `depth_negative`, after the existing
 boundary allowance. This is residual analytical margin, not another allowable
@@ -86,6 +96,16 @@ the required shank threshold. The upper stack's 2.743 mm projected-tip budget
 must also cover the actual bolt-tip chamfer and formed-thread engagement; it is
 not a 2.743 mm allowable timber oversize. No generic torque or preload is added.
 
+On delivery, inspect every bolt against the existing budgets: measure full
+smooth body to the first thread transition, thread/runout length, actual wood
+grip, washer thickness and outside dimensions, nut height, and threads beyond
+the nut. The minimum required full-body lengths to the first transition are
+**158.928 mm upper, 69.317 mm front and 78.842 mm rear**; the recorded extra
+thread/runout budgets are **1.600, 5.359 and 7.518 mm**, respectively; and the
+shortest-stack tip budgets beyond the nut are **2.743, 10.033 and 9.017 mm**.
+Reject incompatible delivered hardware rather than substituting spacers,
+reversing the stack, or cutting threads.
+
 ## Washer seating and machined clearances
 
 The catalog upper washer thickness range is 2.1844–3.3528 mm; the smaller range
@@ -96,6 +116,9 @@ maximum envelopes, actual bore/washer concentricity, cut variation and nearby
 openings; a zero unsupported volume at nominal geometry does not provide that
 budget. Existing catalog-minimum washer resistance checks answer a different
 question and do not certify the maximum-size fit.
+Accept only full, flat seating of the maximum washer envelope on sound timber;
+any unsupported edge, rocking washer or partial bearing is a reject and requires
+reassessment.
 
 The 2 mm runner/recess clearance remains nominal CAD geometry. Taper depth,
 runner height, foot cuts, stock variation and relative displacement can consume
@@ -103,6 +126,11 @@ it. It is not permission to deepen the recess or a released gap tolerance.
 The historical negative projected-seat scalar is retained as a non-adopted
 sensitivity. It does not grant extra inward cut allowance; adopted retained
 section, bearing, contact and gross/net checks control.
+
+Inspect the 1:12 recess and all receiver stock before drilling: timber must be
+sound and check-free through the transition, with a smooth continuous slope,
+no overcut, and no split, tear-out or damaged bearing surface. Reject or
+reassess any such defect; do not repair it by deepening the recess.
 
 ## Concrete remaining release constraints
 
@@ -117,6 +145,13 @@ section, bearing, contact and gross/net checks control.
    and hardware. Reject incompatible hardware; do not improvise spacers or holes.
 5. Give measurable rejection/rework rules for overcuts, misplaced holes, split
    receiver wood, insufficient full-body coverage and incomplete seating.
+
+For the 66 purchased Hillman 42605 screws, verify every axis remains contained
+in its supporting receiver and no screw tip protrudes. Use them only for the
+accepted panel/kicker scope; do not transfer SPAX capacity, spacing or stiffness
+claims. Place the two **48 × 72 × 5 inch** pads side by side with their seam
+front-to-back; they remain loose viewer/support-layout items, not structural
+supports.
 
 The existing material, accepted panel/T-nut and floor scope remains unchanged.
 Future current response cases use the owner's explicit conditional no-slip

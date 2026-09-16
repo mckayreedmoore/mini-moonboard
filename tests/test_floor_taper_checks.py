@@ -45,3 +45,18 @@ def test_actual_floor_contacts_are_not_mistaken_for_bolt_bores():
     assert result['passes']
     assert all(member['criteria']['taper_region_unbored_torsion_applicable']
                for member in result['members'].values())
+
+
+def test_no_slip_uses_leg_normal_cells_not_missing_coulomb_tangent_cells():
+    from scripts.floor_taper_checks import leg_floor_points
+
+    report = {'parameters': {}, 'physical_connection_forces': {
+        'normal': {'first': 'lumber_leg_left', 'second': 'floor',
+                   'scalar_normal': [0., 0., 1.], 'point': [1., 2., 0.]},
+        'tangent': {'first': 'lumber_leg_left', 'second': 'floor',
+                    'point': [3., 4., 0.]},
+    }}
+    assert leg_floor_points(report, 'lumber_leg_left') == [[1., 2., 0.]]
+    report['parameters']['floor_friction_assumption'] = {'mu': .4}
+    with pytest.raises(ValueError, match='lacks tangent-cell geometry'):
+        leg_floor_points(report, 'lumber_leg_left')

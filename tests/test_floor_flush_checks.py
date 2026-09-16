@@ -1,4 +1,5 @@
 import copy
+from pathlib import Path
 
 import pytest
 
@@ -30,6 +31,9 @@ def test_contact_comparison_requires_six_interfaces_and_saved_geometry_match():
     report = contact_report()
     result = face_contact_check(report)
     assert result['interface_count'] == 6
+    assert result['finite_adopted_check'] is True
+    assert len(result['load_path_interfaces']) == 6
+    assert 'not a convergence proof' in result['sampling_limitation']
     assert result['peak_wood_bearing_ratio'] == pytest.approx(200/(100*625*.006894757293168361))
     missing = copy.deepcopy(report)
     missing['member_contacts'].pop()
@@ -84,3 +88,18 @@ def test_projected_seat_scalar_is_preserved_but_not_adopted(monkeypatch):
                    'contact and gross/net checks remain adopted.'),
     }
     assert assessed['status'] == 'IMPLEMENTED_FLUSH_CRITERIA_MET_COMPLETION_GATES_OPEN'
+    assert set(assessed['completion_gates']) == {'fabrication_allowances', 'full_current_case_set'}
+    assert 'taper_stress_method_applicability' not in assessed['completion_gates']
+    assert 'contact_discretization_adequacy' not in assessed['completion_gates']
+    taper = assessed['analytical_limits']['taper_local_fracture']
+    assert taper['classification'] == 'ANALYTICAL_LIMITATION'
+    assert len(taper['inspection_controls']) == 3
+    contact = assessed['analytical_limits']['contact_sampling']
+    assert contact['finite_adopted_check'] is True
+    assert 'no open-ended refinement gate' in contact['release_effect']
+
+
+def test_frozen_criteria_have_individual_ledger_rows():
+    ledger = Path('docs/floor-runner-mvp-criteria.md').read_text()
+    for name in FROZEN_ADOPTED_CRITERIA | {'finite_floor_friction_law'}:
+        assert ledger.count(f'| `{name}` |') == 1, name

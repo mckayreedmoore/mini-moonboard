@@ -81,6 +81,17 @@ washers and nut height must let the nut tighten with complete threads extending
 past it while meeting the adopted thread-bearing limit. The rejected 5-inch
 rear-bolt/minimum-thread stack is not an alternate purchase option.
 
+Before installation, inspect delivered hardware against the recorded budgets:
+minimum full smooth-body lengths to the first thread transition are 158.928 mm
+(upper), 69.317 mm (front) and 78.842 mm (rear); extra thread/runout budgets are
+1.600, 5.359 and 7.518 mm; and shortest-stack tip budgets beyond the nut are
+2.743, 10.033 and 9.017 mm. Measure actual shank, runout, wood grip, nut height
+and thread beyond the nut. Verify the maximum washer envelopes still have full,
+flat seating on sound timber: upper washer thickness may be 3.3528 mm with the
+catalog radius 0.0635 mm above modeled, and smaller washers may be 2.6416 mm
+with catalog radius 0.381 mm above modeled. Reject incompatible or rocking stacks; do not
+elongate holes or improvise spacers.
+
 Hold bolts are not installed geometry in this model. Retain the accepted
 hold-system instructions and owned kit; do not infer bolt lengths per hold
 from T-nut counts. LED wiring remains a separate service assembly; retain its
@@ -109,6 +120,17 @@ harness and connector clearances, with no invented electrical shopping list.
   released cutting tolerance or permission to remove an extra 2 mm everywhere.
   Preserve the 3 mm allowance used in geometry screening as an analysis input;
   it is not a blanket ±3 mm shop tolerance.
+
+- For each mirrored front runner/post pair, use one registered paired-hole
+  fixture and inspect finished centres. Accept 39.0–40.0 mm pitch, pair
+  midpoint within 0.5 mm of datum, and each hole within 0.5 mm perpendicular to
+  the pair line. Reject and reassess any failure; never elongate a hole. Apply
+  the corresponding receiver and washer checks to the rear and upper pairs.
+
+- Inspect each 1:12 recess and its transition before drilling. Stock must be
+  sound and check-free, the transition smooth and continuous, and the cut free
+  of overcut, split, tear-out or damaged bearing surface. Reject or reassess
+  defects; do not deepen the recess as a repair.
 
 ## Saw choice for the leg taper
 
@@ -155,7 +177,8 @@ and inspection limits still need to be established before fabrication.
 5. **Lay out all twelve bolts from the current sheets.** Verify edge/end
    distances on actual timber, washer-seat clearance and drilling access. Use
    the final specified bore/pilot dimensions; CAD occupied diameters are not
-   bit instructions. Do not elongate holes to pull misaligned parts together.
+   bit instructions. Apply the paired-hole acceptance rule above. Do not
+   elongate holes to pull misaligned parts together.
 6. **Install complete bolt stacks and all angle screws.** Confirm smooth-body
    coverage, usable nut threads and full washer seating. Seat snugly without
    crushing the timber; no generic steel-joint torque is assigned. Existing
@@ -165,6 +188,9 @@ and inspection limits still need to be established before fabrication.
    Use all 66 panel/kicker screws. The lower post kicker row is Z = 60 mm;
    retain the upper-post and header rows. The tight upper-row receiver detail
    requires its [placement instructions](kicker-screw-placement-review.md).
+   Confirm all 66 Hillman 42605 axes are contained in their receivers and no
+   tip protrudes. These purchased screws are limited to the accepted panel and
+   kicker scope; SPAX capacity or stiffness does not transfer.
 8. **Route services and install pads.** Keep the harness clear of bolt tips and
    preserve LED passages. Place two 48 × 72 × 5-inch pads side by side, spanning
    96 inches across by 72 inches in floor depth, with the centre seam running

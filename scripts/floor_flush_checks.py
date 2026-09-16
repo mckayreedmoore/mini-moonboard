@@ -71,6 +71,11 @@ def face_contact_check(report):
     return {'points': records, 'interface_count': len(pairs),
         'peak_wood_bearing_ratio': max(v['wood_bearing_ratio'] for v in records.values()),
         'normal_contact_passed': all(v['normal_contact_passed'] for v in records.values()),
+        'finite_adopted_check': True,
+        'load_path_interfaces': sorted(pairs),
+        'sampling_limitation': ('The six saved interface quadratures are a finite '
+            'represented-contact check; they are not a convergence proof or a '
+            'claim about unsampled clearance.'),
         'scope': face_contact_check.__doc__}
 
 
@@ -147,15 +152,38 @@ def checks(report, geometry):
     result['metrics']['flush_face_wood_bearing'] = contacts['peak_wood_bearing_ratio']
     result['flush_face_contact'] = contacts
     result['rim_cut_side_stress_diagnostic'] = rim_cut_side_stress_diagnostic(report)
+    result['analytical_limits'] = {
+        'taper_local_fracture': {
+            'classification': 'ANALYTICAL_LIMITATION',
+            'description': ('The nominal cut-face stress inference is not an '
+                'applicable local-fracture resistance check and is not converted '
+                'into a numerical pass or failure.'),
+            'inspection_controls': [
+                'Use sound, check-free stock at the 1:12 recess.',
+                'Make a smooth transition with no overcut.',
+                'Reject splits, checks, or other recess damage.',
+            ],
+            'release_effect': ('Controls are required at fabrication; this '
+                'limitation is not a separate open analytical gate.'),
+        },
+        'contact_sampling': {
+            'classification': 'FINITE_SAMPLING_LIMITATION',
+            'description': contacts.get('sampling_limitation',
+                'The six saved interface quadratures are a finite represented-contact check; '
+                'they are not a convergence proof or a claim about unsampled clearance.'),
+            'finite_adopted_check': True,
+            'release_effect': ('The exact six runner/post/leg interfaces and '
+                'their saved normal reactions remain adopted finite checks; '
+                'no open-ended refinement gate is created.'),
+        },
+    }
     result['completion_gates'] = {
-        'taper_stress_method_applicability': 'OPEN: uniform-section shear and hybrid notch comparison do not establish taper-induced stress resistance.',
-        'contact_discretization_adequacy': 'OPEN: actual unilateral interfaces are represented; point/mesh/stiffness refinement and unsampled clearance remain to be established.',
         'fabrication_allowances': 'OPEN: nominal placement includes existing 3 mm boundary inset; complete cut/drill/stock tolerances are not released.',
         'full_current_case_set': 'OPEN: this assessment covers only this report and cannot establish completion of other cases.'}
     result['status'] = ('IMPLEMENTED_FLUSH_CRITERIA_MET_COMPLETION_GATES_OPEN'
         if all(result['criteria'].values()) else 'IMPLEMENTED_FLUSH_CRITERIA_NOT_MET')
     result['qualified_for_design'] = False
-    result['limits'].append('Earlier taper-method comparison is retained as diagnostic arithmetic; its passing flags do not close the separately listed method applicability gate.')
+    result['limits'].append('Earlier taper-method comparison is retained as diagnostic arithmetic; the taper local-fracture behavior remains an analytical limitation paired with stock and cut inspection controls.')
     return result
 
 
