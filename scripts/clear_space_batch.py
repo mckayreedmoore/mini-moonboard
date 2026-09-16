@@ -8,6 +8,10 @@ import sys
 from pathlib import Path
 
 from fea.current_response_run import run
+from scripts.clear_space_case_contract import (
+    validate_case_identity,
+    validate_floor_model,
+)
 from scripts.clear_space_results import PREFIXES, checks
 from scripts.clear_space_study import MODELS, geometry
 from scripts.compact_rail_study import bolt_properties
@@ -40,6 +44,7 @@ def next_case_seed(report, friction_mu=None):
     """Carry only accepted numerical search state with matching physical law."""
     if report.get('numerically_accepted') is not True:
         raise ValueError('Cannot seed from a numerically rejected response')
+    validate_floor_model(report, friction_mu)
     result = {'initial_contact_names':[row['name'] for row in report['bearings'] if row['active']]}
     if friction_mu is not None:
         basis = report.get('parameters', {}).get('floor_friction_assumption', {})
@@ -106,9 +111,9 @@ if __name__ == '__main__':
                 for row in model.overlap_contact_datums()]
     seed = {}
     for index, case in enumerate(args.cases):
+        hold, force = CASES[case]
         native = args.existing_first if index == 0 and args.existing_first else Path(args.native_prefix+'-'+case)
         if not (index == 0 and args.existing_first):
-            hold, force = CASES[case]
             report = solver(native, module=model, expected_candidate=model.KEY,
                 bolt_stiffness={**next(iter(bolts.values())), 'by_name':bolts},
                 member_contacts=contacts, hold=hold, pounds=250., horizontal_force=force,
@@ -118,6 +123,9 @@ if __name__ == '__main__':
             report = json.loads((native/'report.json').read_text())
         if not report.get('numerically_accepted'):
             raise SystemExit('Numerical response rejected: '+case)
+        # Do not relabel a reused result as a different load/support scenario.
+        validate_case_identity(report, expected_candidate=model.KEY, expected_hold=hold,
+            expected_pounds=250., expected_horizontal_force=force, friction_mu=args.friction_mu)
         # Existing-first archives also need the same declared friction law.
         new_seed = next_case_seed(report, args.friction_mu)
         result = archive(native, args.geometry, args.archive_root/case, model)
