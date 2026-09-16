@@ -47,7 +47,8 @@ def recorded_assessments(root, selection):
         geometry_sha256 = digest(root / geometry)
         source_geometry_matches = any(
             Path(name).name == 'geometry.json' and value == geometry_sha256
-            for name, value in source_hashes.items())
+            for hashes in (source_hashes, input_hashes)
+            for name, value in hashes.items())
         records[case] = {
             'assessment': name, 'sha256': digest(root / name), 'status': report['status'],
             'criteria_met': sum(value is True for value in report['criteria'].values()),
@@ -71,10 +72,24 @@ def authenticated_aggregate(root, selection):
     key = selection['candidate']
     if aggregate.get('candidate') != key or aggregate.get('qualified_for_design') is not False:
         raise ValueError('Aggregate is not an unqualified selected-candidate record')
-    if (aggregate.get('status') !=
-            'ALL_SIX_LISTED_SPLICE_MEMBER_CRITERIA_MET_WITH_OPEN_ANGLE_GATE'
-            or not aggregate.get('open_completion_gates')):
-        raise ValueError('Aggregate does not retain the open completion gate')
+    floor_runner = key == 'compact-floor-flush-development'
+    if floor_runner:
+        if (aggregate.get('status') != 'ALL_SIX_FROZEN_CRITERIA_MET_WITH_DISCLOSED_LIMITS'
+                or not aggregate.get('disclosed_limits')):
+            raise ValueError('Floor-runner aggregate does not retain disclosed limits')
+        angle_record = aggregate.get('angle_demand_ledger', {})
+        angle_path = root / angle_record.get('path', '')
+        if (angle_record.get('path') != 'docs/floor-runner-mvp-angle-demands.json'
+                or not angle_path.is_file()
+                or digest(angle_path) != angle_record.get('sha256')):
+            raise ValueError('Floor-runner angle-demand ledger differs from aggregate')
+        assessment_name, assessment_hash = 'flush-checks.json', 'flush_checks_sha256'
+    else:
+        if (aggregate.get('status') !=
+                'ALL_SIX_LISTED_SPLICE_MEMBER_CRITERIA_MET_WITH_OPEN_ANGLE_GATE'
+                or not aggregate.get('open_completion_gates')):
+            raise ValueError('Aggregate does not retain the open completion gate')
+        assessment_name, assessment_hash = 'splice-checks.json', 'splice_checks_sha256'
     if (set(aggregate.get('cases', {})) != set(CANONICAL_CASES)
             or set(selection.get('recorded_assessments', {})) != set(CANONICAL_CASES)):
         raise ValueError('Aggregate and authority require exactly six canonical cases')
@@ -91,13 +106,13 @@ def authenticated_aggregate(root, selection):
         case = aggregate['cases'][label]
         archive = root / case['archive']
         assessment = root / selection['recorded_assessments'][label]
-        if assessment != archive / 'splice-checks.json':
+        if assessment != archive / assessment_name:
             raise ValueError('Assessment path differs from aggregate archive: ' + label)
         artifacts = {
             'manifest_sha256': archive / 'manifest.json',
             'geometry_sha256': archive / 'geometry.json',
             'checks_sha256': archive / 'checks.json',
-            'splice_checks_sha256': assessment,
+            assessment_hash: assessment,
         }
         for field, artifact in artifacts.items():
             if not artifact.is_file() or digest(artifact) != case.get(field):
@@ -110,7 +125,7 @@ def authenticated_aggregate(root, selection):
             raise ValueError('Archive manifest candidate differs: ' + label)
         required = {
             'report.json.gz', 'geometry.json', 'sources.zip', 'checks.json',
-            'splice-checks.json',
+            assessment_name,
         }
         if set(manifest.get('files', {})) != required:
             raise ValueError('Archive manifest inventory differs: ' + label)
@@ -142,7 +157,8 @@ def status_markdown(selection, records):
              'Geometry-hash agreement alone does not authenticate force sources or establish method applicability.', '']
     if selection.get('aggregate_evidence'):
         aggregate = Path(os.path.relpath(selection['aggregate_evidence'], Path(selection['status_document']).parent)).as_posix()
-        lines.extend([f'Authenticated six-case summary: [aggregate evidence]({aggregate}).', ''])
+        lines.extend([f'Authenticated six-case summary: [aggregate evidence]({aggregate}).',
+                      'Each saved assessment still describes one case; its local "full case set" gate is superseded by the authenticated aggregate, not rewritten.', ''])
     else:
         lines.extend([('Authenticated six-case selected-candidate aggregate: **pending**. '
                        'See completion plan for partial-case work; historical cases are not promoted here.'), ''])

@@ -38,6 +38,13 @@ FLANGES = ('beam', 'upright')
 VECTOR_ATOL = 1.e-8  # serialization/reconstruction comparison, not a physical limit
 VECTOR_RTOL = 1.e-10
 FORCE_DIRECTION_EPS_N = 1.e-9  # matches the existing wrench helper's reporting cutoff
+SEARCH_SOURCE = 'fea/current_response_run.py'
+# These frozen revisions differ only by the one-contact-at-a-time search policy.
+# Every physical producer source and every native acceptance gate is unchanged.
+SEARCH_REVISIONS = frozenset({
+    '1b887692f73561c2d7a0da6f82777dbd887e8223d769c13bdec9b576e8fb5061',
+    'a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa',
+})
 
 
 def _object(value: Any, label: str) -> Mapping:
@@ -302,9 +309,13 @@ def build_ledger(case_inputs: Sequence[tuple[str, Path, Path]],
     for case in CASES:
         native, assessment = by_name[case]
         item = inspect_case(case, native, assessment, current_source_root=current_source_root)
+        sources = dict(item['source_sha256'])
+        search_source = sources.pop(SEARCH_SOURCE, None)
+        if search_source is not None and search_source not in SEARCH_REVISIONS:
+            raise ValueError('Unreviewed contact-search source revision: '+case)
         common_parameters = {k: v for k, v in item['parameters'].items()
                              if k not in {'hold', 'pounds', 'force_xyz_n'}}
-        identity = (item['source_sha256'], item['native_station_geometry'],
+        identity = (sources, item['native_station_geometry'],
                     item['physical_angle_screw_geometry'], common_parameters)
         if reference is not None and identity != reference:
             raise ValueError('Mixed source snapshots, station inventories or model parameters')
@@ -315,6 +326,11 @@ def build_ledger(case_inputs: Sequence[tuple[str, Path, Path]],
     return {
         'candidate': CANDIDATE, 'status': 'AUDITED_ANGLE_DEMAND_LEDGER_ONLY',
         'consumer_source_sha256': dict(LOADED_CONSUMER_HASHES),
+        'contact_search_source_sha256_by_case': {
+            case: cases[case]['source_sha256'].get(SEARCH_SOURCE) for case in CASES},
+        'contact_search_source_exception': ('Only the two frozen active-set search '
+            'revisions may differ; model, stiffnesses, physical contact law, '
+            'acceptance gates, station geometry and other producer sources match.'),
         'case_order': list(CASES), 'case_count': len(cases),
         'station_case_records': 144, 'flange_case_records': 288,
         'construction_release': False, 'connection_resistance_established': False,

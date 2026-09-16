@@ -1,8 +1,8 @@
 # Current DIY construction package
 
 > Historical September 12 single-2×6 baseline package. Current selection is
-> `compact-spliced-knee-development`; use the [matching build package](compact-spliced-build-package.md)
-> and [current study](compact-splice-study.md). The baseline drilling below is
+> `compact-floor-flush-development`; use the [matching build package](floor-flush-build-package.md)
+> and [MVP master plan](floor-runner-mvp-master-plan.md). The baseline drilling below is
 > preserved evidence, not the selected construction detail.
 
 This package records the **277 mm, shoe-free `no-shoes-development` candidate**

@@ -22,7 +22,7 @@ def main():
     parser.add_argument('--frame-size', type=float, default=150.,
                         help='Target timber mesh size in mm; sensitivity input')
     parser.add_argument('--contact-update-strategy',
-                        choices=('all', 'one_per_floor_body'), default='all',
+                        choices=('all', 'one_per_floor_body', 'one_at_a_time'), default='all',
                         help='Active-set search schedule only; physical support law is unchanged')
     parser.add_argument('--initial-contact-report', type=Path,
                         help='Numerically accepted same-candidate no-slip report for search initialization only')

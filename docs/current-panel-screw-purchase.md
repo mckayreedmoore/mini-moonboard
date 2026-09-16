@@ -26,10 +26,12 @@ dimension of their nominal 2x6 receivers. A 63.5 mm screw through the assumed
 18.25625 mm panel has 45.24375 mm nominal timber penetration and terminates
 94.45625 mm before the receiver's rear face. No rear tip projection occurs.
 
-The viewer retains its historical SPAX occupied-geometry proxy. Historical
-archives retain their own SPAX stiffness assumptions; fresh floor-runner cases
-must not invent unpublished model 42605 stiffness or resistance.
-It is not a claim that model 42605 has SPAX resistance or stiffness. Confirm the
+The current viewer now shows 66 nominal-length Hillman 42605 screw visuals,
+using nominal #10 body diameter. Actual head, thread and pilot dimensions are
+unpublished and not represented. Historical archives retain their own SPAX
+stiffness assumptions; fresh floor-runner cases use the recorded proxy
+connection stiffness, not invented model 42605 stiffness or resistance.
+This is not a claim that model 42605 has SPAX resistance or stiffness. Confirm the
 delivered screw seats flush without crushing the face veneer; no separate
 countersink or pilot dimension is released from retailer data.
 

@@ -1,0 +1,1084 @@
+{
+  "candidate": "compact-floor-flush-development",
+  "status": "ALL_SIX_FROZEN_CRITERIA_MET_WITH_DISCLOSED_LIMITS",
+  "qualified_for_design": false,
+  "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+  "source_sha256": {
+    "scripts/floor_runner_mvp_evidence.py": "310b1590ea65bd482c4e3da08c4b24852c7242a76b1102501eb41d40226ce7b1",
+    "scripts/floor_flush_angle_ledger.py": "4a5686fe5fe62868f4456e53800ed727e1fb99e177b996b7c6ba3a5cbba54de1",
+    "scripts/floor_flush_checks.py": "8d756c608bef10b8ce6f5141e58cbb0c08df56b0e422b6fd8baa262cec61e9cf",
+    "scripts/clear_space_case_contract.py": "17e0dab0d2df4c54f29325da6109507673add506a56f13ac5f7625166b2166e5"
+  },
+  "angle_demand_ledger": {
+    "path": "docs/floor-runner-mvp-angle-demands.json",
+    "sha256": "5446aeacaccafb70c77358635e5fb84c1b9627eb922209411b748e5e34c9e558"
+  },
+  "case_order": [
+    "a12-left",
+    "a12-rear",
+    "a12-forward",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cases": {
+    "a12-left": {
+      "archive": "fea/results/floor-runner-mvp/a12-left",
+      "manifest_sha256": "e46af7ab538703e195be539d34b1ff0bfb2f4e843d7c7d5f1397c416cb7dd3ee",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "b9b4d006f9d17059a815dda848e333ad78049d508d38bf78cd891f11be7353d1",
+      "checks_sha256": "d13ca9582397364654f4c04ffa8502e0cb0552cd823fe4b489a713dcdec8d813",
+      "flush_checks_sha256": "91cc2ebab9f0b0a060dcaab4f9f0087135cdc7e8e3d58bfafea0fddb6bf98e59",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          -300.0,
+          0.0
+        ]
+      },
+      "contact_cycles": 14,
+      "contact_update_strategy": "all",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7822151458969461,
+        "additional_group_reduction_sensitivity": 0.7822151458969461,
+        "local_parallel": 0.2370224444660645,
+        "supplemental_EC5_splitting": 0.36928479305309686,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.6827879015290407,
+        "header_gross_full_length_stability": 0.14729181749883413,
+        "base_bearing_average": 0.020023071031503293,
+        "base_bearing_quarter_area_sensitivity": 0.04710264300134924,
+        "base_end_notch_shear": 0.16166088733838802,
+        "angle_rated_force_components": 0.4709556011439358,
+        "floor_rail_wood_bearing": 0.0014468026197303181,
+        "flush_face_wood_bearing": 0.13362036701608038
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.824523454778894,
+        "full_root_lateral_sensitivity": 1.0375714615506217,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567167,
+        "steel_direct": 0.1172311166425863,
+        "washer_bearing": 0.25226417680783847,
+        "washer_bending": 0.2876149430820068
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.4709556011439358,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4376.550635923664
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.12532553103960445,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 36.577697333647095
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.27952688765747125,
+          "unlisted_separation_demand_n": 112.1137019170409,
+          "unlisted_parallel_couple_demand_nmm": 2413.8110967495363
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.03226424731398031,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 70.44637689547682
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.05591052683605087,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 55.31025450336963
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.013553242055807222,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 8077.593658610595
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.07310475430398355,
+          "unlisted_separation_demand_n": 12.456026439307436,
+          "unlisted_parallel_couple_demand_nmm": 432.35586130207247
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.048441901448510405,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 24.32919866941477
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.0832616308755046,
+          "unlisted_separation_demand_n": 68.78764100737733,
+          "unlisted_parallel_couple_demand_nmm": 4480.01482359939
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.06599480400106757,
+          "unlisted_separation_demand_n": 25.123359966194933,
+          "unlisted_parallel_couple_demand_nmm": 653.2860823287707
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.3376053226614397,
+          "unlisted_separation_demand_n": 147.5797962505231,
+          "unlisted_parallel_couple_demand_nmm": 7892.97200784301
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.03420806959276626,
+          "unlisted_separation_demand_n": 57.947174216525354,
+          "unlisted_parallel_couple_demand_nmm": 28.434639168695472
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.10714664650420687,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 10049.234837016109
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.02394840878552851,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1024.0725000831742
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.05329169319208547,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 7855.040396901554
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.037179448260298495,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2092.498930506028
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.030591546219245574,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1992.611403460481
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.016591756693757093,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 335.9577341679592
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.01537244708834127,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3847.5373215047175
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.03890903924615632,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 5146.280196935003
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.02779706979391635,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 780.3823254683437
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.023660968252650627,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3491.8406648575374
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.013733716888836595,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 563.6527427024654
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.014064293344063963,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2074.072252277552
+        }
+      }
+    },
+    "a12-rear": {
+      "archive": "fea/results/floor-runner-mvp/a12-rear",
+      "manifest_sha256": "5d721fa0b09950853b721b3dced5f0a1d0dc9f83a3af2fbb6b1797df2b02a388",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "9ee9ee9849fc27112d96a571be45879c3c9e3bf63042e94c4eb8bcb075c07274",
+      "checks_sha256": "9ed713df60c1b031984e8e99a4a7f8c0d7dd59c0a81b0f008e14797c09aa2223",
+      "flush_checks_sha256": "7ce6cac062191e771eb0506eb9e701ed16df20f8442c180cef96a4aa5c61079d",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ]
+      },
+      "contact_cycles": 15,
+      "contact_update_strategy": "all",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7632505885781281,
+        "additional_group_reduction_sensitivity": 0.7632505885781281,
+        "local_parallel": 0.2560197904653243,
+        "supplemental_EC5_splitting": 0.2631793106767443,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.6566422338936689,
+        "header_gross_full_length_stability": 0.2688818948212892,
+        "base_bearing_average": 0.017489665562129077,
+        "base_bearing_quarter_area_sensitivity": 0.04524910879552343,
+        "base_end_notch_shear": 0.1334474470553862,
+        "angle_rated_force_components": 0.5161417098029204,
+        "floor_rail_wood_bearing": 0.002773117635591248,
+        "flush_face_wood_bearing": 0.09667635446144576
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.8342527330252377,
+        "full_root_lateral_sensitivity": 1.0498146808203497,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567167,
+        "steel_direct": 0.12526431310851086,
+        "washer_bearing": 0.2205733551482995,
+        "washer_bending": 0.2514831625685435
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.5161417098029204,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 6979.8513318301175
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.13908974470722663,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 364.2653513872705
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.20226653261185,
+          "unlisted_separation_demand_n": 164.9124924594547,
+          "unlisted_parallel_couple_demand_nmm": 821.3306886302998
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.05619660382807785,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 524.7943436600732
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.11331734875178986,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 742.6049562278556
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.0516702199284919,
+          "unlisted_separation_demand_n": 64.19351344725483,
+          "unlisted_parallel_couple_demand_nmm": 5697.011456806261
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.05990990831528617,
+          "unlisted_separation_demand_n": 53.39345216170549,
+          "unlisted_parallel_couple_demand_nmm": 2972.9545524110213
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.07129110973339137,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 640.8637892261971
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.06447518830276928,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 1388.7688468138722
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.07029793051970408,
+          "unlisted_separation_demand_n": 44.80054320841603,
+          "unlisted_parallel_couple_demand_nmm": 1888.453735069572
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.23560088951486824,
+          "unlisted_separation_demand_n": 153.25076602453794,
+          "unlisted_parallel_couple_demand_nmm": 12147.03758167375
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.15183060944807386,
+          "unlisted_separation_demand_n": 118.49431459931066,
+          "unlisted_parallel_couple_demand_nmm": 4559.023125672883
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.09376755825510498,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 10252.689246069907
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.027093292425043738,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4966.413414125161
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.07115824138625185,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 8390.803168840288
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.0368141272362055,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3273.3638629163106
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.04472158148636954,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4414.11864389224
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.023340816470254527,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 811.2670271072708
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.03541061477865891,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1297.283271497764
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.060247085773290486,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 5478.02934748448
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.029360526838368546,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 202.47575514846278
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.01285976251736768,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1436.7995627779867
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.021998810153866358,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1363.1036098421291
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.014645289310974455,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 796.4817692123114
+        }
+      }
+    },
+    "a12-forward": {
+      "archive": "fea/results/floor-runner-mvp/a12-forward",
+      "manifest_sha256": "b16dfcac63bd3237c79bc00f5cbe643c058456b7ba2916d489f6d3ac29018c62",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "a63e903aaa8b44e5261c42116043f4c4007072e17e15efb9189aa82e9449b5e6",
+      "checks_sha256": "3f280d02374a7d37820b7f06673d5d805ff62c92404259d97fc06bd99578e14b",
+      "flush_checks_sha256": "fb202a773bc8deaa8b6d85a127cf0a79cd30d9a55c937bbb29950ebfca8fb845",
+      "load": {
+        "hold": "A12",
+        "horizontal_force_xy_n": [
+          0.0,
+          -300.0
+        ]
+      },
+      "contact_cycles": 69,
+      "contact_update_strategy": "one_at_a_time",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.754919434215076,
+        "additional_group_reduction_sensitivity": 0.754919434215076,
+        "local_parallel": 0.21074313894906918,
+        "supplemental_EC5_splitting": 0.358126203869142,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.5375920863462829,
+        "header_gross_full_length_stability": 0.1052760410973704,
+        "base_bearing_average": 0.032259846070067585,
+        "base_bearing_quarter_area_sensitivity": 0.07704602516677952,
+        "base_end_notch_shear": 0.15695906218433947,
+        "angle_rated_force_components": 0.4130408063675179,
+        "floor_rail_wood_bearing": 0.0014570530296327399,
+        "flush_face_wood_bearing": 0.10176311799912165
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.7955315890056847,
+        "full_root_lateral_sensitivity": 1.001088408983664,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567167,
+        "steel_direct": 0.1031513372842497,
+        "washer_bearing": 0.18093148783925542,
+        "washer_bending": 0.20628612526411355
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.4130408063675179,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4219.4682285390645
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.12327527190877655,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 381.46711702552625
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.23935100506917378,
+          "unlisted_separation_demand_n": 118.5341336228709,
+          "unlisted_parallel_couple_demand_nmm": 2838.18892043764
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.017510797162676638,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 420.01955956379487
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.06941171899663665,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 424.5542213730203
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.16067745530200866,
+          "unlisted_separation_demand_n": 60.231366265714854,
+          "unlisted_parallel_couple_demand_nmm": 2547.5919524962824
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.1349273994599495,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 363.4415575232781
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.0764272284144637,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 880.1909768103764
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.05754390455673639,
+          "unlisted_separation_demand_n": 35.24107054917732,
+          "unlisted_parallel_couple_demand_nmm": 1920.7927837461143
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.13427854099050485,
+          "unlisted_separation_demand_n": 74.55223487469469,
+          "unlisted_parallel_couple_demand_nmm": 1902.1846417262768
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.2142821673227092,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 1208.3411602787453
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.013572005760344735,
+          "unlisted_separation_demand_n": 20.29868871734299,
+          "unlisted_parallel_couple_demand_nmm": 2852.682316861839
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.06903375890611638,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 8159.120113075792
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.01908261183533199,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4680.7328585804835
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.04806992604381481,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 6644.78264597198
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.03185775972521951,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1899.0436584283175
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.016505658730721205,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3831.30453037989
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.01273007712074295,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 261.15719120081826
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.011345598584327037,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 528.3948796528149
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.03471080534373559,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4473.651941465285
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.026555629010087484,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 385.11049539336216
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.01928700327343657,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2570.4722560245873
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.01787090207370302,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 950.9204852673184
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.011771641894801017,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1156.4147707787345
+        }
+      }
+    },
+    "k12-right": {
+      "archive": "fea/results/floor-runner-mvp/k12-right",
+      "manifest_sha256": "8fef776900549b45d005cecfc9b9ad5bb6e47fd8d67a23df405964288fc57a13",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "a437c455f6008a98cd93227fe19f2d5810969ff866f2551c786ef934f35b2dad",
+      "checks_sha256": "b6721d841b40a7781aa49bf4299fab408506a2ec1817cc1eac487aa6611aec66",
+      "flush_checks_sha256": "4246cbc28a7b861611428d6675190ef1d9dd099fc90e601bb2ef4bfeef9a0940",
+      "load": {
+        "hold": "K12",
+        "horizontal_force_xy_n": [
+          300.0,
+          0.0
+        ]
+      },
+      "contact_cycles": 13,
+      "contact_update_strategy": "all",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7688688882682478,
+        "additional_group_reduction_sensitivity": 0.7688688882682478,
+        "local_parallel": 0.2336485505386203,
+        "supplemental_EC5_splitting": 0.36298964170338954,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.6770952417291128,
+        "header_gross_full_length_stability": 0.14850272391432529,
+        "base_bearing_average": 0.01923155201706644,
+        "base_bearing_quarter_area_sensitivity": 0.04621490722598411,
+        "base_end_notch_shear": 0.15962825563071859,
+        "angle_rated_force_components": 0.5161737405046317,
+        "floor_rail_wood_bearing": 0.0012297058082809233,
+        "flush_face_wood_bearing": 0.13789027801486717
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.8104923687908785,
+        "full_root_lateral_sensitivity": 1.0199148936126827,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567167,
+        "steel_direct": 0.1161019344650291,
+        "washer_bearing": 0.26574860904059894,
+        "washer_bending": 0.3029890015717815
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.13300761220743074,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 63.74406398598485
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.5161737405046317,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4185.4956723021905
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.028706767604947805,
+          "unlisted_separation_demand_n": 0.034880229940643215,
+          "unlisted_parallel_couple_demand_nmm": 101.7164360885477
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.2752020600297237,
+          "unlisted_separation_demand_n": 110.34870054713997,
+          "unlisted_parallel_couple_demand_nmm": 2365.15598550338
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.048865787057003125,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 28.169968496739255
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.07564528933648793,
+          "unlisted_separation_demand_n": 64.93957995845624,
+          "unlisted_parallel_couple_demand_nmm": 4436.682040454239
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.06539878555932964,
+          "unlisted_separation_demand_n": 25.49722892741108,
+          "unlisted_parallel_couple_demand_nmm": 649.0741998583953
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.060909811225750475,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 64.29976216885828
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.023793378434476743,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 6848.078633046721
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.07647636902353233,
+          "unlisted_separation_demand_n": 14.93163995571102,
+          "unlisted_parallel_couple_demand_nmm": 516.9919270520215
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.03335311959916387,
+          "unlisted_separation_demand_n": 60.553005200208304,
+          "unlisted_parallel_couple_demand_nmm": 400.1196629877749
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.33503562830001404,
+          "unlisted_separation_demand_n": 150.16587205972792,
+          "unlisted_parallel_couple_demand_nmm": 8172.323846672344
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.040448580800906686,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 5295.889773405232
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.014408092488385763,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3367.290904846263
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.023684630074370834,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3639.288591031115
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.028307369606931053,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 781.2605135999956
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.014821079605691718,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2151.76649263616
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.013769750088033788,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 577.8794166135197
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.02537354162538666,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1134.841233355138
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.11144319866271724,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 10379.37422342254
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.03836739414662815,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2147.265575588206
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.05754057442248115,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 8315.761584100877
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.016887944237053525,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 409.75530852378944
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.03673196912100818,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3049.153894774074
+        }
+      }
+    },
+    "k12-rear": {
+      "archive": "fea/results/floor-runner-mvp/k12-rear",
+      "manifest_sha256": "178a133b0840df56a0b3a25a012cd13210cd125fe7cd8e64e52b16b6525fd570",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "c852db569f3bc0dcabfa9547bbaffbfe40165b68bb092bf22443c7627ac23f7c",
+      "checks_sha256": "0646f6726dc8f8094070bf770705f9722a2b887ac3b08eb72116e5a510634e67",
+      "flush_checks_sha256": "5be24705ba2ff7e327064123cadb4657a8937adc379e6518a793ebd043e88632",
+      "load": {
+        "hold": "K12",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ]
+      },
+      "contact_cycles": 10,
+      "contact_update_strategy": "all",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.7543880399994601,
+        "additional_group_reduction_sensitivity": 0.7543880399994601,
+        "local_parallel": 0.25224448321245657,
+        "supplemental_EC5_splitting": 0.25971708272663335,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.648895130416724,
+        "header_gross_full_length_stability": 0.27049828056988884,
+        "base_bearing_average": 0.01823126078551809,
+        "base_bearing_quarter_area_sensitivity": 0.047689020619843814,
+        "base_end_notch_shear": 0.13198034282955745,
+        "angle_rated_force_components": 0.5690781344479449,
+        "floor_rail_wood_bearing": 0.0027210054587395063,
+        "flush_face_wood_bearing": 0.10231542170439613
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.824562503425901,
+        "full_root_lateral_sensitivity": 1.0376205999487011,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567167,
+        "steel_direct": 0.12397524567197628,
+        "washer_bearing": 0.23730364646227695,
+        "washer_bending": 0.27055793507451226
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.14895742309782323,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 410.1119287045178
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.5690781344479449,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 6712.000083308067
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.05613072969672615,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 515.9338704198888
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.20032476055697856,
+          "unlisted_separation_demand_n": 163.58210492810156,
+          "unlisted_parallel_couple_demand_nmm": 795.6501155133197
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.07118159777454879,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 571.3176771957372
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.0688274258341351,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 1366.5365803584014
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.06914562670877858,
+          "unlisted_separation_demand_n": 44.84786142585198,
+          "unlisted_parallel_couple_demand_nmm": 1889.3225053120966
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.11856630259852377,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 589.2609899496708
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.05402420350160088,
+          "unlisted_separation_demand_n": 58.66607736281763,
+          "unlisted_parallel_couple_demand_nmm": 4996.013490345521
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.06095518155664429,
+          "unlisted_separation_demand_n": 52.543331442425384,
+          "unlisted_parallel_couple_demand_nmm": 2986.6589559399295
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.1560279971422096,
+          "unlisted_separation_demand_n": 124.19568882154769,
+          "unlisted_parallel_couple_demand_nmm": 4850.227525791423
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.23414770726748338,
+          "unlisted_separation_demand_n": 154.25395847857425,
+          "unlisted_parallel_couple_demand_nmm": 12476.541318047923
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.06381654668341635,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 5712.926208758661
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.03689127620353709,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1318.992290825066
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.012941862689114784,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1637.2251902898606
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.03002559969650525,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 190.86763500340845
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.015683520071603167,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 874.3487257970844
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.02201689716275207,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1417.1484111105249
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.026654256124915662,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4783.645535994233
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.0990775807832586,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 10641.935369491739
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.03824678646930994,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 3353.798306883335
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.07669432687697877,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 8969.921918035474
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.023615669705839483,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 854.2772453863887
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.05213696405679083,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 5508.339031919317
+        }
+      }
+    },
+    "a1-rear": {
+      "archive": "fea/results/floor-runner-mvp/a1-rear",
+      "manifest_sha256": "d65a6d63e8e62bb6af6c8b82e4800f98b066a995125b5cfe33be541d40d7b21a",
+      "geometry_sha256": "e62f402f10403e205f279e60fe991ef8d0b9b13ff73efb981ff33090e389e747",
+      "native_report_sha256": "13e584999ced34d022d89b6acab8d738d64c1a57f27eac66716180c245ac7e74",
+      "checks_sha256": "2ffa4998eb208d031805b3eb36817001180a263677096b88d778c4eb9a60fdef",
+      "flush_checks_sha256": "abd8a346983fc2f509ec45b5bc2a03958d6e47dac4e673d55bb70139eb5cf3a0",
+      "load": {
+        "hold": "A1",
+        "horizontal_force_xy_n": [
+          0.0,
+          300.0
+        ]
+      },
+      "contact_cycles": 12,
+      "contact_update_strategy": "all",
+      "criteria_met": 36,
+      "criteria_total": 36,
+      "metrics": {
+        "actual_angle_lateral_CD_1": 0.12898213063470235,
+        "additional_group_reduction_sensitivity": 0.12898213063470232,
+        "local_parallel": 0.05044428720258774,
+        "supplemental_EC5_splitting": 0.07018196758925573,
+        "minimum_group_spacing_margin_mm": 1.3999999999999986,
+        "sampled_net_member": 0.2110907679425194,
+        "header_gross_full_length_stability": 0.20434697318804648,
+        "base_bearing_average": 0.03226094828363719,
+        "base_bearing_quarter_area_sensitivity": 0.06200716389247433,
+        "base_end_notch_shear": 0.29933873835340574,
+        "angle_rated_force_components": 0.2860706785673015,
+        "floor_rail_wood_bearing": 0.001921523134886592,
+        "flush_face_wood_bearing": 0.025933675747682888
+      },
+      "first_stage_metrics": {
+        "nominal_lateral": 0.1375528070624741,
+        "full_root_lateral_sensitivity": 0.20212572065181472,
+        "minimum_directional_edge_end_margin_mm": 0.49714107156567877,
+        "steel_direct": 0.027809258487536705,
+        "washer_bearing": 0.06596635055478542,
+        "washer_bending": 0.0752104734022337
+      },
+      "angle_count": 24,
+      "angles": {
+        "clip_single_top_left_1": {
+          "listed_force_interaction": 0.09605088389898386,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 622.6804896490136
+        },
+        "clip_single_top_right_2": {
+          "listed_force_interaction": 0.09527394819896437,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 544.2459669901651
+        },
+        "clip_timber_header_outer_left": {
+          "listed_force_interaction": 0.12010342137434481,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 1352.6341634491553
+        },
+        "clip_timber_header_outer_right": {
+          "listed_force_interaction": 0.022832315506120616,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 109.3256696655409
+        },
+        "clip_split_top_center_left": {
+          "listed_force_interaction": 0.07301600386897984,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 748.0824392920807
+        },
+        "clip_split_base_center_left": {
+          "listed_force_interaction": 0.06903866675731912,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 2555.4322331553585
+        },
+        "clip_split_header_center_left": {
+          "listed_force_interaction": 0.04888333340778917,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 372.84034082153045
+        },
+        "clip_split_top_center_right": {
+          "listed_force_interaction": 0.06384242494916258,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 938.0107538158984
+        },
+        "clip_split_base_center_right": {
+          "listed_force_interaction": 0.04617550697702302,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 821.5917909623878
+        },
+        "clip_split_header_center_right": {
+          "listed_force_interaction": 0.027488673613821655,
+          "unlisted_separation_demand_n": 3.527653726085987,
+          "unlisted_parallel_couple_demand_nmm": 86.53929542793743
+        },
+        "clip_angle_base_left": {
+          "listed_force_interaction": 0.09848917685765851,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 663.0943457845958
+        },
+        "clip_angle_base_right": {
+          "listed_force_interaction": 0.011090605223673675,
+          "unlisted_separation_demand_n": 0.0,
+          "unlisted_parallel_couple_demand_nmm": 177.22183413286683
+        },
+        "clip_horizontal_bottom_left_1": {
+          "listed_force_interaction": 0.2860706785673015,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2115.824243620191
+        },
+        "clip_horizontal_bottom_left_2": {
+          "listed_force_interaction": 0.11483106377846218,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1896.6011436375175
+        },
+        "clip_horizontal_lower_left_1": {
+          "listed_force_interaction": 0.061019195694800764,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 4275.170598931689
+        },
+        "clip_horizontal_lower_left_2": {
+          "listed_force_interaction": 0.043448950633043826,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1236.987432027779
+        },
+        "clip_horizontal_upper_left_1": {
+          "listed_force_interaction": 0.014577023261495615,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2237.9911596425936
+        },
+        "clip_horizontal_upper_left_2": {
+          "listed_force_interaction": 0.015474156968753752,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 546.3983279177927
+        },
+        "clip_horizontal_bottom_right_1": {
+          "listed_force_interaction": 0.02019971895673392,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 944.759884329794
+        },
+        "clip_horizontal_bottom_right_2": {
+          "listed_force_interaction": 0.017868383167471486,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 2225.90734469655
+        },
+        "clip_horizontal_lower_right_1": {
+          "listed_force_interaction": 0.021950168100249183,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 447.32290716033265
+        },
+        "clip_horizontal_lower_right_2": {
+          "listed_force_interaction": 0.018965928665225482,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 1355.9748606913563
+        },
+        "clip_horizontal_upper_right_1": {
+          "listed_force_interaction": 0.017371372385478465,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 569.3539952754545
+        },
+        "clip_horizontal_upper_right_2": {
+          "listed_force_interaction": 0.007132808028016647,
+          "unlisted_separation_demand_n": null,
+          "unlisted_parallel_couple_demand_nmm": 587.3457482782483
+        }
+      }
+    }
+  },
+  "governing_adopted": {
+    "actual_angle_lateral_CD_1": {
+      "case": "a12-left",
+      "value": 0.7822151458969461
+    },
+    "sampled_net_member": {
+      "case": "a12-left",
+      "value": 0.6827879015290407
+    },
+    "header_gross_full_length_stability": {
+      "case": "k12-rear",
+      "value": 0.27049828056988884
+    },
+    "base_end_notch_shear": {
+      "case": "a1-rear",
+      "value": 0.29933873835340574
+    },
+    "angle_rated_force_components": {
+      "case": "k12-rear",
+      "value": 0.5690781344479449
+    },
+    "flush_face_wood_bearing": {
+      "case": "k12-right",
+      "value": 0.13789027801486717
+    }
+  },
+  "governing_first_stage": {
+    "nominal_lateral": {
+      "case": "a12-rear",
+      "value": 0.8342527330252377
+    }
+  },
+  "minimum_reserves": {
+    "directional_edge_end_mm": {
+      "case": "a12-left",
+      "value": 0.49714107156567167
+    }
+  },
+  "angle_station_case_records": 144,
+  "angle_demand_governing": {
+    "listed_force_interaction": {
+      "case": "k12-rear",
+      "station": "clip_single_top_right_2",
+      "value": 0.5690781344479449
+    },
+    "unlisted_separation_demand_n": {
+      "case": "a12-rear",
+      "station": "clip_timber_header_outer_left",
+      "value": 164.9124924594547
+    },
+    "unlisted_parallel_couple_demand_nmm": {
+      "case": "k12-rear",
+      "station": "clip_angle_base_right",
+      "value": 12476.541318047923
+    }
+  },
+  "non_adopted_full_root_sensitivity": {
+    "case": "a12-rear",
+    "value": 1.0498146808203497
+  },
+  "disclosed_limits": [
+    "ML24Z/SDS catalog does not rate the saved separation and parallel couple demands.",
+    "Full-root bolt sensitivity is not the specified partially threaded bolt basis.",
+    "Contact quadrature is finite sampling, not a continuum convergence proof.",
+    "Actual delivered hardware, cut quality, jigged holes and installation require inspection.",
+    "No-slip support is an explicit assumption, not a measured floor property."
+  ],
+  "scope": "Six exact current floor-runner cases under recorded loads, materials and conditional no-slip support; engineer-unreviewed DIY evidence, not fabrication release or climber rating."
+}

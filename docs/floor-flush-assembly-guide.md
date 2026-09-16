@@ -2,8 +2,9 @@
 
 **Current selected-development draft; not a fabrication release.**
 The [build-package status](floor-flush-build-package.md) controls this guide.
-Fresh no-slip cases, exact shop checks and disclosed taper-method limitations
-remain open. The sequence
+Six fresh no-slip cases pass the frozen numerical checks; nominal CAD/shop
+geometry is screened. Delivered-hardware inspection, fabrication controls and
+disclosed ML24Z/SDS unlisted actions remain. The sequence
 below makes the proposed build reviewable; it does not authorize cutting or
 using the frame before those gates are resolved.
 
@@ -17,7 +18,7 @@ identify the current geometry. Earlier `floortaper` construction sheets have
 historical references, not current drilling templates. The [current draft construction packet](floor-flush-construction/) supplies
 member-local cut/bolt sheets. Verify its manifest, scale-verification marks and
 profile annotations before treating any drawing as a template; draft sheets
-do not close the pending resistance and fabrication-allowance gates.
+do not close delivered-item inspection or fabrication-allowance conditions.
 
 Assembly coordinates are millimetres: X spans the board, Z is height above the
 floor, and Y runs front to rear. X = 0 is the board centre. Label left/right,
@@ -105,8 +106,8 @@ harness and connector clearances, with no invented electrical shopping list.
   This is an inclined end across the runner depth, not a square rear crosscut.
 - The lower side-rim plane also ends at Y = −175.7. Its remaining normal depth
   is 102.805 mm. The historical projected-seat scalar is a non-adopted
-  sensitivity; do not cut this detail until the adopted fresh-case and shop
-  checks are complete.
+  sensitivity. The adopted fresh-case and nominal shop checks pass; cut only
+  after actual stock, saw setup and finished tolerances satisfy the controls.
 - Leg tops terminate on the rim rear face; the previous 18 mm normal projection
   is removed. Both upper bolt axes have moved. A previous leg sheet cannot be
   shortened and reused for drilling.
@@ -182,7 +183,8 @@ and inspection limits still need to be established before fabrication.
 6. **Install complete bolt stacks and all angle screws.** Confirm smooth-body
    coverage, usable nut threads and full washer seating. Seat snugly without
    crushing the timber; no generic steel-joint torque is assigned. Existing
-   outer angle centres remain at Y = −105.85 pending their current checks.
+   outer angle centres remain at Y = −105.85; listed-force checks pass, but
+   unlisted separation and flange-couple demands have no catalog capacity.
 7. **Complete rails, principals and panel installation.** Keep the split centre
    service corridor, accepted T-nut construction, and independent panel seams.
    Use all 66 panel/kicker screws. The lower post kicker row is Z = 60 mm;

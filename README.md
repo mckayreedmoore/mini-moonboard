@@ -15,7 +15,11 @@ rear-leg tops use the selected flush geometry.
 Use the [current design basis](docs/current-design-basis.md), [MVP master
 plan](docs/floor-runner-mvp-master-plan.md) and [frozen criteria
 ledger](docs/floor-runner-mvp-criteria.md). Fresh selected-candidate no-slip
-cases and aggregate evidence remain pending. Historical finite-friction,
+cases now converge and pass all 36 frozen adopted criteria; see the
+[six-case aggregate](docs/floor-runner-mvp-evidence.json) and
+[angle-demand ledger](docs/floor-runner-mvp-angle-demands.json). Catalog-unlisted
+ML24Z separation/couple actions remain disclosed, not manufacturer-qualified.
+Historical finite-friction,
 taper-runner and spliced-knee results are preserved but do not transfer.
 
 The earlier [taper study](docs/floor-runner-taper-study.md) records six cases

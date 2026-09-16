@@ -20,7 +20,8 @@ from scripts import floor_flush_exports as exporter
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/floor-flush-construction'
-STATUS = 'DRAFT — current geometry only; resistance and fabrication checks pending; not a drilling release'
+STATUS = ('DRAFT — six no-slip cases pass frozen criteria; delivered hardware and '
+          'fabrication inspection remain; not a drilling release')
 
 
 class SheetModel:
@@ -140,7 +141,7 @@ def generate(output=OUT):
             panel.append({'name': row['name'], 'panel': name, 'receiver': row['receiver'],
                 'from_left_mm': row['x']-left, 'from_bottom_mm': row['s']-bottom,
                 'vertical_axis': 'Z from floor' if name.startswith('kicker_') else 'S along panel slope',
-                'operation': 'Retained SPAX axis; no insert pilot or pilot diameter specified.'})
+                'operation': 'Owned Hillman 42605 #10 x 2-1/2 in axis; actual pilot and head dimensions not specified.'})
         write('panel-attachment-axes.csv', panel)
         holes = []
         for kind, hole_datums, diameter in [('hold', grid.main_tnut_datums(), 11.1125),

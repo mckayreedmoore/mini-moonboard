@@ -4,8 +4,10 @@
 
 Current work is governed by the [floor-runner MVP master
 plan](floor-runner-mvp-master-plan.md) and [frozen criteria
-ledger](floor-runner-mvp-criteria.md). Fresh no-slip cases remain pending; the
-finite-friction A12-left result below is historical comparison evidence.
+ledger](floor-runner-mvp-criteria.md). [Six fresh no-slip cases](floor-runner-mvp-evidence.json)
+converge and meet all 36 frozen checks. The [24-angle ledger](floor-runner-mvp-angle-demands.json)
+records unlisted separation and parallel-couple demands without assigning
+catalog capacity. The finite-friction A12-left result below is historical.
 
 `compact-floor-flush-development` implements the owner's requested finish of
 `compact-floor-taper-development`: floor-runner front ends terminate at the
@@ -13,20 +15,20 @@ outer-post plane; rear ends follow the rear legs' inclined back faces. Lower
 rim ends terminate at the post/header plane, and leg tops terminate at the
 rear faces of the rims. Whole kicker panels and the 1:12 leg recess remain.
 
-The old 7 mm rim-end and 18 mm leg-top reserves are removed. Bolt end distances,
-end-cut/bearing resistance, bracket attachment geometry, floor footprint and
-actual assembled response must be checked for these new cuts. The preserved
-six passing taper cases do not qualify this revision. Existing bracket stations are retained initially. Front and rear runner bolt
+The old 7 mm rim-end and 18 mm leg-top reserves are removed. Current
+receiver/placement, end-cut/bearing, bracket listed-force, floor contact and
+assembled-response checks are documented in the six-case evidence. The
+preserved taper cases do not qualify this revision. Existing bracket stations are retained. Front and rear runner bolt
 pairs are also relocated to preserve end distances within the shortened beams.
 The upper bolt pair is relocated downward and slightly rotated within the
-joined timber, retaining 56 mm pitch; new forces must confirm the adopted
-force-directed edge interpretation and connection resistance.
+joined timber, retaining 56 mm pitch. Current forces support the adopted
+force-directed edge and connection checks under the frozen criteria.
 
 The complete finite task is tracked in the
-[floor-runner MVP master plan](floor-runner-mvp-master-plan.md). Required work includes
-source-method applicability, local runner/leg contact, justified fabrication
-allowances, a consolidated hardware list and practical assembly instructions.
-No drilling or cut tolerances are released by this preview.
+[floor-runner MVP master plan](floor-runner-mvp-master-plan.md). Current
+analysis covers the local runner/leg contact path. Delivered hardware,
+fabrication and installation controls remain conditional. No unconditional
+drilling or cut release follows from the numerical pass.
 
 ## Workshop planning and procurement
 
@@ -35,13 +37,13 @@ the 20 timber pieces, six panels, 24 angles, 144 angle screws, 66 panel screws
 and twelve complete bolt stacks. It records the current cut datums, saw options,
 delivered-hardware checks and proposed assembly order. It is a reviewable draft;
 the [current construction sheets](floor-flush-construction/), supported
-fabrication allowances and remaining resistance decisions must be reviewed
+fabrication allowances and disclosed unlisted bracket actions must be reviewed
 together before release.
 
 ## FR-3 shop acceptance rules
 
-FR-3 is ready for the exact shop/geometry closure work; these rules make the
-remaining inspection decisions reproducible without claiming a fabrication
+FR-3 nominal CAD/shop geometry is complete; these rules make delivered-item
+inspection decisions reproducible without claiming a fabrication
 release. For each mirrored front runner/post pair, use a registered paired-hole
 fixture and accept only finished 39.0–40.0 mm centre pitch, pair midpoint within
 0.5 mm of the datum, and each hole within 0.5 mm perpendicular to the pair
@@ -63,7 +65,7 @@ their receivers with no tip protrusion; do not transfer SPAX capacity claims.
 Place two 48 × 72 × 5 inch pads side by side with the seam front-to-back; pads
 remain non-structural and viewer/layout items.
 
-## Historical force evidence
+## Historical finite-friction force evidence
 
 The fresh A12-left case converged with 72 explicit timber face contacts and
 18 clearance monitors. Its [assessment](floor-flush-a12-left-assessment.json)
@@ -71,9 +73,9 @@ meets 37 of 38 implemented criteria, with bolt lateral ratio 0.8792 and sampled
 net-member ratio 0.7488. Its historical rim projected-seat scalar is negative
 and now retained as a non-adopted sensitivity. The
 [cut-method review](flush-cut-method-review.md) and
-[taper-method review](taper-method-applicability-review.md) preserve the unresolved
-local resistance issues. One converged case does not release this design or
-supply the remaining five current cases.
+[taper-method review](taper-method-applicability-review.md) preserve earlier
+method questions. This historical one-case response does not replace the six
+fresh current no-slip cases.
 
 ## Initial geometry result
 
@@ -88,9 +90,9 @@ With the original upper axes, the upper leg bolt had only 67.102 mm adjusted
 distance to the newly flush end. The revised pair addresses that geometric
 shortfall; the old force response does not establish its resistance.
 
-The complete bracket envelopes remain within the header footprint; their
-existing locations are retained for this initial preview. Screw seating and
-resistance remain part of the current connection review.
+The complete bracket envelopes remain within the header footprint. Listed
+SDS/ML24Z force interactions pass in all six current cases; unlisted separation
+and couple actions are disclosed, not manufacturer-qualified.
 
 ## Relocated upper bolt layout
 
@@ -102,8 +104,8 @@ The candidate retains four half-inch upper bolts and twelve bolt stacks total.
 
 Layout screening uses 7D end distances with the existing 3 mm inward-boundary
 allowance, 4D on both rear-leg depth edges, and the preceding six cases' rim
-load direction (4D loaded, 1.5D unloaded). New joint forces must confirm that
-rim load direction. A screen assuming 4D on both rim edges is more restrictive
+load direction (4D loaded, 1.5D unloaded). Current joint forces and directional
+edge checks are recorded in the six-case evidence. A screen assuming 4D on both rim edges is more restrictive
 and is not claimed to pass for this pair.
 
 ## Relocated runner bolt layouts
@@ -113,8 +115,9 @@ along the normalized Y/Z direction (1, 1). Rear pair: Y/Z = (1551, 69) and
 (1517, 97.5) mm. Both sides mirror these locations through the board width.
 Both runner pairs are screened for 7D end distances, 4D on both depth edges
 and at least 4D pair spacing, with the existing 3 mm boundary allowance.
-Bolt lengths and wood grips are unchanged. These fresh-stock layouts still
-require current joint forces, local resistance and full receiver-fit checks.
+Bolt lengths and wood grips are unchanged. Current joint force, local
+resistance and receiver-fit checks are recorded; delivered bolt dimensions
+and finished-hole positions remain inspection conditions.
 
 ## Preserved construction basis
 

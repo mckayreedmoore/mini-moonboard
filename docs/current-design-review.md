@@ -3,9 +3,12 @@
 The selected candidate is **`compact-floor-flush-development`**: compact 4×6
 legs/rims, compact 2×6 base members, two outboard floor runners, whole kickers,
 the 1:12 rear recess, twelve complete bolt stacks and 66 panel/kicker axes.
-Fresh no-slip cases remain pending. The [MVP master
+Six fresh no-slip cases meet all 36 frozen adopted checks. The
+[authenticated aggregate](floor-runner-mvp-evidence.json), [MVP master
 plan](floor-runner-mvp-master-plan.md) and [criteria
-ledger](floor-runner-mvp-criteria.md) are current authority.
+ledger](floor-runner-mvp-criteria.md) are current authority. Commercial-angle
+separation and independent flange-couple capacities remain unqualified; this
+is not a fabrication release.
 
 ## Preserved spliced flush-top review
 

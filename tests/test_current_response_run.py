@@ -103,5 +103,6 @@ def test_floor_contact_search_changes_one_corner_without_relaxing_other_contacts
             {'name': 'seating_1', 'active': False, 'opening_mm': -.3}]
     assert next_contact_names(rows) == {'floor_post_1', 'floor_post_3', 'seating_1'}
     assert next_contact_names(rows, 'one_per_floor_body') == {'floor_post_3', 'seating_1'}
+    assert next_contact_names(rows, 'one_at_a_time') == {'floor_other_1', 'seating_1'}
     with pytest.raises(ValueError, match='Unknown contact'):
         next_contact_names(rows, 'ignore_contacts')

@@ -8,8 +8,10 @@ posts and rear-leg faces, lower rim ends meet the post/header plane, and leg
 tops meet the rim faces.
 
 The [MVP master plan](floor-runner-mvp-master-plan.md) and [criteria
-ledger](floor-runner-mvp-criteria.md) control completion. Fresh selected-candidate
-no-slip cases and aggregate evidence remain pending. The historical A12-left
+ledger](floor-runner-mvp-criteria.md) control completion. Six fresh selected-candidate
+no-slip cases pass all 36 frozen checks; the [aggregate](floor-runner-mvp-evidence.json)
+and [24-angle demand ledger](floor-runner-mvp-angle-demands.json) retain their
+source identities and disclosed limitations. The historical A12-left
 finite-friction case and every taper/spliced case remain comparison evidence
 only. The projected-seat scalar is preserved as a non-adopted sensitivity;
 actual retained-section, bearing, contact, gross/net, bolt and listed ML24Z

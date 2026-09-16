@@ -132,7 +132,7 @@ def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-develop
 
 
 def next_contact_names(bearings, strategy='all'):
-    """Optionally change one normal contact per floor body to avoid bulk cycling.
+    """Optionally limit normal-contact pivots to avoid bulk cycling.
 
     This changes the active-set search only, not stiffnesses, unilateral gates
     or the rule that tangential support requires a contacting floor body.
@@ -140,6 +140,14 @@ def next_contact_names(bearings, strategy='all'):
     proposed = frame.next_bearing_set(bearings)
     if strategy == 'all':
         return proposed
+    if strategy == 'one_at_a_time':
+        current = {row['name'] for row in bearings if row['active']}
+        changing = [row for row in bearings if (row['name'] in proposed) != (row['name'] in current)]
+        if not changing:
+            return current
+        selected = max(changing, key=lambda row: (abs(row['opening_mm']), row['name']))['name']
+        current.symmetric_difference_update({selected})
+        return current
     if strategy != 'one_per_floor_body':
         raise ValueError('Unknown contact update strategy')
     current = {row['name'] for row in bearings if row['active']}

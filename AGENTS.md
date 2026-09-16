@@ -18,6 +18,11 @@
 - Preserve other contributors' work and verify remote state before publishing.
   History changes require explicit user direction, a local recovery reference
   and verification that only the requested metadata or content changed.
+- Owner exception, September 16, 2026: the unpublished floor-runner MVP handoff
+  commits may be backdated to September 15 outside blocked hours so the owner
+  can share this checkpoint with Chat. Preserve a recovery reference and verify
+  tree/message identity across any timestamp-only rewrite. This one-time
+  exception does not authorize future artificial timestamps.
 
 ## Current hardware decision
 
@@ -348,7 +353,12 @@ twelve outward-facing bolt stacks, 24 ML24Z angles and 66 panel/kicker axes.
 Use `docs/floor-runner-mvp-master-plan.md` and
 `docs/floor-runner-mvp-criteria.md` for current scope and gates.
 
-Fresh no-slip cases and aggregate evidence remain pending. Preserve the old
+Six fresh no-slip cases converge and pass all 36 frozen adopted criteria;
+`docs/floor-runner-mvp-evidence.json` authenticates the aggregate and
+`docs/floor-runner-mvp-angle-demands.json` preserves all 24 station demands in
+each case. A12-forward needed one-contact-at-a-time search after three rejected
+bulk-search attempts; only its converged fourth result supplies force evidence.
+Preserve the old
 finite-friction A12-left case as historical evidence. Its projected-seat scalar
 is a non-adopted sensitivity; do not delete it or use it as a release gate.
 Retained-section, bearing, contact, gross/net member, bolt and listed ML24Z
@@ -375,8 +385,10 @@ design values or complete geometry. CAD intersections confirm all 66 axes enter
 the 139.7 mm wide dimension of nominal 2x6 receivers: nominal penetration after
 the 18.25625 mm panel is 45.24375 mm, leaving 94.45625 mm before the rear face.
 Use the purchased screws within the owner's accepted panel-construction scope,
-but do not transfer SPAX resistance/stiffness or describe the retained SPAX
-viewer/response geometry as the purchased screw. See
+but do not transfer SPAX resistance/stiffness. The viewer now shows 66 nominal
+Hillman-length/#10-body visuals; exact head/thread geometry is unknown, while
+the native response retains its recorded proxy stiffness. Do not equate either
+proxy with product-specific resistance. See
 `docs/current-panel-screw-purchase.md`.
 
 ## Current crash-pad arrangement, September 15, 2026

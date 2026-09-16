@@ -1,10 +1,12 @@
 # Current checkpoint: flush floor-runner development
 
 `compact-floor-flush-development` is selected. Authority promotion, frozen
-criteria and nominal FR-3 shop geometry are complete. Two fresh no-slip cases
-pass 36 adopted checks each; A12-forward fails numerical contact convergence
-after three bounded searches, so the remaining cases and aggregate evidence
-remain pending. See the [case log](floor-runner-mvp-case-log.md). Historical finite-friction, tapered-runner and
+criteria and nominal FR-3 shop geometry are complete. Six fresh no-slip cases
+converge and pass all 36 adopted checks each. A12-forward required a fourth,
+one-contact-pivot search after three rejected bulk-search attempts. The
+[aggregate](floor-runner-mvp-evidence.json) and [case log](floor-runner-mvp-case-log.md)
+record this outcome. Catalog-unlisted ML24Z/SDS separation and flange-couple
+actions remain disclosed limitations, not qualified capacities. Historical finite-friction, tapered-runner and
 spliced-knee results do not transfer. See the [MVP master
 plan](floor-runner-mvp-master-plan.md) and [criteria
 ledger](floor-runner-mvp-criteria.md). This is not a fabrication release.

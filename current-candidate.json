@@ -6,11 +6,19 @@
   "viewer_manifest": "site/hybrid/compact-floor-flush-development/manifest.json",
   "construction_manifest": "docs/floor-flush-construction/manifest.json",
   "geometry": "fea/results/clear-space-floorflush/a12-left/geometry.json",
-  "aggregate_evidence": null,
+  "aggregate_evidence": "docs/floor-runner-mvp-evidence.json",
+  "aggregate_module": "scripts.floor_runner_mvp_evidence",
   "build_package": "docs/floor-flush-build-package.md",
   "completion_plan": "docs/floor-runner-mvp-master-plan.md",
   "hardware_schedule": "docs/floor-flush-construction/bolt-hardware.csv",
-  "recorded_assessments": {},
-  "scope": "Selected engineer-unreviewed floor-runner development under the recorded loads, lumber and catalog-hardware assumptions and the owner's no-slip support assumption. Two fresh cases pass the frozen checks, A12-forward is numerically unresolved, and six-case aggregate evidence remains pending; historical finite-friction and other-candidate cases are not promoted. This is not a fabrication release, manufacturer qualification or unconditional rating.",
+  "recorded_assessments": {
+    "a12-left": "fea/results/floor-runner-mvp/a12-left/flush-checks.json",
+    "a12-rear": "fea/results/floor-runner-mvp/a12-rear/flush-checks.json",
+    "a12-forward": "fea/results/floor-runner-mvp/a12-forward/flush-checks.json",
+    "k12-right": "fea/results/floor-runner-mvp/k12-right/flush-checks.json",
+    "k12-rear": "fea/results/floor-runner-mvp/k12-rear/flush-checks.json",
+    "a1-rear": "fea/results/floor-runner-mvp/a1-rear/flush-checks.json"
+  },
+  "scope": "Six authenticated current floor-runner no-slip cases pass all 36 frozen adopted checks under recorded loads, lumber and catalog-hardware assumptions. ML24Z/SDS separation and parallel-couple capacity remain unlisted; full-root bolt sensitivity fails. This is conditional engineer-unreviewed DIY evidence, not a fabrication release, manufacturer qualification or unconditional rating.",
   "status_document": "docs/current-candidate-status.md"
 }
