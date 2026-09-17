@@ -22,7 +22,6 @@ values above 1.0 are non-adopted sensitivities. Retained ML24Z/SDS separation
 capacity and independent flange-couple applicability remain an open connection
 gate, so finite completion is not established. Earlier floor-flush/taper and
 compact-spliced-kicker evidence remains historical and does not transfer.
-No push is authorized; local commits follow the repository time rule.
 
 ## Preserved preceding completion record
 

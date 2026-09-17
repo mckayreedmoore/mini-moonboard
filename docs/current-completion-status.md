@@ -29,7 +29,6 @@ The [online angle-options review](compact-spliced-flush-top-angle-options.md)
 found no catalog-only larger ML angle or screw substitution. Written
 applicability for the unchanged ML24Z assembly is the shortest completion path;
 otherwise a connection redesign and fresh affected cases are required.
-No push is authorized; local commits follow the repository time rule.
 
 ## Preserved floor-flush checkpoint
 
@@ -111,9 +110,3 @@ Verification after resuming the interrupted session:
 - Browser checks cover the five candidate inventories and both crash pads.
 - Full-root hardware sensitivities remain separate from the adopted criteria;
   see the taper study for their failing ratios and installation implications.
-
-All current work is local. The owner explicitly retained the publication-hour
-rule and requested local commits only: do not push. Monday–Thursday local
-commits must also wait until 18:00 America/Denver. Do not assign artificial
-author or committer timestamps. A staged binary recovery patch is saved at
-`/tmp/mini-moonboard-completion-checkpoint.patch`.

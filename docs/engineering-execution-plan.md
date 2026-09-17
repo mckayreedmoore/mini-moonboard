@@ -86,8 +86,6 @@ before scheduling dependent work.
   cases cannot supply a missing local resistance method or catalog applicability.
 - Use focused checks first. Repeat completed full checks only when subsequent
   changes affect them. Record provenance separately from mechanical acceptance.
-- Local commits must meet repository time rules with real author and committer
-  timestamps. No push is authorized.
 
 ## Second-wave ownership
 

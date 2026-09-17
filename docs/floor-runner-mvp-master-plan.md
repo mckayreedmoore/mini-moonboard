@@ -116,10 +116,6 @@ criteria work passes.
 - Keep documentation and viewer language precise: selected development,
   conditional DIY package, no manufacturer qualification, no unconditional
   fabrication or climber rating.
-- The owner authorized a one-time September 16 handoff publication with
-  September 15 author and committer timestamps outside blocked hours. Preserve
-  a local recovery reference and verify metadata-only rewrites before pushing.
-  The ordinary time rule and push-authorization requirement resume afterward.
 
 ## Completion checklist
 
