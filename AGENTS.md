@@ -345,9 +345,12 @@ No fabrication release or unconditional rating is established.
 The September 15 public-product search found no catalog-only larger ML angle or
 screw substitution that closes the gate. ML26Z/ML28Z/ML210Z add screws but do
 not add a bearing F2 or moment/couple rating; substituting another screw loses
-the published ML assembly. Keep written applicability for the unchanged detail
-as the MVP route. Any physical replacement changes connection geometry or
-stiffness and requires current CAD/resistance checks and fresh affected cases.
+the published ML assembly. For the current floor-runner MVP, follow
+`docs/floor-runner-mvp-master-plan.md`: listed interactions must pass, while
+unlisted actions remain disclosed without assigned capacity. Written
+manufacturer applicability is not an additional FR-8 prerequisite. Any
+physical replacement changes connection geometry or stiffness and requires
+current CAD/resistance checks and fresh affected cases.
 See `docs/compact-spliced-flush-top-angle-options.md`.
 
 ## Purchased panel screws, September 15, 2026

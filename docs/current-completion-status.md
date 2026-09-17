@@ -11,6 +11,12 @@ spliced-knee results do not transfer. See the [MVP master
 plan](floor-runner-mvp-master-plan.md) and [criteria
 ledger](floor-runner-mvp-criteria.md). This is not a fabrication release.
 
+The [floor-runner completion ledger](floor-runner-mvp-completion-ledger.md)
+records the six-case result, all 36 adopted identifiers and open observations.
+FR-7 artifacts were rebuilt; selected-candidate browser interaction remains
+the FR-8 task. Post-edit verification is in the ledger. Historical records
+below do not transfer.
+
 ## Preserved spliced flush-top checkpoint
 
 The following checkpoint is historical and describes
@@ -32,9 +38,9 @@ otherwise a connection redesign and fresh affected cases are required.
 
 ## Preserved floor-flush checkpoint
 
-The following is historical. References to current selection, unfinished gates
-or verification counts apply to the preceding floor-flush investigation, not
-the compact spliced flush-top candidate above.
+The following is historical. Its references to current selection, unfinished
+gates, verification totals and browser checks describe the earlier
+finite-friction floor-flush investigation, not the six-case no-slip MVP.
 
 ### Revised native checkpoint
 

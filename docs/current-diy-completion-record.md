@@ -7,7 +7,15 @@ panel/kicker axes. Authority and criteria are frozen. Six fresh no-slip cases
 meet all 36 adopted checks in the [authenticated aggregate](floor-runner-mvp-evidence.json).
 The [MVP master plan](floor-runner-mvp-master-plan.md) retains final verification
 and installation checks. Unrated commercial-angle separation and independent
-flange couples prevent fabrication release.
+flange couples remain disclosed limitations under the master plan, not
+qualified capacities or automatic redesign prerequisites. This is not a
+fabrication release.
+
+The [floor-runner completion ledger](floor-runner-mvp-completion-ledger.md)
+records all 36 adopted checks, installation controls and analytical limits.
+FR-7 artifacts were rebuilt; selected-candidate browser interaction remains
+the FR-8 task. Post-edit verification is in the ledger. Historical records
+below do not transfer.
 
 ## Preserved spliced flush-top completion record
 

@@ -1,5 +1,15 @@
 # Flush floor-beam fabrication budget review
 
+> Historical dimensional-budget review with retained inspection rules. Some
+> closure statements below describe the earlier checkpoint. Current authority
+> is the [floor-runner MVP master plan](floor-runner-mvp-master-plan.md): FR-3
+> nominal receiver, washer-seat and paired-fixture checks are complete, and
+> all six fresh no-slip cases pass 36 adopted checks. Actual delivered-item
+> and finished-work observations remain unperformed by the repository. The
+> rejected independent ±1 mm hole-position envelope is a historical
+> counterexample, not the adopted front-pair rule. See the
+> [completion ledger](floor-runner-mvp-completion-ledger.md).
+
 **Development review only. The recorded independent drilling-error envelope
 does not preserve the front bolt-pair spacing screen. The shop acceptance rules
 below define the FR-3 inspection limits; they do not constitute a fabrication

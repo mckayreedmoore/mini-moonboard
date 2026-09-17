@@ -1,6 +1,6 @@
 # Flush-end floor-beam revision
 
-**Selected development geometry: fabrication release is pending.**
+**Selected conditional DIY development; not a fabrication release.**
 
 Current work is governed by the [floor-runner MVP master
 plan](floor-runner-mvp-master-plan.md) and [frozen criteria
@@ -8,6 +8,9 @@ ledger](floor-runner-mvp-criteria.md). [Six fresh no-slip cases](floor-runner-mv
 converge and meet all 36 frozen checks. The [24-angle ledger](floor-runner-mvp-angle-demands.json)
 records unlisted separation and parallel-couple demands without assigning
 catalog capacity. The finite-friction A12-left result below is historical.
+The [completion ledger](floor-runner-mvp-completion-ledger.md) separates
+calculated and nominal artifact evidence from browser checks, installation
+observations and analytical limitations.
 
 `compact-floor-flush-development` implements the owner's requested finish of
 `compact-floor-taper-development`: floor-runner front ends terminate at the
@@ -67,7 +70,7 @@ remain non-structural and viewer/layout items.
 
 ## Historical finite-friction force evidence
 
-The fresh A12-left case converged with 72 explicit timber face contacts and
+The historical finite-friction A12-left case converged with 72 explicit timber face contacts and
 18 clearance monitors. Its [assessment](floor-flush-a12-left-assessment.json)
 meets 37 of 38 implemented criteria, with bolt lateral ratio 0.8792 and sampled
 net-member ratio 0.7488. Its historical rim projected-seat scalar is negative

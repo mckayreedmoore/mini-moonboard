@@ -2,11 +2,11 @@
 
 **Current selected-development draft; not a fabrication release.**
 The [build-package status](floor-flush-build-package.md) controls this guide.
-Six fresh no-slip cases pass the frozen numerical checks; nominal CAD/shop
-geometry is screened. Delivered-hardware inspection, fabrication controls and
-disclosed ML24Z/SDS unlisted actions remain. The sequence
-below makes the proposed build reviewable; it does not authorize cutting or
-using the frame before those gates are resolved.
+Six fresh no-slip cases pass all 36 frozen adopted checks, and nominal FR-3
+CAD/shop geometry is complete. Delivered hardware and fabricated work still
+require inspection. Catalog-unlisted ML24Z/SDS actions are disclosed limits,
+not additional capacity passes. This proposed sequence does not authorize
+fabrication. See the [completion ledger](floor-runner-mvp-completion-ledger.md).
 
 ## Use one matching model
 
@@ -155,20 +155,21 @@ scrap should decide the method, not an unsupported freehand pass.
 Use the saw's operating instructions and functioning guards. OSHA's
 [handheld-saw guidance](https://www.osha.gov/etools/machine-guarding/saws/handheld)
 identifies the upper/retracting lower guards and directs the blade away from
-nearby people. No step here calls for defeating a guard. Final cut allowances
-and inspection limits still need to be established before fabrication.
+nearby people. No step here calls for defeating a guard. Recorded FR-3 rules
+govern nominal fit and fixture acceptance; actual stock, saw setup, finished
+cuts and hardware still require the documented shop observations.
 
-## Proposed assembly sequence after release gates close
+## Proposed assembly sequence subject to recorded installation controls
 
 1. **Freeze the packet.** Record the selected model identifier and manifest;
    verify all cut sheets, hardware schedule and instructions describe that same
-   revision. Resolve the adopted fresh-case, shop and taper-limit checks before
-   cutting stock.
-2. **Receive and label stock.** Check actual sections against the released
+   revision. Confirm the matching case evidence and apply the documented stock,
+   cut, hole and delivered-hardware controls before cutting stock.
+2. **Receive and label stock.** Check actual sections against the documented
    minimums, identify grain direction and damaged connection regions, and label
    the mirrored member faces. Lay out from the final member-local datums.
 3. **Make profiles before joint drilling.** Cut the feet, proposed flush ends
-   and continuous recess tapers from the released sheets. Check the remaining
+   and continuous recess tapers from the matching current sheets. Check the remaining
    sections and end geometry before placing holes. Retain full kicker outlines.
 4. **Dry-assemble the base and side joints on a flat support.** Locate the
    header/posts, rims, legs and outboard runners. Verify the 277 mm main-face
@@ -200,8 +201,8 @@ and inspection limits still need to be established before fabrication.
    carry no frame load and are excluded from structural mass.
 9. **Record the final inspection.** Check hardware counts, flush faces, retained
    sections, hole locations, washer seating, intended contacts/gaps and wiring
-   access against the released packet. Record departures for assessment rather
-   than silently modifying the joint. Recheck loose hardware, split wood or
+   access against the matching current packet. Record departures for assessment
+   rather than silently modifying the joint. Recheck loose hardware, split wood or
    crushed seats after initial settling, relocation or unusual impact.
 
 The endpoint remains conditional, engineer-unreviewed DIY under the documented
@@ -209,5 +210,7 @@ loads, material and explicit no-slip floor support assumption. Normal floor
 contact may open. This assumption does not qualify floor friction or imply an
 installed anchor; earlier per-cell Coulomb cases remain historical evidence.
 The [fabrication review](floor-flush-fabrication-review.md) records the current
-dimensional budgets and the unresolved drilling-error envelope. This sequence adds no floor
-friction test, panel requalification campaign or external signoff requirement.
+dimensional budgets and the historical independent-error counterexample; the
+adopted paired-fixture rule is in the criteria ledger and FR-3 shop checks.
+This sequence adds no floor-friction test, panel requalification campaign or
+external signoff requirement.

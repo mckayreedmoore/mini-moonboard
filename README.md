@@ -17,8 +17,11 @@ plan](docs/floor-runner-mvp-master-plan.md) and [frozen criteria
 ledger](docs/floor-runner-mvp-criteria.md). Fresh selected-candidate no-slip
 cases now converge and pass all 36 frozen adopted criteria; see the
 [six-case aggregate](docs/floor-runner-mvp-evidence.json) and
-[angle-demand ledger](docs/floor-runner-mvp-angle-demands.json). Catalog-unlisted
-ML24Z separation/couple actions remain disclosed, not manufacturer-qualified.
+[angle-demand ledger](docs/floor-runner-mvp-angle-demands.json). The
+[completion ledger](docs/floor-runner-mvp-completion-ledger.md) separates
+calculated passes from remaining verification and installation observations.
+Catalog-unlisted ML24Z separation/couple actions remain disclosed, not
+manufacturer-qualified.
 Historical finite-friction,
 taper-runner and spliced-knee results are preserved but do not transfer.
 
@@ -39,8 +42,8 @@ Select individual timber or hardware, orbit the assembly, hide panels and use
 the crash-pad toggle to inspect the two 48 x 72 x 5-inch pads. They sit side by
 side, so their center seam runs front to back. Pads are excluded
 from frame weight and structural supports. The default now shows the flush
-revision; older designs remain in the menu. Current work has not been pushed,
-so the public website may still show the preceding design.
+revision; older designs remain in the menu. Repository `master` records the
+floor-runner checkpoint; deployment and browser behavior need separate checks.
 
 The [assembly STEP](site/hybrid/compact-floor-flush-development/assembly.step)
 and [part inventory](site/hybrid/compact-floor-flush-development/parts.json)
@@ -79,9 +82,10 @@ uv run pytest -q
 ```
 
 Use exporter `--root /path/to/empty-directory` for a standalone geometry bundle.
-For a fresh load case, use
-`uv run python -m scripts.compact_spliced_flush_top_study --output fea/generated/your-new-case --hold A12 --horizontal -300 0`.
-This runs the stated scenario; numerical convergence does not release the design.
+Current force evidence is the [authenticated six-case
+archive](docs/floor-runner-mvp-evidence.json). FR-8 documentation and viewer
+verification require no new native solves. The historical spliced-flush-top
+study command does not reproduce the selected floor-runner candidate.
 The [candidate authority](current-candidate.json) ties the selected modules,
 package, hardware schedule and recorded assessment references together. Its
 checker verifies configuration consistency, not structural acceptance; exact

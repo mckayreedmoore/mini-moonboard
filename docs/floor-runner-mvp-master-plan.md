@@ -76,8 +76,8 @@ criteria work passes.
 | FR-4 | Run a fresh exact A12-left case using the current no-slip producer and frozen criteria. Preserve the old finite-friction archive as history; do not relabel or promote it. Record the new authenticated sources and assessment. | FR-2–FR-3 | Complete: 14-cycle convergence; all 36 adopted checks pass in [fresh case log](floor-runner-mvp-case-log.md) |
 | FR-5 | Run the five other exact floor-flush cases in two bounded batches. Stop only for non-convergence, an adopted ratio above 1.0, failed exact geometry, or a missing physical load path. Save authenticated sources and case assessments. | FR-4 passes | Complete: all six cases converge and pass 36/36 frozen checks; A12-forward required 69 one-contact-pivot cycles after three rejected bulk-search attempts |
 | FR-6 | Consolidate the six-case governing ledger, including member/bolt/contact results and all 24 ML24Z listed interactions plus unlisted separation/couple demands. Record the limitations; do not restart catalog replacement research. | FR-5 | Complete: [aggregate](floor-runner-mvp-evidence.json) and [144-station-case angle demands](floor-runner-mvp-angle-demands.json); no unlisted capacity claim |
-| FR-7 | Rebuild the matching viewer, manifests, construction sheets, stock/hardware schedule and assembly guide. Show the two 4x6 pads with front-to-back seam and list the owned Hillman panel screws. Remove obsolete 3x8 pad and SPAX purchase instructions from current floor-runner artifacts. | FR-3; force-dependent content waits for FR-6 | Complete: nominal viewer and construction artifacts rebuilt and authenticated; six-case force evidence and limits linked, with no fabrication release |
-| FR-8 | Run focused tests, full non-historical suite, Ruff, CAD/export rebuilds, browser/viewer checks and one independent gate review. Publish a local completion ledger naming every passed criterion, installation inspection and disclosed limitation. | FR-6–FR-7 | In progress: 805 tests pass (16 historical deselected), Ruff and export rebuild pass; independent review findings addressed. Browser interaction and final completion ledger remain pending. |
+| FR-7 | Rebuild the matching viewer, manifests, construction sheets, stock/hardware schedule and assembly guide. Show the two 4x6 pads with front-to-back seam and list the owned Hillman panel screws. Remove obsolete 3x8 pad and SPAX purchase instructions from current floor-runner artifacts. | FR-3; force-dependent content waits for FR-6 | Complete: matching nominal viewer, manifests, construction sheets, schedules and assembly guide rebuilt and authenticated. Selected-candidate browser interaction remains an FR-8 check. |
+| FR-8 | Run focused tests, full non-historical suite, Ruff, CAD/export rebuilds, browser/viewer checks and one independent gate review. Publish a local completion ledger naming every passed criterion, installation inspection and disclosed limitation. | FR-6–FR-7 | In progress: [completion ledger](floor-runner-mvp-completion-ledger.md) drafted; post-edit verification: 792 tests passed (16 historical deselected), Ruff/export rebuild passed and independent review findings addressed. Partial selected-candidate browser smoke passed; interaction closure remains pending. |
 
 ## Evidence already earned
 
@@ -92,10 +92,12 @@ criteria work passes.
   checks. They are comparison evidence only and do not replace FR-5.
 - The front, rear and upper nominal bolt stacks have documented shank/thread
   budgets. Delivered pieces still require inspection.
-- Current commercial-angle listed interactions are below 1.0 in the saved first
-  floor-flush case. The catalog does not rate the complete separation/couple
-  wrench, and the commercial replacement search found no drop-in solution for
-  all 24 stations.
+- Listed ML24Z force interactions pass in all six fresh no-slip cases. The
+  governing interaction is 0.569078134 at `clip_single_top_right_2` in K12
+  rear. Separation and independent force-parallel flange couples remain
+  catalog-unlisted and disclosed without assigned resistance. See the
+  [aggregate](floor-runner-mvp-evidence.json) and
+  [angle demands](floor-runner-mvp-angle-demands.json).
 - All six fresh selected no-slip cases converge and meet all 36 frozen adopted
   criteria. The first three A12-forward contact searches were rejected; a
   fourth search converged under unchanged physical assumptions and acceptance
@@ -125,7 +127,13 @@ criteria work passes.
 - [x] Six exact cases converge and meet every adopted numerical criterion.
 - [x] Commercial-angle listed interactions pass and unlisted actions are plainly
   disclosed without a false catalog qualification.
-- [ ] Viewer shows the exact frame, Hillman panel screws and two 4x6 pads.
-- [ ] Construction package and assembly guide match the selected model.
-- [ ] Tests, lint, CAD/export, browser checks and independent review pass.
-- [ ] Final ledger states the conditional claim and every owner/shop inspection.
+- [x] Nominal viewer artifacts include the selected frame, 66 Hillman
+  panel/kicker screw visuals and two 48 × 72 × 5-inch pads.
+- [x] Construction artifacts and assembly guide were rebuilt for the selected
+  model; delivered-item inspections remain separate.
+- [x] Checkpoint verification records 805 tests passed, 16 historical tests
+  deselected, Ruff/export rebuild passed and independent review findings addressed.
+- [x] [Completion ledger](floor-runner-mvp-completion-ledger.md) records the
+  conditional claim, adopted passes, installation controls and disclosed limits.
+- [ ] Selected-candidate browser interaction is performed and recorded.
+- [x] Post-edit verification is rerun and its results recorded in the ledger.
