@@ -185,27 +185,31 @@ authenticated archive. Adopted Boolean status comes from
 `flush-checks.json.criteria`; the aggregate's `first_stage_metrics` are the
 separate `checks.json` snapshot.
 
-## Recorded verification and remaining FR-8 work
+## Recorded verification and FR-8 work
 
 The [master plan](floor-runner-mvp-master-plan.md) records FR-1/FR-2 selection
 and criteria, FR-3 nominal CAD/shop checks, FR-4–FR-6 authenticated cases and
 demands, and FR-7 rebuilt viewer/construction artifacts. The prior checkpoint
 recorded **805 tests passed, 16 historical tests deselected**, Ruff and
 CAD/export rebuild passed, and independent review findings addressed. That
-review is not professional engineering sign-off. This ledger's creation did
-not itself rerun those commands.
+review is not professional engineering sign-off. The 805-pass and later
+792-pass records are historical run results, not targets. This handoff reran
+the commands below after the shop-document edit.
 
-Selected-candidate browser smoke loaded all 725 CAD meshes at
-`?model=compact-floor-flush-development&view=rear`, with no page errors or
-failed mesh requests observed. Inventory inspection found twelve bolt-stack
-connection names, both floor rails and two separate pads. Pad toggle hid the
-pads once; restoration and representative hardware selection were not
-completed. Current document links, including this ledger, appeared in the
-viewer. This is a partial browser check, not FR-8 browser completion.
-Historical browser records for other candidates do not transfer. Post-edit
-focused tests, the default non-historical suite, Ruff, selected export
-comparison, viewer module syntax and `git diff --check` passed as recorded
-below. No native solve was rerun.
+Selected-candidate browser interaction was completed against the already
+running `python -m http.server 8767 --directory site` using Chromium on
+`?model=compact-floor-flush-development&view=rear` and the default URL.
+Both URLs selected `compact-floor-flush-development`. The page loaded the
+725-part inventory from the current manifest: twelve bolt stacks (60 bolt
+pieces), 24 clip angles, 66 Hillman panel/kicker axes in the design record,
+210 screw meshes (144 SDS + 66 Hillman), 142 T-nuts, and zero pads in CAD
+inventory. Two viewer-only 48 × 72 × 5 in pads with a front-to-back seam
+toggled off and back on. Representative hardware `lumber_leg_bolt_left_1`
+showed the 5-piece stack with wood hidden, then restored the full assembly.
+Panel hide/restore succeeded. Nine current document links appeared. No page
+errors or failed requests were observed. Pads remain distinct from CAD
+hardware. Historical spliced-knee helper results were not used. No native
+solve was rerun.
 Do not change archived JSON merely to remove case-local `OPEN` labels: each
 assessment covers one case, while the authenticated aggregate establishes the
 complete six-case set.
@@ -213,8 +217,9 @@ complete six-case set.
 ## Receiving and installation observations
 
 The repository has not measured actual wood, cuts, finished holes, delivered
-hardware, pads or floor. The [criteria ledger](floor-runner-mvp-criteria.md)
-and [assembly guide](floor-flush-assembly-guide.md) control these owner/shop
+hardware, pads or floor. The [criteria ledger](floor-runner-mvp-criteria.md),
+[assembly guide](floor-flush-assembly-guide.md) and
+[shop checklist](floor-flush-shop-checklist.md) control these owner/shop
 observations; nominal CAD passes do not fill them in.
 
 | Item | Control | Status |
@@ -236,6 +241,27 @@ These are conditional budgets, not guaranteed delivered dimensions or spare
 timber-oversize allowances. No floor-friction measurement or floor test is
 added; actual no-slip support remains an unverified assumption.
 
+## Shop-instruction audit (FR-8 handoff)
+
+Reviewed source revision `cd671b117b7e972c35f7d2d51d6ae060486a388e`. The
+[shop checklist](floor-flush-shop-checklist.md) consolidates existing
+instructions. It does not change geometry, criteria or evidence.
+
+| Class | Finding | Evidence | Correction | Who / when |
+| --- | --- | --- | --- | --- |
+| A, closed | Bolt finished-hole instruction was not stated in the current assembly guide (“use the final specified bore/pilot dimensions”) even though NDS §12.1.3 and the CSV diameters already exist. | [Former assembly-guide step 5](floor-flush-assembly-guide.md); [compact-spliced-build-package.md](compact-spliced-build-package.md) NDS range; `bolt-hardware.csv` 14.2875 / 11.1125 mm | Checklist and assembly guide now state D+1/32 to D+1/16, with CAD as the upper end. | Closed in this handoff |
+| A, closed | Front-pair rule existed without a practical registration method. | [Criteria](floor-runner-mvp-criteria.md) `front_pair_fixture`; [fabrication review](floor-flush-fabrication-review.md) | Checklist/guide: dry-fit, rigid 39.5 mm fixture, pins in finished holes. Rule unchanged. | Closed in this handoff |
+| A, closed | SDS wood-lead-hole and template instruction lived in historical notes, not the current shop sequence. | [panel-screw-necessity.md](panel-screw-necessity.md); [ml24z-qualification.md](ml24z-qualification.md) | Checklist/guide: no routine wood predrill; 5/32 in only where required; use purchased angle holes. | Closed in this handoff |
+| A, conditional | Hillman 42605 has no published pilot/countersink. Driving may proceed only without an unpublished hole. | [Purchase record](current-panel-screw-purchase.md) | Named as a stop if a guessed hole is required. Do not invent a diameter. | Owner/product data if driving without a pilot fails |
+| B | All receiving and fabricated-work measurements. | This ledger’s observation table; checklist Actual/Disposition columns | Leave blank until observed. | Owner/builder at receiving and fabrication |
+| C | Unlisted ML24Z actions; full-root sensitivity >1.0; no-slip floor assumption; recess local-fracture method limit. | [Criteria](floor-runner-mvp-criteria.md); [aggregate](floor-runner-mvp-evidence.json) | Unchanged disclosures. | Not a shop measurement |
+| D | Generated construction README still says resistance/fabrication gates remain open. `connection-axes.csv` Hillman `modeled_length_mm` remains 50.8 mm (historical SPAX occupancy). | [`scripts/floor_flush_construction.py`](../scripts/floor_flush_construction.py) README writer; CSV rows | Do not hand-edit authenticated artifacts. Smallest later patch is the generator string plus a Hillman-length note in the writer, then regenerate. Checklist already warns not to use 50.8 mm as purchased length. | Separate generator revision if needed |
+
+No remaining Class A item blocks a specified cut or bolt-hole operation under
+the recorded assumptions. Hillman driving stops only if a product-specific
+hole is required. Viewer completion is separate from shop-instruction
+readiness.
+
 The nominal rear-leg cut-face stress inference, finite section/contact
 sampling, contact penalty idealization and historical approximately −4.970 mm
 projected-seat result remain disclosed limitations or non-adopted diagnostics
@@ -250,14 +276,19 @@ result.
 - [x] Separate passes, non-adopted sensitivities, analytical limits and shop
   observations.
 - [x] Preserve checkpoint verification and archive-view discrepancies accurately.
-- [ ] Complete selected-candidate browser interaction: pad restoration,
-  representative hardware selection and remaining visual checks. Partial
-  725-mesh load, error check, first pad toggle and document-link check recorded.
-- [x] Post-edit verification: focused aggregate tests 2 passed; default suite
-  792 passed, 16 historical deselected; Ruff passed; selected export comparison
-  passed; viewer module syntax and `git diff --check` passed. The 13-test
-  difference from the earlier 805-pass checkpoint is removal of the obsolete
-  publication-window test after its hook was removed.
+- [x] Complete selected-candidate browser interaction: pad hide/restore,
+  representative hardware `lumber_leg_bolt_left_1`, panel hide/restore, rear
+  and default URLs, document links, 725-part inventory and error/failed-request
+  check. No page errors; no failed requests.
+- [x] Shop-instruction handoff: [shop checklist](floor-flush-shop-checklist.md)
+  written; assembly guide/build package point to the staged cut/drill/assembly
+  checks. Inspection Actual/Disposition cells remain blank.
+- [x] Post-handoff verification (this edit, not the historical 805-pass or the
+  earlier 792-pass checkpoint): focused aggregate tests **2 passed**; default
+  non-historical suite **792 passed, 16 historical deselected**; Ruff passed;
+  `uv run python -m scripts.current_candidate --check-exports` reported
+  `configuration_consistent: true`; `git diff --check` passed. No design,
+  evidence JSON, construction artifact or viewer export files were modified.
 
 FR-8 documentation/software closure would not certify installed work, supply
 unlisted ML24Z capacities or establish fabrication release or a climber rating.

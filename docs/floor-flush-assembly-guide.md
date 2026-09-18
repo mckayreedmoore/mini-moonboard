@@ -3,10 +3,11 @@
 **Current selected-development draft; not a fabrication release.**
 The [build-package status](floor-flush-build-package.md) controls this guide.
 Six fresh no-slip cases pass all 36 frozen adopted checks, and nominal FR-3
-CAD/shop geometry is complete. Delivered hardware and fabricated work still
-require inspection. Catalog-unlisted ML24Z/SDS actions are disclosed limits,
-not additional capacity passes. This proposed sequence does not authorize
-fabrication. See the [completion ledger](floor-runner-mvp-completion-ledger.md).
+CAD/shop geometry is complete. The [shop checklist](floor-flush-shop-checklist.md)
+is the staged cut/drill/assembly handoff. Delivered hardware and fabricated
+work still require inspection. Catalog-unlisted ML24Z/SDS actions are disclosed
+limits, not additional capacity passes. This proposed sequence does not
+authorize fabrication. See the [completion ledger](floor-runner-mvp-completion-ledger.md).
 
 ## Use one matching model
 
@@ -19,6 +20,8 @@ historical references, not current drilling templates. The [current draft constr
 member-local cut/bolt sheets. Verify its manifest, scale-verification marks and
 profile annotations before treating any drawing as a template; draft sheets
 do not close delivered-item inspection or fabrication-allowance conditions.
+The [shop checklist](floor-flush-shop-checklist.md) maps each operation to those
+sheets.
 
 Assembly coordinates are millimetres: X spans the board, Z is height above the
 floor, and Y runs front to rear. X = 0 is the board centre. Label left/right,
@@ -70,7 +73,7 @@ per bolt, with heads inward and nuts/threaded tips outward.
 | 16 | ⅜-inch Grade 5 USS washers | Bolt Depot 15023 reference |
 | 24 | Simpson ML24Z angles | All retained commercial timber connections |
 | 144 | Specified SDS25112 screws | Six per ML24Z; no generic substitution |
-| 66 | Fas-n-Tite/Hillman 42605 #10 × 2-1/2-inch deck screws | 48 main-panel screws and nine per kicker; accepted panel scope only |
+| 66 | Fas-n-Tite/Hillman 42605 #10 × 2-1/2-inch deck screws | 48 main-panel screws and nine per kicker; accepted panel scope only; CSV `modeled_length_mm` 50.8 mm is not this length |
 | 142 | Modeled owned-type Escape T-nuts | Accepted panel basis; not 142 additional through-bolts |
 | 2 | Crash pads, each 48 × 72 × 5 inches | Side by side; front-to-back centre seam; separate from structural support and frame mass |
 
@@ -125,8 +128,13 @@ harness and connector clearances, with no invented electrical shopping list.
 - For each mirrored front runner/post pair, use one registered paired-hole
   fixture and inspect finished centres. Accept 39.0–40.0 mm pitch, pair
   midpoint within 0.5 mm of datum, and each hole within 0.5 mm perpendicular to
-  the pair line. Reject and reassess any failure; never elongate a hole. Apply
-  the corresponding receiver and washer checks to the rear and upper pairs.
+  the pair line. Practical registration: dry-fit the runner and outer post,
+  make a rigid two-hole fixture at 39.5 mm along the sheet pair line, clamp
+  through both members, drill from one side with a guide, then measure finished
+  centres with pins in the holes (calipers for pitch, rule for midpoint, square
+  for perpendicular offset). Reject and reassess any failure; never elongate a
+  hole. Apply the corresponding receiver and washer checks to the rear and
+  upper pairs; those pairs have no separate 39.0–40.0 mm pitch rule.
 
 - Inspect each 1:12 recess and its transition before drilling. Stock must be
   sound and check-free, the transition smooth and continuous, and the cut free
@@ -164,7 +172,8 @@ cuts and hardware still require the documented shop observations.
 1. **Freeze the packet.** Record the selected model identifier and manifest;
    verify all cut sheets, hardware schedule and instructions describe that same
    revision. Confirm the matching case evidence and apply the documented stock,
-   cut, hole and delivered-hardware controls before cutting stock.
+   cut, hole and delivered-hardware controls on the
+   [shop checklist](floor-flush-shop-checklist.md) before cutting stock.
 2. **Receive and label stock.** Check actual sections against the documented
    minimums, identify grain direction and damaged connection regions, and label
    the mirrored member faces. Lay out from the final member-local datums.
@@ -177,23 +186,37 @@ cuts and hardware still require the documented shop observations.
    Temporarily support the frame against movement while it lacks its complete
    connections; panels and crash pads are not temporary structural props.
 5. **Lay out all twelve bolts from the current sheets.** Verify edge/end
-   distances on actual timber, washer-seat clearance and drilling access. Use
-   the final specified bore/pilot dimensions; CAD occupied diameters are not
-   bit instructions. Apply the paired-hole acceptance rule above. Do not
-   elongate holes to pull misaligned parts together.
+   distances on actual timber, washer-seat clearance and drilling access. CAD
+   occupied diameters are not bit catalog numbers. Finished bolt holes follow
+   [NDS §12.1.3](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf):
+   D+1/32 to D+1/16 inch. The CSV/CAD values 14.2875 mm (½-inch) and
+   11.1125 mm (⅜-inch) are the upper end of that range. Measure the finished
+   hole. Apply the paired-hole acceptance rule above. Do not elongate holes to
+   pull misaligned parts together. The staged schedule is in the
+   [shop checklist](floor-flush-shop-checklist.md).
 6. **Install complete bolt stacks and all angle screws.** Confirm smooth-body
    coverage, usable nut threads and full washer seating. Seat snugly without
    crushing the timber; no generic steel-joint torque is assigned. Existing
    outer angle centres remain at Y = −105.85; listed-force checks pass, but
    unlisted separation and flange-couple demands have no catalog capacity.
+   Drive SDS25112 with a 3/8-inch hex on a low-speed 1/2-inch drill, using the
+   purchased ML24Z holes as the template. Manufacturer wood predrill is not
+   required; a 5/32-inch bit is only the catalog instruction *where predrilling
+   is required*. Do not predrill all wood from CAD and then offer the angle up
+   to unmatched holes. Hillman screws are not SDS replacements.
 7. **Complete rails, principals and panel installation.** Keep the split centre
    service corridor, accepted T-nut construction, and independent panel seams.
    Use all 66 panel/kicker screws. The lower post kicker row is Z = 60 mm;
-   retain the upper-post and header rows. The tight upper-row receiver detail
-   requires its [placement instructions](kicker-screw-placement-review.md).
+   retain the upper-post and header rows. Mark the upper post row from the
+   actual post top; do not round it upward. Axis coordinates remain those in
+   the [placement review](kicker-screw-placement-review.md); SPAX lead-hole,
+   drive and end-distance product rules do not transfer to Hillman 42605.
    Confirm all 66 Hillman 42605 axes are contained in their receivers and no
-   tip protrudes. These purchased screws are limited to the accepted panel and
-   kicker scope; SPAX capacity or stiffness does not transfer.
+   tip protrudes. No product-specific Hillman pilot or countersink is
+   published: establish a flush head on an offcut without crushing veneer, and
+   stop that operation if a guessed hole is required. `connection-axes.csv`
+   `modeled_length_mm` 50.8 mm is a historical occupied envelope, not the
+   purchased 63.5 mm length.
 8. **Route services and install pads.** Keep the harness clear of bolt tips and
    preserve LED passages. Place two 48 × 72 × 5-inch pads side by side, spanning
    96 inches across by 72 inches in floor depth, with the centre seam running

@@ -35,13 +35,16 @@ drilling or cut release follows from the numerical pass.
 
 ## Workshop planning and procurement
 
-The [candidate-specific assembly guide](floor-flush-assembly-guide.md) consolidates
-the 20 timber pieces, six panels, 24 angles, 144 angle screws, 66 panel screws
-and twelve complete bolt stacks. It records the current cut datums, saw options,
-delivered-hardware checks and proposed assembly order. It is a reviewable draft;
+The [candidate-specific assembly guide](floor-flush-assembly-guide.md) and
+[shop checklist](floor-flush-shop-checklist.md) consolidate the 20 timber
+pieces, six panels, 24 angles, 144 angle screws, 66 panel screws and twelve
+complete bolt stacks. They record the current cut datums, hole-type
+instructions, saw options, delivered-hardware checks and proposed assembly
+order. They are conditional DIY shop documentation, not a fabrication release;
 the [current construction sheets](floor-flush-construction/), supported
-fabrication allowances and disclosed unlisted bracket actions must be reviewed
-together before release.
+fabrication allowances and disclosed unlisted bracket actions must be used
+together. Actual receiving and fabricated-work observations remain blank until
+the owner records them.
 
 ## FR-3 shop acceptance rules
 
@@ -66,7 +69,8 @@ transition, no overcut, and no split or damaged bearing surface. Reject or
 reassess defects. Contain all 66 purchased Hillman 42605 panel/kicker screws in
 their receivers with no tip protrusion; do not transfer SPAX capacity claims.
 Place two 48 × 72 × 5 inch pads side by side with the seam front-to-back; pads
-remain non-structural and viewer/layout items.
+remain non-structural and viewer/layout items. Record those observations on the
+[shop checklist](floor-flush-shop-checklist.md); do not fill the form from CAD.
 
 ## Historical finite-friction force evidence
 

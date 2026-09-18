@@ -77,7 +77,7 @@ criteria work passes.
 | FR-5 | Run the five other exact floor-flush cases in two bounded batches. Stop only for non-convergence, an adopted ratio above 1.0, failed exact geometry, or a missing physical load path. Save authenticated sources and case assessments. | FR-4 passes | Complete: all six cases converge and pass 36/36 frozen checks; A12-forward required 69 one-contact-pivot cycles after three rejected bulk-search attempts |
 | FR-6 | Consolidate the six-case governing ledger, including member/bolt/contact results and all 24 ML24Z listed interactions plus unlisted separation/couple demands. Record the limitations; do not restart catalog replacement research. | FR-5 | Complete: [aggregate](floor-runner-mvp-evidence.json) and [144-station-case angle demands](floor-runner-mvp-angle-demands.json); no unlisted capacity claim |
 | FR-7 | Rebuild the matching viewer, manifests, construction sheets, stock/hardware schedule and assembly guide. Show the two 4x6 pads with front-to-back seam and list the owned Hillman panel screws. Remove obsolete 3x8 pad and SPAX purchase instructions from current floor-runner artifacts. | FR-3; force-dependent content waits for FR-6 | Complete: matching nominal viewer, manifests, construction sheets, schedules and assembly guide rebuilt and authenticated. Selected-candidate browser interaction remains an FR-8 check. |
-| FR-8 | Run focused tests, full non-historical suite, Ruff, CAD/export rebuilds, browser/viewer checks and one independent gate review. Publish a local completion ledger naming every passed criterion, installation inspection and disclosed limitation. | FR-6–FR-7 | In progress: [completion ledger](floor-runner-mvp-completion-ledger.md) drafted; post-edit verification: 792 tests passed (16 historical deselected), Ruff/export rebuild passed and independent review findings addressed. Partial selected-candidate browser smoke passed; interaction closure remains pending. |
+| FR-8 | Run focused tests, full non-historical suite, Ruff, CAD/export rebuilds, browser/viewer checks and one independent gate review. Publish a local completion ledger naming every passed criterion, installation inspection and disclosed limitation. | FR-6–FR-7 | Complete for documentation/software: [completion ledger](floor-runner-mvp-completion-ledger.md) and [shop checklist](floor-flush-shop-checklist.md); selected-candidate browser interaction recorded; post-handoff 792 tests / 16 deselected, Ruff and export check passed. Physical receiving/fabrication observations remain unperformed and are not marked complete. |
 
 ## Evidence already earned
 
@@ -135,5 +135,8 @@ criteria work passes.
   deselected, Ruff/export rebuild passed and independent review findings addressed.
 - [x] [Completion ledger](floor-runner-mvp-completion-ledger.md) records the
   conditional claim, adopted passes, installation controls and disclosed limits.
-- [ ] Selected-candidate browser interaction is performed and recorded.
-- [x] Post-edit verification is rerun and its results recorded in the ledger.
+- [x] [Shop checklist](floor-flush-shop-checklist.md) consolidates cut, drill,
+  assembly and inspection instructions for the selected packet. Actual
+  observation cells remain blank.
+- [x] Selected-candidate browser interaction is performed and recorded.
+- [x] Post-handoff verification is rerun and its results recorded in the ledger.
