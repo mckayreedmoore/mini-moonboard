@@ -40,6 +40,9 @@ def test_hardware_and_kickers_are_retained_but_acceptance_is_not_inherited():
             assert c.start.z < old[c.name].start.z
         elif c.name.startswith('rail_'):
             assert c.start.toTuple() != old[c.name].start.toTuple()
+        elif c.name.startswith('clip_split_base_center_'):
+            assert c.start.x == pytest.approx(old[c.name].start.x)
+            assert c.start.y != old[c.name].start.y
         else:
             assert c is old[c.name]
     assert (model.bolt_points()[1]-model.bolt_points()[0]).Length == pytest.approx(56.)

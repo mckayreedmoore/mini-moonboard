@@ -22,6 +22,15 @@ RAIL_FRONT_Y = previous.HEADER_BACK_Y
 TRIMMED_NAMES = (*previous.RAIL_NAMES, 'base_side_left', 'base_side_right',
                  'lumber_leg_left', 'lumber_leg_right')
 CHANGED_NAMES = (*TRIMMED_NAMES, 'base_post_outer_left', 'base_post_outer_right')
+MOVED_BASE_CLIPS = frozenset(('clip_split_base_center_left', 'clip_split_base_center_right'))
+REDRILL_AFTER_BASE_CLIPS = frozenset(
+    ('base_header', 'base_principal_center_left', 'base_principal_center_right'))
+# Historical split-center station was Y = -135 mm, which hung the front SDS off
+# the header. Sit half an ML24Z pitch (19.05 mm) toward the kicker from the
+# underside header clips so all three header holes stay in the 2x6 and do not
+# line up with the screws coming from below.
+HEADER_MID_Y_MM = previous.HEADER_BACK_Y + previous.HEADER_DEPTH / 2
+BASE_CENTER_CLIP_Y_MM = HEADER_MID_Y_MM - 19.05
 LEG_TOP_PROJECTION_MM = 0.
 UPPER_BOLT_PITCH_MM = 56.
 UPPER_BOLT_CENTRE_YZ_MM = (1134.25, 1761.5)
@@ -33,7 +42,8 @@ parameters = dict(previous.parameters, floor_runner_end_finish='post-plane front
                   flush_native_geometry_required=True, leg_top_projection_normal_to_rim_mm=0.,
                   upper_joint_revision='flush-top-relocated-56mm',
                   upper_bolt_centre_yz_mm=UPPER_BOLT_CENTRE_YZ_MM,
-                  runner_joint_revision='flush-ends-relocated-front-and-rear-pairs')
+                  runner_joint_revision='flush-ends-relocated-front-and-rear-pairs',
+                  base_center_clip_y_mm=BASE_CENTER_CLIP_Y_MM)
 
 
 def __getattr__(name):
@@ -57,9 +67,20 @@ def rear_points():
 
 
 @cache
+def stations():
+    return tuple(
+        (name, cq.Vector(origin.x, BASE_CENTER_CLIP_Y_MM, origin.z), *rest)
+        if name in MOVED_BASE_CLIPS else (name, origin, *rest)
+        for name, origin, *rest in previous.stations())
+
+
+@cache
 def connections():
+    moved = {c.name: c for c in previous.hardware.clip_connections(
+        tuple(station for station in stations() if station[0] in MOVED_BASE_CLIPS))}
     result = []
     for c in previous.connections():
+        c = moved.get(c.name, c)
         points = (bolt_points() if c.name.startswith('lumber_leg_bolt_') else
                   front_points() if c.name.startswith('rail_front_bolt_') else
                   rear_points() if c.name.startswith('rail_rear_bolt_') else None)
@@ -151,15 +172,20 @@ def parts():
     # Rebuild changed receivers from fresh profiles; inherited axes drill once.
     result = {p.name: p for p in previous.parts()}
     result.update({p.name: p for p in raw_changed_parts()})
+    for part in previous.hardware.clip_parts(
+            tuple(station for station in stations() if station[0] in MOVED_BASE_CLIPS)):
+        result[part.name] = part
+    result.update({p.name: p for p in uncut_wood_parts() if p.name in REDRILL_AFTER_BASE_CLIPS})
+    recut = CHANGED_NAMES + tuple(REDRILL_AFTER_BASE_CLIPS)
     for name, _, _, cutter in previous.additional_machining_cutters():
-        if name in CHANGED_NAMES:
+        if name in recut:
             result[name] = replace(result[name], shape=result[name].shape.cut(cutter).clean())
     for name, _, cutter in previous.service_cutters():
-        if name in CHANGED_NAMES:
+        if name in recut:
             result[name] = replace(result[name], shape=result[name].shape.cut(cutter).clean())
     for connection in connections():
         for index, name in enumerate(connection.members):
-            if name not in CHANGED_NAMES:
+            if name not in recut:
                 continue
             diameter = (previous.bolt_dimensions(connection)['hole_diameter_mm']
                         if connection.kind == 'bolt' else connection.diameter)
