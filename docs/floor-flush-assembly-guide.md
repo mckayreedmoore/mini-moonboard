@@ -204,11 +204,12 @@ cuts and hardware still require the documented shop observations.
    crushing the timber; no generic steel-joint torque is assigned. Existing
    outer angle centres remain at Y = −105.85; listed-force checks pass, but
    unlisted separation and flange-couple demands have no catalog capacity.
-   Drive SDS25112 with a 3/8-inch hex on a low-speed 1/2-inch drill, using the
-   purchased ML24Z holes as the template. Manufacturer wood predrill is not
-   required; a 5/32-inch bit is only the catalog instruction *where predrilling
-   is required*. Do not predrill all wood from CAD and then offer the angle up
-   to unmatched holes. Hillman screws are not SDS replacements.
+   Drive SDS25112 with a 3/8-inch hex on a low-speed 1/2-inch drill. Clamp each
+   purchased ML24Z and predrill the wood with a **5/32-inch** bit through the
+   existing steel holes (Simpson’s catalog bit where a wood predrill is used).
+   Occupied CAD 6.35 mm is not that bit. Do not independently predrill from CAD
+   and then offer the angle up. Do not enlarge the steel holes. Hillman screws
+   are not SDS replacements.
 7. **Complete rails, principals and panel installation.** Keep the split centre
    service corridor, accepted T-nut construction, and independent panel seams.
    Use all 66 panel/kicker screws. The lower post kicker row is Z = 60 mm;
@@ -218,10 +219,11 @@ cuts and hardware still require the documented shop observations.
    drive and end-distance product rules do not transfer to Hillman 42605.
    Confirm all 66 Hillman 42605 axes are contained in their receivers and no
    tip protrudes. The owner-selected installation is a lead-hole pilot plus
-   plywood-face countersink so the flat head seats flush. Hillman does not
-   publish those diameters; record the actual bits and an offcut trial on the
-   shop checklist before production holes. Occupied CAD diameter is not the
-   pilot. Do not open a plywood clearance hole. `connection-axes.csv`
+   plywood-face countersink so the flat head seats flush. Use the owner-chosen
+   Kobalt 80277 / Lowe’s 1208451 **#10 insert (1/8 in pilot, 3/8 in
+   countersink)**. Confirm on an offcut before the 66 holes. Occupied CAD
+   diameter is not the pilot. Do not open a plywood clearance hole. Do not use
+   that 1/8 in insert for SDS. `connection-axes.csv`
    `modeled_length_mm` 50.8 mm is a historical occupied envelope, not the
    purchased 63.5 mm length.
 8. **Route services and install pads.** Keep the harness clear of bolt tips and

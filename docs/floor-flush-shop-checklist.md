@@ -136,8 +136,8 @@ No angular-error tolerance is assigned beyond the front-pair perpendicular
 | Item | Instruction | Source and applicability |
 | --- | --- | --- |
 | Fasteners | Six specified SDS25112 per ML24Z; 3/8-inch hex; low-speed 1/2-inch drill. No generic or Hillman substitution. | [ML24Z qualification](ml24z-qualification.md); Simpson SDS product page already cited there |
-| Wood lead hole | Manufacturer: Type-17 point, install without predrilling wood. ESR-2236: installation may be performed without predrilling wood members. Catalog: **where predrilling is required**, use a **5/32-inch** bit. That is conditional, not a command to predrill every station. | [panel-screw-necessity.md](panel-screw-necessity.md); Simpson SDS / ESR-2236. Applies to SDS25112 in sawn DF-L through this connector. It does not assign unlisted ML24Z capacities. |
-| Template | Use the **purchased angle holes** as the template. Do not predrill all wood from CAD coordinates and then hope the angle matches. CAD hole diameter in the steel is 6.731 mm; SDS occupied wood shaft 6.35 mm is not a wood pilot. | [ml24z-qualification.md](ml24z-qualification.md) |
+| Wood lead hole | Owner-selected: predrill the wood. Simpson’s catalog bit **where predrilling is required** is **5/32 in** (3.96875 mm). Use that. It is a lead hole, not a 1/4 in clearance hole. Occupied CAD shaft 6.35 mm is not the bit. ESR-2236 still allows installation without a wood predrill; this packet uses the catalog bit because the owner requires one. | [panel-screw-necessity.md](panel-screw-necessity.md); Simpson SDS catalog / ESR-2236; owner direction |
+| Template | Clamp the **purchased ML24Z** and drill the 5/32 in wood pilot **through the existing steel holes**. Do not layout 144 CAD holes in the timber and then offer the angle up. Steel hole is 6.731 mm; do not enlarge it. | [ml24z-qualification.md](ml24z-qualification.md) |
 | Seat | Head flush to the angle; do not overdrive. Fill every specified round hole. | ESR-2236 / manufacturer |
 | Stop | If wood splits, if a station lacks a physical load path, or if the installed geometry differs from six SDS25112 in the ML24Z, stop that station. Do not substitute another screw. | [Master plan](floor-runner-mvp-master-plan.md) ML24Z gate |
 
@@ -148,7 +148,7 @@ No angular-error tolerance is assigned beyond the front-pair perpendicular
 | Product | Lowe’s 755741, Fas-n-Tite/Hillman 42605, #10 × 2-1/2 in (63.5 mm), #2 Phillips, ceramic-coated deck screw. 48 main-panel, nine per kicker. | [Purchase record](current-panel-screw-purchase.md) |
 | Axes | [`panel-attachment-axes.csv`](floor-flush-construction/panel-attachment-axes.csv). Lower post row Z = 60 mm; upper post Z = 192 mm; header Z = 257.95 mm. Mark the upper post row from the **actual post top** (nominal 46.9 mm below the end). Do not round that row upward. | [Kicker placement](kicker-screw-placement-review.md) for axes only |
 | Length vs CSV | Purchased length is **63.5 mm**. `connection-axes.csv` `modeled_length_mm` **50.8 mm** and `modeled_diameter_mm` **4.1402 mm** are historical SPAX occupied envelopes, not Hillman dimensions. | Generated CSV vs purchase record. Do not hand-edit the CSV. |
-| Pilot / countersink | Owner-selected: a **lead-hole pilot** along each axis through the plywood into the 2×6, then a **face countersink** so the flat head seats flush. Hillman publishes neither diameter. Occupied CAD 4.1402 mm is not the pilot. Do not transfer SPAX “no lead holes.” This is not a plywood clearance hole: the screw must still form threads. | [Purchase record](current-panel-screw-purchase.md); owner direction 2026-09-17 |
+| Pilot / countersink | Owner-selected: Kobalt 80277 / Lowe’s 1208451, **#10 insert: 1/8 in (3.175 mm) pilot and 3/8 in countersink**, through plywood into the 2×6 so the flat head seats flush. Occupied CAD 4.1402 mm is not the pilot. Not a plywood clearance hole. Do not use this insert for SDS. | [Purchase record](current-panel-screw-purchase.md); Lowe’s 1208451 |
 | Offcut trial | Before production, drill/countersink/drive one offcut of the same plywood into scrap DF-L. Record the actual pilot bit, countersink and result in D5. | Same |
 | Driving | Drive #2 Phillips; seat the head flush in the countersink without overdriving through the face veneer. | Same |
 | Containment | Nominal timber penetration 45.24375 mm; 94.45625 mm remains before the modeled rear face. No tip protrusion. | Purchase record; FR-3 `hillman_66_axes` |
@@ -177,7 +177,7 @@ Hold-bolt lengths are **not** inferred from the 142 T-nut count. Use the
 | D2 | Upper and rear pairs | Layout matches member-local A/C; finished hole in the NDS range; complete washer seats. | Measure finished diameter and centre vs sheet datum; trial washer. | Hole outside NDS range, missed datum, or unsupported washer: stop. | | ☐ accept ☐ stop |
 | D3 | All 24 bolt receivers | Mating holes align; bolt enters without driving; no elongation or improvised spacers. | Trial bolt before final stacking. | Forced assembly: stop. | | ☐ accept ☐ stop |
 | D4 | Hillman axes | 66 axes marked; upper post row from actual post top. | Compare marks to `panel-attachment-axes.csv`. | Do not move an axis to suit a bit. | | ☐ accept ☐ stop |
-| D5 | Hillman pilot / countersink | Owner-selected lead hole + face countersink. Record actual bits. Occupied CAD diameter is not the bit. Offcut trial required before the 66 production holes. | Write the bits below; drive one offcut. | Split, overdriven head, or a clearance-sized hole: stop. Do not invent a diameter in this packet. | Pilot bit: ______  Countersink: ______  Offcut: ☐ pass ☐ stop | ☐ accept ☐ stop |
+| D5 | Hillman pilot / countersink | Kobalt #10 insert: 1/8 in pilot, 3/8 in countersink. Occupied CAD is not the bit. Offcut trial before the 66 holes. | Drive one offcut of the same plywood into scrap DF-L. | Split, overdriven head, or a clearance-sized hole: stop. | Offcut: ☐ pass ☐ stop | ☐ accept ☐ stop |
 
 ---
 
@@ -232,7 +232,7 @@ These are not filled with typical values.
 
 | Operation | Missing specification | Who / when |
 | --- | --- | --- |
-| Hillman 42605 production holes | Product-published pilot/countersink diameters (none). Owner method is selected; **actual bits** are still a D5 measurement, not a packet diameter. | Owner/builder on the offcut **before** the 66 production holes. |
+| Hillman 42605 production holes | Tool is chosen (Kobalt #10, 1/8 in / 3/8 in). Offcut trial still required. | Owner/builder on D5 **before** the 66 production holes. |
 | Any hole that would change analyzed geometry (bolt oversize past NDS, elongation, Hillman clearance hole, relocated axes) | A revised CAD/resistance check and affected cases | Design revision; not a shop discretion |
 | Delivered shank, runout, washer size, nut engagement, finished hole centres, recess stock, actual lumber section | Physical measurement of the delivered/fabricated item | Owner/builder at receiving and fabrication. Instructions exist; results do not. |
 | Unlisted ML24Z separation / flange-couple capacity | Manufacturer listed values (none found for this MVP) | Disclosed limitation. Not a shop measurement. |

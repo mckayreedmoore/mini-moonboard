@@ -30,7 +30,8 @@ def test_hillman_purchased_length_is_not_occupied_spax_envelope():
     assert {float(row['shop_purchased_length_mm']) for row in hillman} == {HILLMAN_LENGTH_MM}
     assert {float(row['modeled_length_mm']) for row in hillman} == {50.8}
     assert all('not Hillman' in row['shop_instruction'] for row in hillman)
-    assert all('Owner-selected lead-hole' in row['shop_instruction'] for row in hillman)
+    assert all('Kobalt 80277' in row['shop_instruction'] for row in hillman)
+    assert all('1/8 in' in row['shop_instruction'] for row in hillman)
     assert all('not the pilot' in row['shop_instruction'] for row in hillman)
     attachments = rows('panel-attachment-axes.csv')
     assert len(attachments) == 66
@@ -42,7 +43,8 @@ def test_sds_shop_instruction_is_not_a_wood_pilot():
     sds = [row for row in axes if row['shop_opening_kind'] == 'sds_wood']
     assert len(sds) == 144
     assert all('not a wood pilot' in row['shop_instruction'] for row in sds)
-    assert all(row['shop_finished_opening_min_mm'] == '' for row in sds)
+    assert {float(row['shop_finished_opening_min_mm']) for row in sds} == {INCH_MM * 5 / 32}
+    assert all('5/32 in' in row['shop_instruction'] for row in sds)
 
 
 def test_construction_readme_does_not_claim_open_resistance_gates():

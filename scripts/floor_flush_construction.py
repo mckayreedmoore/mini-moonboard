@@ -52,13 +52,14 @@ def shop_axis_fields(connection):
             'occupied_length_mm': occupied_length,
             'occupied_diameter_mm': occupied_diameter,
             'shop_opening_kind': 'sds_wood',
-            'shop_finished_opening_min_mm': '',
-            'shop_finished_opening_max_mm': '',
             'shop_purchased_length_mm': SDS_LENGTH_MM,
+            'shop_finished_opening_min_mm': INCH_MM * 5 / 32,
+            'shop_finished_opening_max_mm': INCH_MM * 5 / 32,
             'shop_instruction': (
-                'Specified SDS25112 through purchased ML24Z holes. Occupied diameter is not a '
-                'wood pilot. No routine wood predrill; 5/32 in only where the manufacturer '
-                'requires predrilling.'
+                'Specified SDS25112 through purchased ML24Z holes. Occupied CAD diameter '
+                '6.35 mm is not a wood pilot. Owner-selected wood lead hole is the Simpson '
+                'catalog 5/32 in (3.96875 mm) bit, drilled through the purchased angle holes. '
+                'Do not independently predrill from CAD.'
             ),
         }
     return {
@@ -70,9 +71,9 @@ def shop_axis_fields(connection):
         'shop_purchased_length_mm': HILLMAN_LENGTH_MM,
         'shop_instruction': (
             'Purchased Hillman 42605 #10 x 2-1/2 in (63.5 mm). Occupied length/diameter are '
-            'historical SPAX envelopes, not Hillman dimensions. Owner-selected lead-hole '
-            'pilot plus face countersink; record actual bits on the shop checklist. Occupied '
-            'CAD diameter is not the pilot and not a clearance hole.'
+            'historical SPAX envelopes, not Hillman dimensions. Owner-selected Kobalt 80277 '
+            '#10 insert: 1/8 in lead-hole pilot and 3/8 in face countersink. Occupied CAD '
+            'diameter is not the pilot and not a clearance hole. Do not use this bit for SDS.'
         ),
     }
 
@@ -209,8 +210,8 @@ def generate(output=OUT, *, width_option=width.OFFICIAL):
                 'shop_purchased_length_mm': HILLMAN_LENGTH_MM,
                 'shop_opening_kind': 'hillman_panel',
                 'operation': ('Owned Hillman 42605 #10 x 2-1/2 in (63.5 mm) axis; occupied CAD length in '
-                              'connection-axes.csv is not this length; owner-selected lead-hole pilot '
-                              'plus face countersink; record actual bits on the shop checklist.')})
+                              'connection-axes.csv is not this length; owner-selected Kobalt 80277 '
+                              '#10 insert 1/8 in pilot and 3/8 in countersink.')})
         write('panel-attachment-axes.csv', panel)
         holes = []
         for kind, hole_datums, diameter in [('hold', grid.main_tnut_datums(), 11.1125),

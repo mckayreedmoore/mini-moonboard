@@ -34,14 +34,20 @@ connection stiffness, not invented model 42605 stiffness or resistance.
 This is not a claim that model 42605 has SPAX resistance or stiffness.
 
 The owner has selected a **lead-hole pilot plus plywood-face countersink** for
-all 66 axes so the flat head seats flush. Retailer and Hillman data still do
-not publish a pilot diameter, countersink diameter/angle or structural values.
-That method is an owner installation choice, not product-specific qualification
-and not a transfer of SPAX TER “no lead holes” language. Occupied CAD diameter
-4.1402 mm is a historical SPAX envelope, not the pilot. The hole remains a
-lead hole: it must not become a plywood clearance hole that removes thread
-engagement. Record the actual bits and an offcut trial on the
-[shop checklist](floor-flush-shop-checklist.md) before production drilling.
+all 66 axes so the flat head seats flush. The chosen tool is Lowe’s item
+1208451, Kobalt 80277, a 4-piece countersink/twist set. Retailer copy lists
+#6 (3/32 in), #8 (7/64 in), **#10 (1/8 in pilot)** and #12 (1/8 in) inserts;
+the matching #10 bit is also sold as 1/8 in pilot with a **3/8 in
+countersink**. Use the **#10 / 1/8 in** insert on Hillman 42605. That is an
+owner tool choice labeled for #10 wood screws, not a Hillman structural value
+and not a transfer of SPAX “no lead holes.” Occupied CAD 4.1402 mm is not the
+pilot. The hole remains a lead hole. Do not use this 1/8 in insert for
+SDS25112 (those use 5/32 in through the ML24Z). Record the offcut trial on the
+[shop checklist](floor-flush-shop-checklist.md) before the 66 production holes.
+
+Sources also include:
+
+- [Kobalt 4-piece countersink set, Lowe’s 1208451](https://www.lowes.com/pd/Kobalt-4-Piece-1-8-in-x-1-5-8-in-High-Speed-Steel-Twist-Drill-Bit-Set/1208451)
 
 Sources:
 

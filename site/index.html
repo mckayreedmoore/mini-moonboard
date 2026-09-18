@@ -13,11 +13,16 @@
       #part-visibility label { display: flex; align-items: center; gap: .2rem; margin: 0; }
       #part-visibility input { margin: 0; }
       body { margin: 0; background: #121619; color: #f5f0e6; font: 16px system-ui, sans-serif; }
-      header { position: fixed; z-index: 1; inset: 0 auto auto 0; width: min(32rem, 100vw); height: 45vh; min-width: min(20rem, 100vw); min-height: min(10rem, 95vh); max-width: 100vw; max-height: 95vh; resize: both; overflow: auto; border-right: 1px solid #59636b; border-bottom: 1px solid #59636b; padding: 1rem 1.25rem; background: #121619dd; }
-      .resize-hint { font-size: .75rem; color: #c7c1b4; margin-bottom: .4rem; }
-      h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
-      p { color: #c7c1b4; font-size: .9rem; margin: 0; }
-      .support-link { display: inline-block; margin-top: .55rem; color: #f0b429; font-size: .85rem; text-underline-offset: .2em; }
+      header { position: fixed; z-index: 1; inset: 0 auto auto 0; width: min(26rem, 100vw); height: auto; max-height: 46vh; min-width: min(16rem, 100vw); max-width: 100vw; resize: both; overflow: auto; border-right: 1px solid #59636b; border-bottom: 1px solid #59636b; padding: .7rem .9rem .85rem; background: #121619ee; }
+      .resize-hint { font-size: .7rem; color: #8b8680; margin: 0 0 .3rem; }
+      h1 { font-size: 1.05rem; margin: 0 0 .2rem; }
+      p { color: #c7c1b4; font-size: .82rem; margin: 0; }
+      .support-link { display: inline-block; margin: .15rem .55rem .15rem 0; color: #f0b429; font-size: .8rem; text-underline-offset: .15em; }
+      #shop-docs { margin: .4rem 0 .2rem; }
+      #shop-docs summary { cursor: pointer; color: #c7c1b4; font-size: .8rem; }
+      #shop-docs .doc-row { display: flex; flex-wrap: wrap; gap: 0 .15rem; margin-top: .25rem; }
+      #model-status { margin: .2rem 0 .35rem; }
+      #design-details { display: none; }
       #part { margin-top: .5rem; color: #f5f0e6; font-size: .85rem; max-width: 100%; }
       #design-details { margin-top: .5rem; max-width: 100%; font-size: .85rem; }
       label { display: block; margin-top: .55rem; color: #c7c1b4; font-size: .8rem; }
@@ -30,12 +35,12 @@
       #problem-legend { display: flex; flex-wrap: wrap; gap: .2rem .7rem; }
       #problem-link { width: 100%; margin-top: .4rem; }
       #hold-controls button:disabled { opacity: .5; cursor: default; }
-      @media (max-width: 600px) { select { max-width: 100%; margin-left: 0; } }
+      @media (max-width: 600px) { select { max-width: 100%; margin-left: 0; } header { max-height: 36vh; width: 100vw; } }
       canvas { display: block; height: 100vh; width: 100vw; }
     </style>
   </head>
   <body>
-    <header><h1>Independent DIY frame plans for the Mini MoonBoard</h1><div class="resize-hint">Drag the lower-right corner to resize this panel.</div><p>Not affiliated with or endorsed by Moon Climbing.</p><p>V1 CAD assembly · underside climbing face · drag to orbit · scroll to zoom · click wood or colored connection geometry to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall V1 dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
+    <header><h1>Mini MoonBoard DIY frame</h1><p id="disclaimer">Not affiliated with Moon Climbing. Conditional DIY CAD — not a fabrication release.</p><p id="model-status">Drag to orbit · scroll to zoom · click a part to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall assembly dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -261,19 +266,25 @@
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
-      const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Historical / archive designs';
+      const recentDesigns = document.createElement('optgroup'); recentDesigns.label = 'Recent floor-runner / 4×6 history';
+      const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Earlier studies';
+      const recentKeys = new Set([...clearSpaceModels.map(([value]) => value),
+        'compact-spliced-knee-development', 'compact-thick-development',
+        'thick-leg-centered-pivot-development', 'no-shoes-development']);
+      recentKeys.delete('compact-floor-flush-development');
+      recentKeys.delete('compact-floor-flush-kerf-right');
       for (const option of Array.from(modelSelect.options).reverse()) {
-        (option.value === 'compact-floor-flush-development' ? currentDesigns : option.value === 'compact-floor-flush-kerf-right' ? currentDesigns : historicalDesigns).append(option);
+        (option.value === 'compact-floor-flush-development' ? currentDesigns : option.value === 'compact-floor-flush-kerf-right' ? currentDesigns : recentKeys.has(option.value) ? recentDesigns : historicalDesigns).append(option);
       }
-      modelSelect.replaceChildren(currentDesigns, historicalDesigns);
+      modelSelect.replaceChildren(currentDesigns, recentDesigns, historicalDesigns);
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
-      if (model !== 'plywood') document.querySelector('header p:nth-of-type(2)').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
-      if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('header p:nth-of-type(2)').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
-      if (model === 'compact-floor-flush-development') document.querySelector('header p:nth-of-type(2)').textContent = 'Selected development · official Mini 4×4 · six no-slip cases pass frozen checks · unlisted angle actions disclosed · not a fabrication release · drag to orbit · click to inspect';
-      if (model === 'compact-floor-flush-kerf-right') document.querySelector('header p:nth-of-type(2)').textContent = 'Selected floor-runner · 4×8 kerf presentation · 1/8 in removed on the K / right side (pads in front) · official six-case evidence is not transferred · drag to orbit · click to inspect';
-      if (model === 'base-bearing-concept') document.querySelector('header p:nth-of-type(2)').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
+      if (model !== 'plywood') document.querySelector('#model-status').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
+      if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
+      if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Official Mini 4×4 · selected floor-runner · not a fabrication release';
+      if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = '4×8 kerf · 1/8 in off the K / right side · six-case evidence is not transferred';
+      if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
         const stem = model === 'round-structural-development' ? 'round-structural' : model === 'round-insert-development' ? 'round-insert' : round ? 'round-service' : 'horizontal-service';
@@ -302,16 +313,16 @@
         }
         document.querySelector('header h1').after(links);
       }
-      if (clearSpaceModels.some(([value]) => value === model)) {
+      if (clearSpaceModels.some(([value]) => value === model) && !['compact-floor-flush-development', 'compact-floor-flush-kerf-right'].includes(model)) {
         const links = document.createElement('nav'); links.id = 'model-documents';
-        links.setAttribute('aria-label', 'Clear-space candidate documents');
+        links.setAttribute('aria-label', 'Archive candidate documents');
         const documentStem = model === 'compact-floor-rail-2x4-development' ? 'floor-rail-2x4' : model === 'compact-floor-recess-development' ? 'floor-runner-recess' : model === 'compact-floor-taper-development' ? 'floor-runner-taper' : 'clear-space';
-        for (const [label, path] of (model === 'compact-spliced-flush-top-development' ? [['Historical build package', 'docs/compact-spliced-flush-top-build-package.md'], ['Historical six-case evidence', 'docs/compact-spliced-flush-top-evidence.json'], ['Historical commercial-angle ledger', 'docs/compact-spliced-flush-top-angle-ledger.md']] : model === 'compact-floor-flush-development' || model === 'compact-floor-flush-kerf-right' ? [] : [['Support assessment', `docs/${documentStem}-study.md`], ['Catalog hardware and installation', `docs/${documentStem}-hardware.md`]])) {
+        for (const [label, path] of (model === 'compact-spliced-flush-top-development' ? [['Historical build package', 'docs/compact-spliced-flush-top-build-package.md'], ['Historical six-case evidence', 'docs/compact-spliced-flush-top-evidence.json'], ['Historical commercial-angle ledger', 'docs/compact-spliced-flush-top-angle-ledger.md']] : [['Support assessment', `docs/${documentStem}-study.md`], ['Catalog hardware and installation', `docs/${documentStem}-hardware.md`]])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
-          link.href = ['compact-spliced-flush-top-development', 'compact-floor-flush-development', 'compact-floor-flush-kerf-right'].includes(model) ? path : 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
+          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
         }
-        document.querySelector('header h1').after(links);
+        document.querySelector('#model-status').after(links);
       }
       // Loose padding is a placement preview, separate from CAD inventory,
       // assembly dimensions, frame mass and structural/floor-contact analysis.
@@ -348,7 +359,7 @@
       const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'light' ? 0x40ff65 : part.fabrication.kind === 'wire' ? 0x424a52 : ['bolt', 'tnut'].includes(part.fabrication.kind) ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.fabrication.kind === 'insert' || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect connection ';
       const boltSelect = document.createElement('select'); boltSelect.id = 'bolt-view';
-      boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('header p:nth-of-type(2)').after(boltLabel);
+      boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('#model-status').after(boltLabel);
       const boltNote = document.createElement('p'); boltNote.id = 'bolt-view-note'; boltNote.hidden = true;
       boltNote.textContent = 'Representative connection hardware: wood hidden; the complete bolt stack remains in its assembled position. Drag to orbit; click individual components to inspect.';
       boltLabel.after(boltNote);
@@ -359,7 +370,7 @@
       weightNote.textContent = `Estimates use assumed material densities; ${excludedMass}.`;
       boltLabel.before(weightLine, weightNote);
       // Keep the requested hold preview accessible ahead of detailed frame controls.
-      document.querySelector('header p:nth-of-type(2)').after(holdControls);
+      document.querySelector('#model-status').after(holdControls);
       const designLabels = new Map(Array.from(modelSelect.options, option => [option.value, option.text]));
       const validWeight = row => row && Number.isFinite(row.mass_kg) && row.mass_kg > 0 && Number.isFinite(row.mass_lb) && row.mass_lb > 0;
       const formatWeight = row => `${row.mass_kg.toFixed(1)} kg (${row.mass_lb.toFixed(1)} lb)`;
@@ -404,6 +415,14 @@
         label.append(checkbox, name); visibility.append(label);
       }
       weightLine.before(visibility);
+      const header = document.querySelector('header');
+      const kofi = header.querySelector('a[href*="ko-fi"]');
+      [header.querySelector('h1'), document.querySelector('#disclaimer'),
+        document.querySelector('#model-status'), modelLabel, holdControls, visibility,
+        crashPadControl, crashPadNote, document.querySelector('#overlay').parentElement,
+        document.querySelector('#dimensions').parentElement, document.querySelector('#person').parentElement,
+        boltLabel, boltNote, partCard, weightLine, weightNote, kofi]
+        .filter(Boolean).forEach(el => header.append(el));
       let inspectedBolt = '', savedAssemblyView;
       const boltMeshes = name => meshes.filter(mesh => mesh.userData.part.fabrication?.connection_name === name);
       function updateBoltVisibility() {
@@ -485,19 +504,27 @@
             rowStations = design.tnut_row_stations_mm;
             if (overlaySelect.value !== 'none') makeGridOverlay(overlaySelect.value === 'grid' ? '#f0b429' : '#f5f0e6');
           }
-          const details = document.createElement('p'); details.id = 'design-details';
-          details.textContent = `${design.status}. ${design.description}${design.joint_note ? ` ${design.joint_note}` : ""}`;
-          modelLabel.after(details);
           if (Array.isArray(design.documents) && design.documents.length) {
-            let links = document.querySelector('#model-documents');
-            if (!links) {
-              links = document.createElement('nav');
-              links.id = 'model-documents';
-              links.setAttribute('aria-label', 'Current candidate documents');
-              document.querySelector('header h1').after(links);
-            } else {
-              links.replaceChildren();
+            let box = document.querySelector('#shop-docs');
+            if (!box) {
+              box = document.createElement('details');
+              box.id = 'shop-docs';
+              const sum = document.createElement('summary');
+              sum.textContent = 'Shop packet and evidence';
+              const primary = document.createElement('nav');
+              primary.id = 'shop-docs-primary';
+              primary.className = 'doc-row';
+              const more = document.createElement('nav');
+              more.id = 'model-documents';
+              more.setAttribute('aria-label', 'More documents');
+              box.append(sum, primary, more);
+              modelLabel.after(box);
             }
+            const primaryNav = box.querySelector('#shop-docs-primary');
+            const more = box.querySelector('#model-documents');
+            primaryNav.replaceChildren();
+            more.replaceChildren();
+            const first = new Set(['Shop checklist', 'Assembly guide', 'Official vs 4×8 kerf width']);
             for (const row of design.documents) {
               const link = document.createElement('a');
               link.textContent = row.label;
@@ -505,7 +532,7 @@
               link.href = row.path;
               link.target = '_blank';
               link.rel = 'noopener noreferrer';
-              links.append(link, ' ');
+              (first.has(row.label) ? primaryNav : more).append(link, ' ');
             }
           }
         }

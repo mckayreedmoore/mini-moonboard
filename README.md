@@ -1,77 +1,73 @@
-# Independent DIY frame plans for the Mini MoonBoard
+# Mini MoonBoard DIY frame
 
-This independent project provides CAD, an interactive viewer and conditional
-DIY design studies. It is not affiliated with or endorsed by Moon Climbing.
+Independent CAD, shop instructions and conditional calculations for a Mini
+MoonBoard-sized climbing wall. Not affiliated with or endorsed by Moon Climbing.
 
-## Current direction: flush floor runners
+**Selected design: `compact-floor-flush-development`.** Engineer-unreviewed
+conditional DIY under recorded loads, DF-L No. 2, catalog hardware and an
+explicit no-slip floor assumption. Not a fabrication release, manufacturer
+qualification or climber rating.
 
-**`compact-floor-flush-development` is the selected DIY development. It is not
-an unconditional rating or fabrication release.** It retains solid 4×6
-legs/rims, compact 2×6 base members, two outboard 2×6 floor runners, whole
-kickers, the 1:12 rear recess, twelve complete outward-facing bolt stacks, 24
-ML24Z angles and 66 panel/kicker screw axes. Runner ends, lower rim ends and
-rear-leg tops use the selected flush geometry.
+## Start here
 
-Use the [current design basis](docs/current-design-basis.md), [MVP master
-plan](docs/floor-runner-mvp-master-plan.md) and [frozen criteria
-ledger](docs/floor-runner-mvp-criteria.md). Fresh selected-candidate no-slip
-cases now converge and pass all 36 frozen adopted criteria; see the
-[six-case aggregate](docs/floor-runner-mvp-evidence.json) and
-[angle-demand ledger](docs/floor-runner-mvp-angle-demands.json). The
-[completion ledger](docs/floor-runner-mvp-completion-ledger.md) separates
-calculated passes from remaining verification and installation observations.
-Catalog-unlisted ML24Z separation/couple actions remain disclosed, not
-manufacturer-qualified.
-Historical finite-friction,
-taper-runner and spliced-knee results are preserved but do not transfer.
+1. Pick a width: **official Mini 4×4** or **4×8 with 1/8 in kerf on the K / right
+   side** (pads in front; right is toward the right leg). See
+   [width option](docs/floor-flush-width-option.md).
+2. Build from the [shop checklist](docs/floor-flush-shop-checklist.md) and
+   [assembly guide](docs/floor-flush-assembly-guide.md).
+3. Use matching sheets only:
+   - Official: [docs/floor-flush-construction/](docs/floor-flush-construction/)
+   - Kerf-right: [docs/floor-flush-construction-kerf-right/](docs/floor-flush-construction-kerf-right/)
+4. Do not mix packets. Six-case evidence applies only to the official 4×4.
 
-The earlier [taper study](docs/floor-runner-taper-study.md) records six cases
-passing its 35 implemented criteria, with later applicability/contact gaps
-identified. Those results do not qualify the changed flush geometry. The
-[exterior-brace and original floor-rail studies](docs/clear-space-study.md)
-remain historical alternatives with their own assumptions and limits.
+Machine authority is [`current-candidate.json`](current-candidate.json).
+Working constraints: [`AGENTS.md`](AGENTS.md).
 
-## View the current local model
+## What you are looking at
+
+Solid 4×6 legs and side rims, compact 2×6 header/posts/rails/runners, whole
+kickers, a 1:12 rear-leg recess, twelve outward bolt stacks, 24 ML24Z angles
+with 144 SDS25112 screws, and 66 Hillman 42605 panel/kicker screws.
+
+- SDS: 5/32 in wood lead hole **through the purchased angle**.
+- Hillman: Kobalt 80277 **#10** insert (1/8 in pilot, 3/8 in countersink), then
+  an offcut trial.
+- Frame bolts: NDS clearance holes; measure delivered shank (no full-thread
+  substitutes).
+
+Listed ML24Z catalog forces pass in the saved cases. Separation and
+flange-couple actions are **disclosed without capacity**. The floor is an
+**unverified no-slip assumption**, not an anchor.
+
+## Viewer
 
 ```sh
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local viewer](http://localhost:8767/?model=compact-floor-flush-development&view=rear).
-Select individual timber or hardware, orbit the assembly, hide panels and use
-the crash-pad toggle to inspect the two 48 x 72 x 5-inch pads. They sit side by
-side, so their center seam runs front to back. Pads are excluded
-from frame weight and structural supports. The default now shows the flush
-revision; older designs remain in the menu. Repository `master` records the
-floor-runner checkpoint; deployment and browser behavior need separate checks.
+Open [localhost:8767](http://localhost:8767/) (official 4×4) or
+[kerf-right](http://localhost:8767/?model=compact-floor-flush-kerf-right).
 
-The [assembly STEP](site/hybrid/compact-floor-flush-development/assembly.step)
-and [part inventory](site/hybrid/compact-floor-flush-development/parts.json)
-are generated from the same model. Drawings are dimensional instructions only
-when explicitly identified as such; this preview does not release drilling.
+Current design is the two width presentations. Older candidates are in the
+archive menus. Pads are a placement preview only.
 
-## Scope and materials
+## Plans and evidence (short map)
 
-The intended endpoint is an engineer-unreviewed conditional DIY design under
-specified loads, lumber, hardware and installation assumptions. No unconditional
-climber weight rating is claimed. Accepted plywood/T-nut construction is retained;
-no new floor-friction test, external sign-off or general panel campaign is added.
-Current calculations use an explicit conditional no-slip support assumption;
-normal floor contact may open. Recorded per-cell Coulomb precursor cases remain
-historical evidence, not current floor qualification. A changed assembly requires
-its own justified force/contact basis.
+| Document | Role |
+| --- | --- |
+| [Shop checklist](docs/floor-flush-shop-checklist.md) | Cut, drill, assemble, inspect |
+| [Assembly guide](docs/floor-flush-assembly-guide.md) | Sequence and hardware |
+| [Build package](docs/floor-flush-build-package.md) | What is in the selected assembly |
+| [MVP master plan](docs/floor-runner-mvp-master-plan.md) | How the six-case MVP was finished |
+| [Criteria](docs/floor-runner-mvp-criteria.md) | The 36 adopted checks |
+| [Completion ledger](docs/floor-runner-mvp-completion-ledger.md) | Passes vs still-open limits |
+| [Six-case aggregate](docs/floor-runner-mvp-evidence.json) | Authenticated no-slip results |
+| [History](docs/history/README.md) | Older candidates; do not treat as current |
 
-See [design decisions](docs/current-design-basis.md),
-[purchased materials](docs/purchased-materials.md),
-[hold hardware](docs/moonboard-hold-hardware.md),
-[preceding bolt requirements](docs/floor-runner-taper-hardware.md), and
-[weight notes](docs/prototype-weights.md).
+The master plan’s FR-0–FR-8 work is documentation/software complete. Remaining
+work is receiving, fabrication and filling blank inspection cells.
 
-## Reproduce and check
-
-The selected model is
-[compact_floor_flush_frame.py](mini_moonboard/compact_floor_flush_frame.py).
-Historical spliced-knee and tapered-runner tools do not reproduce this candidate.
+## Reproduce
 
 ```sh
 uv sync --locked
@@ -81,15 +77,5 @@ uv run python -m scripts.current_candidate --check-exports
 uv run pytest -q
 ```
 
-Use exporter `--root /path/to/empty-directory` for a standalone geometry bundle.
-Current force evidence is the [authenticated six-case
-archive](docs/floor-runner-mvp-evidence.json). FR-8 documentation and viewer
-verification require no new native solves. The historical spliced-flush-top
-study command does not reproduce the selected floor-runner candidate.
-The [candidate authority](current-candidate.json) ties the selected modules,
-package, hardware schedule and recorded assessment references together. Its
-checker verifies configuration consistency, not structural acceptance; exact
-export and drawing revisions retain their existing source/artifact hashes.
-Construction-package completion is tracked in the plan above. See
-[contributor guidance](CONTRIBUTING.md) and the
-[historical design archive](docs/history/README.md) for other workflows.
+The checker confirms configuration identity, not structural acceptance. See
+[CONTRIBUTING.md](CONTRIBUTING.md).
