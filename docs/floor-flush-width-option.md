@@ -1,34 +1,44 @@
-# Official Mini 4×4 vs 4×8 kerf-right width
+# Which plywood packet to use
 
-Two shop presentations of **one** selected candidate,
-`compact-floor-flush-development`. Not a second structural design and not a
-second six-case solve.
+The frame is the same design either way. The only difference is how you get
+the climbing faces.
 
-## Datums
+![Bought 4×4 sheets versus a 4×8 cut in half](floor-flush-diagrams/plywood-choice.svg)
 
-Stand at the pads, looking at the climbing face. Left is A. Right is K; the
-right leg sits immediately outside that edge. That is CAD `*_right` / viewer
-visible right.
+## Buy 4×4 plywood (or Mini kit panels)
 
-## Official Mini kit
+If the faces arrive as **true 4×4 sheets** (48 in × 48 in), use the official
+packet.
 
-Use [`docs/floor-flush-construction/`](floor-flush-construction/) and viewer
-`?model=compact-floor-flush-development`. Two true 4×4 (1219.2 mm) panels; overall
-width 2438.4 mm. Six authenticated no-slip cases apply to this geometry only.
+- 3D model: [https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/)
+- Cut and drill sheets: [https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction)
 
-## 4×8 kerf on the K / right side
+On the 3D page, **Design** should read **Bought 4×4 plywood · official Mini faces**.
+That is the geometry the six 250 lb calculations were run on.
 
-Cutting a 4×8 sheet into two 4×4s with a 1/8 in kerf, and putting that kerf on
-the far right, makes the whole assembly 1/8 in (3.175 mm) narrower. 4×6 and 2×6
-**sections stay full**. The right panel, right kicker, header and right-hand
-rails lose 3.175 mm at +X. The outer-right rim, outer post, runner and leg
-translate inboard so they stay flush. The A-side, center seam and official hold
-grid stay put.
+## Cut 4×8 plywood
 
-Use [`docs/floor-flush-construction-kerf-right/`](floor-flush-construction-kerf-right/)
-and viewer `?model=compact-floor-flush-kerf-right`. Do not mix those sheets with
-the official packet. Do not transfer the six-case pass to this presentation.
+If you rip **4×8 sheets** into two faces, the saw takes about **1/8 in** out of
+the middle. Each face is then **1/16 in** narrower than 48 in, and both faces
+are the same width.
 
-A geometry screen checks overall width, right-panel width, rim/leg thickness,
-header length, right-bolt shift, 19.05 mm rim-screw edge and K-column edge.
-It is not a fabrication release or a climber rating.
+- 3D model: [https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right)
+- Cut and drill sheets: [https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right)
+
+You can skip the long address: open
+[https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/)
+and under **Design** pick **Cut from 4×8 · kerf on the right**.
+
+Moon hold, LED and screw layout still starts from the **left** of the wall
+(column A), the same way the Mini drawings do. Because the wall is 1/8 in
+narrower, that missing width shows up on the **right** (K), next to the right
+leg. The left edge stays put. The 4×6 and 2×6 lumber sizes do not change; the
+right-hand frame members move in so they stay flush with the slightly narrower
+plywood.
+
+## Do not mix the two
+
+Pick one plywood source and stay on that folder. The 250 lb cases were run on
+full 4×4 faces; the 4×8 folder is the matching cut layout for the saw kerf.
+
+Stand at the pads, looking at the climbing face: left is A, right is K.

@@ -237,12 +237,13 @@ def generate(output=OUT, *, width_option=width.OFFICIAL):
         if (len(stock), len(axes), len(bolts), len(panel), sum(h['kind'] == 'hold' for h in holes)) != (26, 222, 12, 66, 142):
             raise ValueError('Unexpected candidate inventory counts')
     width_note = ('' if width_option == width.OFFICIAL else
-        f'\nThis packet is the **kerf-right** presentation: 1/8 in ({width.KERF_RIGHT_MM:g} mm) '
-        'removed from the K-side overall width. Official Mini 4×4 sheets are in '
+        f'\nThis packet is for **4×8 plywood cut into two faces**. Each face is 1/16 in '
+        f'narrower; 1/8 in ({width.KERF_RIGHT_MM:g} mm) is missing at the right (K) edge '
+        'because layout starts from the left. Bought 4×4 sheets are in '
         '[floor-flush-construction](../floor-flush-construction/). Six-case evidence remains the official geometry.\n')
     (output/'README.md').write_text(f'''# Flush floor-beam construction coordinates
 
-**Dimensional packet for `compact-floor-flush-development`. Not a fabrication release.**
+**Cut and drill sheets for `compact-floor-flush-development`. DIY documentation, not a factory release.**
 {width_note}
 Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) and
 [assembly guide](../floor-flush-assembly-guide.md). Occupied CAD diameters and

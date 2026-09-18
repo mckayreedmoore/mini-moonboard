@@ -6,11 +6,11 @@ The selected candidate is `compact-floor-flush-development`. Machine authority
 is [`current-candidate.json`](current-candidate.json). The shop packet is the
 [assembly guide](docs/floor-flush-assembly-guide.md),
 [shop checklist](docs/floor-flush-shop-checklist.md) and
-[construction sheets](docs/floor-flush-construction/). A 4×8 kerf-right
-presentation (1/8 in on the K / right side) is the same candidate, not a second
-FEA program; use [width option](docs/floor-flush-width-option.md) and
-[`docs/floor-flush-construction-kerf-right/`](docs/floor-flush-construction-kerf-right/).
-Evidence and gates are
+[construction sheets](docs/floor-flush-construction/). Bought 4×4 plywood uses
+that folder. 4×8 rips use
+[kerf sheets](docs/floor-flush-construction-kerf-right/)
+([which plywood packet](docs/floor-flush-width-option.md)). Same candidate, not
+a second load study. Evidence and gates are
 in the [MVP master plan](docs/floor-runner-mvp-master-plan.md) and
 [completion ledger](docs/floor-runner-mvp-completion-ledger.md).
 
@@ -65,6 +65,6 @@ prose. Preserve changes belonging to other agents, including untracked files.
 
 ## Working set
 
-See [docs/selected-working-set.md](docs/selected-working-set.md). Do not treat
-historical `current-*` documents, `exports/` of other candidates, or
-`fea/generated/` as the selected shop packet.
+Builder docs start at [docs/README.md](docs/README.md). Older studies are in
+[docs/history/](docs/history/). See
+[docs/selected-working-set.md](docs/selected-working-set.md).

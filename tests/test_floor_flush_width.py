@@ -1,5 +1,6 @@
-"""Official 4×4 and kerf-right presentations share one selected candidate."""
+"""Official 4×4 and shared-kerf presentations share one selected candidate."""
 from mini_moonboard.floor_flush_width import (
+    KERF_EACH_MM,
     KERF_RIGHT,
     KERF_RIGHT_MM,
     OFFICIAL,
@@ -14,15 +15,17 @@ def test_official_option_is_the_selected_module():
     assert variant(OFFICIAL) is official
     assert trim_mm(OFFICIAL) == 0
     assert trim_mm(KERF_RIGHT) == KERF_RIGHT_MM == 3.175
+    assert KERF_EACH_MM == 1.5875
 
 
 def test_kerf_right_geometry_screen_passes():
     result = geometry_screen()
     assert result['passed'], result['failures']
-    assert result['left_panel_width_mm'] == 1219.2
-    assert abs(result['right_panel_width_mm'] - (1219.2 - KERF_RIGHT_MM)) < 1e-4
+    assert abs(result['left_panel_width_mm'] - (1219.2 - KERF_EACH_MM)) < 1e-4
+    assert abs(result['right_panel_width_mm'] - result['left_panel_width_mm']) < 1e-4
     assert abs(result['right_rim_thickness_mm'] - 88.9) < 1e-4
     assert abs(result['right_rim_screw_edge_mm'] - 19.05) < 1e-3
+    assert abs(result['seam_x_mm'] + KERF_EACH_MM) < 1e-3
     assert result['k_column_edge_mm'] > 235
 
 

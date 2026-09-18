@@ -16,12 +16,15 @@ It does not rewrite git history or move archives to git-lfs.
 | Six-case archives | `fea/results/floor-runner-mvp/` |
 | Geometry snapshot named in authority | `fea/results/clear-space-floorflush/a12-left/geometry.json` |
 
+Start at [docs/README.md](README.md) if you are building. Older studies are in
+[history/](history/).
+
 ## Safe to ignore while building this candidate
 
 - `site/hybrid/` other than `compact-floor-flush-development`
 - `exports/` historical candidate folders
 - `fea/generated/` and `fea/results/` other than the two trees above
-- Unselected `docs/*-development*.md` packages
+- [docs/history/](history/) (older studies)
 - Documents named `current-*` except those listed in `current-candidate.json`
 
 Optional git sparse-checkout of that list is a local convenience. Do not

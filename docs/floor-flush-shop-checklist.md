@@ -1,13 +1,18 @@
-# Floor-runner shop checklist
+# Shop checklist
 
-**Conditional engineer-unreviewed DIY shop handoff. Not a fabrication release,
-manufacturer qualification, inspected build or climber rating.**
+Cut, drill, assemble, and inspect the selected frame. Use this with the
+[assembly guide](floor-flush-assembly-guide.md).
 
-Use this sheet with the [assembly guide](floor-flush-assembly-guide.md) and the
-[current construction packet](floor-flush-construction/). It consolidates
-existing cut, drill, assembly and inspection instructions. It does not add
-criteria, hardware, geometry or load cases. Six authenticated no-slip cases
-passing 36 adopted checks does not mean every failure mode is qualified.
+**Bought 4×4 plywood:** [https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction).
+**Cut from 4×8:** [https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right).
+See [which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md).
+Pictures: [orientation](floor-flush-diagrams/orientation-front.svg),
+[plywood choice](floor-flush-diagrams/plywood-choice.svg),
+[side view](floor-flush-diagrams/side-profile.svg). Stay on one folder. 3D model:
+[https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/)
+(bought 4×4) or
+[https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right)
+(cut 4×8). You can also pick the matching **Design** line on that page.
 
 | Field | Value |
 | --- | --- |
@@ -19,16 +24,15 @@ passing 36 adopted checks does not mean every failure mode is qualified.
 | Shop date | |
 | Builder | |
 
-Leave every **Actual** and **Disposition** cell blank until the owner or
-builder records a physical observation. CAD, software and this form cannot
-fill those cells.
+Fill **Actual** and **Disposition** when you look at the real part. Do not
+fill them from the 3D model.
 
 ## How to use this packet
 
-One current packet. Do not mix older `floortaper`, spliced-knee, flush-top or
-2x12 sheets. Assembly Y/Z coordinates are not distances from a sawn end.
-Convert every layout to the member-local physical corner, along-grain **A**
-and signed cross-grain **C** on that part's sheet.
+Use only the folder you ticked in C0. Do not mix older taper, spliced-knee,
+flush-top, or 2×12 sheets. Assembly Y and Z are not distances from a sawn end.
+On each piece, measure from that part’s marked corner using along-grain **A**
+and cross-grain **C** on its sheet.
 
 | Work | Controlling record | Do not use as |
 | --- | --- | --- |
@@ -62,16 +66,16 @@ frozen and the rows below are accepted or an explicit stop is recorded.
 
 | ID | Part | Requirement and source | Observation method | Accept / reject | Actual | Disposition |
 | --- | --- | --- | --- | --- | --- | --- |
-| C0 | Packet | Same candidate, construction manifest and these instructions. Choose **official Mini 4×4** or **4×8 kerf-right** and stay on that packet. [Width option](floor-flush-width-option.md); [assembly guide](floor-flush-assembly-guide.md) step 1. | Official: `docs/floor-flush-construction/`. Kerf-right: `docs/floor-flush-construction-kerf-right/` (1/8 in on K / right, pads in front). | Reject mixed official/kerf or historical sheets. Stop cutting. | Official ☐  Kerf-right ☐ | ☐ accept ☐ stop |
+| C0 | Packet | Tick how you got the plywood and use only that folder. [Which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md). | Bought 4×4 → [docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction) (`docs/floor-flush-construction/`). Cut 4×8 → [docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right) (`docs/floor-flush-construction-kerf-right/`). | Stop if the sheets do not match the plywood. | Bought 4×4 ☐  Cut 4×8 ☐ | ☐ accept ☐ stop |
 | C1 | Lumber | Dry, unincised, grade-stamped DF-L No. 2 or better. [Current design basis](current-design-basis.md). Nominal 4×6 actual 88.9 × 139.7 mm for legs/rims; nominal 2×6 actual 38.1 × 139.7 mm for header, posts, rails, principals and runners. | Read grade stamp; measure actual section at connection regions. | Reject STUD, appearance-only, Hem-Fir, SPF, DF-L(N), treated, incised or finger-jointed stock, or a finished section below the modeled size, pending reassessment. Nominal names are not properties. | | ☐ accept ☐ stop |
-| C2 | Face plywood | Owned Roseburg 23/32 CAT AC exterior PS 1, modeled 18.25625 mm. [Purchased materials](purchased-materials.md). Verify usable width before the fixed 1219.2 mm grid. | Measure thickness and usable sheet size; identify stamp/strength axis. | Category thickness is not a measurement. Stop the grid cut if usable width or thickness cannot support the layout. | | ☐ accept ☐ stop |
+| C2 | Face plywood | Roseburg 23/32 CAT AC exterior PS 1. Bought 4×4 must support the 1219.2 mm layout; 4×8 rips use the kerf folder. [Purchased materials](purchased-materials.md). | Measure thickness and usable size; confirm 4×4 vs 4×8 against C0. | Stop if the sheet size does not match the folder you ticked. | | ☐ accept ☐ stop |
 | C3 | Blanks vs profiles | `stock.csv` lengths are blank envelopes without kerf. Rim/leg envelopes 2570.726 mm and 2028.463 mm are inherited blanks, not flush finished lengths. Runner blank follows the 1815.646 mm maximum finished outline. | Compare purchased lengths to blanks, then lay out finished profiles from the current sheets. | Do not cut a finished profile from an older candidate length. | | ☐ accept ☐ stop |
 | C4 | Runner ends | Front plane Y = −175.7 mm, flush to the outer-post plane. Rear end follows the leg back face: bottom Y = 1639.946 mm at Z = 0, top Y = 1605.539 mm at Z = 139.7. Bottom edge 1815.646 mm, top edge 1781.239 mm. [Assembly guide](floor-flush-assembly-guide.md); `runner-end-geometry.json`. | Dry-mark from the member-local corners on `base_floor_*-bolt-sheet.svg`. | Inclined rear end, not a square rear crosscut. Stop if the marked profile is taken from a square-end sheet. | | ☐ accept ☐ stop |
 | C5 | Lower rim ends | Lower rim ends at Y = −175.7 mm (post/header plane). Remaining modeled normal depth 102.805 mm. Old 7 mm reserve is removed. `outer-rim-end-trim.svg`. | Identify the finished end on `base_side_*-bolt-sheet.svg` and the trim sheet. | Do not restore the 7 mm reserve or use a previous rim sheet. | | ☐ accept ☐ stop |
 | C6 | Leg tops | Leg tops terminate on the rim rear face. Previous 18 mm normal projection is removed. Upper bolt pair is relocated. | Use `lumber_leg_*-bolt-sheet.svg` only. | Do not shorten a previously drilled leg. Fresh stock. | | ☐ accept ☐ stop |
 | C7 | 1:12 recess layout | Inner-face open-bottom cut. Max removal 38.1 mm from 88.9 mm, leaving 50.8 mm nominal thickness. Runout 457.2 mm along grain, 1:12. Starts at A = 180.343 mm, full stock at A = 637.543 mm, measured from the lowest raw grain station, not vertically from the floor. `leg-taper-cuts.csv`. | Mark both faces from the two-face taper sheet on the bevel-footed leg. | A is along grain. Stop if the layout uses floor height as A. | | ☐ accept ☐ stop |
 | C8 | 2 mm / 3 mm | Modeled runner-top clearance is 2 mm CAD gap. Geometry screening uses a 3 mm inward boundary allowance. [Assembly guide](floor-flush-assembly-guide.md); [fabrication review](floor-flush-fabrication-review.md). | Confirm the intended gap on the drawing; do not add either value to a saw setting. | Neither value is a blanket shop tolerance or permission to deepen the recess. | | ☐ accept ☐ stop |
-| C9 | Kickers | Whole 1219.2 × 277 mm outlines. No kicker notches. | Check the panel blanks against `stock.csv`. | Reject a notched or shortened kicker as a substitute. | | ☐ accept ☐ stop |
+| C9 | Kickers | Whole kicker outlines from that packet’s `stock.csv`. No notches. | Compare to `stock.csv` in the C0 folder. | Reject a notched or shortened kicker as a substitute. | | ☐ accept ☐ stop |
 
 Cut feet, flush ends and the continuous recess from the current sheets. Saw
 choice for the long shallow recess is in the [assembly guide](floor-flush-assembly-guide.md):
@@ -104,7 +108,7 @@ below before drilling.
 | Item | Instruction | Source and applicability |
 | --- | --- | --- |
 | Joints | `lumber_leg_bolt_{left,right}_{1,2}`. Pair pitch 56 mm. Pair centre assembly Y = 1134.25 mm, Z = 1761.5 mm, direction (18, 53) normalized; convert to member-local A/C. | [Build package](floor-flush-build-package.md); `bolt-member-datums.csv` |
-| Finished hole | Between D+1/32 in (13.49375 mm) and D+1/16 in (14.2875 mm). CAD occupied / CSV `hole_diameter_mm` is **14.2875 mm (9/16 in)**, the upper end of that range. | [NDS §12.1.3](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf), already applied to these same 1/2-inch and 3/8-inch Grade 5 bolts in DF-L in [compact-spliced-build-package.md](compact-spliced-build-package.md). Current CSV diameters match. This is the bolted-wood clearance rule for this hardware, not a new hole size. |
+| Finished hole | Between D+1/32 in (13.49375 mm) and D+1/16 in (14.2875 mm). CAD occupied / CSV `hole_diameter_mm` is **14.2875 mm (9/16 in)**, the upper end of that range. | [NDS §12.1.3](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf), already applied to these same 1/2-inch and 3/8-inch Grade 5 bolts in DF-L in [compact-spliced-build-package.md](history/compact-spliced-build-package.md). Current CSV diameters match. This is the bolted-wood clearance rule for this hardware, not a new hole size. |
 | Bit | Choose a bit that produces a finished hole inside that range. Measure the finished hole, not the bit stamp. | Same. A 9/16 in bit is the CAD upper-end target only if it does not oversize past D+1/16. |
 | Registration | Clamp rim and leg in the flush-top geometry. Layout from each member's own datum D. Drill with a guide; back the exit; drill from one side. | [Assembly guide](floor-flush-assembly-guide.md) |
 | Inspection | Complete washer seats; edge/end distances on actual timber; bolt enters without being driven. No elongation. | FR-3 receiver/washer rules |
@@ -136,7 +140,7 @@ No angular-error tolerance is assigned beyond the front-pair perpendicular
 | Item | Instruction | Source and applicability |
 | --- | --- | --- |
 | Fasteners | Six specified SDS25112 per ML24Z; 3/8-inch hex; low-speed 1/2-inch drill. No generic or Hillman substitution. | [ML24Z qualification](ml24z-qualification.md); Simpson SDS product page already cited there |
-| Wood lead hole | Owner-selected: predrill the wood. Simpson’s catalog bit **where predrilling is required** is **5/32 in** (3.96875 mm). Use that. It is a lead hole, not a 1/4 in clearance hole. Occupied CAD shaft 6.35 mm is not the bit. ESR-2236 still allows installation without a wood predrill; this packet uses the catalog bit because the owner requires one. | [panel-screw-necessity.md](panel-screw-necessity.md); Simpson SDS catalog / ESR-2236; owner direction |
+| Wood lead hole | Owner-selected: predrill the wood. Simpson’s catalog bit **where predrilling is required** is **5/32 in** (3.96875 mm). Use that. It is a lead hole, not a 1/4 in clearance hole. Occupied CAD shaft 6.35 mm is not the bit. ESR-2236 still allows installation without a wood predrill; this packet uses the catalog bit because the owner requires one. | [panel-screw-necessity.md](history/panel-screw-necessity.md); Simpson SDS catalog / ESR-2236; owner direction |
 | Template | Clamp the **purchased ML24Z** and drill the 5/32 in wood pilot **through the existing steel holes**. Do not layout 144 CAD holes in the timber and then offer the angle up. Steel hole is 6.731 mm; do not enlarge it. | [ml24z-qualification.md](ml24z-qualification.md) |
 | Seat | Head flush to the angle; do not overdrive. Fill every specified round hole. | ESR-2236 / manufacturer |
 | Stop | If wood splits, if a station lacks a physical load path, or if the installed geometry differs from six SDS25112 in the ML24Z, stop that station. Do not substitute another screw. | [Master plan](floor-runner-mvp-master-plan.md) ML24Z gate |
@@ -217,7 +221,7 @@ actions manufacturer-qualified.
 | F2 | Front pairs as built | Repeat D1 on the assembled joints. | Same fixture measurements. | Same reject rule. | | ☐ accept ☐ stop |
 | F3 | Seats and wood | Full washer seats; no split receivers; no crushed faces; intended contacts remain. | Visual after snug-up. | Split, crush, or lost contact: stop and reassess. Do not elongate. | | ☐ accept ☐ stop |
 | F4 | Pads | Two 48 × 72 × 5 in pads side by side, front-to-back centre seam. 127 mm thickness is a clearance datum, not a support. [Crash-pad record](current-crash-pad-construction.md). | Layout only. Pads are excluded from frame mass and structural support. Not impact-certified. | Do not use pads as temporary frame props. | | ☐ accept ☐ stop |
-| F5 | Floor | Analytical no-slip support remains an **unverified assumption**. No anchor or friction test is required by this packet. | Record the actual floor as observed; do not convert the assumption into a measured result. | Changed support (tie, anchor, or a calculation that needs one): reassessment, not a silent field fix. | | ☐ accept ☐ stop |
+| F5 | Floor | Calculations assumed the feet do not slide. No floor test is required here. | Note the actual floor. | If you add a tie or anchor, that is a design change. | | ☐ accept ☐ stop |
 | F6 | Departures | Record every departure against this packet. | Written note plus the affected ID. | Do not silently modify a joint. | | ☐ accept ☐ stop |
 
 Recheck loose hardware, split wood or crushed seats after initial settling,
@@ -241,17 +245,12 @@ These are not filled with typical values.
 
 ---
 
-## Disclosed analytical limitations (unchanged)
+## Notes on the calculations
 
-Do not treat these as extra shop measurements or as new analysis tasks.
+These are not extra shop measurements.
 
-- Endpoint remains engineer-unreviewed conditional DIY under recorded 250 lb
-  inquiry, DF-L No. 2, catalog hardware and no-slip floor assumptions.
-- Listed ML24Z force interactions passed in the six cases; unlisted
-  separation and independent flange couples are disclosed without capacity.
-- Full-thread-root bolt sensitivity is non-adopted and exceeds 1.0.
-- Nominal rear-leg cut-face stress inference remains a local-fracture method
-  limit paired with C10.
-- Historical projected-seat scalar (about −4.970 mm) is a non-adopted
-  sensitivity.
-- Viewer pads and this checklist do not inspect actual wood, hardware or floor.
+- DIY build; 250 lb hold cases; feet assumed not to slide.
+- Listed ML24Z forces passed; some angle actions have no Simpson number.
+- Do not use fully threaded bolts.
+- Recess stock still needs a sound cut (C10).
+- Pads in the viewer are a size check, not a test of the wood or the floor.

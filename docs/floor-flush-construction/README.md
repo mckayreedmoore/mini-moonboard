@@ -1,6 +1,6 @@
 # Flush floor-beam construction coordinates
 
-**Dimensional packet for `compact-floor-flush-development`. Not a fabrication release.**
+**Cut and drill sheets for `compact-floor-flush-development`. DIY documentation, not a factory release.**
 
 Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) and
 [assembly guide](../floor-flush-assembly-guide.md). Occupied CAD diameters and

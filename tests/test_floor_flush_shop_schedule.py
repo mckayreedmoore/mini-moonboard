@@ -50,5 +50,5 @@ def test_sds_shop_instruction_is_not_a_wood_pilot():
 def test_construction_readme_does_not_claim_open_resistance_gates():
     text = Path(OUT / 'README.md').read_text()
     assert 'resistance and fabrication gates remain open' not in text
-    assert 'Not a fabrication release' in text
+    assert 'not a factory release' in text.lower()
     assert 'shop_*' in text

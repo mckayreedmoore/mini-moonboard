@@ -1,6 +1,7 @@
 # Flush-end floor-beam revision
 
-**Selected conditional DIY development; not a fabrication release.**
+Selected DIY frame. See the [shop checklist](floor-flush-shop-checklist.md) for
+cut and inspect steps.
 
 Current work is governed by the [floor-runner MVP master
 plan](floor-runner-mvp-master-plan.md) and [frozen criteria
@@ -27,11 +28,9 @@ The upper bolt pair is relocated downward and slightly rotated within the
 joined timber, retaining 56 mm pitch. Current forces support the adopted
 force-directed edge and connection checks under the frozen criteria.
 
-The complete finite task is tracked in the
-[floor-runner MVP master plan](floor-runner-mvp-master-plan.md). Current
-analysis covers the local runner/leg contact path. Delivered hardware,
-fabrication and installation controls remain conditional. No unconditional
-drilling or cut release follows from the numerical pass.
+Work tracking is in the [floor-runner MVP master plan](floor-runner-mvp-master-plan.md).
+Check delivered bolts and lumber against the shop checklist; a passing
+calculation does not skip that.
 
 ## Workshop planning and procurement
 
@@ -40,15 +39,20 @@ The [candidate-specific assembly guide](floor-flush-assembly-guide.md) and
 pieces, six panels, 24 angles, 144 angle screws, 66 panel screws and twelve
 complete bolt stacks. They record the current cut datums, hole-type
 instructions, saw options, delivered-hardware checks and proposed assembly
-order. They are conditional DIY shop documentation, not a fabrication release;
-the [current construction sheets](floor-flush-construction/), supported
-fabrication allowances and disclosed unlisted bracket actions must be used
-together. Actual receiving and fabricated-work observations remain blank until
-the owner records them. Official Mini 4×4 sheets are the analysis geometry.
-Builders ripping 4×8 sheets with a 1/8 in kerf on the K / right side use the
-[width option](floor-flush-width-option.md) and
-[kerf-right sheets](floor-flush-construction-kerf-right/); do not mix packets
-or transfer the six-case pass.
+order. Use them with the matching
+[construction sheets](floor-flush-construction/). Fill inspection cells when
+you see the real parts.
+
+If you **buy 4×4** plywood, use
+[https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction).
+If you **cut 4×8** sheets, use
+[https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right).
+See [which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md).
+3D models:
+[https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/)
+and
+[https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right).
+Do not mix the folders.
 
 ## FR-3 shop acceptance rules
 

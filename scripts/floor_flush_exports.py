@@ -71,7 +71,7 @@ def metadata_for(width_option):
     trim = width.trim_mm(width_option)
     note = ('Twelve complete bolt stacks; nuts and tips outward. All flush cuts require shop inspection.'
             if width_option == width.OFFICIAL else
-            f'K-side 1/8 in ({trim:g} mm) kerf presentation of the selected floor-runner. '
+            f'4×8 shared-kerf presentation: equal 1/16 in panels, 1/8 in ({trim:g} mm) off the K / right edge. '
             'Official Mini 4×4 six-case evidence is not transferred. Not a fabrication release.')
     def metadata(parts, connections):
         return {**shared.design_metadata(parts, connections),

@@ -1,29 +1,34 @@
-# Flush floor-beam candidate: workshop planning guide
+# Assembly guide
 
-**Current selected-development draft; not a fabrication release.**
-The [build-package status](floor-flush-build-package.md) controls this guide.
-Six fresh no-slip cases pass all 36 frozen adopted checks, and nominal FR-3
-CAD/shop geometry is complete. The [shop checklist](floor-flush-shop-checklist.md)
-is the staged cut/drill/assembly handoff. Delivered hardware and fabricated
-work still require inspection. Catalog-unlisted ML24Z/SDS actions are disclosed
-limits, not additional capacity passes. This proposed sequence does not
-authorize fabrication. See the [completion ledger](floor-runner-mvp-completion-ledger.md).
+This is the order of work for the selected frame. Use it with the
+[shop checklist](floor-flush-shop-checklist.md).
+
+**Plywood first.** If you **bought 4×4** faces, use
+[https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction).
+If you **cut 4×8** sheets, use
+[https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right).
+See [which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md).
+Do not mix the two folders, and do not use older “taper,” spliced-knee, or 2×12 sheets.
+
+The [shop checklist](floor-flush-shop-checklist.md) points at the right drawing
+for each cut and hole. Numbers in `modeled_diameter_mm` are CAD pictures of the
+screw or bolt, not drill-bit sizes. Bit sizes are in the `shop_*` columns and
+in the checklist.
 
 ## Use one matching model
 
-Open the local viewer with `?model=compact-floor-flush-development&view=rear`.
-The preserved [parts inventory](../site/hybrid/compact-floor-flush-development/parts.json)
-and [artifact manifest](../site/hybrid/compact-floor-flush-development/manifest.json)
-identify the current geometry. Earlier `floortaper` construction sheets have
-**different runner ends, leg tops and all three bolt-pair layouts**. They are
-historical references, not current drilling templates. The [current draft construction packet](floor-flush-construction/) supplies
-member-local cut/bolt sheets. Verify its manifest, scale-verification marks and
-profile annotations before treating any drawing as a template; draft sheets
-do not close delivered-item inspection or fabrication-allowance conditions.
-The [shop checklist](floor-flush-shop-checklist.md) maps each operation to those
-sheets. Occupied CAD diameters stay in `modeled_diameter_mm`; finished bolt-hole
-range, purchased Hillman length and SDS wood-lead-hole rules are the `shop_*`
-columns.
+Open the 3D model for the same plywood choice:
+
+- Bought 4×4: [https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/)
+- Cut from 4×8: [https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right)
+
+Or open the first link and pick the matching line under **Design**. Use the
+same folder as that choice when you cut. Check the lumber and hardware you
+actually receive.
+
+![Standing at the pads: left is A, right is K](floor-flush-diagrams/orientation-front.svg)
+
+![Side view: kicker, pad, sloped face, 1:12 recess on the rear leg](floor-flush-diagrams/side-profile.svg)
 
 Assembly coordinates are millimetres: X spans the board, Z is height above the
 floor, and Y runs front to rear. X = 0 is the board centre. Label left/right,
@@ -97,6 +102,10 @@ flat seating on sound timber: upper washer thickness may be 3.3528 mm with the
 catalog radius 0.0635 mm above modeled, and smaller washers may be 2.6416 mm
 with catalog radius 0.381 mm above modeled. Reject incompatible or rocking stacks; do not
 elongate holes or improvise spacers.
+
+![Bolt stack: head toward the climbing space, nut on the outside](floor-flush-diagrams/bolt-stack.svg)
+
+![SDS through the angle versus Hillman through the plywood](floor-flush-diagrams/two-screw-types.svg)
 
 Hold bolts are not installed geometry in this model. Retain the accepted
 hold-system instructions and owned kit; do not infer bolt lengths per hold
@@ -173,7 +182,7 @@ cuts and hardware still require the documented shop observations.
 
 1. **Freeze the packet.** Record the selected model identifier and manifest;
    verify all cut sheets, hardware schedule and instructions describe that same
-   revision. Choose official Mini 4×4 sheets or the 4×8 kerf-right sheets
+   revision. Choose official Mini 4×4 sheets or the 4×8 shared-kerf sheets
    ([width option](floor-flush-width-option.md)); do not mix them. Confirm the
    matching case evidence and apply the documented stock, cut, hole and
    delivered-hardware controls on the
@@ -237,12 +246,7 @@ cuts and hardware still require the documented shop observations.
    rather than silently modifying the joint. Recheck loose hardware, split wood or
    crushed seats after initial settling, relocation or unusual impact.
 
-The endpoint remains conditional, engineer-unreviewed DIY under the documented
-loads, material and explicit no-slip floor support assumption. Normal floor
-contact may open. This assumption does not qualify floor friction or imply an
-installed anchor; earlier per-cell Coulomb cases remain historical evidence.
-The [fabrication review](floor-flush-fabrication-review.md) records the current
-dimensional budgets and the historical independent-error counterexample; the
-adopted paired-fixture rule is in the criteria ledger and FR-3 shop checks.
-This sequence adds no floor-friction test, panel requalification campaign or
-external signoff requirement.
+Hole sizes, bolt shanks, and washer seats are in the
+[shop checklist](floor-flush-shop-checklist.md) and the
+[fabrication review](floor-flush-fabrication-review.md). Record what you
+actually see; do not silently change a joint.

@@ -1,8 +1,8 @@
 # Flush floor-beam construction coordinates
 
-**Dimensional packet for `compact-floor-flush-development`. Not a fabrication release.**
+**Cut and drill sheets for `compact-floor-flush-development`. DIY documentation, not a factory release.**
 
-This packet is the **kerf-right** presentation: 1/8 in (3.175 mm) removed from the K-side overall width. Official Mini 4×4 sheets are in [floor-flush-construction](../floor-flush-construction/). Six-case evidence remains the official geometry.
+This packet is for **4×8 plywood cut into two faces**. Each face is 1/16 in narrower; 1/8 in (3.175 mm) is missing at the right (K) edge because layout starts from the left. Bought 4×4 sheets are in [floor-flush-construction](../floor-flush-construction/). Six-case evidence remains the official geometry.
 
 Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) and
 [assembly guide](../floor-flush-assembly-guide.md). Occupied CAD diameters and

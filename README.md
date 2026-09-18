@@ -1,81 +1,78 @@
 # Mini MoonBoard DIY frame
 
-Independent CAD, shop instructions and conditional calculations for a Mini
-MoonBoard-sized climbing wall. Not affiliated with or endorsed by Moon Climbing.
+Plans, a 3D viewer, and shop sheets for a Mini MoonBoard-sized climbing wall
+you can build yourself. This is an independent project, not affiliated with or
+endorsed by Moon Climbing.
 
-**Selected design: `compact-floor-flush-development`.** Engineer-unreviewed
-conditional DIY under recorded loads, DF-L No. 2, catalog hardware and an
-explicit no-slip floor assumption. Not a fabrication release, manufacturer
-qualification or climber rating.
+This is a DIY build. It has not been signed off by an engineer.
 
 ## Start here
 
-1. Pick a width: **official Mini 4×4** or **4×8 with 1/8 in kerf on the K / right
-   side** (pads in front; right is toward the right leg). See
-   [width option](docs/floor-flush-width-option.md).
-2. Build from the [shop checklist](docs/floor-flush-shop-checklist.md) and
-   [assembly guide](docs/floor-flush-assembly-guide.md).
-3. Use matching sheets only:
-   - Official: [docs/floor-flush-construction/](docs/floor-flush-construction/)
-   - Kerf-right: [docs/floor-flush-construction-kerf-right/](docs/floor-flush-construction-kerf-right/)
-4. Do not mix packets. Six-case evidence applies only to the official 4×4.
+**How you get the plywood decides which sheets to use.**
 
-Machine authority is [`current-candidate.json`](current-candidate.json).
-Working constraints: [`AGENTS.md`](AGENTS.md).
+| Your plywood | Cut and drill sheets | 3D model |
+| --- | --- | --- |
+| Bought as **4×4** (or Mini kit panels) | [github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction) | [https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/) |
+| **Cut from 4×8** (saw takes about 1/8 in) | [github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right) | [https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right) |
 
-## What you are looking at
+You can also open the 3D page and, under **Design**, pick **Bought 4×4 plywood**
+or **Cut from 4×8**. You do not have to edit the address bar.
 
-Solid 4×6 legs and side rims, compact 2×6 header/posts/rails/runners, whole
-kickers, a 1:12 rear-leg recess, twelve outward bolt stacks, 24 ML24Z angles
-with 144 SDS25112 screws, and 66 Hillman 42605 panel/kicker screws.
+Why two folders: a 4×8 ripped in half loses about 1/8 in to the blade, split
+across both faces. Hold and screw layout still starts from the left, like the
+Moon drawings, so that missing width lands on the right. More detail:
+[Which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md).
 
-- SDS: 5/32 in wood lead hole **through the purchased angle**.
-- Hillman: Kobalt 80277 **#10** insert (1/8 in pilot, 3/8 in countersink), then
-  an offcut trial.
-- Frame bolts: NDS clearance holes; measure delivered shank (no full-thread
-  substitutes).
+Start in [docs/](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs)
+([docs/README.md](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/README.md)).
+Then follow the [shop checklist](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-shop-checklist.md)
+and [assembly guide](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-assembly-guide.md).
+Use only the folder that matches your plywood. Do not mix them.
 
-Listed ML24Z catalog forces pass in the saved cases. Separation and
-flange-couple actions are **disclosed without capacity**. The floor is an
-**unverified no-slip assumption**, not an anchor.
+The selected design name in the files is `compact-floor-flush-development`.
 
-## Viewer
+## What you are building
 
-```sh
-uv run python -m http.server 8767 --directory site
-```
+4×6 rear legs and side rims, 2×6 header, posts, rails and floor runners, whole
+kicker panels, a 1:12 cut on the back of each rear leg, twelve bolt stacks,
+24 Simpson ML24Z angles with SDS screws, and 66 Hillman deck screws through
+the faces.
 
-Open [localhost:8767](http://localhost:8767/) (official 4×4) or
-[kerf-right](http://localhost:8767/?model=compact-floor-flush-kerf-right).
+- **Angle screws (SDS):** 5/32 in pilot through the metal angle into the wood.
+- **Face screws (Hillman #10):** Kobalt #10 bit, 1/8 in pilot and 3/8 in
+  countersink. Try it on a scrap first.
+- **Frame bolts:** slightly oversize holes; use partially threaded bolts and
+  check the smooth shank on the parts you actually bought.
 
-Current design is the two width presentations. Older candidates are in the
-archive menus. Pads are a placement preview only.
+Calculations used 250 lb holds and assumed the feet stay put. Some Simpson
+angle actions have no published rating; that is noted in the ledger. Crash pads
+in the 3D view are a size check only. Older designs are in the archive menus.
 
-## Plans and evidence (short map)
+## If you want the background
 
-| Document | Role |
+| Document | What it is |
 | --- | --- |
-| [Shop checklist](docs/floor-flush-shop-checklist.md) | Cut, drill, assemble, inspect |
-| [Assembly guide](docs/floor-flush-assembly-guide.md) | Sequence and hardware |
-| [Build package](docs/floor-flush-build-package.md) | What is in the selected assembly |
-| [MVP master plan](docs/floor-runner-mvp-master-plan.md) | How the six-case MVP was finished |
-| [Criteria](docs/floor-runner-mvp-criteria.md) | The 36 adopted checks |
-| [Completion ledger](docs/floor-runner-mvp-completion-ledger.md) | Passes vs still-open limits |
-| [Six-case aggregate](docs/floor-runner-mvp-evidence.json) | Authenticated no-slip results |
-| [History](docs/history/README.md) | Older candidates; do not treat as current |
+| [Shop checklist](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-shop-checklist.md) | Cut, drill, assemble, inspect |
+| [Assembly guide](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-assembly-guide.md) | Order of work and hardware |
+| [Which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md) | 4×4 vs 4×8 |
+| [Build package](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-build-package.md) | Parts list and current status |
+| [MVP master plan](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-runner-mvp-master-plan.md) | How the calculations were finished |
+| [Completion ledger](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-runner-mvp-completion-ledger.md) | What passed and what is still open |
+| [History](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/README.md) | Older ideas; not current |
 
-The master plan’s FR-0–FR-8 work is documentation/software complete. Remaining
-work is receiving, fabrication and filling blank inspection cells.
+What is left is buying lumber, cutting, and filling in the checklist as you go.
 
-## Reproduce
+## For people editing the code
 
 ```sh
 uv sync --locked
+uv run python -m http.server 8767 --directory site
 uv run python -m scripts.floor_flush_exports
 uv run python -m scripts.floor_flush_construction
 uv run python -m scripts.current_candidate --check-exports
 uv run pytest -q
 ```
 
-The checker confirms configuration identity, not structural acceptance. See
-[CONTRIBUTING.md](CONTRIBUTING.md).
+[`current-candidate.json`](https://github.com/mckayreedmoore/mini-moonboard/blob/master/current-candidate.json)
+points at the selected files. See
+[CONTRIBUTING.md](https://github.com/mckayreedmoore/mini-moonboard/blob/master/CONTRIBUTING.md).
