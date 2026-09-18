@@ -13,6 +13,7 @@ from pathlib import Path
 import cadquery as cq
 
 from mini_moonboard import compact_floor_flush_frame as model
+from mini_moonboard import floor_flush_width as width
 from mini_moonboard import panel_grid_v2 as grid
 from mini_moonboard.round_service_drilling import passage_rows
 from scripts import clear_space_construction as shared
@@ -20,6 +21,7 @@ from scripts import floor_flush_exports as exporter
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/floor-flush-construction'
+KERF_OUT = ROOT / 'docs/floor-flush-construction-kerf-right'
 STATUS = ('DRAFT coordinates — six no-slip cases pass frozen criteria; delivered '
           'hardware and fabrication inspection remain; not a fabrication release')
 HILLMAN_LENGTH_MM = 63.5
@@ -78,8 +80,11 @@ def shop_axis_fields(connection):
 class SheetModel:
     """Delegate current geometry while suppressing inherited historical trim notes."""
 
+    def __init__(self, source=model):
+        self._source = source
+
     def __getattr__(self, name):
-        return getattr(model, name)
+        return getattr(self._source, name)
 
     def trim_planes(self):
         # The preceding splice helper reports historical end cuts. Current
@@ -88,9 +93,9 @@ class SheetModel:
 
 
 @contextmanager
-def sheet_context(output):
-    values = {'OUT': output, 'model': SheetModel(), 'PACKET_STATUS': STATUS,
-                  'PACKAGE': exporter.PACKAGE, 'HARDWARE': 'docs/floor-flush-construction/bolt-hardware.csv'}
+def sheet_context(output, source=model):
+    values = {'OUT': output, 'model': SheetModel(source), 'PACKET_STATUS': STATUS,
+                  'PACKAGE': exporter.PACKAGE, 'HARDWARE': 'bolt-hardware.csv'}
     old = {key: getattr(shared, key) for key in values}
     try:
         for key, value in values.items():
@@ -103,7 +108,7 @@ def sheet_context(output):
 
 def profile_corner_rows(datums):
     """Dimension each actual side-profile corner from the drilling datum."""
-    raw = {part.name: part for part in model.uncut_wood_parts()}
+    raw = {part.name: part for part in shared.model.uncut_wood_parts()}
     rows = []
     for name in sorted({row['member'] for row in datums}):
         datum = next(row for row in datums if row['member'] == name)
@@ -125,9 +130,10 @@ def profile_corner_rows(datums):
     return rows
 
 
-def generate(output=OUT):
+def generate(output=OUT, *, width_option=width.OFFICIAL):
     output = Path(output)
-    inventory_path = ROOT / 'site/hybrid' / model.KEY / 'parts.json'
+    frame = width.variant(width_option)
+    inventory_path = ROOT / 'site/hybrid' / frame.KEY / 'parts.json'
     manifest_path = inventory_path.with_name('manifest.json')
     export_manifest = json.loads(manifest_path.read_text())
     sources = exporter.sources()
@@ -141,8 +147,10 @@ def generate(output=OUT):
     inventory = json.loads(inventory_path.read_text())
     if inventory['design']['key'] != model.KEY:
         raise ValueError('Wrong candidate inventory')
+    if inventory['design'].get('width_option', width.OFFICIAL) != width_option:
+        raise ValueError('Construction width option does not match viewer inventory')
     output.mkdir(parents=True, exist_ok=True)
-    with sheet_context(output):
+    with sheet_context(output, frame):
         write = shared.write_csv
         stock = []
         for part in inventory['parts']:
@@ -154,7 +162,7 @@ def generate(output=OUT):
                 'detail': 'Stock blank allowance, not finished cut length; actual trimmed corners in stock-profiles.json and profile-corner-datums.csv.',
                 'assessment_status': STATUS})
         write('stock.csv', stock)
-        connections = model.connections()
+        connections = frame.connections()
         axes = []
         for connection in connections:
             shop = shop_axis_fields(connection)
@@ -191,7 +199,7 @@ def generate(output=OUT):
             text = text.replace('Hardware: ../bolt-hardware.csv', 'Hardware: bolt-hardware.csv')
             path.write_text(text)
         panel = []
-        for row in model.attachment_datums():
+        for row in frame.attachment_datums():
             name = row['panel']
             left = -model.b.HALF if name.endswith('_left') else 0.
             bottom = model.b.HALF if name.startswith('main_upper_') else 0.
@@ -221,22 +229,26 @@ def generate(output=OUT):
         write('panel-hole-axes.csv', holes)
         profiles = {p.name: {'stock_blank_allowance_mm': p.blank,
             'vertices_world_mm': sorted({tuple(round(v, 9) for v in vertex.Center().toTuple())
-                                     for vertex in p.shape.Vertices()})} for p in model.uncut_wood_parts()}
+                                     for vertex in p.shape.Vertices()})} for p in frame.uncut_wood_parts()}
         for name, value in [('stock-profiles.json', profiles), ('timber-passages.json', passage_rows(model)),
                             ('runner-end-geometry.json', model.runner_end_geometry())]:
             (output/name).write_text(json.dumps(value, indent=2, allow_nan=False)+'\n')
         if (len(stock), len(axes), len(bolts), len(panel), sum(h['kind'] == 'hold' for h in holes)) != (26, 222, 12, 66, 142):
             raise ValueError('Unexpected candidate inventory counts')
-    (output/'README.md').write_text('''# Flush floor-beam construction coordinates
+    width_note = ('' if width_option == width.OFFICIAL else
+        f'\nThis packet is the **kerf-right** presentation: 1/8 in ({width.KERF_RIGHT_MM:g} mm) '
+        'removed from the K-side overall width. Official Mini 4×4 sheets are in '
+        '[floor-flush-construction](../floor-flush-construction/). Six-case evidence remains the official geometry.\n')
+    (output/'README.md').write_text(f'''# Flush floor-beam construction coordinates
 
 **Dimensional packet for `compact-floor-flush-development`. Not a fabrication release.**
-
+{width_note}
 Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) and
 [assembly guide](../floor-flush-assembly-guide.md). Occupied CAD diameters and
 `modeled_length_mm` values are analysis envelopes. Use the `shop_*` columns for
 finished bolt-hole range, purchased Hillman length and SDS wood-lead-hole rules.
 
-Candidate: `compact-floor-flush-development`. See
+Candidate: `compact-floor-flush-development`. Width option: `{width_option}`. See
 [the current package](../floor-flush-build-package.md) for evidence status.
 
 - `stock.csv` gives stock allowances, not finished lengths.
@@ -257,17 +269,20 @@ All timber profiles assume fresh stock; previous holes are not repair instructio
     if any(exporter.shared.digest(ROOT/path) != digest for path, digest in sources.items()):
         raise ValueError('Sources changed during construction generation')
     artifacts = {p.name: exporter.shared.digest(p) for p in sorted(output.iterdir()) if p.name != 'manifest.json'}
-    (output/'manifest.json').write_text(json.dumps({'candidate': model.KEY, 'assessment_status': STATUS,
+    (output/'manifest.json').write_text(json.dumps({'candidate': model.KEY, 'width_option': width_option,
+        'assessment_status': STATUS,
         'source_sha256': dict(sorted(sources.items())), 'artifact_sha256': artifacts,
         'scope': 'Draft current geometry coordinates only; no transferred historical acceptance.'}, indent=2)+'\n')
     return output
 
 
-def check(saved=OUT):
+def check(saved=OUT, *, width_option=None):
     """Rebuild in an empty directory and require byte-identical package files."""
     saved = Path(saved)
+    if width_option is None:
+        width_option = width.KERF_RIGHT if saved.resolve() == KERF_OUT.resolve() else width.OFFICIAL
     with tempfile.TemporaryDirectory() as directory:
-        rebuilt = generate(Path(directory) / saved.name)
+        rebuilt = generate(Path(directory) / saved.name, width_option=width_option)
         saved_files = {path.relative_to(saved) for path in saved.rglob('*') if path.is_file()}
         rebuilt_files = {path.relative_to(rebuilt) for path in rebuilt.rglob('*') if path.is_file()}
         if saved_files != rebuilt_files:
@@ -278,9 +293,23 @@ def check(saved=OUT):
     return saved
 
 
+def generate_all():
+    return generate(OUT, width_option=width.OFFICIAL), generate(KERF_OUT, width_option=width.KERF_RIGHT)
+
+
+def check_all():
+    return check(OUT, width_option=width.OFFICIAL), check(KERF_OUT, width_option=width.KERF_RIGHT)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=OUT)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--width', choices=width.OPTIONS)
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
-    print(check(args.output) if args.check else generate(args.output))
+    if args.output or args.width:
+        option = args.width or width.OFFICIAL
+        target = args.output or (KERF_OUT if option == width.KERF_RIGHT else OUT)
+        print(check(target, width_option=option) if args.check else generate(target, width_option=option))
+    else:
+        print(check_all() if args.check else generate_all())

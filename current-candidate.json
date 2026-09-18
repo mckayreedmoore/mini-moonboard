@@ -15,8 +15,21 @@
   "assembly_guide": "docs/floor-flush-assembly-guide.md",
   "decision_log": "docs/history/decision-log.md",
   "working_set": "docs/selected-working-set.md",
+  "width_option_document": "docs/floor-flush-width-option.md",
+  "width_options": {
+    "official": {
+      "viewer": "site/hybrid/compact-floor-flush-development/manifest.json",
+      "construction": "docs/floor-flush-construction/manifest.json"
+    },
+    "kerf-right": {
+      "viewer": "site/hybrid/compact-floor-flush-kerf-right/manifest.json",
+      "construction": "docs/floor-flush-construction-kerf-right/manifest.json",
+      "trim_mm": 3.175
+    }
+  },
   "viewer_documents": [
     {"label": "Shop checklist", "path": "docs/floor-flush-shop-checklist.md"},
+    {"label": "Official vs 4×8 kerf width", "path": "docs/floor-flush-width-option.md"},
     {"label": "Assembly guide", "path": "docs/floor-flush-assembly-guide.md"},
     {"label": "Selected development package", "path": "docs/floor-flush-build-package.md"},
     {"label": "Completion ledger", "path": "docs/floor-runner-mvp-completion-ledger.md"},

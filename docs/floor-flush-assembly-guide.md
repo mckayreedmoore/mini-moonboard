@@ -173,9 +173,12 @@ cuts and hardware still require the documented shop observations.
 
 1. **Freeze the packet.** Record the selected model identifier and manifest;
    verify all cut sheets, hardware schedule and instructions describe that same
-   revision. Confirm the matching case evidence and apply the documented stock,
-   cut, hole and delivered-hardware controls on the
-   [shop checklist](floor-flush-shop-checklist.md) before cutting stock.
+   revision. Choose official Mini 4×4 sheets or the 4×8 kerf-right sheets
+   ([width option](floor-flush-width-option.md)); do not mix them. Confirm the
+   matching case evidence and apply the documented stock, cut, hole and
+   delivered-hardware controls on the
+   [shop checklist](floor-flush-shop-checklist.md) before cutting stock. Official
+   six-case evidence applies only to the 4×4 presentation.
 2. **Receive and label stock.** Check actual sections against the documented
    minimums, identify grain direction and damaged connection regions, and label
    the mirrored member faces. Lay out from the final member-local datums.

@@ -210,10 +210,16 @@ def check(root=ROOT):
                 f'{field} does not bind the selected model')
     for field in ('build_package', 'completion_plan', 'hardware_schedule'):
         require((root / selection[field]).is_file(), f'Missing {field}')
-    for field in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set'):
+    for field in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set',
+                  'width_option_document'):
         name = selection.get(field)
         if name:
             require((root / name).is_file(), f'Missing {field}')
+    for option, paths in selection.get('width_options', {}).items():
+        for kind in ('viewer', 'construction'):
+            name = paths.get(kind)
+            if name:
+                require((root / name).is_file(), f'Missing {option} {kind} packet')
 
     viewer_path = root / selection['viewer_manifest']
     drawing_path = root / selection['construction_manifest']

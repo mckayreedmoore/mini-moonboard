@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="748" viewBox="0 0 1000 748">
+<title>base_floor_left nominal side-face profile and bolt coordinates</title>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:sans-serif;fill:#17202a;font-size:14px}.small{font-size:12px}.title{font-size:21px;font-weight:bold}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#245a81"/></marker></defs>
+<text x="25" y="30" class="title">base_floor_left</text>
+<text x="25" y="56" class="">NOT ACCEPTED — geometry reference only; do not use as a build release.</text>
+<text x="25" y="80" class="">Stock allowance (not finished length) × depth × thickness: 1815.646 × 139.700 × 38.100 mm; quantity 1.</text>
+<text x="25" y="102" class="">Minimum-X side face; full outline. All dimensions in mm. Use dimensions, not image scale.</text>
+<polygon points="70.000,270.000 913.702,270.000 930.000,203.830 70.000,203.830" fill="#eee1c7" stroke="#333" stroke-width="1.5"/>
+<circle cx="70.0" cy="270.0" r="4" fill="#c33"/>
+<text x="76.0" y="292.0" class="small">D: physical corner</text>
+<circle cx="103.23777061591483" cy="237.06740037870384" r="2.631776088979983" fill="white" stroke="#245a81" stroke-width="1.2"/>
+<line x1="103.23777061591483" y1="237.06740037870384" x2="103.23777061591483" y2="293" stroke="#637785" stroke-width=".6"/>
+<text x="106.23777061591483" y="305" class="small">H1</text>
+<circle cx="116.4674480789075" cy="250.29707784169653" r="2.631776088979983" fill="white" stroke="#245a81" stroke-width="1.2"/>
+<line x1="116.4674480789075" y1="250.29707784169653" x2="116.4674480789075" y2="313" stroke="#637785" stroke-width=".6"/>
+<text x="119.4674480789075" y="325" class="small">H2</text>
+<circle cx="887.8695654158355" cy="236.51220346620747" r="2.631776088979983" fill="white" stroke="#245a81" stroke-width="1.2"/>
+<line x1="887.8695654158355" y1="236.51220346620747" x2="887.8695654158355" y2="293" stroke="#637785" stroke-width=".6"/>
+<text x="890.8695654158355" y="305" class="small">H3</text>
+<circle cx="871.765108808354" cy="250.01152738718466" r="2.631776088979983" fill="white" stroke="#245a81" stroke-width="1.2"/>
+<line x1="871.765108808354" y1="250.01152738718466" x2="871.765108808354" y2="313" stroke="#637785" stroke-width=".6"/>
+<text x="874.765108808354" y="325" class="small">H4</text>
+<path d="M75 395H195M75 395V345" fill="none" stroke="#245a81" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M75 395H195" fill="none" stroke="#245a81" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="205" y="400" class="">+A along grain</text>
+<text x="85" y="355" class="">+C across grain</text>
+<text x="25" y="425" class="">D world XYZ: -1257.300, -175.700, 139.700 mm. Both ordinates start at D.</text>
+<text x="25" y="448" class="">+A world YZ = (1.000000000, 0.000000000); +C = (0.000000000, -1.000000000).</text>
+<text x="25" y="483" class="small">ID</text>
+<text x="75" y="483" class="small">Connection ID (matches bolt-member-datums.csv)</text>
+<text x="575" y="483" class="small">A from D</text>
+<text x="705" y="483" class="small">Signed C from D</text>
+<text x="875" y="483" class="small">Hole Ø</text>
+<text x="25" y="510" class="small">H1</text>
+<text x="75" y="510" class="small">rail_front_bolt_left_1</text>
+<text x="575" y="510" class="small">70.172</text>
+<text x="705" y="510" class="small">69.528</text>
+<text x="875" y="510" class="small">11.1125</text>
+<text x="25" y="537" class="small">H2</text>
+<text x="75" y="537" class="small">rail_front_bolt_left_2</text>
+<text x="575" y="537" class="small">98.103</text>
+<text x="705" y="537" class="small">41.597</text>
+<text x="875" y="537" class="small">11.1125</text>
+<text x="25" y="564" class="small">H3</text>
+<text x="75" y="564" class="small">rail_rear_bolt_left_1</text>
+<text x="575" y="564" class="small">1726.700</text>
+<text x="705" y="564" class="small">70.700</text>
+<text x="875" y="564" class="small">11.1125</text>
+<text x="25" y="591" class="small">H4</text>
+<text x="75" y="591" class="small">rail_rear_bolt_left_2</text>
+<text x="575" y="591" class="small">1692.700</text>
+<text x="705" y="591" class="small">42.200</text>
+<text x="875" y="591" class="small">11.1125</text>
+<text x="25" y="618" class="">Bolt axes normal to this side face. Signed C may be negative; do not mirror the corner convention.</text>
+<text x="25" y="642" class="">Actual trimmed raw outline shown. Cut corners: profile-corner-datums.csv. Taper and bores are separate.</text>
+<text x="25" y="664" class="">LED passages: timber-passages.json. Panel/SDS screw axes: connection-axes.csv; no pilot size inferred.</text>
+<text x="25" y="686" class="">Panel operations: panel-attachment-axes.csv + panel-hole-axes.csv. End details: stock-profiles.json.</text>
+<text x="25" y="708" class="">Conditions and installation: ../floor-flush-build-package.md; hardware: bolt-hardware.csv + bolt-hardware.csv.</text>
+</svg>

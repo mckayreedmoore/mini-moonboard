@@ -6,7 +6,11 @@ The selected candidate is `compact-floor-flush-development`. Machine authority
 is [`current-candidate.json`](current-candidate.json). The shop packet is the
 [assembly guide](docs/floor-flush-assembly-guide.md),
 [shop checklist](docs/floor-flush-shop-checklist.md) and
-[construction sheets](docs/floor-flush-construction/). Evidence and gates are
+[construction sheets](docs/floor-flush-construction/). A 4×8 kerf-right
+presentation (1/8 in on the K / right side) is the same candidate, not a second
+FEA program; use [width option](docs/floor-flush-width-option.md) and
+[`docs/floor-flush-construction-kerf-right/`](docs/floor-flush-construction-kerf-right/).
+Evidence and gates are
 in the [MVP master plan](docs/floor-runner-mvp-master-plan.md) and
 [completion ledger](docs/floor-runner-mvp-completion-ledger.md).
 

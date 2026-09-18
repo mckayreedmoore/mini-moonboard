@@ -7,7 +7,7 @@ Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) 
 `modeled_length_mm` values are analysis envelopes. Use the `shop_*` columns for
 finished bolt-hole range, purchased Hillman length and SDS wood-lead-hole rules.
 
-Candidate: `compact-floor-flush-development`. See
+Candidate: `compact-floor-flush-development`. Width option: `official`. See
 [the current package](../floor-flush-build-package.md) for evidence status.
 
 - `stock.csv` gives stock allowances, not finished lengths.

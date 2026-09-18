@@ -44,7 +44,11 @@ order. They are conditional DIY shop documentation, not a fabrication release;
 the [current construction sheets](floor-flush-construction/), supported
 fabrication allowances and disclosed unlisted bracket actions must be used
 together. Actual receiving and fabricated-work observations remain blank until
-the owner records them.
+the owner records them. Official Mini 4×4 sheets are the analysis geometry.
+Builders ripping 4×8 sheets with a 1/8 in kerf on the K / right side use the
+[width option](floor-flush-width-option.md) and
+[kerf-right sheets](floor-flush-construction-kerf-right/); do not mix packets
+or transfer the six-case pass.
 
 ## FR-3 shop acceptance rules
 

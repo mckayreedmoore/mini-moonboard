@@ -25,7 +25,7 @@ def configuration(tmp_path):
     selection = json.loads(Path('current-candidate.json').read_text())
     key = 'fixture-development'
     for extra in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set',
-                  'viewer_documents'):
+                  'viewer_documents', 'width_options', 'width_option_document'):
         selection.pop(extra, None)
     selection.update({
         'candidate': key,
