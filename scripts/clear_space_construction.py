@@ -256,7 +256,7 @@ def leg_taper_sheets():
 def write_csv(name, rows):
     with (OUT/name).open('w', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(dict.fromkeys(
-            key for row in rows for key in row)))
+            key for row in rows for key in row)), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 

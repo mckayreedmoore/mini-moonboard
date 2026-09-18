@@ -42,9 +42,56 @@
     "lower_kicker_screw_height_mm": 60.0,
     "base_clip_center_y_mm": -105.85,
     "joint_note": "Twelve complete bolt stacks; nuts and tips outward. All flush cuts require shop inspection.",
-    "panel_screw_visual_scope": "66 Hillman 42605 nominal 63.5 mm visuals; head, thread, pilot and resistance unqualified."
+    "panel_screw_visual_scope": "66 Hillman 42605 nominal 63.5 mm visuals; head, thread, pilot and resistance unqualified.",
+    "documents": [
+      {
+        "label": "Shop checklist",
+        "path": "docs/floor-flush-shop-checklist.md"
+      },
+      {
+        "label": "Assembly guide",
+        "path": "docs/floor-flush-assembly-guide.md"
+      },
+      {
+        "label": "Selected development package",
+        "path": "docs/floor-flush-build-package.md"
+      },
+      {
+        "label": "Completion ledger",
+        "path": "docs/floor-runner-mvp-completion-ledger.md"
+      },
+      {
+        "label": "Six-case evidence",
+        "path": "docs/floor-runner-mvp-evidence.json"
+      },
+      {
+        "label": "24-angle demand ledger",
+        "path": "docs/floor-runner-mvp-angle-demands.json"
+      },
+      {
+        "label": "MVP master plan",
+        "path": "docs/floor-runner-mvp-master-plan.md"
+      },
+      {
+        "label": "Frozen criteria ledger",
+        "path": "docs/floor-runner-mvp-criteria.md"
+      },
+      {
+        "label": "Purchased panel screws",
+        "path": "docs/current-panel-screw-purchase.md"
+      },
+      {
+        "label": "Crash-pad construction",
+        "path": "docs/current-crash-pad-construction.md"
+      },
+      {
+        "label": "Preceding hardware basis",
+        "path": "docs/floor-runner-taper-hardware.md"
+      }
+    ]
   },
   "source_sha256": {
+    "current-candidate.json": "8e71308a87683ef8edb20a920fd3c9f4fbefd55ddc9aa95e1a272600e8cc7682",
     "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
     "docs/ml24z-reference.json": "1eb380dde640bae5ee0128e74f262500abc8e7a37b769b65bca89f8b7970f303",
     "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
@@ -208,7 +255,7 @@
     "scripts/compact_splice_results.py": "10fd2ffd2afc563edb8f0c9017adec37423ae60d8026fa1fe4e72a85cf38dbdc",
     "scripts/compact_thick_geometry.py": "b3ef4fbb5842b55be57b6117dbcb81d7a9b78b14a9121db1191827aab6557212",
     "scripts/compact_thick_results.py": "3f4f0ec5bfd1535c602c0c00c8017665fd336ca32f9cd6b38ccf9d5813853c1a",
-    "scripts/floor_flush_exports.py": "beb7f5c7cad8744cbd8a3f3db4a9170d15ca167250c407cc6d795f6ad2bfe81f",
+    "scripts/floor_flush_exports.py": "e0e7f0929ace8f9cb984d86dfa4d2ff68f98988943e0dcb12864e1e12fb55831",
     "scripts/floor_recess_checks.py": "a1a5ef786e2d8aff8446ffa00c09555c1cf4377ec54799894176ad3719170f36",
     "scripts/floor_taper_checks.py": "bf15d8983b42d95dda0d0329bc2d8c2664f9c146813f21e1a0cc8f0f6a3bf1c3",
     "scripts/leg_foot_bearing.py": "e00cde3da20b1b3e99d80e1fa3c2f68abcf1d16aedae53d8cc6f42af9e1696ac",
@@ -217,7 +264,7 @@
     "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
   },
   "artifact_sha256": {
-    "parts.json": "ec7a6fae24c9e7e4554a2864e0addcf307cb4ffc1239aa428accb5046ea34cb0",
+    "parts.json": "59850dc2897911b849e00905a3c9024024b0ffe7f9d293ff4830aa2cc44a9e04",
     "assembly.step": "d65d72162d931fe3780d244bd051842b840d8cfdf07ed043f55249c7d3a462cf",
     "models/base_floor_left.stl": "741662f3a1d0dfc5b1d85f8ca3524ce5be20531215c330f857c5037c4bc28d32",
     "models/base_floor_right.stl": "50f099f55be6c8ca2566daf987301a29f5705b0354c7010eacbfaabd9a553cbb",

@@ -24,6 +24,9 @@ def configuration(tmp_path):
     """Small complete artifact chain; no CAD or native solver needed."""
     selection = json.loads(Path('current-candidate.json').read_text())
     key = 'fixture-development'
+    for extra in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set',
+                  'viewer_documents'):
+        selection.pop(extra, None)
     selection.update({
         'candidate': key,
         'model_module': 'mini_moonboard.fixture_model',
@@ -160,6 +163,21 @@ def test_pending_authority_does_not_promote_historical_evidence(configuration):
     result = check(root)
     assert result['aggregate_evidence'] is None
     assert result['recorded_assessments'] == {}
+
+
+def test_rejects_viewer_documents_that_differ_from_authority(configuration):
+    root, selection = configuration
+    selection['viewer_documents'] = [
+        {'label': 'Six-case evidence', 'path': selection['aggregate_evidence']},
+        {'label': 'Shop checklist', 'path': 'docs/fixture-shop.md'},
+    ]
+    selection['shop_checklist'] = 'docs/fixture-shop.md'
+    (root / selection['shop_checklist']).write_text(
+        f"Candidate `{selection['candidate']}`.\n"
+        f"{selection['construction_manifest']}\n{selection['viewer_manifest']}\n")
+    write_json(root / 'current-candidate.json', selection)
+    with pytest.raises(ValueError, match='Viewer documents differ from candidate authority'):
+        check(root)
 
 
 def test_rejects_viewer_without_selected_aggregate_link(configuration):

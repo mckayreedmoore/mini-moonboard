@@ -1,5 +1,6 @@
 """Export the requested flush-end revision without borrowing historical acceptance."""
 import argparse
+import json
 from dataclasses import dataclass, replace
 from pathlib import Path
 
@@ -49,13 +50,19 @@ class ViewerModel:
 viewer_model = ViewerModel()
 
 
+def selected_authority():
+    return json.loads((shared.ROOT / 'current-candidate.json').read_text())
+
+
 def sources():
     result = existing.sources(model, 'floorflush')
     result[str(Path(__file__).resolve().relative_to(shared.ROOT))] = shared.digest(__file__)
+    result['current-candidate.json'] = shared.digest(shared.ROOT / 'current-candidate.json')
     return dict(sorted(result.items()))
 
 
 def metadata(parts, connections):
+    documents = selected_authority()['viewer_documents']
     return {**shared.design_metadata(parts, connections),
         'key': model.KEY, 'status': STATUS, 'description': STATUS,
         'build_package': PACKAGE, 'assessment_scope':
@@ -67,7 +74,8 @@ def metadata(parts, connections):
         'lower_kicker_screw_height_mm': 60.,
         'base_clip_center_y_mm': model.CLIP_CENTER_Y_MM,
         'joint_note': 'Twelve complete bolt stacks; nuts and tips outward. All flush cuts require shop inspection.',
-        'panel_screw_visual_scope': '66 Hillman 42605 nominal 63.5 mm visuals; head, thread, pilot and resistance unqualified.'}
+        'panel_screw_visual_scope': '66 Hillman 42605 nominal 63.5 mm visuals; head, thread, pilot and resistance unqualified.',
+        'documents': documents}
 
 
 def export(root=Path('site')):

@@ -9,6 +9,8 @@ Geometry-hash agreement alone does not authenticate force sources or establish m
 Authenticated six-case summary: [aggregate evidence](floor-runner-mvp-evidence.json).
 Each saved assessment still describes one case; its local "full case set" gate is superseded by the authenticated aggregate, not rewritten.
 
+Shop packet: [shop checklist](floor-flush-shop-checklist.md); [assembly guide](floor-flush-assembly-guide.md); [working set](selected-working-set.md).
+
 Full scope and remaining checks: [build package](floor-flush-build-package.md) and [completion plan](floor-runner-mvp-master-plan.md).
 
 | Recorded case | Implemented criteria met | Matches selected geometry snapshot | Recorded status |

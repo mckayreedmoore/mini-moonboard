@@ -7,10 +7,17 @@ model reuses them and their evidence records file hashes.
 
 ## Which guidance controls
 
-As of September 12, 2026, use the [current design basis](../current-design-basis.md)
-and [current design review](../current-design-review.md) for `no-shoes-development`.
-The current candidate has a 277 mm kicker datum, commercial base angles and
-66 panel/kicker screws. It does not yet have a released fabrication package.
+Selected construction and evidence authority is
+[`current-candidate.json`](../../current-candidate.json) for
+`compact-floor-flush-development`. Use [`AGENTS.md`](../../AGENTS.md), the
+[shop checklist](../floor-flush-shop-checklist.md) and the
+[working set](../selected-working-set.md). The chronological constraint log is
+[decision-log.md](decision-log.md).
+
+As of September 12, 2026, the [then-current design basis](../current-design-basis.md)
+and [design review](../current-design-review.md) described `no-shoes-development`.
+That heading is preserved history. It does not override the selected floor-runner
+candidate.
 
 Older entry documents now carry a dated historical banner. Their original
 wording, including “current,” “selected,” “next,” and unfinished release gates,

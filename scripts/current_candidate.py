@@ -162,6 +162,15 @@ def status_markdown(selection, records):
     else:
         lines.extend([('Authenticated six-case selected-candidate aggregate: **pending**. '
                        'See completion plan for partial-case work; historical cases are not promoted here.'), ''])
+    packet = []
+    for field, title in (('shop_checklist', 'shop checklist'),
+                         ('assembly_guide', 'assembly guide'),
+                         ('working_set', 'working set')):
+        name = selection.get(field)
+        if name:
+            packet.append(f'[{title}]({Path(os.path.relpath(name, Path(selection["status_document"]).parent)).as_posix()})')
+    if packet:
+        lines.extend(['Shop packet: ' + '; '.join(packet) + '.', ''])
     lines.extend([f'Full scope and remaining checks: [build package]({package}) and [completion plan]({plan}).', '',
              '| Recorded case | Implemented criteria met | Matches selected geometry snapshot | Recorded status |',
              '| --- | --- | --- | --- |'])
@@ -201,6 +210,10 @@ def check(root=ROOT):
                 f'{field} does not bind the selected model')
     for field in ('build_package', 'completion_plan', 'hardware_schedule'):
         require((root / selection[field]).is_file(), f'Missing {field}')
+    for field in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set'):
+        name = selection.get(field)
+        if name:
+            require((root / name).is_file(), f'Missing {field}')
 
     viewer_path = root / selection['viewer_manifest']
     drawing_path = root / selection['construction_manifest']
@@ -258,13 +271,35 @@ def check(root=ROOT):
         r'option\.value === [\'\"]([^\'\"]+)[\'\"] \? currentDesigns', html)
     require(current_group is not None and current_group[1] == key,
             'Viewer current-design group differs from candidate authority')
-    if selection.get('aggregate_evidence'):
+    documents = selection.get('viewer_documents')
+    if documents:
+        require(inventory['design'].get('documents') == documents,
+                'Viewer documents differ from candidate authority')
+        if selection.get('aggregate_evidence'):
+            require(any(row.get('path') == selection['aggregate_evidence'] for row in documents),
+                    'Viewer documents omit aggregate evidence')
+        require(any(row.get('path') == selection.get('shop_checklist') for row in documents),
+                'Viewer documents omit the shop checklist')
+    elif selection.get('aggregate_evidence'):
         aggregate_reference = re.search(
             rf'[\'\"]{re.escape(selection["aggregate_evidence"])}[\'\"]', html)
         require(aggregate_reference is not None,
                 'Viewer aggregate-evidence link differs from candidate authority')
-    for name in ('README.md', selection['build_package'], selection['completion_plan']):
-        candidates = re.findall(r'`([a-z0-9-]+-development)`', (root / name).read_text())
+    checklist = selection.get('shop_checklist')
+    if checklist:
+        text = (root / checklist).read_text()
+        require(f'`{key}`' in text, 'Shop checklist candidate differs from authority')
+        require(selection['construction_manifest'] in text
+                and selection['viewer_manifest'] in text,
+                'Shop checklist does not name the selected manifests')
+    leading = ['README.md', 'AGENTS.md', selection['build_package'], selection['completion_plan']]
+    if checklist:
+        leading.append(checklist)
+    for name in leading:
+        path = root / name
+        if not path.is_file():
+            continue
+        candidates = re.findall(r'`([a-z0-9-]+-development)`', path.read_text())
         require(bool(candidates) and candidates[0] == key,
                 f'Leading candidate reference differs from authority: {name}')
 

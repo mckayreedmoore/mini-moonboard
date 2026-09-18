@@ -21,7 +21,9 @@ member-local cut/bolt sheets. Verify its manifest, scale-verification marks and
 profile annotations before treating any drawing as a template; draft sheets
 do not close delivered-item inspection or fabrication-allowance conditions.
 The [shop checklist](floor-flush-shop-checklist.md) maps each operation to those
-sheets.
+sheets. Occupied CAD diameters stay in `modeled_diameter_mm`; finished bolt-hole
+range, purchased Hillman length and SDS wood-lead-hole rules are the `shop_*`
+columns.
 
 Assembly coordinates are millimetres: X spans the board, Z is height above the
 floor, and Y runs front to rear. X = 0 is the board centre. Label left/right,
@@ -212,9 +214,11 @@ cuts and hardware still require the documented shop observations.
    the [placement review](kicker-screw-placement-review.md); SPAX lead-hole,
    drive and end-distance product rules do not transfer to Hillman 42605.
    Confirm all 66 Hillman 42605 axes are contained in their receivers and no
-   tip protrudes. No product-specific Hillman pilot or countersink is
-   published: establish a flush head on an offcut without crushing veneer, and
-   stop that operation if a guessed hole is required. `connection-axes.csv`
+   tip protrudes. The owner-selected installation is a lead-hole pilot plus
+   plywood-face countersink so the flat head seats flush. Hillman does not
+   publish those diameters; record the actual bits and an offcut trial on the
+   shop checklist before production holes. Occupied CAD diameter is not the
+   pilot. Do not open a plywood clearance hole. `connection-axes.csv`
    `modeled_length_mm` 50.8 mm is a historical occupied envelope, not the
    purchased 63.5 mm length.
 8. **Route services and install pads.** Keep the harness clear of bolt tips and

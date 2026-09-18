@@ -12,10 +12,10 @@ passing 36 adopted checks does not mean every failure mode is qualified.
 | Field | Value |
 | --- | --- |
 | Candidate | `compact-floor-flush-development` |
-| Reviewed source revision | `cd671b117b7e972c35f7d2d51d6ae060486a388e` |
+| Packet identity | [`current-candidate.json`](../current-candidate.json) |
 | Construction manifest | [`docs/floor-flush-construction/manifest.json`](floor-flush-construction/manifest.json) |
 | Viewer manifest | [`site/hybrid/compact-floor-flush-development/manifest.json`](../site/hybrid/compact-floor-flush-development/manifest.json) |
-| Authority | [`current-candidate.json`](../current-candidate.json); [build package](floor-flush-build-package.md); [MVP master plan](floor-runner-mvp-master-plan.md) |
+| Authority | [build package](floor-flush-build-package.md); [MVP master plan](floor-runner-mvp-master-plan.md); [working set](selected-working-set.md) |
 | Shop date | |
 | Builder | |
 
@@ -93,7 +93,7 @@ below before drilling.
 | Term | Meaning in this packet | Not |
 | --- | --- | --- |
 | Bolt clearance hole | Finished wood opening for a bolt. NDS §12.1.3 range below. | A screw pilot; a panel hold hole |
-| Screw pilot | A lead hole for a threaded wood screw | Required for every screw in this packet |
+| Screw pilot | A lead hole for a threaded wood screw. Owner-selected for the 66 Hillman axes. | An SDS wood predrill; a bolt clearance hole; a plywood clearance hole |
 | Panel clearance / hold hole | Specified plywood opening for a T-nut or LED | A bolt clearance hole |
 | CAD occupied-volume diameter | Modeled shaft envelope in CAD/CSV | A drill-bit instruction by itself |
 
@@ -148,10 +148,11 @@ No angular-error tolerance is assigned beyond the front-pair perpendicular
 | Product | Lowe’s 755741, Fas-n-Tite/Hillman 42605, #10 × 2-1/2 in (63.5 mm), #2 Phillips, ceramic-coated deck screw. 48 main-panel, nine per kicker. | [Purchase record](current-panel-screw-purchase.md) |
 | Axes | [`panel-attachment-axes.csv`](floor-flush-construction/panel-attachment-axes.csv). Lower post row Z = 60 mm; upper post Z = 192 mm; header Z = 257.95 mm. Mark the upper post row from the **actual post top** (nominal 46.9 mm below the end). Do not round that row upward. | [Kicker placement](kicker-screw-placement-review.md) for axes only |
 | Length vs CSV | Purchased length is **63.5 mm**. `connection-axes.csv` `modeled_length_mm` **50.8 mm** and `modeled_diameter_mm` **4.1402 mm** are historical SPAX occupied envelopes, not Hillman dimensions. | Generated CSV vs purchase record. Do not hand-edit the CSV. |
-| Pilot / countersink | **No product-specific pilot or countersink is published.** Do not transfer SPAX TER 2010-02 “no lead holes,” T20 drive, or SPAX distances as Hillman qualification. Do not invent a bit diameter. Occupied CAD diameter is not a pilot. | [Purchase record](current-panel-screw-purchase.md) |
-| Driving | Establish a flush head seat on an offcut without crushing face veneer. Drive only if the screw installs without an unpublished hole. | Same |
+| Pilot / countersink | Owner-selected: a **lead-hole pilot** along each axis through the plywood into the 2×6, then a **face countersink** so the flat head seats flush. Hillman publishes neither diameter. Occupied CAD 4.1402 mm is not the pilot. Do not transfer SPAX “no lead holes.” This is not a plywood clearance hole: the screw must still form threads. | [Purchase record](current-panel-screw-purchase.md); owner direction 2026-09-17 |
+| Offcut trial | Before production, drill/countersink/drive one offcut of the same plywood into scrap DF-L. Record the actual pilot bit, countersink and result in D5. | Same |
+| Driving | Drive #2 Phillips; seat the head flush in the countersink without overdriving through the face veneer. | Same |
 | Containment | Nominal timber penetration 45.24375 mm; 94.45625 mm remains before the modeled rear face. No tip protrusion. | Purchase record; FR-3 `hillman_66_axes` |
-| Stop this operation | If the delivered screw splits the plywood or timber, requires a guessed pilot/countersink, will not seat flush without crushing veneer, misses its 2×6 receiver, or would protrude, **stop panel/kicker driving pending a product-specific installation specification**. Do not silently adopt a new hole geometry. | Same |
+| Stop this operation | Split wood, missed 2×6 receiver, tip protrusion, overdriven head, or a hole large enough that the plywood no longer threads (a clearance hole): **stop**. That would change analyzed geometry. | Same |
 
 The 44.45 mm SPAX loaded-end reference in the kicker review does not transfer
 as a Hillman product limit. Keep the modeled axes; verify actual remaining
@@ -175,7 +176,8 @@ Hold-bolt lengths are **not** inferred from the 142 T-nut count. Use the
 | D1 | Front pairs L/R | Pitch 39.0–40.0 mm; midpoint ≤0.5 mm; each perpendicular ≤0.5 mm. `front_pair_fixture`. | Pins in finished holes; calipers, rule, square. | Fail any limit: reject, do not elongate, stop assembly of that joint. | | ☐ accept ☐ stop |
 | D2 | Upper and rear pairs | Layout matches member-local A/C; finished hole in the NDS range; complete washer seats. | Measure finished diameter and centre vs sheet datum; trial washer. | Hole outside NDS range, missed datum, or unsupported washer: stop. | | ☐ accept ☐ stop |
 | D3 | All 24 bolt receivers | Mating holes align; bolt enters without driving; no elongation or improvised spacers. | Trial bolt before final stacking. | Forced assembly: stop. | | ☐ accept ☐ stop |
-| D4 | Hillman axes | 66 axes marked; upper post row from actual post top; no unpublished pilots. | Compare marks to `panel-attachment-axes.csv`. | Do not drill a guessed Hillman pilot. | | ☐ accept ☐ stop |
+| D4 | Hillman axes | 66 axes marked; upper post row from actual post top. | Compare marks to `panel-attachment-axes.csv`. | Do not move an axis to suit a bit. | | ☐ accept ☐ stop |
+| D5 | Hillman pilot / countersink | Owner-selected lead hole + face countersink. Record actual bits. Occupied CAD diameter is not the bit. Offcut trial required before the 66 production holes. | Write the bits below; drive one offcut. | Split, overdriven head, or a clearance-sized hole: stop. Do not invent a diameter in this packet. | Pilot bit: ______  Countersink: ______  Offcut: ☐ pass ☐ stop | ☐ accept ☐ stop |
 
 ---
 
@@ -198,7 +200,7 @@ specified washers per bolt.
 | A5 | Washers | Complete, flat seating of the maximum catalog envelope on sound timber. Upper thickness may be 3.3528 mm, catalog radius 0.0635 mm above modeled; smaller washers 2.6416 mm, catalog radius 0.381 mm above modeled. | Try the delivered washer on the finished seat; check concentricity and rocking. | Rocking, partial, or unsupported seat: reject. No improvised spacers. | | ☐ accept ☐ stop |
 | A6 | Nut seating | Usable thread begins before the nut bearing face; complete threads extend beyond the nut; snug without crushing timber. No steel-joint torque is assigned. | Visual/thread engagement; wrench snug only. | Runout in the nut seat or crushed wood: stop. | | ☐ accept ☐ stop |
 | A7 | 24 ML24Z + 144 SDS | All six SDS25112 in each angle; physical load path present; Hillman is not an SDS replacement. Outer angle centres remain at Y = −105.85 mm. | Count and identify markings; confirm each flange bears on its timber. | Missing screw, wrong product, or a station without a path: stop. | | ☐ accept ☐ stop |
-| A8 | 66 Hillman | All axes driven or recorded as stopped; flush heads; no tip protrusion; receivers contained. | Count; rear-face check; flush-seat check. | See Hillman stop rule in §2. | | ☐ accept ☐ stop |
+| A8 | 66 Hillman | All 66 driven on the recorded D5 bits; heads flush in the countersink; no tip protrusion; receivers contained. | Count; rear-face check; flush-seat check against the offcut. | Split, overdrive, missed receiver, or clearance hole: stop. | | ☐ accept ☐ stop |
 | A9 | Interfaces / services | Preserve intended bearing faces, gaps, LED passages and harness clearance from bolt tips. | Visual; do not force parts that close a modeled gap. | Damaged passage or blocked service: stop. | | ☐ accept ☐ stop |
 
 Unlisted ML24Z separation and independent force-parallel flange couples have
@@ -230,8 +232,8 @@ These are not filled with typical values.
 
 | Operation | Missing specification | Who / when |
 | --- | --- | --- |
-| Hillman 42605 driving, if the screw will not install without a hole or without crushing/splitting | Product-specific pilot diameter, countersink and structural values. Retailer/Hillman data do not supply them. | Owner/product data **before** inventing a hole. If driving without a pilot succeeds under the flush-seat rule, record that observation in A8. |
-| Any hole that would change analyzed geometry (oversize past NDS, elongation, new pilots, relocated axes) | A revised CAD/resistance check and affected cases | Design revision; not a shop discretion |
+| Hillman 42605 production holes | Product-published pilot/countersink diameters (none). Owner method is selected; **actual bits** are still a D5 measurement, not a packet diameter. | Owner/builder on the offcut **before** the 66 production holes. |
+| Any hole that would change analyzed geometry (bolt oversize past NDS, elongation, Hillman clearance hole, relocated axes) | A revised CAD/resistance check and affected cases | Design revision; not a shop discretion |
 | Delivered shank, runout, washer size, nut engagement, finished hole centres, recess stock, actual lumber section | Physical measurement of the delivered/fabricated item | Owner/builder at receiving and fabrication. Instructions exist; results do not. |
 | Unlisted ML24Z separation / flange-couple capacity | Manufacturer listed values (none found for this MVP) | Disclosed limitation. Not a shop measurement. |
 | Floor friction or an installed anchor | Out of current scope | Do not add a test as a release gate |

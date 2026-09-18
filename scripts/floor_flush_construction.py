@@ -20,8 +20,59 @@ from scripts import floor_flush_exports as exporter
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/floor-flush-construction'
-STATUS = ('DRAFT — six no-slip cases pass frozen criteria; delivered hardware and '
-          'fabrication inspection remain; not a drilling release')
+STATUS = ('DRAFT coordinates — six no-slip cases pass frozen criteria; delivered '
+          'hardware and fabrication inspection remain; not a fabrication release')
+HILLMAN_LENGTH_MM = 63.5
+SDS_LENGTH_MM = 38.1
+INCH_MM = 25.4
+
+
+def shop_axis_fields(connection):
+    """Shop instruction beside occupied CAD envelopes. Occupied values are not bits."""
+    occupied_length = connection.length
+    occupied_diameter = connection.diameter
+    if connection.kind == 'bolt':
+        hole = model.bolt_dimensions(connection)['hole_diameter_mm']
+        return {
+            'occupied_length_mm': occupied_length,
+            'occupied_diameter_mm': occupied_diameter,
+            'shop_opening_kind': 'bolt_clearance',
+            'shop_finished_opening_min_mm': connection.diameter + INCH_MM / 32,
+            'shop_finished_opening_max_mm': connection.diameter + INCH_MM / 16,
+            'shop_purchased_length_mm': '',
+            'shop_instruction': (
+                'NDS §12.1.3 wood clearance D+1/32 to D+1/16 in; '
+                f'CAD occupied hole {hole:g} mm is the upper end, not a bit catalog number.'
+            ),
+        }
+    if connection.name.startswith('clip_'):
+        return {
+            'occupied_length_mm': occupied_length,
+            'occupied_diameter_mm': occupied_diameter,
+            'shop_opening_kind': 'sds_wood',
+            'shop_finished_opening_min_mm': '',
+            'shop_finished_opening_max_mm': '',
+            'shop_purchased_length_mm': SDS_LENGTH_MM,
+            'shop_instruction': (
+                'Specified SDS25112 through purchased ML24Z holes. Occupied diameter is not a '
+                'wood pilot. No routine wood predrill; 5/32 in only where the manufacturer '
+                'requires predrilling.'
+            ),
+        }
+    return {
+        'occupied_length_mm': occupied_length,
+        'occupied_diameter_mm': occupied_diameter,
+        'shop_opening_kind': 'hillman_panel',
+        'shop_finished_opening_min_mm': '',
+        'shop_finished_opening_max_mm': '',
+        'shop_purchased_length_mm': HILLMAN_LENGTH_MM,
+        'shop_instruction': (
+            'Purchased Hillman 42605 #10 x 2-1/2 in (63.5 mm). Occupied length/diameter are '
+            'historical SPAX envelopes, not Hillman dimensions. Owner-selected lead-hole '
+            'pilot plus face countersink; record actual bits on the shop checklist. Occupied '
+            'CAD diameter is not the pilot and not a clearance hole.'
+        ),
+    }
 
 
 class SheetModel:
@@ -104,17 +155,23 @@ def generate(output=OUT):
                 'assessment_status': STATUS})
         write('stock.csv', stock)
         connections = model.connections()
-        axes = [{'name': c.name, 'kind': c.kind, 'first_member': c.members[0], 'second_member': c.members[1],
-            'start_x_mm': c.start.x, 'start_y_mm': c.start.y, 'start_z_mm': c.start.z,
-            'direction_x': c.direction.x, 'direction_y': c.direction.y, 'direction_z': c.direction.z,
-            'modeled_length_mm': c.length, 'modeled_diameter_mm': c.diameter,
-            'operation': (f"Draft bolt axis; {model.bolt_dimensions(c)['hole_diameter_mm']:g} mm modeled clearance."
-                if c.kind == 'bolt' else 'Fastener axis only; occupied diameter does not specify a pilot.'),
-            'assessment_status': STATUS} for c in connections]
+        axes = []
+        for connection in connections:
+            shop = shop_axis_fields(connection)
+            axes.append({'name': connection.name, 'kind': connection.kind,
+                'first_member': connection.members[0], 'second_member': connection.members[1],
+                'start_x_mm': connection.start.x, 'start_y_mm': connection.start.y,
+                'start_z_mm': connection.start.z,
+                'direction_x': connection.direction.x, 'direction_y': connection.direction.y,
+                'direction_z': connection.direction.z,
+                'modeled_length_mm': connection.length, 'modeled_diameter_mm': connection.diameter,
+                **shop,
+                'operation': shop['shop_instruction'],
+                'assessment_status': STATUS})
         write('connection-axes.csv', axes)
         bolts = [c for c in connections if c.kind == 'bolt']
         write('bolt-hardware.csv', [dict(name=c.name, first_member=c.members[0], second_member=c.members[1],
-            **model.bolt_dimensions(c), assessment_status=STATUS) for c in bolts])
+            **model.bolt_dimensions(c), **shop_axis_fields(c), assessment_status=STATUS) for c in bolts])
         datums = shared.bolt_member_datums(connections)
         for row in datums:
             row['instruction'] = 'Draft axis normal to side face; physical corner and signed directions govern. Not a drilling release.'
@@ -141,7 +198,11 @@ def generate(output=OUT):
             panel.append({'name': row['name'], 'panel': name, 'receiver': row['receiver'],
                 'from_left_mm': row['x']-left, 'from_bottom_mm': row['s']-bottom,
                 'vertical_axis': 'Z from floor' if name.startswith('kicker_') else 'S along panel slope',
-                'operation': 'Owned Hillman 42605 #10 x 2-1/2 in axis; actual pilot and head dimensions not specified.'})
+                'shop_purchased_length_mm': HILLMAN_LENGTH_MM,
+                'shop_opening_kind': 'hillman_panel',
+                'operation': ('Owned Hillman 42605 #10 x 2-1/2 in (63.5 mm) axis; occupied CAD length in '
+                              'connection-axes.csv is not this length; owner-selected lead-hole pilot '
+                              'plus face countersink; record actual bits on the shop checklist.')})
         write('panel-attachment-axes.csv', panel)
         holes = []
         for kind, hole_datums, diameter in [('hold', grid.main_tnut_datums(), 11.1125),
@@ -166,13 +227,17 @@ def generate(output=OUT):
             (output/name).write_text(json.dumps(value, indent=2, allow_nan=False)+'\n')
         if (len(stock), len(axes), len(bolts), len(panel), sum(h['kind'] == 'hold' for h in holes)) != (26, 222, 12, 66, 142):
             raise ValueError('Unexpected candidate inventory counts')
-    (output/'README.md').write_text('''# Flush floor-beam construction coordinates — draft
+    (output/'README.md').write_text('''# Flush floor-beam construction coordinates
 
-**Geometry reference only. Current resistance and fabrication gates remain open;
-these are not released cut or drilling instructions.**
+**Dimensional packet for `compact-floor-flush-development`. Not a fabrication release.**
+
+Shop instructions are in the [shop checklist](../floor-flush-shop-checklist.md) and
+[assembly guide](../floor-flush-assembly-guide.md). Occupied CAD diameters and
+`modeled_length_mm` values are analysis envelopes. Use the `shop_*` columns for
+finished bolt-hole range, purchased Hillman length and SDS wood-lead-hole rules.
 
 Candidate: `compact-floor-flush-development`. See
-[the current package](../floor-flush-build-package.md) for completion status.
+[the current package](../floor-flush-build-package.md) for evidence status.
 
 - `stock.csv` gives stock allowances, not finished lengths.
 - `stock-profiles.json` records actual trimmed raw timber vertices in world millimetres.
@@ -183,8 +248,7 @@ Candidate: `compact-floor-flush-development`. See
 - `runner-end-geometry.json` records the square front and inclined rear cut endpoints.
 - `connection-axes.csv`, `panel-attachment-axes.csv`, `panel-hole-axes.csv` and
   `timber-passages.json` retain the current screw, panel and passage coordinates.
-- `bolt-hardware.csv` describes current catalog bolt stacks; drawing precision does
-  not establish fabrication tolerance, pilot bits, acceptable substitutions or capacity.
+- `bolt-hardware.csv` describes current catalog bolt stacks plus shop hole-range columns.
 
 Use numerical coordinates, not image scale. Left and right use their own physical
 minimum-X datum: do not mirror a datum convention blindly. Kickers remain whole.

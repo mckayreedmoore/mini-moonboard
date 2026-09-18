@@ -259,14 +259,13 @@
       modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       lumberModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
-      // Keep the active candidate separate from preserved development history.
+      // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
-      const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Development candidates';
       const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Historical / archive designs';
       for (const option of Array.from(modelSelect.options).reverse()) {
-        (option.value === 'compact-floor-flush-development' ? currentDesigns : ['no-shoes-development', 'thick-leg-centered-pivot-development'].includes(option.value) ? developmentDesigns : historicalDesigns).append(option);
+        (option.value === 'compact-floor-flush-development' ? currentDesigns : historicalDesigns).append(option);
       }
-      modelSelect.replaceChildren(currentDesigns, developmentDesigns, historicalDesigns);
+      modelSelect.replaceChildren(currentDesigns, historicalDesigns);
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
@@ -306,7 +305,7 @@
         const links = document.createElement('nav'); links.id = 'model-documents';
         links.setAttribute('aria-label', 'Clear-space candidate documents');
         const documentStem = model === 'compact-floor-rail-2x4-development' ? 'floor-rail-2x4' : model === 'compact-floor-recess-development' ? 'floor-runner-recess' : model === 'compact-floor-taper-development' ? 'floor-runner-taper' : 'clear-space';
-        for (const [label, path] of (model === 'compact-spliced-flush-top-development' ? [['Historical build package', 'docs/compact-spliced-flush-top-build-package.md'], ['Historical six-case evidence', 'docs/compact-spliced-flush-top-evidence.json'], ['Historical commercial-angle ledger', 'docs/compact-spliced-flush-top-angle-ledger.md']] : model === 'compact-floor-flush-development' ? [['Selected development package', 'docs/floor-flush-build-package.md'], ['Completion ledger', 'docs/floor-runner-mvp-completion-ledger.md'], ['Six-case evidence', 'docs/floor-runner-mvp-evidence.json'], ['24-angle demand ledger', 'docs/floor-runner-mvp-angle-demands.json'], ['MVP master plan', 'docs/floor-runner-mvp-master-plan.md'], ['Frozen criteria ledger', 'docs/floor-runner-mvp-criteria.md'], ['Purchased panel screws', 'docs/current-panel-screw-purchase.md'], ['Crash-pad construction', 'docs/current-crash-pad-construction.md'], ['Preceding hardware basis', 'docs/floor-runner-taper-hardware.md']] : [['Support assessment', `docs/${documentStem}-study.md`], ['Catalog hardware and installation', `docs/${documentStem}-hardware.md`]])) {
+        for (const [label, path] of (model === 'compact-spliced-flush-top-development' ? [['Historical build package', 'docs/compact-spliced-flush-top-build-package.md'], ['Historical six-case evidence', 'docs/compact-spliced-flush-top-evidence.json'], ['Historical commercial-angle ledger', 'docs/compact-spliced-flush-top-angle-ledger.md']] : model === 'compact-floor-flush-development' ? [] : [['Support assessment', `docs/${documentStem}-study.md`], ['Catalog hardware and installation', `docs/${documentStem}-hardware.md`]])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
           link.href = ['compact-spliced-flush-top-development', 'compact-floor-flush-development'].includes(model) ? path : 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
@@ -488,6 +487,26 @@
           const details = document.createElement('p'); details.id = 'design-details';
           details.textContent = `${design.status}. ${design.description}${design.joint_note ? ` ${design.joint_note}` : ""}`;
           modelLabel.after(details);
+          if (Array.isArray(design.documents) && design.documents.length) {
+            let links = document.querySelector('#model-documents');
+            if (!links) {
+              links = document.createElement('nav');
+              links.id = 'model-documents';
+              links.setAttribute('aria-label', 'Current candidate documents');
+              document.querySelector('header h1').after(links);
+            } else {
+              links.replaceChildren();
+            }
+            for (const row of design.documents) {
+              const link = document.createElement('a');
+              link.textContent = row.label;
+              link.className = 'support-link';
+              link.href = row.path;
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+              links.append(link, ' ');
+            }
+          }
         }
         loadHolds();
         for (const {name, label} of representativeBolts(parts)) {
