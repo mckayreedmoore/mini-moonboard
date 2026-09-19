@@ -1,5 +1,7 @@
 """LB-05 invariants for the shared physical connection representation."""
 
+from dataclasses import replace
+
 import pytest
 
 from mini_moonboard.demountable_connections import (
@@ -9,6 +11,7 @@ from mini_moonboard.demountable_connections import (
     LocalBasis,
     a66_prototype_fastener,
     ab90_prototype_fastener,
+    screen_machine_bolt_stack,
     validate_records,
 )
 
@@ -44,6 +47,29 @@ def test_a66_stack_keeps_missing_factory_hole_geometry_explicit() -> None:
     assert [part.component_id for part in fastener.ordered_stack if part.role == "plate"] == ["a66_flange_a"]
     assert next(part for part in fastener.ordered_stack if part.role == "receiver").thickness_mm is None
     assert [part.component_id for part in a66_prototype_fastener(flange="b").ordered_stack if part.role == "plate"] == ["a66_flange_b"]
+
+
+def test_machine_bolt_stack_requires_delivered_dimensions() -> None:
+    assert screen_machine_bolt_stack(ab90_prototype_fastener()) == "unresolved_delivered_stack_geometry"
+    assert screen_machine_bolt_stack(a66_prototype_fastener()) == "unresolved_delivered_stack_geometry"
+
+
+def test_machine_bolt_stack_exposes_shoulder_engagement_and_bottoming_failures() -> None:
+    delivered = replace(
+        ab90_prototype_fastener(), length_reference="delivered measured under head to tip",
+        smooth_body_mm=(0.0, 44.0), thread_runout_mm=(44.0, 46.0),
+        engagement_bounds_mm=(46.0, 100.0),
+    )
+    assert screen_machine_bolt_stack(delivered) == "nominal_geometry_pass_only"
+    assert screen_machine_bolt_stack(replace(delivered, smooth_body_mm=(0.0, 48.0))) == "fail_nut_on_shoulder_or_runout"
+    assert screen_machine_bolt_stack(replace(delivered, engagement_bounds_mm=(46.0, 50.0))) == "fail_incomplete_full_thread_engagement"
+    assert screen_machine_bolt_stack(delivered, closed_nut_depth_mm=20.0) == "fail_closed_nut_bottoming"
+    assert screen_machine_bolt_stack(delivered, minimum_projection_mm=50.0) == "fail_insufficient_bolt_projection"
+
+
+def test_scope_must_be_explicit_at_runtime() -> None:
+    with pytest.raises(ConnectionRecordError, match="hardware scope"):
+        replace(ab90_prototype_fastener(), hardware_scope="unknown")
 
 
 def test_cross_record_validation_accepts_shared_physical_identity() -> None:

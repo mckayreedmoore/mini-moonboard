@@ -67,6 +67,10 @@ class StackComponent:
             raise ConnectionRecordError("stack order and component_id are required")
         if self.thickness_mm is not None and self.thickness_mm < 0:
             raise ConnectionRecordError("stack thickness cannot be negative")
+        if self.role not in ("head", "washer", "plate", "receiver", "nut", "spacer"):
+            raise ConnectionRecordError("invalid stack role")
+        if self.substrate not in ("metal", "wood", "none"):
+            raise ConnectionRecordError("invalid stack substrate")
 
 
 @dataclass(frozen=True)
@@ -86,9 +90,9 @@ class FastenerRecord:
     length_mm: float
     length_reference: str
     ordered_stack: tuple[StackComponent, ...]
-    smooth_body_mm: tuple[float, float]
-    thread_runout_mm: tuple[float, float]
-    engagement_bounds_mm: tuple[float, float]
+    smooth_body_mm: tuple[float, float] | None
+    thread_runout_mm: tuple[float, float] | None
+    engagement_bounds_mm: tuple[float, float] | None
     holes: tuple[HoleDefinition, ...]
     bearing_elements: tuple[str, ...]
     tool_envelope: str
@@ -99,6 +103,12 @@ class FastenerRecord:
     def __post_init__(self) -> None:
         if not self.physical_fastener_id or not self.product_or_design_id:
             raise ConnectionRecordError("fastener identity is required")
+        if self.fastener_type not in ("machine_bolt", "wood_screw", "panel_screw", "hold_bolt"):
+            raise ConnectionRecordError("invalid fastener type")
+        if self.hardware_scope not in ("structural", "panel", "hold", "service"):
+            raise ConnectionRecordError("invalid hardware scope")
+        if self.thread_substrate_during_operation not in ("metal", "wood", "none"):
+            raise ConnectionRecordError("invalid thread substrate")
         _positive(self.nominal_diameter_mm, "fastener diameter")
         _positive(self.length_mm, "fastener length")
         if len(self.ordered_stack) < 2:
@@ -106,16 +116,58 @@ class FastenerRecord:
         orders = [component.order for component in self.ordered_stack]
         if orders != list(range(len(orders))):
             raise ConnectionRecordError("stack components must have contiguous order")
-        if self.engagement_bounds_mm[0] < 0 or self.engagement_bounds_mm[1] < self.engagement_bounds_mm[0]:
-            raise ConnectionRecordError("invalid thread engagement bounds")
-        if self.smooth_body_mm[0] < 0 or self.smooth_body_mm[1] < self.smooth_body_mm[0]:
-            raise ConnectionRecordError("invalid smooth-body bounds")
-        if self.thread_runout_mm[0] < 0 or self.thread_runout_mm[1] < self.thread_runout_mm[0]:
-            raise ConnectionRecordError("invalid thread runout bounds")
+        for label, region in (
+            ("thread engagement", self.engagement_bounds_mm),
+            ("smooth-body", self.smooth_body_mm),
+            ("thread runout", self.thread_runout_mm),
+        ):
+            if region is not None and (region[0] < 0 or region[1] < region[0] or region[1] > self.length_mm):
+                raise ConnectionRecordError(f"invalid {label} bounds")
         if self.hardware_scope == "structural" and self.thread_substrate_during_operation == "wood":
             raise ConnectionRecordError("structural move hardware cannot silently use wood threads")
         if self.hardware_scope == "panel" and self.thread_substrate_during_operation not in ("wood", "metal"):
             raise ConnectionRecordError("panel fastener must declare its thread substrate")
+
+
+def screen_machine_bolt_stack(
+    fastener: FastenerRecord, *, closed_nut_depth_mm: float | None = None,
+    minimum_projection_mm: float = 0.0,
+) -> str:
+    """Check declared nominal grip, shoulder, full thread, and nut fit.
+
+    Prototype or missing delivered dimensions remain unresolved. This checks
+    assembly geometry only, never bolt or joint resistance.
+    """
+    if fastener.fastener_type != "machine_bolt":
+        raise ConnectionRecordError("machine bolt stack screen requires a machine bolt")
+    if closed_nut_depth_mm is not None and closed_nut_depth_mm <= 0:
+        raise ConnectionRecordError("closed nut depth must be positive")
+    if minimum_projection_mm < 0:
+        raise ConnectionRecordError("minimum projection cannot be negative")
+    stack = fastener.ordered_stack
+    if stack[0].role != "head" or stack[-1].role != "nut":
+        return "fail_missing_head_or_nut_bearing"
+    if (
+        "prototype" in fastener.length_reference
+        or any(part.thickness_mm is None for part in stack)
+        or fastener.smooth_body_mm is None
+        or fastener.thread_runout_mm is None
+        or fastener.engagement_bounds_mm is None
+    ):
+        return "unresolved_delivered_stack_geometry"
+    grip = sum(part.thickness_mm for part in stack[1:-1] if part.thickness_mm is not None)
+    nut_height = stack[-1].thickness_mm
+    assert nut_height is not None
+    if fastener.smooth_body_mm[1] > grip or fastener.thread_runout_mm[1] > grip:
+        return "fail_nut_on_shoulder_or_runout"
+    full_start, full_end = fastener.engagement_bounds_mm
+    if full_start > grip or full_end < grip + nut_height:
+        return "fail_incomplete_full_thread_engagement"
+    if fastener.length_mm < grip + nut_height + minimum_projection_mm:
+        return "fail_insufficient_bolt_projection"
+    if closed_nut_depth_mm is not None and fastener.length_mm - grip > closed_nut_depth_mm:
+        return "fail_closed_nut_bottoming"
+    return "nominal_geometry_pass_only"
 
 
 @dataclass(frozen=True)
@@ -214,9 +266,9 @@ def ab90_prototype_fastener(fastener_id: str = "ab90_proto_m10_1") -> FastenerRe
             StackComponent(5, "washer_b", "washer", 2.0, "metal", True),
             StackComponent(6, "nut", "nut", 8.0, "metal", True),
         ),
-        smooth_body_mm=(0.0, 100.0),
-        thread_runout_mm=(0.0, 100.0),
-        engagement_bounds_mm=(0.0, 0.0),
+        smooth_body_mm=None,
+        thread_runout_mm=None,
+        engagement_bounds_mm=None,
         holes=(HoleDefinition("ab90_flange_a", 11.0, "factory", (1.0, 0.0, 0.0)),
                HoleDefinition("ab90_flange_b", 11.0, "factory", (1.0, 0.0, 0.0))),
         bearing_elements=("washer_a", "ab90_flange_a", "ab90_flange_b", "washer_b"),
@@ -255,9 +307,9 @@ def a66_prototype_fastener(
             StackComponent(4, "washer_b", "washer", 3.0, "metal", True),
             StackComponent(5, "nut", "nut", 8.0, "metal", True),
         ),
-        smooth_body_mm=(0.0, 90.0),
-        thread_runout_mm=(0.0, 90.0),
-        engagement_bounds_mm=(0.0, 0.0),
+        smooth_body_mm=None,
+        thread_runout_mm=None,
+        engagement_bounds_mm=None,
         holes=(),
         bearing_elements=("washer_a", flange_id, "washer_b"),
         tool_envelope="A66 factory hole diameter, washer size, and access envelope unresolved",
