@@ -44,6 +44,8 @@ def test_center_fit_uses_current_cad_and_keeps_release_closed():
     assert actual["nearest_principal_hole_grain_ray_mm"] == pytest.approx(
         47.664, abs=0.01
     )
+    assert actual["nearest_principal_hole_grain_ray_hit_z_mm"] == pytest.approx(277)
+    assert -182.7 < actual["nearest_principal_hole_grain_ray_hit_y_mm"] < -41.4
     assert actual["softwood_loaded_end_minimum_mm"] == pytest.approx(44.45)
     assert actual["principal_end_square_to_grain"] is False
     assert actual["end_distance_classified"] is False
@@ -75,6 +77,7 @@ def test_swapping_ab205_legs_widens_edge_band_but_does_not_release_joint():
     assert actual["nearest_principal_hole_grain_ray_mm"] == pytest.approx(
         26.94, abs=0.01
     )
+    assert actual["nearest_principal_hole_grain_ray_hit_z_mm"] == pytest.approx(277)
     assert actual["end_distance_classified"] is False
     assert actual["drilling_released"] is False
     for key, value in actual.items():
@@ -95,6 +98,13 @@ def test_short_vertical_midband_bores_do_not_hit_frozen_kerf_axes():
     actual = screen_center_fit("short", row_y)
     axis_screen = screen_retained_axis_conflicts(row_y)
     assert row_y == pytest.approx(record["row_y_mm"])
+    assert actual["nearest_principal_hole_grain_ray_mm"] == pytest.approx(
+        record["nearest_principal_hole_exact_grain_ray_to_raw_end_mm"]
+    )
+    assert actual["nearest_principal_hole_grain_ray_hit_y_mm"] == pytest.approx(
+        record["grain_ray_end_hit_yz_mm"][0]
+    )
+    assert record["grain_ray_is_nds_end_distance"] is False
     assert actual["legacy_y_far_principal_4d_reserve_mm"] == pytest.approx(
         record["principal_far_hole_4d_edge_reserve_mm"]
     )

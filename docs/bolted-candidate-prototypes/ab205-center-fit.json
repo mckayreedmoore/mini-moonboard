@@ -19,6 +19,8 @@
   "nearest_principal_hole_vertical_offset_mm": 36.5125,
   "principal_grain_z_component": 0.766044,
   "nearest_principal_hole_grain_ray_mm": 47.663684,
+  "nearest_principal_hole_grain_ray_hit_y_mm": -155.537625,
+  "nearest_principal_hole_grain_ray_hit_z_mm": 277.0,
   "softwood_loaded_end_minimum_mm": 44.45,
   "principal_end_square_to_grain": false,
   "end_distance_classified": false,
@@ -47,6 +49,8 @@
     "nearest_principal_hole_vertical_offset_mm": 20.6375,
     "principal_grain_z_component": 0.766044,
     "nearest_principal_hole_grain_ray_mm": 26.940343,
+    "nearest_principal_hole_grain_ray_hit_y_mm": -142.216919,
+    "nearest_principal_hole_grain_ray_hit_z_mm": 277.0,
     "softwood_loaded_end_minimum_mm": 44.45,
     "principal_end_square_to_grain": false,
     "end_distance_classified": false,
@@ -55,6 +59,9 @@
   },
   "short_vertical_midband_trial": {
     "row_y_mm": -95.382052,
+    "nearest_principal_hole_exact_grain_ray_to_raw_end_mm": 26.940343,
+    "grain_ray_end_hit_yz_mm": [-112.698971, 277.0],
+    "grain_ray_is_nds_end_distance": false,
     "principal_far_hole_4d_edge_reserve_mm": 3.74362,
     "all_four_bores_full_raw_wood_section": true,
     "retained_axis_conflict_screen": {
@@ -104,7 +111,7 @@
     "The four 9/16-inch nominal bore cylinders pass through full raw timber thickness at the old clip line; this does not establish end/edge spacing, washer seats, other connector collisions or a feasible joint.",
     "Both 4D Y intervals assume either side edge can become loaded in perpendicular-to-grain action and treat hole centers nominally. They are not tolerances or shop-drilling allowances.",
     "The center principal is inclined. Its grain-parallel edge lines come from the actual CAD broad-side face, not the axis-aligned bounding box.",
-    "The 2024 NDS square-cut end-distance table must not be applied directly to the principal's oblique end; the along-grain ray is a diagnostic, not a design end-distance decision.",
+    "The grain-parallel ray is now intersected with the actual raw broad-face boundary from each near bolt center; it is not a bore-perimeter/net-section calculation. The 2024 NDS square-cut end-distance table must not be applied directly to this oblique end; the ray is a diagnostic, not a design end-distance decision.",
     "ABB publishes nominal AB205 family dimensions but no product-specific positional tolerance or guaranteed steel grade; no physical part was measured.",
     "The new candidate's simultaneous joint actions, steel/wood resistance, backing, tool and withdrawal corridors, adjacent new structural connectors, and mirror station are not checked."
   ],

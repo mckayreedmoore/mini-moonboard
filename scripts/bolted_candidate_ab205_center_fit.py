@@ -36,6 +36,35 @@ def _line_y(line: tuple[float, float, float], z_mm: float) -> float:
     return y0 + slope * (z_mm - z0)
 
 
+def _grain_ray_to_face_boundary(
+    face: cq.Face, y_mm: float, z_mm: float, slope_dy_dz: float
+) -> tuple[float, float, float]:
+    """Return the first actual polygon-edge hit opposite the member's grain axis.
+
+    This is a geometric diagnostic, not the NDS square-cut end distance.
+    """
+    gy = slope_dy_dz / hypot(slope_dy_dz, 1)
+    gz = 1 / hypot(slope_dy_dz, 1)
+    hits = []
+    for edge in face.Edges():
+        vertices = edge.Vertices()
+        if len(vertices) != 2:
+            continue
+        a, b = (vertex.Center() for vertex in vertices)
+        ey, ez = b.y - a.y, b.z - a.z
+        denominator = gy * ez - gz * ey
+        if abs(denominator) < 1e-9:
+            continue
+        wy, wz = y_mm - a.y, z_mm - a.z
+        distance = (wy * ez - wz * ey) / denominator
+        fraction = -(wy * gz - wz * gy) / denominator
+        if distance > 1e-7 and -1e-7 <= fraction <= 1 + 1e-7:
+            hits.append((distance, y_mm - distance * gy, z_mm - distance * gz))
+    if not hits:
+        raise ValueError("Grain ray did not hit the principal broad-face boundary")
+    return min(hits)
+
+
 def screen_center_fit(
     vertical_leg: Literal["long", "short"] = "long",
     row_y_mm: float | None = None,
@@ -114,6 +143,9 @@ def screen_center_fit(
 
     end_minimum_mm = 3.5 * bolt_diameter_mm
     vertical_offset_mm = vertical_offsets_in[0] * 25.4
+    grain_ray, hit_y, hit_z = _grain_ray_to_face_boundary(
+        face, y, vertical_z_mm[0], lines[0][2]
+    )
     return {
         "station": station[0],
         "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
@@ -138,7 +170,9 @@ def screen_center_fit(
         "reversible_4d_y_band_width_mm": round(upper_y - lower_y, 6),
         "nearest_principal_hole_vertical_offset_mm": round(vertical_offset_mm, 6),
         "principal_grain_z_component": round(ny, 6),
-        "nearest_principal_hole_grain_ray_mm": round(vertical_offset_mm / ny, 6),
+        "nearest_principal_hole_grain_ray_mm": round(grain_ray, 6),
+        "nearest_principal_hole_grain_ray_hit_y_mm": round(hit_y, 6),
+        "nearest_principal_hole_grain_ray_hit_z_mm": round(hit_z, 6),
         "softwood_loaded_end_minimum_mm": round(end_minimum_mm, 6),
         "principal_end_square_to_grain": abs(ny - 1) < 1e-6,
         "end_distance_classified": False,
