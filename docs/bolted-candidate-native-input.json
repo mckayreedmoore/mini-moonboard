@@ -1,0 +1,41 @@
+{
+  "candidate": "compact-floor-flush-bolted-development",
+  "baseline_candidate": "compact-floor-flush-development",
+  "native_producer": "fea.floor_flush_run.run",
+  "mesh_producer": "fea.floor_flush_mesh.prepare_flush",
+  "load_case_source": "scripts.clear_space_batch.CASES",
+  "canonical_cases": [
+    "a12-rear",
+    "a12-forward",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "case_count": 6,
+  "structural_screw_macros_remaining": [],
+  "panel_connection_count": 66,
+  "candidate_geometry_contract": {
+    "joint_records": 24,
+    "fastener_records": 48,
+    "mechanics_module": "mini_moonboard.bolted_joint_mechanics"
+  },
+  "source_sha256": {
+    "mini_moonboard/compact_floor_flush_bolted_frame.py": "1c7250b52edf2c74db5347c79ba0220580e447c87c912b298e0969adc7930d01",
+    "mini_moonboard/bolted_floor_flush_width.py": "1dd9d4ed045ae93bce9e19e4c52feb39ea53bf9bf3c989a5b72ddcf0e8d629b1",
+    "mini_moonboard/bolted_joint_mechanics.py": "8c110f8bd9e3cb2ea90db458365e55070a36d4b3f1234948288b2691a1f64edf",
+    "scripts/bolted_candidate_geometry_checks.py": "3dd1375994f64cf66ef811355acc45734c9058a3e0a8cd8540ea778148fe442e"
+  },
+  "native_ready": false,
+  "native_blocker": "candidate-specific mesh/contact adapter and resistance freeze are not complete",
+  "planned_result_root": "fea/results/bolted-candidate/compact-floor-flush-bolted-development",
+  "required_artifacts_per_case": [
+    "inputs.json",
+    "geometry.json",
+    "report.json.gz",
+    "checks.json",
+    "run.log",
+    "manifest.json"
+  ],
+  "no_native_cases_run": true
+}
