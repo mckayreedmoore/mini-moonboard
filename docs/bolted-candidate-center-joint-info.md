@@ -16,7 +16,12 @@ Use the left center pair: `clip_split_base_center_left` (inclined
 The raw CAD solids and grain-parallel side edges are the geometry source:
 [frame model](../mini_moonboard/compact_floor_flush_frame.py),
 [center-fit script](../scripts/bolted_candidate_ab205_center_fit.py), and its
-[record](bolted-candidate-prototypes/ab205-center-fit.json). The 38.1 mm header
+[record](bolted-candidate-prototypes/ab205-center-fit.json). The
+[shared-axis sheet](../exports/rs2-center-joint/rs2-ab205-shared.svg),
+[staggered-axis sheet](../exports/rs2-center-joint/rs2-ab205-stagger.svg), and
+[drawing notes](bolted-candidate-prototypes/rs2-center-joint-sheet-notes.md)
+show the two local, non-drilling hypotheses and protected nearby screw starts.
+The 38.1 mm header
 lies between an upper principal-side angle and an underside post-side angle.
 The principal is inclined; its grain follows its length and meets an oblique
 cut at the header. The post grain follows its length. The header grain follows
