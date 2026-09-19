@@ -24,7 +24,11 @@ def _dot(a: Vector, b: Vector) -> float:
 
 
 def cross(a: Vector, b: Vector) -> Vector:
-    return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
+    return (
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0],
+    )
 
 
 def _finite(vector: Vector, label: str) -> None:
@@ -46,14 +50,34 @@ def shift_wrench(reported: Wrench, p_report_mm: Vector, p_joint_mm: Vector) -> W
     """Move a wrench using M_joint = M_report + (p_report-p_joint) x F."""
     _finite(p_report_mm, "reported point")
     _finite(p_joint_mm, "joint point")
-    return Wrench(reported.force_n, _add(reported.moment_nmm, cross(_sub(p_report_mm, p_joint_mm), reported.force_n)))
+    return Wrench(
+        reported.force_n,
+        _add(
+            reported.moment_nmm, cross(_sub(p_report_mm, p_joint_mm), reported.force_n)
+        ),
+    )
 
 
 def to_local(wrench: Wrench, basis: tuple[Vector, Vector, Vector]) -> Wrench:
-    """Transform global force/moment vectors into a supplied local basis."""
+    """Project into unit, orthogonal, right-handed local axes (absolute tolerance 1e-9)."""
     if len(basis) != 3:
         raise ValueError("local basis requires u, v, w")
-    return Wrench(tuple(_dot(wrench.force_n, axis) for axis in basis), tuple(_dot(wrench.moment_nmm, axis) for axis in basis))
+    for axis in basis:
+        _finite(axis, "basis axis")
+    tolerance = 1e-9
+    if (
+        any(abs(_dot(axis, axis) - 1.0) > tolerance for axis in basis)
+        or any(
+            abs(_dot(basis[i], basis[j])) > tolerance
+            for i, j in ((0, 1), (0, 2), (1, 2))
+        )
+        or abs(_dot(cross(basis[0], basis[1]), basis[2]) - 1.0) > tolerance
+    ):
+        raise ValueError("local basis must be orthonormal and right-handed")
+    return Wrench(
+        tuple(_dot(wrench.force_n, axis) for axis in basis),
+        tuple(_dot(wrench.moment_nmm, axis) for axis in basis),
+    )
 
 
 def equilibrium_residual(
@@ -78,8 +102,15 @@ def equilibrium_residual(
     return Wrench(_sub(joint.force_n, force), _sub(joint.moment_nmm, moment))
 
 
-def is_equilibrated(residual: Wrench, force_tolerance_n: float = 1e-6, moment_tolerance_nmm: float = 1e-6) -> bool:
-    return max(map(abs, residual.force_n)) <= force_tolerance_n and max(map(abs, residual.moment_nmm)) <= moment_tolerance_nmm
+def is_equilibrated(
+    residual: Wrench,
+    force_tolerance_n: float = 1e-6,
+    moment_tolerance_nmm: float = 1e-6,
+) -> bool:
+    return (
+        max(map(abs, residual.force_n)) <= force_tolerance_n
+        and max(map(abs, residual.moment_nmm)) <= moment_tolerance_nmm
+    )
 
 
 def compression_only_contact(force_n: Vector, normal: Vector) -> Vector:
@@ -99,13 +130,34 @@ def compression_only_contact(force_n: Vector, normal: Vector) -> Vector:
     return tuple(compression * value for value in unit)
 
 
-def clearance_response(force_n: float, stiffness_n_per_mm: float, clearance_mm: float) -> float:
-    """Return bearing displacement after a declared free-clearance gap."""
-    if stiffness_n_per_mm <= 0 or clearance_mm < 0 or not math.isfinite(force_n):
+def clearance_response(
+    force_n: float, stiffness_n_per_mm: float, clearance_mm: float
+) -> float:
+    """Return signed total slip under monotonic force, from the unloaded position.
+
+    ``clearance_mm`` is free radial travel at the assembled interface in the
+    loading direction, not a diametral hole-minus-bolt difference. For a
+    centered circular hole that difference would be twice this gap. At nonzero
+    force, |slip| = clearance + |force|/stiffness; at zero force, return zero
+    by convention. Reversal/partial unloading needs contact history and is
+    outside this screening law; no frame stiffness is implied.
+    """
+    if (
+        not all(
+            math.isfinite(value)
+            for value in (force_n, stiffness_n_per_mm, clearance_mm)
+        )
+        or stiffness_n_per_mm <= 0
+        or clearance_mm < 0
+    ):
         raise ValueError("invalid clearance/stiffness input")
-    return max(0.0, abs(force_n) / stiffness_n_per_mm - clearance_mm)
+    if force_n == 0:
+        return 0.0
+    return math.copysign(clearance_mm + abs(force_n) / stiffness_n_per_mm, force_n)
 
 
 def require_unique_physical_fasteners(fastener_ids: tuple[str, ...]) -> None:
     if len(fastener_ids) != len(set(fastener_ids)):
-        raise ValueError("shared physical fastener cannot be duplicated in one load path")
+        raise ValueError(
+            "shared physical fastener cannot be duplicated in one load path"
+        )
