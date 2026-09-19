@@ -76,5 +76,64 @@
     },
     "limitations": "All four nominal bores traverse raw timber on each side and intersect none of 66 retained panel/kicker or 12 frame-bolt occupied CAD axes. The far rim bore misses a conditional reversible 4D edge screen by 14.480 mm. This is not an adopted load-direction check. The rim end is oblique to grain, so its end distance is unclassified. Front-bolt clearance is only between nominal occupied axes/bores; the existing 3/8-inch by 4-inch front bolt stacks retain their specified washers, nuts and shank requirements. Installed bolt heads, nuts, washers, plate body, bend, tools and withdrawal path are unresolved. The angle bottom is nominally 137.3 mm above runner top, 277 mm above model floor, and 150 mm above the nominal 127 mm crash-pad top. Pads are a clearance datum, not structural support; no installed pad envelope or floor clearance is verified. Factory tolerances, joint action, steel and wood resistance remain open."
   },
-  "disposition": "The fixed-position nominal AB205 trial has raw bore occupation but fails a conditional rim 4D edge screen. No complete installed fit or resistance is established; LB-03C remains open."
+  "ab205_bounded_row_search": {
+    "basis": "On actual raw CAD, retain the header-top/rim-inner-face bend and frozen axes. Search both factory leg orientations within plus or minus 50 mm of each existing clip Y. Intersect the nominal 4D both-edge Y limits for both rim hole centers and the header row, then screen each feasible band midpoint with full-depth 9/16-inch bore cylinders and all 78 occupied retained CAD axes.",
+    "conditional_rule": "4D = 50.8 mm from nominal 1/2-inch bolt centers to either possibly loaded wood edge; not an adopted load-direction or complete bolt-spacing check",
+    "left": {
+      "long_vertical": {
+        "y_band_mm": [-86.948294, -86.8],
+        "band_width_mm": 0.148294,
+        "trial_row_y_mm": -86.874147,
+        "row_displacement_mm": 18.975853,
+        "rim_min_4d_reserve_mm": 0.0568,
+        "header_4d_reserve_mm": 0.074147,
+        "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+        "intersecting_retained_axis_ids": [],
+        "conditional_4d_both_members": true
+      },
+      "short_vertical": {
+        "y_band_mm": [-100.269001, -90.495103],
+        "band_width_mm": 9.773898,
+        "trial_row_y_mm": -95.382052,
+        "row_displacement_mm": 10.467948,
+        "rim_min_4d_reserve_mm": 3.74362,
+        "header_4d_reserve_mm": 8.582052,
+        "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+        "intersecting_retained_axis_ids": [],
+        "conditional_4d_both_members": true
+      }
+    },
+    "right": {
+      "long_vertical": {
+        "y_band_mm": [-86.948294, -86.8],
+        "band_width_mm": 0.148294,
+        "trial_row_y_mm": -86.874147,
+        "row_displacement_mm": 18.975853,
+        "rim_min_4d_reserve_mm": 0.0568,
+        "header_4d_reserve_mm": 0.074147,
+        "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+        "intersecting_retained_axis_ids": [],
+        "conditional_4d_both_members": true
+      },
+      "short_vertical": {
+        "y_band_mm": [-100.269001, -90.495103],
+        "band_width_mm": 9.773898,
+        "trial_row_y_mm": -95.382052,
+        "row_displacement_mm": 10.467948,
+        "rim_min_4d_reserve_mm": 3.74362,
+        "header_4d_reserve_mm": 8.582052,
+        "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+        "intersecting_retained_axis_ids": [],
+        "conditional_4d_both_members": true
+      }
+    },
+    "retained_axes_inspected_per_trial": {"hillman_panel": 66, "bolt_clearance": 12},
+    "frozen_panel_axes_moved": false,
+    "rim_end_distance_classified": false,
+    "installed_hardware_stack_verified": false,
+    "drilling_released": false,
+    "limitations": "The rim has an oblique end relative to grain; neither orientation has a classified end distance. The short-vertical near-hole grain ray is 26.940 mm, and both orientations retain the nominal 47.625-mm factory pitch, whose joint spacing applicability is unresolved. This search checks only the nominal bore cylinders at one point inside each analytic 4D band. It does not establish manufactured-hole tolerances, plate/bend fit, bolt heads, washers, nuts, shank, tools, withdrawal, pad envelope, load direction, steel or wood resistance. Existing front bolt and panel/kicker axes are unchanged; modeled axis clearance does not prove installed hardware clearance. The 0.148-mm long-vertical band has essentially no tolerance allowance.",
+    "disposition": "A displaced row can meet this conditional reversible 4D edge screen on rim and header at both outer stations without moving frozen axes. No installed or rated joint and no drilling release."
+  },
+  "disposition": "The fixed-position trial fails the conditional rim 4D edge screen. Bounded row displacement finds nominal conditional both-member bands, but complete installed fit, oblique-end classification and resistance remain unresolved; LB-03C remains open."
 }

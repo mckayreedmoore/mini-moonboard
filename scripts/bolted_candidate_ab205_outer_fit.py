@@ -1,7 +1,7 @@
 """Nominal AB205 outer-base fit against current raw CAD; no joint approval."""
 
 import csv
-from math import hypot, pi
+from math import hypot, isfinite, pi
 from pathlib import Path
 from typing import Literal
 
@@ -30,16 +30,19 @@ def _broad_face(shape: cq.Solid, x_mm: float) -> cq.Face:
 
 
 def screen_outer_fit(
-    side: Side = "left", vertical_leg: Leg = "long"
+    side: Side = "left", vertical_leg: Leg = "long", row_y_mm: float | None = None
 ) -> dict[str, object]:
-    """Screen the factory pattern at the existing clip origin, including retained axes."""
+    """Screen one nominal factory row against raw wood and retained CAD axes."""
     if side not in ("left", "right") or vertical_leg not in ("long", "short"):
         raise ValueError("Expected left/right side and long/short vertical leg")
+    if row_y_mm is not None and not isfinite(row_y_mm):
+        raise ValueError("Trial row must be finite")
     parts = {part.name: part.shape for part in frame.uncut_wood_parts()}
     station = next(
         item for item in frame.stations() if item[0] == f"clip_angle_base_{side}"
     )
     _, origin, *_ = station
+    row_y = origin.y if row_y_mm is None else row_y_mm
     rim = parts[f"base_side_{side}"]
     header = parts["base_header"]
     runner = parts[f"base_floor_{side}"]
@@ -60,7 +63,7 @@ def screen_outer_fit(
         cq.Solid.makeCylinder(
             bore_radius,
             rim_depth,
-            cq.Vector(inner_x, origin.y, origin.z + offset * 25.4),
+            cq.Vector(inner_x, row_y, origin.z + offset * 25.4),
             cq.Vector(-sign, 0, 0),
         )
         for offset in vertical
@@ -68,7 +71,7 @@ def screen_outer_fit(
         cq.Solid.makeCylinder(
             bore_radius,
             header_depth,
-            cq.Vector(inner_x + sign * offset * 25.4, origin.y, origin.z),
+            cq.Vector(inner_x + sign * offset * 25.4, row_y, origin.z),
             cq.Vector(0, 0, -1),
         )
         for offset in horizontal
@@ -89,9 +92,9 @@ def screen_outer_fit(
     for offset in vertical:
         z = origin.z + offset * 25.4
         lower, upper = sorted(_line_y(line, z) for line in lines)
-        edge_distances.append(min((origin.y - lower) * ny, (upper - origin.y) * ny))
+        edge_distances.append(min((row_y - lower) * ny, (upper - row_y) * ny))
     header_edge = min(
-        origin.y - header.BoundingBox().ymin, header.BoundingBox().ymax - origin.y
+        row_y - header.BoundingBox().ymin, header.BoundingBox().ymax - row_y
     )
     # Nominal rectangular flange extents omit the formed bend radius.
     leg_height = (4.125 if vertical_leg == "long" else 3.5) * 25.4
@@ -139,6 +142,7 @@ def screen_outer_fit(
         "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
         "contact_x_mm": _rounded(origin.x),
         "contact_y_mm": _rounded(origin.y),
+        "trial_row_y_mm": _rounded(row_y),
         "contact_z_mm": _rounded(origin.z),
         "factory_vertical_offsets_in": list(vertical),
         "factory_horizontal_offsets_in": list(horizontal),
@@ -149,6 +153,7 @@ def screen_outer_fit(
         "wood_bore_count": len(bores),
         "nominal_wood_bore_diameter_mm": _rounded(2 * bore_radius),
         "raw_wood_bore_fractions": [_rounded(value) for value in fractions],
+        "installed_bores_full_raw_wood": all(value >= 1 - 1e-5 for value in fractions),
         "rim_hole_edge_distances_mm": [_rounded(value) for value in edge_distances],
         "rim_hole_min_4d_reserve_mm": _rounded(min(edge_distances) - 4 * bolt_diameter),
         "header_row_edge_distance_mm": _rounded(header_edge),
@@ -182,5 +187,89 @@ def screen_outer_fit(
         "floor_pad_geometry_available": False,
         "factory_tolerances_verified": False,
         "capacity_established": False,
+        "drilling_released": False,
+    }
+
+
+def search_outer_fit(
+    side: Side = "left", max_row_displacement_mm: float = 50.0
+) -> dict[str, object]:
+    """Find the nominal both-edge 4D Y bands within a limited clip-row move."""
+    if (
+        side not in ("left", "right")
+        or not isfinite(max_row_displacement_mm)
+        or max_row_displacement_mm < 0
+    ):
+        raise ValueError("Expected left/right side and finite nonnegative displacement")
+    parts = {part.name: part.shape for part in frame.uncut_wood_parts()}
+    station = next(
+        item for item in frame.stations() if item[0] == f"clip_angle_base_{side}"
+    )
+    _, origin, *_ = station
+    rim = parts[f"base_side_{side}"]
+    header = parts["base_header"]
+    inner_x = rim.BoundingBox().xmax if side == "left" else rim.BoundingBox().xmin
+    lines = _grain_edge_lines(_broad_face(rim, inner_x))
+    if len(lines) != 2 or abs(lines[0][2] - lines[1][2]) > 1e-5:
+        raise ValueError("Expected two parallel rim grain edges")
+    ny = 1 / hypot(1, lines[0][2])
+    four_d = 4 * 12.7
+    header_box = header.BoundingBox()
+    options = {}
+    for leg, offsets in (("long", (1.4375, 3.3125)), ("short", (0.8125, 2.6875))):
+        bounds = [
+            tuple(sorted(_line_y(line, origin.z + offset * 25.4) for line in lines))
+            for offset in offsets
+        ]
+        lower = max(
+            origin.y - max_row_displacement_mm,
+            header_box.ymin + four_d,
+            *(edge[0] + four_d / ny for edge in bounds),
+        )
+        upper = min(
+            origin.y + max_row_displacement_mm,
+            header_box.ymax - four_d,
+            *(edge[1] - four_d / ny for edge in bounds),
+        )
+        option: dict[str, object] = {
+            "reversible_4d_y_lower_mm": _rounded(lower),
+            "reversible_4d_y_upper_mm": _rounded(upper),
+            "reversible_4d_y_band_width_mm": _rounded(max(0.0, upper - lower)),
+            "conditional_4d_both_members": False,
+            "rim_end_distance_classified": False,
+            "drilling_released": False,
+        }
+        if lower <= upper:
+            trial = screen_outer_fit(side, leg, (lower + upper) / 2)
+            option.update(
+                trial_row_y_mm=trial["trial_row_y_mm"],
+                row_displacement_mm=_rounded(float(trial["trial_row_y_mm"]) - origin.y),
+                raw_wood_bore_fractions=trial["raw_wood_bore_fractions"],
+                installed_bores_full_raw_wood=trial["installed_bores_full_raw_wood"],
+                rim_hole_min_4d_reserve_mm=trial["rim_hole_min_4d_reserve_mm"],
+                header_row_4d_reserve_mm=trial["header_row_4d_reserve_mm"],
+                retained_axes_inspected=trial["retained_axes_inspected"],
+                intersecting_retained_axis_ids=trial["intersecting_retained_axis_ids"],
+                front_bolt_axis_ids=trial["front_bolt_axis_ids"],
+                nearest_new_rim_bore_above_front_bolt_clearance_mm=trial[
+                    "nearest_new_rim_bore_above_front_bolt_clearance_mm"
+                ],
+                conditional_4d_both_members=(
+                    float(trial["rim_hole_min_4d_reserve_mm"]) >= -1e-5
+                    and float(trial["header_row_4d_reserve_mm"]) >= -1e-5
+                    and bool(trial["installed_bores_full_raw_wood"])
+                    and not trial["intersecting_retained_axis_ids"]
+                ),
+            )
+        options[f"{leg}_vertical"] = option
+    return {
+        "station": station[0],
+        "legacy_row_y_mm": _rounded(origin.y),
+        "maximum_row_displacement_mm": max_row_displacement_mm,
+        "conditional_loaded_edge_rule": "reversible 4D from both nominal bolt centers on rim and header",
+        "orientations": options,
+        "frozen_panel_axes_moved": False,
+        "installed_hardware_stack_verified": False,
+        "rim_end_distance_classified": False,
         "drilling_released": False,
     }
