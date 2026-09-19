@@ -81,6 +81,15 @@ hole layout, or formed-angle resistance. A published steel grade for a
 and [Home Depot A66 listing](https://www.homedepot.com/p/100375146) are
 procurement evidence only.
 
+The [Simpson G90 material guidance](https://www.strongtie.com/products/connectors/wood-construction-connectors/technical-notes/corrosion-info/materials-and-coatings)
+identifies a zinc-coating designation under ASTM A653, not an A66 structural
+steel grade. An [ICC-ES Simpson material table](https://icc-es.org/wp-content/uploads/report-directory/ESR-3096.pdf)
+lists A33 and A44 as 12-gauge ASTM A653 SS Grade 33 with 0.0975-inch base
+metal, but does not list A66. Those values belong to the listed models and
+cannot be copied to A66 merely because its retail listing also says 12 gauge.
+This targeted material search therefore does not close the A66 steel input;
+the public hole-location and bolt-mode rating gaps remain separate too.
+
 The retail [A307 bolt example](https://www.lowes.com/pd/Hillman-3-8-in-x-4-in-Galvanized-Coarse-Thread-Hex-Bolt/1000381863)
 establishes availability, not a chosen length, certified bending-yield
 property, thread-free shear plane, or installed bolt capacity. No assumption

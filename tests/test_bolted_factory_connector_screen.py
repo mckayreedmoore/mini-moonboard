@@ -37,6 +37,11 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert catalog["f1_allowable_load_published"] is False
     assert catalog["f2_allowable_load_published"] is False
     assert catalog["bolt_hole_centers_dimensioned"] is False
+    steel = record["steel_grade_transfer_screen"]
+    assert steel["g90_is_coating_not_structural_grade"] is True
+    assert steel["inspected_icc_table_28_lists_12_gauge_a33_and_a44_not_a66"] is True
+    assert steel["a33_a44_grade33_strength_or_base_metal_thickness_transferable_to_a66"] is False
+    assert steel["a66_guaranteed_fy_fu_and_base_metal_thickness_established"] is False
     drawing_search = record["current_manufacturer_drawing_search"]
     assert drawing_search["manufacturer_controlled_a66_coordinates_found"] is False
     assert drawing_search["third_party_model_usable_for_drilling"] is False
