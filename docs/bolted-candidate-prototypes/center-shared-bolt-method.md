@@ -51,6 +51,14 @@ bearing and bolt-bending strengths, actual bearing lengths and thread exposure,
 and an affirmative symmetric-action method gate. It has no AB205 default and
 cannot be applied to the unequal actions above. Even in an admissible symmetric
 case, its unadjusted minimum is not the installed wood/steel/bolt joint verdict.
+The reviewed [NDS Chapter 12](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf)
+and [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
+do not publish a direct three-member yield equation for these *unequal* outer
+actions. NDS 12.3.8's adjacent-member procedure is for four or more members;
+the shorter-side-length rule in 12.3.5.4 does not resolve unequal forces. Any
+whole-fastener alternative must explicitly equilibrate both steel actions and
+the distributed wood bearing, track bolt shear/flexure and any axial/prying
+action, and be documented as a developed method rather than an NDS table value.
 
 The steel-side limit is independent of that timber calculation. ABB calls
 AB205 a [1/4-in steel fitting](https://empower.abb.com/ecatalog/ec/EN_NA/p/AB205EG)
