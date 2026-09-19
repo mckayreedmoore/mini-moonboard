@@ -7,7 +7,9 @@ import pytest
 
 
 def test_representative_blockers_bind_archived_wrench_and_keep_gate_open():
-    record = json.loads(Path("docs/bolted-candidate-representative-blockers.json").read_text())
+    record = json.loads(
+        Path("docs/bolted-candidate-representative-blockers.json").read_text()
+    )
     old = json.loads(Path("docs/floor-runner-mvp-angle-demands.json").read_text())
     assert record["status"] == "G1_open"
     assert record["wood_reference_data_available"] is True
@@ -32,7 +34,12 @@ def test_representative_blockers_bind_archived_wrench_and_keep_gate_open():
         assert joint["archived_same_case_wrench"]["moment_xyz_nmm"] == pytest.approx(
             actual["moment_xyz_nmm"]
         )
-        assert joint["status"] in {"failed_nominal_geometry", "missing_joint_detail"}
+        expected_status = (
+            "A66_narrow_face_rejected_AB205_shifted_edge_screen_only"
+            if family == "narrow_opposing"
+            else "missing_joint_detail"
+        )
+        assert joint["status"] == expected_status
         assert joint["missing_inputs"]
         assert joint["new_candidate_demand_available"] is False
         assert joint["capacity_claim"] is False

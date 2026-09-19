@@ -5,6 +5,7 @@
   "wood_reference_data_available": true,
   "wood_reference": "docs/bolted-candidate-material-basis.json",
   "existing_two_wood_member_yield_method": "fea/dowel_yield.py; applicable only after an actual two-member single-shear detail and its bearing lengths, grain angles, shank and Fyb are defined",
+  "conditional_2024_wood_steel_single_shear_method": "mini_moonboard/bolted_steel_wood_yield.py; requires product-specific steel bearing, bolt bending-yield/thread exposure, actual contact, bearing lengths, and grain/load angle; not directly applicable to shared two-steel-flange header bolts",
   "archived_wrench_source": "docs/floor-runner-mvp-angle-demands.json",
   "archived_wrench_limit": "Each a12-left force/moment pair is one illustrative simultaneous beam-flange example at its archived station origin, not prioritization evidence, a historical peak envelope, or new-candidate demand. The separately listed historical force and moment norm maxima may occur in different cases: never combine them into a synthetic wrench, shift an old moment to current geometry, or use any archived value as a new-candidate demand or capacity claim.",
   "same_case_is_not_archived_peak_or_envelope": true,
@@ -14,7 +15,7 @@
       "station": "clip_horizontal_bottom_left_2",
       "source_prototype": "docs/bolted-candidate-prototypes/narrow-opposing.json",
       "members": ["base_principal_center_left", "base_rail_bottom_left"],
-      "status": "failed_nominal_geometry",
+      "status": "A66_narrow_face_rejected_AB205_shifted_edge_screen_only",
       "failed_trial_only": "A centered 3/8-inch A66 bolt on a 38.1-mm narrow timber face has -19.05-mm 4D loaded-edge reserve under reversible perpendicular-to-grain loading. A broad-face arrangement remains untested, not rejected by this screen.",
       "archived_same_case_wrench": {
         "case": "a12-left",
@@ -33,7 +34,8 @@
         "new-candidate simultaneous local wrench and defensible flange contact/prying distribution",
         "A66 steel thickness/grade/bend and hole-bearing resistance if A66 remains proposed"
       ],
-      "next_action": "Find a manufacturer dimensioned A66 drawing or switch to another in-scope connector/detail, then perform exact broad-face solid and washer/tool-envelope fit before resistance calculations.",
+      "ab205_trial": "At this actual station, both leg assignments can gain 19.05 mm conditional 4D edge reserve on rail and principal with a 19.05-mm common-width row shift; four raw-wood bores and retained-axis nonintersection are checked. End distance, angle/body contact, opposing hardware, full stack, and resistance remain open.",
+      "next_action": "Resolve the chosen factory connector's installed body/washer/tool fit and actual wood end distances at the shifted broad-face detail before calculating all applicable joint limit states.",
       "new_candidate_demand_available": false,
       "capacity_claim": false
     },
@@ -61,7 +63,7 @@
         "wood grain and net-section/group failure path plus steel-angle bending/prying basis"
       ],
       "next_action": "Select an in-scope detail and exact current-position geometry, test both center stations and retained panel axes, then recover fresh affected actions before a capacity decision.",
-      "ab205_trial": "docs/bolted-candidate-prototypes/ab205-center-fit.json: long-vertical-leg nominal hole row at old clip Y misses conditional reversible 4D far-principal edge by 29.073 mm; shifting Y yields only a 0.148-mm nominal common 4D band. Short-vertical-leg orientation widens that band to 9.774 mm but has a 26.940-mm grain ray to the oblique end. End distance is not classified for either.",
+      "ab205_trial": "docs/bolted-candidate-prototypes/ab205-center-fit.json: long-vertical-leg nominal hole row at old clip Y misses conditional reversible 4D far-principal edge by 29.073 mm; shifting Y yields only a 0.148-mm nominal common 4D band. Short-vertical-leg orientation widens that band to 9.774 mm but has a 26.940-mm grain ray to the oblique end. A nominal opposed center-post layout can share two through-header axes; this creates a multi-member stack outside the direct two-member single-shear helper. End distance and complete fit remain unclassified.",
       "new_candidate_demand_available": false,
       "capacity_claim": false
     },
@@ -87,7 +89,8 @@
         "new-candidate simultaneous wrench and local bolt-group/contact force distribution",
         "actual wood splitting/net-section and connector steel hole/bend/prying resistance"
       ],
-      "next_action": "Fit the selected connector against the real rim/header solids and retained front-bolt stacks, then calculate the complete joint path with fresh candidate actions.",
+      "ab205_trial": "At the fixed clip Y the conditional reversible 4D rim edge screen misses by 14.480 mm. Bounded Y shifts give a 0.148-mm long-vertical or 9.774-mm short-vertical common rim/header band, with four nominal raw-wood bores and no retained-axis intersection at tested midpoints. Oblique end, complete stack, and resistance remain open.",
+      "next_action": "Resolve the selected connector's installed body, washer/tool access and oblique rim end at the displaced row, then calculate the complete joint path with fresh candidate actions.",
       "new_candidate_demand_available": false,
       "capacity_claim": false
     }

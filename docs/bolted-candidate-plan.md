@@ -78,9 +78,14 @@ The three representative raw timber interfaces are confirmed butt joints.
 The first reproducible AB205 actual-station fixtures now cover all three
 representative areas without selecting the product. The narrow/opposing
 rail placement has four nominal bores in raw timber but exactly zero nominal
-4D reserve at its nearest broad-face edge. The fixed lower outer-rim
-placement misses the conditional reversible 4D edge screen by 14.480 mm
-on both sides, despite full raw-wood bores and no retained-axis intersection.
+4D reserve at its nearest broad-face edge. A bounded 19.05-mm shift along
+that joint's shared width direction gives 19.05 mm conditional 4D margin on
+both wood members, full nominal bores, and no retained-axis intersection;
+the opposing hardware remains untested. The fixed lower outer-rim placement
+misses the conditional reversible 4D edge screen by 14.480 mm on both sides.
+Moving its Y row yields a 0.148-mm long-vertical or 9.774-mm short-vertical
+common nominal band, with full raw-wood bores at the screened midpoints and
+no retained-axis intersection. Neither is a selected drill row.
 The center short-vertical placement has the limited band discussed below.
 These are load-direction-conditional screens, not adopted NDS passes or
 failures for the complete joints. Opposing hardware, installed stacks,
@@ -164,6 +169,14 @@ The existing six-mode wood-to-wood yield implementation now has regression
 tests against nine cells of the publisher's 2018 NDS Table 12A. Those tests
 verify its arithmetic for comparable two-member cases; they do not transfer a
 2018 table value into the candidate's eventual 2024 connection assessment.
+A conditional 2024 wood-to-steel single-shear wrapper now reuses the DF-L
+bearing input and six-mode solver, with independent equation comparisons and
+one 2024 AWC Table 12B fixture under its exact A36/full-shank assumptions.
+It requires supplied steel bearing, bolt bending yield, actual bearing lengths,
+thread exposure, and grain/load angle. It cannot be applied directly to the
+proposed two-steel-flange/one-header shared bolt stack, and it does not rate
+an AB205 or A66 formed angle. See
+`docs/bolted-candidate-prototypes/wood-steel-six-mode-route.md`.
 Astra's supplemental wood-bolt guide confirms this use boundary: the wood
 reference method is not a steel-angle rating, and bolt-side bearing, washer
 compression, splitting, plate bending and prying need separate checks. The
