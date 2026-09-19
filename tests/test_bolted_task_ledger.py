@@ -22,7 +22,8 @@ def test_g1_selects_a_prototype_and_keeps_mechanics_and_solve_gates_open() -> No
     assert by_id["LB-04"]["status"] == "complete"
     assert by_id["LB-04"]["gate"] == "G1"
     assert by_id["LB-05"]["status"] == "complete"
-    assert all(by_id[name]["status"] == "planned" for name in ("LB-13", "LB-17"))
+    assert by_id["LB-13"]["status"] == "blocked"
+    assert by_id["LB-17"]["status"] == "planned"
 
 
 def test_audit_lists_all_current_structural_stations() -> None:

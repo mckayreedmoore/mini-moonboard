@@ -25,7 +25,7 @@
     {"id": "LB-11A", "status": "complete", "depends_on": ["LB-10"]},
     {"id": "LB-11B", "status": "complete", "depends_on": ["LB-10"]},
     {"id": "LB-12", "status": "complete", "depends_on": ["LB-10"]},
-    {"id": "LB-13", "status": "ready", "depends_on": ["LB-09", "LB-11A", "LB-11B", "LB-12"], "gate": "G2"},
+    {"id": "LB-13", "status": "blocked", "depends_on": ["LB-09", "LB-11A", "LB-11B", "LB-12"], "gate": "G2"},
     {"id": "LB-14A", "status": "planned", "depends_on": ["LB-13"], "gate": "G3"},
     {"id": "LB-14B", "status": "planned", "depends_on": ["LB-14A"]},
     {"id": "LB-14C", "status": "planned", "depends_on": ["LB-14B"]},
