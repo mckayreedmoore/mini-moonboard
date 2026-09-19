@@ -4,17 +4,20 @@
   "status": "blocked_pending_engineering_inputs",
   "candidate": "compact-floor-flush-bolted-development",
   "configuration": {
-    "connector": "Simpson Strong-Tie A66 common-retail follow-up; AB90 prototype records retained for comparison",
+    "connector": "A66 is the active common-retail prototype priority; AB90 layout inventory and AB205 nominal geometry trials are comparison evidence, not selected joint details",
     "width_scope": "owner's physical build is kerf-right; current default prototype geometry is official and kerf-right adapter is separately tracked, without native qualification",
     "panel_policy": "66 Hillman panel/kicker screws retained",
     "baseline_candidate_preserved": true,
-    "structural_layouts": 24,
-    "native_case_count": 6
+    "structural_stations_inventoried": 24,
+    "accepted_structural_layouts": 0,
+    "planned_native_case_count": 6,
+    "executed_candidate_native_case_count": 0
   },
   "criteria": {
     "scope_frozen": true,
     "panel_contract_frozen": true,
-    "family_layouts_present": true,
+    "family_layouts_inventoried": true,
+    "selected_connector_layouts_accepted": false,
     "mechanics_semantics_present": true,
     "timber_resistance_basis_applicable": false,
     "steel_bolt_resistance_basis_applicable": false,
@@ -25,12 +28,13 @@
   "blocking_actions": [
     "Freeze the active connector and orientation from a physical A66 station map. Even a centered 3/8-inch bolt line fails the 4d edge screen on a 1.5-inch face by 19.05 mm; broad-face placement is only a theoretical best-case screen until factory hole locations and actual station faces are known.",
     "Obtain an A66 manufacturer hole drawing or measured delivered-part dimensions before treating factory hole clearance, bolt coordinates, and drilling as known.",
-    "Resolve the user-authorized center-support outward-shift option against actual connector overlap and the 20 retained center panel/kicker axes; the current 101.9 mm clear gap can only increase 33.9598 mm before a retained occupied bore exits its 38.1 mm support, and that geometric limit is not a structural acceptance.",
+    "Keep the center principals, posts, and 20 retained center panel/kicker axes fixed for the current AB205 shared-header and underside Y-stagger trials. The earlier both-member outward-shift envelope is historical, not the current layout. A separate post-only 0/5/10/15 mm trial found no accepted de-stacked joint or adequate kicker-edge-support demonstration; no offset or row is selected.",
     "Establish fresh candidate mechanical evidence for the owner's kerf-right width; old official-width responses do not qualify the physical build.",
-    "Establish an applicable wood-to-wood bolt/plate/timber resistance basis for the selected installation; A66 public bolt tables are absent and AB90 published values are scoped to CLT/rigid-substrate arrangements.",
+    "Establish an applicable complete wood-to-wood bolt/plate/timber resistance basis for a proposed installation, through a supported manufacturer detail or independently engineered component checks with verified product inputs. A66 public bolt tables are absent, AB90 published values are scoped to CLT/rigid-substrate arrangements, and AB205's strut-channel rating is not a wood-joint rating.",
     "Implement and verify the selected connector's native mesh/contact adapter, then freeze exact bolt grade, washer/nut stack, hole/tolerance, access, and stiffness inputs before generating a solve case."
   ],
   "native_cases_run": false,
+  "planned_cases_are_not_executed_candidate_cases": true,
   "baseline_evidence_transferred": false,
   "fabrication_release": false
 }

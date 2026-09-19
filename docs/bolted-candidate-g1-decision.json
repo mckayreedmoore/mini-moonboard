@@ -3,6 +3,8 @@
   "gate": "G1",
   "status": "prototype_priority_recorded; G1_architecture_gate_open",
   "candidate": "compact-floor-flush-bolted-development",
+  "active_prototype_priority": "Simpson Strong-Tie A66 for procurement and representative-joint development only; no connector architecture selected",
+  "trial_status": "AB205 fixed-member shared-header and underside Y-stagger geometry trials are conditional and unselected. The separate post-only outward-shift 0/5/10/15 mm trial accepted no offset. The earlier both-member shift is a historical screen, not the current center layout.",
   "screened_architectures": [
     {"id": "existing-ml24z-through-bolt", "status": "unresolved", "blocking": "installation and resistance basis for factory holes and steel/flange behavior"},
     {"id": "simpson-hl33-hl35", "status": "rejected", "blocking": "requires thicker receiver than preserved single 2x6"},
@@ -17,7 +19,7 @@
     {"id": "mitek-bl4-ubl4", "status": "additional_retail_follow_up_rejected", "blocking": "Published MiTek BL4 F1/F2 values specify ten 10d nails, not an all-bolted structural move interface"},
     {"id": "simpson-66t", "status": "coplanar_factory_bolted_retail_lead_unqualified", "blocking": "Flat T strap cannot replace an angle at non-coplanar joints; no US-controlled hole-center detail or complete combined-action rating verified, and UK product data cannot silently transfer to the US retail item"}
   ],
-  "smallest_decision_needed": "Complete representative fit/load-path screens and assign an applicable connector architecture to all 24 stations. A66 remains a retail prototype priority, not an accepted architecture; its bolt capacity and factory hole layout are unresolved.",
+  "smallest_decision_needed": "Define and verify one complete representative installed joint, then assign an applicable architecture to all 24 stations. A66 remains a retail prototype priority, not an accepted architecture; its factory hole layout, product properties, applicable resistance method, and joint actions are unresolved. Manufacturer-supported installation or independent engineering with verified inputs may establish a basis.",
   "representative_exact_blockers": "docs/bolted-candidate-representative-blockers.json",
   "direct_butt_geometry_screen": "docs/bolted-candidate-direct-butt-screen.json",
   "owner_post_only_center_shift_screen": {
@@ -45,10 +47,11 @@
     "minimum_wood_thickness_in_question": 1.5,
     "dimensioned_bolt_hole_centers_required": true,
     "applicable_bolt_mode_resistance_required": true,
+    "independent_design_with_verified_product_inputs_permitted": true,
     "specific_questions": [
       "Provide a current dimensioned A66 factory drawing identifying the four 3/8-inch bolt-hole centers relative to both leg edges and the bend, hole diameter and tolerance, and flange thickness.",
       "State whether Simpson supports a two-through-bolt-per-leg wood-to-wood joint where each receiver is a single actual 1.5-inch-thick nominal 2x6, with the bolts entering the broad 5.5-inch face rather than an inapplicable narrow-face layout.",
-      "Provide product-specific allowable loads or an engineering basis for F1, F2, separation, flange couple/prying, and combined action in that installation, including minimum wood edge/end/spacing, bolt grade, washer, paired-use, and grain/orientation conditions.",
+      "Identify any applicable product-specific allowable loads or provide product material, thickness, geometry, restrictions, and test/design information sufficient for independent assessment of F1, F2, separation, flange couple/prying, and combined action. State wood edge/end/spacing, bolt grade, washer, paired-use, and grain/orientation conditions where supported.",
       "State whether any published bolted load or detail can be applied to a removable timber-to-timber joint without relying on the catalog's nailed A-angle ratings."
     ],
     "if_unavailable": "A66 cannot advance to representative drilling or G1 selection",

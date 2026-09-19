@@ -191,6 +191,10 @@ def _retained_axis_intersections(
             if row["shop_opening_kind"] not in inspected_counts:
                 continue
             inspected_counts[row["shop_opening_kind"]] += 1
+            if row["shop_opening_kind"] == "hillman_panel" and abs(
+                float(row["shop_purchased_length_mm"]) - 63.5
+            ) > 1e-6:
+                raise ValueError("Retained panel screw purchased length changed")
             start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
             direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
             occupied = cq.Solid.makeCylinder(
@@ -241,7 +245,13 @@ def screen_retained_axis_conflicts(
         "trial_bore_count": len(bores),
         "intersecting_retained_axis_ids": retained,
         "nominal_axis_conflicts_found": bool(retained),
-        "limitations": "Nominal centerline bore/occupied-axis screen only; not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity.",
+        "panel_screw_obstacle_basis": (
+            "mixed_purchased_length_legacy_diameter_sensitivity"
+            if purchased_panel_length
+            else "legacy_analysis_length_and_diameter"
+        ),
+        "physical_panel_screw_clearance_status": "unresolved_external_envelope",
+        "limitations": "Nominal centerline bore/occupied-axis screen only. The purchased-length option mixes 63.5 mm with an unsupported legacy screw diameter; neither option verifies physical screw clearance. Not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity.",
     }
 
 
@@ -344,9 +354,10 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
         "retained_axis_conflicts_for_six_unique_bores": sorted(
             set(all_axes["intersecting_retained_axis_ids"]) | set(post_axis_hits)
         ),
-        "purchased_panel_length_axis_conflicts_for_six_unique_bores": sorted(
+        "mixed_purchased_length_legacy_diameter_axis_conflicts_for_six_unique_bores": sorted(
             set(purchased_top_hits) | set(purchased_post_hits)
         ),
+        "physical_panel_screw_clearance_status": "unresolved_external_envelope",
         "nominal_angle_outer_envelope_intersecting_raw_wood_parts": plate_intersections,
         "nominal_angle_envelope_source": "ABB AB205 4-1/8 in height, 3-1/2 in base, 1-5/8 in width, 1/4 in thickness; ideal square-corner boxes, no bend radius or tolerances",
         "end_distance_classified": False,

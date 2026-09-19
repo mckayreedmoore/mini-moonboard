@@ -16,6 +16,10 @@ def test_fixed_axes_and_actual_post_band():
     assert result["top_row_y_mm"] == pytest.approx(-95.382052)
     assert result["post_4d_y_band_mm"][0] < -95.382052 < result["post_4d_y_band_mm"][1]
     assert result["retained_axis_counts"] == {"hillman_panel": 66, "bolt_clearance": 12}
+    assert result["panel_screw_clearance_input"]["purchased_length_mm"] == 63.5
+    assert result["panel_screw_clearance_input"]["physical_clearance_status"] == (
+        "unresolved_external_envelope"
+    )
     assert result["physical_kicker_width_option"] == "kerf-right"
     assert result["maximum_possible_y_stagger_mm"] == pytest.approx(29.517948)
     assert result["parallel_minimum_reachable_in_band"] is True
@@ -112,6 +116,7 @@ def test_record_matches_screen_without_releasing_layout():
         ).read_text()
     )
     result = screen_center_y_stagger()
+    assert record["panel_screw_clearance_input"] == result["panel_screw_clearance_input"]
     lower = result["samples"][0]
     left = lower["sides"][0]
     assert record["top_row_y_mm"] == result["top_row_y_mm"]

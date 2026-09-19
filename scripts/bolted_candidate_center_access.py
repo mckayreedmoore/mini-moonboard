@@ -61,11 +61,13 @@ def _retained_axes() -> tuple[dict[str, int], list[tuple[str, cq.Solid]]]:
             counts[kind] += 1
             start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
             direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
-            length = (
-                float(row["shop_purchased_length_mm"])
-                if kind == "hillman_panel"
-                else float(row["occupied_length_mm"])
-            )
+            if kind == "hillman_panel" and abs(
+                float(row["shop_purchased_length_mm"]) - 63.5
+            ) > 1e-6:
+                raise ValueError("Retained panel screw purchased length changed")
+            # Keep the historical length and diameter together as one legacy
+            # analysis envelope; neither is a physical Hillman screw envelope.
+            length = float(row["occupied_length_mm"])
             occupied.append(
                 (
                     f"retained:{row['name']}",
@@ -272,10 +274,19 @@ def screen_center_access(
         "radial_probe_depth_mm": radial_depth_mm,
         "kerf_right_panel_kicker_solid_obstacles": panel_names,
         "retained_axis_counts": counts,
+        "panel_screw_clearance_input": {
+            "purchased_length_mm": 63.5,
+            "shaft_external_diameter_mm": None,
+            "head_external_diameter_mm": None,
+            "physical_clearance_status": "unresolved_external_envelope",
+            "collision_obstacle_basis": "legacy_analysis_length_and_diameter",
+        },
         "cases": cases,
         "limits": (
             "Raw kerf-right wood including four main panels and two kicker "
-            "panel solids, plus purchased-length retained panel screw axes; "
+            "panel solids, plus historical analysis-envelope panel screw axes; "
+            "the 63.5 mm purchased screws have no supported external shaft/head "
+            "diameter here and physical screw clearance remains unresolved; "
             "ideal square-corner AB205 envelopes with nominal holes. Shaft is a "
             "12.7 mm cylinder; 76.2 mm length is illustrative, not a specified SKU. "
             "17.5 mm washer and 25 mm tool radii are sensitivity probes, not "

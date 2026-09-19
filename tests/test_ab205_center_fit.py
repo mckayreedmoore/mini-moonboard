@@ -135,7 +135,8 @@ def test_opposed_center_post_can_nominally_share_header_axes_only():
         ]
         is False
     )
-    assert actual["purchased_panel_length_axis_conflicts_for_six_unique_bores"] == []
+    assert actual["mixed_purchased_length_legacy_diameter_axis_conflicts_for_six_unique_bores"] == []
+    assert actual["physical_panel_screw_clearance_status"] == "unresolved_external_envelope"
     assert actual["post_conditional_reversible_4d_edge_reserve_mm"] > 8
     assert actual["shared_fastener_stack_defined"] is False
     assert actual["drilling_released"] is False

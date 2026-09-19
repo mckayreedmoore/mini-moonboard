@@ -3,7 +3,14 @@
   "status": "nominal_collision_diagnostic_only",
   "source": "scripts/bolted_candidate_center_access.py",
   "physical_width": "kerf-right",
-  "obstacles": "Actual raw frame and six kerf-right panel/kicker solids; 66 purchased-length panel screw axes; 12 retained frame-bolt axes; ideal nominal AB205 angle blocks",
+  "obstacles": "Actual raw frame and six kerf-right panel/kicker solids; 66 legacy analysis-envelope panel screw axes; 12 retained frame-bolt axes; ideal nominal AB205 angle blocks",
+  "panel_screw_clearance_input": {
+    "purchased_length_mm": 63.5,
+    "shaft_external_diameter_mm": null,
+    "head_external_diameter_mm": null,
+    "physical_clearance_status": "unresolved_external_envelope",
+    "collision_obstacle_basis": "legacy_analysis_length_and_diameter"
+  },
   "illustrative_probes": {
     "bolt_shaft_diameter_mm": 12.7,
     "bolt_length_mm": 76.2,

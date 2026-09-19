@@ -1,5 +1,8 @@
 """LB-11A/B geometric screens stay distinct from capacity."""
 
+import math
+from decimal import Decimal
+
 import pytest
 
 from mini_moonboard.a66_geometry_screen import screen_a66_geometry
@@ -16,6 +19,19 @@ def test_timber_screen_reports_geometry_and_unresolved_capacity_separately() -> 
 
 def test_timber_screen_exposes_a_narrow_face_failure() -> None:
     assert screen_geometry(38.1, 38.1, 10.0, 19.05, 80.0).geometry_status == "nominal_fail"
+
+
+@pytest.mark.parametrize("argument_index", range(5))
+@pytest.mark.parametrize(
+    "invalid_value",
+    [math.nan, math.inf, -math.inf, True, False, 0, -1, 1 + 2j, Decimal(1), "10", None],
+)
+def test_timber_screen_rejects_invalid_input_for_every_argument(argument_index, invalid_value) -> None:
+    arguments = [139.7, 38.1, 10.0, 50.0, 80.0]
+    arguments[argument_index] = invalid_value
+
+    with pytest.raises(ValueError):
+        screen_geometry(*arguments)
 
 
 def test_ab90_screen_uses_factory_hole_and_does_not_claim_capacity() -> None:

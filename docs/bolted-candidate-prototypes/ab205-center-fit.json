@@ -74,7 +74,9 @@
       "trial_bore_count": 4,
       "intersecting_retained_axis_ids": [],
       "nominal_axis_conflicts_found": false,
-      "limitations": "Nominal centerline bore/occupied-axis screen only; not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity."
+      "panel_screw_obstacle_basis": "legacy_analysis_length_and_diameter",
+      "physical_panel_screw_clearance_status": "unresolved_external_envelope",
+      "limitations": "Nominal centerline bore/occupied-axis screen only. The purchased-length option mixes 63.5 mm with an unsupported legacy screw diameter; neither option verifies physical screw clearance. Not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity."
     },
     "status": "conditional_geometry_screen_only; no connector or drilling release"
   },
@@ -91,7 +93,8 @@
     "post_bore_full_section_fractions": [1.0, 1.0],
     "post_conditional_reversible_4d_edge_reserve_mm": 8.582052,
     "retained_axis_conflicts_for_six_unique_bores": [],
-    "purchased_panel_length_axis_conflicts_for_six_unique_bores": [],
+    "mixed_purchased_length_legacy_diameter_axis_conflicts_for_six_unique_bores": [],
+    "physical_panel_screw_clearance_status": "unresolved_external_envelope",
     "nominal_angle_outer_envelope_intersecting_raw_wood_parts": [],
     "nominal_angle_envelope_source": "ABB AB205 4-1/8 in height, 3-1/2 in base, 1-5/8 in width, 1/4 in thickness; ideal square-corner boxes, no bend radius or tolerances",
     "end_distance_classified": false,

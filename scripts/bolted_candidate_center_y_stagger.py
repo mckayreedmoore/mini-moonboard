@@ -48,6 +48,10 @@ def _retained_axes() -> tuple[dict[str, int], list[tuple[str, cq.Solid]]]:
             if kind not in counts:
                 continue
             counts[kind] += 1
+            if kind == "hillman_panel" and abs(
+                float(row["shop_purchased_length_mm"]) - 63.5
+            ) > 1e-6:
+                raise ValueError("Retained panel screw purchased length changed")
             start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
             direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
             solid = cq.Solid.makeCylinder(
@@ -241,6 +245,13 @@ def screen_center_y_stagger(
         "post_4d_y_band_mm": [round(lower, 6), round(upper, 6)],
         "physical_kicker_width_option": floor_flush_width.KERF_RIGHT,
         "retained_axis_counts": counts,
+        "panel_screw_clearance_input": {
+            "purchased_length_mm": 63.5,
+            "shaft_external_diameter_mm": None,
+            "head_external_diameter_mm": None,
+            "physical_clearance_status": "unresolved_external_envelope",
+            "collision_obstacle_basis": "legacy_analysis_length_and_diameter",
+        },
         "table_12_5_1d_conditional_minimum_mm": {
             "parallel": parallel_min,
             "perpendicular": perpendicular_min,
@@ -255,7 +266,7 @@ def screen_center_y_stagger(
         "table_12_5_1d_basis": "2024 NDS Table 12.5.1D; D=12.7 mm; assumed lesser wood bearing length=38.1 mm (l/D=3). Direction and member classification unverified.",
         "selected_row_y_mm": None,
         "samples": samples,
-        "limits": "Nominal raw-wood and retained-axis geometry only. Angle blocks omit bend radii, hardware, washers, tolerance and access. No NDS row acceptance, full rating or drilling release.",
+        "limits": "Nominal raw-wood and historical analysis-envelope retained-axis geometry only. The purchased 63.5 mm panel screws have no supported external shaft/head envelope here, so physical screw clearance is unresolved. Angle blocks omit bend radii, hardware, washers, tolerance and access. No NDS row acceptance, full rating or drilling release.",
         "drilling_released": False,
     }
 

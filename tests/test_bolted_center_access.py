@@ -21,6 +21,13 @@ def test_shared_row_has_four_nominal_clear_shaft_and_radial_probes(nominal):
         "hillman_panel": 66,
         "bolt_clearance": 12,
     }
+    assert nominal["panel_screw_clearance_input"] == {
+        "purchased_length_mm": 63.5,
+        "shaft_external_diameter_mm": None,
+        "head_external_diameter_mm": None,
+        "physical_clearance_status": "unresolved_external_envelope",
+        "collision_obstacle_basis": "legacy_analysis_length_and_diameter",
+    }
     assert nominal["kerf_right_panel_kicker_solid_obstacles"] == [
         "kicker_left",
         "kicker_right",
@@ -113,6 +120,7 @@ def test_record_tracks_screen_and_keeps_access_unverified(nominal):
     )
     shared, distinct = nominal["cases"]
     assert record["physical_width"] == nominal["width_option"]
+    assert record["panel_screw_clearance_input"] == nominal["panel_screw_clearance_input"]
     assert (
         record["illustrative_probes"]["bolt_length_mm"]
         == nominal["illustrative_bolt_length_mm"]
