@@ -29,8 +29,8 @@
   },
   "flush_bend_wood_end_screen": {
     "assumption": "One AB205 flange lies along the grain of a softwood member, the angle bend is flush with that timber end, and a lateral load bears the near bolt toward the member end. This is a hypothetical placement, not an identified fit at any MoonBoard station.",
-    "rule_basis": "AWC 2018 NDS Table 12.5.1A, printed page 90: parallel-to-grain tension in softwood requires 3.5D minimum for C_delta=0.5 and 7D for C_delta=1.0. Historical-edition screening only; verify applicable 2024 provisions for any selected design.",
-    "rule_source": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf",
+    "rule_basis": "AWC 2024 NDS Table 12.5.1A, printed page 98: parallel-to-grain tension in softwood requires 3.5D minimum for C_delta=0.5 and 7D for C_delta=1.0. Applies to the stated flange-parallel-to-grain, square-end hypothetical only; the center principal has inclined grain and an oblique end.",
+    "rule_source": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
     "minimum_loaded_end_distance_in": 1.75,
     "full_geometry_factor_loaded_end_distance_in": 3.5,
     "flanges": {
@@ -72,8 +72,8 @@
         "end_directed_joint_action_verified": false
       }
     },
-    "representative_butt_source": "docs/bolted-candidate-direct-butt-screen.json; its contact datums are tested against current uncut CAD solids",
-    "interpretation": "Both nominal near-bend holes miss even the historical reduced-factor minimum in this flush-bend, end-directed loading scenario. Merely using a thicker or stronger half-inch bolt cannot repair the placement. Moving the whole fitting, changing load direction, or using a different detail requires a new full fit and action check; the shift values are arithmetic distances, not approved offsets.",
+    "representative_butt_source": "docs/bolted-candidate-direct-butt-screen.json; its contact datums are tested against current uncut CAD solids. The station mapping identifies timber ends only; it does not establish a flange parallel to grain, a square cut, or an applicable joint load.",
+    "interpretation": "Both nominal near-bend holes miss the current NDS reduced-factor minimum in this square-end, flange-parallel-to-grain, end-directed loading scenario. This does not classify the actual oblique-cut center joint. Merely using a thicker or stronger half-inch bolt cannot repair the hypothetical placement. Moving the whole fitting, changing load direction, or using a different detail requires a new full fit and action check; the shift values are arithmetic distances, not approved offsets.",
     "rejects_every_possible_ab205_arrangement": false
   },
   "manufacturer_channel_rating": {
@@ -87,7 +87,7 @@
     "abb_exact_retail_product": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZAB205EG-10",
     "abb_ab205_family_dimensions": "https://www.homedepot.com/catalog/pdfImages/9c/9cc20932-8e38-4e41-81fa-eb78034441be.pdf",
     "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf",
-    "historical_nds_end_distance": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf"
+    "current_nds_end_distance": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf"
   },
   "source_limits": [
     "The ABB catalog standard hole spacing is nominal and no product-specific tolerances or fully datum-controlled wood drilling coordinates were verified.",

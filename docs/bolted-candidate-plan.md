@@ -59,11 +59,12 @@ dimensioned retail lead: ABB gives nominal hole diameter and spacing, but its
 wood-to-wood joint. Its steel strength, installed hole coordinates, and
 whole-joint resistance remain open. See
 `docs/bolted-candidate-prototypes/superstrut-ab205-retail.json`.
-For the specific layout with its bend flush to a softwood member end and
-end-directed lateral load, the nominal nearest holes on both AB205 legs miss
-even the 2018 NDS 3.5D reduced-factor loaded-end minimum for a half-inch bolt.
-This rejects that layout screen, not every possible AB205 position; any offset
-needs new fit and load-path checks under the applicable 2024 provisions.
+For the specific square-end layout with its flange along the softwood grain,
+bend flush to the member end, and end-directed lateral load, the nominal
+nearest holes on both AB205 legs miss the 2024 NDS 3.5D reduced-factor
+loaded-end minimum for a half-inch bolt. This rejects that hypothetical
+layout, not every AB205 position. Inclined, oblique-cut frame members need
+their own end-distance assessment.
 Newhouse BR904 is another Home Depot-listed four-hole angle with manufacturer-
 stated Q235 steel and nominal 9/16-inch holes on 1-7/8-inch centers. Its
 product-specific strength and complete factory layout are not published, and
@@ -78,6 +79,14 @@ The AB205 flush-bend/end-directed-load concern maps to the rail, center
 principal, and outer side member ends at those joints, but neither an installed
 angle position nor that new-candidate action has been established. This is a
 specific configuration failure screen, not a blanket rejection of the part.
+The separate `ab205-center-fit.json` fixture places nominal AB205 holes at the
+relocated center-left clip and reads the inclined principal's actual CAD side
+edges. All four bores occupy raw wood, but the far principal hole misses the
+conditional reversible 4D edge margin at the old Y by 29.073 mm. The common
+nominal full-4D Y interval after a lateral move is only 0.148 mm wide, before
+any product or drilling tolerance. This is not a usable shop layout. The
+principal's oblique end is deliberately not assigned a square-cut NDS end
+distance; no joint load or resistance is established by the screen.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

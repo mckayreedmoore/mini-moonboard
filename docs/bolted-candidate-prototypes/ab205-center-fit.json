@@ -1,0 +1,43 @@
+{
+  "station": "clip_split_base_center_left",
+  "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
+  "placement": "AB205 bend at header-top/principal-side butt; long leg vertical, short leg horizontal; hole row at old clip Y",
+  "contact_x_mm": -89.05,
+  "contact_z_mm": 277.0,
+  "legacy_station_y_mm": -124.9,
+  "bolt_diameter_mm": 12.7,
+  "nominal_bore_diameter_mm": 14.2875,
+  "vertical_hole_offsets_from_bend_in": [1.4375, 3.3125],
+  "horizontal_hole_offsets_from_bend_in": [0.8125, 2.6875],
+  "wood_bore_count": 4,
+  "wood_bore_full_section_fractions": [1.0, 1.0, 1.0, 1.0],
+  "legacy_y_far_principal_4d_reserve_mm": -29.072693,
+  "reversible_4d_y_lower_mm": -86.948294,
+  "reversible_4d_y_upper_mm": -86.8,
+  "reversible_4d_y_band_width_mm": 0.148294,
+  "nearest_principal_hole_vertical_offset_mm": 36.5125,
+  "principal_grain_z_component": 0.766044,
+  "nearest_principal_hole_grain_ray_mm": 47.663684,
+  "softwood_loaded_end_minimum_mm": 44.45,
+  "principal_end_square_to_grain": false,
+  "end_distance_classified": false,
+  "angle_placement_verified": false,
+  "drilling_released": false,
+  "task": "LB-03B / LB-02F prototype follow-up",
+  "disposition": "At the old clip Y, the far principal bolt fails a reversible 4D loaded-edge screen. Moving the hole row gives only a 0.148-mm nominal common 4D Y band across both members, before any fitting or drilling tolerance. Do not treat this narrow band as a buildable placement. The principal grain is inclined and its bottom cut is not square to grain: 36.5125 mm is a vertical offset, not an NDS end distance. Its 47.664-mm along-grain ray is geometry only; no loaded-end pass or failure is classified for the oblique cut. Other orientations, load directions and details remain untested.",
+  "source_rules": {
+    "end_distance": "2024 AWC NDS 12.5.1.2 and Table 12.5.1A, printed page 98: softwood parallel-to-grain tension 3.5D minimum for C_delta=0.5 and 7D for C_delta=1.0",
+    "edge_distance": "2024 AWC NDS 12.5.1.3 and Table 12.5.1C, printed page 99: 4D loaded edge for perpendicular-to-grain action",
+    "awc_chapter_12": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf"
+  },
+  "explicit_limits": [
+    "The four 9/16-inch nominal bore cylinders pass through full raw timber thickness at the old clip line; this does not establish end/edge spacing, washer seats, other connector collisions or a feasible joint.",
+    "The 4D Y interval assumes either side edge can become loaded in perpendicular-to-grain action and treats hole centers nominally. It is not a tolerance or shop-drilling allowance.",
+    "The center principal is inclined. Its grain-parallel edge lines come from the actual CAD broad-side face, not the axis-aligned bounding box.",
+    "The 2024 NDS square-cut end-distance table must not be applied directly to the principal's oblique end; the along-grain ray is a diagnostic, not a design end-distance decision.",
+    "ABB publishes nominal AB205 family dimensions but no product-specific positional tolerance or guaranteed steel grade; no physical part was measured.",
+    "The new candidate's simultaneous joint actions, steel/wood resistance, backing, tool and withdrawal corridors, adjacent new structural connectors, and mirror station are not checked."
+  ],
+  "baseline_unchanged": true,
+  "panel_axes_unchanged": true
+}
