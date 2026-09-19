@@ -69,9 +69,10 @@ def test_fixture_matches_calculation_and_preserves_open_limits():
             )
             assert saved["header_4d_reserve_mm"] == option["header_row_4d_reserve_mm"]
             assert saved["raw_wood_bore_fractions"] == option["raw_wood_bore_fractions"]
-            assert saved["rim_hole_grain_rays_to_actual_end_mm"] == option[
-                "rim_hole_grain_rays_to_actual_end_mm"
-            ]
+            assert (
+                saved["rim_hole_grain_rays_to_actual_end_mm"]
+                == option["rim_hole_grain_rays_to_actual_end_mm"]
+            )
             assert (
                 saved["intersecting_retained_axis_ids"]
                 == option["intersecting_retained_axis_ids"]
