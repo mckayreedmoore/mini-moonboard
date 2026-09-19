@@ -167,6 +167,12 @@ the assumed 38.1-mm lesser wood bearing length. Load direction and member
 classification are not established, and ideal angle blocks omit hardware and
 tolerances. This is not a selected or accepted joint; the existing kicker
 edges and screw layout stay unchanged.
+The entire conditional parallel-only underside interval is Y = -124.9 to
+-114.432 mm. Its midpoint, Y = -119.666 mm, has 5.234 mm nominal reserve to
+the lower 4D band edge and 9.996 mm nominal wood web between header bores.
+This midpoint is an investigation pose, not a drill location: the band itself
+does not include delivered connector or placement tolerances, and the actual
+joint load direction has not been established.
 
 ## Current nonblocking owner checkpoints
 

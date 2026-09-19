@@ -70,6 +70,20 @@ def _category(distance: float, minimum: float) -> str:
     return "below_conditional_minimum"
 
 
+def _distinct_row_intervals(
+    lower: float, upper: float, fixed_row: float, minimum: float
+) -> list[list[float]]:
+    """Clip the two possible row-spacing intervals to the raw-post 4D band."""
+    intervals = []
+    below_end = min(upper, fixed_row - minimum)
+    above_start = max(lower, fixed_row + minimum)
+    if lower <= below_end:
+        intervals.append([round(lower, 6), round(below_end, 6)])
+    if above_start <= upper:
+        intervals.append([round(above_start, 6), round(upper, 6)])
+    return intervals
+
+
 def _angle_blocks(
     x: float, y: float, z: float, sign: int, *, above: bool
 ) -> tuple[cq.Solid, ...]:
@@ -126,6 +140,10 @@ def screen_center_y_stagger(
     # The lesser wood bearing length in Table 12.5.1D is conditional here.
     parallel_min = 1.5 * BOLT_D_MM
     perpendicular_min = (5 * WOOD_BEARING_MM + 10 * BOLT_D_MM) / 8
+    parallel_intervals = _distinct_row_intervals(lower, upper, top_y, parallel_min)
+    perpendicular_intervals = _distinct_row_intervals(
+        lower, upper, top_y, perpendicular_min
+    )
     samples = []
     for row_y in rows:
         sides = []
@@ -228,12 +246,12 @@ def screen_center_y_stagger(
             "perpendicular": perpendicular_min,
         },
         "maximum_possible_y_stagger_mm": round(max(top_y - lower, upper - top_y), 6),
-        "parallel_minimum_reachable_in_band": (
-            max(top_y - lower, upper - top_y) >= parallel_min
-        ),
-        "perpendicular_minimum_reachable_in_band": (
-            max(top_y - lower, upper - top_y) >= perpendicular_min
-        ),
+        "conditional_distinct_row_y_intervals_mm": {
+            "parallel": parallel_intervals,
+            "perpendicular": perpendicular_intervals,
+        },
+        "parallel_minimum_reachable_in_band": (bool(parallel_intervals)),
+        "perpendicular_minimum_reachable_in_band": (bool(perpendicular_intervals)),
         "table_12_5_1d_basis": "2024 NDS Table 12.5.1D; D=12.7 mm; assumed lesser wood bearing length=38.1 mm (l/D=3). Direction and member classification unverified.",
         "selected_row_y_mm": None,
         "samples": samples,
