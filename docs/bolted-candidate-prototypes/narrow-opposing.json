@@ -31,22 +31,30 @@
     "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
     "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
     "placement": "Nominal AB205 bend at rail-end/principal-side contact; long leg along rail, short leg along principal",
+    "original_contact_xyz_mm": [-89.05, -49.688439, 405.542066],
     "contact_xyz_mm": [-89.05, -49.688439, 405.542066],
+    "row_shift_along_width_mm": 0.0,
+    "width_direction_xyz": [0.0, 0.766044, -0.642788],
+    "common_nominal_flange_shift_bounds_mm": [-30.1625, 68.2625],
+    "common_conditional_four_d_shift_bounds_mm": [0.0, 38.1],
     "rail_direction_xyz": [-1.0, 0.0, 0.0],
     "principal_direction_xyz": [0.0, 0.642788, 0.766044],
     "rail_through_thickness_mm": 38.1,
     "clear_gap_between_center_principals_mm": 101.9,
     "rail_broad_face_nearest_edge_mm": 50.8,
     "rail_broad_face_four_d_edge_reserve_mm": 0.0,
+    "principal_broad_face_nearest_edge_mm": 50.8,
+    "principal_broad_face_four_d_edge_reserve_mm": 0.0,
     "factory_flange_width_mm": 41.275,
     "rail_width_direction_nominal_flange_edge_reserve_mm": 30.1625,
+    "principal_width_direction_nominal_flange_edge_reserve_mm": 30.1625,
     "bolt_diameter_mm": 12.7,
     "factory_hole_diameter_mm": 14.2875,
     "holes": [
-      {"member": "base_rail_bottom_left", "offset_from_bend_in": 1.4375, "entry_xyz_mm": [-125.5625, -49.688439, 405.542066], "axis_xyz": [0.0, -0.642788, -0.766044], "raw_wood_full_bore_fraction": 1.0},
-      {"member": "base_rail_bottom_left", "offset_from_bend_in": 3.3125, "entry_xyz_mm": [-173.1875, -49.688439, 405.542066], "axis_xyz": [0.0, -0.642788, -0.766044], "raw_wood_full_bore_fraction": 1.0},
-      {"member": "base_principal_center_left", "offset_from_bend_in": 0.8125, "entry_xyz_mm": [-89.05, -36.422909, 421.351309], "axis_xyz": [1.0, 0.0, 0.0], "raw_wood_full_bore_fraction": 1.0},
-      {"member": "base_principal_center_left", "offset_from_bend_in": 2.6875, "entry_xyz_mm": [-89.05, -5.810149, 457.834175], "axis_xyz": [1.0, 0.0, 0.0], "raw_wood_full_bore_fraction": 1.0}
+      {"member": "base_rail_bottom_left", "offset_from_bend_in": 1.4375, "entry_xyz_mm": [-125.5625, -49.688439, 405.542066], "opposing_face_xyz_mm": [-125.5625, -74.178647, 376.355773], "axis_xyz": [0.0, -0.642788, -0.766044], "raw_wood_full_bore_fraction": 1.0},
+      {"member": "base_rail_bottom_left", "offset_from_bend_in": 3.3125, "entry_xyz_mm": [-173.1875, -49.688439, 405.542066], "opposing_face_xyz_mm": [-173.1875, -74.178647, 376.355773], "axis_xyz": [0.0, -0.642788, -0.766044], "raw_wood_full_bore_fraction": 1.0},
+      {"member": "base_principal_center_left", "offset_from_bend_in": 0.8125, "entry_xyz_mm": [-89.05, -36.422909, 421.351309], "opposing_face_xyz_mm": [-50.95, -36.422909, 421.351309], "axis_xyz": [1.0, 0.0, 0.0], "raw_wood_full_bore_fraction": 1.0},
+      {"member": "base_principal_center_left", "offset_from_bend_in": 2.6875, "entry_xyz_mm": [-89.05, -5.810149, 457.834175], "opposing_face_xyz_mm": [-50.95, -5.810149, 457.834175], "axis_xyz": [1.0, 0.0, 0.0], "raw_wood_full_bore_fraction": 1.0}
     ],
     "retained_axes_inspected": {"hillman_panel": 66, "bolt_clearance": 12},
     "intersecting_retained_axis_ids": [],
@@ -55,14 +63,20 @@
     "angle_placement_verified": false,
     "drilling_released": false
   },
+  "ab205_orientation_and_row_trials": [
+    {"rail_leg": "long", "row_shift_mm": 0.0, "contact_xyz_mm": [-89.05, -49.688439, 405.542066], "hole_offsets_from_bend_in": [1.4375, 3.3125, 0.8125, 2.6875], "rail_four_d_margin_mm": 0.0, "principal_four_d_margin_mm": 0.0, "full_raw_wood_bores": 4, "retained_axis_intersections": []},
+    {"rail_leg": "short", "row_shift_mm": 0.0, "contact_xyz_mm": [-89.05, -49.688439, 405.542066], "hole_offsets_from_bend_in": [0.8125, 2.6875, 1.4375, 3.3125], "rail_four_d_margin_mm": 0.0, "principal_four_d_margin_mm": 0.0, "full_raw_wood_bores": 4, "retained_axis_intersections": []},
+    {"rail_leg": "long", "row_shift_mm": 19.05, "contact_xyz_mm": [-89.05, -35.095292, 393.296963], "hole_offsets_from_bend_in": [1.4375, 3.3125, 0.8125, 2.6875], "rail_four_d_margin_mm": 19.05, "principal_four_d_margin_mm": 19.05, "full_raw_wood_bores": 4, "retained_axis_intersections": []},
+    {"rail_leg": "short", "row_shift_mm": 19.05, "contact_xyz_mm": [-89.05, -35.095292, 393.296963], "hole_offsets_from_bend_in": [0.8125, 2.6875, 1.4375, 3.3125], "rail_four_d_margin_mm": 19.05, "principal_four_d_margin_mm": 19.05, "full_raw_wood_bores": 4, "retained_axis_intersections": []}
+  ],
   "ab205_trial_limits": [
     "ABB AB205 nominal family dimensions are a conditional factory-angle input, not an accepted purchased part. Hole pitch, flange width and offsets lack product-specific tolerance and received-part confirmation.",
-    "Four nominal 9/16-inch bore cylinders pass through full raw CAD wood at this one pose. The rail bore crosses its 38.1-mm thickness; the bolt center lies 50.8 mm from the nearest edge of its broad face, exactly 4D with zero nominal margin. This conditional edge arithmetic is not a complete NDS joint classification or a tolerance allowance.",
+    "At the actual bottom-left-2 station, both AB205 leg assignments put four nominal 9/16-inch bore cylinders through full raw CAD wood. Their unshifted rows have zero 4D broad-face margin on both members. A 19.05-mm common-width row shift gives 19.05 mm of conditional 4D margin on both members for either leg assignment, with full raw-wood bores and no retained-axis intersection. The 4D shift band is 0 to 38.1 mm; this is centerline arithmetic, not a complete NDS joint classification or tolerance allowance.",
     "Frozen 66 panel/kicker and 12 frame-bolt occupied axes have no nominal bore-cylinder intersection. Their modeled diameters are analysis envelopes, not purchased hardware or drilling instructions.",
-    "The raw center-principal gap is 101.9 mm before opposing flanges and hardware. The other side of each 38.1-mm member needs opposing flange, washer, nut, socket, backing and withdrawal-path assessment. Adjacent new structural angles, tolerance stack and physical assembly were not checked.",
+    "Each bore record gives its entry and opposite raw-wood face. Principal bores exit at X = -50.95 mm toward the actual right-center principal, whose near face is X = 50.95 mm; the raw between-principal gap is 101.9 mm before opposing flanges and hardware. The other side of each 38.1-mm member needs opposing flange, washer, nut, socket, backing and withdrawal-path assessment. Adjacent new structural angles, tolerance stack and physical assembly were not checked.",
     "AB205 has no established guaranteed steel strength or wood-joint rating. ABB's 2,000-lb strut-channel rating is inapplicable here; two-wood single-shear capacity is not an AB205 steel-to-wood capacity. Simultaneous joint actions remain unresolved."
   ],
   "ab205_product_basis": "docs/bolted-candidate-prototypes/superstrut-ab205-retail.json",
   "load_path": "Separate flange bolts cannot be counted as one shared physical bolt without a traced bearing/contact path; legacy SDS reactions are screening inputs only, not new reactions.",
-  "disposition": "The actual-CAD AB205 pose has full nominal raw-wood bores and no nominal retained-axis intersection. The rail broad-face bolt center is exactly 4D from its nearest edge, with zero nominal margin. Opposing hardware access, complete stack, strength, and load path remain unresolved. No connector or drilling release."
+  "disposition": "At this actual station, a bounded 19.05-mm row shift gives both AB205 leg assignments positive 19.05-mm conditional 4D broad-face centerline margin, full nominal raw-wood bores, and no nominal frozen-axis intersection. The unshifted row has zero margin. End distance, opposing hardware access, complete stack, strength, and load path remain unresolved. No connector or drilling release."
 }
