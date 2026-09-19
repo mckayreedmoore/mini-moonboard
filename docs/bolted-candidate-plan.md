@@ -42,11 +42,14 @@ The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw
 center timber, but the nominal bore-edge material falls to 11.98, 6.98, and
-1.98 mm respectively. This is only a geometry screen; connector stack
-clearance, timber resistance, and panel edge support remain unresolved. No
-offset is selected. G2 remains closed, and no bolted-candidate native case has
-run. The task ledger marks incomplete construction and engineering tasks as
-such rather than using their prototype counts as completion evidence.
+1.98 mm respectively. All six center-adjacent bottom/service rail inner ends
+would also need recutting; at those sample offsets their twelve retained panel
+screw cylinders still intersect the nominal recut rail solids. This is only a
+geometry screen; connector stack clearance, timber resistance, and panel edge
+support remain unresolved. No offset is selected. G2 remains closed, and no
+bolted-candidate native case has run. The task ledger marks incomplete
+construction and engineering tasks as such rather than using prototype counts
+as completion evidence.
 
 ## Current nonblocking owner checkpoints
 

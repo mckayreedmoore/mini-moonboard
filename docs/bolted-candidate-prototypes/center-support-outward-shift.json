@@ -12,7 +12,9 @@
     "baseline_panel_seam_overhang_mm": 50.95,
     "retained_panel_kicker_axes_into_these_supports": 20,
     "retained_axis_x_mm": [-70.0, 70.0],
-    "retained_axis_occupied_diameter_mm": 4.1402
+    "retained_axis_occupied_diameter_mm": 4.1402,
+    "center_adjacent_rail_inner_ends_requiring_recut": 6,
+    "retained_panel_axes_into_those_rails": 12
   },
   "symmetric_outward_shift_screen": {
     "definition": "Move left center support/post toward negative X by delta and right toward positive X by delta, without moving panel/kicker screw axes.",
@@ -32,6 +34,7 @@
     "The geometric maximum only keeps the existing occupied panel bore inside the 38.1 mm support; it is not an edge-distance, withdrawal, or panel-strength acceptance.",
     "No A66 factory bolt locations or actual stacked-hardware envelope are documented, so the offset required to clear them cannot yet be calculated.",
     "An outward shift alters panel edge support and all center clip/post interfaces. The historical native responses do not transfer.",
+    "All six center-adjacent bottom/service rail inner ends must follow the shifted principals. A nominal CAD screen confirms their 12 retained panel screw cylinders still intersect timber at sampled 0/5/10/15 mm offsets, but does not establish structural rail-to-principal attachment.",
     "Moving the 20 panel/kicker axes would change the frozen panel contract and requires an explicit revision; this screen holds them fixed."
   ],
   "disposition": "A small outward shift is geometrically possible with the retained axes, but no offset is selected or released until the hardware interference and panel support are checked."
