@@ -1,0 +1,57 @@
+{
+  "status": "geometry_screen_only",
+  "baseline_candidate": "compact-floor-flush-development",
+  "panel_axis_source": "docs/floor-flush-construction/connection-axes.csv",
+  "center_panel_axis_count": 20,
+  "center_members": [
+    "base_post_center_left",
+    "base_post_center_right",
+    "base_principal_center_left",
+    "base_principal_center_right"
+  ],
+  "selected_offset_mm": null,
+  "samples": [
+    {
+      "delta_mm": 0,
+      "clear_gap_mm": 101.9,
+      "panel_seam_overhang_mm": 50.95,
+      "minimum_nominal_bore_edge_material_mm": 16.9799,
+      "geometrically_inside_support": true,
+      "axes_intersecting_shifted_timber": 20,
+      "minimum_intersection_volume_mm3": 438.1271
+    },
+    {
+      "delta_mm": 5,
+      "clear_gap_mm": 111.9,
+      "panel_seam_overhang_mm": 55.95,
+      "minimum_nominal_bore_edge_material_mm": 11.9799,
+      "geometrically_inside_support": true,
+      "axes_intersecting_shifted_timber": 20,
+      "minimum_intersection_volume_mm3": 438.1271
+    },
+    {
+      "delta_mm": 10,
+      "clear_gap_mm": 121.9,
+      "panel_seam_overhang_mm": 60.95,
+      "minimum_nominal_bore_edge_material_mm": 6.9799,
+      "geometrically_inside_support": true,
+      "axes_intersecting_shifted_timber": 20,
+      "minimum_intersection_volume_mm3": 438.1271
+    },
+    {
+      "delta_mm": 15,
+      "clear_gap_mm": 131.9,
+      "panel_seam_overhang_mm": 65.95,
+      "minimum_nominal_bore_edge_material_mm": 1.9799,
+      "geometrically_inside_support": true,
+      "axes_intersecting_shifted_timber": 20,
+      "minimum_intersection_volume_mm3": 438.1271
+    }
+  ],
+  "limitations": [
+    "Nominal occupied cylinders are historical SPAX envelopes, not delivered Hillman screw dimensions.",
+    "A positive cylinder/timber overlap does not establish screw engagement or edge-distance capacity.",
+    "Connector hole coordinates, installed hardware envelopes, panel seam support, and lower-rail interfaces remain unverified.",
+    "The selected baseline and panel screw axes have not moved."
+  ]
+}

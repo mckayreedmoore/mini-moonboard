@@ -38,7 +38,12 @@ contracts. These are baseline records, not candidate bolt geometry.
 G1 remains open. A66 is a common-retail prototype priority, but the current
 family modules are AB90 inventory sketches. No representative joint has a
 complete applicable fit/load-path record or 24-station architecture assignment.
-The user's suggested outward center-support shift is screened separately; no
+The user's suggested outward center-support shift is screened separately in
+`docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
+and 15 mm per side, all 20 frozen panel axes intersect the translated raw
+center timber, but the nominal bore-edge material falls to 11.98, 6.98, and
+1.98 mm respectively. This is only a geometry screen; connector stack
+clearance, timber resistance, and panel edge support remain unresolved. No
 offset is selected. G2 remains closed, and no bolted-candidate native case has
 run. The task ledger marks incomplete construction and engineering tasks as
 such rather than using their prototype counts as completion evidence.
