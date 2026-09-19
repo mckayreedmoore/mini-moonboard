@@ -49,3 +49,29 @@ def test_runner_rejects_noncase_before_creating_output(tmp_path):
     with pytest.raises(ValueError, match="Unknown unchanged load case"):
         runner.run_case("not-a-case", output)
     assert not output.exists()
+
+
+def test_search_seed_requires_accepted_same_source_and_proxy(tmp_path):
+    path = tmp_path / "seed.json"
+    report = {
+        "candidate": probe.DiagnosticProxy.KEY,
+        "numerically_accepted": True,
+        "diagnostic_scope": {
+            "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+            "connector_proxy": "baseline ML24Z angles and SDS screws",
+            "connection_scale": 1.,
+            "contact_stiffness_per_area_n_per_mm3": 100.,
+        },
+        "source_sha256": runner._sources(),
+        "bearings": [{"name": "normal", "active": True},
+                     {"name": "inactive", "active": False},
+                     {"name": "normal_friction", "active": True}],
+    }
+    path.write_text(json.dumps(report))
+    names, digest = runner._seed_contacts(path, probe.DiagnosticProxy.KEY, 1., 100.)
+    assert names == ["normal"]
+    assert digest == hashlib.sha256(path.read_bytes()).hexdigest()
+    report["source_sha256"]["scripts/clear_space_batch.py"] = "changed"
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="source changed"):
+        runner._seed_contacts(path, probe.DiagnosticProxy.KEY, 1., 100.)

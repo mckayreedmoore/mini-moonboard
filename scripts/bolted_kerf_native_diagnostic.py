@@ -30,14 +30,37 @@ def _sources():
 LOADED_SOURCES = _sources()
 
 
+def _seed_contacts(path, candidate, connection_scale, contact_stiffness_per_area):
+    """Reuse a converged same-model normal-contact set as search initialization."""
+    data = Path(path).read_bytes()
+    report = json.loads(data)
+    scope = report.get("diagnostic_scope", {})
+    if (report.get("candidate") != candidate or report.get("numerically_accepted") is not True
+            or scope.get("source_geometry") != "compact-floor-flush-bolted-development-kerf-right"
+            or scope.get("connector_proxy") != "baseline ML24Z angles and SDS screws"
+            or scope.get("connection_scale") != connection_scale
+            or scope.get("contact_stiffness_per_area_n_per_mm3") != contact_stiffness_per_area):
+        raise ValueError("Search seed must be accepted same-proxy geometry and stiffness")
+    previous = report.get("source_sha256", {})
+    for source, digest in _sources().items():
+        if source != "scripts/bolted_kerf_native_diagnostic.py" and previous.get(source) != digest:
+            raise ValueError(f"Search seed producer source changed: {source}")
+    names = [row["name"] for row in report["bearings"]
+             if row["active"] and not row["name"].endswith("_friction")]
+    return names, hashlib.sha256(data).hexdigest()
+
+
 def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=100.,
-             max_cycles=30, frame_size=150., contact_update_strategy="all"):
+             max_cycles=30, frame_size=150., contact_update_strategy="all",
+             initial_contact_report=None):
     """Solve unchanged loading with old ML24Z/SDS connectors on kerf-right wood."""
     if case not in CASES:
         raise ValueError(f"Unknown unchanged load case: {case}")
     if _sources() != LOADED_SOURCES or ORIGINAL_SOURCES() != native.LOADED_SOURCE_SHA256:
         raise ValueError("Producer sources changed after import; restart diagnostic")
     module = probe.DiagnosticProxy()
+    seed_names, seed_sha256 = (None, None) if initial_contact_report is None else _seed_contacts(
+        initial_contact_report, module.KEY, connection_scale, contact_stiffness_per_area)
     bolts = {c.name: bolt_properties(c) for c in module.connections() if c.kind == "bolt"}
     if not bolts:
         raise ValueError("No retained frame-bolt arrangements")
@@ -54,6 +77,7 @@ def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=10
             bolt_stiffness={**next(iter(bolts.values())), "by_name": bolts},
             connection_scale=connection_scale, max_cycles=max_cycles, frame_size=frame_size,
             contact_update_strategy=contact_update_strategy,
+            initial_contact_names=seed_names,
             hold=hold, pounds=250., horizontal_force=force, leg_floor_grid=3, patch_size=20.,
         )
     finally:
@@ -64,6 +88,8 @@ def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=10
         "connection_scale": connection_scale,
         "contact_stiffness_per_area_n_per_mm3": contact_stiffness_per_area,
         "contact_update_strategy": contact_update_strategy,
+        "search_seed_report_sha256": seed_sha256,
+        "search_seed_normal_contact_count": None if seed_names is None else len(seed_names),
         "numerically_converged": report["numerically_accepted"],
         "bolted_joint_demands": False, "acceptance": False, "drilling_released": False,
     }
@@ -85,11 +111,14 @@ if __name__ == "__main__":
     parser.add_argument("--frame-size", type=float, default=150.)
     parser.add_argument("--contact-update-strategy",
                         choices=("all", "one_per_floor_body", "one_at_a_time"), default="all")
+    parser.add_argument("--initial-contact-report", type=Path,
+                        help="Accepted same-proxy report for search initialization only")
     args = parser.parse_args()
     result = run_case(args.case, args.output, connection_scale=args.connection_scale,
                       contact_stiffness_per_area=args.contact_stiffness_per_area,
                       max_cycles=args.max_cycles, frame_size=args.frame_size,
-                      contact_update_strategy=args.contact_update_strategy)
+                      contact_update_strategy=args.contact_update_strategy,
+                      initial_contact_report=args.initial_contact_report)
     print(json.dumps({key: value for key, value in result.items() if key != "native_report"}, indent=2))
     if not result["numerically_converged"]:
         raise SystemExit(1)
