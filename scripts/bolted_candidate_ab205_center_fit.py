@@ -147,6 +147,31 @@ def screen_center_fit(
     }
 
 
+def _retained_axis_intersections(
+    bores: tuple[cq.Solid, ...],
+) -> tuple[dict[str, int], list[str]]:
+    retained = []
+    inspected_counts = {"hillman_panel": 0, "bolt_clearance": 0}
+    with AXES.open(newline="") as handle:
+        for row in csv.DictReader(handle):
+            if row["shop_opening_kind"] not in inspected_counts:
+                continue
+            inspected_counts[row["shop_opening_kind"]] += 1
+            start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
+            direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
+            occupied = cq.Solid.makeCylinder(
+                float(row["occupied_diameter_mm"]) / 2,
+                float(row["occupied_length_mm"]),
+                start,
+                direction,
+            )
+            if any(bore.intersect(occupied).Volume() > 1e-6 for bore in bores):
+                retained.append(row["name"])
+    if inspected_counts != {"hillman_panel": 66, "bolt_clearance": 12}:
+        raise ValueError("Frozen retained-axis inventory changed")
+    return inspected_counts, retained
+
+
 def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
     """Intersect nominal bores with retained axes, not installed hardware stacks."""
     trial = screen_center_fit("short", row_y_mm)
@@ -164,25 +189,7 @@ def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
         )
         for offset in trial["horizontal_hole_offsets_from_bend_in"]
     )
-    retained = []
-    inspected_counts = {"hillman_panel": 0, "bolt_clearance": 0}
-    with AXES.open(newline="") as handle:
-        for row in csv.DictReader(handle):
-            if row["shop_opening_kind"] not in {"hillman_panel", "bolt_clearance"}:
-                continue
-            inspected_counts[row["shop_opening_kind"]] += 1
-            start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
-            direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
-            occupied = cq.Solid.makeCylinder(
-                float(row["occupied_diameter_mm"]) / 2,
-                float(row["occupied_length_mm"]),
-                start,
-                direction,
-            )
-            if any(bore.intersect(occupied).Volume() > 1e-6 for bore in bores):
-                retained.append(row["name"])
-    if inspected_counts != {"hillman_panel": 66, "bolt_clearance": 12}:
-        raise ValueError("Frozen retained-axis inventory changed")
+    inspected_counts, retained = _retained_axis_intersections(bores)
     return {
         "station": trial["station"],
         "orientation": "short_vertical",
@@ -194,4 +201,60 @@ def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
         "intersecting_retained_axis_ids": retained,
         "nominal_axis_conflicts_found": bool(retained),
         "limitations": "Nominal centerline bore/occupied-axis screen only; not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity.",
+    }
+
+
+def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
+    """Test shared header holes for opposed short-vertical AB205 trials."""
+    trial = screen_center_fit("short", row_y_mm)
+    parts = {part.name: part.shape for part in frame.uncut_wood_parts()}
+    post = parts["base_post_center_left"]
+    x = float(trial["contact_x_mm"])
+    z = post.BoundingBox().zmax
+    radius = float(trial["nominal_bore_diameter_mm"]) / 2
+    vertical_offsets = trial["vertical_hole_offsets_from_bend_in"]
+    post_bores = tuple(
+        cq.Solid.makeCylinder(
+            radius, 38.1, cq.Vector(x, row_y_mm, z - offset * 25.4), cq.Vector(1, 0, 0)
+        )
+        for offset in vertical_offsets
+    )
+    post_fractions = [
+        post.intersect(bore).Volume() / (pi * radius**2 * 38.1) for bore in post_bores
+    ]
+    all_axes = screen_retained_axis_conflicts(row_y_mm)
+    _, post_axis_hits = _retained_axis_intersections(post_bores)
+    post_bounds = post.BoundingBox()
+    four_d = 4 * float(trial["bolt_diameter_mm"])
+    post_edge_reserve = (
+        min(row_y_mm - post_bounds.ymin, post_bounds.ymax - row_y_mm) - four_d
+    )
+    return {
+        "station_pair": [
+            "clip_split_base_center_left",
+            "clip_split_header_center_left",
+        ],
+        "proposal": "one top and one underside AB205, each short leg vertical; two common through-header axes on matching horizontal long legs",
+        "trial_row_y_mm": round(row_y_mm, 6),
+        "top_header_hole_x_mm": [
+            round(x - offset * 25.4, 6)
+            for offset in trial["horizontal_hole_offsets_from_bend_in"]
+        ],
+        "underside_header_hole_x_mm": [
+            round(x - offset * 25.4, 6)
+            for offset in trial["horizontal_hole_offsets_from_bend_in"]
+        ],
+        "shared_header_hole_count": 2,
+        "unique_wood_bore_axes": 6,
+        "post_bore_full_section_fractions": [
+            round(value, 6) for value in post_fractions
+        ],
+        "post_conditional_reversible_4d_edge_reserve_mm": round(post_edge_reserve, 6),
+        "retained_axis_conflicts_for_six_unique_bores": sorted(
+            set(all_axes["intersecting_retained_axis_ids"]) | set(post_axis_hits)
+        ),
+        "end_distance_classified": False,
+        "shared_fastener_stack_defined": False,
+        "installed_angle_and_tool_clearance_verified": False,
+        "drilling_released": False,
     }

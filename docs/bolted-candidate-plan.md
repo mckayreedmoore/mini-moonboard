@@ -97,6 +97,13 @@ intersect any retained kerf-right panel-screw or frame-bolt occupied axis.
 This removes one specific axis-conflict concern only. The oblique end,
 opposing replacement connector, angle body, washers, tools, tolerances, and
 resistance remain unresolved; no drilling row is selected.
+An opposed short-vertical AB205 trial at that Y gives two coincident nominal
+through-header axes for the top principal and underside center-post angles.
+The two new center-post bores remain inside raw timber; the six unique bore
+axes do not intersect retained panel/frame-bolt axes. This suggests a
+potential shared-bolt layout, not two separately counted header bolt pairs.
+It still lacks a specified bolt/washer/plate stack, actual opposing-angle
+body clearance, wood end interpretation, and applicable resistance.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

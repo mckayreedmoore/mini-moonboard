@@ -7,6 +7,7 @@ import pytest
 
 from scripts.bolted_candidate_ab205_center_fit import (
     screen_center_fit,
+    screen_opposed_center_fit,
     screen_retained_axis_conflicts,
 )
 
@@ -103,4 +104,18 @@ def test_short_vertical_midband_bores_do_not_hit_frozen_kerf_axes():
     assert axis_screen["trial_bore_count"] == 4
     assert not axis_screen["nominal_axis_conflicts_found"]
     assert actual["end_distance_classified"] is False
+    assert actual["drilling_released"] is False
+
+
+def test_opposed_center_post_can_nominally_share_header_axes_only():
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/ab205-center-fit.json").read_text()
+    )["opposed_center_post_trial"]
+    actual = screen_opposed_center_fit(record["trial_row_y_mm"])
+    assert actual == record
+    assert actual["top_header_hole_x_mm"] == actual["underside_header_hole_x_mm"]
+    assert all(value > 0.999 for value in actual["post_bore_full_section_fractions"])
+    assert actual["unique_wood_bore_axes"] == 6
+    assert actual["post_conditional_reversible_4d_edge_reserve_mm"] > 8
+    assert actual["shared_fastener_stack_defined"] is False
     assert actual["drilling_released"] is False
