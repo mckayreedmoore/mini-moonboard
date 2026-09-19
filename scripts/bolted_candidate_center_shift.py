@@ -15,7 +15,8 @@ import cadquery as cq
 from mini_moonboard import compact_floor_flush_frame as baseline
 
 ROOT = Path(__file__).resolve().parents[1]
-AXES = ROOT / "docs/floor-flush-construction/connection-axes.csv"
+AXES = ROOT / "docs/floor-flush-construction-kerf-right/connection-axes.csv"
+OFFICIAL_AXES = ROOT / "docs/floor-flush-construction/connection-axes.csv"
 CENTER_MEMBERS = {
     "base_principal_center_left",
     "base_principal_center_right",
@@ -32,18 +33,19 @@ BASELINE_CLEAR_GAP_MM = 101.9
 BASELINE_PANEL_OVERHANG_MM = 50.95
 
 
-def _center_panel_axes() -> list[dict[str, str]]:
-    with AXES.open(newline="") as handle:
+def _panel_axes(path: Path, members: set[str]) -> list[dict[str, str]]:
+    with path.open(newline="") as handle:
         rows = list(csv.DictReader(handle))
     return [row for row in rows if row["shop_opening_kind"] == "hillman_panel"
-            and row["second_member"] in CENTER_MEMBERS]
+            and row["second_member"] in members]
+
+
+def _center_panel_axes() -> list[dict[str, str]]:
+    return _panel_axes(AXES, CENTER_MEMBERS)
 
 
 def _rail_panel_axes() -> list[dict[str, str]]:
-    with AXES.open(newline="") as handle:
-        rows = list(csv.DictReader(handle))
-    return [row for row in rows if row["shop_opening_kind"] == "hillman_panel"
-            and row["second_member"] in INNER_RAILS]
+    return _panel_axes(AXES, INNER_RAILS)
 
 
 def _occupied_cylinder(row: dict[str, str]) -> cq.Solid:
@@ -74,6 +76,9 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
     rail_rows = _rail_panel_axes()
     if len(rail_rows) != 12 or {row["second_member"] for row in rail_rows} != INNER_RAILS:
         raise ValueError("frozen center-adjacent rail panel-axis schedule changed")
+    if rows + rail_rows != _panel_axes(OFFICIAL_AXES, CENTER_MEMBERS) + _panel_axes(
+            OFFICIAL_AXES, INNER_RAILS):
+        raise ValueError("official/kerf-right relevant panel axes diverged")
     rail_cylinders = [(row, _occupied_cylinder(row)) for row in rail_rows]
     rail_edges = {name: round(shape.BoundingBox().xmax if name.endswith("left")
                               else shape.BoundingBox().xmin, 4)
@@ -123,6 +128,7 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
         "status": "geometry_screen_only",
         "baseline_candidate": baseline.KEY,
         "panel_axis_source": str(AXES.relative_to(ROOT)),
+        "official_width_relevant_axes_identical": True,
         "center_panel_axis_count": len(rows),
         "center_members": sorted(CENTER_MEMBERS),
         "dependent_center_clip_station_count": len(dependent_stations),
