@@ -13,7 +13,24 @@
       "product": "Everbilt 3/8-in-16 galvanized hex bolt, listed Grade A307",
       "example_length_in_not_selected": 3,
       "url": "https://www.homedepot.com/p/204281469"
+    },
+    "prime_line_home_depot": {
+      "product": "Prime-Line 9059904 3/8-16 x 3-1/2 in hot-dip galvanized hex bolt, ASTM A307 Grade A",
+      "pack_quantity": 15,
+      "example_length_in_not_selected": 3.5,
+      "retailer_url": "https://www.homedepot.com/p/310465200",
+      "manufacturer_url": "https://www.primelineparts.com/hex-bolts-3-8-in-16-x-3-1-2-in-a307-grade-a-hot-dip-galvanized-15-pack/",
+      "nominal_standard_pattern_thread_length_in": 1.0,
+      "nominal_unthreaded_shank_in_inferred": 2.5,
+      "thread_length_basis": "https://www.portlandbolt.com/technical/faqs/bolt-thread-lengths/",
+      "actual_shank_and_grip_verified": false
     }
+  },
+  "conditional_bolt_bending_yield": {
+    "value_psi": 45000,
+    "scope": "2024 AWC NDS Appendix I Table I1 bolt reference bending-yield value for later applicable NDS lateral-yield equations; not a Prime-Line lot certificate, bolt shaft shear rating, or whole-joint capacity",
+    "source": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf",
+    "secondary_awc_method_crosscheck": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf"
   },
   "wood_design_reference": {
     "source": "American Wood Council 2018 NDS Chapter 12 (historical design reference, not a current project approval)",
@@ -30,7 +47,7 @@
   },
   "wide_face_option": "A bolt passing through the 38.1 mm thickness from the 139.7 mm broad face can have more in-plane edge room, but its exact factory connector hole positions, grain/load directions, wood resistance, washer and socket envelopes, and adjacent hardware remain unchecked.",
   "bolt_purchase_length_selected": false,
-  "reason_length_open": "A purchased bolt needs an actual steel/wood/washer/nut grip, sufficient thread engagement, an acceptable unthreaded shank at shear planes where required, and a verified withdrawal path. Listed 3- and 4-inch products are availability examples only.",
+  "reason_length_open": "A purchased bolt needs an actual steel/wood/washer/nut grip, sufficient thread engagement, an acceptable unthreaded shank at shear planes where required, and a verified withdrawal path. The Prime-Line 3-1/2-inch product has a nominal standard-pattern 2-1/2-inch shank inferred from ASME geometry, potentially too long for a single 1.5-inch wood-plus-thin-angle stack; no delivered measurement or length selection is made. Retail length listings are availability examples only.",
   "a66_joint_capacity_established": false,
   "drilling_released": false,
   "disposition": "A 3/8-inch A307 hex through-bolt with compatible nut and washers is common retail hardware for a future applicable detail. It does not make A66 or another connector's unrated 1.5-inch wood joint safe or build-ready."
