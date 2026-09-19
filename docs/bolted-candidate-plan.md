@@ -141,18 +141,21 @@ Ideal square-corner solids built from ABB's nominal outer dimensions do not
 penetrate any raw timber at this position. This does not verify the factory
 bend radius, installed fastener/washer envelopes, panel seating, or tool
 access; the prototype is still unreleased.
-The user's suggested outward center-support shift is screened separately in
-`docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
-and 15 mm per side, all 20 frozen panel axes intersect the translated raw
-center timber, but the nominal bore-edge material falls to 11.98, 6.98, and
-1.98 mm respectively. All six center-adjacent bottom/service rail inner ends
-would also need recutting; at those sample offsets their twelve retained panel
-screw cylinders still intersect the nominal recut rail solids. This is only a
-geometry screen; connector stack clearance, timber resistance, and panel edge
-support remain unresolved. No offset is selected. G2 remains closed, and no
-bolted-candidate native case has run. The task ledger marks incomplete
-construction and engineering tasks as such rather than using prototype counts
-as completion evidence.
+The earlier `center-support-solid-screen.json` moved principals and posts
+together. It did not separate the opposing header bolts and is not the owner's
+clarified direction. The post-only trial in `center-post-only-offset.json`
+keeps the inclined principals and frozen panel/kicker screw axes fixed. At 5
+and 10 mm outward, the proposed AB205 header bores overlap. At 15 mm they
+barely separate, but their 15 mm center spacing is below the conditional
+38.1 mm (3D) distinct-bolt minimum for a common grain-parallel row. All four
+kicker screw axes still intersect their shifted posts, yet the physical
+kerf-right kicker inner-edge overhang grows on both sides. At 15 mm, nominal
+material from a frozen kicker screw bore to the nearest post edge falls to
+1.98 mm. Screw intersection alone does not establish adequate edge support.
+No post shift, connector row, or drilling layout is selected. G2 remains
+closed, and no bolted-candidate native case has run. The task ledger marks
+incomplete construction and engineering tasks as such rather than using
+prototype counts as completion evidence.
 
 ## Current nonblocking owner checkpoints
 
