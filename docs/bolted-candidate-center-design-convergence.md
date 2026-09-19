@@ -139,12 +139,26 @@ and installed fit before any station replication or drilling decision.
 
 ## Representative connection decision
 
-Retain the **shared-header AB205 arrangement solely as the next representative calculation
-concept**, not as a selected build detail. It has two through-header bolt axes shared by the
-upper and underside factory angles; the force on each single steel–wood–steel stack must be
-resolved as a whole. Timber-to-timber bearing is a separate compression path, not a tension
-or reversal path. The nominal protected-screw screen finds space around four left-center
-screw paths, but real shaft/head/washer/tool envelopes and tolerances remain unverified.
+**Set aside the fixed flush-bend AB205 center pose from the next qualification
+target.** Its short-vertical orientation fails the explicitly conservative
+3.5D *grain-ray search filter* by 17.510 mm of ray (13.413 mm of vertical
+factory-hole offset); its long-vertical orientation leaves only 0.148 mm of
+conditional 4D row-position window before tolerances. Neither result is a
+formal NDS oblique-end or complete-joint verdict. The fitting also lacks a
+published guaranteed steel strength and applicable wood-joint resistance.
+The existing diagnostic actions remain useful for understanding the shared
+steel–wood–steel topology, but more native runs on this unchanged fitting pose
+would not close those decisive gaps.
+
+The next factory-made angle lead needs a documented near-hole offset of at
+least 34.051 mm *for this conservative proxy*, a tolerable two-hole row within
+the actual principal and header, product-specific steel and formed-angle
+inputs, and complete installed stack/access checks. This is a search filter,
+not a requested custom hole pattern or drilling dimension. If a different
+factory fitting meets those inputs, its shared through-header bolt must be
+checked as one unequal-side-action three-member stack. Timber-to-timber
+bearing remains a separate compression-only path. All frozen panel screw axes
+and twelve original frame-bolt arrangements stay protected.
 
 Do not advance the distinct-row stagger as the default answer. Its maximum nominal row
 separation is 29.518 mm; the conditional perpendicular-loading minimum in the current
@@ -153,7 +167,7 @@ parallel-only interval does not justify it while reversible local loading is unr
 The alternative paired straight-strap idea was also rejected because it did not positively
 connect the header. This keeps the concept set bounded rather than restarting catalog search.
 
-The shared concept has **not** passed G1. Its top row has only 4.887 mm nominal reserve to
+The AB205 shared concept has **not** passed G1. Its top row has only 4.887 mm nominal reserve to
 either side of the conditional reversible 4D band, and the principal's nearest grain-parallel
 ray reaches its oblique end after 26.940 mm; neither is a verified installed end/edge margin.
 The alternate long-vertical AB205 orientation has only a 0.148294 mm total nominal
@@ -192,7 +206,6 @@ not a joint capacity. Use the [2024 NDS/Supplement](https://awc.org/resources/20
 consistently for the next wood-joint calculation; keep steel/formed-angle resistance separate.
 
 The first left-center shared-bolt model above is a diagnostic topology, not an installed
-detail. Its slip/contact and local bearing idealizations still need support; then compare
-all unchanged same-case actions with the reference packet and complete applicable
-wood/bolt/formed-steel and geometry checks. Do not replicate it to all 24 stations or
-issue machining coordinates before the representative connection is viable.
+detail. A different factory fitting would need its own geometry, slip/contact
+inputs, same-case native actions and applicable wood/bolt/formed-steel checks.
+Do not replicate AB205 to all 24 stations or issue machining coordinates.

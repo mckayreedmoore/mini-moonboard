@@ -40,8 +40,12 @@ classified attachments per width, 24 station duties, twelve retained frame
 bolts, and draft separation references are in the panel and interface
 contracts. These are baseline records, not candidate bolt geometry.
 
-G1 remains open. A66 is a common-retail prototype priority, but the current
-family modules are AB90 inventory sketches. No representative joint has a
+G1 remains open. A66 is a common-retail prototype priority, while the fixed
+flush-bend AB205 center pose has been set aside under the explicitly
+conservative oblique-end grain-ray search filter and the competing narrow
+row band. This is not a formal NDS oblique-end verdict or a rejection of all
+AB205 installations. The current family modules are AB90 inventory sketches.
+No representative joint has a
 complete applicable fit/load-path record or 24-station architecture assignment.
 `docs/bolted-candidate-representative-blockers.json` now identifies the
 specific missing geometry, steel, washer/access, and fresh-demand inputs at
