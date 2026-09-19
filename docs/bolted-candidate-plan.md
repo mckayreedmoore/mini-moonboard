@@ -156,6 +156,17 @@ No post shift, connector row, or drilling layout is selected. G2 remains
 closed, and no bolted-candidate native case has run. The task ledger marks
 incomplete construction and engineering tasks as such rather than using
 prototype counts as completion evidence.
+Keeping both supports fixed instead, `center-y-stagger.json` screens moving
+only the underside AB205 row along the existing post. Its conditional raw-wood
+4D band is Y = -124.9 to -86.8 mm; the top row stays at -95.382 mm. The
+greatest separation is 29.518 mm, at the lower band edge. That leaves 15.230
+mm nominal wood web between distinct 9/16-in bores and no retained-axis hit.
+It can reach the 2024 NDS Table 12.5.1D conditional 19.05-mm parallel-loading
+row minimum, but cannot reach the 39.688-mm perpendicular-loading value under
+the assumed 38.1-mm lesser wood bearing length. Load direction and member
+classification are not established, and ideal angle blocks omit hardware and
+tolerances. This is not a selected or accepted joint; the existing kicker
+edges and screw layout stay unchanged.
 
 ## Current nonblocking owner checkpoints
 

@@ -1,0 +1,32 @@
+{
+  "task": "LB-03B",
+  "status": "non_selected_geometry_screen",
+  "source": "scripts/bolted_candidate_center_y_stagger.py",
+  "basis": "2024 NDS Table 12.5.1D conditional row-spacing screen; nominal ABB AB205 dimensions and raw CAD wood",
+  "top_row_y_mm": -95.382052,
+  "underside_post_conditional_4d_band_y_mm": [-124.9, -86.8],
+  "maximum_possible_y_stagger_mm": 29.517948,
+  "conditional_distinct_row_minimum_mm": {
+    "parallel_loading": 19.05,
+    "perpendicular_loading_assuming_38_1_mm_lesser_wood_bearing": 39.6875
+  },
+  "parallel_minimum_reachable_in_band": true,
+  "perpendicular_minimum_reachable_in_band": false,
+  "sample_at_lower_band_edge": {
+    "underside_row_y_mm": -124.9,
+    "minimum_bore_web_mm": 15.230448,
+    "overlapping_header_bore_pairs_per_side": 0,
+    "retained_axis_hits": [],
+    "ideal_opposite_face_angle_body_overlap_mm3": 0
+  },
+  "preserved": {
+    "raw_center_principals_and_posts": true,
+    "kerf_right_panel_and_kicker_width": true,
+    "retained_panel_screw_axes": 66,
+    "retained_frame_bolt_axes": 12
+  },
+  "selected_underside_row_y_mm": null,
+  "nds_row_accepted": false,
+  "drilling_released": false,
+  "limits": "Load direction, member classification, oblique-end rules, bend radii, product tolerances, washers, nuts, tool access, steel strength and complete joint resistance remain unresolved. The 4D wood band and row-spacing formulas are conditional screens, not an approved layout."
+}
