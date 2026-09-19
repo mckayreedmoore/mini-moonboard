@@ -1,0 +1,52 @@
+# Structural-only bolted candidate plan
+
+This document establishes the separate `compact-floor-flush-bolted-development`
+lane from the v2 Luna handoff. It does not promote the candidate, qualify a
+connector, or authorize fabrication.
+
+## Binding scope
+
+- Replace the connection duties of 144 structural SDS attachments at 24 ML24Z
+  stations with a separately evidenced structural connection system.
+- Retain the twelve existing frame-bolt arrangements as the starting layout;
+  recheck their changed stacks, loads, and interference later.
+- Preserve all 48 main-panel and 18 kicker screws. Panel removal is permitted;
+  panel inserts, panel through-bolts, and new panel hardware are excluded.
+- Target zero routine structural wood-thread removals per move. This is not a
+  whole-board zero and does not remove the 66 panel screw operations.
+- Preserve the selected baseline and its historical evidence. No new candidate
+  result may overwrite or authenticate an old result.
+
+## Gates and sequence
+
+`LB-00 -> LB-01 -> (LB-02A, LB-02B) -> (LB-03A, LB-03B, LB-03C) -> LB-04`
+
+After architecture selection: shared connection model, candidate geometry,
+six layout families, integration, width adapter, mechanics, resistance checks,
+native producer contract, and G2 review precede any native case. Native cases
+run serially from `a12-left` through `a1-rear`; final exports and independent
+review do not change repository authority automatically.
+
+## Current nonblocking owner checkpoints
+
+Actual stock condition and physical width packet remain shop gates. Preliminary
+work may use an explicitly labelled `fresh_stock_provisional` model. Custom
+steel, larger/doubled members, permanently wood-screwed detachable connectors,
+or retained paired principal members require a specific decision at the
+architecture gate.
+
+## Baseline producer inventory
+
+| Role | Path |
+| --- | --- |
+| Authority | `current-candidate.json` |
+| Model | `mini_moonboard/compact_floor_flush_frame.py` |
+| Viewer producer | `scripts/floor_flush_exports.py` |
+| Construction producer | `scripts/floor_flush_construction.py` |
+| Criteria/checks | `scripts/floor_flush_checks.py` |
+| Official construction manifest | `docs/floor-flush-construction/manifest.json` |
+| Official/kerf width adapter | `mini_moonboard/floor_flush_width.py` |
+
+The exact baseline snapshot is recorded in
+`docs/bolted-candidate-baseline-audit.json`; this plan is not a substitute for
+the source hashes or for fresh native evidence.

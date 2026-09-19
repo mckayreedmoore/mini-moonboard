@@ -1,0 +1,46 @@
+{
+  "audit": "LB-00",
+  "candidate": "compact-floor-flush-bolted-development",
+  "baseline_commit": "7cdd2e37ed2d364b47879a960b9eb15b93c67048",
+  "selected_authority": "compact-floor-flush-development",
+  "worktree_policy": "clean separate worktree; baseline artifacts unchanged",
+  "inventory": {
+    "construction_axes": 222,
+    "structural_sds_axes": 144,
+    "structural_stations": 24,
+    "existing_frame_bolts": 12,
+    "panel_and_kicker_screws": 66,
+    "panel_screws": 48,
+    "kicker_screws": 18,
+    "partition_reconciles": true
+  },
+  "scope": {
+    "structural_move_wood_thread_removals_target": 0,
+    "panel_screw_operations_allowed": true,
+    "panel_inserts_in_scope": false,
+    "panel_through_bolts_in_scope": false,
+    "selected_candidate_promoted": false
+  },
+  "source_sha256": {
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "scripts/floor_flush_exports.py": "c92ae789e1a6212e5a82a1464a1acc551919c6f9bde3835896341da8ed191524",
+    "scripts/floor_flush_construction.py": "f04fb76074be0105d3cefe74e150e63ac4f3dcf4040f264f673508e70b5ca0b4",
+    "scripts/floor_flush_checks.py": "8d756c608bef10b8ce6f5141e58cbb0c08df56b0e422b6fd8baa262cec61e9cf",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "docs/floor-flush-construction/manifest.json": "4ea1ab3b5f4531084ebe3976b2c72cf23c97ec92bc64611e293117748dc6e2b1"
+  },
+  "discrepancies": [
+    "The archived handoff notes a moved center-clip geometry versus earlier evidence; fresh candidate evidence must use reconciled current geometry.",
+    "Actual stock condition and physical width packet are unknown shop gates; no favorable fabrication assumption is recorded as observed."
+  ],
+  "verification": {
+    "commands": [
+      "uv run python -m scripts.current_candidate --help",
+      "uv run python inventory audit over docs/floor-flush-construction/connection-axes.csv"
+    ],
+    "native_solves_run": false,
+    "cad_rebuilt": false,
+    "physical_inspection": false
+  }
+}
