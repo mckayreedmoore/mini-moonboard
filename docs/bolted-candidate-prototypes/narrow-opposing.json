@@ -1,0 +1,19 @@
+{
+  "task": "LB-03A",
+  "status": "complete",
+  "engineering_disposition": "rejected_for_current_detail; geometry screen only",
+  "station": "clip_horizontal_bottom_left_2",
+  "members": ["base_principal_center_left", "base_rail_bottom_left"],
+  "legacy_axes": 6,
+  "proposed_architecture": "1/4 in through-bolt with washer/nut on each opposing flange; no steel modification",
+  "screen": {
+    "receiver_thickness_mm": 38.1,
+    "shaft_diameter_mm": 6.35,
+    "four_d_edge_reserve_on_38_1_mm_face": -12.7,
+    "complete_stack_defined": false,
+    "full_withdrawal_path_defined": false,
+    "panel_conflict": "neighboring panel/kicker axes remain frozen; no panel change tested"
+  },
+  "load_path": "Separate flange bolts cannot be counted as one shared physical bolt without a traced bearing/contact path; legacy SDS reactions are screening inputs only, not new reactions.",
+  "disposition": "A nominal shaft fit does not provide a viable narrow-face detail. A different plate/receiver direction would be a new architecture requiring the G1 scope decision."
+}
