@@ -29,6 +29,29 @@ def _broad_face(shape: cq.Solid, x_mm: float) -> cq.Face:
     )
 
 
+def _grain_ray_to_rim_end(
+    rim: cq.Solid, start: cq.Vector, grain: cq.Vector
+) -> float | None:
+    """Find the first raw end-face hit along a bounded reverse-grain ray."""
+    box = rim.BoundingBox()
+    limit = hypot(hypot(box.xlen, box.ylen), box.zlen)
+    hits = []
+    for face in rim.Faces():
+        if face.geomType() != "PLANE":
+            continue
+        normal = face.normalAt()
+        approach = grain.dot(normal)
+        if approach >= -1e-7:
+            continue
+        distance = (start - face.Center()).dot(normal) / approach
+        if not 1e-7 < distance <= limit:
+            continue
+        hit = start - grain * distance
+        if face.distance(cq.Vertex.makeVertex(*hit.toTuple())) <= 1e-5:
+            hits.append(distance)
+    return min(hits) if hits else None
+
+
 def screen_outer_fit(
     side: Side = "left", vertical_leg: Leg = "long", row_y_mm: float | None = None
 ) -> dict[str, object]:
@@ -88,6 +111,14 @@ def screen_outer_fit(
     face = _broad_face(rim, inner_x)
     lines = _grain_edge_lines(face)
     ny = 1 / hypot(1, lines[0][2])
+    grain = cq.Vector(0, lines[0][2], 1).normalized()
+    rim_ray_x = (rim.BoundingBox().xmin + rim.BoundingBox().xmax) / 2
+    rim_end_rays = [
+        _grain_ray_to_rim_end(
+            rim, cq.Vector(rim_ray_x, row_y, origin.z + offset * 25.4), grain
+        )
+        for offset in vertical
+    ]
     edge_distances = []
     for offset in vertical:
         z = origin.z + offset * 25.4
@@ -159,6 +190,9 @@ def screen_outer_fit(
         "header_row_edge_distance_mm": _rounded(header_edge),
         "header_row_4d_reserve_mm": _rounded(header_edge - 4 * bolt_diameter),
         "nearest_rim_hole_grain_ray_mm": _rounded(vertical[0] * 25.4 / ny),
+        "rim_hole_grain_rays_to_actual_end_mm": [
+            _rounded(value) if value is not None else None for value in rim_end_rays
+        ],
         "rim_end_square_to_grain": False,
         "rim_end_distance_classified": False,
         "retained_axes_source": str(AXES.relative_to(ROOT)),
@@ -246,6 +280,9 @@ def search_outer_fit(
                 row_displacement_mm=_rounded(float(trial["trial_row_y_mm"]) - origin.y),
                 raw_wood_bore_fractions=trial["raw_wood_bore_fractions"],
                 installed_bores_full_raw_wood=trial["installed_bores_full_raw_wood"],
+                rim_hole_grain_rays_to_actual_end_mm=trial[
+                    "rim_hole_grain_rays_to_actual_end_mm"
+                ],
                 rim_hole_min_4d_reserve_mm=trial["rim_hole_min_4d_reserve_mm"],
                 header_row_4d_reserve_mm=trial["header_row_4d_reserve_mm"],
                 retained_axes_inspected=trial["retained_axes_inspected"],

@@ -3,9 +3,14 @@
 import json
 from pathlib import Path
 
+import cadquery as cq
 import pytest
 
-from scripts.bolted_candidate_ab205_outer_fit import screen_outer_fit, search_outer_fit
+from scripts.bolted_candidate_ab205_outer_fit import (
+    _grain_ray_to_rim_end,
+    screen_outer_fit,
+    search_outer_fit,
+)
 
 
 @pytest.mark.parametrize("side, sign", [("left", -1), ("right", 1)])
@@ -41,6 +46,10 @@ def test_fixture_matches_calculation_and_preserves_open_limits():
         trial = record["ab205_nominal_trial"][side]
         for key, value in trial.items():
             assert value == actual[key]
+        assert trial["rim_hole_grain_rays_to_actual_end_mm"] == [
+            47.663684,
+            108.667309,
+        ]
     assert record["status"] == "incomplete_representative_prototype"
     assert record["engineering_disposition"] == "unresolved; geometry screen only"
     search_record = record["ab205_bounded_row_search"]
@@ -60,6 +69,9 @@ def test_fixture_matches_calculation_and_preserves_open_limits():
             )
             assert saved["header_4d_reserve_mm"] == option["header_row_4d_reserve_mm"]
             assert saved["raw_wood_bore_fractions"] == option["raw_wood_bore_fractions"]
+            assert saved["rim_hole_grain_rays_to_actual_end_mm"] == option[
+                "rim_hole_grain_rays_to_actual_end_mm"
+            ]
             assert (
                 saved["intersecting_retained_axis_ids"]
                 == option["intersecting_retained_axis_ids"]
@@ -104,6 +116,41 @@ def test_bounded_orientation_and_row_search_on_raw_cad(side):
         }
         assert option["rim_end_distance_classified"] is False
         assert option["drilling_released"] is False
+
+
+@pytest.mark.parametrize("side", ["left", "right"])
+@pytest.mark.parametrize("orientation", ["long_vertical", "short_vertical"])
+def test_trial_row_grain_rays_reach_actual_rim_end(side, orientation):
+    option = search_outer_fit(side)["orientations"][orientation]
+    leg = orientation.split("_")[0]
+    trial = screen_outer_fit(side, leg, option["trial_row_y_mm"])
+    rays = trial["rim_hole_grain_rays_to_actual_end_mm"]
+    assert option["rim_hole_grain_rays_to_actual_end_mm"] == rays
+    assert len(rays) == 2
+    assert rays[0] > 0
+    assert rays[1] > rays[0]
+    # The present raw rim happens to have a horizontal lower-end face. This
+    # equality is a geometry check, not the method used to obtain the rays.
+    grain_z = 0.766044443118978
+    for distance, offset in zip(
+        rays, trial["factory_vertical_offsets_in"], strict=True
+    ):
+        assert distance == pytest.approx(offset * 25.4 / grain_z, abs=1e-5)
+    assert trial["rim_end_distance_classified"] is False
+    assert option["drilling_released"] is False
+
+
+def test_grain_ray_uses_end_face_and_stops_at_solid_boundary():
+    rim = (
+        cq.Workplane("YZ")
+        .polyline([(0, 0), (10, 10), (10, 20), (0, 20)])
+        .close()
+        .extrude(10)
+        .val()
+    )
+    grain = cq.Vector(0, 0, 1)
+    assert _grain_ray_to_rim_end(rim, cq.Vector(5, 3, 15), grain) == pytest.approx(12)
+    assert _grain_ray_to_rim_end(rim, cq.Vector(5, 15, 15), grain) is None
 
 
 def test_search_displacement_cap_can_exclude_both_bands():
