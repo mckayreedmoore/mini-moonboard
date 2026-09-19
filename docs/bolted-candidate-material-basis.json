@@ -1,0 +1,56 @@
+{
+  "candidate": "compact-floor-flush-bolted-development",
+  "task": "LB-11A / WB-1",
+  "engineering_disposition": "conditional_reference_only",
+  "species_grade": "US Douglas Fir-Larch No. 2 dimension lumber",
+  "source": {
+    "edition": "2024 NDS and 2024 NDS Supplement",
+    "supplement_table": "Table 4A, dimension lumber, Douglas Fir-Larch No. 2",
+    "supplement_url": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf",
+    "supplement_ch4_sha256": "1f65975633f111c308944c470b6cc10e9207b6c45e8a0804b8bdec3378bbc71b",
+    "assigned_specific_gravity_basis": "2024 NDS assigned G for US Douglas Fir-Larch, as corrected in 2024 errata",
+    "specific_gravity_url": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+    "repository_record": "docs/history/provisional-material-assumptions.md",
+    "verification_limit": "Values and supplement digest are preserved from repository source inventory; actual purchased stock and service condition have not been inspected."
+  },
+  "reference_conditions": {
+    "load_duration": "normal",
+    "service": "dry",
+    "incised": false,
+    "applied_adjustments": [],
+    "limitation": "Table references are not final member or connection resistances."
+  },
+  "reference_values": {
+    "Fb": {"value": 900, "unit": "psi", "adjusted": false, "meaning": "bending stress"},
+    "Ft_parallel": {"value": 575, "unit": "psi", "adjusted": false, "meaning": "tension parallel to grain only"},
+    "Fv_parallel": {"value": 180, "unit": "psi", "adjusted": false, "meaning": "member shear parallel to grain"},
+    "Fc_parallel": {"value": 1350, "unit": "psi", "adjusted": false, "meaning": "compression parallel to grain"},
+    "Fc_perpendicular": {"value": 625, "unit": "psi", "adjusted": false, "meaning": "surface compression perpendicular to grain, not dowel embedment"},
+    "E": {"value": 1600000, "unit": "psi", "adjusted": false, "meaning": "reference elastic modulus"},
+    "Emin": {"value": 580000, "unit": "psi", "adjusted": false, "meaning": "minimum modulus for stability"},
+    "G": {"value": 0.5, "unit": "dimensionless", "adjusted": false, "meaning": "assigned specific gravity used for dowel bearing"}
+  },
+  "nominal_2x6_size_factor_only": {
+    "Fb": 1.3,
+    "Ft_parallel": 1.3,
+    "Fc_parallel": 1.1,
+    "not_applicable_to_every_stock_class": true
+  },
+  "actual_stock": {
+    "owner_reported_uncut_undrilled": true,
+    "grade_stamp_verified": false,
+    "species_group_verified": false,
+    "grading_agency_verified": false,
+    "moisture_verified": false,
+    "treatment_and_incising_verified": false,
+    "actual_member_dimensions_verified": false,
+    "connection_zone_condition_verified": false
+  },
+  "required_before_joint_acceptance": [
+    "identify and inspect actual wood grade, species group, dimensions, treatment/incising, moisture, and each connection zone",
+    "use actual drilled sections, grain directions, bearing lengths, and matching 2024 provisions",
+    "apply all relevant duration, service, size, stability, geometry, and group factors",
+    "check local splitting, net section, washer support, bolt group, steel connector, and actual simultaneous actions"
+  ],
+  "fabrication_release": false
+}

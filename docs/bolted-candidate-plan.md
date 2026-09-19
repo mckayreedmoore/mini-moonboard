@@ -68,6 +68,15 @@ steel, larger/doubled members, permanently wood-screwed detachable connectors,
 or retained paired principal members require a specific decision at the
 architecture gate.
 
+The 2024 DF-L No. 2 reference inputs used by the provisional bolt checks are
+recorded with units, source edition, and actual-stock unknowns in
+`docs/bolted-candidate-material-basis.json`. Those inputs do not establish the
+grade stamp or condition of the owner's lumber, and they do not rate A66.
+The existing six-mode wood-to-wood yield implementation now has regression
+tests against nine cells of the publisher's 2018 NDS Table 12A. Those tests
+verify its arithmetic for comparable two-member cases; they do not transfer a
+2018 table value into the candidate's eventual 2024 connection assessment.
+
 ## Baseline producer inventory
 
 | Role | Path |
