@@ -16,7 +16,6 @@ from .bolted_layouts import (
     all_machining_records,
     registered_layouts,
 )
-from .demountable_connections import ab90_prototype_fastener
 
 KEY = "compact-floor-flush-bolted-development"
 BASELINE_KEY = baseline.KEY

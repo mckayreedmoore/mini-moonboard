@@ -8,7 +8,6 @@ All dimensions are millimetres and all identifiers are physical identities.
 from dataclasses import dataclass
 from typing import Literal
 
-
 HardwareScope = Literal["structural", "panel", "hold", "service"]
 ThreadSubstrate = Literal["metal", "wood", "none"]
 AssessmentStatus = Literal["prototype", "unresolved", "checked", "accepted"]

@@ -6,7 +6,6 @@ import cadquery as cq
 
 from . import compact_floor_flush_bolted_frame as candidate
 from . import floor_flush_width as baseline_width
-from .demountable_connections import LocalBasis
 
 OFFICIAL = "official"
 KERF_RIGHT = "kerf-right"

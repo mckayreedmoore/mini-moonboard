@@ -5,9 +5,8 @@ The functions describe accounting and contact behavior; they do not calculate
 allowable bolt, timber, or plate capacity.
 """
 
-from dataclasses import dataclass
 import math
-
+from dataclasses import dataclass
 
 Vector = tuple[float, float, float]
 
