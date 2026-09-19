@@ -7,6 +7,7 @@ from mini_moonboard.demountable_connections import (
     ConnectionRecordError,
     JointRecord,
     LocalBasis,
+    a66_prototype_fastener,
     ab90_prototype_fastener,
     validate_records,
 )
@@ -30,6 +31,16 @@ def test_ab90_stack_has_more_than_two_participants_and_metal_threads() -> None:
     assert len(fastener.ordered_stack) == 7
     assert fastener.thread_substrate_during_operation == "metal"
     assert fastener.wood_engaging_component_remains_installed is False
+
+
+def test_a66_stack_keeps_missing_factory_hole_geometry_explicit() -> None:
+    fastener = a66_prototype_fastener()
+    assert fastener.product_or_design_id == "Simpson-A66-prototype-3/8-through-bolt"
+    assert fastener.nominal_diameter_mm == 9.525
+    assert fastener.hardware_scope == "structural"
+    assert fastener.thread_substrate_during_operation == "metal"
+    assert fastener.holes == ()
+    assert "hole diameter" in fastener.tool_envelope
 
 
 def test_cross_record_validation_accepts_shared_physical_identity() -> None:

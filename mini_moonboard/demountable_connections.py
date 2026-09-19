@@ -225,3 +225,39 @@ def ab90_prototype_fastener(fastener_id: str = "ab90_proto_m10_1") -> FastenerRe
         retained_on_move=True,
         legacy_mapping=(),
     )
+
+
+def a66_prototype_fastener(fastener_id: str = "a66_proto_3_8_1") -> FastenerRecord:
+    """Return an A66 through-bolt stack with unresolved product-hole geometry."""
+    return FastenerRecord(
+        physical_fastener_id=fastener_id,
+        product_or_design_id="Simpson-A66-prototype-3/8-through-bolt",
+        fastener_type="machine_bolt",
+        hardware_scope="structural",
+        thread_substrate_during_operation="metal",
+        wood_engaging_component_remains_installed=False,
+        nominal_diameter_mm=9.525,
+        nominal_thread="3/8-16; structural grade unresolved",
+        strength_source="A66 catalog bolt installation; joint resistance unresolved",
+        head_type_and_dimensions="hex head; delivered bolt dimensions unresolved",
+        length_mm=90.0,
+        length_reference="prototype nominal only; not a purchase length",
+        ordered_stack=(
+            StackComponent(0, "bolt_head", "head", 8.0, "metal", True),
+            StackComponent(1, "washer_a", "washer", 3.0, "metal", True),
+            StackComponent(2, "a66_flange_a", "plate", 2.5, "metal", True),
+            StackComponent(3, "timber_receiver", "receiver", 38.1, "wood", False),
+            StackComponent(4, "a66_flange_b", "plate", 2.5, "metal", True),
+            StackComponent(5, "washer_b", "washer", 3.0, "metal", True),
+            StackComponent(6, "nut", "nut", 8.0, "metal", True),
+        ),
+        smooth_body_mm=(0.0, 90.0),
+        thread_runout_mm=(0.0, 90.0),
+        engagement_bounds_mm=(0.0, 0.0),
+        holes=(),
+        bearing_elements=("washer_a", "a66_flange_a", "a66_flange_b", "washer_b"),
+        tool_envelope="A66 factory hole diameter, washer size, and access envelope unresolved",
+        insertion_vector=(1.0, 0.0, 0.0),
+        retained_on_move=True,
+        legacy_mapping=(),
+    )
