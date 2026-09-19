@@ -32,3 +32,14 @@ def test_audit_lists_all_current_structural_stations() -> None:
     names = audit["inventory"]["structural_station_names"]
     assert audit["inventory"]["structural_stations"] == len(names) == 24
     assert len(names) == len(set(names))
+
+
+def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
+    decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
+    request = decision["a66_manufacturer_information_gate"]
+    assert decision["status"].endswith("G1_architecture_gate_open")
+    assert request["external_contact_authorized"] is False
+    assert request["minimum_wood_thickness_in_question"] == 1.5
+    assert request["dimensioned_bolt_hole_centers_required"] is True
+    assert request["applicable_bolt_mode_resistance_required"] is True
+    assert request["if_unavailable"] == "A66 cannot advance to representative drilling or G1 selection"

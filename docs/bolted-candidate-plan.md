@@ -38,6 +38,10 @@ contracts. These are baseline records, not candidate bolt geometry.
 G1 remains open. A66 is a common-retail prototype priority, but the current
 family modules are AB90 inventory sketches. No representative joint has a
 complete applicable fit/load-path record or 24-station architecture assignment.
+The bounded retail follow-ups found no substitute with published bolted loads
+applicable to the preserved single-2x6 thickness. The exact A66 manufacturer
+information request is in `docs/bolted-candidate-g1-decision.json`; it has not
+been sent, and a response would still need the three representative fit checks.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

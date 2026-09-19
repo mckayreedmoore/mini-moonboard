@@ -13,6 +13,22 @@
     {"id": "mitek-b66", "status": "targeted_retail_follow_up_rejected", "blocking": "MiTek's published bolted detail requires 3 in timber thickness, while all 24 preserved stations include a 1.5 in 2x6 member; Lowe's also says the item is no longer sold there"}
   ],
   "smallest_decision_needed": "Complete representative fit/load-path screens and assign an applicable connector architecture to all 24 stations. A66 remains a retail prototype priority, not an accepted architecture; its bolt capacity and factory hole layout are unresolved.",
+  "a66_manufacturer_information_gate": {
+    "status": "source_request_prepared_not_sent",
+    "external_contact_authorized": false,
+    "product": "US Simpson Strong-Tie A66 angle; two 3/8-inch through bolts per leg",
+    "minimum_wood_thickness_in_question": 1.5,
+    "dimensioned_bolt_hole_centers_required": true,
+    "applicable_bolt_mode_resistance_required": true,
+    "specific_questions": [
+      "Provide a current dimensioned A66 factory drawing identifying the four 3/8-inch bolt-hole centers relative to both leg edges and the bend, hole diameter and tolerance, and flange thickness.",
+      "State whether Simpson supports a two-through-bolt-per-leg wood-to-wood joint where each receiver is a single actual 1.5-inch-thick nominal 2x6, with the bolts entering the broad 5.5-inch face rather than an inapplicable narrow-face layout.",
+      "Provide product-specific allowable loads or an engineering basis for F1, F2, separation, flange couple/prying, and combined action in that installation, including minimum wood edge/end/spacing, bolt grade, washer, paired-use, and grain/orientation conditions.",
+      "State whether any published bolted load or detail can be applied to a removable timber-to-timber joint without relying on the catalog's nailed A-angle ratings."
+    ],
+    "if_unavailable": "A66 cannot advance to representative drilling or G1 selection",
+    "no_purchase_or_drilling_authorized": true
+  },
   "not_authorized_by_silence": ["custom fabricated steel", "larger or doubled timber members", "retained paired principal members", "permanently wood-screwed structural fallback", "AB90 or A66 bolt capacity acceptance", "borrowing nailed A-angle ratings for bolts"],
   "dependent_tasks_paused": ["LB-14A", "LB-14B", "LB-14C", "LB-14D", "LB-14E", "LB-14F", "LB-15", "LB-16A", "LB-16B", "LB-16C", "LB-17"],
   "baseline_unchanged": true,
