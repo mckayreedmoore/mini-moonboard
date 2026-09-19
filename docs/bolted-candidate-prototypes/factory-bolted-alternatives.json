@@ -1,0 +1,29 @@
+{
+  "task": "LB-02B",
+  "status": "complete",
+  "engineering_disposition": "screened; no option accepted",
+  "candidate": "compact-floor-flush-bolted-development",
+  "search_budget": {"distinct_families_screened": 3, "catalog_exhaustion_claimed": false},
+  "alternatives": [
+    {
+      "id": "existing-ml24z-through-bolt",
+      "family": "existing ML24Z with through bolts",
+      "disposition": "unresolved",
+      "reason": "Nominal 1/4 in shaft fits the 6.731 mm hole, but installation, steel/prying, timber, and stiffness bases remain unresolved; SDS ratings do not transfer."
+    },
+    {
+      "id": "simpson-hl33-hl35",
+      "family": "factory-bolted heavy angle",
+      "source": "Section 4.4 of the v2 handoff; 2026 catalog page 315",
+      "disposition": "rejected_for_preserved_stock",
+      "reason": "The inspected detail requires at least 3-1/2 in member thickness for the relevant series; the preserved single 2x6 receiver is 1-1/2 in thick."
+    },
+    {
+      "id": "local-through-bolted-plate-concept",
+      "family": "new paired plate/angle detail",
+      "disposition": "scope_dependent_concept",
+      "reason": "Could provide an intentional bolt pattern, but custom steel, offsets, prying, machining, and access require a specific representative-joint design and owner decision before adoption."
+    }
+  ],
+  "decision": "Proceed only to representative-joint prototypes using a source-backed detail. Do not purchase, enlarge members, add custom steel, or promote a connector from this screen."
+}
