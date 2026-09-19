@@ -64,6 +64,11 @@ end-directed lateral load, the nominal nearest holes on both AB205 legs miss
 even the 2018 NDS 3.5D reduced-factor loaded-end minimum for a half-inch bolt.
 This rejects that layout screen, not every possible AB205 position; any offset
 needs new fit and load-path checks under the applicable 2024 provisions.
+Newhouse BR904 is another Home Depot-listed four-hole angle with manufacturer-
+stated Q235 steel and nominal 9/16-inch holes on 1-7/8-inch centers. Its
+product-specific strength and complete factory layout are not published, and
+it has no wood-joint rating; AB205 dimensions cannot be transferred to it.
+See `docs/bolted-candidate-prototypes/newhouse-br904-retail.json`.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw
