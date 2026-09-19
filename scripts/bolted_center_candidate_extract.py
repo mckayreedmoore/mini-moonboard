@@ -1,6 +1,7 @@
 """Source-bound, provisional signed actions from an accepted native AB205 diagnostic."""
 
 import argparse
+import ast
 import hashlib
 import json
 import math
@@ -10,18 +11,33 @@ from scripts.bolted_center_demand_extract import _physical_row, _vector, _wrench
 
 CANDIDATE = "bolted-kerf-right-left-center-ab205-diagnostic"
 GEOMETRY = "compact-floor-flush-bolted-development-kerf-right"
-CASES = {
-    "a12-rear": ("A12", 0, 300),
-    "a12-forward": ("A12", 0, -300),
-    "a12-left": ("A12", -300, 0),
-    "k12-right": ("K12", 300, 0),
-    "k12-rear": ("K12", 0, 300),
-    "a1-rear": ("A1", 0, 300),
-}
+POUNDS_TO_KG = 0.45359237
+STANDARD_GRAVITY_M_PER_S2 = 9.80665
+HISTORICAL_DYNAMIC_FACTOR = 2.0
 
 
 def _digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _source_cases(root):
+    """Read the literal case table from the authenticated producer snapshot."""
+    source = root / "source_snapshots/scripts/clear_space_batch.py"
+    definitions = [
+        node.value
+        for node in ast.parse(source.read_text()).body
+        if isinstance(node, ast.Assign)
+        and any(isinstance(target, ast.Name) and target.id == "CASES"
+                for target in node.targets)
+    ]
+    if len(definitions) != 1:
+        raise ValueError("Authenticated case producer lacks one CASES definition")
+    cases = ast.literal_eval(definitions[0])
+    if not isinstance(cases, dict):
+        raise ValueError(  # noqa: TRY004 -- invalid authenticated artifact
+            "Authenticated case producer CASES is not a mapping"
+        )
+    return cases
 
 
 def _manifest(report, root):
@@ -44,6 +60,7 @@ def _manifest(report, root):
         "fea/current_response_model.py",
         "scripts/bolted_center_native_diagnostic.py",
         "scripts/bolted_center_joint_model.py",
+        "scripts/clear_space_batch.py",
         "docs/floor-flush-construction-kerf-right/connection-axes.csv",
     }
     if not isinstance(sources, dict) or not required <= sources.keys():
@@ -297,10 +314,27 @@ def extract_files(report_path, record_path=None):
     cycles = report.get("contact_cycles")
     if not cycles or not cycles[-1].get("contact_passed"):
         raise ValueError("Final contact cycle did not pass")
-    expected_record = root / cycles[-1]["directory"] / "input.json"
+    directory = cycles[-1].get("directory")
+    if (not isinstance(directory, str) or Path(directory).name != directory
+            or directory in (".", "..")):
+        raise ValueError("Final cycle is outside report directory")
+    root_resolved = root.resolve()
+    expected_record = root / directory / "input.json"
     record_path = Path(record_path) if record_path is not None else expected_record
     if record_path.resolve() != expected_record.resolve():
         raise ValueError("Input is not the final cycle record")
+    try:
+        record_relative = record_path.resolve().relative_to(root_resolved).as_posix()
+    except ValueError as error:
+        raise ValueError("Final input is outside report directory") from error
+    if record_relative != f"{directory}/input.json":
+        raise ValueError("Input is not the final cycle record")
+    scope_path = root_resolved / "diagnostic-scope.json"
+    if scope_path.is_symlink():
+        raise ValueError("Diagnostic scope sidecar must be a regular file")
+    for name, path in ((record_relative, record_path), ("diagnostic-scope.json", scope_path)):
+        if report["artifact_sha256"].get(name) != _digest(path):
+            raise ValueError(f"Missing or mismatched required artifact: {name}")
     record = json.loads(record_path.read_bytes())
     if (
         report.get("numerically_accepted") is not True
@@ -320,7 +354,6 @@ def extract_files(report_path, record_path=None):
         )
     ):
         raise ValueError("Native numerical acceptance failed")
-    scope_path = root / "diagnostic-scope.json"
     scope = json.loads(scope_path.read_bytes())
     if (
         scope != report.get("diagnostic_scope")
@@ -347,8 +380,12 @@ def extract_files(report_path, record_path=None):
                    for name in ("vertical_spring", "steel_bolt_spring"))):
         raise ValueError("Joint slip scope differs from native record")
     case = scope.get("case")
-    expected = CASES.get(case)
+    expected = _source_cases(root).get(case)
     force = record.get("force_xyz_n")
+    expected_force = (
+        (*expected[1], -HISTORICAL_DYNAMIC_FACTOR * 250.0 * POUNDS_TO_KG
+         * STANDARD_GRAVITY_M_PER_S2) if expected else None
+    )
     if (
         not expected
         or record.get("candidate") != CANDIDATE
@@ -358,10 +395,14 @@ def extract_files(report_path, record_path=None):
         or force != report.get("parameters", {}).get("force_xyz_n")
         or not isinstance(force, list)
         or len(force) != 3
-        or not all(math.isfinite(float(value)) for value in force)
-        or force[:2] != list(expected[1:])
+        or any(type(value) not in (int, float) or not math.isfinite(value) for value in force)
+        or any(not math.isclose(actual, target, rel_tol=0, abs_tol=1e-6)
+               for actual, target in zip(force, expected_force, strict=True))
+        or scope.get("dynamic_factor", HISTORICAL_DYNAMIC_FACTOR) != HISTORICAL_DYNAMIC_FACTOR
         or record.get("pounds") != 250.0
         or report.get("parameters", {}).get("pounds") != 250.0
+        or record.get("equipment_kg") != 25.0
+        or report.get("parameters", {}).get("equipment_kg") != 25.0
         or record.get("diagnostic_only") is not True
         or any(
             record.get(key) is not False
@@ -402,6 +443,7 @@ def extract_files(report_path, record_path=None):
                 for name in (
                     "scripts/bolted_center_native_diagnostic.py",
                     "scripts/bolted_center_joint_model.py",
+                    "scripts/clear_space_batch.py",
                 )
             },
         },

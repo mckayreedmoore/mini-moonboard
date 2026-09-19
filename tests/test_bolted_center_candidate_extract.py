@@ -93,7 +93,8 @@ def _fixture(tmp_path):
         "candidate": CANDIDATE,
         "hold": "A1",
         "pounds": 250.0,
-        "force_xyz_n": [0, 300, -2224],
+        "equipment_kg": 25.0,
+        "force_xyz_n": [0, 300, -2 * 250 * 0.45359237 * 9.80665],
         "diagnostic_only": True,
         "acceptance": False,
         "actual_joint_demands_qualified": False,
@@ -136,7 +137,8 @@ def _fixture(tmp_path):
         "member_equilibrium": {"base_header": {"passed": True}},
         "contact_cycles": [{"directory": "cycle-00", "contact_passed": True}],
         "diagnostic_scope": scope,
-        "parameters": {"hold": "A1", "pounds": 250.0, "force_xyz_n": [0, 300, -2224]},
+        "parameters": {"hold": "A1", "pounds": 250.0, "equipment_kg": 25.0,
+                       "force_xyz_n": [0, 300, -2 * 250 * 0.45359237 * 9.80665]},
         "physical_connection_forces": physical,
     }
     root = tmp_path
@@ -148,13 +150,17 @@ def _fixture(tmp_path):
         "fea/current_response_model.py",
         "scripts/bolted_center_native_diagnostic.py",
         "scripts/bolted_center_joint_model.py",
+        "scripts/clear_space_batch.py",
         "docs/floor-flush-construction-kerf-right/connection-axes.csv",
     )
     report["source_sha256"] = {}
     for name in sources:
         path = root / "source_snapshots" / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(name)
+        path.write_text(
+            'CASES = {"a1-rear": ("A1", (0., 300.))}'
+            if name == "scripts/clear_space_batch.py" else name
+        )
         report["source_sha256"][name] = hashlib.sha256(path.read_bytes()).hexdigest()
     report["artifact_sha256"] = {
         str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
@@ -200,6 +206,80 @@ def test_tampered_artifact_rejected(tmp_path, artifact):
     (tmp_path / artifact).write_text("tampered")
     with pytest.raises(ValueError, match="digest mismatch"):
         extract_files(report)
+
+
+@pytest.mark.parametrize("artifact", ["cycle-00/input.json", "diagnostic-scope.json"])
+def test_required_artifact_cannot_be_omitted_from_manifest(tmp_path, artifact):
+    path = _fixture(tmp_path)
+    report = json.loads(path.read_text())
+    report["artifact_sha256"].pop(artifact)
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="required artifact"):
+        extract_files(path)
+
+
+def test_final_cycle_cannot_escape_report_directory(tmp_path):
+    path = _fixture(tmp_path)
+    report = json.loads(path.read_text())
+    report["contact_cycles"][-1]["directory"] = "../../outside"
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="outside report directory|final cycle"):
+        extract_files(path)
+
+
+def test_scope_sidecar_cannot_be_symlinked(tmp_path):
+    path = _fixture(tmp_path)
+    scope = tmp_path / "diagnostic-scope.json"
+    scope.rename(tmp_path / "scope-backing.json")
+    scope.symlink_to("scope-backing.json")
+    with pytest.raises(ValueError, match="scope sidecar"):
+        extract_files(path)
+
+
+@pytest.mark.parametrize("changed_force", [-1000.0, 0.0])
+def test_consistently_changed_vertical_load_is_rejected(tmp_path, changed_force):
+    path = _fixture(tmp_path)
+    record_path = tmp_path / "cycle-00/input.json"
+    record = json.loads(record_path.read_text())
+    report = json.loads(path.read_text())
+    record["force_xyz_n"][2] = changed_force
+    report["parameters"]["force_xyz_n"][2] = changed_force
+    record_path.write_text(json.dumps(record))
+    report["artifact_sha256"]["cycle-00/input.json"] = hashlib.sha256(
+        record_path.read_bytes()
+    ).hexdigest()
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="Candidate or case identity mismatch"):
+        extract_files(path)
+
+
+def test_authenticated_case_definition_controls_full_load_vector(tmp_path):
+    path = _fixture(tmp_path)
+    source_path = tmp_path / "source_snapshots/scripts/clear_space_batch.py"
+    source_path.write_text('CASES = {"a1-rear": ("A1", (0., 301.))}')
+    report = json.loads(path.read_text())
+    digest = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    report["source_sha256"]["scripts/clear_space_batch.py"] = digest
+    report["artifact_sha256"]["source_snapshots/scripts/clear_space_batch.py"] = digest
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="Candidate or case identity mismatch"):
+        extract_files(path)
+
+
+def test_consistently_changed_equipment_mass_is_rejected(tmp_path):
+    path = _fixture(tmp_path)
+    record_path = tmp_path / "cycle-00/input.json"
+    record = json.loads(record_path.read_text())
+    report = json.loads(path.read_text())
+    record["equipment_kg"] = 0.0
+    report["parameters"]["equipment_kg"] = 0.0
+    record_path.write_text(json.dumps(record))
+    report["artifact_sha256"]["cycle-00/input.json"] = hashlib.sha256(
+        record_path.read_bytes()
+    ).hexdigest()
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="Candidate or case identity mismatch"):
+        extract_files(path)
 
 
 def test_unconverged_report_rejected(tmp_path):
