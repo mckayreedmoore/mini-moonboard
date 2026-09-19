@@ -14,6 +14,13 @@ def test_a66_parallel_lane_covers_all_24_stations_with_four_bolts_each() -> None
     assert len(interfaces) == 24
     assert all(joint.assessment_status == "prototype" for joint in joints)
     assert all(not fastener.holes for fastener in fasteners)
+    by_id = {fastener.physical_fastener_id: fastener for fastener in fasteners}
+    for joint in joints:
+        plates = [
+            next(part.component_id for part in by_id[fastener_id].ordered_stack if part.role == "plate")
+            for fastener_id in joint.fastener_ids
+        ]
+        assert plates == ["a66_flange_a", "a66_flange_a", "a66_flange_b", "a66_flange_b"]
 
 
 def test_a66_lane_keeps_structural_threads_in_metal() -> None:

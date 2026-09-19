@@ -1,0 +1,38 @@
+{
+  "status": "candidate_only_geometry_option_under_review",
+  "user_direction": "Shift the two center supports outward to avoid stacked hardware.",
+  "source_geometry": {
+    "frame_module": "mini_moonboard/split_center_frame.py",
+    "panel_axis_source": "docs/floor-flush-construction/connection-axes.csv",
+    "center_supports": ["base_principal_center_left", "base_principal_center_right"],
+    "center_posts": ["base_post_center_left", "base_post_center_right"],
+    "baseline_center_x_mm": [-70.0, 70.0],
+    "nominal_support_width_x_mm": 38.1,
+    "baseline_clear_gap_mm": 101.9,
+    "baseline_panel_seam_overhang_mm": 50.95,
+    "retained_panel_kicker_axes_into_these_supports": 20,
+    "retained_axis_x_mm": [-70.0, 70.0],
+    "retained_axis_occupied_diameter_mm": 4.1402
+  },
+  "symmetric_outward_shift_screen": {
+    "definition": "Move left center support/post toward negative X by delta and right toward positive X by delta, without moving panel/kicker screw axes.",
+    "gap_formula_mm": "101.9 + 2*delta",
+    "panel_overhang_formula_mm": "50.95 + delta",
+    "minimum_axis_center_to_nearest_support_edge_formula_mm": "19.05 - delta",
+    "minimum_occupied_bore_edge_material_formula_mm": "19.05 - delta - 4.1402/2",
+    "absolute_geometric_delta_limit_mm": 16.9799,
+    "screen_samples": [
+      {"delta_mm": 0, "clear_gap_mm": 101.9, "panel_overhang_mm": 50.95, "minimum_bore_edge_material_mm": 16.9799},
+      {"delta_mm": 5, "clear_gap_mm": 111.9, "panel_overhang_mm": 55.95, "minimum_bore_edge_material_mm": 11.9799},
+      {"delta_mm": 10, "clear_gap_mm": 121.9, "panel_overhang_mm": 60.95, "minimum_bore_edge_material_mm": 6.9799},
+      {"delta_mm": 15, "clear_gap_mm": 131.9, "panel_overhang_mm": 65.95, "minimum_bore_edge_material_mm": 1.9799}
+    ]
+  },
+  "limits": [
+    "The geometric maximum only keeps the existing occupied panel bore inside the 38.1 mm support; it is not an edge-distance, withdrawal, or panel-strength acceptance.",
+    "No A66 factory bolt locations or actual stacked-hardware envelope are documented, so the offset required to clear them cannot yet be calculated.",
+    "An outward shift alters panel edge support and all center clip/post interfaces. The historical native responses do not transfer.",
+    "Moving the 20 panel/kicker axes would change the frozen panel contract and requires an explicit revision; this screen holds them fixed."
+  ],
+  "disposition": "A small outward shift is geometrically possible with the retained axes, but no offset is selected or released until the hardware interference and panel support are checked."
+}

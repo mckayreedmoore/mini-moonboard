@@ -53,19 +53,19 @@ class HoleDefinition:
 
 @dataclass(frozen=True)
 class StackComponent:
-    """An ordered bearing element in a fastener's installed stack."""
+    """An ordered bearing element; None thickness means the grip is unresolved."""
 
     order: int
     component_id: str
     role: Literal["head", "washer", "plate", "receiver", "nut", "spacer"]
-    thickness_mm: float
+    thickness_mm: float | None
     substrate: ThreadSubstrate
     retained_on_move: bool
 
     def __post_init__(self) -> None:
         if self.order < 0 or not self.component_id:
             raise ConnectionRecordError("stack order and component_id are required")
-        if self.thickness_mm < 0:
+        if self.thickness_mm is not None and self.thickness_mm < 0:
             raise ConnectionRecordError("stack thickness cannot be negative")
 
 
@@ -227,8 +227,13 @@ def ab90_prototype_fastener(fastener_id: str = "ab90_proto_m10_1") -> FastenerRe
     )
 
 
-def a66_prototype_fastener(fastener_id: str = "a66_proto_3_8_1") -> FastenerRecord:
-    """Return an A66 through-bolt stack with unresolved product-hole geometry."""
+def a66_prototype_fastener(
+    fastener_id: str = "a66_proto_3_8_1", flange: Literal["a", "b"] = "a"
+) -> FastenerRecord:
+    """Return one A66 flange-to-timber bolt with unresolved bore geometry."""
+    if flange not in ("a", "b"):
+        raise ValueError("A66 flange must be a or b")
+    flange_id = f"a66_flange_{flange}"
     return FastenerRecord(
         physical_fastener_id=fastener_id,
         product_or_design_id="Simpson-A66-prototype-3/8-through-bolt",
@@ -245,17 +250,16 @@ def a66_prototype_fastener(fastener_id: str = "a66_proto_3_8_1") -> FastenerReco
         ordered_stack=(
             StackComponent(0, "bolt_head", "head", 8.0, "metal", True),
             StackComponent(1, "washer_a", "washer", 3.0, "metal", True),
-            StackComponent(2, "a66_flange_a", "plate", 2.5, "metal", True),
-            StackComponent(3, "timber_receiver", "receiver", 38.1, "wood", False),
-            StackComponent(4, "a66_flange_b", "plate", 2.5, "metal", True),
-            StackComponent(5, "washer_b", "washer", 3.0, "metal", True),
-            StackComponent(6, "nut", "nut", 8.0, "metal", True),
+            StackComponent(2, flange_id, "plate", 2.5, "metal", True),
+            StackComponent(3, "timber_receiver", "receiver", None, "wood", False),
+            StackComponent(4, "washer_b", "washer", 3.0, "metal", True),
+            StackComponent(5, "nut", "nut", 8.0, "metal", True),
         ),
         smooth_body_mm=(0.0, 90.0),
         thread_runout_mm=(0.0, 90.0),
         engagement_bounds_mm=(0.0, 0.0),
         holes=(),
-        bearing_elements=("washer_a", "a66_flange_a", "a66_flange_b", "washer_b"),
+        bearing_elements=("washer_a", flange_id, "washer_b"),
         tool_envelope="A66 factory hole diameter, washer size, and access envelope unresolved",
         insertion_vector=(1.0, 0.0, 0.0),
         retained_on_move=True,

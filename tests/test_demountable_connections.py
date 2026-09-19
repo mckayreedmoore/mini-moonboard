@@ -41,6 +41,9 @@ def test_a66_stack_keeps_missing_factory_hole_geometry_explicit() -> None:
     assert fastener.thread_substrate_during_operation == "metal"
     assert fastener.holes == ()
     assert "hole diameter" in fastener.tool_envelope
+    assert [part.component_id for part in fastener.ordered_stack if part.role == "plate"] == ["a66_flange_a"]
+    assert next(part for part in fastener.ordered_stack if part.role == "receiver").thickness_mm is None
+    assert [part.component_id for part in a66_prototype_fastener(flange="b").ordered_stack if part.role == "plate"] == ["a66_flange_b"]
 
 
 def test_cross_record_validation_accepts_shared_physical_identity() -> None:

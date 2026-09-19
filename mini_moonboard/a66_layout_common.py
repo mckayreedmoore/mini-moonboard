@@ -51,10 +51,10 @@ def family_records(family: str) -> tuple[JointRecord, ...]:
 def family_fasteners(family: str) -> tuple[FastenerRecord, ...]:
     result = []
     for joint in family_records(family):
-        for fastener_id in joint.fastener_ids:
+        for index, fastener_id in enumerate(joint.fastener_ids):
             result.append(
                 replace(
-                    a66_prototype_fastener(fastener_id),
+                    a66_prototype_fastener(fastener_id, "a" if index < 2 else "b"),
                     legacy_mapping=joint.legacy_station_or_axis_ids,
                 )
             )
