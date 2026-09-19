@@ -24,6 +24,7 @@ def _fixture(tmp_path):
     spring_n_per_mm = 10_000.0
     spring = {"axial_n_per_mm": spring_n_per_mm, "lateral_n_per_mm": spring_n_per_mm}
     physical = {}
+    springs = []
     angles = []
     stations = []
     for name, wood, sign, wood_z, steel_z in (
@@ -52,16 +53,22 @@ def _fixture(tmp_path):
         )
         for i, point in enumerate(vertical_points):
             physical[f"{name}_wood_{i}"] = _row(wood, name, point, 4.5 * sign)
+            for dof in (1, 2, 3):
+                springs.append({"name": f"{name}_wood_{i}", "dof": dof,
+                                "stiffness_n_per_mm": spring_n_per_mm})
         for i, point in enumerate(contact_points):
             physical[f"{name}_flange_contact_{i}"] = _row(
                 "base_header", name, point, -sign
             )
+            springs.append({
+                "name": f"{name}_flange_contact_{i}", "dof": 1,
+                "stiffness_n_per_mm": spring_n_per_mm,
+            })
         physical[f"{name}_direct_contact"] = _row(
             wood, "base_header", [0, 0, steel_z], 0
         )
 
     bolts = []
-    springs = []
     for i, x in enumerate((-1, 1)):
         name = f"trial_bolt_{i}"
         top, bottom = [x, 0, 1], [x, 0, -1]
@@ -77,10 +84,16 @@ def _fixture(tmp_path):
         )
         physical[f"{name}_upper_steel"] = _row(upper, name, top, 2.5)
         physical[f"{name}_lower_steel"] = _row(lower, name, bottom, -2.5)
+        for angle in (upper, lower):
+            springs.extend({
+                "name": f"{name}_{angle}", "dof": dof,
+                "stiffness_n_per_mm": spring_n_per_mm,
+            } for dof in (1, 2, 3))
         for side, point in (("upper", bore_upper), ("lower", bore_lower)):
             branch = f"{name}_header_bearing_{side}"
             physical[branch] = _row("base_header", name, point, 0)
-            springs.extend({"name": branch, "dof": dof} for dof in (1, 2))
+            springs.extend({"name": branch, "dof": dof,
+                            "stiffness_n_per_mm": spring_n_per_mm} for dof in (1, 2))
 
     widths = {}
     for part in ("main_lower", "main_upper", "kicker"):
@@ -317,14 +330,14 @@ def test_wrong_bore_dof_rejected(tmp_path):
     path = _fixture(tmp_path)
     record_path = tmp_path / "cycle-00/input.json"
     record = json.loads(record_path.read_text())
-    record["springs"][0]["dof"] = 3
+    next(row for row in record["springs"] if "_header_bearing_" in row["name"])["dof"] = 3
     record_path.write_text(json.dumps(record))
     report = json.loads(path.read_text())
     report["artifact_sha256"]["cycle-00/input.json"] = hashlib.sha256(
         record_path.read_bytes()
     ).hexdigest()
     path.write_text(json.dumps(report))
-    with pytest.raises(ValueError, match="lateral-only"):
+    with pytest.raises(ValueError, match="Realized joint springs"):
         extract_files(path)
 
 
@@ -341,4 +354,77 @@ def test_scope_spring_mismatch_rejected(tmp_path):
     ).hexdigest()
     path.write_text(json.dumps(report))
     with pytest.raises(ValueError, match="Joint slip scope"):
+        extract_files(path)
+
+
+def test_independent_stiffness_scope_survives_into_extraction(tmp_path):
+    path = _fixture(tmp_path)
+    scope_path = tmp_path / "diagnostic-scope.json"
+    record_path = tmp_path / "cycle-00/input.json"
+    scope = json.loads(scope_path.read_text())
+    record = json.loads(record_path.read_text())
+    scope.update(
+        vertical_bolt_axial_n_per_mm=10000.0,
+        vertical_bolt_lateral_n_per_mm=10000.0,
+        steel_to_bolt_axial_n_per_mm=10000.0,
+        steel_to_bolt_lateral_n_per_mm=10000.0,
+        header_bore_total_lateral_n_per_mm=30000.0,
+        flange_contact_n_per_mm=10000.0,
+        dynamic_factor=2.0,
+    )
+    record["diagnostic_center_joint"]["wood_bearing_lateral_n_per_mm"] = 15000.0
+    for spring in record["springs"]:
+        if "_header_bearing_" in spring["name"]:
+            spring["stiffness_n_per_mm"] = 15000.0
+    scope_path.write_text(json.dumps(scope))
+    record_path.write_text(json.dumps(record))
+    report = json.loads(path.read_text())
+    report["diagnostic_scope"] = scope
+    for artifact, target in (("diagnostic-scope.json", scope_path),
+                             ("cycle-00/input.json", record_path)):
+        report["artifact_sha256"][artifact] = hashlib.sha256(target.read_bytes()).hexdigest()
+    path.write_text(json.dumps(report))
+    result = extract_files(path)
+    assert result["source"]["diagnostic_scope"] == scope
+    assert result["source"]["native_load_parameters"] == report["parameters"]
+
+    record["diagnostic_center_joint"]["wood_bearing_lateral_n_per_mm"] = 10000.0
+    record_path.write_text(json.dumps(record))
+    report["artifact_sha256"]["cycle-00/input.json"] = hashlib.sha256(
+        record_path.read_bytes()
+    ).hexdigest()
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="Joint slip scope"):
+        extract_files(path)
+
+
+def test_realized_joint_spring_mismatch_rejected(tmp_path):
+    path = _fixture(tmp_path)
+    record_path = tmp_path / "cycle-00/input.json"
+    record = json.loads(record_path.read_text())
+    spring = next(row for row in record["springs"] if row["name"].endswith("_header_bearing_upper"))
+    spring["stiffness_n_per_mm"] = 9000.0
+    record_path.write_text(json.dumps(record))
+    report = json.loads(path.read_text())
+    report["artifact_sha256"]["cycle-00/input.json"] = hashlib.sha256(
+        record_path.read_bytes()
+    ).hexdigest()
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="Realized joint springs"):
+        extract_files(path)
+
+
+def test_partial_independent_stiffness_scope_is_rejected(tmp_path):
+    path = _fixture(tmp_path)
+    scope_path = tmp_path / "diagnostic-scope.json"
+    scope = json.loads(scope_path.read_text())
+    scope["vertical_bolt_axial_n_per_mm"] = 5000.0
+    scope_path.write_text(json.dumps(scope))
+    report = json.loads(path.read_text())
+    report["diagnostic_scope"] = scope
+    report["artifact_sha256"]["diagnostic-scope.json"] = hashlib.sha256(
+        scope_path.read_bytes()
+    ).hexdigest()
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="partial independent"):
         extract_files(path)

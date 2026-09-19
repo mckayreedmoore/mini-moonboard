@@ -72,6 +72,17 @@ unequal in this solve, so the symmetric double-shear shortcut is not established
 Stiffness variation materially changes bolt sharing; these three points are not
 physical stiffness bounds or a capacity envelope.
 
+The original three runs used one **historical common-scale diagnostic** knob:
+vertical wood/bolt axial and lateral, steel-flange/bolt axial and lateral, each
+of two header-bore point springs, and each flange contact all received the
+listed value. The [runner](../scripts/bolted_center_native_diagnostic.py) now
+accepts those consequential mechanisms independently. Its header-bore input
+is the **total** lateral stiffness per shared bolt, split equally between the
+two point springs; the historical 10,000 N/mm per-point case therefore means
+20,000 N/mm total. These are specified diagnostic inputs, not measured
+stiffnesses or clearances. No new independent-parameter native result is
+claimed here, and no few-point sensitivity is an uncertainty envelope.
+
 The [grain-direction classifier](../scripts/bolted_center_load_classification.py)
 uses the authenticated final input's actual member axes, not a guessed vertical
 grain. At the principal bolt closest to the oblique end, its lateral action on
@@ -104,6 +115,19 @@ checks passed for the intermediate cycles, but the contact acceptance gate did
 not; **none of its forces are used**. The local report SHA-256 is
 `a0cdeab984c7860fa10a58502062dbe6046908c9b8b03be909f683b97df8043b`.
 No alternate contact schedule is being tuned here to turn that failure into a pass.
+
+The compact failure diagnosis is an **algorithmic active-set cycle**, not an
+established physical instability. Cycle 16 was solved, but its contact update
+would return to the active set of cycle 11, so cycle 17 was not solved. Late
+active-contact counts for cycles 11–16 were `136, 139, 140, 133, 140, 137`;
+none passed the unilateral check. In cycles 14/15/16, lower-left AB205 flange
+contact 0 switched on/off/on, as did a left floor/leg contact, while a neighboring
+left floor/leg contact switched off/on/off. Cycle 16 still had ten unilateral
+violations (five active, five inactive). Global/member equilibrium and MPC passed
+for that trial state, but contact convergence and numerical acceptance failed;
+there is no qualified `a12-forward` force. The local final trial report and input
+SHA-256 values are `fc5c8469ae0f6e4f66710936e194d784f6826f703603e452eaed1204fd2758f9`
+and `236515d6affac92543bcda530f878e1f13ed80e5ac83bbbcac1488ed8a98b8ba`.
 
 Next: establish defensible connection slip/contact assumptions, complete the other
 unchanged load cases, and check the same joint's wood/bolt/formed-steel resistance

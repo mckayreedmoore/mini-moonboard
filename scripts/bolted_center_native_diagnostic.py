@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from fea import current_response_run as native
@@ -38,24 +39,46 @@ LOADED_SOURCES = _sources()
 
 
 def run_case(
-    case, output, *, spring_n_per_mm, max_cycles=30, contact_update_strategy="all"
+    case, output, *, spring_n_per_mm,
+    vertical_bolt_axial_n_per_mm=None, vertical_bolt_lateral_n_per_mm=None,
+    steel_to_bolt_axial_n_per_mm=None, steel_to_bolt_lateral_n_per_mm=None,
+    header_bore_total_lateral_n_per_mm=None, flange_contact_n_per_mm=None,
+    max_cycles=30, contact_update_strategy="all"
 ):
     """Keep the old surrounding frame, but replace the actual left-center topology."""
-    if case not in CASES or not 0 < spring_n_per_mm <= 1e12:
+    if case not in CASES:
+        raise ValueError("Require a known case")
+    stiffness = {
+        "vertical_bolt_axial_n_per_mm": vertical_bolt_axial_n_per_mm,
+        "vertical_bolt_lateral_n_per_mm": vertical_bolt_lateral_n_per_mm,
+        "steel_to_bolt_axial_n_per_mm": steel_to_bolt_axial_n_per_mm,
+        "steel_to_bolt_lateral_n_per_mm": steel_to_bolt_lateral_n_per_mm,
+        "header_bore_total_lateral_n_per_mm": header_bore_total_lateral_n_per_mm,
+        "flange_contact_n_per_mm": flange_contact_n_per_mm,
+    }
+    if type(spring_n_per_mm) not in (int, float) or not math.isfinite(spring_n_per_mm) or not 0 < spring_n_per_mm <= 1e12:
         raise ValueError("Require a known case and finite positive provisional spring")
+    stiffness = {name: (2 * spring_n_per_mm if name == "header_bore_total_lateral_n_per_mm"
+                        else spring_n_per_mm) if value is None else value
+                 for name, value in stiffness.items()}
+    if any(type(value) not in (int, float) or not math.isfinite(value)
+           or not 0 < value <= (2e12 if name == "header_bore_total_lateral_n_per_mm" else 1e12)
+           for name, value in stiffness.items()):
+        raise ValueError("Independent stiffness values must be finite positive and bounded")
     if (
         _sources() != LOADED_SOURCES
         or ORIGINAL_SOURCES() != native.LOADED_SOURCE_SHA256
     ):
         raise ValueError("Producer sources changed after import; restart diagnostic")
     module = probe.DiagnosticCenterBolted()
-    spring = {"axial_n_per_mm": spring_n_per_mm, "lateral_n_per_mm": spring_n_per_mm}
     joint = bolted_center_joint_model.shared_center_joint(
         module,
-        vertical_spring=spring,
-        steel_bolt_spring=spring,
-        wood_bearing_lateral_n_per_mm=spring_n_per_mm,
-        flange_contact_n_per_mm=spring_n_per_mm,
+        vertical_spring={"axial_n_per_mm": stiffness["vertical_bolt_axial_n_per_mm"],
+                         "lateral_n_per_mm": stiffness["vertical_bolt_lateral_n_per_mm"]},
+        steel_bolt_spring={"axial_n_per_mm": stiffness["steel_to_bolt_axial_n_per_mm"],
+                           "lateral_n_per_mm": stiffness["steel_to_bolt_lateral_n_per_mm"]},
+        wood_bearing_lateral_n_per_mm=stiffness["header_bore_total_lateral_n_per_mm"] / 2,
+        flange_contact_n_per_mm=stiffness["flange_contact_n_per_mm"],
     )
     retained = {
         c.name: bolt_properties(c) for c in module.connections() if c.kind == "bolt"
@@ -78,6 +101,7 @@ def run_case(
             diagnostic_center_joint=joint,
             hold=hold,
             pounds=250.0,
+            dynamic_factor=2.0,
             horizontal_force=force,
             leg_floor_grid=3,
             patch_size=20.0,
@@ -90,6 +114,8 @@ def run_case(
         "connector_topology": "two nominal left-center AB205 rigid angles with two shared header bolt bodies",
         "remaining_connectors": "baseline ML24Z/SDS proxy",
         "spring_n_per_mm": spring_n_per_mm,
+        **stiffness,
+        "dynamic_factor": 2.0,
         "shaft_idealization": "free rigid shaft with two tilt DOFs; two lateral-only bore branches",
         "flange_contact": "four sampled compression-only contacts per angle; no preload",
         "legacy_center_hardware_mass_surrogate": True,
@@ -117,6 +143,12 @@ if __name__ == "__main__":
     parser.add_argument("case", choices=CASES)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--spring-n-per-mm", type=float, required=True)
+    for name in (
+        "vertical_bolt_axial_n_per_mm", "vertical_bolt_lateral_n_per_mm",
+        "steel_to_bolt_axial_n_per_mm", "steel_to_bolt_lateral_n_per_mm",
+        "header_bore_total_lateral_n_per_mm", "flange_contact_n_per_mm",
+    ):
+        parser.add_argument("--" + name.replace("_", "-"), type=float)
     parser.add_argument("--max-cycles", type=int, default=30)
     parser.add_argument(
         "--contact-update-strategy",
@@ -128,6 +160,11 @@ if __name__ == "__main__":
         args.case,
         args.output,
         spring_n_per_mm=args.spring_n_per_mm,
+        **{name: getattr(args, name) for name in (
+            "vertical_bolt_axial_n_per_mm", "vertical_bolt_lateral_n_per_mm",
+            "steel_to_bolt_axial_n_per_mm", "steel_to_bolt_lateral_n_per_mm",
+            "header_bore_total_lateral_n_per_mm", "flange_contact_n_per_mm",
+        )},
         max_cycles=args.max_cycles,
         contact_update_strategy=args.contact_update_strategy,
     )

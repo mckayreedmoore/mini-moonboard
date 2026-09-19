@@ -14,6 +14,11 @@ GEOMETRY = "compact-floor-flush-bolted-development-kerf-right"
 POUNDS_TO_KG = 0.45359237
 STANDARD_GRAVITY_M_PER_S2 = 9.80665
 HISTORICAL_DYNAMIC_FACTOR = 2.0
+JOINT_STIFFNESS_FIELDS = (
+    "vertical_bolt_axial_n_per_mm", "vertical_bolt_lateral_n_per_mm",
+    "steel_to_bolt_axial_n_per_mm", "steel_to_bolt_lateral_n_per_mm",
+    "header_bore_total_lateral_n_per_mm", "flange_contact_n_per_mm",
+)
 
 
 def _digest(path):
@@ -38,6 +43,72 @@ def _source_cases(root):
             "Authenticated case producer CASES is not a mapping"
         )
     return cases
+
+
+def _expected_joint_stiffness(scope):
+    """Resolve legacy per-point or explicit independent scope without mixing them."""
+    spring = scope.get("spring_n_per_mm")
+    if (type(spring) not in (int, float) or not math.isfinite(spring)
+            or not 0 < spring <= 1e12):
+        raise ValueError("Joint slip scope lacks a valid historical spring")
+    present = [field in scope for field in JOINT_STIFFNESS_FIELDS]
+    if any(present) and not all(present):
+        raise ValueError("Joint slip scope has partial independent stiffness")
+    values = ({field: scope[field] for field in JOINT_STIFFNESS_FIELDS}
+              if all(present) else {
+                  field: 2 * spring if field == "header_bore_total_lateral_n_per_mm" else spring
+                  for field in JOINT_STIFFNESS_FIELDS
+              })
+    if any(type(value) not in (int, float) or not math.isfinite(value)
+           or not 0 < value <= (2e12 if field == "header_bore_total_lateral_n_per_mm"
+                                 else 1e12)
+           for field, value in values.items()):
+        raise ValueError("Joint slip scope has invalid independent stiffness")
+    return {
+        "vertical_spring": {"axial_n_per_mm": values["vertical_bolt_axial_n_per_mm"],
+                            "lateral_n_per_mm": values["vertical_bolt_lateral_n_per_mm"]},
+        "steel_bolt_spring": {"axial_n_per_mm": values["steel_to_bolt_axial_n_per_mm"],
+                              "lateral_n_per_mm": values["steel_to_bolt_lateral_n_per_mm"]},
+        "wood_bearing_lateral_n_per_mm": values["header_bore_total_lateral_n_per_mm"] / 2,
+        "flange_contact_n_per_mm": values["flange_contact_n_per_mm"],
+    }
+
+
+def _verify_realized_joint_springs(record, spec, expected):
+    """Bind scoped diagnostic stiffnesses to the actual final-cycle FE springs."""
+    required = {}
+    for angle in spec["angles"]:
+        name = angle["name"]
+        for index in range(len(angle["vertical_points"])):
+            for dof in (1, 2, 3):
+                required[(f"{name}_wood_{index}", dof)] = expected["vertical_spring"][
+                    "axial_n_per_mm" if dof == 1 else "lateral_n_per_mm"
+                ]
+        for index in range(len(angle["contact_points"])):
+            required[(f"{name}_flange_contact_{index}", 1)] = expected[
+                "flange_contact_n_per_mm"
+            ]
+    for bolt in spec["shared_header_bolts"]:
+        name = bolt["name"]
+        for angle in spec["angles"]:
+            for dof in (1, 2, 3):
+                required[(f"{name}_{angle['name']}", dof)] = expected[
+                    "steel_bolt_spring"
+                ]["axial_n_per_mm" if dof == 1 else "lateral_n_per_mm"]
+        for side in ("upper", "lower"):
+            for dof in (1, 2):
+                required[(f"{name}_header_bearing_{side}", dof)] = expected[
+                    "wood_bearing_lateral_n_per_mm"
+                ]
+    found = {}
+    for spring in record.get("springs", []):
+        key = (spring.get("name"), spring.get("dof"))
+        if key in required:
+            if key in found:
+                raise ValueError("Duplicate diagnostic joint spring")
+            found[key] = spring.get("stiffness_n_per_mm")
+    if found != required:
+        raise ValueError("Realized joint springs differ from diagnostic scope")
 
 
 def _manifest(report, root):
@@ -371,14 +442,11 @@ def extract_files(report_path, record_path=None):
     ):
         raise ValueError("Diagnostic scope mismatch")
     spec = record.get("diagnostic_center_joint", {})
-    spring = scope.get("spring_n_per_mm")
-    if (not isinstance(spec, dict) or not isinstance(spring, (float, int))
-            or not math.isfinite(spring) or spring <= 0
-            or any(spec.get(name) != spring for name in
-                   ("wood_bearing_lateral_n_per_mm", "flange_contact_n_per_mm"))
-            or any(spec.get(name) != {"axial_n_per_mm": spring, "lateral_n_per_mm": spring}
-                   for name in ("vertical_spring", "steel_bolt_spring"))):
+    expected_stiffness = _expected_joint_stiffness(scope)
+    if (not isinstance(spec, dict)
+            or any(spec.get(name) != value for name, value in expected_stiffness.items())):
         raise ValueError("Joint slip scope differs from native record")
+    _verify_realized_joint_springs(record, spec, expected_stiffness)
     case = scope.get("case")
     expected = _source_cases(root).get(case)
     force = record.get("force_xyz_n")
@@ -438,6 +506,8 @@ def extract_files(report_path, record_path=None):
             "case": case,
             "report_sha256": _digest(report_path),
             "record_sha256": _digest(record_path),
+            "diagnostic_scope": scope,
+            "native_load_parameters": report["parameters"],
             "producer_sha256": {
                 name: sources[name]
                 for name in (
