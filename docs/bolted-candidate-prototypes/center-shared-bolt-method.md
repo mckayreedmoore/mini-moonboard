@@ -30,3 +30,16 @@ are available for that calculation yet.
 The present [two-member six-mode helper](../../mini_moonboard/bolted_steel_wood_yield.py)
 must not be applied directly to the shared stack. This method gate does not
 select AB205, establish a load rating, or release drilling.
+
+The steel-side limit is independent of that timber calculation. ABB calls
+AB205 a [1/4-in steel fitting](https://empower.abb.com/ecatalog/ec/EN_NA/p/AB205EG)
+and its [fittings catalog](https://www.tnb.ca/en/pdf-catalogues/metal-framing-fastening-and-identification/metal-framing/fittings-and-brackets.pdf)
+calls the family hot-rolled carbon steel, but neither supplies a guaranteed
+AB205 yield/tensile strength, bend resistance, or wood-joint rating. ABB's
+[2,000-lb AB205 entry](https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf)
+is for the illustrated both-ends-supported A1200/A1400 strut-channel
+configuration; it cannot be transferred to this timber assembly. A future
+component route needs traceable fitting material and formed geometry, actual
+joint actions/contact, and applicable hole bearing/tear-out, net-section,
+bend/prying, bolt interaction, and washer-seat checks. Common carbon-steel
+properties or a Grade 5 bolt rating cannot fill the fitting-property gap.
