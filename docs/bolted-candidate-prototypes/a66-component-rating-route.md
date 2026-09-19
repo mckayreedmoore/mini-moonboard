@@ -27,6 +27,12 @@ terms, and fastener bending, steel bearing, and other modes can govern. Full
 delivered bolt's shank/thread position. Do not use either product to pass a
 joint or select a bolt count.
 
+The narrowly scoped `dfl_dowel_bearing_psi` helper in
+`mini_moonboard/bolted_timber_checks.py` reproduces these rounded solid-wood
+inputs and the angle-to-grain interpolation. Its tests cover the 0°, 45°, and
+90° cases plus inapplicable inputs. It cannot be used for panel or end-grain
+bearing, bolt capacity, or complete connection acceptance.
+
 ## What combining component data can and cannot do
 
 A defensible **engineered design value** for one defined installation could be

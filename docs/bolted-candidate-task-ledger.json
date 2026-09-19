@@ -25,7 +25,7 @@
     {"id": "LB-08", "status": "incomplete", "depends_on": ["LB-07A", "LB-07B", "LB-07C", "LB-07D", "LB-07E", "LB-07F"], "note": "Inventory counts exist; no complete drilled CAD configuration or cross-family interference/access checks"},
     {"id": "LB-09", "status": "incomplete", "depends_on": ["LB-08"], "note": "AB90 prototype coordinate adapter exists; no complete selected bolted geometry at either width"},
     {"id": "LB-10", "status": "incomplete", "depends_on": ["LB-08"], "note": "Standalone mechanics helpers exist; no selected-connector stiffness/contact law coupled to native model"},
-    {"id": "LB-11A", "status": "incomplete", "depends_on": ["LB-10"], "note": "4d geometry screen only; timber bearing, splitting, group, grain, and net-section checks unresolved"},
+    {"id": "LB-11A", "status": "incomplete", "depends_on": ["LB-10"], "note": "Geometry and DF-L solid-wood bearing inputs implemented; joint yield, splitting, group, changed net-section, and response checks unresolved"},
     {"id": "LB-11B", "status": "incomplete", "depends_on": ["LB-10"], "note": "Factory-hole screen only; actual bolt, plate, washer, and prying resistance unresolved"},
     {"id": "LB-12", "status": "incomplete", "depends_on": ["LB-10"], "note": "Input fingerprint contract exists; no candidate mesh/contact adapter or deterministic native input set"},
     {"id": "LB-13", "status": "blocked", "depends_on": ["LB-09", "LB-11A", "LB-11B", "LB-12"], "gate": "G2"},
