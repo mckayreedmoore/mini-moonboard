@@ -128,6 +128,13 @@ connect the header. This keeps the concept set bounded rather than restarting ca
 The shared concept has **not** passed G1. Its top row has only 4.887 mm nominal reserve to
 either side of the conditional reversible 4D band, and the principal's nearest grain-parallel
 ray reaches its oblique end after 26.940 mm; neither is a verified installed end/edge margin.
+The alternate long-vertical AB205 orientation has only a 0.148294 mm total nominal
+two-edge 4D row band. The [row-allowance screen](../scripts/bolted_candidate_ab205_center_fit.py)
+shows that any symmetric lateral row-position allowance above 0.074147 mm closes that
+*conditional* band. This is a geometric threshold, not a chosen product/shop tolerance or
+a declaration that both edges govern every load case. For the short-vertical orientation,
+an illustrative 1 mm lumped lateral allowance still leaves 7.773898 mm in that band,
+but does not resolve its oblique end cut or qualify the joint.
 The AB205 material and formed-bend resistance, unequal two-flange bolt action, group/wood
 failure modes, bolt-axis action, real grip, and disassembly access still need a supported
 calculation or an exact concept change. A single DF-L bearing stress or bolt-shaft rating is

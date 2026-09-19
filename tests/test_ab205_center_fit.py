@@ -9,7 +9,35 @@ from scripts.bolted_candidate_ab205_center_fit import (
     screen_center_fit,
     screen_opposed_center_fit,
     screen_retained_axis_conflicts,
+    screen_reversible_row_tolerance,
 )
+
+
+def test_reversible_row_band_has_explicit_positioning_allowance():
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/ab205-center-fit.json").read_text()
+    )["conditional_row_position_allowance"]
+    long_nominal = screen_reversible_row_tolerance("long", 0)
+    assert long_nominal["maximum_symmetric_allowance_mm"] == pytest.approx(
+        record["long_vertical_max_symmetric_lateral_allowance_mm"]
+    )
+    assert long_nominal["nominal_window_exists"] is True
+    assert screen_reversible_row_tolerance("long", 0.1)["nominal_window_exists"] is record[
+        "long_vertical_nominal_window_with_0p1_mm_allowance"
+    ]
+    assert screen_reversible_row_tolerance("long", 0.074)["nominal_window_exists"] is True
+
+    short = screen_reversible_row_tolerance("short", 1)
+    assert short["nominal_window_exists"] is True
+    assert short["allowance_adjusted_window_width_mm"] == pytest.approx(
+        record["short_vertical_remaining_band_with_1_mm_allowance_mm"]
+    )
+    assert short["end_distance_classified"] is False
+    assert short["drilling_released"] is False
+
+    for invalid in (-0.1, float("nan"), float("inf"), True):
+        with pytest.raises(ValueError, match="allowance"):
+            screen_reversible_row_tolerance("short", invalid)
 
 
 def test_center_fit_uses_current_cad_and_keeps_release_closed():

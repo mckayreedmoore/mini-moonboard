@@ -1,7 +1,7 @@
 """Nominal AB205 holes on the current center butt; no connector approval."""
 
 import csv
-from math import hypot, pi
+from math import hypot, isfinite, pi
 from pathlib import Path
 from typing import Literal
 
@@ -177,6 +177,40 @@ def screen_center_fit(
         "principal_end_square_to_grain": abs(ny - 1) < 1e-6,
         "end_distance_classified": False,
         "angle_placement_verified": False,
+        "drilling_released": False,
+    }
+
+
+def screen_reversible_row_tolerance(
+    vertical_leg: Literal["long", "short"], lateral_allowance_mm: float
+) -> dict[str, object]:
+    """Shrink the conditional two-edge 4D row band by a supplied axis allowance.
+
+    The allowance must include all relevant row-position error in the local Y
+    direction. This does not establish actual product or shop tolerances, an
+    oblique-end rule, or a complete connection geometry check.
+    """
+    if (
+        isinstance(lateral_allowance_mm, bool)
+        or not isinstance(lateral_allowance_mm, (int, float))
+        or not isfinite(lateral_allowance_mm)
+        or lateral_allowance_mm < 0
+    ):
+        raise ValueError("lateral allowance must be finite and nonnegative")
+    nominal = screen_center_fit(vertical_leg)
+    lower = float(nominal["reversible_4d_y_lower_mm"]) + lateral_allowance_mm
+    upper = float(nominal["reversible_4d_y_upper_mm"]) - lateral_allowance_mm
+    return {
+        "vertical_leg": vertical_leg,
+        "lateral_allowance_mm": lateral_allowance_mm,
+        "maximum_symmetric_allowance_mm": round(
+            float(nominal["reversible_4d_y_band_width_mm"]) / 2, 6
+        ),
+        "allowance_adjusted_lower_y_mm": round(lower, 6),
+        "allowance_adjusted_upper_y_mm": round(upper, 6),
+        "allowance_adjusted_window_width_mm": round(upper - lower, 6),
+        "nominal_window_exists": lower <= upper,
+        "end_distance_classified": False,
         "drilling_released": False,
     }
 
