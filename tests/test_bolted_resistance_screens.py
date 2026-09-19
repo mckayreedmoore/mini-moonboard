@@ -2,6 +2,7 @@
 
 import pytest
 
+from mini_moonboard.a66_geometry_screen import screen_a66_geometry
 from mini_moonboard.bolted_steel_checks import screen_a66, screen_ab90
 from mini_moonboard.bolted_timber_checks import screen_geometry
 
@@ -29,3 +30,11 @@ def test_a66_screen_keeps_common_retail_bolt_capacity_unresolved() -> None:
     assert result.product == "Simpson Strong-Tie A66"
     assert result.hole_status == "nominal_fit"
     assert result.resistance_status.startswith("unresolved")
+
+
+def test_a66_narrow_2x6_face_fails_nominal_edge_screen() -> None:
+    result = screen_a66_geometry()
+    assert result.wide_face_status == "nominal_pass"
+    assert result.narrow_face_status == "nominal_fail"
+    assert result.narrow_face_edge_reserve_mm == pytest.approx(-23.8125)
+    assert result.capacity_status.startswith("unresolved")
