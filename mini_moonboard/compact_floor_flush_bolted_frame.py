@@ -6,6 +6,8 @@ are intentionally absent until their physical stacks and access checks exist.
 It must not be exported as a complete candidate.
 """
 
+import math
+from dataclasses import dataclass
 from functools import cache
 
 from . import compact_floor_flush_frame as baseline
@@ -25,6 +27,32 @@ STRUCTURAL_LAYOUTS_REQUIRED = FAMILY_NAMES
 
 class IncompleteCandidateError(RuntimeError):
     """Raised when a consumer asks the scaffold for a finished drilled model."""
+
+
+@dataclass(frozen=True)
+class ReportedExistingHole:
+    """Owner-sourced structural bore for a future retrofit geometry check."""
+
+    member_name: str
+    entry_xyz_mm: tuple[float, float, float]
+    direction_xyz: tuple[float, float, float]
+    diameter_mm: float
+    depth_mm: float
+    source: str
+
+    def __post_init__(self) -> None:
+        if not self.member_name or not self.source:
+            raise ValueError("existing hole needs member identity and evidence source")
+        if len(self.entry_xyz_mm) != 3 or not all(math.isfinite(value) for value in self.entry_xyz_mm):
+            raise ValueError("existing hole entry must be a finite 3-vector")
+        if len(self.direction_xyz) != 3 or not all(math.isfinite(value) for value in self.direction_xyz):
+            raise ValueError("existing hole direction must be a finite 3-vector")
+        if sum(value * value for value in self.direction_xyz) <= 0:
+            raise ValueError("existing hole direction must be nonzero")
+        if not math.isfinite(self.diameter_mm) or self.diameter_mm <= 0:
+            raise ValueError("existing hole diameter must be positive and finite")
+        if not math.isfinite(self.depth_mm) or self.depth_mm <= 0:
+            raise ValueError("existing hole depth must be positive and finite")
 
 
 def candidate_metadata() -> dict[str, object]:
@@ -83,8 +111,27 @@ def fastener_stack_records():
     return all_fasteners()
 
 
-def machining_records():
-    return all_machining_records()
+def machining_records(existing_holes: tuple[ReportedExistingHole, ...] | None = None):
+    """Keep reported retrofit bores distinct from proposed prototype machining."""
+    records = all_machining_records()
+    if existing_holes is None:
+        return records
+    structural_names = {part.name for part in uncut_wood_parts()
+                        if not part.name.startswith(("main_", "kicker_"))}
+    if any(not isinstance(hole, ReportedExistingHole) or hole.member_name not in structural_names
+           for hole in existing_holes):
+        raise ValueError("reported existing holes must belong to preserved structural timber")
+    reported = tuple({
+        "member_name": hole.member_name,
+        "entry_xyz_mm": hole.entry_xyz_mm,
+        "direction_xyz": hole.direction_xyz,
+        "diameter_mm": hole.diameter_mm,
+        "depth_mm": hole.depth_mm,
+        "source": hole.source,
+        "operation": "retain_reported_existing_bore_for_retrofit_check",
+        "status": "reported_not_geometry_verified",
+    } for hole in existing_holes)
+    return records + reported
 
 
 def assembly_interface_records():

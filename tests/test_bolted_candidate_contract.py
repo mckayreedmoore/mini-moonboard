@@ -40,3 +40,32 @@ def test_all_six_families_cover_exactly_24_prototype_stations() -> None:
     assert sum(len(layouts[name]) for name in FAMILY_NAMES) == 24
     assert len(candidate.fastener_stack_records()) == 48
     assert len(candidate.assembly_interface_records()) == 24
+
+
+def test_reported_retrofit_bore_is_explicit_and_does_not_release_finished_geometry() -> None:
+    reported = candidate.ReportedExistingHole(
+        member_name="base_principal_center_left",
+        entry_xyz_mm=(-70.0, -124.9, 320.0),
+        direction_xyz=(1.0, 0.0, 0.0),
+        diameter_mm=6.35,
+        depth_mm=38.1,
+        source="synthetic test fixture only",
+    )
+    original = candidate.machining_records()
+    with_existing = candidate.machining_records((reported,))
+    assert with_existing[:-1] == original
+    assert with_existing[-1]["status"] == "reported_not_geometry_verified"
+    assert with_existing[-1]["member_name"] == reported.member_name
+    with pytest.raises(candidate.IncompleteCandidateError):
+        candidate.parts()
+
+
+def test_retrofit_input_rejects_panel_receiver_and_unsourced_hole() -> None:
+    with pytest.raises(ValueError, match="structural timber"):
+        candidate.machining_records((candidate.ReportedExistingHole(
+            "main_lower_left", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), 6.35, 38.1,
+            "owner note"),))
+    with pytest.raises(ValueError, match="evidence source"):
+        candidate.ReportedExistingHole(
+            "base_header", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), 6.35, 38.1,
+            "")

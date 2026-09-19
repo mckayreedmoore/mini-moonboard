@@ -1,30 +1,173 @@
 {
   "task": "LB-02B",
-  "status": "incomplete_applicability_matrix",
-  "engineering_disposition": "screened; no option accepted",
+  "status": "complete_bounded_applicability_matrix",
+  "engineering_disposition": "screened; no option accepted for all 24 stations",
   "candidate": "compact-floor-flush-bolted-development",
-  "search_budget": {"distinct_families_screened": 3, "catalog_exhaustion_claimed": false},
+  "scope": {
+    "structural_stations": 24,
+    "structural_sds_axes": 144,
+    "retained_frame_bolt_stacks": 12,
+    "retained_panel_and_kicker_screws": 66,
+    "preserved_stock": "Solid 4x6 legs/rims, single 2x6 base members, and two outboard 2x6 runners; no doubled receiver, enlarged member, or custom steel.",
+    "single_2x6_thickness_mm": 38.1,
+    "single_2x6_broad_face_mm": 139.7,
+    "source": "AGENTS.md; docs/bolted-candidate-plan.md; docs/bolted-candidate-interfaces.json"
+  },
+  "search_budget": {
+    "distinct_families_screened": 3,
+    "exact_models_screened": 4,
+    "catalog_exhaustion_claimed": false,
+    "boundary": "Existing unmodified ML24Z, Simpson HL33/HL35, and Simpson AB90 only; A66 and HDB belong to separate tasks."
+  },
+  "sources": [
+    {
+      "id": "ml24z_product",
+      "url": "https://www.strongtie.com/decks_decksandfences/ml_angle/p/ml",
+      "scope": "Manufacturer product and specified SDS installation."
+    },
+    {
+      "id": "ml24z_cad",
+      "path": "docs/ml24z-reference.json",
+      "scope": "Manufacturer CAD nominal geometry and factory hole pattern; drawing tolerance unknown."
+    },
+    {
+      "id": "hl_catalog",
+      "url": "https://www.strongtie.com/resources/literature/wood-construction-connectors-catalog",
+      "detail": "Manufacturer C-C-2026 p.315, HL Heavy Angle and Gusset.",
+      "scope": "Model dimensions, bolt schedule, and catalog minimum member thickness."
+    },
+    {
+      "id": "ab90_product",
+      "url": "https://www.strongtie.co.uk/en-UK/products/angle-brackets-ab",
+      "scope": "Manufacturer AB90 dimensions, hole inventory, fixing options, and published action/table limits."
+    },
+    {
+      "id": "local_prerequisites",
+      "paths": [
+        "docs/bolted-candidate-prototypes/ml24z-through-bolt.json",
+        "docs/bolted-candidate-prototypes/simpson-ab90.json",
+        "docs/bolted-candidate-prototypes/narrow-opposing.json",
+        "docs/bolted-candidate-prototypes/center-header.json",
+        "docs/bolted-candidate-prototypes/outer-base.json"
+      ]
+    }
+  ],
   "alternatives": [
     {
       "id": "existing-ml24z-through-bolt",
-      "family": "existing ML24Z with through bolts",
+      "family": "existing unmodified ML24Z with proposed through bolts",
+      "exact_product_detail": "One Simpson ML24Z per existing station. Replace six specified SDS25112 screws with proposed 1/4 in machine through-bolts at factory holes; manufacturer bolt installation is unlisted.",
+      "receiver": {
+        "thickness_mm": 38.1,
+        "face": "Single 2x6 broad face 139.7 mm at some stations; 38.1 mm narrow face and solid 4x6 faces at others.",
+        "applicability": "Steel-hole shaft fit does not establish timber edge distance or installed fit."
+      },
+      "factory_hole_bolt_pattern": {
+        "hole_diameter_mm": 6.731,
+        "holes_per_flange": 3,
+        "holes_total": 6,
+        "width_stations_mm": [-38.1, 0, 38.1],
+        "front_flange_offsets_mm": [42.24274, 35.89274, 42.24274],
+        "opposite_flange_offsets_mm": [35.89274, 42.24274, 35.89274],
+        "proposed_shaft_diameter_mm": 6.35,
+        "diametric_clearance_mm": 0.381,
+        "qualification": "Nominal manufacturer CAD only; factory holes are not established as ordinary through-bolt clearance holes."
+      },
+      "orientation": "Keep existing right-angle placement. Loaded member, flange, grain direction, bolt axis, and narrow/broad face must be mapped separately at each station.",
+      "force_moment_coverage": {
+        "published": "ML24Z force data use six SDS25112 screws and cannot transfer to bolts.",
+        "bolted_force": "Unknown for separation, both shear axes, and mixed actions.",
+        "bolted_moment": "Unknown for flange bending, prying, and independent flange couple.",
+        "stiffness_slip": "Unknown."
+      },
+      "paired_use": "No credit for opposing angles, shared physical bolts, or a rated couple without a traced bearing/contact path and pair interaction basis.",
+      "fit": "Only nominal steel-hole shaft fit is shown. LB-03A rejects the current narrow-opposing 38.1 mm-face detail on geometry; other stations lack complete stack, neighboring-axis, access, and withdrawal checks.",
+      "fabrication_implications": "Needs new timber through-bores, full removable head/washer/nut stacks, and station-specific drilling and disassembly plans. Do not alter steel holes or reuse SDS ratings.",
+      "unresolved_fields": [
+        "Manufacturer-approved bolt installation in unmodified factory holes",
+        "Delivered hole tolerance, full stack, tool and withdrawal clearance",
+        "Timber grain, edge/end distance, splitting, bearing, net section",
+        "Bolt and steel hole bearing, flange bending, prying",
+        "Separation, combined force, moment, joint stiffness and slip"
+      ],
       "disposition": "unresolved",
-      "reason": "Nominal 1/4 in shaft fits the 6.731 mm hole, but installation, steel/prying, timber, and stiffness bases remain unresolved; SDS ratings do not transfer."
+      "source_ids": ["ml24z_product", "ml24z_cad", "local_prerequisites"]
     },
     {
       "id": "simpson-hl33-hl35",
-      "family": "factory-bolted heavy angle",
-      "source": "Section 4.4 of the v2 handoff; 2026 catalog page 315",
-      "disposition": "rejected_for_preserved_stock",
-      "reason": "The inspected detail requires at least 3-1/2 in member thickness for the relevant series; the preserved single 2x6 receiver is 1-1/2 in thick."
+      "family": "Simpson HL heavy angles, exact models HL33 and HL35 without optional gusset",
+      "exact_product_detail": "Factory-punched galvanized 7-ga right-angle models with catalog 1/2 in bolt schedules; the two models have different hole counts.",
+      "models": [
+        {
+          "model": "HL33",
+          "nominal_dimensions_in": {"legs_w1_w2": 3.25, "length_l": 2.5},
+          "factory_hole_bolt_pattern": "Two 1/2 in bolts total, one per flange; catalog D1=1-1/4 in and D3=2 in. Exact installed center coordinates/tolerances unknown."
+        },
+        {
+          "model": "HL35",
+          "nominal_dimensions_in": {"legs_w1_w2": 3.25, "length_l": 5},
+          "factory_hole_bolt_pattern": "Four 1/2 in bolts total, two per flange; catalog D1=1-1/4 in, D2=2-1/2 in, D3=2 in. Exact installed center coordinates/tolerances unknown."
+        }
+      ],
+      "receiver": {
+        "thickness_mm": 38.1,
+        "face": "Preserved single 2x6 has 38.1 mm narrow and 139.7 mm broad face.",
+        "catalog_detail_minimum_member_thickness_in": 3.5,
+        "applicability": "The relevant catalog bolt detail requires at least 3-1/2 in member thickness. A 1-1/2 in single 2x6 fails regardless of face rotation."
+      },
+      "orientation": "A 90-degree leg bears on each member; placing a leg on the broad face does not increase the 2x6 through-bolt grip thickness.",
+      "force_moment_coverage": {
+        "published": "Catalog uplift/F1 entries are tied to the specified thicker-member bolt detail; no numerical load is adopted here.",
+        "separation_shear": "Not established for the preserved 2x6 or all frame action directions.",
+        "moment_mixed_action_stiffness": "Unknown for flange couple, combined actions, and slip."
+      },
+      "paired_use": "No two-angle, shared-bolt, or couple credit on the thin receiver; pair geometry and interaction unproved.",
+      "fit": "Fails catalog minimum member thickness at preserved 2x6 stations. A 4x6-only use would be a separate incomplete 24-station architecture.",
+      "fabrication_implications": "Published detail would require a thicker receiver or other structural architecture outside preserved stock. No packing, new holes, or enlarged members specified.",
+      "unresolved_fields": [
+        "Exact factory hole-center coordinates and delivered tolerances",
+        "Any applicable resistance outside the catalog minimum-thickness detail",
+        "Paired-angle and combined force/moment behavior",
+        "Fit and access for any separately proposed 4x6-only use"
+      ],
+      "disposition": "rejected_for_preserved_single_2x6_receiver",
+      "source_ids": ["hl_catalog", "local_prerequisites"]
     },
     {
       "id": "simpson-ab90",
-      "family": "factory-bolted angle bracket",
-      "source": "docs/bolted-candidate-prototypes/simpson-ab90.json",
-      "disposition": "viable_for_prototype",
-      "reason": "Official product page lists solid wood, bolts, factory hole patterns, and an 88 mm x 88 mm AB90 envelope; bolt capacity basis and regional applicability remain unresolved."
+      "family": "Simpson Strong-Tie UK AB90 angle bracket",
+      "exact_product_detail": "AB90, S250GD + Z275 galvanized steel; nominal A=88 mm, B=88 mm, C=65 mm, thickness=2.5 mm. UK/European product detail.",
+      "receiver": {
+        "thickness_mm": 38.1,
+        "face": "Single 2x6 broad face 139.7 mm or narrow face 38.1 mm, depending on station.",
+        "applicability": "88 mm flange nominally fits broad-face width and exceeds narrow-face width; bolt stack and timber edge distances unverified."
+      },
+      "factory_hole_bolt_pattern": {
+        "flange_a": {"diameter_5_mm_holes": 6, "diameter_11_mm_holes": 3},
+        "flange_b": {"diameter_5_mm_holes": 9, "diameter_11_mm_holes": 2},
+        "candidate": "M10-class through-bolt in selected factory 11 mm holes; exact bolt count and center coordinates unselected.",
+        "qualification": "Bolts listed for wood fixing, but displayed characteristic table uses nailed flange A and M10 flange B in CLT/rigid-substrate arrangement, not this both-flanges-bolted wood-to-wood joint."
+      },
+      "orientation": "Keep manufacturer's flange A/B distinction in a 90-degree wood-to-wood corner. Member assignment, grain direction and bolt axes require station-specific layout.",
+      "force_moment_coverage": {
+        "published": "Page describes F1 central-axis tension, F2/F3 lateral shear, F4/F5 transverse force with eccentricity. It says only two-angle F1-F3 values appear on sheet and directs inquiry for F4/F5.",
+        "this_bolted_joint": "No applicable published resistance adopted for separation, F1-F5, or combined actions.",
+        "moment_stiffness": "Independent couple, prying, moment, stiffness and slip unknown."
+      },
+      "paired_use": "Manufacturer two-angle discussion does not qualify an unverified wood-to-wood M10-bolted pair. Single-angle reductions depend on rotation restraint/eccentricity; pair fit and sharing unknown.",
+      "fit": "Nominal broad-face envelope only. Hole centers, edge distances, skew, opposing stacks, panel/kicker axes, retained frame bolts, tool access, and withdrawal untested at 24 stations.",
+      "fabrication_implications": "Factory-hole representative geometry mock-up may use a complete M10-class bolt/washer/nut stack. New timber bores need a later station layout; no purchase or drilling schedule or nail/screw-capacity transfer.",
+      "unresolved_fields": [
+        "Applicable wood-to-wood bolt installation and resistance for both flanges",
+        "Regional purchase and installation-jurisdiction acceptance",
+        "Factory hole centers and selected bolt pattern",
+        "Timber grain, edge/end distance, splitting, bearing, net section",
+        "Flange/bolt/prying, force combination, moment, stiffness and slip",
+        "Paired use, fit, access and disassembly by station"
+      ],
+      "disposition": "viable_for_bounded_geometry_prototype_only",
+      "source_ids": ["ab90_product", "local_prerequisites"]
     }
   ],
-  "decision": "Use AB90 for representative-joint prototypes only. Do not purchase, enlarge members, add custom steel, or transfer its nail/screw table to bolts."
+  "decision": "No option replaces the 144 SDS attachments or qualifies all 24 stations. ML24Z through-bolts remain unresolved; HL33/HL35 fail the preserved 2x6 receiver; AB90 is a representative geometry prototype only. Do not buy, drill, enlarge members, add custom steel, or transfer published loads from this matrix."
 }
