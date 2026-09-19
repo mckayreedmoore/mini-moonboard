@@ -27,6 +27,31 @@
     "nominal_hole_minus_bolt_diameter_in": 0.0625,
     "interpretation": "Broad face has a positive best-case edge reserve, but not a demonstrated installed fit. Narrow 1.5-inch face fails this screen for a centered half-inch bolt. End distance, bolt-row placement, adjoining members, backing and tool paths still need checking."
   },
+  "flush_bend_wood_end_screen": {
+    "assumption": "One AB205 flange lies along the grain of a softwood member, the angle bend is flush with that timber end, and a lateral load bears the near bolt toward the member end. This is a hypothetical placement, not an identified fit at any MoonBoard station.",
+    "rule_basis": "AWC 2018 NDS Table 12.5.1A, printed page 90: parallel-to-grain tension in softwood requires 3.5D minimum for C_delta=0.5 and 7D for C_delta=1.0. Historical-edition screening only; verify applicable 2024 provisions for any selected design.",
+    "rule_source": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf",
+    "minimum_loaded_end_distance_in": 1.75,
+    "full_geometry_factor_loaded_end_distance_in": 3.5,
+    "flanges": {
+      "short_3p5": {
+        "flange_length_in": 3.5,
+        "nearest_hole_from_bend_in": 0.8125,
+        "shift_to_minimum_in": 0.9375,
+        "shift_to_full_factor_in": 2.6875,
+        "passes_minimum_when_bend_flush": false
+      },
+      "long_4p125": {
+        "flange_length_in": 4.125,
+        "nearest_hole_from_bend_in": 1.4375,
+        "shift_to_minimum_in": 0.3125,
+        "shift_to_full_factor_in": 2.0625,
+        "passes_minimum_when_bend_flush": false
+      }
+    },
+    "interpretation": "Both nominal near-bend holes miss even the historical reduced-factor minimum in this flush-bend, end-directed loading scenario. Merely using a thicker or stronger half-inch bolt cannot repair the placement. Moving the whole fitting, changing load direction, or using a different detail requires a new full fit and action check; the shift values are arithmetic distances, not approved offsets.",
+    "rejects_every_possible_ab205_arrangement": false
+  },
   "manufacturer_channel_rating": {
     "value_lb": 2000,
     "scope": "AB205 with A1200 or A1400 channel, both ends supported in ABB's illustrated strut-channel configuration",
@@ -37,7 +62,8 @@
     "home_depot_listing": "https://www.homedepot.com/p/202077397",
     "abb_exact_retail_product": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZAB205EG-10",
     "abb_ab205_family_dimensions": "https://www.homedepot.com/catalog/pdfImages/9c/9cc20932-8e38-4e41-81fa-eb78034441be.pdf",
-    "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf"
+    "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf",
+    "historical_nds_end_distance": "https://plib.org/wp-content/uploads/2020/09/AWC-NDS2018.pdf"
   },
   "source_limits": [
     "The ABB catalog standard hole spacing is nominal and no product-specific tolerances or fully datum-controlled wood drilling coordinates were verified.",

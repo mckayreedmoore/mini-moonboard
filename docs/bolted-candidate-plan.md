@@ -59,6 +59,11 @@ dimensioned retail lead: ABB gives nominal hole diameter and spacing, but its
 wood-to-wood joint. Its steel strength, installed hole coordinates, and
 whole-joint resistance remain open. See
 `docs/bolted-candidate-prototypes/superstrut-ab205-retail.json`.
+For the specific layout with its bend flush to a softwood member end and
+end-directed lateral load, the nominal nearest holes on both AB205 legs miss
+even the 2018 NDS 3.5D reduced-factor loaded-end minimum for a half-inch bolt.
+This rejects that layout screen, not every possible AB205 position; any offset
+needs new fit and load-path checks under the applicable 2024 provisions.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

@@ -32,3 +32,37 @@ def test_ab205_retail_candidate_keeps_geometry_and_rating_separate():
     assert record["wood_to_wood_capacity_established"] is False
     assert record["factory_drill_coordinates_released"] is False
     assert record["drilling_released"] is False
+
+
+@pytest.mark.parametrize(
+    "leg,expected_nearest,expected_minimum_shift,expected_full_shift",
+    [
+        ("short_3p5", 0.8125, 0.9375, 2.6875),
+        ("long_4p125", 1.4375, 0.3125, 2.0625),
+    ],
+)
+def test_flush_bend_softwood_end_distance_is_only_a_conditional_failure(
+    leg, expected_nearest, expected_minimum_shift, expected_full_shift
+):
+    record = json.loads(
+        Path(
+            "docs/bolted-candidate-prototypes/superstrut-ab205-retail.json"
+        ).read_text()
+    )
+    screen = record["flush_bend_wood_end_screen"]
+    diameter = record["product"]["manufacturer_standard_bolt_diameter_in"]
+    flange = screen["flanges"][leg]
+    assert flange["nearest_hole_from_bend_in"] == pytest.approx(expected_nearest)
+    assert flange["nearest_hole_from_bend_in"] == pytest.approx(
+        flange["flange_length_in"]
+        - record["product"]["manufacturer_generic_hole_center_from_end_in"]
+        - record["product"]["manufacturer_hole_pitch_in"]
+    )
+    assert screen["minimum_loaded_end_distance_in"] == pytest.approx(3.5 * diameter)
+    assert screen["full_geometry_factor_loaded_end_distance_in"] == pytest.approx(
+        7 * diameter
+    )
+    assert flange["shift_to_minimum_in"] == pytest.approx(expected_minimum_shift)
+    assert flange["shift_to_full_factor_in"] == pytest.approx(expected_full_shift)
+    assert flange["passes_minimum_when_bend_flush"] is False
+    assert screen["rejects_every_possible_ab205_arrangement"] is False
