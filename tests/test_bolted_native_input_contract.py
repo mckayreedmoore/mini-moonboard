@@ -43,6 +43,9 @@ def test_native_contract_fingerprints_candidate_and_producer_sources() -> None:
         "fea/user_load_envelope.py",
         "scripts/clear_space_batch.py",
         "docs/floor-flush-construction/connection-axes.csv",
+        "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+        "mini_moonboard/floor_flush_width.py",
+        "docs/bolted-candidate-owner-inputs.json",
     }
     assert required <= sources.keys()
     assert all(Path(path).is_file() and digest(path) == sha for path, sha in sources.items())

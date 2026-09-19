@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_CASES = tuple(CASES)
 SOURCE_FILES = (
     "mini_moonboard/compact_floor_flush_frame.py",
+    "mini_moonboard/floor_flush_width.py",
     "mini_moonboard/compact_floor_flush_bolted_frame.py",
     "mini_moonboard/bolted_floor_flush_width.py",
     "mini_moonboard/bolted_joint_mechanics.py",
@@ -39,6 +40,8 @@ SOURCE_FILES = (
     "scripts/clear_space_batch.py",
     "scripts/bolted_candidate_geometry_checks.py",
     "docs/floor-flush-construction/connection-axes.csv",
+    "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+    "docs/bolted-candidate-owner-inputs.json",
 )
 
 
