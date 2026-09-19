@@ -9,7 +9,13 @@ It must not be exported as a complete candidate.
 from functools import cache
 
 from . import compact_floor_flush_frame as baseline
-from .bolted_layouts import FAMILY_NAMES, registered_layouts
+from .bolted_layouts import (
+    FAMILY_NAMES,
+    all_fasteners,
+    all_interfaces,
+    all_machining_records,
+    registered_layouts,
+)
 from .demountable_connections import ab90_prototype_fastener
 
 KEY = "compact-floor-flush-bolted-development"
@@ -75,19 +81,21 @@ def structural_joint_records():
 
 
 def fastener_stack_records():
-    return (ab90_prototype_fastener(),)
+    return all_fasteners()
 
 
 def machining_records():
-    return ()
+    return all_machining_records()
 
 
 def assembly_interface_records():
-    return ()
+    return all_interfaces()
 
 
 def parts():
-    """Reject finished-model consumers until all six families are registered."""
+    """Reject finished-model consumers until mechanics and machining are accepted."""
     missing = tuple(name for name in FAMILY_NAMES if name not in registered_layouts())
+    if not missing:
+        missing = ("mechanics/resistance/access acceptance",)
     raise IncompleteCandidateError(
         "Candidate is incomplete; missing structural layout families: " + ", ".join(missing))

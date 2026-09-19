@@ -3,6 +3,7 @@
 import pytest
 
 from mini_moonboard import compact_floor_flush_bolted_frame as candidate
+from mini_moonboard.bolted_layouts import FAMILY_NAMES, registered_layouts
 
 
 def test_candidate_identity_and_scope_are_explicit() -> None:
@@ -22,9 +23,20 @@ def test_scaffold_preserves_raw_inventory_and_panel_connections() -> None:
     assert len(candidate.panel_connections()) == 66
     assert sum(connection.kind == "bolt" for connection in candidate.connections()) == 12
     assert sum(connection.kind == "screw" for connection in candidate.connections()) == 66
-    assert candidate.structural_joint_records() == ()
+    records = candidate.structural_joint_records()
+    assert len(records) == 24
+    assert all(record.assessment_status == "prototype" for record in records)
 
 
 def test_finished_parts_are_rejected_until_all_families_exist() -> None:
-    with pytest.raises(candidate.IncompleteCandidateError, match="missing structural layout"):
+    with pytest.raises(candidate.IncompleteCandidateError, match="mechanics/resistance/access"):
         candidate.parts()
+
+
+def test_all_six_families_cover_exactly_24_prototype_stations() -> None:
+    layouts = registered_layouts()
+    assert tuple(layouts) == FAMILY_NAMES
+    assert [len(layouts[name]) for name in FAMILY_NAMES] == [4, 4, 8, 4, 2, 2]
+    assert sum(len(layouts[name]) for name in FAMILY_NAMES) == 24
+    assert len(candidate.fastener_stack_records()) == 48
+    assert len(candidate.assembly_interface_records()) == 24
