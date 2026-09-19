@@ -1,0 +1,86 @@
+{
+  "task": "LB-03A/LB-03B/LB-03C and LB-04 / WB-3",
+  "status": "G1_open",
+  "purpose": "Name the precise missing inputs and failed screens at three hard structural stations before assigning a connector architecture.",
+  "wood_reference_data_available": true,
+  "wood_reference": "docs/bolted-candidate-material-basis.json",
+  "existing_two_wood_member_yield_method": "fea/dowel_yield.py; applicable only after an actual two-member single-shear detail and its bearing lengths, grain angles, shank and Fyb are defined",
+  "archived_wrench_source": "docs/floor-runner-mvp-angle-demands.json",
+  "archived_wrench_limit": "Each listed force and moment come from the same archived case and beam flange at the archived station origin. They are illustrative simultaneous examples, not historical peak envelopes or new-candidate demand. Do not combine different case peaks.",
+  "same_case_is_not_archived_peak_or_envelope": true,
+  "separate_historical_peak_source": "docs/bolted-candidate-prototypes/representative-historical-demands.json; its force and moment maxima can be from different cases and must not be paired",
+  "joints": {
+    "narrow_opposing": {
+      "station": "clip_horizontal_bottom_left_2",
+      "source_prototype": "docs/bolted-candidate-prototypes/narrow-opposing.json",
+      "members": ["base_principal_center_left", "base_rail_bottom_left"],
+      "status": "failed_nominal_geometry",
+      "failed_trial_only": "A centered 3/8-inch A66 bolt on a 38.1-mm narrow timber face has -19.05-mm 4D loaded-edge reserve under reversible perpendicular-to-grain loading. A broad-face arrangement remains untested, not rejected by this screen.",
+      "archived_same_case_wrench": {
+        "case": "a12-left",
+        "reference": "archived beam-flange origin",
+        "force_xyz_n": [-8.46385756605091, 26.665683417789793, -32.8744767565283],
+        "moment_xyz_nmm": [4633.160054333157, -971.0329386502602, -635.7852120315994]
+      },
+      "missing_inputs": [
+        "verified factory bolt-hole coordinates and flange pose on a usable broad face",
+        "actual two-member or steel-to-wood bearing lengths, grain/load directions and bolt thread position",
+        "supported washer/nut stack and full tool/bolt withdrawal corridor beside frozen panel axes",
+        "new-candidate simultaneous local wrench and defensible flange contact/prying distribution",
+        "A66 steel thickness/grade/bend and hole-bearing resistance if A66 remains proposed"
+      ],
+      "next_action": "Find a manufacturer dimensioned A66 drawing or switch to another in-scope connector/detail, then perform exact broad-face solid and washer/tool-envelope fit before resistance calculations.",
+      "new_candidate_demand_available": false,
+      "capacity_claim": false
+    },
+    "center_header": {
+      "station": "clip_split_base_center_left",
+      "source_prototype": "docs/bolted-candidate-prototypes/center-header.json",
+      "members": ["base_header", "base_principal_center_left"],
+      "status": "missing_joint_detail",
+      "archived_center_shift_mm": 10.1,
+      "archived_same_case_wrench": {
+        "case": "a12-left",
+        "reference": "archived beam-flange origin at y=-135 mm; current clip is at y=-124.9 mm",
+        "force_xyz_n": [27.09905255611134, -0.0401276981613905, 6.46820330759477],
+        "moment_xyz_nmm": [9110.28596088508, 661.0085163455055, -3371.7522566805765]
+      },
+      "missing_inputs": [
+        "actual connector bolt-hole pattern and bolt axes at the moved current station",
+        "interference with neighboring center-header hardware, retained 20 panel/kicker axes and proposed outward support shift",
+        "actual exit face, supported washer/nut stack, tool access and extraction path",
+        "current-geometry and new-candidate simultaneous local wrench; old moment cannot be copied or shifted as a new solve",
+        "wood grain and net-section/group failure path plus steel-angle bending/prying basis"
+      ],
+      "next_action": "Select an in-scope detail and exact current-position geometry, test both center stations and retained panel axes, then recover fresh affected actions before a capacity decision.",
+      "new_candidate_demand_available": false,
+      "capacity_claim": false
+    },
+    "outer_base": {
+      "station": "clip_angle_base_left",
+      "source_prototype": "docs/bolted-candidate-prototypes/outer-base.json",
+      "members": ["base_header", "base_side_left"],
+      "status": "missing_joint_detail",
+      "archived_same_case_wrench": {
+        "case": "a12-left",
+        "reference": "archived beam-flange origin; nominal station location unchanged",
+        "force_xyz_n": [143.52479357543797, 703.7657438472975, -147.57997949690358],
+        "moment_xyz_nmm": [6691.374578152432, 5615.1075854846495, -5932.2162973198065]
+      },
+      "missing_inputs": [
+        "verified factory bolt-hole coordinates, flange pose and actual exit faces",
+        "solid clearance from the two retained nearby front-runner bolt stacks, lower rim cut, runner and floor/pad envelope",
+        "supported washer/nut, socket and bolt extraction corridors without moving panel screws",
+        "new-candidate simultaneous wrench and local bolt-group/contact force distribution",
+        "actual wood splitting/net-section and connector steel hole/bend/prying resistance"
+      ],
+      "next_action": "Fit the selected connector against the real rim/header solids and retained front-bolt stacks, then calculate the complete joint path with fresh candidate actions.",
+      "new_candidate_demand_available": false,
+      "capacity_claim": false
+    }
+  },
+  "common_unresolved_product_input": "The current US Simpson A66 catalog specifies two 3/8-inch bolts per leg but gives no F1/F2 allowable load; no verified dimensioned A66 bolt-hole centers or steel resistance basis are adopted.",
+  "common_product_source": "https://ssttoolbox.widen.net/content/orplhjaqw1/original/C-C-2026.pdf?download=true",
+  "retained_panel_axes_unchanged": true,
+  "drilling_released": false
+}

@@ -38,6 +38,13 @@ contracts. These are baseline records, not candidate bolt geometry.
 G1 remains open. A66 is a common-retail prototype priority, but the current
 family modules are AB90 inventory sketches. No representative joint has a
 complete applicable fit/load-path record or 24-station architecture assignment.
+`docs/bolted-candidate-representative-blockers.json` now identifies the
+specific missing geometry, steel, washer/access, and fresh-demand inputs at
+the narrow-opposing, center-header, and outer-base stations. It binds each
+illustrative, non-envelope force/moment pair to one archived case and rejects
+use as a new candidate demand. Separate historical force and moment peaks may
+occur in different cases. Published wood inputs alone do not close those joint
+paths.
 The bounded retail follow-ups found no substitute with published bolted loads
 applicable to the preserved single-2x6 thickness. The exact A66 manufacturer
 information request is in `docs/bolted-candidate-g1-decision.json`; it has not
