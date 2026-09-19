@@ -1,0 +1,197 @@
+{
+  "title": "Conditional A66 wood-geometry feasibility envelope",
+  "scope": "Actual center and outer joints on current raw CAD; hypothetical factory offsets from bend only",
+  "basis": "2024 NDS Table 12.5.1C reversible 4D possibly loaded-edge diagnostic on both broad-face grain edges for a 3/8-inch bolt. Table 12.5.1A 3.5D (reduced factor) and 7D (full factor) softwood parallel-to-grain tension square-end markers are shown only as rays, not applied to oblique ends.",
+  "nds_chapter_12_url": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
+  "assumption_sources": {
+    "offset_search_cap": "149.225 mm = 5-7/8 in retailer-listed A66 outside leg size, docs/bolted-candidate-prototypes/simpson-a66-retail.json product.dimensions_in; https://www.homedepot.ca/product/1000170470. No manufacturer-confirmed bend-to-hole usable extent; this is only a hypothetical search cap.",
+    "bore_diameter": "11.1125 mm = 7/16 in assumed clearance cylinder for a 3/8-in bolt, consistent with the project's modeled clearance convention in mini_moonboard/product_frame.py BOLT_HOLE_DIAMETER_MM. No A66 wood-bore diameter or drill bit is specified here."
+  },
+  "factory_pattern": "Unknown: no vertical, horizontal, transverse hole offsets or pitch adopted",
+  "geometry_records": [
+    {
+      "station": "clip_split_base_center_left",
+      "raw_cad_source": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
+      "bend_xyz_mm": [
+        -89.05,
+        -124.9,
+        277.0
+      ],
+      "face_member": "base_principal_center_left",
+      "header_member": "base_header",
+      "bolt_diameter_mm": 9.525,
+      "hypothetical_bore_diameter_mm": 11.1125,
+      "reversible_both_edge_boundary_mm": 38.1,
+      "grain_edge_slope_dy_dz": 0.839099631,
+      "grain_z_component": 0.766044443,
+      "extended_grain_line_y_at_bend_z_mm": [
+        -223.86273,
+        -41.497331
+      ],
+      "hypothetical_offset_search_cap_mm": 149.225,
+      "horizontal_offset_band_mm": [
+        5.55625,
+        149.225
+      ],
+      "example_row_y_mm": -92.809695,
+      "example_row_displacement_from_legacy_mm": 32.090305,
+      "vertical_offset_band_mm": [
+        5.55625,
+        96.909847
+      ],
+      "legacy_row_vertical_offset_band_mm": [
+        5.55625,
+        58.666111
+      ],
+      "parameter_rule": "For any row Y, each hypothetical vertical hole offset v from the bend must satisfy v >= bore_radius, v <= hypothetical_offset_search_cap, full bore circle inside the raw broad-face polygon, lower_grain_edge_y(bend_z+v)+4D/grain_z_component <= Y <= upper_grain_edge_y(bend_z+v)-4D/grain_z_component; header_ymin+4D <= Y <= header_ymax-4D. Both vertical offsets must be distinct and inside that same band; both horizontal offsets must be distinct and inside the horizontal raw-wood band.",
+      "oblique_end_grain_ray_at_vertical_offsets_mm": "v / grain_z_component; diagnostic only",
+      "square_end_softwood_tension_marker_rays_mm": [
+        33.3375,
+        66.675
+      ],
+      "factory_hole_coordinates_known": false,
+      "oblique_end_distance_classified": false,
+      "connector_strength_classified": false,
+      "drilling_released": false
+    },
+    {
+      "station": "clip_split_base_center_right",
+      "raw_cad_source": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
+      "bend_xyz_mm": [
+        89.05,
+        -124.9,
+        277.0
+      ],
+      "face_member": "base_principal_center_right",
+      "header_member": "base_header",
+      "bolt_diameter_mm": 9.525,
+      "hypothetical_bore_diameter_mm": 11.1125,
+      "reversible_both_edge_boundary_mm": 38.1,
+      "grain_edge_slope_dy_dz": 0.839099631,
+      "grain_z_component": 0.766044443,
+      "extended_grain_line_y_at_bend_z_mm": [
+        -223.86273,
+        -41.497331
+      ],
+      "hypothetical_offset_search_cap_mm": 149.225,
+      "horizontal_offset_band_mm": [
+        5.55625,
+        149.225
+      ],
+      "example_row_y_mm": -92.809695,
+      "example_row_displacement_from_legacy_mm": 32.090305,
+      "vertical_offset_band_mm": [
+        5.55625,
+        96.909847
+      ],
+      "legacy_row_vertical_offset_band_mm": [
+        5.55625,
+        58.666111
+      ],
+      "parameter_rule": "For any row Y, each hypothetical vertical hole offset v from the bend must satisfy v >= bore_radius, v <= hypothetical_offset_search_cap, full bore circle inside the raw broad-face polygon, lower_grain_edge_y(bend_z+v)+4D/grain_z_component <= Y <= upper_grain_edge_y(bend_z+v)-4D/grain_z_component; header_ymin+4D <= Y <= header_ymax-4D. Both vertical offsets must be distinct and inside that same band; both horizontal offsets must be distinct and inside the horizontal raw-wood band.",
+      "oblique_end_grain_ray_at_vertical_offsets_mm": "v / grain_z_component; diagnostic only",
+      "square_end_softwood_tension_marker_rays_mm": [
+        33.3375,
+        66.675
+      ],
+      "factory_hole_coordinates_known": false,
+      "oblique_end_distance_classified": false,
+      "connector_strength_classified": false,
+      "drilling_released": false
+    },
+    {
+      "station": "clip_angle_base_left",
+      "raw_cad_source": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
+      "bend_xyz_mm": [
+        -1130.3,
+        -105.85,
+        277.0
+      ],
+      "face_member": "base_side_left",
+      "header_member": "base_header",
+      "bolt_diameter_mm": 9.525,
+      "hypothetical_bore_diameter_mm": 11.1125,
+      "reversible_both_edge_boundary_mm": 38.1,
+      "grain_edge_slope_dy_dz": 0.839099631,
+      "grain_z_component": 0.766044443,
+      "extended_grain_line_y_at_bend_z_mm": [
+        -223.86273,
+        -41.497331
+      ],
+      "hypothetical_offset_search_cap_mm": 149.225,
+      "horizontal_offset_band_mm": [
+        5.55625,
+        149.225
+      ],
+      "example_row_y_mm": -92.809695,
+      "example_row_displacement_from_legacy_mm": 13.040305,
+      "vertical_offset_band_mm": [
+        5.55625,
+        96.909847
+      ],
+      "legacy_row_vertical_offset_band_mm": [
+        5.55625,
+        81.369017
+      ],
+      "parameter_rule": "For any row Y, each hypothetical vertical hole offset v from the bend must satisfy v >= bore_radius, v <= hypothetical_offset_search_cap, full bore circle inside the raw broad-face polygon, lower_grain_edge_y(bend_z+v)+4D/grain_z_component <= Y <= upper_grain_edge_y(bend_z+v)-4D/grain_z_component; header_ymin+4D <= Y <= header_ymax-4D. Both vertical offsets must be distinct and inside that same band; both horizontal offsets must be distinct and inside the horizontal raw-wood band.",
+      "oblique_end_grain_ray_at_vertical_offsets_mm": "v / grain_z_component; diagnostic only",
+      "square_end_softwood_tension_marker_rays_mm": [
+        33.3375,
+        66.675
+      ],
+      "factory_hole_coordinates_known": false,
+      "oblique_end_distance_classified": false,
+      "connector_strength_classified": false,
+      "drilling_released": false
+    },
+    {
+      "station": "clip_angle_base_right",
+      "raw_cad_source": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
+      "bend_xyz_mm": [
+        1130.3,
+        -105.85,
+        277.0
+      ],
+      "face_member": "base_side_right",
+      "header_member": "base_header",
+      "bolt_diameter_mm": 9.525,
+      "hypothetical_bore_diameter_mm": 11.1125,
+      "reversible_both_edge_boundary_mm": 38.1,
+      "grain_edge_slope_dy_dz": 0.839099631,
+      "grain_z_component": 0.766044443,
+      "extended_grain_line_y_at_bend_z_mm": [
+        -223.86273,
+        -41.497331
+      ],
+      "hypothetical_offset_search_cap_mm": 149.225,
+      "horizontal_offset_band_mm": [
+        5.55625,
+        149.225
+      ],
+      "example_row_y_mm": -92.809695,
+      "example_row_displacement_from_legacy_mm": 13.040305,
+      "vertical_offset_band_mm": [
+        5.55625,
+        96.909847
+      ],
+      "legacy_row_vertical_offset_band_mm": [
+        5.55625,
+        81.369017
+      ],
+      "parameter_rule": "For any row Y, each hypothetical vertical hole offset v from the bend must satisfy v >= bore_radius, v <= hypothetical_offset_search_cap, full bore circle inside the raw broad-face polygon, lower_grain_edge_y(bend_z+v)+4D/grain_z_component <= Y <= upper_grain_edge_y(bend_z+v)-4D/grain_z_component; header_ymin+4D <= Y <= header_ymax-4D. Both vertical offsets must be distinct and inside that same band; both horizontal offsets must be distinct and inside the horizontal raw-wood band.",
+      "oblique_end_grain_ray_at_vertical_offsets_mm": "v / grain_z_component; diagnostic only",
+      "square_end_softwood_tension_marker_rays_mm": [
+        33.3375,
+        66.675
+      ],
+      "factory_hole_coordinates_known": false,
+      "oblique_end_distance_classified": false,
+      "connector_strength_classified": false,
+      "drilling_released": false
+    }
+  ],
+  "interpretation": "A nonempty band means some hypothetical offsets could preserve full raw wood and the reversible both-edge centerline boundary. It does not establish actual A66 hole fit, NDS oblique end distance, load direction, bolt spacing, plate/washer access, retained-axis clearance, strength, or a drilling layout.",
+  "oblique_end_distance_classified": false,
+  "connector_strength_classified": false,
+  "drilling_released": false
+}
