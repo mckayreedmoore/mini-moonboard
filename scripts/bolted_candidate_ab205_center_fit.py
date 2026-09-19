@@ -434,3 +434,66 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
         "installed_angle_and_tool_clearance_verified": False,
         "drilling_released": False,
     }
+
+
+def screen_opposed_center_washer_envelope(row_y_mm: float) -> dict[str, object]:
+    """Screen illustrative retail washer solids on the two shared header bolts.
+
+    This tests only the washer's external cylindrical envelope. It does not
+    select a washer grade or establish nut, head, tool, shank, or bearing fit.
+    """
+    trial = screen_opposed_center_fit(row_y_mm)
+    parts = frame.uncut_wood_parts()
+    header = next(part.shape for part in parts if part.name == "base_header")
+    bounds = header.BoundingBox()
+    flange_thickness_mm = 0.25 * 25.4
+    flange_width_mm = 1.625 * 25.4
+    washer_diameter_mm = 1.375 * 25.4
+    washer_thickness_mm = 0.125 * 25.4
+    radius = washer_diameter_mm / 2
+    x_values = trial["top_header_hole_x_mm"]
+    top_z = bounds.zmax + flange_thickness_mm
+    bottom_z = bounds.zmin - flange_thickness_mm - washer_thickness_mm
+    washers = tuple(
+        cq.Solid.makeCylinder(
+            radius, washer_thickness_mm, cq.Vector(x, row_y_mm, z), cq.Vector(0, 0, 1)
+        )
+        for x in x_values
+        for z in (top_z, bottom_z)
+    )
+    wood_hits = sorted({
+        part.name for part in parts
+        if any(washer.intersect(part.shape).Volume() > 1e-6 for washer in washers)
+    })
+    _, retained_hits = _retained_axis_intersections(washers)
+    _, purchased_hits = _retained_axis_intersections(
+        washers, purchased_panel_length=True
+    )
+    pitch = abs(x_values[1] - x_values[0])
+    return {
+        "station_pair": trial["station_pair"],
+        "trial_row_y_mm": round(row_y_mm, 6),
+        "illustrative_retail_washer": "Lowe's Hillman 270067; 1/2-inch nominal, 1-3/8-inch OD, 1/8-inch thick",
+        "washer_source": "https://www.lowes.com/pd/Hillman-1-Count-x-1-37-in-Zinc-Plated-Standard-SAE-Flat-Washer/3058563",
+        "washer_outer_diameter_mm": round(washer_diameter_mm, 6),
+        "washer_thickness_mm": round(washer_thickness_mm, 6),
+        "shared_header_wood_plus_two_flange_grip_mm": round(
+            bounds.zlen + 2 * flange_thickness_mm, 6
+        ),
+        "wood_plus_flange_plus_two_washer_stack_mm": round(
+            bounds.zlen + 2 * flange_thickness_mm + 2 * washer_thickness_mm, 6
+        ),
+        "two_washer_axis_pitch_mm": round(pitch, 6),
+        "washer_to_washer_nominal_clearance_mm": round(pitch - washer_diameter_mm, 6),
+        "washer_to_angle_side_nominal_margin_mm": round(
+            (flange_width_mm - washer_diameter_mm) / 2, 6
+        ),
+        "washer_envelope_intersecting_raw_parts": wood_hits,
+        "retained_axis_intersections": retained_hits,
+        "purchased_length_mixed_axis_intersections": purchased_hits,
+        "washer_strength_verified": False,
+        "nut_and_tool_envelope_verified": False,
+        "actual_delivered_hardware_verified": False,
+        "end_distance_classified": False,
+        "drilling_released": False,
+    }

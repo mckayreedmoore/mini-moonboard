@@ -9,6 +9,7 @@ from scripts.bolted_candidate_ab205_center_fit import (
     screen_center_fit,
     screen_oblique_end_ray_filter,
     screen_opposed_center_fit,
+    screen_opposed_center_washer_envelope,
     screen_retained_axis_conflicts,
     screen_reversible_row_tolerance,
 )
@@ -30,6 +31,25 @@ def test_oblique_end_filter_quantifies_factory_pattern_change_without_nds_verdic
     assert record["end_distance_classified"] is False
     assert record["connector_selected"] is False
     assert record["drilling_released"] is False
+
+
+def test_opposed_center_retail_washer_envelope_is_only_nominal_fit():
+    result = screen_opposed_center_washer_envelope(-95.382)
+    published = json.loads(
+        Path("docs/bolted-candidate-prototypes/center-washer-envelope.json").read_text()
+    )
+    assert result == published
+    assert result["shared_header_wood_plus_two_flange_grip_mm"] == pytest.approx(50.8)
+    assert result["washer_outer_diameter_mm"] == pytest.approx(34.925)
+    assert result["two_washer_axis_pitch_mm"] == pytest.approx(47.625)
+    assert result["washer_to_washer_nominal_clearance_mm"] == pytest.approx(12.7)
+    assert result["washer_to_angle_side_nominal_margin_mm"] == pytest.approx(3.175)
+    assert result["washer_envelope_intersecting_raw_parts"] == []
+    assert result["retained_axis_intersections"] == []
+    assert result["purchased_length_mixed_axis_intersections"] == []
+    assert result["nut_and_tool_envelope_verified"] is False
+    assert result["washer_strength_verified"] is False
+    assert result["drilling_released"] is False
 
 
 def test_reversible_row_band_has_explicit_positioning_allowance():

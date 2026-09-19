@@ -176,6 +176,15 @@ filter, but the competing two-edge row band is only 0.148 mm wide. This
 identifies a needed factory-hole-pattern change; it does not classify the cut,
 check splitting or load direction, or authorize moving the bend off its bearing
 surface to manufacture the offset.
+The separate [nominal washer screen](bolted-candidate-prototypes/center-washer-envelope.json)
+uses a Lowe's-listed 1/2-inch washer with a 34.925 mm outside diameter and
+3.175 mm listed thickness. On the two shared-header axes its ideal cylindrical
+envelopes leave 12.7 mm between washers and 3.175 mm to each nominal angle
+side; they intersect no raw wood or retained panel/frame-bolt axis. The wood
+plus two nominal steel flanges is 50.8 mm thick, or 57.15 mm with one such
+washer outside each flange. This closes only that illustrative washer-envelope
+question. It does not establish washer strength, exact bolt grip/thread exposure,
+nut/head/tool access, delivered tolerances, or panel seating.
 The AB205 material and formed-bend resistance, unequal two-flange bolt action, group/wood
 failure modes, bolt-axis action, real grip, and disassembly access still need a supported
 calculation or an exact concept change. A single DF-L bearing stress or bolt-shaft rating is
