@@ -93,3 +93,13 @@ def test_retail_hl43_does_not_rescue_thin_member_stations() -> None:
     assert detail["thickness_deficit_mm"] == 92.075
     assert detail["preserved_stations_with_at_least_one_thin_member"] == 24
     assert detail["published_values_applicable_to_preserved_stock"] is False
+
+
+def test_mitek_b66_bolt_table_excludes_preserved_single_2x6() -> None:
+    record = read_record("mitek-b66-retail.json")
+    assert record["product"]["lowes_url"].startswith("https://www.lowes.com/")
+    assert record["product"]["manufacturer_load_table_url"].startswith("https://www.mitek-us.com/")
+    assert record["bolted_detail_screen"]["catalog_minimum_wood_thickness_mm"] == 76.2
+    assert record["bolted_detail_screen"]["preserved_receiver_thickness_mm"] == 38.1
+    assert record["bolted_detail_screen"]["published_values_applicable_to_preserved_stock"] is False
+    assert record["retail_screen"]["currently_sold_on_lowes_com"] is False

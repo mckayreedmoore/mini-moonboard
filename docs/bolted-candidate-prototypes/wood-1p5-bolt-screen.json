@@ -1,0 +1,37 @@
+{
+  "task": "LB-02D owner follow-up on bolts for actual 1.5-inch lumber",
+  "status": "retail_hardware_screen_only",
+  "receiver_actual_thickness_mm": 38.1,
+  "preliminary_hex_bolt_diameter_mm": 9.525,
+  "retail_examples": {
+    "lowes": {
+      "product": "Hillman 3/8-in galvanized coarse-thread hex bolt, listed Grade A307",
+      "example_length_in_not_selected": 4,
+      "url": "https://www.lowes.com/pd/Hillman-3-8-in-x-4-in-Galvanized-Coarse-Thread-Hex-Bolt/1000381863"
+    },
+    "home_depot": {
+      "product": "Everbilt 3/8-in-16 galvanized hex bolt, listed Grade A307",
+      "example_length_in_not_selected": 3,
+      "url": "https://www.homedepot.com/p/204281469"
+    }
+  },
+  "wood_design_reference": {
+    "source": "American Wood Council 2018 NDS Chapter 12 (historical design reference, not a current project approval)",
+    "url": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf",
+    "summary": "Structural hex-bolt design requires aligned clearance holes, washers or adequate metal plates at wood/head and wood/nut interfaces, and load-direction-specific wood edge, end, spacing, bearing, and group checks. A retail package's generic predrill instruction is not a structural joint design."
+  },
+  "narrow_face_4d_screen": {
+    "condition": "Loaded-edge perpendicular-to-grain 4D screen if a bolt center is placed through the 1.5-inch narrow face of one preserved 2x6 member",
+    "best_centered_edge_distance_mm": 19.05,
+    "required_loaded_edge_distance_mm": 38.1,
+    "passes": false,
+    "quarter_inch_required_loaded_edge_distance_mm": 25.4,
+    "quarter_inch_also_fails_this_screen": true
+  },
+  "wide_face_option": "A bolt passing through the 38.1 mm thickness from the 139.7 mm broad face can have more in-plane edge room, but its exact factory connector hole positions, grain/load directions, wood resistance, washer and socket envelopes, and adjacent hardware remain unchecked.",
+  "bolt_purchase_length_selected": false,
+  "reason_length_open": "A purchased bolt needs an actual steel/wood/washer/nut grip, sufficient thread engagement, an acceptable unthreaded shank at shear planes where required, and a verified withdrawal path. Listed 3- and 4-inch products are availability examples only.",
+  "a66_joint_capacity_established": false,
+  "drilling_released": false,
+  "disposition": "A 3/8-inch A307 hex through-bolt with compatible nut and washers is common retail hardware for a future applicable detail. It does not make A66 or another connector's unrated 1.5-inch wood joint safe or build-ready."
+}
