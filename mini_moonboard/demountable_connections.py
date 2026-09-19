@@ -116,6 +116,11 @@ class FastenerRecord:
         orders = [component.order for component in self.ordered_stack]
         if orders != list(range(len(orders))):
             raise ConnectionRecordError("stack components must have contiguous order")
+        components = [component.component_id for component in self.ordered_stack]
+        if len(components) != len(set(components)):
+            raise ConnectionRecordError("duplicate physical stack component")
+        if not set(self.bearing_elements) <= set(components):
+            raise ConnectionRecordError("bearing element missing from physical stack")
         for label, region in (
             ("thread engagement", self.engagement_bounds_mm),
             ("smooth-body", self.smooth_body_mm),
@@ -161,6 +166,9 @@ def screen_machine_bolt_stack(
     if fastener.smooth_body_mm[1] > grip or fastener.thread_runout_mm[1] > grip:
         return "fail_nut_on_shoulder_or_runout"
     full_start, full_end = fastener.engagement_bounds_mm
+    if not (fastener.smooth_body_mm[1] <= fastener.thread_runout_mm[0]
+            <= fastener.thread_runout_mm[1] <= full_start):
+        return "fail_inconsistent_shank_thread_regions"
     if full_start > grip or full_end < grip + nut_height:
         return "fail_incomplete_full_thread_engagement"
     if fastener.length_mm < grip + nut_height + minimum_projection_mm:
@@ -233,6 +241,8 @@ def validate_records(
         raise ConnectionRecordError("duplicate assembly interface id")
     known_fasteners, known_interfaces = set(fastener_ids), set(interface_ids)
     for joint in joints:
+        if len(joint.fastener_ids) != len(set(joint.fastener_ids)):
+            raise ConnectionRecordError(f"joint {joint.joint_id} counts a physical fastener twice")
         if not set(joint.fastener_ids) <= known_fasteners:
             raise ConnectionRecordError(f"joint {joint.joint_id} references unknown fastener")
         if joint.assembly_interface_id not in known_interfaces:

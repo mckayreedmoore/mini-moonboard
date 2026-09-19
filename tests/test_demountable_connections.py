@@ -62,6 +62,8 @@ def test_machine_bolt_stack_exposes_shoulder_engagement_and_bottoming_failures()
     )
     assert screen_machine_bolt_stack(delivered) == "nominal_geometry_pass_only"
     assert screen_machine_bolt_stack(replace(delivered, smooth_body_mm=(0.0, 48.0))) == "fail_nut_on_shoulder_or_runout"
+    assert screen_machine_bolt_stack(replace(delivered, thread_runout_mm=(43.0, 48.0))) == "fail_nut_on_shoulder_or_runout"
+    assert screen_machine_bolt_stack(replace(delivered, thread_runout_mm=(42.0, 46.0))) == "fail_inconsistent_shank_thread_regions"
     assert screen_machine_bolt_stack(replace(delivered, engagement_bounds_mm=(46.0, 50.0))) == "fail_incomplete_full_thread_engagement"
     assert screen_machine_bolt_stack(delivered, closed_nut_depth_mm=20.0) == "fail_closed_nut_bottoming"
     assert screen_machine_bolt_stack(delivered, minimum_projection_mm=50.0) == "fail_insufficient_bolt_projection"
@@ -80,6 +82,12 @@ def test_duplicate_physical_ids_are_rejected() -> None:
     fastener = ab90_prototype_fastener()
     with pytest.raises(ConnectionRecordError, match="duplicate physical"):
         validate_records((joint(),), (fastener, fastener), (interface(),))
+
+
+def test_same_physical_bolt_cannot_be_counted_twice_in_a_joint() -> None:
+    with pytest.raises(ConnectionRecordError, match="counts a physical fastener twice"):
+        validate_records((replace(joint(), fastener_ids=("ab90_proto_m10_1", "ab90_proto_m10_1")),),
+                         (ab90_prototype_fastener(),), (interface(),))
 
 
 def test_unknown_scope_and_structural_wood_thread_are_not_silent() -> None:
