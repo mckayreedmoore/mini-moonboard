@@ -54,7 +54,11 @@ def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
     assert {family["id"] for family in follow_up["families"]} == {
         "simpson-a88",
         "mitek-bl4-ubl4",
+        "simpson-66t",
     }
+    strap = next(row for row in follow_up["families"] if row["id"] == "simpson-66t")
+    assert strap["uk_to_us_part_equivalence_verified"] is False
+    assert strap["coplanar_mounting_face_at_each_required_station_verified"] is False
     assert follow_up["complete_joint_selected"] is False
     assert follow_up["fabrication_release"] is False
     assert contingency["owner_authorization_obtained"] is False

@@ -1,13 +1,16 @@
 {
   "task": "LB-02 bounded owner-directed retail follow-up",
-  "status": "two_additional_families_screened_no_qualified_joint",
+  "status": "three_additional_families_screened_no_qualified_joint",
   "scope": "Factory-made products sold online at Lowe's or Home Depot, without custom steel or changes to the preserved single 1.5-inch 2x6 receiver",
   "families": [
     {
       "id": "simpson-a88",
       "retailer": "https://www.lowes.com/pd/Simpson-Strong-Tie-Wood-to-Wood-Angle/1002624448",
       "bolt_installation_reference": "https://www.homedepot.com/p/100374951",
+      "manufacturer_catalog_excerpt": "https://assets.unilogcorp.com/187/ITEM/DOC/Simpson_Strong_Tie_100318533_Specification_Sheet.pdf",
       "found": "Retail A88 wood-to-wood angle; Simpson's retailer answer calls for three structural 3/8-inch through-bolts in each leg",
+      "catalog_bolted_f1_f2_allowable_load_cells": "blank in the inspected Simpson C-C-2019 page; installation count is not a rating",
+      "nominal_flange_width_in": 2,
       "controlled_factory_bolt_centers_verified": false,
       "combined_shear_separation_moment_resistance_verified": false,
       "preserved_stock_installed_fit_verified": false,
@@ -21,6 +24,18 @@
       "all_bolted_detail_published": false,
       "nailed_rating_transferable_to_bolts": false,
       "disposition": "rejected_for_structural_wood_thread_removal_target"
+    },
+    {
+      "id": "simpson-66t",
+      "retailer": "https://www.homedepot.com/p/100374961",
+      "manufacturer_uk_product": "https://www.strongtie.co.uk/en-UK/products/flat-t-shaped-bracket-66t",
+      "manufacturer_uk_cad_pdf": "https://www.strongtie.co.uk/sites/default/files/field_media_file_1/2024/05/14/212609/c-66t-2do-cad-mult-prod.pdf",
+      "found": "Home Depot lists US model 66T as a 14-gauge galvanized flat T strap installable with bolts; Simpson UK publishes a 66T 2D CAD file and a nominal three-hole 11-mm bolt pattern on a 38-mm-wide stem",
+      "uk_to_us_part_equivalence_verified": false,
+      "controlled_us_bolt_centers_verified": false,
+      "coplanar_mounting_face_at_each_required_station_verified": false,
+      "combined_joint_resistance_verified": false,
+      "disposition": "coplanar_factory_bolted_lead_only; UK geometry and material data cannot silently qualify US retail part or angle joints"
     }
   ],
   "retail_inventory_limit": "Online listings do not establish local shelf stock or delivered-part identity",

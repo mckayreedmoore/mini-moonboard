@@ -14,12 +14,13 @@
     {"id": "simpson-hl43", "status": "targeted_retail_follow_up_rejected", "blocking": "Published bolted detail requires 5-1/8 in timber thickness; all 24 preserved stations include a thinner 2x6 member"},
     {"id": "mitek-b66", "status": "targeted_retail_follow_up_rejected", "blocking": "MiTek's published bolted detail requires 3 in timber thickness, while all 24 preserved stations include a 1.5 in 2x6 member; Lowe's also says the item is no longer sold there"},
     {"id": "simpson-a88", "status": "additional_bolted_retail_lead_unqualified", "blocking": "Retail sources describe three 3/8-inch through-bolts per leg, but no controlled hole-center layout or complete combined-action resistance was verified"},
-    {"id": "mitek-bl4-ubl4", "status": "additional_retail_follow_up_rejected", "blocking": "Published MiTek BL4 F1/F2 values specify ten 10d nails, not an all-bolted structural move interface"}
+    {"id": "mitek-bl4-ubl4", "status": "additional_retail_follow_up_rejected", "blocking": "Published MiTek BL4 F1/F2 values specify ten 10d nails, not an all-bolted structural move interface"},
+    {"id": "simpson-66t", "status": "coplanar_factory_bolted_retail_lead_unqualified", "blocking": "Flat T strap cannot replace an angle at non-coplanar joints; no US-controlled hole-center detail or complete combined-action rating verified, and UK product data cannot silently transfer to the US retail item"}
   ],
   "smallest_decision_needed": "Complete representative fit/load-path screens and assign an applicable connector architecture to all 24 stations. A66 remains a retail prototype priority, not an accepted architecture; its bolt capacity and factory hole layout are unresolved.",
   "representative_exact_blockers": "docs/bolted-candidate-representative-blockers.json",
   "direct_butt_geometry_screen": "docs/bolted-candidate-direct-butt-screen.json",
-  "additional_retail_follow_up": "docs/bolted-candidate-prototypes/retail-two-family-follow-up.json",
+  "additional_retail_follow_up": "docs/bolted-candidate-prototypes/retail-additional-follow-up.json",
   "ordinary_stock_scope_contingency": {
     "record": "docs/bolted-candidate-prototypes/ordinary-retail-steel-stock-contingency.json",
     "status": "owner_exception_not_requested_or_approved",
