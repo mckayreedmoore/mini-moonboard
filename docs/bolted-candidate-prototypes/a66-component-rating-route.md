@@ -122,13 +122,16 @@ wood contact bearing per plane before preload. Neither number is a joint
 rating; the tension check is for member axial action, while washer bearing
 concerns bolt-axis action and requires actual washer stiffness/contact.
 
-[AWC NDS Appendix E](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210113_AWCWebsite_Appendix.pdf)
-provides a nonmandatory parallel-grain row tear-out method. Its historical
+[AWC 2024 NDS Appendix E](https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf)
+provides a nonmandatory parallel-grain row tear-out method. Its E.3-2b
 equation gives `2 × 180 × 1.5 × 1.125 = 608 lb` for a *hypothetical*
 two-bolt row at the 3D minimum pitch and adequate loaded-end distance.
-This is a method demonstration, not the A66 factory pattern or a 2024
-multi-bolt acceptance value; current-edition details and all adjustment
-factors would need confirmation for an actual layout. The [US Forest
+This is a method demonstration, not the A66 factory pattern or a
+multi-bolt acceptance value; full 2024 placement and adjustment checks are
+required for an actual layout. The `bolted_timber_checks.py` helpers now
+calculate the E.2 net section and E.3 one-row values from supplied bores,
+end distance, pitch and thickness. They do not select those inputs or report
+a connection pass. The [US Forest
 Service's fastener research](https://research.fs.usda.gov/treesearch/27033)
 also cautions that bolt-group tear-out and splitting are distinct wood
 mechanisms. Published `Ft`, `Fv`, `Fc⊥` and `Fe` therefore give substantial

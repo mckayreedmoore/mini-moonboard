@@ -1,12 +1,12 @@
 {
   "task": "LB-11A",
   "status": "incomplete_timber_resistance",
-  "engineering_disposition": "geometry_screen_only; timber resistance unresolved",
-  "implemented": ["edge/end reserve screen", "published DF-L solid-wood dowel-bearing and angle-to-grain input helper for large dowels; not a joint rating"],
+  "engineering_disposition": "conditional_component_reference_only; full timber resistance unresolved",
+  "implemented": ["edge/end reserve screen", "published DF-L solid-wood dowel-bearing and angle-to-grain input helper for large dowels", "2024 NDS Appendix E.2 net parallel-tension reference from supplied critical-section bores", "2024 NDS Appendix E.3 one-row parallel tear-out reference from supplied end distance and pitch"],
   "component_basis": "docs/bolted-candidate-prototypes/a66-component-rating-route.md",
   "conditional_wood_vs_bolt_screen": "docs/bolted-candidate-prototypes/a66-wood-vs-bolt-screen.json",
   "dfl_specific_gravity_assigned": 0.5,
   "conditional_dowel_bearing_psi": {"parallel": 5600, "perpendicular_rounded": 3650},
-  "unresolved": ["applicable steel-to-wood yield-mode result", "bolt bending yield and thread-bearing diameter", "splitting", "row/block failure", "net section", "grain angle", "existing bore interaction", "group and service adjustments"],
+  "unresolved": ["applicable steel-to-wood yield-mode result", "bolt bending yield and thread-bearing diameter", "splitting and group tear-out", "actual station bore sections and row geometry", "actual grain/load angle", "existing bore interaction", "group and service adjustments"],
   "capacity_claim": false
 }

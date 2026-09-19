@@ -1,8 +1,7 @@
-"""Timber geometry screens for the AB90 prototype.
+"""Timber geometry and conditional DF-L reference-input screens.
 
-These are fit/edge-envelope checks, not NDS resistance calculations. Capacity
-and species/grain applicability remain unresolved until an applicable design
-basis is selected.
+The reference calculations are not complete NDS connections or capacity
+approvals. They require actual hole layouts, load directions and adjustments.
 """
 
 import math
@@ -45,8 +44,8 @@ def screen_geometry(
 def unresolved_limit_states() -> tuple[str, ...]:
     return (
         "dowel bearing and fastener bending",
-        "splitting, row/block failure, and net section",
-        "grain-angle and existing-bore interaction",
+        "splitting, group tear-out, and changed member net section",
+        "actual grain/load orientation and existing-bore interaction",
         "axial bolt bearing and local wood fracture",
     )
 
@@ -73,3 +72,43 @@ def dfl_dowel_bearing_psi(diameter_in: float, load_angle_degrees: float) -> floa
     cosine_squared = math.cos(angle_radians) ** 2
     return (parallel_psi * perpendicular_psi /
             (parallel_psi * sine_squared + perpendicular_psi * cosine_squared))
+
+
+def dfl_net_parallel_tension_reference_lbf(
+    thickness_in: float, width_in: float, bore_diameters_in: tuple[float, ...]
+) -> float:
+    """NDS-2024 Appendix E.2 dry DF-L No.2 net tension, not joint capacity.
+
+    Bores must be distinct openings on one critical cross section. The caller
+    owns section selection, neighboring cuts, grain/load and adjustments.
+    """
+    if (not math.isfinite(thickness_in) or thickness_in <= 0 or
+            not math.isfinite(width_in) or width_in <= 0 or not bore_diameters_in or
+            any(not math.isfinite(bore) or bore <= 0 for bore in bore_diameters_in)):
+        raise ValueError("net-section dimensions and bores must be positive and finite")
+    net_width_in = width_in - math.fsum(bore_diameters_in)
+    if net_width_in <= 0:
+        raise ValueError("bores leave no net member width")
+    return 575.0 * thickness_in * net_width_in
+
+
+def dfl_parallel_row_tear_out_reference_lbf(
+    thickness_in: float, bolt_count: int, end_distance_in: float,
+    pitch_in: float | None = None,
+) -> float:
+    """NDS-2024 Appendix E.3 one-row dry DF-L No.2 reference, not joint capacity.
+
+    The actual force must act parallel to grain toward the end. This does not
+    check minimum end/bolt spacing, group action, splitting or adjustments.
+    """
+    if (not math.isfinite(thickness_in) or thickness_in <= 0 or
+            not isinstance(bolt_count, int) or isinstance(bolt_count, bool) or
+            bolt_count < 1 or not math.isfinite(end_distance_in) or
+            end_distance_in <= 0):
+        raise ValueError("row geometry must have positive finite dimensions and bolt count")
+    if bolt_count > 1 and (pitch_in is None or not math.isfinite(pitch_in) or pitch_in <= 0):
+        raise ValueError("multiple bolts require a positive finite row pitch")
+    if bolt_count == 1 and pitch_in is not None:
+        raise ValueError("single-bolt row has no pitch")
+    critical_spacing_in = min(end_distance_in, pitch_in) if pitch_in else end_distance_in
+    return 180.0 * bolt_count * thickness_in * critical_spacing_in
