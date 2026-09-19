@@ -1,0 +1,26 @@
+{
+  "candidate": "compact-floor-flush-bolted-development",
+  "baseline_candidate": "compact-floor-flush-development",
+  "panel_policy": {
+    "main_panel_screws": {"count": 48, "hardware": "Hillman 42605 #10 x 2-1/2 in", "change_allowed": false},
+    "kicker_screws": {"count": 18, "hardware": "Hillman 42605 #10 x 2-1/2 in", "change_allowed": false},
+    "inserts": {"in_scope": false, "qualification": false},
+    "through_bolts": {"in_scope": false}
+  },
+  "structural_policy": {
+    "sds_axes": 144,
+    "ml24z_stations": 24,
+    "existing_frame_bolts": 12,
+    "structural_wood_thread_removals_per_move_target": 0,
+    "retained_frame_bolts_are_starting_geometry_only": true
+  },
+  "widths": {
+    "official": "docs/floor-flush-construction/connection-axes.csv",
+    "kerf-right": "docs/floor-flush-construction-kerf-right/connection-axes.csv"
+  },
+  "classification": {
+    "sds_wood": "structural",
+    "bolt_clearance": "retained_frame_bolt",
+    "hillman_panel": "panel"
+  }
+}
