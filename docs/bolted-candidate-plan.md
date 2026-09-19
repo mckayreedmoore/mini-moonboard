@@ -53,6 +53,12 @@ The bounded retail follow-ups found no substitute with published bolted loads
 applicable to the preserved single-2x6 thickness. The exact A66 manufacturer
 information request is in `docs/bolted-candidate-g1-decision.json`; it has not
 been sent, and a response would still need the three representative fit checks.
+The Home Depot-listed ABB Superstrut AB205 four-hole angle is a further
+dimensioned retail lead: ABB gives nominal hole diameter and spacing, but its
+2,000-lb value covers a supported strut-channel configuration, not this
+wood-to-wood joint. Its steel strength, installed hole coordinates, and
+whole-joint resistance remain open. See
+`docs/bolted-candidate-prototypes/superstrut-ab205-retail.json`.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw
@@ -87,6 +93,11 @@ The existing six-mode wood-to-wood yield implementation now has regression
 tests against nine cells of the publisher's 2018 NDS Table 12A. Those tests
 verify its arithmetic for comparable two-member cases; they do not transfer a
 2018 table value into the candidate's eventual 2024 connection assessment.
+Astra's supplemental wood-bolt guide confirms this use boundary: the wood
+reference method is not a steel-angle rating, and bolt-side bearing, washer
+compression, splitting, plate bending and prying need separate checks. The
+guide's two-wood-member single-shear examples must not be routed through an
+AB205 steel-to-wood flange or an unresolved multi-member stack.
 
 ## Baseline producer inventory
 

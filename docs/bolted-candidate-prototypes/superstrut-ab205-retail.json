@@ -1,0 +1,54 @@
+{
+  "task": "LB-02F",
+  "status": "dimensioned_common_retail_prototype_lead_only",
+  "product": {
+    "model": "ZAB205EG-10 / AB205-EG",
+    "home_depot_internet_number": 202077397,
+    "home_depot_store_sku": 537896,
+    "manufacturer_family": "ABB Superstrut AB205 four-hole 90-degree fitting",
+    "height_in": 4.125,
+    "base_length_in": 3.5,
+    "width_in": 1.625,
+    "nominal_thickness_in": 0.25,
+    "factory_hole_count": 4,
+    "factory_hole_diameter_in": 0.5625,
+    "manufacturer_standard_bolt_diameter_in": 0.5,
+    "manufacturer_hole_pitch_in": 1.875,
+    "manufacturer_generic_hole_center_from_end_in": 0.8125,
+    "material_description": "hot-rolled carbon steel; exact grade and guaranteed minimum strength not published",
+    "application": "metal framing/strut channel; not a published timber connection"
+  },
+  "nominal_wood_geometry_screen": {
+    "assumed_receiver": "single nominal 2x6, actual 1.5 x 5.5 in",
+    "assumed_hole_axis": "centered in the screened face; not installed factory coordinates",
+    "loaded_edge_rule": "4D conditional perpendicular-to-grain screen; actual load direction and all other placement rules unresolved",
+    "wide_face_best_case_4d_edge_reserve_in": 0.75,
+    "narrow_face_best_case_4d_edge_reserve_in": -1.25,
+    "nominal_hole_minus_bolt_diameter_in": 0.0625,
+    "interpretation": "Broad face has a positive best-case edge reserve, but not a demonstrated installed fit. Narrow 1.5-inch face fails this screen for a centered half-inch bolt. End distance, bolt-row placement, adjoining members, backing and tool paths still need checking."
+  },
+  "manufacturer_channel_rating": {
+    "value_lb": 2000,
+    "scope": "AB205 with A1200 or A1400 channel, both ends supported in ABB's illustrated strut-channel configuration",
+    "basis": "manufacturer design data; 2.5 safety factor based on ultimate connection strength",
+    "not_applicable_to": "independent wood-to-wood angle installation or a complete MoonBoard joint"
+  },
+  "sources": {
+    "home_depot_listing": "https://www.homedepot.com/p/202077397",
+    "abb_exact_retail_product": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZAB205EG-10",
+    "abb_ab205_family_dimensions": "https://www.homedepot.com/catalog/pdfImages/9c/9cc20932-8e38-4e41-81fa-eb78034441be.pdf",
+    "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf"
+  },
+  "source_limits": [
+    "The ABB catalog standard hole spacing is nominal and no product-specific tolerances or fully datum-controlled wood drilling coordinates were verified.",
+    "The AB205 family drawing and exact retail SKU correspond by ABB's catalog descriptions, but the retail page does not certify material mechanical properties.",
+    "Local store inventory, received-part dimensions and product traceability have not been inspected.",
+    "The manufacturer's 2,000-lb channel value has different support, fasteners and load path from a wood-to-wood frame joint."
+  ],
+  "wood_method_boundary": "Astra's 2026-09-19 wood-bolt addendum and existing fea/dowel_yield.py support conditional two-wood-member single-shear checks only. An AB205 leg is a steel-to-wood attachment and needs its applicable modes, steel properties, plate/bend checks and full joint action resolution; the two-wood helper must not be used as its capacity.",
+  "abb_channel_test_rating_transferable_to_wood": false,
+  "wood_to_wood_capacity_established": false,
+  "factory_drill_coordinates_released": false,
+  "drilling_released": false,
+  "next_action": "Screen each representative station's actual flange placement, end/edge/spacing, bore and washer access; obtain a guaranteed AB205 steel-property basis or an applicable product-specific wood rating; resolve simultaneous joint actions before selecting any architecture."
+}
