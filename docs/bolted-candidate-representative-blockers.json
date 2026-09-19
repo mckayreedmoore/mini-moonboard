@@ -6,9 +6,9 @@
   "wood_reference": "docs/bolted-candidate-material-basis.json",
   "existing_two_wood_member_yield_method": "fea/dowel_yield.py; applicable only after an actual two-member single-shear detail and its bearing lengths, grain angles, shank and Fyb are defined",
   "archived_wrench_source": "docs/floor-runner-mvp-angle-demands.json",
-  "archived_wrench_limit": "Each listed force and moment come from the same archived case and beam flange at the archived station origin. They are illustrative simultaneous examples, not historical peak envelopes or new-candidate demand. Do not combine different case peaks.",
+  "archived_wrench_limit": "Each a12-left force/moment pair is one illustrative simultaneous beam-flange example at its archived station origin, not prioritization evidence, a historical peak envelope, or new-candidate demand. The separately listed historical force and moment norm maxima may occur in different cases: never combine them into a synthetic wrench, shift an old moment to current geometry, or use any archived value as a new-candidate demand or capacity claim.",
   "same_case_is_not_archived_peak_or_envelope": true,
-  "separate_historical_peak_source": "docs/bolted-candidate-prototypes/representative-historical-demands.json; its force and moment maxima can be from different cases and must not be paired",
+  "separate_historical_peak_source": "docs/bolted-candidate-prototypes/representative-historical-demands.json; verified against docs/floor-runner-mvp-angle-demands.json (SHA-256 5446aeacaccafb70c77358635e5fb84c1b9627eb922209411b748e5e34c9e558); separate beam-flange norm maxima must not be paired",
   "joints": {
     "narrow_opposing": {
       "station": "clip_horizontal_bottom_left_2",
@@ -21,6 +21,10 @@
         "reference": "archived beam-flange origin",
         "force_xyz_n": [-8.46385756605091, 26.665683417789793, -32.8744767565283],
         "moment_xyz_nmm": [4633.160054333157, -971.0329386502602, -635.7852120315994]
+      },
+      "archived_separate_peak_norms": {
+        "force": {"case": "a1-rear", "norm_n": 201.05069918303528},
+        "moment": {"case": "a12-forward", "norm_nmm": 6112.422837825851}
       },
       "missing_inputs": [
         "verified factory bolt-hole coordinates and flange pose on a usable broad face",
@@ -45,6 +49,10 @@
         "force_xyz_n": [27.09905255611134, -0.0401276981613905, 6.46820330759477],
         "moment_xyz_nmm": [9110.28596088508, 661.0085163455055, -3371.7522566805765]
       },
+      "archived_separate_peak_norms": {
+        "force": {"case": "a12-forward", "norm_n": 371.79652475967146},
+        "moment": {"case": "k12-rear", "norm_nmm": 10619.373875644324}
+      },
       "missing_inputs": [
         "actual connector bolt-hole pattern and bolt axes at the moved current station",
         "interference with neighboring center-header hardware, retained 20 panel/kicker axes and proposed outward support shift",
@@ -67,6 +75,10 @@
         "reference": "archived beam-flange origin; nominal station location unchanged",
         "force_xyz_n": [143.52479357543797, 703.7657438472975, -147.57997949690358],
         "moment_xyz_nmm": [6691.374578152432, 5615.1075854846495, -5932.2162973198065]
+      },
+      "archived_separate_peak_norms": {
+        "force": {"case": "a12-left", "norm_n": 733.2567346653684},
+        "moment": {"case": "a12-rear", "norm_nmm": 19689.44700592697}
       },
       "missing_inputs": [
         "verified factory bolt-hole coordinates, flange pose and actual exit faces",
