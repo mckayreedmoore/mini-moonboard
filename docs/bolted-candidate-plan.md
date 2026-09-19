@@ -50,8 +50,10 @@ such rather than using their prototype counts as completion evidence.
 
 ## Current nonblocking owner checkpoints
 
-Actual stock condition and physical width packet remain shop gates. Preliminary
-work may use an explicitly labelled `fresh_stock_provisional` model. Custom
+The owner reported structural frame stock is uncut and undrilled, recorded in
+`docs/bolted-candidate-owner-inputs.json`. Physical receiving inspection and
+the actual width packet remain shop gates. Preliminary work may use a fresh-stock
+model without treating the owner's report as a measured inspection. Custom
 steel, larger/doubled members, permanently wood-screwed detachable connectors,
 or retained paired principal members require a specific decision at the
 architecture gate.

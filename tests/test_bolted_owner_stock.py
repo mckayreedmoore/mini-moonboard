@@ -1,0 +1,20 @@
+"""Owner-reported structural stock state is kept separate from inspection."""
+
+import json
+from pathlib import Path
+
+from mini_moonboard import compact_floor_flush_bolted_frame as candidate
+
+ROOT = Path(__file__).parents[1]
+
+
+def test_owner_stock_report_is_consistent_without_claiming_inspection() -> None:
+    owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
+    interfaces = json.loads((ROOT / "docs/bolted-candidate-interfaces.json").read_text())
+    metadata = candidate.candidate_metadata()
+    assert owner["structural_stock"]["condition"] == "uncut_undrilled"
+    assert owner["structural_stock"]["source"] == "owner_report_in_codex_task"
+    assert owner["structural_stock"]["physical_receiving_inspection_complete"] is False
+    assert metadata["actual_structural_stock_condition"] == "owner_reported_uncut_undrilled"
+    assert metadata["fabrication_release"] is False
+    assert interfaces["physical_state"] == "owner-reported uncut and undrilled; receiving inspection pending"
