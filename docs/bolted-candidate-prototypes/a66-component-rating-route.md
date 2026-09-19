@@ -27,6 +27,17 @@ terms, and fastener bending, steel bearing, and other modes can govern. Full
 delivered bolt's shank/thread position. Do not use either product to pass a
 joint or select a bolt count.
 
+[AWC TR12 Table A2](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
+publishes a 45,000-psi reference bolt bending-yield strength for its stated
+low-carbon bolt class. [ICC-ES ESR-3455, §3.29.3.2](https://icc-es.org/wp-content/uploads/report-directory/ESR-3455.pdf)
+explicitly pairs ASTM A307 Grade A with minimum `Fyb = 45,000 psi` for the
+bolts covered by *that* report. Neither source certifies an unpurchased retail
+bolt or supplies A66 steel bearing strength. The input-driven
+`steel_wood_single_shear_mode_iv_reference_lbf` helper implements the 2024 NDS
+12.3-6 bending-dominated yield mode with separately supplied wood bearing,
+steel bearing, and bolt `Fyb`. Its output is **one mode only**, so it cannot
+replace the minimum of applicable modes or the formed-angle check.
+
 The narrowly scoped `dfl_dowel_bearing_psi` helper in
 `mini_moonboard/bolted_timber_checks.py` reproduces these rounded solid-wood
 inputs and the angle-to-grain interpolation. Its tests cover the 0°, 45°, and

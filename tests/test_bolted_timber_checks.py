@@ -10,6 +10,7 @@ from mini_moonboard.bolted_timber_checks import (
     dfl_net_parallel_tension_reference_lbf,
     dfl_parallel_group_tear_out_reference_lbf,
     dfl_parallel_row_tear_out_reference_lbf,
+    steel_wood_single_shear_mode_iv_reference_lbf,
 )
 
 
@@ -107,3 +108,33 @@ def test_dfl_axial_bearing_uses_smaller_full_wood_contact_annulus():
 def test_dfl_axial_bearing_rejects_empty_or_invalid_annulus(od, bore, washer_id):
     with pytest.raises(ValueError):
         dfl_axial_wood_bearing_reference_lbf(od, bore, washer_id)
+
+
+def test_steel_wood_mode_iv_requires_explicit_steel_and_bolt_properties():
+    expected = 0.375**2 / 3.2 * math.sqrt(
+        2 * 5600 * 45000 / (3 * (1 + 5600 / 87000))
+    )
+    assert steel_wood_single_shear_mode_iv_reference_lbf(
+        0.375, 5600, 87000, 45000, 0
+    ) == pytest.approx(expected)
+    assert steel_wood_single_shear_mode_iv_reference_lbf(
+        0.375, 3650, 87000, 45000, 90
+    ) == pytest.approx(
+        0.375**2 / (3.2 * 1.25) * math.sqrt(
+            2 * 3650 * 45000 / (3 * (1 + 3650 / 87000))
+        )
+    )
+
+
+@pytest.mark.parametrize(
+    "diameter,wood_fe,steel_fe,fyb,angle",
+    [(0.24, 5600, 87000, 45000, 0), (0.375, 0, 87000, 45000, 0),
+     (0.375, 5600, 0, 45000, 0), (0.375, 5600, 87000, 0, 0),
+     (0.375, 5600, 87000, 45000, 91),
+     (0.375, 5600, math.nan, 45000, 0)],
+)
+def test_steel_wood_mode_iv_rejects_unsupported_inputs(diameter, wood_fe, steel_fe, fyb, angle):
+    with pytest.raises(ValueError):
+        steel_wood_single_shear_mode_iv_reference_lbf(
+            diameter, wood_fe, steel_fe, fyb, angle
+        )

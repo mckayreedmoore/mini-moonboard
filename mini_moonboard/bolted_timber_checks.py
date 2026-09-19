@@ -150,3 +150,27 @@ def dfl_axial_wood_bearing_reference_lbf(
         washer_outer_diameter_in**2 - unsupported_diameter_in**2
     )
     return 625.0 * annular_area_in2
+
+
+def steel_wood_single_shear_mode_iv_reference_lbf(
+    diameter_in: float, wood_bearing_psi: float, steel_bearing_psi: float,
+    bolt_bending_yield_psi: float, grain_load_angle_degrees: float,
+) -> float:
+    """NDS-2024 12.3-6 Mode IV only for a solid-wood/steel single shear plane.
+
+    Steel bearing and bolt bending yield must be established for the selected
+    parts; diameter must reflect the actual shank/thread bearing condition.
+    This is one yield mode, not the minimum-mode or adjusted joint value.
+    No gap, prying, bolt-axis load, or formed-angle deformation is modeled.
+    """
+    strengths = (wood_bearing_psi, steel_bearing_psi, bolt_bending_yield_psi)
+    if (not math.isfinite(diameter_in) or not 0.25 <= diameter_in <= 1 or
+            any(not math.isfinite(value) or value <= 0 for value in strengths) or
+            not math.isfinite(grain_load_angle_degrees) or
+            not 0 <= grain_load_angle_degrees <= 90):
+        raise ValueError("Mode IV inputs outside the 1/4–1 inch bolt reference range")
+    bearing_ratio = wood_bearing_psi / steel_bearing_psi
+    reduction_term = 3.2 * (1 + 0.25 * grain_load_angle_degrees / 90)
+    return diameter_in**2 / reduction_term * math.sqrt(
+        2 * wood_bearing_psi * bolt_bending_yield_psi / (3 * (1 + bearing_ratio))
+    )
