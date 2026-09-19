@@ -10,6 +10,7 @@ import csv
 import json
 from pathlib import Path
 
+from mini_moonboard import a66_layout_common
 from mini_moonboard import compact_floor_flush_bolted_frame as candidate
 from mini_moonboard.bolted_layouts import FAMILY_NAMES, registered_layouts
 from mini_moonboard.demountable_connections import validate_records
@@ -29,6 +30,10 @@ def report() -> dict[str, object]:
     fasteners = candidate.fastener_stack_records()
     interfaces = candidate.assembly_interface_records()
     validate_records(joints, fasteners, interfaces)
+    a66_joints = a66_layout_common.all_records()
+    a66_fasteners = a66_layout_common.all_fasteners()
+    a66_interfaces = a66_layout_common.all_interfaces()
+    validate_records(a66_joints, a66_fasteners, a66_interfaces)
     structural = [row for row in rows if row["shop_opening_kind"] == "sds_wood"]
     panels = [row for row in rows if row["shop_opening_kind"] == "hillman_panel"]
     frame_bolts = [row for row in rows if row["shop_opening_kind"] == "bolt_clearance"]
@@ -48,6 +53,13 @@ def report() -> dict[str, object]:
             "prototype_interfaces": len(interfaces),
         },
         "family_counts": family_counts,
+        "parallel_a66_prototype": {
+            "connector": "Simpson Strong-Tie A66",
+            "joints": len(a66_joints),
+            "fasteners": len(a66_fasteners),
+            "interfaces": len(a66_interfaces),
+            "status": "prototype_only; exact hole geometry, station fit, and resistance unresolved",
+        },
         "nominal_envelope_screen": {
             "ab90_flange_a_mm": 88.0,
             "ab90_flange_b_mm": 88.0,
