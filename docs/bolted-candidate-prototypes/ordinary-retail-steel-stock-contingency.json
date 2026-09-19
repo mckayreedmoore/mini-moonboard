@@ -1,0 +1,43 @@
+{
+  "task": "LB-04 exact scope contingency, not an approved connector",
+  "status": "retail_stock_material_lead_only",
+  "product": {
+    "manufacturer": "National Hardware",
+    "model": "N215-509",
+    "type": "unmachined plain hot-rolled solid steel angle",
+    "manufacturer_nominal_leg_a_in": 2,
+    "manufacturer_nominal_leg_b_in": 2,
+    "manufacturer_nominal_thickness_in": 0.25,
+    "manufacturer_nominal_stock_length_in": 48,
+    "manufacturer_stated_material": "ASTM A36",
+    "factory_bolt_holes": 0
+  },
+  "sources": {
+    "manufacturer": "https://www.national-hardware.com/p/4061-solid-angles?model=N215-509",
+    "manufacturer_drawing": "https://nationalhardwarestorage.blob.core.windows.net/documents/nh_td_4061bc_n215-509.pdf",
+    "lowes_listing": "https://www.lowes.com/pd/National-Hardware-N215-509-Solid-Angle-Bracket-Plain-Steel-2-x-0-9-x-48-in/9117472",
+    "a36_material_reference": "https://www.aisc.org/globalassets/modern-steel/archives/2004/01/2004v01_materials.pdf"
+  },
+  "conditional_a36_reference": {
+    "minimum_yield_ksi": 36,
+    "minimum_tensile_ksi": 58,
+    "meaning": "AISC reference for ASTM A36 stock material, not a finished connector or wood-joint rating"
+  },
+  "source_limits": [
+    "The Lowe's page gives dimensions conflicting with the manufacturer's 2 x 2 x 1/4 x 48-inch nominal description; verify exact stocked part before any use.",
+    "No manufacturer numerical dimension/tolerance limits or received-stock measurements were verified.",
+    "Online listing does not establish local inventory or delivered-part identity.",
+    "A36 material values alone do not resolve cut-piece hole bearing, flange bending, formed-corner response, bolt forces, or the wood joint."
+  ],
+  "fabrication_if_owner_authorizes": [
+    "cut stock to a designed length",
+    "locate and drill steel bolt holes from an approved joint layout",
+    "deburr holes and edges; inspect actual section and fit",
+    "protect newly exposed plain-steel and drilled surfaces",
+    "verify wood, steel, bolt, washer, access, and combined-action resistance"
+  ],
+  "scope_exception": "Cutting and drilling this stock creates custom-fabricated steel, which handoff Sections 2 and 13 reserve for an exact owner decision at G1; it is not the requested factory connector.",
+  "owner_authorization_obtained": false,
+  "connector_selected": false,
+  "fabrication_release": false
+}

@@ -43,3 +43,20 @@ def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
     assert request["dimensioned_bolt_hole_centers_required"] is True
     assert request["applicable_bolt_mode_resistance_required"] is True
     assert request["if_unavailable"] == "A66 cannot advance to representative drilling or G1 selection"
+
+
+def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
+    decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
+    follow_up = json.loads((ROOT / decision["additional_retail_follow_up"]).read_text())
+    contingency = json.loads(
+        (ROOT / decision["ordinary_stock_scope_contingency"]["record"]).read_text()
+    )
+    assert {family["id"] for family in follow_up["families"]} == {
+        "simpson-a88",
+        "mitek-bl4-ubl4",
+    }
+    assert follow_up["complete_joint_selected"] is False
+    assert follow_up["fabrication_release"] is False
+    assert contingency["owner_authorization_obtained"] is False
+    assert contingency["connector_selected"] is False
+    assert contingency["fabrication_release"] is False
