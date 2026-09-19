@@ -246,6 +246,8 @@ def extract_files(report_path, record_path, principal, post, header='base_header
         raise ValueError('Extracted interface or header equilibrium failed')
     result['source'] = {'report_sha256': hashlib.sha256(report_bytes).hexdigest(),
                         'record_sha256': record_hash, 'case': case,
+                        'candidate': report['candidate'],
+                        'diagnostic_scope': scope, 'parameters': params,
                         'record_artifact': relative,
                         'producer_sha256': {source: report['source_sha256'][source]
                                             for source in sources if source in report['source_sha256']}}

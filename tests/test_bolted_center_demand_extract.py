@@ -190,11 +190,20 @@ def file_fixture(tmp_path):
 
 
 def test_file_entry_binds_accepted_report_and_record(tmp_path):
-    report_path, record_path, _, _ = file_fixture(tmp_path)
+    report_path, record_path, report, _ = file_fixture(tmp_path)
+    report['diagnostic_scope']['connection_stiffness_scale'] = 0.1
+    report['parameters']['contact_penalty_n_per_mm'] = 1234.0
+    sidecar = report_path.parent / 'diagnostic-scope.json'
+    sidecar.write_text(json.dumps(report['diagnostic_scope']))
+    report['artifact_sha256'][sidecar.name] = hashlib.sha256(sidecar.read_bytes()).hexdigest()
+    report_path.write_text(json.dumps(report))
     result = extract_files(report_path, record_path, 'principal', 'post', 'header')
     assert result['source']['report_sha256'] == hashlib.sha256(report_path.read_bytes()).hexdigest()
     assert result['source']['record_sha256'] == hashlib.sha256(record_path.read_bytes()).hexdigest()
     assert result['source']['case'] == 'a12-rear'
+    assert result['source']['diagnostic_scope'] == report['diagnostic_scope']
+    assert result['source']['parameters'] == report['parameters']
+    assert result['source']['candidate'] == report['candidate']
     assert result['status']['convergence'] == 'passed'
     assert result['status']['source'] == 'verified'
     assert result['status']['equilibrium'] == 'unavailable'
