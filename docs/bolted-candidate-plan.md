@@ -104,6 +104,10 @@ axes do not intersect retained panel/frame-bolt axes. This suggests a
 potential shared-bolt layout, not two separately counted header bolt pairs.
 It still lacks a specified bolt/washer/plate stack, actual opposing-angle
 body clearance, wood end interpretation, and applicable resistance.
+Ideal square-corner solids built from ABB's nominal outer dimensions do not
+penetrate any raw timber at this position. This does not verify the factory
+bend radius, installed fastener/washer envelopes, panel seating, or tool
+access; the prototype is still unreleased.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

@@ -229,6 +229,48 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
     post_edge_reserve = (
         min(row_y_mm - post_bounds.ymin, post_bounds.ymax - row_y_mm) - four_d
     )
+    plate_width = 1.625 * 25.4
+    plate_thickness = 0.25 * 25.4
+    long_leg_length = 4.125 * 25.4
+    short_leg_length = 3.5 * 25.4
+    y0 = row_y_mm - plate_width / 2
+    top_z = float(trial["contact_z_mm"])
+    top_blocks = (
+        cq.Solid.makeBox(
+            long_leg_length,
+            plate_width,
+            plate_thickness,
+            cq.Vector(x - long_leg_length, y0, top_z),
+        ),
+        cq.Solid.makeBox(
+            plate_thickness,
+            plate_width,
+            short_leg_length,
+            cq.Vector(x - plate_thickness, y0, top_z),
+        ),
+    )
+    bottom_blocks = (
+        cq.Solid.makeBox(
+            long_leg_length,
+            plate_width,
+            plate_thickness,
+            cq.Vector(x - long_leg_length, y0, z - plate_thickness),
+        ),
+        cq.Solid.makeBox(
+            plate_thickness,
+            plate_width,
+            short_leg_length,
+            cq.Vector(x - plate_thickness, y0, z - short_leg_length),
+        ),
+    )
+    plate_intersections = sorted(
+        part.name
+        for part in frame.uncut_wood_parts()
+        if any(
+            block.intersect(part.shape).Volume() > 1e-6
+            for block in top_blocks + bottom_blocks
+        )
+    )
     return {
         "station_pair": [
             "clip_split_base_center_left",
@@ -253,6 +295,8 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
         "retained_axis_conflicts_for_six_unique_bores": sorted(
             set(all_axes["intersecting_retained_axis_ids"]) | set(post_axis_hits)
         ),
+        "nominal_angle_outer_envelope_intersecting_raw_wood_parts": plate_intersections,
+        "nominal_angle_envelope_source": "ABB AB205 4-1/8 in height, 3-1/2 in base, 1-5/8 in width, 1/4 in thickness; ideal square-corner boxes, no bend radius or tolerances",
         "end_distance_classified": False,
         "shared_fastener_stack_defined": False,
         "installed_angle_and_tool_clearance_verified": False,
