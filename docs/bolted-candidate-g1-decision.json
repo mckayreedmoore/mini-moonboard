@@ -33,6 +33,14 @@
     "status": "excluded_by_owner_factory_connector_only_decision",
     "reason": "Owner explicitly chose factory connectors only. Ordinary Lowe's-listed ASTM A36 angle stock would require cutting and drilling and cannot be a candidate connector under that scope."
   },
+  "bounded_factory_material_follow_up": {
+    "status": "no_verified_match_in_checked_exact_models; not_catalog_exhaustion",
+    "checked_2026_09_19": "ABB Superstrut ZAB205EG-10 remains an exact Home Depot factory-made four-hole retail model with a nominal 1/4-inch plate and nominal hole centers. The inspected ABB catalog and product entry do not guarantee its steel grade, minimum base thickness, formed-bend resistance, or a wood-joint rating; its channel rating does not transfer. No exact alternative checked in this bounded follow-up closed those requirements.",
+    "abb_catalog": "https://library.e.abb.com/public/f05dfdae12434edd9b31da07e8ad7686/9AKK107046A5709_Rev%20B_SS_SUPERSTRUT_CT_DGT.pdf",
+    "abb_exact_product": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZAB205EG-10",
+    "retailer": "https://www.homedepot.com/p/202077397",
+    "orientation_caution": "The 1-5/8-inch plate width does not by itself rule out a 1-1/2-inch-thick 2x6: in the center trial the plate width lies along the 5-1/2-inch broad face, not across the 1-1/2-inch thickness. Judge each installed orientation against its actual CAD faces and holes."
+  },
   "owner_connector_scope": {
     "record": "docs/bolted-candidate-owner-inputs.json",
     "decision": "factory_connectors_only",
