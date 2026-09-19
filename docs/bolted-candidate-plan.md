@@ -23,9 +23,14 @@ connector, or authorize fabrication.
 
 After architecture selection: shared connection model, candidate geometry,
 six layout families, integration, width adapter, mechanics, resistance checks,
-native producer contract, and G2 review precede any native case. Native cases
+native producer contract, and G2 review precede any adopted candidate native case. Those cases
 run serially from `a12-left` through `a1-rear`; final exports and independent
 review do not change repository authority automatically.
+
+The [left-center diagnostic](bolted-candidate-center-design-convergence.md) is
+separate pre-gate development: one nominal shared-bolt topology is solved under
+provisional contact/slip inputs while all other stations retain the old proxy.
+It is not an LB-14 candidate case, a joint rating, or a G1/G2 pass.
 
 ## Current gate status
 
