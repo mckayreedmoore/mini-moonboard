@@ -1,5 +1,6 @@
 """The native diagnostic runner cannot silently become an acceptance producer."""
 
+import hashlib
 import json
 
 import pytest
@@ -14,7 +15,8 @@ def test_runner_uses_kerf_preparation_and_records_diagnostic_scope(tmp_path, mon
     def fake_run(output, **kwargs):
         output.mkdir()
         seen.update(kwargs)
-        return {"candidate": kwargs["expected_candidate"], "numerically_accepted": False}
+        return {"candidate": kwargs["expected_candidate"], "numerically_accepted": False,
+                "artifact_sha256": {}}
 
     monkeypatch.setattr(runner.native, "run", fake_run)
     monkeypatch.setattr(runner, "face_contacts", lambda module, **kwargs: [])
@@ -34,6 +36,10 @@ def test_runner_uses_kerf_preparation_and_records_diagnostic_scope(tmp_path, mon
     assert scope["acceptance"] is False
     assert scope["drilling_released"] is False
     assert result["native_report"]["numerically_accepted"] is False
+    assert result["native_report"]["diagnostic_scope"] == scope
+    assert result["native_report"]["artifact_sha256"]["diagnostic-scope.json"] == hashlib.sha256(
+        (output / "diagnostic-scope.json").read_bytes()).hexdigest()
+    assert json.loads((output / "report.json").read_text())["diagnostic_scope"] == scope
 
 
 def test_runner_rejects_noncase_before_creating_output(tmp_path):

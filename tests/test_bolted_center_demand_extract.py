@@ -76,6 +76,13 @@ def test_rejects_bad_endpoint_sign_and_candidate_mismatch():
         extract(changed, record, 'principal', 'post', 'header')
 
 
+def test_kerf_proxy_classification_names_baseline_connectors():
+    report, record = fixture()
+    report['candidate'] = record['candidate'] = 'bolted-kerf-right-diagnostic-proxy'
+    result = extract(report, record, 'principal', 'post', 'header')
+    assert result['classification'] == 'provisional_kerf_right_ML24Z_SDS_proxy'
+
+
 def test_other_header_attachments_and_external_load_close_free_body():
     report, record = fixture()
     extras = {

@@ -20,7 +20,8 @@ FACE_CONTACTS_PATH = Path(face_contacts.__code__.co_filename)
 
 def _sources():
     result = ORIGINAL_SOURCES()
-    for path in (Path(__file__), Path(probe.__file__), FACE_CONTACTS_PATH):
+    for path in (Path(__file__), Path(probe.__file__), FACE_CONTACTS_PATH,
+                 Path("scripts/clear_space_batch.py"), Path("scripts/compact_rail_study.py")):
         resolved = path.resolve()
         result[str(resolved.relative_to(Path.cwd().resolve()))] = hashlib.sha256(resolved.read_bytes()).hexdigest()
     return result
@@ -63,7 +64,11 @@ def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=10
         "contact_stiffness_per_area_n_per_mm3": contact_stiffness_per_area,
         "bolted_joint_demands": False, "acceptance": False, "drilling_released": False,
     }
-    (Path(output) / "diagnostic-scope.json").write_text(json.dumps(scope, indent=2) + "\n")
+    scope_path = Path(output) / "diagnostic-scope.json"
+    scope_path.write_text(json.dumps(scope, indent=2) + "\n")
+    report["diagnostic_scope"] = scope
+    report["artifact_sha256"][scope_path.name] = hashlib.sha256(scope_path.read_bytes()).hexdigest()
+    (Path(output) / "report.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
     return {**scope, "native_report": report}
 
 

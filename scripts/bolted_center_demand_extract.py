@@ -135,10 +135,12 @@ def extract(report, record, principal, post, header='base_header', header_origin
                         'all_connections': all_wrench,
                         'external_load': external, 'residual': residual}
     candidate = report['candidate']
-    return {'source_candidate': candidate,
-            'classification': ('provisional_baseline_ML24Z_SDS'
-                               if candidate == 'compact-floor-flush-development'
-                               else 'unqualified_native_diagnostic'),
+    classification = ('provisional_baseline_ML24Z_SDS'
+                      if candidate == 'compact-floor-flush-development' else
+                      'provisional_kerf_right_ML24Z_SDS_proxy'
+                      if candidate == 'bolted-kerf-right-diagnostic-proxy' else
+                      'unqualified_native_diagnostic')
+    return {'source_candidate': candidate, 'classification': classification,
             'scope': 'Signed simultaneous native connector resultants only; no bolt demand, drilling or acceptance claim',
             'interfaces': interfaces, 'header_free_body': header_free_body}
 
