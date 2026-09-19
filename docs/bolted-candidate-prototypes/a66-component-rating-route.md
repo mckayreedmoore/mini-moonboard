@@ -75,6 +75,65 @@ establishes availability, not a chosen length, certified bending-yield
 property, thread-free shear plane, or installed bolt capacity. No assumption
 of clamping friction or pretension is credited.
 
+## Does the wood govern before the bolt?
+
+For **pure lateral shear only**, a conditional component comparison supports
+that hypothesis for the nominal 3/8-inch A307 example. With full 1.5-inch
+wood bearing length, 2024 NDS Mode I_m gives `D × l × Fe / Rd` = **788 lb**
+parallel to grain (`Rd = 4`) or **411 lb** perpendicular (`Rd = 5`). The
+[AWC 2024 errata](https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf)
+reprints the applicable reduction table. These are *individual wood-bearing
+yield-mode reference values*, not observed wood failure loads or the final
+single-fastener value; other yield modes or adjustments may be lower.
+
+For comparison, [AISC 360-16 Table J3.2 and §J3.6](https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_march-2021.pdf)
+give A307 bolts nominal shear stress of 27 ksi and ASD factor `Omega = 2.00`.
+At nominal 3/8-inch body area, that is about **2,982 lb nominal** and
+**1,491 lb ASD** for one bolt shaft in one shear plane, before any grip-length
+reduction or combined tension. [ASTM A307](https://store.astm.org/a0307-00.html)
+separately specifies Grade A's minimum tensile strength of 60 ksi. The
+[Lowe's candidate listing](https://www.lowes.com/pd/Hillman-3-8-in-x-4-in-Galvanized-Coarse-Thread-Hex-Bolt/1000381863)
+calls its example A307, but no delivered bolt, grip or thread position is
+selected or verified. The [owner-supplied AIMS grade
+chart](https://aimsindustrial.com.au/blogs/product-guides/bolt-grade-chart)
+explains common metric/SAE markings but does not list ASTM A307 or rate this
+joint; its Australian metric torque table must not be used as an A66 wood
+installation instruction. Its Grade 5 row is relevant to identifying the
+twelve *retained existing* frame-bolt grade, not an automatic upgrade of the
+new preliminary A307 A66 bolt option.
+
+Thus wood bearing can be the lower **screened component** versus bolt-shaft
+shear under those assumptions. It does not prove wood is the first physical
+failure: the A66 sheet may bend or tear, the bolt may see prying/tension,
+wood may split or tear out, and a 3/8-inch bolt on the narrow 1.5-inch face
+already fails the conditional loaded-edge 4D geometry screen. Do not double
+the single-bolt number for an A66 leg. The reproducible inputs and claim
+boundary are in `a66-wood-vs-bolt-screen.json`.
+
+The [2024 NDS Supplement Table 4A](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf)
+also gives DF-L No. 2 dimension-lumber references of **575 psi tension
+parallel to grain**, **180 psi shear parallel to grain**, and **625 psi
+compression perpendicular to grain**. Those enable other conditional wood
+checks. For example, with *one* 7/16-inch bore across a 1.5 by 5.5-inch
+section, unadjusted net parallel-tension force is `575 × 1.5 ×
+(5.5 − 7/16) = 4,366 lb`. A fully supported 1-inch-OD washer around the
+same bore has `625 × π/4 × (1² − (7/16)²) = 397 lb` of idealized dry
+wood contact bearing per plane before preload. Neither number is a joint
+rating; the tension check is for member axial action, while washer bearing
+concerns bolt-axis action and requires actual washer stiffness/contact.
+
+[AWC NDS Appendix E](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210113_AWCWebsite_Appendix.pdf)
+provides a nonmandatory parallel-grain row tear-out method. Its historical
+equation gives `2 × 180 × 1.5 × 1.125 = 608 lb` for a *hypothetical*
+two-bolt row at the 3D minimum pitch and adequate loaded-end distance.
+This is a method demonstration, not the A66 factory pattern or a 2024
+multi-bolt acceptance value; current-edition details and all adjustment
+factors would need confirmation for an actual layout. The [US Forest
+Service's fastener research](https://research.fs.usda.gov/treesearch/27033)
+also cautions that bolt-group tear-out and splitting are distinct wood
+mechanisms. Published `Ft`, `Fv`, `Fc⊥` and `Fe` therefore give substantial
+wood-side data, but no single material number proves the complete joint.
+
 ## Remaining G1 decision
 
 Obtain a dimensioned, product-specific factory hole pattern; supported A66
