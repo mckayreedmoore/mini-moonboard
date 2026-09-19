@@ -42,7 +42,10 @@ def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
     assert request["minimum_wood_thickness_in_question"] == 1.5
     assert request["dimensioned_bolt_hole_centers_required"] is True
     assert request["applicable_bolt_mode_resistance_required"] is True
-    assert request["if_unavailable"] == "A66 cannot advance to representative drilling or G1 selection"
+    assert (
+        request["if_unavailable"]
+        == "A66 cannot advance to representative drilling or G1 selection"
+    )
 
 
 def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
@@ -62,8 +65,28 @@ def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
     assert follow_up["complete_joint_selected"] is False
     assert follow_up["fabrication_release"] is False
     assert contingency["owner_authorization_obtained"] is False
+    assert contingency["owner_explicitly_excluded"] is True
     assert contingency["connector_selected"] is False
     assert contingency["fabrication_release"] is False
+
+
+def test_owner_factory_connector_scope_excludes_custom_stock() -> None:
+    owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
+    decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
+    assert owner["connector_scope"]["owner_decision"] == "factory_connectors_only"
+    assert (
+        owner["connector_scope"]["ordinary_cut_and_drilled_a36_stock_allowed"] is False
+    )
+    assert owner["connector_scope"]["custom_fabricated_steel_allowed"] is False
+    assert decision["owner_connector_scope"]["decision"] == "factory_connectors_only"
+    assert (
+        decision["owner_connector_scope"]["custom_cut_and_drilled_steel_allowed"]
+        is False
+    )
+    assert decision["ordinary_stock_scope_contingency"]["status"] == (
+        "excluded_by_owner_factory_connector_only_decision"
+    )
+    assert "custom fabricated steel" in decision["explicitly_excluded_by_owner"]
 
 
 def test_owner_post_only_shift_screen_remains_a_g1_prototype() -> None:
@@ -73,5 +96,11 @@ def test_owner_post_only_shift_screen_remains_a_g1_prototype() -> None:
     )
     assert screen["selected_offset_mm"] is None
     assert screen["drilling_released"] is False
-    assert screen["common_geometry_findings"]["top_principals_and_panel_screw_axes_moved"] is False
-    assert screen["common_geometry_findings"]["kicker_edge_support_adequacy_verified"] is False
+    assert (
+        screen["common_geometry_findings"]["top_principals_and_panel_screw_axes_moved"]
+        is False
+    )
+    assert (
+        screen["common_geometry_findings"]["kicker_edge_support_adequacy_verified"]
+        is False
+    )

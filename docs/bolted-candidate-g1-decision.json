@@ -28,8 +28,13 @@
   "additional_retail_follow_up": "docs/bolted-candidate-prototypes/retail-additional-follow-up.json",
   "ordinary_stock_scope_contingency": {
     "record": "docs/bolted-candidate-prototypes/ordinary-retail-steel-stock-contingency.json",
-    "status": "owner_exception_not_requested_or_approved",
-    "reason": "Ordinary Lowe's-listed ASTM A36 angle stock may be a material lead, but cutting and drilling it would be custom-fabricated steel rather than a factory connector"
+    "status": "excluded_by_owner_factory_connector_only_decision",
+    "reason": "Owner explicitly chose factory connectors only. Ordinary Lowe's-listed ASTM A36 angle stock would require cutting and drilling and cannot be a candidate connector under that scope."
+  },
+  "owner_connector_scope": {
+    "record": "docs/bolted-candidate-owner-inputs.json",
+    "decision": "factory_connectors_only",
+    "custom_cut_and_drilled_steel_allowed": false
   },
   "a66_manufacturer_information_gate": {
     "status": "source_request_prepared_not_sent",
@@ -49,7 +54,8 @@
     "if_unavailable": "A66 cannot advance to representative drilling or G1 selection",
     "no_purchase_or_drilling_authorized": true
   },
-  "not_authorized_by_silence": ["custom fabricated steel", "larger or doubled timber members", "retained paired principal members", "permanently wood-screwed structural fallback", "AB90 or A66 bolt capacity acceptance", "borrowing nailed A-angle ratings for bolts"],
+  "not_authorized_by_silence": ["larger or doubled timber members", "retained paired principal members", "permanently wood-screwed structural fallback", "AB90 or A66 bolt capacity acceptance", "borrowing nailed A-angle ratings for bolts"],
+  "explicitly_excluded_by_owner": ["custom fabricated steel", "cut-and-drilled ordinary A36 stock"],
   "dependent_tasks_paused": ["LB-14A", "LB-14B", "LB-14C", "LB-14D", "LB-14E", "LB-14F", "LB-15", "LB-16A", "LB-16B", "LB-16C", "LB-17"],
   "baseline_unchanged": true,
   "panel_policy_unchanged": true

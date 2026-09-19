@@ -192,9 +192,11 @@ are 1/16 in narrower too. Physical receiving inspection and measurements
 remain shop gates. Preliminary work may use a fresh-stock model without
 treating the owner's report as a measured inspection. The eventual candidate
 mechanical evidence must cover kerf-right; official-width cases do not transfer. Custom
-steel, larger/doubled members, permanently wood-screwed detachable connectors,
-or retained paired principal members require a specific decision at the
-architecture gate.
+steel is now explicitly excluded: the owner chose factory connectors only.
+Larger/doubled members, permanently wood-screwed detachable connectors, and
+retained paired principal members remain outside the current authorization.
+The ordinary A36 angle-stock record is historical scope evidence, not a
+candidate connector or fabrication fallback.
 
 The 2024 DF-L No. 2 reference inputs used by the provisional bolt checks are
 recorded with units, source edition, and actual-stock unknowns in

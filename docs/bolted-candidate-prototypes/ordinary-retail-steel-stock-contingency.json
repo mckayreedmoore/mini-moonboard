@@ -1,6 +1,6 @@
 {
   "task": "LB-04 exact scope contingency, not an approved connector",
-  "status": "retail_stock_material_lead_only",
+  "status": "archived_material_lead_excluded_by_owner_scope",
   "product": {
     "manufacturer": "National Hardware",
     "model": "N215-509",
@@ -36,8 +36,9 @@
     "protect newly exposed plain-steel and drilled surfaces",
     "verify wood, steel, bolt, washer, access, and combined-action resistance"
   ],
-  "scope_exception": "Cutting and drilling this stock creates custom-fabricated steel, which handoff Sections 2 and 13 reserve for an exact owner decision at G1; it is not the requested factory connector.",
+  "scope_exception": "Cutting and drilling this stock creates custom-fabricated steel. The owner has now explicitly chosen factory connectors only, so this historical material lead cannot be developed as the candidate without a new owner decision.",
   "owner_authorization_obtained": false,
+  "owner_explicitly_excluded": true,
   "connector_selected": false,
   "fabrication_release": false
 }

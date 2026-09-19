@@ -5,9 +5,13 @@ from pathlib import Path
 
 
 def test_representative_blockers_cite_separate_archived_peaks():
-    record = json.loads(Path("docs/bolted-candidate-representative-blockers.json").read_text())
+    record = json.loads(
+        Path("docs/bolted-candidate-representative-blockers.json").read_text()
+    )
     historical = json.loads(
-        Path("docs/bolted-candidate-prototypes/representative-historical-demands.json").read_text()
+        Path(
+            "docs/bolted-candidate-prototypes/representative-historical-demands.json"
+        ).read_text()
     )
     assert record["same_case_is_not_archived_peak_or_envelope"] is True
     assert record["separate_historical_peak_source"].startswith(
@@ -25,3 +29,13 @@ def test_representative_blockers_cite_separate_archived_peaks():
             "norm_nmm": beam["maximum_moment_norm_nmm"],
         }
         assert joint["new_candidate_demand_available"] is False
+
+
+def test_center_blockers_track_new_fixed_support_and_access_evidence():
+    record = json.loads(
+        Path("docs/bolted-candidate-representative-blockers.json").read_text()
+    )
+    center = record["joints"]["center_header"]
+    assert "center-y-stagger.json" in center["fixed_support_row_screen"]
+    assert "center-access.json" in center["nominal_access_screen"]
+    assert center["capacity_claim"] is False
