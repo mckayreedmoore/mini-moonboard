@@ -10,8 +10,8 @@ import hashlib
 import json
 from pathlib import Path
 
-from scripts.clear_space_batch import CASES
 from mini_moonboard import compact_floor_flush_bolted_frame as candidate
+from scripts.clear_space_batch import CASES
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_CASES = tuple(CASES)

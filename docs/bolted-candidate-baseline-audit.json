@@ -46,13 +46,26 @@
   },
   "discrepancies": [
     "The archived handoff notes a moved center-clip geometry versus earlier evidence; fresh candidate evidence must use reconciled current geometry.",
-    "Actual stock condition and physical width packet are unknown shop gates; no favorable fabrication assumption is recorded as observed."
+    "Actual stock condition and physical width packet are unknown shop gates; no favorable fabrication assumption is recorded as observed.",
+    "The selected-candidate checker fails at the pinned baseline because fea/results/clear-space-floorflush/a12-left/geometry.json records a stale hash for mini_moonboard/compact_floor_flush_frame.py. Both files match the pinned baseline; do not rewrite archived evidence to make this green."
   ],
   "verification": {
     "commands": [
       "uv run python -m scripts.current_candidate --help",
-      "uv run python inventory audit over docs/floor-flush-construction/connection-axes.csv"
+      "uv run python inventory audit over docs/floor-flush-construction/connection-axes.csv",
+      "uv run python -m scripts.current_candidate (fails on pre-existing archived geometry source hash)",
+      "uv run python -m scripts.current_candidate --check-exports (same precheck failure before rebuild)",
+      "uv run ruff check . (passes after candidate-lane import formatting)",
+      "uv run scripts/smoke_test.py (passes)"
     ],
+    "selected_candidate_check": {
+      "status": "pre_existing_archive_hash_failure",
+      "archived_geometry": "fea/results/clear-space-floorflush/a12-left/geometry.json",
+      "source": "mini_moonboard/compact_floor_flush_frame.py",
+      "archived_source_sha256": "4cc03e086b381de2cd04685578bfccccfa72ee6e3545814d8e2469a3196de045",
+      "actual_source_sha256": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "both_paths_unchanged_from_baseline_commit": true
+    },
     "native_solves_run": false,
     "cad_rebuilt": false,
     "physical_inspection": false

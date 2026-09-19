@@ -1,6 +1,11 @@
 """LB-09 width identity and transformation checks."""
 
-from mini_moonboard.bolted_floor_flush_width import KERF_RIGHT, KERF_RIGHT_MM, geometry_screen, variant
+from mini_moonboard.bolted_floor_flush_width import (
+    KERF_RIGHT,
+    KERF_RIGHT_MM,
+    geometry_screen,
+    variant,
+)
 
 
 def test_both_width_variants_resolve_the_bolted_candidate() -> None:
