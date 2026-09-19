@@ -215,6 +215,41 @@ def screen_reversible_row_tolerance(
     }
 
 
+def screen_oblique_end_ray_filter() -> dict[str, object]:
+    """Find a necessary factory-hole offset under a stated grain-ray proxy.
+
+    The 2024 NDS bolt end-distance definition is for a square-cut end. This
+    calculation is deliberately not an NDS pass/fail rule for the oblique cut.
+    """
+    short = screen_center_fit("short")
+    long = screen_center_fit("long")
+    grain_z = float(short["principal_grain_z_component"])
+    required_ray = float(short["softwood_loaded_end_minimum_mm"])
+    offset = required_ray * grain_z
+    if abs(float(short["nearest_principal_hole_grain_ray_mm"]) * grain_z
+           - float(short["nearest_principal_hole_vertical_offset_mm"])) > 0.001:
+        raise ValueError("Current oblique end is not the expected horizontal cut")
+    return {
+        "geometry": "fixed left-center principal; AB205 bend flush with header top",
+        "reference": "2024 NDS Table 12.5.1A 3.5D reduced-value softwood tension threshold",
+        "reference_applies_directly_to_oblique_cut": False,
+        "proxy": "grain-parallel ray to the actual oblique cut, for a conservative factory-pattern search only",
+        "minimum_proxy_ray_mm": round(required_ray, 6),
+        "minimum_factory_near_hole_vertical_offset_from_bend_mm": round(offset, 6),
+        "minimum_factory_near_hole_vertical_offset_from_bend_in": round(offset / 25.4, 6),
+        "short_vertical_near_hole_offset_mm": short["nearest_principal_hole_vertical_offset_mm"],
+        "short_vertical_required_offset_gain_mm": round(
+            offset - float(short["nearest_principal_hole_vertical_offset_mm"]), 6
+        ),
+        "short_vertical_ray_mm": short["nearest_principal_hole_grain_ray_mm"],
+        "long_vertical_ray_mm": long["nearest_principal_hole_grain_ray_mm"],
+        "long_vertical_conditional_4d_row_band_mm": long["reversible_4d_y_band_width_mm"],
+        "end_distance_classified": False,
+        "connector_selected": False,
+        "drilling_released": False,
+    }
+
+
 def _retained_axis_intersections(
     bores: tuple[cq.Solid, ...], *, purchased_panel_length: bool = False
 ) -> tuple[dict[str, int], list[str]]:

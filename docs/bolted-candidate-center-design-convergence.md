@@ -159,6 +159,19 @@ shows that any symmetric lateral row-position allowance above 0.074147 mm closes
 a declaration that both edges govern every load case. For the short-vertical orientation,
 an illustrative 1 mm lumped lateral allowance still leaves 7.773898 mm in that band,
 but does not resolve its oblique end cut or qualify the joint.
+The [oblique-end pattern filter](../scripts/bolted_candidate_ab205_center_fit.py)
+also makes the smallest nominal factory-pattern change explicit. The [2024 NDS
+bolt end-distance definition](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf)
+addresses a square-cut end, so the actual oblique-cut 26.940 mm grain ray is
+**not** an NDS end-distance verdict. If the 3.5D reduced-value softwood tension
+threshold is imposed as a conservative *ray-only search filter*, this fixed
+flush-bend geometry needs a nearest vertical factory hole at least 34.051 mm
+(1.341 in) above the bend. AB205's short-vertical near hole is 20.638 mm,
+13.413 mm short of that filter. Its long-vertical near hole clears the ray
+filter, but the competing two-edge row band is only 0.148 mm wide. This
+identifies a needed factory-hole-pattern change; it does not classify the cut,
+check splitting or load direction, or authorize moving the bend off its bearing
+surface to manufacture the offset.
 The AB205 material and formed-bend resistance, unequal two-flange bolt action, group/wood
 failure modes, bolt-axis action, real grip, and disassembly access still need a supported
 calculation or an exact concept change. A single DF-L bearing stress or bolt-shaft rating is

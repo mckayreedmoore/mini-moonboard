@@ -7,10 +7,29 @@ import pytest
 
 from scripts.bolted_candidate_ab205_center_fit import (
     screen_center_fit,
+    screen_oblique_end_ray_filter,
     screen_opposed_center_fit,
     screen_retained_axis_conflicts,
     screen_reversible_row_tolerance,
 )
+
+
+def test_oblique_end_filter_quantifies_factory_pattern_change_without_nds_verdict():
+    record = screen_oblique_end_ray_filter()
+    assert record["minimum_proxy_ray_mm"] == pytest.approx(44.45)
+    assert record["minimum_factory_near_hole_vertical_offset_from_bend_mm"] == pytest.approx(
+        34.0507, abs=0.001
+    )
+    assert record["short_vertical_required_offset_gain_mm"] == pytest.approx(
+        13.4132, abs=0.001
+    )
+    assert record["short_vertical_ray_mm"] < record["minimum_proxy_ray_mm"]
+    assert record["long_vertical_ray_mm"] > record["minimum_proxy_ray_mm"]
+    assert record["long_vertical_conditional_4d_row_band_mm"] < 0.15
+    assert record["reference_applies_directly_to_oblique_cut"] is False
+    assert record["end_distance_classified"] is False
+    assert record["connector_selected"] is False
+    assert record["drilling_released"] is False
 
 
 def test_reversible_row_band_has_explicit_positioning_allowance():
