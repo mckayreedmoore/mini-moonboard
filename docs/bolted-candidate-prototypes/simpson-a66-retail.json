@@ -1,0 +1,27 @@
+{
+  "task": "LB-02D",
+  "status": "common_retail_candidate_screened",
+  "engineering_disposition": "procurement_priority; structural qualification still required",
+  "product": {
+    "manufacturer": "Simpson Strong-Tie",
+    "model": "A66",
+    "dimensions_in": {"leg_a": 5.875, "leg_b": 5.875, "length": 1.5},
+    "thickness_gauge": 12,
+    "finish": "G90 galvanized",
+    "bolt_installation": "two 3/8-inch structural through bolts per leg",
+    "lowes_url": "https://www.lowes.com/pd/Simpson-Strong-Tie-6-in-Angle/3036793",
+    "home_depot_url": "https://www.homedepot.com/p/100375146",
+    "manufacturer_installation_reference": "https://www.homedepot.com/p/100375099"
+  },
+  "applicability": {
+    "wood_to_wood_listed": true,
+    "through_bolts_listed": true,
+    "preserved_single_2x6_thickness_in": 1.5,
+    "nominal_leg_width_covers_2x6_face": true,
+    "specialty_purchase_required": false,
+    "published_bolt_capacity": false,
+    "capacity_gap": "public A66 tables list the bolt installation but show no allowable load values for that bolt configuration; do not borrow the nailed A-angle values",
+    "geometry_gap": "the 1.5-inch leg and four-bolt joint pattern require station-specific edge, end, washer, access, and withdrawal checks"
+  },
+  "decision": "Use A66 as the common-retail procurement and representative-joint prototype candidate. Keep AB90 and Würth C1 as documented alternatives, but do not issue a purchase, drilling, or structural acceptance release until A66 bolt resistance and all 24 station fits are established."
+}
