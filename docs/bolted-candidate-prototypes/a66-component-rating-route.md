@@ -117,10 +117,12 @@ compression perpendicular to grain**. Those enable other conditional wood
 checks. For example, with *one* 7/16-inch bore across a 1.5 by 5.5-inch
 section, unadjusted net parallel-tension force is `575 × 1.5 ×
 (5.5 − 7/16) = 4,366 lb`. A fully supported 1-inch-OD washer around the
-same bore has `625 × π/4 × (1² − (7/16)²) = 397 lb` of idealized dry
+same bore has `625 × π/4 × (1² − 0.438²) = 397 lb` of idealized dry
 wood contact bearing per plane before preload. Neither number is a joint
 rating; the tension check is for member axial action, while washer bearing
-concerns bolt-axis action and requires actual washer stiffness/contact.
+concerns bolt-axis action and requires actual washer stiffness/contact. The
+0.438-inch published standard cut-washer opening is slightly larger than
+the 7/16-inch assumed wood bore, so it governs the idealized net annulus.
 
 [AWC 2024 NDS Appendix E](https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf)
 provides a nonmandatory parallel-grain row tear-out method. Its E.3-2b
@@ -129,9 +131,10 @@ two-bolt row at the 3D minimum pitch and adequate loaded-end distance.
 This is a method demonstration, not the A66 factory pattern or a
 multi-bolt acceptance value; full 2024 placement and adjustment checks are
 required for an actual layout. The `bolted_timber_checks.py` helpers now
-calculate the E.2 net section and E.3 one-row values from supplied bores,
-end distance, pitch and thickness. They do not select those inputs or report
-a connection pass. The [US Forest
+calculate E.2 net section, E.3 one-row, E.4 group, and idealized washer
+bearing references from caller-supplied geometry. They do not identify the
+critical A66 group, establish full washer contact, or report a connection
+pass. The [US Forest
 Service's fastener research](https://research.fs.usda.gov/treesearch/27033)
 also cautions that bolt-group tear-out and splitting are distinct wood
 mechanisms. Published `Ft`, `Fv`, `Fc⊥` and `Fe` therefore give substantial

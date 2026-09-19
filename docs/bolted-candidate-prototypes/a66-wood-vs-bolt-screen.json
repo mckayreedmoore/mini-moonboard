@@ -18,6 +18,9 @@
     "dfl_no2_ft_parallel_psi": 575,
     "dfl_no2_fv_parallel_psi": 180,
     "dfl_no2_fc_perpendicular_psi": 625,
+    "wood_bore_diameter_in": 0.4375,
+    "standard_cut_washer_outer_diameter_in": 1.0,
+    "standard_cut_washer_inner_diameter_in": 0.438,
     "nds_mode_im_rd_parallel": 4,
     "nds_mode_im_rd_perpendicular": 5,
     "aisc_a307_nominal_shear_stress_ksi": 27,
@@ -27,7 +30,7 @@
     "wood_mode_im_reference_lbf_parallel": 787.5,
     "wood_mode_im_reference_lbf_perpendicular": 410.625,
     "one_hole_net_parallel_tension_lbf_at_5p5_in_face": 4366.40625,
-    "one_in_washer_axial_wood_bearing_lbf": 396.918,
+    "one_in_washer_axial_wood_bearing_lbf": 396.703,
     "hypothetical_two_bolt_row_tear_out_lbf_at_3d_pitch": 607.5,
     "a307_nominal_shaft_shear_lbf": 2982.058,
     "a307_asd_shaft_shear_lbf": 1491.029,
@@ -35,7 +38,7 @@
   },
   "wood_example_conditions": {
     "net_section": "one 7/16-inch wood bore through a 1.5 by 5.5-inch member, uniform axial tension parallel to grain, dry reference Ft with no other cuts or adjustments; not a connection rating",
-    "washer": "one ideal rigid 1-inch outside-diameter washer bearing fully on wood around a 7/16-inch bore, dry Fc-perp and no Cb increase; ignores washer flexure, edge clipping and preload; not extra external-load allowance",
+    "washer": "one ideal rigid 1-inch outside-diameter standard cut washer with 0.438-inch inside diameter bearing fully on wood around a 7/16-inch bore, dry Fc-perp and no Cb increase; the washer opening governs the net annulus; ignores washer flexure, edge clipping and preload; not extra external-load allowance",
     "row_tear_out": "hypothetical two-bolt single row with 3D pitch, at least 7D end distance, force parallel to grain, t=1.5 inches, dry Fv and NDS Appendix E method; not the A66 factory pattern or a multi-bolt rating"
   },
   "interpretation": "Under assumed pure-shear conditions, wood bearing Mode Im is a lower reference limit than the A307 bolt-shaft shear comparator. Other wood examples show different action limits and depend on an invented one-hole or minimum two-bolt layout, not on A66 geometry. The actual NDS single-fastener value is the minimum of all applicable yield modes and could be lower. This does not prove wood fracture, establish the A66 angle capacity, cover bolt tension/prying, or validate a multi-bolt joint.",
@@ -45,6 +48,7 @@
     "awc_tr12_wood_bearing_formula": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
     "awc_2024_supplement_table4a": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf",
     "awc_2024_nds_appendix_e_method": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf",
+    "awc_2024_nds_appendix_l8_washer_dimensions": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf",
     "aisc_360_16_j3_bolt_shaft": "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_march-2021.pdf",
     "astm_a307_grade_a_tensile": "https://store.astm.org/a0307-00.html",
     "lowes_candidate_grade_listing": "https://www.lowes.com/pd/Hillman-3-8-in-x-4-in-Galvanized-Coarse-Thread-Hex-Bolt/1000381863"

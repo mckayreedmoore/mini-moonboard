@@ -44,9 +44,9 @@ def screen_geometry(
 def unresolved_limit_states() -> tuple[str, ...]:
     return (
         "dowel bearing and fastener bending",
-        "splitting, group tear-out, and changed member net section",
+        "actual group tear-out geometry, splitting, and changed member net section",
         "actual grain/load orientation and existing-bore interaction",
-        "axial bolt bearing and local wood fracture",
+        "actual washer contact, axial bolt loading, and local wood fracture",
     )
 
 
@@ -112,3 +112,41 @@ def dfl_parallel_row_tear_out_reference_lbf(
         raise ValueError("single-bolt row has no pitch")
     critical_spacing_in = min(end_distance_in, pitch_in) if pitch_in else end_distance_in
     return 180.0 * bolt_count * thickness_in * critical_spacing_in
+
+
+def dfl_parallel_group_tear_out_reference_lbf(
+    first_boundary_row_lbf: float, last_boundary_row_lbf: float,
+    net_group_area_in2: float,
+) -> float:
+    """NDS-2024 Appendix E.4 dry DF-L No.2 two-boundary reference only.
+
+    Caller must select the critical connected group area and obtain each
+    actual bounding row value. No force sharing or group action is implied.
+    """
+    values = (first_boundary_row_lbf, last_boundary_row_lbf, net_group_area_in2)
+    if (any(not math.isfinite(value) for value in values) or
+            first_boundary_row_lbf <= 0 or last_boundary_row_lbf <= 0 or
+            net_group_area_in2 < 0):
+        raise ValueError("group tear-out inputs must be finite and nonnegative")
+    return (first_boundary_row_lbf + last_boundary_row_lbf) / 2 + 575.0 * net_group_area_in2
+
+
+def dfl_axial_wood_bearing_reference_lbf(
+    washer_outer_diameter_in: float, wood_bore_diameter_in: float,
+    washer_inner_diameter_in: float,
+) -> float:
+    """Dry DF-L No.2 ideal full-contact Fc-perp washer annulus, not bolt load.
+
+    The full washer footprint must actually fit sound wood and be stiff enough
+    to distribute load. This omits preload, Cb increases and service factors.
+    """
+    values = (washer_outer_diameter_in, wood_bore_diameter_in, washer_inner_diameter_in)
+    if any(not math.isfinite(value) or value <= 0 for value in values):
+        raise ValueError("washer and bore diameters must be positive and finite")
+    unsupported_diameter_in = max(wood_bore_diameter_in, washer_inner_diameter_in)
+    if washer_outer_diameter_in <= unsupported_diameter_in:
+        raise ValueError("washer leaves no wood-contact annulus")
+    annular_area_in2 = math.pi / 4 * (
+        washer_outer_diameter_in**2 - unsupported_diameter_in**2
+    )
+    return 625.0 * annular_area_in2

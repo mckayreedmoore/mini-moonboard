@@ -26,7 +26,10 @@ def test_a66_wood_vs_bolt_screen_is_conditional_and_reproducible():
         inputs["dfl_no2_ft_parallel_psi"] * length * (5.5 - 7 / 16)
     )
     assert derived["one_in_washer_axial_wood_bearing_lbf"] == pytest.approx(
-        inputs["dfl_no2_fc_perpendicular_psi"] * math.pi / 4 * (1 - (7 / 16) ** 2),
+        inputs["dfl_no2_fc_perpendicular_psi"] * math.pi / 4 *
+        (inputs["standard_cut_washer_outer_diameter_in"] ** 2 -
+         max(inputs["standard_cut_washer_inner_diameter_in"],
+             inputs["wood_bore_diameter_in"]) ** 2),
         abs=0.001,
     )
     assert derived["hypothetical_two_bolt_row_tear_out_lbf_at_3d_pitch"] == pytest.approx(
