@@ -173,6 +173,15 @@ the lower 4D band edge and 9.996 mm nominal wood web between header bores.
 This midpoint is an investigation pose, not a drill location: the band itself
 does not include delivered connector or placement tolerances, and the actual
 joint load direction has not been established.
+The `center-access.json` diagnostic adds the actual kerf-right panel/kicker
+solids, all retained axes, and ideal AB205 blocks to nominal straight-shaft,
+washer-radius, and radial tool-radius collision probes. The coincident row is
+clear from both Z directions in this idealized geometry. At the distinct-row
+midpoint, the top bolts have a clear +Z approach and the underside bolts a
+clear -Z approach; the other approach for each row intersects the opposing
+angle. These probes are not a complete bolt head, socket, hand, or assembly
+sequence. Neither installed-panel service access nor a delivered 3-in bolt
+grip is verified, and neither layout is selected.
 
 ## Current nonblocking owner checkpoints
 

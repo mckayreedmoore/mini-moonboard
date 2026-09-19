@@ -1,0 +1,31 @@
+{
+  "task": "LB-03B",
+  "status": "nominal_collision_diagnostic_only",
+  "source": "scripts/bolted_candidate_center_access.py",
+  "physical_width": "kerf-right",
+  "obstacles": "Actual raw frame and six kerf-right panel/kicker solids; 66 purchased-length panel screw axes; 12 retained frame-bolt axes; ideal nominal AB205 angle blocks",
+  "illustrative_probes": {
+    "bolt_shaft_diameter_mm": 12.7,
+    "bolt_length_mm": 76.2,
+    "washer_radius_mm": 17.5,
+    "radial_tool_radius_mm": 25.0,
+    "radial_tool_depth_mm": 20.0
+  },
+  "coincident_shared_row": {
+    "top_and_underside_y_mm": -95.382052,
+    "unique_header_axes": 4,
+    "pre_washer_stack_mm": 50.8,
+    "nominal_straight_shaft_and_radial_probes": "No solid collision from either Z approach on the four shared axes"
+  },
+  "conditional_distinct_row_midpoint": {
+    "top_y_mm": -95.382052,
+    "underside_y_mm": -119.666026,
+    "unique_header_axes": 8,
+    "one_flange_pre_washer_stack_mm": 44.45,
+    "nominal_straight_shaft_and_radial_probes": "Top row is clear from +Z and blocked from -Z by underside angle; underside row is clear from -Z and blocked from +Z by top angle"
+  },
+  "limits": "The probes are not identified hardware, bolt heads, nuts, actual washers, a socket/wrench swing, hand clearance, or an assembly sequence. Factory bend radii, tolerances, installed fasteners, shoulder/thread position and loaded deflection remain unmodeled. Clear nominal probes do not verify service access after panel installation or justify a bolt length, joint rating or drilling layout.",
+  "joint_selected": false,
+  "access_verified": false,
+  "drilling_released": false
+}
