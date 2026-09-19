@@ -1,0 +1,35 @@
+{
+  "task": "LB-02C",
+  "status": "screened_for_joint_prototype",
+  "engineering_disposition": "promising_factory_candidate; station coverage and capacity checks required",
+  "product": {
+    "manufacturer": "Würth",
+    "model": "Type C1 double-sided toothed-plate connector",
+    "source_url": "https://eshop.wurth.nl/Product-categories/Wood-connector-press-in-anchor-type-C1/31211004012801.cyid/3121.cgid/en/US/EUR/",
+    "standard": "DIN EN 912:2011-09",
+    "nominal_variant": "C1 50/12 with M10 bolt pattern",
+    "diameter_mm": 50,
+    "height_mm": 12,
+    "bolt_nominal_diameter_mm": 10,
+    "bolt_hole_maximum_oversize_mm": 1,
+    "material": "zinc-plated structural steel; exact grade to be frozen from product record"
+  },
+  "applicability": {
+    "softwood_wood_to_wood_listed": true,
+    "double_shear_listed": true,
+    "through_bolt_and_nut_listed": true,
+    "preserved_single_2x6_thickness_mm": 38.1,
+    "connector_height_fits_nominal_member_thickness": true,
+    "published_capacity_basis": "EN 912 connector classification plus applicable timber-code calculation; product page states 2.5 N/mm2 maximum compression in the pressed surfaces for solid wood",
+    "capacity_for_this_board": "unresolved; requires density, bolt grade, plate/washer stack, grain direction, edge/end distances, and combined-action check",
+    "custom_steel_required": "not for a basic paired-side-plate/double-shear detail, but station geometry is not yet proven",
+    "regional_purchase_and_code_acceptance": "unresolved"
+  },
+  "development_constraints": [
+    "Use only a double-shear wood-to-wood detail with paired bearing plates or the exact approved hardware stack.",
+    "Do not treat the 2.5 N/mm2 pressed-surface limit as a complete joint capacity.",
+    "The 50 mm connector diameter and bolt axis must be checked against every station's edge and end reserves.",
+    "No native solve, drilling schedule, or purchase release is authorized from this screen alone."
+  ],
+  "decision": "Advance C1 to bounded representative-joint geometry and resistance screening. It is a better semantic match than AB90 for a removable through-bolted wood-to-wood joint, but it is not yet accepted for the MoonBoard frame."
+}
