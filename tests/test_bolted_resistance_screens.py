@@ -28,13 +28,18 @@ def test_ab90_screen_uses_factory_hole_and_does_not_claim_capacity() -> None:
 def test_a66_screen_keeps_common_retail_bolt_capacity_unresolved() -> None:
     result = screen_a66()
     assert result.product == "Simpson Strong-Tie A66"
-    assert result.hole_status == "nominal_fit"
+    assert result.hole_status == "unresolved_factory_hole"
+    assert result.factory_hole_mm is None
+    assert result.diametric_clearance_mm is None
     assert result.resistance_status.startswith("unresolved")
 
 
 def test_a66_narrow_2x6_face_fails_nominal_edge_screen() -> None:
     result = screen_a66_geometry()
-    assert result.wide_face_status == "nominal_pass"
-    assert result.narrow_face_status == "nominal_fail"
-    assert result.narrow_face_edge_reserve_mm == pytest.approx(-23.8125)
+    assert result.wide_face_status == "best_case_screen_pass"
+    assert result.narrow_face_status == "best_case_screen_fail"
+    assert result.wide_face_edge_distance_mm == pytest.approx(69.85)
+    assert result.narrow_face_edge_distance_mm == pytest.approx(19.05)
+    assert result.wide_face_edge_reserve_mm == pytest.approx(31.75)
+    assert result.narrow_face_edge_reserve_mm == pytest.approx(-19.05)
     assert result.capacity_status.startswith("unresolved")

@@ -31,7 +31,11 @@ def screen_a66_geometry(
     leg_length_mm: float = 149.225,
     bolt_diameter_mm: float = 9.525,
 ) -> A66GeometryScreen:
-    """Screen centered bolt lines on broad and narrow 2x6 faces."""
+    """Screen the best-case centered bolt lines on broad and narrow 2x6 faces.
+
+    The 4d screen measures from bolt center to the timber edge. Actual A66
+    hole locations and station orientations must still be established.
+    """
     values = (
         member_face_mm,
         member_thickness_mm,
@@ -41,8 +45,8 @@ def screen_a66_geometry(
     )
     if any(value <= 0 for value in values):
         raise ValueError("A66 geometry inputs must be positive")
-    wide_edge = (member_face_mm - bolt_diameter_mm) / 2.0
-    narrow_edge = (member_thickness_mm - bolt_diameter_mm) / 2.0
+    wide_edge = member_face_mm / 2.0
+    narrow_edge = member_thickness_mm / 2.0
     required_edge = 4.0 * bolt_diameter_mm
     return A66GeometryScreen(
         member_face_mm,
@@ -55,7 +59,7 @@ def screen_a66_geometry(
         wide_edge - required_edge,
         narrow_edge - required_edge,
         leg_length_mm - member_face_mm,
-        "nominal_pass" if wide_edge >= required_edge else "nominal_fail",
-        "nominal_pass" if narrow_edge >= required_edge else "nominal_fail",
+        "best_case_screen_pass" if wide_edge >= required_edge else "best_case_screen_fail",
+        "best_case_screen_pass" if narrow_edge >= required_edge else "best_case_screen_fail",
         "unresolved_A66_bolt_plate_timber_and_combined_resistance",
     )

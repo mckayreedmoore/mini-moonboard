@@ -13,16 +13,16 @@
     "A66_leg_length": 149.225,
     "A66_flange_width": 38.1,
     "structural_bolt_diameter": 9.525,
-    "edge_rule_screen": "4d nominal reserve screen only"
+    "edge_rule_screen": "4d centerline-to-edge best-case screen only; A66 factory hole locations unknown"
   },
   "results": {
-    "broad_face_edge_reserve_mm": 26.9875,
-    "narrow_face_edge_reserve_mm": -23.8125,
+    "broad_face_edge_reserve_mm": 31.75,
+    "narrow_face_edge_reserve_mm": -19.05,
     "leg_overhang_mm": 9.525,
-    "broad_face": "nominal_pass",
-    "narrow_face": "nominal_fail",
+    "broad_face": "best_case_screen_pass",
+    "narrow_face": "best_case_screen_fail",
     "capacity": "unresolved"
   },
-  "disposition": "A66 cannot be treated as a universal replacement when a bolt line is carried through the 1.5-inch 2x6 thickness. Broad-face orientations remain candidates for station-specific review; the narrow-opposing representative fails the nominal edge screen.",
+  "disposition": "Even with a centered bolt line, the 1.5-inch 2x6 face fails the 4d edge screen for a 3/8-inch bolt. The broad face passes this necessary best-case screen, but factory hole locations and station-specific fit remain unknown.",
   "next_action": "Map each station's actual bolt axis and contact face. Do not rotate the connector, add stock, or change the panel policy merely to rescue the narrow-face failure."
 }
