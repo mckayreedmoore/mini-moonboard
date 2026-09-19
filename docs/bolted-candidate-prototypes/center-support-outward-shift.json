@@ -1,6 +1,6 @@
 {
-  "status": "candidate_only_geometry_option_under_review",
-  "user_direction": "Shift the two center supports outward to avoid stacked hardware.",
+  "status": "prior_both_member_shift_screen_not_selected_for_post_only_direction",
+  "user_direction": "Shift only the two center box posts outward, not the inclined center principals; preserve support under the inner kicker-panel edges.",
   "source_geometry": {
     "frame_module": "mini_moonboard/split_center_frame.py",
     "panel_axis_source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
@@ -18,7 +18,7 @@
     "retained_panel_axes_into_those_rails": 12
   },
   "symmetric_outward_shift_screen": {
-    "definition": "Move left center support/post toward negative X by delta and right toward positive X by delta, without moving panel/kicker screw axes.",
+    "definition": "Prior exploratory screen moved left center principal and post toward negative X and right principal and post toward positive X by delta, without moving panel/kicker screw axes; it did not de-stack opposing header bolts and is not the clarified post-only option.",
     "gap_formula_mm": "101.9 + 2*delta",
     "panel_overhang_formula_mm": "50.95 + delta",
     "minimum_axis_center_to_nearest_support_edge_formula_mm": "19.05 - delta",
@@ -36,7 +36,8 @@
     "No A66 factory bolt locations or actual stacked-hardware envelope are documented, so the offset required to clear them cannot yet be calculated.",
     "An outward shift alters panel edge support and all center clip/post interfaces. The historical native responses do not transfer.",
     "All six center-adjacent bottom/service rail inner ends must follow the shifted principals. A nominal CAD screen confirms their 12 retained panel screw cylinders still intersect timber at sampled 0/5/10/15 mm offsets, but does not establish structural rail-to-principal attachment.",
-    "Moving the 20 panel/kicker axes would change the frozen panel contract and requires an explicit revision; this screen holds them fixed."
+    "Moving the 20 panel/kicker axes would change the frozen panel contract and requires an explicit revision; this screen holds them fixed.",
+    "A post-only shift must separately quantify the two inner kicker screw seats, post-edge material, and center-edge overhang; mere cylinder intersection is not enough to claim adequate kicker support."
   ],
-  "disposition": "A small outward shift is geometrically possible with the retained axes, but no offset is selected or released until the hardware interference and panel support are checked."
+  "disposition": "Retained as a prior both-member geometry study only. It neither implements the clarified post-only direction nor separates opposing header bolt axes; no offset is selected or released."
 }
