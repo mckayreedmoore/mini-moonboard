@@ -142,6 +142,7 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
             "A positive cylinder/timber overlap does not establish screw engagement or edge-distance capacity.",
             "Connector hole coordinates, installed hardware envelopes, panel seam support, and structural rail-to-principal interfaces remain unverified.",
             "A real shift must recheck twelve center-receiver clip stations and recut six center-adjacent rail inner ends; this screen checks only nominal face alignment and retained screw-cylinder intersection.",
+            "This screen shifts center principals and posts together, so it does not separate their opposed header bolt axes; a post-only de-stacking trial is a distinct geometry problem.",
             "The selected baseline and panel screw axes have not moved.",
         ],
     }
