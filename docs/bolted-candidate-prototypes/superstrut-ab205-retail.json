@@ -87,6 +87,9 @@
     "abb_exact_retail_product": "https://empower.abb.com/ecatalog/ec/EN_NA/p/ZAB205EG-10",
     "abb_ab205_family_dimensions": "https://www.homedepot.com/catalog/pdfImages/9c/9cc20932-8e38-4e41-81fa-eb78034441be.pdf",
     "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf",
+    "abb_fittings_catalog": "https://www.tnb.ca/en/pdf-catalogues/metal-framing-fastening-and-identification/metal-framing/fittings-and-brackets.pdf",
+    "abb_engineering_catalog": "https://www.tnb.ca/en/pdf-catalogues/metal-framing-fastening-and-identification/metal-framing/engineering-data-and-specifications.pdf",
+    "abb_sales_drawing_link_unretrieved": "https://tnblnx3.tnb.com/emAlbum/albums/usspecsg/005_CAT1_B-118.pdf",
     "current_nds_end_distance": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf"
   },
   "source_limits": [
@@ -95,7 +98,8 @@
     "Local store inventory, received-part dimensions and product traceability have not been inspected.",
     "The manufacturer's 2,000-lb channel value has different support, fasteners and load path from a wood-to-wood frame joint."
   ],
-  "wood_method_boundary": "Astra's 2026-09-19 wood-bolt addendum and existing fea/dowel_yield.py support conditional two-wood-member single-shear checks only. An AB205 leg is a steel-to-wood attachment and needs its applicable modes, steel properties, plate/bend checks and full joint action resolution; the two-wood helper must not be used as its capacity.",
+  "bounded_abb_material_follow_up": "ABB's exact ZAB205EG-10 page says steel; its fittings catalog calls the family hot-rolled carbon steel and gives nominal 13/16-inch end offset, 1-7/8-inch pitch and 9/16-inch holes. Neither publishes a guaranteed product Fy/Fu, positional tolerance, formed-bend strength, or wood-joint test. The AB205EG page links a sales drawing, but its linked PDF could not be retrieved in this check; drawing-specific tolerance absence is therefore not conclusively established.",
+  "wood_method_boundary": "The conditional 2024 NDS six-mode wood-to-steel single-shear helper exists at mini_moonboard/bolted_steel_wood_yield.py and requires supplied steel bearing, bolt bending-yield/thread exposure, actual bearing lengths and grain/load angle. It does not supply AB205 steel properties, a plate/bend check, group action or a complete joint rating, and it cannot directly assess a two-steel-flange shared-header bolt stack.",
   "abb_channel_test_rating_transferable_to_wood": false,
   "wood_to_wood_capacity_established": false,
   "factory_drill_coordinates_released": false,
