@@ -69,6 +69,15 @@ stated Q235 steel and nominal 9/16-inch holes on 1-7/8-inch centers. Its
 product-specific strength and complete factory layout are not published, and
 it has no wood-joint rating; AB205 dimensions cannot be transferred to it.
 See `docs/bolted-candidate-prototypes/newhouse-br904-retail.json`.
+The bounded check of Simpson's current catalog and drawing finder also found
+no controlled A66 bolt-hole-center drawing; an online third-party model is
+not a drilling datum. The exact A66 information gate therefore remains open
+without contacting anyone.
+The three representative raw timber interfaces are confirmed butt joints.
+The AB205 flush-bend/end-directed-load concern maps to the rail, center
+principal, and outer side member ends at those joints, but neither an installed
+angle position nor that new-candidate action has been established. This is a
+specific configuration failure screen, not a blanket rejection of the part.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

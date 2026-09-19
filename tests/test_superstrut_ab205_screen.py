@@ -66,3 +66,28 @@ def test_flush_bend_softwood_end_distance_is_only_a_conditional_failure(
     assert flange["shift_to_full_factor_in"] == pytest.approx(expected_full_shift)
     assert flange["passes_minimum_when_bend_flush"] is False
     assert screen["rejects_every_possible_ab205_arrangement"] is False
+
+
+def test_flush_bend_screen_is_tied_to_three_actual_representative_butts():
+    prototype = json.loads(
+        Path(
+            "docs/bolted-candidate-prototypes/superstrut-ab205-retail.json"
+        ).read_text()
+    )
+    butt_screen = json.loads(
+        Path("docs/bolted-candidate-direct-butt-screen.json").read_text()
+    )
+    by_station = {row["representative_station"]: row for row in butt_screen["pairs"]}
+    applications = prototype["flush_bend_wood_end_screen"][
+        "representative_butt_applications"
+    ]
+    assert set(applications) == set(by_station)
+    for station, application in applications.items():
+        datum = by_station[station]
+        assert application["butt_axis"] == datum["nominal_contact_axis"]
+        assert application["member_with_end_at_butt"] in datum["members"]
+        assert application["butt_datum_mm"] == pytest.approx(
+            datum["nominal_contact_datum_mm"]
+        )
+        assert application["angle_placement_verified"] is False
+        assert application["end_directed_joint_action_verified"] is False

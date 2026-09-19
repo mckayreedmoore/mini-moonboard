@@ -49,6 +49,30 @@
         "passes_minimum_when_bend_flush": false
       }
     },
+    "representative_butt_applications": {
+      "clip_horizontal_bottom_left_2": {
+        "member_with_end_at_butt": "base_rail_bottom_left",
+        "butt_axis": "x",
+        "butt_datum_mm": -89.05,
+        "angle_placement_verified": false,
+        "end_directed_joint_action_verified": false
+      },
+      "clip_split_base_center_left": {
+        "member_with_end_at_butt": "base_principal_center_left",
+        "butt_axis": "z",
+        "butt_datum_mm": 277.0,
+        "angle_placement_verified": false,
+        "end_directed_joint_action_verified": false
+      },
+      "clip_angle_base_left": {
+        "member_with_end_at_butt": "base_side_left",
+        "butt_axis": "z",
+        "butt_datum_mm": 277.0,
+        "angle_placement_verified": false,
+        "end_directed_joint_action_verified": false
+      }
+    },
+    "representative_butt_source": "docs/bolted-candidate-direct-butt-screen.json; its contact datums are tested against current uncut CAD solids",
     "interpretation": "Both nominal near-bend holes miss even the historical reduced-factor minimum in this flush-bend, end-directed loading scenario. Merely using a thicker or stronger half-inch bolt cannot repair the placement. Moving the whole fitting, changing load direction, or using a different detail requires a new full fit and action check; the shift values are arithmetic distances, not approved offsets.",
     "rejects_every_possible_ab205_arrangement": false
   },

@@ -37,6 +37,9 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert catalog["f1_allowable_load_published"] is False
     assert catalog["f2_allowable_load_published"] is False
     assert catalog["bolt_hole_centers_dimensioned"] is False
+    drawing_search = record["current_manufacturer_drawing_search"]
+    assert drawing_search["manufacturer_controlled_a66_coordinates_found"] is False
+    assert drawing_search["third_party_model_usable_for_drilling"] is False
     qa = record["online_hole_measurement_lead"]
     assert qa["source_url"].startswith("https://www.lowes.com/questions/")
     assert qa["answer_author"] == "Simpson Strong-Tie"
