@@ -1,6 +1,7 @@
 """Nominal AB205 holes on the current center butt; no connector approval."""
 
 from math import hypot, pi
+from typing import Literal
 
 import cadquery as cq
 
@@ -30,8 +31,12 @@ def _line_y(line: tuple[float, float, float], z_mm: float) -> float:
     return y0 + slope * (z_mm - z0)
 
 
-def screen_center_fit() -> dict[str, object]:
+def screen_center_fit(
+    vertical_leg: Literal["long", "short"] = "long",
+) -> dict[str, object]:
     """Check one flush-bend orientation against raw CAD, before new drilling."""
+    if vertical_leg not in ("long", "short"):
+        raise ValueError("Vertical AB205 leg must be long or short")
     parts = {part.name: part.shape for part in frame.uncut_wood_parts()}
     station = next(
         item for item in frame.stations() if item[0] == "clip_split_base_center_left"
@@ -44,8 +49,14 @@ def screen_center_fit() -> dict[str, object]:
     bolt_diameter_mm = 12.7
     wood_hole_radius_mm = 14.2875 / 2
     loaded_edge_mm = 4 * bolt_diameter_mm
-    vertical_offsets_in = (1.4375, 3.3125)  # AB205 long leg, from the bend.
-    horizontal_offsets_in = (0.8125, 2.6875)  # AB205 short leg.
+    long_offsets_in = (1.4375, 3.3125)
+    short_offsets_in = (0.8125, 2.6875)
+    vertical_offsets_in = (
+        long_offsets_in if vertical_leg == "long" else short_offsets_in
+    )
+    horizontal_offsets_in = (
+        short_offsets_in if vertical_leg == "long" else long_offsets_in
+    )
     vertical_z_mm = tuple(z + offset * 25.4 for offset in vertical_offsets_in)
     face = _principal_broad_face(principal, x)
     lines = _grain_edge_lines(face)
@@ -100,7 +111,7 @@ def screen_center_fit() -> dict[str, object]:
     return {
         "station": station[0],
         "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
-        "placement": "AB205 bend at header-top/principal-side butt; long leg vertical, short leg horizontal; hole row at old clip Y",
+        "placement": f"AB205 bend at header-top/principal-side butt; {vertical_leg} leg vertical, {'short' if vertical_leg == 'long' else 'long'} leg horizontal; hole row at old clip Y",
         "contact_x_mm": round(x, 6),
         "contact_z_mm": round(z, 6),
         "legacy_station_y_mm": round(y, 6),

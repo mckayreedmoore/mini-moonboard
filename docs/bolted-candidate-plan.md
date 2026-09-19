@@ -87,6 +87,10 @@ nominal full-4D Y interval after a lateral move is only 0.148 mm wide, before
 any product or drilling tolerance. This is not a usable shop layout. The
 principal's oblique end is deliberately not assigned a square-cut NDS end
 distance; no joint load or resistance is established by the screen.
+Swapping AB205 legs widens that conditional full-4D Y interval to 9.774 mm,
+but moves the nearest vertical-flange hole to a 26.940-mm along-grain ray from
+the oblique cut. That ray is not a classified NDS end distance. Neither
+orientation establishes full fit, resistance, or a drill position.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw

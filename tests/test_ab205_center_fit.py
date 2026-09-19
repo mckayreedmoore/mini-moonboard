@@ -55,3 +55,23 @@ def test_center_fit_uses_current_cad_and_keeps_release_closed():
     )
     assert center["ab205_center_fit_trial"]["record"].endswith("ab205-center-fit.json")
     assert center["status"] == "incomplete_representative_prototype"
+
+
+def test_swapping_ab205_legs_widens_edge_band_but_does_not_release_joint():
+    actual = screen_center_fit(vertical_leg="short")
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/ab205-center-fit.json").read_text()
+    )["alternate_short_vertical"]
+    assert actual["vertical_hole_offsets_from_bend_in"] == [0.8125, 2.6875]
+    assert actual["horizontal_hole_offsets_from_bend_in"] == [1.4375, 3.3125]
+    assert actual["reversible_4d_y_band_width_mm"] == pytest.approx(9.774, abs=0.01)
+    assert actual["nearest_principal_hole_grain_ray_mm"] == pytest.approx(
+        26.94, abs=0.01
+    )
+    assert actual["end_distance_classified"] is False
+    assert actual["drilling_released"] is False
+    for key, value in actual.items():
+        if isinstance(value, float):
+            assert record[key] == pytest.approx(value)
+        else:
+            assert record[key] == value
