@@ -30,6 +30,12 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert record["applicability"]["published_bolt_capacity"] is False
     assert "dashes for both allowable-load columns" in record["applicability"]["testing_and_rating_evidence"]
     assert "No dimensioned A66 factory bolt-hole layout" in record["applicability"]["testing_and_rating_evidence"]
+    qa = record["online_hole_measurement_lead"]
+    assert qa["source_url"].startswith("https://www.lowes.com/questions/")
+    assert qa["answer_author"] == "Simpson Strong-Tie"
+    assert qa["stated_centers_from_edge_in"] == [2, 4, 6]
+    assert qa["usable_as_bolt_drilling_layout"] is False
+    assert "hole identity" in qa["limitation"]
     assert record["product"]["lowes_url"].startswith("https://www.lowes.com/")
     assert record["product"]["home_depot_url"].startswith("https://www.homedepot.com/")
 
@@ -65,3 +71,13 @@ def test_hl_thickness_exclusion_applies_to_every_preserved_station() -> None:
     record = read_record("factory-bolted-alternatives.json")
     hl = next(item for item in record["alternatives"] if item["id"] == "simpson-hl33-hl35")
     assert hl["receiver"]["preserved_stations_with_thin_member"] == len(thin)
+
+
+def test_retail_hl43_does_not_rescue_thin_member_stations() -> None:
+    record = read_record("simpson-hl43-retail.json")
+    detail = record["bolted_detail_screen"]
+    assert record["product"]["home_depot_url"].startswith("https://www.homedepot.com/")
+    assert detail["catalog_minimum_wood_thickness_mm"] == 130.175
+    assert detail["thickness_deficit_mm"] == 92.075
+    assert detail["preserved_stations_with_at_least_one_thin_member"] == 24
+    assert detail["published_values_applicable_to_preserved_stock"] is False
