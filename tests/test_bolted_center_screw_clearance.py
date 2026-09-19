@@ -1,11 +1,14 @@
 """Physical centerline requirements for the four protected RS-2 screws."""
 
+import json
+
 import cadquery as cq
 import pytest
 
 from scripts.bolted_candidate_center_screw_clearance import (
     BORE_D_MM,
     LONG_OFFSETS_MM,
+    OUTPUT,
     PLATE_THICKNESS_MM,
     SHORT_OFFSETS_MM,
     _distance_point_to_shape,
@@ -93,6 +96,42 @@ def test_shared_deduplicates_header_and_stagger_separates(record):
         )
         assert all(p["strict_raw_upper_bound_shaft_radius_mm"] == p["distance_mm"]
                    for p in case["shaft_to_bore_pairs"] + case["shaft_to_steel_pairs"])
+
+
+def test_per_screw_receiving_limits_are_conservative_and_unresolved(record):
+    assert record["receiving_check"]["radial_tolerance_allowance_mm"] is None
+    assert record["receiving_check"]["measured_max_installed_shaft_diameter_mm"] is None
+    assert record["receiving_check"]["acceptance_rule"] == (
+        "measured_max_installed_shaft_diameter_mm + "
+        "2 * radial_tolerance_allowance_mm < "
+        "max_installed_shaft_diameter_before_allowance_mm_exclusive"
+    )
+    expected = {
+        "shared": [100.046, 183.988, 36.946, 40.05],
+        "stagger": [100.046, 187.394, 52.122, 40.05],
+    }
+    names = [s["name"] for s in record["protected_screws"]]
+    for case in record["cases"]:
+        limits = case["per_screw_receiving_limits"]
+        assert [item["screw"] for item in limits] == names
+        assert [item["max_installed_shaft_diameter_before_allowance_mm_exclusive"]
+                for item in limits] == expected[case["case"]]
+        for item in limits:
+            distances = [pair["distance_mm"] for group in (
+                "shaft_to_bore_pairs", "shaft_to_steel_pairs"
+            ) for pair in case[group] if pair["screw"] == item["screw"]]
+            assert item["max_installed_shaft_diameter_before_allowance_mm_exclusive"] < 2 * min(distances)
+            assert item["radial_tolerance_allowance_mm"] is None
+            assert item["measured_max_installed_shaft_diameter_mm"] is None
+            assert item["receiving_status"] == "pending_measurement_and_allowance"
+
+
+def test_saved_receiving_limits_match_generated_screen(record):
+    saved = json.loads(OUTPUT.read_text())
+    assert saved["receiving_check"] == record["receiving_check"]
+    assert [case["per_screw_receiving_limits"] for case in saved["cases"]] == [
+        case["per_screw_receiving_limits"] for case in record["cases"]
+    ]
 
 
 def test_nominal_steel_holes_are_open_in_both_legs(record):

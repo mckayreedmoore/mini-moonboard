@@ -6,6 +6,7 @@ point; neither an unknown head nor a historical occupied cylinder is modeled.
 
 import csv
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -57,6 +58,33 @@ def _axis(start, direction, length):
 
 def _f(value):
     return round(float(value), ROUND_DIGITS)
+
+
+def _receiving_limits(screws, shaft_bore, shaft_steel):
+    """Use a downward-rounded radius so display precision cannot imply extra clearance."""
+    limits = []
+    for screw in screws:
+        closest = min(
+            [("nominal_bore", pair) for pair in shaft_bore if pair["screw"] == screw["name"]]
+            + [("drilled_ideal_steel", pair) for pair in shaft_steel
+               if pair["screw"] == screw["name"]],
+            key=lambda entry: entry[1]["distance_mm"],
+        )
+        source, pair = closest
+        conservative_radius = math.floor((pair["distance_mm"] - 1e-6) * 1000) / 1000
+        limits.append({
+            "screw": screw["name"],
+            "controlling_obstacle_kind": source,
+            "controlling_obstacle": pair["obstacle"],
+            "conservative_nominal_radial_clearance_mm": conservative_radius,
+            "max_installed_shaft_diameter_before_allowance_mm_exclusive": round(
+                2 * conservative_radius, 3
+            ),
+            "radial_tolerance_allowance_mm": None,
+            "measured_max_installed_shaft_diameter_mm": None,
+            "receiving_status": "pending_measurement_and_allowance",
+        })
+    return limits
 
 
 def _protected_screws():
@@ -187,7 +215,8 @@ def _case(name, underside_y, top_y, raw, screws):
             "bores": bores, "steel_bodies": body_details,
             **{f"{key}_pairs": value for key, value in groups.items()},
             "closest_pairs": {key: min(value, key=lambda p: p["distance_mm"])
-                              for key, value in groups.items()}}
+                              for key, value in groups.items()},
+            "per_screw_receiving_limits": _receiving_limits(screws, shaft_bore, shaft_steel)}
 
 
 def screen_center_screw_clearance():
@@ -215,6 +244,15 @@ def screen_center_screw_clearance():
                      "shaft_diameter_tolerance_mm": None,
                      "installed_head_projection_mm": None,
                      "installed_head_radius_mm": None},
+        "receiving_check": {
+            "scope": "Four named protected screws only, in each nominal trial row; uncut/undrilled owner stock and factory connectors only.",
+            "diameter_definition": "Maximum external diameter anywhere along the installed 63.5 mm shaft envelope, including threads and coating; measure representative delivered screws and account for any installed variation.",
+            "allowance_definition": "Nonnegative total radial allowance for hole/angle location and size, screw axis/seat deviation, fabrication and measurement uncertainty. Establish and record a defensible value for each screw and trial before using the diameter bound; none is assumed here.",
+            "radial_tolerance_allowance_mm": None,
+            "measured_max_installed_shaft_diameter_mm": None,
+            "acceptance_rule": "measured_max_installed_shaft_diameter_mm + 2 * radial_tolerance_allowance_mm < max_installed_shaft_diameter_before_allowance_mm_exclusive",
+            "on_missing_or_failed_check": "Keep affected trial unresolved; do not drill or claim fit. Check installed head shape/projection and other hardware separately.",
+        },
         "distance_interpretation": "Finite screw centerline to nominal bore volume or drilled ideal steel body. For a round shaft, its radius must be strictly less than the unrounded raw distance, before all tolerances and allowances; a zero distance has no admissible positive radius. Six-decimal radius fields are display bounds, not acceptance thresholds. Head distances are from the screw start point only; no head body or projection is modeled.",
         "cases": [_case("shared", top_y, top_y, raw, screws),
                   _case("stagger", underside_y, top_y, raw, screws)],

@@ -110,6 +110,15 @@
     "installed_head_projection_mm": null,
     "installed_head_radius_mm": null
   },
+  "receiving_check": {
+    "scope": "Four named protected screws only, in each nominal trial row; uncut/undrilled owner stock and factory connectors only.",
+    "diameter_definition": "Maximum external diameter anywhere along the installed 63.5 mm shaft envelope, including threads and coating; measure representative delivered screws and account for any installed variation.",
+    "allowance_definition": "Nonnegative total radial allowance for hole/angle location and size, screw axis/seat deviation, fabrication and measurement uncertainty. Establish and record a defensible value for each screw and trial before using the diameter bound; none is assumed here.",
+    "radial_tolerance_allowance_mm": null,
+    "measured_max_installed_shaft_diameter_mm": null,
+    "acceptance_rule": "measured_max_installed_shaft_diameter_mm + 2 * radial_tolerance_allowance_mm < max_installed_shaft_diameter_before_allowance_mm_exclusive",
+    "on_missing_or_failed_check": "Keep affected trial unresolved; do not drill or claim fit. Check installed head shape/projection and other hardware separately."
+  },
   "distance_interpretation": "Finite screw centerline to nominal bore volume or drilled ideal steel body. For a round shaft, its radius must be strictly less than the unrounded raw distance, before all tolerances and allowances; a zero distance has no admissible positive radius. Six-decimal radius fields are display bounds, not acceptance thresholds. Head distances are from the screw start point only; no head body or projection is modeled.",
   "cases": [
     {
@@ -711,7 +720,49 @@
           "obstacle": "underside_vertical_steel",
           "distance_mm": 60.099866
         }
-      }
+      },
+      "per_screw_receiving_limits": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "top_vertical_steel",
+          "conservative_nominal_radial_clearance_mm": 50.023,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 100.046,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "underside_vertical_steel",
+          "conservative_nominal_radial_clearance_mm": 91.994,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 183.988,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "controlling_obstacle_kind": "nominal_bore",
+          "controlling_obstacle": "underside_side_2",
+          "conservative_nominal_radial_clearance_mm": 18.473,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 36.946,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "top_horizontal_steel",
+          "conservative_nominal_radial_clearance_mm": 20.025,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 40.05,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        }
+      ]
     },
     {
       "case": "stagger",
@@ -1432,7 +1483,49 @@
           "obstacle": "top_horizontal_steel",
           "distance_mm": 60.416261
         }
-      }
+      },
+      "per_screw_receiving_limits": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "top_vertical_steel",
+          "conservative_nominal_radial_clearance_mm": 50.023,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 100.046,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "underside_vertical_steel",
+          "conservative_nominal_radial_clearance_mm": 93.697,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 187.394,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "underside_vertical_steel",
+          "conservative_nominal_radial_clearance_mm": 26.061,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 52.122,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "controlling_obstacle_kind": "drilled_ideal_steel",
+          "controlling_obstacle": "top_horizontal_steel",
+          "conservative_nominal_radial_clearance_mm": 20.025,
+          "max_installed_shaft_diameter_before_allowance_mm_exclusive": 40.05,
+          "radial_tolerance_allowance_mm": null,
+          "measured_max_installed_shaft_diameter_mm": null,
+          "receiving_status": "pending_measurement_and_allowance"
+        }
+      ]
     }
   ],
   "joint_selected": false,
