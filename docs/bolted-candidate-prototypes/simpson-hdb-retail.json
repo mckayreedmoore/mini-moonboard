@@ -1,0 +1,50 @@
+{
+  "task": "LB-02E",
+  "status": "targeted_common_retail_follow_up",
+  "family": "Simpson Strong-Tie HDB bolted holdowns",
+  "models_screened": ["HD3B", "HD5B"],
+  "retail_evidence": {
+    "HD3B_home_depot": "https://www.homedepot.com/p/202796760",
+    "HD5B_home_depot": "https://www.homedepot.com/p/202796762",
+    "stock_note": "Retail product listings exist; local pickup and delivered inventory were not verified."
+  },
+  "manufacturer_evidence": {
+    "current_catalog_page_64_65": "https://www.buildsite.com/pdf/simpsonstrongtie/HDBHD-Holdowns-Product-Data-2248960.pdf",
+    "manufacturer_product": "https://www.strongtie.com/boltedholdowns_holdowns/hdb_holdown/p/hdb",
+    "manufacturer_installation": "https://www.strongtie.com/resources/product-installers-guide/hd-installation",
+    "manufacturer_allowable_load_method": "https://www.strongtie.com/products/connectors/wood-construction-connectors/technical-notes/allowable-loads",
+    "catalog_edition": "C-C-2026",
+    "published_use": "holdown tension in shearwalls, braced-wall panels, and lateral applications",
+    "installation": "Structural quality through bolts at least ASTM A307 Grade A; nut and washer opposite the holdown; holdown seat uses a separate anchor bolt. Wood bolt holes are 1/32 to 1/16 inch larger than bolt diameter.",
+    "HD3B": {
+      "minimum_wood_thickness_in": 1.5,
+      "minimum_wood_width_in": 3.5,
+      "body_width_in": 2.5,
+      "body_height_in": 8.625,
+      "wood_bolts": "two 5/8-inch through bolts",
+      "seat_anchor_bolt_in": 0.625,
+      "catalog_allowable_tension_lb_DF_SP_160": 1895,
+      "catalog_allowable_tension_lb_SPF_HF_160": 1615
+    },
+    "HD5B": {
+      "minimum_wood_thickness_in": 1.5,
+      "minimum_wood_width_in": 3.5,
+      "wood_bolts": "two 3/4-inch through bolts",
+      "seat_anchor_bolt_in": 0.625,
+      "catalog_allowable_tension_lb_DF_SP_160": 2405,
+      "catalog_allowable_tension_lb_SPF_HF_160": 1930
+    }
+  },
+  "assessment": {
+    "factory_bolted_attachment_to_single_2x6_documented": true,
+    "published_tension_rating_for_minimum_member_documented": true,
+    "manufacturer_test_framework_documented": "Simpson states holdowns and tension ties are tested to ICC-ES AC155; this is not a test report for a Moonboard joint.",
+    "factory_hole_coordinates_documented": false,
+    "wood_to_wood_angle_joint_rating_documented": false,
+    "combined_shear_moment_separation_rating_documented": false,
+    "seat_anchorage_to_preserved_frame_documented": false,
+    "fits_all_24_stations": false,
+    "engineering_disposition": "partial_tension_path_only; cannot replace a six-screw ML24Z angle as a complete joint on present evidence"
+  },
+  "next_action": "If a station-specific tension path uses HDB, trace its seat anchor into the preserved timber and independently establish shear, moment, bearing, access, and full disassembly. Do not apply the listed holdown tension values to another load direction."
+}

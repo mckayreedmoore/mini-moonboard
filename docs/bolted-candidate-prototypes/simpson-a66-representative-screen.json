@@ -1,0 +1,28 @@
+{
+  "task": "LB-03D",
+  "status": "complete_nominal_geometry_screen",
+  "product": "Simpson Strong-Tie A66",
+  "representative_stations": {
+    "narrow_opposing": "clip_horizontal_bottom_left_2",
+    "center_header": "clip_split_base_center_left",
+    "outer_base": "clip_angle_base_left"
+  },
+  "inputs_mm": {
+    "actual_2x6_face": 139.7,
+    "actual_2x6_thickness": 38.1,
+    "A66_leg_length": 149.225,
+    "A66_flange_width": 38.1,
+    "structural_bolt_diameter": 9.525,
+    "edge_rule_screen": "4d centerline-to-edge best-case screen only; A66 factory hole locations unknown"
+  },
+  "results": {
+    "broad_face_edge_reserve_mm": 31.75,
+    "narrow_face_edge_reserve_mm": -19.05,
+    "leg_overhang_mm": 9.525,
+    "broad_face": "best_case_screen_pass",
+    "narrow_face": "best_case_screen_fail",
+    "capacity": "unresolved"
+  },
+  "disposition": "Even with a centered bolt line, the 1.5-inch 2x6 face fails the 4d edge screen for a 3/8-inch bolt. The broad face passes this necessary best-case screen, but factory hole locations and station-specific fit remain unknown.",
+  "next_action": "Map each station's actual bolt axis and contact face. Do not rotate the connector, add stock, or change the panel policy merely to rescue the narrow-face failure."
+}

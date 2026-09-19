@@ -1,0 +1,14 @@
+{
+  "task": "LB-12",
+  "status": "incomplete_native_adapter",
+  "engineering_disposition": "input-contract-only; native producer not ready",
+  "producer": "fea.floor_flush_run.run",
+  "mesh_producer": "fea.floor_flush_mesh.prepare_flush",
+  "load_case_source": "scripts.clear_space_batch.CASES",
+  "cases": ["a12-rear", "a12-forward", "a12-left", "k12-right", "k12-rear", "a1-rear"],
+  "result_root": "fea/results/bolted-candidate/compact-floor-flush-bolted-development",
+  "native_ready": false,
+  "blocker": "candidate-specific mesh/contact adapter and resistance freeze are not complete",
+  "native_cases_run": false,
+  "panel_policy": "retained 66 panel/kicker screws"
+}

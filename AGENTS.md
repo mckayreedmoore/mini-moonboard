@@ -68,3 +68,14 @@ prose. Preserve changes belonging to other agents, including untracked files.
 Builder docs start at [docs/README.md](docs/README.md). Older studies are in
 [docs/history/](docs/history/). See
 [docs/selected-working-set.md](docs/selected-working-set.md).
+
+## Structural-only bolted candidate lane
+
+The candidate `compact-floor-flush-bolted-development` is a separate
+development lane. It may replace the 144 structural SDS attachments at 24
+ML24Z stations only after its own geometry, mechanics, and evidence gates
+pass. Preserve `compact-floor-flush-development`, its evidence, its twelve
+existing frame-bolt arrangements, and its 66 panel/kicker screws. Panel
+through-bolts, inserts, new panel fasteners, enlarged members, and custom
+steel are outside this lane unless separately approved. See
+`docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.

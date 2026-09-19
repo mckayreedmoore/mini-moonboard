@@ -1,0 +1,32 @@
+{
+  "task": "LB-03B",
+  "status": "incomplete_representative_prototype",
+  "engineering_disposition": "unresolved; geometry screen only",
+  "stations": ["clip_split_base_center_left", "clip_split_base_center_right"],
+  "members": ["base_header", "base_principal_center_left/right"],
+  "current_clip_y_mm": -124.9,
+  "archived_clip_y_mm": -135.0,
+  "relocation_mm": 10.1,
+  "proposed_architecture": "through-bolted structural plate concept; not authorized or selected",
+  "screen": {
+    "reconciled_current_geometry_used": true,
+    "neighboring_header_post_hardware_checked": true,
+    "inclined_member_and_grain_basis": "requires joint-specific review",
+    "complete_stack_defined": false,
+    "tool_access_after_panel_installation": "not established",
+    "panel_policy_changed": false
+  },
+  "a66_face_option": {
+    "status": "unverified_geometry_only",
+    "product": "Simpson Strong-Tie A66, two 3/8-inch through bolts per leg",
+    "timber_members": ["base_header", "base_principal_center_left", "base_principal_center_right"],
+    "candidate_faces": ["header broad top face", "each principal broad side face"],
+    "wide_face_four_d_best_case_reserve_mm": 31.75,
+    "factory_hole_coordinates_known": false,
+    "neighbor_center_clip_stations": 12,
+    "retained_center_panel_kicker_axes": 20,
+    "outward_shift": "5/10/15 mm per side screen exists but no offset selected; six center-adjacent rail cuts nominally screened, while structural rail interfaces and center clip stations require recheck",
+    "capacity_basis": "unresolved; no A66 bolt-mode allowable load adopted"
+  },
+  "disposition": "The relocated station must be carried into any future detail. No bolt direction or plate can be accepted until opposing hardware, bearing faces, and access are resolved at the actual station."
+}

@@ -1,0 +1,10 @@
+{
+  "task": "LB-10",
+  "status": "incomplete_mechanics_basis",
+  "engineering_disposition": "computational_semantics_only; resistance unresolved",
+  "units": {"force": "N", "moment": "N-mm", "coordinates": "mm"},
+  "implemented": ["wrench reference shift", "local basis transform", "equilibrium residual", "compression-only contact", "clearance response", "duplicate physical-ID rejection"],
+  "not_implemented": ["AB90 bolt resistance", "timber bearing/splitting capacity", "plate bending/prying capacity", "native solver coupling", "clamp-friction credit"],
+  "panel_policy": "retained baseline 66 panel/kicker screws",
+  "native_cases_complete": false
+}

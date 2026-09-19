@@ -1,0 +1,34 @@
+{
+  "status": "retail_partial_tension_path_rejected_for_structural_only_conversion",
+  "manufacturer": "Simpson Strong-Tie",
+  "model": "DTT2Z",
+  "retailer": {
+    "name": "Home Depot",
+    "internet_number": "205330056",
+    "store_sku": "1000074659",
+    "url": "https://www.homedepot.com/p/205330056",
+    "verification": "Listed online; store-local inventory is not guaranteed."
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://www.strongtie.com/resources/product-installers-guide/dtt2z-installation",
+      "scope": "Installation to the wide face of a single or double nominal 2x with specified SDS screws; bolt or rod completes the tie."
+    },
+    {
+      "url": "https://www.strongtie.com/products/connectors/wood-construction-connectors/technical-notes/allowable-loads",
+      "scope": "Manufacturer describes tension-tie test methodology; does not qualify this candidate frame."
+    }
+  ],
+  "positive_findings": [
+    "Factory-made and listed by a common big-box retailer.",
+    "Manufacturer documents installation on the wide face of a single nominal 2x member.",
+    "A bolt or threaded rod is part of the specified deck tension connection."
+  ],
+  "disqualifiers_for_this_goal": [
+    "The specified timber-side attachment uses SDS wood screws, so routine structural wood-thread removals are not eliminated if this tie is disassembled there.",
+    "Published deck-tension use does not establish the shear, moment, compression-seat, or full angle-joint resistance needed at the 24 replacement stations.",
+    "No tested bolted substitution for the SDS attachment or candidate-specific joint rating was found."
+  ],
+  "capacity_adopted_for_candidate": false,
+  "g1_architecture_selected": false
+}

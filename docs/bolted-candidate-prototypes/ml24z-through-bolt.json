@@ -1,0 +1,24 @@
+{
+  "task": "LB-02A",
+  "status": "complete",
+  "engineering_disposition": "unresolved",
+  "candidate": "compact-floor-flush-bolted-development",
+  "product": "existing Simpson ML24Z with through machine bolts",
+  "source": "docs/ml24z-reference.json",
+  "nominal_screen": {
+    "factory_hole_diameter_mm": 6.731,
+    "candidate_shaft": "1/4 in",
+    "candidate_shaft_diameter_mm": 6.35,
+    "diametric_clearance_mm": 0.381,
+    "ordinary_clearance_range_mm": [7.14375, 7.9375],
+    "nominal_shaft_fits": true,
+    "ordinary_bolt_hole_clearance_match": false
+  },
+  "required_unresolved_checks": [
+    "product-specific installation basis for using the factory hole with a through bolt",
+    "complete head/washer/nut stack and tool access at both flanges",
+    "steel hole, flange bending, prying, and timber resistance",
+    "mixed-axis force interaction and joint stiffness/slip"
+  ],
+  "decision": "Do not modify ML24Z holes or transfer SDS25112 ratings. Keep this trial out of the layout until an applicable installation and resistance basis is established."
+}

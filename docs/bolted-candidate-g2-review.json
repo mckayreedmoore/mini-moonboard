@@ -1,0 +1,36 @@
+{
+  "task": "LB-13",
+  "gate": "G2",
+  "status": "blocked_pending_engineering_inputs",
+  "candidate": "compact-floor-flush-bolted-development",
+  "configuration": {
+    "connector": "Simpson Strong-Tie A66 common-retail follow-up; AB90 prototype records retained for comparison",
+    "width_scope": "owner's physical build is kerf-right; current default prototype geometry is official and kerf-right adapter is separately tracked, without native qualification",
+    "panel_policy": "66 Hillman panel/kicker screws retained",
+    "baseline_candidate_preserved": true,
+    "structural_layouts": 24,
+    "native_case_count": 6
+  },
+  "criteria": {
+    "scope_frozen": true,
+    "panel_contract_frozen": true,
+    "family_layouts_present": true,
+    "mechanics_semantics_present": true,
+    "timber_resistance_basis_applicable": false,
+    "steel_bolt_resistance_basis_applicable": false,
+    "native_mesh_contact_adapter_ready": false,
+    "native_inputs_authenticated": false,
+    "ready_for_first_native_case": false
+  },
+  "blocking_actions": [
+    "Freeze the active connector and orientation from a physical A66 station map. Even a centered 3/8-inch bolt line fails the 4d edge screen on a 1.5-inch face by 19.05 mm; broad-face placement is only a theoretical best-case screen until factory hole locations and actual station faces are known.",
+    "Obtain an A66 manufacturer hole drawing or measured delivered-part dimensions before treating factory hole clearance, bolt coordinates, and drilling as known.",
+    "Resolve the user-authorized center-support outward-shift option against actual connector overlap and the 20 retained center panel/kicker axes; the current 101.9 mm clear gap can only increase 33.9598 mm before a retained occupied bore exits its 38.1 mm support, and that geometric limit is not a structural acceptance.",
+    "Establish fresh candidate mechanical evidence for the owner's kerf-right width; old official-width responses do not qualify the physical build.",
+    "Establish an applicable wood-to-wood bolt/plate/timber resistance basis for the selected installation; A66 public bolt tables are absent and AB90 published values are scoped to CLT/rigid-substrate arrangements.",
+    "Implement and verify the selected connector's native mesh/contact adapter, then freeze exact bolt grade, washer/nut stack, hole/tolerance, access, and stiffness inputs before generating a solve case."
+  ],
+  "native_cases_run": false,
+  "baseline_evidence_transferred": false,
+  "fabrication_release": false
+}

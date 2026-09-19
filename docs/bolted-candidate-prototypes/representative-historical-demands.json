@@ -1,0 +1,163 @@
+{
+  "status": "historical_screen_only",
+  "source": "docs/floor-runner-mvp-angle-demands.json",
+  "source_sha256": "5446aeacaccafb70c77358635e5fb84c1b9627eb922209411b748e5e34c9e558",
+  "case_order": [
+    "a12-left",
+    "a12-rear",
+    "a12-forward",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "case_count": 6,
+  "capacity_adopted": false,
+  "new_candidate_native_loads_available": false,
+  "stations": {
+    "clip_horizontal_bottom_left_2": {
+      "archived_origin_xyz_mm": [
+        -89.05,
+        -49.68843865290005,
+        405.54206648308326
+      ],
+      "current_origin_xyz_mm": [
+        -89.05,
+        -49.68843865290005,
+        405.54206648308326
+      ],
+      "geometry_reconciled": true,
+      "archived_to_current_y_shift_mm": 0.0,
+      "flanges": {
+        "beam": {
+          "maximum_force_norm_n": 201.05069918303528,
+          "force_case": "a1-rear",
+          "force_xyz_n_at_own_peak": [
+            -43.57577866206836,
+            120.57006272200363,
+            -154.8721896635864
+          ],
+          "maximum_moment_norm_nmm": 6112.422837825851,
+          "moment_case": "a12-forward",
+          "moment_xyz_nmm_at_own_peak": [
+            4455.137328892255,
+            3049.1901797893042,
+            2866.3397524652037
+          ]
+        },
+        "upright": {
+          "maximum_force_norm_n": 201.05050034142513,
+          "force_case": "a1-rear",
+          "force_xyz_n_at_own_peak": [
+            43.575935146382946,
+            -120.56993522044104,
+            154.87198676518057
+          ],
+          "maximum_moment_norm_nmm": 6112.428672880288,
+          "moment_case": "a12-forward",
+          "moment_xyz_nmm_at_own_peak": [
+            -4455.142208180796,
+            -3049.19104518133,
+            -2866.34369117191
+          ]
+        }
+      }
+    },
+    "clip_split_base_center_left": {
+      "archived_origin_xyz_mm": [
+        -89.05,
+        -135.0,
+        277.0
+      ],
+      "current_origin_xyz_mm": [
+        -89.05,
+        -124.89999999999999,
+        277.0
+      ],
+      "geometry_reconciled": false,
+      "archived_to_current_y_shift_mm": 10.1,
+      "flanges": {
+        "beam": {
+          "maximum_force_norm_n": 371.79652475967146,
+          "force_case": "a12-forward",
+          "force_xyz_n_at_own_peak": [
+            -46.377432812779595,
+            363.9421712449644,
+            -60.23193122062485
+          ],
+          "maximum_moment_norm_nmm": 10619.373875644324,
+          "moment_case": "k12-rear",
+          "moment_xyz_nmm_at_own_peak": [
+            10112.787714429454,
+            958.6688005830151,
+            -3095.7358227714703
+          ]
+        },
+        "upright": {
+          "maximum_force_norm_n": 371.7964586784515,
+          "force_case": "a12-forward",
+          "force_xyz_n_at_own_peak": [
+            46.37763677791309,
+            -363.9421712449641,
+            60.23136626571484
+          ],
+          "maximum_moment_norm_nmm": 10619.377096214119,
+          "moment_case": "k12-rear",
+          "moment_xyz_nmm_at_own_peak": [
+            -10112.791659699056,
+            -958.6801604249564,
+            3095.7304645472273
+          ]
+        }
+      }
+    },
+    "clip_angle_base_left": {
+      "archived_origin_xyz_mm": [
+        -1130.3000000000002,
+        -105.85,
+        277.0
+      ],
+      "current_origin_xyz_mm": [
+        -1130.3000000000002,
+        -105.85,
+        277.0
+      ],
+      "geometry_reconciled": true,
+      "archived_to_current_y_shift_mm": 0.0,
+      "flanges": {
+        "beam": {
+          "maximum_force_norm_n": 733.2567346653684,
+          "force_case": "a12-left",
+          "force_xyz_n_at_own_peak": [
+            143.52479357543797,
+            703.7657438472975,
+            -147.57997949690358
+          ],
+          "maximum_moment_norm_nmm": 19689.44700592697,
+          "moment_case": "a12-rear",
+          "moment_xyz_nmm_at_own_peak": [
+            17350.960558491686,
+            5549.30471935222,
+            -7471.526499226748
+          ]
+        },
+        "upright": {
+          "maximum_force_norm_n": 733.2566747486185,
+          "force_case": "a12-left",
+          "force_xyz_n_at_own_peak": [
+            -143.52467588926098,
+            -703.7657438472961,
+            147.5797962505231
+          ],
+          "maximum_moment_norm_nmm": 19689.276533657925,
+          "moment_case": "a12-rear",
+          "moment_xyz_nmm_at_own_peak": [
+            -17350.751657951972,
+            -5549.437369411518,
+            7471.463859640127
+          ]
+        }
+      }
+    }
+  },
+  "limit": "Old forces and moments are not simultaneous peaks, not current-center geometry, and not new-candidate demands."
+}
