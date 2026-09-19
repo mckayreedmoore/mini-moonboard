@@ -60,6 +60,8 @@ def validate_contract() -> dict[str, object]:
         "case_count": len(CANONICAL_CASES),
         "structural_screw_macros_remaining": structural_screws,
         "panel_connection_count": len(candidate.panel_connections()),
+        "owner_physical_width_scope": "kerf-right",
+        "candidate_geometry_width_scope": "official prototype pending kerf-right native adapter",
         "candidate_geometry_contract": {
             "joint_records": len(candidate.structural_joint_records()),
             "fastener_records": len(candidate.fastener_stack_records()),

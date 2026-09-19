@@ -16,5 +16,8 @@ def test_owner_stock_report_is_consistent_without_claiming_inspection() -> None:
     assert owner["structural_stock"]["source"] == "owner_report_in_codex_task"
     assert owner["structural_stock"]["physical_receiving_inspection_complete"] is False
     assert metadata["actual_structural_stock_condition"] == "owner_reported_uncut_undrilled"
+    assert owner["physical_width_packet"]["option"] == "kerf-right"
+    assert owner["physical_width_packet"]["kicker_blank_width_mm"] == 1217.6125
+    assert metadata["owner_physical_width_option"] == "kerf-right"
     assert metadata["fabrication_release"] is False
     assert interfaces["physical_state"] == "owner-reported uncut and undrilled; receiving inspection pending"

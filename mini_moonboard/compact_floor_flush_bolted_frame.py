@@ -71,6 +71,8 @@ def candidate_metadata() -> dict[str, object]:
         "panel_wood_thread_removals_per_move": "allowed_per_actual_sequence",
         "actual_structural_stock_condition": "owner_reported_uncut_undrilled",
         "physical_receiving_inspection_complete": False,
+        "owner_physical_width_option": "kerf-right",
+        "geometry_default_width": "official; use bolted_floor_flush_width.variant for kerf-right",
         "geometry_checked": False,
         "new_native_cases_complete": False,
         "fabrication_release": False,

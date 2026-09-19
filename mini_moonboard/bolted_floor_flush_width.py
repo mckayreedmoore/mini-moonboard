@@ -2,8 +2,6 @@
 
 from dataclasses import replace
 
-import cadquery as cq
-
 from . import compact_floor_flush_bolted_frame as candidate
 from . import floor_flush_width as baseline_width
 
@@ -25,14 +23,13 @@ def _right_side(name: str) -> bool:
 
 
 def _translate_connection(connection, option: str):
-    if option != KERF_RIGHT or not any(_right_side(member) for member in connection.members):
-        return connection
-    return replace(connection, start=cq.Vector(
-        connection.start.x - KERF_RIGHT_MM, connection.start.y, connection.start.z))
+    # The frozen width packet moves only outer-right receivers. Center/right
+    # panel axes remain at their official X positions despite their names.
+    return baseline_width.transform_connection(connection, option)
 
 
 def _translate_joint(joint, option: str):
-    if option != KERF_RIGHT or not any(_right_side(name) for name in joint.legacy_station_or_axis_ids):
+    if option != KERF_RIGHT or not any(name in TRANSLATE_NAMES for name in joint.connected_members):
         return joint
     point = joint.local_basis.reference_point_mm
     basis = replace(joint.local_basis, reference_point_mm=(point[0] - KERF_RIGHT_MM, point[1], point[2]))
@@ -92,13 +89,19 @@ def geometry_screen() -> dict[str, object]:
     kerf = variant(KERF_RIGHT)
     official_right = {c.name: c for c in official.connections() if _right_side(c.name)}
     kerf_right = {c.name: c for c in kerf.connections() if _right_side(c.name)}
-    shifts = [official_right[name].start.x - kerf_right[name].start.x for name in official_right if name in kerf_right]
+    shifted = [name for name, connection in official_right.items()
+               if any(member in TRANSLATE_NAMES for member in connection.members)]
+    stationary = set(official_right) - set(shifted)
+    shifts = [official_right[name].start.x - kerf_right[name].start.x for name in shifted]
+    stationary_shifts = [official_right[name].start.x - kerf_right[name].start.x for name in stationary]
     return {
         "official_key": official.KEY,
         "kerf_right_key": kerf.KEY,
         "right_interface_count": len(shifts),
+        "stationary_right_interface_count": len(stationary_shifts),
         "right_shift_mm": KERF_RIGHT_MM,
-        "right_shift_consistent": bool(shifts) and all(abs(value - KERF_RIGHT_MM) < 1e-6 for value in shifts),
+        "right_shift_consistent": bool(shifts) and all(abs(value - KERF_RIGHT_MM) < 1e-6 for value in shifts)
+        and all(abs(value) < 1e-6 for value in stationary_shifts),
         "panel_axes_official": len(official.panel_connections()),
         "panel_axes_kerf_right": len(kerf.panel_connections()),
         "structural_joints_official": len(official.structural_joint_records()),

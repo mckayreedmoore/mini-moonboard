@@ -15,6 +15,8 @@ def test_native_contract_preserves_all_six_case_ids_and_panel_scope() -> None:
     assert result["case_count"] == 6
     assert result["panel_connection_count"] == 66
     assert result["structural_screw_macros_remaining"] == []
+    assert result["owner_physical_width_scope"] == "kerf-right"
+    assert result["candidate_geometry_width_scope"] == "official prototype pending kerf-right native adapter"
 
 
 def test_native_contract_is_explicitly_not_ready_for_a_solve() -> None:

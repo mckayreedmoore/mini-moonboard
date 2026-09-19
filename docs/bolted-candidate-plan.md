@@ -50,10 +50,13 @@ such rather than using their prototype counts as completion evidence.
 
 ## Current nonblocking owner checkpoints
 
-The owner reported structural frame stock is uncut and undrilled, recorded in
-`docs/bolted-candidate-owner-inputs.json`. Physical receiving inspection and
-the actual width packet remain shop gates. Preliminary work may use a fresh-stock
-model without treating the owner's report as a measured inspection. Custom
+The owner reported structural frame stock is uncut and undrilled and selected
+the kerf-right physical width from two 4×8 sheets, recorded in
+`docs/bolted-candidate-owner-inputs.json`. Both kicker blanks in that packet
+are 1/16 in narrower too. Physical receiving inspection and measurements
+remain shop gates. Preliminary work may use a fresh-stock model without
+treating the owner's report as a measured inspection. The eventual candidate
+mechanical evidence must cover kerf-right; official-width cases do not transfer. Custom
 steel, larger/doubled members, permanently wood-screwed detachable connectors,
 or retained paired principal members require a specific decision at the
 architecture gate.
