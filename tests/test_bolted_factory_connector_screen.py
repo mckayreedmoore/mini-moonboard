@@ -36,6 +36,11 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert qa["stated_centers_from_edge_in"] == [2, 4, 6]
     assert qa["usable_as_bolt_drilling_layout"] is False
     assert "hole identity" in qa["limitation"]
+    wall_test = record["independent_test_lead"]
+    assert wall_test["source_url"].endswith("/papers/T6-11.pdf")
+    assert wall_test["a66_named_in_tested_assembly"] is True
+    assert wall_test["connector_only_capacity"] is False
+    assert wall_test["usable_as_board_joint_rating"] is False
     assert record["product"]["lowes_url"].startswith("https://www.lowes.com/")
     assert record["product"]["home_depot_url"].startswith("https://www.homedepot.com/")
 
