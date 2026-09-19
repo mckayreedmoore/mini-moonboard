@@ -1,0 +1,35 @@
+{
+  "task": "LB-11A/LB-11B conditional failure-mode sensitivity",
+  "status": "hypothetical_plate_not_a66",
+  "purpose": "Test whether wood bearing must govern simply because its Mode Im reference is below isolated A307 shaft shear. It need not: bending-dominated Mode IV can be lower in a defined but different wood-to-steel assembly.",
+  "assumptions": [
+    "one 3/8-inch full-body bolt, one shear plane, sound 1.5-inch solid Douglas Fir-Larch wood main member",
+    "hypothetical 1/4-inch ASTM A36 steel side plate; this is not the 12-gauge formed A66",
+    "full-body shank at wood and steel bearing zones, no gap, prying or bolt-axis tension",
+    "dry NDS reference conditions with no geometry, service, group, or duration adjustments",
+    "steel bearing 87,000 psi and bolt bending yield 45,000 psi are supplied reference assumptions, not delivered-product certificates"
+  ],
+  "inputs": {
+    "bolt_diameter_in": 0.375,
+    "wood_bearing_length_in": 1.5,
+    "wood_fe_parallel_psi": 5600,
+    "wood_fe_perpendicular_psi": 3650,
+    "a36_plate_fe_psi": 87000,
+    "bolt_fyb_psi": 45000
+  },
+  "derived": {
+    "wood_mode_im_parallel_lbf": 787.5,
+    "wood_mode_im_perpendicular_lbf": 410.625,
+    "mode_iv_parallel_lbf": 552.105,
+    "mode_iv_perpendicular_lbf": 360.4
+  },
+  "interpretation": "For this assumed A36-plate assembly, NDS Mode IV is below Mode Im in both grain directions. This refutes a universal first-failure claim based only on wood bearing versus bolt shaft shear. The actual A66 has different, unverified steel thickness/bearing and geometry, so no A66 failure order or capacity follows.",
+  "sources": {
+    "awc_2024_nds_chapter12": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
+    "awc_2024_nds_errata_reduction_terms": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf",
+    "awc_tr12_a36_steel_dowel_bearing": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
+    "icc_esr3455_a307_fyb_reference": "https://icc-es.org/wp-content/uploads/report-directory/ESR-3455.pdf"
+  },
+  "a66_geometry_or_capacity_established": false,
+  "drilling_released": false
+}

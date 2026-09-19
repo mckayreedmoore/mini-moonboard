@@ -121,6 +121,19 @@ already fails the conditional loaded-edge 4D geometry screen. Do not double
 the single-bolt number for an A66 leg. The reproducible inputs and claim
 boundary are in `a66-wood-vs-bolt-screen.json`.
 
+The contrast is concrete in a **different, hypothetical** assembly: one
+full-body 3/8-inch bolt through 1.5-inch DF-L and a 1/4-inch ASTM A36 side
+plate. [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
+gives 87,000 psi dowel bearing for its A36 steel-plate basis. With assumed
+`Fyb = 45,000 psi`, NDS Mode IV gives **552 lb parallel** and **360 lb
+perpendicular**, both below that assembly's Mode I_m wood-bearing references
+of 788 and 411 lb. The input/result record is
+`conditional-a36-plate-mode-iv.json`. These are yield-mode *reference* values,
+not test failure forces or a complete joint rating. The A66 is 12-gauge
+formed steel, not this A36 plate; its steel strength, thickness tolerance,
+hole positions, bend, and prying behavior remain unverified. Thus neither
+"wood must fail first" nor "bolt must fail first" is justified for A66.
+
 The [2024 NDS Supplement Table 4A](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf)
 also gives DF-L No. 2 dimension-lumber references of **575 psi tension
 parallel to grain**, **180 psi shear parallel to grain**, and **625 psi

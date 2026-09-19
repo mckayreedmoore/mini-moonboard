@@ -6,6 +6,10 @@ from pathlib import Path
 
 import pytest
 
+from mini_moonboard.bolted_timber_checks import (
+    steel_wood_single_shear_mode_iv_reference_lbf,
+)
+
 
 def test_a66_wood_vs_bolt_screen_is_conditional_and_reproducible():
     path = Path("docs/bolted-candidate-prototypes/a66-wood-vs-bolt-screen.json")
@@ -45,4 +49,22 @@ def test_a66_wood_vs_bolt_screen_is_conditional_and_reproducible():
     assert derived["wood_mode_im_reference_lbf_perpendicular"] < derived["a307_asd_shaft_shear_lbf"]
     assert screen["a66_joint_capacity_established"] is False
     assert screen["factory_hole_layout_established"] is False
+    assert screen["drilling_released"] is False
+
+
+def test_hypothetical_a36_plate_mode_iv_can_govern_below_wood_bearing():
+    path = Path("docs/bolted-candidate-prototypes/conditional-a36-plate-mode-iv.json")
+    screen = json.loads(path.read_text())
+    inputs = screen["inputs"]
+    for direction, angle in (("parallel", 0), ("perpendicular", 90)):
+        assert screen["derived"][f"mode_iv_{direction}_lbf"] == pytest.approx(
+            steel_wood_single_shear_mode_iv_reference_lbf(
+                inputs["bolt_diameter_in"], inputs[f"wood_fe_{direction}_psi"],
+                inputs["a36_plate_fe_psi"], inputs["bolt_fyb_psi"], angle,
+            ),
+            abs=0.001,
+        )
+        assert (screen["derived"][f"mode_iv_{direction}_lbf"] <
+                screen["derived"][f"wood_mode_im_{direction}_lbf"])
+    assert screen["a66_geometry_or_capacity_established"] is False
     assert screen["drilling_released"] is False
