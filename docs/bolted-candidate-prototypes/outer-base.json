@@ -24,5 +24,57 @@
     "retained_front_runner_bolts_nearby": 2,
     "capacity_basis": "unresolved; no A66 bolt-mode allowable load adopted"
   },
-  "disposition": "A new detail must avoid the existing runner bolt stack and lower-rim/pad envelope. No representative fit has been established from the current evidence."
+  "ab205_nominal_trial": {
+    "basis": "ABB AB205 nominal 1/2-inch bolts and 9/16-inch factory holes; bend at actual header-top/rim-inner-face butt, long leg vertical, short leg horizontal. Conditional fixed-position screen, not a selected connector or drilling layout.",
+    "left": {
+      "station": "clip_angle_base_left",
+      "contact_x_mm": -1130.3,
+      "contact_y_mm": -105.85,
+      "contact_z_mm": 277.0,
+      "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+      "rim_hole_min_4d_reserve_mm": -14.479547,
+      "header_row_4d_reserve_mm": 19.05,
+      "intersecting_retained_axis_ids": [],
+      "front_bolt_axis_ids": ["rail_front_bolt_left_1", "rail_front_bolt_left_2"],
+      "retained_front_bolt_nominal_diameter_mm": 9.525,
+      "retained_front_bolt_nominal_length_mm": 101.6,
+      "retained_front_bolt_stack_source": "docs/floor-flush-build-package.md",
+      "nearest_new_rim_bore_above_front_bolt_clearance_mm": 203.503391,
+      "plate_bottom_above_runner_mm": 137.3,
+      "plate_bottom_above_floor_mm": 277.0,
+      "nominal_pad_top_z_mm": 127.0,
+      "plate_bottom_above_nominal_pad_mm": 150.0,
+      "rim_end_distance_classified": false,
+      "complete_washer_nut_stack_verified": false,
+      "pad_clearance_verified": false,
+      "capacity_established": false,
+      "drilling_released": false
+    },
+    "right": {
+      "station": "clip_angle_base_right",
+      "contact_x_mm": 1130.3,
+      "contact_y_mm": -105.85,
+      "contact_z_mm": 277.0,
+      "raw_wood_bore_fractions": [1.0, 1.0, 1.0, 1.0],
+      "rim_hole_min_4d_reserve_mm": -14.479547,
+      "header_row_4d_reserve_mm": 19.05,
+      "intersecting_retained_axis_ids": [],
+      "front_bolt_axis_ids": ["rail_front_bolt_right_1", "rail_front_bolt_right_2"],
+      "retained_front_bolt_nominal_diameter_mm": 9.525,
+      "retained_front_bolt_nominal_length_mm": 101.6,
+      "retained_front_bolt_stack_source": "docs/floor-flush-build-package.md",
+      "nearest_new_rim_bore_above_front_bolt_clearance_mm": 203.503391,
+      "plate_bottom_above_runner_mm": 137.3,
+      "plate_bottom_above_floor_mm": 277.0,
+      "nominal_pad_top_z_mm": 127.0,
+      "plate_bottom_above_nominal_pad_mm": 150.0,
+      "rim_end_distance_classified": false,
+      "complete_washer_nut_stack_verified": false,
+      "pad_clearance_verified": false,
+      "capacity_established": false,
+      "drilling_released": false
+    },
+    "limitations": "All four nominal bores traverse raw timber on each side and intersect none of 66 retained panel/kicker or 12 frame-bolt occupied CAD axes. The far rim bore misses a conditional reversible 4D edge screen by 14.480 mm. This is not an adopted load-direction check. The rim end is oblique to grain, so its end distance is unclassified. Front-bolt clearance is only between nominal occupied axes/bores; the existing 3/8-inch by 4-inch front bolt stacks retain their specified washers, nuts and shank requirements. Installed bolt heads, nuts, washers, plate body, bend, tools and withdrawal path are unresolved. The angle bottom is nominally 137.3 mm above runner top, 277 mm above model floor, and 150 mm above the nominal 127 mm crash-pad top. Pads are a clearance datum, not structural support; no installed pad envelope or floor clearance is verified. Factory tolerances, joint action, steel and wood resistance remain open."
+  },
+  "disposition": "The fixed-position nominal AB205 trial has raw bore occupation but fails a conditional rim 4D edge screen. No complete installed fit or resistance is established; LB-03C remains open."
 }
