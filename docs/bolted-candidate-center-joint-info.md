@@ -92,6 +92,17 @@ These [screen values](bolted-candidate-prototypes/center-y-stagger.json) do
 not classify actual load direction, end distance, or a viable installed joint.
 Neither hypothesis may shift the support members or the protected screws.
 
+The conditional midpoint also sets a *requirement to verify*, not an allowed
+shop tolerance. The fixed top row is 4.886949 mm from either end of its
+nominal 4D band. The underside row is 5.233974 mm from the lower post 4D
+boundary and 5.233974 mm beyond the conditional parallel row-spacing
+minimum. If independent worst-case Y errors on the two rows are each bounded
+by `t`, the spacing screen needs `2t < 5.233974 mm`, or `t < 2.616987 mm`;
+the individual wood-edge screens, oblique end, real hole dimensions, and all
+other tolerances still have to pass. Factory hole, fitting pose, timber cut,
+drill placement, and service effects must share this budget. The
+perpendicular-row screen has no feasible interval even at zero tolerance.
+
 ## Input and evidence ledger
 
 - **Geometry:** Raw CAD members, oblique principal end, nominal ABB dimensions,
