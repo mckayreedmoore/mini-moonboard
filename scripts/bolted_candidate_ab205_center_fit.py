@@ -300,6 +300,8 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
             for offset in trial["horizontal_hole_offsets_from_bend_in"]
         ],
         "shared_header_hole_count": 2,
+        "shared_header_bolt_stack_class": "two steel flanges around one wood header; potentially unequal opposed actions",
+        "two_member_single_shear_method_directly_applicable_to_shared_header_bolts": False,
         "unique_wood_bore_axes": 6,
         "post_bore_full_section_fractions": [
             round(value, 6) for value in post_fractions

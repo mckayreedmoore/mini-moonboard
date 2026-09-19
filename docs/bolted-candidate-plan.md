@@ -112,6 +112,9 @@ through-header axes for the top principal and underside center-post angles.
 The two new center-post bores remain inside raw timber; the six unique bore
 axes do not intersect retained panel/frame-bolt axes. This suggests a
 potential shared-bolt layout, not two separately counted header bolt pairs.
+Those shared bolts would connect two steel flanges through one wood header,
+with potentially unequal actions from the two stations. The ordinary
+two-member single-shear helper cannot be applied directly to that stack.
 Extending all 66 panel axes to their listed 63.5-mm purchased screw length
 (while retaining the historical modeled diameter) also gives no nominal bore
 intersection. This still does not establish delivered fastener clearance.
