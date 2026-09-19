@@ -109,6 +109,10 @@ input, respectively:
 - 100,000 N/mm: `be494b9405ecd68bb6de0efa992b45287b740a2877e84754a8edf723443828fe` /
   `799b532a8fa730369b6d83fcae2f580b8c2f1287a660f6046f2ce3fb6f3eea00`.
 
+The [small replayable A1-rear 10k evidence bundle](bolted-candidate-prototypes/center-evidence-bundle.md)
+contains the original report, the final input, scoped parameters, authenticated
+source snapshots and the extracted actions; it does not rerun the native solve.
+
 A separate bounded `a12-forward` run at 10,000 N/mm stopped after 17 cycles:
 `Contact active set repeated without convergence`. Its global/member equilibrium
 checks passed for the intermediate cycles, but the contact acceptance gate did
