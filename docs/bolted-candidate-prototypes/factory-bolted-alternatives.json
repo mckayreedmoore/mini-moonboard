@@ -113,6 +113,7 @@
         "thickness_mm": 38.1,
         "face": "Preserved single 2x6 has 38.1 mm narrow and 139.7 mm broad face.",
         "catalog_detail_minimum_member_thickness_in": 3.5,
+        "preserved_stations_with_thin_member": 24,
         "applicability": "The relevant catalog bolt detail requires at least 3-1/2 in member thickness. A 1-1/2 in single 2x6 fails regardless of face rotation."
       },
       "orientation": "A 90-degree leg bears on each member; placing a leg on the broad face does not increase the 2x6 through-bolt grip thickness.",
@@ -122,7 +123,7 @@
         "moment_mixed_action_stiffness": "Unknown for flange couple, combined actions, and slip."
       },
       "paired_use": "No two-angle, shared-bolt, or couple credit on the thin receiver; pair geometry and interaction unproved.",
-      "fit": "Fails catalog minimum member thickness at preserved 2x6 stations. A 4x6-only use would be a separate incomplete 24-station architecture.",
+      "fit": "All 24 baseline stations include at least one member thinner than the catalog's 3-1/2 in minimum, so HL33/HL35 cannot serve any complete preserved-stock station under this detail.",
       "fabrication_implications": "Published detail would require a thicker receiver or other structural architecture outside preserved stock. No packing, new holes, or enlarged members specified.",
       "unresolved_fields": [
         "Exact factory hole-center coordinates and delivered tolerances",

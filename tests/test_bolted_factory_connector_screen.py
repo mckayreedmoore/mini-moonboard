@@ -51,3 +51,17 @@ def test_initial_factory_matrix_keeps_applicability_and_action_limits_explicit()
         assert item["unresolved_fields"]
     assert by_id["simpson-hl33-hl35"]["disposition"] == "rejected_for_preserved_single_2x6_receiver"
     assert by_id["simpson-ab90"]["disposition"] == "viable_for_bounded_geometry_prototype_only"
+
+
+def test_hl_thickness_exclusion_applies_to_every_preserved_station() -> None:
+    from mini_moonboard import compact_floor_flush_frame as baseline
+
+    parts = {part.name: part for part in baseline.uncut_wood_parts()}
+    stations = baseline.stations()
+    assert len(stations) == 24
+    thin = [station[0] for station in stations
+            if any(min(parts[member].blank) < 88.9 for member in station[4:6])]
+    assert len(thin) == 24
+    record = read_record("factory-bolted-alternatives.json")
+    hl = next(item for item in record["alternatives"] if item["id"] == "simpson-hl33-hl35")
+    assert hl["receiver"]["preserved_stations_with_thin_member"] == len(thin)
