@@ -2,7 +2,10 @@
   "task": "LB-11A",
   "status": "incomplete_timber_resistance",
   "engineering_disposition": "geometry_screen_only; timber resistance unresolved",
-  "implemented": ["edge/end reserve screen"],
-  "unresolved": ["bearing", "splitting", "row/block failure", "net section", "grain angle", "existing bore interaction"],
+  "implemented": ["edge/end reserve screen", "published DF-L dowel-bearing input identified for 3/8-inch bolt; not a joint rating"],
+  "component_basis": "docs/bolted-candidate-prototypes/a66-component-rating-route.md",
+  "dfl_specific_gravity_assigned": 0.5,
+  "conditional_dowel_bearing_psi": {"parallel": 5600, "perpendicular_rounded": 3650},
+  "unresolved": ["applicable steel-to-wood yield-mode result", "bolt bending yield and thread-bearing diameter", "splitting", "row/block failure", "net section", "grain angle", "existing bore interaction", "group and service adjustments"],
   "capacity_claim": false
 }
