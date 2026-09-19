@@ -43,6 +43,12 @@ connection stiffness provide multiple parallel load paths. A simple free-body
 calculation is useful once its boundary actions are supported; it cannot
 recover those unknown reactions merely by summing the global applied load.
 
+The [kerf-right reference diagnostic](bolted-candidate-center-design-convergence.md)
+now gives source-bound numerical actions for five converged cases with the
+*baseline ML24Z/SDS connection topology*. A12-forward did not converge its
+contact state under the bounded searches. These numbers inform the next
+concept model but do not fill the required **bolted-candidate** action rows above.
+
 ## Per-case free-body and translation
 
 Use one frame-global right-handed XYZ basis in millimeters, newtons, and
@@ -113,8 +119,8 @@ assumption set beside every action vector, and do not merge the output into
 candidate passing cases. A native diagnostic still needs an explicit
 candidate adapter and cannot be produced by relabeling baseline results.
 
-No numeric required local action is established here. The next admissible
-number is a **same-case, current-geometry** principal/post action with a
-traceable free-body or diagnostic model; only then can the per-bolt and
-contact allocations be calculated and compared with complete wood, steel,
+No numeric **bolted-candidate** required local action is established here.
+The reference-proxy numbers are not a substitution for a model with the actual
+bolt axes, shared stack, formed-angle behavior, and contact paths. Only then
+can per-bolt and contact allocations be compared with complete wood, steel,
 fastener, and serviceability resistances. G1, G2, and drilling remain closed.

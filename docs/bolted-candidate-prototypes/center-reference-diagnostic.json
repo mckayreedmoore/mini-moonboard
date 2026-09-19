@@ -1,0 +1,4866 @@
+{
+  "title": "Kerf-right center numerical reference proxy",
+  "scope": "Baseline ML24Z/SDS proxy only; no bolted demand, acceptance, or drilling release.",
+  "units": {
+    "force": "N",
+    "moment": "N mm",
+    "position": "mm"
+  },
+  "accepted_default_v2": [
+    {
+      "series": "proxy-default-v2",
+      "case": "a1-rear",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a1-rear/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a1-rear/cycle-09/input.json",
+        "report_sha256": "17b8dfdc0a71eee34c2213a9a0b2b2376fd86c1d4e1f86db31204cd2f7adf350",
+        "record_sha256": "c1181e1096d405fc45c8e45e5e39b311abe066b3633f43ce6f5c56c8e996c8f1",
+        "record_manifest_sha256": "c1181e1096d405fc45c8e45e5e39b311abe066b3633f43ce6f5c56c8e996c8f1",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a1-rear",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A1",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 10,
+        "final_cycle": {
+          "directory": "cycle-09",
+          "active_count": 149,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  70.82458769292597,
+                  93.385950847798,
+                  623.3368892112024
+                ],
+                "moment_xyz_nmm": [
+                  48830.481958550175,
+                  -5805.971698403318,
+                  -406.4641830808864
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -70.82450135882975,
+                  -93.38595084779799,
+                  -623.3368852343913
+                ],
+                "moment_xyz_nmm": [
+                  -48830.481407488274,
+                  5805.975530715965,
+                  406.4674164893273
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    561.3700000000055
+                  ],
+                  "moment_xyz_nmm": [
+                    46819.756179776195,
+                    -8422.386000000079,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    70.82458769292597,
+                    93.385950847798,
+                    61.966889211196985
+                  ],
+                  "moment_xyz_nmm": [
+                    2010.7257787739868,
+                    2616.41430159676,
+                    -406.4641830808864
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -561.3700000000055
+                  ],
+                  "moment_xyz_nmm": [
+                    -46819.756179776195,
+                    8422.386000000079,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -70.82450135882975,
+                    -93.38595084779799,
+                    -61.96688523438578
+                  ],
+                  "moment_xyz_nmm": [
+                    -2010.725227712081,
+                    -2616.410469284114,
+                    406.4674164893273
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  8.633409622404997e-05,
+                  1.4210854715202004e-14,
+                  3.976811171924055e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.000551061901205685,
+                  0.003832312646409264,
+                  0.003233408440905805
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  45.95594559944378,
+                  -69.14736452284711,
+                  -645.2977214679297
+                ],
+                "moment_xyz_nmm": [
+                  -30470.277942048375,
+                  7438.800226305706,
+                  607.6443054188426
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -45.955983945974026,
+                  69.14733952020443,
+                  645.2977328472228
+                ],
+                "moment_xyz_nmm": [
+                  30470.277863769163,
+                  -7438.799797119828,
+                  -607.645039604555
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -599.7809999999989
+                  ],
+                  "moment_xyz_nmm": [
+                    -29151.129149999822,
+                    9216.73289999994,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    45.95594559944378,
+                    -69.14736452284711,
+                    -45.51672146793085
+                  ],
+                  "moment_xyz_nmm": [
+                    -1319.148792048552,
+                    -1777.9326736942353,
+                    607.6443054188426
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    599.7809999999989
+                  ],
+                  "moment_xyz_nmm": [
+                    29151.129149999822,
+                    -9216.73289999994,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -45.955983945974026,
+                    69.14733952020443,
+                    45.51673284722396
+                  ],
+                  "moment_xyz_nmm": [
+                    1319.148713769341,
+                    1777.9331028801128,
+                    -607.645039604555
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -3.8346530246258226e-05,
+                  -2.500264268689989e-05,
+                  1.1379293141544622e-05
+                ],
+                "moment_xyz_nmm": [
+                  -7.827921217540279e-05,
+                  0.00042918587769236183,
+                  -0.0007341857124174567
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                6.386812678726983e-06,
+                -0.0017825317357195725,
+                80.1042255905144
+              ],
+              "moment_xyz_nmm": [
+                1536.594533732653,
+                -6991.591340439521,
+                2.6511622896081235
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                6.386812678726983e-06,
+                -0.0017825317357195725,
+                0.0022869325967747045
+              ],
+              "moment_xyz_nmm": [
+                -0.21729793778786188,
+                17.58666596992316,
+                2.6511622896081235
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -116.78048530480379,
+                  -24.238611327593556,
+                  21.960847612831543
+                ],
+                "moment_xyz_nmm": [
+                  -3432.7680972597373,
+                  118.09872193774754,
+                  674.2838710555777
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  116.78049169161645,
+                  24.236828795857868,
+                  58.14337797768272
+                ],
+                "moment_xyz_nmm": [
+                  4969.36263099239,
+                  -7109.690062377635,
+                  -671.6327087659726
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -22.284498345330597,
+                  95.35640603228529,
+                  312.1256738671323
+                ],
+                "moment_xyz_nmm": [
+                  26659.766824447524,
+                  4800.658835546271,
+                  1080.121580442968
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  22.28457763189236,
+                  -95.3564368997454,
+                  -312.1257221098966
+                ],
+                "moment_xyz_nmm": [
+                  -26659.765226217438,
+                  -4800.656590994049,
+                  -1080.1179381592797
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    296.99000000000046
+                  ],
+                  "moment_xyz_nmm": [
+                    24769.758604541777,
+                    5536.691999999898,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -22.284498345330597,
+                    95.35640603228529,
+                    15.135673867131828
+                  ],
+                  "moment_xyz_nmm": [
+                    1890.0082199057465,
+                    -736.0331644536276,
+                    1080.121580442968
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -296.99000000000046
+                  ],
+                  "moment_xyz_nmm": [
+                    -24769.758604541777,
+                    -5536.691999999898,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    22.28457763189236,
+                    -95.3564368997454,
+                    -15.135722109896152
+                  ],
+                  "moment_xyz_nmm": [
+                    -1890.0066216756604,
+                    736.0354090058481,
+                    -1080.1179381592797
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  7.928656176403592e-05,
+                  -3.086746011149444e-05,
+                  -4.824276430781538e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.001598230086528929,
+                  0.0022445522217822145,
+                  0.0036422836883502896
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  5.741312566920204,
+                  -64.67712937875046,
+                  -364.4114839089883
+                ],
+                "moment_xyz_nmm": [
+                  -19347.790339152136,
+                  -7410.7805010719885,
+                  -156.4183236991328
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -5.741310542145666,
+                  64.67708307756027,
+                  364.41148299617095
+                ],
+                "moment_xyz_nmm": [
+                  19347.789430828907,
+                  7410.780661501427,
+                  156.4172990455005
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -367.951
+                  ],
+                  "moment_xyz_nmm": [
+                    -18291.54964999997,
+                    -7221.550199999999,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    5.741312566920204,
+                    -64.67712937875046,
+                    3.539516091011709
+                  ],
+                  "moment_xyz_nmm": [
+                    -1056.2406891521637,
+                    -189.23030107199006,
+                    -156.4183236991328
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    367.951
+                  ],
+                  "moment_xyz_nmm": [
+                    18291.54964999997,
+                    7221.550199999999,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -5.741310542145666,
+                    64.67708307756027,
+                    -3.539517003829136
+                  ],
+                  "moment_xyz_nmm": [
+                    1056.239780828937,
+                    189.23046150142824,
+                    156.4172990455005
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  2.0247745382562243e-06,
+                  -4.6301190195663366e-05,
+                  -9.12817370135599e-07
+                ],
+                "moment_xyz_nmm": [
+                  -0.000908323228941299,
+                  0.00016042943843785906,
+                  -0.0010246536322995325
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                6.386812678726983e-06,
+                -0.0017825317357195725,
+                80.1042255905144
+              ],
+              "moment_xyz_nmm": [
+                1536.594533732653,
+                7274.971237231024,
+                2.968631191778968
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                6.386812678726983e-06,
+                -0.0017825317357195725,
+                0.0022869325967747045
+              ],
+              "moment_xyz_nmm": [
+                -0.21729793778786188,
+                17.993968665339708,
+                2.968631191778968
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  16.543267089746692,
+                  -30.67935382218513,
+                  52.28576088627429
+                ],
+                "moment_xyz_nmm": [
+                  2094.259820943573,
+                  2828.868002163126,
+                  -814.3286732859042
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -16.543260702934013,
+                  30.67757129044945,
+                  27.81846470423997
+                ],
+                "moment_xyz_nmm": [
+                  -557.6652872109266,
+                  4446.103235067811,
+                  817.2973044776768
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    },
+    {
+      "series": "proxy-default-v2",
+      "case": "a12-left",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-left/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-left/cycle-13/input.json",
+        "report_sha256": "508498241baa47dd599075dd67e847eb4103bfb2dc5ee5eceff374967e1203df",
+        "record_sha256": "51ecc52746e31d4d7c3f8e7d0b6fd375336cab822fbcfd6222a38532e13cf480",
+        "record_manifest_sha256": "51ecc52746e31d4d7c3f8e7d0b6fd375336cab822fbcfd6222a38532e13cf480",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-left",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          -300.0,
+          0.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 102,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  35.71616686046251,
+                  -0.03611492834513541,
+                  255.44580185869233
+                ],
+                "moment_xyz_nmm": [
+                  29634.337524054896,
+                  -4657.076415908587,
+                  -3646.102248462527
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -35.716096066520294,
+                  0.03580625374422475,
+                  -255.44598317275648
+                ],
+                "moment_xyz_nmm": [
+                  -29634.33256945227,
+                  4657.0774859079775,
+                  3646.122724478586
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    239.2159999999987
+                  ],
+                  "moment_xyz_nmm": [
+                    19951.25281775152,
+                    -5671.032599999974,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    35.71616686046251,
+                    -0.03611492834513541,
+                    16.22980185869362
+                  ],
+                  "moment_xyz_nmm": [
+                    9683.084706303374,
+                    1013.9561840913871,
+                    -3646.102248462527
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -239.2159999999987
+                  ],
+                  "moment_xyz_nmm": [
+                    -19951.25281775152,
+                    5671.032599999974,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -35.716096066520294,
+                    0.03580625374422475,
+                    -16.229983172757755
+                  ],
+                  "moment_xyz_nmm": [
+                    -9683.079751700749,
+                    -1013.9551140919975,
+                    3646.122724478586
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  7.079394221420898e-05,
+                  -0.00030867460091066334,
+                  -0.00018131406415022866
+                ],
+                "moment_xyz_nmm": [
+                  0.0049546026275493205,
+                  0.0010699993908929173,
+                  0.020476016059092217
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -16.94682237725355,
+                  -171.70395103597656,
+                  -359.15583004911235
+                ],
+                "moment_xyz_nmm": [
+                  -16704.95828184218,
+                  7934.654733558804,
+                  -511.74202396596047
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  16.946698620077726,
+                  171.70364236137522,
+                  359.1558389064546
+                ],
+                "moment_xyz_nmm": [
+                  16704.963142580586,
+                  -7934.651163844668,
+                  511.75497201839903
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -372.0059999999994
+                  ],
+                  "moment_xyz_nmm": [
+                    -14817.559899999824,
+                    7344.346499999904,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -16.94682237725355,
+                    -171.70395103597656,
+                    12.850169950887071
+                  ],
+                  "moment_xyz_nmm": [
+                    -1887.398381842354,
+                    590.3082335588988,
+                    -511.74202396596047
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    372.0059999999994
+                  ],
+                  "moment_xyz_nmm": [
+                    14817.559899999824,
+                    -7344.346499999904,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    16.946698620077726,
+                    171.70364236137522,
+                    -12.85016109354482
+                  ],
+                  "moment_xyz_nmm": [
+                    1887.403242580761,
+                    -590.3046638447644,
+                    511.75497201839903
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -0.00012375717582457924,
+                  -0.00030867460134231806,
+                  8.85734226585555e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.004860738405113807,
+                  0.003569714135664981,
+                  0.012948052438559898
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                0.00013331747524603088,
+                0.0013872119240954106,
+                80.13218168945264
+              ],
+              "moment_xyz_nmm": [
+                1540.0277787064329,
+                -6968.2968146201165,
+                -26.279932592344267
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                0.00013331747524603088,
+                0.0013872119240954106,
+                0.030243031535007958
+              ],
+              "moment_xyz_nmm": [
+                3.2159470359920306,
+                40.88119178932811,
+                -26.279932592344267
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -18.769397446442568,
+                  171.73944861511944,
+                  103.70985573369813
+                ],
+                "moment_xyz_nmm": [
+                  454.45807826466444,
+                  -3923.2428953616536,
+                  3835.043087784505
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  18.769530763917793,
+                  -171.73806140319542,
+                  -23.57767404424544
+                ],
+                "moment_xyz_nmm": [
+                  1085.5697004417707,
+                  -3045.053919258462,
+                  -3861.3230203768944
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  60.96753899396086,
+                  138.27480039608884,
+                  372.0760311597154
+                ],
+                "moment_xyz_nmm": [
+                  41354.00370329661,
+                  12563.548356888752,
+                  -1809.8178930081344
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -60.96736689816987,
+                  -138.27476952862872,
+                  -372.07632872141573
+                ],
+                "moment_xyz_nmm": [
+                  -41353.99332638498,
+                  -12563.541861667682,
+                  1809.8181021517532
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    439.4100000000047
+                  ],
+                  "moment_xyz_nmm": [
+                    36647.966693901486,
+                    10058.781000000083,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    60.96753899396086,
+                    138.27480039608884,
+                    -67.33396884028924
+                  ],
+                  "moment_xyz_nmm": [
+                    4706.037009395116,
+                    2504.76735688867,
+                    -1809.8178930081344
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -439.4100000000047
+                  ],
+                  "moment_xyz_nmm": [
+                    -36647.966693901486,
+                    -10058.781000000083,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -60.96736689816987,
+                    -138.27476952862872,
+                    67.33367127858897
+                  ],
+                  "moment_xyz_nmm": [
+                    -4706.026632483496,
+                    -2504.760861667599,
+                    1809.8181021517532
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  0.0001720957909867593,
+                  3.086746011149444e-05,
+                  -0.0002975617003357911
+                ],
+                "moment_xyz_nmm": [
+                  0.01037691162491683,
+                  0.0064952210705087055,
+                  0.00020914361880386423
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  28.81380640115577,
+                  -137.40257857535988,
+                  -264.38438018799604
+                ],
+                "moment_xyz_nmm": [
+                  -22817.12125416576,
+                  -6312.555311358269,
+                  1027.5023613295534
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -28.813851088866045,
+                  137.40257857535988,
+                  264.3843740225142
+                ],
+                "moment_xyz_nmm": [
+                  22817.122039105998,
+                  6312.5553336763405,
+                  -1027.5012983418462
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -290.481
+                  ],
+                  "moment_xyz_nmm": [
+                    -20154.86824999999,
+                    -5239.283399999984,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    28.81380640115577,
+                    -137.40257857535988,
+                    26.096619812003986
+                  ],
+                  "moment_xyz_nmm": [
+                    -2662.2530041657674,
+                    -1073.2719113582857,
+                    1027.5023613295534
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    290.481
+                  ],
+                  "moment_xyz_nmm": [
+                    20154.86824999999,
+                    5239.283399999984,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -28.813851088866045,
+                    137.40257857535988,
+                    -26.096625977485804
+                  ],
+                  "moment_xyz_nmm": [
+                    2662.253789106008,
+                    1073.2719336763553,
+                    -1027.5012983418462
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -4.4687710275326253e-05,
+                  0.0,
+                  -6.165481863718014e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.0007849402391002513,
+                  2.231807138741715e-05,
+                  0.001062987707200591
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                0.00013331747524603088,
+                0.0013872119240954106,
+                80.13218168945264
+              ],
+              "moment_xyz_nmm": [
+                1540.0277787064329,
+                7303.244744271311,
+                -26.526995035994332
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                0.00013331747524603088,
+                0.0013872119240954106,
+                0.030243031535007958
+              ],
+              "moment_xyz_nmm": [
+                3.2159470359920306,
+                46.267475705626566,
+                -26.526995035994332
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -89.78121798703593,
+                  -0.8721909532688343,
+                  -107.69195469890155
+                ],
+                "moment_xyz_nmm": [
+                  -8265.310718428882,
+                  -5153.178801505546,
+                  1331.2206670528049
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  89.78135130451116,
+                  0.8735781651928232,
+                  187.82413638835416
+                ],
+                "moment_xyz_nmm": [
+                  9805.338497135315,
+                  12456.423545776886,
+                  -1357.7476620887755
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    },
+    {
+      "series": "proxy-default-v2",
+      "case": "a12-rear",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-rear/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-rear/cycle-13/input.json",
+        "report_sha256": "99c073ef055dbbb9f1f3580210b27b01df07b25ca3fde1834bab5ea50d88437e",
+        "record_sha256": "d07beadc71d6f0630e30211aa09d03479d9a38fef3b7114288d867fe3fd1c110",
+        "record_manifest_sha256": "d07beadc71d6f0630e30211aa09d03479d9a38fef3b7114288d867fe3fd1c110",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-rear",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 120,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -50.559903180684515,
+                  67.6225795924502,
+                  320.48155092319007
+                ],
+                "moment_xyz_nmm": [
+                  40522.52015560959,
+                  -11855.265988153931,
+                  336.7146582951566
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  50.559664985005014,
+                  -67.62257959245011,
+                  -320.481797613565
+                ],
+                "moment_xyz_nmm": [
+                  -40522.53092190853,
+                  11855.25965478281,
+                  -336.7014608889159
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    381.7299999999968
+                  ],
+                  "moment_xyz_nmm": [
+                    31837.300757977166,
+                    -9658.73099999994,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -50.559903180684515,
+                    67.6225795924502,
+                    -61.24844907680668
+                  ],
+                  "moment_xyz_nmm": [
+                    8685.219397632427,
+                    -2196.5349881539905,
+                    336.7146582951566
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -381.7299999999968
+                  ],
+                  "moment_xyz_nmm": [
+                    -31837.300757977166,
+                    9658.73099999994,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    50.559664985005014,
+                    -67.62257959245011,
+                    61.24820238643177
+                  ],
+                  "moment_xyz_nmm": [
+                    -8685.230163931365,
+                    2196.52865478287,
+                    -336.7014608889159
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -0.00023819567950056353,
+                  8.526512829121202e-14,
+                  -0.0002466903749223093
+                ],
+                "moment_xyz_nmm": [
+                  -0.01076629893941572,
+                  -0.006333371120490483,
+                  0.013197406240692544
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -55.09917413465689,
+                  -83.33535149406372,
+                  -31.467876196157516
+                ],
+                "moment_xyz_nmm": [
+                  -7868.104189472307,
+                  5350.216032020193,
+                  -5050.136033116227
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  55.098724996265844,
+                  83.33566016866489,
+                  31.467950037027414
+                ],
+                "moment_xyz_nmm": [
+                  7868.123285922932,
+                  -5350.213160500954,
+                  5050.131590886424
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -84.84999999999742
+                  ],
+                  "moment_xyz_nmm": [
+                    -5926.772499999819,
+                    3232.784999999901,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -55.09917413465689,
+                    -83.33535149406372,
+                    53.38212380383991
+                  ],
+                  "moment_xyz_nmm": [
+                    -1941.331689472488,
+                    2117.4310320202912,
+                    -5050.136033116227
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    84.84999999999742
+                  ],
+                  "moment_xyz_nmm": [
+                    5926.772499999819,
+                    -3232.784999999901,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    55.098724996265844,
+                    83.33566016866489,
+                    -53.38204996297
+                  ],
+                  "moment_xyz_nmm": [
+                    1941.3507859231129,
+                    -2117.4281605010524,
+                    5050.131590886424
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -0.0004491383910476543,
+                  0.0003086746011717878,
+                  7.384086989858929e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.019096450625511352,
+                  0.002871519239306508,
+                  -0.0044422298024073825
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                2.8206538928543523e-05,
+                0.017673107454648784,
+                79.84944554959586
+              ],
+              "moment_xyz_nmm": [
+                1512.727610240671,
+                -7331.659170485396,
+                -8.817991360993346
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                2.8206538928543523e-05,
+                0.017673107454648784,
+                -0.2524931083217723
+              ],
+              "moment_xyz_nmm": [
+                -24.08422142976974,
+                -322.4811640759517,
+                -8.817991360993346
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  105.65838998127086,
+                  15.713080576214775,
+                  -289.0138475765376
+                ],
+                "moment_xyz_nmm": [
+                  -28879.854535354098,
+                  4405.785071924127,
+                  3663.799418818645
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -105.65836177473199,
+                  -15.695407468760143,
+                  368.8632931261335
+                ],
+                "moment_xyz_nmm": [
+                  30392.58214559477,
+                  -11737.444242409652,
+                  -3672.61741017955
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -44.247045231100564,
+                  -126.59322618431311,
+                  82.50194691889979
+                ],
+                "moment_xyz_nmm": [
+                  15193.579493010855,
+                  947.1417788501104,
+                  3296.161178635093
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  44.24696071500844,
+                  126.59325705177325,
+                  -82.50162436975201
+                ],
+                "moment_xyz_nmm": [
+                  -15193.582507135441,
+                  -947.134247031981,
+                  -3296.165757761507
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    59.40999999999932
+                  ],
+                  "moment_xyz_nmm": [
+                    4954.952552933795,
+                    2263.5209999999793,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -44.247045231100564,
+                    -126.59322618431311,
+                    23.09194691890047
+                  ],
+                  "moment_xyz_nmm": [
+                    10238.626940077062,
+                    -1316.3792211498687,
+                    3296.161178635093
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -59.40999999999932
+                  ],
+                  "moment_xyz_nmm": [
+                    -4954.952552933795,
+                    -2263.5209999999793,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    44.24696071500844,
+                    126.59325705177325,
+                    -23.091624369752694
+                  ],
+                  "moment_xyz_nmm": [
+                    -10238.629954201646,
+                    1316.3867529679983,
+                    -3296.165757761507
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -8.451609212301037e-05,
+                  3.086746013991615e-05,
+                  0.00032254914778206967
+                ],
+                "moment_xyz_nmm": [
+                  -0.0030141245861159405,
+                  0.007531818129450585,
+                  -0.004579126413773338
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  51.94464449050419,
+                  -118.53367061096895,
+                  -256.1911146106838
+                ],
+                "moment_xyz_nmm": [
+                  -14565.452928395058,
+                  -8858.12681609852,
+                  2788.3889724873843
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -51.944687920777,
+                  118.53367061096901,
+                  256.191100437927
+                ],
+                "moment_xyz_nmm": [
+                  14565.453413432977,
+                  8858.129241029035,
+                  -2788.3824706864652
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -301.7280000000011
+                  ],
+                  "moment_xyz_nmm": [
+                    -12747.066199999834,
+                    -6936.981300000018,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    51.94464449050419,
+                    -118.53367061096895,
+                    45.53688538931729
+                  ],
+                  "moment_xyz_nmm": [
+                    -1818.3867283952222,
+                    -1921.145516098502,
+                    2788.3889724873843
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    301.7280000000011
+                  ],
+                  "moment_xyz_nmm": [
+                    12747.066199999834,
+                    6936.981300000018,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -51.944687920777,
+                    118.53367061096901,
+                    -45.53689956207411
+                  ],
+                  "moment_xyz_nmm": [
+                    1818.387213433143,
+                    1921.147941029018,
+                    -2788.3824706864652
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -4.3430272810951465e-05,
+                  5.684341886080802e-14,
+                  -1.4172756834796019e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.0004850379191339016,
+                  0.0024249305151897715,
+                  0.006501800919068046
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                2.8206538928543523e-05,
+                0.017673107454648784,
+                79.84944554959586
+              ],
+              "moment_xyz_nmm": [
+                1512.727610240671,
+                6889.527081897478,
+                -11.965571798478948
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                2.8206538928543523e-05,
+                0.017673107454648784,
+                -0.2524931083217723
+              ],
+              "moment_xyz_nmm": [
+                -24.08422142976974,
+                -367.4501866682067,
+                -11.965571798478948
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -7.697727205768572,
+                  245.12692766274228,
+                  173.68947606817497
+                ],
+                "moment_xyz_nmm": [
+                  8768.444219917965,
+                  9890.087603778658,
+                  -5095.001923557171
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  7.697755412307487,
+                  -245.10925455528772,
+                  -93.8400305185791
+                ],
+                "moment_xyz_nmm": [
+                  -7255.716609677301,
+                  -3000.5605218811615,
+                  5083.036351758659
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    },
+    {
+      "series": "proxy-default-v2",
+      "case": "k12-rear",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/k12-rear/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/k12-rear/cycle-13/input.json",
+        "report_sha256": "5981a3d279253338f4caf12131e38d451ad2d1a88332fab4d87653067fdaaf1d",
+        "record_sha256": "ae69c25d392058466fee39cff0524cdcbf4bdf69da669ed98ac56a1aeff41107",
+        "record_manifest_sha256": "ae69c25d392058466fee39cff0524cdcbf4bdf69da669ed98ac56a1aeff41107",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "k12-rear",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "K12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 114,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  44.286026257832745,
+                  -132.13612686627258,
+                  77.85292135984822
+                ],
+                "moment_xyz_nmm": [
+                  15277.221533274535,
+                  -809.6191124813536,
+                  -3341.1105187722987
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -44.285545040163754,
+                  132.1361268662726,
+                  -77.85266689020301
+                ],
+                "moment_xyz_nmm": [
+                  -15277.226303990537,
+                  809.6289843627283,
+                  3341.1190100490594
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    55.47000000000017
+                  ],
+                  "moment_xyz_nmm": [
+                    4626.346037893311,
+                    -2113.407000000006,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    44.286026257832745,
+                    -132.13612686627258,
+                    22.382921359848055
+                  ],
+                  "moment_xyz_nmm": [
+                    10650.875495381224,
+                    1303.787887518653,
+                    -3341.1105187722987
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -55.47000000000017
+                  ],
+                  "moment_xyz_nmm": [
+                    -4626.346037893311,
+                    2113.407000000006,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -44.285545040163754,
+                    132.1361268662726,
+                    -22.38266689020284
+                  ],
+                  "moment_xyz_nmm": [
+                    -10650.880266097227,
+                    -1303.7780156372773,
+                    3341.1190100490594
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  0.0004812176689910075,
+                  2.842170943040401e-14,
+                  0.00025446964521336213
+                ],
+                "moment_xyz_nmm": [
+                  -0.004770716002894915,
+                  0.009871881374692748,
+                  0.00849127676065109
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -51.407362634806894,
+                  -117.06200271462832,
+                  -264.09913043873655
+                ],
+                "moment_xyz_nmm": [
+                  -15164.668845675622,
+                  8952.48511258941,
+                  -2754.468587941834
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  51.40728544001501,
+                  117.06200271462835,
+                  264.0991490277851
+                ],
+                "moment_xyz_nmm": [
+                  15164.669159915558,
+                  -8952.484591211414,
+                  2754.477427615999
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -309.04300000000035
+                  ],
+                  "moment_xyz_nmm": [
+                    -13340.861049999921,
+                    7052.462400000015,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -51.407362634806894,
+                    -117.06200271462832,
+                    44.943869561263824
+                  ],
+                  "moment_xyz_nmm": [
+                    -1823.8077956757002,
+                    1900.022712589394,
+                    -2754.468587941834
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    309.04300000000035
+                  ],
+                  "moment_xyz_nmm": [
+                    13340.861049999921,
+                    -7052.462400000015,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    51.40728544001501,
+                    117.06200271462835,
+                    -44.94385097221527
+                  ],
+                  "moment_xyz_nmm": [
+                    1823.8081099156375,
+                    -1900.0221912113998,
+                    2754.477427615999
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -7.719479188494915e-05,
+                  2.842170943040401e-14,
+                  1.858904852269916e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.00031423993641510606,
+                  0.0005213779950281605,
+                  0.008839674165301403
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                0.00014320106680543176,
+                -0.013561392867132316,
+                79.62464143628094
+              ],
+              "moment_xyz_nmm": [
+                1494.7705381912988,
+                -6400.073593810737,
+                -0.7473355433635334
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                0.00014320106680543176,
+                -0.013561392867132316,
+                -0.47729722163668953
+              ],
+              "moment_xyz_nmm": [
+                -42.04129347914204,
+                609.1044125987073,
+                -0.7473355433635334
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  7.121740399851262,
+                  249.19812958090097,
+                  186.24648213758212
+                ],
+                "moment_xyz_nmm": [
+                  9378.593948331667,
+                  -10101.473182113257,
+                  5116.287650032773
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -7.1215971987844,
+                  -249.21169097376801,
+                  -106.62184070130115
+                ],
+                "moment_xyz_nmm": [
+                  -7883.823410140375,
+                  3701.399588302515,
+                  -5117.034985576147
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  42.40569290264018,
+                  79.12904270294156,
+                  341.52011958634654
+                ],
+                "moment_xyz_nmm": [
+                  41934.9789612692,
+                  12057.578679079958,
+                  -3.8190268761208586
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -42.4054080439999,
+                  -79.12904270294139,
+                  -341.5203852663587
+                ],
+                "moment_xyz_nmm": [
+                  -41934.97730582941,
+                  -12057.574150542547,
+                  3.81943402931563
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    395.86999999999955
+                  ],
+                  "moment_xyz_nmm": [
+                    33016.61449469654,
+                    10153.269000000055,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    42.40569290264018,
+                    79.12904270294156,
+                    -54.349880413653054
+                  ],
+                  "moment_xyz_nmm": [
+                    8918.364466572657,
+                    1904.3096790799016,
+                    -3.8190268761208586
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -395.86999999999955
+                  ],
+                  "moment_xyz_nmm": [
+                    -33016.61449469654,
+                    -10153.269000000055,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -42.4054080439999,
+                    -79.12904270294139,
+                    54.349614733640834
+                  ],
+                  "moment_xyz_nmm": [
+                    -8918.362811132867,
+                    -1904.3051505424905,
+                    3.81943402931563
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  0.0002848586402848241,
+                  1.7053025658242404e-13,
+                  -0.0002656800121485503
+                ],
+                "moment_xyz_nmm": [
+                  0.0016554397880099714,
+                  0.004528537410806166,
+                  0.0004071531947715812
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  55.215799002389915,
+                  -87.67655108592876,
+                  -37.230566950595495
+                ],
+                "moment_xyz_nmm": [
+                  -8238.685151396654,
+                  -5529.849644272337,
+                  5148.604791559072
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -55.21583613997697,
+                  87.67624241132759,
+                  37.23069375279531
+                ],
+                "moment_xyz_nmm": [
+                  8238.66582663838,
+                  5529.8469194522295,
+                  -5148.6013970199765
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -90.56000000000341
+                  ],
+                  "moment_xyz_nmm": [
+                    -6325.616000000238,
+                    -3411.473999999964,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    55.215799002389915,
+                    -87.67655108592876,
+                    53.329433049407925
+                  ],
+                  "moment_xyz_nmm": [
+                    -1913.0691513964166,
+                    -2118.3756442723734,
+                    5148.604791559072
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    90.56000000000341
+                  ],
+                  "moment_xyz_nmm": [
+                    6325.616000000238,
+                    3411.473999999964,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -55.21583613997697,
+                    87.67624241132759,
+                    -53.3293062472081
+                  ],
+                  "moment_xyz_nmm": [
+                    1913.0498266381414,
+                    2118.372919452266,
+                    -5148.6013970199765
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -3.713758705714554e-05,
+                  -0.0003086746011717878,
+                  0.00012680219981575647
+                ],
+                "moment_xyz_nmm": [
+                  -0.01932475827379676,
+                  -0.0027248201076872647,
+                  0.0033945390950975707
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                0.00014320106680543176,
+                -0.013561392867132316,
+                79.62464143628094
+              ],
+              "moment_xyz_nmm": [
+                1494.7705381912988,
+                7781.075045991005,
+                1.6679485261520313
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                0.00014320106680543176,
+                -0.013561392867132316,
+                -0.47729722163668953
+              ],
+              "moment_xyz_nmm": [
+                -42.04129347914204,
+                524.0977774253206,
+                1.6679485261520313
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -97.62124418397687,
+                  8.547199708386188,
+                  -304.28969151356335
+                ],
+                "moment_xyz_nmm": [
+                  -29646.601927328706,
+                  -4424.0038741571925,
+                  -4092.920284524099
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  97.62138738504376,
+                  -8.560761101253318,
+                  383.91433294984427
+                ],
+                "moment_xyz_nmm": [
+                  31141.372465519995,
+                  12205.078920148206,
+                  4094.5882330502473
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    },
+    {
+      "series": "proxy-default-v2",
+      "case": "k12-right",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/k12-right/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/k12-right/cycle-13/input.json",
+        "report_sha256": "255409e880bc84f6571ba040bed5da0ebb4a797111081c2c94f50994a599915f",
+        "record_sha256": "351905bcd98bb97fba1c0e1b36278408d038fc35ad09257e31f44231c6d3c797",
+        "record_manifest_sha256": "351905bcd98bb97fba1c0e1b36278408d038fc35ad09257e31f44231c6d3c797",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "k12-right",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "K12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          300.0,
+          0.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 101,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -57.17273604159471,
+                  126.07060921695059,
+                  359.2964622398953
+                ],
+                "moment_xyz_nmm": [
+                  40504.26731165982,
+                  -12280.144389799943,
+                  1647.5729012209163
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  57.172833111850196,
+                  -126.07057834949048,
+                  -359.29647676260197
+                ],
+                "moment_xyz_nmm": [
+                  -40504.275398908125,
+                  12280.147662892883,
+                  -1647.5726815551204
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    423.7199999999955
+                  ],
+                  "moment_xyz_nmm": [
+                    35339.37882055394,
+                    -9906.380999999923,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -57.17273604159471,
+                    126.07060921695059,
+                    -64.42353776010023
+                  ],
+                  "moment_xyz_nmm": [
+                    5164.888491105888,
+                    -2373.7633898000186,
+                    1647.5729012209163
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -423.7199999999955
+                  ],
+                  "moment_xyz_nmm": [
+                    -35339.37882055394,
+                    9906.380999999923,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    57.172833111850196,
+                    -126.07057834949048,
+                    64.42352323739348
+                  ],
+                  "moment_xyz_nmm": [
+                    -5164.8965783541835,
+                    2373.76666289296,
+                    -1647.5726815551204
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  9.707025548522097e-05,
+                  3.086746011149444e-05,
+                  -1.4522706692332576e-05
+                ],
+                "moment_xyz_nmm": [
+                  -0.008087248301308136,
+                  0.003273092939707567,
+                  0.0002196657958393189
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -28.406240673924277,
+                  -133.95354118346415,
+                  -255.26623101140598
+                ],
+                "moment_xyz_nmm": [
+                  -22375.318301201765,
+                  6232.597013160539,
+                  -1073.6023803264804
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  28.406236400339026,
+                  133.95351031600404,
+                  255.26624441189273
+                ],
+                "moment_xyz_nmm": [
+                  22375.317687047096,
+                  -6232.596779162296,
+                  1073.6022304515955
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -281.16000000000076
+                  ],
+                  "moment_xyz_nmm": [
+                    -19639.026000000056,
+                    5169.941400000016,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -28.406240673924277,
+                    -133.95354118346415,
+                    25.89376898859479
+                  ],
+                  "moment_xyz_nmm": [
+                    -2736.292301201708,
+                    1062.6556131605223,
+                    -1073.6023803264804
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    281.16000000000076
+                  ],
+                  "moment_xyz_nmm": [
+                    19639.026000000056,
+                    -5169.941400000016,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    28.406236400339026,
+                    133.95351031600404,
+                    -25.89375558810805
+                  ],
+                  "moment_xyz_nmm": [
+                    2736.291687047039,
+                    -1062.6553791622796,
+                    1073.6022304515955
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -4.273585251013401e-06,
+                  -3.086746011149444e-05,
+                  1.3400486750470009e-05
+                ],
+                "moment_xyz_nmm": [
+                  -0.0006141546691651456,
+                  0.000233998242947564,
+                  -0.000149874884982637
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -6.0714566245678725e-05,
+                -0.03126410652581679,
+                79.99155426904363
+              ],
+              "moment_xyz_nmm": [
+                1526.4308959939824,
+                -6873.240463010845,
+                -52.63776925555885
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -6.0714566245678725e-05,
+                -0.03126410652581679,
+                -0.11038438887399593
+              ],
+              "moment_xyz_nmm": [
+                -10.38093567645842,
+                135.9375433985997,
+                -52.63776925555885
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  85.57906951218922,
+                  7.882931966513574,
+                  -104.03023235070927
+                ],
+                "moment_xyz_nmm": [
+                  -8162.5070127747185,
+                  4965.273276877671,
+                  -1115.109254529983
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -85.57913022675541,
+                  -7.914196073039559,
+                  184.02178661975293
+                ],
+                "moment_xyz_nmm": [
+                  9688.937908768707,
+                  -11838.513739888529,
+                  1062.47148527449
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -44.01216465676114,
+                  11.630241625589123,
+                  275.1240935596529
+                ],
+                "moment_xyz_nmm": [
+                  30770.37967803416,
+                  4825.140064474443,
+                  4001.226283336133
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  44.01246062044511,
+                  -11.630550300190462,
+                  -275.1240505187294
+                ],
+                "moment_xyz_nmm": [
+                  -30770.36067561847,
+                  -4825.129904307055,
+                  -4001.2364583571375
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    251.69600000000003
+                  ],
+                  "moment_xyz_nmm": [
+                    20992.118124276032,
+                    6140.043600000004,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -44.01216465676114,
+                    11.630241625589123,
+                    23.428093559652893
+                  ],
+                  "moment_xyz_nmm": [
+                    9778.26155375813,
+                    -1314.9035355255612,
+                    4001.226283336133
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -251.69600000000003
+                  ],
+                  "moment_xyz_nmm": [
+                    -20992.118124276032,
+                    -6140.043600000004,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    44.01246062044511,
+                    -11.630550300190462,
+                    -23.42805051872932
+                  ],
+                  "moment_xyz_nmm": [
+                    -9778.24255134244,
+                    1314.9136956929487,
+                    -4001.2364583571375
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  0.0002959636839676705,
+                  -0.00030867460133876534,
+                  4.304092351503641e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.019002415690920316,
+                  0.010160167387766705,
+                  -0.01017502100467027
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  20.762368804559348,
+                  -175.6312179875763,
+                  -368.15673593300363
+                ],
+                "moment_xyz_nmm": [
+                  -16768.179580263026,
+                  -8258.526604278555,
+                  663.3596641782538
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -20.7623673563444,
+                  175.63183533677883,
+                  368.1567324194486
+                ],
+                "moment_xyz_nmm": [
+                  16768.196141732024,
+                  8258.526857141072,
+                  -663.3512918028005
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -384.4670000000029
+                  ],
+                  "moment_xyz_nmm": [
+                    -14846.827050000047,
+                    -7526.350200000006,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    20.762368804559348,
+                    -175.6312179875763,
+                    16.310264066999288
+                  ],
+                  "moment_xyz_nmm": [
+                    -1921.3525302629796,
+                    -732.1764042785484,
+                    663.3596641782538
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    384.4670000000029
+                  ],
+                  "moment_xyz_nmm": [
+                    14846.827050000047,
+                    7526.350200000006,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -20.7623673563444,
+                    175.63183533677883,
+                    -16.31026758055429
+                  ],
+                  "moment_xyz_nmm": [
+                    1921.3690917319777,
+                    732.1766571410667,
+                    -663.3512918028005
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  1.4482149488515006e-06,
+                  0.0006173492025425276,
+                  -3.5135550433551543e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.016561468997679185,
+                  0.00025286251729994547,
+                  0.00837237545329117
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -6.0714566245678725e-05,
+                -0.03126410652581679,
+                79.99155426904363
+              ],
+              "moment_xyz_nmm": [
+                1526.4308959939824,
+                7373.255352305804,
+                -47.06963188351574
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -6.0714566245678725e-05,
+                -0.03126410652581679,
+                -0.11038438887399593
+              ],
+              "moment_xyz_nmm": [
+                -10.38093567645842,
+                116.27808374011965,
+                -47.06963188351574
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  23.250093264100713,
+                  164.00128503658837,
+                  93.03268190071927
+                ],
+                "moment_xyz_nmm": [
+                  -297.2058549646772,
+                  4224.443149110741,
+                  -4269.064652021578
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -23.250153978666958,
+                  -164.03254914311427,
+                  -13.041127631675607
+                ],
+                "moment_xyz_nmm": [
+                  1823.6367509586505,
+                  3148.8122031950443,
+                  4221.995020138109
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    }
+  ],
+  "a12_forward_failures": [
+    {
+      "series": "proxy-default-v2",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-default-v2/a12-forward/cycle-13/input.json",
+        "report_sha256": "7fb2424d94a79a60b3b5445363b1d2afdc492ce16af6e7106014b2d6b504937a",
+        "record_sha256": "7bb5baea89cd88bf42739507dba8f65258c0e2f48abf0dd817371ccffafdccfb",
+        "record_manifest_sha256": "7bb5baea89cd88bf42739507dba8f65258c0e2f48abf0dd817371ccffafdccfb",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5b5e83cbce130588d40e1dec67584ead015350a344b8840efdac0e37acd5ad16",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 124,
+          "contact_passed": false
+        },
+        "termination": "Contact active set repeated without convergence"
+      }
+    },
+    {
+      "series": "proxy-contact10",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-contact10/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-contact10/a12-forward/cycle-13/input.json",
+        "report_sha256": "96a70ed9a835b7bdf6af074211064795b6b97670fd552c75dfd3c8e145da0822",
+        "record_sha256": "927a385b4b5da2ecb8094fa5034bd4cfac6c8ed8a9de3c0190fbc1e66e1ef10e",
+        "record_manifest_sha256": "927a385b4b5da2ecb8094fa5034bd4cfac6c8ed8a9de3c0190fbc1e66e1ef10e",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5c8d712452633b5140ba4334e1faa38d129ab23e352860f22db28d6b4c585911",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 10.0,
+          "contact_update_strategy": "all",
+          "search_seed_report_sha256": null,
+          "search_seed_normal_contact_count": null,
+          "numerically_converged": false,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 125,
+          "contact_passed": false
+        },
+        "termination": "Contact active set repeated without convergence"
+      }
+    },
+    {
+      "series": "proxy-contact1000",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-contact1000/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-contact1000/a12-forward/cycle-13/input.json",
+        "report_sha256": "aecd7090a06d815dd0dd5748be33ae48f4655220ba4dfc8bf281146a6c79a716",
+        "record_sha256": "d3faaa970bbcb5553c2d02f6d611f18a3eb5702f6bdd4f05bb8c22c21024e68a",
+        "record_manifest_sha256": "d3faaa970bbcb5553c2d02f6d611f18a3eb5702f6bdd4f05bb8c22c21024e68a",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5c8d712452633b5140ba4334e1faa38d129ab23e352860f22db28d6b4c585911",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 1000.0,
+          "contact_update_strategy": "all",
+          "search_seed_report_sha256": null,
+          "search_seed_normal_contact_count": null,
+          "numerically_converged": false,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 14,
+        "final_cycle": {
+          "directory": "cycle-13",
+          "active_count": 124,
+          "contact_passed": false
+        },
+        "termination": "Contact active set repeated without convergence"
+      }
+    },
+    {
+      "series": "proxy-one-at-time",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-one-at-time/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-one-at-time/a12-forward/cycle-99/input.json",
+        "report_sha256": "3dee9024810283f55d597f12d95f358540d9e62f7bf41a50c584ddc488dd1a88",
+        "record_sha256": "a02184613e5dee64c2a25094e3878b41d770c2de6b71b98248a30ba35e3001cc",
+        "record_manifest_sha256": "a02184613e5dee64c2a25094e3878b41d770c2de6b71b98248a30ba35e3001cc",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "fdc99d9f590b658c40ca6c7f0605cc461e4cfee39a1453578358f5de87f00b4e",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "contact_update_strategy": "one_at_a_time",
+          "numerically_converged": false,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "one_at_a_time"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 100,
+        "final_cycle": {
+          "directory": "cycle-99",
+          "active_count": 821,
+          "contact_passed": false
+        },
+        "termination": null
+      }
+    },
+    {
+      "series": "proxy-one-per-floor",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-one-per-floor/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-one-per-floor/a12-forward/cycle-23/input.json",
+        "report_sha256": "1dbfef05fcf21dd545eb118ba29b1cf54f3b9bdb212e27ab72c015ebf0ef3182",
+        "record_sha256": "dfcc38e687139484e4dd02b4d7c82d3b45c334ecb4a1ab9bc31f46fe434b335e",
+        "record_manifest_sha256": "dfcc38e687139484e4dd02b4d7c82d3b45c334ecb4a1ab9bc31f46fe434b335e",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "fdc99d9f590b658c40ca6c7f0605cc461e4cfee39a1453578358f5de87f00b4e",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "contact_update_strategy": "one_per_floor_body",
+          "numerically_converged": false,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "one_per_floor_body"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 24,
+        "final_cycle": {
+          "directory": "cycle-23",
+          "active_count": 121,
+          "contact_passed": false
+        },
+        "termination": "Contact active set repeated without convergence"
+      }
+    },
+    {
+      "series": "proxy-seeded-a12rear",
+      "case": "a12-forward",
+      "status": "nonconverged",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-seeded-a12rear/a12-forward/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-seeded-a12rear/a12-forward/cycle-14/input.json",
+        "report_sha256": "7451d1961acb22212a3882389a48b213fc1bd20187985574152050e03a41b6c1",
+        "record_sha256": "7bb5baea89cd88bf42739507dba8f65258c0e2f48abf0dd817371ccffafdccfb",
+        "record_manifest_sha256": "7bb5baea89cd88bf42739507dba8f65258c0e2f48abf0dd817371ccffafdccfb",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5c8d712452633b5140ba4334e1faa38d129ab23e352860f22db28d6b4c585911",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a12-forward",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 1.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "contact_update_strategy": "all",
+          "search_seed_report_sha256": "99c073ef055dbbb9f1f3580210b27b01df07b25ca3fde1834bab5ea50d88437e",
+          "search_seed_normal_contact_count": 114,
+          "numerically_converged": false,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A12",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": false,
+        "contact_active_set_converged": false,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 15,
+        "final_cycle": {
+          "directory": "cycle-14",
+          "active_count": 124,
+          "contact_passed": false
+        },
+        "termination": "Contact active set repeated without convergence"
+      }
+    }
+  ],
+  "a1_rear_sensitivity": [
+    {
+      "series": "proxy-scale0p1",
+      "case": "a1-rear",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-scale0p1/a1-rear/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-scale0p1/a1-rear/cycle-12/input.json",
+        "report_sha256": "0e3b0d0e8ffc8fcb9e71b63bfa5d42933e42c09a4c6166ed215a777a094d7148",
+        "record_sha256": "8aa15cde36dee63c6e3470d6a2e5a6891d316faa8546da706f3c228ba375ddde",
+        "record_manifest_sha256": "8aa15cde36dee63c6e3470d6a2e5a6891d316faa8546da706f3c228ba375ddde",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5c8d712452633b5140ba4334e1faa38d129ab23e352860f22db28d6b4c585911",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a1-rear",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 0.1,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "contact_update_strategy": "all",
+          "search_seed_report_sha256": null,
+          "search_seed_normal_contact_count": null,
+          "numerically_converged": true,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A1",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 13,
+        "final_cycle": {
+          "directory": "cycle-12",
+          "active_count": 108,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  55.16258791207275,
+                  80.51320134983004,
+                  613.7525412908144
+                ],
+                "moment_xyz_nmm": [
+                  46397.985229279075,
+                  -1102.6074176569798,
+                  -629.6628139439074
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -55.16258668451682,
+                  -80.51317048236993,
+                  -613.752532666533
+                ],
+                "moment_xyz_nmm": [
+                  -46397.98718513147,
+                  1102.6070760510888,
+                  629.6632624588933
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    563.0900000000091
+                  ],
+                  "moment_xyz_nmm": [
+                    46963.20877009877,
+                    -3172.5870000001264,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    55.16258791207275,
+                    80.51320134983004,
+                    50.66254129080522
+                  ],
+                  "moment_xyz_nmm": [
+                    -565.2235408196914,
+                    2069.9795823431464,
+                    -629.6628139439074
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -563.0900000000091
+                  ],
+                  "moment_xyz_nmm": [
+                    -46963.20877009877,
+                    3172.5870000001264,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -55.16258668451682,
+                    -80.51317048236993,
+                    -50.66253266652403
+                  ],
+                  "moment_xyz_nmm": [
+                    565.2215849673007,
+                    -2069.9799239490376,
+                    629.6632624588933
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  1.2275559342356246e-06,
+                  3.086746011149444e-05,
+                  8.624281349511875e-06
+                ],
+                "moment_xyz_nmm": [
+                  -0.0019558523927116767,
+                  -0.0003416058909806452,
+                  0.0004485149859192461
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  14.546683772715467,
+                  -34.36429238265927,
+                  -734.0748407193134
+                ],
+                "moment_xyz_nmm": [
+                  -30905.903277293903,
+                  10349.888125457494,
+                  425.7095181214945
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -14.546682600264283,
+                  34.36428651784185,
+                  734.0748430799878
+                ],
+                "moment_xyz_nmm": [
+                  30905.903500671586,
+                  -10349.888045995922,
+                  -425.7091056625565
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -720.1579999999942
+                  ],
+                  "moment_xyz_nmm": [
+                    -30347.17069999958,
+                    10905.134399999894,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    14.546683772715467,
+                    -34.36429238265927,
+                    -13.91684071931919
+                  ],
+                  "moment_xyz_nmm": [
+                    -558.7325772943209,
+                    -555.2462745423993,
+                    425.7095181214945
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    720.1579999999942
+                  ],
+                  "moment_xyz_nmm": [
+                    30347.17069999958,
+                    -10905.134399999894,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -14.546682600264283,
+                    34.36428651784185,
+                    13.916843079993507
+                  ],
+                  "moment_xyz_nmm": [
+                    558.7328006720052,
+                    555.2463540039721,
+                    -425.7091056625565
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  1.1724511832511553e-06,
+                  -5.864817424594548e-06,
+                  2.3606743297932553e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.00022337768314173445,
+                  7.946157165861223e-05,
+                  0.0004124589380012367
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -5.784098107142199e-06,
+                0.017783380565957796,
+                80.0999856032829
+              ],
+              "moment_xyz_nmm": [
+                1534.2371692790896,
+                -7004.139479740734,
+                21.99348144701061
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -5.784098107142199e-06,
+                0.017783380565957796,
+                -0.001953054634725504
+              ],
+              "moment_xyz_nmm": [
+                -2.5746623913512394,
+                5.0385266687108015,
+                21.99348144701061
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -69.7092692847811,
+                  -46.14888396452808,
+                  120.32231041345447
+                ],
+                "moment_xyz_nmm": [
+                  -198.67860745634243,
+                  -8693.052362874763,
+                  481.0684603313714
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  69.709263500683,
+                  46.16666734509405,
+                  -40.22232481017153
+                ],
+                "moment_xyz_nmm": [
+                  1732.9157767354257,
+                  1688.9128831338385,
+                  -459.0749788843749
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -20.5939548584537,
+                  89.03641704169951,
+                  293.9562575084375
+                ],
+                "moment_xyz_nmm": [
+                  22339.629667232828,
+                  4125.5845028769,
+                  1252.8544990143878
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  20.593938751502208,
+                  -89.03644790915966,
+                  -293.95621686027175
+                ],
+                "moment_xyz_nmm": [
+                  -22339.62868191539,
+                  -4125.584697182521,
+                  -1252.8544652167711
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    275.8099999999979
+                  ],
+                  "moment_xyz_nmm": [
+                    23003.290079526596,
+                    4881.371999999956,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -20.5939548584537,
+                    89.03641704169951,
+                    18.146257508439607
+                  ],
+                  "moment_xyz_nmm": [
+                    -663.6604122937679,
+                    -755.7874971230557,
+                    1252.8544990143878
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -275.8099999999979
+                  ],
+                  "moment_xyz_nmm": [
+                    -23003.290079526596,
+                    -4881.371999999956,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    20.593938751502208,
+                    -89.03644790915966,
+                    -18.146216860273846
+                  ],
+                  "moment_xyz_nmm": [
+                    663.6613976112054,
+                    755.787302817434,
+                    -1252.8544652167711
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -1.6106951491678956e-05,
+                  -3.0867460154127e-05,
+                  4.0648165736456576e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.0009853174378804397,
+                  -0.00019430562133493368,
+                  3.379761665200931e-05
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  2.7099227929173924,
+                  -38.52462440060117,
+                  -292.88409403785636
+                ],
+                "moment_xyz_nmm": [
+                  -15879.24202799173,
+                  -5701.238528154187,
+                  -381.5730692210243
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -2.7099253194602095,
+                  38.524658354807315,
+                  292.88409097716305
+                ],
+                "moment_xyz_nmm": [
+                  15879.242140957787,
+                  5701.238692191495,
+                  381.57438008612775
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -295.26400000000126
+                  ],
+                  "moment_xyz_nmm": [
+                    -15300.921900000132,
+                    -5601.423900000014,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    2.7099227929173924,
+                    -38.52462440060117,
+                    2.3799059621449032
+                  ],
+                  "moment_xyz_nmm": [
+                    -578.3201279915961,
+                    -99.81462815417271,
+                    -381.5730692210243
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    295.26400000000126
+                  ],
+                  "moment_xyz_nmm": [
+                    15300.921900000132,
+                    5601.423900000014,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -2.7099253194602095,
+                    38.524658354807315,
+                    -2.3799090228381736
+                  ],
+                  "moment_xyz_nmm": [
+                    578.3202409576539,
+                    99.8147921914802,
+                    381.57438008612775
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -2.5265428171827864e-06,
+                  3.395420614538125e-05,
+                  -3.060693302359141e-06
+                ],
+                "moment_xyz_nmm": [
+                  0.00011296605771349277,
+                  0.00016403730751335388,
+                  0.0013108651034485774
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -5.784098107142199e-06,
+                0.017783380565957796,
+                80.0999856032829
+              ],
+              "moment_xyz_nmm": [
+                1534.2371692790896,
+                7261.667956203948,
+                18.826261368165248
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -5.784098107142199e-06,
+                0.017783380565957796,
+                -0.001953054634725504
+              ],
+              "moment_xyz_nmm": [
+                -2.5746623913512394,
+                4.690687638263626,
+                18.826261368165248
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  17.884013432041996,
+                  -50.51178955435236,
+                  -1.072125883108697
+                ],
+                "moment_xyz_nmm": [
+                  586.8448754755082,
+                  1678.902149680407,
+                  -819.6560077949264
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -17.884019216140103,
+                  50.52957293491833,
+                  81.17211148639149
+                ],
+                "moment_xyz_nmm": [
+                  947.3922938035705,
+                  5582.765806523665,
+                  838.4822691631188
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    },
+    {
+      "series": "proxy-scale10",
+      "case": "a1-rear",
+      "status": "accepted_proxy_reference",
+      "source": {
+        "report": "fea/results/diagnostics/kerf-right-center/proxy-scale10/a1-rear/report.json",
+        "record": "fea/results/diagnostics/kerf-right-center/proxy-scale10/a1-rear/cycle-08/input.json",
+        "report_sha256": "8b7a78ff972fd93e89061624e02f4ac2738db95aafe478a7ae78d060b36c3102",
+        "record_sha256": "189b61d577e505d7a6f04679b649ffafec336c463e37ddc1f583ba23c69a736a",
+        "record_manifest_sha256": "189b61d577e505d7a6f04679b649ffafec336c463e37ddc1f583ba23c69a736a",
+        "producer_source_sha256": {
+          "fea/current_response_run.py": "a75fd7947e52fe97a5163212d4d3957168880a88ca55a0128f37e32343c3b7fa",
+          "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+          "mini_moonboard/compact_floor_flush_bolted_frame.py": "6fbe75f308f14e23588c684fa664f92ae762cdc46aa7e5f4a74b371a53c37a51",
+          "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+          "scripts/bolted_kerf_diagnostic_probe.py": "569cfc6c7edf2e72426951837f5abf9e4b7999dc15fb5268e33f7390f4eaced7",
+          "scripts/bolted_kerf_native_diagnostic.py": "5c8d712452633b5140ba4334e1faa38d129ab23e352860f22db28d6b4c585911",
+          "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+          "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85"
+        }
+      },
+      "settings": {
+        "diagnostic_scope": {
+          "case": "a1-rear",
+          "source_geometry": "compact-floor-flush-bolted-development-kerf-right",
+          "connector_proxy": "baseline ML24Z angles and SDS screws",
+          "connection_scale": 10.0,
+          "contact_stiffness_per_area_n_per_mm3": 100.0,
+          "contact_update_strategy": "all",
+          "search_seed_report_sha256": null,
+          "search_seed_normal_contact_count": null,
+          "numerically_converged": true,
+          "bolted_joint_demands": false,
+          "acceptance": false,
+          "drilling_released": false
+        },
+        "hold": "A1",
+        "pounds": 250.0,
+        "force_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "standoff_from_front_mm": 100.0,
+        "leg_bolt_scale": 1.0,
+        "leg_floor_grid": 3,
+        "contact_update_strategy": "all"
+      },
+      "convergence": {
+        "numerically_accepted": true,
+        "contact_active_set_converged": true,
+        "global_equilibrium_passed": true,
+        "member_equilibrium_passed": true,
+        "mpc_check_passed": true,
+        "cycle_count": 9,
+        "final_cycle": {
+          "directory": "cycle-08",
+          "active_count": 188,
+          "contact_passed": true
+        },
+        "termination": "Normal contact active set converged"
+      },
+      "sides": {
+        "left": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_left",
+              "header": "base_header",
+              "clip": "clip_split_base_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  70.32455658369251,
+                  89.58477747080585,
+                  620.3064165093051
+                ],
+                "moment_xyz_nmm": [
+                  60655.56529807537,
+                  -7483.347992073326,
+                  -1506.4242442071352
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -70.3245627144205,
+                  -89.58477747080559,
+                  -620.3063413110027
+                ],
+                "moment_xyz_nmm": [
+                  -60655.54992815928,
+                  7483.355646792381,
+                  1506.4182989042756
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    572.7400000000022
+                  ],
+                  "moment_xyz_nmm": [
+                    47768.04452394118,
+                    -10039.731000000056,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    70.32455658369251,
+                    89.58477747080585,
+                    47.56641650930294
+                  ],
+                  "moment_xyz_nmm": [
+                    12887.520774134195,
+                    2556.383007926732,
+                    -1506.4242442071352
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -572.7400000000022
+                  ],
+                  "moment_xyz_nmm": [
+                    -47768.04452394118,
+                    10039.731000000056,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -70.3245627144205,
+                    -89.58477747080559,
+                    -47.5663413110006
+                  ],
+                  "moment_xyz_nmm": [
+                    -12887.5054042181,
+                    -2556.375353207676,
+                    1506.4182989042756
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -6.1307279821676275e-06,
+                  2.5579538487363607e-13,
+                  7.519830239743897e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.015369916094641667,
+                  0.007654719054698944,
+                  -0.005945302859572621
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_left",
+              "header": "base_header",
+              "clip": "clip_split_header_center_left",
+              "origin_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  65.83557314303245,
+                  -77.16905158743631,
+                  -594.6836213255997
+                ],
+                "moment_xyz_nmm": [
+                  -40236.97974742082,
+                  6538.6238410116,
+                  -1150.1257070204397
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -65.83566232586128,
+                  77.16902071997615,
+                  594.683706452952
+                ],
+                "moment_xyz_nmm": [
+                  40236.98881552888,
+                  -6538.62163951436,
+                  1150.1363894705453
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -517.9059999999981
+                  ],
+                  "moment_xyz_nmm": [
+                    -35081.04489999983,
+                    9185.528999999973,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    65.83557314303245,
+                    -77.16905158743631,
+                    -76.77762132560156
+                  ],
+                  "moment_xyz_nmm": [
+                    -5155.934847420988,
+                    -2646.905158988373,
+                    -1150.1257070204397
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    517.9059999999981
+                  ],
+                  "moment_xyz_nmm": [
+                    35081.04489999983,
+                    -9185.528999999973,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -65.83566232586128,
+                    77.16902071997615,
+                    76.77770645295391
+                  ],
+                  "moment_xyz_nmm": [
+                    5155.943915529046,
+                    2646.9073604856135,
+                    1150.1363894705453
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -8.918282883030315e-05,
+                  -3.086746016833786e-05,
+                  8.512735234944557e-05
+                ],
+                "moment_xyz_nmm": [
+                  0.009068108061910607,
+                  0.002201497240093886,
+                  0.010682450105605312
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              -89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -0.0007540379759660709,
+                -0.0005077813551955246,
+                80.07153695208365
+              ],
+              "moment_xyz_nmm": [
+                1532.3063855475996,
+                -7039.08265720099,
+                -0.23544130960459597
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                7009.178006409445,
+                0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -0.0007540379759660709,
+                -0.0005077813551955246,
+                -0.03040170583398094
+              ],
+              "moment_xyz_nmm": [
+                -4.505446122841249,
+                -29.904650791545464,
+                -0.23544130960459597
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  -136.16022504028177,
+                  -12.415756750829445,
+                  -25.622634858050787
+                ],
+                "moment_xyz_nmm": [
+                  -6149.696815270567,
+                  3453.0727418933348,
+                  3910.724055682478
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  136.15947100230582,
+                  12.415248969474247,
+                  105.69417181013432
+                ],
+                "moment_xyz_nmm": [
+                  7682.003200818162,
+                  -10492.155399094154,
+                  -3910.95949699206
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        },
+        "right": {
+          "interfaces": {
+            "principal_header": {
+              "center_member": "base_principal_center_right",
+              "header": "base_header",
+              "clip": "clip_split_base_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -124.89999999999999,
+                277.0
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  -11.235883189938061,
+                  87.04623755019284,
+                  310.57486842578675
+                ],
+                "moment_xyz_nmm": [
+                  38320.662320542324,
+                  6070.821223621149,
+                  464.48156637396005
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  11.235385075680686,
+                  -87.0463826272555,
+                  -310.5748873922472
+                ],
+                "moment_xyz_nmm": [
+                  -38320.664308751526,
+                  -6070.830151152153,
+                  -464.48209046314446
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    324.9599999999991
+                  ],
+                  "moment_xyz_nmm": [
+                    27102.53125065444,
+                    6195.059999999954,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -11.235883189938061,
+                    87.04623755019284,
+                    -14.385131574212352
+                  ],
+                  "moment_xyz_nmm": [
+                    11218.131069887886,
+                    -124.23877637880446,
+                    464.48156637396005
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -324.9599999999991
+                  ],
+                  "moment_xyz_nmm": [
+                    -27102.53125065444,
+                    -6195.059999999954,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    11.235385075680686,
+                    -87.0463826272555,
+                    14.385112607751907
+                  ],
+                  "moment_xyz_nmm": [
+                    -11218.13305809709,
+                    124.22984884780044,
+                    -464.48209046314446
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -0.0004981142573754482,
+                  -0.00014507706265476372,
+                  -1.8966460459068912e-05
+                ],
+                "moment_xyz_nmm": [
+                  -0.001988209201954305,
+                  -0.008927531003791955,
+                  -0.0005240891844096041
+                ],
+                "passed": true
+              }
+            },
+            "post_header": {
+              "center_member": "base_post_center_right",
+              "header": "base_header",
+              "clip": "clip_split_header_center_right",
+              "origin_xyz_mm": [
+                89.05,
+                -105.85,
+                238.9
+              ],
+              "on_center_member": {
+                "force_xyz_n": [
+                  3.8398956472180945,
+                  -62.25223109933095,
+                  -361.46028036898724
+                ],
+                "moment_xyz_nmm": [
+                  -29542.14615908889,
+                  -7511.458197912867,
+                  1297.0645088890853
+                ]
+              },
+              "on_header": {
+                "force_xyz_n": [
+                  -3.8399120394482367,
+                  62.25225888004504,
+                  361.4603817395846
+                ],
+                "moment_xyz_nmm": [
+                  29542.141816802618,
+                  7511.453131574641,
+                  -1297.0543870821443
+                ]
+              },
+              "on_center_member_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    -354.33999999999986
+                  ],
+                  "moment_xyz_nmm": [
+                    -24750.648999999987,
+                    -7458.4559999999865,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    3.8398956472180945,
+                    -62.25223109933095,
+                    -7.120280368987373
+                  ],
+                  "moment_xyz_nmm": [
+                    -4791.497159088899,
+                    -53.00219791288106,
+                    1297.0645088890853
+                  ]
+                }
+              },
+              "on_header_components": {
+                "direct": {
+                  "force_xyz_n": [
+                    0.0,
+                    0.0,
+                    354.33999999999986
+                  ],
+                  "moment_xyz_nmm": [
+                    24750.648999999987,
+                    7458.4559999999865,
+                    0.0
+                  ]
+                },
+                "via_clip": {
+                  "force_xyz_n": [
+                    -3.8399120394482367,
+                    62.25225888004504,
+                    7.120381739584708
+                  ],
+                  "moment_xyz_nmm": [
+                    4791.492816802632,
+                    52.997131574653395,
+                    -1297.0543870821443
+                  ]
+                }
+              },
+              "residual": {
+                "force_xyz_n": [
+                  -1.6392230142159292e-05,
+                  2.778071409181848e-05,
+                  0.00010137059734915965
+                ],
+                "moment_xyz_nmm": [
+                  -0.004342286272731144,
+                  -0.005066338226242806,
+                  0.010121806941015166
+                ],
+                "passed": true
+              }
+            }
+          },
+          "header_free_body": {
+            "header": "base_header",
+            "origin_xyz_mm": [
+              89.05,
+              -124.89999999999999,
+              277.0
+            ],
+            "all_connections": {
+              "force_xyz_n": [
+                -0.0007540379759660709,
+                -0.0005077813551955246,
+                80.07153695208365
+              ],
+              "moment_xyz_nmm": [
+                1532.3063855475996,
+                7221.658073964997,
+                -0.1450054501511886
+              ]
+            },
+            "external_load": {
+              "source": "record.gravity_points[header]",
+              "point_xyz_mm": [
+                -1.5467744370987588,
+                -105.71429916155299,
+                257.9500000000004
+              ],
+              "force_xyz_n": [
+                0.0,
+                0.0,
+                -80.10193865791763
+              ],
+              "moment_xyz_nmm": [
+                -1536.8118316704408,
+                -7256.977268565684,
+                -0.0
+              ]
+            },
+            "residual": {
+              "available": true,
+              "force_xyz_n": [
+                -0.0007540379759660709,
+                -0.0005077813551955246,
+                -0.03040170583398094
+              ],
+              "moment_xyz_nmm": [
+                -4.505446122841249,
+                -35.3191946006873,
+                -0.1450054501511886
+              ],
+              "passed": true
+            },
+            "selected_interfaces": {
+              "connection_count": 14,
+              "wrench": {
+                "force_xyz_n": [
+                  7.395473036232453,
+                  -24.79412374721046,
+                  50.88549434733733
+                ],
+                "moment_xyz_nmm": [
+                  479.108843519889,
+                  1586.9236291254638,
+                  -1688.3861531937996
+                ]
+              }
+            },
+            "other_attachments": {
+              "connection_count": 150,
+              "wrench": {
+                "force_xyz_n": [
+                  -7.396227074208397,
+                  24.793615965855313,
+                  29.186042604746433
+                ],
+                "moment_xyz_nmm": [
+                  1053.197542027707,
+                  5634.734444839567,
+                  1688.2411477436212
+                ]
+              }
+            }
+          },
+          "status": {
+            "source": "verified",
+            "convergence": "passed",
+            "equilibrium": "passed"
+          }
+        }
+      }
+    }
+  ]
+}

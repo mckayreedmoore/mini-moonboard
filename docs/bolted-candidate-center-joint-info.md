@@ -128,13 +128,15 @@ perpendicular-row screen has no feasible interval even at zero tolerance.
   force/moment at current origins for each new-candidate load case, followed
   by equilibrated flange contact and bolt-group actions. The
   [demand worksheet](bolted-candidate-center-demand-worksheet.md) defines
-  the per-case recovery; no numeric required capacity is available.
+  the per-case recovery. A [kerf-right numerical reference](bolted-candidate-center-design-convergence.md)
+  now reports old-connector proxy actions for five converged cases, not
+  new-bolt demands or a numeric required capacity.
 - **Installation/access:** [Ideal access probes](bolted-candidate-prototypes/center-access.json)
   and preserved panel axes exist. Need actual grip, washers, head/nut side,
   socket/hand clearance, tightening sequence, withdrawal path, installed-panel
   service access, and tolerances without moving protected screws.
 
-Required actions are presently **unavailable numerically**. Their derivation is:
+Required **bolted-connection** actions remain unavailable numerically. Their derivation is:
 take the same-case new-candidate force `F` and moment `M` at each present
 principal/post interface; translate moments to each actual connector reference
 by `M_connector = M + r × F`; solve simultaneous flange contact and bolt-group
