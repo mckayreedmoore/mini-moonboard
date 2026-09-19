@@ -75,6 +75,16 @@ no controlled A66 bolt-hole-center drawing; an online third-party model is
 not a drilling datum. The exact A66 information gate therefore remains open
 without contacting anyone.
 The three representative raw timber interfaces are confirmed butt joints.
+The first reproducible AB205 actual-station fixtures now cover all three
+representative areas without selecting the product. The narrow/opposing
+rail placement has four nominal bores in raw timber but exactly zero nominal
+4D reserve at its nearest broad-face edge. The fixed lower outer-rim
+placement misses the conditional reversible 4D edge screen by 14.480 mm
+on both sides, despite full raw-wood bores and no retained-axis intersection.
+The center short-vertical placement has the limited band discussed below.
+These are load-direction-conditional screens, not adopted NDS passes or
+failures for the complete joints. Opposing hardware, installed stacks,
+oblique ends, flange strength, and fresh simultaneous actions remain open.
 The AB205 flush-bend/end-directed-load concern maps to the rail, center
 principal, and outer side member ends at those joints, but neither an installed
 angle position nor that new-candidate action has been established. This is a
