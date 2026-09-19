@@ -124,9 +124,12 @@ perpendicular-row screen has no feasible interval even at zero tolerance.
   splitting, net sections, steel holes/bend/prying, bolt axial/lateral
   interaction, contact, and slip checks.
 - **Actual demand:** [Representative blockers](bolted-candidate-representative-blockers.json)
-  contain archived wrenches only. Need simultaneous principal and post
-  force/moment at current origins for each new-candidate load case, followed
-  by equilibrated flange contact and bolt-group actions. The
+  contain archived wrenches only. A
+  [first shared-bolt topology diagnostic](bolted-candidate-center-design-convergence.md)
+  now gives simultaneous
+  principal/post and shared-bolt actions for `a1-rear` at three provisional
+  stiffnesses, but not qualified bolt demands. Need the other unchanged cases,
+  supported slip/contact assumptions and equilibrated installed-group actions. The
   [demand worksheet](bolted-candidate-center-demand-worksheet.md) defines
   the per-case recovery. A [kerf-right numerical reference](bolted-candidate-center-design-convergence.md)
   now reports old-connector proxy actions for five converged cases, not
@@ -136,7 +139,7 @@ perpendicular-row screen has no feasible interval even at zero tolerance.
   socket/hand clearance, tightening sequence, withdrawal path, installed-panel
   service access, and tolerances without moving protected screws.
 
-Required **bolted-connection** actions remain unavailable numerically. Their derivation is:
+Qualified **bolted-connection** actions remain unavailable. Their derivation is:
 take the same-case new-candidate force `F` and moment `M` at each present
 principal/post interface; translate moments to each actual connector reference
 by `M_connector = M + r × F`; solve simultaneous flange contact and bolt-group

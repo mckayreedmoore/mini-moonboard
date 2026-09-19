@@ -40,6 +40,55 @@ Fz changed from −734.1 to −594.7 N, and the left principal's total Mx change
 bolted topology. Contact opening, fastener clearance, flange flexure, and bolt-group coupling
 may redistribute loads again.
 
+## First actual-topology diagnostic (one load case only)
+
+A separate *provisional* model replaces only the two left-center old clips with two
+nominal rigid AB205 angle bodies and two shared through-header bolt bodies. Each header
+bolt has two distributed lateral-only wood-bore springs and free bending tilts; each
+angle has four sampled compression-only contacts against the header. The remaining
+stations retain the old ML24Z/SDS proxy. Existing twelve frame bolts and all 66
+panel/kicker screws remain. The old two clips and screws still contribute surrogate
+gravity mass; the new steel/bolt masses are not substituted. Angle flexure, hole
+clearance, nonlinear bore pressure, washers, preload, prying, and resistance are not
+resolved. Thus even a converged result is **not a qualified bolt demand**.
+
+For `a1-rear` only, the native contact set, global/member equilibrium and MPC checks
+passed at three explicitly assumed uniform connection/contact stiffnesses. Values are
+forces on named wood members or, in the last column, force from the upper steel flange
+on shared bolt 0. Each row is one simultaneous solve, not an independent peak envelope.
+
+| Assumed joint spring (N/mm) | Principal total Fz / via angle (N) | Post total Fz / via angle (N) | Bolt 0 upper-flange force on bolt XYZ (N) |
+|---:|---:|---:|---:|
+| 1,000 | +548.6 / +32.2 | −573.8 / −31.3 | (−35.2, −49.2, +5.6) |
+| 10,000 | +602.0 / +54.2 | −635.4 / −136.4 | (−49.4, −128.9, +29.6) |
+| 100,000 | +634.5 / +38.3 | −681.9 / −219.2 | (−56.9, −172.7, +161.4) |
+
+At 10,000 N/mm, the principal/header total at the legacy station origin is
+`F=(98.0, 72.9, 602.0) N`, `M=(48,279, −2,622, −2,894) N·mm`; direct timber
+contact supplies +547.8 N of its Fz. The post/header total is
+`F=(70.5, −16.0, −635.4) N`, `M=(−31,091, 2,249, −738) N·mm`; direct contact
+supplies −499.0 N of its Fz. The two outside actions on each shared bolt are
+unequal in this solve, so the symmetric double-shear shortcut is not established.
+Stiffness variation materially changes bolt sharing; these three points are not
+physical stiffness bounds or a capacity envelope.
+
+The [source-bound extractor](../scripts/bolted_center_candidate_extract.py) validates
+the final input, all artifact/source hashes, solver acceptance, exact case and branch
+equilibrium before returning same-case actions. Local raw native directories are kept
+outside Git; the following SHA-256 pairs identify the accepted report and final-cycle
+input, respectively:
+
+- 1,000 N/mm: `ceda84155adfe90aabbc91c30ff6b05e3eb52f9263d00202db6afb6888db62b4` /
+  `2a2940f4bd7b8e0245971ed2ea6fadba10517d16b5f31e64d8e4f36128120eb5`.
+- 10,000 N/mm: `85f7ac80a4d0c65d4c2b8d8ee3f26e10a42dd57ca3d5c02a5ca12af040d1a63d` /
+  `7b39dacae4368c99dda6fb4eee877507e24f90e90b059534724a4369d2ab8c0c`.
+- 100,000 N/mm: `be494b9405ecd68bb6de0efa992b45287b740a2877e84754a8edf723443828fe` /
+  `799b532a8fa730369b6d83fcae2f580b8c2f1287a660f6046f2ce3fb6f3eea00`.
+
+Next: establish defensible connection slip/contact assumptions, complete the other
+unchanged load cases, and check the same joint's wood/bolt/formed-steel resistance
+and installed fit before any station replication or drilling decision.
+
 ## Representative connection decision
 
 Retain the **shared-header AB205 arrangement solely as the next representative calculation
@@ -65,8 +114,8 @@ calculation or an exact concept change. A single DF-L bearing stress or bolt-sha
 not a joint capacity. Use the [2024 NDS/Supplement](https://awc.org/resources/2024-nds-supplement/)
 consistently for the next wood-joint calculation; keep steel/formed-angle resistance separate.
 
-Next, model **one** left center principal–header–post connection with the actual shared
-bolt/angle/contact topology and explicit provisional slip/contact parameters. Compare its
-same-case actions with the reference packet, complete its applicable wood/bolt/steel and
-geometry checks, then decide whether this factory connector is viable. Do not replicate it
-to all 24 stations or issue machining coordinates before that representative result exists.
+The first left-center shared-bolt model above is a diagnostic topology, not an installed
+detail. Its slip/contact and local bearing idealizations still need support; then compare
+all unchanged same-case actions with the reference packet and complete applicable
+wood/bolt/formed-steel and geometry checks. Do not replicate it to all 24 stations or
+issue machining coordinates before the representative connection is viable.

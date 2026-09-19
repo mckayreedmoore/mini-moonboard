@@ -56,6 +56,27 @@ def directional_connector(structure, first, second, properties, name, owner):
     owner['force_basis']=basis.tolist()
 
 
+def diagnostic_rigid_bolt(structure, points):
+    """Free rigid vertical shaft with translation and two bending tilts."""
+    centre=np.mean(points,axis=0)
+    translation=structure.node(centre)
+    rotation=structure.node(centre)
+    structure.rotation_masters.add(rotation)
+    tags=[]
+    for point in points:
+        tag=structure.node(point)
+        r=np.array(point)-centre
+        for i in range(3):
+            # u(point)=u(reference)+theta cross r; no axial theta_z DOF.
+            j,k=(i+1)%3,(i+2)%3
+            terms=[(tag,i+1,1.),(translation,i+1,-1.)]
+            if j<2 and abs(r[k])>1.e-13:terms.append((rotation,j+1,-float(r[k])))
+            if k<2 and abs(r[j])>1.e-13:terms.append((rotation,k+1,float(r[j])))
+            structure.equations.append(terms)
+        tags.append(tag)
+    return tags
+
+
 def mass_by_body(module,raw,materials):
     """Preserve each modeled weight and centroid; hardware follows nearest body.
 
@@ -440,7 +461,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             horizontal_force=(0., 300.), dynamic_factor=2., equipment_kg=25.,
             frame_size=150., panel_size=120., patch_size=40.,
             leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development',
-            clearance_monitors=(), tab_geometry=False, member_contacts=()):
+            clearance_monitors=(), tab_geometry=False, member_contacts=(),
+            diagnostic_center_joint=None):
     """Build the current independent-panel, gross-member contact diagnostic."""
     mode = 'coupled'
     load_kind = 'full'
@@ -488,10 +510,17 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             record = by_name[name]
             record['native_section_geometry'] = 'UNNOTCHED_RECTANGULAR'
     connections=module.connections()
+    replaced_clips = (set() if diagnostic_center_joint is None else
+                      set(diagnostic_center_joint['replaced_clips']))
+    if diagnostic_center_joint is not None and replaced_clips != {
+            'clip_split_base_center_left', 'clip_split_header_center_left'}:
+        raise ValueError('Only the left center representative clip pair may be replaced')
     planned={name:[] for name in by_name}
     angles={};bolts=[];panel_points={};bearings=[];gravity_points={}
     ownership = {}
     for c in connections:
+        if c.name.startswith('clip_') and c.members[0] in replaced_clips:
+            continue
         if c.name.startswith('clip_'):
             point=np.asarray((c.start+c.direction*module.hardware.ML['thickness']).toTuple())
             angles.setdefault(c.members[0],[]).append((c.name,c.members[1],point))
@@ -510,6 +539,15 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             for name in c.members:planned[name].append(point)
             ownership[c.name] = {'first': c.members[0], 'second': c.members[1], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
         else:raise ValueError('Unrepresented current mechanical connection')
+    if diagnostic_center_joint is not None:
+        for angle in diagnostic_center_joint['angles']:
+            for point in angle['vertical_points']:
+                planned[angle['wood_member']].append(np.asarray(point))
+            for point in angle['contact_points']:
+                planned['base_header'].append(np.asarray(point))
+        for bolt in diagnostic_center_joint['shared_header_bolts']:
+            for key in ('wood_upper_point','wood_lower_point'):
+                planned['base_header'].append(np.asarray(bolt[key]))
     for r in records:
         name=r['name'];centre=body_mass[name]['centre_xyz_mm']
         gravity_points[name]=centre;planned[name].append(centre)
@@ -560,6 +598,50 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         for (screw,member,point),tag in zip(entries,steel,strict=True):
             wood=structure.attachment(member,point)
             directional_connector(structure,wood,tag,stiffnesses['sds'],screw,ownership[screw])
+    if diagnostic_center_joint is not None:
+        joint=diagnostic_center_joint
+        tags={}
+        for angle in joint['angles']:
+            points=[np.asarray(p) for p in (*angle['vertical_points'], *angle['header_points'],
+                                              *angle['contact_points'])]
+            tags[angle['name']]=structure.rigid_angle(angle['name'],points)
+            for index,point in enumerate(points[:2]):
+                name=f"{angle['name']}_wood_{index}"
+                owner={'first':angle['wood_member'],'second':angle['name'],
+                       'point':point.tolist(),'axis':[1.,0.,0.]}
+                directional_connector(structure,
+                    structure.attachment(angle['wood_member'],point),
+                    tags[angle['name']][index],joint['vertical_spring'],name,owner)
+                ownership[name]=owner
+            for index,point in enumerate(points[4:]):
+                name=f"{angle['name']}_flange_contact_{index}"
+                inward=angle['contact_inward_xyz']
+                shared.normal_contact(structure,name,
+                    structure.attachment('base_header',point),
+                    [tags[angle['name']][index+4]],[1.],point,inward,
+                    joint['flange_contact_n_per_mm'])
+                ownership[name]={'first':'base_header','second':angle['name'],
+                                 'point':point.tolist(),'scalar_normal':inward}
+        for index,bolt in enumerate(joint['shared_header_bolts']):
+            points=[np.asarray(bolt[key]) for key in
+                    ('top_point','wood_upper_point','wood_lower_point','bottom_point')]
+            bolt_tags=diagnostic_rigid_bolt(structure,points)
+            for angle_index,angle in enumerate(joint['angles']):
+                side=0 if angle_index==0 else 3
+                name=f"{bolt['name']}_{angle['name']}"
+                owner={'first':angle['name'],'second':bolt['name'],
+                       'point':points[side].tolist(),'axis':[0.,0.,1.]}
+                directional_connector(structure,tags[angle['name']][index+2],
+                    bolt_tags[side],joint['steel_bolt_spring'],name,owner)
+                ownership[name]=owner
+            for side,label in ((1,'upper'),(2,'lower')):
+                name=f"{bolt['name']}_header_bearing_{label}"
+                owner={'first':'base_header','second':bolt['name'],
+                       'point':points[side].tolist(),'axis':[0.,0.,1.]}
+                structure.spring(structure.attachment('base_header',points[side]),
+                                 bolt_tags[side],joint['wood_bearing_lateral_n_per_mm'],
+                                 name,dofs=(1,2))
+                ownership[name]=owner
     supplied_bolts = set(stiffnesses['bolt'].get('by_name', {}))
     if supplied_bolts and supplied_bolts != {row[0] for row in bolts}:
         raise ValueError('Per-bolt stiffness inventory must match actual bolts')
@@ -693,6 +775,9 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
               'connection_ownership': ownership,
               'gravity_points': {name: {'point': point.tolist(), 'force': [0.,0.,-body_mass[name]['mass_kg']*9.80665]} for name,point in gravity_points.items()},
               'limits':__doc__}
+    if diagnostic_center_joint is not None:
+        metadata['diagnostic_center_joint'] = diagnostic_center_joint
+        metadata['legacy_center_hardware_mass_surrogate'] = True
     metadata['clearance_monitor_nodes'] = [{**monitor,
         'first_node':structure.attachment(monitor['first'], monitor['first_point']),
         'second_node':structure.attachment(monitor['second'], monitor['second_point'])}
