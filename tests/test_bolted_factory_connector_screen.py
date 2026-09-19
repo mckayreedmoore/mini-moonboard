@@ -106,3 +106,9 @@ def test_mitek_b66_bolt_table_excludes_preserved_single_2x6() -> None:
     assert record["bolted_detail_screen"]["preserved_receiver_thickness_mm"] == 38.1
     assert record["bolted_detail_screen"]["published_values_applicable_to_preserved_stock"] is False
     assert record["retail_screen"]["currently_sold_on_lowes_com"] is False
+    sibling = record["home_depot_sibling_ub88_screen"]
+    assert sibling["home_depot_url"].startswith("https://www.homedepot.com/")
+    assert sibling["catalog_minimum_wood_thickness_mm"] == 76.2
+    assert sibling["preserved_receiver_thickness_mm"] == 38.1
+    assert sibling["published_values_applicable_to_preserved_stock"] is False
+    assert sibling["hole_centers_dimensioned_in_inspected_drawing"] is False
