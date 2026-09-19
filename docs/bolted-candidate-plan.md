@@ -74,6 +74,14 @@ The bounded check of Simpson's current catalog and drawing finder also found
 no controlled A66 bolt-hole-center drawing; an online third-party model is
 not a drilling datum. The exact A66 information gate therefore remains open
 without contacting anyone.
+`docs/bolted-candidate-prototypes/a66-feasibility-envelope.json` now gives
+a conditional 3/8-inch wood-only hole-offset envelope from the actual center
+and outer raw faces, including mirrored right-side directions. It assumes a
+7/16-inch wood bore only for screening and caps hypothetical offsets at the
+retailer-listed 5-7/8-inch outside leg size, not a verified bend-to-hole
+reach. Nonempty ranges demonstrate geometric possibility, not that any A66
+factory hole is there; oblique ends, steel strength, stacks, retained axes,
+and drilling remain unqualified.
 The three representative raw timber interfaces are confirmed butt joints.
 The first reproducible AB205 actual-station fixtures now cover all three
 representative areas without selecting the product. The narrow/opposing

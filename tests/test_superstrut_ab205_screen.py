@@ -26,7 +26,9 @@ def test_ab205_retail_candidate_keeps_geometry_and_rating_separate():
     )
     assert record["manufacturer_channel_rating"]["value_lb"] == 2000
     assert "A1200" in record["manufacturer_channel_rating"]["scope"]
-    assert "steel-to-wood" in record["wood_method_boundary"]
+    assert "wood-to-steel single-shear helper" in record["wood_method_boundary"]
+    assert "requires supplied steel bearing" in record["wood_method_boundary"]
+    assert "does not supply AB205 steel properties" in record["wood_method_boundary"]
     assert "exact grade" in product["material_description"]
     assert record["abb_channel_test_rating_transferable_to_wood"] is False
     assert record["wood_to_wood_capacity_established"] is False
