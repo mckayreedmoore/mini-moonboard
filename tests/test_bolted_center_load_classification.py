@@ -1,5 +1,6 @@
 """Classifier unit tests independent of ignored native diagnostic artifacts."""
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -95,8 +96,10 @@ def _run(root, stiffness, upper_force):
     path = root / "report.json"
     path.write_text(json.dumps(report))
     (root / "cycle-00/input.json").write_text(json.dumps(record))
-    extracted["source"] = {"case": "a1-rear", "report_sha256": str(stiffness),
-                           "record_sha256": str(stiffness),
+    extracted["source"] = {"case": "a1-rear",
+                           "report_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                           "record_sha256": hashlib.sha256(
+                               (root / "cycle-00/input.json").read_bytes()).hexdigest(),
                            "producer_sha256": {"joint": "same-source"}}
     return path, extracted
 
@@ -148,7 +151,18 @@ def test_ownership_and_provenance_rejection(tmp_path, monkeypatch):
     record = json.loads(record_path.read_text())
     record["connection_ownership"]["upper_wood_0"]["axis"] = [0, 0, 1]
     record_path.write_text(json.dumps(record))
+    extracted["source"]["record_sha256"] = hashlib.sha256(record_path.read_bytes()).hexdigest()
     with pytest.raises(ValueError, match="bolt axis mismatch"):
+        classifier.classify_files(path)
+
+
+def test_readback_changed_after_authentication_rejected(tmp_path, monkeypatch):
+    path, extracted = _run(tmp_path / "trial", 10000, [0, 0, 4])
+    monkeypatch.setattr(classifier, "extract_files", lambda *_: extracted)
+    report = json.loads(path.read_text())
+    report["physical_connection_forces"]["upper_wood_0"]["force_on_first_xyz_n"] = [0, 0, 999]
+    path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match="report changed"):
         classifier.classify_files(path)
 
 

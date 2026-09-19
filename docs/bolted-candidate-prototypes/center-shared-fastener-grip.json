@@ -9,6 +9,21 @@
   "stack_through_nut_in": [2.599, 2.712],
   "stack_with_two_1_2_13_threads_beyond_nut_in": [2.752846, 2.865846],
   "nominal_three_inch_bolt_length_after_nut_in": [0.288, 0.401],
+  "conditional_three_and_half_inch_trial": {
+    "retailer_bolt": "Lowe's Hillman 880059, 1/2-13 x 3-1/2 in, Grade 5, partial thread; delivered plain-shank and usable-thread lengths not published",
+    "retailer_washer": "Lowe's Hillman 880117, nominal 1/2-in SAE flat washer; measured thickness, hardness specification and lot certification not established",
+    "retailer_nut": "Lowe's Hillman 160508, nominal 1/2-13 Grade 5 hex nut; actual dimensions and standard certification not established",
+    "illustrative_order_only": "one head-side washer, upper factory angle, 38.1-mm header, lower factory angle, three nut-side washers, nut",
+    "illustrative_status": "unselected geometry sensitivity; stacked washers, seating, stiffness, locking and prying are not approved",
+    "pure_receiving_check": "scripts/bolted_center_stack_receiving.py",
+    "measured_plain_shank_end_mm": null,
+    "measured_first_usable_thread_mm": null,
+    "measured_underhead_length_mm": null,
+    "measured_washer_and_nut_dimensions_mm": null,
+    "full_shank_at_both_shear_planes_verified": false,
+    "root_diameter_alternative": "A thread at a shear plane defeats a full-body assumption, but an applicable root-diameter joint calculation could still be developed",
+    "nominal_88p9_mm_shaft_access": "The existing idealized left/right shared-row CAD screen found no shaft/washer/radial-probe solid collision at 88.9 mm; it does not model a real nut or full washer stack"
+  },
   "source_scope": {
     "abb_flange_and_hole": "https://library.e.abb.com/public/f05dfdae12434edd9b31da07e8ad7686/9AKK107046A5709_Rev%20B_SS_SUPERSTRUT_CT_DGT.pdf",
     "illustrative_washer_spec_not_retail_sku_certification": "https://www.fastenal.com/content/product_specifications/FW.HRD.USS.A.Z.02.pdf",
@@ -16,12 +31,15 @@
     "lowes_grade5_three_inch_bolt": "https://www.lowes.com/pd/Hillman-1-2-in-x-3-in-Zinc-Plated-Coarse-Thread-Hex-Bolt-50-Count/5005390591",
     "home_depot_grade5_three_inch_bolt": "https://www.homedepot.com/p/203088388",
     "lowes_hardened_uss_washer": "https://www.lowes.com/pd/Hillman-Yellow-Standard-Flat-Washer/5012944421",
-    "lowes_grade5_nut": "https://www.lowes.com/pd/Hillman-1-2-in-x-13-Zinc-plated-Steel-Hex-Nut-50-Count/5005390687"
+    "lowes_grade5_nut": "https://www.lowes.com/pd/Hillman-1-2-in-x-13-Zinc-plated-Steel-Hex-Nut-50-Count/5005390687",
+    "lowes_grade5_three_and_half_inch_bolt": "https://www.lowes.com/pd/Hillman-1-2-in-x-3-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/3012075",
+    "lowes_sae_washer_three_pack": "https://www.lowes.com/pd/Hillman-3-Count-1-2-in-x-1-in-Zinc-Plated-Standard-SAE-Flat-Washer/3012015"
   },
   "limits": [
     "Retail listings show ordinary online products, not location inventory, delivered-part identity, washer/nut dimensional certification, or a product-specific bolt strength certificate.",
     "A nominal 3-inch Grade 5 bolt may have enough length in this illustrative stack; its actual unthreaded shank, thread runout, washer thickness, nut thickness and projection must be verified before grip selection.",
     "A 3-1/2-inch partially threaded bolt can place its shoulder too close to or beyond the nominal grip; longer is not automatically safer for clamping.",
+    "Stacking three flat washers under one nut is only a geometric sensitivity, not a verified clamp, bearing, slip, locking or fatigue detail; no washer count is selected.",
     "No washer seat, wrench corridor, bolt extraction path, wood compression, steel prying, lateral-yield, combined-action or whole-joint rating is established.",
     "This two-flange stack does not apply unchanged to a de-stacked row with only one steel flange per bolt."
   ],

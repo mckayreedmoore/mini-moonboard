@@ -4,6 +4,7 @@ No bolt capacity, NDS check, or fabrication acceptance is implied.
 """
 
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -91,9 +92,15 @@ def classify_files(report_path, record_path=None):
     """Reuse extractor authentication, then classify its exact owned branches."""
     extracted = extract_files(report_path, record_path)
     report_path = Path(report_path)
-    report = json.loads(report_path.read_bytes())
+    report_bytes = report_path.read_bytes()
+    if hashlib.sha256(report_bytes).hexdigest() != extracted["source"]["report_sha256"]:
+        raise ValueError("Authenticated report changed before classification")
+    report = json.loads(report_bytes)
     final_record = report_path.parent / report["contact_cycles"][-1]["directory"] / "input.json"
-    record = json.loads(final_record.read_bytes())
+    record_bytes = final_record.read_bytes()
+    if hashlib.sha256(record_bytes).hexdigest() != extracted["source"]["record_sha256"]:
+        raise ValueError("Authenticated input changed before classification")
+    record = json.loads(record_bytes)
     spec = record["diagnostic_center_joint"]
     owners = record["connection_ownership"]
     physical = report["physical_connection_forces"]
