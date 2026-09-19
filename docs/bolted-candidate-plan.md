@@ -45,6 +45,10 @@ illustrative, non-envelope force/moment pair to one archived case and rejects
 use as a new candidate demand. Separate historical force and moment peaks may
 occur in different cases. Published wood inputs alone do not close those joint
 paths.
+`docs/bolted-candidate-direct-butt-screen.json` verifies that the three
+representative raw timber pairs have nominal end-to-side butt contact, rather
+than a defined short direct through-bolt stack. A different direct-bolt detail
+is not ruled out, but it needs its own bore, access, and load-path proposal.
 The bounded retail follow-ups found no substitute with published bolted loads
 applicable to the preserved single-2x6 thickness. The exact A66 manufacturer
 information request is in `docs/bolted-candidate-g1-decision.json`; it has not

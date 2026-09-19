@@ -1,0 +1,46 @@
+{
+  "task": "LB-03A/LB-03B/LB-03C and LB-04, handoff Section 4.5",
+  "status": "geometry_screen_only",
+  "purpose": "Check whether the preserved timber pairs already supply a simple direct through-bolted side-lap geometry before selecting an external factory connector.",
+  "source_geometry": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts(), current raw timber solids including finished profiles but before new candidate bores",
+  "method": "For each representative member pair, check exact CAD minimum distance, solid intersection volume, and the opposing bounding end/side datum. Zero overlap alone does not distinguish a lap from a butt; the member identities and end-axis bounds supply the nominal butt interpretation.",
+  "pairs": [
+    {
+      "representative_station": "clip_horizontal_bottom_left_2",
+      "members": ["base_principal_center_left", "base_rail_bottom_left"],
+      "nominal_contact_axis": "x",
+      "first_boundary": "min",
+      "second_boundary": "max",
+      "nominal_contact_datum_mm": -89.05,
+      "nominal_contact_description": "end-to-side butt",
+      "interpretation": "The bottom rail terminates against the center principal's x-side. A bolt along the contact normal would be aligned with the long rail direction; no short, accessible head-to-nut path through both members is defined. Oblique bores or added hardware would be new details requiring their own checks.",
+      "bolt_axis_and_stack_verified": false
+    },
+    {
+      "representative_station": "clip_split_base_center_left",
+      "members": ["base_header", "base_principal_center_left"],
+      "nominal_contact_axis": "z",
+      "first_boundary": "max",
+      "second_boundary": "min",
+      "nominal_contact_datum_mm": 277.0,
+      "nominal_contact_description": "end-to-side butt",
+      "interpretation": "The center principal starts at the header's top datum; the center clip is also relocated 10.1 mm in y from archived geometry. A direct bolt normal to the butt would enter the principal at its end datum, and no accessible two-member lateral-bolt stack is defined.",
+      "bolt_axis_and_stack_verified": false
+    },
+    {
+      "representative_station": "clip_angle_base_left",
+      "members": ["base_header", "base_side_left"],
+      "nominal_contact_axis": "z",
+      "first_boundary": "max",
+      "second_boundary": "min",
+      "nominal_contact_datum_mm": 277.0,
+      "nominal_contact_description": "end-to-side butt",
+      "interpretation": "The outer side rim starts at the header top datum near retained runner/front-bolt hardware. A direct normal bolt through both members has no selected, accessible full stack or independent moment/separation path.",
+      "bolt_axis_and_stack_verified": false
+    }
+  ],
+  "decision": "The existing raw timber geometry does not establish an accessible two-member lateral-bolt detail for these three representative interfaces. Continue a bounded external angle/plate or separately proposed oblique/captive detail; do not apply the existing two-wood-member yield value to an unspecified bolt axis or claim all direct-bolt designs impossible.",
+  "direct_bolt_detail_selected": false,
+  "retained_panel_axes_unchanged": true,
+  "drilling_released": false
+}
