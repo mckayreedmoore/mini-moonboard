@@ -25,18 +25,32 @@ symmetric double-shear assumptions. If they do not, use a documented
 whole-fastener bearing/bending analysis for unequal side actions. Then check
 bolt-axis tension and prying separately, as well as wood end/edge/spacing,
 splitting, net/row/group sections, washers, and the angle's hole, flange,
-and formed-bend resistance. No new-candidate actions or ABB steel guarantees
-are available for that calculation yet.
+and formed-bend resistance. No qualified six-case new-candidate actions or
+ABB steel guarantees are available for that calculation yet.
 
 The [left-center diagnostic](../bolted-candidate-center-design-convergence.md) now
 recovers simultaneous actions for `a1-rear` under three provisional joint
 stiffnesses. Its shared-bolt side actions are unequal and stiffness-sensitive;
 it is not a qualified six-case design envelope. The bounded `a12-forward`
 attempt did not converge its unilateral contact set, so its intermediate
-forces are excluded. The present
+forces are excluded. The
+[10,000 N/mm accepted diagnostic](../bolted-candidate-center-design-convergence.md)
+illustrates the method exclusion: for shared bolt 0, the upper/lower steel
+flanges apply lateral XY vectors `(-49.37, -128.85)` and `(-34.46, +28.19) N`
+to the same bolt; their magnitudes are 137.98 and 44.52 N. For shared bolt 1,
+the lateral magnitudes are 74.13 and 38.09 N. These are simultaneous
+provisional actions, not equal same-direction side loads and not a rated demand.
+The existing
 [two-member six-mode helper](../../mini_moonboard/bolted_steel_wood_yield.py)
 must not be applied directly to the shared stack. This method gate does not
 select AB205, establish a load rating, or release drilling.
+
+The separate [2024 NDS symmetric double-shear reference helper](../../mini_moonboard/bolted_steel_wood_double_shear.py)
+calculates the four one-bolt yield modes only with explicitly supplied steel
+bearing and bolt-bending strengths, actual bearing lengths and thread exposure,
+and an affirmative symmetric-action method gate. It has no AB205 default and
+cannot be applied to the unequal actions above. Even in an admissible symmetric
+case, its unadjusted minimum is not the installed wood/steel/bolt joint verdict.
 
 The steel-side limit is independent of that timber calculation. ABB calls
 AB205 a [1/4-in steel fitting](https://empower.abb.com/ecatalog/ec/EN_NA/p/AB205EG)
