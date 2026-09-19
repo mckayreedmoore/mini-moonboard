@@ -1,4 +1,4 @@
-"""AB90 steel/hardware applicability screens, not steel resistance."""
+"""Factory connector geometry screens, not steel resistance."""
 
 from dataclasses import dataclass
 
@@ -22,6 +22,27 @@ def screen_ab90(factory_hole_mm: float = 11.0, bolt_diameter_mm: float = 10.0) -
         "Simpson Strong-Tie AB90", 2.5, factory_hole_mm, bolt_diameter_mm, clearance,
         "nominal_fit" if clearance >= 0 else "nominal_fail",
         "unresolved bolt/plate bearing, net section, tear-out, bending, and prying",
+    )
+
+
+def screen_a66(
+    factory_hole_mm: float = 9.525,
+    bolt_diameter_mm: float = 9.525,
+) -> SteelGeometryScreen:
+    """Screen the common-retail A66 bolt option without claiming its capacity.
+
+    The retailer/manufacturer installation references identify 3/8-inch
+    structural through bolts. The exact hole diameter and plate resistance
+    still need to be confirmed from the delivered part before fabrication.
+    """
+    if factory_hole_mm <= 0 or bolt_diameter_mm <= 0:
+        raise ValueError("hole and bolt diameters must be positive")
+    clearance = factory_hole_mm - bolt_diameter_mm
+    return SteelGeometryScreen(
+        "Simpson Strong-Tie A66", 2.5, factory_hole_mm, bolt_diameter_mm,
+        clearance,
+        "nominal_fit" if clearance >= 0 else "nominal_fail",
+        "unresolved bolt/plate bearing, net section, angle bending, timber bearing, and access",
     )
 
 
