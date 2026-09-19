@@ -3,7 +3,7 @@
   "baseline_commit": "7cdd2e37ed2d364b47879a960b9eb15b93c67048",
   "status": "in_progress",
   "gate_summary": "G1 open; A66 is a prototype priority only. AB90 family layouts and 24 stations are inventoried, not accepted; six bolted candidate native cases are planned and zero executed. No fabrication release.",
-  "diagnostic_progress": "Separate pre-gate kerf-right diagnostics now include five converged old-connector proxy cases and one converged left-center nominal AB205 topology case at three provisional stiffnesses. The remaining 22 stations retain proxy connectors; these are not LB-14 candidate solves, rated joint demands, G1/G2 closure, or drilling approval. See docs/bolted-candidate-center-design-convergence.md.",
+  "diagnostic_progress": "Separate pre-gate kerf-right diagnostics now include five converged old-connector proxy cases and one converged left-center nominal AB205 topology case at three provisional stiffnesses. A bounded a12-forward left-center attempt did not converge and its forces are excluded. The remaining 22 stations retain proxy connectors; these are not LB-14 candidate solves, rated joint demands, G1/G2 closure, or drilling approval. See docs/bolted-candidate-center-design-convergence.md.",
   "tasks": [
     {"id": "LB-00", "status": "complete", "depends_on": [], "gate": "G0"},
     {"id": "LB-01", "status": "complete", "depends_on": ["LB-00"]},

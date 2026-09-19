@@ -3,7 +3,8 @@
 The nominal center-header trial puts one angle above and one below the 38.1 mm
 wood header, with two coincident through-header bolt axes. This is an ordered
 steel–wood–steel stack, not two independent steel-to-wood single-shear joints.
-The trial has no specified fastener/washer stack, joint action, or capacity.
+The trial has no selected fastener/washer stack, qualified six-case joint
+action, or capacity.
 
 The [2024 NDS Chapter 12, Table 12.3.1A](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf)
 provides symmetric double-shear lateral-yield Modes Im, Is, IIIs, and IV
@@ -27,7 +28,13 @@ splitting, net/row/group sections, washers, and the angle's hole, flange,
 and formed-bend resistance. No new-candidate actions or ABB steel guarantees
 are available for that calculation yet.
 
-The present [two-member six-mode helper](../../mini_moonboard/bolted_steel_wood_yield.py)
+The [left-center diagnostic](../bolted-candidate-center-design-convergence.md) now
+recovers simultaneous actions for `a1-rear` under three provisional joint
+stiffnesses. Its shared-bolt side actions are unequal and stiffness-sensitive;
+it is not a qualified six-case design envelope. The bounded `a12-forward`
+attempt did not converge its unilateral contact set, so its intermediate
+forces are excluded. The present
+[two-member six-mode helper](../../mini_moonboard/bolted_steel_wood_yield.py)
 must not be applied directly to the shared stack. This method gate does not
 select AB205, establish a load rating, or release drilling.
 

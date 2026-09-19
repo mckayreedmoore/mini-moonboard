@@ -72,6 +72,19 @@ unequal in this solve, so the symmetric double-shear shortcut is not established
 Stiffness variation materially changes bolt sharing; these three points are not
 physical stiffness bounds or a capacity envelope.
 
+The [grain-direction classifier](../scripts/bolted_center_load_classification.py)
+uses the authenticated final input's actual member axes, not a guessed vertical
+grain. At the principal bolt closest to the oblique end, its lateral action on
+wood has parallel/perpendicular magnitudes of `+37.4/22.4`, `+93.2/85.4`, and
+`+149.1/160.0 N` at 1,000/10,000/100,000 N/mm, respectively. The parallel
+component is signed along the member's upward grain axis; the perpendicular
+number is a magnitude. One near-hole branch and three header-bore branches
+switch which component dominates across these assumed settings. The farther
+principal bolt's parallel component changes sign (`+5.1`, `−4.8`, `−57.0 N`).
+These observations do **not** select a favorable NDS end/edge loading category:
+the actions are oblique, other load cases are unresolved, and the actual steel
+and contact stiffnesses are not established.
+
 The [source-bound extractor](../scripts/bolted_center_candidate_extract.py) validates
 the final input, all artifact/source hashes, solver acceptance, exact case and branch
 equilibrium before returning same-case actions. Local raw native directories are kept
@@ -84,6 +97,13 @@ input, respectively:
   `7b39dacae4368c99dda6fb4eee877507e24f90e90b059534724a4369d2ab8c0c`.
 - 100,000 N/mm: `be494b9405ecd68bb6de0efa992b45287b740a2877e84754a8edf723443828fe` /
   `799b532a8fa730369b6d83fcae2f580b8c2f1287a660f6046f2ce3fb6f3eea00`.
+
+A separate bounded `a12-forward` run at 10,000 N/mm stopped after 17 cycles:
+`Contact active set repeated without convergence`. Its global/member equilibrium
+checks passed for the intermediate cycles, but the contact acceptance gate did
+not; **none of its forces are used**. The local report SHA-256 is
+`a0cdeab984c7860fa10a58502062dbe6046908c9b8b03be909f683b97df8043b`.
+No alternate contact schedule is being tuned here to turn that failure into a pass.
 
 Next: establish defensible connection slip/contact assumptions, complete the other
 unchanged load cases, and check the same joint's wood/bolt/formed-steel resistance
