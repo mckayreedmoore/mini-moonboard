@@ -1,0 +1,34 @@
+{
+  "task": "LB-03B post-only geometry follow-up",
+  "status": "bounded_trial_no_qualifying_offset",
+  "owner_direction": "Move only the two center box posts outward, leave the inclined center principals and all panel/kicker screw axes fixed, and preserve support under the inner kicker edges.",
+  "producer": "scripts.bolted_candidate_center_post_offset.screen_center_post_offsets",
+  "physical_width": "kerf-right; both kicker pieces 1/16 inch narrower than official, with their common seam at X=-1.5875 mm",
+  "connector_trial": "two opposed nominal ABB AB205 short-vertical fittings at Y=-95.382052 mm; top principal angle fixed, underside angle follows each shifted post",
+  "nominal_bolt_diameter_mm": 12.7,
+  "nominal_wood_bore_diameter_mm": 14.2875,
+  "separate_header_bolt_minimum_spacing_screen": {
+    "source": "2024 AWC NDS Table 12.5.1B, https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
+    "condition": "distinct half-inch fasteners in the same header grain-parallel row at the same Y",
+    "minimum_3d_mm": 38.1,
+    "scope": "placement screen only; load direction, geometry factor, local wood failures and complete steel/wood joint resistance still require checking"
+  },
+  "samples": [
+    {"post_outward_shift_each_side_mm": 0, "top_underside_header_axis_distance_mm": 0, "header_bore_web_mm": -14.2875, "header_axis_status": "two shared physical axes; requires one coupled steel-wood-steel method", "kerf_kicker_inner_edge_overhang_left_mm": 49.3625, "kerf_kicker_inner_edge_overhang_right_mm": 52.5375, "kicker_screw_nominal_bore_edge_material_mm": 16.9799},
+    {"post_outward_shift_each_side_mm": 5, "top_underside_header_axis_distance_mm": 5, "header_bore_web_mm": -9.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 54.3625, "kerf_kicker_inner_edge_overhang_right_mm": 57.5375, "kicker_screw_nominal_bore_edge_material_mm": 11.9799},
+    {"post_outward_shift_each_side_mm": 10, "top_underside_header_axis_distance_mm": 10, "header_bore_web_mm": -4.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 59.3625, "kerf_kicker_inner_edge_overhang_right_mm": 62.5375, "kicker_screw_nominal_bore_edge_material_mm": 6.9799},
+    {"post_outward_shift_each_side_mm": 15, "top_underside_header_axis_distance_mm": 15, "header_bore_web_mm": 0.7125, "header_axis_status": "bores separate nominally but distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 64.3625, "kerf_kicker_inner_edge_overhang_right_mm": 67.5375, "kicker_screw_nominal_bore_edge_material_mm": 1.9799}
+  ],
+  "common_geometry_findings": {
+    "top_principals_and_panel_screw_axes_moved": false,
+    "both_shifted_post_bores_fully_in_raw_timber_at_each_sample": true,
+    "new_bore_intersections_with_66_panel_and_12_frame_axes": 0,
+    "four_frozen_kicker_screw_axes_still_intersect_post_at_each_sample": true,
+    "kicker_edge_support_adequacy_verified": false,
+    "installed_angle_bend_washer_tool_and_withdrawal_fit_verified": false
+  },
+  "decision": "A post-only shift of 5 or 10 mm retains overlapping nominal header bores; 15 mm barely separates the bores but not the minimum distinct-bolt spacing, while increasing kicker-edge overhang and leaving only 1.9799 mm nominal bore-edge material at the frozen kicker screw axes. Zero shift retains a shared three-member bolt stack. None of these offsets is an accepted de-stacked joint or adequate kicker-edge-support demonstration.",
+  "selected_offset_mm": null,
+  "drilling_released": false,
+  "baseline_and_panel_policy_unchanged": true
+}

@@ -64,3 +64,14 @@ def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
     assert contingency["owner_authorization_obtained"] is False
     assert contingency["connector_selected"] is False
     assert contingency["fabrication_release"] is False
+
+
+def test_owner_post_only_shift_screen_remains_a_g1_prototype() -> None:
+    decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
+    screen = json.loads(
+        (ROOT / decision["owner_post_only_center_shift_screen"]["record"]).read_text()
+    )
+    assert screen["selected_offset_mm"] is None
+    assert screen["drilling_released"] is False
+    assert screen["common_geometry_findings"]["top_principals_and_panel_screw_axes_moved"] is False
+    assert screen["common_geometry_findings"]["kicker_edge_support_adequacy_verified"] is False

@@ -25,7 +25,7 @@
     "factory_hole_coordinates_known": false,
     "neighbor_center_clip_stations": 12,
     "retained_center_panel_kicker_axes": 20,
-    "outward_shift": "5/10/15 mm per side screen exists but no offset selected; six center-adjacent rail cuts nominally screened, while structural rail interfaces and center clip stations require recheck",
+    "outward_shift": "The earlier 5/10/15 mm screen moved both principals and posts and did not de-stack their header bolts. Owner clarified posts only, with inner kicker-edge support preserved; the post-only AB205 trial is separately screened and no offset selected.",
     "capacity_basis": "unresolved; no A66 bolt-mode allowable load adopted"
   },
   "ab205_center_fit_trial": {
@@ -38,6 +38,10 @@
     "shared_header_method_gate": {
       "record": "docs/bolted-candidate-prototypes/center-shared-bolt-method.md",
       "limit": "Two steel flanges around one wood header with potentially unequal actions cannot be treated as two independent full-header single-shear capacities"
+    },
+    "post_only_outward_shift_trial": {
+      "record": "docs/bolted-candidate-prototypes/center-post-only-offset.json",
+      "disposition": "At 5/10 mm, distinct nominal header bores overlap. At 15 mm, bores separate by only 0.7125 mm wood web and the axes remain below the conditional 3D minimum for separate half-inch bolts. Physical kerf-right kicker-edge overhang increases and frozen screw-edge material falls; none is selected or released."
     },
     "end_distance": "principal grain is inclined and bottom end is oblique; vertical bolt offset is not an NDS end distance, and the along-grain ray is not classified as pass/fail",
     "capacity_basis": "unresolved; ABB's strut-channel load is not a wood-joint rating"
