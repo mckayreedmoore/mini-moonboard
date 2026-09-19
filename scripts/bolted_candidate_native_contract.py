@@ -16,10 +16,29 @@ from scripts.clear_space_batch import CASES
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_CASES = tuple(CASES)
 SOURCE_FILES = (
+    "mini_moonboard/compact_floor_flush_frame.py",
     "mini_moonboard/compact_floor_flush_bolted_frame.py",
     "mini_moonboard/bolted_floor_flush_width.py",
     "mini_moonboard/bolted_joint_mechanics.py",
+    "mini_moonboard/bolted_layout_common.py",
+    "mini_moonboard/demountable_connections.py",
+    "mini_moonboard/bolted_steel_checks.py",
+    "mini_moonboard/bolted_timber_checks.py",
+    "mini_moonboard/a66_layout_common.py",
+    "mini_moonboard/a66_geometry_screen.py",
+    "mini_moonboard/bolted_layouts/__init__.py",
+    "mini_moonboard/bolted_layouts/top.py",
+    "mini_moonboard/bolted_layouts/bottom.py",
+    "mini_moonboard/bolted_layouts/service.py",
+    "mini_moonboard/bolted_layouts/header_post.py",
+    "mini_moonboard/bolted_layouts/center_base.py",
+    "mini_moonboard/bolted_layouts/outer_base.py",
+    "fea/floor_flush_mesh.py",
+    "fea/floor_flush_run.py",
+    "fea/user_load_envelope.py",
+    "scripts/clear_space_batch.py",
     "scripts/bolted_candidate_geometry_checks.py",
+    "docs/floor-flush-construction/connection-axes.csv",
 )
 
 
