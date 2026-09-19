@@ -31,7 +31,7 @@ LOADED_SOURCES = _sources()
 
 
 def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=100.,
-             max_cycles=30, frame_size=150.):
+             max_cycles=30, frame_size=150., contact_update_strategy="all"):
     """Solve unchanged loading with old ML24Z/SDS connectors on kerf-right wood."""
     if case not in CASES:
         raise ValueError(f"Unknown unchanged load case: {case}")
@@ -53,6 +53,7 @@ def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=10
             clearance_monitors=taper_top_monitors(module),
             bolt_stiffness={**next(iter(bolts.values())), "by_name": bolts},
             connection_scale=connection_scale, max_cycles=max_cycles, frame_size=frame_size,
+            contact_update_strategy=contact_update_strategy,
             hold=hold, pounds=250., horizontal_force=force, leg_floor_grid=3, patch_size=20.,
         )
     finally:
@@ -62,6 +63,8 @@ def run_case(case, output, *, connection_scale=1., contact_stiffness_per_area=10
         "connector_proxy": "baseline ML24Z angles and SDS screws",
         "connection_scale": connection_scale,
         "contact_stiffness_per_area_n_per_mm3": contact_stiffness_per_area,
+        "contact_update_strategy": contact_update_strategy,
+        "numerically_converged": report["numerically_accepted"],
         "bolted_joint_demands": False, "acceptance": False, "drilling_released": False,
     }
     scope_path = Path(output) / "diagnostic-scope.json"
@@ -80,8 +83,13 @@ if __name__ == "__main__":
     parser.add_argument("--contact-stiffness-per-area", type=float, default=100.)
     parser.add_argument("--max-cycles", type=int, default=30)
     parser.add_argument("--frame-size", type=float, default=150.)
+    parser.add_argument("--contact-update-strategy",
+                        choices=("all", "one_per_floor_body", "one_at_a_time"), default="all")
     args = parser.parse_args()
     result = run_case(args.case, args.output, connection_scale=args.connection_scale,
                       contact_stiffness_per_area=args.contact_stiffness_per_area,
-                      max_cycles=args.max_cycles, frame_size=args.frame_size)
+                      max_cycles=args.max_cycles, frame_size=args.frame_size,
+                      contact_update_strategy=args.contact_update_strategy)
     print(json.dumps({key: value for key, value in result.items() if key != "native_report"}, indent=2))
+    if not result["numerically_converged"]:
+        raise SystemExit(1)

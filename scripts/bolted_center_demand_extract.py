@@ -87,6 +87,14 @@ def extract(report, record, principal, post, header='base_header', header_origin
         selected_header_names.update(groups['direct'] + groups['header_clip'])
         on_member, mr, mmr = _wrench(member_rows, member, origin)
         on_header, hr, hmr = _wrench(header_rows, header, origin)
+        member_components = {
+            'direct': _wrench([physical[n] for n in groups['direct']], member, origin)[0],
+            'via_clip': _wrench([physical[n] for n in groups['member_clip']], member, origin)[0],
+        }
+        header_components = {
+            'direct': _wrench([physical[n] for n in groups['direct']], header, origin)[0],
+            'via_clip': _wrench([physical[n] for n in groups['header_clip']], header, origin)[0],
+        }
         residual_force = [a+b for a, b in zip(on_member['force_xyz_n'], on_header['force_xyz_n'])]
         residual_moment = [a+b for a, b in zip(on_member['moment_xyz_nmm'], on_header['moment_xyz_nmm'])]
         passed = (all(abs(x) <= a+b+0.1 for x, a, b in zip(residual_force, mr, hr)) and
@@ -94,6 +102,8 @@ def extract(report, record, principal, post, header='base_header', header_origin
         interfaces[key] = {'center_member': member, 'header': header, 'clip': clip,
                            'origin_xyz_mm': origin, 'connection_names': groups,
                            'on_center_member': on_member, 'on_header': on_header,
+                           'on_center_member_components': member_components,
+                           'on_header_components': header_components,
                            'residual': {'force_xyz_n': residual_force,
                                         'moment_xyz_nmm': residual_moment, 'passed': passed}}
     header_origin = _vector(header_origin_xyz_mm if header_origin_xyz_mm is not None

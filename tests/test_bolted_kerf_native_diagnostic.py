@@ -30,11 +30,13 @@ def test_runner_uses_kerf_preparation_and_records_diagnostic_scope(tmp_path, mon
     assert seen["expected_candidate"] == probe.DiagnosticProxy.KEY
     assert seen["module"].raw.KEY.endswith("kerf-right")
     assert seen["pounds"] == 250.
+    assert seen["contact_update_strategy"] == "all"
     scope = json.loads((output / "diagnostic-scope.json").read_text())
     assert scope["connector_proxy"] == "baseline ML24Z angles and SDS screws"
     assert scope["bolted_joint_demands"] is False
     assert scope["acceptance"] is False
     assert scope["drilling_released"] is False
+    assert scope["numerically_converged"] is False
     assert result["native_report"]["numerically_accepted"] is False
     assert result["native_report"]["diagnostic_scope"] == scope
     assert result["native_report"]["artifact_sha256"]["diagnostic-scope.json"] == hashlib.sha256(
