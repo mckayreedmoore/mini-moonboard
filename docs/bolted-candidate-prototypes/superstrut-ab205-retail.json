@@ -15,6 +15,7 @@
     "manufacturer_standard_bolt_diameter_in": 0.5,
     "manufacturer_hole_pitch_in": 1.875,
     "manufacturer_generic_hole_center_from_end_in": 0.8125,
+    "sales_drawing_lower_upright_hole_center_from_base_in": 1.4375,
     "material_description": "hot-rolled carbon steel; exact grade and guaranteed minimum strength not published",
     "application": "metal framing/strut channel; not a published timber connection"
   },
@@ -89,7 +90,7 @@
     "abb_design_data": "https://library.e.abb.com/public/8d1baaf1d93a4d24b6ecc43da7850a39/TDS000752_A_1.pdf",
     "abb_fittings_catalog": "https://www.tnb.ca/en/pdf-catalogues/metal-framing-fastening-and-identification/metal-framing/fittings-and-brackets.pdf",
     "abb_engineering_catalog": "https://www.tnb.ca/en/pdf-catalogues/metal-framing-fastening-and-identification/metal-framing/engineering-data-and-specifications.pdf",
-    "abb_sales_drawing_link_unretrieved": "https://tnblnx3.tnb.com/emAlbum/albums/usspecsg/005_CAT1_B-118.pdf",
+    "abb_series_200_sales_drawing": "https://tnblnx3.tnb.com/emAlbum/albums/usspecsg/005_CAT1_B-118.pdf",
     "current_nds_end_distance": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf"
   },
   "source_limits": [
@@ -98,7 +99,22 @@
     "Local store inventory, received-part dimensions and product traceability have not been inspected.",
     "The manufacturer's 2,000-lb channel value has different support, fasteners and load path from a wood-to-wood frame joint."
   ],
-  "bounded_abb_material_follow_up": "ABB's exact ZAB205EG-10 page says steel; its fittings catalog calls the family hot-rolled carbon steel and gives nominal 13/16-inch end offset, 1-7/8-inch pitch and 9/16-inch holes. Neither publishes a guaranteed product Fy/Fu, positional tolerance, formed-bend strength, or wood-joint test. The AB205EG page links a sales drawing, but its linked PDF could not be retrieved in this check; drawing-specific tolerance absence is therefore not conclusively established.",
+  "verified_abb_sales_drawing": {
+    "document": "ABB/T&B Series 200 catalog sales drawing, page B-118, AB205 illustration; AB205EG product page links the PDF",
+    "nominal_height_in": 4.125,
+    "nominal_base_in": 3.5,
+    "nominal_width_in": 1.625,
+    "nominal_thickness_in": 0.25,
+    "four_hole_diameter_in": 0.5625,
+    "hole_center_from_end_in": 0.8125,
+    "hole_center_pitch_in": 1.875,
+    "lower_upright_hole_center_from_base_in": 1.4375,
+    "eg_suffix": "electro-galvanized finish",
+    "position_tolerance_published": false,
+    "bend_radius_published": false,
+    "wood_joint_strength_published": false
+  },
+  "bounded_abb_material_follow_up": "ABB's exact ZAB205EG-10 page says steel; the recovered ABB Series 200 sales drawing and fittings catalog call the family hot-rolled carbon steel and confirm the nominal AB205 dimensions and hole positions. None publishes a guaranteed AB205EG-10 Fy/Fu, positional tolerance, formed-bend strength, or wood-joint test. The drawing's design-data note concerns strut-channel use.",
   "wood_method_boundary": "The conditional 2024 NDS six-mode wood-to-steel single-shear helper exists at mini_moonboard/bolted_steel_wood_yield.py and requires supplied steel bearing, bolt bending-yield/thread exposure, actual bearing lengths and grain/load angle. It does not supply AB205 steel properties, a plate/bend check, group action or a complete joint rating, and it cannot directly assess a two-steel-flange shared-header bolt stack.",
   "abb_channel_test_rating_transferable_to_wood": false,
   "wood_to_wood_capacity_established": false,

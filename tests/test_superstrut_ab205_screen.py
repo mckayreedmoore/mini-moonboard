@@ -18,6 +18,15 @@ def test_ab205_retail_candidate_keeps_geometry_and_rating_separate():
     assert product["model"] == "ZAB205EG-10 / AB205-EG"
     assert product["factory_hole_diameter_in"] == pytest.approx(diameter + 1 / 16)
     assert product["manufacturer_hole_pitch_in"] == pytest.approx(1.875)
+    drawing = record["verified_abb_sales_drawing"]
+    assert drawing["lower_upright_hole_center_from_base_in"] == pytest.approx(
+        product["sales_drawing_lower_upright_hole_center_from_base_in"]
+    )
+    assert drawing["hole_center_pitch_in"] == pytest.approx(
+        product["manufacturer_hole_pitch_in"]
+    )
+    assert drawing["position_tolerance_published"] is False
+    assert drawing["wood_joint_strength_published"] is False
     assert screen["wide_face_best_case_4d_edge_reserve_in"] == pytest.approx(
         5.5 / 2 - 4 * diameter
     )
