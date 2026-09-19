@@ -28,15 +28,18 @@ def screen_geometry(
     edge_distance_mm: float,
     end_distance_mm: float,
 ) -> TimberGeometryScreen:
-    values = (receiver_face_mm, receiver_thickness_mm, bolt_diameter_mm, edge_distance_mm, end_distance_mm)
-    if any(
-        not isinstance(value, (int, float))
-        or isinstance(value, bool)
-        or not math.isfinite(value)
-        or value <= 0
-        for value in values
-    ):
+    values = (receiver_face_mm, receiver_thickness_mm, bolt_diameter_mm,
+              edge_distance_mm, end_distance_mm)
+    if any(type(value) not in (int, float) for value in values):
         raise ValueError("timber geometry inputs must be positive finite numbers")
+    try:
+        numeric = tuple(float(value) for value in values)
+    except OverflowError as exc:
+        raise ValueError("timber geometry inputs must be positive finite numbers") from exc
+    if any(not math.isfinite(value) or value <= 0 for value in numeric):
+        raise ValueError("timber geometry inputs must be positive finite numbers")
+    (receiver_face_mm, receiver_thickness_mm, bolt_diameter_mm,
+     edge_distance_mm, end_distance_mm) = numeric
     edge_reserve = edge_distance_mm - 4.0 * bolt_diameter_mm
     end_reserve = end_distance_mm - 7.0 * bolt_diameter_mm
     return TimberGeometryScreen(

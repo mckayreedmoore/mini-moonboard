@@ -1,5 +1,6 @@
 """LB-12 native producer/input contract checks."""
 
+import json
 from pathlib import Path
 
 from scripts.bolted_candidate_native_contract import (
@@ -49,3 +50,10 @@ def test_native_contract_fingerprints_candidate_and_producer_sources() -> None:
     }
     assert required <= sources.keys()
     assert all(Path(path).is_file() and digest(path) == sha for path, sha in sources.items())
+
+
+def test_saved_native_input_fingerprints_match_current_sources_without_claiming_a_solve() -> None:
+    saved = json.loads(Path("docs/bolted-candidate-native-input.json").read_text())
+    assert saved["source_sha256"] == validate_contract()["source_sha256"]
+    assert saved["native_ready"] is False
+    assert saved["no_native_cases_run"] is True

@@ -24,7 +24,9 @@ def test_timber_screen_exposes_a_narrow_face_failure() -> None:
 @pytest.mark.parametrize("argument_index", range(5))
 @pytest.mark.parametrize(
     "invalid_value",
-    [math.nan, math.inf, -math.inf, True, False, 0, -1, 1 + 2j, Decimal(1), "10", None],
+    [math.nan, math.inf, -math.inf, True, False, 0, -1,
+     pytest.param(10**1000, id="unrepresentable-int"),
+     1 + 2j, Decimal(1), "10", None],
 )
 def test_timber_screen_rejects_invalid_input_for_every_argument(argument_index, invalid_value) -> None:
     arguments = [139.7, 38.1, 10.0, 50.0, 80.0]

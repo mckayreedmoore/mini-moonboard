@@ -3,7 +3,9 @@
 Status: prepared, not approved or sent. No recipient or communication channel is selected.
 These are information requests, not product approval or a purchase instruction. Attach the
 [representative center-joint package](bolted-candidate-center-joint-info.md) only after its
-dimensioned detail and provisional same-case actions are available. The owner has not
+dimensioned detail and provisional same-case actions from the
+[demand worksheet](bolted-candidate-center-demand-worksheet.md) are available.
+The owner has not
 authorized external contact.
 
 ## Simpson Strong-Tie — A66

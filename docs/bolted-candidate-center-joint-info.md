@@ -108,8 +108,9 @@ Neither hypothesis may shift the support members or the protected screws.
 - **Actual demand:** [Representative blockers](bolted-candidate-representative-blockers.json)
   contain archived wrenches only. Need simultaneous principal and post
   force/moment at current origins for each new-candidate load case, followed
-  by equilibrated flange contact and bolt-group actions. No numeric required
-  capacity is available.
+  by equilibrated flange contact and bolt-group actions. The
+  [demand worksheet](bolted-candidate-center-demand-worksheet.md) defines
+  the per-case recovery; no numeric required capacity is available.
 - **Installation/access:** [Ideal access probes](bolted-candidate-prototypes/center-access.json)
   and preserved panel axes exist. Need actual grip, washers, head/nut side,
   socket/hand clearance, tightening sequence, withdrawal path, installed-panel
