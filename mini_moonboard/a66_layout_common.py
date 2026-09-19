@@ -15,6 +15,8 @@ def family_records(family: str) -> tuple[JointRecord, ...]:
     result = []
     for station in FAMILY_STATIONS[family]:
         rows = _rows(station)
+        if len(rows) != 6:
+            raise ValueError(f"Expected six structural axes for {station}")
         members = tuple(
             sorted({member for row in rows for member in (row["first_member"], row["second_member"])})
         )

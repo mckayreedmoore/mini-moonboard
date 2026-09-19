@@ -34,6 +34,11 @@ def test_a66_screen_keeps_common_retail_bolt_capacity_unresolved() -> None:
     assert result.resistance_status.startswith("unresolved")
 
 
+def test_a66_explicit_hole_dimension_is_required_for_a_fit_screen() -> None:
+    assert screen_a66(factory_hole_mm=10.0).hole_status == "nominal_fit"
+    assert screen_a66(factory_hole_mm=9.0).hole_status == "nominal_fail"
+
+
 def test_a66_narrow_2x6_face_fails_nominal_edge_screen() -> None:
     result = screen_a66_geometry()
     assert result.wide_face_status == "best_case_screen_pass"

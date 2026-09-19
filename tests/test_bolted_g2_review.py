@@ -3,7 +3,6 @@
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).parents[1]
 
 
@@ -13,4 +12,5 @@ def test_g2_review_keeps_native_cases_closed() -> None:
     assert review["criteria"]["ready_for_first_native_case"] is False
     assert review["native_cases_run"] is False
     assert review["baseline_evidence_transferred"] is False
-    assert len(review["blocking_actions"]) == 3
+    assert any("factory hole" in action for action in review["blocking_actions"])
+    assert any("resistance basis" in action for action in review["blocking_actions"])

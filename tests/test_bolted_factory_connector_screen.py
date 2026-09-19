@@ -28,6 +28,7 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert record["applicability"]["specialty_purchase_required"] is False
     assert record["applicability"]["through_bolts_listed"] is True
     assert record["applicability"]["published_bolt_capacity"] is False
-    assert "No product-specific published bolt load table" in record["applicability"]["testing_and_rating_evidence"]
+    assert "dashes for both allowable-load columns" in record["applicability"]["testing_and_rating_evidence"]
+    assert "No dimensioned A66 factory bolt-hole layout" in record["applicability"]["testing_and_rating_evidence"]
     assert record["product"]["lowes_url"].startswith("https://www.lowes.com/")
     assert record["product"]["home_depot_url"].startswith("https://www.homedepot.com/")
