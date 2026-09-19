@@ -32,3 +32,18 @@ def test_representative_records_cannot_be_misread_as_acceptance() -> None:
 def test_narrow_face_screen_exposes_the_negative_reserve() -> None:
     item = report("narrow-opposing.json")
     assert item["screen"]["four_d_edge_reserve_on_38_1_mm_face"] < 0
+
+
+def test_a66_face_options_are_station_specific_and_not_selected() -> None:
+    narrow = report("narrow-opposing.json")["a66_face_option"]
+    center = report("center-header.json")["a66_face_option"]
+    outer = report("outer-base.json")["a66_face_option"]
+    assert narrow["narrow_face_four_d_reserve_mm"] == -19.05
+    assert all(option["wide_face_four_d_best_case_reserve_mm"] == 31.75
+               for option in (narrow, center, outer))
+    assert all(option["status"] == "unverified_geometry_only"
+               for option in (narrow, center, outer))
+    assert all(option["factory_hole_coordinates_known"] is False
+               for option in (narrow, center, outer))
+    assert center["neighbor_center_clip_stations"] >= 6
+    assert outer["retained_front_runner_bolts_nearby"] == 2

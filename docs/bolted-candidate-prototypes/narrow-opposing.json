@@ -14,6 +14,18 @@
     "full_withdrawal_path_defined": false,
     "panel_conflict": "neighboring panel/kicker axes remain frozen; no panel change tested"
   },
+  "a66_face_option": {
+    "status": "unverified_geometry_only",
+    "product": "Simpson Strong-Tie A66, two 3/8-inch through bolts per leg",
+    "timber_members": ["base_rail_bottom_left", "base_principal_center_left"],
+    "nominal_cross_section_each_mm": [38.1, 139.7],
+    "narrow_face_four_d_reserve_mm": -19.05,
+    "wide_face_four_d_best_case_reserve_mm": 31.75,
+    "factory_hole_coordinates_known": false,
+    "narrow_face_detail": "fails conditional reversible-loaded-edge 4d screen even for an ideally centered bolt",
+    "wide_face_detail": "possible orientation only; requires a different A66 flange pose and complete two-member bolt, washer, socket, panel-axis, and withdrawal check",
+    "capacity_basis": "unresolved; no A66 bolt-mode allowable load adopted"
+  },
   "load_path": "Separate flange bolts cannot be counted as one shared physical bolt without a traced bearing/contact path; legacy SDS reactions are screening inputs only, not new reactions.",
   "disposition": "A nominal shaft fit does not provide a viable narrow-face detail. A different plate/receiver direction would be a new architecture requiring the G1 scope decision."
 }
