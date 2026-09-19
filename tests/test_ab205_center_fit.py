@@ -116,6 +116,7 @@ def test_opposed_center_post_can_nominally_share_header_axes_only():
     assert actual["top_header_hole_x_mm"] == actual["underside_header_hole_x_mm"]
     assert all(value > 0.999 for value in actual["post_bore_full_section_fractions"])
     assert actual["unique_wood_bore_axes"] == 6
+    assert actual["purchased_panel_length_axis_conflicts_for_six_unique_bores"] == []
     assert actual["post_conditional_reversible_4d_edge_reserve_mm"] > 8
     assert actual["shared_fastener_stack_defined"] is False
     assert actual["drilling_released"] is False

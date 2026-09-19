@@ -148,7 +148,7 @@ def screen_center_fit(
 
 
 def _retained_axis_intersections(
-    bores: tuple[cq.Solid, ...],
+    bores: tuple[cq.Solid, ...], *, purchased_panel_length: bool = False
 ) -> tuple[dict[str, int], list[str]]:
     retained = []
     inspected_counts = {"hillman_panel": 0, "bolt_clearance": 0}
@@ -161,7 +161,10 @@ def _retained_axis_intersections(
             direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
             occupied = cq.Solid.makeCylinder(
                 float(row["occupied_diameter_mm"]) / 2,
-                float(row["occupied_length_mm"]),
+                float(row["shop_purchased_length_mm"])
+                if purchased_panel_length
+                and row["shop_opening_kind"] == "hillman_panel"
+                else float(row["occupied_length_mm"]),
                 start,
                 direction,
             )
@@ -172,7 +175,9 @@ def _retained_axis_intersections(
     return inspected_counts, retained
 
 
-def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
+def screen_retained_axis_conflicts(
+    row_y_mm: float, *, purchased_panel_length: bool = False
+) -> dict[str, object]:
     """Intersect nominal bores with retained axes, not installed hardware stacks."""
     trial = screen_center_fit("short", row_y_mm)
     x = float(trial["contact_x_mm"])
@@ -189,7 +194,9 @@ def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
         )
         for offset in trial["horizontal_hole_offsets_from_bend_in"]
     )
-    inspected_counts, retained = _retained_axis_intersections(bores)
+    inspected_counts, retained = _retained_axis_intersections(
+        bores, purchased_panel_length=purchased_panel_length
+    )
     return {
         "station": trial["station"],
         "orientation": "short_vertical",
@@ -224,6 +231,12 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
     ]
     all_axes = screen_retained_axis_conflicts(row_y_mm)
     _, post_axis_hits = _retained_axis_intersections(post_bores)
+    purchased_top_hits = screen_retained_axis_conflicts(
+        row_y_mm, purchased_panel_length=True
+    )["intersecting_retained_axis_ids"]
+    _, purchased_post_hits = _retained_axis_intersections(
+        post_bores, purchased_panel_length=True
+    )
     post_bounds = post.BoundingBox()
     four_d = 4 * float(trial["bolt_diameter_mm"])
     post_edge_reserve = (
@@ -294,6 +307,9 @@ def screen_opposed_center_fit(row_y_mm: float) -> dict[str, object]:
         "post_conditional_reversible_4d_edge_reserve_mm": round(post_edge_reserve, 6),
         "retained_axis_conflicts_for_six_unique_bores": sorted(
             set(all_axes["intersecting_retained_axis_ids"]) | set(post_axis_hits)
+        ),
+        "purchased_panel_length_axis_conflicts_for_six_unique_bores": sorted(
+            set(purchased_top_hits) | set(purchased_post_hits)
         ),
         "nominal_angle_outer_envelope_intersecting_raw_wood_parts": plate_intersections,
         "nominal_angle_envelope_source": "ABB AB205 4-1/8 in height, 3-1/2 in base, 1-5/8 in width, 1/4 in thickness; ideal square-corner boxes, no bend radius or tolerances",

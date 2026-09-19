@@ -112,6 +112,9 @@ through-header axes for the top principal and underside center-post angles.
 The two new center-post bores remain inside raw timber; the six unique bore
 axes do not intersect retained panel/frame-bolt axes. This suggests a
 potential shared-bolt layout, not two separately counted header bolt pairs.
+Extending all 66 panel axes to their listed 63.5-mm purchased screw length
+(while retaining the historical modeled diameter) also gives no nominal bore
+intersection. This still does not establish delivered fastener clearance.
 It still lacks a specified bolt/washer/plate stack, actual opposing-angle
 body clearance, wood end interpretation, and applicable resistance.
 Ideal square-corner solids built from ABB's nominal outer dimensions do not
