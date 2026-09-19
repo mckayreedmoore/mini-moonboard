@@ -30,6 +30,13 @@ def test_a66_is_common_retail_and_explicitly_keeps_capacity_open() -> None:
     assert record["applicability"]["published_bolt_capacity"] is False
     assert "dashes for both allowable-load columns" in record["applicability"]["testing_and_rating_evidence"]
     assert "No dimensioned A66 factory bolt-hole layout" in record["applicability"]["testing_and_rating_evidence"]
+    catalog = record["current_manufacturer_catalog_screen"]
+    assert catalog["url"].endswith("C-C-2026.pdf?download=true")
+    assert catalog["page"] == 314
+    assert catalog["bolt_count_per_leg"] == 2
+    assert catalog["f1_allowable_load_published"] is False
+    assert catalog["f2_allowable_load_published"] is False
+    assert catalog["bolt_hole_centers_dimensioned"] is False
     qa = record["online_hole_measurement_lead"]
     assert qa["source_url"].startswith("https://www.lowes.com/questions/")
     assert qa["answer_author"] == "Simpson Strong-Tie"
