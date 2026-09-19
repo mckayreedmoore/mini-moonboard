@@ -59,8 +59,10 @@ and [panel contract](bolted-candidate-panel-contract.json). The
 no nominal retained-axis intersection for that shared trial, including a
 63.5 mm purchased screw-length probe. That probe still uses the legacy
 occupied diameter, so it cannot establish physical screw clearance. The
-actual screw head and shaft envelopes, installed stack, and tool clearance
-remain unresolved. The
+actual screw shaft envelope, head tolerance and installed seating projection,
+stack, and tool clearance remain unresolved. A
+[retailer-listed nominal 42605 head diameter](bolted-candidate-hillman-42605-dimensions.json)
+is now recorded as a sensitivity input, not a verified physical envelope. The
 [access record](bolted-candidate-prototypes/center-access.json) includes panel
 and kicker solids but uses idealized probes.
 

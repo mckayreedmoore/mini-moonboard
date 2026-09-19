@@ -59,8 +59,13 @@ protected at their original locations in
 No retained frame-bolt start is in the crop: all 12 are at |X| > 1000 mm and
 point farther outboard or remain there. The crosses are locations only; the
 historical occupied screw diameters/lengths are **not** physical clearance
-envelopes. Purchased Hillman length is 63.5 mm, while its supported external
-shaft/head envelopes and installed path clearance remain unresolved.
+envelopes. Purchased Hillman length is 63.5 mm. A
+[retailer-listed 0.355-in head diameter](../bolted-candidate-hillman-42605-dimensions.json)
+is available for nominal sensitivity only; shaft major diameter, head
+tolerance, installed seat/projection, and path clearance remain unresolved.
+The [nominal four-screw clearance screen](center-screw-clearance-requirements.json)
+reports finite shaft-centerline distances to trial bores and drilled ideal steel,
+but is not a physical-envelope pass or drilling instruction.
 
 ## Inputs still required before any drilling decision
 

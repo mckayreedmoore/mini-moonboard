@@ -1,0 +1,1440 @@
+{
+  "status": "physical_clearance_requirement_screen_only",
+  "width_option": "kerf-right",
+  "source_cad": "mini_moonboard.floor_flush_width.variant(KERF_RIGHT).uncut_wood_parts()",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "source_trial_rows": [
+    "docs/bolted-candidate-prototypes/ab205-center-fit.json",
+    "docs/bolted-candidate-prototypes/center-y-stagger.json"
+  ],
+  "retained_axis_counts": {
+    "hillman_panel": 66,
+    "bolt_clearance": 12
+  },
+  "protected_screws": [
+    {
+      "name": "round_panel_lower_left_center_1",
+      "start_mm": [
+        -70.0,
+        20.152907,
+        322.07021
+      ],
+      "direction": [
+        0.0,
+        -0.766044,
+        0.642788
+      ],
+      "tip_mm": [
+        -70.0,
+        -28.490915,
+        362.887223
+      ],
+      "purchased_centerline_length_mm": 63.5
+    },
+    {
+      "name": "round_kicker_left_center_1",
+      "start_mm": [
+        -70.0,
+        -17.74375,
+        60.0
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "tip_mm": [
+        -70.0,
+        -81.24375,
+        60.0
+      ],
+      "purchased_centerline_length_mm": 63.5
+    },
+    {
+      "name": "round_kicker_left_center_2",
+      "start_mm": [
+        -70.0,
+        -17.74375,
+        192.0
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "tip_mm": [
+        -70.0,
+        -81.24375,
+        192.0
+      ],
+      "purchased_centerline_length_mm": 63.5
+    },
+    {
+      "name": "kicker_header_left_1",
+      "start_mm": [
+        -200.0,
+        -17.74375,
+        257.95
+      ],
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "tip_mm": [
+        -200.0,
+        -81.24375,
+        257.95
+      ],
+      "purchased_centerline_length_mm": 63.5
+    }
+  ],
+  "nominal_inputs_mm": {
+    "ab205_short_leg": 88.9,
+    "ab205_long_leg": 104.775,
+    "ab205_width": 41.275,
+    "ab205_thickness": 6.35,
+    "wood_and_steel_hole_diameter": 14.2875,
+    "short_leg_hole_offsets": [
+      20.6375,
+      68.2625
+    ],
+    "long_leg_hole_offsets": [
+      36.512499999999996,
+      84.13749999999999
+    ]
+  },
+  "unknowns": {
+    "actual_shaft_diameter_mm": null,
+    "shaft_diameter_tolerance_mm": null,
+    "installed_head_projection_mm": null,
+    "installed_head_radius_mm": null
+  },
+  "distance_interpretation": "Finite screw centerline to nominal bore volume or drilled ideal steel body. For a round shaft, its radius must be strictly less than the unrounded raw distance, before all tolerances and allowances; a zero distance has no admissible positive radius. Six-decimal radius fields are display bounds, not acceptance thresholds. Head distances are from the screw start point only; no head body or projection is modeled.",
+  "cases": [
+    {
+      "case": "shared",
+      "top_row_y_mm": -95.382052,
+      "underside_row_y_mm": -95.382052,
+      "bores": [
+        {
+          "id": "header_1_shared",
+          "member": "base_header",
+          "start_mm": [
+            -125.5625,
+            -95.382052,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "header_2_shared",
+          "member": "base_header",
+          "start_mm": [
+            -173.1875,
+            -95.382052,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_side_1",
+          "member": "base_principal_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            297.6375
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_side_2",
+          "member": "base_principal_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            345.2625
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_side_1",
+          "member": "base_post_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            218.2625
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_side_2",
+          "member": "base_post_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            170.6375
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        }
+      ],
+      "steel_bodies": [
+        {
+          "id": "top_horizontal_steel",
+          "horizontal_holes_subtracted": 2,
+          "vertical_holes_subtracted": 0,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_vertical_steel",
+          "horizontal_holes_subtracted": 0,
+          "vertical_holes_subtracted": 2,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_horizontal_steel",
+          "horizontal_holes_subtracted": 2,
+          "vertical_holes_subtracted": 0,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_vertical_steel",
+          "horizontal_holes_subtracted": 0,
+          "vertical_holes_subtracted": 2,
+          "nominal_hole_diameter_mm": 14.2875
+        }
+      ],
+      "shaft_to_bore_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 116.956208,
+          "strict_raw_upper_bound_shaft_radius_mm": 116.956208
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 144.025756,
+          "strict_raw_upper_bound_shaft_radius_mm": 144.025756
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 86.301157,
+          "strict_raw_upper_bound_shaft_radius_mm": 86.301157
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 62.030342,
+          "strict_raw_upper_bound_shaft_radius_mm": 62.030342
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 146.64201,
+          "strict_raw_upper_bound_shaft_radius_mm": 146.64201
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 183.32985,
+          "strict_raw_upper_bound_shaft_radius_mm": 183.32985
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 185.806834,
+          "strict_raw_upper_bound_shaft_radius_mm": 185.806834
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 203.508548,
+          "strict_raw_upper_bound_shaft_radius_mm": 203.508548
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 230.913959,
+          "strict_raw_upper_bound_shaft_radius_mm": 230.913959
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 278.468899,
+          "strict_raw_upper_bound_shaft_radius_mm": 278.468899
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 151.749014,
+          "strict_raw_upper_bound_shaft_radius_mm": 151.749014
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 104.393455,
+          "strict_raw_upper_bound_shaft_radius_mm": 104.393455
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_shared",
+          "distance_mm": 68.691918,
+          "strict_raw_upper_bound_shaft_radius_mm": 68.691918
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_shared",
+          "distance_mm": 107.750309,
+          "strict_raw_upper_bound_shaft_radius_mm": 107.750309
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_1",
+          "distance_mm": 99.435671,
+          "strict_raw_upper_bound_shaft_radius_mm": 99.435671
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_2",
+          "distance_mm": 146.76949,
+          "strict_raw_upper_bound_shaft_radius_mm": 146.76949
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_1",
+          "distance_mm": 22.682589,
+          "strict_raw_upper_bound_shaft_radius_mm": 22.682589
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 18.473588,
+          "strict_raw_upper_bound_shaft_radius_mm": 18.473588
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 68.624535,
+          "strict_raw_upper_bound_shaft_radius_mm": 68.624535
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 23.167993,
+          "strict_raw_upper_bound_shaft_radius_mm": 23.167993
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 116.335651,
+          "strict_raw_upper_bound_shaft_radius_mm": 116.335651
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 137.552076,
+          "strict_raw_upper_bound_shaft_radius_mm": 137.552076
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 116.335651,
+          "strict_raw_upper_bound_shaft_radius_mm": 116.335651
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 137.552076,
+          "strict_raw_upper_bound_shaft_radius_mm": 137.552076
+        }
+      ],
+      "shaft_to_steel_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 92.640136,
+          "strict_raw_upper_bound_shaft_radius_mm": 92.640136
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 50.023009,
+          "strict_raw_upper_bound_shaft_radius_mm": 50.023009
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 126.157572,
+          "strict_raw_upper_bound_shaft_radius_mm": 126.157572
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 126.157572,
+          "strict_raw_upper_bound_shaft_radius_mm": 126.157572
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 217.834576,
+          "strict_raw_upper_bound_shaft_radius_mm": 217.834576
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 217.834576,
+          "strict_raw_upper_bound_shaft_radius_mm": 217.834576
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 173.598401,
+          "strict_raw_upper_bound_shaft_radius_mm": 173.598401
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 91.994035,
+          "strict_raw_upper_bound_shaft_radius_mm": 91.994035
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 87.108567,
+          "strict_raw_upper_bound_shaft_radius_mm": 87.108567
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 87.108567,
+          "strict_raw_upper_bound_shaft_radius_mm": 87.108567
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 44.801841,
+          "strict_raw_upper_bound_shaft_radius_mm": 44.801841
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 19.05,
+          "strict_raw_upper_bound_shaft_radius_mm": 19.05
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 20.025811,
+          "strict_raw_upper_bound_shaft_radius_mm": 20.025811
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 106.320565,
+          "strict_raw_upper_bound_shaft_radius_mm": 106.320565
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 20.025811,
+          "strict_raw_upper_bound_shaft_radius_mm": 20.025811
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 106.320565,
+          "strict_raw_upper_bound_shaft_radius_mm": 106.320565
+        }
+      ],
+      "head_start_to_bore_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 129.175083
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 154.483394
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 110.946402
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 110.69601
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 148.176459
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 183.32985
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 199.517129
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 216.533184
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 242.854825
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 288.495219
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 169.136495
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 128.016756
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_shared",
+          "distance_mm": 100.007423
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_shared",
+          "distance_mm": 130.694375
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_1",
+          "distance_mm": 123.955401
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_2",
+          "distance_mm": 164.661663
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_1",
+          "distance_mm": 74.816148
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 73.379926
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_shared",
+          "distance_mm": 100.413897
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_shared",
+          "distance_mm": 74.994037
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 136.813574
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 156.021754
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 136.813574
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 156.021754
+        }
+      ],
+      "head_start_to_steel_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 104.248189
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 96.790652
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 127.615493
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 127.615493
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 225.168812
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 225.168812
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 182.716985
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 108.221966
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 104.100883
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 104.100883
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 72.50032
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 60.099866
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 60.416261
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 120.636454
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 60.416261
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 120.636454
+        }
+      ],
+      "closest_pairs": {
+        "shaft_to_bore": {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 18.473588,
+          "strict_raw_upper_bound_shaft_radius_mm": 18.473588
+        },
+        "shaft_to_steel": {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 19.05,
+          "strict_raw_upper_bound_shaft_radius_mm": 19.05
+        },
+        "head_start_to_bore": {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 73.379926
+        },
+        "head_start_to_steel": {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 60.099866
+        }
+      }
+    },
+    {
+      "case": "stagger",
+      "top_row_y_mm": -95.382052,
+      "underside_row_y_mm": -119.666026,
+      "bores": [
+        {
+          "id": "header_1_top",
+          "member": "base_header",
+          "start_mm": [
+            -125.5625,
+            -95.382052,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "header_1_underside",
+          "member": "base_header",
+          "start_mm": [
+            -125.5625,
+            -119.666026,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "header_2_top",
+          "member": "base_header",
+          "start_mm": [
+            -173.1875,
+            -95.382052,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "header_2_underside",
+          "member": "base_header",
+          "start_mm": [
+            -173.1875,
+            -119.666026,
+            238.9
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_side_1",
+          "member": "base_principal_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            297.6375
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_side_2",
+          "member": "base_principal_center_left",
+          "start_mm": [
+            -89.05,
+            -95.382052,
+            345.2625
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_side_1",
+          "member": "base_post_center_left",
+          "start_mm": [
+            -89.05,
+            -119.666026,
+            218.2625
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_side_2",
+          "member": "base_post_center_left",
+          "start_mm": [
+            -89.05,
+            -119.666026,
+            170.6375
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "length_mm": 38.1,
+          "nominal_diameter_mm": 14.2875
+        }
+      ],
+      "steel_bodies": [
+        {
+          "id": "top_horizontal_steel",
+          "horizontal_holes_subtracted": 2,
+          "vertical_holes_subtracted": 0,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "top_vertical_steel",
+          "horizontal_holes_subtracted": 0,
+          "vertical_holes_subtracted": 2,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_horizontal_steel",
+          "horizontal_holes_subtracted": 2,
+          "vertical_holes_subtracted": 0,
+          "nominal_hole_diameter_mm": 14.2875
+        },
+        {
+          "id": "underside_vertical_steel",
+          "horizontal_holes_subtracted": 0,
+          "vertical_holes_subtracted": 2,
+          "nominal_hole_diameter_mm": 14.2875
+        }
+      ],
+      "shaft_to_bore_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 116.956208,
+          "strict_raw_upper_bound_shaft_radius_mm": 116.956208
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 131.538005,
+          "strict_raw_upper_bound_shaft_radius_mm": 131.538005
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 144.025756,
+          "strict_raw_upper_bound_shaft_radius_mm": 144.025756
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 156.271745,
+          "strict_raw_upper_bound_shaft_radius_mm": 156.271745
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 86.301157,
+          "strict_raw_upper_bound_shaft_radius_mm": 86.301157
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 62.030342,
+          "strict_raw_upper_bound_shaft_radius_mm": 62.030342
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 162.251447,
+          "strict_raw_upper_bound_shaft_radius_mm": 162.251447
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 198.734314,
+          "strict_raw_upper_bound_shaft_radius_mm": 198.734314
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 185.806834,
+          "strict_raw_upper_bound_shaft_radius_mm": 185.806834
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 188.824089,
+          "strict_raw_upper_bound_shaft_radius_mm": 188.824089
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 203.508548,
+          "strict_raw_upper_bound_shaft_radius_mm": 203.508548
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 206.414622,
+          "strict_raw_upper_bound_shaft_radius_mm": 206.414622
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 230.913959,
+          "strict_raw_upper_bound_shaft_radius_mm": 230.913959
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 278.468899,
+          "strict_raw_upper_bound_shaft_radius_mm": 278.468899
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 155.715976,
+          "strict_raw_upper_bound_shaft_radius_mm": 155.715976
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 109.975538,
+          "strict_raw_upper_bound_shaft_radius_mm": 109.975538
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_top",
+          "distance_mm": 68.691918,
+          "strict_raw_upper_bound_shaft_radius_mm": 68.691918
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_underside",
+          "distance_mm": 76.478341,
+          "strict_raw_upper_bound_shaft_radius_mm": 76.478341
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_top",
+          "distance_mm": 107.750309,
+          "strict_raw_upper_bound_shaft_radius_mm": 107.750309
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_underside",
+          "distance_mm": 113.143255,
+          "strict_raw_upper_bound_shaft_radius_mm": 113.143255
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_1",
+          "distance_mm": 99.435671,
+          "strict_raw_upper_bound_shaft_radius_mm": 99.435671
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_2",
+          "distance_mm": 146.76949,
+          "strict_raw_upper_bound_shaft_radius_mm": 146.76949
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_1",
+          "distance_mm": 39.39645,
+          "strict_raw_upper_bound_shaft_radius_mm": 39.39645
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 36.817912,
+          "strict_raw_upper_bound_shaft_radius_mm": 36.817912
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 68.624535,
+          "strict_raw_upper_bound_shaft_radius_mm": 68.624535
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 76.625055,
+          "strict_raw_upper_bound_shaft_radius_mm": 76.625055
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 23.167993,
+          "strict_raw_upper_bound_shaft_radius_mm": 23.167993
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 39.709014,
+          "strict_raw_upper_bound_shaft_radius_mm": 39.709014
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 116.335651,
+          "strict_raw_upper_bound_shaft_radius_mm": 116.335651
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 137.552076,
+          "strict_raw_upper_bound_shaft_radius_mm": 137.552076
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 120.925905,
+          "strict_raw_upper_bound_shaft_radius_mm": 120.925905
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 141.766562,
+          "strict_raw_upper_bound_shaft_radius_mm": 141.766562
+        }
+      ],
+      "shaft_to_steel_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 92.640136,
+          "strict_raw_upper_bound_shaft_radius_mm": 92.640136
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 50.023009,
+          "strict_raw_upper_bound_shaft_radius_mm": 50.023009
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 141.607642,
+          "strict_raw_upper_bound_shaft_radius_mm": 141.607642
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 141.607642,
+          "strict_raw_upper_bound_shaft_radius_mm": 141.607642
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 217.834576,
+          "strict_raw_upper_bound_shaft_radius_mm": 217.834576
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 217.834576,
+          "strict_raw_upper_bound_shaft_radius_mm": 217.834576
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 174.507029,
+          "strict_raw_upper_bound_shaft_radius_mm": 174.507029
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 93.697389,
+          "strict_raw_upper_bound_shaft_radius_mm": 93.697389
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 87.108567,
+          "strict_raw_upper_bound_shaft_radius_mm": 87.108567
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 87.108567,
+          "strict_raw_upper_bound_shaft_radius_mm": 87.108567
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 48.202731,
+          "strict_raw_upper_bound_shaft_radius_mm": 48.202731
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 26.06148,
+          "strict_raw_upper_bound_shaft_radius_mm": 26.06148
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 20.025811,
+          "strict_raw_upper_bound_shaft_radius_mm": 20.025811
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 106.320565,
+          "strict_raw_upper_bound_shaft_radius_mm": 106.320565
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 26.783043,
+          "strict_raw_upper_bound_shaft_radius_mm": 26.783043
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 107.797777,
+          "strict_raw_upper_bound_shaft_radius_mm": 107.797777
+        }
+      ],
+      "head_start_to_bore_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 129.175083
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 150.230707
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 154.483394
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 172.616836
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 110.946402
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 110.69601
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 166.998073
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 198.965929
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 199.517129
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 209.458932
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 216.533184
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 225.875704
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 242.854825
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 288.495219
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 181.098565
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 143.284993
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_top",
+          "distance_mm": 100.007423
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_1_underside",
+          "distance_mm": 118.606257
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_top",
+          "distance_mm": 130.694375
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "header_2_underside",
+          "distance_mm": 145.651068
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_1",
+          "distance_mm": 123.955401
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_side_2",
+          "distance_mm": 164.661663
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_1",
+          "distance_mm": 98.107707
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_side_2",
+          "distance_mm": 96.993212
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_top",
+          "distance_mm": 100.413897
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_1_underside",
+          "distance_mm": 119.066756
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 74.994037
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_underside",
+          "distance_mm": 98.24629
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_1",
+          "distance_mm": 136.813574
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_side_2",
+          "distance_mm": 156.021754
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_1",
+          "distance_mm": 150.869033
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_side_2",
+          "distance_mm": 168.686308
+        }
+      ],
+      "head_start_to_steel_pairs": [
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 104.248189
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 96.790652
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 146.575579
+        },
+        {
+          "screw": "round_panel_lower_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 146.575579
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 225.168812
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 225.168812
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 191.686254
+        },
+        {
+          "screw": "round_kicker_left_center_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 122.760406
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 104.100883
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 104.100883
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 92.813899
+        },
+        {
+          "screw": "round_kicker_left_center_2",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 83.487228
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 60.416261
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_vertical_steel",
+          "distance_mm": 120.636454
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_horizontal_steel",
+          "distance_mm": 83.715279
+        },
+        {
+          "screw": "kicker_header_left_1",
+          "obstacle": "underside_vertical_steel",
+          "distance_mm": 133.83302
+        }
+      ],
+      "closest_pairs": {
+        "shaft_to_bore": {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 23.167993,
+          "strict_raw_upper_bound_shaft_radius_mm": 23.167993
+        },
+        "shaft_to_steel": {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 20.025811,
+          "strict_raw_upper_bound_shaft_radius_mm": 20.025811
+        },
+        "head_start_to_bore": {
+          "screw": "kicker_header_left_1",
+          "obstacle": "header_2_top",
+          "distance_mm": 74.994037
+        },
+        "head_start_to_steel": {
+          "screw": "kicker_header_left_1",
+          "obstacle": "top_horizontal_steel",
+          "distance_mm": 60.416261
+        }
+      }
+    }
+  ],
+  "joint_selected": false,
+  "drilling_released": false
+}
