@@ -27,6 +27,22 @@ native producer contract, and G2 review precede any native case. Native cases
 run serially from `a12-left` through `a1-rear`; final exports and independent
 review do not change repository authority automatically.
 
+## Current gate status
+
+The G0 source and scope partition is now exported from the official and
+kerf-right connection-axis packets. The normalized panel records, all 222
+classified attachments per width, 24 station duties, twelve retained frame
+bolts, and draft separation references are in the panel and interface
+contracts. These are baseline records, not candidate bolt geometry.
+
+G1 remains open. A66 is a common-retail prototype priority, but the current
+family modules are AB90 inventory sketches. No representative joint has a
+complete applicable fit/load-path record or 24-station architecture assignment.
+The user's suggested outward center-support shift is screened separately; no
+offset is selected. G2 remains closed, and no bolted-candidate native case has
+run. The task ledger marks incomplete construction and engineering tasks as
+such rather than using their prototype counts as completion evidence.
+
 ## Current nonblocking owner checkpoints
 
 Actual stock condition and physical width packet remain shop gates. Preliminary

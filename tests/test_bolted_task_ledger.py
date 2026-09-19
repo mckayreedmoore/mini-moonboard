@@ -3,7 +3,6 @@
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).parents[1]
 
 
@@ -16,12 +15,14 @@ def test_ledger_has_unique_ids_and_resolvable_dependencies() -> None:
     assert all(dep in known for task in tasks for dep in task["depends_on"])
 
 
-def test_g1_selects_a_prototype_and_keeps_mechanics_and_solve_gates_open() -> None:
+def test_g1_and_native_gates_remain_open_with_incomplete_physical_evidence() -> None:
     ledger = json.loads((ROOT / "docs/bolted-candidate-task-ledger.json").read_text())
     by_id = {task["id"]: task for task in ledger["tasks"]}
-    assert by_id["LB-04"]["status"] == "complete"
+    assert by_id["LB-04"]["status"] == "incomplete"
     assert by_id["LB-04"]["gate"] == "G1"
-    assert by_id["LB-05"]["status"] == "complete"
+    assert by_id["LB-05"]["status"] == "incomplete"
+    assert all(by_id[f"LB-07{family}"]["status"] == "incomplete" for family in "ABCDEF")
+    assert by_id["LB-12"]["status"] == "incomplete"
     assert by_id["LB-13"]["status"] == "blocked"
     assert by_id["LB-17"]["status"] == "planned"
 

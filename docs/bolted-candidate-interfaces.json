@@ -1,10 +1,17 @@
 {
   "candidate": "compact-floor-flush-bolted-development",
-  "transport_members": "20 timber pieces and 6 plywood panels remain individually transportable",
+  "transport_members": "20 timber pieces and 6 plywood panels are the individual transport targets; the new structural separation sequence is not yet proved",
   "structural_interfaces": {
     "stations": 24,
     "attachments": 144,
-    "families": ["top", "bottom", "service", "header_post", "center_base", "outer_base"]
+    "families": [
+      "top",
+      "bottom",
+      "service",
+      "header_post",
+      "center_base",
+      "outer_base"
+    ]
   },
   "retained_interfaces": {
     "frame_bolt_stacks": 12,
@@ -12,5 +19,1774 @@
     "panel_removal_allowed": true
   },
   "separation_rule": "A retained bolted flange may remain attached to one timber member, but no principal timber pair is a permanent transport subassembly.",
-  "physical_state": "unknown; fresh_stock_provisional may be used for preliminary development only"
+  "physical_state": "unknown; fresh_stock_provisional may be used for preliminary development only",
+  "source_commit": "7cdd2e37ed2d364b47879a960b9eb15b93c67048",
+  "classified_by_width": {
+    "official": {
+      "source": "docs/floor-flush-construction/connection-axes.csv",
+      "scope_by_axis_id": {
+        "round_panel_lower_left_rim_1": "panel",
+        "round_panel_lower_left_rim_2": "panel",
+        "round_panel_lower_left_rim_3": "panel",
+        "round_panel_lower_left_rim_4": "panel",
+        "round_panel_lower_left_center_1": "panel",
+        "round_panel_lower_left_center_2": "panel",
+        "round_panel_lower_left_center_3": "panel",
+        "round_panel_lower_left_center_4": "panel",
+        "round_panel_lower_left_edge_1": "panel",
+        "round_panel_lower_left_edge_2": "panel",
+        "round_panel_lower_left_service_1": "panel",
+        "round_panel_lower_left_service_2": "panel",
+        "round_panel_upper_left_rim_1": "panel",
+        "round_panel_upper_left_rim_2": "panel",
+        "round_panel_upper_left_rim_3": "panel",
+        "round_panel_upper_left_rim_4": "panel",
+        "round_panel_upper_left_center_1": "panel",
+        "round_panel_upper_left_center_2": "panel",
+        "round_panel_upper_left_center_3": "panel",
+        "round_panel_upper_left_center_4": "panel",
+        "round_panel_upper_left_edge_1": "panel",
+        "round_panel_upper_left_edge_2": "panel",
+        "round_panel_upper_left_service_1": "panel",
+        "round_panel_upper_left_service_2": "panel",
+        "round_kicker_left_rim_1": "panel",
+        "round_kicker_left_rim_2": "panel",
+        "round_kicker_left_center_1": "panel",
+        "round_kicker_left_center_2": "panel",
+        "round_panel_lower_right_rim_1": "panel",
+        "round_panel_lower_right_rim_2": "panel",
+        "round_panel_lower_right_rim_3": "panel",
+        "round_panel_lower_right_rim_4": "panel",
+        "round_panel_lower_right_center_1": "panel",
+        "round_panel_lower_right_center_2": "panel",
+        "round_panel_lower_right_center_3": "panel",
+        "round_panel_lower_right_center_4": "panel",
+        "round_panel_lower_right_edge_1": "panel",
+        "round_panel_lower_right_edge_2": "panel",
+        "round_panel_lower_right_service_1": "panel",
+        "round_panel_lower_right_service_2": "panel",
+        "round_panel_upper_right_rim_1": "panel",
+        "round_panel_upper_right_rim_2": "panel",
+        "round_panel_upper_right_rim_3": "panel",
+        "round_panel_upper_right_rim_4": "panel",
+        "round_panel_upper_right_center_1": "panel",
+        "round_panel_upper_right_center_2": "panel",
+        "round_panel_upper_right_center_3": "panel",
+        "round_panel_upper_right_center_4": "panel",
+        "round_panel_upper_right_edge_1": "panel",
+        "round_panel_upper_right_edge_2": "panel",
+        "round_panel_upper_right_service_1": "panel",
+        "round_panel_upper_right_service_2": "panel",
+        "round_kicker_right_rim_1": "panel",
+        "round_kicker_right_rim_2": "panel",
+        "round_kicker_right_center_1": "panel",
+        "round_kicker_right_center_2": "panel",
+        "kicker_header_left_1": "panel",
+        "kicker_header_left_2": "panel",
+        "kicker_header_left_3": "panel",
+        "kicker_header_left_4": "panel",
+        "kicker_header_left_5": "panel",
+        "kicker_header_right_1": "panel",
+        "kicker_header_right_2": "panel",
+        "kicker_header_right_3": "panel",
+        "kicker_header_right_4": "panel",
+        "kicker_header_right_5": "panel",
+        "lumber_leg_bolt_left_1": "structural",
+        "lumber_leg_bolt_left_2": "structural",
+        "lumber_leg_bolt_right_1": "structural",
+        "lumber_leg_bolt_right_2": "structural",
+        "clip_single_top_left_1_beam_1": "structural",
+        "clip_single_top_left_1_beam_2": "structural",
+        "clip_single_top_left_1_beam_3": "structural",
+        "clip_single_top_left_1_upright_1": "structural",
+        "clip_single_top_left_1_upright_2": "structural",
+        "clip_single_top_left_1_upright_3": "structural",
+        "clip_single_top_right_2_beam_1": "structural",
+        "clip_single_top_right_2_beam_2": "structural",
+        "clip_single_top_right_2_beam_3": "structural",
+        "clip_single_top_right_2_upright_1": "structural",
+        "clip_single_top_right_2_upright_2": "structural",
+        "clip_single_top_right_2_upright_3": "structural",
+        "clip_timber_header_outer_left_beam_1": "structural",
+        "clip_timber_header_outer_left_beam_2": "structural",
+        "clip_timber_header_outer_left_beam_3": "structural",
+        "clip_timber_header_outer_left_upright_1": "structural",
+        "clip_timber_header_outer_left_upright_2": "structural",
+        "clip_timber_header_outer_left_upright_3": "structural",
+        "clip_timber_header_outer_right_beam_1": "structural",
+        "clip_timber_header_outer_right_beam_2": "structural",
+        "clip_timber_header_outer_right_beam_3": "structural",
+        "clip_timber_header_outer_right_upright_1": "structural",
+        "clip_timber_header_outer_right_upright_2": "structural",
+        "clip_timber_header_outer_right_upright_3": "structural",
+        "clip_split_top_center_left_beam_1": "structural",
+        "clip_split_top_center_left_beam_2": "structural",
+        "clip_split_top_center_left_beam_3": "structural",
+        "clip_split_top_center_left_upright_1": "structural",
+        "clip_split_top_center_left_upright_2": "structural",
+        "clip_split_top_center_left_upright_3": "structural",
+        "clip_split_base_center_left_beam_1": "structural",
+        "clip_split_base_center_left_beam_2": "structural",
+        "clip_split_base_center_left_beam_3": "structural",
+        "clip_split_base_center_left_upright_1": "structural",
+        "clip_split_base_center_left_upright_2": "structural",
+        "clip_split_base_center_left_upright_3": "structural",
+        "clip_split_header_center_left_beam_1": "structural",
+        "clip_split_header_center_left_beam_2": "structural",
+        "clip_split_header_center_left_beam_3": "structural",
+        "clip_split_header_center_left_upright_1": "structural",
+        "clip_split_header_center_left_upright_2": "structural",
+        "clip_split_header_center_left_upright_3": "structural",
+        "clip_split_top_center_right_beam_1": "structural",
+        "clip_split_top_center_right_beam_2": "structural",
+        "clip_split_top_center_right_beam_3": "structural",
+        "clip_split_top_center_right_upright_1": "structural",
+        "clip_split_top_center_right_upright_2": "structural",
+        "clip_split_top_center_right_upright_3": "structural",
+        "clip_split_base_center_right_beam_1": "structural",
+        "clip_split_base_center_right_beam_2": "structural",
+        "clip_split_base_center_right_beam_3": "structural",
+        "clip_split_base_center_right_upright_1": "structural",
+        "clip_split_base_center_right_upright_2": "structural",
+        "clip_split_base_center_right_upright_3": "structural",
+        "clip_split_header_center_right_beam_1": "structural",
+        "clip_split_header_center_right_beam_2": "structural",
+        "clip_split_header_center_right_beam_3": "structural",
+        "clip_split_header_center_right_upright_1": "structural",
+        "clip_split_header_center_right_upright_2": "structural",
+        "clip_split_header_center_right_upright_3": "structural",
+        "clip_angle_base_left_beam_1": "structural",
+        "clip_angle_base_left_beam_2": "structural",
+        "clip_angle_base_left_beam_3": "structural",
+        "clip_angle_base_left_upright_1": "structural",
+        "clip_angle_base_left_upright_2": "structural",
+        "clip_angle_base_left_upright_3": "structural",
+        "clip_angle_base_right_beam_1": "structural",
+        "clip_angle_base_right_beam_2": "structural",
+        "clip_angle_base_right_beam_3": "structural",
+        "clip_angle_base_right_upright_1": "structural",
+        "clip_angle_base_right_upright_2": "structural",
+        "clip_angle_base_right_upright_3": "structural",
+        "clip_horizontal_bottom_left_1_beam_1": "structural",
+        "clip_horizontal_bottom_left_1_beam_2": "structural",
+        "clip_horizontal_bottom_left_1_beam_3": "structural",
+        "clip_horizontal_bottom_left_1_upright_1": "structural",
+        "clip_horizontal_bottom_left_1_upright_2": "structural",
+        "clip_horizontal_bottom_left_1_upright_3": "structural",
+        "clip_horizontal_bottom_left_2_beam_1": "structural",
+        "clip_horizontal_bottom_left_2_beam_2": "structural",
+        "clip_horizontal_bottom_left_2_beam_3": "structural",
+        "clip_horizontal_bottom_left_2_upright_1": "structural",
+        "clip_horizontal_bottom_left_2_upright_2": "structural",
+        "clip_horizontal_bottom_left_2_upright_3": "structural",
+        "clip_horizontal_lower_left_1_beam_1": "structural",
+        "clip_horizontal_lower_left_1_beam_2": "structural",
+        "clip_horizontal_lower_left_1_beam_3": "structural",
+        "clip_horizontal_lower_left_1_upright_1": "structural",
+        "clip_horizontal_lower_left_1_upright_2": "structural",
+        "clip_horizontal_lower_left_1_upright_3": "structural",
+        "clip_horizontal_lower_left_2_beam_1": "structural",
+        "clip_horizontal_lower_left_2_beam_2": "structural",
+        "clip_horizontal_lower_left_2_beam_3": "structural",
+        "clip_horizontal_lower_left_2_upright_1": "structural",
+        "clip_horizontal_lower_left_2_upright_2": "structural",
+        "clip_horizontal_lower_left_2_upright_3": "structural",
+        "clip_horizontal_upper_left_1_beam_1": "structural",
+        "clip_horizontal_upper_left_1_beam_2": "structural",
+        "clip_horizontal_upper_left_1_beam_3": "structural",
+        "clip_horizontal_upper_left_1_upright_1": "structural",
+        "clip_horizontal_upper_left_1_upright_2": "structural",
+        "clip_horizontal_upper_left_1_upright_3": "structural",
+        "clip_horizontal_upper_left_2_beam_1": "structural",
+        "clip_horizontal_upper_left_2_beam_2": "structural",
+        "clip_horizontal_upper_left_2_beam_3": "structural",
+        "clip_horizontal_upper_left_2_upright_1": "structural",
+        "clip_horizontal_upper_left_2_upright_2": "structural",
+        "clip_horizontal_upper_left_2_upright_3": "structural",
+        "clip_horizontal_bottom_right_1_beam_1": "structural",
+        "clip_horizontal_bottom_right_1_beam_2": "structural",
+        "clip_horizontal_bottom_right_1_beam_3": "structural",
+        "clip_horizontal_bottom_right_1_upright_1": "structural",
+        "clip_horizontal_bottom_right_1_upright_2": "structural",
+        "clip_horizontal_bottom_right_1_upright_3": "structural",
+        "clip_horizontal_bottom_right_2_beam_1": "structural",
+        "clip_horizontal_bottom_right_2_beam_2": "structural",
+        "clip_horizontal_bottom_right_2_beam_3": "structural",
+        "clip_horizontal_bottom_right_2_upright_1": "structural",
+        "clip_horizontal_bottom_right_2_upright_2": "structural",
+        "clip_horizontal_bottom_right_2_upright_3": "structural",
+        "clip_horizontal_lower_right_1_beam_1": "structural",
+        "clip_horizontal_lower_right_1_beam_2": "structural",
+        "clip_horizontal_lower_right_1_beam_3": "structural",
+        "clip_horizontal_lower_right_1_upright_1": "structural",
+        "clip_horizontal_lower_right_1_upright_2": "structural",
+        "clip_horizontal_lower_right_1_upright_3": "structural",
+        "clip_horizontal_lower_right_2_beam_1": "structural",
+        "clip_horizontal_lower_right_2_beam_2": "structural",
+        "clip_horizontal_lower_right_2_beam_3": "structural",
+        "clip_horizontal_lower_right_2_upright_1": "structural",
+        "clip_horizontal_lower_right_2_upright_2": "structural",
+        "clip_horizontal_lower_right_2_upright_3": "structural",
+        "clip_horizontal_upper_right_1_beam_1": "structural",
+        "clip_horizontal_upper_right_1_beam_2": "structural",
+        "clip_horizontal_upper_right_1_beam_3": "structural",
+        "clip_horizontal_upper_right_1_upright_1": "structural",
+        "clip_horizontal_upper_right_1_upright_2": "structural",
+        "clip_horizontal_upper_right_1_upright_3": "structural",
+        "clip_horizontal_upper_right_2_beam_1": "structural",
+        "clip_horizontal_upper_right_2_beam_2": "structural",
+        "clip_horizontal_upper_right_2_beam_3": "structural",
+        "clip_horizontal_upper_right_2_upright_1": "structural",
+        "clip_horizontal_upper_right_2_upright_2": "structural",
+        "clip_horizontal_upper_right_2_upright_3": "structural",
+        "rail_front_bolt_left_1": "structural",
+        "rail_front_bolt_left_2": "structural",
+        "rail_rear_bolt_left_1": "structural",
+        "rail_rear_bolt_left_2": "structural",
+        "rail_front_bolt_right_1": "structural",
+        "rail_front_bolt_right_2": "structural",
+        "rail_rear_bolt_right_1": "structural",
+        "rail_rear_bolt_right_2": "structural"
+      },
+      "structural_stations": [
+        {
+          "station_id": "clip_single_top_left_1",
+          "family": "top",
+          "timber_members": [
+            "base_rail_top",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_single_top_left_1_beam_1",
+            "clip_single_top_left_1_beam_2",
+            "clip_single_top_left_1_beam_3",
+            "clip_single_top_left_1_upright_1",
+            "clip_single_top_left_1_upright_2",
+            "clip_single_top_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_single_top_right_2",
+          "family": "top",
+          "timber_members": [
+            "base_rail_top",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_single_top_right_2_beam_1",
+            "clip_single_top_right_2_beam_2",
+            "clip_single_top_right_2_beam_3",
+            "clip_single_top_right_2_upright_1",
+            "clip_single_top_right_2_upright_2",
+            "clip_single_top_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_top_center_left",
+          "family": "top",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_top"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_top_center_left_beam_1",
+            "clip_split_top_center_left_beam_2",
+            "clip_split_top_center_left_beam_3",
+            "clip_split_top_center_left_upright_1",
+            "clip_split_top_center_left_upright_2",
+            "clip_split_top_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_top_center_right",
+          "family": "top",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_top"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_top_center_right_beam_1",
+            "clip_split_top_center_right_beam_2",
+            "clip_split_top_center_right_beam_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_left_1",
+          "family": "bottom",
+          "timber_members": [
+            "base_rail_bottom_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_left_1_beam_1",
+            "clip_horizontal_bottom_left_1_beam_2",
+            "clip_horizontal_bottom_left_1_beam_3",
+            "clip_horizontal_bottom_left_1_upright_1",
+            "clip_horizontal_bottom_left_1_upright_2",
+            "clip_horizontal_bottom_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_left_2",
+          "family": "bottom",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_bottom_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_left_2_beam_1",
+            "clip_horizontal_bottom_left_2_beam_2",
+            "clip_horizontal_bottom_left_2_beam_3",
+            "clip_horizontal_bottom_left_2_upright_1",
+            "clip_horizontal_bottom_left_2_upright_2",
+            "clip_horizontal_bottom_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_right_1",
+          "family": "bottom",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_bottom_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_right_1_beam_1",
+            "clip_horizontal_bottom_right_1_beam_2",
+            "clip_horizontal_bottom_right_1_beam_3",
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_right_2",
+          "family": "bottom",
+          "timber_members": [
+            "base_rail_bottom_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_right_2_beam_1",
+            "clip_horizontal_bottom_right_2_beam_2",
+            "clip_horizontal_bottom_right_2_beam_3",
+            "clip_horizontal_bottom_right_2_upright_1",
+            "clip_horizontal_bottom_right_2_upright_2",
+            "clip_horizontal_bottom_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_left_1",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_lower_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_left_1_beam_1",
+            "clip_horizontal_lower_left_1_beam_2",
+            "clip_horizontal_lower_left_1_beam_3",
+            "clip_horizontal_lower_left_1_upright_1",
+            "clip_horizontal_lower_left_1_upright_2",
+            "clip_horizontal_lower_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_left_2",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_service_lower_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_left_2_beam_1",
+            "clip_horizontal_lower_left_2_beam_2",
+            "clip_horizontal_lower_left_2_beam_3",
+            "clip_horizontal_lower_left_2_upright_1",
+            "clip_horizontal_lower_left_2_upright_2",
+            "clip_horizontal_lower_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_right_1",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_service_lower_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_right_2",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_lower_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "clip_horizontal_lower_right_2_upright_1",
+            "clip_horizontal_lower_right_2_upright_2",
+            "clip_horizontal_lower_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_left_1",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_upper_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_left_1_beam_1",
+            "clip_horizontal_upper_left_1_beam_2",
+            "clip_horizontal_upper_left_1_beam_3",
+            "clip_horizontal_upper_left_1_upright_1",
+            "clip_horizontal_upper_left_1_upright_2",
+            "clip_horizontal_upper_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_left_2",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_service_upper_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_left_2_beam_1",
+            "clip_horizontal_upper_left_2_beam_2",
+            "clip_horizontal_upper_left_2_beam_3",
+            "clip_horizontal_upper_left_2_upright_1",
+            "clip_horizontal_upper_left_2_upright_2",
+            "clip_horizontal_upper_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_right_1",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_service_upper_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_right_2",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_upper_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "clip_horizontal_upper_right_2_upright_1",
+            "clip_horizontal_upper_right_2_upright_2",
+            "clip_horizontal_upper_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_timber_header_outer_left",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_outer_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_timber_header_outer_left_beam_1",
+            "clip_timber_header_outer_left_beam_2",
+            "clip_timber_header_outer_left_beam_3",
+            "clip_timber_header_outer_left_upright_1",
+            "clip_timber_header_outer_left_upright_2",
+            "clip_timber_header_outer_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_timber_header_outer_right",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_outer_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_timber_header_outer_right_beam_1",
+            "clip_timber_header_outer_right_beam_2",
+            "clip_timber_header_outer_right_beam_3",
+            "clip_timber_header_outer_right_upright_1",
+            "clip_timber_header_outer_right_upright_2",
+            "clip_timber_header_outer_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_header_center_left",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_center_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_header_center_left_beam_1",
+            "clip_split_header_center_left_beam_2",
+            "clip_split_header_center_left_beam_3",
+            "clip_split_header_center_left_upright_1",
+            "clip_split_header_center_left_upright_2",
+            "clip_split_header_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_header_center_right",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_center_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_header_center_right_beam_1",
+            "clip_split_header_center_right_beam_2",
+            "clip_split_header_center_right_beam_3",
+            "clip_split_header_center_right_upright_1",
+            "clip_split_header_center_right_upright_2",
+            "clip_split_header_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_base_center_left",
+          "family": "center_base",
+          "timber_members": [
+            "base_header",
+            "base_principal_center_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_base_center_left_beam_1",
+            "clip_split_base_center_left_beam_2",
+            "clip_split_base_center_left_beam_3",
+            "clip_split_base_center_left_upright_1",
+            "clip_split_base_center_left_upright_2",
+            "clip_split_base_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_base_center_right",
+          "family": "center_base",
+          "timber_members": [
+            "base_header",
+            "base_principal_center_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_base_center_right_beam_1",
+            "clip_split_base_center_right_beam_2",
+            "clip_split_base_center_right_beam_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_angle_base_left",
+          "family": "outer_base",
+          "timber_members": [
+            "base_header",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_angle_base_left_beam_1",
+            "clip_angle_base_left_beam_2",
+            "clip_angle_base_left_beam_3",
+            "clip_angle_base_left_upright_1",
+            "clip_angle_base_left_upright_2",
+            "clip_angle_base_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_angle_base_right",
+          "family": "outer_base",
+          "timber_members": [
+            "base_header",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_angle_base_right_beam_1",
+            "clip_angle_base_right_beam_2",
+            "clip_angle_base_right_beam_3",
+            "clip_angle_base_right_upright_1",
+            "clip_angle_base_right_upright_2",
+            "clip_angle_base_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        }
+      ],
+      "retained_frame_bolts": [
+        {
+          "axis_id": "lumber_leg_bolt_left_1",
+          "members": [
+            "base_side_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_left_2",
+          "members": [
+            "base_side_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_1",
+          "members": [
+            "base_side_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_2",
+          "members": [
+            "base_side_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_left_1",
+          "members": [
+            "base_post_outer_left",
+            "base_floor_left"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_left_2",
+          "members": [
+            "base_post_outer_left",
+            "base_floor_left"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_left_1",
+          "members": [
+            "base_floor_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_left_2",
+          "members": [
+            "base_floor_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_right_1",
+          "members": [
+            "base_post_outer_right",
+            "base_floor_right"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_right_2",
+          "members": [
+            "base_post_outer_right",
+            "base_floor_right"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_right_1",
+          "members": [
+            "base_floor_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_right_2",
+          "members": [
+            "base_floor_right",
+            "lumber_leg_right"
+          ]
+        }
+      ],
+      "transport_members": {
+        "timber": [
+          "base_floor_left",
+          "base_floor_right",
+          "base_header",
+          "base_post_center_left",
+          "base_post_center_right",
+          "base_post_outer_left",
+          "base_post_outer_right",
+          "base_principal_center_left",
+          "base_principal_center_right",
+          "base_rail_bottom_left",
+          "base_rail_bottom_right",
+          "base_rail_service_lower_left",
+          "base_rail_service_lower_right",
+          "base_rail_service_upper_left",
+          "base_rail_service_upper_right",
+          "base_rail_top",
+          "base_side_left",
+          "base_side_right",
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "panels": [
+          "kicker_left",
+          "kicker_right",
+          "main_lower_left",
+          "main_lower_right",
+          "main_upper_left",
+          "main_upper_right"
+        ]
+      },
+      "scope_counts": {
+        "structural_sds_to_replace": 144,
+        "structural_frame_bolts_to_reassess": 12,
+        "panel_screws_to_retain": 66,
+        "hold_axes": 0,
+        "service_axes": 0
+      },
+      "draft_separation_graph": {
+        "structural_joint_station_ids": [
+          "clip_single_top_left_1",
+          "clip_single_top_right_2",
+          "clip_split_top_center_left",
+          "clip_split_top_center_right",
+          "clip_horizontal_bottom_left_1",
+          "clip_horizontal_bottom_left_2",
+          "clip_horizontal_bottom_right_1",
+          "clip_horizontal_bottom_right_2",
+          "clip_horizontal_lower_left_1",
+          "clip_horizontal_lower_left_2",
+          "clip_horizontal_lower_right_1",
+          "clip_horizontal_lower_right_2",
+          "clip_horizontal_upper_left_1",
+          "clip_horizontal_upper_left_2",
+          "clip_horizontal_upper_right_1",
+          "clip_horizontal_upper_right_2",
+          "clip_timber_header_outer_left",
+          "clip_timber_header_outer_right",
+          "clip_split_header_center_left",
+          "clip_split_header_center_right",
+          "clip_split_base_center_left",
+          "clip_split_base_center_right",
+          "clip_angle_base_left",
+          "clip_angle_base_right"
+        ],
+        "retained_frame_bolt_axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "lumber_leg_bolt_left_2",
+          "lumber_leg_bolt_right_1",
+          "lumber_leg_bolt_right_2",
+          "rail_front_bolt_left_1",
+          "rail_front_bolt_left_2",
+          "rail_rear_bolt_left_1",
+          "rail_rear_bolt_left_2",
+          "rail_front_bolt_right_1",
+          "rail_front_bolt_right_2",
+          "rail_rear_bolt_right_1",
+          "rail_rear_bolt_right_2"
+        ],
+        "panel_axis_ids": [
+          "round_panel_lower_left_rim_1",
+          "round_panel_lower_left_rim_2",
+          "round_panel_lower_left_rim_3",
+          "round_panel_lower_left_rim_4",
+          "round_panel_lower_left_center_1",
+          "round_panel_lower_left_center_2",
+          "round_panel_lower_left_center_3",
+          "round_panel_lower_left_center_4",
+          "round_panel_lower_left_edge_1",
+          "round_panel_lower_left_edge_2",
+          "round_panel_lower_left_service_1",
+          "round_panel_lower_left_service_2",
+          "round_panel_upper_left_rim_1",
+          "round_panel_upper_left_rim_2",
+          "round_panel_upper_left_rim_3",
+          "round_panel_upper_left_rim_4",
+          "round_panel_upper_left_center_1",
+          "round_panel_upper_left_center_2",
+          "round_panel_upper_left_center_3",
+          "round_panel_upper_left_center_4",
+          "round_panel_upper_left_edge_1",
+          "round_panel_upper_left_edge_2",
+          "round_panel_upper_left_service_1",
+          "round_panel_upper_left_service_2",
+          "round_kicker_left_rim_1",
+          "round_kicker_left_rim_2",
+          "round_kicker_left_center_1",
+          "round_kicker_left_center_2",
+          "round_panel_lower_right_rim_1",
+          "round_panel_lower_right_rim_2",
+          "round_panel_lower_right_rim_3",
+          "round_panel_lower_right_rim_4",
+          "round_panel_lower_right_center_1",
+          "round_panel_lower_right_center_2",
+          "round_panel_lower_right_center_3",
+          "round_panel_lower_right_center_4",
+          "round_panel_lower_right_edge_1",
+          "round_panel_lower_right_edge_2",
+          "round_panel_lower_right_service_1",
+          "round_panel_lower_right_service_2",
+          "round_panel_upper_right_rim_1",
+          "round_panel_upper_right_rim_2",
+          "round_panel_upper_right_rim_3",
+          "round_panel_upper_right_rim_4",
+          "round_panel_upper_right_center_1",
+          "round_panel_upper_right_center_2",
+          "round_panel_upper_right_center_3",
+          "round_panel_upper_right_center_4",
+          "round_panel_upper_right_edge_1",
+          "round_panel_upper_right_edge_2",
+          "round_panel_upper_right_service_1",
+          "round_panel_upper_right_service_2",
+          "round_kicker_right_rim_1",
+          "round_kicker_right_rim_2",
+          "round_kicker_right_center_1",
+          "round_kicker_right_center_2",
+          "kicker_header_left_1",
+          "kicker_header_left_2",
+          "kicker_header_left_3",
+          "kicker_header_left_4",
+          "kicker_header_left_5",
+          "kicker_header_right_1",
+          "kicker_header_right_2",
+          "kicker_header_right_3",
+          "kicker_header_right_4",
+          "kicker_header_right_5"
+        ],
+        "structural_operation": "remove selected metal-threaded structural fasteners; exact detail unresolved",
+        "frame_bolt_operation": "remove frame bolt after temporary support",
+        "panel_operation": "remove retained Hillman panel/kicker screw",
+        "retained_flange_rule": "one timber member maximum per retained flange; actual assignment unresolved",
+        "final_disassembly_sequence_ready": false
+      },
+      "move_operations": {
+        "structural_wood_thread_removals_target": 0,
+        "panel_wood_thread_removals_allowed": 66,
+        "hold_operations": "unresolved if climbing holds are fitted",
+        "service_operations": "unresolved until service hardware is inventoried"
+      }
+    },
+    "kerf-right": {
+      "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+      "scope_by_axis_id": {
+        "round_panel_lower_left_rim_1": "panel",
+        "round_panel_lower_left_rim_2": "panel",
+        "round_panel_lower_left_rim_3": "panel",
+        "round_panel_lower_left_rim_4": "panel",
+        "round_panel_lower_left_center_1": "panel",
+        "round_panel_lower_left_center_2": "panel",
+        "round_panel_lower_left_center_3": "panel",
+        "round_panel_lower_left_center_4": "panel",
+        "round_panel_lower_left_edge_1": "panel",
+        "round_panel_lower_left_edge_2": "panel",
+        "round_panel_lower_left_service_1": "panel",
+        "round_panel_lower_left_service_2": "panel",
+        "round_panel_upper_left_rim_1": "panel",
+        "round_panel_upper_left_rim_2": "panel",
+        "round_panel_upper_left_rim_3": "panel",
+        "round_panel_upper_left_rim_4": "panel",
+        "round_panel_upper_left_center_1": "panel",
+        "round_panel_upper_left_center_2": "panel",
+        "round_panel_upper_left_center_3": "panel",
+        "round_panel_upper_left_center_4": "panel",
+        "round_panel_upper_left_edge_1": "panel",
+        "round_panel_upper_left_edge_2": "panel",
+        "round_panel_upper_left_service_1": "panel",
+        "round_panel_upper_left_service_2": "panel",
+        "round_kicker_left_rim_1": "panel",
+        "round_kicker_left_rim_2": "panel",
+        "round_kicker_left_center_1": "panel",
+        "round_kicker_left_center_2": "panel",
+        "round_panel_lower_right_rim_1": "panel",
+        "round_panel_lower_right_rim_2": "panel",
+        "round_panel_lower_right_rim_3": "panel",
+        "round_panel_lower_right_rim_4": "panel",
+        "round_panel_lower_right_center_1": "panel",
+        "round_panel_lower_right_center_2": "panel",
+        "round_panel_lower_right_center_3": "panel",
+        "round_panel_lower_right_center_4": "panel",
+        "round_panel_lower_right_edge_1": "panel",
+        "round_panel_lower_right_edge_2": "panel",
+        "round_panel_lower_right_service_1": "panel",
+        "round_panel_lower_right_service_2": "panel",
+        "round_panel_upper_right_rim_1": "panel",
+        "round_panel_upper_right_rim_2": "panel",
+        "round_panel_upper_right_rim_3": "panel",
+        "round_panel_upper_right_rim_4": "panel",
+        "round_panel_upper_right_center_1": "panel",
+        "round_panel_upper_right_center_2": "panel",
+        "round_panel_upper_right_center_3": "panel",
+        "round_panel_upper_right_center_4": "panel",
+        "round_panel_upper_right_edge_1": "panel",
+        "round_panel_upper_right_edge_2": "panel",
+        "round_panel_upper_right_service_1": "panel",
+        "round_panel_upper_right_service_2": "panel",
+        "round_kicker_right_rim_1": "panel",
+        "round_kicker_right_rim_2": "panel",
+        "round_kicker_right_center_1": "panel",
+        "round_kicker_right_center_2": "panel",
+        "kicker_header_left_1": "panel",
+        "kicker_header_left_2": "panel",
+        "kicker_header_left_3": "panel",
+        "kicker_header_left_4": "panel",
+        "kicker_header_left_5": "panel",
+        "kicker_header_right_1": "panel",
+        "kicker_header_right_2": "panel",
+        "kicker_header_right_3": "panel",
+        "kicker_header_right_4": "panel",
+        "kicker_header_right_5": "panel",
+        "lumber_leg_bolt_left_1": "structural",
+        "lumber_leg_bolt_left_2": "structural",
+        "lumber_leg_bolt_right_1": "structural",
+        "lumber_leg_bolt_right_2": "structural",
+        "clip_single_top_left_1_beam_1": "structural",
+        "clip_single_top_left_1_beam_2": "structural",
+        "clip_single_top_left_1_beam_3": "structural",
+        "clip_single_top_left_1_upright_1": "structural",
+        "clip_single_top_left_1_upright_2": "structural",
+        "clip_single_top_left_1_upright_3": "structural",
+        "clip_single_top_right_2_beam_1": "structural",
+        "clip_single_top_right_2_beam_2": "structural",
+        "clip_single_top_right_2_beam_3": "structural",
+        "clip_single_top_right_2_upright_1": "structural",
+        "clip_single_top_right_2_upright_2": "structural",
+        "clip_single_top_right_2_upright_3": "structural",
+        "clip_timber_header_outer_left_beam_1": "structural",
+        "clip_timber_header_outer_left_beam_2": "structural",
+        "clip_timber_header_outer_left_beam_3": "structural",
+        "clip_timber_header_outer_left_upright_1": "structural",
+        "clip_timber_header_outer_left_upright_2": "structural",
+        "clip_timber_header_outer_left_upright_3": "structural",
+        "clip_timber_header_outer_right_beam_1": "structural",
+        "clip_timber_header_outer_right_beam_2": "structural",
+        "clip_timber_header_outer_right_beam_3": "structural",
+        "clip_timber_header_outer_right_upright_1": "structural",
+        "clip_timber_header_outer_right_upright_2": "structural",
+        "clip_timber_header_outer_right_upright_3": "structural",
+        "clip_split_top_center_left_beam_1": "structural",
+        "clip_split_top_center_left_beam_2": "structural",
+        "clip_split_top_center_left_beam_3": "structural",
+        "clip_split_top_center_left_upright_1": "structural",
+        "clip_split_top_center_left_upright_2": "structural",
+        "clip_split_top_center_left_upright_3": "structural",
+        "clip_split_base_center_left_beam_1": "structural",
+        "clip_split_base_center_left_beam_2": "structural",
+        "clip_split_base_center_left_beam_3": "structural",
+        "clip_split_base_center_left_upright_1": "structural",
+        "clip_split_base_center_left_upright_2": "structural",
+        "clip_split_base_center_left_upright_3": "structural",
+        "clip_split_header_center_left_beam_1": "structural",
+        "clip_split_header_center_left_beam_2": "structural",
+        "clip_split_header_center_left_beam_3": "structural",
+        "clip_split_header_center_left_upright_1": "structural",
+        "clip_split_header_center_left_upright_2": "structural",
+        "clip_split_header_center_left_upright_3": "structural",
+        "clip_split_top_center_right_beam_1": "structural",
+        "clip_split_top_center_right_beam_2": "structural",
+        "clip_split_top_center_right_beam_3": "structural",
+        "clip_split_top_center_right_upright_1": "structural",
+        "clip_split_top_center_right_upright_2": "structural",
+        "clip_split_top_center_right_upright_3": "structural",
+        "clip_split_base_center_right_beam_1": "structural",
+        "clip_split_base_center_right_beam_2": "structural",
+        "clip_split_base_center_right_beam_3": "structural",
+        "clip_split_base_center_right_upright_1": "structural",
+        "clip_split_base_center_right_upright_2": "structural",
+        "clip_split_base_center_right_upright_3": "structural",
+        "clip_split_header_center_right_beam_1": "structural",
+        "clip_split_header_center_right_beam_2": "structural",
+        "clip_split_header_center_right_beam_3": "structural",
+        "clip_split_header_center_right_upright_1": "structural",
+        "clip_split_header_center_right_upright_2": "structural",
+        "clip_split_header_center_right_upright_3": "structural",
+        "clip_angle_base_left_beam_1": "structural",
+        "clip_angle_base_left_beam_2": "structural",
+        "clip_angle_base_left_beam_3": "structural",
+        "clip_angle_base_left_upright_1": "structural",
+        "clip_angle_base_left_upright_2": "structural",
+        "clip_angle_base_left_upright_3": "structural",
+        "clip_angle_base_right_beam_1": "structural",
+        "clip_angle_base_right_beam_2": "structural",
+        "clip_angle_base_right_beam_3": "structural",
+        "clip_angle_base_right_upright_1": "structural",
+        "clip_angle_base_right_upright_2": "structural",
+        "clip_angle_base_right_upright_3": "structural",
+        "clip_horizontal_bottom_left_1_beam_1": "structural",
+        "clip_horizontal_bottom_left_1_beam_2": "structural",
+        "clip_horizontal_bottom_left_1_beam_3": "structural",
+        "clip_horizontal_bottom_left_1_upright_1": "structural",
+        "clip_horizontal_bottom_left_1_upright_2": "structural",
+        "clip_horizontal_bottom_left_1_upright_3": "structural",
+        "clip_horizontal_bottom_left_2_beam_1": "structural",
+        "clip_horizontal_bottom_left_2_beam_2": "structural",
+        "clip_horizontal_bottom_left_2_beam_3": "structural",
+        "clip_horizontal_bottom_left_2_upright_1": "structural",
+        "clip_horizontal_bottom_left_2_upright_2": "structural",
+        "clip_horizontal_bottom_left_2_upright_3": "structural",
+        "clip_horizontal_lower_left_1_beam_1": "structural",
+        "clip_horizontal_lower_left_1_beam_2": "structural",
+        "clip_horizontal_lower_left_1_beam_3": "structural",
+        "clip_horizontal_lower_left_1_upright_1": "structural",
+        "clip_horizontal_lower_left_1_upright_2": "structural",
+        "clip_horizontal_lower_left_1_upright_3": "structural",
+        "clip_horizontal_lower_left_2_beam_1": "structural",
+        "clip_horizontal_lower_left_2_beam_2": "structural",
+        "clip_horizontal_lower_left_2_beam_3": "structural",
+        "clip_horizontal_lower_left_2_upright_1": "structural",
+        "clip_horizontal_lower_left_2_upright_2": "structural",
+        "clip_horizontal_lower_left_2_upright_3": "structural",
+        "clip_horizontal_upper_left_1_beam_1": "structural",
+        "clip_horizontal_upper_left_1_beam_2": "structural",
+        "clip_horizontal_upper_left_1_beam_3": "structural",
+        "clip_horizontal_upper_left_1_upright_1": "structural",
+        "clip_horizontal_upper_left_1_upright_2": "structural",
+        "clip_horizontal_upper_left_1_upright_3": "structural",
+        "clip_horizontal_upper_left_2_beam_1": "structural",
+        "clip_horizontal_upper_left_2_beam_2": "structural",
+        "clip_horizontal_upper_left_2_beam_3": "structural",
+        "clip_horizontal_upper_left_2_upright_1": "structural",
+        "clip_horizontal_upper_left_2_upright_2": "structural",
+        "clip_horizontal_upper_left_2_upright_3": "structural",
+        "clip_horizontal_bottom_right_1_beam_1": "structural",
+        "clip_horizontal_bottom_right_1_beam_2": "structural",
+        "clip_horizontal_bottom_right_1_beam_3": "structural",
+        "clip_horizontal_bottom_right_1_upright_1": "structural",
+        "clip_horizontal_bottom_right_1_upright_2": "structural",
+        "clip_horizontal_bottom_right_1_upright_3": "structural",
+        "clip_horizontal_bottom_right_2_beam_1": "structural",
+        "clip_horizontal_bottom_right_2_beam_2": "structural",
+        "clip_horizontal_bottom_right_2_beam_3": "structural",
+        "clip_horizontal_bottom_right_2_upright_1": "structural",
+        "clip_horizontal_bottom_right_2_upright_2": "structural",
+        "clip_horizontal_bottom_right_2_upright_3": "structural",
+        "clip_horizontal_lower_right_1_beam_1": "structural",
+        "clip_horizontal_lower_right_1_beam_2": "structural",
+        "clip_horizontal_lower_right_1_beam_3": "structural",
+        "clip_horizontal_lower_right_1_upright_1": "structural",
+        "clip_horizontal_lower_right_1_upright_2": "structural",
+        "clip_horizontal_lower_right_1_upright_3": "structural",
+        "clip_horizontal_lower_right_2_beam_1": "structural",
+        "clip_horizontal_lower_right_2_beam_2": "structural",
+        "clip_horizontal_lower_right_2_beam_3": "structural",
+        "clip_horizontal_lower_right_2_upright_1": "structural",
+        "clip_horizontal_lower_right_2_upright_2": "structural",
+        "clip_horizontal_lower_right_2_upright_3": "structural",
+        "clip_horizontal_upper_right_1_beam_1": "structural",
+        "clip_horizontal_upper_right_1_beam_2": "structural",
+        "clip_horizontal_upper_right_1_beam_3": "structural",
+        "clip_horizontal_upper_right_1_upright_1": "structural",
+        "clip_horizontal_upper_right_1_upright_2": "structural",
+        "clip_horizontal_upper_right_1_upright_3": "structural",
+        "clip_horizontal_upper_right_2_beam_1": "structural",
+        "clip_horizontal_upper_right_2_beam_2": "structural",
+        "clip_horizontal_upper_right_2_beam_3": "structural",
+        "clip_horizontal_upper_right_2_upright_1": "structural",
+        "clip_horizontal_upper_right_2_upright_2": "structural",
+        "clip_horizontal_upper_right_2_upright_3": "structural",
+        "rail_front_bolt_left_1": "structural",
+        "rail_front_bolt_left_2": "structural",
+        "rail_rear_bolt_left_1": "structural",
+        "rail_rear_bolt_left_2": "structural",
+        "rail_front_bolt_right_1": "structural",
+        "rail_front_bolt_right_2": "structural",
+        "rail_rear_bolt_right_1": "structural",
+        "rail_rear_bolt_right_2": "structural"
+      },
+      "structural_stations": [
+        {
+          "station_id": "clip_single_top_left_1",
+          "family": "top",
+          "timber_members": [
+            "base_rail_top",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_single_top_left_1_beam_1",
+            "clip_single_top_left_1_beam_2",
+            "clip_single_top_left_1_beam_3",
+            "clip_single_top_left_1_upright_1",
+            "clip_single_top_left_1_upright_2",
+            "clip_single_top_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_single_top_right_2",
+          "family": "top",
+          "timber_members": [
+            "base_rail_top",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_single_top_right_2_beam_1",
+            "clip_single_top_right_2_beam_2",
+            "clip_single_top_right_2_beam_3",
+            "clip_single_top_right_2_upright_1",
+            "clip_single_top_right_2_upright_2",
+            "clip_single_top_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_top_center_left",
+          "family": "top",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_top"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_top_center_left_beam_1",
+            "clip_split_top_center_left_beam_2",
+            "clip_split_top_center_left_beam_3",
+            "clip_split_top_center_left_upright_1",
+            "clip_split_top_center_left_upright_2",
+            "clip_split_top_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_top_center_right",
+          "family": "top",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_top"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_top_center_right_beam_1",
+            "clip_split_top_center_right_beam_2",
+            "clip_split_top_center_right_beam_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_left_1",
+          "family": "bottom",
+          "timber_members": [
+            "base_rail_bottom_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_left_1_beam_1",
+            "clip_horizontal_bottom_left_1_beam_2",
+            "clip_horizontal_bottom_left_1_beam_3",
+            "clip_horizontal_bottom_left_1_upright_1",
+            "clip_horizontal_bottom_left_1_upright_2",
+            "clip_horizontal_bottom_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_left_2",
+          "family": "bottom",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_bottom_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_left_2_beam_1",
+            "clip_horizontal_bottom_left_2_beam_2",
+            "clip_horizontal_bottom_left_2_beam_3",
+            "clip_horizontal_bottom_left_2_upright_1",
+            "clip_horizontal_bottom_left_2_upright_2",
+            "clip_horizontal_bottom_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_right_1",
+          "family": "bottom",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_bottom_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_right_1_beam_1",
+            "clip_horizontal_bottom_right_1_beam_2",
+            "clip_horizontal_bottom_right_1_beam_3",
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_bottom_right_2",
+          "family": "bottom",
+          "timber_members": [
+            "base_rail_bottom_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_bottom_right_2_beam_1",
+            "clip_horizontal_bottom_right_2_beam_2",
+            "clip_horizontal_bottom_right_2_beam_3",
+            "clip_horizontal_bottom_right_2_upright_1",
+            "clip_horizontal_bottom_right_2_upright_2",
+            "clip_horizontal_bottom_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_left_1",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_lower_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_left_1_beam_1",
+            "clip_horizontal_lower_left_1_beam_2",
+            "clip_horizontal_lower_left_1_beam_3",
+            "clip_horizontal_lower_left_1_upright_1",
+            "clip_horizontal_lower_left_1_upright_2",
+            "clip_horizontal_lower_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_left_2",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_service_lower_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_left_2_beam_1",
+            "clip_horizontal_lower_left_2_beam_2",
+            "clip_horizontal_lower_left_2_beam_3",
+            "clip_horizontal_lower_left_2_upright_1",
+            "clip_horizontal_lower_left_2_upright_2",
+            "clip_horizontal_lower_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_right_1",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_service_lower_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_lower_right_2",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_lower_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "clip_horizontal_lower_right_2_upright_1",
+            "clip_horizontal_lower_right_2_upright_2",
+            "clip_horizontal_lower_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_left_1",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_upper_left",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_left_1_beam_1",
+            "clip_horizontal_upper_left_1_beam_2",
+            "clip_horizontal_upper_left_1_beam_3",
+            "clip_horizontal_upper_left_1_upright_1",
+            "clip_horizontal_upper_left_1_upright_2",
+            "clip_horizontal_upper_left_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_left_2",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_left",
+            "base_rail_service_upper_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_left_2_beam_1",
+            "clip_horizontal_upper_left_2_beam_2",
+            "clip_horizontal_upper_left_2_beam_3",
+            "clip_horizontal_upper_left_2_upright_1",
+            "clip_horizontal_upper_left_2_upright_2",
+            "clip_horizontal_upper_left_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_right_1",
+          "family": "service",
+          "timber_members": [
+            "base_principal_center_right",
+            "base_rail_service_upper_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_horizontal_upper_right_2",
+          "family": "service",
+          "timber_members": [
+            "base_rail_service_upper_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "clip_horizontal_upper_right_2_upright_1",
+            "clip_horizontal_upper_right_2_upright_2",
+            "clip_horizontal_upper_right_2_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_timber_header_outer_left",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_outer_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_timber_header_outer_left_beam_1",
+            "clip_timber_header_outer_left_beam_2",
+            "clip_timber_header_outer_left_beam_3",
+            "clip_timber_header_outer_left_upright_1",
+            "clip_timber_header_outer_left_upright_2",
+            "clip_timber_header_outer_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_timber_header_outer_right",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_outer_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_timber_header_outer_right_beam_1",
+            "clip_timber_header_outer_right_beam_2",
+            "clip_timber_header_outer_right_beam_3",
+            "clip_timber_header_outer_right_upright_1",
+            "clip_timber_header_outer_right_upright_2",
+            "clip_timber_header_outer_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_header_center_left",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_center_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_header_center_left_beam_1",
+            "clip_split_header_center_left_beam_2",
+            "clip_split_header_center_left_beam_3",
+            "clip_split_header_center_left_upright_1",
+            "clip_split_header_center_left_upright_2",
+            "clip_split_header_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_header_center_right",
+          "family": "header_post",
+          "timber_members": [
+            "base_header",
+            "base_post_center_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_header_center_right_beam_1",
+            "clip_split_header_center_right_beam_2",
+            "clip_split_header_center_right_beam_3",
+            "clip_split_header_center_right_upright_1",
+            "clip_split_header_center_right_upright_2",
+            "clip_split_header_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_base_center_left",
+          "family": "center_base",
+          "timber_members": [
+            "base_header",
+            "base_principal_center_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_base_center_left_beam_1",
+            "clip_split_base_center_left_beam_2",
+            "clip_split_base_center_left_beam_3",
+            "clip_split_base_center_left_upright_1",
+            "clip_split_base_center_left_upright_2",
+            "clip_split_base_center_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_split_base_center_right",
+          "family": "center_base",
+          "timber_members": [
+            "base_header",
+            "base_principal_center_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_split_base_center_right_beam_1",
+            "clip_split_base_center_right_beam_2",
+            "clip_split_base_center_right_beam_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_angle_base_left",
+          "family": "outer_base",
+          "timber_members": [
+            "base_header",
+            "base_side_left"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_angle_base_left_beam_1",
+            "clip_angle_base_left_beam_2",
+            "clip_angle_base_left_beam_3",
+            "clip_angle_base_left_upright_1",
+            "clip_angle_base_left_upright_2",
+            "clip_angle_base_left_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        },
+        {
+          "station_id": "clip_angle_base_right",
+          "family": "outer_base",
+          "timber_members": [
+            "base_header",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_ids": [
+            "clip_angle_base_right_beam_1",
+            "clip_angle_base_right_beam_2",
+            "clip_angle_base_right_beam_3",
+            "clip_angle_base_right_upright_1",
+            "clip_angle_base_right_upright_2",
+            "clip_angle_base_right_upright_3"
+          ],
+          "candidate_joint_status": "replacement_detail_unresolved"
+        }
+      ],
+      "retained_frame_bolts": [
+        {
+          "axis_id": "lumber_leg_bolt_left_1",
+          "members": [
+            "base_side_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_left_2",
+          "members": [
+            "base_side_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_1",
+          "members": [
+            "base_side_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_2",
+          "members": [
+            "base_side_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_left_1",
+          "members": [
+            "base_post_outer_left",
+            "base_floor_left"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_left_2",
+          "members": [
+            "base_post_outer_left",
+            "base_floor_left"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_left_1",
+          "members": [
+            "base_floor_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_left_2",
+          "members": [
+            "base_floor_left",
+            "lumber_leg_left"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_right_1",
+          "members": [
+            "base_post_outer_right",
+            "base_floor_right"
+          ]
+        },
+        {
+          "axis_id": "rail_front_bolt_right_2",
+          "members": [
+            "base_post_outer_right",
+            "base_floor_right"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_right_1",
+          "members": [
+            "base_floor_right",
+            "lumber_leg_right"
+          ]
+        },
+        {
+          "axis_id": "rail_rear_bolt_right_2",
+          "members": [
+            "base_floor_right",
+            "lumber_leg_right"
+          ]
+        }
+      ],
+      "transport_members": {
+        "timber": [
+          "base_floor_left",
+          "base_floor_right",
+          "base_header",
+          "base_post_center_left",
+          "base_post_center_right",
+          "base_post_outer_left",
+          "base_post_outer_right",
+          "base_principal_center_left",
+          "base_principal_center_right",
+          "base_rail_bottom_left",
+          "base_rail_bottom_right",
+          "base_rail_service_lower_left",
+          "base_rail_service_lower_right",
+          "base_rail_service_upper_left",
+          "base_rail_service_upper_right",
+          "base_rail_top",
+          "base_side_left",
+          "base_side_right",
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "panels": [
+          "kicker_left",
+          "kicker_right",
+          "main_lower_left",
+          "main_lower_right",
+          "main_upper_left",
+          "main_upper_right"
+        ]
+      },
+      "scope_counts": {
+        "structural_sds_to_replace": 144,
+        "structural_frame_bolts_to_reassess": 12,
+        "panel_screws_to_retain": 66,
+        "hold_axes": 0,
+        "service_axes": 0
+      },
+      "draft_separation_graph": {
+        "structural_joint_station_ids": [
+          "clip_single_top_left_1",
+          "clip_single_top_right_2",
+          "clip_split_top_center_left",
+          "clip_split_top_center_right",
+          "clip_horizontal_bottom_left_1",
+          "clip_horizontal_bottom_left_2",
+          "clip_horizontal_bottom_right_1",
+          "clip_horizontal_bottom_right_2",
+          "clip_horizontal_lower_left_1",
+          "clip_horizontal_lower_left_2",
+          "clip_horizontal_lower_right_1",
+          "clip_horizontal_lower_right_2",
+          "clip_horizontal_upper_left_1",
+          "clip_horizontal_upper_left_2",
+          "clip_horizontal_upper_right_1",
+          "clip_horizontal_upper_right_2",
+          "clip_timber_header_outer_left",
+          "clip_timber_header_outer_right",
+          "clip_split_header_center_left",
+          "clip_split_header_center_right",
+          "clip_split_base_center_left",
+          "clip_split_base_center_right",
+          "clip_angle_base_left",
+          "clip_angle_base_right"
+        ],
+        "retained_frame_bolt_axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "lumber_leg_bolt_left_2",
+          "lumber_leg_bolt_right_1",
+          "lumber_leg_bolt_right_2",
+          "rail_front_bolt_left_1",
+          "rail_front_bolt_left_2",
+          "rail_rear_bolt_left_1",
+          "rail_rear_bolt_left_2",
+          "rail_front_bolt_right_1",
+          "rail_front_bolt_right_2",
+          "rail_rear_bolt_right_1",
+          "rail_rear_bolt_right_2"
+        ],
+        "panel_axis_ids": [
+          "round_panel_lower_left_rim_1",
+          "round_panel_lower_left_rim_2",
+          "round_panel_lower_left_rim_3",
+          "round_panel_lower_left_rim_4",
+          "round_panel_lower_left_center_1",
+          "round_panel_lower_left_center_2",
+          "round_panel_lower_left_center_3",
+          "round_panel_lower_left_center_4",
+          "round_panel_lower_left_edge_1",
+          "round_panel_lower_left_edge_2",
+          "round_panel_lower_left_service_1",
+          "round_panel_lower_left_service_2",
+          "round_panel_upper_left_rim_1",
+          "round_panel_upper_left_rim_2",
+          "round_panel_upper_left_rim_3",
+          "round_panel_upper_left_rim_4",
+          "round_panel_upper_left_center_1",
+          "round_panel_upper_left_center_2",
+          "round_panel_upper_left_center_3",
+          "round_panel_upper_left_center_4",
+          "round_panel_upper_left_edge_1",
+          "round_panel_upper_left_edge_2",
+          "round_panel_upper_left_service_1",
+          "round_panel_upper_left_service_2",
+          "round_kicker_left_rim_1",
+          "round_kicker_left_rim_2",
+          "round_kicker_left_center_1",
+          "round_kicker_left_center_2",
+          "round_panel_lower_right_rim_1",
+          "round_panel_lower_right_rim_2",
+          "round_panel_lower_right_rim_3",
+          "round_panel_lower_right_rim_4",
+          "round_panel_lower_right_center_1",
+          "round_panel_lower_right_center_2",
+          "round_panel_lower_right_center_3",
+          "round_panel_lower_right_center_4",
+          "round_panel_lower_right_edge_1",
+          "round_panel_lower_right_edge_2",
+          "round_panel_lower_right_service_1",
+          "round_panel_lower_right_service_2",
+          "round_panel_upper_right_rim_1",
+          "round_panel_upper_right_rim_2",
+          "round_panel_upper_right_rim_3",
+          "round_panel_upper_right_rim_4",
+          "round_panel_upper_right_center_1",
+          "round_panel_upper_right_center_2",
+          "round_panel_upper_right_center_3",
+          "round_panel_upper_right_center_4",
+          "round_panel_upper_right_edge_1",
+          "round_panel_upper_right_edge_2",
+          "round_panel_upper_right_service_1",
+          "round_panel_upper_right_service_2",
+          "round_kicker_right_rim_1",
+          "round_kicker_right_rim_2",
+          "round_kicker_right_center_1",
+          "round_kicker_right_center_2",
+          "kicker_header_left_1",
+          "kicker_header_left_2",
+          "kicker_header_left_3",
+          "kicker_header_left_4",
+          "kicker_header_left_5",
+          "kicker_header_right_1",
+          "kicker_header_right_2",
+          "kicker_header_right_3",
+          "kicker_header_right_4",
+          "kicker_header_right_5"
+        ],
+        "structural_operation": "remove selected metal-threaded structural fasteners; exact detail unresolved",
+        "frame_bolt_operation": "remove frame bolt after temporary support",
+        "panel_operation": "remove retained Hillman panel/kicker screw",
+        "retained_flange_rule": "one timber member maximum per retained flange; actual assignment unresolved",
+        "final_disassembly_sequence_ready": false
+      },
+      "move_operations": {
+        "structural_wood_thread_removals_target": 0,
+        "panel_wood_thread_removals_allowed": 66,
+        "hold_operations": "unresolved if climbing holds are fitted",
+        "service_operations": "unresolved until service hardware is inventoried"
+      }
+    }
+  }
 }

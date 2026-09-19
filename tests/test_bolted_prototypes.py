@@ -3,7 +3,6 @@
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).parents[1]
 
 
@@ -25,7 +24,7 @@ def test_three_representative_joints_name_real_current_stations() -> None:
 def test_representative_records_cannot_be_misread_as_acceptance() -> None:
     for name in ("narrow-opposing.json", "center-header.json", "outer-base.json"):
         item = report(name)
-        assert item["status"] == "complete"
+        assert item["status"] == "incomplete_representative_prototype"
         assert item["engineering_disposition"] != "accepted"
         assert "geometry" in item["engineering_disposition"] or "unresolved" in item["engineering_disposition"]
 
