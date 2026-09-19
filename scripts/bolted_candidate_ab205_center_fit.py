@@ -1,11 +1,16 @@
 """Nominal AB205 holes on the current center butt; no connector approval."""
 
+import csv
 from math import hypot, pi
+from pathlib import Path
 from typing import Literal
 
 import cadquery as cq
 
 from mini_moonboard import compact_floor_flush_frame as frame
+
+ROOT = Path(__file__).resolve().parents[1]
+AXES = ROOT / "docs/floor-flush-construction-kerf-right/connection-axes.csv"
 
 
 def _principal_broad_face(principal: cq.Solid, x_mm: float) -> cq.Face:
@@ -33,6 +38,7 @@ def _line_y(line: tuple[float, float, float], z_mm: float) -> float:
 
 def screen_center_fit(
     vertical_leg: Literal["long", "short"] = "long",
+    row_y_mm: float | None = None,
 ) -> dict[str, object]:
     """Check one flush-bend orientation against raw CAD, before new drilling."""
     if vertical_leg not in ("long", "short"):
@@ -45,7 +51,7 @@ def screen_center_fit(
     principal = parts["base_principal_center_left"]
     x = principal.BoundingBox().xmin
     z = header.BoundingBox().zmax
-    y = station[1].y
+    y = station[1].y if row_y_mm is None else row_y_mm
     bolt_diameter_mm = 12.7
     wood_hole_radius_mm = 14.2875 / 2
     loaded_edge_mm = 4 * bolt_diameter_mm
@@ -111,10 +117,11 @@ def screen_center_fit(
     return {
         "station": station[0],
         "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
-        "placement": f"AB205 bend at header-top/principal-side butt; {vertical_leg} leg vertical, {'short' if vertical_leg == 'long' else 'long'} leg horizontal; hole row at old clip Y",
+        "placement": f"AB205 bend at header-top/principal-side butt; {vertical_leg} leg vertical, {'short' if vertical_leg == 'long' else 'long'} leg horizontal; trial hole row Y",
         "contact_x_mm": round(x, 6),
         "contact_z_mm": round(z, 6),
-        "legacy_station_y_mm": round(y, 6),
+        "legacy_station_y_mm": round(station[1].y, 6),
+        "trial_row_y_mm": round(y, 6),
         "bolt_diameter_mm": bolt_diameter_mm,
         "nominal_bore_diameter_mm": 2 * wood_hole_radius_mm,
         "vertical_hole_offsets_from_bend_in": list(vertical_offsets_in),
@@ -137,4 +144,54 @@ def screen_center_fit(
         "end_distance_classified": False,
         "angle_placement_verified": False,
         "drilling_released": False,
+    }
+
+
+def screen_retained_axis_conflicts(row_y_mm: float) -> dict[str, object]:
+    """Intersect nominal bores with retained axes, not installed hardware stacks."""
+    trial = screen_center_fit("short", row_y_mm)
+    x = float(trial["contact_x_mm"])
+    z = float(trial["contact_z_mm"])
+    radius = float(trial["nominal_bore_diameter_mm"]) / 2
+    bores = tuple(
+        cq.Solid.makeCylinder(
+            radius, 38.1, cq.Vector(x, row_y_mm, z + offset * 25.4), cq.Vector(1, 0, 0)
+        )
+        for offset in trial["vertical_hole_offsets_from_bend_in"]
+    ) + tuple(
+        cq.Solid.makeCylinder(
+            radius, 38.1, cq.Vector(x - offset * 25.4, row_y_mm, z), cq.Vector(0, 0, -1)
+        )
+        for offset in trial["horizontal_hole_offsets_from_bend_in"]
+    )
+    retained = []
+    inspected_counts = {"hillman_panel": 0, "bolt_clearance": 0}
+    with AXES.open(newline="") as handle:
+        for row in csv.DictReader(handle):
+            if row["shop_opening_kind"] not in {"hillman_panel", "bolt_clearance"}:
+                continue
+            inspected_counts[row["shop_opening_kind"]] += 1
+            start = cq.Vector(*(float(row[f"start_{axis}_mm"]) for axis in "xyz"))
+            direction = cq.Vector(*(float(row[f"direction_{axis}"]) for axis in "xyz"))
+            occupied = cq.Solid.makeCylinder(
+                float(row["occupied_diameter_mm"]) / 2,
+                float(row["occupied_length_mm"]),
+                start,
+                direction,
+            )
+            if any(bore.intersect(occupied).Volume() > 1e-6 for bore in bores):
+                retained.append(row["name"])
+    if inspected_counts != {"hillman_panel": 66, "bolt_clearance": 12}:
+        raise ValueError("Frozen retained-axis inventory changed")
+    return {
+        "station": trial["station"],
+        "orientation": "short_vertical",
+        "trial_row_y_mm": round(row_y_mm, 6),
+        "source_axes": str(AXES.relative_to(ROOT)),
+        "retained_axis_types": ["hillman_panel", "bolt_clearance"],
+        "retained_axes_inspected": inspected_counts,
+        "trial_bore_count": len(bores),
+        "intersecting_retained_axis_ids": retained,
+        "nominal_axis_conflicts_found": bool(retained),
+        "limitations": "Nominal centerline bore/occupied-axis screen only; not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity.",
     }

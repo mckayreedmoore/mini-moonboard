@@ -91,6 +91,12 @@ Swapping AB205 legs widens that conditional full-4D Y interval to 9.774 mm,
 but moves the nearest vertical-flange hole to a 26.940-mm along-grain ray from
 the oblique cut. That ray is not a classified NDS end distance. Neither
 orientation establishes full fit, resistance, or a drill position.
+At the midpoint of the short-vertical conditional band (Y = -95.382 mm),
+the four nominal wood bores remain fully inside the raw timber and do not
+intersect any retained kerf-right panel-screw or frame-bolt occupied axis.
+This removes one specific axis-conflict concern only. The oblique end,
+opposing replacement connector, angle body, washers, tools, tolerances, and
+resistance remain unresolved; no drilling row is selected.
 The user's suggested outward center-support shift is screened separately in
 `docs/bolted-candidate-prototypes/center-support-solid-screen.json`. At 5, 10,
 and 15 mm per side, all 20 frozen panel axes intersect the translated raw
@@ -121,6 +127,12 @@ The 2024 DF-L No. 2 reference inputs used by the provisional bolt checks are
 recorded with units, source edition, and actual-stock unknowns in
 `docs/bolted-candidate-material-basis.json`. Those inputs do not establish the
 grade stamp or condition of the owner's lumber, and they do not rate A66.
+They are available conditional inputs, not a pending search for a generic
+2x6 load rating. The next joint-family checks must use actual hole/contact
+geometry, the existing bearing and yield helpers where their member/fastener
+assumptions apply, and one consistent NDS edition. The separate A66 formed-
+angle/steel resistance gap remains open. No isolated wood-bearing result,
+bolt-shaft rating, or missing catalog row is a whole-joint verdict.
 The existing six-mode wood-to-wood yield implementation now has regression
 tests against nine cells of the publisher's 2018 NDS Table 12A. Those tests
 verify its arithmetic for comparable two-member cases; they do not transfer a

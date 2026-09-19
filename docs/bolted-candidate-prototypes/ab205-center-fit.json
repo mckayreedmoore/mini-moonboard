@@ -1,10 +1,11 @@
 {
   "station": "clip_split_base_center_left",
   "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
-  "placement": "AB205 bend at header-top/principal-side butt; long leg vertical, short leg horizontal; hole row at old clip Y",
+  "placement": "AB205 bend at header-top/principal-side butt; long leg vertical, short leg horizontal; trial hole row Y",
   "contact_x_mm": -89.05,
   "contact_z_mm": 277.0,
   "legacy_station_y_mm": -124.9,
+  "trial_row_y_mm": -124.9,
   "bolt_diameter_mm": 12.7,
   "nominal_bore_diameter_mm": 14.2875,
   "vertical_hole_offsets_from_bend_in": [1.4375, 3.3125],
@@ -28,10 +29,11 @@
   "alternate_short_vertical": {
     "station": "clip_split_base_center_left",
     "source_cad": "mini_moonboard.compact_floor_flush_frame.uncut_wood_parts() and stations()",
-    "placement": "AB205 bend at header-top/principal-side butt; short leg vertical, long leg horizontal; hole row at old clip Y",
+    "placement": "AB205 bend at header-top/principal-side butt; short leg vertical, long leg horizontal; trial hole row Y",
     "contact_x_mm": -89.05,
     "contact_z_mm": 277.0,
     "legacy_station_y_mm": -124.9,
+    "trial_row_y_mm": -124.9,
     "bolt_diameter_mm": 12.7,
     "nominal_bore_diameter_mm": 14.2875,
     "vertical_hole_offsets_from_bend_in": [0.8125, 2.6875],
@@ -50,6 +52,24 @@
     "end_distance_classified": false,
     "angle_placement_verified": false,
     "drilling_released": false
+  },
+  "short_vertical_midband_trial": {
+    "row_y_mm": -95.382052,
+    "principal_far_hole_4d_edge_reserve_mm": 3.74362,
+    "all_four_bores_full_raw_wood_section": true,
+    "retained_axis_conflict_screen": {
+      "station": "clip_split_base_center_left",
+      "orientation": "short_vertical",
+      "trial_row_y_mm": -95.382052,
+      "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+      "retained_axis_types": ["hillman_panel", "bolt_clearance"],
+      "retained_axes_inspected": {"hillman_panel": 66, "bolt_clearance": 12},
+      "trial_bore_count": 4,
+      "intersecting_retained_axis_ids": [],
+      "nominal_axis_conflicts_found": false,
+      "limitations": "Nominal centerline bore/occupied-axis screen only; not washers, plates, tools, tolerances, adjacent replacement connectors, or bolt capacity."
+    },
+    "status": "conditional_geometry_screen_only; no connector or drilling release"
   },
   "source_rules": {
     "end_distance_definition": "2024 AWC NDS 12.1.2.2, printed page 81, defines bolt end distance parallel to grain from a square-cut timber end; it does not specify a direct measurement rule for this principal's oblique end.",

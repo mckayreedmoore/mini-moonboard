@@ -14,6 +14,7 @@
   },
   "sources": {
     "home_depot_listing": "https://www.homedepot.com/p/325186317",
+    "home_depot_questions": "https://www.homedepot.com/p/questions/NEWHOUSE-ELECTRIC-90-Degree-4-Hole-Strut-Channel-Bracket-Silver-No-Magnets-BR904/325186317/1",
     "manufacturer_product": "https://newhouseelectric.com/products/bracket-90deg-4-hole",
     "q235_standard_context_only": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=728DD12CB05533A5AE309BF47E6CBAA0"
   },
@@ -21,8 +22,14 @@
     "The manufacturer names Q235, but does not state a GB/T standard edition, Q235 subtype, numerical minimum strength, product certificate, or bending/forming basis for this SKU.",
     "The manufacturer gives hole size and pitch but not overall leg dimensions, edge/bend-to-hole coordinates, or tolerances; do not borrow AB205 dimensions because the two products are different.",
     "Neither the manufacturer nor Home Depot publishes a bolted wood-to-wood rating or an applicable combined shear, moment and separation test.",
-    "A Home Depot product page exists; local shelf stock and received-part identity were not verified."
+    "A Home Depot product page exists; local shelf stock and received-part identity were not verified.",
+    "The Home Depot BR904 Q&A had unanswered requests for full dimensions and supported weight when checked; neither it nor manufacturer-linked imagery supplies a controlled factory drawing."
   ],
+  "bounded_drawing_search": {
+    "manufacturer_product_and_document_search": "no dimensioned BR904 factory drawing found",
+    "home_depot_specifications_qa_images": "no complete center layout or numerical product capacity found",
+    "outcome": "negative; published pitch alone is not a complete hole-center layout"
+  },
   "comparison_with_ab205": "BR904 supplies a named material grade absent from ABB's AB205 public record, while AB205 supplies more complete nominal geometry. Neither evidence set transfers to the other product, and neither establishes the complete wood joint.",
   "product_specific_minimum_yield_strength_verified": false,
   "complete_factory_hole_coordinates_verified": false,

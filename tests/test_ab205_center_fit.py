@@ -5,7 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from scripts.bolted_candidate_ab205_center_fit import screen_center_fit
+from scripts.bolted_candidate_ab205_center_fit import (
+    screen_center_fit,
+    screen_retained_axis_conflicts,
+)
 
 
 def test_center_fit_uses_current_cad_and_keeps_release_closed():
@@ -75,3 +78,29 @@ def test_swapping_ab205_legs_widens_edge_band_but_does_not_release_joint():
             assert record[key] == pytest.approx(value)
         else:
             assert record[key] == value
+
+
+def test_short_vertical_midband_bores_do_not_hit_frozen_kerf_axes():
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/ab205-center-fit.json").read_text()
+    )["short_vertical_midband_trial"]
+    initial = screen_center_fit("short")
+    row_y = (
+        initial["reversible_4d_y_lower_mm"] + initial["reversible_4d_y_upper_mm"]
+    ) / 2
+    actual = screen_center_fit("short", row_y)
+    axis_screen = screen_retained_axis_conflicts(row_y)
+    assert row_y == pytest.approx(record["row_y_mm"])
+    assert actual["legacy_y_far_principal_4d_reserve_mm"] == pytest.approx(
+        record["principal_far_hole_4d_edge_reserve_mm"]
+    )
+    assert all(value > 0.999 for value in actual["wood_bore_full_section_fractions"])
+    assert axis_screen == record["retained_axis_conflict_screen"]
+    assert axis_screen["retained_axes_inspected"] == {
+        "hillman_panel": 66,
+        "bolt_clearance": 12,
+    }
+    assert axis_screen["trial_bore_count"] == 4
+    assert not axis_screen["nominal_axis_conflicts_found"]
+    assert actual["end_distance_classified"] is False
+    assert actual["drilling_released"] is False
