@@ -1,16 +1,16 @@
 {
   "task": "LB-04",
   "gate": "G1",
-  "status": "blocked_pending_owner_decision",
+  "status": "prototype_architecture_selected; mechanics_gate_required",
   "candidate": "compact-floor-flush-bolted-development",
   "screened_architectures": [
     {"id": "existing-ml24z-through-bolt", "status": "unresolved", "blocking": "installation and resistance basis for factory holes and steel/flange behavior"},
     {"id": "simpson-hl33-hl35", "status": "rejected", "blocking": "requires thicker receiver than preserved single 2x6"},
-    {"id": "local-through-bolted-plate-concept", "status": "not_authorized", "blocking": "custom steel/detail and owner scope decision required"}
+    {"id": "simpson-ab90", "status": "selected_for_prototype", "blocking": "bolt resistance basis and regional applicability remain unresolved"}
   ],
-  "smallest_decision_needed": "Authorize a specific representative-joint development direction, or provide an applicable source-backed connector detail that fits the preserved stock.",
-  "not_authorized_by_silence": ["custom fabricated steel", "larger or doubled timber members", "retained paired principal members", "permanently wood-screwed structural fallback"],
-  "dependent_tasks_paused": ["LB-03A", "LB-03B", "LB-03C", "LB-05", "LB-06", "LB-07A", "LB-07B", "LB-07C", "LB-07D", "LB-07E", "LB-07F", "LB-08", "LB-09", "LB-10", "LB-11A", "LB-11B", "LB-12", "LB-13", "LB-14A", "LB-14B", "LB-14C", "LB-14D", "LB-14E", "LB-14F", "LB-15", "LB-16A", "LB-16B", "LB-16C", "LB-17"],
+  "smallest_decision_needed": "Proceed with AB90 only as a prototype architecture; mechanics and jurisdictional applicability remain gates before purchase, drilling, or structural acceptance.",
+  "not_authorized_by_silence": ["custom fabricated steel", "larger or doubled timber members", "retained paired principal members", "permanently wood-screwed structural fallback", "AB90 bolt capacity acceptance"],
+  "dependent_tasks_paused": ["LB-14A", "LB-14B", "LB-14C", "LB-14D", "LB-14E", "LB-14F", "LB-15", "LB-16A", "LB-16B", "LB-16C", "LB-17"],
   "baseline_unchanged": true,
   "panel_policy_unchanged": true
 }

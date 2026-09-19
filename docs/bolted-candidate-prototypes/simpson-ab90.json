@@ -1,0 +1,29 @@
+{
+  "task": "LB-02B",
+  "status": "complete",
+  "engineering_disposition": "viable_for_prototype; not mechanically accepted",
+  "product": {
+    "manufacturer": "Simpson Strong-Tie",
+    "model": "AB90",
+    "source_url": "https://www.strongtie.co.uk/en-UK/products/angle-brackets-ab",
+    "regional_source": "Simpson Strong-Tie U.K. official product page",
+    "material": "S250GD + Z275 galvanized steel",
+    "dimensions_mm": {"flange_a": 88, "flange_b": 88, "depth_c": 65, "thickness": 2.5},
+    "published_hole_inventory": {"flange_a": {"diameter_5_mm": 6, "diameter_11_mm": 3}, "flange_b": {"diameter_5_mm": 9, "diameter_11_mm": 2}}
+  },
+  "applicability": {
+    "solid_wood_listed": true,
+    "bolts_listed_as_wood_fixing": true,
+    "preserved_single_2x6_thickness_mm": 38.1,
+    "flange_length_fits_nominal_receiver_depth": true,
+    "bolt_resistance_basis": "unresolved; source capacity table shown for CNA nails, not bolts",
+    "regional_purchase_and_code_acceptance": "unresolved"
+  },
+  "development_constraints": [
+    "Use only the factory hole pattern; do not invent holes or transfer screw capacities to bolts.",
+    "Use one complete M10-class bolt/washer/nut stack only as a geometric prototype until the applicable bolt design basis is established.",
+    "Confirm AB90 is obtainable and acceptable for the installation jurisdiction before any purchase or shop instruction.",
+    "AB90 is not a universal replacement for all 24 stations; skew, access, edge distance, and load direction remain joint-specific."
+  ],
+  "decision": "Use AB90 for bounded representative-joint and layout development. Do not call it a qualified structural connection or publish a purchase/drilling schedule yet."
+}
