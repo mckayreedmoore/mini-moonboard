@@ -13,6 +13,11 @@ def test_candidate_identity_and_scope_are_explicit() -> None:
     assert metadata["selected_as_repository_default"] is False
     assert metadata["panel_policy"] == "retain_existing_66_hillman_screws"
     assert metadata["future_panel_inserts"] == "deferred_not_a_dependency"
+    assert metadata["owner_connector_scope"] == "factory_connectors_only"
+    assert metadata["custom_cut_drilled_steel_allowed"] is False
+    assert metadata["structural_connector_schedule_status"] == (
+        "factory_connector_unselected"
+    )
 
 
 def test_scaffold_preserves_raw_inventory_and_panel_connections() -> None:
