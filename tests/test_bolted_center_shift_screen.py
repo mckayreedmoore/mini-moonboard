@@ -7,6 +7,8 @@ def test_outward_shift_retains_all_twenty_center_panel_axes() -> None:
     result = screen_center_shift((0, 5, 10, 15))
     assert result["status"] == "geometry_screen_only"
     assert result["center_panel_axis_count"] == 20
+    assert result["dependent_center_clip_station_count"] == 12
+    assert result["dependent_lower_rail_inner_edges_mm"] == [-89.05, 89.05]
     assert [item["delta_mm"] for item in result["samples"]] == [0, 5, 10, 15]
     assert all(item["axes_intersecting_shifted_timber"] == 20 for item in result["samples"])
     assert all(item["minimum_intersection_volume_mm3"] > 0 for item in result["samples"])

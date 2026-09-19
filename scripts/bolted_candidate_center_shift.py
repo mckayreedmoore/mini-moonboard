@@ -50,6 +50,13 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
         raise ValueError("frozen center panel-axis schedule changed")
     wood = {part.name: part.shape for part in baseline.uncut_wood_parts()
             if part.name in CENTER_MEMBERS}
+    dependent_stations = [station for station in baseline.stations()
+                          if station[5] in CENTER_MEMBERS]
+    lower_rails = {part.name: part.shape.BoundingBox()
+                   for part in baseline.uncut_wood_parts()
+                   if part.name in {"base_rail_bottom_left", "base_rail_bottom_right"}}
+    rail_inner_edges = [round(lower_rails["base_rail_bottom_left"].xmax, 4),
+                        round(lower_rails["base_rail_bottom_right"].xmin, 4)]
     cylinders = [(row, _occupied_cylinder(row)) for row in rows]
     radii = [float(row["occupied_diameter_mm"]) / 2 for row in rows]
     samples = []
@@ -74,12 +81,15 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
         "panel_axis_source": str(AXES.relative_to(ROOT)),
         "center_panel_axis_count": len(rows),
         "center_members": sorted(CENTER_MEMBERS),
+        "dependent_center_clip_station_count": len(dependent_stations),
+        "dependent_lower_rail_inner_edges_mm": rail_inner_edges,
         "selected_offset_mm": None,
         "samples": samples,
         "limitations": [
             "Nominal occupied cylinders are historical SPAX envelopes, not delivered Hillman screw dimensions.",
             "A positive cylinder/timber overlap does not establish screw engagement or edge-distance capacity.",
             "Connector hole coordinates, installed hardware envelopes, panel seam support, and lower-rail interfaces remain unverified.",
+            "A real shift must recheck twelve center-receiver clip stations and recut the two lower rail inner ends; this screen does neither.",
             "The selected baseline and panel screw axes have not moved.",
         ],
     }
