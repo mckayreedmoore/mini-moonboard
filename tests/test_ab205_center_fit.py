@@ -139,3 +139,32 @@ def test_opposed_center_post_can_nominally_share_header_axes_only():
     assert actual["post_conditional_reversible_4d_edge_reserve_mm"] > 8
     assert actual["shared_fastener_stack_defined"] is False
     assert actual["drilling_released"] is False
+
+
+def test_shared_header_grip_screen_is_dimensional_not_bolt_selection():
+    record = json.loads(
+        Path(
+            "docs/bolted-candidate-prototypes/center-shared-fastener-grip.json"
+        ).read_text()
+    )
+    steel = 0.25
+    wood = 1.5
+    washer_low, washer_high = record[
+        "illustrative_hardened_uss_washer_thickness_range_in"
+    ]
+    nut_low, nut_high = record["illustrative_grade5_hex_nut_height_range_in"]
+    assert record["stack_without_washers_in"] == pytest.approx(2 * steel + wood)
+    assert record["stack_with_two_washers_in"] == pytest.approx(
+        [2 * steel + wood + 2 * washer_low, 2 * steel + wood + 2 * washer_high]
+    )
+    assert record["stack_through_nut_in"] == pytest.approx(
+        [
+            record["stack_with_two_washers_in"][0] + nut_low,
+            record["stack_with_two_washers_in"][1] + nut_high,
+        ]
+    )
+    assert record["stack_with_two_1_2_13_threads_beyond_nut_in"] == pytest.approx(
+        [length + 2 / 13 for length in record["stack_through_nut_in"]], abs=1e-6
+    )
+    assert record["bolt_length_selected"] is False
+    assert record["drilling_released"] is False
