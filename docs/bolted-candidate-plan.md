@@ -128,6 +128,10 @@ potential shared-bolt layout, not two separately counted header bolt pairs.
 Those shared bolts would connect two steel flanges through one wood header,
 with potentially unequal actions from the two stations. The ordinary
 two-member single-shear helper cannot be applied directly to that stack.
+The symmetric NDS double-shear equations also cannot be adopted until the
+principal and post actions on each shared bolt are shown to satisfy their
+assumptions. The ordered-stack method gate is recorded in
+`docs/bolted-candidate-prototypes/center-shared-bolt-method.md`.
 Extending all 66 panel axes to their listed 63.5-mm purchased screw length
 (while retaining the historical modeled diameter) also gives no nominal bore
 intersection. This still does not establish delivered fastener clearance.

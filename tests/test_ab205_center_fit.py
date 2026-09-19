@@ -58,6 +58,9 @@ def test_center_fit_uses_current_cad_and_keeps_release_closed():
         Path("docs/bolted-candidate-prototypes/center-header.json").read_text()
     )
     assert center["ab205_center_fit_trial"]["record"].endswith("ab205-center-fit.json")
+    assert center["ab205_center_fit_trial"]["shared_header_method_gate"][
+        "record"
+    ].endswith("center-shared-bolt-method.md")
     assert center["status"] == "incomplete_representative_prototype"
 
 
