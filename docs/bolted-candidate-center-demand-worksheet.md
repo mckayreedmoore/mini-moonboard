@@ -76,12 +76,21 @@ claimed, state its physical law and sensitivity, not an unexplained rigid tie.
 
 At each of two coincident header axes, a **single** physical bolt receives
 actions from both steel side flanges and the wood middle member. Keep both
-leg actions simultaneous. Equal/opposite side actions would need to be
-demonstrated before using the symmetric double-shear yield equations; adding
-two full-header single-shear ratings double-counts one bolt and one wood
-bearing zone. Unequal side actions require a documented whole-fastener
-analysis. Bolt-axis tension, washer bearing and prying are additional, not
-substitutes for lateral equilibrium.
+leg actions simultaneous. Express forces from both outside steel flanges
+**on the same bolt** in one common direction. Ordinary symmetric double shear
+requires applicable geometry/material symmetry and equal, same-direction
+outside lateral actions, balanced by the middle timber action. For example,
+outside actions `(+100, +100) N` and middle action `-200 N` have that force
+pattern; `(+100, -100) N` outside and `0 N` middle do not. Force balance alone
+does not establish the method's other applicability conditions. Adding two
+full-header single-shear ratings double-counts one bolt and one wood bearing
+zone. Unequal or opposing outside actions need a method applicable to that
+whole-fastener loading. The equal-and-opposite action/reaction on either side
+of one interface remains a separate check. Bolt-axis tension, washer bearing,
+and prying are additional, not substitutes for lateral equilibrium.
+See [AWC TR12 Table 1-1 and Figure 2-2](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
+for the ordinary double-shear force directions and yield-mode idealization;
+this mechanics example does not select the NDS edition for resistance design.
 
 ### Distinct-row hypothesis
 

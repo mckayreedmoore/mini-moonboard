@@ -1,10 +1,12 @@
 """Signed center interface recovery from a synthetic native response."""
 
 import copy
+import hashlib
+import json
 
 import pytest
 
-from scripts.bolted_center_demand_extract import extract
+from scripts.bolted_center_demand_extract import extract, extract_files
 
 
 def fixture():
@@ -141,3 +143,99 @@ def test_header_free_body_reports_unbalanced_external_force():
     assert result['header_free_body']['residual']['available']
     assert not result['header_free_body']['residual']['passed']
     assert result['header_free_body']['residual']['force_xyz_n'] == [0, 0, -1]
+
+
+def file_fixture(tmp_path):
+    tmp_path = tmp_path / 'a12-rear'
+    tmp_path.mkdir()
+    report, record = fixture()
+    report.update(numerically_accepted=True, contact_active_set_converged=True,
+                  global_equilibrium_passed=True, member_equilibrium_passed=True,
+                  mpc_check_passed=True, contact_cycles=[{'directory': 'cycle-01',
+                                                          'contact_passed': True}],
+                  diagnostic_scope={'case': 'a12-rear',
+                                    'source_geometry': 'compact-floor-flush-bolted-development-kerf-right',
+                                    'connector_proxy': 'baseline ML24Z angles and SDS screws',
+                                    'bolted_joint_demands': False, 'acceptance': False},
+                  parameters={'hold': 'A12', 'force_xyz_n': [0, 300, -1]})
+    report['candidate'] = record['candidate'] = 'bolted-kerf-right-diagnostic-proxy'
+    record.update(hold='A12', force_xyz_n=[0, 300, -1], diagnostic_only=True,
+                  provisional_structural_connectors='baseline ML24Z angles and SDS screws',
+                  bolted_joint_demands=False,
+                  kerf_panel_bounds={f'{name}_{side}': {
+                      'actual_x_mm': width, 'mesh_x_mm': width}
+                      for name in ('main_lower', 'main_upper', 'kicker')
+                      for side, width in (('left', [-1219.2, -1.5875]),
+                                          ('right', [-1.5875, 1216.025]))})
+    cycle = tmp_path / 'cycle-01'
+    cycle.mkdir()
+    record_path = cycle / 'input.json'
+    record_path.write_text(json.dumps(record))
+    report['source_sha256'] = {}
+    report['artifact_sha256'] = {'cycle-01/input.json': hashlib.sha256(record_path.read_bytes()).hexdigest()}
+    for name in ('fea/current_response_run.py', 'scripts/bolted_kerf_diagnostic_probe.py',
+                 'scripts/bolted_kerf_native_diagnostic.py'):
+        source = tmp_path / 'source_snapshots' / name
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_bytes(name.encode())
+        source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+        report['source_sha256'][name] = source_hash
+        report['artifact_sha256'][f'source_snapshots/{name}'] = source_hash
+    sidecar = tmp_path / 'diagnostic-scope.json'
+    sidecar.write_text(json.dumps(report['diagnostic_scope']))
+    report['artifact_sha256'][sidecar.name] = hashlib.sha256(sidecar.read_bytes()).hexdigest()
+    report_path = tmp_path / 'report.json'
+    report_path.write_text(json.dumps(report))
+    return report_path, record_path, report, record
+
+
+def test_file_entry_binds_accepted_report_and_record(tmp_path):
+    report_path, record_path, _, _ = file_fixture(tmp_path)
+    result = extract_files(report_path, record_path, 'principal', 'post', 'header')
+    assert result['source']['report_sha256'] == hashlib.sha256(report_path.read_bytes()).hexdigest()
+    assert result['source']['record_sha256'] == hashlib.sha256(record_path.read_bytes()).hexdigest()
+    assert result['source']['case'] == 'a12-rear'
+    assert result['status']['convergence'] == 'passed'
+    assert result['status']['source'] == 'verified'
+    assert result['status']['equilibrium'] == 'unavailable'
+
+
+@pytest.mark.parametrize('change, message', [
+    (lambda r, i: r.update(numerically_accepted=False), 'numerically accepted'),
+    (lambda r, i: r.update(contact_active_set_converged=False), 'convergence'),
+    (lambda r, i: r['diagnostic_scope'].update(case='a1-rear'), 'case'),
+    (lambda r, i: r['artifact_sha256'].update({'cycle-01/input.json': '0' * 64}), 'digest'),
+    (lambda r, i: r['source_sha256'].update({'fea/current_response_run.py': '0' * 64}), 'source'),
+    (lambda r, i: r['source_sha256'].update({'scripts/bolted_kerf_diagnostic_probe.py': '0' * 64}), 'source'),
+    (lambda r, i: r['contact_cycles'].append({'directory': 'cycle-02', 'contact_passed': True}), 'final report cycle'),
+    (lambda r, i: i.pop('kerf_panel_bounds'), 'width'),
+    (lambda r, i: r.pop('diagnostic_scope'), 'scope'),
+    (lambda r, i: r['physical_connection_forces'].pop('base_beam_1'), 'Missing physical connection'),
+])
+def test_file_entry_rejects_unfit_evidence(tmp_path, change, message):
+    report_path, record_path, report, record = file_fixture(tmp_path)
+    change(report, record)
+    report_path.write_text(json.dumps(report))
+    record_path.write_text(json.dumps(record))
+    if 'diagnostic_scope' in report:
+        sidecar = report_path.parent / 'diagnostic-scope.json'
+        sidecar.write_text(json.dumps(report['diagnostic_scope']))
+        report['artifact_sha256'][sidecar.name] = hashlib.sha256(sidecar.read_bytes()).hexdigest()
+        report_path.write_text(json.dumps(report))
+    if 'kerf_panel_bounds' not in record:
+        report['artifact_sha256']['cycle-01/input.json'] = hashlib.sha256(record_path.read_bytes()).hexdigest()
+        report_path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match=message):
+        extract_files(report_path, record_path, 'principal', 'post', 'header')
+
+
+def test_file_entry_rejects_scope_sidecar_mismatch(tmp_path):
+    report_path, record_path, report, _ = file_fixture(tmp_path)
+    sidecar = report_path.parent / 'diagnostic-scope.json'
+    sidecar.write_text('{}')
+    with pytest.raises(ValueError, match='scope sidecar or digest'):
+        extract_files(report_path, record_path, 'principal', 'post', 'header')
+    report['artifact_sha256'][sidecar.name] = hashlib.sha256(sidecar.read_bytes()).hexdigest()
+    report_path.write_text(json.dumps(report))
+    with pytest.raises(ValueError, match='scope sidecar or digest'):
+        extract_files(report_path, record_path, 'principal', 'post', 'header')

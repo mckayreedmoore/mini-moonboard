@@ -5,7 +5,7 @@ and are not candidate AB205/bolted demands or connection acceptance.
 """
 
 import argparse
-import gzip
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -155,10 +155,103 @@ def extract(report, record, principal, post, header='base_header', header_origin
             'interfaces': interfaces, 'header_free_body': header_free_body}
 
 
-def _read_json(path):
-    opener = gzip.open if str(path).endswith('.gz') else open
-    with opener(path, 'rt') as stream:
-        return json.load(stream)
+def extract_files(report_path, record_path, principal, post, header='base_header',
+                  header_origin_xyz_mm=None):
+    """Extract only from an accepted report and its manifested final-cycle input."""
+    report_path, record_path = Path(report_path), Path(record_path)
+    report_bytes, record_bytes = report_path.read_bytes(), record_path.read_bytes()
+    report, record = json.loads(report_bytes), json.loads(record_bytes)
+    if report_path.name != 'report.json':
+        raise ValueError('Expected final report.json artifact')
+    cycles = report.get('contact_cycles')
+    if not cycles or cycles[-1].get('directory') != record_path.parent.name or record_path.name != 'input.json':
+        raise ValueError('Input record is not the final report cycle')
+    try:
+        relative = record_path.resolve().relative_to(report_path.parent.resolve()).as_posix()
+    except ValueError as error:
+        raise ValueError('Input record is outside report artifact') from error
+    record_hash = hashlib.sha256(record_bytes).hexdigest()
+    if (relative != f"{cycles[-1]['directory']}/input.json"
+            or report.get('artifact_sha256', {}).get(relative) != record_hash):
+        raise ValueError('Input record digest does not match report artifact manifest')
+    sources = ('fea/current_response_run.py', 'scripts/bolted_kerf_diagnostic_probe.py',
+               'scripts/bolted_kerf_native_diagnostic.py')
+    for source in sources:
+        source_path = report_path.parent / 'source_snapshots' / source
+        source_hash = report.get('source_sha256', {}).get(source)
+        if source != sources[0] and not source_path.exists() and source_hash is None:
+            continue
+        if (not source_hash or report.get('artifact_sha256', {}).get(f'source_snapshots/{source}') != source_hash
+                or not source_path.is_file()
+                or hashlib.sha256(source_path.read_bytes()).hexdigest() != source_hash):
+            raise ValueError(f'Native producer source identity mismatch: {source}')
+    if report.get('numerically_accepted') is not True:
+        raise ValueError('Report is not numerically accepted')
+    if report.get('contact_active_set_converged') is not True or cycles[-1].get('contact_passed') is not True:
+        raise ValueError('Native convergence failed')
+    if any(report.get(key) is not True for key in
+           ('global_equilibrium_passed', 'member_equilibrium_passed', 'mpc_check_passed')):
+        raise ValueError('Native equilibrium failed')
+    scope = report.get('diagnostic_scope')
+    scope_path = report_path.parent / 'diagnostic-scope.json'
+    if (not scope_path.is_file()
+            or report.get('artifact_sha256', {}).get(scope_path.name)
+            != hashlib.sha256(scope_path.read_bytes()).hexdigest()
+            or json.loads(scope_path.read_bytes()) != scope):
+        raise ValueError('Diagnostic scope sidecar or digest mismatch')
+    if (not isinstance(scope, dict)
+            or scope.get('source_geometry') != 'compact-floor-flush-bolted-development-kerf-right'
+            or scope.get('numerically_converged', True) is not True
+            or scope.get('bolted_joint_demands') is not False
+            or scope.get('acceptance') is not False):
+        raise ValueError('Missing or mismatched diagnostic scope')
+    proxy = 'baseline ML24Z angles and SDS screws'
+    if (report.get('candidate') != 'bolted-kerf-right-diagnostic-proxy'
+            or record.get('candidate') != report['candidate']
+            or scope.get('connector_proxy') != proxy
+            or record.get('provisional_structural_connectors') != proxy
+            or record.get('diagnostic_only') is not True
+            or record.get('bolted_joint_demands') is not False):
+        raise ValueError('Candidate or connector proxy mismatch')
+    cases = {'a12-rear': ('A12', 0, 300), 'a12-forward': ('A12', 0, -300),
+             'a12-left': ('A12', -300, 0), 'k12-right': ('K12', 300, 0),
+             'k12-rear': ('K12', 0, 300), 'a1-rear': ('A1', 0, 300)}
+    case = scope.get('case')
+    expected = cases.get(case)
+    params = report.get('parameters', {})
+    force = record.get('force_xyz_n')
+    if (not expected or report_path.parent.name != case or record.get('hold') != expected[0]
+            or params.get('hold') != expected[0] or force != params.get('force_xyz_n')
+            or not isinstance(force, list) or len(force) != 3
+            or force[:2] != list(expected[1:])):
+        raise ValueError('Load case mismatch')
+    bounds = record.get('kerf_panel_bounds', {})
+    for name in ('main_lower', 'main_upper', 'kicker'):
+        for side, expected_width in (('left', [-1219.2, -1.5875]),
+                                     ('right', [-1.5875, 1216.025])):
+            row = bounds.get(f'{name}_{side}', {})
+            for key in ('actual_x_mm', 'mesh_x_mm'):
+                width = row.get(key)
+                if (not isinstance(width, list) or len(width) != 2
+                        or any(not math.isclose(a, b, abs_tol=1e-4)
+                               for a, b in zip(width, expected_width))):
+                    raise ValueError('Missing or mismatched kerf-right width metadata')
+    result = extract(report, record, principal, post, header, header_origin_xyz_mm)
+    interface_passed = all(row['residual']['passed'] for row in result['interfaces'].values())
+    header_residual = result['header_free_body']['residual']
+    equilibrium = ('passed' if header_residual['passed'] is True and interface_passed else
+                   'unavailable' if header_residual['available'] is False and interface_passed else
+                   'failed')
+    if equilibrium == 'failed':
+        raise ValueError('Extracted interface or header equilibrium failed')
+    result['source'] = {'report_sha256': hashlib.sha256(report_bytes).hexdigest(),
+                        'record_sha256': record_hash, 'case': case,
+                        'record_artifact': relative,
+                        'producer_sha256': {source: report['source_sha256'][source]
+                                            for source in sources if source in report['source_sha256']}}
+    result['status'] = {'source': 'verified', 'convergence': 'passed',
+                        'equilibrium': equilibrium}
+    return result
 
 
 if __name__ == '__main__':
@@ -170,5 +263,5 @@ if __name__ == '__main__':
     parser.add_argument('--header', default='base_header')
     parser.add_argument('--header-origin', nargs=3, type=float, metavar=('X', 'Y', 'Z'))
     args = parser.parse_args()
-    print(json.dumps(extract(_read_json(args.report), _read_json(args.record),
-                             args.principal, args.post, args.header, args.header_origin), indent=2))
+    print(json.dumps(extract_files(args.report, args.record, args.principal, args.post,
+                                   args.header, args.header_origin), indent=2))
