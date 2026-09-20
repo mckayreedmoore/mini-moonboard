@@ -62,9 +62,9 @@ the existing `mitek-b66-retail.json` record provide a manufacturer/retailer
 model cross-reference, but the inspected B88 drawing does not dimension all
 hole centers. The previously checked Lowe's B66 listing was no longer sold.
 
-## Smallest-change concept to investigate under the approved scope
+## First center concepts and their limits
 
-Start with HL35 on solid 4×6 actual 3.5 × 5.5 in receiving stock for
+The initial screen used HL35 on solid 4×6 actual 3.5 × 5.5 in receiving stock for
 *both sides* of the center principal/header and center post/header duties:
 the center principal, header, and center post all require a thick receiving
 member under the catalog detail. Keep the current
@@ -73,7 +73,7 @@ depth behind them; do not assume the substituted solids fit adjacent members.
 HL35 has a narrower face width but a longer leg than an HL53-on-4×8 route,
 while offering four
 specified bolts and a directly cataloged wood-joint load basis. An opposing
-HL35 pair is a *conditional concept* for reversible F1, not a verified joint.
+HL35 pair was a *conditional concept* for reversible F1, not a verified joint.
 The obvious full-length 4×6 header substitution is **not** a direct drop-in:
 raw CAD puts its present top/bottom at Z = 277/238.9 mm. Holding the top
 fixed and increasing thickness from 38.1 to 88.9 mm puts the bottom at
@@ -85,9 +85,9 @@ a bore or screw-body check. The coordinates come from
 `uncut_wood_parts()` and the kerf-right `connection-axes.csv`.
 Do not convert a projected Y/Z overlap into a screw/bolt clash: in one
 principal-side/header-top HL35 trial, the bend is at X = −89.05 mm and its
-header flange extends outward. Its 2-in transverse factory-hole offset
-then puts header bolt axes at X = −139.85 mm, while the protected kicker
-screw is at X = −70 mm. The 69.85-mm X separation rules out an axis
+header flange extends outward. Assuming the 2-in transverse hole offset
+also applies to that flange puts nominal header bolt axes at X = −139.85 mm;
+the protected kicker screw is at X = −70 mm. The 69.85-mm X separation rules out an axis
 intersection in that particular pose. It does not cure the post/header
 solid overlap or establish flange, washer, or tool clearance.
 In X, the original left center pieces span −89.05 to −50.95 mm and their
@@ -112,9 +112,22 @@ find a different rated flange orientation; merely swapping timber labels
 does not preserve the existing kicker fastening.
 The center assembly needs its own upper/lower flange orientation, actual
 factory-hole layout, bolt stacks, oblique-end/edge distances, support for
-the kerf-right kicker edges, and disassembly access. If those fail, compare
-one B88-on-solid-thick-member concept; do not default back to BR904 simply
-because its earlier prototype is further along.
+the kerf-right kicker edges, and disassembly access. If a viable HL route
+does not emerge, compare one B88-on-solid-thick-member concept; do not
+default back to BR904 simply because its earlier prototype is further along.
+
+Three specific installed poses have now been **rejected**, not the whole HL
+family: [paired X-face HL35 on solid centers](hardware_first_center_hl35.md)
+has inner-plate and opposite-timber collisions, overlapping independent
+header bores, a kicker screw/bore clash, and incomplete seam backing;
+[paired X-face HL53 on wider solids](hardware_first_center_hl53.md) separates
+nominal bores but cannot fit inner plates between two posts that each back
+their kicker inner edge; and a
+[centered common-post Y-face HL35 pose](hardware_first_center_yface.md)
+backs both edges but puts its front angle inside the fixed kicker panels.
+These CAD screens use idealized factory dimensions and do not establish
+resistance. A rearward structural post with a separately connected permanent
+kicker backer is a *different* trial, not a cure assumed by these screens.
 
 This screen changes no raw geometry. It does not establish that a 4×6 can
 replace both 2×6 pieces without moving other support, that the old twelve
