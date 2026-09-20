@@ -40,9 +40,17 @@ classified attachments per width, 24 station duties, twelve retained frame
 bolts, and draft separation references are in the panel and interface
 contracts. These are baseline records, not candidate bolt geometry.
 
-G1 remains open. The bounded no-contact route starts with Home Depot-listed
-BR904's named material grade and factory-fit assessment; it does not require
-a manufacturer inquiry. No manufacturer has been contacted or part measured.
+G1 remains open. Under the earlier fixed-geometry scope, the bounded
+no-contact route started with Home Depot-listed BR904's named material grade
+and factory-fit assessment. No manufacturer has been contacted or part measured.
+A [conditional hardware-first screen](bolted-candidate-prototypes/hardware-first-conditional-screen.md)
+now identifies catalog-rated Simpson HL angles and a MiTek comparison for
+thicker solid receivers. That is a different, potentially better-documented
+route, but the later Astra scope update conflicts with the owner's earlier
+center-support-only limit. Until the owner confirms which frame-change scope
+governs, this screen is concept research, not a G1 selection or a change to
+the 1.5-in candidate members. BR904 remains fixed-geometry research, not a
+prerequisite for every possible factory connector.
 A66 remains an unqualified retail lead, while the fixed
 flush-bend AB205 center pose has been set aside under the explicitly
 conservative oblique-end grain-ray search filter and the competing narrow
