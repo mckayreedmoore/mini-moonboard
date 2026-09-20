@@ -33,6 +33,15 @@ contact bands each retain the full 90.4748 mm one-piece section, above the
 comparator*. No installed HL33 pose or mating header seat is selected by
 this band check.
 
+Placing an HL33 vertical leg directly on either new X-normal rail end face
+would point its specified through-bolt along the rail's X length. The
+one-piece rail spans about 1007–1010 mm in X, far beyond the 8–12 in
+ordinary hex-bolt length examples in the current stack screen. A nut on
+the far end would also be remote from the center joint. This rejects that
+*simple end-face through-bolt pose* as the connection detail; it does not
+reject a different factory bracket position on an accessible transverse
+rail face. End-grain dowel behavior would require its own classification.
+
 Measured positive-volume collisions with other wood, fixed panels, the
 modeled upper seats and header bores, and the twelve existing frame-axis
 envelopes are zero. The original bottom-rail wood is fully contained, all
