@@ -415,3 +415,25 @@ screens, not conditions that every new factory fitting must satisfy.
 The owner further clarified, “just brackets, no lap joints.” Therefore a
 direct wood-to-wood bolted lap is not an authorized substitute for a
 prefabricated bracket, even though ordinary factory bolts may attach one.
+
+## Bolted candidate simple-timber-joint scope, September 20, 2026
+
+The owner later supplied and endorsed the V4 simple-joints direction, and
+asked to adjust the active goal. For the separate bolted candidate only,
+this supersedes the immediately preceding "just brackets, no lap joints"
+restriction. Plain face-to-face overlaps of full-section timber and
+rectangular solid-timber corner cleats with through bolts, metal nuts and
+washers are now permitted development concepts. Factory brackets are
+optional. Half-lap cuts, housed or similarly elaborate joinery, custom
+steel, manufacturer inquiries and structural wood-thread move interfaces
+remain excluded. This is not approval of a particular overlap, cleat size,
+bolt group, purchase or drilling operation.
+
+The physical width is kerf-right; preserve the climbing surface, panel
+outlines and all 66 panel/kicker screw axes and their screw policy. Hidden
+frame members may change only with verified receiver support and load
+path. The selected `compact-floor-flush-development` baseline and its
+authentic evidence remain untouched. The earlier rated-HL and other
+factory-bracket screens remain historical research, not V4 prerequisites
+or accepted structural capacities. The active sequence is PB-00 through
+PB-06 in `docs/bolted-candidate-simple-joints-v4.md`.

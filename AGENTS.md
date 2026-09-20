@@ -77,20 +77,25 @@ ML24Z stations only after its own geometry, mechanics, and evidence gates
 pass. Preserve `compact-floor-flush-development`, its evidence, its twelve
 existing frame-bolt arrangements as the starting layout, and its 66
 panel/kicker screw axes. On 2026-09-20 the owner approved changes to hidden
-frame members as needed for a factory-connector design in this separate lane;
+frame members in this separate lane;
 the earlier center-support-only limit no longer governs it. Preserve the
 climbing surface, panel outlines, and panel/kicker screw layout, and verify
 kerf-right kicker edge support. Changed frame bolts must be rechecked, not
 silently assumed preserved. Panel through-bolts, inserts, new panel fasteners,
-and custom steel remain outside this lane. On 2026-09-20 the owner clarified
-that the connection must use prefabricated brackets, not direct wood lap joints;
-ordinary bolts may fasten the brackets but are not a bracket-free substitute.
+and custom steel remain outside this lane. The owner's earlier
+"just brackets, no lap joints" instruction is historical for this candidate:
+the later V4 scope allows plain full-section, face-to-face timber overlaps
+and bolted solid-timber corner cleats. Factory brackets are optional.
+Half-laps, housed/interlocking joinery, and routine structural wood-thread
+removal remain excluded. Use through bolts with metal nuts and washers;
+preserve individual-member transport and check complete joints and costs.
 This scope approval does not select a connector or authorize cutting or
 drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.
 For this separate lane, the
-[rated-hardware focus](docs/bolted-candidate-rated-hardware-focus.md) is the
-active G1 design sequence; the selected-candidate stock/geometry constraints
-above remain binding only for selected-baseline changes. The bolted candidate
-must keep the fixed panel/screw policy and prove any new receiver/backer
-connections rather than inheriting the old member identities or case passes.
+[simple-joints V4 plan](docs/bolted-candidate-simple-joints-v4.md) is the
+active G1 design sequence; the rated-hardware focus is retained as history.
+The selected-candidate stock/geometry constraints above remain binding only
+for selected-baseline changes. The bolted candidate must keep the fixed
+panel/screw policy and prove any new receiver/backer connections rather
+than inheriting the old member identities or case passes.

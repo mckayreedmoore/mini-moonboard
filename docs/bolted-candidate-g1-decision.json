@@ -1,19 +1,19 @@
 {
   "task": "LB-04",
   "gate": "G1",
-  "status": "rated_hardware_focus_recorded; G1_architecture_gate_open",
+  "status": "simple_bolted_timber_v4_scope_recorded; G1_architecture_gate_open",
   "candidate": "compact-floor-flush-bolted-development",
-  "record_scope": "The older fixed-1.5-in-member screening fields below remain historical evidence. The owner has since authorized hidden-frame changes and factory brackets only; no architecture is selected.",
-  "active_prototype_priority": "Rated Simpson HL33 common-core center with bracket-connected fixed front backing; one coarse spaced-HL53 comparator; no connector architecture selected",
-  "active_scope_reference": "docs/bolted-candidate-rated-hardware-focus.md",
+  "record_scope": "The older fixed-member and rated-HL screening fields below remain historical evidence. The owner now permits plain full-section overlaps and bolted solid-timber cleats in this separate candidate, with half-laps excluded; no architecture is selected.",
+  "active_prototype_priority": "PB-01: compare full-section through-bolted overlap and solid rectangular timber cleat at one actual kerf-right rail duty; then PB-02 connected center/base assembly. Metal brackets are optional, not mandatory.",
+  "active_scope_reference": "docs/bolted-candidate-simple-joints-v4.md",
   "trial_status": "The fixed flush-bend AB205 shared-header center pose is set aside from the next qualification target under an explicit conservative grain-ray search filter: short vertical misses the 3.5D ray proxy by 13.413 mm of factory near-hole vertical offset; long vertical has only a 0.148-mm conditional two-edge row band. This is not a formal NDS oblique-end verdict or a blanket AB205 product rejection. The underside Y-stagger and post-only outward-shift trials remain unselected; the earlier both-member shift is historical.",
   "screened_architectures": [
     {"id": "existing-ml24z-through-bolt", "status": "unresolved", "blocking": "installation and resistance basis for factory holes and steel/flange behavior"},
-    {"id": "simpson-hl33-hl35", "status": "historical_fixed_member_pose_only; rated_HL_family_active_under_hidden_frame_redesign", "blocking": "The old single-2x6 receiver misses the HL 3.5-in minimum; owner-authorized changed solid members may meet it, subject to complete installation and load-path checks"},
+    {"id": "simpson-hl33-hl35", "status": "historical_fixed_member_and_rated_hl_screen; superseded_by_v4", "blocking": "The old single-2x6 receiver misses the HL 3.5-in minimum; owner-authorized changed solid members may meet it, subject to complete installation and load-path checks. HL is not an active V4 prerequisite"},
     {"id": "simpson-ab90", "status": "superseded_for_procurement_priority", "blocking": "bolt resistance basis and regional applicability remain unresolved"},
-    {"id": "simpson-a66", "status": "common_retail_prototype_priority", "blocking": "bolt installation is documented, and hypothetical 3/8-inch hole offsets can occupy sound raw wood at center/outer joints, but no controlled factory hole-center layout was verified. The accessible manufacturer table publishes no A66 bolt-mode capacity; oblique-end interpretation, installed stacks, steel/formed-angle resistance, and representative joint actions remain required"},
+    {"id": "simpson-a66", "status": "historical_common_retail_prototype; superseded_by_v4", "blocking": "bolt installation is documented, and hypothetical 3/8-inch hole offsets can occupy sound raw wood at center/outer joints, but no controlled factory hole-center layout was verified. The accessible manufacturer table publishes no A66 bolt-mode capacity; oblique-end interpretation, installed stacks, steel/formed-angle resistance, and representative joint actions remain required"},
     {"id": "abb-superstrut-ab205", "status": "fixed_flush_bend_center_pose_set_aside; other_poses_unqualified", "blocking": "Home Depot ZAB205EG-10 has nominal factory-hole geometry, but ABB's 2,000-lb value is for strut channel. At the center, short-vertical AB205 has a 26.940-mm oblique-end grain ray, 17.510 mm below the conservative 3.5D ray-only search threshold; long-vertical leaves a 0.148-mm conditional two-edge row window. Neither is a formal NDS oblique-end verdict. No guaranteed steel strength, complete wood-joint capacity, installed bolt/nut/tool stack, or 24-station load path is established. Other station and pose screens remain conditional"},
-    {"id": "newhouse-br904", "status": "no_contact_named_grade_route_under_assessment", "blocking": "Home Depot BR904 manufacturer names Q235 steel and nominal hole diameter/pitch. GB/T 700-2006 supplies conditional thin-Q235 base-metal minima, but standard applicability to this SKU, minimum finished thickness, complete received geometry, formed-angle checks, and wood-joint resistance are not established; do not transfer AB205 geometry"},
+    {"id": "newhouse-br904", "status": "historical_no_contact_named_grade_route; superseded_by_v4", "blocking": "Home Depot BR904 manufacturer names Q235 steel and nominal hole diameter/pitch. GB/T 700-2006 supplies conditional thin-Q235 base-metal minima, but standard applicability to this SKU, minimum finished thickness, complete received geometry, formed-angle checks, and wood-joint resistance are not established; do not transfer AB205 geometry"},
     {"id": "simpson-hdb", "status": "targeted_follow_up_partial_tension_path", "blocking": "HD3B/HD5B are rated for holdown tension with through-bolts on a single 2x member, but no seat anchorage or complete shear/moment/separation joint is established for the frame"},
     {"id": "simpson-hl43", "status": "targeted_retail_follow_up_rejected", "blocking": "Published bolted detail requires 5-1/8 in timber thickness; all 24 preserved stations include a thinner 2x6 member"},
     {"id": "mitek-b66-ub88", "status": "targeted_retail_follow_up_rejected", "blocking": "MiTek's published bolted B66 and B88 details require 3 in timber thickness, while all 24 preserved stations include a 1.5 in 2x6 member. Home Depot lists UB88/B88 but its published loads do not transfer; Lowe's says B66 is no longer sold there"},
@@ -21,7 +21,7 @@
     {"id": "mitek-bl4-ubl4", "status": "additional_retail_follow_up_rejected", "blocking": "Published MiTek BL4 F1/F2 values specify ten 10d nails, not an all-bolted structural move interface"},
     {"id": "simpson-66t", "status": "coplanar_factory_bolted_retail_lead_unqualified", "blocking": "Flat T strap cannot replace an angle at non-coplanar joints; no US-controlled hole-center detail or complete combined-action rating verified, and UK product data cannot silently transfer to the US retail item"}
   ],
-  "smallest_decision_needed": "Complete one connected rated-HL center assembly and one representative rail joint, including bracket-connected panel backing, changed neighboring rail ends, actual action directions, duration applicability, installed stacks/access, and finite wood receiving geometry. Compare at most the common-core HL33 and spaced-rib HL53 concepts before selecting an architecture. BR904/AB205 work is historical, not a G1 prerequisite. Preserve Lowe's/Home Depot procurement, fixed panels and 66 screw axes, factory brackets only, and no-drilling status.",
+  "smallest_decision_needed": "PB-01 compares one actual rail duty as a plain full-section overlap and a rectangular through-bolted timber cleat, including complete bores, nut/washer/tool access, protected panel receivers, preliminary action path and purchased cost. PB-02 then completes one connected center/base assembly and maps the other structural duties. Prior HL/BR904/AB205 screens are history, not prerequisites. Preserve fixed panels and 66 screw axes, no half-laps or custom steel, and no-drilling status.",
   "representative_exact_blockers": "docs/bolted-candidate-representative-blockers.json",
   "direct_butt_geometry_screen": "docs/bolted-candidate-direct-butt-screen.json",
   "owner_post_only_center_shift_screen": {
@@ -43,8 +43,8 @@
   "additional_retail_follow_up": "docs/bolted-candidate-prototypes/retail-additional-follow-up.json",
   "ordinary_stock_scope_contingency": {
     "record": "docs/bolted-candidate-prototypes/ordinary-retail-steel-stock-contingency.json",
-    "status": "excluded_by_owner_factory_connector_only_decision",
-    "reason": "Owner explicitly chose factory connectors only. Ordinary Lowe's-listed ASTM A36 angle stock would require cutting and drilling and cannot be a candidate connector under that scope."
+    "status": "excluded_custom_steel_under_v4",
+    "reason": "V4 permits plain timber overlaps and bolted timber cleats but still excludes cutting and drilling ordinary steel stock into a custom connector. The earlier factory-only reason is historical."
   },
   "bounded_factory_material_follow_up": {
     "status": "no_verified_match_in_checked_exact_models; not_catalog_exhaustion",
@@ -56,7 +56,11 @@
   },
   "owner_connector_scope": {
     "record": "docs/bolted-candidate-owner-inputs.json",
-    "decision": "factory_connectors_only",
+    "decision": "simple_bolted_timber_joints_v4",
+    "prefabricated_brackets_required": false,
+    "full_section_face_overlaps_allowed": true,
+    "solid_timber_corner_cleats_allowed_for_development": true,
+    "half_lap_or_housed_joinery_allowed": false,
     "custom_cut_and_drilled_steel_allowed": false
   },
   "a66_manufacturer_information_gate": {
@@ -79,13 +83,15 @@
     "no_purchase_or_drilling_authorized": true
   },
   "g1_resume_decision": {
-    "status": "rated_hardware_connected_assembly_development; G1_not_passed",
-    "route": "published_bolted_timber_HL_installation_plus_checked_unlisted_actions",
-    "lead": "HL33_common_core_with_bracketed_front_backing; HL53_spaced_ribs_comparator",
-    "condition": "Select only after a connected center assembly and representative rail joint have viable installed geometry, receiver support, access, and a supported resistance route for every required action. Keep catalog F1/uplift directions, duration, paired-use and min-wood conditions; no old proxy or nominal fit is a joint verdict. No selected architecture or drilling coordinates follow from present evidence.",
+    "status": "simple_timber_joint_comparison; G1_not_passed",
+    "route": "full_section_overlap_or_bolted_solid_timber_cleat_with_complete_joint_checks",
+    "lead": "PB-01_rail_overlap_vs_cleat_then_PB-02_connected_center_base",
+    "condition": "Select only after a representative rail and connected center/base assembly have complete geometry, receiver support, bolt/nut/washer access, preliminary source-bound joint mechanics and purchased-cost comparison. No old proxy, bracket rating or nominal fit is a joint verdict. No selected architecture or drilling coordinates follow from present evidence.",
     "retailer_scope_unchanged": true,
     "current_contact_authorization": false,
-    "factory_connectors_only_preserved": true,
+    "factory_connectors_only_preserved": false,
+    "plain_full_section_overlaps_and_solid_cleats_permitted": true,
+    "half_laps_excluded": true,
     "panel_and_baseline_policy_preserved": true,
     "drilling_released": false
   },

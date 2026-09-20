@@ -4,12 +4,23 @@ This document establishes the separate `compact-floor-flush-bolted-development`
 lane from the v2 Luna handoff. It does not promote the candidate, qualify a
 connector, or authorize fabrication.
 
-## Active hardware-first amendment, 2026-09-20
+## Active V4 simple-joints amendment, 2026-09-20
+
+The owner-supplied V4 direction supersedes the bracket-only rule in this
+candidate lane. Plain full-section timber overlaps and bolted rectangular
+solid-wood corner cleats are permitted; metal brackets are optional.
+Half-laps and similarly elaborate housed/interlocking joinery remain excluded.
+The [simple-joints V4 plan](bolted-candidate-simple-joints-v4.md) and PB-00
+through PB-06 task cards now govern development. Start with one representative
+rail joint, then a connected center/base assembly. Keep all substantive
+geometry, mechanics, six-case, shop and independent-review gates below.
+
+## Historical hardware-first amendment, 2026-09-20
 
 The owner subsequently authorized hidden-frame redesign while preserving
 the climbing surfaces and all 66 panel/kicker screw axes, and required
 factory brackets with no direct wood lap joints. The
-[rated-hardware focus](bolted-candidate-rated-hardware-focus.md) is the active
+[rated-hardware focus](bolted-candidate-rated-hardware-focus.md) was the prior
 G1 sequence: compare one connected common-core HL33 assembly with one
 coarse spaced-rib HL53 assembly, including bracket-connected front backing,
 changed neighboring rail ends, and one representative rail joint. HL35
@@ -28,15 +39,18 @@ substantive v2 safety, six-case, shop, and independent-review gates remain.
   panel inserts, panel through-bolts, and new panel hardware are excluded.
 - Target zero routine structural wood-thread removals per move. This is not a
   whole-board zero and does not remove the 66 panel screw operations.
-- Use prefabricated factory brackets at converted joints. Store-bought bolts
-  may fasten those brackets, but a direct wood-to-wood lap joint is excluded
-  by the owner's 2026-09-20 clarification.
+- Prefer plain full-section through-bolted face overlaps where they make a
+  simple complete joint; investigate bolted solid-timber corner cleats where
+  they preserve support planes. Factory brackets are optional. Half-laps,
+  housed joinery and custom steel remain excluded.
 - Preserve the selected baseline and its historical evidence. No new candidate
   result may overwrite or authenticate an old result.
 
 ## Gates and sequence
 
-`LB-00 -> LB-01 -> (LB-02A, LB-02B) -> (LB-03A, LB-03B, LB-03C) -> LB-04`
+Active development: `PB-00 -> PB-01 -> PB-02 -> PB-03 -> PB-04 -> PB-05 -> PB-06`.
+The prior LB/HF graph is historical; its substantive checks map into the
+PB tasks and are not waived.
 
 After architecture selection: shared connection model, candidate geometry,
 six layout families, integration, width adapter, mechanics, resistance checks,
@@ -236,7 +250,8 @@ are 1/16 in narrower too. Physical receiving inspection and measurements
 remain shop gates. Preliminary work may use a fresh-stock model without
 treating the owner's report as a measured inspection. The eventual candidate
 mechanical evidence must cover kerf-right; official-width cases do not transfer. Custom
-steel is now explicitly excluded: the owner chose factory connectors only.
+steel remains explicitly excluded. The earlier factory-connectors-only rule
+has been superseded by V4's simple timber-joint permission.
 Hidden frame-member changes are now allowed in this separate candidate, but
 permanently wood-screwed detachable connectors, changed panel/kicker screw
 locations, custom steel, and a fabrication release are not. Every added timber

@@ -1,6 +1,9 @@
-# Bolted MVP: active rated-hardware development focus
+# Bolted MVP: historical rated-hardware development focus
 
-Status: **G1 open; concept development only.** This amends the sequence for
+Status: **superseded by the [V4 simple-joints plan](bolted-candidate-simple-joints-v4.md); retained as historical research.**
+No HL, B66, BR904 or other bracket is selected or rated for the new candidate.
+
+Historical status: **G1 open; concept development only.** This amended the sequence for
 the owner-authorized hidden-frame redesign. It does not alter the selected
 baseline, release fabrication, or adopt a connector capacity for the board.
 

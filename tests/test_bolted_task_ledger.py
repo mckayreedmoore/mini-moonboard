@@ -25,11 +25,10 @@ def test_g1_and_native_gates_remain_open_with_incomplete_physical_evidence() -> 
     assert by_id["LB-12"]["status"] == "incomplete"
     assert by_id["LB-13"]["status"] == "blocked"
     assert by_id["LB-17"]["status"] == "planned"
-    assert by_id["LB-04"]["depends_on"] == ["HF-03"]
-    assert by_id["HF-00"]["status"] == "complete"
-    assert by_id["HF-02A"]["status"] == "in_progress"
-    assert by_id["HF-02B"]["status"] == "in_progress"
-    assert by_id["HF-03"]["status"] == "planned"
+    assert by_id["LB-04"]["depends_on"] == ["PB-02"]
+    assert by_id["PB-00"]["status"] == "complete"
+    assert by_id["PB-01"]["status"] in {"planned", "in_progress"}
+    assert by_id["PB-02"]["status"] == "planned"
     assert by_id["LB-03A"]["status"] == "superseded_for_new_architecture"
     assert by_id["LB-03B"]["status"] == "superseded_for_new_architecture"
     assert by_id["LB-03C"]["status"] == "superseded_for_new_architecture"
@@ -45,7 +44,8 @@ def test_audit_lists_all_current_structural_stations() -> None:
 def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
     decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
     request = decision["a66_manufacturer_information_gate"]
-    assert decision["status"].endswith("G1_architecture_gate_open")
+    assert decision["gate"] == "G1"
+    assert decision["g1_resume_decision"]["drilling_released"] is False
     assert request["external_contact_authorized"] is False
     assert request["minimum_wood_thickness_in_question"] == 1.5
     assert request["dimensioned_bolt_hole_centers_required"] is True
@@ -56,22 +56,21 @@ def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
     )
 
 
-def test_rated_hl_route_is_active_without_releasing_g1() -> None:
+def test_v4_timbers_are_active_without_releasing_g1() -> None:
     owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
     decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
     ledger = json.loads((ROOT / "docs/bolted-candidate-task-ledger.json").read_text())
     by_id = {task["id"]: task for task in ledger["tasks"]}
     assert owner["manufacturer_contact"]["authorized"] is False
-    assert decision["g1_resume_decision"]["route"] == (
+    assert (
+        decision["active_scope_reference"]
+        == "docs/bolted-candidate-simple-joints-v4.md"
+    )
+    assert "PB-01" in ledger["active_focus"]
+    assert "PB-02" in ledger["active_focus"]
+    assert decision["g1_resume_decision"]["route"] != (
         "published_bolted_timber_HL_installation_plus_checked_unlisted_actions"
     )
-    assert "HL33_common_core" in decision["g1_resume_decision"]["lead"]
-    assert decision["active_scope_reference"] == (
-        "docs/bolted-candidate-rated-hardware-focus.md"
-    )
-    assert "HL33" in ledger["active_focus"]
-    assert "HL53" in ledger["active_focus"]
-    assert decision["g1_resume_decision"]["retailer_scope_unchanged"] is True
     assert by_id["LB-04"]["status"] == "incomplete"
     assert by_id["LB-13"]["status"] == "blocked"
     assert decision["g1_resume_decision"]["drilling_released"] is False
@@ -103,23 +102,62 @@ def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
     assert contingency["fabrication_release"] is False
 
 
-def test_owner_factory_connector_scope_excludes_custom_stock() -> None:
+def test_owner_v4_scope_excludes_custom_steel_and_half_laps() -> None:
     owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
     decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
-    assert owner["connector_scope"]["owner_decision"] == "factory_connectors_only"
-    assert (
-        owner["connector_scope"]["ordinary_cut_and_drilled_a36_stock_allowed"] is False
-    )
-    assert owner["connector_scope"]["custom_fabricated_steel_allowed"] is False
-    assert decision["owner_connector_scope"]["decision"] == "factory_connectors_only"
+    scope = owner["connector_scope"]
+    assert scope["prefabricated_brackets_required"] is False
+    assert scope["full_section_face_overlaps_allowed"] is True
+    assert scope["solid_timber_corner_cleats_allowed_for_development"] is True
+    assert scope["half_lap_or_housed_joinery_allowed"] is False
+    assert scope["ordinary_cut_and_drilled_a36_stock_allowed"] is False
+    assert scope["custom_fabricated_steel_allowed"] is False
+    assert scope["routine_structural_wood_thread_removal_allowed"] is False
+    assert owner["manufacturer_contact"]["authorized"] is False
+    assert owner["fabrication_release"] is False
     assert (
         decision["owner_connector_scope"]["custom_cut_and_drilled_steel_allowed"]
         is False
     )
-    assert decision["ordinary_stock_scope_contingency"]["status"] == (
-        "excluded_by_owner_factory_connector_only_decision"
-    )
     assert "custom fabricated steel" in decision["explicitly_excluded_by_owner"]
+
+
+def test_v4_ledger_dependencies_supersede_hardware_first_critical_path() -> None:
+    ledger = json.loads((ROOT / "docs/bolted-candidate-task-ledger.json").read_text())
+    by_id = {task["id"]: task for task in ledger["tasks"]}
+    for stage in range(1, 7):
+        assert by_id[f"PB-{stage:02d}"]["depends_on"] == [f"PB-{stage - 1:02d}"]
+    assert by_id["LB-04"]["depends_on"] == ["PB-02"]
+    assert by_id["LB-13"]["status"] == "blocked"
+    assert all(
+        by_id[stage]["status"].startswith("superseded")
+        for stage in (
+            "HF-00",
+            "HF-01",
+            "HF-02A",
+            "HF-02B",
+            "HF-03",
+            "HF-04",
+            "HF-05",
+            "HF-06",
+            "HF-07",
+            "HF-08",
+        )
+    )
+
+
+def test_v4_scope_preserves_selected_authority_and_panel_screw_count() -> None:
+    owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
+    ledger = json.loads((ROOT / "docs/bolted-candidate-task-ledger.json").read_text())
+    audit = json.loads((ROOT / "docs/bolted-candidate-baseline-audit.json").read_text())
+    assert ledger["baseline_commit"] == "7cdd2e37ed2d364b47879a960b9eb15b93c67048"
+    assert audit["selected_authority"] == "compact-floor-flush-development"
+    assert audit["inventory"]["panel_screws"] == 48
+    assert audit["inventory"]["kicker_screws"] == 18
+    assert audit["inventory"]["panel_and_kicker_screws"] == 66
+    assert audit["scope"]["selected_candidate_promoted"] is False
+    assert audit["scope"]["structural_move_wood_thread_removals_target"] == 0
+    assert owner["physical_width_packet"]["option"] == "kerf-right"
 
 
 def test_owner_post_only_shift_screen_remains_a_g1_prototype() -> None:
