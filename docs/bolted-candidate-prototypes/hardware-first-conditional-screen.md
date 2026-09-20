@@ -28,6 +28,16 @@ both directions; uplift may be doubled for two connectors, but lateral may
 not. The angle must be centered on a member face at least as wide as the
 angle, and the `3`/`5` series requires a minimum 3.5-in wood thickness.
 Structural-quality through bolts must be at least ASTM A307 Grade A.
+For that specified **bolt class only**, Home Depot currently lists Prime-Line
+1/2-13 ASTM A307 Grade A hex bolts at [6 in (9060913)](https://www.homedepot.com/p/310465135),
+[8 in (9060949)](https://www.homedepot.com/p/310465137), and
+[12 in (9061025)](https://www.homedepot.com/p/310465147).
+These are ordinary-retail leads, not selected stack lengths or proof of
+delivered conformity or local stock. Their listings do not resolve usable
+smooth-shank length/thread runout, washers, matching nuts, grip, head/nut
+access, or the complete wood/steel joint resistance. The listings also use
+inconsistent coating descriptions, so coating compatibility requires a
+received-item check; no bolt purchase or drilling is released.
 
 | Model | Width × leg length | Bolts, total | DF/SP uplift / F1, lb | Retail identity |
 | --- | --- | --- | --- | --- |
