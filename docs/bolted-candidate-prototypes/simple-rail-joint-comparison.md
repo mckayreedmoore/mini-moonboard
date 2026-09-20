@@ -3,8 +3,8 @@
 Status: **in progress, no selected joint or drilling release.** This compares
 two simple through-bolted concepts at the same physical kerf-right duty,
 `clip_horizontal_lower_right_1`. It replaces neither the baseline nor
-the other 23 old angle duties. The companion geometric screen is under
-development; all dimensions below are model datums, not shop holes.
+the other 23 old angle duties. The [companion geometric screen](simple_rail_joint_comparison.json)
+tests nominal poses only; all dimensions below are model datums, not shop holes.
 
 ## Shared actual duty
 
@@ -26,15 +26,24 @@ Hillman screws are 63.5 mm long. The other 63 panel/kicker axes and all
 panel outlines remain fixed. A surface or axis intersection alone is not
 adequate screw embedment or edge support.
 
+In local panel-tangent coordinate `T = (0, 0.642788, 0.766044)` and
+panel-normal coordinate `N = (0, -0.766044, 0.642788)`, the lower service
+rail spans T = 1315.774–1353.874 mm and the next upper service rail starts
+at T = 1459.824 mm. Their nominal **105.95-mm tangent gap** leaves only
+17.05 mm beyond an 88.9-mm cleat, too little for the tested nut-side tool.
+This is not, by itself, a wood edge-distance or complete-joint verdict.
+
 ## Candidate A — full-section face overlap
 
 The rail would extend across the X = 89.05 mm butt plane and one member
 would move into a neighboring hidden plane, with broad full-section
 faces touching. No member is half-lapped. The offset enters the bolt grip,
-eccentric action and panel-receiver map. Moving a 38.1-mm-thick rail away
-from its present panel-support plane may leave too little of the 63.5-mm
-panel-screw length in the rail; this is a **question to calculate**, not
-permission to lengthen or move the 66 screws. An added front receiver
+eccentric action and panel-receiver map. Moving the rail's full 139.7-mm
+panel-normal depth away from its present panel-support plane leaves **zero
+intersection** between that rail and both fixed service-rail screw axes in
+the tested pose. The offset rail does not collide with adjacent timber or
+panels, but its trial bolt-head washer and tool envelope hit the fixed
+lower panel. This particular overlap pose is rejected. An added front receiver
 would need its own positive structural attachment, cost and transport
 operation. The overlap length, bolt count/centers, accessible washer/nut
 faces, edge/end distances and load-to-grain angles remain unselected.
@@ -49,7 +58,20 @@ each bolt, washers, nuts, tool approach and assembly order. A cleat may
 remain bolted to one principal transport member. Its stock species/grade,
 grain, section, length and group positions are design variables. A nominal
 2×2 is only a dimensional comparator; a larger plain 4×4-sized block is
-not automatically sufficient. Cleat shear, bending, splitting and both
+not automatically sufficient. The first 88.9-mm tangent-side cleat pose
+preserves all 66 screw axes and has complete, non-crossing trial bores,
+but the rail-side nut's 40-mm straight-tool envelope intersects the upper
+service rail. That 88.9-mm pose is rejected. Trimming the tangent-side
+dimension to 57.15 mm leaves 48.8 mm to the upper rail and **6.3 mm
+nominal clearance beyond the tested 40-mm straight-tool envelope**.
+The 57.15-mm pose leaves all 66 fixed screw axes, both complete trial
+bores, their washers and tools clear in this local solid-intersection
+screen. This is a *geometry-only* finding: there is one trial bolt per
+interface, no tolerance or actual socket specification, and the trial
+upright bolt runs along the cleat grain. Its 28.575-mm tangent-side
+center-to-edge distance is not an NDS qualification. Before choosing
+this family, reorient or redesign the cleat so both bolt groups have
+applicable wood-fastener checks. Cleat shear, bending, splitting and both
 interface deformations must be checked as one joint.
 
 ## Preliminary mechanics and cost boundary
@@ -66,12 +88,15 @@ wrappers are not direct wood–wood joint ratings. PB-04 must reconcile the
 before adopting connection-adjacent timber shear checks. No bolt diameter
 or count is selected by this record.
 
-Retail comparison as of 2026-09-20 is preliminary: Home Depot lists an
+The [retail source inventory](simple-joint-retail-inputs.md) is preliminary.
+Home Depot lists an
 [Everbilt 3/8 × 4-in galvanized hex bolt](https://www.homedepot.com/p/204645570)
 at $1.84 each; its [100-pack 3/8 nuts](https://www.homedepot.com/p/204274098)
 and [100-pack flat washers](https://www.homedepot.com/p/204284545) list
 $33.66 and $33.42 respectively. These are **not an adopted structural
-bolt specification or a complete purchased stack**. A listed
+bolt specification or a complete purchased stack**. In particular, a
+4-in bolt cannot span either tested through-grip (100.25 or 243.1 mm)
+with the required washers and nut. A listed
 [Lowe's #2 & Better DF 4×4×8](https://www.lowes.com/pd/4-in-x-4-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-3-562-in-x-8-ft-Actual/1000028905)
 is a possible graded cleat-stock lead, but its local price, stock,
 delivered grade/dimensions and moisture remain unknown. Compare complete
@@ -80,6 +105,7 @@ yield, shipping/tax, ordinary cuts, bore directions, and move operations
 only after both joint layouts are dimensioned. Do not imply a cost winner
 from the price of one shaft.
 
-Next: run one maintained parameterized local fit screen for both concepts,
-then calculate applicable component checks and preliminary same-case
-actions before choosing the simpler credible detail.
+Next: seek a grain-credible cleat orientation and full bolt groups in this
+same local duty, then calculate applicable component checks and preliminary
+same-case actions before choosing the simpler credible detail. A nominal
+40-mm tool cylinder is not a guarantee that an actual socket/wrench works.
