@@ -11,6 +11,7 @@ from fea.floor_flush_run import face_contacts, taper_top_monitors
 from fea.horizontal_panel_frame import panel_kernel
 from mini_moonboard import bolted_floor_flush_width, floor_flush_width
 from scripts.bolted_center_joint_model import shared_center_joint
+from scripts.bolted_center_response_adapter import prepare_center
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
 
@@ -84,7 +85,7 @@ def prepare_diagnostic(module, **kwargs):
         or kwargs.get("expected_candidate", module.KEY) != module.KEY
     ):
         raise ValueError("Require the diagnostic kerf-right proxy candidate")
-    center_joint = kwargs.get("diagnostic_center_joint")
+    center_joint = kwargs.pop("diagnostic_center_joint", None)
     if isinstance(module, DiagnosticCenterBolted) != (center_joint is not None):
         raise ValueError("Center-bolted diagnostic requires its explicit joint spec")
     raw = {part.name: part for part in module.uncut_wood_parts()}
@@ -120,7 +121,10 @@ def prepare_diagnostic(module, **kwargs):
     try:
         panel_kernel.grid = kerf_grid
         panel_kernel.pressure_load = kerf_pressure
-        structure, metadata = prepare_flush(module, **kwargs)
+        structure, metadata = (
+            prepare_center(module, center_joint, **kwargs)
+            if center_joint is not None else prepare_flush(module, **kwargs)
+        )
         if calls != len(panel_names):
             raise ValueError("Incomplete six-panel grid sequence")
     finally:

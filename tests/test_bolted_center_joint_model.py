@@ -1,5 +1,8 @@
 """Nominal shared-header topology remains separate from build approval."""
 
+import hashlib
+from pathlib import Path
+
 import pytest
 
 from scripts.bolted_center_joint_model import shared_center_joint
@@ -9,6 +12,13 @@ from scripts.bolted_kerf_diagnostic_probe import (
 )
 
 SPRING = {"axial_n_per_mm": 10000.0, "lateral_n_per_mm": 10000.0}
+
+
+def test_shared_model_matches_pinned_baseline():
+    source = Path("fea/current_response_model.py").read_bytes()
+    assert hashlib.sha256(source).hexdigest() == (
+        "e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce"
+    )
 
 
 def test_shared_joint_has_distributed_lateral_bearing_and_flange_contacts():

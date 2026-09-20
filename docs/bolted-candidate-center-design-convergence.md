@@ -82,6 +82,11 @@ two point springs; the historical 10,000 N/mm per-point case therefore means
 20,000 N/mm total. These are specified diagnostic inputs, not measured
 stiffnesses or clearances. No new independent-parameter native result is
 claimed here, and no few-point sensitivity is an uncertainty envelope.
+The provisional joint preparation now lives in a separate
+[`bolted_center_response_adapter.py`](../scripts/bolted_center_response_adapter.py).
+The selected `fea/current_response_model.py` remains byte-identical to its
+pinned baseline; this isolation neither updates the historical source-bound
+reports nor resolves the older selected-geometry source mismatch.
 
 The [grain-direction classifier](../scripts/bolted_center_load_classification.py)
 uses the authenticated final input's actual member axes, not a guessed vertical

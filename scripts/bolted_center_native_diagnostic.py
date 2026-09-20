@@ -8,7 +8,7 @@ from pathlib import Path
 
 from fea import current_response_run as native
 from fea.floor_flush_run import face_contacts, taper_top_monitors
-from scripts import bolted_center_joint_model
+from scripts import bolted_center_joint_model, bolted_center_response_adapter
 from scripts import bolted_kerf_diagnostic_probe as probe
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
@@ -22,6 +22,7 @@ def _sources():
         Path(__file__),
         Path(probe.__file__),
         Path(bolted_center_joint_model.__file__),
+        Path(bolted_center_response_adapter.__file__),
         Path(face_contacts.__code__.co_filename),
         Path("scripts/clear_space_batch.py"),
         Path("scripts/compact_rail_study.py"),
