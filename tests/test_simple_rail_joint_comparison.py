@@ -5,6 +5,9 @@ import json
 import pytest
 
 from scripts.simple_rail_joint_comparison import (
+    DIAMETER,
+    NDS_HOLE_MAX,
+    NDS_HOLE_MIN,
     OUTPUT,
     _bolt_report,
     _contact_area,
@@ -15,6 +18,23 @@ from scripts.simple_rail_joint_comparison import (
 
 def test_comparison_keeps_fixed_panel_axes_and_reports_real_offset():
     report = compare()
+    assert NDS_HOLE_MIN == pytest.approx(10.31875)
+    assert NDS_HOLE_MAX == pytest.approx(11.1125)
+    assert NDS_HOLE_MIN <= DIAMETER <= NDS_HOLE_MAX
+    assert DIAMETER == pytest.approx(10.5)
+    assert report["diagnostic_wood_bore_diameter_mm_not_drill_instruction"] == DIAMETER
+    for pose in (
+        "overlap",
+        "cleat",
+        "cleat_grain_n",
+        "cleat_grain_n_4x6",
+        "cleat_grain_n_4x6_group",
+    ):
+        for bolts in report[pose]["bolt_groups"].values():
+            for bolt in bolts:
+                assert (
+                    bolt["clearance_diameter_mm_trial_not_shop_instruction"] == DIAMETER
+                )
     assert report["station"] == "clip_horizontal_lower_right_1"
     assert report["fixed_panel_axes"] == 66
     assert report["butt_plane_x_mm"] == 89.05
@@ -41,7 +61,9 @@ def test_cleat_has_separate_crossing_checked_bolt_groups():
     cleat = report["cleat"]
     assert cleat["size_mm"] == [200, 57.15, 88.9]
     assert cleat["upright_bolt_axis_dot_cleat_grain"] == 1
-    assert "parallel to the cleat X grain" in cleat["priority_architecture_blocker"]
+    assert "parallel to cleat X grain" in cleat["priority_architecture_blocker"]
+    assert "12.3.3.4" in cleat["priority_architecture_blocker"]
+    assert "not a capacity rejection" in cleat["priority_architecture_blocker"]
     assert cleat["local_tangent_near_far_mm"][0] == cleat["rail_tangent_near_far_mm"][1]
     assert cleat["local_tangent_near_far_mm"][1] - cleat["local_tangent_near_far_mm"][
         0
@@ -230,3 +252,70 @@ def test_grain_n_4x6_trial_uses_same_screen_and_corrected_rail_station():
     assert trial["actual_head_nut_socket_stack_verified"] is False
     assert trial["load_rating_adopted"] is False
     assert trial["drilling_released"] is False
+
+
+def test_grain_n_4x6_two_bolt_groups_record_initial_clash_and_one_adjustment():
+    report = compare()
+    group = report["cleat_grain_n_4x6_group"]
+    assert report["cleat_grain_n_4x6"]["status"] == "diagnostic_pose_only"
+    assert group["initial_front_probe"]["n_front_mm"] == 160
+    assert group["initial_front_probe"]["panel_clashes_mm3"]["main_lower_right"] > 0
+    assert group["adjusted_front_n_mm"] == pytest.approx(209.841)
+    assert group["adjustment_count"] == 1
+    assert group["size_local_x_t_n_mm"] == [139.7, 57.15, 300]
+    assert group["upright_bolt_n_centers_mm"] == [265, 310]
+    assert group["rail_bolt_x_from_butt_mm"] == [70, 110]
+    assert group["rail_bolt_n_centers_mm"] == [290, 290]
+    assert len(group["bolt_groups"]["upright"]) == 2
+    assert len(group["bolt_groups"]["rail"]) == 2
+    assert group["fixed_panel_axes_checked"] == 66
+    assert group["edge_end_spacing_structurally_qualified"] is False
+    assert group["installed_access_verified"] is False
+    assert group["load_rating_adopted"] is False
+    assert group["drilling_released"] is False
+    assert group["pairwise_envelope_intersections_mm3"] is not None
+    assert group["pairwise_bolt_pair_count"] == 6
+    assert group["pairwise_envelope_comparisons_per_pair"] == 25
+    assert all(
+        hits == {} for hits in group["pairwise_envelope_intersections_mm3"].values()
+    )
+    assert group["cleat_host_clashes_mm3"] == {}
+    assert group["cleat_parent_clashes_mm3"] == {}
+    assert group["cleat_panel_clashes_mm3"] == {}
+    assert all(group["face_contact_geometry_verified"].values())
+    assert all(
+        hits == {}
+        for envelope in group["protected_axis_envelope_clashes_mm3"].values()
+        for hits in (envelope.values() if "bore" in envelope else [envelope])
+    )
+    assert all(
+        gap <= 0.01
+        for faces in group["washer_wood_face_gap_mm"].values()
+        for gap in faces.values()
+    )
+    for family in ("upright", "rail"):
+        for bolt in group["bolt_groups"][family]:
+            assert all(bolt["full_bore_containment"].values())
+            assert bolt["parent_bore_clashes_mm3"] == {}
+            assert all(not hits for hits in bolt["washer_clashes_mm3"].values())
+            assert all(not hits for hits in bolt["tool_clashes_mm3"].values())
+    tradeoff = group["conditional_upright_n_feasibility"]
+    assert tradeoff["available_pitch_if_all_apply_mm"] == pytest.approx(34.925)
+    assert tradeoff["hypothetical_required_in_row_pitch_4d_mm"] == pytest.approx(38.1)
+    assert tradeoff["pitch_shortfall_if_all_apply_mm"] == pytest.approx(3.175)
+    assert tradeoff["actual_cleat_front_end_of_first_upright_bolt_mm"] == pytest.approx(
+        55.159
+    )
+    assert group["center_to_edges_and_spacing_mm"]["rail_in_cleat_x"][1][
+        1
+    ] == pytest.approx(29.7)
+    assert group["trial_envelope_grips_mm_not_purchased_lengths"] == {
+        "u1": pytest.approx(182.8),
+        "u2": pytest.approx(182.8),
+        "r1": pytest.approx(100.25),
+        "r2": pytest.approx(100.25),
+    }
+    assert group["trial_stack_count_not_selected"] == 4
+    assert group["installed_cost_usd"] is None
+    assert group["status"] == "diagnostic_pose_only"
+    assert group["remaining_open_checks"]

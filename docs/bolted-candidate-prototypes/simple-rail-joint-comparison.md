@@ -69,9 +69,11 @@ bores, their washers and tools clear in this local solid-intersection
 screen. This is a *geometry-only* finding: there is one trial bolt per
 interface, no tolerance or actual socket specification, and the trial
 upright bolt runs along the cleat grain. Its 28.575-mm tangent-side
-center-to-edge distance is not an NDS qualification. Before choosing
-this family, reorient or redesign the cleat so both bolt groups have
-applicable wood-fastener checks. Cleat shear, bending, splitting and both
+center-to-edge distance is not an NDS qualification. The 2024 NDS has a
+specific dowel-bearing provision for a bolt axis parallel to wood fibers;
+its application here, group behavior and fabrication still need proof.
+This pose is deprioritized in favor of the simpler transverse-axis screen,
+not declared structurally impossible. Cleat shear, bending, splitting and both
 interface deformations must be checked as one joint.
 
 A second pose turns the cleat so its **200-mm length follows panel-normal
@@ -91,8 +93,7 @@ from its member end, 22.225 mm short of a nominal 7D full-value benchmark
 for a 9.525-mm bolt *if the corresponding loading condition applies*.
 The actual load direction, applicable 2024 NDS geometry factor, loaded
 edge, group, cleat and member resistance all remain open. The old X-grain
-pose remains in the JSON as a rejected architecture direction, not an
-alternative selected joint.
+pose remains in the JSON as an unselected diagnostic, not an accepted joint.
 
 A third diagnostic pose uses the long face of ordinary nominal 4×6 along X,
 keeping the cleat grain panel-normal and its tangent-side rip at 57.15 mm.
@@ -105,6 +106,22 @@ it does **not** establish a full bolt group, 2024 NDS pass, installed
 head/nut/socket access, stock cost, or a complete joint. The longer
 principal-to-cleat wood grip is 177.8 mm before any washers or nut.
 
+A four-bolt diagnostic layout then tries two ordinary through-bolts on
+each serial interface. Extending the 4×6 cleat's grain-normal length to
+300 mm with its front at N = 160 mm creates a real **143,332 mm³ clash**
+with the fixed lower panel, so that pose is rejected. One adjustment
+aligns the cleat front with the rail front at N = 209.841 mm. The adjusted
+pose has positive CAD face contact, complete trial bores, face-seated
+diagnostic washers, no modeled hardware-to-hardware or part collision,
+and no collision with any of the 66 fixed panel/kicker axes. It is still
+a diagnostic layout, not a rated four-bolt joint. The first upright bolt
+is 55.159 mm from the cleat's grain-normal front. If a full-value 7D
+front end, 4D rear loaded edge, and 4D row pitch all apply to its
+38.1 × 139.7-mm host section, they leave only 34.925 mm for a 38.1-mm
+pitch; that *conditional* combination cannot fit. Actual load directions,
+reduced geometry factors, member stresses, group sharing, stiffness,
+installed access and wood/bolt strength remain to be determined.
+
 ## Preliminary mechanics and cost boundary
 
 For both concepts, derive simultaneous force and moment about one common
@@ -116,7 +133,9 @@ bolt, but not axial separation, group/splitting, washer bearing, whole
 cleat action, or frame stiffness by themselves. The existing wood–steel
 wrappers are not direct wood–wood joint ratings. PB-04 must reconcile the
 [March 2026 AWC 2024-NDS erratum](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
-before adopting connection-adjacent timber shear checks. No bolt diameter
+before adopting connection-adjacent timber shear checks. The
+[2024 NDS geometry basis](simple-rail-nds-geometry-basis.md) separates
+applicable placement rules from conditional ratios. No bolt diameter
 or count is selected by this record.
 The [free-body action path](simple-rail-action-path.md) records the common
 origin and new wrench/contact outputs required before any capacity comparison.

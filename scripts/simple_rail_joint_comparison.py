@@ -1,4 +1,4 @@
-"""PB-01: two nominal timber-joint poses at one actual kerf-right rail station.
+"""PB-01: bounded timber-joint poses at one actual kerf-right rail station.
 
 This is a reject/diagnostic screen, never a bolt schedule or drilling plan.
 """
@@ -7,6 +7,7 @@ import argparse
 import csv
 import json
 import math
+from itertools import combinations
 
 import cadquery as cq
 
@@ -18,7 +19,10 @@ UPRIGHT = "base_principal_center_right"
 RAIL = "base_rail_service_lower_right"
 NEIGHBOR = "base_rail_service_upper_right"
 TOL = 0.01
-DIAMETER = 10.3  # Trial clearance envelope around 3/8-in bolt, not a drill size.
+BOLT_DIAMETER = 9.525  # Nominal 3/8-in trial bolt, not a selected fastener.
+NDS_HOLE_MIN = BOLT_DIAMETER + 25.4 / 32
+NDS_HOLE_MAX = BOLT_DIAMETER + 25.4 / 16
+DIAMETER = 10.5  # Trial bore within NDS interval; not a final drill size.
 WASHER_DIAMETER = 25.4  # Diagnostic round envelope, not a product specification.
 TOOL_DIAMETER = 40.0  # Diagnostic straight approach envelope.
 TOOL_DEPTH = 40.0
@@ -385,6 +389,239 @@ def _screen_grain_n_cleat(
     return report
 
 
+def _screen_grain_n_group(upright, rail, neighbors, panel, panel_axis_solids):
+    """One four-bolt 4x6 pose; diagnostics only, including an initial rejected front."""
+    ub, rb = upright.BoundingBox(), rail.BoundingBox()
+    rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
+    rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
+    upright_n = [v.Y * N[0] + v.Z * N[1] for v in upright.Vertices()]
+    t_face = max(rail_t)
+    x_width, t_width, n_length = 139.7, 57.15, 300.0
+
+    def cleat_at(n_front):
+        y, z = _yz(t_face, n_front)
+        return (
+            box(ub.xmax, 0, 0, x_width, t_width, n_length)
+            .rotate((0, 0, 0), (1, 0, 0), 50)
+            .translate((0, y, z))
+        )
+
+    initial = cleat_at(160.0)
+    initial_hits = _volume_hits(initial, panel)
+    # One bounded adjustment: align the front to the existing rail front.
+    n_front = min(rail_n)
+    cleat = cleat_at(n_front)
+    bolts, envelopes, face_gaps = {}, {}, {}
+    specs = [
+        ("u1", "upright", 265.0, None),
+        ("u2", "upright", 310.0, None),
+        ("r1", "rail", 290.0, 70.0),
+        ("r2", "rail", 290.0, 110.0),
+    ]
+    for key, family, n_center, x_from_butt in specs:
+        if family == "upright":
+            y, z = _yz(t_face + t_width / 2, n_center)
+            axis = (1, 0, 0)
+            point = (ub.xmin - 2.5, y, z)
+            grip = ub.xlen + x_width + 5
+            hosts = {"upright": upright, "cleat": cleat}
+            lengths = {"upright": ub.xlen, "cleat": x_width}
+            other = {"rail": rail, **neighbors, **panel}
+        else:
+            y, z = _yz(min(rail_t) - 2.5, n_center)
+            axis = (0, T[0], T[1])
+            point = (rb.xmin + x_from_butt, y, z)
+            grip = 38.1 + t_width + 5
+            hosts = {"rail": rail, "cleat": cleat}
+            lengths = {"rail": 38.1, "cleat": t_width}
+            other = {"upright": upright, **neighbors, **panel}
+        bolt, bore, washers, tools = _bolt_report(
+            key, point, axis, grip, hosts, lengths, other
+        )
+        bolts[key] = bolt
+        envelopes[key] = {
+            "bore": bore,
+            "washer_head": washers["head"],
+            "washer_nut": washers["nut"],
+            "tool_head": tools["head"],
+            "tool_nut": tools["nut"],
+        }
+        faces = bolt["washer_wood_face_xyz_mm"]
+        if family == "upright":
+            face_gaps[key] = {
+                "head": abs(faces["head"][0] - ub.xmin),
+                "nut": abs(faces["nut"][0] - ub.xmax - x_width),
+            }
+        else:
+            face_gaps[key] = {
+                "head": abs(
+                    faces["head"][1] * T[0] + faces["head"][2] * T[1] - min(rail_t)
+                ),
+                "nut": abs(
+                    faces["nut"][1] * T[0] + faces["nut"][2] * T[1] - t_face - t_width
+                ),
+            }
+    pairwise = {}
+    for left, right in combinations(envelopes, 2):
+        pair_hits = {}
+        for lname, lsolid in envelopes[left].items():
+            for rname, rsolid in envelopes[right].items():
+                volume = lsolid.intersect(rsolid).Volume()
+                if volume > TOL:
+                    pair_hits[f"{lname}|{rname}"] = round(volume, 3)
+        pairwise[f"{left}|{right}"] = pair_hits
+    contact = {
+        "rail_to_cleat": _contact_area(cleat, rail, (0, -T[0], -T[1])),
+        "upright_to_cleat": _contact_area(cleat, upright, (-1, 0, 0)),
+    }
+    nominal_contact = {
+        "rail_to_cleat": x_width * (max(rail_n) - n_front),
+        "upright_to_cleat": t_width * (max(upright_n) - n_front),
+    }
+    contact_verified = {
+        name: contact[name] > 0
+        and abs(contact[name] - nominal_contact[name])
+        <= max(1.0, nominal_contact[name] * 0.01)
+        for name in contact
+    }
+    protected = {"cleat": _volume_hits(cleat, panel_axis_solids)}
+    for key, shapes in envelopes.items():
+        protected[key] = {
+            name: _volume_hits(shape, panel_axis_solids)
+            for name, shape in shapes.items()
+        }
+    group = {
+        "initial_front_probe": {
+            "n_front_mm": 160.0,
+            "panel_clashes_mm3": initial_hits,
+            "parent_clashes_mm3": _volume_hits(initial, neighbors),
+        },
+        "adjustment_count": 1,
+        "adjusted_front_n_mm": round(n_front, 3),
+        "size_local_x_t_n_mm": [x_width, t_width, n_length],
+        "grain_axis": "N",
+        "upright_bolt_n_centers_mm": [265.0, 310.0],
+        "rail_bolt_x_from_butt_mm": [70.0, 110.0],
+        "rail_bolt_n_centers_mm": [290.0, 290.0],
+        "bolt_groups": {
+            "upright": [bolts["u1"], bolts["u2"]],
+            "rail": [bolts["r1"], bolts["r2"]],
+        },
+        "nominal_face_contact_area_mm2": {
+            name: round(value, 3) for name, value in nominal_contact.items()
+        },
+        "measured_face_contact_area_mm2": {k: round(v, 3) for k, v in contact.items()},
+        "face_contact_geometry_verified": contact_verified,
+        "face_contact_perturbation_mm": 0.1,
+        "washer_wood_face_gap_mm": {
+            key: {name: round(gap, 6) for name, gap in ends.items()}
+            for key, ends in face_gaps.items()
+        },
+        "cleat_host_clashes_mm3": _volume_hits(
+            cleat, {"upright": upright, "rail": rail}
+        ),
+        "cleat_parent_clashes_mm3": _volume_hits(cleat, neighbors),
+        "cleat_panel_clashes_mm3": _volume_hits(cleat, panel),
+        "fixed_panel_axes_checked": len(panel_axis_solids),
+        "protected_axis_envelope_clashes_mm3": protected,
+        "pairwise_envelope_intersections_mm3": pairwise,
+        "pairwise_bolt_pair_count": len(pairwise),
+        "pairwise_envelope_comparisons_per_pair": 25,
+        "pairwise_scope": "all bore, washer, and tool envelopes between distinct trial bolts; same-bolt coaxial envelopes are not an installed hardware stack",
+        "center_to_edges_and_spacing_mm": {
+            "upright_in_cleat_n": [
+                [round(n - n_front, 3), round(n_front + n_length - n, 3)]
+                for n in (265, 310)
+            ],
+            "upright_in_host_n": [
+                [round(n - min(upright_n), 3), round(max(upright_n) - n, 3)]
+                for n in (265, 310)
+            ],
+            "upright_in_cleat_t": [t_width / 2, t_width / 2],
+            "upright_group_n_pitch": 45.0,
+            "rail_in_cleat_x": [[x, round(x_width - x, 3)] for x in (70, 110)],
+            "rail_in_host_x": [[x, round(rb.xlen - x, 3)] for x in (70, 110)],
+            "rail_in_cleat_n": [
+                round(290 - n_front, 3),
+                round(n_front + n_length - 290, 3),
+            ],
+            "rail_in_host_n": [
+                round(290 - min(rail_n), 3),
+                round(max(rail_n) - 290, 3),
+            ],
+            "rail_group_x_pitch": 40.0,
+            "nearest_cross_group_n_offset": 20.0,
+        },
+        "edge_end_spacing_structurally_qualified": False,
+        "conditional_edge_caution": "second rail bolt is only 29.7 mm from cleat far X edge; loaded-edge rule and simultaneous action unverified",
+        "conditional_upright_n_feasibility": {
+            "bolt_diameter_mm": 9.525,
+            "host_n_span_mm": 139.7,
+            "hypothetical_front_end_7d_mm": 66.675,
+            "hypothetical_rear_loaded_edge_4d_mm": 38.1,
+            "hypothetical_required_in_row_pitch_4d_mm": 38.1,
+            "available_pitch_if_all_apply_mm": 34.925,
+            "pitch_shortfall_if_all_apply_mm": 3.175,
+            "actual_cleat_front_end_of_first_upright_bolt_mm": round(
+                265 - min(upright_n), 3
+            ),
+            "actual_upright_pair_pitch_mm": 45.0,
+            "interpretation": "conditional simultaneous NDS geometry screen only; load directions and 2024 applicability unresolved",
+        },
+        "trial_stack_count_not_selected": 4,
+        "trial_envelope_grips_mm_not_purchased_lengths": {
+            key: round(bolt["grip_mm"], 3) for key, bolt in bolts.items()
+        },
+        "stock_source_ref": "cleat_grain_n_4x6.retail_dimensional_comparator",
+        "installed_cost_usd": None,
+        "actual_head_nut_socket_stack_verified": False,
+        "installed_access_verified": False,
+        "load_rating_adopted": False,
+        "drilling_released": False,
+        "remaining_open_checks": [
+            "all NDS edge/end/spacing, bearing, group, splitting, and net-section checks",
+            "four-bolt force/moment distribution, cleat equilibrium, contact-only compression, and deformation",
+            "real bolt shanks/lengths, nuts, washers, socket paths, and installed access",
+            "300-mm usable graded grain-N 4x6 stock, post-rip grade/dimensions, and purchase cost",
+        ],
+    }
+    physical_pairs = {
+        pair: {
+            names: volume
+            for names, volume in hits.items()
+            if not names.startswith("tool_") and "|tool_" not in names
+        }
+        for pair, hits in pairwise.items()
+    }
+    group["status"] = (
+        "diagnostic_pose_only"
+        if all(contact_verified.values())
+        and all(all(b["full_bore_containment"].values()) for b in bolts.values())
+        and all(gap <= 0.01 for ends in face_gaps.values() for gap in ends.values())
+        and not any(
+            _has_hits(group[key])
+            for key in (
+                "cleat_host_clashes_mm3",
+                "cleat_parent_clashes_mm3",
+                "cleat_panel_clashes_mm3",
+                "protected_axis_envelope_clashes_mm3",
+            )
+        )
+        and not any(_has_hits(hits) for hits in physical_pairs.values())
+        and not any(
+            _has_hits(b[key])
+            for b in bolts.values()
+            for key in (
+                "parent_bore_clashes_mm3",
+                "washer_clashes_mm3",
+                "tool_clashes_mm3",
+            )
+        )
+        else "reject_this_pose"
+    )
+    return group
+
+
 def compare():
     raw = {p.name: p.shape for p in variant(KERF_RIGHT).uncut_wood_parts()}
     panel_axes = _read_panel_axes()
@@ -514,8 +751,10 @@ def compare():
         "rail_nut_tool_tangent_clearance_mm": round(upper_t_near - rail_tool_t_end, 3),
         "grain_direction_xyz": [1, 0, 0],
         "priority_architecture_blocker": (
-            "upright-side X-axis through-bolt is parallel to the cleat X grain; "
-            "ordinary lateral-dowel applicability and end-grain load path are unqualified"
+            "upright-side X-axis through-bolt is parallel to cleat X grain; "
+            "evaluate 2024 NDS 12.3.3.4 axis-parallel dowel-bearing provision, "
+            "member role, and complete end-grain load path before selection; "
+            "deprioritized pending analysis, not a capacity rejection"
         ),
         "upright_bolt_axis_dot_cleat_grain": 1,
         "cleat_parent_clashes_mm3": _volume_hits(cleat, neighbors),
@@ -609,6 +848,13 @@ def compare():
     )
     return {
         "station": "clip_horizontal_lower_right_1",
+        "diagnostic_wood_bore_diameter_mm_not_drill_instruction": DIAMETER,
+        "nds_2024_12_1_3_2_nominal_hole_interval_mm": [
+            NDS_HOLE_MIN,
+            NDS_HOLE_MAX,
+        ],
+        "nds_hole_source": "AWC 2024 NDS 12.1.3.2; nominal 3/8-in-bolt hole interval, diagnostic CAD only",
+        "nominal_trial_bolt_diameter_mm_not_selected": BOLT_DIAMETER,
         "physical_width": "kerf-right",
         "butt_plane_x_mm": round(rb.xmin, 3),
         "fixed_panel_axes": len(panel_axes),
@@ -645,6 +891,9 @@ def compare():
                 "dimensional_stock_envelope_sufficient_before_saw_kerf": True,
                 "local_availability_price_delivered_size_verified": False,
             },
+        ),
+        "cleat_grain_n_4x6_group": _screen_grain_n_group(
+            upright, rail, neighbors, panel, panel_axis_solids
         ),
         "load_rating_adopted": False,
         "drilling_released": False,
