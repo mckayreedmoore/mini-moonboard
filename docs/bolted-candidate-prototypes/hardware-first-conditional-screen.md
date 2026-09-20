@@ -48,7 +48,7 @@ remain unverified.
 
 | Model | Width × leg length | Bolts, total | DF/SP uplift / F1, lb | Retail identity |
 | --- | --- | --- | --- | --- |
-| HL33 | 3.25 × 2.5 in | 2 × 1/2 in | 740 / 1,040 | [Home Depot HL33-R](https://www.homedepot.com/p/100375377); `-R` equivalence not yet verified |
+| HL33 | 3.25 × 2.5 in | 2 × 1/2 in | 740 / 1,040 | [Home Depot HL33](https://www.homedepot.com/p/205227144), exact model; [HL33-R](https://www.homedepot.com/p/100375377) is a separate retail listing |
 | HL35 | 3.25 × 5 in | 4 × 1/2 in | 740 / 1,310 | [Home Depot HL35-R](https://www.homedepot.com/p/100374913); Simpson links this retail designation to its HL drawing |
 | HL53 | 5.75 × 2.5 in | 4 × 1/2 in | 740 / 1,310 | [Home Depot HL53](https://www.homedepot.com/p/205227146), exact model |
 
