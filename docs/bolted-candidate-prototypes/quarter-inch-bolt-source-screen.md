@@ -1,13 +1,14 @@
 # Ordinary 1/4-in through-bolt evidence screen
 
-Status: **retail leads only; no product-selected structural input or drilling release.**
+Status: **retail leads and conditional NDS inputs only; no selected stack or drilling release.**
 This screen follows the conditional four-bolt cleat geometry. All listed
 hardware is ordinary store inventory, but the exact proposed joint stack,
 thread placement, and strength are not established by these listings.
 
 | Store lead | Published identifier | Remaining product-specific evidence |
 | --- | --- | --- |
-| [Home Depot Prime-Line 1/4-20 × 8 in](https://www.homedepot.com/p/310465152) | 9058821; A307 Grade A, UNC-2A | Controlled thread-root range, thread/shank placement, and bending-yield data absent from the located listing. |
+| [Home Depot Prime-Line 1/4-20 × 8 in](https://www.homedepot.com/p/310465152) | 9058821; A307 Grade A, UNC-2A | Delivered root range and thread/shank placement are not verified. The NDS bolt-class Fyb input below is conditional, not a lot test. |
+| [Home Depot Prime-Line 1/4-20 × 5 in](https://www.homedepot.com/p/310326760) | 9058745; A307 Grade A, 25-pack | Thread class, delivered root range, thread/shank placement, and nut/washer stack are not verified. |
 | [Home Depot Everbilt 1/4-20 × 8 in](https://www.homedepot.com/p/204281626) | 800696; A307, listed 6-in thread | Controlled root and bending-yield data absent; thread transition through wood unknown. |
 | [Home Depot Everbilt 1/4-20 × 5 in](https://www.homedepot.com/p/204633308) | 800676; A307, fully threaded | Controlled root and bending-yield data absent. |
 | [Lowe's Hillman 1/4-20 × 5 in](https://www.lowes.com/pd/Hillman-1-4-in-x-5-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000379721) | 190059; partially threaded | Thread length, root range, and bending-yield data absent. The listing's A2 field is not a demonstrated joint-strength specification. |
@@ -26,7 +27,14 @@ for nominal 1/4-in threaded fasteners whose effective root falls below
 1/4 in. Its rendered Table 12.3.1B gives `K_D = 10D + 0.5` for
 `0.17 in < D < 0.25 in`; `D` is the effective calculation diameter under
 §12.3.7, not an assumed nominal shank. A PDF text extraction can misread
-the plus sign, so use the rendered AWC table. The generic
+the plus sign, so use the rendered AWC table. The official [2024 NDS
+Appendix I and L](https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf)
+give a **45,000-psi Fyb reference for bolts as a class** in Table I1 and
+a **typical 0.189-in root** for nominal 1/4-in standard hex bolts in
+Table L1. The 3/8-in qualifier in I1 attaches to *lag screws*, not bolts.
+These are now available **conditional inputs** for a quarter-inch bolt
+calculation; L1 does not certify an exact minimum delivered root, and I1
+does not identify this A307 lot. The generic
 [ASTM A307 Grade A mechanical-property summary](https://www.portlandbolt.com/technical/specifications/astm-a307/)
 gives a 60-ksi minimum tensile strength but no minimum yield strength.
 Neither that tensile minimum nor a generic UNC-2A thread class is a measured
@@ -44,8 +52,11 @@ where its threads land within each timber member. No located 5-in/8-in
 ordinary-store SKU presently combines adequate length, supported
 bending-yield input, and controlled thread/root data.
 
-Before using this diameter for actual sizing, obtain a controlled root or
-minor-diameter range for the exact model, a defensible bending-yield input,
+For a conditional numerical component comparison, carry the NDS class
+reference Fyb and typical root transparently, with root sensitivity and
+no selected-product verdict. Before releasing actual sizing, obtain a
+controlled root or minor-diameter range for the exact model and confirm
+the NDS bending-yield basis applies to the delivered product,
 actual shank/thread occupancy in each member, sufficient nut engagement,
 washer bearing inputs, and same-case combined actions. No manufacturer
 contact or purchase is authorized by this screen.
