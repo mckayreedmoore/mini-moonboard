@@ -78,3 +78,34 @@ The complete-joint verdict is `null` for **all six cases** (a12-rear,
 a12-forward, a12-left, k12-right, k12-rear, a1-rear), including this hybrid
 a12-left. Joint utilization and design pass are `null`. These small
 component ratios do not establish a usable joint or drilling release.
+
+## One same-scenario development row
+
+The following values are simultaneous **a12-left hybrid** outputs from the
+authenticated archive, not a cross-case envelope. Forces are on each host;
+moments are about the local extractor's recorded reference point. Contact
+numbers sum active compression-only samples at that interface. The two
+interfaces act in series, not as four interchangeable bolts.
+
+| Interface | Host force (X, Y, Z), N | Host moment (X, Y, Z), N·mm | Active face samples / total compression, N | Largest bolt lateral / signed axial, N |
+| --- | --- | --- | --- | --- |
+| Principal-to-cleat | (−18.272, −2.815, −14.055) | (825.136, −739.433, 132.376) | 2 / 12.281 | u2: 27.399 / −5.356 |
+| Rail-to-cleat | (18.271, 2.815, −1.664) | (−188.966, 1081.259, −132.382) | 2 / 8.710 | r2: 15.321 / −22.122 |
+
+The largest *positive* modeled host axial is instead r1 at 31.367 N;
+the sign caveat above applies. The [gross-section cleat screen](simple-pb01-cleat-gross-section-screen.md)
+uses the **same archived run** and finds isolated maxima of 0.006937 MPa
+bending and 0.003438 MPa transverse shear across its reported cuts. It has
+nonzero torsion but no drilled net-section, combined-stress, wood-grade,
+or capacity result. The contact samples have forces, not authenticated
+physical bearing patches or pressure ratings. Thus the governing joint
+utilization is still `null`, not the largest one-bolt ratio in the table.
+
+**Development decision:** retain the quarter-inch solid-cleat family for
+revision, but do not promote this rail detail to the connected V4 candidate.
+The nominal partially threaded 5-in rail bolt cannot seat its nut against
+the modeled washer stack; the ordinary fully threaded rail lead needs a
+defined receiving interval and root-based check. Actual oblique bolt-row
+group action, axial/washer action, cleat torsion/net section, face bearing,
+and the center/base load path remain unresolved. These are specific revision
+targets, not a finding that the small diagnostic forces establish adequacy.
