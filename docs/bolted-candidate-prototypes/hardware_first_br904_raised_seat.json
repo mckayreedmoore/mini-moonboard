@@ -1,0 +1,862 @@
+{
+  "status": "rejected_bounded_raised_seat",
+  "product": "Newhouse/Adamax BR904; Home Depot internet #325186317",
+  "product_source": "https://www.homedepot.com/p/325186317",
+  "retailer_nominal_drawing": "https://mobileimages.lowes.com/productimages/d634d853-f9cd-473c-9904-e170613fa268/66922570.jpeg",
+  "width_option": "kerf-right",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "fixed_panel_kicker_axes": 66,
+  "existing_frame_axes": 12,
+  "fixed_panel_solids": 6,
+  "factory_nominal_mm": {
+    "plate_width": 39.878,
+    "plate_thickness": 6.096,
+    "hole_diameter_advertised": 14.2875,
+    "pitch_advertised": 47.625,
+    "vertical_near_from_drawing_arithmetic": 36.83,
+    "horizontal_near_from_drawing_arithmetic": 20.32,
+    "vertical_overall": 104.902,
+    "horizontal_to_outer_bend": 88.392
+  },
+  "drawing_interpretation": "Retailer drawing is nominal and rounded. Near-hole distances are arithmetic from overall, free-end inset and 1.87-in drawn pitch; bend datum and finished tolerances are unresolved. Advertised 1-7/8-in pitch and 9/16-in hole govern bore envelopes.",
+  "assumed_bolt_diameter_mm": 12.7,
+  "hole_radial_play_mm": 0.79375,
+  "poses": [
+    {
+      "upper_y_center_mm": -100.0,
+      "status": "rejected_nominal_geometry",
+      "failures": [
+        "plate_wood",
+        "principal_wood_search_filter",
+        "lower_wood_search_filter"
+      ],
+      "checks_mm3": {
+        "plate_panel": {},
+        "plate_adjacent": {},
+        "plate_wood": {
+          "upper_left_seat": {
+            "base_principal_center_left": 21487.767
+          },
+          "upper_right_seat": {
+            "base_principal_center_right": 21487.767
+          }
+        },
+        "wood_panel": {},
+        "wood_adjacent": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "bore_panel": {},
+        "bore_adjacent": {},
+        "independent_plate_pairs": {},
+        "independent_bore_pairs": {}
+      },
+      "bore_missing_receiver_wood_mm3": {
+        "lower_post_1": 0,
+        "lower_post_2": 0,
+        "lower_header_1": 0,
+        "lower_header_2": 0,
+        "upper_left_principal_1": 0,
+        "upper_left_principal_2": 0,
+        "upper_left_header_1": 0,
+        "upper_left_header_2": 0,
+        "upper_right_principal_1": 0,
+        "upper_right_principal_2": 0,
+        "upper_right_header_1": 0,
+        "upper_right_header_2": 0
+      },
+      "principal_wood_filters": {
+        "upper_left_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            38.557,
+            101.143
+          ],
+          "transverse_4d_play_margins_mm": [
+            -13.037,
+            49.549
+          ]
+        },
+        "upper_left_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            7.944,
+            131.756
+          ],
+          "transverse_4d_play_margins_mm": [
+            -43.65,
+            80.162
+          ]
+        },
+        "upper_right_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            38.557,
+            101.143
+          ],
+          "transverse_4d_play_margins_mm": [
+            -13.037,
+            49.549
+          ]
+        },
+        "upper_right_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            7.944,
+            131.756
+          ],
+          "transverse_4d_play_margins_mm": [
+            -43.65,
+            80.162
+          ]
+        }
+      },
+      "upper_header_wood_filters": {
+        "upper_left_header_1": {
+          "rear_4d_play_margin_mm": 112.498,
+          "front_4d_play_margin_mm": 12.406,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_left_header_2": {
+          "rear_4d_play_margin_mm": 112.498,
+          "front_4d_play_margin_mm": 12.406,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        },
+        "upper_right_header_1": {
+          "rear_4d_play_margin_mm": 112.498,
+          "front_4d_play_margin_mm": 12.406,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_right_header_2": {
+          "rear_4d_play_margin_mm": 112.498,
+          "front_4d_play_margin_mm": 12.406,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        }
+      },
+      "lower_wood_filters": {
+        "post_vertical_end_3_5d_play_margin_mm": -8.414,
+        "header_rear_edge_4d_play_margin_mm": -31.147,
+        "post_x_edge_4d_play_margin_mm": 40.481,
+        "header_x_edge_4d_play_margin_mm": 178.406
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_center_receivers_mm3": {
+        "round_kicker_left_center_1": 438.127,
+        "round_kicker_left_center_2": 438.127,
+        "round_kicker_right_center_1": 438.127,
+        "round_kicker_right_center_2": 438.127
+      },
+      "kicker_seam_x_mm": -1.5875,
+      "one_piece_cad_solid": {
+        "base_header": true,
+        "base_post_center": true,
+        "base_principal_center_left": true,
+        "base_principal_center_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      },
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -264.092,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_principal_center_left": [
+          -114.45,
+          -25.55,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_principal_center_right": [
+          25.55,
+          114.45,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -121.0,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -121.0,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -121.0,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          121.0,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          121.0,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          121.0,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "plate_bounds_mm": {
+        "lower_vertical": [
+          -19.939,
+          19.939,
+          -181.796,
+          -175.7,
+          133.998,
+          238.9
+        ],
+        "lower_seat": [
+          -19.939,
+          19.939,
+          -264.092,
+          -175.7,
+          232.804,
+          238.9
+        ],
+        "upper_left_vertical": [
+          -120.546,
+          -114.45,
+          -119.939,
+          -80.061,
+          327.8,
+          432.702
+        ],
+        "upper_left_seat": [
+          -114.45,
+          -26.058,
+          -119.939,
+          -80.061,
+          327.8,
+          333.896
+        ],
+        "upper_right_vertical": [
+          114.45,
+          120.546,
+          -119.939,
+          -80.061,
+          327.8,
+          432.702
+        ],
+        "upper_right_seat": [
+          26.058,
+          114.45,
+          -119.939,
+          -80.061,
+          327.8,
+          333.896
+        ]
+      },
+      "bore_count": 12
+    },
+    {
+      "upper_y_center_mm": -70.0,
+      "status": "rejected_nominal_geometry",
+      "failures": [
+        "plate_wood",
+        "principal_wood_search_filter",
+        "upper_header_wood_search_filter",
+        "lower_wood_search_filter"
+      ],
+      "checks_mm3": {
+        "plate_panel": {},
+        "plate_adjacent": {},
+        "plate_wood": {
+          "upper_left_seat": {
+            "base_principal_center_left": 21487.767
+          },
+          "upper_right_seat": {
+            "base_principal_center_right": 21487.767
+          }
+        },
+        "wood_panel": {},
+        "wood_adjacent": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "bore_panel": {},
+        "bore_adjacent": {},
+        "independent_plate_pairs": {},
+        "independent_bore_pairs": {}
+      },
+      "bore_missing_receiver_wood_mm3": {
+        "lower_post_1": 0,
+        "lower_post_2": 0,
+        "lower_header_1": 0,
+        "lower_header_2": 0,
+        "upper_left_principal_1": 0,
+        "upper_left_principal_2": 0,
+        "upper_left_header_1": 0,
+        "upper_left_header_2": 0,
+        "upper_right_principal_1": 0,
+        "upper_right_principal_2": 0,
+        "upper_right_header_1": 0,
+        "upper_right_header_2": 0
+      },
+      "principal_wood_filters": {
+        "upper_left_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            61.538,
+            78.162
+          ],
+          "transverse_4d_play_margins_mm": [
+            9.944,
+            26.568
+          ]
+        },
+        "upper_left_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            30.925,
+            108.775
+          ],
+          "transverse_4d_play_margins_mm": [
+            -20.668,
+            57.181
+          ]
+        },
+        "upper_right_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            61.538,
+            78.162
+          ],
+          "transverse_4d_play_margins_mm": [
+            9.944,
+            26.568
+          ]
+        },
+        "upper_right_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            30.925,
+            108.775
+          ],
+          "transverse_4d_play_margins_mm": [
+            -20.668,
+            57.181
+          ]
+        }
+      },
+      "upper_header_wood_filters": {
+        "upper_left_header_1": {
+          "rear_4d_play_margin_mm": 142.498,
+          "front_4d_play_margin_mm": -17.594,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_left_header_2": {
+          "rear_4d_play_margin_mm": 142.498,
+          "front_4d_play_margin_mm": -17.594,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        },
+        "upper_right_header_1": {
+          "rear_4d_play_margin_mm": 142.498,
+          "front_4d_play_margin_mm": -17.594,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_right_header_2": {
+          "rear_4d_play_margin_mm": 142.498,
+          "front_4d_play_margin_mm": -17.594,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        }
+      },
+      "lower_wood_filters": {
+        "post_vertical_end_3_5d_play_margin_mm": -8.414,
+        "header_rear_edge_4d_play_margin_mm": -31.147,
+        "post_x_edge_4d_play_margin_mm": 40.481,
+        "header_x_edge_4d_play_margin_mm": 178.406
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_center_receivers_mm3": {
+        "round_kicker_left_center_1": 438.127,
+        "round_kicker_left_center_2": 438.127,
+        "round_kicker_right_center_1": 438.127,
+        "round_kicker_right_center_2": 438.127
+      },
+      "kicker_seam_x_mm": -1.5875,
+      "one_piece_cad_solid": {
+        "base_header": true,
+        "base_post_center": true,
+        "base_principal_center_left": true,
+        "base_principal_center_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      },
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -264.092,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_principal_center_left": [
+          -114.45,
+          -25.55,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_principal_center_right": [
+          25.55,
+          114.45,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -121.0,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -121.0,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -121.0,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          121.0,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          121.0,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          121.0,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "plate_bounds_mm": {
+        "lower_vertical": [
+          -19.939,
+          19.939,
+          -181.796,
+          -175.7,
+          133.998,
+          238.9
+        ],
+        "lower_seat": [
+          -19.939,
+          19.939,
+          -264.092,
+          -175.7,
+          232.804,
+          238.9
+        ],
+        "upper_left_vertical": [
+          -120.546,
+          -114.45,
+          -89.939,
+          -50.061,
+          327.8,
+          432.702
+        ],
+        "upper_left_seat": [
+          -114.45,
+          -26.058,
+          -89.939,
+          -50.061,
+          327.8,
+          333.896
+        ],
+        "upper_right_vertical": [
+          114.45,
+          120.546,
+          -89.939,
+          -50.061,
+          327.8,
+          432.702
+        ],
+        "upper_right_seat": [
+          26.058,
+          114.45,
+          -89.939,
+          -50.061,
+          327.8,
+          333.896
+        ]
+      },
+      "bore_count": 12
+    },
+    {
+      "upper_y_center_mm": -56.0,
+      "status": "rejected_nominal_geometry",
+      "failures": [
+        "plate_wood",
+        "principal_wood_search_filter",
+        "upper_header_wood_search_filter",
+        "lower_wood_search_filter"
+      ],
+      "checks_mm3": {
+        "plate_panel": {},
+        "plate_adjacent": {},
+        "plate_wood": {
+          "upper_left_seat": {
+            "base_principal_center_left": 21487.767
+          },
+          "upper_right_seat": {
+            "base_principal_center_right": 21487.767
+          }
+        },
+        "wood_panel": {},
+        "wood_adjacent": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "bore_panel": {},
+        "bore_adjacent": {},
+        "independent_plate_pairs": {},
+        "independent_bore_pairs": {}
+      },
+      "bore_missing_receiver_wood_mm3": {
+        "lower_post_1": 0,
+        "lower_post_2": 0,
+        "lower_header_1": 0,
+        "lower_header_2": 0,
+        "upper_left_principal_1": 0,
+        "upper_left_principal_2": 0,
+        "upper_left_header_1": 0,
+        "upper_left_header_2": 0,
+        "upper_right_principal_1": 0,
+        "upper_right_principal_2": 0,
+        "upper_right_header_1": 0,
+        "upper_right_header_2": 0
+      },
+      "principal_wood_filters": {
+        "upper_left_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            72.263,
+            67.437
+          ],
+          "transverse_4d_play_margins_mm": [
+            20.669,
+            15.843
+          ]
+        },
+        "upper_left_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            41.65,
+            98.05
+          ],
+          "transverse_4d_play_margins_mm": [
+            -9.944,
+            46.456
+          ]
+        },
+        "upper_right_principal_1": {
+          "oblique_toe_ray_mm": 48.078,
+          "oblique_toe_3_5d_play_margin_mm": 2.834,
+          "transverse_edges_mm": [
+            72.263,
+            67.437
+          ],
+          "transverse_4d_play_margins_mm": [
+            20.669,
+            15.843
+          ]
+        },
+        "upper_right_principal_2": {
+          "oblique_toe_ray_mm": 110.248,
+          "oblique_toe_3_5d_play_margin_mm": 65.004,
+          "transverse_edges_mm": [
+            41.65,
+            98.05
+          ],
+          "transverse_4d_play_margins_mm": [
+            -9.944,
+            46.456
+          ]
+        }
+      },
+      "upper_header_wood_filters": {
+        "upper_left_header_1": {
+          "rear_4d_play_margin_mm": 156.498,
+          "front_4d_play_margin_mm": -31.594,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_left_header_2": {
+          "rear_4d_play_margin_mm": 156.498,
+          "front_4d_play_margin_mm": -31.594,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        },
+        "upper_right_header_1": {
+          "rear_4d_play_margin_mm": 156.498,
+          "front_4d_play_margin_mm": -31.594,
+          "raised_shoulder_3_5d_play_margin_mm": 90.626
+        },
+        "upper_right_header_2": {
+          "rear_4d_play_margin_mm": 156.498,
+          "front_4d_play_margin_mm": -31.594,
+          "raised_shoulder_3_5d_play_margin_mm": 138.251
+        }
+      },
+      "lower_wood_filters": {
+        "post_vertical_end_3_5d_play_margin_mm": -8.414,
+        "header_rear_edge_4d_play_margin_mm": -31.147,
+        "post_x_edge_4d_play_margin_mm": 40.481,
+        "header_x_edge_4d_play_margin_mm": 178.406
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_center_receivers_mm3": {
+        "round_kicker_left_center_1": 438.127,
+        "round_kicker_left_center_2": 438.127,
+        "round_kicker_right_center_1": 438.127,
+        "round_kicker_right_center_2": 438.127
+      },
+      "kicker_seam_x_mm": -1.5875,
+      "one_piece_cad_solid": {
+        "base_header": true,
+        "base_post_center": true,
+        "base_principal_center_left": true,
+        "base_principal_center_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      },
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -264.092,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_principal_center_left": [
+          -114.45,
+          -25.55,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_principal_center_right": [
+          25.55,
+          114.45,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -121.0,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -121.0,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -121.0,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          121.0,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          121.0,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          121.0,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "plate_bounds_mm": {
+        "lower_vertical": [
+          -19.939,
+          19.939,
+          -181.796,
+          -175.7,
+          133.998,
+          238.9
+        ],
+        "lower_seat": [
+          -19.939,
+          19.939,
+          -264.092,
+          -175.7,
+          232.804,
+          238.9
+        ],
+        "upper_left_vertical": [
+          -120.546,
+          -114.45,
+          -75.939,
+          -36.061,
+          327.8,
+          432.702
+        ],
+        "upper_left_seat": [
+          -114.45,
+          -26.058,
+          -75.939,
+          -36.061,
+          327.8,
+          333.896
+        ],
+        "upper_right_vertical": [
+          114.45,
+          120.546,
+          -75.939,
+          -36.061,
+          327.8,
+          432.702
+        ],
+        "upper_right_seat": [
+          26.058,
+          114.45,
+          -75.939,
+          -36.061,
+          327.8,
+          333.896
+        ]
+      },
+      "bore_count": 12
+    }
+  ],
+  "identity_and_tolerance_gate": "Lowe's Adamax BR904 and Newhouse BR904 model identity is supported by manufacturer brand relationship, but delivered Home Depot lot and dimensions are unverified; drawing is not controlled manufacturing tolerance.",
+  "wood_filter_limit": "3.5D oblique toe and 4D edge margins include nominal factory-hole radial play, but are search filters, not classified NDS acceptance. Lower end filters are simplified centerline proxies; other wood ends and load directions remain unresolved.",
+  "unresolved": [
+    "delivered bend datum and hole locations",
+    "plate bend radius and true minimum thickness",
+    "bolt stacks, washer seating and tool access",
+    "complete wood end/edge classification and resistance",
+    "connector/joint resistance and frame load path",
+    "rail-to-center prefabricated connections and handling of one-piece blanks"
+  ],
+  "material_or_rating_adopted": false,
+  "drilling_released": false
+}
