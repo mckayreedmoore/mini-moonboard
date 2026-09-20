@@ -1,9 +1,26 @@
 """Preparation-only PB01 hybrid: never a V4 demand or capacity test."""
 
+import cadquery as cq
 import numpy as np
+import pytest
 
 from fea.current_response_run import physical_forces
+from fea.floor_flush_mesh import FlushStructure
+from fea.horizontal_panel_frame import next_bearing_set, panel_kernel
+from scripts import simple_pb01_hybrid_native as hybrid
 from scripts.simple_pb01_hybrid_native import HybridPB01, prepare_case
+
+
+@pytest.fixture(scope="module")
+def prepared():
+    before = (panel_kernel.grid, panel_kernel.pressure_load, FlushStructure.member)
+    result = prepare_case("a12-forward")
+    assert (
+        panel_kernel.grid,
+        panel_kernel.pressure_load,
+        FlushStructure.member,
+    ) == before
+    return result
 
 
 def test_hybrid_inventory_has_one_replaced_station_and_all_panel_axes():
@@ -20,8 +37,8 @@ def test_hybrid_inventory_has_one_replaced_station_and_all_panel_axes():
     assert "base_cleat_pb01" in {p.name for p in module.uncut_wood_parts()}
 
 
-def test_prepared_hybrid_has_two_serial_groups_and_traceable_force_ownership():
-    structure, metadata = prepare_case("a12-forward")
+def test_prepared_hybrid_has_two_serial_groups_and_traceable_force_ownership(prepared):
+    structure, metadata = prepared
     assert "base_cleat_pb01" in structure.members
     assert len(metadata["pb01_bolt_groups"]["upright"]) == 2
     assert len(metadata["pb01_bolt_groups"]["rail"]) == 2
@@ -69,3 +86,54 @@ def test_prepared_hybrid_has_two_serial_groups_and_traceable_force_ownership():
         first_moment = np.cross(point - origin, row["force_on_first_xyz_n"])
         second_moment = np.cross(point - origin, row["force_on_second_xyz_n"])
         assert np.allclose(first_moment + second_moment, 0)
+
+
+def test_pb01_contact_normals_point_into_hosts_and_opening_releases(prepared):
+    _, metadata = prepared
+    raw = {part.name: part.shape for part in HybridPB01().uncut_wood_parts()}
+    for name in metadata["pb01_contact_names"]:
+        owner = metadata["connection_ownership"][name]
+        point = cq.Vector(*owner["point"])
+        normal = cq.Vector(*owner["scalar_normal"])
+        assert raw[owner["first"]].isInside(point + normal * 0.1, 0.001)
+        assert raw[owner["second"]].isInside(point - normal * 0.1, 0.001)
+        assert name not in next_bearing_set(
+            [{"name": name, "active": True, "opening_mm": 0.1}]
+        )
+        assert name in next_bearing_set(
+            [{"name": name, "active": True, "opening_mm": -0.1}]
+        )
+
+
+def test_four_trial_bolt_gravity_loads_are_explicit_and_balance(prepared):
+    structure, metadata = prepared
+    rows = metadata["pb01_trial_bolt_gravity"]
+    assert len(rows) == 4
+    assert {row["family"] for row in rows} == {"upright", "rail"}
+    total_mass = sum(row["mass_kg"] for row in rows)
+    assert total_mass > 0
+    assert metadata["pb01_trial_bolt_total_mass_kg"] == pytest.approx(total_mass)
+    for row in rows:
+        assert structure.loads[row["host_node"]][2] == pytest.approx(
+            -row["mass_kg"] * 9.80665 / 2
+        )
+        assert structure.loads[row["cleat_node"]][2] == pytest.approx(
+            -row["mass_kg"] * 9.80665 / 2
+        )
+        assert row["mass_basis"] == "diagnostic steel envelope only"
+
+
+def test_failed_preparation_restores_shared_builders(monkeypatch):
+    before = (panel_kernel.grid, panel_kernel.pressure_load, FlushStructure.member)
+
+    def fail(*args, **kwargs):
+        raise RuntimeError("injected prepare failure")
+
+    monkeypatch.setattr(hybrid, "prepare_flush", fail)
+    with pytest.raises(RuntimeError, match="injected prepare failure"):
+        prepare_case("a12-left")
+    assert (
+        panel_kernel.grid,
+        panel_kernel.pressure_load,
+        FlushStructure.member,
+    ) == before

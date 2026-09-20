@@ -6,6 +6,7 @@ native case, reports V4 demands, selects hardware, or approves capacity.
 
 import json
 import math
+import threading
 from pathlib import Path
 
 import cadquery as cq
@@ -16,7 +17,7 @@ from fea import round_insert_frame as shared
 from fea.current_response_materials import connection_stiffnesses, materials
 from fea.floor_flush_mesh import FlushStructure, prepare_flush
 from fea.floor_flush_run import face_contacts, taper_top_monitors
-from fea.horizontal_panel_frame import panel_kernel
+from fea.horizontal_panel_frame import add_load, panel_kernel
 from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
@@ -30,6 +31,24 @@ RAIL = "base_rail_service_lower_right"
 ANGLE = math.radians(50)
 T = np.array([0.0, math.cos(ANGLE), math.sin(ANGLE)])
 N = np.array([0.0, -math.sin(ANGLE), math.cos(ANGLE)])
+_PREPARE_LOCK = threading.RLock()
+_ORIGINAL_GRID = panel_kernel.grid
+_ORIGINAL_PRESSURE = panel_kernel.pressure_load
+_ORIGINAL_MEMBER = FlushStructure.member
+
+
+def _trial_bolt_mass_kg(length_mm):
+    """Diagnostic steel mass, not a selected product or complete stack fit."""
+    shaft_d, washer_od, washer_id = 9.525, 25.4, 10.5
+    end_d, head_h, nut_h, washer_h = 16.51, 6.8072, 8.5598, 2.5
+    area = lambda diameter: math.pi * (diameter / 2) ** 2
+    volume = (
+        area(shaft_d) * length_mm
+        + 2 * (area(washer_od) - area(washer_id)) * washer_h
+        + area(end_d) * head_h
+        + (area(end_d) - area(shaft_d)) * nut_h
+    )
+    return volume * 7.85e-6
 
 
 def _trial() -> dict:
@@ -180,6 +199,39 @@ def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
     metadata["pb01_contact_names"] = contacts
 
 
+def _add_trial_bolt_gravity(structure, metadata):
+    """Add four explicit diagnostic stack weights at the serial interfaces."""
+    rows = []
+    for family, host, length in (
+        ("upright", UPRIGHT, 203.2),
+        ("rail", RAIL, 127.0),
+    ):
+        for name in metadata["pb01_bolt_groups"][family]:
+            point = metadata["connection_ownership"][name]["point"]
+            mass = _trial_bolt_mass_kg(length)
+            host_node = structure.attachment(host, point)
+            cleat_node = structure.attachment(CLEAT, point)
+            half_weight = -mass * 9.80665 / 2
+            add_load(structure, host_node, [0.0, 0.0, half_weight])
+            add_load(structure, cleat_node, [0.0, 0.0, half_weight])
+            rows.append(
+                {
+                    "name": name,
+                    "family": family,
+                    "assumed_length_mm": length,
+                    "mass_kg": mass,
+                    "mass_basis": "diagnostic steel envelope only",
+                    "host_node": host_node,
+                    "cleat_node": cleat_node,
+                    "force_split": "half to host and half to cleat at shared interface",
+                }
+            )
+    total = sum(row["mass_kg"] for row in rows)
+    metadata["pb01_trial_bolt_gravity"] = rows
+    metadata["pb01_trial_bolt_total_mass_kg"] = total
+    metadata["modeled_mass_kg"] += total
+
+
 def _imprint_points(pose):
     result = {UPRIGHT: [], RAIL: [], CLEAT: []}
     for family, host in (("upright", UPRIGHT), ("rail", RAIL)):
@@ -214,8 +266,8 @@ def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
         "seating_per_area": 100.0,
         "bolt": {**next(iter(bolts.values())), "by_name": bolts},
     }
-    original_grid, original_pressure = panel_kernel.grid, panel_kernel.pressure_load
-    original_member = FlushStructure.member
+    original_grid, original_pressure = _ORIGINAL_GRID, _ORIGINAL_PRESSURE
+    original_member = _ORIGINAL_MEMBER
     extra = _imprint_points(module.pose)
     calls = 0
 
@@ -244,26 +296,34 @@ def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
         )
 
     hold, horizontal_force = CASES[case]
-    try:
-        panel_kernel.grid = kerf_grid
-        panel_kernel.pressure_load = kerf_pressure
-        FlushStructure.member = joint_member
-        structure, metadata = prepare_flush(
-            module,
-            expected_candidate=module.KEY,
-            materials=materials(),
-            stiffnesses=stiffnesses,
-            hold=hold,
-            pounds=250.0,
-            horizontal_force=horizontal_force,
-            leg_floor_grid=3,
-            patch_size=20.0,
-            member_contacts=face_contacts(module),
-            clearance_monitors=taper_top_monitors(module),
-        )
-    finally:
-        panel_kernel.grid, panel_kernel.pressure_load = original_grid, original_pressure
-        FlushStructure.member = original_member
+    with _PREPARE_LOCK:
+        if (
+            panel_kernel.grid is not original_grid
+            or panel_kernel.pressure_load is not original_pressure
+            or FlushStructure.member is not original_member
+        ):
+            raise RuntimeError("another model preparation has patched shared builders")
+        try:
+            panel_kernel.grid = kerf_grid
+            panel_kernel.pressure_load = kerf_pressure
+            FlushStructure.member = joint_member
+            structure, metadata = prepare_flush(
+                module,
+                expected_candidate=module.KEY,
+                materials=materials(),
+                stiffnesses=stiffnesses,
+                hold=hold,
+                pounds=250.0,
+                horizontal_force=horizontal_force,
+                leg_floor_grid=3,
+                patch_size=20.0,
+                member_contacts=face_contacts(module),
+                clearance_monitors=taper_top_monitors(module),
+            )
+        finally:
+            panel_kernel.grid = original_grid
+            panel_kernel.pressure_load = original_pressure
+            FlushStructure.member = original_member
     if calls != len(panel_names):
         raise ValueError("Incomplete kerf-right six-panel preparation")
     panel_bounds = {}
@@ -274,6 +334,7 @@ def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
             raise ValueError(f"{name}: native mesh misses kerf-right panel bounds")
         panel_bounds[name] = [actual.xmin, actual.xmax]
     _add_pb01_paths(structure, metadata, module, spring_n_per_mm)
+    _add_trial_bolt_gravity(structure, metadata)
     names = sorted(
         {c.members[0] for c in module.connections() if c.name.startswith("clip_")}
     )
