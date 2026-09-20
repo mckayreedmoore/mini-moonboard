@@ -1,0 +1,362 @@
+{
+  "status": "rejected_installed_geometry_trial",
+  "concept": "full-width 3.5-in solid header rises 50.8 mm; center principal toes trimmed, 3.5-in solid center posts remain at original top; paired HL35 each face and upper/lower rows maximally staggered",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "all_66_panel_axes_unchanged": true,
+  "header_z_mm": [
+    238.9,
+    327.8
+  ],
+  "principal_min_z_mm": 327.8,
+  "post_max_z_mm": 238.9,
+  "prior_downward_header_failure": {
+    "new_header_bottom_z_mm": 188.1,
+    "unchanged_post_overlap_mm": 50.8,
+    "shortened_post_end_z_mm": 188.1,
+    "protected_upper_kicker_screw_z_mm": 192.0,
+    "screw_above_shortened_post_end_mm": 3.9
+  },
+  "original_post_material_removed_mm3": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "remaining_kicker_inner_edge_overhang_mm": {
+    "left": 23.9625,
+    "right": 27.1375
+  },
+  "full_kicker_inner_edge_support": false,
+  "known_projection_nonclash": {
+    "nominal_header_bolt_x_mm": -139.85,
+    "protected_kicker_screw_x_mm": -70.0,
+    "x_axis_separation_mm": 69.85,
+    "sum_nominal_radii_mm": 9.2139,
+    "finding": "a Y/Z projection overlap in that older pose is not a 3D collision"
+  },
+  "upper_y_mm": [
+    -143.95,
+    -80.44999999999999
+  ],
+  "lower_y_mm": [
+    -131.25,
+    -67.75
+  ],
+  "nominal_wood_bore_diameter_mm": 14.2875,
+  "horizontal_flange_hole_x_offset": {
+    "assumed_nominal_mm": 50.8,
+    "qualification": "Undimensioned in the cited Simpson HL catalog drawing; symmetric placement is a modeling assumption, not a factory drilling coordinate."
+  },
+  "ideal_inner_plate_envelope": {
+    "flange_reach_mm": 82.55,
+    "assumed_plate_thickness_mm": 4.55,
+    "qualification": "Rectangular nominal 7-gauge seats; not delivered geometry. Bend radii, holes, coating, and tolerances omitted.",
+    "collisions": [
+      {
+        "level": "upper",
+        "left_right_plate_overlap_mm3": 29528.135,
+        "left_plate_opposite_timber_mm3": 18173.383,
+        "right_plate_opposite_timber_mm3": 18173.383
+      },
+      {
+        "level": "lower",
+        "left_right_plate_overlap_mm3": 29528.135,
+        "left_plate_opposite_timber_mm3": 18173.383,
+        "right_plate_opposite_timber_mm3": 18173.383
+      }
+    ],
+    "panel_solid_intersections_over_0_01_mm3": []
+  },
+  "bores": [
+    {
+      "id": "left_outer_upper_1",
+      "vertical_center_mm": [
+        -70,
+        -143.95,
+        378.6
+      ],
+      "header_center_mm": [
+        -165.25,
+        -143.95
+      ],
+      "vertical_missing_wood_mm3": 12022.236,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_outer_upper_2",
+      "vertical_center_mm": [
+        -70,
+        -80.44999999999999,
+        378.6
+      ],
+      "header_center_mm": [
+        -165.25,
+        -80.44999999999999
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_outer_lower_1",
+      "vertical_center_mm": [
+        -70,
+        -131.25,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        -165.25,
+        -131.25
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_outer_lower_2",
+      "vertical_center_mm": [
+        -70,
+        -67.75,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        -165.25,
+        -67.75
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_inner_upper_1",
+      "vertical_center_mm": [
+        -70,
+        -143.95,
+        378.6
+      ],
+      "header_center_mm": [
+        25.25,
+        -143.95
+      ],
+      "vertical_missing_wood_mm3": 12022.236,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_inner_upper_2",
+      "vertical_center_mm": [
+        -70,
+        -80.44999999999999,
+        378.6
+      ],
+      "header_center_mm": [
+        25.25,
+        -80.44999999999999
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_inner_lower_1",
+      "vertical_center_mm": [
+        -70,
+        -131.25,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        25.25,
+        -131.25
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "left_inner_lower_2",
+      "vertical_center_mm": [
+        -70,
+        -67.75,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        25.25,
+        -67.75
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_outer_upper_1",
+      "vertical_center_mm": [
+        70,
+        -143.95,
+        378.6
+      ],
+      "header_center_mm": [
+        165.25,
+        -143.95
+      ],
+      "vertical_missing_wood_mm3": 12022.236,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_outer_upper_2",
+      "vertical_center_mm": [
+        70,
+        -80.44999999999999,
+        378.6
+      ],
+      "header_center_mm": [
+        165.25,
+        -80.44999999999999
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_outer_lower_1",
+      "vertical_center_mm": [
+        70,
+        -131.25,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        165.25,
+        -131.25
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_outer_lower_2",
+      "vertical_center_mm": [
+        70,
+        -67.75,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        165.25,
+        -67.75
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_inner_upper_1",
+      "vertical_center_mm": [
+        70,
+        -143.95,
+        378.6
+      ],
+      "header_center_mm": [
+        -25.25,
+        -143.95
+      ],
+      "vertical_missing_wood_mm3": 12022.236,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_inner_upper_2",
+      "vertical_center_mm": [
+        70,
+        -80.44999999999999,
+        378.6
+      ],
+      "header_center_mm": [
+        -25.25,
+        -80.44999999999999
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_inner_lower_1",
+      "vertical_center_mm": [
+        70,
+        -131.25,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        -25.25,
+        -131.25
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    },
+    {
+      "id": "right_inner_lower_2",
+      "vertical_center_mm": [
+        70,
+        -67.75,
+        188.10000000000002
+      ],
+      "header_center_mm": [
+        -25.25,
+        -67.75
+      ],
+      "vertical_missing_wood_mm3": 0,
+      "header_missing_wood_mm3": 0
+    }
+  ],
+  "same_face_header_bore_pairs": [
+    {
+      "upper": "left_outer_upper_1",
+      "lower": "left_outer_lower_1",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "left_outer_upper_2",
+      "lower": "left_outer_lower_2",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "left_inner_upper_1",
+      "lower": "left_inner_lower_1",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "left_inner_upper_2",
+      "lower": "left_inner_lower_2",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "right_outer_upper_1",
+      "lower": "right_outer_lower_1",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "right_outer_upper_2",
+      "lower": "right_outer_lower_2",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "right_inner_upper_1",
+      "lower": "right_inner_lower_1",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    },
+    {
+      "upper": "right_inner_upper_2",
+      "lower": "right_inner_lower_2",
+      "axis_separation_mm": 12.7,
+      "overlapping_header_bore_mm3": 623.018
+    }
+  ],
+  "screw_envelope_lengths_mm": {
+    "frozen_occupied": 50.8,
+    "purchased_overall_conditional": 63.5
+  },
+  "panel_receivers_with_nominal_intersection": 66,
+  "upper_kicker_receivers_with_nominal_intersection": 2,
+  "panel_bore_clashes_by_envelope": {
+    "frozen_occupied_50_8_mm": [
+      "round_kicker_left_center_2",
+      "round_kicker_right_center_2"
+    ],
+    "purchased_overall_63_5_mm_conditional": [
+      "round_kicker_left_center_2",
+      "round_kicker_right_center_2"
+    ]
+  },
+  "receiver_check_qualification": "Positive cylinder/receiver volume proves only some intersection, not required embedment, screw-body fit, or full panel-edge backing. Overhang is relative to these center posts, not all possible backing.",
+  "disposition": "Reject this installed geometry: inner ideal HL35 seats overlap each other and opposite timbers; independent upper/lower header bores overlap at maximal Y stagger; the lower post bolt bore intersects both protected upper kicker screws even at the frozen 50.8-mm envelope; the inner kicker edges overhang these center posts; and the first upper principal bolt misses timber at its oblique toe. Shared bolts or shifted posts are different unqualified concepts. Washer, head/nut, tool, withdrawal, delivered-hole, neighbor-frame, edge/end, and load-path checks are not warranted for this rejected layout; no drilling or structural acceptance."
+}
