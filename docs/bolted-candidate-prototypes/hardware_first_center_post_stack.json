@@ -1,0 +1,76 @@
+{
+  "status": "screen_only_no_selection",
+  "axis": "center-tongue paired HL33 shared post through-bolt",
+  "bolt": "1/2-13 Everbilt hex bolts listed A307; Grade A subtype unverified",
+  "wood_mm": 190.5,
+  "plate_each_mm": 4.55,
+  "wood_and_plates_mm": 199.6,
+  "washers": "one under head and one under nut; nominal 0.109 in each",
+  "under_nut_grip_mm": 205.1372,
+  "minimum_10in_usable_thread_to_reach_nut_face_mm": 48.8628,
+  "full_hex_nut_thickness_in": [
+    0.427,
+    0.448
+  ],
+  "candidates": [
+    {
+      "length_in": 8,
+      "length_mm": 203.2,
+      "bolt_source": "https://www.homedepot.com/p/204273630",
+      "end_beyond_nut_mm": [
+        -13.3164,
+        -12.783
+      ],
+      "length_status": "too_short_with_two_washers_and_full_nut",
+      "published_thread_length_in": 6,
+      "nominal_thread_start_from_bearing_face_mm": 50.8,
+      "nominal_thread_start_before_nut_face_mm": 154.3372,
+      "thread_engagement_status": "no_full_nut_length"
+    },
+    {
+      "length_in": 10,
+      "length_mm": 254.0,
+      "bolt_source": "https://www.homedepot.com/p/204281591",
+      "end_beyond_nut_mm": [
+        37.4836,
+        38.017
+      ],
+      "length_status": "nominal_length_only",
+      "published_thread_length_in": null,
+      "nominal_thread_start_from_bearing_face_mm": null,
+      "nominal_thread_start_before_nut_face_mm": null,
+      "thread_engagement_status": "unresolved_thread_start_and_runout"
+    },
+    {
+      "length_in": 12,
+      "length_mm": 304.8,
+      "bolt_source": "https://www.homedepot.com/p/204633168",
+      "end_beyond_nut_mm": [
+        88.2836,
+        88.817
+      ],
+      "length_status": "nominal_length_only",
+      "published_thread_length_in": 6,
+      "nominal_thread_start_from_bearing_face_mm": 152.4,
+      "nominal_thread_start_before_nut_face_mm": 52.7372,
+      "thread_engagement_status": "nominal_thread_span_only_runout_unresolved"
+    }
+  ],
+  "sources": {
+    "pose": "docs/bolted-candidate-prototypes/hardware_first_center_tongue.json",
+    "bolt_8": "https://www.homedepot.com/p/204273630",
+    "bolt_10": "https://www.homedepot.com/p/204281591",
+    "bolt_12": "https://www.homedepot.com/p/204633168",
+    "washer": "https://www.homedepot.com/p/204276406",
+    "nut_thread": "https://www.lowes.com/pd/1-2-in-x-13-Galvanized-Steel-Hex-Nut/3037536",
+    "nut_dimensions": "https://cdn.mscdirect.com/global/images/ProductDataSheet/pds_sku_254996_productbrochure_manual%20data%20sheet.pdf#page=85"
+  },
+  "unresolved": [
+    "10-in SKU thread length/start is unpublished; runout and minimum usable nut engagement are unverified for all SKUs",
+    "listed nominal bolt and washer dimensions have no delivered tolerance bound here",
+    "zinc-plated and galvanized candidate finishes differ; exact coating and nut pairing require confirmation",
+    "head height, installed washer/head/nut position, nearby solids, and wrench/socket sweep lack a qualified spatial envelope",
+    "no connector, wood, bolt, or joint capacity or fabrication approval is inferred",
+    "Everbilt listing says A307 but not Grade A; these examples do not yet meet the HL catalog's explicit Grade A identification requirement"
+  ]
+}
