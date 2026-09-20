@@ -37,4 +37,9 @@ def test_quarter_runner_has_distinct_candidate_and_diagnostic_scope(
     assert "quarter" in seen["expected_candidate"]
     assert outcome["diagnostic_scope"]["pb01_pose_variant"] == "quarter"
     assert outcome["diagnostic_scope"]["pb01_nominal_trial_bolt_diameter_mm"] == 6.35
+    assert outcome["diagnostic_scope"]["bore_diameter_changes_mesh"] is False
+    assert (
+        "trial_stack_mass_only"
+        in outcome["diagnostic_scope"]["variant_native_difference"]
+    )
     assert outcome["diagnostic_scope"]["v4_same_case_demand"] is False

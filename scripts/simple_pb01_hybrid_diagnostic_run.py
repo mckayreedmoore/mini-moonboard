@@ -53,6 +53,8 @@ def run_case(
         "pb01_cleat_station": "clip_horizontal_lower_right_1",
         "pb01_pose_variant": variant,
         "pb01_nominal_trial_bolt_diameter_mm": POSES[variant][1],
+        "variant_native_difference": "trial_stack_mass_only; identical centers and spring stiffness",
+        "bore_diameter_changes_mesh": False,
         "v4_same_case_demand": False,
         "qualified_for_design": False,
         "drilling_released": False,

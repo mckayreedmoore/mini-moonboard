@@ -39,3 +39,21 @@ cleat, bolts or frame from these proxy-topology forces. Next evidence must
 replace **every** old connector duty in one coherent candidate, qualify
 the actual product/wood/washer/group and contact inputs, and run all six
 unchanged cases on that candidate.
+
+## Later quarter-labelled mass sensitivity
+
+At source commit `55c2f75`, the separate `--variant quarter` hybrid
+`a12-left` run converged in 14 cycles and passed global, member and MPC
+numerical gates. Its maximum panel displacement was 14.6742 mm. The trial
+four-stack mass was 0.33158 kg, versus 0.51951 kg for the earlier 3/8-in
+run. Its report SHA-256 is
+`151e154575585d5c8749395900ac5afa004142e6686cdf8eca1b19e989169dbd`.
+
+This **is not a bolt-diameter response study**. The 1/4-in and 3/8-in
+records have identical bolt centerlines; the nominal bore change does not
+alter this mesh, and both use the same arbitrary 1,000-N/mm spring and
+single midpoint face contacts. Only the provisional trial stack mass
+changes in the native model. The separate CAD screen, not this run, tests
+the 1/4-in bore's local fit. The 23 legacy proxies and all resistance
+limitations above still apply. The quarter run's raw output is under
+`/tmp/mini_pb01_hybrid_quarter_a12_left_55c2f75` on the working host.

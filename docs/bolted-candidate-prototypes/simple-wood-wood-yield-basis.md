@@ -63,10 +63,12 @@ different angles and lengths, and reject a gap, axis-parallel grain, wrong
 reduction terms, and incomplete inputs. They verify code behavior, not a
 particular store-bought bolt or connection.
 
-The 1/4-in PB-01 four-bolt cleat has one upright/cleat bolt axis parallel
-to cleat grain, so this wrapper **cannot** evaluate that interface even
-conditionally. The retail source screen has no exact product root or
-`F_yb`, and no new-topology same-case force exists. The small-root branch
+The current 1/4-in PB-01 **N-grain four-bolt** cleat has upright bolts along
+X and rail bolts along local T; both axes are transverse to cleat grain N.
+The earlier separate X-grain one-bolt pose has an axis-parallel upright
+bolt and remains outside this wrapper. For the four-bolt pose, the retail
+source screen still has no exact product root or `F_yb`, no qualified group
+or member checks, and no new-topology same-case force. The small-root branch
 is component groundwork, not a PB-01 capacity result.
 
 ## Still required for an actual PB joint
