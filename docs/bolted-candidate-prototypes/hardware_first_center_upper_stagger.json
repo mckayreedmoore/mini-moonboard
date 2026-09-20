@@ -1,0 +1,972 @@
+{
+  "status": "rejected_installed_geometry_trial",
+  "width_option": "kerf-right",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "source_pose": "scripts.hardware_first_center_tongue",
+  "outer_upper_y0_mm": -100.0,
+  "shift_samples_mm": [
+    63.5,
+    66.0,
+    70.0
+  ],
+  "catalog_nominal_mm": {
+    "leg": 82.55,
+    "bend_length": 63.5,
+    "along_bend_hole": 31.75,
+    "vertical_leg_hole": 50.8
+  },
+  "ideal_plate_thickness_mm": 4.55,
+  "ideal_bore_diameter_mm": 14.2875,
+  "bolt_center_diameter_comparator_mm": 12.7,
+  "protected_axis_count": 66,
+  "retained_frame_axis_count": 12,
+  "fixed_panel_outline_count": 6,
+  "baseline_failures": [],
+  "existing_fastener_axis_boundary_rays": {
+    "shared_post": {
+      "member": "post",
+      "center_mm": [
+        0,
+        -94.72,
+        183.55
+      ],
+      "grain_unit_xyz": [
+        0,
+        0,
+        1
+      ],
+      "grain_negative_boundary_mm": 183.55,
+      "grain_positive_boundary_mm": 50.8,
+      "transverse_negative_boundary_mm": 31.75,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        94.65,
+        -38.1
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        -19.05,
+        7.92
+      ],
+      "oblique_end_unclassified": false
+    },
+    "upper_left_principal": {
+      "member": "base_principal_center_left",
+      "center_mm": [
+        -70,
+        -68.25,
+        378.6
+      ],
+      "grain_unit_xyz": [
+        0,
+        0.6428,
+        0.766
+      ],
+      "grain_negative_boundary_mm": 2354.77,
+      "grain_positive_boundary_mm": 66.3147,
+      "transverse_negative_boundary_mm": 53.899,
+      "transverse_positive_boundary_mm": 85.801,
+      "reversible_7d_grain_margins_mm": [
+        2265.87,
+        -22.5853
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        3.099,
+        35.001
+      ],
+      "oblique_end_unclassified": true
+    },
+    "upper_right_principal": {
+      "member": "base_principal_center_right",
+      "center_mm": [
+        70,
+        -68.25,
+        378.6
+      ],
+      "grain_unit_xyz": [
+        0,
+        0.6428,
+        0.766
+      ],
+      "grain_negative_boundary_mm": 2354.77,
+      "grain_positive_boundary_mm": 66.3147,
+      "transverse_negative_boundary_mm": 53.899,
+      "transverse_positive_boundary_mm": 85.801,
+      "reversible_7d_grain_margins_mm": [
+        2265.87,
+        -22.5853
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        3.099,
+        35.001
+      ],
+      "oblique_end_unclassified": true
+    },
+    "lower_left_header": {
+      "member": "header",
+      "center_mm": [
+        -44.45,
+        -94.72,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 185.55,
+      "grain_positive_boundary_mm": 274.45,
+      "transverse_negative_boundary_mm": 163.53,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        96.65,
+        185.55
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        112.73,
+        7.92
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1174.75,
+        1260.475
+      ]
+    },
+    "upper_left_header": {
+      "member": "header",
+      "center_mm": [
+        -165.25,
+        -68.25,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 64.75,
+      "grain_positive_boundary_mm": 395.25,
+      "transverse_negative_boundary_mm": 190.0,
+      "transverse_positive_boundary_mm": 32.25,
+      "reversible_7d_grain_margins_mm": [
+        -24.15,
+        306.35
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        139.2,
+        -18.55
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1053.95,
+        1381.275
+      ]
+    },
+    "lower_right_header": {
+      "member": "header",
+      "center_mm": [
+        44.45,
+        -94.72,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 274.45,
+      "grain_positive_boundary_mm": 185.55,
+      "transverse_negative_boundary_mm": 163.53,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        185.55,
+        96.65
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        112.73,
+        7.92
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1263.65,
+        1171.575
+      ]
+    },
+    "upper_right_header": {
+      "member": "header",
+      "center_mm": [
+        165.25,
+        -68.25,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 395.25,
+      "grain_positive_boundary_mm": 64.75,
+      "transverse_negative_boundary_mm": 190.0,
+      "transverse_positive_boundary_mm": 32.25,
+      "reversible_7d_grain_margins_mm": [
+        306.35,
+        -24.15
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        139.2,
+        -18.55
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1384.45,
+        1050.775
+      ]
+    }
+  },
+  "protected_screw_receiver_loss_mm3": {},
+  "protected_screw_receiver_missing": {},
+  "samples": [
+    {
+      "shift_rearward_mm": 63.5,
+      "inner_upper_y_range_mm": [
+        -163.5,
+        -100.0
+      ],
+      "outer_upper_y_range_mm": [
+        -100.0,
+        -36.5
+      ],
+      "plate_bounds_mm": {
+        "upper_left_inner_vertical": [
+          -25.55,
+          -21.0,
+          -163.5,
+          -100.0,
+          327.8,
+          410.35
+        ],
+        "upper_left_inner_seat": [
+          -25.55,
+          57.0,
+          -163.5,
+          -100.0,
+          327.8,
+          332.35
+        ],
+        "upper_right_inner_vertical": [
+          21.0,
+          25.55,
+          -163.5,
+          -100.0,
+          327.8,
+          410.35
+        ],
+        "upper_right_inner_seat": [
+          -57.0,
+          25.55,
+          -163.5,
+          -100.0,
+          327.8,
+          332.35
+        ]
+      },
+      "bore_bounds_mm": {
+        "upper_left_inner_principal": [
+          -114.45,
+          -25.55,
+          -138.8938,
+          -124.6063,
+          371.4563,
+          385.7438
+        ],
+        "upper_left_inner_header": [
+          18.1062,
+          32.3937,
+          -138.8938,
+          -124.6063,
+          238.9,
+          327.8
+        ],
+        "upper_right_inner_principal": [
+          25.55,
+          114.45,
+          -138.8938,
+          -124.6063,
+          371.4563,
+          385.7438
+        ],
+        "upper_right_inner_header": [
+          -32.3937,
+          -18.1062,
+          -138.8938,
+          -124.6063,
+          238.9,
+          327.8
+        ]
+      },
+      "axis_boundary_rays": {
+        "upper_left_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            -70.0,
+            -131.75,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2395.587,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 5.2552,
+          "transverse_positive_boundary_mm": 134.4448,
+          "reversible_7d_grain_margins_mm": [
+            2306.687,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -45.5448,
+            83.6448
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_left_inner_header": {
+          "member": "header",
+          "center_mm": [
+            25.25,
+            -131.75,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 255.25,
+          "grain_positive_boundary_mm": 204.75,
+          "transverse_negative_boundary_mm": 126.5,
+          "transverse_positive_boundary_mm": 95.75,
+          "reversible_7d_grain_margins_mm": [
+            166.35,
+            115.85
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            75.7,
+            44.95
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1244.45,
+            1190.775
+          ]
+        },
+        "upper_right_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            70.0,
+            -131.75,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2395.587,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 5.2552,
+          "transverse_positive_boundary_mm": 134.4448,
+          "reversible_7d_grain_margins_mm": [
+            2306.687,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -45.5448,
+            83.6448
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_right_inner_header": {
+          "member": "header",
+          "center_mm": [
+            -25.25,
+            -131.75,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 204.75,
+          "grain_positive_boundary_mm": 255.25,
+          "transverse_negative_boundary_mm": 126.5,
+          "transverse_positive_boundary_mm": 95.75,
+          "reversible_7d_grain_margins_mm": [
+            115.85,
+            166.35
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            75.7,
+            44.95
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1193.95,
+            1241.275
+          ]
+        }
+      },
+      "principal_bolt_center_separation_mm": 63.5,
+      "principal_bolt_separation_along_grain_mm": 40.818,
+      "principal_bolt_separation_across_grain_mm": 48.641,
+      "principal_bolt_center_separation_3d_comparator_margin_mm": 25.4,
+      "principal_bolt_center_separation_4d_comparator_margin_mm": 12.7,
+      "header_axis_distances_mm": {
+        "inner_left / lower_left": 78.926,
+        "inner_left / outer_left": 200.8046,
+        "inner_left / lower_right": 41.7116,
+        "inner_left / outer_right": 153.7278,
+        "inner_left / inner_right": 50.5,
+        "inner_right / lower_left": 41.7116,
+        "inner_right / outer_left": 153.7278,
+        "inner_right / lower_right": 78.926,
+        "inner_right / outer_right": 200.8046,
+        "inner_right / inner_left": 50.5
+      },
+      "minimum_header_bore_surface_gap_mm": 27.4241,
+      "new_plate_pair_clashes_mm3": {
+        "upper_left_inner_vertical / upper_right_inner_seat": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_vertical": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_seat": 14764.068
+      },
+      "new_to_existing_plate_clashes_mm3": {},
+      "new_plate_changed_wood_clashes_mm3": {
+        "upper_left_inner_seat": {
+          "base_principal_center_right": 9086.691
+        },
+        "upper_right_inner_seat": {
+          "base_principal_center_left": 9086.691
+        }
+      },
+      "new_plate_adjacent_wood_clashes_mm3": {},
+      "new_plate_panel_clashes_mm3": {},
+      "new_bore_missing_receiver_wood_mm3": {
+        "upper_left_inner_principal": 1115.537,
+        "upper_right_inner_principal": 1115.537
+      },
+      "new_bore_other_changed_wood_clashes_mm3": {},
+      "new_bore_panel_clashes_mm3": {},
+      "new_bore_adjacent_wood_clashes_mm3": {},
+      "new_independent_bore_crossings_mm3": {},
+      "protected_screw_new_hardware_clashes_mm3": {},
+      "conditional_63_5_screw_new_hardware_clashes_mm3": {},
+      "existing_frame_axis_new_hardware_clashes_mm3": {},
+      "failures": [
+        "upper paired plate collision",
+        "new plate wood collision",
+        "new bore receiver loss"
+      ],
+      "status": "rejected_installed_geometry_trial"
+    },
+    {
+      "shift_rearward_mm": 66.0,
+      "inner_upper_y_range_mm": [
+        -166.0,
+        -102.5
+      ],
+      "outer_upper_y_range_mm": [
+        -100.0,
+        -36.5
+      ],
+      "plate_bounds_mm": {
+        "upper_left_inner_vertical": [
+          -25.55,
+          -21.0,
+          -166.0,
+          -102.5,
+          327.8,
+          410.35
+        ],
+        "upper_left_inner_seat": [
+          -25.55,
+          57.0,
+          -166.0,
+          -102.5,
+          327.8,
+          332.35
+        ],
+        "upper_right_inner_vertical": [
+          21.0,
+          25.55,
+          -166.0,
+          -102.5,
+          327.8,
+          410.35
+        ],
+        "upper_right_inner_seat": [
+          -57.0,
+          25.55,
+          -166.0,
+          -102.5,
+          327.8,
+          332.35
+        ]
+      },
+      "bore_bounds_mm": {
+        "upper_left_inner_principal": [
+          -114.45,
+          -25.55,
+          -141.3938,
+          -127.1063,
+          371.4563,
+          385.7438
+        ],
+        "upper_left_inner_header": [
+          18.1062,
+          32.3937,
+          -141.3938,
+          -127.1063,
+          238.9,
+          327.8
+        ],
+        "upper_right_inner_principal": [
+          25.55,
+          114.45,
+          -141.3938,
+          -127.1063,
+          371.4563,
+          385.7438
+        ],
+        "upper_right_inner_header": [
+          -32.3937,
+          -18.1062,
+          -141.3938,
+          -127.1063,
+          238.9,
+          327.8
+        ]
+      },
+      "axis_boundary_rays": {
+        "upper_left_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            -70.0,
+            -134.25,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2397.1939,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 3.3401,
+          "transverse_positive_boundary_mm": 136.3599,
+          "reversible_7d_grain_margins_mm": [
+            2308.2939,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -47.4599,
+            85.5599
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_left_inner_header": {
+          "member": "header",
+          "center_mm": [
+            25.25,
+            -134.25,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 255.25,
+          "grain_positive_boundary_mm": 204.75,
+          "transverse_negative_boundary_mm": 124.0,
+          "transverse_positive_boundary_mm": 98.25,
+          "reversible_7d_grain_margins_mm": [
+            166.35,
+            115.85
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            73.2,
+            47.45
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1244.45,
+            1190.775
+          ]
+        },
+        "upper_right_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            70.0,
+            -134.25,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2397.1939,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 3.3401,
+          "transverse_positive_boundary_mm": 136.3599,
+          "reversible_7d_grain_margins_mm": [
+            2308.2939,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -47.4599,
+            85.5599
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_right_inner_header": {
+          "member": "header",
+          "center_mm": [
+            -25.25,
+            -134.25,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 204.75,
+          "grain_positive_boundary_mm": 255.25,
+          "transverse_negative_boundary_mm": 124.0,
+          "transverse_positive_boundary_mm": 98.25,
+          "reversible_7d_grain_margins_mm": [
+            115.85,
+            166.35
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            73.2,
+            47.45
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1193.95,
+            1241.275
+          ]
+        }
+      },
+      "principal_bolt_center_separation_mm": 66.0,
+      "principal_bolt_separation_along_grain_mm": 42.425,
+      "principal_bolt_separation_across_grain_mm": 50.556,
+      "principal_bolt_center_separation_3d_comparator_margin_mm": 27.9,
+      "principal_bolt_center_separation_4d_comparator_margin_mm": 15.2,
+      "header_axis_distances_mm": {
+        "inner_left / lower_left": 80.1293,
+        "inner_left / outer_left": 201.6092,
+        "inner_left / lower_right": 43.9461,
+        "inner_left / outer_right": 154.7773,
+        "inner_left / inner_right": 50.5,
+        "inner_right / lower_left": 43.9461,
+        "inner_right / outer_left": 154.7773,
+        "inner_right / lower_right": 80.1293,
+        "inner_right / outer_right": 201.6092,
+        "inner_right / inner_left": 50.5
+      },
+      "minimum_header_bore_surface_gap_mm": 29.6586,
+      "new_plate_pair_clashes_mm3": {
+        "upper_left_inner_vertical / upper_right_inner_seat": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_vertical": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_seat": 14764.068
+      },
+      "new_to_existing_plate_clashes_mm3": {},
+      "new_plate_changed_wood_clashes_mm3": {
+        "upper_left_inner_seat": {
+          "base_principal_center_right": 9086.691
+        },
+        "upper_right_inner_seat": {
+          "base_principal_center_left": 9086.691
+        }
+      },
+      "new_plate_adjacent_wood_clashes_mm3": {},
+      "new_plate_panel_clashes_mm3": {},
+      "new_bore_missing_receiver_wood_mm3": {
+        "upper_left_inner_principal": 3044.079,
+        "upper_right_inner_principal": 3044.079
+      },
+      "new_bore_other_changed_wood_clashes_mm3": {},
+      "new_bore_panel_clashes_mm3": {},
+      "new_bore_adjacent_wood_clashes_mm3": {},
+      "new_independent_bore_crossings_mm3": {},
+      "protected_screw_new_hardware_clashes_mm3": {},
+      "conditional_63_5_screw_new_hardware_clashes_mm3": {},
+      "existing_frame_axis_new_hardware_clashes_mm3": {},
+      "failures": [
+        "upper paired plate collision",
+        "new plate wood collision",
+        "new bore receiver loss"
+      ],
+      "status": "rejected_installed_geometry_trial"
+    },
+    {
+      "shift_rearward_mm": 70.0,
+      "inner_upper_y_range_mm": [
+        -170.0,
+        -106.5
+      ],
+      "outer_upper_y_range_mm": [
+        -100.0,
+        -36.5
+      ],
+      "plate_bounds_mm": {
+        "upper_left_inner_vertical": [
+          -25.55,
+          -21.0,
+          -170.0,
+          -106.5,
+          327.8,
+          410.35
+        ],
+        "upper_left_inner_seat": [
+          -25.55,
+          57.0,
+          -170.0,
+          -106.5,
+          327.8,
+          332.35
+        ],
+        "upper_right_inner_vertical": [
+          21.0,
+          25.55,
+          -170.0,
+          -106.5,
+          327.8,
+          410.35
+        ],
+        "upper_right_inner_seat": [
+          -57.0,
+          25.55,
+          -170.0,
+          -106.5,
+          327.8,
+          332.35
+        ]
+      },
+      "bore_bounds_mm": {
+        "upper_left_inner_principal": [
+          -114.45,
+          -25.55,
+          -145.3938,
+          -131.1062,
+          371.4563,
+          385.7438
+        ],
+        "upper_left_inner_header": [
+          18.1062,
+          32.3937,
+          -145.3938,
+          -131.1062,
+          238.9,
+          327.8
+        ],
+        "upper_right_inner_principal": [
+          25.55,
+          114.45,
+          -145.3938,
+          -131.1062,
+          371.4563,
+          385.7438
+        ],
+        "upper_right_inner_header": [
+          -32.3937,
+          -18.1062,
+          -145.3938,
+          -131.1062,
+          238.9,
+          327.8
+        ]
+      },
+      "axis_boundary_rays": {
+        "upper_left_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            -70.0,
+            -138.25,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2399.7651,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 0.2759,
+          "transverse_positive_boundary_mm": 139.4241,
+          "reversible_7d_grain_margins_mm": [
+            2310.8651,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -50.5241,
+            88.6241
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_left_inner_header": {
+          "member": "header",
+          "center_mm": [
+            25.25,
+            -138.25,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 255.25,
+          "grain_positive_boundary_mm": 204.75,
+          "transverse_negative_boundary_mm": 120.0,
+          "transverse_positive_boundary_mm": 102.25,
+          "reversible_7d_grain_margins_mm": [
+            166.35,
+            115.85
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            69.2,
+            51.45
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1244.45,
+            1190.775
+          ]
+        },
+        "upper_right_inner_principal": {
+          "member": "principal",
+          "center_mm": [
+            70.0,
+            -138.25,
+            378.6
+          ],
+          "grain_unit_xyz": [
+            0,
+            0.6428,
+            0.766
+          ],
+          "grain_negative_boundary_mm": 2399.7651,
+          "grain_positive_boundary_mm": 66.3147,
+          "transverse_negative_boundary_mm": 0.2759,
+          "transverse_positive_boundary_mm": 139.4241,
+          "reversible_7d_grain_margins_mm": [
+            2310.8651,
+            -22.5853
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            -50.5241,
+            88.6241
+          ],
+          "oblique_end_unclassified": true
+        },
+        "upper_right_inner_header": {
+          "member": "header",
+          "center_mm": [
+            -25.25,
+            -138.25,
+            283.35
+          ],
+          "grain_unit_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grain_negative_boundary_mm": 204.75,
+          "grain_positive_boundary_mm": 255.25,
+          "transverse_negative_boundary_mm": 120.0,
+          "transverse_positive_boundary_mm": 102.25,
+          "reversible_7d_grain_margins_mm": [
+            115.85,
+            166.35
+          ],
+          "reversible_4d_transverse_margins_mm": [
+            69.2,
+            51.45
+          ],
+          "oblique_end_unclassified": false,
+          "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+          "full_span_grain_rays_at_lower_section_mm": [
+            1193.95,
+            1241.275
+          ]
+        }
+      },
+      "principal_bolt_center_separation_mm": 70.0,
+      "principal_bolt_separation_along_grain_mm": 44.996,
+      "principal_bolt_separation_across_grain_mm": 53.62,
+      "principal_bolt_center_separation_3d_comparator_margin_mm": 31.9,
+      "principal_bolt_center_separation_4d_comparator_margin_mm": 19.2,
+      "header_axis_distances_mm": {
+        "inner_left / lower_left": 82.1763,
+        "inner_left / outer_left": 202.9538,
+        "inner_left / lower_right": 47.5763,
+        "inner_left / outer_right": 156.5248,
+        "inner_left / inner_right": 50.5,
+        "inner_right / lower_left": 47.5763,
+        "inner_right / outer_left": 156.5248,
+        "inner_right / lower_right": 82.1763,
+        "inner_right / outer_right": 202.9538,
+        "inner_right / inner_left": 50.5
+      },
+      "minimum_header_bore_surface_gap_mm": 33.2888,
+      "new_plate_pair_clashes_mm3": {
+        "upper_left_inner_vertical / upper_right_inner_seat": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_vertical": 1314.609,
+        "upper_left_inner_seat / upper_right_inner_seat": 14764.068
+      },
+      "new_to_existing_plate_clashes_mm3": {},
+      "new_plate_changed_wood_clashes_mm3": {
+        "upper_left_inner_seat": {
+          "base_principal_center_right": 9086.691
+        },
+        "upper_right_inner_seat": {
+          "base_principal_center_left": 9086.691
+        }
+      },
+      "new_plate_adjacent_wood_clashes_mm3": {},
+      "new_plate_panel_clashes_mm3": {},
+      "new_bore_missing_receiver_wood_mm3": {
+        "upper_left_inner_principal": 6776.071,
+        "upper_right_inner_principal": 6776.071
+      },
+      "new_bore_other_changed_wood_clashes_mm3": {},
+      "new_bore_panel_clashes_mm3": {},
+      "new_bore_adjacent_wood_clashes_mm3": {},
+      "new_independent_bore_crossings_mm3": {},
+      "protected_screw_new_hardware_clashes_mm3": {},
+      "conditional_63_5_screw_new_hardware_clashes_mm3": {},
+      "existing_frame_axis_new_hardware_clashes_mm3": {},
+      "failures": [
+        "upper paired plate collision",
+        "new plate wood collision",
+        "new bore receiver loss"
+      ],
+      "status": "rejected_installed_geometry_trial"
+    }
+  ],
+  "qualification": "Ideal factory-shape envelope with assumed horizontal hole inset. Centerline rays at an oblique principal end and header shoulder are not code end-distance classifications. No capacity, drilling, installation, or acceptance claim."
+}
