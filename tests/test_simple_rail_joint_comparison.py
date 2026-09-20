@@ -4,7 +4,13 @@ import json
 
 import pytest
 
-from scripts.simple_rail_joint_comparison import OUTPUT, _bolt_report, box, compare
+from scripts.simple_rail_joint_comparison import (
+    OUTPUT,
+    _bolt_report,
+    _contact_area,
+    box,
+    compare,
+)
 
 
 def test_comparison_keeps_fixed_panel_axes_and_reports_real_offset():
@@ -83,7 +89,9 @@ def test_cleat_has_separate_crossing_checked_bolt_groups():
         for group in cleat["tool_clashes_mm3"].values()
         for hits in group.values()
     )
-    assert cleat["status"] == "geometry_only_candidate"
+    assert cleat["status"] == "diagnostic_pose_only"
+    assert cleat["installed_access_verified"] is False
+    assert cleat["actual_head_nut_socket_stack_verified"] is False
     assert cleat["remaining_open_checks"]
     assert json.loads(OUTPUT.read_text()) == report
 
@@ -124,7 +132,23 @@ def test_grain_n_cleat_is_separately_screened_without_promoting_prior_poses():
         assert all(not hits for hits in bolt["washer_clashes_mm3"].values())
         assert all(not hits for hits in bolt["tool_clashes_mm3"].values())
     assert trial["rail_nut_tool_tangent_clearance_mm"] == pytest.approx(6.3)
-    assert trial["status"] == "geometry_only_candidate"
+    assert trial["face_contact_perturbation_mm"] == pytest.approx(0.1)
+    assert trial["face_contact_geometry_verified"] == {
+        "rail_to_cleat": True,
+        "upright_to_cleat": True,
+    }
+    assert trial["washer_faces_geometry_verified"] is True
+    assert all(gap <= 0.01 for gap in trial["washer_wood_face_gap_mm"].values())
+    for face, nominal in trial["nominal_face_contact_area_mm2"].items():
+        assert trial["measured_face_contact_area_mm2"][face] == pytest.approx(
+            nominal, abs=1
+        )
+    assert trial["status"] == "diagnostic_pose_only"
+    assert trial["installed_access_verified"] is False
+    assert trial["actual_head_nut_socket_stack_verified"] is False
+    assert (
+        "diagnostic clearance envelopes only" in trial["tool_clearance_interpretation"]
+    )
     assert trial["trial_stack_count_not_selected"] == 2
     assert trial["installed_cost_usd"] is None
     assert trial["real_stock_and_cost_caveats"]
@@ -134,7 +158,7 @@ def test_grain_n_cleat_is_separately_screened_without_promoting_prior_poses():
 
 
 def test_full_bore_rejects_more_than_one_cubic_mm_missing_wood():
-    trial, _, _, _ = _bolt_report(
+    trial, _, washers, _ = _bolt_report(
         "incomplete_test_bore",
         (0, 0, 0),
         (1, 0, 0),
@@ -145,3 +169,20 @@ def test_full_bore_rejects_more_than_one_cubic_mm_missing_wood():
     )
     assert trial["missing_wood_bore_mm3"]["host"] > 1
     assert trial["full_bore_containment"]["host"] is False
+    assert trial["washer_wood_face_xyz_mm"] == {
+        "head": [2.5, 0.0, 0.0],
+        "nut": [7.5, 0.0, 0.0],
+    }
+    assert washers["head"].BoundingBox().xmin == pytest.approx(0)
+    assert washers["head"].BoundingBox().xmax == pytest.approx(2.5)
+    assert washers["nut"].BoundingBox().xmin == pytest.approx(7.5)
+    assert washers["nut"].BoundingBox().xmax == pytest.approx(10)
+    assert trial["actual_head_nut_socket_stack_verified"] is False
+
+
+def test_contact_measurement_rejects_separated_faces():
+    host = box(0, 0, 0, 1, 2, 3)
+    touching = box(1, 0, 0, 1, 2, 3)
+    separated = box(1.2, 0, 0, 1, 2, 3)
+    assert _contact_area(touching, host, (-1, 0, 0)) == pytest.approx(6)
+    assert _contact_area(separated, host, (-1, 0, 0)) == 0

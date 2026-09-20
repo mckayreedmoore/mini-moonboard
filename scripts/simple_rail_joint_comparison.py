@@ -51,6 +51,12 @@ def _cylinder(point, axis, length, diameter):
     )
 
 
+def _contact_area(moving, stationary, inward_axis, epsilon=0.1):
+    """Measure a touching face through a bounded inward CAD perturbation."""
+    offset = tuple(component * epsilon for component in inward_axis)
+    return moving.translate(offset).intersect(stationary).Volume() / epsilon
+
+
 def _yz(t, n):
     return (t * T[0] + n * N[0], t * T[1] + n * N[1])
 
@@ -76,13 +82,15 @@ def _axis_solid(row):
 
 
 def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
-    """Report complete trial bore and external washer/straight-tool envelopes."""
+    """Report trial bore, face-seated washers, and diagnostic tool envelopes."""
     bore = _cylinder(point, axis, grip, DIAMETER)
     end = tuple(point[i] + axis[i] * grip for i in range(3))
     reverse = tuple(-a for a in axis)
+    head_face = tuple(point[i] + axis[i] * 2.5 for i in range(3))
+    nut_face = tuple(end[i] - axis[i] * 2.5 for i in range(3))
     washers = {
-        "head": _cylinder(point, reverse, 2.5, WASHER_DIAMETER),
-        "nut": _cylinder(end, axis, 2.5, WASHER_DIAMETER),
+        "head": _cylinder(head_face, reverse, 2.5, WASHER_DIAMETER),
+        "nut": _cylinder(nut_face, axis, 2.5, WASHER_DIAMETER),
     }
     tools = {
         "head": _cylinder(point, reverse, TOOL_DEPTH, TOOL_DIAMETER),
@@ -105,6 +113,12 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
             "start_xyz_mm": [round(v, 3) for v in point],
             "axis_xyz": [round(v, 6) for v in axis],
             "grip_mm": grip,
+            "washer_wood_face_xyz_mm": {
+                "head": [round(v, 3) for v in head_face],
+                "nut": [round(v, 3) for v in nut_face],
+            },
+            "washer_seat_offset_from_bore_end_mm": 2.5,
+            "actual_head_nut_socket_stack_verified": False,
             "clearance_diameter_mm_trial_not_shop_instruction": DIAMETER,
             "required_wood_bore_mm3": {k: round(v, 3) for k, v in measured.items()},
             "expected_full_bore_wood_mm3": {
@@ -164,6 +178,17 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
         {"rail": 38.1, "cleat": t_width},
         {"upright": upright, **neighbors, **panel},
     )
+    u_faces = upright_bolt["washer_wood_face_xyz_mm"]
+    r_faces = rail_bolt["washer_wood_face_xyz_mm"]
+    r_head_t = r_faces["head"][1] * T[0] + r_faces["head"][2] * T[1]
+    r_nut_t = r_faces["nut"][1] * T[0] + r_faces["nut"][2] * T[1]
+    washer_face_gaps = {
+        "upright_head_x": abs(u_faces["head"][0] - ub.xmin),
+        "upright_nut_x": abs(u_faces["nut"][0] - ub.xmax - x_width),
+        "rail_head_t": abs(r_head_t - min(rail_t)),
+        "rail_nut_t": abs(r_nut_t - t_near - t_width),
+    }
+    washers_seated = all(gap <= 0.01 for gap in washer_face_gaps.values())
     all_envelopes = {
         "cleat": cleat,
         "upright_bore": upright_bore,
@@ -175,6 +200,20 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
     }
     upper_t_near = min(v.Y * T[0] + v.Z * T[1] for v in neighbors[NEIGHBOR].Vertices())
     rail_tool_t_end = t_near + t_width + 2.5 + TOOL_DEPTH
+    nominal_contact = {
+        "rail_to_cleat": x_width * (max(rail_n) - n_near),
+        "upright_to_cleat": t_width * (max(rail_n) - n_near),
+    }
+    measured_contact = {
+        "rail_to_cleat": _contact_area(cleat, rail, (0, -T[0], -T[1])),
+        "upright_to_cleat": _contact_area(cleat, upright, (-1, 0, 0)),
+    }
+    contact_verified = {
+        name: measured_contact[name] > 0
+        and abs(measured_contact[name] - nominal_contact[name])
+        <= max(1.0, nominal_contact[name] * 0.01)
+        for name in nominal_contact
+    }
     report = {
         "size_local_x_t_n_mm": [x_width, t_width, n_length],
         "grain_direction_xyz": [0, round(N[0], 6), round(N[1], 6)],
@@ -192,9 +231,13 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
         "rail_butt_x_mm": round(rb.xmin, 3),
         "upright_butt_x_mm": round(ub.xmax, 3),
         "nominal_face_contact_area_mm2": {
-            "rail_to_cleat": round(x_width * (max(rail_n) - n_near), 3),
-            "upright_to_cleat": round(t_width * (max(rail_n) - n_near), 3),
+            name: round(value, 3) for name, value in nominal_contact.items()
         },
+        "measured_face_contact_area_mm2": {
+            name: round(value, 3) for name, value in measured_contact.items()
+        },
+        "face_contact_perturbation_mm": 0.1,
+        "face_contact_geometry_verified": contact_verified,
         "trial_bolt_n_centers_mm": {"upright": upright_n, "rail": rail_bolt_n},
         "trial_bolt_n_center_separation_mm": rail_bolt_n - upright_n,
         "center_to_edges_mm": {
@@ -243,6 +286,10 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
             "Same-case load direction and applicable rule remain open"
         ),
         "fixed_panel_axes_checked": len(panel_axis_solids),
+        "washer_wood_face_gap_mm": {
+            name: round(value, 6) for name, value in washer_face_gaps.items()
+        },
+        "washer_faces_geometry_verified": washers_seated,
         "protected_axis_envelope_clashes_mm3": {
             name: _volume_hits(solid, panel_axis_solids)
             for name, solid in all_envelopes.items()
@@ -283,9 +330,17 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
         ],
         "load_rating_adopted": False,
         "drilling_released": False,
+        "installed_access_verified": False,
+        "actual_head_nut_socket_stack_verified": False,
+        "tool_clearance_interpretation": (
+            "40-mm straight cylinders are diagnostic clearance envelopes only; "
+            "real bolt heads, nuts, washer dimensions, sockets, and assembly sequence unverified"
+        ),
     }
     clear = (
-        all(upright_bolt["full_bore_containment"].values())
+        all(contact_verified.values())
+        and washers_seated
+        and all(upright_bolt["full_bore_containment"].values())
         and all(rail_bolt["full_bore_containment"].values())
         and not any(
             _has_hits(report[key])
@@ -309,7 +364,7 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
         and report["bolt_intersections_mm3"] == 0
         and report["rail_nut_tool_tangent_clearance_mm"] > 0
     )
-    report["status"] = "geometry_only_candidate" if clear else "reject_this_pose"
+    report["status"] = "diagnostic_pose_only" if clear else "reject_this_pose"
     return report
 
 
@@ -490,6 +545,12 @@ def compare():
         },
         "nominal_center_to_tangent_edge_mm": cleat_tangent / 2,
         "edge_distance_structurally_qualified": False,
+        "installed_access_verified": False,
+        "actual_head_nut_socket_stack_verified": False,
+        "tool_clearance_interpretation": (
+            "40-mm straight cylinders are diagnostic only; installed head, nut, "
+            "socket, and assembly access remain unverified"
+        ),
         "remaining_open_checks": [
             "trial 28.575-mm tangent center-to-edge is not an NDS edge-distance pass",
             "one trial bolt per side is not a demonstrated bolt group",
@@ -527,7 +588,7 @@ def compare():
         and cleat_report["rail_nut_tool_tangent_clearance_mm"] > 0
     )
     cleat_report["status"] = (
-        "geometry_only_candidate" if geometry_clear else "reject_this_pose"
+        "diagnostic_pose_only" if geometry_clear else "reject_this_pose"
     )
     return {
         "station": "clip_horizontal_lower_right_1",

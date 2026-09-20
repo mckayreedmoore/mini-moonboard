@@ -78,10 +78,14 @@ A second pose turns the cleat so its **200-mm length follows panel-normal
 grain**. Its 88.9 × 57.15-mm cross-section can be cut from nominal 4×4
 stock, subject to delivered dimensions and a short rip cut. Both separate
 trial bolt axes are transverse to the cleat grain. The local solid screen
-finds complete bores, clear trial washers and 40-mm straight tools, no
+finds complete bores, face-seated diagnostic washers, positive contact
+at both interfaces in a 0.1-mm solid-perturbation probe, clear 40-mm
+straight clearance cylinders, no
 intersections with other members, and no intersections with any of the 66
 fixed screw axes. The rail-side tool still has 6.3 mm nominal tangent
-clearance to the upper rail. This too is **geometry only**: one bolt per
+clearance to the upper rail. This is a **diagnostic pose only**: the real
+bolt head, nut, socket, washer specification and assembly sequence are
+not modeled or verified. One bolt per
 interface is not a reversible load path. The rail bolt lies just 44.45 mm
 from its member end, 22.225 mm short of a nominal 7D full-value benchmark
 for a 9.525-mm bolt *if the corresponding loading condition applies*.
