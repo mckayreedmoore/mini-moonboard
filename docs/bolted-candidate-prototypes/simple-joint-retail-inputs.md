@@ -52,6 +52,26 @@ diameter or store availability. A washer on each exposed wood face is a
 diagnostic assumption, not a final count. Mixed finishes in this table are
 alternatives, not one compatible bill of materials.
 
+## Conditional grain-N 4×4 cleat trial: 127-mm upright grip
+
+If the grain-N 4×4 cleat pose survives geometry and mechanics checks, its
+upright wood grip is 38.1 + 88.9 = 127 mm (exactly 5.0 in). A 5-in bolt leaves
+no length for washers, nut, or thread projection. A 6-in bolt leaves 25.4 mm
+before those items and tolerances; that is a sourcing lead, not a stack check.
+
+| Retail hex-bolt lead | Identifiers | Visible price / pack | Standard and thread evidence |
+| --- | --- | --- | --- |
+| [Home Depot Everbilt galvanized 3/8-16 × 6-in](https://www.homedepot.com/p/204645579) | Model 805626; SKU 214256 | $2.36 / 1 on product page; category showed $2.24 | HD A307 category includes it. [Supplier Q&A](https://www.homedepot.com/p/questions/Everbilt-3-8-in-16-x-6-in-Galvanized-Hex-Bolt-805626/204645579/2) claims 6-in thread length, but no dimensioned drawing was found; verify before use. |
+| [Home Depot Everbilt galvanized 3/8-16 × 6-in, 15-pack](https://www.homedepot.com/p/204281475) | Model 805620 | $31.86 / 15 ($2.12 each) | HD A307 filter includes it; thread length not specified on pack listing. |
+| [Lowe's Hillman galvanized 3/8-16 × 6-in](https://www.lowes.com/pd/Hillman-3-8-in-x-6-in-Galvanized-Coarse-Thread-Hex-Bolt/3824903) | Item 67310; model 811597 | $2.33 / 1 | Product specifications explicitly say A307 and “Full Thread: No”; thread length not stated. Its Q&A shows a thread-length question but not its answer. |
+| [Home Depot Everbilt zinc 3/8-16 × 6-in, 25-pack](https://www.homedepot.com/p/204273569) | Model 800910 | $32.18 / 25 ($1.29 each) | Product specifications explicitly say A307; thread length not stated. Different finish from galvanized leads. |
+
+This bounded Lowe's/Home Depot search did not find an ordinary 3/8 × 6.5-in
+**hex** bolt listing; a 6.5-in carriage bolt is not the same head/seat geometry.
+All prices and local availability need ZIP/store recheck. Resolve the actual
+bolt shank/thread geometry, washer/nut stack, access and joint limit states
+before any selection, purchase, or drilling.
+
 ## Decision boundary
 
 Before costing or rating a specific joint, freeze its bolt diameter/head type,
