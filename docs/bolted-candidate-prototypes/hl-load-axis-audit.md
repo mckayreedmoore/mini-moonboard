@@ -36,7 +36,10 @@ collision-free upper pair would still need a separate route for any
 global-X transverse demand, moments, separation, contact and interaction.
 
 The existing old-connector and partial-topology reactions are diagnostic
-only. A current-geometry simultaneous local wrench, contact state and load
+only. For example, the archived A1-rear old-proxy left principal/header
+total includes X = 70.8 N and a large X-axis moment, but that total is
+**not** the bracket's X force or an accepted new-topology envelope.
+A current-geometry simultaneous local wrench, contact state and load
 direction classification are still needed. No load is transferred between
 catalog axes, no B66 duration conversion is made, and no member or bracket
 is accepted for cutting or drilling here.
