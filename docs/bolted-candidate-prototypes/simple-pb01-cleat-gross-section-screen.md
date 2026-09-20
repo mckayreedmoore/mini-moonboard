@@ -27,6 +27,12 @@ One N/mm² equals one MPa. The shear expressions are rectangular-section
 peak values for one shear direction at a time. Both sides of a concentrated
 station load are retained as separate records.
 
+At each **same cut**, the script also takes the four rectangle-corner
+extremes of `N/A ± M_u/S_u ± M_v/S_v` to report tensile and compressive
+normal stress, and combines the orthogonal transverse-shear components at
+the section center by Euclidean magnitude. These remain gross elastic
+stress screens without torsion or a failure interaction.
+
 | Maximum isolated component | Magnitude | Station along grain | Include station loads? |
 | --- | ---: | ---: | --- |
 | Axial tension | 0.000000003993 MPa | 0 mm | No |
@@ -35,11 +41,15 @@ station load are retained as separate records.
 | Bending about `v` | 0.002789 MPa | 80.160 mm | No |
 | Shear from `V_u`, peak | 0.002367 MPa | 80.160 mm | No |
 | Shear from `V_v`, peak | 0.003438 MPa | 80.160 mm | No |
+| Same-cut corner normal tension | 0.007654 MPa | 100.160 mm | Yes |
+| Same-cut corner normal compression | 0.009087 MPa | 100.160 mm | Yes |
+| Same-cut center transverse shear | 0.004174 MPa | 80.160 mm | No |
 | Torsion action, not stress | 1,689.448 N·mm | 80.160 mm | No |
 
 The tiny reported tension is residual scale, not evidence of a meaningful
-tension demand. Maxima can occur at different cuts; this table is not a
-simultaneous combined-stress state. Torsion is nonzero, but this screen does
+tension demand. Maxima can occur at different cuts; only the expressly
+same-cut rows combine simultaneous components. Torsion is nonzero, but this
+screen does
 not calculate torsional stress or a bending/shear/axial/torsion interaction.
 The source report's `retained_area_fraction = 1.0` means its section records
 are gross: the four modeled bolt bores are not removed. It does not establish
@@ -65,4 +75,5 @@ Its other 23 stations retain old ML24Z/SDS proxy topology, and the PB01 bolt
 and contact springs are provisional. These section actions are not qualified
 full V4 or six-case design demands. A defensible cleat check still needs
 verified wood and load-duration/service basis, bore-aware critical sections,
-torsion and combined stresses, and the complete bolt/contact joint load path.
+torsion and full strength interaction, and the complete bolt/contact joint
+load path.

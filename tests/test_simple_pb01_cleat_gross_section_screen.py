@@ -25,6 +25,9 @@ def test_rectangular_component_arithmetic():
     assert row["bending_v_mpa"] == pytest.approx(-2.4)
     assert row["shear_u_peak_mpa"] == pytest.approx(0.5)
     assert row["shear_v_peak_mpa"] == pytest.approx(-0.75)
+    assert row["normal_tension_corner_mpa"] == pytest.approx(3.4)
+    assert row["normal_compression_corner_mpa"] == pytest.approx(5.4)
+    assert row["transverse_shear_center_mpa"] == pytest.approx(0.9013878189)
     assert row["torsion_nmm"] == 10.0
     assert row["torsional_stress_mpa"] is None
 
@@ -40,6 +43,9 @@ def test_preserved_case_reports_components_and_explicit_non_rating():
     assert result["maxima"]["bending_u_abs_mpa"]["value"] > 0
     assert result["maxima"]["bending_v_abs_mpa"]["value"] > 0
     assert result["maxima"]["axial_compression_mpa"]["value"] > 0
+    assert result["maxima"]["normal_tension_corner_mpa"]["value"] > 0
+    assert result["maxima"]["normal_compression_corner_mpa"]["value"] > 0
+    assert result["maxima"]["transverse_shear_center_mpa"]["value"] > 0
     assert result["reference_design_values_mpa"] is None
     assert result["net_section_stress_mpa"] is None
     assert result["combined_stress_mpa"] is None

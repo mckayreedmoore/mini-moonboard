@@ -50,14 +50,23 @@ def stress_components(section, width_mm, depth_mm):
     area = width * depth
     section_modulus_u = width * depth**2 / 6
     section_modulus_v = depth * width**2 / 6
+    axial = loads["axial_n_tension_positive"] / area
+    bending_u = loads["moment_u_nmm"] / section_modulus_u
+    bending_v = loads["moment_v_nmm"] / section_modulus_v
+    shear_u = 1.5 * loads["shear_u_n"] / area
+    shear_v = 1.5 * loads["shear_v_n"] / area
+    corner_bending = abs(bending_u) + abs(bending_v)
     return {
         "station_along_grain_mm": station,
         "include_station_loads": include,
-        "axial_mpa": loads["axial_n_tension_positive"] / area,
-        "bending_u_mpa": loads["moment_u_nmm"] / section_modulus_u,
-        "bending_v_mpa": loads["moment_v_nmm"] / section_modulus_v,
-        "shear_u_peak_mpa": 1.5 * loads["shear_u_n"] / area,
-        "shear_v_peak_mpa": 1.5 * loads["shear_v_n"] / area,
+        "axial_mpa": axial,
+        "bending_u_mpa": bending_u,
+        "bending_v_mpa": bending_v,
+        "shear_u_peak_mpa": shear_u,
+        "shear_v_peak_mpa": shear_v,
+        "normal_tension_corner_mpa": max(0.0, axial + corner_bending),
+        "normal_compression_corner_mpa": max(0.0, -axial + corner_bending),
+        "transverse_shear_center_mpa": math.hypot(shear_u, shear_v),
         "torsion_nmm": loads["torsion_nmm"],
         "torsional_stress_mpa": None,
     }
@@ -138,7 +147,7 @@ def screen(path=ARCHIVE):
             "section_modulus_u_mm3": WIDTH_MM * DEPTH_MM**2 / 6,
             "section_modulus_v_mm3": DEPTH_MM * WIDTH_MM**2 / 6,
         },
-        "method": "N/A axial; M_u/S_u and M_v/S_v isolated elastic bending; signed 3V_u/(2A) and 3V_v/(2A) rectangular peak shear; 1 N/mm² = 1 MPa",
+        "method": "Gross elastic N/A axial, M_u/S_u and M_v/S_v bending, signed 3V_u/(2A) and 3V_v/(2A) rectangular peak shear; same-cut corner normal stress and center transverse shear magnitude; 1 N/mm² = 1 MPa",
         "sections": rows,
         "maxima": {
             "axial_tension_mpa": _maximum(rows, "axial_mpa", lambda x: max(x, 0.0)),
@@ -149,6 +158,13 @@ def screen(path=ARCHIVE):
             "bending_v_abs_mpa": _maximum(rows, "bending_v_mpa"),
             "shear_u_peak_abs_mpa": _maximum(rows, "shear_u_peak_mpa"),
             "shear_v_peak_abs_mpa": _maximum(rows, "shear_v_peak_mpa"),
+            "normal_tension_corner_mpa": _maximum(rows, "normal_tension_corner_mpa"),
+            "normal_compression_corner_mpa": _maximum(
+                rows, "normal_compression_corner_mpa"
+            ),
+            "transverse_shear_center_mpa": _maximum(
+                rows, "transverse_shear_center_mpa"
+            ),
             "torsion_abs_nmm": _maximum(rows, "torsion_nmm"),
         },
         "reference_design_values_mpa": None,
@@ -161,7 +177,8 @@ def screen(path=ARCHIVE):
             "One authenticated a12-left hybrid diagnostic; 23 other stations are old ML24Z/SDS proxies, so these are not full V4 design demands.",
             "Gross unbored rectangle only: bolt bores and any net or critical section are not represented by the reported retained-area fraction of 1.0.",
             "Nonzero torsion is reported, but torsional stress and its interaction with bending, shear, and axial stress are not calculated.",
-            "Isolated component peaks can occur at different cuts and cannot be added as independent maxima or treated as a combined-stress check.",
+            "Isolated component peaks can occur at different cuts and cannot be added as independent maxima; same-cut elastic combinations exclude torsion and strength interaction.",
+            "Same-cut corner normal stress combines axial and biaxial bending elastically; center transverse shear combines orthogonal shear components, but torsion and failure interaction are excluded.",
             "Delivered cleat species and grade, moisture, load duration, size, and other NDS adjustment applicability are unverified; no reference value, adjusted capacity, or utilization is adopted.",
         ],
     }
