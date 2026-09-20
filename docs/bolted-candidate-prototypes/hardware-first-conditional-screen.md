@@ -21,12 +21,19 @@ Structural-quality through bolts must be at least ASTM A307 Grade A.
 | Model | Width × leg length | Bolts, total | DF/SP uplift / F1, lb | Retail identity |
 | --- | --- | --- | --- | --- |
 | HL33 | 3.25 × 2.5 in | 2 × 1/2 in | 740 / 1,040 | [Home Depot HL33-R](https://www.homedepot.com/p/100375377); `-R` equivalence not yet verified |
-| HL35 | 3.25 × 5 in | 4 × 1/2 in | 740 / 1,310 | [Home Depot HL35-R](https://www.homedepot.com/p/100374913); `-R` equivalence not yet verified |
+| HL35 | 3.25 × 5 in | 4 × 1/2 in | 740 / 1,310 | [Home Depot HL35-R](https://www.homedepot.com/p/100374913); Simpson links this retail designation to its HL drawing |
 | HL53 | 5.75 × 2.5 in | 4 × 1/2 in | 740 / 1,310 | [Home Depot HL53](https://www.homedepot.com/p/205227146), exact model |
 
-The HL table labels D1–D4 nominal hole-position dimensions, but the generic
-illustration does not by itself establish a full shop hole-center tolerance
-schedule for every model. Confirm the exact occupied factory pattern and
+For HL35, D1 = 1.25 in from the end along its 5-in bend length, D2 = 2.5 in
+between the two centers along that length, and D3 = 2 in transverse from
+the bend on each flange. The nominal two-hole pattern on each flange is
+therefore `(1.25, 2)` and `(3.75, 2)` in from the same end/bend datums.
+[Simpson's response about the HL35-R hole spacing](https://www.lowes.com/questions/simpson-strong-tie-hl35-r-angles-brackets-and-braces/1002693778/8250e297-9f65-5443-8b75-322144244762)
+directs buyers to the HL catalog drawing; a separate
+[Simpson retail-suffix explanation](https://www.lowes.com/questions/simpson-strong-tie-bc4z-r-base-and-cap-hardware/1002708600/78d2d639-8e97-5e02-b1d7-aebc98135eb3)
+says `-R` denotes retail packaging for another model. This supports a
+nominal HL35-R pattern match, not a measured tolerance or receipt check.
+Confirm the exact occupied factory pattern and
 received variation before any wood drilling. The listed uplift/F1 directions
 do not cover arbitrary flange moments, separation, mixed actions, or joint
 stiffness; each demands its own applicable route if present.
@@ -54,6 +61,23 @@ HL35 has a narrower face width but a longer leg than an HL53-on-4×8 route,
 while offering four
 specified bolts and a directly cataloged wood-joint load basis. An opposing
 HL35 pair is a *conditional concept* for reversible F1, not a verified joint.
+The obvious full-length 4×6 header substitution is **not** a direct drop-in:
+raw CAD puts its present top/bottom at Z = 277/238.9 mm. Holding the top
+fixed and increasing thickness from 38.1 to 88.9 mm puts the bottom at
+Z = 188.1 mm, overlapping the unchanged center post by 50.8 mm. Shortening
+that post to meet the new underside leaves its protected upper kerf-right
+kicker screw axis at Z = 192 mm, 3.9 mm above the post end and only 3.9 mm
+from the new header's bottom edge. This is a nominal centerline screen, not
+a bore or screw-body check. The coordinates come from
+`uncut_wood_parts()` and the kerf-right `connection-axes.csv`.
+In X, the original left center pieces span −89.05 to −50.95 mm and their
+protected main/kicker screw axes use X = −70 mm. A centered 88.9-mm-wide
+solid receiver would span −114.45 to −25.55 mm and retain those axis centers
+within timber, but this says nothing about the full angled screw bodies,
+panel bearing, the right-side mirror, or neighboring connector clearance.
+Consequently, a candidate must redesign the local header/post support or
+find a different rated flange orientation; merely swapping timber labels
+does not preserve the existing kicker fastening.
 The center assembly needs its own upper/lower flange orientation, actual
 factory-hole layout, bolt stacks, oblique-end/edge distances, support for
 the kerf-right kicker edges, and disassembly access. If those fail, compare
