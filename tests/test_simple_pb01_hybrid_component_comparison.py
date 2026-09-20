@@ -5,7 +5,7 @@ import copy
 import pytest
 
 from scripts import simple_pb01_hybrid_component_comparison as component
-from scripts.simple_pb01_hybrid_component_comparison import compare
+from scripts.simple_pb01_hybrid_component_comparison import angle_to_grain, compare
 from scripts.simple_pb01_hybrid_local_actions import extract
 
 
@@ -48,3 +48,30 @@ def test_wrong_source_identity_fails_closed(monkeypatch):
     source["interfaces"]["rail"]["bolts"][0]["axis_xyz"] = [0, 0, 1]
     with pytest.raises(ValueError, match="axis"):
         compare()
+
+
+def test_direction_specific_grain_angles_and_joint_status():
+    assert angle_to_grain([1, 0, 0], [1, 0, 0]) == pytest.approx(0)
+    assert angle_to_grain([0, 1, 0], [1, 0, 0]) == pytest.approx(90)
+    assert angle_to_grain([1, 1, 0], [1, 0, 0]) == pytest.approx(45)
+    with pytest.raises(ValueError, match="nonzero lateral"):
+        angle_to_grain([0, 0, 0], [1, 0, 0])
+    with pytest.raises(ValueError, match="Invalid lateral or grain"):
+        angle_to_grain(["bad", 0, 0], [1, 0, 0])
+    result = compare()
+    rows = {
+        bolt["name"]: bolt
+        for face in result["interfaces"].values()
+        for bolt in face["bolts"]
+    }
+    assert rows["pb01_upright_u1"]["host_load_to_grain_degrees"] == pytest.approx(
+        12.564
+    )
+    assert rows["pb01_upright_u1"]["cleat_load_to_grain_degrees"] == pytest.approx(
+        77.436
+    )
+    assert rows["pb01_rail_r1"]["host_load_to_grain_degrees"] == pytest.approx(44.8512)
+    assert rows["pb01_rail_r1"]["cleat_load_to_grain_degrees"] == pytest.approx(45.1488)
+    for row in rows.values():
+        assert row["conditional_lateral_yield"]["0.189"]["modeled_direction_ratio"] > 0
+    assert result["joint_utilization"] is None

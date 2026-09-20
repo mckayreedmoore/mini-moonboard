@@ -22,12 +22,27 @@ uses dry solid DF-L, 45,000 psi bolt-class bending yield, zero face gap,
 thread root throughout both wood bearing lengths, and six single-shear modes.
 The host is 1.5 in; the cleat is 5.5 in at the principal face and 2.25 in at
 the rail face. The 0.189-in root is an NDS *typical*, not a delivered minimum;
-0.180 in is a hypothetical sensitivity. Unknown actual force-to-grain angles
-are represented by 0° and 90° component bounds, not an established
-direction-specific joint value. Mode IV governs both bounds here. References
+0.180 in is a hypothetical sensitivity. The 0° and 90° inputs are endpoint
+component sensitivities, not established directions for other cases. Mode IV
+governs both endpoints here. References
 are 124.82/99.86 lbf at 0°/90° for 0.189 in, and 117.65/94.12 lbf for
 0.180 in. Each ratio is that bolt's lateral magnitude in lbf divided by its
 one-bolt reference; no group multiplier is used.
+
+The frozen pose also establishes the grain axes: the inclined principal
+grain is local T, the service rail grain is X, and the cleat grain is
+local N. Projecting each **modeled lateral force vector** onto both
+member grain axes gives a direction-specific component sensitivity for
+this one hybrid scenario. The two angles differ at each bolt; the 2024
+small-root reduction uses the larger angle. These modeled directions are
+not verified future loading directions or six-case envelopes.
+
+| Bolt | Host angle | Cleat angle | 0.189 modeled-direction ratio | 0.180 modeled-direction ratio |
+| --- | ---: | ---: | ---: | ---: |
+| Principal u1 | 12.56° | 77.44° | 0.0327 | 0.0347 |
+| Principal u2 | 7.61° | 82.39° | 0.0606 | 0.0643 |
+| Rail r1 | 44.85° | 45.15° | 0.0259 | 0.0275 |
+| Rail r2 | 53.11° | 36.89° | 0.0317 | 0.0336 |
 
 | Host bolt | Axial on host (N) | Lateral (N) | 0.189 ratio 0°/90° | 0.180 ratio 0°/90° | Positive axial / wood annulus reference |
 | --- | ---: | ---: | ---: | ---: | ---: |

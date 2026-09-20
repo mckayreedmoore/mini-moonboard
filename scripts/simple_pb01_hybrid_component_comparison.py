@@ -32,13 +32,32 @@ def require(condition, label):
         raise ValueError(label)
 
 
-def yield_component(root, side_length, angle):
-    reduction = (10 * root + 0.5) * (1 + 0.25 * angle / 90)
+def angle_to_grain(lateral, grain):
+    """Unsigned lateral force angle to a unit modeled grain axis, 0–90 degrees."""
+    require(
+        len(lateral) == len(grain) == 3
+        and all(
+            isinstance(value, (int, float))
+            and not isinstance(value, bool)
+            and math.isfinite(value)
+            for value in (*lateral, *grain)
+        )
+        and math.isclose(sum(value * value for value in grain), 1.0, abs_tol=1e-6),
+        "Invalid lateral or grain axis",
+    )
+    magnitude = math.sqrt(sum(value * value for value in lateral))
+    require(magnitude > 0, "Angle requires nonzero lateral force")
+    cosine = abs(sum(a * b for a, b in zip(lateral, grain, strict=True))) / magnitude
+    return math.degrees(math.acos(min(1.0, cosine)))
+
+
+def yield_component(root, side_length, main_angle, side_angle):
+    reduction = (10 * root + 0.5) * (1 + 0.25 * max(main_angle, side_angle) / 90)
     return wood_wood_single_shear_reference(
         main_bearing_length_in=1.5,
         side_bearing_length_in=side_length,
-        main_load_to_grain_degrees=angle,
-        side_load_to_grain_degrees=angle,
+        main_load_to_grain_degrees=main_angle,
+        side_load_to_grain_degrees=side_angle,
         main_bolt_axis_parallel_to_grain=False,
         side_bolt_axis_parallel_to_grain=False,
         bolt_full_body_diameter_in=0.25,
@@ -72,19 +91,23 @@ def compare():
     )
     washer_lbf = dfl_axial_wood_bearing_reference_lbf(0.734, 7.5 / 25.4, 0.312)
     interfaces = {}
-    for family, host, side_length, expected_axis, names in (
+    tangent = (0, math.cos(math.radians(50)), math.sin(math.radians(50)))
+    normal = (0, -math.sin(math.radians(50)), math.cos(math.radians(50)))
+    for family, host, side_length, expected_axis, host_grain, names in (
         (
             "upright",
             "base_principal_center_right",
             5.5,
             (1, 0, 0),
+            tangent,
             ("pb01_upright_u1", "pb01_upright_u2"),
         ),
         (
             "rail",
             "base_rail_service_lower_right",
             2.25,
-            (0, math.cos(math.radians(50)), math.sin(math.radians(50))),
+            tangent,
+            (1, 0, 0),
             ("pb01_rail_r1", "pb01_rail_r2"),
         ),
     ):
@@ -112,12 +135,24 @@ def compare():
                 math.isfinite(axial) and math.isfinite(lateral) and lateral >= 0,
                 "Invalid PB01 bolt action",
             )
+            lateral_xyz = bolt["lateral_xyz_n"]
+            require(
+                math.isclose(
+                    lateral,
+                    math.sqrt(sum(value * value for value in lateral_xyz)),
+                    abs_tol=1e-6,
+                ),
+                "PB01 lateral vector/magnitude differ",
+            )
+            host_angle = angle_to_grain(lateral_xyz, host_grain)
+            cleat_angle = angle_to_grain(lateral_xyz, normal)
             roots = {}
             for root in (0.189, 0.180):
                 bounds = {
-                    angle: yield_component(root, side_length, angle)
+                    angle: yield_component(root, side_length, angle, angle)
                     for angle in (0, 90)
                 }
+                modeled = yield_component(root, side_length, host_angle, cleat_angle)
                 roots[f"{root:.3f}"] = {
                     "0deg_reference_lbf": bounds[0]["reference_lateral_lbf"],
                     "90deg_reference_lbf": bounds[90]["reference_lateral_lbf"],
@@ -129,6 +164,11 @@ def compare():
                     / bounds[90]["reference_lateral_lbf"],
                     "governing_mode_0deg": bounds[0]["governing_mode"],
                     "governing_mode_90deg": bounds[90]["governing_mode"],
+                    "modeled_direction_reference_lbf": modeled["reference_lateral_lbf"],
+                    "modeled_direction_ratio": lateral
+                    * N_TO_LBF
+                    / modeled["reference_lateral_lbf"],
+                    "governing_mode_modeled_direction": modeled["governing_mode"],
                 }
             rows.append(
                 {
@@ -138,6 +178,10 @@ def compare():
                     "axial_on_host_n": axial,
                     "lateral_on_host_xyz_n": bolt["lateral_xyz_n"],
                     "lateral_on_host_magnitude_n": lateral,
+                    "host_grain_axis_xyz": host_grain,
+                    "cleat_grain_axis_xyz": normal,
+                    "host_load_to_grain_degrees": host_angle,
+                    "cleat_load_to_grain_degrees": cleat_angle,
                     "conditional_lateral_yield": roots,
                     "washer_positive_axial_reference_lbf": washer_lbf,
                     "washer_positive_axial_ratio": axial * N_TO_LBF / washer_lbf
