@@ -200,6 +200,15 @@ those rails. This rejects the installed pose, not the HL33 family. Its
 single lower HL33 is not established for reversible F1 in this arrangement;
 the source does not dimension the assumed horizontal flange-hole offset.
 
+A [lower-only paired outer-X HL35 post pose](hardware_first_center_outer_post.md)
+keeps the kerf-right kicker seam and all 66 screw receivers supported. Its
+left/right post bolts coincide as two shared through-bolt axes rather than
+four independent bolts. The unchanged 38.1-mm header is **below** the HL35
+88.9-mm minimum wood receiver thickness, so the pose is catalog-inapplicable
+even though its ideal plate and bore solids clear most neighboring geometry.
+It leaves the upper joint unmodeled and does not justify shared-bolt capacity;
+the separate 63.5-mm overall-screw collision sensitivity is conditional.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect

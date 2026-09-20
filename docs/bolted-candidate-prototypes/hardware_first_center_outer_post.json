@@ -1,0 +1,190 @@
+{
+  "status": "rejected_installed_geometry_trial",
+  "scope": "lower-only; upper center joint unresolved",
+  "pose": "paired lower HL35 vertical legs on the common post outer X faces, inward seats beneath one-piece original header",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "protected_axis_count": 66,
+  "retained_frame_bolt_axis_count": 12,
+  "post_bounds_mm": [
+    -92.075,
+    92.075,
+    -175.7,
+    -36.0,
+    0.0,
+    234.35
+  ],
+  "header_bounds_mm": [
+    -1219.2,
+    1216.025,
+    -175.7,
+    -36.0,
+    238.9,
+    277.0
+  ],
+  "hl35_catalog_minimum_receiver_thickness_mm": 88.9,
+  "bolt_receiver_thickness_mm": {
+    "post": 184.15,
+    "header": 38.1
+  },
+  "undersize_hl35_bolt_receivers_mm": {
+    "header": 38.1
+  },
+  "plate_bounds_mm": {
+    "left_vertical": [
+      -96.625,
+      -92.075,
+      -175.7,
+      -48.7,
+      151.8,
+      234.35
+    ],
+    "left_seat": [
+      -92.075,
+      -9.525,
+      -175.7,
+      -48.7,
+      234.35,
+      238.9
+    ],
+    "right_vertical": [
+      92.075,
+      96.625,
+      -175.7,
+      -48.7,
+      151.8,
+      234.35
+    ],
+    "right_seat": [
+      9.525,
+      92.075,
+      -175.7,
+      -48.7,
+      234.35,
+      238.9
+    ]
+  },
+  "post_vertical_hole_centers_mm": {
+    "left_1": [
+      -92.075,
+      -143.95,
+      183.55
+    ],
+    "left_2": [
+      -92.075,
+      -80.44999999999999,
+      183.55
+    ],
+    "right_1": [
+      92.075,
+      -143.95,
+      183.55
+    ],
+    "right_2": [
+      92.075,
+      -80.44999999999999,
+      183.55
+    ]
+  },
+  "header_hole_x_mm": {
+    "left": -41.275000000000006,
+    "right": 41.275000000000006
+  },
+  "coincident_left_right_post_bolt_rows": [
+    1,
+    2
+  ],
+  "unique_post_through_bolt_axes": 2,
+  "post_bores_shared_between_side_plates": true,
+  "multilateral_fastener_action": "unresolved; the paired HL35 legs share two through-bolts, not four independent bolts per side",
+  "independent_header_bore_axis_spacing_mm": 82.55,
+  "independent_header_bore_crossings_mm3": {},
+  "upper_lower_header_bore_spacing": "not applicable: upper HL35 pair omitted in this lower-only trial",
+  "bore_missing_receiver_wood_mm3": {
+    "left_header_1": 0,
+    "left_header_2": 0,
+    "right_header_1": 0,
+    "right_header_2": 0,
+    "shared_post_1": 0,
+    "shared_post_2": 0
+  },
+  "kicker_seam_x_mm": -1.5875,
+  "kicker_seam_supported": true,
+  "kicker_center_receivers_mm3": {
+    "round_kicker_left_center_1": 438.127,
+    "round_kicker_left_center_2": 438.127,
+    "round_kicker_right_center_1": 438.127,
+    "round_kicker_right_center_2": 438.127
+  },
+  "protected_screw_receiver_loss_mm3": {},
+  "protected_screw_receiver_missing": {},
+  "plate_pair_clashes_mm3": {},
+  "plate_intended_wood_clashes_mm3": {},
+  "plate_adjacent_wood_clashes_mm3": {},
+  "plate_panel_clashes_mm3": {},
+  "new_wood_panel_clashes_mm3": {},
+  "new_wood_adjacent_clashes_mm3": {},
+  "bore_panel_clashes_mm3": {},
+  "bore_adjacent_wood_clashes_mm3": {},
+  "bore_other_center_wood_clashes_mm3": {},
+  "protected_screw_hardware_clashes_mm3": {},
+  "conditional_63_5_overall_screw_hardware_clashes_mm3": {
+    "round_kicker_left_center_2": {
+      "shared_post_2": 4.629
+    },
+    "round_kicker_right_center_2": {
+      "shared_post_2": 4.629
+    }
+  },
+  "existing_frame_axis_hardware_clashes_mm3": {},
+  "existing_frame_axis_new_post_clashes_mm3": {},
+  "ideal_1in_od_washer_clear_edge_gaps_mm": {
+    "header_left_right_same_row": 57.15,
+    "post_same_side_along_y": 38.1
+  },
+  "one_piece_cad_solid": {
+    "post": true,
+    "header": true
+  },
+  "minimum_axis_aligned_blank_envelope_mm": {
+    "post": [
+      184.15,
+      139.7,
+      234.35
+    ],
+    "header": [
+      2435.225,
+      139.7,
+      38.1
+    ]
+  },
+  "ordinary_stock_example_actual_envelope_mm": {
+    "post": [
+      184.15,
+      139.7,
+      3048.0
+    ],
+    "header": [
+      38.1,
+      139.7,
+      3048.0
+    ]
+  },
+  "ordinary_stock_example_dimension_fit": {
+    "post": true,
+    "header": true
+  },
+  "eight_foot_header_length_surplus_mm": 3.175,
+  "failures": [
+    "HL35 catalog minimum receiver thickness",
+    "conditional purchased-overall screw envelope collision"
+  ],
+  "unmodeled": [
+    "complete upper principal/header connection; this is lower-only",
+    "delivered HL35 hole, bend, plate and coating geometry",
+    "actual bolt head, nut, washer thickness/bearing, grip and shared-post-bolt details",
+    "tool and withdrawal paths, wood edge/end distances and tolerances",
+    "delivered solid stock, grade, machining allowance and local availability",
+    "connector and wood resistance, full joint force path"
+  ],
+  "qualification": "Ideal 4.55-mm full rectangular plates, 14.2875-mm full bores, assumed 50.8-mm header hole inset and illustrative 25.4-mm washer OD. Frozen occupied axes are analysis envelopes, never drilling coordinates. No capacity or fabrication claim."
+}
