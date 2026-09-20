@@ -1,0 +1,279 @@
+{
+  "status": "conditional_nominal_geometry_only",
+  "source_pose": "scripts.hardware_first_center_tongue",
+  "wood_source": "kerf-right uncut CAD plus parent tongue/header/principal shaping",
+  "bolt_diameter_mm": 12.7,
+  "nominal_bore_diameter_mm": 14.2875,
+  "nds_basis": "2024 NDS 12.5.1.2-.3, Tables 12.5.1A-D; category and geometry factor require load direction/member classification",
+  "formal_nds_categories_unresolved": {
+    "end_distance_table_12_5_1a": "Tension/compression and member/end geometry must be classified; softwood parallel-tension markers are 3.5D reduced factor and 7D full factor for square-cut ends. No classification of the principal oblique cut or header profile shoulder.",
+    "row_spacing_table_12_5_1b": "Parallel-to-grain row 3D minimum and 4D full-factor markers; loading and grouping still unresolved.",
+    "edge_distance_table_12_5_1c": "Loaded versus unloaded transverse edge cannot be assigned without each member's load direction.",
+    "between_rows_table_12_5_1d": "Cross-group Y separation is measured, but applicable row-spacing category and bearing-length ratio are unresolved."
+  },
+  "search_filters_mm": {
+    "both_transverse_edges_4d": 50.8,
+    "both_grain_directions_7d": 88.9
+  },
+  "axis_margins": {
+    "shared_post": {
+      "member": "post",
+      "center_mm": [
+        0,
+        -94.72,
+        183.55
+      ],
+      "grain_unit_xyz": [
+        0,
+        0,
+        1
+      ],
+      "grain_negative_boundary_mm": 183.55,
+      "grain_positive_boundary_mm": 50.8,
+      "transverse_negative_boundary_mm": 31.75,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        94.65,
+        -38.1
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        -19.05,
+        7.92
+      ],
+      "oblique_end_unclassified": false
+    },
+    "upper_left_principal": {
+      "member": "base_principal_center_left",
+      "center_mm": [
+        -70,
+        -68.25,
+        378.6
+      ],
+      "grain_unit_xyz": [
+        0,
+        0.6428,
+        0.766
+      ],
+      "grain_negative_boundary_mm": 2354.77,
+      "grain_positive_boundary_mm": 66.3147,
+      "transverse_negative_boundary_mm": 53.899,
+      "transverse_positive_boundary_mm": 85.801,
+      "reversible_7d_grain_margins_mm": [
+        2265.87,
+        -22.5853
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        3.099,
+        35.001
+      ],
+      "oblique_end_unclassified": true
+    },
+    "upper_right_principal": {
+      "member": "base_principal_center_right",
+      "center_mm": [
+        70,
+        -68.25,
+        378.6
+      ],
+      "grain_unit_xyz": [
+        0,
+        0.6428,
+        0.766
+      ],
+      "grain_negative_boundary_mm": 2354.77,
+      "grain_positive_boundary_mm": 66.3147,
+      "transverse_negative_boundary_mm": 53.899,
+      "transverse_positive_boundary_mm": 85.801,
+      "reversible_7d_grain_margins_mm": [
+        2265.87,
+        -22.5853
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        3.099,
+        35.001
+      ],
+      "oblique_end_unclassified": true
+    },
+    "lower_left_header": {
+      "member": "header",
+      "center_mm": [
+        -44.45,
+        -94.72,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 185.55,
+      "grain_positive_boundary_mm": 274.45,
+      "transverse_negative_boundary_mm": 163.53,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        96.65,
+        185.55
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        112.73,
+        7.92
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1174.75,
+        1260.475
+      ]
+    },
+    "upper_left_header": {
+      "member": "header",
+      "center_mm": [
+        -165.25,
+        -68.25,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 64.75,
+      "grain_positive_boundary_mm": 395.25,
+      "transverse_negative_boundary_mm": 190.0,
+      "transverse_positive_boundary_mm": 32.25,
+      "reversible_7d_grain_margins_mm": [
+        -24.15,
+        306.35
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        139.2,
+        -18.55
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1053.95,
+        1381.275
+      ]
+    },
+    "lower_right_header": {
+      "member": "header",
+      "center_mm": [
+        44.45,
+        -94.72,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 274.45,
+      "grain_positive_boundary_mm": 185.55,
+      "transverse_negative_boundary_mm": 163.53,
+      "transverse_positive_boundary_mm": 58.72,
+      "reversible_7d_grain_margins_mm": [
+        185.55,
+        96.65
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        112.73,
+        7.92
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1263.65,
+        1171.575
+      ]
+    },
+    "upper_right_header": {
+      "member": "header",
+      "center_mm": [
+        165.25,
+        -68.25,
+        283.35
+      ],
+      "grain_unit_xyz": [
+        1,
+        0,
+        0
+      ],
+      "grain_negative_boundary_mm": 395.25,
+      "grain_positive_boundary_mm": 64.75,
+      "transverse_negative_boundary_mm": 190.0,
+      "transverse_positive_boundary_mm": 32.25,
+      "reversible_7d_grain_margins_mm": [
+        306.35,
+        -24.15
+      ],
+      "reversible_4d_transverse_margins_mm": [
+        139.2,
+        -18.55
+      ],
+      "oblique_end_unclassified": false,
+      "grain_boundary_kind": "raised_profile_shoulder_not_free_end",
+      "full_span_grain_rays_at_lower_section_mm": [
+        1384.45,
+        1050.775
+      ]
+    }
+  },
+  "independent_header_group_spacing": {
+    "lower_left_header / lower_right_header": {
+      "center_spacing_mm": 88.9,
+      "parallel_row_3d_minimum_margin_mm": 50.8,
+      "parallel_row_4d_full_factor_margin_mm": 38.1
+    },
+    "upper_left_header / upper_right_header": {
+      "center_spacing_mm": 330.5,
+      "parallel_row_3d_minimum_margin_mm": 292.4,
+      "parallel_row_4d_full_factor_margin_mm": 279.7
+    }
+  },
+  "cross_group_header_spacing": {
+    "lower_left_header / upper_left_header": {
+      "delta_along_grain_x_mm": 120.8,
+      "delta_transverse_y_mm": 26.47,
+      "center_spacing_mm": 123.6661,
+      "nominal_bore_surface_gap_mm": 109.3786
+    },
+    "lower_left_header / upper_right_header": {
+      "delta_along_grain_x_mm": 209.7,
+      "delta_transverse_y_mm": 26.47,
+      "center_spacing_mm": 211.364,
+      "nominal_bore_surface_gap_mm": 197.0765
+    },
+    "lower_right_header / upper_left_header": {
+      "delta_along_grain_x_mm": 209.7,
+      "delta_transverse_y_mm": 26.47,
+      "center_spacing_mm": 211.364,
+      "nominal_bore_surface_gap_mm": 197.0765
+    },
+    "lower_right_header / upper_right_header": {
+      "delta_along_grain_x_mm": 120.8,
+      "delta_transverse_y_mm": 26.47,
+      "center_spacing_mm": 123.6661,
+      "nominal_bore_surface_gap_mm": 109.3786
+    }
+  },
+  "header_bore_to_principal_toe_solid_gap_mm": {
+    "lower_left_header": {
+      "left": 0.0,
+      "right": 62.8563
+    },
+    "upper_left_header": {
+      "left": 43.6563,
+      "right": 183.6563
+    },
+    "lower_right_header": {
+      "left": 62.8563,
+      "right": 0.0
+    },
+    "upper_right_header": {
+      "left": 183.6563,
+      "right": 43.6563
+    }
+  },
+  "limits": "Centerline rays on ideal one-piece solids; oblique principal cut and header shoulder are not classified NDS end distances. No delivered tolerances, capacity, or wood-joint pass."
+}
