@@ -1,0 +1,77 @@
+{
+  "status": "nominal_installed_geometry_diagnostic_only",
+  "layout": "one common solid lower post; two widened upper principals; four B88 braces on outer X faces, opposed left/right braces staggered across header depth; butt contact and removable through-bolts only",
+  "width_option": "kerf-right",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "factory_pattern_source": "docs/bolted-candidate-prototypes/mitek-b88-drawing-followup.md",
+  "protected_axis_count": 66,
+  "nominal_dxf_offsets_from_free_end_mm": {
+    "horizontal": [
+      28.6,
+      92.2,
+      155.8
+    ],
+    "vertical": [
+      29.0,
+      92.6,
+      156.2
+    ]
+  },
+  "bracket_count": 4,
+  "factory_circle_paths_screened": 24,
+  "conceptual_receiver_thickness_mm": {
+    "post_x": 184.15,
+    "principal_x": 88.9,
+    "header_z": 76.2
+  },
+  "assumed_plate_thickness_mm": 2.66,
+  "nominal_circle_diameter_mm": 10.3,
+  "left_right_brace_width_gap_mm": 38.1,
+  "kicker_inner_edge_support": {
+    "left": {
+      "inner_edge_x_within_post": true,
+      "post_touches_panel_back": true
+    },
+    "right": {
+      "inner_edge_x_within_post": true,
+      "post_touches_panel_back": true
+    }
+  },
+  "protected_screw_receiver_intersection_count": 66,
+  "panel_plate_conflicts": [],
+  "protected_screw_plate_conflicts": [],
+  "protected_screw_nominal_hole_path_conflicts": [
+    "round_kicker_left_center_1:lower_right_vertical_1",
+    "round_kicker_left_center_2:lower_right_vertical_3",
+    "round_kicker_right_center_1:lower_right_vertical_1",
+    "round_kicker_right_center_2:lower_right_vertical_3"
+  ],
+  "nominal_hole_paths_missing_wood": [
+    "upper_left_vertical_1",
+    "upper_right_vertical_1",
+    "upper_right_vertical_2",
+    "upper_right_vertical_3"
+  ],
+  "plate_plate_conflicts": [],
+  "changed_wood_neighbor_conflicts": [
+    "header:base_side_left",
+    "header:base_side_right",
+    "principal_left:base_rail_bottom_left",
+    "principal_left:base_rail_service_lower_left",
+    "principal_left:base_rail_service_upper_left",
+    "principal_right:base_rail_bottom_right",
+    "principal_right:base_rail_service_lower_right",
+    "principal_right:base_rail_service_upper_right"
+  ],
+  "plate_neighbor_conflicts": [
+    "upper_left_vertical:base_rail_bottom_left"
+  ],
+  "unresolved": [
+    "Header-to-neighbor and altered frame-bolt fit must be checked after any hidden-frame redesign.",
+    "Full bolt heads, washers, nuts, grip, tool sweep, and disassembly are not modeled.",
+    "DXF circles and illustrative sheet thickness have no delivered-part tolerances.",
+    "Receiving wood, edge/end distances, load direction, and connection resistance are not qualified.",
+    "ESR-3455 C_D=1.6 F1/F2 loads cannot be adjusted to ordinary duration; no board rating is inferred."
+  ],
+  "disposition": "Diagnostic only. Conflicts block this exact installed pose until resolved; no capacity, fabrication, or drilling approval."
+}

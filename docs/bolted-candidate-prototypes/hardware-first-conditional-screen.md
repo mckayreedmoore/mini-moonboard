@@ -136,6 +136,16 @@ widened header intersects side/principal timbers, front bolts have no head
 clearance, and backing connection and upper joint are unresolved. It too is
 rejected as an incomplete installed assembly, not a verdict on all HL layouts.
 
+One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
+nominal DXF centers was screened too. Its four brackets and through-bolts
+preserve all 66 protected axes, but four nominal bolt paths intersect
+protected kicker screws, four upper paths exit modeled principal wood, and
+the enlarged members or one plate collide with adjacent hidden frame parts.
+That pose is rejected on installed geometry; it is not a family-wide B88
+verdict. Separately, ESR-3455 expressly bars transferring the B88
+`C_D = 1.6` ratings to ordinary load duration. Neither the fit study nor
+the listed F1/F2 values provide a climbing-board joint rating.
+
 This screen changes no raw geometry. It does not establish that a 4×6 can
 replace both 2×6 pieces without moving other support, that the old twelve
 frame bolts remain viable, or that either catalog's isolated load directions
