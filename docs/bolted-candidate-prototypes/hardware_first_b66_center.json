@@ -1,0 +1,103 @@
+{
+  "status": "rejected_nominal_installed_geometry",
+  "concept": "one front-aligned solid post; two rear-Y lower B66 and two outer-X upper B66; butt contact and removable through-bolts",
+  "factory_pattern_source": "docs/bolted-candidate-prototypes/mitek-b66-drawing-followup.md",
+  "width_option": "kerf-right",
+  "protected_axis_count": 66,
+  "bracket_count": 4,
+  "factory_circle_paths_screened": 16,
+  "nominal_dxf_free_end_offsets_mm": [
+    25.4,
+    126.744
+  ],
+  "nominal_circle_diameter_mm": 10.3,
+  "illustrative_sheet_mm": 2.66,
+  "receiving_stock_mm": {
+    "header_z": 76.2,
+    "post_x": 184.15,
+    "post_y": 139.7,
+    "principals_x": 88.9
+  },
+  "lower_post_outer_x_edge_screen": {
+    "nominal_center_to_edge_mm": 22.075,
+    "conservative_4D_filter_mm": 38.1,
+    "passes_filter": false,
+    "qualification": "3/8-in bolt reversible loaded-edge search filter only; not a formal NDS loaded-edge determination."
+  },
+  "kicker_edge_backed": {
+    "left": true,
+    "right": true
+  },
+  "protected_screw_receiver_intersection_count": 66,
+  "panel_plate_conflicts": [],
+  "changed_wood_panel_conflicts": [],
+  "protected_screw_plate_conflicts": [],
+  "protected_screw_bore_conflicts": [],
+  "panel_bore_conflicts": [],
+  "bore_neighbor_conflicts": [],
+  "bore_bore_conflicts": [],
+  "nominal_bores_missing_wood_mm3": {
+    "upper_left_vertical_1": 7407.405,
+    "upper_right_vertical_1": 7407.405
+  },
+  "plate_plate_conflicts": [],
+  "plate_neighbor_conflicts": [
+    "upper_left_vertical:base_rail_bottom_left",
+    "upper_right_vertical:base_rail_bottom_right"
+  ],
+  "changed_wood_neighbor_conflicts": [
+    "header:base_side_left",
+    "header:base_side_right",
+    "principal_left:base_rail_bottom_left",
+    "principal_left:base_rail_service_lower_left",
+    "principal_left:base_rail_service_upper_left",
+    "principal_right:base_rail_bottom_right",
+    "principal_right:base_rail_service_lower_right",
+    "principal_right:base_rail_service_upper_right"
+  ],
+  "one_piece_stock_envelope": {
+    "post_cross_section_mm": [
+      184.15,
+      139.7
+    ],
+    "post_blank_bounding_mm": [
+      184.15,
+      139.7,
+      238.9
+    ],
+    "header_cross_section_mm": [
+      292.1,
+      76.2
+    ],
+    "header_span_mm": 2435.23,
+    "header_blank_bounding_mm": [
+      2435.23,
+      292.1,
+      76.2
+    ],
+    "principals_width_mm": 88.9,
+    "principal_original_full_blank_envelope_each": {
+      "left": {
+        "bounding_xyz_mm": [
+          88.9,
+          1693.79,
+          1940.1
+        ],
+        "yz_bounding_diagonal_mm": 2575.45
+      },
+      "right": {
+        "bounding_xyz_mm": [
+          88.9,
+          1693.79,
+          1940.1
+        ],
+        "yz_bounding_diagonal_mm": 2575.45
+      }
+    },
+    "retail_feasibility": "unverified blocker: the 184 x 140 x 239 mm one-piece post implies a nominal 6x8 class. A public Home Depot listing was found for 6x8x8 Douglas-fir pressure-treated stock, which changes the wood/service basis; no ordinary untreated DF-L No.2 big-box lead is established. The approximately 2435 x 292 x 76 mm one-piece header also lacks a verified ordinary untreated DF-L No.2 retail blank. Bounding sizes are minimum ideal solid envelopes, not purchase or cut instructions.",
+    "two_post_alternative": "Not part of this trial. Two smaller posts plus separate seam backing add at least one backing-to-post connection to count and qualify; fixed x=\u00b170 kicker screw axes and both seam edges need continuous verified receiving wood."
+  },
+  "access_caveat": "Rear lower bolt heads and underside nuts require access behind and below the enlarged header; upper outer-face bolts require room beside principals. Full head/washer/nut stacks, grip, tool sweep, installation order, and removal with panels installed are not modeled.",
+  "unmodeled": "Existing frame bolt axes and stacks after hidden-member changes, full washer/tool access, delivered bracket tolerances, and local untreated DF-L No.2 retail availability are not checked.",
+  "disposition": "Reject this pose: lower post bolt X edge distance fails the conservative 4D filter; upper principal bores lack full wood; enlarged header and principals clash with neighboring wood, and upper plates clash with bottom rails. One-piece stock procurement and grade/service basis are additionally unresolved. No structural capacity, selection, fabrication, or drilling approval. ESR-3455 C_D=1.6 loads are not transferred to climbing use."
+}

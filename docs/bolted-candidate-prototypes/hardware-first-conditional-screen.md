@@ -77,8 +77,8 @@ Its [public DXF](https://www.mitek-us.com/wp-content/uploads/files/Drawing%20Lib
 contains four nominal circle centers; see the
 [B66 drawing follow-up](mitek-b66-drawing-followup.md). B66 is narrower and
 shorter than B88 but still requires the 3-in actual wood receiver and has
-the same ESR duration restriction. It is the next bounded *fit* comparison,
-not an accepted replacement for a rejected HL pose.
+the same ESR duration restriction. One bounded *fit* comparison is recorded
+below; it is not an accepted replacement for a rejected HL pose.
 
 ## First center concepts and their limits
 
@@ -184,6 +184,16 @@ That pose is rejected on installed geometry; it is not a family-wide B88
 verdict. Separately, ESR-3455 expressly bars transferring the B88
 `C_D = 1.6` ratings to ordinary load duration. Neither the fit study nor
 the listed F1/F2 values provide a climbing-board joint rating.
+
+One [B66/UB66 center pose](hardware_first_b66_center.md) was also screened
+using its nominal factory DXF centers. The common front-aligned solid post
+preserves all 66 historical screw receivers, but lower bolt rows leave only
+22.075 mm to an outer post edge under a conservative 4D search filter.
+Upper bores leave principal wood; widened members and plates collide with
+other hidden members. Its one-piece post and header stock envelopes also
+have no verified ordinary untreated DF-L No. 2 big-box source. This rejects
+that pose, not every B66 layout. Neither the DXF nor ESR-3455 resolves an
+ordinary-duration complete joint resistance or releases drilling.
 
 This screen changes no raw geometry. It does not establish that a 4×6 can
 replace both 2×6 pieces without moving other support, that the old twelve
