@@ -82,3 +82,22 @@ its pictured dimensions do not supply a bolted-wood or formed-angle rating.
 The partial mixed BR904/HL33 lower script left by the interrupted study is
 not an adopted result. Earlier rated-HL prototype failures remain
 pose-specific. Keep their data; do not turn supersession into a pass.
+
+## Current concept result, 2026-09-20
+
+The [corrected axis audit](bolted-candidate-prototypes/hl-load-axis-audit.md)
+places outward-X F1 along X, not Y; lower inverted HL53 seats have a rotated
+`-Z` geometric axis without an adopted inverted-installation uplift rating.
+The [action-coverage matrix](bolted-candidate-prototypes/hl-action-coverage-preliminary.md)
+still leaves transverse Y, reversals, moments, simultaneous allocation and
+ordinary-duration resistance unsupported. These must be resolved for one
+current-geometry center and representative rail joint before a G1 selection.
+
+The tested [HL33 common-core backing revision](bolted-candidate-prototypes/hardware_first_hl33_backing_revision.md)
+removes its shared three-wood bolt but still fails nut/tool access and an
+ordinary one-piece stock comparator. The [HL53 wider-rib comparison](bolted-candidate-prototypes/hardware_first_hl53_wide_ribs.md)
+finds 620/660-mm partial header fits and one *isolated* 660-mm zero-gap
+bottom-right rail bracket with full nominal seat contact. Its parent-neighbor
+fit and other five rail attachments remain unchecked; a Lowe's 6×6 is only
+a dimensionally fitting stock lead. B is the stronger **nominal geometry**
+lead, not a selected or rated architecture. No shop or drilling release follows.
