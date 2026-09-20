@@ -20,24 +20,25 @@
     "manufacturer_linked_image": "https://newhouseelectric.com/cdn/shop/files/BR904.jpg?v=1684435787",
     "manufacturer_archived_product_2025": "https://web.archive.org/web/20250116212707/https://newhouseelectric.com/products/bracket-90deg-4-hole",
     "other_brand_same_model_string": "https://www.lowes.com/pd/Adamax-Electro-Galvanized-1-2-in-Angled-Strut-Bracket-with-4-Holes-Strut-Channel-Joining-Accessory/5002818545",
+    "lowes_exact_model_dimensioned_image": "https://mobileimages.lowes.com/productimages/d634d853-f9cd-473c-9904-e170613fa268/66922570.jpeg",
     "q235_standard_context_only": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=728DD12CB05533A5AE309BF47E6CBAA0",
     "official_design_table_crosscheck": "https://zjj.sz.gov.cn/attachment/1/1249/1249210/10030175.pdf"
   },
   "source_limits": [
     "The manufacturer names Q235, but does not state a GB/T standard edition, Q235 subtype, numerical minimum strength, or bending/forming basis for this SKU. A bespoke certificate is not assumed mandatory; applicability of a cited standard still needs a defensible receiving/specification basis.",
-    "The manufacturer gives hole size and pitch but not overall leg dimensions, edge/bend-to-hole coordinates, or tolerances; do not borrow AB205 dimensions because the two products are different.",
-    "The stated 1-7/8-inch spacing is not a dimensioned confirmation that each leg has that pitch; applying it to both pairs remains a trial assumption until measured.",
+    "The manufacturer page does not dimension the bracket; a newly found Lowe's exact-model image does give rounded nominal dimensions of both legs and both hole pitches, but no controlled tolerance or bend-tangent datum. Do not borrow AB205 dimensions because the products differ.",
+    "The Lowe's image labels 1.87-in pitch on both legs, versus Newhouse's prose 1-7/8 in. The image also labels 0.55-in typical hole diameter versus Newhouse's prose 9/16 in. Treat these as unresolved rounding/identity differences for drilling and bolt-hole checks.",
     "Neither the manufacturer nor Home Depot publishes a bolted wood-to-wood rating or an applicable combined shear, moment and separation test.",
     "A Home Depot product page exists; local shelf stock and received-part identity were not verified.",
-    "The Home Depot BR904 Q&A had unanswered requests for full dimensions and supported weight when checked; neither it nor manufacturer-linked imagery supplies a controlled factory drawing.",
+    "The Home Depot BR904 Q&A had unanswered requests for full dimensions and supported weight when checked; the Lowe's image now supplies nominal dimensions but still not a controlled factory drawing, tolerance, or joint rating.",
     "Newhouse Electric identifies itself as by Adamax Inc., and Lowe's lists Adamax model BR904 item #3725645. This strongly supports a common branded model, but neither page controls lot-level factory geometry, steel conformance, or delivered identity. Lowe's displayed shipping quantity is location- and time-dependent, not verified local stock."
   ],
   "bounded_drawing_search": {
     "manufacturer_product_and_document_search": "Rechecked the live exact-model product page and its linked BR904 asset on 2026-09-19: the linked asset is a product photo, not a dimensioned drawing; targeted exact-model document searches found no factory drawing",
     "home_depot_specifications_qa_images": "no complete center layout or numerical product capacity found",
     "retailer_size_limit": "Home Depot gives an overall 4-in length; third-party listings repeat 4 x 0.25 x 1.65 in without defined axes. Neither establishes bend-to-hole centers, leg pitch on both legs, or minimum finished thickness. Do not use these sizes as drilling or resistance inputs.",
-    "archived_page_and_exact_model_images": "no dimensioned factory hole-center drawing or scale; photo pixels are not receiving measurements",
-    "outcome": "negative; published pitch alone is not a complete hole-center layout"
+    "archived_page_and_exact_model_images": "historical 2026-09-19 search was negative; a Lowe's exact-model dimensioned image was found on 2026-09-20 and supersedes that negative result for nominal geometry",
+    "outcome": "nominal dimensions found in exact-model retailer image; no controlled tolerance or received-part geometry"
   },
   "comparison_with_ab205": "BR904 supplies a named material grade absent from ABB's AB205 public record, while AB205 supplies more complete nominal geometry. Neither evidence set transfers to the other product, and neither establishes the complete wood joint.",
   "no_contact_evidence_route": {

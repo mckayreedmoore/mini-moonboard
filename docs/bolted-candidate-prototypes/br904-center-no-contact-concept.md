@@ -1,6 +1,7 @@
 # BR904 center joint: no-contact geometry concept
 
-Status: search envelope only. No sample has been measured. No connector, bolt
+Status: historical search envelope only, superseded for nominal dimensions by
+the [Lowe's BR904 drawing](br904-lowes-drawing-followup.md). No sample has been measured. No connector, bolt
 diameter, hole, joint resistance, or drilling pattern is selected.
 
 The exact [Newhouse BR904](https://newhouseelectric.com/products/bracket-90deg-4-hole)
@@ -86,8 +87,10 @@ figure for split-ring/shear-plate connectors in Chapter 13 cannot be
 transferred to these bolts. A completed wood check still needs a defensible
 oblique-end interpretation and the actual simultaneous load direction.
 
-The exact placement still needs a genuine sample or a controlled BR904
-drawing. Before any installed-fit verdict, record both bend-to-hole offsets,
+The Lowe's exact-model image now provides rounded nominal dimensions, but not
+controlled bend-tangent datums or tolerances. The hypothetical offsets and
+coordinates above must **not** be used as the actual BR904 layout. Before any
+installed-fit or drilling verdict, verify both bend-to-hole offsets,
 all four hole centers, plate width, leg lengths, hole diameters, minimum
 finished thickness, bend geometry, and tolerances. Then check complete wood
 bores, the protected screw axes and actual screw bodies, opposed plate/washer/
