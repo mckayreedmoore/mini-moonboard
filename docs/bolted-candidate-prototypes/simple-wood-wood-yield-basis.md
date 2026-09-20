@@ -66,10 +66,17 @@ particular store-bought bolt or connection.
 The current 1/4-in PB-01 **N-grain four-bolt** cleat has upright bolts along
 X and rail bolts along local T; both axes are transverse to cleat grain N.
 The earlier separate X-grain one-bolt pose has an axis-parallel upright
-bolt and remains outside this wrapper. For the four-bolt pose, the retail
-source screen still has no exact product root or `F_yb`, no qualified group
-or member checks, and no new-topology same-case force. The small-root branch
+bolt and remains outside this wrapper. For the four-bolt pose, 2024 NDS
+Appendix I supplies a conditional 45,000-psi bolt-class `F_yb` and Appendix
+L supplies a **typical**, not guaranteed, 0.189-in root for nominal 1/4-in
+hex bolts. The retail screen still has no verified delivered root/thread
+position, qualified group or member checks, or new-topology same-case force.
+The small-root branch
 is component groundwork, not a PB-01 capacity result.
+The [PB-01 quarter-inch screen](simple-pb01-quarter-yield-screen.md)
+now records its conditional numerical Mode IV values using 2024 NDS
+bolt-class strength and typical-root inputs, without a group or demand
+verdict.
 
 ## Still required for an actual PB joint
 
