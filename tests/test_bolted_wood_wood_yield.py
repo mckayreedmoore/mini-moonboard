@@ -6,7 +6,31 @@ import pytest
 
 from fea.dowel_yield import single_shear
 from mini_moonboard.bolted_timber_checks import dfl_dowel_bearing_psi
-from mini_moonboard.bolted_wood_wood_yield import wood_wood_single_shear_reference
+from mini_moonboard.bolted_wood_wood_yield import (
+    dowel_bending_yield_moment_lb_in,
+    wood_wood_single_shear_reference,
+)
+
+
+def test_dowel_bending_moment_uses_tr12_effective_diameter_cubed():
+    assert dowel_bending_yield_moment_lb_in(
+        bending_yield_strength_psi=45_000, effective_diameter_in=0.5
+    ) == pytest.approx(937.5)
+    assert dowel_bending_yield_moment_lb_in(
+        bending_yield_strength_psi=45_000, effective_diameter_in=0.4
+    ) == pytest.approx(480)
+
+
+@pytest.mark.parametrize("strength,diameter", [
+    (0, 0.5), (math.nan, 0.5), (45_000, 0), (45_000, math.inf),
+    (True, 0.5), (45_000, False), (1e308, 1e308),
+])
+def test_dowel_bending_moment_rejects_unqualified_numeric_inputs(strength, diameter):
+    with pytest.raises(ValueError):
+        dowel_bending_yield_moment_lb_in(
+            bending_yield_strength_psi=strength,
+            effective_diameter_in=diameter,
+        )
 
 
 def case():

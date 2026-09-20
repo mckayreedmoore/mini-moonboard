@@ -17,6 +17,28 @@ def _finite_number(value: object) -> bool:
             and math.isfinite(value))
 
 
+def dowel_bending_yield_moment_lb_in(
+    *, bending_yield_strength_psi: float, effective_diameter_in: float
+) -> float:
+    """TR12 §1.7 plastic dowel moment from sourced F_yb and effective D.
+
+    This does not establish a product's bending-yield strength or which
+    shank/thread diameter applies at its actual shear and bearing regions.
+    """
+    if (not _finite_number(bending_yield_strength_psi)
+            or bending_yield_strength_psi <= 0
+            or not _finite_number(effective_diameter_in)
+            or effective_diameter_in <= 0):
+        raise ValueError("positive finite bending strength and diameter required")
+    try:
+        moment = bending_yield_strength_psi * effective_diameter_in**3 / 6
+    except OverflowError as exc:
+        raise ValueError("dowel bending moment is nonfinite") from exc
+    if not math.isfinite(moment):
+        raise ValueError("dowel bending moment is nonfinite")
+    return moment
+
+
 def wood_wood_single_shear_reference(
     *,
     main_bearing_length_in: float,

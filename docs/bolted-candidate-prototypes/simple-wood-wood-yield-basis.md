@@ -7,6 +7,15 @@ calculation, not a selected PB-02 joint, group capacity, rating, or drilling
 release. No A307 delivered-bolt strength, shank length, or thread geometry is
 assumed.
 
+The companion `dowel_bending_yield_moment_lb_in` computes the plastic dowel
+moment `M_y = F_yb D_effective³ / 6` from **separately sourced** bending-yield
+strength and the diameter established for the delivered shank/thread
+geometry. This is the round-dowel moment relation in [AWC TR12 §1.7][tr12],
+not a product grade lookup or a shaft shear/tension rating. For illustration,
+45,000 psi with 1/2-in effective diameter gives 937.5 lb·in; if effective
+diameter is 0.4 in, it gives 480 lb·in. These numbers cannot be assigned to
+an unverified store bolt or treated as a connection resistance.
+
 ## Source and applicability
 
 - [AWC 2024 NDS Chapter 12, printed pp. 91–95][nds12], Table 12.3.1A,
@@ -62,3 +71,4 @@ bolt count or issue a load or drilling rating from it.
 
 [nds12]: https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf
 [errata]: https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf
+[tr12]: https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf
