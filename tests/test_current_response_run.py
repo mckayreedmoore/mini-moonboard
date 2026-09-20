@@ -75,6 +75,24 @@ def test_solver_rejects_source_changes_after_import_before_building(tmp_path, mo
     assert not (tmp_path/'rejected'/'model.pkl').exists()
 
 
+def test_extra_producer_sources_are_hashed_and_must_stay_in_repository(tmp_path):
+    import hashlib
+    from pathlib import Path
+
+    import pytest
+
+    from fea.current_response_run import extra_source_hashes
+
+    source = tmp_path/'producer.py'
+    source.write_text('value = 1\n')
+    with pytest.raises(ValueError, match='repository'):
+        extra_source_hashes([source])
+    script = 'scripts/simple_pb01_hybrid_native.py'
+    hashes = extra_source_hashes([script])
+    assert hashes[script] == hashlib.sha256(Path(script).read_bytes()).hexdigest()
+    assert extra_source_hashes([script, script]) == hashes
+
+
 def test_mixed_bolts_use_their_own_stiffness_and_reject_invalid_values():
     import pytest
 

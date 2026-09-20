@@ -456,7 +456,7 @@ def foot_friction_witness(points, center, tangential, directions=32):
             'polygon_direction_count':directions,'witness':witness}
 
 
-def repository_source_closure(seeds):
+def repository_source_closure(seeds, packages=('fea','mini_moonboard')):
     """Follow repository Python imports, including imports inside lazy functions."""
     root=Path.cwd().resolve()
     pending=[Path(p).resolve() for p in seeds]
@@ -466,7 +466,7 @@ def repository_source_closure(seeds):
         if path in found or not path.is_file() or path.suffix!='.py':
             continue
         relative=path.relative_to(root)
-        if relative.parts[0] not in ('fea','mini_moonboard'):
+        if relative.parts[0] not in packages:
             continue
         found.add(path)
         package=list(relative.with_suffix('').parts[:-1])
@@ -479,7 +479,7 @@ def repository_source_closure(seeds):
                 prefix+=node.module.split('.') if node.module else []
                 modules=[prefix,*[prefix+alias.name.split('.') for alias in node.names if alias.name!='*']]
             for names in modules:
-                if not names or names[0] not in ('fea','mini_moonboard'):
+                if not names or names[0] not in packages:
                     continue
                 pending.append(root.joinpath(*names).with_suffix('.py'))
                 pending.extend(root.joinpath(*names[:i],'__init__.py') for i in range(1,len(names)+1))

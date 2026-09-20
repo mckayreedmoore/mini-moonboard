@@ -35,6 +35,22 @@ def source_hashes():
 LOADED_SOURCE_SHA256 = source_hashes()
 
 
+def extra_source_hashes(paths):
+    """Fingerprint caller-owned producer inputs omitted by the base closure."""
+    root = Path.cwd().resolve()
+    result = {}
+    for path in paths:
+        resolved = Path(path).resolve()
+        try:
+            relative = resolved.relative_to(root)
+        except ValueError as error:
+            raise ValueError('Extra producer source must be inside the repository') from error
+        if not resolved.is_file():
+            raise ValueError('Extra producer source is missing: '+str(relative))
+        result[str(relative)] = hashlib.sha256(resolved.read_bytes()).hexdigest()
+    return result
+
+
 def physical_forces(record, result, precision=None):
     """Rotate connector-local spring forces into the physical global frame."""
     rows = {}
@@ -171,13 +187,15 @@ def next_contact_names(bearings, strategy='all'):
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
         module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
         contact_update_strategy='all', initial_contact_names=None, prepare_factory=None,
+        extra_source_paths=(),
         **parameters):
     next_contact_names([], contact_update_strategy)
     directory = Path(output)
     directory.mkdir(parents=True, exist_ok=False)
-    before = source_hashes()
-    if before != LOADED_SOURCE_SHA256:
+    core_before = source_hashes()
+    if core_before != LOADED_SOURCE_SHA256:
         raise ValueError('Sources changed after this process imported the solver; restart from a frozen snapshot')
+    before = {**core_before, **extra_source_hashes(extra_source_paths)}
     if cache and (connection_scale != 1. or panel_group_factor != 1. or bolt_stiffness is not None):
         raise ValueError('Material or stiffness changes require a fresh preparation')
     if cache:
@@ -207,7 +225,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
             expected_candidate=expected_candidate,
             materials=materials(panel_group_factor=panel_group_factor),
             stiffnesses=stiffnesses, **parameters)
-    if before != source_hashes():
+    if before != {**source_hashes(), **extra_source_hashes(extra_source_paths)}:
         raise ValueError('Consumed sources changed during preparation')
     for name,digest in before.items():
         content = Path(name).read_bytes()
