@@ -11,6 +11,15 @@ corrects the earlier negative online-drawing search. It supplies rounded
 nominal geometry for new layout screens, not controlled tolerances, a formed
 steel resistance, a wood-joint rating, or drilling coordinates. Earlier
 fixed-frame BR904 hypothetical offsets are historical, not factory values.
+Three [raised-seat BR904 rows](hardware_first_br904_raised_seat.md) fail
+inward-plate contact and wood search margins. One
+[outward-seat upper pose](hardware_first_br904_outward_seat.md) clears nominal
+hardware contact but fails the conservative principal-edge search marker;
+its lower and rail joints remain untested. The
+[rear-Y B66](hardware_first_b66_rear_y.md) and
+[front-Y B66](hardware_first_b66_front_y.md) center poses each fail for
+different physical clashes. These are pose-specific failures, not factory
+bracket family verdicts.
 
 ## Documented factory-hardware shortlist
 
