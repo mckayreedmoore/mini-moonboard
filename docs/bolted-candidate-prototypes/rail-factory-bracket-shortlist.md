@@ -56,6 +56,11 @@ single brace at `C_D = 1.6` only. The report bars applying or adjusting
 them to other durations. F1 in both senses requires braces on both sides.
 No ordinary-duration or complete rail-joint value follows; separation,
 other shear/moment combinations and slip remain unresolved.
+The same ESR-3455 identifies B corner-brace steel as ASTM A653 SS Grade 40
+(Table 29) and sets a 0.099-in minimum base-steel thickness for No. 12 gage
+(§3.29.1). These are conditional inputs for a **separate** formed-angle
+assessment, not permission to transfer the `C_D = 1.6` product loads or
+assume bend, local-buckling, bolt-bearing, and wood resistance are checked.
 
 [simpson-catalog]: https://ssttoolbox.widen.net/content/orplhjaqw1/original/C-C-2026.pdf?download=true
 [mitek-crosswalk]: https://images.thdstatic.com/catalog/pdfImages/2f/2f1009db-047c-4da8-a283-bcda2c494ebe.pdf
