@@ -1,0 +1,417 @@
+{
+  "status": "rejected_nominal_pose",
+  "scope": "one distinct full-width front backing with two staggered independent HL33 bolt pairs",
+  "catalog_source": "https://www.strongtie.com/resources/literature/wood-construction-connectors-catalog",
+  "catalog_page": "C-C-2026 PDF p.315, HL33 row",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "assumed_horizontal_hole_inset_mm": 50.8,
+  "assumed_plate_thickness_mm": 4.55,
+  "assumed_wood_bore_diameter_mm": 14.2875,
+  "rear_extension_mm": 65.0,
+  "backing_bracket_base_z_mm": {
+    "left": 80.0,
+    "right": 150.0
+  },
+  "backing_member_count": 1,
+  "backing_bracket_count": 2,
+  "backing_bolt_axes": [
+    "backing_left_core",
+    "backing_left_member",
+    "backing_right_core",
+    "backing_right_member"
+  ],
+  "backing_bolt_receiving_members": {
+    "backing_left_core": [
+      "core"
+    ],
+    "backing_left_member": [
+      "backing"
+    ],
+    "backing_right_core": [
+      "core"
+    ],
+    "backing_right_member": [
+      "backing"
+    ]
+  },
+  "backing_bolt_receiver_count": {
+    "backing_left_core": 1,
+    "backing_left_member": 1,
+    "backing_right_core": 1,
+    "backing_right_member": 1
+  },
+  "receiver_thickness_mm": {
+    "lower_core": 90.47,
+    "lower_header": 88.9,
+    "upper_left_principal": 88.9,
+    "upper_left_header": 88.9,
+    "upper_right_principal": 88.9,
+    "upper_right_header": 88.9,
+    "backing_left_core": 90.47,
+    "backing_left_member": 240.0,
+    "backing_right_core": 90.47,
+    "backing_right_member": 240.0
+  },
+  "minimum_hl33_receiver_thickness_mm": 88.9,
+  "below_minimum_receivers_mm": {},
+  "fixed_panel_count": 6,
+  "fixed_screw_axis_count": 66,
+  "fixed_frame_axis_count": 12,
+  "fixed_screw_receiver_loss_mm3": {},
+  "kicker_center_receiver_mm3": {
+    "round_kicker_left_center_1": 438.127,
+    "round_kicker_left_center_2": 438.127,
+    "round_kicker_right_center_1": 438.127,
+    "round_kicker_right_center_2": 438.127
+  },
+  "kicker_inner_seam_backed": true,
+  "wood_bounds_mm": {
+    "core": [
+      -120.0,
+      120.0,
+      -240.7,
+      -150.23,
+      0.0,
+      238.9
+    ],
+    "backing": [
+      -120.0,
+      120.0,
+      -150.23,
+      -36.0,
+      0.0,
+      238.9
+    ],
+    "header": [
+      -1219.2,
+      1216.025,
+      -323.25,
+      -36.0,
+      238.9,
+      327.8
+    ],
+    "base_principal_center_left": [
+      -114.45,
+      -25.55,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ],
+    "base_principal_center_right": [
+      25.55,
+      114.45,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ],
+    "base_rail_bottom_left": [
+      -1130.3,
+      -130.0,
+      -113.0937,
+      18.4129,
+      319.212,
+      438.1957
+    ],
+    "base_rail_service_lower_left": [
+      -1130.3,
+      -130.0,
+      577.9994,
+      709.506,
+      1142.8246,
+      1261.8084
+    ],
+    "base_rail_service_upper_left": [
+      -1130.3,
+      -130.0,
+      670.5929,
+      802.0996,
+      1253.1733,
+      1372.1571
+    ],
+    "base_rail_bottom_right": [
+      130.0,
+      1127.125,
+      -113.0937,
+      18.4129,
+      319.212,
+      438.1957
+    ],
+    "base_rail_service_lower_right": [
+      130.0,
+      1127.125,
+      577.9994,
+      709.506,
+      1142.8246,
+      1261.8084
+    ],
+    "base_rail_service_upper_right": [
+      130.0,
+      1127.125,
+      670.5929,
+      802.0996,
+      1253.1733,
+      1372.1571
+    ]
+  },
+  "plate_bounds_mm": {
+    "lower_vertical": [
+      -31.75,
+      31.75,
+      -245.25,
+      -240.7,
+      156.35,
+      238.9
+    ],
+    "lower_seat": [
+      -31.75,
+      31.75,
+      -323.25,
+      -240.7,
+      234.35,
+      238.9
+    ],
+    "upper_left_vertical": [
+      -119.0,
+      -114.45,
+      -100.0,
+      -36.5,
+      327.8,
+      410.35
+    ],
+    "upper_left_seat": [
+      -197.0,
+      -114.45,
+      -100.0,
+      -36.5,
+      327.8,
+      332.35
+    ],
+    "upper_right_vertical": [
+      114.45,
+      119.0,
+      -100.0,
+      -36.5,
+      327.8,
+      410.35
+    ],
+    "upper_right_seat": [
+      114.45,
+      197.0,
+      -100.0,
+      -36.5,
+      327.8,
+      332.35
+    ],
+    "backing_left_core_leg": [
+      -120.0,
+      -37.45,
+      -150.23,
+      -145.68,
+      80.0,
+      143.5
+    ],
+    "backing_left_side_leg": [
+      -124.55,
+      -120.0,
+      -150.23,
+      -67.68,
+      80.0,
+      143.5
+    ],
+    "backing_right_core_leg": [
+      37.45,
+      120.0,
+      -150.23,
+      -145.68,
+      150.0,
+      213.5
+    ],
+    "backing_right_side_leg": [
+      120.0,
+      124.55,
+      -150.23,
+      -67.68,
+      150.0,
+      213.5
+    ]
+  },
+  "bore_missing_wood_mm3": {
+    "lower_core": 0,
+    "lower_header": 0,
+    "upper_left_principal": 0,
+    "upper_left_header": 0,
+    "upper_right_principal": 0,
+    "upper_right_header": 0,
+    "backing_left_core": 0,
+    "backing_left_member": 0,
+    "backing_right_core": 0,
+    "backing_right_member": 0
+  },
+  "intended_plate_path_mm3": {
+    "lower_core": 729.481,
+    "lower_header": 729.481,
+    "upper_left_principal": 729.481,
+    "upper_left_header": 729.481,
+    "upper_right_principal": 729.481,
+    "upper_right_header": 729.481,
+    "backing_left_core": 729.481,
+    "backing_left_member": 729.481,
+    "backing_right_core": 729.481,
+    "backing_right_member": 729.481
+  },
+  "checks_mm3": {
+    "wood_pairs": {},
+    "wood_panel": {},
+    "wood_adjacent": {},
+    "plate_pairs": {},
+    "plate_wood": {},
+    "plate_panel": {},
+    "plate_adjacent": {},
+    "bore_pairs": {},
+    "bolt_path_panel": {},
+    "bolt_path_other_wood": {},
+    "bolt_path_other_plate": {},
+    "fixed_screw_hardware": {},
+    "long_screw_hardware": {},
+    "frame_axis_hardware": {},
+    "stack_panel": {},
+    "stack_other_wood": {
+      "lower_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "lower_core_nut_body": {
+        "backing": 6080.49
+      },
+      "lower_core_nut_tool": {
+        "backing": 31415.927
+      },
+      "upper_left_principal_head_tool": {
+        "base_rail_bottom_left": 21166.705
+      },
+      "upper_left_header_nut_tool": {
+        "base_rail_bottom_left": 5106.38
+      },
+      "upper_right_principal_nut_body": {
+        "base_rail_bottom_right": 1556.969
+      },
+      "upper_right_principal_nut_tool": {
+        "base_rail_bottom_right": 21166.705
+      },
+      "upper_right_header_nut_tool": {
+        "base_rail_bottom_right": 5106.38
+      },
+      "backing_left_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "backing_left_core_nut_body": {
+        "backing": 6080.49
+      },
+      "backing_left_core_nut_tool": {
+        "backing": 31415.927
+      },
+      "backing_right_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "backing_right_core_nut_body": {
+        "backing": 6080.49
+      },
+      "backing_right_core_nut_tool": {
+        "backing": 31415.927
+      }
+    },
+    "stack_adjacent": {},
+    "stack_plate": {},
+    "stack_fixed_screw": {}
+  },
+  "access_failures_mm3": {
+    "stack_other_wood": {
+      "lower_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "lower_core_nut_body": {
+        "backing": 6080.49
+      },
+      "lower_core_nut_tool": {
+        "backing": 31415.927
+      },
+      "upper_left_principal_head_tool": {
+        "base_rail_bottom_left": 21166.705
+      },
+      "upper_left_header_nut_tool": {
+        "base_rail_bottom_left": 5106.38
+      },
+      "upper_right_principal_nut_body": {
+        "base_rail_bottom_right": 1556.969
+      },
+      "upper_right_principal_nut_tool": {
+        "base_rail_bottom_right": 21166.705
+      },
+      "upper_right_header_nut_tool": {
+        "base_rail_bottom_right": 5106.38
+      },
+      "backing_left_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "backing_left_core_nut_body": {
+        "backing": 6080.49
+      },
+      "backing_left_core_nut_tool": {
+        "backing": 31415.927
+      },
+      "backing_right_core_nut_washer": {
+        "backing": 1520.122
+      },
+      "backing_right_core_nut_body": {
+        "backing": 6080.49
+      },
+      "backing_right_core_nut_tool": {
+        "backing": 31415.927
+      }
+    }
+  },
+  "stack_envelope_count": 60,
+  "stack_assumptions_mm": {
+    "washer_od": 25.4,
+    "washer_thickness": 3,
+    "head_length": 8,
+    "nut_length": 12,
+    "tool_od": 40,
+    "tool_sweep_length": 25
+  },
+  "blank_comparator": {
+    "ordinary_nominal": "4x12x12-ft",
+    "source": "https://www.lowes.com/pd/Douglas-Fir-Lumber-Common-4-in-x-12-in-x-12-ft-Actual-3-562-in-x-11-5-in-x-12-ft/1000028845",
+    "listed_actual_mm": [
+      90.4748,
+      292.1,
+      3657.6
+    ],
+    "axis_aligned_member_envelope_mm": {
+      "core": [
+        240.0,
+        90.47,
+        238.9
+      ],
+      "backing": [
+        240.0,
+        114.23,
+        238.9
+      ]
+    },
+    "one_piece_fit": {
+      "core": true,
+      "backing": false
+    },
+    "limit": "Dimensional comparison only; no trim, tolerance, drying, grade, local availability, or machining allowance."
+  },
+  "ordinary_stock_gate": "open: the Lowe's/Home Depot 4x12 dimensional lead fails the one-piece backing envelope and leaves no practical core machining allowance",
+  "rail_connection_established": false,
+  "duty_limit": "No catalog rating transfers to this pose. Independent bolts remove the three-wood stack but do not establish HL33 F1/F2, backing force path, or rail joints.",
+  "rating_or_drilling_released": false,
+  "failures": [
+    "stack_other_wood",
+    "ordinary_4x12_blank_comparator_failure"
+  ]
+}
