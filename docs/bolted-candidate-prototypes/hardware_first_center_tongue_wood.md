@@ -54,6 +54,14 @@ are recorded separately in JSON. The principals' grain slopes in Y/Z. Their
 66.3147-mm near-end rays strike the actual horizontal toe cut at an angle to
 grain. These rays do not establish NDS end distance at an oblique cut.
 
+The post's 90.47-mm Y depth cannot place a 12.7-mm bolt at least 4D from
+*both* Y edges: the necessary width is 2 × 4 × 12.7 = 101.6 mm, a nominal
+11.13-mm deficit independent of bolt position. This is only a useful design
+bound if the eventual joint actions make both edges loaded under the
+perpendicular-to-grain Table 12.5.1C category; it is not an unconditional
+NDS rejection or a requirement to enlarge this post without checking the
+load path.
+
 Independent header groups have center pitches of **88.9 mm** (lower pair)
 and **330.5 mm** (upper pair). Their conditional 3D/4D parallel-row margins
 are +50.8/+38.1 mm and +292.4/+279.7 mm, respectively. Across groups,
