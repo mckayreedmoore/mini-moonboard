@@ -14,7 +14,7 @@ Vector = tuple[int, int, int]
 class HLFrame:
     reach: Vector  # Catalog F1 axis, oriented away from the upright leg.
     bend: Vector  # Unlisted horizontal transverse axis.
-    uplift: Vector  # Catalog uplift axis for the horizontal-seat-up pose.
+    uplift: Vector  # Rotated catalog direction; inverted -Z is not rated here.
 
 
 def _cross(a: Vector, b: Vector) -> Vector:

@@ -53,7 +53,15 @@ def test_inverted_b_seat_rotates_catalog_uplift_and_bend_sign():
         "force": (7, -11, -13),
         "moment": (17, -19, -23),
     }
-    assert pose_frames()["b_lower_right_front"] == lower_right
+    expected = {
+        "b_lower_right_front": ((1, 0, 0), (0, -1, 0), (0, 0, -1)),
+        "b_lower_right_rib": ((-1, 0, 0), (0, 1, 0), (0, 0, -1)),
+        "b_lower_left_front": ((-1, 0, 0), (0, 1, 0), (0, 0, -1)),
+        "b_lower_left_rib": ((1, 0, 0), (0, -1, 0), (0, 0, -1)),
+    }
+    for name, (reach, bend, uplift) in expected.items():
+        assert pose_frames()[name] == frame_for_reach(reach, uplift)
+        assert pose_frames()[name].bend == bend
     with pytest.raises(ValueError):
         frame_for_reach((1, 0, 0), uplift=(0, 1, 0))
 
