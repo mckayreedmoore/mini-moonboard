@@ -13,11 +13,22 @@
     "minimum_3d_mm": 38.1,
     "scope": "placement screen only; load direction, geometry factor, local wood failures and complete steel/wood joint resistance still require checking"
   },
+  "fixed_pattern_offset_threshold": {
+    "necessary_lower_bound_from_coincident_factory_pair_mm": 38.1,
+    "cross_pair_spacing_at_that_lower_bound_mm": 9.525,
+    "minimum_shift_for_all_distinct_header_pairs_3d_mm": 85.725,
+    "maximum_shift_before_frozen_kicker_screw_axis_reaches_post_edge_mm": 19.05,
+    "maximum_shift_before_modeled_screw_occupancy_reaches_post_edge_mm": 16.9799,
+    "required_shift_exceeds_axis_center_limit_mm": 19.05,
+    "simultaneous_nominal_3d_and_frozen_axis_engagement_possible": false,
+    "applies_to_other_factory_hole_patterns": false,
+    "kicker_edge_support_verified": false
+  },
   "samples": [
-    {"post_outward_shift_each_side_mm": 0, "top_underside_header_axis_distance_mm": 0, "header_bore_web_mm": -14.2875, "header_axis_status": "two shared physical axes; requires one coupled steel-wood-steel method", "kerf_kicker_inner_edge_overhang_left_mm": 49.3625, "kerf_kicker_inner_edge_overhang_right_mm": 52.5375, "kicker_screw_nominal_bore_edge_material_mm": 16.9799},
-    {"post_outward_shift_each_side_mm": 5, "top_underside_header_axis_distance_mm": 5, "header_bore_web_mm": -9.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 54.3625, "kerf_kicker_inner_edge_overhang_right_mm": 57.5375, "kicker_screw_nominal_bore_edge_material_mm": 11.9799},
-    {"post_outward_shift_each_side_mm": 10, "top_underside_header_axis_distance_mm": 10, "header_bore_web_mm": -4.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 59.3625, "kerf_kicker_inner_edge_overhang_right_mm": 62.5375, "kicker_screw_nominal_bore_edge_material_mm": 6.9799},
-    {"post_outward_shift_each_side_mm": 15, "top_underside_header_axis_distance_mm": 15, "header_bore_web_mm": 0.7125, "header_axis_status": "bores separate nominally but distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 64.3625, "kerf_kicker_inner_edge_overhang_right_mm": 67.5375, "kicker_screw_nominal_bore_edge_material_mm": 1.9799}
+    {"post_outward_shift_each_side_mm": 0, "top_underside_header_axis_distance_mm": 0, "header_bore_web_mm": -14.2875, "header_axis_status": "two shared physical axes; requires one coupled steel-wood-steel method", "kerf_kicker_inner_edge_overhang_left_mm": 49.3625, "kerf_kicker_inner_edge_overhang_right_mm": 52.5375, "kicker_screw_modeled_occupied_axis_edge_reserve_mm": 16.9799},
+    {"post_outward_shift_each_side_mm": 5, "top_underside_header_axis_distance_mm": 5, "header_bore_web_mm": -9.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 54.3625, "kerf_kicker_inner_edge_overhang_right_mm": 57.5375, "kicker_screw_modeled_occupied_axis_edge_reserve_mm": 11.9799},
+    {"post_outward_shift_each_side_mm": 10, "top_underside_header_axis_distance_mm": 10, "header_bore_web_mm": -4.2875, "header_axis_status": "nominal header bores overlap and distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 59.3625, "kerf_kicker_inner_edge_overhang_right_mm": 62.5375, "kicker_screw_modeled_occupied_axis_edge_reserve_mm": 6.9799},
+    {"post_outward_shift_each_side_mm": 15, "top_underside_header_axis_distance_mm": 15, "header_bore_web_mm": 0.7125, "header_axis_status": "bores separate nominally but distinct axes are below 3D", "kerf_kicker_inner_edge_overhang_left_mm": 64.3625, "kerf_kicker_inner_edge_overhang_right_mm": 67.5375, "kicker_screw_modeled_occupied_axis_edge_reserve_mm": 1.9799}
   ],
   "common_geometry_findings": {
     "top_principals_and_panel_screw_axes_moved": false,
@@ -27,7 +38,7 @@
     "kicker_edge_support_adequacy_verified": false,
     "installed_angle_bend_washer_tool_and_withdrawal_fit_verified": false
   },
-  "decision": "A post-only shift of 5 or 10 mm retains overlapping nominal header bores; 15 mm barely separates the bores but not the minimum distinct-bolt spacing, while increasing kicker-edge overhang and leaving only 1.9799 mm nominal bore-edge material at the frozen kicker screw axes. Zero shift retains a shared three-member bolt stack. None of these offsets is an accepted de-stacked joint or adequate kicker-edge-support demonstration.",
+  "decision": "For the fixed opposed AB205 pattern, 38.1 mm post-only shift is merely the conditional 3D lower bound for one coincident factory-hole pair; at that offset the nearest cross-pair is only 9.525 mm apart. All four distinct same-row half-inch header axes first meet 3D at 85.725 mm shift, ignoring other header fit. A frozen kerf-right kicker screw axis center reaches the post inner edge after only 19.05 mm, so even the necessary lower bound conflicts with that axis by 19.05 mm regardless of screw diameter. The historical modeled occupied-axis cylinder reaches the edge at 16.9799 mm, but its 4.1402-mm diameter is not a Hillman drill or received screw dimension. A 5 or 10 mm shift retains overlapping nominal header bores; 15 mm barely separates bores but is below 3D. Zero shift retains a shared three-member stack. This rules out this fixed-pattern de-stacking route, not other factory patterns or a differently engineered joint; kicker-edge support remains unverified.",
   "selected_offset_mm": null,
   "drilling_released": false,
   "baseline_and_panel_policy_unchanged": true

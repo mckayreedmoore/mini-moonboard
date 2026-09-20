@@ -25,6 +25,15 @@ SHORT_OFFSETS_MM = (0.8125 * 25.4, 2.6875 * 25.4)
 LONG_OFFSETS_MM = (1.4375 * 25.4, 3.3125 * 25.4)
 
 
+def fixed_pattern_header_min_pair_spacing_mm(outward_shift_mm: float) -> float:
+    """Minimum distance across all opposed factory axes, ignoring timber fit."""
+    return min(
+        abs(top - (under + outward_shift_mm))
+        for top in LONG_OFFSETS_MM
+        for under in LONG_OFFSETS_MM
+    )
+
+
 def _rows(path: Path) -> list[dict[str, str]]:
     with path.open(newline="") as handle:
         return list(csv.DictReader(handle))
@@ -88,6 +97,32 @@ def screen_center_post_offsets(
     post_rows = relevant(kerf_rows)
     if len(post_rows) != 4 or post_rows != relevant(official_rows):
         raise ValueError("Kerf-right and official post panel axes diverged")
+    frozen_kicker_axis_inner_edge_reserves = []
+    modeled_occupied_inner_edge_reserves = []
+    for screw in post_rows:
+        bounds = raw[screw["second_member"]].BoundingBox()
+        center_x = float(screw["start_x_mm"])
+        radius = float(screw["occupied_diameter_mm"]) / 2
+        axis_reserve = (
+            bounds.xmax - center_x
+            if screw["second_member"].endswith("_left")
+            else center_x - bounds.xmin
+        )
+        frozen_kicker_axis_inner_edge_reserves.append(axis_reserve)
+        modeled_occupied_inner_edge_reserves.append(axis_reserve - radius)
+    max_shift_with_axis_center = min(frozen_kicker_axis_inner_edge_reserves)
+    max_shift_with_modeled_occupancy = min(modeled_occupied_inner_edge_reserves)
+    if max_shift_with_modeled_occupancy <= 0:
+        raise ValueError(
+            "Modeled kicker screw occupancy is already outside its raw post"
+        )
+    distinct_bolt_shift = 3 * NOMINAL_BOLT_DIAMETER_MM
+    full_pair_shift = LONG_OFFSETS_MM[1] - LONG_OFFSETS_MM[0] + distinct_bolt_shift
+    if (
+        fixed_pattern_header_min_pair_spacing_mm(full_pair_shift)
+        < distinct_bolt_shift - 1e-6
+    ):
+        raise ValueError("Fixed-pattern full-pair spacing threshold is inconsistent")
     retained_solids = [
         (row["name"], row["shop_opening_kind"], _cylinder(row)) for row in retained
     ]
@@ -201,9 +236,11 @@ def screen_center_post_offsets(
                     {
                         "axis_id": screw["name"],
                         "occupied_axis_intersection_mm3": round(volume, 6),
-                        "nominal_bore_edge_material_mm": round(edge_material, 6),
+                        "modeled_occupied_axis_edge_reserve_mm": round(
+                            edge_material, 6
+                        ),
                         "occupied_axis_intersects_shifted_post": volume > 1e-6,
-                        "nominal_bore_inside_post_width": edge_material > 0,
+                        "modeled_occupied_axis_inside_post_width": edge_material > 0,
                     }
                 )
             # Ideal square-corner AB205 boxes locate the underside angle only.
@@ -313,6 +350,31 @@ def screen_center_post_offsets(
         "physical_kicker_width_option": floor_flush_width.KERF_RIGHT,
         "retained_axis_counts": counts,
         "kerf_official_relevant_panel_axes_identical": True,
+        "fixed_pattern_offset_threshold": {
+            "necessary_lower_bound_from_coincident_factory_pair_mm": round(
+                distinct_bolt_shift, 6
+            ),
+            "cross_pair_spacing_at_that_lower_bound_mm": round(
+                fixed_pattern_header_min_pair_spacing_mm(distinct_bolt_shift), 6
+            ),
+            "minimum_shift_for_all_distinct_header_pairs_3d_mm": round(
+                full_pair_shift, 6
+            ),
+            "maximum_shift_before_frozen_kicker_screw_axis_reaches_post_edge_mm": round(
+                max_shift_with_axis_center, 6
+            ),
+            "maximum_shift_before_modeled_screw_occupancy_reaches_post_edge_mm": round(
+                max_shift_with_modeled_occupancy, 6
+            ),
+            "required_shift_exceeds_axis_center_limit_mm": round(
+                distinct_bolt_shift - max_shift_with_axis_center, 6
+            ),
+            "simultaneous_nominal_3d_and_frozen_axis_engagement_possible": (
+                distinct_bolt_shift < max_shift_with_axis_center
+            ),
+            "applies_to_other_factory_hole_patterns": False,
+            "kicker_edge_support_verified": False,
+        },
         "selected_offset_mm": None,
         "samples": samples,
         "spacing_source": "2024 AWC NDS Table 12.5.1B: 3D minimum for distinct fasteners in a row; x is header grain and both angle rows use the same y. This is a placement screen, not a joint capacity.",

@@ -5,7 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from scripts.bolted_candidate_center_post_offset import screen_center_post_offsets
+from scripts.bolted_candidate_center_post_offset import (
+    fixed_pattern_header_min_pair_spacing_mm,
+    screen_center_post_offsets,
+)
 
 
 def test_post_only_offsets_keep_top_axes_fixed_and_separate_underside_axes():
@@ -47,7 +50,7 @@ def test_post_only_offsets_keep_top_axes_fixed_and_separate_underside_axes():
                 for screw in side["kicker_screw_support_engagement"]
             )
             assert all(
-                screw["nominal_bore_inside_post_width"]
+                screw["modeled_occupied_axis_inside_post_width"]
                 for screw in side["kicker_screw_support_engagement"]
             )
             assert side["drilling_released"] is False
@@ -83,6 +86,36 @@ def test_header_bore_overlap_and_web_are_recomputed_at_each_offset():
     )
 
 
+def test_fixed_ab205_pattern_has_no_post_only_offset_preserving_kicker_axes():
+    threshold = screen_center_post_offsets()["fixed_pattern_offset_threshold"]
+    assert threshold[
+        "necessary_lower_bound_from_coincident_factory_pair_mm"
+    ] == pytest.approx(38.1)
+    assert fixed_pattern_header_min_pair_spacing_mm(38.1) == pytest.approx(9.525)
+    assert threshold["cross_pair_spacing_at_that_lower_bound_mm"] == pytest.approx(
+        9.525
+    )
+    assert threshold[
+        "minimum_shift_for_all_distinct_header_pairs_3d_mm"
+    ] == pytest.approx(85.725)
+    assert fixed_pattern_header_min_pair_spacing_mm(85.724) < 38.1
+    assert fixed_pattern_header_min_pair_spacing_mm(85.725) == pytest.approx(38.1)
+    assert threshold[
+        "maximum_shift_before_frozen_kicker_screw_axis_reaches_post_edge_mm"
+    ] == pytest.approx(19.05)
+    assert threshold[
+        "maximum_shift_before_modeled_screw_occupancy_reaches_post_edge_mm"
+    ] == pytest.approx(16.9799)
+    assert threshold["required_shift_exceeds_axis_center_limit_mm"] == pytest.approx(
+        19.05
+    )
+    assert (
+        threshold["simultaneous_nominal_3d_and_frozen_axis_engagement_possible"]
+        is False
+    )
+    assert threshold["applies_to_other_factory_hole_patterns"] is False
+
+
 def test_scope_and_unresolved_gates_are_explicit():
     result = screen_center_post_offsets()
     assert result["top_trial_row_y_mm"] == pytest.approx(-95.382052)
@@ -107,6 +140,10 @@ def test_published_kerf_right_post_only_decision_matches_geometry():
     assert result["physical_kicker_width_option"] == "kerf-right"
     assert record["selected_offset_mm"] is None
     assert record["drilling_released"] is False
+    assert (
+        record["fixed_pattern_offset_threshold"]
+        == result["fixed_pattern_offset_threshold"]
+    )
     for published, calculated in zip(record["samples"], result["samples"], strict=True):
         assert published["post_outward_shift_each_side_mm"] == calculated["offset_mm"]
         for side in calculated["sides"]:
@@ -124,7 +161,7 @@ def test_published_kerf_right_post_only_decision_matches_geometry():
                 == side["kicker_interior_seam_overhang_mm"]
             )
             assert all(
-                screw["nominal_bore_edge_material_mm"]
-                == published["kicker_screw_nominal_bore_edge_material_mm"]
+                screw["modeled_occupied_axis_edge_reserve_mm"]
+                == published["kicker_screw_modeled_occupied_axis_edge_reserve_mm"]
                 for screw in side["kicker_screw_support_engagement"]
             )

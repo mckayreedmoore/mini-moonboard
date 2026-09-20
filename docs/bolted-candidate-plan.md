@@ -165,8 +165,13 @@ barely separate, but their 15 mm center spacing is below the conditional
 38.1 mm (3D) distinct-bolt minimum for a common grain-parallel row. All four
 kicker screw axes still intersect their shifted posts, yet the physical
 kerf-right kicker inner-edge overhang grows on both sides. At 15 mm, nominal
-material from a frozen kicker screw bore to the nearest post edge falls to
-1.98 mm. Screw intersection alone does not establish adequate edge support.
+reserve from a *historical modeled occupied-axis envelope* to the nearest
+post edge falls to 1.98 mm; this is not a Hillman bore or bit dimension.
+For the fixed opposed AB205 pattern, 38.1 mm shift is only necessary for one
+pair: a cross-pair would then be 9.525 mm apart. All distinct pairs first
+reach conditional 3D spacing at 85.725 mm shift, while a frozen kicker screw
+axis center reaches its post edge at only 19.05 mm. Screw intersection alone
+does not establish adequate edge support.
 No post shift, connector row, or drilling layout is selected. G2 remains
 closed, and no bolted-candidate native case has run. The task ledger marks
 incomplete construction and engineering tasks as such rather than using
