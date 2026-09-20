@@ -1,8 +1,12 @@
 """Physical HL load axes follow the catalog installation, not the bend."""
 
+from pathlib import Path
+
 import pytest
 
 from scripts.hl_load_axes import frame_for_reach, local_wrench, pose_frames
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_catalog_reference_fixture_and_quarter_turn():
@@ -56,3 +60,16 @@ def test_signed_force_and_moment_projection_in_actual_poses():
         "force": (-11, 7, 13),
         "moment": (-19, 17, 23),
     }
+
+
+def test_current_decision_text_uses_corrected_outward_axis():
+    audit = (
+        ROOT / "docs/bolted-candidate-prototypes/hl-load-axis-audit.md"
+    ).read_text()
+    screen = (
+        ROOT / "docs/bolted-candidate-prototypes/hardware-first-conditional-screen.md"
+    ).read_text()
+    assert "maps to global **X**" in audit
+    assert "unlisted horizontal transverse axis is **Y**" in audit
+    assert "horizontal flange reach into global X" in screen
+    assert "global-Y transverse action" in screen
