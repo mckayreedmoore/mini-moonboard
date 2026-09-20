@@ -55,9 +55,11 @@ Neither mapping alone qualifies the joint.
 Unlike the public HL page, [ESR-3455](https://www.mitek-us.com/wp-content/uploads/files/pdf/Code%20Evaluation%20Reports/esrESR-3455.pdf)
 identifies its 12-gauge ASTM A653 SS Grade 40 steel and 0.099-in minimum
 base thickness, four 3/8-in ASTM A307 Grade A-or-better bolts, and at least
-3 in of receiving wood. This warrants **one** coordinated B66 fit and
-independent component-check investigation if the HL resistance route remains
-undocumented. ESR-3455's F1/F2 table is only at `C_D = 1.6` and expressly
+3 in of receiving wood. One coordinated
+[B66 660-mm rail probe](bolted-candidate-prototypes/hardware_first_b66_660_component_route.md)
+has now been run: its first complete upright bore exits the rib, so that
+nominal pose is rejected, not the B66 family. ESR-3455's F1/F2 table is only
+at `C_D = 1.6` and expressly
 forbids duration conversion; it is not a normal-duration rating. An
 independent route still needs 2024 NDS wood/bolt checks, formed-steel checks
 on a consistent ASD basis, load sharing and combined action, deformation,
@@ -111,7 +113,9 @@ The tested [HL33 common-core backing revision](bolted-candidate-prototypes/hardw
 removes its shared three-wood bolt but still fails nut/tool access and an
 ordinary one-piece stock comparator. The [HL53 wider-rib comparison](bolted-candidate-prototypes/hardware_first_hl53_wide_ribs.md)
 finds 620/660-mm partial header fits and one *isolated* 660-mm zero-gap
-bottom-right rail bracket with full nominal seat contact. Its parent-neighbor
-fit and other five rail attachments remain unchecked; a Lowe's 6×6 is only
+bottom-right rail bracket with full nominal seat contact. Its
+[parent-neighbor screen](bolted-candidate-prototypes/hardware_first_hl53_660_parent_neighbor.md)
+now clears modeled clashes, but five rail attachments remain unchecked;
+a Lowe's 6×6 is only
 a dimensionally fitting stock lead. B is the stronger **nominal geometry**
 lead, not a selected or rated architecture. No shop or drilling release follows.

@@ -1,0 +1,86 @@
+{
+  "status": "nominal_geometry_conflict",
+  "retail_model": "UB66",
+  "manufacturer_model": "B66",
+  "retail_url": "https://www.homedepot.com/p/313507617",
+  "factory_dxf_url": "https://www.mitek-us.com/wp-content/uploads/files/Drawing%20Library/B66_3view.dxf",
+  "esr_url": "https://www.mitek-us.com/wp-content/uploads/files/pdf/Code%20Evaluation%20Reports/esrESR-3455.pdf",
+  "width_option": "kerf-right",
+  "rib_spacing_mm": 660,
+  "station": "bottom right only",
+  "protected_panel_screw_count": 66,
+  "fixed_screw_receiver_loss_mm3": {},
+  "factory_hole_count": 4,
+  "factory_free_end_offsets_mm": [
+    25.4,
+    126.744
+  ],
+  "factory_nominal_hole_diameter_mm": 10.3,
+  "esr_minimum_wood_thickness_mm": 76.2,
+  "esr_bolt_specification": "3/8-in ASTM A307 Grade A; Fy,b >= 45,000 psi",
+  "esr_steel_specification": "12-ga ASTM A653 SS Grade 40 G90; base t >= 0.099 in",
+  "illustrative_plate_thickness_mm": 2.66,
+  "holes": [
+    {
+      "id": "rail_vertical_1",
+      "free_end_offset_mm": 25.4,
+      "receiver": "rib_principal_right",
+      "receiver_thickness_mm": 88.9,
+      "receiver_continuous": true,
+      "factory_hole_clear": true,
+      "bolt_wood_overlap_mm3": 4465.128,
+      "bore_missing_receiver_mm3": 1869.507
+    },
+    {
+      "id": "rail_seat_1",
+      "free_end_offset_mm": 25.4,
+      "receiver": "base_rail_bottom_right",
+      "receiver_thickness_mm": 100.0,
+      "receiver_continuous": true,
+      "factory_hole_clear": true,
+      "bolt_wood_overlap_mm3": 7125.574,
+      "bore_missing_receiver_mm3": 0
+    },
+    {
+      "id": "rail_vertical_2",
+      "free_end_offset_mm": 126.744,
+      "receiver": "rib_principal_right",
+      "receiver_thickness_mm": 88.9,
+      "receiver_continuous": true,
+      "factory_hole_clear": true,
+      "bolt_wood_overlap_mm3": 6334.635,
+      "bore_missing_receiver_mm3": 0
+    },
+    {
+      "id": "rail_seat_2",
+      "free_end_offset_mm": 126.744,
+      "receiver": "base_rail_bottom_right",
+      "receiver_thickness_mm": 100.0,
+      "receiver_continuous": true,
+      "factory_hole_clear": true,
+      "bolt_wood_overlap_mm3": 7125.574,
+      "bore_missing_receiver_mm3": 0
+    }
+  ],
+  "parent_header_bracket_count": 8,
+  "parent_neighbor_checks": {
+    "rail_to_parent_wood": {},
+    "rail_to_parent_brackets": {},
+    "bracket_to_parent_wood": {},
+    "bracket_to_parent_brackets": {},
+    "bolt_to_parent_wood": {},
+    "washer_to_parent_wood": {},
+    "tool_to_parent_wood": {},
+    "hardware_to_parent_hardware": {}
+  },
+  "protected_screw_hardware_clashes": {},
+  "panel_hardware_clashes": {},
+  "nominal_access_envelopes_only": true,
+  "actual_hardware_access_verified": false,
+  "other_rail_ends_open": 5,
+  "existing_frame_bolt_axes_resolved": false,
+  "normal_duration_rating_adopted": false,
+  "full_joint_resistance_verified": false,
+  "connected_architecture_verdict": false,
+  "drilling_released": false
+}
