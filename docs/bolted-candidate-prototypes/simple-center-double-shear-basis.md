@@ -40,8 +40,15 @@ plane with six single-shear modes. The separate
 implements a symmetric **wood-main/steel-side** component; its steel bearing
 input and one wood grain angle do not represent three solid DF-L members.
 The [wood-to-wood single-shear wrapper](../../mini_moonboard/bolted_wood_wood_yield.py)
-is likewise not applicable to this whole stack. No existing helper produces
-a qualified wood–wood–wood double-shear result.
+is likewise not applicable to this whole stack. The new
+[`wood_wood_double_shear_reference`](../../mini_moonboard/bolted_wood_wood_double_shear.py)
+implements only the **conditional symmetric** four-mode one-bolt lateral
+reference for three solid DF-L members. It requires explicitly established
+symmetric side actions, contacting faces, a common side-member load-to-grain
+angle, and delivered shank/thread and sourced bending-yield inputs; it
+rejects axis-parallel grain and an effective diameter below 1/4 in. Using
+it does not prove those input conditions. No helper produces a qualified
+**joint** or resolves unequal side actions.
 
 ## Inputs and checks required before any calculation
 
