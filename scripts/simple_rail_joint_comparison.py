@@ -15,6 +15,7 @@ from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts.hardware_first_center_hybrid import AXES, ROOT, box
 
 OUTPUT = ROOT / "docs/bolted-candidate-prototypes/simple_rail_joint_comparison.json"
+HILLMAN_RECORD = ROOT / "docs/bolted-candidate-hillman-42605-dimensions.json"
 UPRIGHT = "base_principal_center_right"
 RAIL = "base_rail_service_lower_right"
 NEIGHBOR = "base_rail_service_upper_right"
@@ -85,6 +86,86 @@ def _axis_solid(row):
     )
 
 
+def _purchased_hillman_solids(rows):
+    """Conditional finite envelopes; the shop record lacks controlled maxima."""
+    record = json.loads(HILLMAN_RECORD.read_text())
+    length = float(record["purchased_length_mm"])
+    diameter = float(record["retailer_listed_nominal_head_diameter_mm"])
+    if len(rows) != record["preserved_panel_and_kicker_axes"]:
+        raise ValueError("Hillman record/axis count mismatch")
+    if any(float(row["shop_purchased_length_mm"]) != length for row in rows):
+        raise ValueError("Hillman record/axis purchased length mismatch")
+    if record["shaft_external_major_diameter_mm"] is not None:
+        raise ValueError("reassess conditional shaft envelope against new dimension")
+    margin = 1.0  # Radial sensitivity probe, not a product tolerance.
+    solids = {}
+    for label, width in (
+        ("nominal_head_diameter_full_length", diameter),
+        ("nominal_plus_1mm_radial_sensitivity", diameter + 2 * margin),
+    ):
+        solids[label] = {
+            row["name"]: _cylinder(
+                tuple(float(row[f"start_{a}_mm"]) for a in "xyz"),
+                tuple(float(row[f"direction_{a}"]) for a in "xyz"),
+                length,
+                width,
+            )
+            for row in rows
+        }
+    metadata = {
+        "source_record": "docs/bolted-candidate-hillman-42605-dimensions.json",
+        "product": record["product"],
+        "axis_count": len(rows),
+        "length_mm": length,
+        "nominal_head_diameter_mm": diameter,
+        "sensitivity_radial_margin_mm": margin,
+        "shaft_max_diameter_verified": False,
+        "head_tolerance_verified": False,
+        "installed_seat_datum_verified": False,
+        "physical_clearance_accepted": False,
+        "interpretation": (
+            "Full 63.5-mm forward cylinder at retailer nominal head diameter "
+            "is a conditional over-width shaft/head proxy, not exact screw geometry. "
+            "The +1-mm radial case is sensitivity only, not a known tolerance. "
+            "Missing shaft maximum, head tolerance/profile, overall-length and "
+            "seating datum prevent physical clearance acceptance. Historical "
+            "50.8-mm SPAX occupied axis remains a separate diagnostic."
+        ),
+    }
+    return metadata, solids
+
+
+def _screw_envelope_hits(shapes, screw_solids):
+    """Report only nonzero solid clashes, with all 66 axes checked per case."""
+    clashes = {}
+    for case, screws in screw_solids.items():
+        case_hits = {}
+        for shape_name, shape in shapes.items():
+            bounds = shape.BoundingBox()
+            hits = {}
+            for screw_name, screw in screws.items():
+                sb = screw.BoundingBox()
+                if (
+                    bounds.xmax < sb.xmin
+                    or sb.xmax < bounds.xmin
+                    or bounds.ymax < sb.ymin
+                    or sb.ymax < bounds.ymin
+                    or bounds.zmax < sb.zmin
+                    or sb.zmax < bounds.zmin
+                ):
+                    continue
+                volume = shape.intersect(screw).Volume()
+                if volume > TOL:
+                    hits[screw_name] = round(volume, 3)
+            if hits:
+                case_hits[shape_name] = hits
+        clashes[case] = case_hits
+    return {
+        "axis_count": len(next(iter(screw_solids.values()))),
+        "clashes_mm3": clashes,
+    }
+
+
 def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
     """Report trial bore, face-seated washers, and diagnostic tool envelopes."""
     bore = _cylinder(point, axis, grip, DIAMETER)
@@ -150,6 +231,7 @@ def _screen_grain_n_cleat(
     neighbors,
     panel,
     panel_axis_solids,
+    purchased_screws,
     *,
     x_width,
     rail_bolt_x_from_butt,
@@ -230,6 +312,9 @@ def _screen_grain_n_cleat(
         for name in nominal_contact
     }
     report = {
+        "purchased_hillman_screen": _screw_envelope_hits(
+            all_envelopes, purchased_screws
+        ),
         "size_local_x_t_n_mm": [x_width, t_width, n_length],
         "grain_direction_xyz": [0, round(N[0], 6), round(N[1], 6)],
         "grain_axis": "N",
@@ -344,7 +429,7 @@ def _screen_grain_n_cleat(
         },
         "installed_cost_usd": None,
         "remaining_open_checks": [
-            "one trial bolt per side is not a complete reversible joint or load path",
+            "one bolt per interface has not demonstrated required force transfer or rotational behavior",
             "grain-N cleat, edge/end distances, group action, splitting, and net section require 2024 NDS checks",
             "simultaneous force/moment demand, cleat equilibrium, deformation, and contact-only compression open",
             "delivered stock, hardware tolerances, access during assembly, and installed cost open",
@@ -389,7 +474,9 @@ def _screen_grain_n_cleat(
     return report
 
 
-def _screen_grain_n_group(upright, rail, neighbors, panel, panel_axis_solids):
+def _screen_grain_n_group(
+    upright, rail, neighbors, panel, panel_axis_solids, purchased_screws
+):
     """One four-bolt 4x6 pose; diagnostics only, including an initial rejected front."""
     ub, rb = upright.BoundingBox(), rail.BoundingBox()
     rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
@@ -491,6 +578,17 @@ def _screen_grain_n_group(upright, rail, neighbors, panel, panel_axis_solids):
             for name, shape in shapes.items()
         }
     group = {
+        "purchased_hillman_screen": _screw_envelope_hits(
+            {
+                "cleat": cleat,
+                **{
+                    f"{bolt}_{name}": solid
+                    for bolt, shapes in envelopes.items()
+                    for name, solid in shapes.items()
+                },
+            },
+            purchased_screws,
+        ),
         "initial_front_probe": {
             "n_front_mm": 160.0,
             "panel_clashes_mm3": initial_hits,
@@ -626,6 +724,7 @@ def compare():
     raw = {p.name: p.shape for p in variant(KERF_RIGHT).uncut_wood_parts()}
     panel_axes = _read_panel_axes()
     panel_axis_solids = {row["name"]: _axis_solid(row) for row in panel_axes}
+    hillman_metadata, purchased_screws = _purchased_hillman_solids(panel_axes)
     upright, rail = raw[UPRIGHT], raw[RAIL]
     rb = rail.BoundingBox()
     ub = upright.BoundingBox()
@@ -669,7 +768,7 @@ def compare():
             "change_mm3": round(after - before, 3),
         }
     oy, oz = _yz(tc, min(values_n) - 2.5)
-    overlap_bolt, _, _, _ = _bolt_report(
+    overlap_bolt, overlap_bore, overlap_washers, overlap_tools = _bolt_report(
         "full_section_overlap",
         (70, oy, oz),
         (0, N[0], N[1]),
@@ -679,6 +778,18 @@ def compare():
         {**neighbors, **panel},
     )
     overlap = {
+        "purchased_hillman_screen": _screw_envelope_hits(
+            {
+                "offset_rail": moved_rail,
+                "trial_bore": overlap_bore,
+                **{
+                    f"trial_washer_{end}": solid
+                    for end, solid in overlap_washers.items()
+                },
+                **{f"trial_tool_{end}": solid for end, solid in overlap_tools.items()},
+            },
+            purchased_screws,
+        ),
         "offset_mm": OFFSET,
         "offset_direction_xyz": [0, round(N[0], 6), round(N[1], 6)],
         "extended_end_x_mm": round(rb.xmin - OVERLAP_LENGTH, 3),
@@ -693,7 +804,7 @@ def compare():
         "limiting_conditions": [
             "both fixed service-rail screw axes lose their original receiver",
             "trial bolt head/washer/tool intersects the fixed lower panel",
-            "one trial bolt is not a demonstrated reversible rail joint",
+            "one bolt has not demonstrated required force transfer or rotational behavior in this pose",
         ],
         "status": "reject_this_pose",
     }
@@ -736,6 +847,18 @@ def compare():
     # the cleat. The straight 40-mm nut-side envelope starts at that end.
     rail_tool_t_end = max(values_t) + cleat_tangent + 2.5 + TOOL_DEPTH
     cleat_report = {
+        "purchased_hillman_screen": _screw_envelope_hits(
+            {
+                "cleat": cleat,
+                "upright_bore": upright_bore,
+                "rail_bore": rail_bore,
+                **{f"upright_washer_{end}": solid for end, solid in uw.items()},
+                **{f"rail_washer_{end}": solid for end, solid in rw.items()},
+                **{f"upright_tool_{end}": solid for end, solid in ut.items()},
+                **{f"rail_tool_{end}": solid for end, solid in rt.items()},
+            },
+            purchased_screws,
+        ),
         "size_mm": [200, cleat_tangent, cleat_normal],
         "local_tangent_near_far_mm": [
             round(max(values_t), 3),
@@ -809,7 +932,7 @@ def compare():
         ),
         "remaining_open_checks": [
             "trial 28.575-mm tangent center-to-edge is not an NDS edge-distance pass",
-            "one trial bolt per side is not a demonstrated bolt group",
+            "one bolt per interface has not demonstrated required force transfer or rotational behavior",
             "same-case force/moment demand and cleat equilibrium",
             "wood bearing, splitting, net section, washer pressure, and bolt interaction",
             "long upright-to-cleat bore runs parallel to cleat grain; resistance and fabrication open",
@@ -847,6 +970,7 @@ def compare():
         "diagnostic_pose_only" if geometry_clear else "reject_this_pose"
     )
     return {
+        "purchased_hillman_conditional_screen": hillman_metadata,
         "station": "clip_horizontal_lower_right_1",
         "diagnostic_wood_bore_diameter_mm_not_drill_instruction": DIAMETER,
         "nds_2024_12_1_3_2_nominal_hole_interval_mm": [
@@ -868,6 +992,7 @@ def compare():
             neighbors,
             panel,
             panel_axis_solids,
+            purchased_screws,
             x_width=88.9,
             rail_bolt_x_from_butt=44.45,
             stock_label="nominal 4x4",
@@ -878,6 +1003,7 @@ def compare():
             neighbors,
             panel,
             panel_axis_solids,
+            purchased_screws,
             x_width=139.7,
             rail_bolt_x_from_butt=70.0,
             stock_label="nominal 4x6",
@@ -893,7 +1019,7 @@ def compare():
             },
         ),
         "cleat_grain_n_4x6_group": _screen_grain_n_group(
-            upright, rail, neighbors, panel, panel_axis_solids
+            upright, rail, neighbors, panel, panel_axis_solids, purchased_screws
         ),
         "load_rating_adopted": False,
         "drilling_released": False,

@@ -1,4 +1,17 @@
 {
+  "purchased_hillman_conditional_screen": {
+    "source_record": "docs/bolted-candidate-hillman-42605-dimensions.json",
+    "product": "Hillman/Fas-n-Tite 42605 #10 x 2-1/2 in exterior wood screw",
+    "axis_count": 66,
+    "length_mm": 63.5,
+    "nominal_head_diameter_mm": 9.017,
+    "sensitivity_radial_margin_mm": 1.0,
+    "shaft_max_diameter_verified": false,
+    "head_tolerance_verified": false,
+    "installed_seat_datum_verified": false,
+    "physical_clearance_accepted": false,
+    "interpretation": "Full 63.5-mm forward cylinder at retailer nominal head diameter is a conditional over-width shaft/head proxy, not exact screw geometry. The +1-mm radial case is sensitivity only, not a known tolerance. Missing shaft maximum, head tolerance/profile, overall-length and seating datum prevent physical clearance acceptance. Historical 50.8-mm SPAX occupied axis remains a separate diagnostic."
+  },
   "station": "clip_horizontal_lower_right_1",
   "diagnostic_wood_bore_diameter_mm_not_drill_instruction": 10.5,
   "nds_2024_12_1_3_2_nominal_hole_interval_mm": [
@@ -16,6 +29,33 @@
   ],
   "nearby_rail": "base_rail_service_upper_right",
   "overlap": {
+    "purchased_hillman_screen": {
+      "axis_count": 66,
+      "clashes_mm3": {
+        "nominal_head_diameter_full_length": {
+          "trial_bore": {
+            "round_panel_lower_right_center_4": 3048.811
+          },
+          "trial_washer_head": {
+            "round_panel_lower_right_center_4": 159.645
+          },
+          "trial_tool_head": {
+            "round_panel_lower_right_center_4": 1006.16
+          }
+        },
+        "nominal_plus_1mm_radial_sensitivity": {
+          "trial_bore": {
+            "round_panel_lower_right_center_4": 4134.138
+          },
+          "trial_washer_head": {
+            "round_panel_lower_right_center_4": 238.318
+          },
+          "trial_tool_head": {
+            "round_panel_lower_right_center_4": 1501.998
+          }
+        }
+      }
+    },
     "offset_mm": 139.7,
     "offset_direction_xyz": [
       0,
@@ -114,11 +154,18 @@
     "limiting_conditions": [
       "both fixed service-rail screw axes lose their original receiver",
       "trial bolt head/washer/tool intersects the fixed lower panel",
-      "one trial bolt is not a demonstrated reversible rail joint"
+      "one bolt has not demonstrated required force transfer or rotational behavior in this pose"
     ],
     "status": "reject_this_pose"
   },
   "cleat": {
+    "purchased_hillman_screen": {
+      "axis_count": 66,
+      "clashes_mm3": {
+        "nominal_head_diameter_full_length": {},
+        "nominal_plus_1mm_radial_sensitivity": {}
+      }
+    },
     "size_mm": [
       200,
       57.15,
@@ -316,7 +363,7 @@
     "tool_clearance_interpretation": "40-mm straight cylinders are diagnostic only; installed head, nut, socket, and assembly access remain unverified",
     "remaining_open_checks": [
       "trial 28.575-mm tangent center-to-edge is not an NDS edge-distance pass",
-      "one trial bolt per side is not a demonstrated bolt group",
+      "one bolt per interface has not demonstrated required force transfer or rotational behavior",
       "same-case force/moment demand and cleat equilibrium",
       "wood bearing, splitting, net section, washer pressure, and bolt interaction",
       "long upright-to-cleat bore runs parallel to cleat grain; resistance and fabrication open",
@@ -325,6 +372,13 @@
     "status": "diagnostic_pose_only"
   },
   "cleat_grain_n": {
+    "purchased_hillman_screen": {
+      "axis_count": 66,
+      "clashes_mm3": {
+        "nominal_head_diameter_full_length": {},
+        "nominal_plus_1mm_radial_sensitivity": {}
+      }
+    },
     "size_local_x_t_n_mm": [
       88.9,
       57.15,
@@ -584,7 +638,7 @@
     },
     "installed_cost_usd": null,
     "remaining_open_checks": [
-      "one trial bolt per side is not a complete reversible joint or load path",
+      "one bolt per interface has not demonstrated required force transfer or rotational behavior",
       "grain-N cleat, edge/end distances, group action, splitting, and net section require 2024 NDS checks",
       "simultaneous force/moment demand, cleat equilibrium, deformation, and contact-only compression open",
       "delivered stock, hardware tolerances, access during assembly, and installed cost open"
@@ -597,6 +651,13 @@
     "status": "diagnostic_pose_only"
   },
   "cleat_grain_n_4x6": {
+    "purchased_hillman_screen": {
+      "axis_count": 66,
+      "clashes_mm3": {
+        "nominal_head_diameter_full_length": {},
+        "nominal_plus_1mm_radial_sensitivity": {}
+      }
+    },
     "size_local_x_t_n_mm": [
       139.7,
       57.15,
@@ -871,7 +932,7 @@
     },
     "installed_cost_usd": null,
     "remaining_open_checks": [
-      "one trial bolt per side is not a complete reversible joint or load path",
+      "one bolt per interface has not demonstrated required force transfer or rotational behavior",
       "grain-N cleat, edge/end distances, group action, splitting, and net section require 2024 NDS checks",
       "simultaneous force/moment demand, cleat equilibrium, deformation, and contact-only compression open",
       "delivered stock, hardware tolerances, access during assembly, and installed cost open"
@@ -884,6 +945,13 @@
     "status": "diagnostic_pose_only"
   },
   "cleat_grain_n_4x6_group": {
+    "purchased_hillman_screen": {
+      "axis_count": 66,
+      "clashes_mm3": {
+        "nominal_head_diameter_full_length": {},
+        "nominal_plus_1mm_radial_sensitivity": {}
+      }
+    },
     "initial_front_probe": {
       "n_front_mm": 160.0,
       "panel_clashes_mm3": {

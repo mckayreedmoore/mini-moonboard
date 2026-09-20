@@ -2,6 +2,7 @@
 
 import json
 
+import cadquery as cq
 import pytest
 
 from scripts.simple_rail_joint_comparison import (
@@ -11,13 +12,64 @@ from scripts.simple_rail_joint_comparison import (
     OUTPUT,
     _bolt_report,
     _contact_area,
+    _screw_envelope_hits,
     box,
     compare,
 )
 
 
+def test_purchased_screw_intersection_screen_uses_finite_solids():
+    screws = {
+        "nominal": {"fixed": cq.Solid.makeCylinder(4.5085, 63.5)},
+        "margin": {"fixed": cq.Solid.makeCylinder(5.5085, 63.5)},
+    }
+    near = cq.Solid.makeCylinder(0.3, 2, cq.Vector(5.2, 0, 60))
+    beyond_tip = cq.Solid.makeCylinder(1, 2, cq.Vector(0, 0, 64))
+    result = _screw_envelope_hits({"near": near, "beyond_tip": beyond_tip}, screws)
+    assert result["axis_count"] == 1
+    assert result["clashes_mm3"]["nominal"] == {}
+    assert result["clashes_mm3"]["margin"]["near"]["fixed"] > 0
+    assert "beyond_tip" not in result["clashes_mm3"]["margin"]
+
+
 def test_comparison_keeps_fixed_panel_axes_and_reports_real_offset():
     report = compare()
+    screen = report["purchased_hillman_conditional_screen"]
+    assert (
+        screen["product"]
+        == "Hillman/Fas-n-Tite 42605 #10 x 2-1/2 in exterior wood screw"
+    )
+    assert screen["axis_count"] == 66
+    assert screen["length_mm"] == pytest.approx(63.5)
+    assert screen["nominal_head_diameter_mm"] == pytest.approx(9.017)
+    assert screen["shaft_max_diameter_verified"] is False
+    assert screen["head_tolerance_verified"] is False
+    assert screen["installed_seat_datum_verified"] is False
+    assert screen["physical_clearance_accepted"] is False
+    assert screen["sensitivity_radial_margin_mm"] == pytest.approx(1.0)
+    for pose in (
+        "overlap",
+        "cleat",
+        "cleat_grain_n",
+        "cleat_grain_n_4x6",
+        "cleat_grain_n_4x6_group",
+    ):
+        assert report[pose]["purchased_hillman_screen"]["axis_count"] == 66
+        assert set(report[pose]["purchased_hillman_screen"]["clashes_mm3"]) == {
+            "nominal_head_diameter_full_length",
+            "nominal_plus_1mm_radial_sensitivity",
+        }
+    nominal_overlap = report["overlap"]["purchased_hillman_screen"]["clashes_mm3"][
+        "nominal_head_diameter_full_length"
+    ]
+    assert nominal_overlap["trial_bore"]["round_panel_lower_right_center_4"] > 0
+    assert nominal_overlap["trial_washer_head"]["round_panel_lower_right_center_4"] > 0
+    assert (
+        report["cleat_grain_n_4x6_group"]["purchased_hillman_screen"]["clashes_mm3"][
+            "nominal_plus_1mm_radial_sensitivity"
+        ]
+        == {}
+    )
     assert NDS_HOLE_MIN == pytest.approx(10.31875)
     assert NDS_HOLE_MAX == pytest.approx(11.1125)
     assert NDS_HOLE_MIN <= DIAMETER <= NDS_HOLE_MAX

@@ -26,6 +26,23 @@ Hillman screws are 63.5 mm long. The other 63 panel/kicker axes and all
 panel outlines remain fixed. A surface or axis intersection alone is not
 adequate screw embedment or edge support.
 
+The [purchased Hillman source record](../bolted-candidate-hillman-42605-dimensions.json)
+supports a retailer-listed **9.017-mm nominal head diameter** and
+**63.5-mm overall length**, not a controlled maximum shaft/head or installed
+seat datum. The companion JSON screens all 66 fixed axes in each pose
+with a full-length 9.017-mm-diameter forward cylinder and a separate
+**+1-mm radial sensitivity** cylinder. In the tested **cleat poses only**,
+neither proxy intersects the cleat or its trial bolt/washer/tool envelopes.
+In the **overlap pose**, the offset rail itself has no proxy clash, but
+its trial bore, head washer, and head-side tool envelope intersect the fixed
+`round_panel_lower_right_center_4` screw envelope in both cases. These
+over-width shaft proxies are conditional, not exact Hillman geometry or
+verified clearance: unknown
+head projection, shaft maximum, thread, seat, and manufacturing tolerances
+still require measurement. The historical 50.8-mm SPAX occupied cylinders
+remain separate. The overlap also loses both service-rail screw receivers;
+that is an additional, distinct failure.
+
 In local panel-tangent coordinate `T = (0, 0.642788, 0.766044)` and
 panel-normal coordinate `N = (0, -0.766044, 0.642788)`, the lower service
 rail spans T = 1315.774–1353.874 mm and the next upper service rail starts
@@ -87,8 +104,9 @@ intersections with other members, and no intersections with any of the 66
 fixed screw axes. The rail-side tool still has 6.3 mm nominal tangent
 clearance to the upper rail. This is a **diagnostic pose only**: the real
 bolt head, nut, socket, washer specification and assembly sequence are
-not modeled or verified. One bolt per
-interface is not a reversible load path. The rail bolt lies just 44.45 mm
+not modeled or verified. One bolt per interface has not yet demonstrated
+the required force transfer and rotational behavior in this assembly;
+reversal alone does not require a second bolt. The rail bolt lies just 44.45 mm
 from its member end, 22.225 mm short of a nominal 7D full-value benchmark
 for a 9.525-mm bolt *if the corresponding loading condition applies*.
 The actual load direction, applicable 2024 NDS geometry factor, loaded
@@ -121,6 +139,19 @@ front end, 4D rear loaded edge, and 4D row pitch all apply to its
 pitch; that *conditional* combination cannot fit. Actual load directions,
 reduced geometry factors, member stresses, group sharing, stiffness,
 installed access and wood/bolt strength remain to be determined.
+
+For the 3/8-in (D = 9.525 mm) diagnostic bolts, the centered cleat
+tangent-side edge is **28.575 mm**; a *conditional* loaded-edge `4D =
+38.1 mm` screen is short **9.525 mm**. Under the current 40-mm straight
+tool cylinder and 2.5-mm end offset, the 105.95-mm gap to the upper rail
+permits at most `105.95 - 2.5 - 40 = 63.45 mm` of cleat tangent width.
+Two 38.1-mm edge distances require 76.2 mm, **12.75 mm more** than that
+diagnostic access cap. Separately, the rail-bolt rear panel-normal edge
+is **34.541 mm**, **3.559 mm short** of the same conditional 4D value.
+These are placement/access tensions, **not an NDS rejection**: establish
+actual force directions, which edges are loaded, applicable 2024 NDS
+factors, a real nut/socket path, and assembly sequence before deciding
+whether an adjustment or reduced-value detail is credible.
 
 ## Preliminary mechanics and cost boundary
 
