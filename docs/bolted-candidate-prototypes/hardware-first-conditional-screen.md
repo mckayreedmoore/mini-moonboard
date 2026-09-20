@@ -11,7 +11,13 @@ panel outlines, and archived evidence have not changed.
 
 The [Simpson C-C-2026 p. 315 HL sheet](https://dhcsupplies.s3.us-east-2.amazonaws.com/Documents/simpson-strong-tie/hl-angles.pdf)
 was inspected as a page image. Its tabulated DF/SP loads have the shown
-`160` duration label; they are not adopted board ratings. A single connector
+`160` duration label; they are not adopted board ratings. The
+[same C-C-2026 catalog's general instructions](https://www.rbscorp.com/wp-content/uploads/2026/03/C-C-2026.pdf)
+(pp. 21–23) define `(160)` as the earthquake/wind/uplift duration basis,
+require all specified fasteners, and say that wood shear is not included
+unless noted. Do not simply divide a tested/catalog connector value by
+1.6 to invent a different-duration capacity: its controlling steel, wood,
+fastener, or deflection limit has not been identified. A single connector
 is the table basis. Both sides are required for F1 lateral resistance in
 both directions; uplift may be doubled for two connectors, but lateral may
 not. The angle must be centered on a member face at least as wide as the
@@ -37,6 +43,14 @@ Confirm the exact occupied factory pattern and
 received variation before any wood drilling. The listed uplift/F1 directions
 do not cover arbitrary flange moments, separation, mixed actions, or joint
 stiffness; each demands its own applicable route if present.
+For simultaneous rated-direction loads, C-C-2026 p. 289 gives a unity
+equation using the ratios of design uplift and the two lateral components
+to their respective allowable values. Its alternative 75% rule is limited
+to certain roof-to-wall products; it does not identify HL angles as eligible.
+The HL table publishes uplift and F1 only, so the unity equation cannot
+confer an unlisted F2 resistance or moment rating. The actual installed
+joint must first resolve its load directions and any load sharing; no
+interaction ratio can be evaluated from the current shortlist alone.
 
 For comparison, the [MiTek B-series table](https://www.mitek-us.com/wp-content/uploads/2020/12/B_-BL.pdf)
 states a 3-in minimum member thickness, ASTM A307-or-better bolts, and
