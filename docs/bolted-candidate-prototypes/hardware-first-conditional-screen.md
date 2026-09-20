@@ -38,6 +38,13 @@ smooth-shank length/thread runout, washers, matching nuts, grip, head/nut
 access, or the complete wood/steel joint resistance. The listings also use
 inconsistent coating descriptions, so coating compatibility requires a
 received-item check; no bolt purchase or drilling is released.
+For the paired-HL33 190.5-mm-wide common-post trial, the ideal minimum grip
+is already `190.5 + 2(4.55) = 199.6 mm`, before washers and nut. An 8-in
+bolt is 203.2 mm, leaving only **3.6 mm** for those remaining stack parts
+and thread exposure; it cannot be a complete through-bolt length for that
+pose. This arithmetic does not select a longer bolt: actual steel thickness,
+smooth-shank/thread transition, washer/nut dimensions and tool clearance
+remain unverified.
 
 | Model | Width × leg length | Bolts, total | DF/SP uplift / F1, lb | Retail identity |
 | --- | --- | --- | --- | --- |
