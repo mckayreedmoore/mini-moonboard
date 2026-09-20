@@ -186,3 +186,47 @@ def test_contact_measurement_rejects_separated_faces():
     separated = box(1.2, 0, 0, 1, 2, 3)
     assert _contact_area(touching, host, (-1, 0, 0)) == pytest.approx(6)
     assert _contact_area(separated, host, (-1, 0, 0)) == 0
+
+
+def test_grain_n_4x6_trial_uses_same_screen_and_corrected_rail_station():
+    report = compare()
+    old = report["cleat_grain_n"]
+    trial = report["cleat_grain_n_4x6"]
+    assert old["size_local_x_t_n_mm"] == [88.9, 57.15, 200]
+    assert old["rail_first_bolt_end_distance_mm"] == pytest.approx(44.45)
+    assert trial["size_local_x_t_n_mm"] == [139.7, 57.15, 200]
+    assert trial["rail_first_bolt_end_distance_mm"] == pytest.approx(70)
+    assert trial["rail_first_bolt_end_distance_mm"] >= trial["nominal_7d_mm"]
+    assert trial["rail_end_distance_shortfall_if_7d_applies_mm"] == 0
+    assert trial["bolt_groups"]["upright"][0]["grip_mm"] == pytest.approx(182.8)
+    assert trial["retail_dimensional_comparator"]["model"] == "637637"
+    assert trial["retail_dimensional_comparator"]["listed_actual_cross_section_mm"] == [
+        90.4748,
+        142.875,
+    ]
+    assert (
+        trial["retail_dimensional_comparator"][
+            "local_availability_price_delivered_size_verified"
+        ]
+        is False
+    )
+    assert trial["fixed_panel_axes_checked"] == 66
+    assert all(trial["face_contact_geometry_verified"].values())
+    assert trial["washer_faces_geometry_verified"] is True
+    assert all(
+        hits == {} for hits in trial["protected_axis_envelope_clashes_mm3"].values()
+    )
+    for family in ("upright", "rail"):
+        bolt = trial["bolt_groups"][family][0]
+        assert all(bolt["full_bore_containment"].values())
+        assert bolt["parent_bore_clashes_mm3"] == {}
+        assert all(not hits for hits in bolt["washer_clashes_mm3"].values())
+        assert all(not hits for hits in bolt["tool_clashes_mm3"].values())
+    assert trial["cleat_parent_clashes_mm3"] == {}
+    assert trial["cleat_panel_clashes_mm3"] == {}
+    assert trial["bolt_intersections_mm3"] == 0
+    assert trial["status"] == "diagnostic_pose_only"
+    assert trial["installed_access_verified"] is False
+    assert trial["actual_head_nut_socket_stack_verified"] is False
+    assert trial["load_rating_adopted"] is False
+    assert trial["drilling_released"] is False

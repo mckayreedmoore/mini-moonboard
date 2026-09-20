@@ -94,6 +94,17 @@ edge, group, cleat and member resistance all remain open. The old X-grain
 pose remains in the JSON as a rejected architecture direction, not an
 alternative selected joint.
 
+A third diagnostic pose uses the long face of ordinary nominal 4×6 along X,
+keeping the cleat grain panel-normal and its tangent-side rip at 57.15 mm.
+With a 139.7-mm X width, the trial rail bolt can move to 70 mm from its
+grain-X end, leaving 69.7 mm to the cleat's opposite X edge. That is
+3.325 mm beyond the *conditional* 7D benchmark. The modeled face contact,
+trial bores, seated washers, clearance cylinders, other parts and all 66
+fixed axes remain clear. This removes one specific 4×4 geometric shortfall;
+it does **not** establish a full bolt group, 2024 NDS pass, installed
+head/nut/socket access, stock cost, or a complete joint. The longer
+principal-to-cleat wood grip is 177.8 mm before any washers or nut.
+
 ## Preliminary mechanics and cost boundary
 
 For both concepts, derive simultaneous force and moment about one common

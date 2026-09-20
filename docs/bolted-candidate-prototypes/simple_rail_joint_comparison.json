@@ -406,8 +406,9 @@
     "rail_first_bolt_end_distance_mm": 44.45,
     "nominal_7d_mm": 66.675,
     "rail_end_distance_shortfall_if_7d_applies_mm": 22.225,
+    "rail_end_distance_margin_to_nominal_7d_mm": -22.225,
     "conditional_edge_caution": "rail trial bore is 34.541 mm from its rear N edge; if that edge is loaded under a 4D screen for a 9.525-mm bolt, 38.1 mm would be needed. Load direction and applicable NDS rule remain open",
-    "conditional_end_caution": "rail trial bore is 44.45 mm from its grain-X end; this is 22.225 mm short of nominal 7D=66.675 mm for a 9.525-mm bolt if that NDS full-value end-distance condition applies. Same-case load direction and applicable rule remain open",
+    "conditional_end_caution": "rail trial bore is 44.45 mm from its grain-X end; nominal 7D=66.675 mm for a 9.525-mm bolt is a conditional geometry screen, not a same-case NDS joint verdict",
     "fixed_panel_axes_checked": 66,
     "washer_wood_face_gap_mm": {
       "upright_head_x": 0.0,
@@ -568,9 +569,297 @@
       "57.15-mm tangent rip, saw kerf, tolerances, usable offcut, and fabrication effort unverified",
       "full through-bolt, washer, nut, tool, timber, and purchase-pack costs unknown"
     ],
+    "retail_dimensional_comparator": null,
     "trial_stack_count_not_selected": 2,
     "trial_envelope_grips_mm_not_purchased_lengths": {
       "upright": 132.00000000000037,
+      "rail": 100.25
+    },
+    "installed_cost_usd": null,
+    "remaining_open_checks": [
+      "one trial bolt per side is not a complete reversible joint or load path",
+      "grain-N cleat, edge/end distances, group action, splitting, and net section require 2024 NDS checks",
+      "simultaneous force/moment demand, cleat equilibrium, deformation, and contact-only compression open",
+      "delivered stock, hardware tolerances, access during assembly, and installed cost open"
+    ],
+    "load_rating_adopted": false,
+    "drilling_released": false,
+    "installed_access_verified": false,
+    "actual_head_nut_socket_stack_verified": false,
+    "tool_clearance_interpretation": "40-mm straight cylinders are diagnostic clearance envelopes only; real bolt heads, nuts, washer dimensions, sockets, and assembly sequence unverified",
+    "status": "diagnostic_pose_only"
+  },
+  "cleat_grain_n_4x6": {
+    "size_local_x_t_n_mm": [
+      139.7,
+      57.15,
+      200.0
+    ],
+    "grain_direction_xyz": [
+      0,
+      -0.766044,
+      0.642788
+    ],
+    "grain_axis": "N",
+    "bolt_axis_dot_cleat_grain": {
+      "upright": 0,
+      "rail": 0
+    },
+    "actual_local_bounds_mm": {
+      "x": [
+        89.05,
+        228.75
+      ],
+      "t": [
+        1353.874,
+        1411.024
+      ],
+      "n": [
+        209.841,
+        409.841
+      ]
+    },
+    "rail_tangent_face_mm": 1353.874,
+    "rail_butt_x_mm": 89.05,
+    "upright_butt_x_mm": 89.05,
+    "nominal_face_contact_area_mm2": {
+      "rail_to_cleat": 19516.09,
+      "upright_to_cleat": 7983.855
+    },
+    "measured_face_contact_area_mm2": {
+      "rail_to_cleat": 19516.09,
+      "upright_to_cleat": 7983.855
+    },
+    "face_contact_perturbation_mm": 0.1,
+    "face_contact_geometry_verified": {
+      "rail_to_cleat": true,
+      "upright_to_cleat": true
+    },
+    "trial_bolt_n_centers_mm": {
+      "upright": 260.0,
+      "rail": 315.0
+    },
+    "trial_bolt_n_center_separation_mm": 55.0,
+    "center_to_edges_mm": {
+      "upright_bolt_in_cleat_t": [
+        28.575,
+        28.575
+      ],
+      "upright_bolt_in_cleat_n": [
+        50.159,
+        149.841
+      ],
+      "upright_bolt_in_host_t": [
+        1287.692,
+        1218.475
+      ],
+      "upright_bolt_in_host_n": [
+        50.159,
+        89.541
+      ],
+      "rail_bolt_in_cleat_x": [
+        70.0,
+        69.7
+      ],
+      "rail_bolt_in_cleat_n": [
+        105.159,
+        94.841
+      ],
+      "rail_bolt_in_host_x": [
+        70.0,
+        968.075
+      ],
+      "rail_bolt_in_host_n": [
+        105.159,
+        34.541
+      ]
+    },
+    "edge_distance_structurally_qualified": false,
+    "rail_first_bolt_end_distance_mm": 70.0,
+    "nominal_7d_mm": 66.675,
+    "rail_end_distance_shortfall_if_7d_applies_mm": 0,
+    "rail_end_distance_margin_to_nominal_7d_mm": 3.325,
+    "conditional_edge_caution": "rail trial bore is 34.541 mm from its rear N edge; if that edge is loaded under a 4D screen for a 9.525-mm bolt, 38.1 mm would be needed. Load direction and applicable NDS rule remain open",
+    "conditional_end_caution": "rail trial bore is 70 mm from its grain-X end; nominal 7D=66.675 mm for a 9.525-mm bolt is a conditional geometry screen, not a same-case NDS joint verdict",
+    "fixed_panel_axes_checked": 66,
+    "washer_wood_face_gap_mm": {
+      "upright_head_x": 0.0,
+      "upright_nut_x": 0.0,
+      "rail_head_t": 0.000137,
+      "rail_nut_t": 0.000116
+    },
+    "washer_faces_geometry_verified": true,
+    "protected_axis_envelope_clashes_mm3": {
+      "cleat": {},
+      "upright_bore": {},
+      "rail_bore": {},
+      "upright_washer_head": {},
+      "upright_washer_nut": {},
+      "rail_washer_head": {},
+      "rail_washer_nut": {},
+      "upright_tool_head": {},
+      "upright_tool_nut": {},
+      "rail_tool_head": {},
+      "rail_tool_nut": {}
+    },
+    "cleat_host_clashes_mm3": {},
+    "cleat_parent_clashes_mm3": {},
+    "cleat_panel_clashes_mm3": {},
+    "bolt_groups": {
+      "upright": [
+        {
+          "name": "upright_to_grain_n_cleat",
+          "start_xyz_mm": [
+            48.45,
+            689.45,
+            1226.142
+          ],
+          "axis_xyz": [
+            1,
+            0,
+            0
+          ],
+          "grip_mm": 182.80000000000035,
+          "washer_wood_face_xyz_mm": {
+            "head": [
+              50.95,
+              689.45,
+              1226.142
+            ],
+            "nut": [
+              228.75,
+              689.45,
+              1226.142
+            ]
+          },
+          "washer_seat_offset_from_bore_end_mm": 2.5,
+          "actual_head_nut_socket_stack_verified": false,
+          "clearance_diameter_mm_trial_not_shop_instruction": 10.3,
+          "required_wood_bore_mm3": {
+            "upright": 3174.602,
+            "cleat": 11640.208
+          },
+          "expected_full_bore_wood_mm3": {
+            "upright": 3174.602,
+            "cleat": 11640.208
+          },
+          "missing_wood_bore_mm3": {
+            "upright": 0.0,
+            "cleat": 0.0
+          },
+          "excess_wood_bore_mm3": {
+            "upright": 0.0,
+            "cleat": 0.0
+          },
+          "full_bore_tolerance_mm3": 1.0,
+          "full_bore_containment": {
+            "upright": true,
+            "cleat": true
+          },
+          "parent_bore_clashes_mm3": {},
+          "washer_clashes_mm3": {
+            "head": {},
+            "nut": {}
+          },
+          "tool_clashes_mm3": {
+            "head": {},
+            "nut": {}
+          }
+        }
+      ],
+      "rail": [
+        {
+          "name": "rail_to_grain_n_cleat",
+          "start_xyz_mm": [
+            159.05,
+            602.852,
+            1208.504
+          ],
+          "axis_xyz": [
+            0,
+            0.642788,
+            0.766044
+          ],
+          "grip_mm": 100.25,
+          "washer_wood_face_xyz_mm": {
+            "head": [
+              159.05,
+              604.459,
+              1210.42
+            ],
+            "nut": [
+              159.05,
+              665.685,
+              1283.385
+            ]
+          },
+          "washer_seat_offset_from_bore_end_mm": 2.5,
+          "actual_head_nut_socket_stack_verified": false,
+          "clearance_diameter_mm_trial_not_shop_instruction": 10.3,
+          "required_wood_bore_mm3": {
+            "rail": 3174.602,
+            "cleat": 4761.903
+          },
+          "expected_full_bore_wood_mm3": {
+            "rail": 3174.602,
+            "cleat": 4761.903
+          },
+          "missing_wood_bore_mm3": {
+            "rail": 0.0,
+            "cleat": 0.0
+          },
+          "excess_wood_bore_mm3": {
+            "rail": 0.0,
+            "cleat": 0.0
+          },
+          "full_bore_tolerance_mm3": 1.0,
+          "full_bore_containment": {
+            "rail": true,
+            "cleat": true
+          },
+          "parent_bore_clashes_mm3": {},
+          "washer_clashes_mm3": {
+            "head": {},
+            "nut": {}
+          },
+          "tool_clashes_mm3": {
+            "head": {},
+            "nut": {}
+          }
+        }
+      ]
+    },
+    "bolt_intersections_mm3": 0.0,
+    "washer_cross_clashes_mm3": {
+      "upright_against_rail_bore": {},
+      "rail_against_upright_bore": {}
+    },
+    "upper_rail_tangent_near_mm": 1459.824,
+    "rail_nut_tool_tangent_clearance_mm": 6.3,
+    "real_stock_and_cost_caveats": [
+      "nominal 4x6 cross-section is only a dimensional source; grade and delivered dimensions unverified",
+      "57.15-mm tangent rip, saw kerf, tolerances, usable offcut, and fabrication effort unverified",
+      "full through-bolt, washer, nut, tool, timber, and purchase-pack costs unknown"
+    ],
+    "retail_dimensional_comparator": {
+      "retailer": "Lowe's",
+      "product": "4-in x 6-in x 8-ft #2 Better Douglas Fir Green Lumber",
+      "model": "637637",
+      "url": "https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917",
+      "listed_actual_cross_section_mm": [
+        90.4748,
+        142.875
+      ],
+      "modeled_cross_section_mm": [
+        57.15,
+        139.7
+      ],
+      "dimensional_stock_envelope_sufficient_before_saw_kerf": true,
+      "local_availability_price_delivered_size_verified": false
+    },
+    "trial_stack_count_not_selected": 2,
+    "trial_envelope_grips_mm_not_purchased_lengths": {
+      "upright": 182.80000000000035,
       "rail": 100.25
     },
     "installed_cost_usd": null,

@@ -140,15 +140,26 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
     )
 
 
-def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
-    """One full-section cleat pose with grain along the local N axis."""
+def _screen_grain_n_cleat(
+    upright,
+    rail,
+    neighbors,
+    panel,
+    panel_axis_solids,
+    *,
+    x_width,
+    rail_bolt_x_from_butt,
+    stock_label,
+    retail_source=None,
+):
+    """Parameterized full-section cleat pose with grain along local N."""
     ub, rb = upright.BoundingBox(), rail.BoundingBox()
     rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
     rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
     upright_t = [v.Y * T[0] + v.Z * T[1] for v in upright.Vertices()]
     upright_n_bounds = [v.Y * N[0] + v.Z * N[1] for v in upright.Vertices()]
     t_near, n_near = max(rail_t), min(rail_n)
-    x_width, t_width, n_length = 88.9, 57.15, 200.0
+    t_width, n_length = 57.15, 200.0
     base_y, base_z = _yz(t_near, n_near)
     cleat = (
         box(ub.xmax, 0, 0, x_width, t_width, n_length)
@@ -171,7 +182,7 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
     ry, rz = _yz(min(rail_t) - 2.5, rail_bolt_n)
     rail_bolt, rail_bore, rw, rt = _bolt_report(
         "rail_to_grain_n_cleat",
-        (ub.xmax + x_width / 2, ry, rz),
+        (rb.xmin + rail_bolt_x_from_butt, ry, rz),
         (0, T[0], T[1]),
         38.1 + t_width + 5,
         {"rail": rail, "cleat": cleat},
@@ -254,14 +265,17 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
                 round(upright_n - min(upright_n_bounds), 3),
                 round(max(upright_n_bounds) - upright_n, 3),
             ],
-            "rail_bolt_in_cleat_x": [x_width / 2, x_width / 2],
+            "rail_bolt_in_cleat_x": [
+                round(rail_bolt_x_from_butt, 3),
+                round(x_width - rail_bolt_x_from_butt, 3),
+            ],
             "rail_bolt_in_cleat_n": [
                 round(rail_bolt_n - n_near, 3),
                 round(n_near + n_length - rail_bolt_n, 3),
             ],
             "rail_bolt_in_host_x": [
-                round(ub.xmax + x_width / 2 - rb.xmin, 3),
-                round(rb.xmax - ub.xmax - x_width / 2, 3),
+                round(rail_bolt_x_from_butt, 3),
+                round(rb.xmax - rb.xmin - rail_bolt_x_from_butt, 3),
             ],
             "rail_bolt_in_host_n": [
                 round(rail_bolt_n - n_near, 3),
@@ -269,10 +283,13 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
             ],
         },
         "edge_distance_structurally_qualified": False,
-        "rail_first_bolt_end_distance_mm": round(x_width / 2, 3),
+        "rail_first_bolt_end_distance_mm": round(rail_bolt_x_from_butt, 3),
         "nominal_7d_mm": round(7 * 9.525, 3),
         "rail_end_distance_shortfall_if_7d_applies_mm": round(
-            7 * 9.525 - x_width / 2, 3
+            max(0, 7 * 9.525 - rail_bolt_x_from_butt), 3
+        ),
+        "rail_end_distance_margin_to_nominal_7d_mm": round(
+            rail_bolt_x_from_butt - 7 * 9.525, 3
         ),
         "conditional_edge_caution": (
             "rail trial bore is 34.541 mm from its rear N edge; if that edge "
@@ -280,10 +297,9 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
             "be needed. Load direction and applicable NDS rule remain open"
         ),
         "conditional_end_caution": (
-            "rail trial bore is 44.45 mm from its grain-X end; this is "
-            "22.225 mm short of nominal 7D=66.675 mm for a 9.525-mm bolt "
-            "if that NDS full-value end-distance condition applies. "
-            "Same-case load direction and applicable rule remain open"
+            f"rail trial bore is {rail_bolt_x_from_butt:g} mm from its grain-X end; "
+            "nominal 7D=66.675 mm for a 9.525-mm bolt is a conditional "
+            "geometry screen, not a same-case NDS joint verdict"
         ),
         "fixed_panel_axes_checked": len(panel_axis_solids),
         "washer_wood_face_gap_mm": {
@@ -312,10 +328,11 @@ def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
         "upper_rail_tangent_near_mm": round(upper_t_near, 3),
         "rail_nut_tool_tangent_clearance_mm": round(upper_t_near - rail_tool_t_end, 3),
         "real_stock_and_cost_caveats": [
-            "nominal 4x4 cross-section is only a dimensional source; grade and delivered dimensions unverified",
+            f"{stock_label} cross-section is only a dimensional source; grade and delivered dimensions unverified",
             "57.15-mm tangent rip, saw kerf, tolerances, usable offcut, and fabrication effort unverified",
             "full through-bolt, washer, nut, tool, timber, and purchase-pack costs unknown",
         ],
+        "retail_dimensional_comparator": retail_source,
         "trial_stack_count_not_selected": 2,
         "trial_envelope_grips_mm_not_purchased_lengths": {
             "upright": upright_bolt["grip_mm"],
@@ -600,7 +617,34 @@ def compare():
         "overlap": overlap,
         "cleat": cleat_report,
         "cleat_grain_n": _screen_grain_n_cleat(
-            upright, rail, neighbors, panel, panel_axis_solids
+            upright,
+            rail,
+            neighbors,
+            panel,
+            panel_axis_solids,
+            x_width=88.9,
+            rail_bolt_x_from_butt=44.45,
+            stock_label="nominal 4x4",
+        ),
+        "cleat_grain_n_4x6": _screen_grain_n_cleat(
+            upright,
+            rail,
+            neighbors,
+            panel,
+            panel_axis_solids,
+            x_width=139.7,
+            rail_bolt_x_from_butt=70.0,
+            stock_label="nominal 4x6",
+            retail_source={
+                "retailer": "Lowe's",
+                "product": "4-in x 6-in x 8-ft #2 Better Douglas Fir Green Lumber",
+                "model": "637637",
+                "url": "https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917",
+                "listed_actual_cross_section_mm": [90.4748, 142.875],
+                "modeled_cross_section_mm": [57.15, 139.7],
+                "dimensional_stock_envelope_sufficient_before_saw_kerf": True,
+                "local_availability_price_delivered_size_verified": False,
+            },
         ),
         "load_rating_adopted": False,
         "drilling_released": False,
