@@ -58,9 +58,13 @@ It requires braces on both sides for F1 in both directions. B66 uses four
 3/8-in bolts, with 710/335 lb F1/F2; B88 uses six 3/8-in bolts, with
 620/305 lb. These values are not adopted for the board's load duration.
 The [Home Depot UB88 listing](https://www.homedepot.com/p/313507573) and
-the existing `mitek-b66-retail.json` record provide a manufacturer/retailer
-model cross-reference, but the inspected B88 drawing does not dimension all
-hole centers. The previously checked Lowe's B66 listing was no longer sold.
+[MiTek's retail conversion chart](https://images.thdstatic.com/catalog/pdfImages/2f/2f1009db-047c-4da8-a283-bcda2c494ebe.pdf)
+establish the UB88/B88 identity. MiTek's public B88 DXF provides six nominal
+CAD hole centers, although its PDF does not dimension their offsets and
+neither drawing states manufacturing tolerances. See the
+[drawing follow-up](mitek-b88-drawing-followup.md). ICC ESR-3455 states its
+`C_D = 1.6` B88 loads cannot be applied or adjusted to other durations.
+The previously checked Lowe's B66 listing was no longer sold.
 
 ## First center concepts and their limits
 
@@ -126,8 +130,11 @@ their kicker inner edge; and a
 [centered common-post Y-face HL35 pose](hardware_first_center_yface.md)
 backs both edges but puts its front angle inside the fixed kicker panels.
 These CAD screens use idealized factory dimensions and do not establish
-resistance. A rearward structural post with a separately connected permanent
-kicker backer is a *different* trial, not a cure assumed by these screens.
+resistance. A [rearward structural post with separate kicker backing](hardware_first_center_rearback.md)
+was also tried: it clears panels and preserves screw-axis contact, but the
+widened header intersects side/principal timbers, front bolts have no head
+clearance, and backing connection and upper joint are unresolved. It too is
+rejected as an incomplete installed assembly, not a verdict on all HL layouts.
 
 This screen changes no raw geometry. It does not establish that a 4×6 can
 replace both 2×6 pieces without moving other support, that the old twelve

@@ -1,0 +1,103 @@
+{
+  "status": "rejected_incomplete_installed_trial",
+  "concept": "rearward solid common center post, notched permanent kicker-edge backing, opposed Y-face HL35 at a widened solid header",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "protected_axis_count": 66,
+  "kicker_center_axis_count": 4,
+  "minimum_setback_for_front_seat_mm": 82.55,
+  "trial_setback_mm": 83.55,
+  "nominal_front_seat_panel_gap_mm": 1.0,
+  "post_bounds_mm": [
+    -92.075,
+    92.075,
+    -259.25,
+    -119.55,
+    0.0,
+    238.9
+  ],
+  "header_bounds_mm": [
+    -1219.2,
+    1216.025,
+    -341.8,
+    -36.0,
+    238.9,
+    327.8
+  ],
+  "backing_bounds_mm": [
+    -92.075,
+    92.075,
+    -119.55,
+    -36.0,
+    0.0,
+    234.35
+  ],
+  "lower_backing_depth_mm": 83.55,
+  "upper_backing_depth_mm": 79.0,
+  "backing_gap_below_header_mm": 4.55,
+  "kicker_center_axes": [
+    {
+      "name": "round_kicker_left_center_1",
+      "frozen_axis_in_backing_mm": 32.5438,
+      "frozen_cylinder_backing_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_left_center_2",
+      "frozen_axis_in_backing_mm": 32.5438,
+      "frozen_cylinder_backing_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_right_center_1",
+      "frozen_axis_in_backing_mm": 32.5438,
+      "frozen_cylinder_backing_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_right_center_2",
+      "frozen_axis_in_backing_mm": 32.5438,
+      "frozen_cylinder_backing_intersection_mm3": 438.127
+    }
+  ],
+  "panel_plate_clashes": [],
+  "panel_backing_clashes": [],
+  "header_panel_clashes": [],
+  "post_panel_clashes": [],
+  "backing_front_angle_clashes": [],
+  "protected_screw_hardware_clashes": [],
+  "post_other_wood_clashes": [],
+  "header_other_wood_clashes": [
+    {
+      "name": "base_side_left",
+      "overlap_mm3": 629301.072
+    },
+    {
+      "name": "base_side_right",
+      "overlap_mm3": 629301.072
+    },
+    {
+      "name": "base_principal_center_left",
+      "overlap_mm3": 283200.191
+    },
+    {
+      "name": "base_principal_center_right",
+      "overlap_mm3": 283200.191
+    }
+  ],
+  "backing_other_wood_clashes": [],
+  "post_header_contact_gap_mm": 0.0,
+  "nominal_post_bore_missing_wood_mm3": [
+    0.0,
+    0.0
+  ],
+  "nominal_header_bore_missing_wood_mm3": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "horizontal_hole_offset_status": "assumed symmetry; manufacturer drawing does not explicitly dimension this offset",
+  "front_bolt_head_outward_clearance_mm": 0.0,
+  "front_bolt_head_status": "backing starts at the ideal front plate's outer face at bolt Z; any outward head/washer projection needs an unmodeled relief or access pocket",
+  "backing_to_post_structural_connection": "unsolved",
+  "upper_principal_to_header_joint": "unsolved; no common solid principal, installed upper angles, or upper bores modeled",
+  "assembly_path": "Conditional order: install/inspect rear and front lower HL35 and bolts before removable backing; then fit notched backing and kicker panels. Removing backing for bolt access may require panel removal. Captive nuts, washer/head clearance, tools, maintenance access, and backing fastening are unverified.",
+  "disposition": "Reject this installed trial as incomplete: a full-reach setback clears the fixed panels and accommodates frozen kicker axes, but the widened header intersects existing side timbers and principal toes, the backing leaves no outward head clearance at front post bolts, and the upper principal/header joint is undefined. The backing-to-post force path, small backing/header support gap, wood and steel resistance, tolerances, and assembly/disassembly remain unresolved. Hidden timber rework and bolt-head relief require a distinct complete trial. No fabrication or drilling coordinates."
+}
