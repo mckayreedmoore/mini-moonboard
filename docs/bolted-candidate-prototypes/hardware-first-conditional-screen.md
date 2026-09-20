@@ -82,6 +82,18 @@ protected main/kicker screw axes use X = −70 mm. A centered 88.9-mm-wide
 solid receiver would span −114.45 to −25.55 mm and retain those axis centers
 within timber, but this says nothing about the full angled screw bodies,
 panel bearing, the right-side mirror, or neighboring connector clearance.
+For that one nominal bend pose, centering HL35's 63.5-mm along-bend pitch
+in the existing 139.7-mm header depth puts the two Y rows at −137.6 and
+−74.1 mm. Each is 38.1 mm from its nearest header Y edge. The original
+principal's raw broad-face grain ray from either row at Z = 327.8 mm to
+its Z = 277-mm oblique end is 66.315 mm. That exceeds a 3.5D (=44.45 mm)
+*ray-only search filter* by 21.865 mm for a half-inch bolt; it is not an
+NDS oblique-end classification or a check of a reshaped solid 4×6.
+Conversely, a reversible 4D edge search filter in Y would need 50.8 mm
+from each loaded edge, 12.7 mm more than the nominal nearest-edge distance.
+Which edges are loaded depends on the simultaneous joint actions; neither
+the favorable ray nor the failed conservative reversible-edge filter is a
+complete wood-connection verdict.
 Consequently, a candidate must redesign the local header/post support or
 find a different rated flange orientation; merely swapping timber labels
 does not preserve the existing kicker fastening.
