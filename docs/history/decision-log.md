@@ -393,3 +393,22 @@ more 0.5-inch polyethylene layers. Pads remain a selectable viewer-only
 placement preview, excluded from CAD inventory, frame mass, floor support and
 structural calculations. Do not describe the DIY stack as impact-certified.
 See `docs/current-crash-pad-construction.md`.
+
+## Bolted candidate hidden-frame scope, September 20, 2026
+
+For the separate `compact-floor-flush-bolted-development` lane, the owner
+directly approved changing hidden frame members as needed for a factory-made
+connector design. This supersedes the earlier center-support-only movement
+limit in that lane. Keep the selected `compact-floor-flush-development`
+geometry and evidence untouched, and preserve the climbing surface, panel
+outlines, and all 66 main/kicker screw locations in the new design. The
+physical width basis is kerf-right, including narrower kicker blanks; their
+edge support must be rechecked after any hidden-frame change.
+
+Factory connectors remain mandatory; ordinary cut/drilled steel and
+manufacturer inquiries remain excluded. This is scope permission, not
+acceptance of Simpson HL angles, MiTek braces, changed timber, a new load
+path, a procurement list, or any drilling operation. G1 and G2 stay open
+until a complete installed joint and its applicable resistance evidence
+exist. The earlier BR904/AB205 studies remain historical fixed-geometry
+screens, not conditions that every new factory fitting must satisfy.
