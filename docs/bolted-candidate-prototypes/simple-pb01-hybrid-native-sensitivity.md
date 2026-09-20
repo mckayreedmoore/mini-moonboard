@@ -71,3 +71,17 @@ stiffness. The historical SHA-256 values and results above describe the
 **old** contact idealization and cannot be reused as results of the new one.
 No physical seating stiffness, contact-pressure distribution, or V4 demand
 bound follows from this correction alone.
+
+One new source-authenticated `a12-left` quarter-labelled run at commit
+`4c60e46` used the four samples per face and three separate default
+stiffness inputs (each 1,000 N/mm; face value is the **total** per
+interface). The all-contact update converged in 14 cycles; global and
+member equilibrium passed, and maximum panel displacement was 14.6739 mm.
+Its report SHA-256 is
+`c10b2b2d1b979fe82ffc5bca31c60e374650610e4c44245e8e56431c7b0c4918`.
+The raw directory is
+`/tmp/mini_pb01_quarter_contact4_a12left_4c60e46`; it is temporary.
+The report retains a 260-entry native-plus-producer source manifest, 23
+legacy proxy stations, and explicit diagnostic/no-design/no-drilling scope.
+This run is a numerical smoke test of the changed contact idealization,
+not a calibrated stiffness study or a V4 same-case demand.
