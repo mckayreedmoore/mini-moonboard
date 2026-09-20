@@ -276,6 +276,20 @@ rail-side contact band remains on each. This is **not** a rail connection:
 no installed factory bracket, mating header seat, complete bolt group,
 tool access, or resistance has been shown.
 
+Adding the required [opposing upper HL33s at the current Y
+row](hardware_first_center_upper_pair.md) is rejected: the two inward seats
+overlap, and each enters the opposite principal. Symmetric outward shifts
+large enough to separate those seats would remove the fixed center panel
+screw axes from unchanged rectangular principals. This is an installed-pose
+failure, not a proof that all paired or repositioned factory brackets fail.
+
+The [bounded six-rail factory-bracket shortlist](rail-factory-bracket-shortlist.md)
+separates exact retail A66, HL33 and UB66/B66 leads from applicable
+installed-joint evidence. A66 has a through-bolt schedule on the original
+1.5-in rail but no published bolt-option F1/F2 load; HL33 and UB66 require
+thicker one-piece receivers, and the MiTek duration restriction remains.
+None presently closes a six-rail bracketed load path.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
