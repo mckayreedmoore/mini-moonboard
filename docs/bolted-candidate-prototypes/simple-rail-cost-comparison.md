@@ -61,6 +61,76 @@ The Prime-Line listing has conflicting finish fields, and neither this
 illustration nor the single-item scenario proves bolt/washer compatibility,
 wood bearing, or usable thread length.
 
+## Provisional quarter-inch four-bolt purchase sidecar
+
+This prices the **same 300-mm cleat and four-bolt pose**, with two 1/4-20 ×
+8-in upright stacks and two 1/4-20 × 5-in rail stacks, four nuts, and eight
+washers. It is a purchasing illustration, not a substitution into the 3/8-in
+strength case or an approved fastener schedule. Direct retailer pages were
+checked 2026-09-20; the [quarter-inch source screen](quarter-inch-bolt-source-screen.md)
+records the separate mechanics and product-evidence gaps. The 177.8-mm and
+95.25-mm wood-only grips leave nominally 25.4 mm and 31.75 mm, respectively,
+before washers, nut, thread engagement/projection, runout, and tolerances.
+
+| Illustrative zinc hardware | Needed | Listed selling unit | Joint allocation | First listed checkout |
+| --- | ---: | ---: | ---: | ---: |
+| [Home Depot Everbilt 1/4-20 × 8-in hex bolt, 800696](https://www.homedepot.com/p/204281626) | 2 | $0.94 each | $1.88 | $1.88 |
+| [Home Depot Everbilt 1/4-20 × 5-in hex bolt, 800676](https://www.homedepot.com/p/204633308) | 2 | $0.62 each | $1.24 | $1.24 |
+| [Home Depot Everbilt 1/4-20 hex nut, 801730](https://www.homedepot.com/p/204274089) | 4 | $6.98 / 100 | $0.2792 | $6.98 |
+| [Home Depot Everbilt 1/4-in flat washer, 800452](https://www.homedepot.com/p/204276405) | 8 | $7.97 / 100 | $0.6376 | $7.97 |
+| **Known hardware only** | | | **$4.0368 ≈ $4.04** | **$18.07** |
+
+Allocation is `2×0.94 + 2×0.62 + 4×(6.98/100) + 8×(7.97/100)
+= $4.0368`; checkout is `2×0.94 + 2×0.62 + 6.98 + 7.97 = $18.07`.
+The latter leaves 96 nuts and 92 washers for other work. This same-store
+example uses listed online selling units; store/ZIP stock and price are
+unconfirmed. The 5-in bolt listing describes a fully threaded bolt, and the
+8-in listing gives a 6-in threaded length, but no controlled delivered
+shank/thread transition or root diameter. The washer listing does not supply
+verified wood-bearing dimensions or capacity. Nominal thread and zinc finish
+alone do not qualify the stack.
+
+A second **mixed-retailer pack illustration**, using the same Home Depot
+bolts and [Lowe's Hillman 12-nut pack, 490622](https://www.lowes.com/pd/Hillman-1-4-in-x-20-Zinc-Plated-Steel-Hex-Nut/1001265718)
+at $1.98 plus [Lowe's Hillman 16-washer pack, 490687](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated-Standard-Flat-Washer-16-Count/3035987)
+at $1.98, allocates `1.88 + 1.24 + 4×(1.98/12) + 8×(1.98/16)
+= $4.77` and has a **$7.08 listed hardware checkout**. It leaves eight
+nuts and eight washers, but requires sourcing from two stores; delivery or
+travel can overturn the apparent checkout difference. Hillman's washer
+listing gives 5/8-in OD and 1/16-in thickness, not an approved bearing plate;
+the nut's mechanical grade and stack height remain unverified.
+
+The [Lowe's #2 & Better Douglas-fir 4×6×8 listing](https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917)
+still displays **“Get Pricing & Availability”**, so write its whole-board
+checkout as `P₄ₓ₆`, unknown. Eight feet is 2438.4 mm: `floor(2438.4/300)
+= 8` is only a zero-kerf upper bound on 300-mm blanks. The cut plan must
+allow saw kerfs, end trimming, defects, and a rip from the listed 3.562 ×
+5.625-in actual section to the modeled 57.15 × 139.7-mm cross-section.
+The 300-mm *used-stock allocation* might be `P₄ₓ₆ / usable blanks` only
+after that plan and a credible use for every other blank; the first joint
+still requires buying the whole board. No offcut credit is assigned.
+
+One verifiable conditional tool lead is Home Depot's [Drill America 9/32-in ×
+12-in extension bit, DWDA/CX129/32](https://www.homedepot.com/p/305284242)
+at **$6.23 for one bit**. If that exact bit and reach prove suitable and none
+is owned, the Home Depot hardware-plus-bit checkout becomes **$24.30 +
+P₄ₓ₆** before all other charges. Its full $6.23 is a first-tool purchase,
+not an automatic one-joint consumable allocation; bit life and reuse are
+unknown. The final hole size, straight reach, power drill, 7/16-in head/nut
+tools, clamps, saw/rip setup, blade wear, marking, and any protective finish
+are not priced or verified. Do not infer the bit is a drilling instruction.
+
+Work also includes at least one 300-mm crosscut blank and one width rip,
+layout/fixturing, four aligned through-bores in the assembled members,
+deburring/inspection, and four bolt-stack assemblies. Cutting from an 8-ft
+board and transporting the block/rail/upright may add handling or trips;
+shop access, labor time, local cutting fees, travel, tax, and delivery are
+unknown. A cleat attached to a transport member changes the move plan and
+must be checked against actual access. Thus the only numeric comparison here
+is **listed hardware**: $4.04 allocated or $18.07 first checkout in the
+same-store example, versus $4.77 allocated or $7.08 first checkout in the
+mixed-store example. Neither is a completed joint or project total.
+
 ## Full-section overlap trial: not a zero-hardware alternative
 
 The tested face-overlap moves the rail **139.7 mm** off its original
@@ -93,9 +163,11 @@ would also require a verified cut plan; no such credit is taken.
 
 ## Decision boundary
 
-The cleat has a **$13.72 known single-item hardware illustration** and a
-**$84.06 alternative pack-checkout illustration**; neither includes its
-unknown 4×6 purchase. The overlap has no defensible numeric total, and
+The 3/8-in cleat has a **$13.72 known single-item hardware illustration** and
+an **$84.06 alternative pack-checkout illustration**. The separate 1/4-in
+cleat examples above have **$18.07 same-store** or **$7.08 mixed-store**
+listed hardware checkouts. None includes its unknown 4×6 purchase or proves
+a suitable bolt stack. The overlap has no defensible numeric total, and
 its separate backer material/attachment and 12-in-class fastener stack are
 unpriced. Consequently there is **no cost winner**. For either path,
 installed tooling, taxes, shipping, ordinary cuts, discarded or shared

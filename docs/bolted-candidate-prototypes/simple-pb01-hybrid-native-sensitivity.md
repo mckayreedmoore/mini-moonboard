@@ -57,3 +57,17 @@ changes in the native model. The separate CAD screen, not this run, tests
 the 1/4-in bore's local fit. The 23 legacy proxies and all resistance
 limitations above still apply. The quarter run's raw output is under
 `/tmp/mini_pb01_hybrid_quarter_a12_left_55c2f75` on the working host.
+
+## Subsequent contact-model correction (not a historical rerun)
+
+The source after these archived runs replaces each single midpoint face
+contact with four interior, compression-only samples on the actual seated
+overlap. The earlier source had a row-axis rotational release at each
+isolated interface because both bolt points and its contact point were
+collinear. The four-point quadrature can transmit a contact couple while
+closed and releases each point when it opens. Its total normal stiffness
+remains a provisional input, now independent of bolt axial and lateral
+stiffness. The historical SHA-256 values and results above describe the
+**old** contact idealization and cannot be reused as results of the new one.
+No physical seating stiffness, contact-pressure distribution, or V4 demand
+bound follows from this correction alone.

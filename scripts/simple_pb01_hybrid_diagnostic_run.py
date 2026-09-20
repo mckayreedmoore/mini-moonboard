@@ -30,7 +30,14 @@ LOADED_PRODUCER_SHA256 = native.extra_source_hashes(PRODUCER_PATHS)
 
 
 def run_case(
-    case: str, output: Path, *, variant: str = "three_eighth", max_cycles: int = 30
+    case: str,
+    output: Path,
+    *,
+    variant: str = "three_eighth",
+    max_cycles: int = 30,
+    bolt_axial_n_per_mm: float = 1000.0,
+    bolt_lateral_n_per_mm: float = 1000.0,
+    face_normal_total_n_per_mm: float = 1000.0,
 ):
     """Retain a source-fingerprinted old-proxy diagnostic, not design demand."""
     if case not in CASES:
@@ -42,7 +49,13 @@ def run_case(
         output,
         module=module,
         expected_candidate=module.KEY,
-        prepare_factory=lambda *args, **kwargs: prepare_case(case, variant=variant),
+        prepare_factory=lambda *args, **kwargs: prepare_case(
+            case,
+            variant=variant,
+            bolt_axial_n_per_mm=bolt_axial_n_per_mm,
+            bolt_lateral_n_per_mm=bolt_lateral_n_per_mm,
+            face_normal_total_n_per_mm=face_normal_total_n_per_mm,
+        ),
         extra_source_paths=PRODUCER_PATHS,
         max_cycles=max_cycles,
     )
@@ -53,6 +66,11 @@ def run_case(
         "pb01_cleat_station": "clip_horizontal_lower_right_1",
         "pb01_pose_variant": variant,
         "pb01_nominal_trial_bolt_diameter_mm": POSES[variant][1],
+        "trial_stiffness_n_per_mm": {
+            "bolt_axial": bolt_axial_n_per_mm,
+            "bolt_lateral": bolt_lateral_n_per_mm,
+            "face_normal_total_per_interface": face_normal_total_n_per_mm,
+        },
         "variant_native_difference": "trial_stack_mass_only; identical centers and spring stiffness",
         "bore_diameter_changes_mesh": False,
         "v4_same_case_demand": False,
@@ -73,9 +91,18 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--max-cycles", type=int, default=30)
     parser.add_argument("--variant", choices=sorted(POSES), default="three_eighth")
+    parser.add_argument("--bolt-axial-n-per-mm", type=float, default=1000.0)
+    parser.add_argument("--bolt-lateral-n-per-mm", type=float, default=1000.0)
+    parser.add_argument("--face-normal-total-n-per-mm", type=float, default=1000.0)
     args = parser.parse_args()
     outcome = run_case(
-        args.case, args.output, variant=args.variant, max_cycles=args.max_cycles
+        args.case,
+        args.output,
+        variant=args.variant,
+        max_cycles=args.max_cycles,
+        bolt_axial_n_per_mm=args.bolt_axial_n_per_mm,
+        bolt_lateral_n_per_mm=args.bolt_lateral_n_per_mm,
+        face_normal_total_n_per_mm=args.face_normal_total_n_per_mm,
     )
     print(
         json.dumps(

@@ -89,8 +89,21 @@ def test_prepared_hybrid_has_two_serial_groups_and_traceable_force_ownership(pre
 
 
 def test_pb01_contact_normals_point_into_hosts_and_opening_releases(prepared):
-    _, metadata = prepared
+    structure, metadata = prepared
     raw = {part.name: part.shape for part in HybridPB01().uncut_wood_parts()}
+    assert len(metadata["pb01_contact_names"]) == 8
+    for family in ("upright", "rail"):
+        names = [
+            n for n in metadata["pb01_contact_names"] if n.startswith(f"pb01_{family}_")
+        ]
+        assert len(names) == 4
+        face = metadata["pb01_contact_faces"][family]
+        assert sum(
+            metadata["connection_ownership"][n]["tributary_net_area_mm2"] for n in names
+        ) == pytest.approx(face["net_area_mm2"])
+        assert sum(
+            s["stiffness_n_per_mm"] for s in structure.springs if s["name"] in names
+        ) == pytest.approx(1000)
     for name in metadata["pb01_contact_names"]:
         owner = metadata["connection_ownership"][name]
         point = cq.Vector(*owner["point"])
@@ -103,6 +116,68 @@ def test_pb01_contact_normals_point_into_hosts_and_opening_releases(prepared):
         assert name in next_bearing_set(
             [{"name": name, "active": True, "opening_mm": -0.1}]
         )
+
+
+def test_off_row_contact_transfers_row_axis_couple_only_when_closed(prepared):
+    _, metadata = prepared
+    owners = metadata["connection_ownership"]
+    for family in ("upright", "rail"):
+        bolts = [
+            np.asarray(owners[n]["point"]) for n in metadata["pb01_bolt_groups"][family]
+        ]
+        row = bolts[1] - bolts[0]
+        row /= np.linalg.norm(row)
+        origin = np.mean(bolts, axis=0)
+        normal = np.asarray(owners[f"pb01_{family}_compression_0_0"]["scalar_normal"])
+        # Collinear bolt/centroid points give identically zero row-axis moment.
+        for point in (*bolts, origin):
+            assert np.dot(row, np.cross(point - origin, normal)) == pytest.approx(
+                0, abs=1e-8
+            )
+        names = [
+            n for n in metadata["pb01_contact_names"] if n.startswith(f"pb01_{family}_")
+        ]
+        moments = [
+            np.dot(row, np.cross(np.asarray(owners[n]["point"]) - origin, normal))
+            for n in names
+        ]
+        assert max(moments) > 1
+        assert min(moments) < -1
+        # A compression/opening pair produces the couple; opening contributes nothing.
+        closed = next_bearing_set(
+            [
+                {"name": n, "active": True, "opening_mm": -0.1 if m > 0 else 0.1}
+                for n, m in zip(names, moments, strict=True)
+            ]
+        )
+        assert sum(m for n, m in zip(names, moments, strict=True) if n in closed) > 0
+
+
+def test_independent_trial_stiffnesses_reach_actual_springs():
+    structure, metadata = prepare_case(
+        "a12-left",
+        bolt_axial_n_per_mm=700,
+        bolt_lateral_n_per_mm=1200,
+        face_normal_total_n_per_mm=2400,
+    )
+    assert metadata["pb01_trial_stiffness_n_per_mm"] == {
+        "bolt_axial": 700,
+        "bolt_lateral": 1200,
+        "face_normal_total_per_interface": 2400,
+    }
+    for names in metadata["pb01_bolt_groups"].values():
+        for name in names:
+            springs = [
+                s["stiffness_n_per_mm"] for s in structure.springs if s["name"] == name
+            ]
+            assert springs == [700, 1200, 1200]
+    for family in ("upright", "rail"):
+        names = [
+            n for n in metadata["pb01_contact_names"] if n.startswith(f"pb01_{family}_")
+        ]
+        assert [
+            s["stiffness_n_per_mm"] for s in structure.springs if s["name"] in names
+        ] == [600] * 4
 
 
 def test_four_trial_bolt_gravity_loads_are_explicit_and_balance(prepared):

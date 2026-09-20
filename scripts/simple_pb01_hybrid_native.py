@@ -149,9 +149,86 @@ class HybridPB01(DiagnosticProxy):
         return tuple(row for row in super().stations() if row[0] != STATION)
 
 
-def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
-    if not math.isfinite(spring_n_per_mm) or spring_n_per_mm <= 0:
-        raise ValueError("Trial spring stiffness must be positive and finite")
+def _face_samples(module, family):
+    """Four interior quadrature points on the actual, unbored timber overlap."""
+    host_name = UPRIGHT if family == "upright" else RAIL
+    shapes = {part.name: part.shape for part in module.uncut_wood_parts()}
+    host, cleat = shapes[host_name], shapes[CLEAT]
+    normal = -np.array([1.0, 0.0, 0.0]) if family == "upright" else -T
+    axes = (T, N) if family == "upright" else (np.array([1.0, 0.0, 0.0]), N)
+
+    def extent(shape, axis):
+        values = [
+            np.dot(axis, vertex.Center().toTuple()) for vertex in shape.Vertices()
+        ]
+        return min(values), max(values)
+
+    normal_host = extent(host, normal)[0]
+    normal_cleat = extent(cleat, normal)[1]
+    if abs(normal_host - normal_cleat) > 1e-5:
+        raise ValueError(f"{family}: cleat is not seated at the host face")
+    limits = []
+    for axis in axes:
+        host_low, host_high = extent(host, axis)
+        cleat_low, cleat_high = extent(cleat, axis)
+        low, high = max(host_low, cleat_low), min(host_high, cleat_high)
+        if high - low <= 0:
+            raise ValueError(f"{family}: no seated face overlap")
+        limits.append((low, high))
+    span_a = limits[0][1] - limits[0][0]
+    span_b = limits[1][1] - limits[1][0]
+    bore_diameter = 7.5 if module.variant == "quarter" else 10.5
+    net_area = span_a * span_b - 2 * math.pi * (bore_diameter / 2) ** 2
+    if net_area <= 0:
+        raise ValueError(f"{family}: nonpositive net seated area")
+    bolt_centers = []
+    for row in module.pose["bolt_groups"][family]:
+        direction = np.asarray(row["axis_xyz"], dtype=float)
+        direction /= np.linalg.norm(direction)
+        bolt_centers.append(
+            np.asarray(row["start_xyz_mm"], dtype=float) + direction * 40.6
+        )
+    samples = []
+    for i, fa in enumerate((0.25, 0.75)):
+        for j, fb in enumerate((0.25, 0.75)):
+            a = limits[0][0] + fa * span_a
+            b = limits[1][0] + fb * span_b
+            point = normal * normal_host + axes[0] * a + axes[1] * b
+            if not host.isInside(cq.Vector(*(point + normal * 0.1)), 0.001):
+                raise ValueError(f"{family}: sample outside host")
+            if not cleat.isInside(cq.Vector(*(point - normal * 0.1)), 0.001):
+                raise ValueError(f"{family}: sample outside cleat")
+            for bolt in bolt_centers:
+                separation = np.linalg.norm(
+                    [np.dot(axis, point - bolt) for axis in axes]
+                )
+                if separation <= bore_diameter / 2:
+                    raise ValueError(f"{family}: sample intersects diagnostic bore")
+            samples.append({"point": point, "grid": [i, j], "area_mm2": net_area / 4})
+    return {
+        "normal": normal,
+        "limits_mm": limits,
+        "net_area_mm2": net_area,
+        "samples": samples,
+    }
+
+
+def _add_pb01_paths(
+    structure,
+    metadata,
+    module,
+    bolt_axial_n_per_mm,
+    bolt_lateral_n_per_mm,
+    face_normal_total_n_per_mm,
+    faces,
+):
+    for value in (
+        bolt_axial_n_per_mm,
+        bolt_lateral_n_per_mm,
+        face_normal_total_n_per_mm,
+    ):
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError("Trial spring stiffness must be positive and finite")
     groups = {}
     ownership = metadata["connection_ownership"]
     interface_points = {}
@@ -178,8 +255,8 @@ def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
                 structure.attachment(host, point),
                 structure.attachment(CLEAT, point),
                 {
-                    "axial_n_per_mm": spring_n_per_mm,
-                    "lateral_n_per_mm": spring_n_per_mm,
+                    "axial_n_per_mm": bolt_axial_n_per_mm,
+                    "lateral_n_per_mm": bolt_lateral_n_per_mm,
                 },
                 name,
                 owner,
@@ -188,33 +265,37 @@ def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
             groups[family].append(name)
             interface_points[family].append(point)
     contacts = []
-    for family, host, normal in (
-        ("upright", UPRIGHT, -np.array([1.0, 0.0, 0.0])),
-        ("rail", RAIL, -T),
-    ):
-        # One center sample per actual contact face; no pressure-field claim.
-        point = np.mean(interface_points[family], axis=0)
-        name = f"pb01_{family}_compression_trial"
-        shared.normal_contact(
-            structure,
-            name,
-            structure.attachment(host, point),
-            [structure.attachment(CLEAT, point)],
-            [1.0],
-            point.tolist(),
-            normal.tolist(),
-            spring_n_per_mm,
-        )
-        ownership[name] = {
-            "first": host,
-            "second": CLEAT,
-            "point": point.tolist(),
-            "scalar_normal": normal.tolist(),
-            "diagnostic_only": True,
-        }
-        contacts.append(name)
+    for family, host in (("upright", UPRIGHT), ("rail", RAIL)):
+        face = faces[family]
+        normal = face["normal"]
+        for sample in face["samples"]:
+            point = sample["point"]
+            name = f"pb01_{family}_compression_{sample['grid'][0]}_{sample['grid'][1]}"
+            shared.normal_contact(
+                structure,
+                name,
+                structure.attachment(host, point),
+                [structure.attachment(CLEAT, point)],
+                [1.0],
+                point.tolist(),
+                normal.tolist(),
+                face_normal_total_n_per_mm / 4,
+            )
+            ownership[name] = {
+                "first": host,
+                "second": CLEAT,
+                "point": point.tolist(),
+                "scalar_normal": normal.tolist(),
+                "tributary_net_area_mm2": sample["area_mm2"],
+                "diagnostic_only": True,
+            }
+            contacts.append(name)
     metadata["pb01_bolt_groups"] = groups
     metadata["pb01_contact_names"] = contacts
+    metadata["pb01_contact_faces"] = {
+        family: {"limits_mm": face["limits_mm"], "net_area_mm2": face["net_area_mm2"]}
+        for family, face in faces.items()
+    }
 
 
 def _add_trial_bolt_gravity(structure, metadata, diameter_mm):
@@ -257,7 +338,7 @@ def _add_trial_bolt_gravity(structure, metadata, diameter_mm):
     metadata["modeled_mass_kg"] += total
 
 
-def _imprint_points(pose):
+def _imprint_points(pose, faces):
     result = {UPRIGHT: [], RAIL: [], CLEAT: []}
     for family, host in (("upright", UPRIGHT), ("rail", RAIL)):
         points = []
@@ -268,19 +349,25 @@ def _imprint_points(pose):
             points.append(point)
             result[host].append(point)
             result[CLEAT].append(point)
-        center = np.mean(points, axis=0)
-        result[host].append(center)
-        result[CLEAT].append(center)
+        for sample in faces[family]["samples"]:
+            result[host].append(sample["point"])
+            result[CLEAT].append(sample["point"])
     return result
 
 
 def prepare_case(
-    case: str, *, variant: str = "three_eighth", spring_n_per_mm: float = 1000.0
+    case: str,
+    *,
+    variant: str = "three_eighth",
+    bolt_axial_n_per_mm: float = 1000.0,
+    bolt_lateral_n_per_mm: float = 1000.0,
+    face_normal_total_n_per_mm: float = 1000.0,
 ):
     """Prepare one unsolved hybrid; stiffness is a named trial input, not evidence."""
     if case not in CASES:
         raise ValueError("Unknown unchanged load case")
     module = HybridPB01(variant=variant)
+    faces = {family: _face_samples(module, family) for family in ("upright", "rail")}
     raw = {part.name: part for part in module.uncut_wood_parts()}
     panel_names = [name for name in raw if name.startswith(("main_", "kicker_"))]
     bolts = {
@@ -295,7 +382,7 @@ def prepare_case(
     }
     original_grid, original_pressure = _ORIGINAL_GRID, _ORIGINAL_PRESSURE
     original_member = _ORIGINAL_MEMBER
-    extra = _imprint_points(module.pose)
+    extra = _imprint_points(module.pose, faces)
     calls = 0
 
     def kerf_grid(xs, ys):
@@ -360,7 +447,15 @@ def prepare_case(
         if abs(min(xs) - actual.xmin) > 1.0e-6 or abs(max(xs) - actual.xmax) > 1.0e-6:
             raise ValueError(f"{name}: native mesh misses kerf-right panel bounds")
         panel_bounds[name] = [actual.xmin, actual.xmax]
-    _add_pb01_paths(structure, metadata, module, spring_n_per_mm)
+    _add_pb01_paths(
+        structure,
+        metadata,
+        module,
+        bolt_axial_n_per_mm,
+        bolt_lateral_n_per_mm,
+        face_normal_total_n_per_mm,
+        faces,
+    )
     diameter_mm = POSES[variant][1]
     _add_trial_bolt_gravity(structure, metadata, diameter_mm)
     names = sorted(
@@ -372,7 +467,11 @@ def prepare_case(
         pb01_pose_source=str(DIAGNOSTIC.relative_to(ROOT)),
         pb01_pose_variant=variant,
         pb01_trial_bolt_diameter_mm=diameter_mm,
-        pb01_trial_stiffness_n_per_mm=spring_n_per_mm,
+        pb01_trial_stiffness_n_per_mm={
+            "bolt_axial": bolt_axial_n_per_mm,
+            "bolt_lateral": bolt_lateral_n_per_mm,
+            "face_normal_total_per_interface": face_normal_total_n_per_mm,
+        },
         kerf_panel_bounds_mm=panel_bounds,
         legacy_proxy_stations=names,
         provisional_structural_connectors="23 baseline ML24Z/SDS station proxies",
