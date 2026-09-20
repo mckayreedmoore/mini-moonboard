@@ -72,6 +72,31 @@ All prices and local availability need ZIP/store recheck. Resolve the actual
 bolt shank/thread geometry, washer/nut stack, access and joint limit states
 before any selection, purchase, or drilling.
 
+## Conditional 4×6 cleat stock check
+
+The 4×4 CAD trial has 88.9 mm along X, placing a centered rail-bolt axis only
+44.45 mm from that end. A 4×6 could increase this distance **only if** its long
+face is oriented along X; bolt placement, edge/end distances, wood properties,
+access, and the complete joint would all need a new check. Retail actual sizes
+also differ, so neither product can silently replace the CAD's 88.9-mm stock.
+
+| Retail lumber listing | Species / grade | Listed actual size | Price / status |
+| --- | --- | --- | --- |
+| [Lowe's 4×6×8 green lumber](https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917) | Douglas fir, #2 & Better; model 637637, item 92730 | 3.562 × 5.625 in × 8 ft | “Get Pricing & Availability”; no visible price without ZIP/store. No “no longer sold” notice on this listing. |
+| [Lowe's 4×4×8 green lumber](https://www.lowes.com/pd/4-in-x-4-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-3-562-in-x-8-ft-Actual/1000028905) | Douglas fir, #2 & Better; model 637630, item 92331 | 3.562 × 3.562 in × 8 ft | “Get Pricing & Availability”; no visible price without ZIP/store. |
+| [Home Depot 4×6×8 S4S lumber](https://www.homedepot.com/p/202084523) | Douglas fir, No. 2 & Better S4S; model 0405438, SKU 603775 | 3.5 × 5.5 in × 8 ft | No visible price or confirmed local stock; page says product may vary by store. |
+| [Home Depot 4×4×8 lumber](https://www.homedepot.com/p/202083082) | Douglas fir, #2 Premium; model 328329, SKU 441856 | 4×4×8 nominal; actual size not verified here | No visible price; not a same-grade cost comparator. |
+
+Thus ordinary untreated #2-or-better Douglas-fir 4×6×8 **is listed online**;
+the search did not establish current local availability or a 4×6/4×4 cost
+delta. Separately, [Lowe's above-ground pressure-treated Douglas-fir
+4×6](https://www.lowes.com/pd/Severe-Weather-4-in-x-6-in-x-8-ft-2-and-Btr-Douglas-Fir-Above-Ground-Pressure-Treated-Lumber/5001634919)
+is a different treatment/fastener case, and [Home Depot's #2 Hi-Bor
+4×6](https://www.homedepot.com/p/202087810) is pressure-treated, not an
+untreated substitute. A Lowe's #2 SYP ground-contact 4×6 listing is [marked
+no longer sold](https://www.lowes.com/pd/Severe-Weather-Common-4-in-X-6-in-x-8-ft-Actual-3-5-in-x-5-5-in-x-8-ft-2-Treated-Lumber/50113120).
+None of these listings establishes a viable bolted joint or authorizes a buy.
+
 ## Decision boundary
 
 Before costing or rating a specific joint, freeze its bolt diameter/head type,
