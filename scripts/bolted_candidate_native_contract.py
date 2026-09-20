@@ -1,4 +1,4 @@
-"""Prepare and validate the AB90 candidate's future native-run contract.
+"""Prepare and validate the bolted candidate's future native-run contract.
 
 This module does not invoke CalculiX or any native load case. The existing
 flush runner is recorded as the producer, while its candidate-specific contact
