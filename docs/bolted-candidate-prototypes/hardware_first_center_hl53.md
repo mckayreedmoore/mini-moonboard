@@ -27,6 +27,15 @@ The nominal 9/16-in wood clearance bores are through-cylinders, not bit
 instructions. Both holes on each vertical flange lie at Z = 378.6 and
 442.1 mm (upper) or 188.1 and 124.6 mm (lower).
 
+The outward-seat header-hole sign was corrected after an independent
+geometry review. For example, the left outer hole is now X = -190.65 mm,
+not the old X = -89.05 mm inside the vertical timber projection; its second
+hole is X = -254.15 mm. The mirrored right outer holes are positive.
+The regenerated screen still finds all nominal bores within header wood
+and no protected-screw bore clash. It does **not** model full plate bodies or
+factory-hole corridors, so a future installed layout must additionally
+prove each bolt passes through its own bracket hole and receiver.
+
 In this one pose all sixteen modeled bore records intersect their timber
 without missing wood, and none intersects the modeled 66 protected screw
 shafts. That is only a nominal cylinder screen: it does not establish NDS

@@ -78,7 +78,9 @@ def screen_hl53_center():
                 for index, offset in enumerate((FIRST_OFFSET, SECOND_OFFSET), 1):
                     key = f"{side}_{face}_{level}_{index}"
                     z = bend_z + zsign * offset
-                    x = surface_x + into_member * offset
+                    # The horizontal seat projects away from its vertical
+                    # timber face; its factory hole cannot lie inside it.
+                    x = surface_x - into_member * offset
                     v = _cylinder((center_x - POST_WIDTH / 2, y, z),
                                   cq.Vector(1, 0, 0), POST_WIDTH, BORE)
                     h = _cylinder((x, y, hb.zmin), cq.Vector(0, 0, 1), hb.zlen, BORE)

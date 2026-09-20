@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from scripts.hardware_first_center_hl53 import screen_hl53_center
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,3 +29,12 @@ def test_hl53_paired_x_face_trial_is_rejected_by_installed_geometry():
     assert result["two_inner_gauge7_plates_nominal_mm"] > 9
     assert result["nominal_inner_plate_shortfall_mm"] > 9
     assert json.loads(RESULT.read_text()) == result
+
+
+def test_outward_header_hole_is_on_the_outward_seat() -> None:
+    result = screen_hl53_center()
+    by_id = {bore["id"]: bore for bore in result["bores"]}
+    assert by_id["left_outer_upper_1"]["header_center_mm"][0] == pytest.approx(-190.65)
+    assert by_id["right_outer_upper_1"]["header_center_mm"][0] == pytest.approx(190.65)
+    assert by_id["left_inner_upper_1"]["header_center_mm"][0] == pytest.approx(50.65)
+    assert by_id["right_inner_upper_1"]["header_center_mm"][0] == pytest.approx(-50.65)
