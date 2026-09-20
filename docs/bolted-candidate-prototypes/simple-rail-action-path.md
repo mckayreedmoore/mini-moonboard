@@ -71,6 +71,26 @@ active set, including the difficult forward case. The selected archive
 also predates a later source edit to center header clips; the documented
 source mismatch must not be hidden by changing an evidence hash.
 
+### Numerical boundary: applied force is not this joint's reaction
+
+For `a12-forward`, the retained case definition applies a 250-lb climber
+with the recorded 2× gravity multiplier and a 300-N forward horizontal
+force. In the existing model the force enters the **upper-left panel** at
+P = (−1019.2, 1549.554, 1989.167) mm, not the lower-right rail. At O
+above, its applied-force wrench is approximately
+F = (0, −300, −2224.111) N and
+M = (−1,837,534, −2,464,871, 332,475) N·mm. This excludes separately
+applied frame/equipment self-weight. The values are reproducible from
+`scripts/clear_space_batch.py`, `scripts/floor_flush_case.py` and
+`fea/current_response_model.py`; they are **not PB-01 bolt or contact
+demands**. Assigning any fraction to this joint without the changed
+frame's panel-screw, rail-end, floor-contact and member stiffness paths
+would invent a load-sharing rule. A 100-N unit force at the current
+rail-side trial bolt center in local +T would, by geometry alone, induce
+about (−5,500, 0, 7,000) N·mm at the principal-side bolt center because
+their local separation is (70, −28.575, 55) mm in X/T/N. This unit-load
+transfer illustrates eccentricity, not a selected case or resistance.
+
 For every new candidate case, recover simultaneous Fx,Fy,Fz and Mx,My,Mz
 at O on each side of this joint; contact normal force, gap, and active
 patch; and the complete rail, cleat (if used), and principal equilibria.
