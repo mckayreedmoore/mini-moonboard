@@ -103,10 +103,13 @@ from an $11.70 100-pack. Its four-bolt **allocated hardware** is
 = $5.7188 ≈ $5.72`; the **initial four-pack checkout** is
 `16.71 + 14.52 + 6.98 + 11.70 = $49.91`. It leaves eight long bolts,
 23 short bolts, 96 nuts, and 92 washers. The [source screen](quarter-inch-bolt-source-screen.md)
-explains why standard thread-length expectations and published washer
-dimensions improve this *lead* but do not certify the delivered shank,
-washer, complete joint or local store stock. This is not a compatible
-selected BOM, and the unknown whole 4×6 purchase remains additional.
+explains why the same standard thread-length assumption actually leaves
+the 5-in rail nut **0.37 in short of seating** against the outer washer.
+The [two-sided stack screen](simple-pb01-thread-stack-screen.md) records
+that failure and a fully threaded rail lead. The $49.91 pack checkout is
+therefore a priced **incompatible nominal combination**, not a usable or
+selected BOM; delivered shank, washer, joint and local stock remain
+unverified, and the unknown whole 4×6 purchase is additional.
 
 A second **mixed-retailer pack illustration**, using the same Home Depot
 bolts and [Lowe's Hillman 12-nut pack, 490622](https://www.lowes.com/pd/Hillman-1-4-in-x-20-Zinc-Plated-Steel-Hex-Nut/1001265718)
@@ -186,7 +189,8 @@ an **$84.06 alternative pack-checkout illustration**. The separate 1/4-in
 cleat examples above have **$18.07 same-store** or **$7.08 mixed-store**
 listed hardware checkouts. None includes its unknown 4×6 purchase or proves
 a suitable bolt stack. The separate Prime-Line/wide-washer lead is
-$5.72 allocated or $49.91 first checkout, also unqualified. The overlap
+$5.72 allocated or $49.91 first checkout, and its nominal rail stack
+cannot seat under the assumed thread pattern. The overlap
 has no defensible numeric total, and
 its separate backer material/attachment and 12-in-class fastener stack are
 unpriced. Consequently there is **no cost winner**. For either path,

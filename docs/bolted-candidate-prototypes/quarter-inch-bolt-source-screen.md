@@ -8,7 +8,7 @@ thread placement, and strength are not established by these listings.
 | Store lead | Published identifier | Remaining product-specific evidence |
 | --- | --- | --- |
 | [Home Depot Prime-Line 1/4-20 × 8 in](https://www.homedepot.com/p/310465152) | 9058821; A307 Grade A, UNC-2A | Delivered root range and thread/shank placement are not verified. The NDS bolt-class Fyb input below is conditional, not a lot test. |
-| [Home Depot Prime-Line 1/4-20 × 5 in](https://www.homedepot.com/p/310326760) | 9058745; A307 Grade A, 25-pack | Thread class, delivered root range, thread/shank placement, and nut/washer stack are not verified. |
+| [Home Depot Prime-Line 1/4-20 × 5 in](https://www.homedepot.com/p/310326760) | 9058745; A307 Grade A, 25-pack | The assumed standard thread start leaves the rail nut 0.37 in short of seating. Actual delivered threading/root and nut stack remain unverified. |
 | [Home Depot Everbilt 1/4-20 × 8 in](https://www.homedepot.com/p/204281626) | 800696; A307, listed 6-in thread | Controlled root and bending-yield data absent; thread transition through wood unknown. |
 | [Home Depot Everbilt 1/4-20 × 5 in](https://www.homedepot.com/p/204633308) | 800676; A307, fully threaded | Controlled root and bending-yield data absent. |
 | [Lowe's Hillman 1/4-20 × 5 in](https://www.lowes.com/pd/Hillman-1-4-in-x-5-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000379721) | 190059; partially threaded | Thread length, root range, and bending-yield data absent. The listing's A2 field is not a demonstrated joint-strength specification. |
@@ -48,6 +48,21 @@ body, thread location, member assignment, seating, nut engagement and
 washer stack remain to be checked. The separate
 [root-only yield screen](simple-pb01-quarter-yield-screen.md) makes no
 full-body claim.
+
+The opposite end of this same stack is decisive: two 0.065-in washers
+place the rail nut bearing plane at **3.88 in** from the head, but the
+assumed standard-pattern full thread starts at **4.25 in**. The nominal
+5-in rail stack is therefore **0.37 in short of a seated nut**; even a
+hypothetical 0.25-in earlier start leaves 0.12 in. The 8-in upright
+nominal bearing plane is 7.13 in versus a 7.00-in inferred thread start.
+See the reproducible [two-sided stack screen](simple-pb01-thread-stack-screen.md)
+for nominal nut-overlap and tip-projection intervals. The 5-in Prime-Line
+bolt is **not a workable rail-stack selection under the stated thread
+pattern**; its actual delivered threading has not been measured. A
+[fully threaded 5-in Everbilt rail lead](https://www.homedepot.com/p/204633308)
+would address the seating conceptually but requires the corresponding
+root-bearing model and verified delivered dimensions. Do not infer that
+the least wood-thread occupancy gives the best usable stack.
 
 Home Depot also online-lists [Everbilt 807210 wide flat washers](https://www.homedepot.com/p/204284538).
 The retailer's [dimension sheet](https://images.thdstatic.com/catalog/pdfImages/13/1353fc43-4c14-45d4-ba92-5745b045eae3.pdf)
