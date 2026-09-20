@@ -88,3 +88,9 @@ ordinary bolts may fasten the brackets but are not a bracket-free substitute.
 This scope approval does not select a connector or authorize cutting or
 drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.
+For this separate lane, the
+[rated-hardware focus](docs/bolted-candidate-rated-hardware-focus.md) is the
+active G1 design sequence; the selected-candidate stock/geometry constraints
+above remain binding only for selected-baseline changes. The bolted candidate
+must keep the fixed panel/screw policy and prove any new receiver/backer
+connections rather than inheriting the old member identities or case passes.

@@ -4,6 +4,20 @@ This document establishes the separate `compact-floor-flush-bolted-development`
 lane from the v2 Luna handoff. It does not promote the candidate, qualify a
 connector, or authorize fabrication.
 
+## Active hardware-first amendment, 2026-09-20
+
+The owner subsequently authorized hidden-frame redesign while preserving
+the climbing surfaces and all 66 panel/kicker screw axes, and required
+factory brackets with no direct wood lap joints. The
+[rated-hardware focus](bolted-candidate-rated-hardware-focus.md) is the active
+G1 sequence: compare one connected common-core HL33 assembly with one
+coarse spaced-rib HL53 assembly, including bracket-connected front backing,
+changed neighboring rail ends, and one representative rail joint. HL35
+remains an applicable local alternative if its installation fits. The
+fixed-frame BR904/AB205 screens and the v2 task order below are historical
+evidence, not prerequisites to selecting a rated-HL architecture. The
+substantive v2 safety, six-case, shop, and independent-review gates remain.
+
 ## Binding scope
 
 - Replace the connection duties of 144 structural SDS attachments at 24 ML24Z
@@ -35,7 +49,7 @@ separate pre-gate development: one nominal shared-bolt topology is solved under
 provisional contact/slip inputs while all other stations retain the old proxy.
 It is not an LB-14 candidate case, a joint rating, or a G1/G2 pass.
 
-## Current gate status
+## Historical fixed-frame gate record
 
 The G0 source and scope partition is now exported from the official and
 kerf-right connection-axis packets. The normalized panel records, all 222
