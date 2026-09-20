@@ -191,6 +191,15 @@ However, the changed rails end 5.55 mm short of each principal and leave
 only 1 mm ideal plate clearance; their bracketed force path, bolt/tool
 access, and tolerances are unsolved. The parent hybrid remains rejected.
 
+A separate [HL33 short-bend center pose](hardware_first_center_hl33.md)
+uses a one-piece thicker center header, common post, and widened principals.
+It retains all 66 protected screw receivers and contains its six nominal
+bores, but the widened principals meet six unchanged rails, the upper
+vertical plates meet bottom rails, and the upper principal bores intersect
+those rails. This rejects the installed pose, not the HL33 family. Its
+single lower HL33 is not established for reversible F1 in this arrangement;
+the source does not dimension the assumed horizontal flange-hole offset.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect

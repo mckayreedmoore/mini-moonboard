@@ -1,0 +1,279 @@
+{
+  "status": "rejected_installed_geometry_trial",
+  "pose": "One rear-Y HL33 on one-piece common post, two outward-X HL33 on one-piece thick principals; raised one-piece shaped header; upper Y start -100 mm",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "catalog_source": "https://www.strongtie.com/resources/literature/wood-construction-connectors-catalog",
+  "catalog_mm": {
+    "leg_reach": 82.55,
+    "bend_length": 63.5,
+    "along_bend_hole_offset": 31.75,
+    "vertical_leg_hole_offset": 50.8,
+    "bolt_diameter": 12.7,
+    "bolt_quantity_per_angle": 2,
+    "gauge": 7
+  },
+  "undimensioned_assumptions": {
+    "horizontal_flange_hole_offset_mm": 50.8,
+    "ideal_plate_thickness_mm": 4.55,
+    "wood_bore_diameter_mm": 14.2875,
+    "qualification": "Horizontal hole offset and actual plate thickness are not dimensioned in the catalog drawing. Ideal plate rectangles, bend radii and delivered hole tolerances are not verified; bore is a diagnostic clearance envelope, not a drill size."
+  },
+  "protected_axis_count": 66,
+  "existing_frame_axis_count": 12,
+  "header_bounds_mm": [
+    -1219.2,
+    1216.025,
+    -258.25,
+    -36.0,
+    238.9,
+    327.8
+  ],
+  "post_bounds_mm": [
+    -92.075,
+    92.075,
+    -175.7,
+    -36.0,
+    0.0,
+    238.9
+  ],
+  "principal_bounds_mm": {
+    "base_principal_center_left": [
+      -114.45,
+      -25.55,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ],
+    "base_principal_center_right": [
+      25.55,
+      114.45,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ]
+  },
+  "plate_bounds_mm": {
+    "lower_vertical": [
+      -31.75,
+      31.75,
+      -180.25,
+      -175.7,
+      156.35,
+      238.9
+    ],
+    "lower_seat": [
+      -31.75,
+      31.75,
+      -258.25,
+      -175.7,
+      234.35,
+      238.9
+    ],
+    "upper_left_vertical": [
+      -119.0,
+      -114.45,
+      -100.0,
+      -36.5,
+      327.8,
+      410.35
+    ],
+    "upper_left_seat": [
+      -197.0,
+      -114.45,
+      -100.0,
+      -36.5,
+      327.8,
+      332.35
+    ],
+    "upper_right_vertical": [
+      114.45,
+      119.0,
+      -100.0,
+      -36.5,
+      327.8,
+      410.35
+    ],
+    "upper_right_seat": [
+      114.45,
+      197.0,
+      -100.0,
+      -36.5,
+      327.8,
+      332.35
+    ]
+  },
+  "one_piece_cad_solid": {
+    "post": true,
+    "header": true,
+    "base_principal_center_left": true,
+    "base_principal_center_right": true
+  },
+  "minimum_sampled_blank_envelope_mm": {
+    "post": [
+      184.15,
+      139.7,
+      238.9
+    ],
+    "header": [
+      2435.225,
+      222.25,
+      88.9
+    ],
+    "base_principal_center_left": [
+      88.9,
+      139.7,
+      2466.3113
+    ],
+    "base_principal_center_right": [
+      88.9,
+      139.7,
+      2466.3113
+    ]
+  },
+  "ordinary_stock_example_actual_envelope_mm": {
+    "post": [
+      184.15,
+      139.7,
+      3048.0
+    ],
+    "header": [
+      88.9,
+      241.3,
+      3048.0
+    ],
+    "base_principal_center_left": [
+      139.7,
+      139.7,
+      3048.0
+    ],
+    "base_principal_center_right": [
+      139.7,
+      139.7,
+      3048.0
+    ]
+  },
+  "ordinary_stock_example_dimension_fit": {
+    "post": true,
+    "header": true,
+    "base_principal_center_left": true,
+    "base_principal_center_right": true
+  },
+  "retail_blank_qualification": "Envelope fit is dimensional only; delivered one-piece stock, grade, defects, machining margin, handling and local availability are unverified. CAD fusions define one-piece shapes, not laminated members.",
+  "kicker_seam_x_mm": -1.5875,
+  "kicker_seam_supported": true,
+  "kicker_center_receivers_mm3": {
+    "round_kicker_left_center_1": 438.127,
+    "round_kicker_left_center_2": 438.127,
+    "round_kicker_right_center_1": 438.127,
+    "round_kicker_right_center_2": 438.127
+  },
+  "protected_screw_receiver_loss_mm3": {},
+  "plate_pair_clashes_mm3": {},
+  "plate_intended_wood_clashes_mm3": {},
+  "plate_panel_clashes_mm3": {},
+  "plate_adjacent_wood_clashes_mm3": {
+    "upper_left_vertical": {
+      "base_rail_bottom_left": 10575.886
+    },
+    "upper_right_vertical": {
+      "base_rail_bottom_right": 10575.886
+    }
+  },
+  "new_wood_panel_clashes_mm3": {},
+  "new_wood_adjacent_clashes_mm3": {
+    "base_principal_center_left": {
+      "base_rail_bottom_left": 133291.013,
+      "base_rail_service_lower_left": 135193.278,
+      "base_rail_service_upper_left": 135193.278
+    },
+    "base_principal_center_right": {
+      "base_rail_bottom_right": 133291.013,
+      "base_rail_service_lower_right": 135193.278,
+      "base_rail_service_upper_right": 135193.278
+    }
+  },
+  "bore_bounds_mm": {
+    "lower_post": [
+      -7.1437,
+      7.1437,
+      -175.7,
+      -36.0,
+      180.9563,
+      195.2438
+    ],
+    "lower_header": [
+      -7.1437,
+      7.1437,
+      -233.6438,
+      -219.3562,
+      238.9,
+      327.8
+    ],
+    "upper_left_principal": [
+      -114.45,
+      -25.55,
+      -75.3937,
+      -61.1063,
+      371.4563,
+      385.7438
+    ],
+    "upper_left_header": [
+      -172.3938,
+      -158.1062,
+      -75.3937,
+      -61.1063,
+      238.9,
+      327.8
+    ],
+    "upper_right_principal": [
+      25.55,
+      114.45,
+      -75.3937,
+      -61.1063,
+      371.4563,
+      385.7438
+    ],
+    "upper_right_header": [
+      158.1062,
+      172.3938,
+      -75.3937,
+      -61.1063,
+      238.9,
+      327.8
+    ]
+  },
+  "bore_panel_clashes_mm3": {},
+  "bore_adjacent_wood_clashes_mm3": {
+    "upper_left_principal": {
+      "base_rail_bottom_left": 3818.929
+    },
+    "upper_right_principal": {
+      "base_rail_bottom_right": 3818.929
+    }
+  },
+  "bore_other_new_wood_clashes_mm3": {},
+  "protected_screw_plate_clashes_mm3": {},
+  "protected_screw_bore_clashes_mm3": {},
+  "conditional_63_5_overall_screw_plate_clashes_mm3": {},
+  "conditional_63_5_overall_screw_bore_clashes_mm3": {},
+  "bore_missing_receiver_wood_mm3": {},
+  "independent_bore_crossings_mm3": {},
+  "existing_frame_axis_hardware_clashes_mm3": {},
+  "existing_frame_axis_new_wood_clashes_mm3": {},
+  "failures": [
+    "plate collision",
+    "new wood collision",
+    "bore collision with other material"
+  ],
+  "unmodeled": [
+    "heads, washers, nuts and tool/withdrawal access",
+    "delivered HL33 bends, holes, coatings and tolerances",
+    "wood edge/end distance and joint resistance",
+    "bracket load path and frame redesign for any collision",
+    "delivered screw shaft occupancy and required embedment",
+    "retail stock availability and one-piece machining yield"
+  ],
+  "qualification": "Nominal geometry only. Existing frame axes are checked as occupied cylinders but their receiving wood and resistance are not requalified. No capacity, procurement, cutting or drilling approval."
+}
