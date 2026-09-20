@@ -62,6 +62,10 @@ def test_no_contact_route_is_open_without_releasing_g1() -> None:
     assert by_id["LB-04"]["status"] == "incomplete"
     assert by_id["LB-13"]["status"] == "blocked"
     assert decision["g1_resume_decision"]["drilling_released"] is False
+    center = decision["br904_fixed_center_pose_screen"]
+    assert center["half_inch_nominal_hole_play_ray_filter_cleared"] is False
+    assert center["seven_sixteenths_nominal_nds_hole_range_cleared"] is False
+    assert center["product_rejected"] is False
 
 
 def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:

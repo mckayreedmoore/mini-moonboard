@@ -27,8 +27,21 @@ def test_trial_layout_has_only_a_conditional_search_envelope(
 
 def test_half_inch_trial_loses_ray_proxy_margin_to_possible_factory_hole_play():
     result = screen_center_envelope(12.7, 34.5, 36.5125)
+    assert result["nominal_factory_hole_within_nds_bolt_installation_range"] is True
     assert result["factory_hole_radial_clearance_mm"] == pytest.approx(0.79375)
     assert result["ray_proxy_margin_after_radial_hole_play_mm"] < 0
+    assert result["minimum_vertical_offset_with_nominal_hole_play_mm"] > 34.5
+    assert result["additional_symmetric_y_allowance_after_hole_play_mm"] < 0.13
+    assert result[
+        "additional_y_allowance_at_minimum_vertical_offset_mm"
+    ] == pytest.approx(0.058, abs=0.001)
+
+
+def test_seven_sixteenths_trial_has_only_conditional_extra_allowance():
+    result = screen_center_envelope(11.1125, 34.5, 36.5125)
+    assert result["nominal_factory_hole_within_nds_bolt_installation_range"] is False
+    assert result["minimum_vertical_offset_with_nominal_hole_play_mm"] < 34.5
+    assert result["additional_symmetric_y_allowance_after_hole_play_mm"] > 6.6
 
 
 def test_trial_inputs_must_not_exceed_known_factory_hole() -> None:

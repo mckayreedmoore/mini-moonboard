@@ -55,18 +55,40 @@ def screen_center_envelope(
         return lower + edge_screen_mm / grain_z, upper - edge_screen_mm / grain_z
 
     header_bounds = header.BoundingBox()
-    lower_y = max(
-        header_bounds.ymin + edge_screen_mm,
-        *(edge_bounds(hole_z)[0] for hole_z in vertical_z),
-    )
-    upper_y = min(
-        header_bounds.ymax - edge_screen_mm,
-        *(edge_bounds(hole_z)[1] for hole_z in vertical_z),
-    )
+
+    def row_bounds(hole_z: tuple[float, float]) -> tuple[float, float]:
+        return (
+            max(
+                header_bounds.ymin + edge_screen_mm,
+                *(edge_bounds(z_mm)[0] for z_mm in hole_z),
+            ),
+            min(
+                header_bounds.ymax - edge_screen_mm,
+                *(edge_bounds(z_mm)[1] for z_mm in hole_z),
+            ),
+        )
+
+    lower_y, upper_y = row_bounds(vertical_z)
     row_y = (lower_y + upper_y) / 2
     ray_mm, _, _ = _grain_ray_to_face_boundary(face, row_y, vertical_z[0], lines[0][2])
     ray_filter_mm = 3.5 * bolt_diameter_mm
     radial_play_mm = (FACTORY_HOLE_DIAMETER_MM - bolt_diameter_mm) / 2
+    nominal_nds_hole_envelope = (
+        bolt_diameter_mm + 25.4 / 32
+        <= FACTORY_HOLE_DIAMETER_MM
+        <= bolt_diameter_mm + 25.4 / 16
+    )
+    if abs(ray_mm * grain_z - first_vertical_offset_mm) > 0.001:
+        raise ValueError(
+            "Trial grain ray no longer reaches the expected horizontal end"
+        )
+    minimum_vertical_offset_mm = (ray_filter_mm + radial_play_mm) * grain_z
+    remaining_row_allowance_mm = (upper_y - lower_y) / 2 - radial_play_mm
+    minimum_z = (
+        z + minimum_vertical_offset_mm,
+        z + minimum_vertical_offset_mm + FACTORY_PITCH_MM,
+    )
+    minimum_lower_y, minimum_upper_y = row_bounds(minimum_z)
     return {
         "product": "Newhouse BR904",
         "station": "clip_split_base_center_left",
@@ -80,6 +102,8 @@ def screen_center_envelope(
             FACTORY_HOLE_DIAMETER_MM - bolt_diameter_mm, 6
         ),
         "factory_hole_radial_clearance_mm": round(radial_play_mm, 6),
+        "nominal_factory_hole_within_nds_bolt_installation_range": nominal_nds_hole_envelope,
+        "nds_hole_range_source": "2024 NDS 12.1.3.2; nominal comparison only",
         "hole_pitch_mm": FACTORY_PITCH_MM,
         "pitch_applies_to_both_legs_verified": False,
         "first_vertical_offset_from_bend_mm": first_vertical_offset_mm,
@@ -96,8 +120,17 @@ def screen_center_envelope(
         "reversible_4d_upper_y_mm": round(upper_y, 6),
         "reversible_4d_band_width_mm": round(upper_y - lower_y, 6),
         "maximum_symmetric_row_allowance_mm": round((upper_y - lower_y) / 2, 6),
+        "additional_symmetric_y_allowance_after_hole_play_mm": round(
+            remaining_row_allowance_mm, 6
+        ),
+        "additional_y_allowance_at_minimum_vertical_offset_mm": round(
+            (minimum_upper_y - minimum_lower_y) / 2 - radial_play_mm, 6
+        ),
         "nearest_grain_ray_to_oblique_end_mm": round(ray_mm, 6),
         "grain_ray_proxy_threshold_mm": round(ray_filter_mm, 6),
+        "minimum_vertical_offset_with_nominal_hole_play_mm": round(
+            minimum_vertical_offset_mm, 6
+        ),
         "nearest_ray_proxy_margin_mm": round(ray_mm - ray_filter_mm, 6),
         "ray_proxy_margin_after_radial_hole_play_mm": round(
             ray_mm - ray_filter_mm - radial_play_mm, 6

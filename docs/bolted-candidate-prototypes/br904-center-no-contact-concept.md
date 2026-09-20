@@ -31,7 +31,7 @@ path, not proof that two supplied parts can occupy those faces.
      center post| BR904 vertical leg: two occupied holes
 ```
 
-The scripts use a **hypothetical** 34.5 mm first vertical hole offset and
+The script uses a **hypothetical** 34.5 mm first vertical hole offset and
 36.5125 mm first horizontal offset, then applies Newhouse's advertised
 47.625 mm spacing to *both* legs as a trial assumption. Neither first offset
 nor the two actual leg pitches is a BR904 factory measurement. At 1/2 in bolt
@@ -41,26 +41,42 @@ would mirror below the header at Z = 204.4 and 156.775 mm, subject to its
 actual raw face and edge check. No installation hole may be marked from
 these coordinates.
 
-| Search variable | 1/2 in preferred trial | 7/16 in defect alternative |
+| Search variable | 1/2 in comparator | 7/16 in diagnostic |
 | --- | ---: | ---: |
 | Nominal principal grain ray to actual oblique end | 45.037 mm | 45.037 mm |
 | Margin over 3.5D *ray-only search filter* | 0.587 mm | 6.143 mm |
 | Margin after maximum radial play in nominal factory hole | -0.207 mm | 4.555 mm |
+| Minimum near-hole vertical offset including nominal hole play | 34.659 mm | 31.010 mm |
 | Reversible 4D two-edge Y row band, nominal | 1.837 mm | 16.476 mm |
 | Maximum symmetric Y allowance, before other errors | 0.918 mm | 8.238 mm |
+| Further symmetric Y allowance after nominal hole play | 0.125 mm | 6.651 mm |
 | Factory-hole minus bolt diameter | 1.588 mm | 3.175 mm |
+| Nominal factory hole within ordinary NDS bolt-hole range | Yes, at limit | No |
 
 The 1/2 in trial fails the ray-only search filter if the bolt is displaced
 toward the oblique end by the full nominal factory-hole radial clearance;
 wood-hole play and manufacturing tolerances are not even included. It is not
 a viable nominal search target without a justified centering detail or a
-larger measured near-hole offset. The row band is also nearly tolerance-free.
-The 7/16 in alternative widens that band but increases bolt-to-factory-hole
-clearance; bearing, centering, washer coverage, load sharing, and permitted
-fastener schedule would need their own basis. Neither is a formal 2024 NDS
+a larger measured near-hole offset. At the 34.659 mm threshold, the 1/2 in
+trial has only about 0.058 mm further symmetric Y allowance after nominal
+steel-hole play, before wood-hole, fabrication, or receiving variation. The
+row band is thus also nearly tolerance-free.
+The 7/16 in diagnostic widens that band, but its 1/8 in diametral steel-hole
+clearance exceeds the ordinary 1/16 in maximum in
+[2024 NDS §12.1.3.2](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf).
+It is **not an installable alternative under that ordinary bolt provision**.
+A separate justified method would be needed before evaluating its bearing,
+centering, washer coverage, load sharing, and fastener schedule. Neither
+column is a formal 2024 NDS
 oblique-end verdict. The ray is not the NDS square-cut end distance. The
 conditional 4D two-edge requirement does not establish which edge is loaded
 under each simultaneous action.
+
+[2024 NDS §12.1.2.2](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf)
+defines bolt end distance from a square-cut end. Its separate sloping-end
+figure for split-ring/shear-plate connectors in Chapter 13 cannot be
+transferred to these bolts. A completed wood check still needs a defensible
+oblique-end interpretation and the actual simultaneous load direction.
 
 The exact placement still needs a genuine sample or a controlled BR904
 drawing. Before any installed-fit verdict, record both bend-to-hole offsets,
