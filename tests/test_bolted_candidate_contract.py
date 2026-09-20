@@ -18,6 +18,9 @@ def test_candidate_identity_and_scope_are_explicit() -> None:
     assert metadata["structural_connector_schedule_status"] == (
         "factory_connector_unselected"
     )
+    assert metadata["hidden_frame_changes_allowed"] is True
+    assert metadata["panel_screw_axis_policy"] == "preserve_all_66_coordinates"
+    assert metadata["climbing_surface_policy"] == "preserve_panel_outlines_and_angle"
 
 
 def test_scaffold_preserves_raw_inventory_and_panel_connections() -> None:

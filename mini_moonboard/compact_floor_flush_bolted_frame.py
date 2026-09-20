@@ -1,9 +1,10 @@
-"""Incomplete but explicit scaffold for the AB90 bolted candidate.
+"""Incomplete scaffold for the separate structural-only bolted candidate.
 
-The scaffold preserves raw baseline geometry, twelve existing frame bolts, all
-66 panel/kicker screws, and electrical datums. Structural AB90 family layouts
-are intentionally absent until their physical stacks and access checks exist.
-It must not be exported as a complete candidate.
+The scaffold uses raw baseline geometry and twelve frame bolts as a starting
+layout, while retaining all 66 panel/kicker screw axes and electrical datums.
+Hidden frame changes are permitted for factory connectors, but no selected
+structural layout, machining, or acceptance model exists yet. It must not be
+exported as a complete candidate.
 """
 
 import math
@@ -67,6 +68,9 @@ def candidate_metadata() -> dict[str, object]:
         "structural_connector_schedule_status": "factory_connector_unselected",
         "owner_connector_scope": "factory_connectors_only",
         "custom_cut_drilled_steel_allowed": False,
+        "hidden_frame_changes_allowed": True,
+        "panel_screw_axis_policy": "preserve_all_66_coordinates",
+        "climbing_surface_policy": "preserve_panel_outlines_and_angle",
         "panel_policy": "retain_existing_66_hillman_screws",
         "future_panel_inserts": "deferred_not_a_dependency",
         "structural_wood_thread_removals_per_move_target": 0,
