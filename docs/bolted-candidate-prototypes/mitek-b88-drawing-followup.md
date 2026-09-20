@@ -70,6 +70,15 @@ adjusted to them**. Neither source supplies a complete rating for a MoonBoard
 joint wrench, separation, independent flange moments, or the actual member
 and bolt arrangement.
 
+The same ESR's Section 3.29.1 and Table 29 identify B-series base steel as
+ASTM A653 Structural Steel Grade 40, G90, with **0.099 in minimum base-steel
+thickness** for 12 gauge. These are published conditional inputs for a
+separate formed-bracket/bolt/wood calculation, not a finished B88 resistance.
+That calculation would still need the actual installed load path, hole and
+bend section geometry, combined actions, and applicable design standard.
+Do not infer a usable `C_D = 1.0` B88 value by dividing the barred `C_D =
+1.6` table values or treating flat-sheet yield as a bracket rating.
+
 ## Disposition
 
 **Enough for a reversible nominal-geometry trial, not enough for fabrication
