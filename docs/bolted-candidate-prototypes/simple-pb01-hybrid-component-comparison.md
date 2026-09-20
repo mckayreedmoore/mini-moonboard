@@ -44,6 +44,17 @@ not verified future loading directions or six-case envelopes.
 | Rail r1 | 44.85° | 45.15° | 0.0259 | 0.0275 |
 | Rail r2 | 53.11° | 36.89° | 0.0317 | 0.0336 |
 
+The principal pair's bolt row is along local N (45.000 mm pitch); the rail
+pair's row is along X (40.000 mm pitch). Their respective modeled lateral
+forces are **77.44°/82.39°** and **44.85°/53.11°** from those rows.
+[2024 NDS §11.3.6.2](https://web-media.awc.org/wp-content/uploads/2021/12/17205958/AWC_NDS2024_20250124_AWCWebsite_Chapter11.pdf)
+defines a dowel-fastener row for group action by alignment with load.
+No direct aligned-row `C_g` is assigned to these oblique modeled actions;
+the output keeps `group_action_factor=null`. The nominal ¼-in bolt also
+should not be casually put in the `D < ¼ in` exception merely because a
+thread-root sensitivity is below ¼ in. The applicable group method,
+force-sharing and combined directions remain separate open checks.
+
 | Host bolt | Axial on host (N) | Lateral (N) | 0.189 ratio 0°/90° | 0.180 ratio 0°/90° | Positive axial / wood annulus reference |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Principal u1 | -0.635 | 14.939 | 0.0269 / 0.0336 | 0.0285 / 0.0357 | null |

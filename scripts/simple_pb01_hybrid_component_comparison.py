@@ -93,13 +93,24 @@ def compare():
     interfaces = {}
     tangent = (0, math.cos(math.radians(50)), math.sin(math.radians(50)))
     normal = (0, -math.sin(math.radians(50)), math.cos(math.radians(50)))
-    for family, host, side_length, expected_axis, host_grain, names in (
+    for (
+        family,
+        host,
+        side_length,
+        expected_axis,
+        host_grain,
+        row_grain,
+        pitch_mm,
+        names,
+    ) in (
         (
             "upright",
             "base_principal_center_right",
             5.5,
             (1, 0, 0),
             tangent,
+            normal,
+            45.0,
             ("pb01_upright_u1", "pb01_upright_u2"),
         ),
         (
@@ -108,6 +119,8 @@ def compare():
             2.25,
             tangent,
             (1, 0, 0),
+            (1, 0, 0),
+            40.0,
             ("pb01_rail_r1", "pb01_rail_r2"),
         ),
     ):
@@ -119,6 +132,27 @@ def compare():
         require(
             tuple(b["name"] for b in face["bolts"]) == names,
             "PB01 bolt identity changed",
+        )
+        row_delta = [
+            second - first
+            for first, second in zip(
+                face["bolts"][0]["point_xyz_mm"],
+                face["bolts"][1]["point_xyz_mm"],
+                strict=True,
+            )
+        ]
+        row_pitch = math.sqrt(sum(value * value for value in row_delta))
+        require(
+            math.isclose(row_pitch, pitch_mm, abs_tol=0.01), "PB01 row pitch changed"
+        )
+        row_axis = [value / row_pitch for value in row_delta]
+        require(
+            math.isclose(
+                abs(sum(a * b for a, b in zip(row_axis, row_grain, strict=True))),
+                1.0,
+                abs_tol=1e-5,
+            ),
+            "PB01 row direction changed",
         )
         rows = []
         for bolt in face["bolts"]:
@@ -182,6 +216,8 @@ def compare():
                     "cleat_grain_axis_xyz": normal,
                     "host_load_to_grain_degrees": host_angle,
                     "cleat_load_to_grain_degrees": cleat_angle,
+                    "row_to_lateral_degrees": angle_to_grain(lateral_xyz, row_axis),
+                    "group_action_factor": None,
                     "conditional_lateral_yield": roots,
                     "washer_positive_axial_reference_lbf": washer_lbf,
                     "washer_positive_axial_ratio": axial * N_TO_LBF / washer_lbf
@@ -190,7 +226,13 @@ def compare():
                     "unknowns": dict.fromkeys(UNKNOWN),
                 }
             )
-        interfaces[family] = {"host": host, "bolts": rows}
+        interfaces[family] = {
+            "host": host,
+            "row_axis_xyz": row_axis,
+            "row_pitch_mm": row_pitch,
+            "aligned_row_group_action_status": "unresolved_oblique_lateral_force",
+            "bolts": rows,
+        }
     return {
         "case": "a12-left",
         "scope": "diagnostic_one_cleat_23_old_proxies",

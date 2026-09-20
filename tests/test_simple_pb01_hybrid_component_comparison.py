@@ -74,4 +74,16 @@ def test_direction_specific_grain_angles_and_joint_status():
     assert rows["pb01_rail_r1"]["cleat_load_to_grain_degrees"] == pytest.approx(45.1488)
     for row in rows.values():
         assert row["conditional_lateral_yield"]["0.189"]["modeled_direction_ratio"] > 0
+        assert row["group_action_factor"] is None
+        assert 0 < row["row_to_lateral_degrees"] < 90
+    assert result["interfaces"]["upright"]["row_pitch_mm"] == pytest.approx(
+        45, abs=0.001
+    )
+    assert result["interfaces"]["rail"]["row_pitch_mm"] == pytest.approx(40, abs=0.001)
+    assert rows["pb01_upright_u1"]["row_to_lateral_degrees"] == pytest.approx(
+        77.436, abs=0.001
+    )
+    assert rows["pb01_rail_r1"]["row_to_lateral_degrees"] == pytest.approx(
+        44.8512, abs=0.001
+    )
     assert result["joint_utilization"] is None
