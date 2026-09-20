@@ -236,6 +236,18 @@ seats leave a 25.4-mm center gap across the same 4.55-mm-high seam-support
 band. This trial omits the upper joint; it is rejected, not a rated paired
 detail. A kiln-dried 4×8 listing is only a dimensional stock lead.
 
+An [integral center-tongue HL33 full-center trial](hardware_first_center_tongue.md)
+keeps the 190.5 × 90.47-mm one-piece post and thick shaped header, cuts the
+two principal toes and six rail ends, and adds one 25.4-mm-wide wooden tongue
+inside the lower seat gap. It is the first such trial with **no nominal CAD
+collision** and all 66 historical screw receiving volumes retained. Its
+ideal kicker-edge backing widths are 11.1125/14.2875 mm, with only 1.5875
+mm left margin over a half-plywood-thickness comparator; neither a bearing
+minimum nor delivered tolerance is established. The lower pair shares one
+post bolt, the upper principals each have only one HL33, and the cut rails
+have no bracketed center attachment. This is `geometry_only_unqualified`,
+not G1 closure, a complete joint rating, or a shop layout.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
