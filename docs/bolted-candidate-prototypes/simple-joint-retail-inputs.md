@@ -116,6 +116,58 @@ Verify thread runout, both washers, nut engagement and projection, finish,
 access, and every joint limit state before choosing any bolt. No approval to
 buy or drill follows from the 8-in length or A307 label.
 
+## Independent 1/4-in through-bolt leads for the two earlier diagnostic grips
+
+Checked 2026-09-20; **not** a substitution into the 3/8-in CAD or a selected
+joint. The one-bolt grain-N 4×6 trial has a 177.8-mm (7.0-in) upright
+wood grip and a 95.25-mm (3.75-in) rail grip. An 8-in bolt nominally
+leaves 25.4 mm (1 in) and a 5-in bolt leaves 31.75 mm (1.25 in)
+after those respective *wood-only* grips. Both residuals must still cover
+two washers, nut height, full thread engagement/projection, thread runout,
+and tolerances. These wood-only grips also apply at each corresponding bolt
+in the later four-bolt pose; its 182.8/100.25-mm CAD cylinders add 5 mm of
+exterior diagnostic envelope, not more wood.
+
+| 1/4-20 hex-bolt lead | Documented grade and thread/head evidence | Visible online price |
+| --- | --- | --- |
+| [Home Depot Everbilt zinc 8-in single](https://www.homedepot.com/p/204281626), model 800696 | Product specifications say **A307**; highlights say **6-in thread length** and **7/16-in drive**. Nominally 2 in of non-threaded length if the stated lengths share a datum; exact transition/runout, head height/outer envelope, shaft tolerance and under-head measurement drawing are absent. | Product page **$0.94**; a category snapshot showed $0.85, so ZIP/session price is not stable. |
+| [Home Depot Everbilt zinc 5-in single](https://www.homedepot.com/p/204633308), model 800676 | Product specifications say **A307**; highlights say **fully threaded** and **7/16-in drive**. Exact major diameter, thread-to-head runout, head height/outer envelope and dimensional tolerances are absent. | Product page **$0.62**; a category snapshot showed $0.57. |
+| [Home Depot Prime-Line zinc 8-in 10-pack](https://www.homedepot.com/p/310465152), model 9058821 | Listing expressly says **ASTM A307 Grade A**, **ASME B18.2.1**, and UNC-2A; no product-specific shank/thread length, head dimensions or socket envelope. Description says zinc plated while a detail field says uncoated. | Search snapshots ranged **$16.80–$19.49 per 10**; live local pack price unresolved. |
+| [Home Depot Prime-Line zinc 5-in 25-pack](https://www.homedepot.com/p/310326760), model 9058745 | Listing expressly says **ASTM A307 Grade A** and **ASME B18.2.1**; product-specific thread/shank and head dimensions not shown. | **$14.52 per 25** in the inspected retailer snapshot. |
+| [Lowe's Hillman zinc 5-in single](https://www.lowes.com/pd/Hillman-1-4-in-x-5-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000379721), model 190059, item 63479 | Partially threaded (`Full Thread: No`); listing's grade fields are inconsistent/unclear, with no ASTM grade or thread length to adopt. Head/socket dimensions not found. | **$0.67 each** in inspected listing. |
+
+The Lowe's [Hillman zinc 8-in 100-count](https://www.lowes.com/pd/Hillman-1-4-in-x-8-in-Zinc-Plated-Coarse-Thread-Hex-Bolt-100-Count/4462003),
+model 190075, is **marked no longer sold** and supplies no usable current
+price; it is not an 8-in procurement answer. A lag screw is not a
+through-bolt. The 7/16-in drive is a hex-head *across-flats/tool-size*
+lead, not its across-corners size, head height, or installed socket
+clearance. ASME B18.2.1 citation does not substitute for a controlled
+product drawing or measured delivered bolts.
+
+| Companion 1/4-in lead | Listing evidence | Price / purchase caveat |
+| --- | --- | --- |
+| [Home Depot Everbilt zinc 1/4-20 hex nut](https://www.homedepot.com/p/204274089), model 801730 | Product fields say **Grade 2**, 20 TPI, 7/16-in outside/drive size. Nut height and thread proof-load documentation were not found. | **$6.98 / 100** in inspected retailer page; not $0.07 cash for one. |
+| [Lowe's Hillman zinc 1/4-20 hex nut](https://www.lowes.com/pd/Hillman-1-4-in-x-20-Zinc-Plated-Steel-Hex-Nut/1001265718), model 490622 | Product fields say “All-Purpose,” while overview generically discusses Grade 2; **do not infer a verified mechanical grade**. Nut height absent. | **$1.98 / 12**. |
+| [Lowe's Hillman zinc 1/4-in flat washer](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated-Standard-Flat-Washer-16-Count/3035987), model 490687 | Product fields list **5/8-in outside diameter** and **1/16-in thickness**. Material/finish are stated; load-bearing washer grade, tolerances and bending capacity are not. | **$1.98 / 16**. |
+| [Home Depot Everbilt zinc 1/4-in flat washer](https://www.homedepot.com/p/204276405), model 800452 | Same-finish 100-pack retail lead; specific outside diameter/thickness and bearing capacity not established by the inspected page. | **$7.97 / 100**. |
+
+The two listed 1/16-in Hillman washers alone use 3.175 mm of length,
+leaving nominal residuals of 22.225 mm (8-in/upright) and 28.575 mm
+(5-in/rail) **before the nut and thread projection**. The 5/8-in washer
+OD is not a wood-bearing or washer-bending approval, and the 7/16-in
+hex drive is not a real socket-access envelope. Grade/finish compatibility,
+thread runout and shank location across both wood members, installation
+access, NDS geometry and all joint limit states remain open. Retail listings
+show ordinary leads only; no contact, purchase, or construction selection.
+In particular, a 1/4-in bolt's thread-root diameter is less than 1/4 in.
+If delivered threads enter either member beyond the 2024 NDS quarter-bearing-
+length allowance, the current
+[`wood_wood_single_shear_reference`](../../mini_moonboard/bolted_wood_wood_yield.py)
+cannot evaluate that effective sub-1/4-in diameter. The fully threaded 5-in
+lead cannot be silently run as a full 1/4-in shank; it needs the applicable
+sub-1/4-in method and documented actual root/thread geometry or a different
+verified bolt configuration.
+
 ## Decision boundary
 
 Before costing or rating a specific joint, freeze its bolt diameter/head type,
