@@ -70,6 +70,13 @@ kicker screw axis at Z = 192 mm, 3.9 mm above the post end and only 3.9 mm
 from the new header's bottom edge. This is a nominal centerline screen, not
 a bore or screw-body check. The coordinates come from
 `uncut_wood_parts()` and the kerf-right `connection-axes.csv`.
+Do not convert a projected Y/Z overlap into a screw/bolt clash: in one
+principal-side/header-top HL35 trial, the bend is at X = −89.05 mm and its
+header flange extends outward. Its 2-in transverse factory-hole offset
+then puts header bolt axes at X = −139.85 mm, while the protected kicker
+screw is at X = −70 mm. The 69.85-mm X separation rules out an axis
+intersection in that particular pose. It does not cure the post/header
+solid overlap or establish flange, washer, or tool clearance.
 In X, the original left center pieces span −89.05 to −50.95 mm and their
 protected main/kicker screw axes use X = −70 mm. A centered 88.9-mm-wide
 solid receiver would span −114.45 to −25.55 mm and retain those axis centers
