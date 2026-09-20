@@ -10,10 +10,12 @@ from fea.reinforced_frame_demand import repository_source_closure
 from scripts.clear_space_batch import CASES
 from scripts.simple_pb01_hybrid_native import DIAGNOSTIC, ROOT, HybridPB01, prepare_case
 
-PRODUCER_PATHS = tuple(repository_source_closure(
-    [Path(__file__), ROOT / "scripts/simple_pb01_hybrid_native.py"],
-    packages=("fea", "mini_moonboard", "scripts"),
-)) + (DIAGNOSTIC,)
+PRODUCER_PATHS = tuple(
+    repository_source_closure(
+        [Path(__file__), ROOT / "scripts/simple_pb01_hybrid_native.py"],
+        packages=("fea", "mini_moonboard", "scripts"),
+    )
+) + (DIAGNOSTIC,)
 LOADED_PRODUCER_SHA256 = native.extra_source_hashes(PRODUCER_PATHS)
 
 
