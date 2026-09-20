@@ -71,6 +71,14 @@ neither drawing states manufacturing tolerances. See the
 [drawing follow-up](mitek-b88-drawing-followup.md). ICC ESR-3455 states its
 `C_D = 1.6` B88 loads cannot be applied or adjusted to other durations.
 The previously checked Lowe's B66 listing was no longer sold.
+The [Home Depot UB66 listing](https://www.homedepot.com/p/313507617)
+and the same MiTek conversion chart establish the exact B66 retail identity.
+Its [public DXF](https://www.mitek-us.com/wp-content/uploads/files/Drawing%20Library/B66_3view.dxf)
+contains four nominal circle centers; see the
+[B66 drawing follow-up](mitek-b66-drawing-followup.md). B66 is narrower and
+shorter than B88 but still requires the 3-in actual wood receiver and has
+the same ESR duration restriction. It is the next bounded *fit* comparison,
+not an accepted replacement for a rejected HL pose.
 
 ## First center concepts and their limits
 
