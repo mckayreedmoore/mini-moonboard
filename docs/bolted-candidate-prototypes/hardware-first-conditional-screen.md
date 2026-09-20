@@ -246,6 +246,16 @@ dimensions may change with drying; the HL minimum 3.5-in installed timber
 thickness, grade, species, and actual straight usable length must be checked
 on the delivered material before applying catalog loads or cutting.
 
+The previously cited Lowe's 4×10×10-ft entries
+([one listing](https://www.lowes.com/pd/4-in-x-10-in-x-10-ft-Douglas-Fir-Lumber-Common-3-5-in-x-9-5-in-x-10-ft-Actual/50303523),
+[another listing](https://www.lowes.com/pd/4-in-x-10-in-x-10-ft-Douglas-Fir-Lumber-Common-3-562-in-x-9-5-in-x-10-ft-Actual/1000028857))
+now explicitly say they are no longer sold online. A current
+[4×10×12-ft #2-and-better Douglas-fir listing](https://www.lowes.com/pd/4-in-x-10-in-x-12-ft-Douglas-Fir-Lumber-Common-3-562-in-x-9-5-in-x-12-ft-Actual/1000028861)
+states 3.562 × 9.5 in actual section and would give cutting-length margin
+for the approximately 2435-mm one-piece header envelope. This is a
+dimension-only candidate: the green/anti-stain condition, local stock,
+delivered dimensions, usable yield and shop handling are not verified.
+
 For a *different* short-bend HL33 outer-post trial, [Lowe's 4×8×8-ft
 Douglas-fir #2-and-better green lumber](https://www.lowes.com/pd/4-in-x-8-in-x-8-ft-Douglas-Fir-Lumber/1000028833)
 lists 3.562 × 7.5 in actual section. That is a dimensional lead for a
