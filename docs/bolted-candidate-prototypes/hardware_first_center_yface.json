@@ -1,0 +1,76 @@
+{
+  "status": "rejected_installed_geometry_trial",
+  "concept": "single centered nominal 6x8 solid post with opposed centered Y-face HL35 lower angles at existing header underside",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "all_66_panel_axes_unchanged": true,
+  "common_post_bounds_mm": [
+    -92.075,
+    92.075,
+    -175.7,
+    -36.0,
+    0,
+    238.9
+  ],
+  "kicker_inner_edges_x_mm": [
+    -1.5875000000000454,
+    -1.5875
+  ],
+  "original_post_material_missing_mm3": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "other_wood_overlap": [],
+  "front_face_and_kicker_back_y_mm": [
+    -36.0,
+    -36.0
+  ],
+  "front_angle_nominal_envelope": {
+    "length_x_mm": 127.0,
+    "reach_mm": 82.55,
+    "assumed_plate_mm": 4.55
+  },
+  "panel_flange_clashes": [
+    {
+      "panel": "kicker_left",
+      "flange": "front_vertical",
+      "overlap_mm3": 23254.49
+    },
+    {
+      "panel": "kicker_left",
+      "flange": "front_seat",
+      "overlap_mm3": 5142.82
+    },
+    {
+      "panel": "kicker_right",
+      "flange": "front_vertical",
+      "overlap_mm3": 24447.028
+    },
+    {
+      "panel": "kicker_right",
+      "flange": "front_seat",
+      "overlap_mm3": 5406.554
+    }
+  ],
+  "protected_screw_flange_clashes": [],
+  "common_post_kicker_receivers": [
+    {
+      "name": "round_kicker_left_center_1",
+      "common_post_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_left_center_2",
+      "common_post_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_right_center_1",
+      "common_post_intersection_mm3": 438.127
+    },
+    {
+      "name": "round_kicker_right_center_2",
+      "common_post_intersection_mm3": 438.127
+    }
+  ],
+  "number_of_protected_axes_screened": 66,
+  "bores_and_hardware": "Not sized: this centered face-mounted angle already occupies the fixed kicker panel. Post/header/principal bores, washer/head/nut stacks and tool access cannot rescue that overlap; no factory hole or drilling location is established.",
+  "disposition": "Reject this paired Y-face HL35 pose. To retain continuous kicker-edge backing, the post front face meets the panel back at Y=-36 mm; a face-mounted front bracket of nonzero thickness necessarily occupies panel space. Moving the post rearward removes that direct support and is a different blocking concept. No load rating, fabrication, or drilling follows."
+}
