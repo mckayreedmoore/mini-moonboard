@@ -171,6 +171,31 @@ actual force directions, which edges are loaded, applicable 2024 NDS
 factors, a real nut/socket path, and assembly sequence before deciding
 whether an adjustment or reduced-value detail is credible.
 
+The maintained producer also compares the **same adjusted four-bolt pose**
+with a nominal 1/4-in (6.35-mm) bolt and 7.5-mm diagnostic bore, within the
+7.14375–7.9375-mm nominal hole interval. The 300-mm cleat, all four centers,
+25.4-mm diagnostic washer cylinders, and 40-mm straight-tool cylinders stay
+fixed. Under the same *conditional* 7D front-end, 4D rear-edge, and 4D row
+pitch combination, the 139.7-mm upright host has 69.85 mm available for a
+25.4-mm pitch, a **44.45-mm margin**; the actual 45-mm upright pitch also
+exceeds 25.4 mm by 19.6 mm. The first upright center has 10.709 mm beyond
+conditional 7D at the host front; the second has 14.141 mm beyond 4D at the
+host rear. The centered cleat T edge has 3.175 mm beyond conditional
+4D, the rail host rear N edge 34.141 mm, and the second rail bolt's far cleat
+X edge 4.3 mm. The rail nut-side tool retains 6.3 mm to the upper rail.
+The solid screen finds complete bores, seated diagnostic washers, no tool,
+hardware, timber, or panel clashes, and no intersections with the 66 fixed
+axes or either purchased-Hillman proxy. This removes the specified nominal
+3/8-in placement conflicts **only under those conditional geometry rules**.
+Loaded edges and ends, force directions, group behavior, real bearing shank,
+washer/nut/socket dimensions, assembly access, strength, and stock remain
+unverified. It does not select a product or diameter, rate the joint, or
+release drilling; the 3/8-in results remain a separate comparison.
+The [ordinary-retail 1/4-in bolt screen](quarter-inch-bolt-source-screen.md)
+found plausible store listings but no exact product with both a controlled
+thread-root range and a defensible bending-yield input. The geometry result
+therefore cannot yet become a product-backed 2024 NDS joint check.
+
 ## Preliminary mechanics and cost boundary
 
 For both concepts, derive simultaneous force and moment about one common

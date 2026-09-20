@@ -11,8 +11,12 @@ from scripts.clear_space_batch import CASES
 from scripts.simple_pb01_hybrid_native import DIAGNOSTIC, ROOT, HybridPB01, prepare_case
 
 PRODUCER_PATHS = tuple(
-    repository_source_closure(
-        [Path(__file__), ROOT / "scripts/simple_pb01_hybrid_native.py"],
+        repository_source_closure(
+            [
+                Path(__file__),
+                ROOT / "scripts/simple_pb01_hybrid_native.py",
+                ROOT / "scripts/simple_rail_joint_comparison.py",
+            ],
         packages=("fea", "mini_moonboard", "scripts"),
     )
 ) + (DIAGNOSTIC,)

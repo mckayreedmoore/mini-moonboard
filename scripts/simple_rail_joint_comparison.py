@@ -493,9 +493,19 @@ def _screen_grain_n_cleat(
 
 
 def _screen_grain_n_group(
-    upright, rail, neighbors, panel, panel_axis_solids, purchased_screws
+    upright,
+    rail,
+    neighbors,
+    panel,
+    panel_axis_solids,
+    purchased_screws,
+    *,
+    bolt_diameter=BOLT_DIAMETER,
+    bore_diameter=DIAMETER,
 ):
     """One four-bolt 4x6 pose; diagnostics only, including an initial rejected front."""
+    if not bolt_diameter + 25.4 / 32 <= bore_diameter <= bolt_diameter + 25.4 / 16:
+        raise ValueError("diagnostic bore outside 2024 NDS nominal bolt-hole interval")
     ub, rb = upright.BoundingBox(), rail.BoundingBox()
     rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
     rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
@@ -541,7 +551,7 @@ def _screen_grain_n_group(
             lengths = {"rail": 38.1, "cleat": t_width}
             other = {"upright": upright, **neighbors, **panel}
         bolt, bore, washers, tools = _bolt_report(
-            key, point, axis, grip, hosts, lengths, other
+            key, point, axis, grip, hosts, lengths, other, diameter=bore_diameter
         )
         bolts[key] = bolt
         envelopes[key] = {
@@ -671,13 +681,15 @@ def _screen_grain_n_group(
         "edge_end_spacing_structurally_qualified": False,
         "conditional_edge_caution": "second rail bolt is only 29.7 mm from cleat far X edge; loaded-edge rule and simultaneous action unverified",
         "conditional_upright_n_feasibility": {
-            "bolt_diameter_mm": 9.525,
+            "bolt_diameter_mm": bolt_diameter,
             "host_n_span_mm": 139.7,
-            "hypothetical_front_end_7d_mm": 66.675,
-            "hypothetical_rear_loaded_edge_4d_mm": 38.1,
-            "hypothetical_required_in_row_pitch_4d_mm": 38.1,
-            "available_pitch_if_all_apply_mm": 34.925,
-            "pitch_shortfall_if_all_apply_mm": 3.175,
+            "hypothetical_front_end_7d_mm": 7 * bolt_diameter,
+            "hypothetical_rear_loaded_edge_4d_mm": 4 * bolt_diameter,
+            "hypothetical_required_in_row_pitch_4d_mm": 4 * bolt_diameter,
+            "available_pitch_if_all_apply_mm": round(139.7 - 11 * bolt_diameter, 3),
+            "pitch_shortfall_if_all_apply_mm": round(
+                max(0, 15 * bolt_diameter - 139.7), 3
+            ),
             "actual_cleat_front_end_of_first_upright_bolt_mm": round(
                 265 - min(upright_n), 3
             ),
@@ -701,6 +713,41 @@ def _screen_grain_n_group(
             "300-mm usable graded grain-N 4x6 stock, post-rip grade/dimensions, and purchase cost",
         ],
     }
+    if bolt_diameter != BOLT_DIAMETER:
+        group.update(
+            nominal_trial_bolt_diameter_mm_not_selected=bolt_diameter,
+            diagnostic_wood_bore_diameter_mm_not_drill_instruction=bore_diameter,
+            nds_2024_nominal_hole_interval_mm=[
+                bolt_diameter + 25.4 / 32,
+                bolt_diameter + 25.4 / 16,
+            ],
+            conditional_placement_margins_mm={
+                "upright_host_pitch_if_all_apply": round(139.7 - 15 * bolt_diameter, 3),
+                "first_upright_host_front_end_if_7d_applies": round(
+                    265 - min(upright_n) - 7 * bolt_diameter, 3
+                ),
+                "second_upright_host_rear_edge_if_4d_applies": round(
+                    max(upright_n) - 310 - 4 * bolt_diameter, 3
+                ),
+                "actual_upright_pitch_if_4d_applies": round(45 - 4 * bolt_diameter, 3),
+                "cleat_t_edge_if_4d_applies": round(t_width / 2 - 4 * bolt_diameter, 3),
+                "first_rail_host_end_if_7d_applies": round(70 - 7 * bolt_diameter, 3),
+                "rail_host_rear_n_edge_if_4d_applies": round(
+                    max(rail_n) - 290 - 4 * bolt_diameter, 3
+                ),
+                "second_rail_cleat_far_x_edge_if_4d_applies": round(
+                    x_width - 110 - 4 * bolt_diameter, 3
+                ),
+                "rail_nut_tool_to_upper_rail": round(
+                    min(v.Y * T[0] + v.Z * T[1] for v in neighbors[NEIGHBOR].Vertices())
+                    - t_face
+                    - t_width
+                    - 2.5
+                    - TOOL_DEPTH,
+                    3,
+                ),
+            },
+        )
     physical_pairs = {
         pair: {
             names: volume
@@ -1053,6 +1100,16 @@ def compare():
         ),
         "cleat_grain_n_4x6_group": _screen_grain_n_group(
             upright, rail, neighbors, panel, panel_axis_solids, purchased_screws
+        ),
+        "cleat_grain_n_4x6_group_quarter": _screen_grain_n_group(
+            upright,
+            rail,
+            neighbors,
+            panel,
+            panel_axis_solids,
+            purchased_screws,
+            bolt_diameter=6.35,
+            bore_diameter=7.5,
         ),
         "load_rating_adopted": False,
         "drilling_released": False,

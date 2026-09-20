@@ -45,9 +45,9 @@ a candidate verdict.
 
 For a reproducible **hybrid sensitivity** solve, run
 `uv run python -m scripts.simple_pb01_hybrid_diagnostic_run a12-left --output DIR`.
-This wrapper fingerprints the adapter, its repository Python import closure,
-and the trial-pose JSON in addition to the native solver's regular source
-closure. It rejects changed producer files after import,
+This wrapper fingerprints the adapter, pose generator, their repository
+Python import closure, and trial-pose JSON in addition to the native
+solver's regular source closure. It rejects changed producer files after import,
 retains a diagnostic-scope sidecar, and does not promote a converged old-proxy
 result into V4 same-case demand. The older exploratory runs without this
 additional source inventory remain unauthenticated and must not be cited as
