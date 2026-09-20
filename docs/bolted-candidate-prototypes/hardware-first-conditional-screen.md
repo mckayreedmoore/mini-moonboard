@@ -14,10 +14,16 @@ was inspected as a page image. Its tabulated DF/SP loads have the shown
 [same C-C-2026 catalog's general instructions](https://www.rbscorp.com/wp-content/uploads/2026/03/C-C-2026.pdf)
 (pp. 21–23) define `(160)` as the earthquake/wind/uplift duration basis,
 require all specified fasteners, and say that wood shear is not included
-unless noted. Do not simply divide a tested/catalog connector value by
-1.6 to invent a different-duration capacity: its controlling steel, wood,
-fastener, or deflection limit has not been identified. A single connector
-is the table basis. Both sides are required for F1 lateral resistance in
+unless noted. Unlike MiTek's B88 report, Simpson's HL catalog says to
+**reduce** the wind/earthquake table values where other loads govern. It
+does not publish a separate `C_D = 1.0` HL table or an HL-specific conversion.
+The arithmetic `740/1.6 = 462.5 lb` uplift and `1310/1.6 = 818.75 lb` F1
+per connector is a *conservative screening inference* under the ordinary
+wood-duration/unchanged-metal-limit model, not a manufacturer-certified
+ordinary-duration rating or an adopted joint capacity. The controlling
+steel, wood, fastener, or deflection mode is not identified, and actual load
+directions, interaction, and member resistance still need checks. A single
+connector is the table basis. Both sides are required for F1 lateral resistance in
 both directions; uplift may be doubled for two connectors, but lateral may
 not. The angle must be centered on a member face at least as wide as the
 angle, and the `3`/`5` series requires a minimum 3.5-in wood thickness.
