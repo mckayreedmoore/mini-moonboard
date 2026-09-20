@@ -146,6 +146,14 @@ keeps the front-aligned common post and avoids the panel collision, but its
 upper bolts miss the original narrow principals, its independent header
 bores overlap, and the enlarged header intersects both side timbers. It is
 another rejected pose, not an approved rear-face joint.
+A [hybrid rear-Y lower / outward-X upper HL35 pose](hardware_first_center_hybrid.md)
+preserves all 66 screw receivers and separates independent upper/lower
+bores. It still fails: upper bores leave both sloped principal toes, the
+widened principals intersect existing rails, and upper plates hit bottom
+rails. The shaped one-piece header has only 3.175 mm total nominal surplus
+from an 8-ft 4×10 blank, so that length has no usable trim allowance;
+longer stock is a retail lead, not a received blank. This is a bounded
+geometry rejection, not a verdict on all factory-bracket architectures.
 
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
