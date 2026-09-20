@@ -22,7 +22,11 @@ valid bending-yield basis; §§12.3.7.1–.2 control when thread-root versus
 full-body diameter may be used in bearing. Its Table 12.3.1B footnote 1
 has a [published erratum](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
 for nominal 1/4-in threaded fasteners whose effective root falls below
-1/4 in. The generic [ASTM A307 Grade A mechanical-property summary](https://www.portlandbolt.com/technical/specifications/astm-a307/)
+1/4 in. Its rendered Table 12.3.1B gives `K_D = 10D + 0.5` for
+`0.17 in < D < 0.25 in`; `D` is the effective calculation diameter under
+§12.3.7, not an assumed nominal shank. A PDF text extraction can misread
+the plus sign, so use the rendered AWC table. The generic
+[ASTM A307 Grade A mechanical-property summary](https://www.portlandbolt.com/technical/specifications/astm-a307/)
 gives a 60-ksi minimum tensile strength but no minimum yield strength.
 Neither that tensile minimum nor a generic UNC-2A thread class is a measured
 product-specific root or a complete NDS lateral-joint resistance.
