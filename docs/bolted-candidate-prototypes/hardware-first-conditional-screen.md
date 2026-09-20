@@ -88,3 +88,15 @@ This screen changes no raw geometry. It does not establish that a 4×6 can
 replace both 2×6 pieces without moving other support, that the old twelve
 frame bolts remain viable, or that either catalog's isolated load directions
 cover the simultaneous joint wrench. No fabrication action follows.
+
+## Receiving and stock-length boundary
+
+The baseline `stock.csv` gives a 2,532.626-mm blank for each center
+principal, longer than an 8-ft (2,438.4-mm) stick; a nominal 8-ft 4×6 is
+not a sufficient raw replacement. [Lowe's lists 12-ft #2-and-better
+Douglas-fir 4×6](https://www.lowes.com/pd/4-in-x-6-in-x-12-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-12-ft-Actual/1000028925)
+and separately advertises a 16-ft #2 green 4×6 at 3.562 × 5.625 in actual.
+These are retail leads, not received lumber or a claim of local stock. Green
+dimensions may change with drying; the HL minimum 3.5-in installed timber
+thickness, grade, species, and actual straight usable length must be checked
+on the delivered material before applying catalog loads or cutting.
