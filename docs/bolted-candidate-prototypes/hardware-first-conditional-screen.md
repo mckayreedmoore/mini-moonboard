@@ -141,6 +141,11 @@ was also tried: it clears panels and preserves screw-axis contact, but the
 widened header intersects side/principal timbers, front bolts have no head
 clearance, and backing connection and upper joint are unresolved. It too is
 rejected as an incomplete installed assembly, not a verdict on all HL layouts.
+The [rear-only Y-face HL35 pose](hardware_first_center_rear_yface.md)
+keeps the front-aligned common post and avoids the panel collision, but its
+upper bolts miss the original narrow principals, its independent header
+bores overlap, and the enlarged header intersects both side timbers. It is
+another rejected pose, not an approved rear-face joint.
 
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
