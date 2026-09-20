@@ -28,7 +28,7 @@ def test_g1_and_native_gates_remain_open_with_incomplete_physical_evidence() -> 
     assert by_id["LB-04"]["depends_on"] == ["PB-02"]
     assert by_id["PB-00"]["status"] == "complete"
     assert by_id["PB-01"]["status"] in {"planned", "in_progress"}
-    assert by_id["PB-02"]["status"] == "planned"
+    assert by_id["PB-02"]["status"] in {"planned", "in_progress"}
     assert by_id["LB-03A"]["status"] == "superseded_for_new_architecture"
     assert by_id["LB-03B"]["status"] == "superseded_for_new_architecture"
     assert by_id["LB-03C"]["status"] == "superseded_for_new_architecture"

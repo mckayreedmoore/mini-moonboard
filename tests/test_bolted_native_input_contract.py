@@ -17,7 +17,10 @@ def test_native_contract_preserves_all_six_case_ids_and_panel_scope() -> None:
     assert result["panel_connection_count"] == 66
     assert result["structural_screw_macros_remaining"] == []
     assert result["owner_physical_width_scope"] == "kerf-right"
-    assert result["candidate_geometry_width_scope"] == "official prototype pending kerf-right native adapter"
+    assert (
+        result["candidate_geometry_width_scope"]
+        == "official prototype pending kerf-right native adapter"
+    )
 
 
 def test_native_contract_is_explicitly_not_ready_for_a_solve() -> None:
@@ -49,11 +52,21 @@ def test_native_contract_fingerprints_candidate_and_producer_sources() -> None:
         "docs/bolted-candidate-owner-inputs.json",
     }
     assert required <= sources.keys()
-    assert all(Path(path).is_file() and digest(path) == sha for path, sha in sources.items())
+    assert all(
+        Path(path).is_file() and digest(path) == sha for path, sha in sources.items()
+    )
 
 
-def test_saved_native_input_fingerprints_match_current_sources_without_claiming_a_solve() -> None:
+def test_saved_native_input_is_explicitly_stale_until_v4_candidate_is_frozen() -> None:
     saved = json.loads(Path("docs/bolted-candidate-native-input.json").read_text())
-    assert saved["source_sha256"] == validate_contract()["source_sha256"]
+    current = validate_contract()["source_sha256"]
+    old = saved["source_sha256"]
+    # V4 changed owner authority, but this historical non-ready input was not
+    # regenerated or falsely labeled as evidence for a new native solve.
+    assert {
+        path
+        for path in old.keys() | current.keys()
+        if old.get(path) != current.get(path)
+    } == {"docs/bolted-candidate-owner-inputs.json"}
     assert saved["native_ready"] is False
     assert saved["no_native_cases_run"] is True
