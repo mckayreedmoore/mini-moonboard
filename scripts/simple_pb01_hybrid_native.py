@@ -202,6 +202,7 @@ def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
 def _add_trial_bolt_gravity(structure, metadata):
     """Add four explicit diagnostic stack weights at the serial interfaces."""
     rows = []
+    member_loads = []
     for family, host, length in (
         ("upright", UPRIGHT, 203.2),
         ("rail", RAIL, 127.0),
@@ -214,6 +215,10 @@ def _add_trial_bolt_gravity(structure, metadata):
             half_weight = -mass * 9.80665 / 2
             add_load(structure, host_node, [0.0, 0.0, half_weight])
             add_load(structure, cleat_node, [0.0, 0.0, half_weight])
+            for member in (host, CLEAT):
+                member_loads.append(
+                    {"member": member, "point": point, "force": [0.0, 0.0, half_weight]}
+                )
             rows.append(
                 {
                     "name": name,
@@ -228,6 +233,7 @@ def _add_trial_bolt_gravity(structure, metadata):
             )
     total = sum(row["mass_kg"] for row in rows)
     metadata["pb01_trial_bolt_gravity"] = rows
+    metadata["additional_member_loads"] = member_loads
     metadata["pb01_trial_bolt_total_mass_kg"] = total
     metadata["modeled_mass_kg"] += total
 

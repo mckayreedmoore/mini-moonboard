@@ -316,6 +316,9 @@ def member_sections(record, connections):
                     for c in connections.values() if c['second'] == name]
         gravity = record['gravity_points'][name]
         entries.append((np.array(gravity['point']), np.array(gravity['force'])))
+        entries += [(np.array(load['point']), np.array(load['force']))
+                    for load in record.get('additional_member_loads', ())
+                    if load['member'] == name]
         start, end = np.array(member['start']), np.array(member['end'])
         axis, u, v = (np.array(member[k]) for k in ('axis','section_u','section_v'))
         length = float(np.linalg.norm(end-start))

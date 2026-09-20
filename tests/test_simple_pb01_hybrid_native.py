@@ -113,6 +113,7 @@ def test_four_trial_bolt_gravity_loads_are_explicit_and_balance(prepared):
     total_mass = sum(row["mass_kg"] for row in rows)
     assert total_mass > 0
     assert metadata["pb01_trial_bolt_total_mass_kg"] == pytest.approx(total_mass)
+    assert len(metadata["additional_member_loads"]) == 8
     for row in rows:
         assert structure.loads[row["host_node"]][2] == pytest.approx(
             -row["mass_kg"] * 9.80665 / 2
@@ -121,6 +122,9 @@ def test_four_trial_bolt_gravity_loads_are_explicit_and_balance(prepared):
             -row["mass_kg"] * 9.80665 / 2
         )
         assert row["mass_basis"] == "diagnostic steel envelope only"
+    assert sum(load["force"][2] for load in metadata["additional_member_loads"]) == pytest.approx(
+        -total_mass * 9.80665
+    )
 
 
 def test_failed_preparation_restores_shared_builders(monkeypatch):

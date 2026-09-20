@@ -15,8 +15,13 @@ contact pressure, clearances, group action, or 2024 NDS resistance. It
 includes an explicit **diagnostic** gravity estimate for four trial steel
 stacks using 8-in/5-in shafts and simplified washer/head/nut envelopes;
 half of each is applied to each connected body at its interface. This is
-not a delivered mass or selected hardware schedule. Its temporary kerf-right
-mesh hooks are serialized within this adapter, reject an already-patched
+not a delivered mass or selected hardware schedule.
+The eight half-stack nodal weights are also listed as explicit per-member
+loads at their application points for free-body and section recovery; the
+member-balance postprocessor otherwise counted only member-center gravity.
+This bookkeeping change does not establish a connector resistance.
+Its temporary kerf-right mesh hooks are serialized within this adapter,
+reject an already-patched
 builder, and restore the shared functions after a preparation failure;
 run it in an isolated process because older diagnostic adapters do not
 share that lock. The model

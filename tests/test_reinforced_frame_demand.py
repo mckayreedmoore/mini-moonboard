@@ -66,6 +66,22 @@ def test_member_cut_preserves_simultaneous_force_moment_and_equilibrium():
     assert result['moment_residual_nmm']==pytest.approx([-20000.,10000.,0.])
 
 
+def test_member_sections_include_explicit_extra_nodal_weight_at_actual_point():
+    member={'name':'beam','start':[0.,0.,0.],'end':[0.,0.,100.],
+        'axis':[0.,0.,1.],'section_u':[1.,0.,0.],'section_v':[0.,1.,0.],
+        'verification_grain_interval_mm':[0.,100.]}
+    record={'members':[member],'gravity_points':{'beam':{
+        'point':[0.,0.,50.],'force':[0.,0.,0.]}},
+        'additional_member_loads':[{'member':'beam','point':[10.,0.,25.],
+                                     'force':[0.,0.,-2.]}]}
+    result=subject.member_sections(record,{})['beam']
+    assert result['force_residual_n']==pytest.approx([0.,0.,-2.])
+    assert result['moment_residual_nmm']==pytest.approx([0.,20.,0.])
+    cut=next(s for s in result['sections'] if s['station_along_grain_mm']==25.
+             and s['include_station_loads'])
+    assert cut['upper_load_force_xyz_n']==pytest.approx([0.,0.,-2.])
+
+
 def test_foot_shear_stays_when_one_of_its_corners_opens():
     owners={
         'corner0':{'first':'foot','second':'floor'},
