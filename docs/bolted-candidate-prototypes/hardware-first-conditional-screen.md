@@ -160,6 +160,12 @@ while keeping the complete 127-mm seats on the existing front-limited
 header: 12.7 mm is the full-seat limit and both bores still exit wood.
 This rules out a simple bracket-row slide within that pose, not a changed
 header or a different factory connector.
+A [six-rail inner-end resection screen](hardware_first_center_hybrid_rails.md)
+shows that the hybrid's widened-principal/upper-plate collisions can be
+removed in nominal CAD while all 66 protected screw receivers remain.
+However, the changed rails end 5.55 mm short of each principal and leave
+only 1 mm ideal plate clearance; their bracketed force path, bolt/tool
+access, and tolerances are unsolved. The parent hybrid remains rejected.
 
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
