@@ -81,6 +81,15 @@ Its report SHA-256 is
 `c10b2b2d1b979fe82ffc5bca31c60e374650610e4c44245e8e56431c7b0c4918`.
 The raw directory is
 `/tmp/mini_pb01_quarter_contact4_a12left_4c60e46`; it is temporary.
+The compact [durable evidence bundle](pb01-quarter-contact4-a12left-evidence.tar.gz)
+preserves the scope sidecar, top-level report, final-cycle native input,
+report, solver deck, data/log/status files, and the run's source snapshots.
+Its SHA-256 is
+`fc298a3a481437a5dc9f24c02bc9a234458074c2ffcba6753fe33875f4805546`;
+the contained top-level report retains the `c10b2b2d...` digest above.
+This is a **final-cycle audit bundle**, not an archive of every active-set
+iteration; the source-identified diagnostic runner can reproduce the
+contact search. Do not promote it to a V4 all-station load case.
 The report retains a 260-entry native-plus-producer source manifest, 23
 legacy proxy stations, and explicit diagnostic/no-design/no-drilling scope.
 The converged cycle carried nonzero compression at two off-row samples on
