@@ -1,0 +1,773 @@
+{
+  "scope": "one parameterized kerf-right common-core HL33 geometry prototype",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "catalog_source": "https://www.strongtie.com/resources/literature/wood-construction-connectors-catalog",
+  "catalog_page": "C-C-2026 PDF p.315, HL33 row",
+  "factory_nominal_mm": {
+    "leg_reach": 82.55,
+    "bend_length": 63.5,
+    "hole_along_bend": 31.75,
+    "vertical_leg_hole": 50.8,
+    "minimum_bolted_wood": 88.9
+  },
+  "assumed_mm": {
+    "horizontal_leg_hole_inset": 50.8,
+    "ideal_plate_thickness": 4.55,
+    "occupied_wood_bore_diameter": 14.2875,
+    "core_rear_depth": 90.47,
+    "core_half_width": 120.0,
+    "backing_angle_base_z": 80.0,
+    "front_tongue_half_width": 25.4,
+    "trimmed_inner_rail_end_abs_x": 130.0
+  },
+  "fixed_panel_solid_count": 6,
+  "fixed_panel_screw_axis_count": 66,
+  "fixed_frame_axis_count": 12,
+  "hold_led_boundary": "Raw kerf-right panel solids and their hold/LED layout are unchanged; hole/LED voids are not individually modeled in this solid screen.",
+  "duty_mapping": {
+    "lower_HL33": "rear core face to raised header; catalog uplift and local F1 cannot establish reversible F1, F2 or moment for this pose",
+    "upper_two_HL33": "outward principal faces to raised header; reversible F1, unlisted F2 and couples unestablished",
+    "backing_two_HL33": "core front face to separate left/right backing wings; shared transverse bolt crosses both backing wings and integral tongue",
+    "front_backing": "left/right wings receive four center kicker screws; integral core tongue supports both kicker inner edges",
+    "six_inner_rails": "trimmed endpoints only; no rated rail-to-center bracket connection established"
+  },
+  "fundamental_integration_gaps": [
+    "backing shared bolt is catalog-inapplicable: 50.8-mm core tongue and unlisted three-wood/two-angle stack",
+    "six trimmed inner rails have no modeled factory-bracket load path to the new center",
+    "reversible F1/F2 and moment duty are not established for lower, upper or backing HL33s"
+  ],
+  "shape_only_minimum_revision_mm": {
+    "current_core_width": 240.0,
+    "current_tongue_width": 50.8,
+    "current_each_wing_width": 94.6,
+    "minimum_tongue_width": 88.9,
+    "minimum_each_wing_width": 88.9,
+    "minimum_total_core_width": 266.7,
+    "increase_over_current_core_width": 26.7,
+    "minimum_rail_end_abs_x_for_side_plate": 137.9,
+    "limit": "Thickness arithmetic only; does not cure the unlisted shared stack, access, stock blank, or load path."
+  },
+  "minimum_connection_revision": "Replace the common transverse bolt with separate two-member backing-angle attachments that give each wing its own accessible bolt/nut path; geometry and catalog applicability of that topology are untested.",
+  "direct_independent_bolt_split": {
+    "inner_wing_to_tongue_face_gap_mm": 0.0,
+    "assumed_washer_thickness_mm": 3.0,
+    "assumed_nut_length_mm": 12.0,
+    "disposition": "Blocked at both inner wing faces by the continuous tongue; separate bolts need a new accessible bracket/member pose or qualified relief, not just a wider blank.",
+    "cad_trial_run": false
+  },
+  "trials": [
+    {
+      "parameter_core_rear_extension_mm": 45.0,
+      "core_bounds_mm": [
+        -120.0,
+        120.0,
+        -220.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "core_rear_block_bounds_mm": [
+        -120.0,
+        120.0,
+        -220.7,
+        -130.23,
+        0.0,
+        238.9
+      ],
+      "core_front_tongue_bounds_mm": [
+        -25.4,
+        25.4,
+        -130.23,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "core_backing_intersection_mm3": {
+        "left": 0.0,
+        "right": 0.0
+      },
+      "bolted_wood_section_thickness_mm": {
+        "lower_core": 90.47,
+        "lower_header": 88.9,
+        "upper_left_principal": 88.9,
+        "upper_right_principal": 88.9,
+        "upper_left_header": 88.9,
+        "upper_right_header": 88.9,
+        "backing_left_core": 90.47,
+        "backing_right_core": 90.47,
+        "backing_shared_left_wing": 94.6,
+        "backing_shared_core_tongue": 50.8,
+        "backing_shared_right_wing": 94.6
+      },
+      "catalog_minimum_wood_shortfall_mm": {
+        "backing_shared_core_tongue": 38.1
+      },
+      "backing_connection_catalog_applicable": false,
+      "backing_catalog_inapplicability": [
+        "shared bolt crosses a 50.8-mm integral core tongue, below the HL33 88.9-mm minimum bolted wood thickness",
+        "shared transverse bolt forms a three-wood/two-angle stack, not the tabulated two-member HL33 installation"
+      ],
+      "wood_bounds_mm": {
+        "core": [
+          -120.0,
+          120.0,
+          -220.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "backing_left": [
+          -120.0,
+          -25.4,
+          -130.23,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "backing_right": [
+          25.4,
+          120.0,
+          -130.23,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "header": [
+          -1219.2,
+          1216.025,
+          -303.25,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_principal_center_left": [
+          -114.45,
+          -25.55,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_principal_center_right": [
+          25.55,
+          114.45,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -130.0,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -130.0,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -130.0,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          130.0,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          130.0,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          130.0,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "plate_bounds_mm": {
+        "lower_vertical": [
+          -31.75,
+          31.75,
+          -225.25,
+          -220.7,
+          156.35,
+          238.9
+        ],
+        "lower_seat": [
+          -31.75,
+          31.75,
+          -303.25,
+          -220.7,
+          234.35,
+          238.9
+        ],
+        "upper_left_vertical": [
+          -119.0,
+          -114.45,
+          -100.0,
+          -36.5,
+          327.8,
+          410.35
+        ],
+        "upper_left_seat": [
+          -197.0,
+          -114.45,
+          -100.0,
+          -36.5,
+          327.8,
+          332.35
+        ],
+        "upper_right_vertical": [
+          114.45,
+          119.0,
+          -100.0,
+          -36.5,
+          327.8,
+          410.35
+        ],
+        "upper_right_seat": [
+          114.45,
+          197.0,
+          -100.0,
+          -36.5,
+          327.8,
+          332.35
+        ],
+        "backing_left_core_leg": [
+          -120.0,
+          -37.45,
+          -130.23,
+          -125.68,
+          80.0,
+          143.5
+        ],
+        "backing_left_side_leg": [
+          -124.55,
+          -120.0,
+          -130.23,
+          -47.68,
+          80.0,
+          143.5
+        ],
+        "backing_right_core_leg": [
+          37.45,
+          120.0,
+          -130.23,
+          -125.68,
+          80.0,
+          143.5
+        ],
+        "backing_right_side_leg": [
+          120.0,
+          124.55,
+          -130.23,
+          -47.68,
+          80.0,
+          143.5
+        ]
+      },
+      "bore_count": 9,
+      "bolt_path_count": 9,
+      "intended_plate_path_mm3": {
+        "lower_core": 729.481,
+        "lower_header": 729.481,
+        "upper_left_principal": 729.481,
+        "upper_left_header": 729.481,
+        "upper_right_principal": 729.481,
+        "upper_right_header": 729.481,
+        "backing_left_core": 729.481,
+        "backing_right_core": 729.481,
+        "backing_shared": 729.481,
+        "backing_shared_right_leg": 729.481
+      },
+      "bore_missing_wood_mm3": {
+        "lower_core": 0,
+        "lower_header": 0,
+        "upper_left_principal": 0,
+        "upper_left_header": 0,
+        "upper_right_principal": 0,
+        "upper_right_header": 0,
+        "backing_left_core": 0,
+        "backing_right_core": 0,
+        "backing_shared": 0
+      },
+      "protected_receiver_loss_mm3": {},
+      "existing_frame_axis_receivers_changed": [],
+      "kicker_center_backing_mm3": {
+        "round_kicker_left_center_1": 438.127,
+        "round_kicker_left_center_2": 438.127,
+        "round_kicker_right_center_1": 438.127,
+        "round_kicker_right_center_2": 438.127
+      },
+      "checks_mm3": {
+        "plate_panel": {},
+        "plate_wood": {},
+        "plate_adjacent": {},
+        "plate_pairs": {},
+        "wood_panel": {},
+        "wood_adjacent": {},
+        "wood_pairs": {},
+        "bolt_path_panel": {},
+        "bolt_path_other_wood": {},
+        "bolt_path_other_plate": {},
+        "independent_bore_pairs": {},
+        "fixed_screw_hardware": {},
+        "conditional_63_5_screw_hardware": {},
+        "frame_axis_hardware": {},
+        "stack_panel": {},
+        "stack_adjacent": {},
+        "stack_fixed_screw": {},
+        "stack_changed_wood": {
+          "lower_core_nut_washer": {
+            "core": 1520.122
+          },
+          "lower_core_nut_body": {
+            "core": 6080.49
+          },
+          "lower_core_nut_tool": {
+            "core": 31415.927
+          },
+          "upper_left_principal_head_tool": {
+            "base_rail_bottom_left": 21166.705
+          },
+          "upper_left_header_nut_tool": {
+            "base_rail_bottom_left": 5106.38
+          },
+          "upper_right_principal_nut_body": {
+            "base_rail_bottom_right": 1556.969
+          },
+          "upper_right_principal_nut_tool": {
+            "base_rail_bottom_right": 21166.705
+          },
+          "upper_right_header_nut_tool": {
+            "base_rail_bottom_right": 5106.38
+          },
+          "backing_left_core_nut_washer": {
+            "backing_left": 1520.122
+          },
+          "backing_left_core_nut_body": {
+            "backing_left": 6080.49
+          },
+          "backing_left_core_nut_tool": {
+            "backing_left": 31415.927
+          },
+          "backing_right_core_nut_washer": {
+            "backing_right": 1520.122
+          },
+          "backing_right_core_nut_body": {
+            "backing_right": 6080.49
+          },
+          "backing_right_core_nut_tool": {
+            "backing_right": 31415.927
+          }
+        },
+        "stack_plate": {},
+        "different_axis_tool_pairs": {
+          "lower_core_head_tool / lower_header_head_tool": 1894.046,
+          "upper_left_principal_head_tool / upper_left_header_nut_tool": 2842.247,
+          "upper_left_principal_nut_tool / upper_right_principal_head_tool": 31290.263,
+          "upper_right_principal_nut_tool / upper_right_header_nut_tool": 4362.342
+        }
+      },
+      "stack_assumptions_mm": {
+        "washer_od": 25.4,
+        "washer_thickness": 3,
+        "head_envelope_length": 8,
+        "nut_envelope_length": 12,
+        "tool_od": 40,
+        "tool_sweep_length": 25
+      },
+      "stack_envelope_count": 54,
+      "fundamental_for_this_pose": [
+        "catalog_inapplicable_backing_connection"
+      ],
+      "repairable_geometry_or_detail": [
+        "stack_changed_wood",
+        "different_axis_tool_pairs"
+      ],
+      "status": "rejected_nominal_pose"
+    },
+    {
+      "parameter_core_rear_extension_mm": 65.0,
+      "core_bounds_mm": [
+        -120.0,
+        120.0,
+        -240.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "core_rear_block_bounds_mm": [
+        -120.0,
+        120.0,
+        -240.7,
+        -150.23,
+        0.0,
+        238.9
+      ],
+      "core_front_tongue_bounds_mm": [
+        -25.4,
+        25.4,
+        -150.23,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "core_backing_intersection_mm3": {
+        "left": 0.0,
+        "right": 0.0
+      },
+      "bolted_wood_section_thickness_mm": {
+        "lower_core": 90.47,
+        "lower_header": 88.9,
+        "upper_left_principal": 88.9,
+        "upper_right_principal": 88.9,
+        "upper_left_header": 88.9,
+        "upper_right_header": 88.9,
+        "backing_left_core": 90.47,
+        "backing_right_core": 90.47,
+        "backing_shared_left_wing": 94.6,
+        "backing_shared_core_tongue": 50.8,
+        "backing_shared_right_wing": 94.6
+      },
+      "catalog_minimum_wood_shortfall_mm": {
+        "backing_shared_core_tongue": 38.1
+      },
+      "backing_connection_catalog_applicable": false,
+      "backing_catalog_inapplicability": [
+        "shared bolt crosses a 50.8-mm integral core tongue, below the HL33 88.9-mm minimum bolted wood thickness",
+        "shared transverse bolt forms a three-wood/two-angle stack, not the tabulated two-member HL33 installation"
+      ],
+      "wood_bounds_mm": {
+        "core": [
+          -120.0,
+          120.0,
+          -240.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "backing_left": [
+          -120.0,
+          -25.4,
+          -150.23,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "backing_right": [
+          25.4,
+          120.0,
+          -150.23,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "header": [
+          -1219.2,
+          1216.025,
+          -323.25,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_principal_center_left": [
+          -114.45,
+          -25.55,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_principal_center_right": [
+          25.55,
+          114.45,
+          -181.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -130.0,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -130.0,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -130.0,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          130.0,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          130.0,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          130.0,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "plate_bounds_mm": {
+        "lower_vertical": [
+          -31.75,
+          31.75,
+          -245.25,
+          -240.7,
+          156.35,
+          238.9
+        ],
+        "lower_seat": [
+          -31.75,
+          31.75,
+          -323.25,
+          -240.7,
+          234.35,
+          238.9
+        ],
+        "upper_left_vertical": [
+          -119.0,
+          -114.45,
+          -100.0,
+          -36.5,
+          327.8,
+          410.35
+        ],
+        "upper_left_seat": [
+          -197.0,
+          -114.45,
+          -100.0,
+          -36.5,
+          327.8,
+          332.35
+        ],
+        "upper_right_vertical": [
+          114.45,
+          119.0,
+          -100.0,
+          -36.5,
+          327.8,
+          410.35
+        ],
+        "upper_right_seat": [
+          114.45,
+          197.0,
+          -100.0,
+          -36.5,
+          327.8,
+          332.35
+        ],
+        "backing_left_core_leg": [
+          -120.0,
+          -37.45,
+          -150.23,
+          -145.68,
+          80.0,
+          143.5
+        ],
+        "backing_left_side_leg": [
+          -124.55,
+          -120.0,
+          -150.23,
+          -67.68,
+          80.0,
+          143.5
+        ],
+        "backing_right_core_leg": [
+          37.45,
+          120.0,
+          -150.23,
+          -145.68,
+          80.0,
+          143.5
+        ],
+        "backing_right_side_leg": [
+          120.0,
+          124.55,
+          -150.23,
+          -67.68,
+          80.0,
+          143.5
+        ]
+      },
+      "bore_count": 9,
+      "bolt_path_count": 9,
+      "intended_plate_path_mm3": {
+        "lower_core": 729.481,
+        "lower_header": 729.481,
+        "upper_left_principal": 729.481,
+        "upper_left_header": 729.481,
+        "upper_right_principal": 729.481,
+        "upper_right_header": 729.481,
+        "backing_left_core": 729.481,
+        "backing_right_core": 729.481,
+        "backing_shared": 729.481,
+        "backing_shared_right_leg": 729.481
+      },
+      "bore_missing_wood_mm3": {
+        "lower_core": 0,
+        "lower_header": 0,
+        "upper_left_principal": 0,
+        "upper_left_header": 0,
+        "upper_right_principal": 0,
+        "upper_right_header": 0,
+        "backing_left_core": 0,
+        "backing_right_core": 0,
+        "backing_shared": 0
+      },
+      "protected_receiver_loss_mm3": {},
+      "existing_frame_axis_receivers_changed": [],
+      "kicker_center_backing_mm3": {
+        "round_kicker_left_center_1": 438.127,
+        "round_kicker_left_center_2": 438.127,
+        "round_kicker_right_center_1": 438.127,
+        "round_kicker_right_center_2": 438.127
+      },
+      "checks_mm3": {
+        "plate_panel": {},
+        "plate_wood": {},
+        "plate_adjacent": {},
+        "plate_pairs": {},
+        "wood_panel": {},
+        "wood_adjacent": {},
+        "wood_pairs": {},
+        "bolt_path_panel": {},
+        "bolt_path_other_wood": {},
+        "bolt_path_other_plate": {},
+        "independent_bore_pairs": {},
+        "fixed_screw_hardware": {},
+        "conditional_63_5_screw_hardware": {},
+        "frame_axis_hardware": {},
+        "stack_panel": {},
+        "stack_adjacent": {},
+        "stack_fixed_screw": {},
+        "stack_changed_wood": {
+          "lower_core_nut_washer": {
+            "core": 1520.122
+          },
+          "lower_core_nut_body": {
+            "core": 6080.49
+          },
+          "lower_core_nut_tool": {
+            "core": 31415.927
+          },
+          "upper_left_principal_head_tool": {
+            "base_rail_bottom_left": 21166.705
+          },
+          "upper_left_header_nut_tool": {
+            "base_rail_bottom_left": 5106.38
+          },
+          "upper_right_principal_nut_body": {
+            "base_rail_bottom_right": 1556.969
+          },
+          "upper_right_principal_nut_tool": {
+            "base_rail_bottom_right": 21166.705
+          },
+          "upper_right_header_nut_tool": {
+            "base_rail_bottom_right": 5106.38
+          },
+          "backing_left_core_nut_washer": {
+            "backing_left": 1520.122
+          },
+          "backing_left_core_nut_body": {
+            "backing_left": 6080.49
+          },
+          "backing_left_core_nut_tool": {
+            "backing_left": 31415.927
+          },
+          "backing_right_core_nut_washer": {
+            "backing_right": 1520.122
+          },
+          "backing_right_core_nut_body": {
+            "backing_right": 6080.49
+          },
+          "backing_right_core_nut_tool": {
+            "backing_right": 31415.927
+          }
+        },
+        "stack_plate": {},
+        "different_axis_tool_pairs": {
+          "lower_core_head_tool / lower_header_head_tool": 1894.046,
+          "upper_left_principal_head_tool / upper_left_header_nut_tool": 2842.247,
+          "upper_left_principal_nut_tool / upper_right_principal_head_tool": 31290.263,
+          "upper_right_principal_nut_tool / upper_right_header_nut_tool": 4362.342
+        }
+      },
+      "stack_assumptions_mm": {
+        "washer_od": 25.4,
+        "washer_thickness": 3,
+        "head_envelope_length": 8,
+        "nut_envelope_length": 12,
+        "tool_od": 40,
+        "tool_sweep_length": 25
+      },
+      "stack_envelope_count": 54,
+      "fundamental_for_this_pose": [
+        "catalog_inapplicable_backing_connection"
+      ],
+      "repairable_geometry_or_detail": [
+        "stack_changed_wood",
+        "different_axis_tool_pairs"
+      ],
+      "status": "rejected_nominal_pose"
+    }
+  ],
+  "rating_or_drilling_released": false,
+  "unresolved": [
+    "HL33 horizontal hole inset, bend and delivered tolerances",
+    "actual bolt length, washer/nut geometry and wrench approach",
+    "F1/F2 load direction and reversible resistance at each angle",
+    "backing-to-core load path and shared-bolt action",
+    "rail-to-center prefabricated brackets, changed frame bolts",
+    "wood end/edge distances, stock and all component resistance"
+  ]
+}
