@@ -32,3 +32,11 @@ def test_no_contact_material_route_separates_standard_input_from_product_accepta
     assert conditional["adopted_for_br904"] is False
     assert route["sample_measured"] is False
     assert route["formed_angle_or_joint_capacity_established"] is False
+
+
+def test_same_model_string_does_not_transfer_newhouse_inputs_to_adamax():
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/newhouse-br904-retail.json").read_text()
+    )
+    assert any("Adamax" in limit for limit in record["source_limits"])
+    assert record["complete_factory_hole_coordinates_verified"] is False

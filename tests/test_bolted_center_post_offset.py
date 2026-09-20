@@ -98,6 +98,11 @@ def test_fixed_ab205_pattern_has_no_post_only_offset_preserving_kicker_axes():
     assert threshold[
         "minimum_shift_for_all_distinct_header_pairs_3d_mm"
     ] == pytest.approx(85.725)
+    assert threshold[
+        "minimum_extra_factory_pattern_shift_at_axis_center_limit_mm"
+    ] == pytest.approx(66.675)
+    assert threshold["axis_center_margin_at_assumed_post_shift_mm"] == pytest.approx(0)
+    assert threshold["different_factory_pattern_verified"] is False
     assert fixed_pattern_header_min_pair_spacing_mm(85.724) < 38.1
     assert fixed_pattern_header_min_pair_spacing_mm(85.725) == pytest.approx(38.1)
     assert threshold[

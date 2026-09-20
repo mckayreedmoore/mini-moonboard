@@ -17,6 +17,9 @@
     "necessary_lower_bound_from_coincident_factory_pair_mm": 38.1,
     "cross_pair_spacing_at_that_lower_bound_mm": 9.525,
     "minimum_shift_for_all_distinct_header_pairs_3d_mm": 85.725,
+    "minimum_extra_factory_pattern_shift_at_axis_center_limit_mm": 66.675,
+    "axis_center_margin_at_assumed_post_shift_mm": 0,
+    "different_factory_pattern_verified": false,
     "maximum_shift_before_frozen_kicker_screw_axis_reaches_post_edge_mm": 19.05,
     "maximum_shift_before_modeled_screw_occupancy_reaches_post_edge_mm": 16.9799,
     "required_shift_exceeds_axis_center_limit_mm": 19.05,
@@ -38,7 +41,7 @@
     "kicker_edge_support_adequacy_verified": false,
     "installed_angle_bend_washer_tool_and_withdrawal_fit_verified": false
   },
-  "decision": "For the fixed opposed AB205 pattern, 38.1 mm post-only shift is merely the conditional 3D lower bound for one coincident factory-hole pair; at that offset the nearest cross-pair is only 9.525 mm apart. All four distinct same-row half-inch header axes first meet 3D at 85.725 mm shift, ignoring other header fit. A frozen kerf-right kicker screw axis center reaches the post inner edge after only 19.05 mm, so even the necessary lower bound conflicts with that axis by 19.05 mm regardless of screw diameter. The historical modeled occupied-axis cylinder reaches the edge at 16.9799 mm, but its 4.1402-mm diameter is not a Hillman drill or received screw dimension. A 5 or 10 mm shift retains overlapping nominal header bores; 15 mm barely separates bores but is below 3D. Zero shift retains a shared three-member stack. This rules out this fixed-pattern de-stacking route, not other factory patterns or a differently engineered joint; kicker-edge support remains unverified.",
+  "decision": "For the fixed opposed AB205 pattern, 38.1 mm post-only shift is merely the conditional 3D lower bound for one coincident factory-hole pair; at that offset the nearest cross-pair is only 9.525 mm apart. All four distinct same-row half-inch header axes first meet 3D at 85.725 mm shift, ignoring other header fit. A frozen kerf-right kicker screw axis center reaches the post inner edge after only 19.05 mm, so even the necessary lower bound conflicts with that axis by 19.05 mm regardless of screw diameter. If a different two-hole factory pattern retained the same pitch and Y row while the post shifted the full 19.05 mm, it would still need at least 66.675 mm additional relative header-pattern offset; that limiting post shift leaves zero screw-axis center margin and is not approved. The historical modeled occupied-axis cylinder reaches the edge at 16.9799 mm, but its 4.1402-mm diameter is not a Hillman drill or received screw dimension. A 5 or 10 mm shift retains overlapping nominal header bores; 15 mm barely separates bores but is below 3D. Zero shift retains a shared three-member stack. This rules out this fixed-pattern de-stacking route, not other factory patterns or a differently engineered joint; kicker-edge support remains unverified.",
   "selected_offset_mm": null,
   "drilling_released": false,
   "baseline_and_panel_policy_unchanged": true

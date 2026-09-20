@@ -360,6 +360,11 @@ def screen_center_post_offsets(
             "minimum_shift_for_all_distinct_header_pairs_3d_mm": round(
                 full_pair_shift, 6
             ),
+            "minimum_extra_factory_pattern_shift_at_axis_center_limit_mm": round(
+                full_pair_shift - max_shift_with_axis_center, 6
+            ),
+            "axis_center_margin_at_assumed_post_shift_mm": 0,
+            "different_factory_pattern_verified": False,
             "maximum_shift_before_frozen_kicker_screw_axis_reaches_post_edge_mm": round(
                 max_shift_with_axis_center, 6
             ),
