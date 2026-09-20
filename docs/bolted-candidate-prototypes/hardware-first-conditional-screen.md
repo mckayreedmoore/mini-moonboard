@@ -209,6 +209,17 @@ even though its ideal plate and bore solids clear most neighboring geometry.
 It leaves the upper joint unmodeled and does not justify shared-bolt capacity;
 the separate 63.5-mm overall-screw collision sensitivity is conditional.
 
+A [thick-header full-center combination](hardware_first_center_thick_outer.md)
+replaces that thin receiver with 88.9 mm nominal wood, adds short-bend upper
+HL33 brackets, and cuts six rail ends. Nominal bores and plates then clear
+the checked panel/wood obstacles, but the two lower seats leave a 19.05-mm
+center gap while the shortened post stops 4.55 mm below the header. The
+kerf-right kicker seam has no continuous rear support through that band;
+this exact shape is rejected. A one-piece center tongue in the seat gap is
+an untested alternative, not an implied fix. One upper HL33 per principal
+also has no established reversible-F1 coverage, and the cut rails still
+have no qualified center attachment.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
