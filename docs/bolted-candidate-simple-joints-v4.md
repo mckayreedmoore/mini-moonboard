@@ -75,6 +75,17 @@ forward contact state. Preserve failed and nonconverged diagnostics as
 history; never substitute them for accepted forces. No selected-candidate
 hash may be edited merely to silence the existing stale-snapshot CI gate.
 
+At PR head `1711d30`, the V4 scope tests, normal suite and CAD smoke stage
+passed CI; selected-candidate verification then stopped on the pre-existing
+`compact_floor_flush_frame.py` geometry-source mismatch. Historical-export
+verification did not run. The saved `bolted-candidate-native-input.json` is
+an unrun, unready **older bracket-layout** producer record, not a V4 native
+model: its producer still imports `compact_floor_flush_bolted_frame.py` and
+the old `bolted_layouts` modules. Refreshing its owner-input fingerprint
+alone would neither build the V4 timber geometry nor reconcile the selected
+baseline. Replace that producer and regenerate a truthful V4 contract when
+the connected V4 candidate exists; keep `native_ready=false` until then.
+
 Source scope: [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
 describes dowel-yield lateral methods and exclusions; the
 [USDA Wood Handbook, Chapter 8](https://research.fs.usda.gov/download/treesearch/62253.pdf)
