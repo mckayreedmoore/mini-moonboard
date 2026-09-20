@@ -97,6 +97,25 @@ untreated substitute. A Lowe's #2 SYP ground-contact 4×6 listing is [marked
 no longer sold](https://www.lowes.com/pd/Severe-Weather-Common-4-in-X-6-in-x-8-ft-Actual-3-5-in-x-5-5-in-x-8-ft-2-Treated-Lumber/50113120).
 None of these listings establishes a viable bolted joint or authorizes a buy.
 
+## Conditional 4×6 grain-N cleat trial: 177.8-mm upright grip
+
+If the 4×6 grain-N cleat geometry is retained, its proposed upright wood-only
+grip is 38.1 + 139.7 = 177.8 mm (7.0 in). A 7-in bolt has no remaining length
+for washers, nut or thread projection. An 8-in bolt leaves 25.4 mm before
+those items and tolerances; this does not establish a complete usable stack.
+
+| Retail 3/8-16 × 8-in hex-bolt lead | Grade evidence | Visible price / pack | Thread caveat |
+| --- | --- | --- | --- |
+| [Home Depot Everbilt galvanized](https://www.homedepot.com/p/204645581), model 805636, SKU 214966 | Listed in HD's [A307-filtered 8-in category](https://www.homedepot.com/b/Hardware-Fasteners-Bolts-Hex-Bolts/3-8-in/8-in/A307/N-5yc1vZc2c0Z1z0sfy6Z1z1bterZ1z1btk0) | $2.93 / 1 | Exact threaded length not found in the product listing. |
+| [Lowe's Hillman galvanized](https://www.lowes.com/pd/Hillman-3-8-in-x-8-in-Galvanized-Coarse-Thread-Hex-Bolt/3824905), item 67311, model 811601 | Product specification explicitly says A307 | $2.83 / 1 | Partially threaded; no dimensioned thread length visible. |
+| [Home Depot Everbilt zinc](https://www.homedepot.com/p/204273582), model 800930 | Product specification explicitly says A307 | $41.40 / 25 ($1.66 each) | Listing gives 6-in thread length; shank/thread transition still needs checking against final grip. |
+| [Home Depot Prime-Line hot-dip galvanized](https://www.homedepot.com/p/310465220), model 9060208 | Listing explicitly says ASTM A307A and ASME B18.2.1 | $12.56 / 10 ($1.26 each) | Thread length not shown; page calls it hot-dip galvanized but a specification field says “Uncoated,” so finish needs reconciliation. |
+
+These are ordinary online retail listings, not proof of local shelf stock.
+Verify thread runout, both washers, nut engagement and projection, finish,
+access, and every joint limit state before choosing any bolt. No approval to
+buy or drill follows from the 8-in length or A307 label.
+
 ## Decision boundary
 
 Before costing or rating a specific joint, freeze its bolt diameter/head type,
