@@ -61,12 +61,15 @@ def test_saved_native_input_is_explicitly_stale_until_v4_candidate_is_frozen() -
     saved = json.loads(Path("docs/bolted-candidate-native-input.json").read_text())
     current = validate_contract()["source_sha256"]
     old = saved["source_sha256"]
-    # V4 changed owner authority, but this historical non-ready input was not
-    # regenerated or falsely labeled as evidence for a new native solve.
+    # V4 changed owner authority and the conditional timber helper. This old
+    # non-ready input was not regenerated as evidence for a new native solve.
     assert {
         path
         for path in old.keys() | current.keys()
         if old.get(path) != current.get(path)
-    } == {"docs/bolted-candidate-owner-inputs.json"}
+    } == {
+        "docs/bolted-candidate-owner-inputs.json",
+        "mini_moonboard/bolted_timber_checks.py",
+    }
     assert saved["native_ready"] is False
     assert saved["no_native_cases_run"] is True
