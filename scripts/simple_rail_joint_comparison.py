@@ -88,13 +88,16 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
         "head": _cylinder(point, reverse, TOOL_DEPTH, TOOL_DIAMETER),
         "nut": _cylinder(end, axis, TOOL_DEPTH, TOOL_DIAMETER),
     }
-    required = {k: round(bore.intersect(v).Volume(), 3) for k, v in members.items()}
+    measured = {k: bore.intersect(v).Volume() for k, v in members.items()}
     expected = {
-        k: round(math.pi * (DIAMETER / 2) ** 2 * length, 3)
+        k: math.pi * (DIAMETER / 2) ** 2 * length
         for k, length in required_lengths.items()
     }
+    missing = {k: max(0.0, volume - measured[k]) for k, volume in expected.items()}
+    excess = {k: max(0.0, measured[k] - volume) for k, volume in expected.items()}
     contained = {
-        k: required[k] >= 0.99 * volume and volume > 0 for k, volume in expected.items()
+        k: missing[k] <= 1.0 and excess[k] <= 1.0 and volume > 0
+        for k, volume in expected.items()
     }
     return (
         {
@@ -103,8 +106,13 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
             "axis_xyz": [round(v, 6) for v in axis],
             "grip_mm": grip,
             "clearance_diameter_mm_trial_not_shop_instruction": DIAMETER,
-            "required_wood_bore_mm3": required,
-            "expected_full_bore_wood_mm3": expected,
+            "required_wood_bore_mm3": {k: round(v, 3) for k, v in measured.items()},
+            "expected_full_bore_wood_mm3": {
+                k: round(v, 3) for k, v in expected.items()
+            },
+            "missing_wood_bore_mm3": {k: round(v, 6) for k, v in missing.items()},
+            "excess_wood_bore_mm3": {k: round(v, 6) for k, v in excess.items()},
+            "full_bore_tolerance_mm3": 1.0,
             "full_bore_containment": contained,
             "parent_bore_clashes_mm3": _volume_hits(bore, parent),
             "washer_clashes_mm3": {
@@ -116,6 +124,193 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
         washers,
         tools,
     )
+
+
+def _screen_grain_n_cleat(upright, rail, neighbors, panel, panel_axis_solids):
+    """One full-section cleat pose with grain along the local N axis."""
+    ub, rb = upright.BoundingBox(), rail.BoundingBox()
+    rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
+    rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
+    upright_t = [v.Y * T[0] + v.Z * T[1] for v in upright.Vertices()]
+    upright_n_bounds = [v.Y * N[0] + v.Z * N[1] for v in upright.Vertices()]
+    t_near, n_near = max(rail_t), min(rail_n)
+    x_width, t_width, n_length = 88.9, 57.15, 200.0
+    base_y, base_z = _yz(t_near, n_near)
+    cleat = (
+        box(ub.xmax, 0, 0, x_width, t_width, n_length)
+        .rotate((0, 0, 0), (1, 0, 0), 50)
+        .translate((0, base_y, base_z))
+    )
+    cleat_t = [v.Y * T[0] + v.Z * T[1] for v in cleat.Vertices()]
+    cleat_n = [v.Y * N[0] + v.Z * N[1] for v in cleat.Vertices()]
+    upright_n, rail_bolt_n = 260.0, 315.0
+    uy, uz = _yz(t_near + t_width / 2, upright_n)
+    upright_bolt, upright_bore, uw, ut = _bolt_report(
+        "upright_to_grain_n_cleat",
+        (ub.xmin - 2.5, uy, uz),
+        (1, 0, 0),
+        ub.xlen + x_width + 5,
+        {"upright": upright, "cleat": cleat},
+        {"upright": ub.xlen, "cleat": x_width},
+        {"rail": rail, **neighbors, **panel},
+    )
+    ry, rz = _yz(min(rail_t) - 2.5, rail_bolt_n)
+    rail_bolt, rail_bore, rw, rt = _bolt_report(
+        "rail_to_grain_n_cleat",
+        (ub.xmax + x_width / 2, ry, rz),
+        (0, T[0], T[1]),
+        38.1 + t_width + 5,
+        {"rail": rail, "cleat": cleat},
+        {"rail": 38.1, "cleat": t_width},
+        {"upright": upright, **neighbors, **panel},
+    )
+    all_envelopes = {
+        "cleat": cleat,
+        "upright_bore": upright_bore,
+        "rail_bore": rail_bore,
+        **{f"upright_washer_{end}": solid for end, solid in uw.items()},
+        **{f"rail_washer_{end}": solid for end, solid in rw.items()},
+        **{f"upright_tool_{end}": solid for end, solid in ut.items()},
+        **{f"rail_tool_{end}": solid for end, solid in rt.items()},
+    }
+    upper_t_near = min(v.Y * T[0] + v.Z * T[1] for v in neighbors[NEIGHBOR].Vertices())
+    rail_tool_t_end = t_near + t_width + 2.5 + TOOL_DEPTH
+    report = {
+        "size_local_x_t_n_mm": [x_width, t_width, n_length],
+        "grain_direction_xyz": [0, round(N[0], 6), round(N[1], 6)],
+        "grain_axis": "N",
+        "bolt_axis_dot_cleat_grain": {"upright": 0, "rail": 0},
+        "actual_local_bounds_mm": {
+            "x": [
+                round(cleat.BoundingBox().xmin, 3),
+                round(cleat.BoundingBox().xmax, 3),
+            ],
+            "t": [round(min(cleat_t), 3), round(max(cleat_t), 3)],
+            "n": [round(min(cleat_n), 3), round(max(cleat_n), 3)],
+        },
+        "rail_tangent_face_mm": round(t_near, 3),
+        "rail_butt_x_mm": round(rb.xmin, 3),
+        "upright_butt_x_mm": round(ub.xmax, 3),
+        "nominal_face_contact_area_mm2": {
+            "rail_to_cleat": round(x_width * (max(rail_n) - n_near), 3),
+            "upright_to_cleat": round(t_width * (max(rail_n) - n_near), 3),
+        },
+        "trial_bolt_n_centers_mm": {"upright": upright_n, "rail": rail_bolt_n},
+        "trial_bolt_n_center_separation_mm": rail_bolt_n - upright_n,
+        "center_to_edges_mm": {
+            "upright_bolt_in_cleat_t": [t_width / 2, t_width / 2],
+            "upright_bolt_in_cleat_n": [
+                round(upright_n - n_near, 3),
+                round(n_near + n_length - upright_n, 3),
+            ],
+            "upright_bolt_in_host_t": [
+                round(t_near + t_width / 2 - min(upright_t), 3),
+                round(max(upright_t) - t_near - t_width / 2, 3),
+            ],
+            "upright_bolt_in_host_n": [
+                round(upright_n - min(upright_n_bounds), 3),
+                round(max(upright_n_bounds) - upright_n, 3),
+            ],
+            "rail_bolt_in_cleat_x": [x_width / 2, x_width / 2],
+            "rail_bolt_in_cleat_n": [
+                round(rail_bolt_n - n_near, 3),
+                round(n_near + n_length - rail_bolt_n, 3),
+            ],
+            "rail_bolt_in_host_x": [
+                round(ub.xmax + x_width / 2 - rb.xmin, 3),
+                round(rb.xmax - ub.xmax - x_width / 2, 3),
+            ],
+            "rail_bolt_in_host_n": [
+                round(rail_bolt_n - n_near, 3),
+                round(max(rail_n) - rail_bolt_n, 3),
+            ],
+        },
+        "edge_distance_structurally_qualified": False,
+        "rail_first_bolt_end_distance_mm": round(x_width / 2, 3),
+        "nominal_7d_mm": round(7 * 9.525, 3),
+        "rail_end_distance_shortfall_if_7d_applies_mm": round(
+            7 * 9.525 - x_width / 2, 3
+        ),
+        "conditional_edge_caution": (
+            "rail trial bore is 34.541 mm from its rear N edge; if that edge "
+            "is loaded under a 4D screen for a 9.525-mm bolt, 38.1 mm would "
+            "be needed. Load direction and applicable NDS rule remain open"
+        ),
+        "conditional_end_caution": (
+            "rail trial bore is 44.45 mm from its grain-X end; this is "
+            "22.225 mm short of nominal 7D=66.675 mm for a 9.525-mm bolt "
+            "if that NDS full-value end-distance condition applies. "
+            "Same-case load direction and applicable rule remain open"
+        ),
+        "fixed_panel_axes_checked": len(panel_axis_solids),
+        "protected_axis_envelope_clashes_mm3": {
+            name: _volume_hits(solid, panel_axis_solids)
+            for name, solid in all_envelopes.items()
+        },
+        "cleat_host_clashes_mm3": _volume_hits(
+            cleat, {"upright": upright, "rail": rail}
+        ),
+        "cleat_parent_clashes_mm3": _volume_hits(cleat, neighbors),
+        "cleat_panel_clashes_mm3": _volume_hits(cleat, panel),
+        "bolt_groups": {"upright": [upright_bolt], "rail": [rail_bolt]},
+        "bolt_intersections_mm3": round(upright_bore.intersect(rail_bore).Volume(), 3),
+        "washer_cross_clashes_mm3": {
+            "upright_against_rail_bore": _volume_hits(
+                uw["nut"], {"rail_bore": rail_bore}
+            ),
+            "rail_against_upright_bore": _volume_hits(
+                rw["nut"], {"upright_bore": upright_bore}
+            ),
+        },
+        "upper_rail_tangent_near_mm": round(upper_t_near, 3),
+        "rail_nut_tool_tangent_clearance_mm": round(upper_t_near - rail_tool_t_end, 3),
+        "real_stock_and_cost_caveats": [
+            "nominal 4x4 cross-section is only a dimensional source; grade and delivered dimensions unverified",
+            "57.15-mm tangent rip, saw kerf, tolerances, usable offcut, and fabrication effort unverified",
+            "full through-bolt, washer, nut, tool, timber, and purchase-pack costs unknown",
+        ],
+        "trial_stack_count_not_selected": 2,
+        "trial_envelope_grips_mm_not_purchased_lengths": {
+            "upright": upright_bolt["grip_mm"],
+            "rail": rail_bolt["grip_mm"],
+        },
+        "installed_cost_usd": None,
+        "remaining_open_checks": [
+            "one trial bolt per side is not a complete reversible joint or load path",
+            "grain-N cleat, edge/end distances, group action, splitting, and net section require 2024 NDS checks",
+            "simultaneous force/moment demand, cleat equilibrium, deformation, and contact-only compression open",
+            "delivered stock, hardware tolerances, access during assembly, and installed cost open",
+        ],
+        "load_rating_adopted": False,
+        "drilling_released": False,
+    }
+    clear = (
+        all(upright_bolt["full_bore_containment"].values())
+        and all(rail_bolt["full_bore_containment"].values())
+        and not any(
+            _has_hits(report[key])
+            for key in (
+                "protected_axis_envelope_clashes_mm3",
+                "cleat_host_clashes_mm3",
+                "cleat_parent_clashes_mm3",
+                "cleat_panel_clashes_mm3",
+                "washer_cross_clashes_mm3",
+            )
+        )
+        and not any(
+            _has_hits(bolt[key])
+            for bolt in (upright_bolt, rail_bolt)
+            for key in (
+                "parent_bore_clashes_mm3",
+                "washer_clashes_mm3",
+                "tool_clashes_mm3",
+            )
+        )
+        and report["bolt_intersections_mm3"] == 0
+        and report["rail_nut_tool_tangent_clearance_mm"] > 0
+    )
+    report["status"] = "geometry_only_candidate" if clear else "reject_this_pose"
+    return report
 
 
 def compare():
@@ -343,6 +538,9 @@ def compare():
         "nearby_rail": NEIGHBOR,
         "overlap": overlap,
         "cleat": cleat_report,
+        "cleat_grain_n": _screen_grain_n_cleat(
+            upright, rail, neighbors, panel, panel_axis_solids
+        ),
         "load_rating_adopted": False,
         "drilling_released": False,
         "open": [

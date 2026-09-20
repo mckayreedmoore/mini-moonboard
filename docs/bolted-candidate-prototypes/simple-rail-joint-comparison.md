@@ -74,6 +74,22 @@ this family, reorient or redesign the cleat so both bolt groups have
 applicable wood-fastener checks. Cleat shear, bending, splitting and both
 interface deformations must be checked as one joint.
 
+A second pose turns the cleat so its **200-mm length follows panel-normal
+grain**. Its 88.9 × 57.15-mm cross-section can be cut from nominal 4×4
+stock, subject to delivered dimensions and a short rip cut. Both separate
+trial bolt axes are transverse to the cleat grain. The local solid screen
+finds complete bores, clear trial washers and 40-mm straight tools, no
+intersections with other members, and no intersections with any of the 66
+fixed screw axes. The rail-side tool still has 6.3 mm nominal tangent
+clearance to the upper rail. This too is **geometry only**: one bolt per
+interface is not a reversible load path. The rail bolt lies just 44.45 mm
+from its member end, 22.225 mm short of a nominal 7D full-value benchmark
+for a 9.525-mm bolt *if the corresponding loading condition applies*.
+The actual load direction, applicable 2024 NDS geometry factor, loaded
+edge, group, cleat and member resistance all remain open. The old X-grain
+pose remains in the JSON as a rejected architecture direction, not an
+alternative selected joint.
+
 ## Preliminary mechanics and cost boundary
 
 For both concepts, derive simultaneous force and moment about one common
@@ -87,6 +103,8 @@ wrappers are not direct wood–wood joint ratings. PB-04 must reconcile the
 [March 2026 AWC 2024-NDS erratum](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
 before adopting connection-adjacent timber shear checks. No bolt diameter
 or count is selected by this record.
+The [free-body action path](simple-rail-action-path.md) records the common
+origin and new wrench/contact outputs required before any capacity comparison.
 
 The [retail source inventory](simple-joint-retail-inputs.md) is preliminary.
 Home Depot lists an
@@ -105,7 +123,8 @@ yield, shipping/tax, ordinary cuts, bore directions, and move operations
 only after both joint layouts are dimensioned. Do not imply a cost winner
 from the price of one shaft.
 
-Next: seek a grain-credible cleat orientation and full bolt groups in this
-same local duty, then calculate applicable component checks and preliminary
+Next: develop full bolt groups in this same local duty, including a
+sourceable wider cleat if needed for end/edge geometry, then calculate
+applicable component checks and preliminary
 same-case actions before choosing the simpler credible detail. A nominal
 40-mm tool cylinder is not a guarantee that an actual socket/wrench works.

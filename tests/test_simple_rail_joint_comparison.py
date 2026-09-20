@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from scripts.simple_rail_joint_comparison import OUTPUT, compare
+from scripts.simple_rail_joint_comparison import OUTPUT, _bolt_report, box, compare
 
 
 def test_comparison_keeps_fixed_panel_axes_and_reports_real_offset():
@@ -86,3 +86,62 @@ def test_cleat_has_separate_crossing_checked_bolt_groups():
     assert cleat["status"] == "geometry_only_candidate"
     assert cleat["remaining_open_checks"]
     assert json.loads(OUTPUT.read_text()) == report
+
+
+def test_grain_n_cleat_is_separately_screened_without_promoting_prior_poses():
+    report = compare()
+    trial = report["cleat_grain_n"]
+    assert report["overlap"]["status"] == "reject_this_pose"
+    assert report["cleat"]["priority_architecture_blocker"]
+    assert trial["size_local_x_t_n_mm"] == [88.9, 57.15, 200]
+    assert trial["grain_direction_xyz"] == pytest.approx([0, -0.766044, 0.642788])
+    assert trial["bolt_axis_dot_cleat_grain"] == {"upright": 0, "rail": 0}
+    assert trial["fixed_panel_axes_checked"] == 66
+    assert all(trial["bolt_groups"]["upright"][0]["full_bore_containment"].values())
+    assert all(trial["bolt_groups"]["rail"][0]["full_bore_containment"].values())
+    assert trial["edge_distance_structurally_qualified"] is False
+    assert trial["rail_first_bolt_end_distance_mm"] == pytest.approx(44.45)
+    assert trial["nominal_7d_mm"] == pytest.approx(66.675)
+    assert trial["rail_end_distance_shortfall_if_7d_applies_mm"] == pytest.approx(
+        22.225
+    )
+    assert trial["trial_bolt_n_center_separation_mm"] == pytest.approx(55)
+    assert trial["actual_local_bounds_mm"]["x"] == pytest.approx([89.05, 177.95])
+    assert trial["actual_local_bounds_mm"]["t"] == pytest.approx([1353.874, 1411.024])
+    assert trial["actual_local_bounds_mm"]["n"] == pytest.approx([209.841, 409.841])
+    assert trial["cleat_host_clashes_mm3"] == {}
+    assert trial["cleat_parent_clashes_mm3"] == {}
+    assert trial["cleat_panel_clashes_mm3"] == {}
+    assert trial["bolt_intersections_mm3"] == 0
+    assert all(
+        hits == {} for hits in trial["protected_axis_envelope_clashes_mm3"].values()
+    )
+    for family in ("upright", "rail"):
+        bolt = trial["bolt_groups"][family][0]
+        assert bolt["full_bore_tolerance_mm3"] == 1
+        assert all(volume <= 1 for volume in bolt["missing_wood_bore_mm3"].values())
+        assert bolt["parent_bore_clashes_mm3"] == {}
+        assert all(not hits for hits in bolt["washer_clashes_mm3"].values())
+        assert all(not hits for hits in bolt["tool_clashes_mm3"].values())
+    assert trial["rail_nut_tool_tangent_clearance_mm"] == pytest.approx(6.3)
+    assert trial["status"] == "geometry_only_candidate"
+    assert trial["trial_stack_count_not_selected"] == 2
+    assert trial["installed_cost_usd"] is None
+    assert trial["real_stock_and_cost_caveats"]
+    assert trial["remaining_open_checks"]
+    assert trial["load_rating_adopted"] is False
+    assert trial["drilling_released"] is False
+
+
+def test_full_bore_rejects_more_than_one_cubic_mm_missing_wood():
+    trial, _, _, _ = _bolt_report(
+        "incomplete_test_bore",
+        (0, 0, 0),
+        (1, 0, 0),
+        10,
+        {"host": box(0, -20, -20, 9, 40, 40)},
+        {"host": 10},
+        {},
+    )
+    assert trial["missing_wood_bore_mm3"]["host"] > 1
+    assert trial["full_bore_containment"]["host"] is False
