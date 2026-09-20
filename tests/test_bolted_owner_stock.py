@@ -24,4 +24,6 @@ def test_owner_stock_report_is_consistent_without_claiming_inspection() -> None:
         "hidden_frame_changes_allowed_for_factory_connector_design"
     )
     assert owner["frame_change_scope"]["source"] == "direct_owner_reply_in_codex_task"
+    assert owner["connector_scope"]["prefabricated_brackets_required"] is True
+    assert owner["connector_scope"]["direct_wood_lap_joint_allowed"] is False
     assert interfaces["physical_state"] == "owner-reported uncut and undrilled; receiving inspection pending"

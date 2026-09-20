@@ -14,6 +14,9 @@ connector, or authorize fabrication.
   panel inserts, panel through-bolts, and new panel hardware are excluded.
 - Target zero routine structural wood-thread removals per move. This is not a
   whole-board zero and does not remove the 66 panel screw operations.
+- Use prefabricated factory brackets at converted joints. Store-bought bolts
+  may fasten those brackets, but a direct wood-to-wood lap joint is excluded
+  by the owner's 2026-09-20 clarification.
 - Preserve the selected baseline and its historical evidence. No new candidate
   result may overwrite or authenticate an old result.
 

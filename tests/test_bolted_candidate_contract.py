@@ -15,6 +15,7 @@ def test_candidate_identity_and_scope_are_explicit() -> None:
     assert metadata["future_panel_inserts"] == "deferred_not_a_dependency"
     assert metadata["owner_connector_scope"] == "factory_connectors_only"
     assert metadata["custom_cut_drilled_steel_allowed"] is False
+    assert metadata["direct_wood_lap_joint_allowed"] is False
     assert metadata["structural_connector_schedule_status"] == (
         "factory_connector_unselected"
     )

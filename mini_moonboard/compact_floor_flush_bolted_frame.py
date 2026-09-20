@@ -68,6 +68,7 @@ def candidate_metadata() -> dict[str, object]:
         "structural_connector_schedule_status": "factory_connector_unselected",
         "owner_connector_scope": "factory_connectors_only",
         "custom_cut_drilled_steel_allowed": False,
+        "direct_wood_lap_joint_allowed": False,
         "hidden_frame_changes_allowed": True,
         "panel_screw_axis_policy": "preserve_all_66_coordinates",
         "climbing_surface_policy": "preserve_panel_outlines_and_angle",

@@ -412,3 +412,6 @@ path, a procurement list, or any drilling operation. G1 and G2 stay open
 until a complete installed joint and its applicable resistance evidence
 exist. The earlier BR904/AB205 studies remain historical fixed-geometry
 screens, not conditions that every new factory fitting must satisfy.
+The owner further clarified, “just brackets, no lap joints.” Therefore a
+direct wood-to-wood bolted lap is not an authorized substitute for a
+prefabricated bracket, even though ordinary factory bolts may attach one.

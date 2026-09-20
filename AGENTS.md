@@ -82,6 +82,9 @@ the earlier center-support-only limit no longer governs it. Preserve the
 climbing surface, panel outlines, and panel/kicker screw layout, and verify
 kerf-right kicker edge support. Changed frame bolts must be rechecked, not
 silently assumed preserved. Panel through-bolts, inserts, new panel fasteners,
-and custom steel remain outside this lane. This scope approval does not select
-a connector or authorize cutting or drilling. See
+and custom steel remain outside this lane. On 2026-09-20 the owner clarified
+that the connection must use prefabricated brackets, not direct wood lap joints;
+ordinary bolts may fasten the brackets but are not a bracket-free substitute.
+This scope approval does not select a connector or authorize cutting or
+drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.
