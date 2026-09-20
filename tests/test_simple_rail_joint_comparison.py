@@ -52,6 +52,7 @@ def test_comparison_keeps_fixed_panel_axes_and_reports_real_offset():
         "cleat",
         "cleat_grain_n",
         "cleat_grain_n_4x6",
+        "cleat_grain_n_4x6_quarter",
         "cleat_grain_n_4x6_group",
     ):
         assert report[pose]["purchased_hillman_screen"]["axis_count"] == 66
@@ -302,6 +303,62 @@ def test_grain_n_4x6_trial_uses_same_screen_and_corrected_rail_station():
     assert trial["status"] == "diagnostic_pose_only"
     assert trial["installed_access_verified"] is False
     assert trial["actual_head_nut_socket_stack_verified"] is False
+    assert trial["load_rating_adopted"] is False
+    assert trial["drilling_released"] is False
+
+
+def test_grain_n_4x6_quarter_pose_is_conditional_and_keeps_all_axes_clear():
+    report = compare()
+    legacy = report["cleat_grain_n_4x6"]
+    trial = report["cleat_grain_n_4x6_quarter"]
+    assert legacy["nominal_trial_bolt_diameter_mm_not_selected"] == pytest.approx(9.525)
+    assert legacy[
+        "diagnostic_wood_bore_diameter_mm_not_drill_instruction"
+    ] == pytest.approx(10.5)
+    assert legacy["conditional_4d_mm"] == pytest.approx(38.1)
+    assert legacy["conditional_7d_mm"] == pytest.approx(66.675)
+    assert trial["size_local_x_t_n_mm"] == legacy["size_local_x_t_n_mm"]
+    assert trial["nominal_trial_bolt_diameter_mm_not_selected"] == pytest.approx(6.35)
+    assert trial[
+        "diagnostic_wood_bore_diameter_mm_not_drill_instruction"
+    ] == pytest.approx(7.5)
+    assert trial["nds_2024_nominal_hole_interval_mm"] == pytest.approx(
+        [7.14375, 7.9375]
+    )
+    assert trial["conditional_4d_mm"] == pytest.approx(25.4)
+    assert trial["conditional_7d_mm"] == pytest.approx(44.45)
+    edges = trial["center_to_edges_mm"]
+    assert edges["upright_bolt_in_cleat_t"] == pytest.approx([28.575, 28.575])
+    assert edges["upright_bolt_in_cleat_n"] == pytest.approx([50.159, 149.841])
+    assert edges["rail_bolt_in_cleat_n"] == pytest.approx([105.159, 94.841])
+    assert edges["rail_bolt_in_host_n"] == pytest.approx([105.159, 34.541])
+    assert trial["fixed_panel_axes_checked"] == 66
+    assert trial["purchased_hillman_screen"]["axis_count"] == 66
+    assert trial["purchased_hillman_screen"]["clashes_mm3"] == {
+        "nominal_head_diameter_full_length": {},
+        "nominal_plus_1mm_radial_sensitivity": {},
+    }
+    assert all(
+        not hits for hits in trial["protected_axis_envelope_clashes_mm3"].values()
+    )
+    assert trial["cleat_host_clashes_mm3"] == {}
+    assert trial["cleat_parent_clashes_mm3"] == {}
+    assert trial["cleat_panel_clashes_mm3"] == {}
+    assert trial["bolt_intersections_mm3"] == 0
+    assert trial["rail_nut_tool_tangent_clearance_mm"] == pytest.approx(6.3)
+    assert trial["washer_faces_geometry_verified"] is True
+    assert all(trial["face_contact_geometry_verified"].values())
+    for family in ("upright", "rail"):
+        bolt = trial["bolt_groups"][family][0]
+        assert bolt[
+            "clearance_diameter_mm_trial_not_shop_instruction"
+        ] == pytest.approx(7.5)
+        assert all(bolt["full_bore_containment"].values())
+        assert bolt["parent_bore_clashes_mm3"] == {}
+        assert all(not hits for hits in bolt["washer_clashes_mm3"].values())
+        assert all(not hits for hits in bolt["tool_clashes_mm3"].values())
+    assert trial["status"] == "diagnostic_pose_only"
+    assert trial["installed_access_verified"] is False
     assert trial["load_rating_adopted"] is False
     assert trial["drilling_released"] is False
 

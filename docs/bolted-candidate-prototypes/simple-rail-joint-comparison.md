@@ -124,6 +124,24 @@ it does **not** establish a full bolt group, 2024 NDS pass, installed
 head/nut/socket access, stock cost, or a complete joint. The longer
 principal-to-cleat wood grip is 177.8 mm before any washers or nut.
 
+The same maintained comparison also screens that grain-N 4×6 single-bolt
+pose with an **illustrative 1/4-in (6.35-mm) nominal bolt** and a 7.5-mm
+diagnostic bore. The [2024 NDS hole interval](simple-rail-nds-geometry-basis.md)
+for that nominal diameter is 7.14375–7.9375 mm. The unchanged cleat and
+bolt centers give 28.575 mm to each cleat T edge, 50.159/149.841 mm to
+its N ends, and 34.541 mm to the rail's nearer N edge; conditional 4D
+and 7D numbers become 25.4 and 44.45 mm. Complete local bores,
+diagnostic washer and 40-mm tool envelopes, exact neighboring solids,
+all 66 fixed axes and both purchased-Hillman proxies remain collision-free
+in this nominal screen; the rail nut-side tool has 6.3 mm clearance to
+the next rail. This does **not** classify loaded edges, establish a bolt
+group or strength, select a diameter, verify installed access, or release
+drilling. It is a diameter variant of the same pose, not a second design.
+The [ordinary 1/4-in retail leads](simple-joint-retail-inputs.md) do not
+document enough shank/thread geometry to use the full nominal diameter for
+wood bearing; if root diameter governs below 1/4 in, the current
+two-member yield helper requires a different, source-checked NDS route.
+
 A four-bolt diagnostic layout then tries two ordinary through-bolts on
 each serial interface. Extending the 4×6 cleat's grain-normal length to
 300 mm with its front at N = 160 mm creates a real **143,332 mm³ clash**

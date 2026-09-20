@@ -166,9 +166,11 @@ def _screw_envelope_hits(shapes, screw_solids):
     }
 
 
-def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
+def _bolt_report(
+    name, point, axis, grip, members, required_lengths, parent, *, diameter=DIAMETER
+):
     """Report trial bore, face-seated washers, and diagnostic tool envelopes."""
-    bore = _cylinder(point, axis, grip, DIAMETER)
+    bore = _cylinder(point, axis, grip, diameter)
     end = tuple(point[i] + axis[i] * grip for i in range(3))
     reverse = tuple(-a for a in axis)
     head_face = tuple(point[i] + axis[i] * 2.5 for i in range(3))
@@ -183,7 +185,7 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
     }
     measured = {k: bore.intersect(v).Volume() for k, v in members.items()}
     expected = {
-        k: math.pi * (DIAMETER / 2) ** 2 * length
+        k: math.pi * (diameter / 2) ** 2 * length
         for k, length in required_lengths.items()
     }
     missing = {k: max(0.0, volume - measured[k]) for k, volume in expected.items()}
@@ -204,7 +206,7 @@ def _bolt_report(name, point, axis, grip, members, required_lengths, parent):
             },
             "washer_seat_offset_from_bore_end_mm": 2.5,
             "actual_head_nut_socket_stack_verified": False,
-            "clearance_diameter_mm_trial_not_shop_instruction": DIAMETER,
+            "clearance_diameter_mm_trial_not_shop_instruction": diameter,
             "required_wood_bore_mm3": {k: round(v, 3) for k, v in measured.items()},
             "expected_full_bore_wood_mm3": {
                 k: round(v, 3) for k, v in expected.items()
@@ -237,8 +239,12 @@ def _screen_grain_n_cleat(
     rail_bolt_x_from_butt,
     stock_label,
     retail_source=None,
+    bolt_diameter=BOLT_DIAMETER,
+    bore_diameter=DIAMETER,
 ):
     """Parameterized full-section cleat pose with grain along local N."""
+    if not bolt_diameter + 25.4 / 32 <= bore_diameter <= bolt_diameter + 25.4 / 16:
+        raise ValueError("diagnostic bore outside 2024 NDS nominal bolt-hole interval")
     ub, rb = upright.BoundingBox(), rail.BoundingBox()
     rail_t = [v.Y * T[0] + v.Z * T[1] for v in rail.Vertices()]
     rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
@@ -264,6 +270,7 @@ def _screen_grain_n_cleat(
         {"upright": upright, "cleat": cleat},
         {"upright": ub.xlen, "cleat": x_width},
         {"rail": rail, **neighbors, **panel},
+        diameter=bore_diameter,
     )
     ry, rz = _yz(min(rail_t) - 2.5, rail_bolt_n)
     rail_bolt, rail_bore, rw, rt = _bolt_report(
@@ -274,6 +281,7 @@ def _screen_grain_n_cleat(
         {"rail": rail, "cleat": cleat},
         {"rail": 38.1, "cleat": t_width},
         {"upright": upright, **neighbors, **panel},
+        diameter=bore_diameter,
     )
     u_faces = upright_bolt["washer_wood_face_xyz_mm"]
     r_faces = rail_bolt["washer_wood_face_xyz_mm"]
@@ -312,6 +320,14 @@ def _screen_grain_n_cleat(
         for name in nominal_contact
     }
     report = {
+        "nominal_trial_bolt_diameter_mm_not_selected": bolt_diameter,
+        "diagnostic_wood_bore_diameter_mm_not_drill_instruction": bore_diameter,
+        "nds_2024_nominal_hole_interval_mm": [
+            bolt_diameter + 25.4 / 32,
+            bolt_diameter + 25.4 / 16,
+        ],
+        "conditional_4d_mm": 4 * bolt_diameter,
+        "conditional_7d_mm": 7 * bolt_diameter,
         "purchased_hillman_screen": _screw_envelope_hits(
             all_envelopes, purchased_screws
         ),
@@ -373,21 +389,23 @@ def _screen_grain_n_cleat(
         },
         "edge_distance_structurally_qualified": False,
         "rail_first_bolt_end_distance_mm": round(rail_bolt_x_from_butt, 3),
-        "nominal_7d_mm": round(7 * 9.525, 3),
+        "nominal_7d_mm": round(7 * bolt_diameter, 3),
         "rail_end_distance_shortfall_if_7d_applies_mm": round(
-            max(0, 7 * 9.525 - rail_bolt_x_from_butt), 3
+            max(0, 7 * bolt_diameter - rail_bolt_x_from_butt), 3
         ),
         "rail_end_distance_margin_to_nominal_7d_mm": round(
-            rail_bolt_x_from_butt - 7 * 9.525, 3
+            rail_bolt_x_from_butt - 7 * bolt_diameter, 3
         ),
         "conditional_edge_caution": (
             "rail trial bore is 34.541 mm from its rear N edge; if that edge "
-            "is loaded under a 4D screen for a 9.525-mm bolt, 38.1 mm would "
+            f"is loaded under a 4D screen for a {bolt_diameter:g}-mm bolt, "
+            f"{4 * bolt_diameter:g} mm would "
             "be needed. Load direction and applicable NDS rule remain open"
         ),
         "conditional_end_caution": (
             f"rail trial bore is {rail_bolt_x_from_butt:g} mm from its grain-X end; "
-            "nominal 7D=66.675 mm for a 9.525-mm bolt is a conditional "
+            f"nominal 7D={7 * bolt_diameter:g} mm for a {bolt_diameter:g}-mm "
+            "bolt is a conditional "
             "geometry screen, not a same-case NDS joint verdict"
         ),
         "fixed_panel_axes_checked": len(panel_axis_solids),
@@ -969,6 +987,16 @@ def compare():
     cleat_report["status"] = (
         "diagnostic_pose_only" if geometry_clear else "reject_this_pose"
     )
+    retail_4x6 = {
+        "retailer": "Lowe's",
+        "product": "4-in x 6-in x 8-ft #2 Better Douglas Fir Green Lumber",
+        "model": "637637",
+        "url": "https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917",
+        "listed_actual_cross_section_mm": [90.4748, 142.875],
+        "modeled_cross_section_mm": [57.15, 139.7],
+        "dimensional_stock_envelope_sufficient_before_saw_kerf": True,
+        "local_availability_price_delivered_size_verified": False,
+    }
     return {
         "purchased_hillman_conditional_screen": hillman_metadata,
         "station": "clip_horizontal_lower_right_1",
@@ -1007,16 +1035,21 @@ def compare():
             x_width=139.7,
             rail_bolt_x_from_butt=70.0,
             stock_label="nominal 4x6",
-            retail_source={
-                "retailer": "Lowe's",
-                "product": "4-in x 6-in x 8-ft #2 Better Douglas Fir Green Lumber",
-                "model": "637637",
-                "url": "https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917",
-                "listed_actual_cross_section_mm": [90.4748, 142.875],
-                "modeled_cross_section_mm": [57.15, 139.7],
-                "dimensional_stock_envelope_sufficient_before_saw_kerf": True,
-                "local_availability_price_delivered_size_verified": False,
-            },
+            retail_source=retail_4x6,
+        ),
+        "cleat_grain_n_4x6_quarter": _screen_grain_n_cleat(
+            upright,
+            rail,
+            neighbors,
+            panel,
+            panel_axis_solids,
+            purchased_screws,
+            x_width=139.7,
+            rail_bolt_x_from_butt=70.0,
+            stock_label="nominal 4x6",
+            retail_source=retail_4x6,
+            bolt_diameter=6.35,
+            bore_diameter=7.5,
         ),
         "cleat_grain_n_4x6_group": _screen_grain_n_group(
             upright, rail, neighbors, panel, panel_axis_solids, purchased_screws
