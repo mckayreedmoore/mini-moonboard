@@ -25,11 +25,16 @@ def _cross(a: Vector, b: Vector) -> Vector:
     )
 
 
-def frame_for_reach(reach: Vector) -> HLFrame:
-    """Register an axis-aligned, horizontal flange reach with upright seat up."""
+def frame_for_reach(reach: Vector, uplift: Vector = (0, 0, 1)) -> HLFrame:
+    """Register axis-aligned reach and rotated catalog-uplift direction.
+
+    An inverted seat has `uplift = -Z` as a *geometric transform only*; the
+    catalog's seat-up allowable cannot be transferred to it by this helper.
+    """
     if reach not in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0)):
         raise ValueError("reach must be a horizontal signed coordinate axis")
-    uplift = (0, 0, 1)
+    if uplift not in ((0, 0, 1), (0, 0, -1)):
+        raise ValueError("uplift must be a signed vertical coordinate axis")
     return HLFrame(reach=reach, bend=_cross(uplift, reach), uplift=uplift)
 
 
@@ -58,13 +63,20 @@ def local_wrench(
 # the drawing's page-horizontal projection. Upper poses follow current ideal
 # outward-X seats; lower follows the rearward-Y horizontal seat. Mirrored bend
 # signs are coordinate bookkeeping, not separate catalog-rated load signs.
-POSE_REACH: dict[str, Vector] = {
-    "catalog_typical_right": (1, 0, 0),
-    "upper_right_outward_x": (1, 0, 0),
-    "upper_left_outward_x": (-1, 0, 0),
-    "lower_rearward_y": (0, -1, 0),
+POSE_ORIENTATION: dict[str, tuple[Vector, Vector]] = {
+    "catalog_typical_right": ((1, 0, 0), (0, 0, 1)),
+    "upper_right_outward_x": ((1, 0, 0), (0, 0, 1)),
+    "upper_left_outward_x": ((-1, 0, 0), (0, 0, 1)),
+    "lower_rearward_y": ((0, -1, 0), (0, 0, 1)),
+    "b_lower_right_front": ((1, 0, 0), (0, 0, -1)),
+    "b_lower_right_rib": ((-1, 0, 0), (0, 0, -1)),
+    "b_lower_left_front": ((-1, 0, 0), (0, 0, -1)),
+    "b_lower_left_rib": ((1, 0, 0), (0, 0, -1)),
 }
 
 
 def pose_frames() -> dict[str, HLFrame]:
-    return {name: frame_for_reach(reach) for name, reach in POSE_REACH.items()}
+    return {
+        name: frame_for_reach(reach, uplift)
+        for name, (reach, uplift) in POSE_ORIENTATION.items()
+    }

@@ -44,6 +44,20 @@ def test_all_installed_frames_are_orthonormal_and_handed():
         frame_for_reach((0, 0, 1))
 
 
+def test_inverted_b_seat_rotates_catalog_uplift_and_bend_sign():
+    lower_right = frame_for_reach((1, 0, 0), uplift=(0, 0, -1))
+    assert lower_right.reach == (1, 0, 0)
+    assert lower_right.bend == (0, -1, 0)
+    assert lower_right.uplift == (0, 0, -1)
+    assert local_wrench(lower_right, (7, 11, 13), (17, 19, 23)) == {
+        "force": (7, -11, -13),
+        "moment": (17, -19, -23),
+    }
+    assert pose_frames()["b_lower_right_front"] == lower_right
+    with pytest.raises(ValueError):
+        frame_for_reach((1, 0, 0), uplift=(0, 1, 0))
+
+
 def test_signed_force_and_moment_projection_in_actual_poses():
     right = frame_for_reach((1, 0, 0))
     left = frame_for_reach((-1, 0, 0))
@@ -71,5 +85,7 @@ def test_current_decision_text_uses_corrected_outward_axis():
     ).read_text()
     assert "maps to global **X**" in audit
     assert "unlisted horizontal transverse axis is **Y**" in audit
+    assert "B lower right front, inverted" in audit
+    assert "not permission to use a seat-up catalog allowable" in audit
     assert "horizontal flange reach into global X" in screen
     assert "global-Y transverse action" in screen

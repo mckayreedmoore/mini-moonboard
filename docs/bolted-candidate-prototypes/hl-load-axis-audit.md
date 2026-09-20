@@ -12,22 +12,29 @@ values apply only to the stated `C_D = 1.6` duration.
 
 The CAD uses global X across the board/header, Y front-to-back, and Z up.
 For a horizontal-seat-up HL angle, define local `e1` as the signed horizontal
-flange reach (F1), `e2 = Z × e1` as the bend line (unlisted transverse), and
-`e3 = +Z` as uplift. The upright-flange outward normal is parallel to `e1`
-in these poses. A side's sign is geometry bookkeeping, not proof that one
-connector resists both signs.
+flange reach (F1), `e2 = e3 × e1` as the bend line (unlisted transverse), and
+`e3 = +Z` as catalog uplift. For an inverted seat, the *geometrically rotated*
+`e3` is `−Z`, so the signed `e2` reverses. This is a coordinate transform,
+not permission to use a seat-up catalog allowable for an inverted installation.
+The upright-flange outward normal is parallel to `e1` in these poses. A
+side's sign is geometry bookkeeping, not proof that one connector resists
+both signs.
 
-| Pose | Upright normal / leg bolt axis | Bend `e2` | F1 / reach `e1` | Uplift `e3` |
+| Pose | Upright normal / leg bolt axis | Bend `e2` | F1 / reach `e1` | Rotated `e3` |
 | --- | --- | --- | --- | --- |
 | Figure's right-side beam/post angle | +X | +Y | +X | +Z |
 | Upper right, outward-X principal face | +X | +Y | +X | +Z |
 | Upper left, outward-X principal face | −X | −Y | −X | +Z |
 | Lower, rearward-Y core face | −Y | +X | −Y | +Z |
+| B lower right front, inverted | +X | −Y | +X | −Z |
+| B lower right rib, inverted | −X | +Y | −X | −Z |
+| B lower left front, inverted | −X | +Y | −X | −Z |
+| B lower left rib, inverted | +X | −Y | +X | −Z |
 
 The prior audit mapped outward-X HL33 F1 to global Y, a 90-degree error.
 It maps to global **X**; the unlisted horizontal transverse axis is **Y**.
 Rotating the bracket about Z rotates both axes; mirroring it reverses the
-signed reach while uplift remains up. The machine-readable
+signed reach while a seat-up bracket's uplift remains up. The machine-readable
 [`hl_load_axes.py`](../../scripts/hl_load_axes.py) fixture and tests preserve
 this physical registration and project signed force and moment. They assign
 no allowable to either sign, moment, or combined action. Wrench components
