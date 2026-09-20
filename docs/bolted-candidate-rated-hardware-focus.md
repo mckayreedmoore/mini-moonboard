@@ -49,6 +49,20 @@ multiply paired lateral values. The
 maps the outward-X pose's F1 to X; Y is the unlisted horizontal direction.
 Neither mapping alone qualifies the joint.
 
+**Bounded resistance-route fallback, not a selected connector.** Home Depot's
+[MiTek UB66](https://www.homedepot.com/p/313507617) maps to B66 in
+[MiTek's retail cross-reference](https://images.thdstatic.com/catalog/pdfImages/2f/2f1009db-047c-4da8-a283-bcda2c494ebe.pdf).
+Unlike the public HL page, [ESR-3455](https://www.mitek-us.com/wp-content/uploads/files/pdf/Code%20Evaluation%20Reports/esrESR-3455.pdf)
+identifies its 12-gauge ASTM A653 SS Grade 40 steel and 0.099-in minimum
+base thickness, four 3/8-in ASTM A307 Grade A-or-better bolts, and at least
+3 in of receiving wood. This warrants **one** coordinated B66 fit and
+independent component-check investigation if the HL resistance route remains
+undocumented. ESR-3455's F1/F2 table is only at `C_D = 1.6` and expressly
+forbids duration conversion; it is not a normal-duration rating. An
+independent route still needs 2024 NDS wood/bolt checks, formed-steel checks
+on a consistent ASD basis, load sharing and combined action, deformation,
+and the complete installed joint. No B66 rating or architecture is adopted.
+
 ## What advances G1
 
 One connected center assembly **and one representative rail joint** must
