@@ -75,7 +75,13 @@ The candidate `compact-floor-flush-bolted-development` is a separate
 development lane. It may replace the 144 structural SDS attachments at 24
 ML24Z stations only after its own geometry, mechanics, and evidence gates
 pass. Preserve `compact-floor-flush-development`, its evidence, its twelve
-existing frame-bolt arrangements, and its 66 panel/kicker screws. Panel
-through-bolts, inserts, new panel fasteners, enlarged members, and custom
-steel are outside this lane unless separately approved. See
+existing frame-bolt arrangements as the starting layout, and its 66
+panel/kicker screw axes. On 2026-09-20 the owner approved changes to hidden
+frame members as needed for a factory-connector design in this separate lane;
+the earlier center-support-only limit no longer governs it. Preserve the
+climbing surface, panel outlines, and panel/kicker screw layout, and verify
+kerf-right kicker edge support. Changed frame bolts must be rechecked, not
+silently assumed preserved. Panel through-bolts, inserts, new panel fasteners,
+and custom steel remain outside this lane. This scope approval does not select
+a connector or authorize cutting or drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.

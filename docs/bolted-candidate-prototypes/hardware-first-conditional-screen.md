@@ -1,11 +1,10 @@
 # Hardware-first connector screen (conditional scope)
 
-Status: source-verified concept research, not an owner-approved frame change,
-connector selection, resistance verdict, purchase list, or drilling release.
-The owner's earlier instruction limited movement to the center box supports;
-the later Astra handoff reports broader permission. Confirmation of which
-scope governs is pending. The selected candidate, 66 panel/kicker screw axes,
-panel outlines, and archived evidence have not changed.
+Status: source-verified concept research under the owner's 2026-09-20 approval
+to change hidden frame members, not a connector selection, resistance verdict,
+purchase list, or drilling release. The earlier center-support-only limit no
+longer governs this separate bolted candidate. The selected candidate, 66
+panel/kicker screw axes, panel outlines, and archived evidence have not changed.
 
 ## Documented factory-hardware shortlist
 
@@ -63,7 +62,7 @@ the existing `mitek-b66-retail.json` record provide a manufacturer/retailer
 model cross-reference, but the inspected B88 drawing does not dimension all
 hole centers. The previously checked Lowe's B66 listing was no longer sold.
 
-## Smallest-change concept to investigate if broader scope is confirmed
+## Smallest-change concept to investigate under the approved scope
 
 Start with HL35 on solid 4×6 actual 3.5 × 5.5 in receiving stock for
 *both sides* of the center principal/header and center post/header duties:

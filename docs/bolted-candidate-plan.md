@@ -43,14 +43,13 @@ contracts. These are baseline records, not candidate bolt geometry.
 G1 remains open. Under the earlier fixed-geometry scope, the bounded
 no-contact route started with Home Depot-listed BR904's named material grade
 and factory-fit assessment. No manufacturer has been contacted or part measured.
-A [conditional hardware-first screen](bolted-candidate-prototypes/hardware-first-conditional-screen.md)
-now identifies catalog-rated Simpson HL angles and a MiTek comparison for
-thicker solid receivers. That is a different, potentially better-documented
-route, but the later Astra scope update conflicts with the owner's earlier
-center-support-only limit. Until the owner confirms which frame-change scope
-governs, this screen is concept research, not a G1 selection or a change to
-the 1.5-in candidate members. BR904 remains fixed-geometry research, not a
-prerequisite for every possible factory connector.
+A [hardware-first screen](bolted-candidate-prototypes/hardware-first-conditional-screen.md)
+identifies catalog-rated Simpson HL angles and a MiTek comparison for thicker
+solid receivers. On 2026-09-20 the owner directly approved changes to hidden
+frame members for factory connectors while preserving the climbing surface
+and all 66 panel/kicker screw axes. The screen is still concept research, not
+a G1 selection or a change to the candidate geometry. BR904 remains
+fixed-geometry research, not a prerequisite for every factory connector.
 A66 remains an unqualified retail lead, while the fixed
 flush-bend AB205 center pose has been set aside under the explicitly
 conservative oblique-end grain-ray search filter and the competing narrow
@@ -221,8 +220,11 @@ remain shop gates. Preliminary work may use a fresh-stock model without
 treating the owner's report as a measured inspection. The eventual candidate
 mechanical evidence must cover kerf-right; official-width cases do not transfer. Custom
 steel is now explicitly excluded: the owner chose factory connectors only.
-Larger/doubled members, permanently wood-screwed detachable connectors, and
-retained paired principal members remain outside the current authorization.
+Hidden frame-member changes are now allowed in this separate candidate, but
+permanently wood-screwed detachable connectors, changed panel/kicker screw
+locations, custom steel, and a fabrication release are not. Every added timber
+block must have its own force path; loose plies cannot be assumed to act as a
+solid rated receiver.
 The ordinary A36 angle-stock record is historical scope evidence, not a
 candidate connector or fabrication fallback.
 
