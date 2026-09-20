@@ -6,6 +6,12 @@ purchase list, or drilling release. The earlier center-support-only limit no
 longer governs this separate bolted candidate. The selected candidate, 66
 panel/kicker screw axes, panel outlines, and archived evidence have not changed.
 
+The [exact BR904 Lowe's dimensioned-image follow-up](br904-lowes-drawing-followup.md)
+corrects the earlier negative online-drawing search. It supplies rounded
+nominal geometry for new layout screens, not controlled tolerances, a formed
+steel resistance, a wood-joint rating, or drilling coordinates. Earlier
+fixed-frame BR904 hypothetical offsets are historical, not factory values.
+
 ## Documented factory-hardware shortlist
 
 The [Simpson C-C-2026 p. 315 HL sheet](https://dhcsupplies.s3.us-east-2.amazonaws.com/Documents/simpson-strong-tie/hl-angles.pdf)
