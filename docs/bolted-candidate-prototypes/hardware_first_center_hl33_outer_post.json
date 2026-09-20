@@ -1,0 +1,220 @@
+{
+  "scope": "lower-only; upper joint unmodeled",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "catalog_source": "https://www.strongtie.com/resources/literature/wood-construction-connectors-catalog",
+  "protected_axis_count": 66,
+  "retained_frame_axis_count": 12,
+  "catalog_minimum_wood_thickness_mm": 88.9,
+  "receiver_thickness_mm": {
+    "post": 190.5,
+    "header": 88.9
+  },
+  "post_bounds_mm": [
+    -95.25,
+    95.25,
+    -126.47,
+    -36.0,
+    0.0,
+    234.35
+  ],
+  "header_bounds_mm": [
+    -1219.2,
+    1216.025,
+    -175.7,
+    -36.0,
+    238.9,
+    327.8
+  ],
+  "plate_bounds_mm": {
+    "left_vertical": [
+      -99.8,
+      -95.25,
+      -126.47,
+      -62.97,
+      151.8,
+      234.35
+    ],
+    "left_seat": [
+      -95.25,
+      -12.7,
+      -126.47,
+      -62.97,
+      234.35,
+      238.9
+    ],
+    "right_vertical": [
+      95.25,
+      99.8,
+      -126.47,
+      -62.97,
+      151.8,
+      234.35
+    ],
+    "right_seat": [
+      12.7,
+      95.25,
+      -126.47,
+      -62.97,
+      234.35,
+      238.9
+    ]
+  },
+  "bore_bounds_mm": {
+    "shared_post": [
+      -95.25,
+      95.25,
+      -101.8637,
+      -87.5763,
+      176.4062,
+      190.6938
+    ],
+    "left_header": [
+      -51.5938,
+      -37.3063,
+      -101.8637,
+      -87.5763,
+      238.9,
+      327.8
+    ],
+    "right_header": [
+      37.3063,
+      51.5938,
+      -101.8637,
+      -87.5763,
+      238.9,
+      327.8
+    ]
+  },
+  "post_hole_center_mm": [
+    0,
+    -94.72,
+    183.55
+  ],
+  "header_hole_centers_mm": {
+    "left": [
+      -44.45,
+      -94.72,
+      238.9
+    ],
+    "right": [
+      44.45,
+      -94.72,
+      238.9
+    ]
+  },
+  "shared_post_bolt_axis_count": 1,
+  "header_bore_axis_count": 2,
+  "header_bore_axis_spacing_mm": 88.9,
+  "seat_inner_gap_mm": 25.4,
+  "plate_pair_clashes_mm3": {},
+  "plate_wood_clashes_mm3": {},
+  "plate_panel_clashes_mm3": {},
+  "plate_adjacent_wood_clashes_mm3": {},
+  "new_wood_panel_clashes_mm3": {},
+  "new_wood_adjacent_clashes_mm3": {
+    "header": {
+      "base_principal_center_left": 269700.459,
+      "base_principal_center_right": 269700.459
+    }
+  },
+  "bore_missing_receiver_wood_mm3": {},
+  "independent_bore_crossings_mm3": {},
+  "bore_other_wood_clashes_mm3": {},
+  "bore_panel_clashes_mm3": {},
+  "bore_adjacent_wood_clashes_mm3": {
+    "left_header": {
+      "base_principal_center_left": 130.436
+    },
+    "right_header": {
+      "base_principal_center_right": 130.436
+    }
+  },
+  "protected_screw_hardware_clashes_mm3": {},
+  "conditional_63_5_overall_screw_hardware_clashes_mm3": {},
+  "existing_frame_axis_hardware_clashes_mm3": {},
+  "existing_frame_axis_new_wood_clashes_mm3": {},
+  "protected_screw_receiver_loss_mm3": {},
+  "protected_screw_receiver_missing": {},
+  "kicker_center_receivers_mm3": {
+    "round_kicker_left_center_1": 438.127,
+    "round_kicker_left_center_2": 438.127,
+    "round_kicker_right_center_1": 438.127,
+    "round_kicker_right_center_2": 438.127
+  },
+  "kicker_seam_vertical_support_gap_mm": 4.55,
+  "kicker_seam_supported": false,
+  "ideal_1in_washer_clear_edge_gaps_mm": {
+    "header_same_row": 63.5,
+    "post_to_y_edges": [
+      19.05,
+      46.02
+    ]
+  },
+  "one_piece_cad_solid": {
+    "post": true,
+    "header": true
+  },
+  "minimum_axis_aligned_blank_envelope_mm": {
+    "post": [
+      190.5,
+      90.47,
+      234.35
+    ],
+    "header": [
+      2435.225,
+      139.7,
+      88.9
+    ]
+  },
+  "stock_example_actual_envelope_mm": {
+    "post": [
+      90.47,
+      190.5,
+      2438.4
+    ],
+    "header": [
+      90.47,
+      241.3,
+      3657.6
+    ]
+  },
+  "stock_example_dimension_fit": {
+    "post": true,
+    "header": true
+  },
+  "stock_leads": {
+    "post_primary": {
+      "retailer_model": "Lowe's model 110341",
+      "listed_section_mm": [
+        190.5,
+        90.47
+      ],
+      "url": "https://www.lowes.com/pd/4-in-x-8-in-x-8-ft-Douglas-Fir-Lumber/1000028833"
+    },
+    "post_optional_dry": {
+      "retailer_item_model": "Lowe's item 100565 / model 151980",
+      "listed_section_mm": [
+        190.5,
+        90.47
+      ],
+      "condition": "#2 Better Douglas fir, kiln-dried; local stock unknown",
+      "url": "https://www.lowes.com/pd/Georgia-Pacific-4-in-x-8-in-x-10-ft-Douglas-Fir-Lumber-Common-3-562-in-x-7-5-in-x-10-ft-Actual/1000464221"
+    },
+    "header": {
+      "description": "Lowe's 4x10x12-ft #2 Better Douglas fir, green",
+      "listed_section_mm": [
+        90.47,
+        241.3
+      ],
+      "local_stock_and_dry_size": "unknown; delivered section must be measured",
+      "url": "https://www.lowes.com/pd/4-in-x-10-in-x-12-ft-Douglas-Fir-Lumber-Common-3-562-in-x-9-5-in-x-12-ft-Actual/1000028861"
+    }
+  },
+  "failures": [
+    "new wood collision",
+    "bore collision",
+    "kicker seam or center receiver failure"
+  ],
+  "status": "rejected_installed_geometry_trial",
+  "qualification": "Ideal 4.55-mm full rectangular plates and 14.2875-mm full nominal bores; horizontal hole inset assumed 50.8 mm. Shared post bolt action, delivered hole/bend dimensions, head/nut/washer thickness, tool access, tolerances, wood edge/end distances, resistance and load path are unverified. No drilling data."
+}

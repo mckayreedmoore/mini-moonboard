@@ -220,6 +220,15 @@ an untested alternative, not an implied fix. One upper HL33 per principal
 also has no established reversible-F1 coverage, and the cut rails still
 have no qualified center attachment.
 
+A [lower-only paired HL33 outer-post trial](hardware_first_center_hl33_outer_post.md)
+uses the retail-size 4×8 common post and a nominal 88.9-mm-thick shaped
+header. Its single shared post bolt and two header bores fit the intended
+wood and preserve all 66 protected screw receivers. The unchanged center
+principals collide with the raised header and its bores, and the lower
+seats leave a 25.4-mm center gap across the same 4.55-mm-high seam-support
+band. This trial omits the upper joint; it is rejected, not a rated paired
+detail. A kiln-dried 4×8 listing is only a dimensional stock lead.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
