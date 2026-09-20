@@ -1,0 +1,2212 @@
+{
+  "status": "coarse_comparator_only",
+  "source_axes": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "width_option": "kerf-right",
+  "fixed_panel_kicker_axis_count": 66,
+  "fixed_panel_solid_count": 6,
+  "existing_frame_axis_count": 12,
+  "hl53_nominal_mm": {
+    "bend_length": 63.5,
+    "leg_reach": 146.05,
+    "hole_offsets_from_bend": [
+      50.8,
+      114.3
+    ],
+    "assumed_7_gauge_envelope": 4.55,
+    "assumed_hole_diameter": 14.2875,
+    "hl53_minimum_wood_thickness": 88.9,
+    "ideal_bolt_diameter": 12.7,
+    "ideal_washer_diameter": 25.4,
+    "ideal_washer_thickness": 3.0,
+    "ideal_tool_diameter": 38.1,
+    "ideal_tool_depth": 30.0
+  },
+  "upper_lower_pose_y_mm": {
+    "upper_front": -85.0,
+    "upper_rib": -150.0,
+    "lower_front": -165.0,
+    "lower_rib": -70.0
+  },
+  "header_rear_front_y_mm": [
+    -250.0,
+    -36.0
+  ],
+  "rearward_principal_deepening_mm": 80.0,
+  "cases": [
+    {
+      "rib_spacing_mm": 480,
+      "status": "rejected_nominal_geometry",
+      "failure_classes": [
+        "access_foreign_wood",
+        "bolt_foreign_wood",
+        "bracket_wood",
+        "rail_to_rib_connection_open",
+        "washer_foreign_wood"
+      ],
+      "bracket_count": 8,
+      "header_link_bracket_count": 8,
+      "header_links_have_holes_and_receivers": true,
+      "front_carrier_rib_overlaps_mm3": {},
+      "rail_connection_probe": null,
+      "connected_architecture_verdict": false,
+      "bolt_checks": [
+        {
+          "id": "upper_front_left_vertical_1",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_vertical_2",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_1",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_2",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_1",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_2",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_1",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_2",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_1",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_2",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_1",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_2",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        }
+      ],
+      "wrong_side_header_holes": [],
+      "bolt_missing_own_hole_corridor": [],
+      "bolt_missing_receiver": [],
+      "bore_exits_receiver": [],
+      "bolt_hits_own_steel": [],
+      "below_hl53_minimum_wood_thickness": [],
+      "hl53_wood_thickness_catalog_applicable": true,
+      "checks_mm3": {
+        "bracket_panel": {},
+        "bracket_wood": {
+          "upper_front_left": {
+            "rib_principal_left": 18036.198
+          },
+          "upper_rib_left": {
+            "front_principal_left": 18036.198
+          },
+          "lower_front_left": {
+            "rib_post_left": 11571.501
+          },
+          "lower_rib_left": {
+            "base_post_center": 11571.501
+          },
+          "upper_front_right": {
+            "rib_principal_right": 18036.198
+          },
+          "upper_rib_right": {
+            "front_principal_right": 18036.198
+          },
+          "lower_front_right": {
+            "rib_post_right": 11571.501
+          },
+          "lower_rib_right": {
+            "base_post_center": 11571.501
+          }
+        },
+        "bracket_adjacent": {},
+        "bolt_panel": {},
+        "bolt_foreign_wood": {
+          "upper_front_left_seat_2": {
+            "rib_principal_left": 576.38
+          },
+          "upper_rib_left_seat_2": {
+            "front_principal_left": 576.38
+          },
+          "lower_front_left_seat_2": {
+            "rib_post_left": 576.38
+          },
+          "lower_rib_left_seat_2": {
+            "base_post_center": 576.38
+          },
+          "upper_front_right_seat_2": {
+            "rib_principal_right": 576.38
+          },
+          "upper_rib_right_seat_2": {
+            "front_principal_right": 576.38
+          },
+          "lower_front_right_seat_2": {
+            "rib_post_right": 576.38
+          },
+          "lower_rib_right_seat_2": {
+            "base_post_center": 576.38
+          }
+        },
+        "bolt_foreign_bracket": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "washer_panel": {},
+        "washer_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 1520.122
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 1520.122
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 1520.122
+          },
+          "upper_rib_left_seat_2_1": {
+            "base_post_center": 1469.526
+          },
+          "lower_front_left_seat_2_0": {
+            "rib_post_left": 1469.526
+          },
+          "lower_front_left_seat_2_1": {
+            "rib_principal_left": 1469.526
+          },
+          "lower_rib_left_seat_2_0": {
+            "base_post_center": 1469.526
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 1520.122
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 1520.122
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 1520.122
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 1520.122
+          },
+          "upper_rib_right_seat_2_1": {
+            "base_post_center": 1469.526
+          },
+          "lower_front_right_seat_2_0": {
+            "rib_post_right": 1469.526
+          },
+          "lower_front_right_seat_2_1": {
+            "rib_principal_right": 1469.526
+          },
+          "lower_rib_right_seat_2_0": {
+            "base_post_center": 1469.526
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 1520.122
+          }
+        },
+        "access_panel": {},
+        "access_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 34202.755
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 34202.755
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 34202.755
+          },
+          "upper_rib_left_seat_2_1": {
+            "base_post_center": 28771.793
+          },
+          "lower_front_left_seat_2_0": {
+            "rib_post_left": 28771.793
+          },
+          "lower_front_left_seat_2_1": {
+            "rib_principal_left": 28771.793
+          },
+          "lower_rib_left_seat_2_0": {
+            "base_post_center": 28771.793
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 34202.755
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 34202.755
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 34202.755
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 34202.755
+          },
+          "upper_rib_right_seat_2_1": {
+            "base_post_center": 28771.793
+          },
+          "lower_front_right_seat_2_0": {
+            "rib_post_right": 28771.793
+          },
+          "lower_front_right_seat_2_1": {
+            "rib_principal_right": 28771.793
+          },
+          "lower_rib_right_seat_2_0": {
+            "base_post_center": 28771.793
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 34202.755
+          }
+        },
+        "changed_wood_panel": {},
+        "changed_wood_adjacent": {},
+        "changed_wood_pairs": {},
+        "independent_bracket_pairs": {}
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_seam_supported": true,
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -250.0,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_left": [
+          -114.45,
+          -25.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_left": [
+          -284.45,
+          -195.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_left": [
+          -284.45,
+          -195.55,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_right": [
+          25.55,
+          114.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_right": [
+          195.55,
+          284.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_right": [
+          195.55,
+          284.45,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -299.45,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -299.45,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -299.45,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          299.45,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          299.45,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          299.45,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "bracket_bounds_mm": {
+        "upper_front_left": [
+          -260.5,
+          -114.45,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_left": [
+          -195.55,
+          -49.5,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_left": [
+          -238.125,
+          -92.075,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_left": [
+          -195.55,
+          -49.5,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ],
+        "upper_front_right": [
+          114.45,
+          260.5,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_right": [
+          49.5,
+          195.55,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_right": [
+          92.075,
+          238.125,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_right": [
+          49.5,
+          195.55,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ]
+      },
+      "rail_inner_end_abs_x_mm": 299.45,
+      "rail_to_rib_gap_mm": 15.0,
+      "one_piece_wood": {
+        "base_header": true,
+        "base_post_center": true,
+        "front_principal_left": true,
+        "rib_principal_left": true,
+        "rib_post_left": true,
+        "front_principal_right": true,
+        "rib_principal_right": true,
+        "rib_post_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      }
+    },
+    {
+      "rib_spacing_mm": 520,
+      "status": "rejected_nominal_geometry",
+      "failure_classes": [
+        "access_foreign_wood",
+        "access_panel",
+        "bolt_foreign_wood",
+        "bolt_or_bore_geometry",
+        "bracket_wood",
+        "catalog_inapplicable_wood_thickness",
+        "rail_to_rib_connection_open",
+        "washer_foreign_wood"
+      ],
+      "bracket_count": 9,
+      "header_link_bracket_count": 8,
+      "header_links_have_holes_and_receivers": true,
+      "front_carrier_rib_overlaps_mm3": {},
+      "rail_connection_probe": {
+        "factory_bracket": "HL53",
+        "station": "bottom right only",
+        "original_rail_section_thickness_mm": 38.1,
+        "rail_retains_original_1_5_in_section": true,
+        "bolt_checks": [
+          {
+            "id": "rail_probe_bottom_right_vertical_1",
+            "receiver": "rib_principal_right",
+            "wood_thickness_along_bolt_mm": 88.9,
+            "meets_hl53_minimum_wood_thickness": true,
+            "own_hole_corridor_mm3": 576.38,
+            "receiver_overlap_mm3": 11261.574,
+            "bore_missing_receiver_mm3": 0,
+            "own_steel_clash_mm3": 0.0
+          },
+          {
+            "id": "rail_probe_bottom_right_seat_1",
+            "receiver": "base_rail_bottom_right",
+            "wood_thickness_along_bolt_mm": 49.904,
+            "meets_hl53_minimum_wood_thickness": false,
+            "own_hole_corridor_mm3": 576.38,
+            "receiver_overlap_mm3": 6300.403,
+            "bore_missing_receiver_mm3": 11102.167,
+            "own_steel_clash_mm3": 0.0
+          },
+          {
+            "id": "rail_probe_bottom_right_vertical_2",
+            "receiver": "rib_principal_right",
+            "wood_thickness_along_bolt_mm": 88.9,
+            "meets_hl53_minimum_wood_thickness": true,
+            "own_hole_corridor_mm3": 576.38,
+            "receiver_overlap_mm3": 11261.574,
+            "bore_missing_receiver_mm3": 0,
+            "own_steel_clash_mm3": 0.0
+          },
+          {
+            "id": "rail_probe_bottom_right_seat_2",
+            "receiver": "base_rail_bottom_right",
+            "wood_thickness_along_bolt_mm": 49.904,
+            "meets_hl53_minimum_wood_thickness": false,
+            "own_hole_corridor_mm3": 576.38,
+            "receiver_overlap_mm3": 6300.403,
+            "bore_missing_receiver_mm3": 11102.167,
+            "own_steel_clash_mm3": 0.0
+          }
+        ],
+        "all_bolts_meet_hole_and_receiver": true,
+        "all_bores_contained": false,
+        "all_receivers_meet_88_9_mm_minimum": false
+      },
+      "connected_architecture_verdict": false,
+      "bolt_checks": [
+        {
+          "id": "upper_front_left_vertical_1",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_vertical_2",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_1",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_2",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_1",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_2",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_1",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_2",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_1",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_2",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_1",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_2",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "rail_probe_bottom_right_vertical_1",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "rail_probe_bottom_right_seat_1",
+          "receiver": "base_rail_bottom_right",
+          "wood_thickness_along_bolt_mm": 49.904,
+          "meets_hl53_minimum_wood_thickness": false,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 6300.403,
+          "bore_missing_receiver_mm3": 11102.167,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "rail_probe_bottom_right_vertical_2",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "rail_probe_bottom_right_seat_2",
+          "receiver": "base_rail_bottom_right",
+          "wood_thickness_along_bolt_mm": 49.904,
+          "meets_hl53_minimum_wood_thickness": false,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 6300.403,
+          "bore_missing_receiver_mm3": 11102.167,
+          "own_steel_clash_mm3": 0.0
+        }
+      ],
+      "wrong_side_header_holes": [],
+      "bolt_missing_own_hole_corridor": [],
+      "bolt_missing_receiver": [],
+      "bore_exits_receiver": [
+        "rail_probe_bottom_right_seat_1",
+        "rail_probe_bottom_right_seat_2"
+      ],
+      "bolt_hits_own_steel": [],
+      "below_hl53_minimum_wood_thickness": [
+        "rail_probe_bottom_right_seat_1",
+        "rail_probe_bottom_right_seat_2"
+      ],
+      "hl53_wood_thickness_catalog_applicable": false,
+      "checks_mm3": {
+        "bracket_panel": {},
+        "bracket_wood": {
+          "upper_front_left": {
+            "rib_principal_left": 12257.698
+          },
+          "upper_rib_left": {
+            "front_principal_left": 12257.698
+          },
+          "lower_front_left": {
+            "rib_post_left": 6522.482
+          },
+          "lower_rib_left": {
+            "base_post_center": 6522.482
+          },
+          "upper_front_right": {
+            "rib_principal_right": 12257.698
+          },
+          "upper_rib_right": {
+            "front_principal_right": 12257.698
+          },
+          "lower_front_right": {
+            "rib_post_right": 6522.482
+          },
+          "lower_rib_right": {
+            "base_post_center": 6522.482
+          }
+        },
+        "bracket_adjacent": {},
+        "bolt_panel": {},
+        "bolt_foreign_wood": {
+          "upper_front_left_seat_2": {
+            "rib_principal_left": 576.38
+          },
+          "upper_rib_left_seat_2": {
+            "front_principal_left": 576.38
+          },
+          "upper_front_right_seat_2": {
+            "rib_principal_right": 576.38
+          },
+          "upper_rib_right_seat_2": {
+            "front_principal_right": 576.38
+          }
+        },
+        "bolt_foreign_bracket": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "washer_panel": {},
+        "washer_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 1520.122
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 1520.122
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 1520.122
+          },
+          "upper_rib_left_seat_2_1": {
+            "base_post_center": 127.718
+          },
+          "lower_front_left_seat_2_0": {
+            "rib_post_left": 127.718
+          },
+          "lower_front_left_seat_2_1": {
+            "rib_principal_left": 127.718
+          },
+          "lower_rib_left_seat_2_0": {
+            "base_post_center": 127.718
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 1520.122
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 1520.122
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 1520.122
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 1520.122
+          },
+          "upper_rib_right_seat_2_1": {
+            "base_post_center": 127.718
+          },
+          "lower_front_right_seat_2_0": {
+            "rib_post_right": 127.718
+          },
+          "lower_front_right_seat_2_1": {
+            "rib_principal_right": 127.718
+          },
+          "lower_rib_right_seat_2_0": {
+            "base_post_center": 127.718
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 1520.122
+          }
+        },
+        "access_panel": {
+          "rail_probe_bottom_right_seat_1_1": {
+            "main_lower_right": 58.139
+          },
+          "rail_probe_bottom_right_seat_2_1": {
+            "main_lower_right": 58.139
+          }
+        },
+        "access_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 30874.909
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 30874.909
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 30874.909
+          },
+          "upper_rib_left_seat_2_1": {
+            "base_post_center": 7035.217
+          },
+          "lower_front_left_seat_2_0": {
+            "rib_post_left": 7035.217
+          },
+          "lower_front_left_seat_2_1": {
+            "rib_principal_left": 7035.217
+          },
+          "lower_rib_left_seat_2_0": {
+            "base_post_center": 7035.217
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 30874.909
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 30874.909
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 30874.909
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 30874.909
+          },
+          "upper_rib_right_seat_2_1": {
+            "base_post_center": 7035.217
+          },
+          "lower_front_right_seat_2_0": {
+            "rib_post_right": 7035.217
+          },
+          "lower_front_right_seat_2_1": {
+            "rib_principal_right": 7035.217
+          },
+          "lower_rib_right_seat_2_0": {
+            "base_post_center": 7035.217
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 30874.909
+          }
+        },
+        "changed_wood_panel": {},
+        "changed_wood_adjacent": {},
+        "changed_wood_pairs": {},
+        "independent_bracket_pairs": {}
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_seam_supported": true,
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -250.0,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_left": [
+          -114.45,
+          -25.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_left": [
+          -304.45,
+          -215.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_left": [
+          -304.45,
+          -215.55,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_right": [
+          25.55,
+          114.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_right": [
+          215.55,
+          304.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_right": [
+          215.55,
+          304.45,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -319.45,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -319.45,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -319.45,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          319.45,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          319.45,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          319.45,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "bracket_bounds_mm": {
+        "upper_front_left": [
+          -260.5,
+          -114.45,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_left": [
+          -215.55,
+          -69.5,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_left": [
+          -238.125,
+          -92.075,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_left": [
+          -215.55,
+          -69.5,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ],
+        "upper_front_right": [
+          114.45,
+          260.5,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_right": [
+          69.5,
+          215.55,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_right": [
+          92.075,
+          238.125,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_right": [
+          69.5,
+          215.55,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ],
+        "rail_probe_bottom_right": [
+          304.45,
+          450.5,
+          -79.0904,
+          -15.5904,
+          438.1957,
+          584.2457
+        ]
+      },
+      "rail_inner_end_abs_x_mm": 319.45,
+      "rail_to_rib_gap_mm": 15.0,
+      "one_piece_wood": {
+        "base_header": true,
+        "base_post_center": true,
+        "front_principal_left": true,
+        "rib_principal_left": true,
+        "rib_post_left": true,
+        "front_principal_right": true,
+        "rib_principal_right": true,
+        "rib_post_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      }
+    },
+    {
+      "rib_spacing_mm": 560,
+      "status": "rejected_nominal_geometry",
+      "failure_classes": [
+        "access_foreign_wood",
+        "bracket_wood",
+        "rail_to_rib_connection_open",
+        "washer_foreign_wood"
+      ],
+      "bracket_count": 8,
+      "header_link_bracket_count": 8,
+      "header_links_have_holes_and_receivers": true,
+      "front_carrier_rib_overlaps_mm3": {},
+      "rail_connection_probe": null,
+      "connected_architecture_verdict": false,
+      "bolt_checks": [
+        {
+          "id": "upper_front_left_vertical_1",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_vertical_2",
+          "receiver": "front_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_1",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_vertical_2",
+          "receiver": "rib_principal_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_1",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_vertical_2",
+          "receiver": "rib_post_left",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_left_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_1",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_vertical_2",
+          "receiver": "front_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_1",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_vertical_2",
+          "receiver": "rib_principal_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "upper_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_1",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_vertical_2",
+          "receiver": "base_post_center",
+          "wood_thickness_along_bolt_mm": 184.15,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 23327.546,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_front_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_1",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_1",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_vertical_2",
+          "receiver": "rib_post_right",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        },
+        {
+          "id": "lower_rib_right_seat_2",
+          "receiver": "base_header",
+          "wood_thickness_along_bolt_mm": 88.9,
+          "meets_hl53_minimum_wood_thickness": true,
+          "own_hole_corridor_mm3": 576.38,
+          "receiver_overlap_mm3": 11261.574,
+          "bore_missing_receiver_mm3": 0,
+          "own_steel_clash_mm3": 0.0
+        }
+      ],
+      "wrong_side_header_holes": [],
+      "bolt_missing_own_hole_corridor": [],
+      "bolt_missing_receiver": [],
+      "bore_exits_receiver": [],
+      "bolt_hits_own_steel": [],
+      "below_hl53_minimum_wood_thickness": [],
+      "hl53_wood_thickness_catalog_applicable": true,
+      "checks_mm3": {
+        "bracket_panel": {},
+        "bracket_wood": {
+          "upper_front_left": {
+            "rib_principal_left": 7204.091
+          },
+          "upper_rib_left": {
+            "front_principal_left": 7204.091
+          },
+          "lower_front_left": {
+            "rib_post_left": 743.982
+          },
+          "lower_rib_left": {
+            "base_post_center": 743.982
+          },
+          "upper_front_right": {
+            "rib_principal_right": 7204.091
+          },
+          "upper_rib_right": {
+            "front_principal_right": 7204.091
+          },
+          "lower_front_right": {
+            "rib_post_right": 743.982
+          },
+          "lower_rib_right": {
+            "base_post_center": 743.982
+          }
+        },
+        "bracket_adjacent": {},
+        "bolt_panel": {},
+        "bolt_foreign_wood": {},
+        "bolt_foreign_bracket": {},
+        "screw_hardware": {},
+        "frame_hardware": {},
+        "washer_panel": {},
+        "washer_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 267.852
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 267.852
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 267.852
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 267.852
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 267.852
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 267.852
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 267.852
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 267.852
+          }
+        },
+        "access_panel": {},
+        "access_foreign_wood": {
+          "upper_front_left_seat_2_0": {
+            "rib_principal_left": 9497.341
+          },
+          "upper_front_left_seat_2_1": {
+            "rib_post_left": 9497.341
+          },
+          "upper_rib_left_seat_2_0": {
+            "front_principal_left": 9497.341
+          },
+          "lower_rib_left_seat_2_1": {
+            "front_principal_left": 9497.341
+          },
+          "upper_front_right_seat_2_0": {
+            "rib_principal_right": 9497.341
+          },
+          "upper_front_right_seat_2_1": {
+            "rib_post_right": 9497.341
+          },
+          "upper_rib_right_seat_2_0": {
+            "front_principal_right": 9497.341
+          },
+          "lower_rib_right_seat_2_1": {
+            "front_principal_right": 9497.341
+          }
+        },
+        "changed_wood_panel": {},
+        "changed_wood_adjacent": {},
+        "changed_wood_pairs": {},
+        "independent_bracket_pairs": {}
+      },
+      "fixed_screw_receiver_loss_mm3": {},
+      "kicker_seam_supported": true,
+      "changed_wood_bounds_mm": {
+        "base_header": [
+          -1219.2,
+          1216.025,
+          -250.0,
+          -36.0,
+          238.9,
+          327.8
+        ],
+        "base_post_center": [
+          -92.075,
+          92.075,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_left": [
+          -114.45,
+          -25.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_left": [
+          -324.45,
+          -235.55,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_left": [
+          -324.45,
+          -235.55,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "front_principal_right": [
+          25.55,
+          114.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_principal_right": [
+          235.55,
+          324.45,
+          -261.2365,
+          1511.0943,
+          327.8,
+          2217.1041
+        ],
+        "rib_post_right": [
+          235.55,
+          324.45,
+          -250.0,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "base_rail_bottom_left": [
+          -1130.3,
+          -339.45,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_left": [
+          -1130.3,
+          -339.45,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_left": [
+          -1130.3,
+          -339.45,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ],
+        "base_rail_bottom_right": [
+          339.45,
+          1127.125,
+          -113.0937,
+          18.4129,
+          319.212,
+          438.1957
+        ],
+        "base_rail_service_lower_right": [
+          339.45,
+          1127.125,
+          577.9994,
+          709.506,
+          1142.8246,
+          1261.8084
+        ],
+        "base_rail_service_upper_right": [
+          339.45,
+          1127.125,
+          670.5929,
+          802.0996,
+          1253.1733,
+          1372.1571
+        ]
+      },
+      "bracket_bounds_mm": {
+        "upper_front_left": [
+          -260.5,
+          -114.45,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_left": [
+          -235.55,
+          -89.5,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_left": [
+          -238.125,
+          -92.075,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_left": [
+          -235.55,
+          -89.5,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ],
+        "upper_front_right": [
+          114.45,
+          260.5,
+          -116.75,
+          -53.25,
+          327.8,
+          473.85
+        ],
+        "upper_rib_right": [
+          89.5,
+          235.55,
+          -181.75,
+          -118.25,
+          327.8,
+          473.85
+        ],
+        "lower_front_right": [
+          92.075,
+          238.125,
+          -196.75,
+          -133.25,
+          92.85,
+          238.9
+        ],
+        "lower_rib_right": [
+          89.5,
+          235.55,
+          -101.75,
+          -38.25,
+          92.85,
+          238.9
+        ]
+      },
+      "rail_inner_end_abs_x_mm": 339.45,
+      "rail_to_rib_gap_mm": 15.0,
+      "one_piece_wood": {
+        "base_header": true,
+        "base_post_center": true,
+        "front_principal_left": true,
+        "rib_principal_left": true,
+        "rib_post_left": true,
+        "front_principal_right": true,
+        "rib_principal_right": true,
+        "rib_post_right": true,
+        "base_rail_bottom_left": true,
+        "base_rail_service_lower_left": true,
+        "base_rail_service_upper_left": true,
+        "base_rail_bottom_right": true,
+        "base_rail_service_lower_right": true,
+        "base_rail_service_upper_right": true
+      }
+    }
+  ],
+  "old_outward_seat_header_bore_sign": "Quarantined: each seat axis is face_x + seat_direction * factory offset, then checked inside its own modeled flange; no outward-seat axes are imported.",
+  "connection_limit": "Eight nominal HL53 links join fixed front carriers/central backing and separated ribs to one header, but their bodies clash with neighboring wood. Only one of six rail ends has an HL53 fit probe; rail-to-rib factory connections and a connected architecture are not established.",
+  "unresolved": [
+    "delivered HL53 bend, gauge and holes",
+    "actual bolt stacks and tool sweep",
+    "formal edge/end distances and wood joint resistance",
+    "rail-to-rib factory connection",
+    "complete frame load path"
+  ],
+  "material_or_rating_adopted": false,
+  "drilling_released": false
+}
