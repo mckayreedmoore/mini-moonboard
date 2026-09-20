@@ -38,3 +38,32 @@ def test_changed_pose_inventory_fails_closed(tmp_path, monkeypatch):
     monkeypatch.setattr(member_screen, "SOURCE", trial)
     with pytest.raises(ValueError, match="four-bolt count"):
         screen()
+
+
+@pytest.mark.parametrize(
+    ("change", "message"),
+    [
+        ("grain", "grain axis"),
+        ("bore", "per-bolt bore"),
+        ("pitch", "row pitches"),
+        ("end", "end distances"),
+    ],
+)
+def test_changed_member_assumption_fails_closed(tmp_path, monkeypatch, change, message):
+    source = json.loads(member_screen.SOURCE.read_text())
+    pose = source[member_screen.POSE]
+    if change == "grain":
+        pose["grain_axis"] = "X"
+    elif change == "bore":
+        pose["bolt_groups"]["rail"][0][
+            "clearance_diameter_mm_trial_not_shop_instruction"
+        ] = 10.0
+    elif change == "pitch":
+        pose["center_to_edges_and_spacing_mm"]["rail_group_x_pitch"] = 20.0
+    else:
+        pose["center_to_edges_and_spacing_mm"]["rail_in_host_x"][0][0] = 50.0
+    trial = tmp_path / "pose.json"
+    trial.write_text(json.dumps(source))
+    monkeypatch.setattr(member_screen, "SOURCE", trial)
+    with pytest.raises(ValueError, match=message):
+        screen()

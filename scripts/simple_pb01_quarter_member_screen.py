@@ -34,6 +34,8 @@ def screen() -> dict:
         raise ValueError("PB-01 quarter-inch pose identity changed")
     if pose["nominal_trial_bolt_diameter_mm_not_selected"] != 6.35:
         raise ValueError("PB-01 bolt nominal diameter changed")
+    if pose["grain_axis"] != "N":
+        raise ValueError("PB-01 cleat grain axis changed")
     bore_mm = pose["diagnostic_wood_bore_diameter_mm_not_drill_instruction"]
     x_mm, t_mm, n_mm = pose["size_local_x_t_n_mm"]
     host_mm = 38.1
@@ -56,11 +58,38 @@ def screen() -> dict:
     groups = pose["bolt_groups"]
     if any(len(groups[family]) != 2 for family in ("upright", "rail")):
         raise ValueError("PB-01 four-bolt count changed")
+    if any(
+        not math.isclose(
+            row["clearance_diameter_mm_trial_not_shop_instruction"], bore_mm
+        )
+        for family in ("upright", "rail")
+        for row in groups[family]
+    ):
+        raise ValueError("PB-01 per-bolt bore differs from screen bore")
     angle = math.radians(50)
     tangent = (0.0, math.cos(angle), math.sin(angle))
     normal = (0.0, -math.sin(angle), math.cos(angle))
     upright_starts = [row["start_xyz_mm"] for row in groups["upright"]]
     rail_starts = [row["start_xyz_mm"] for row in groups["rail"]]
+    upright_n = [_projection(point, normal) for point in upright_starts]
+    rail_n = [_projection(point, normal) for point in rail_starts]
+    rail_x = [point[0] for point in rail_starts]
+    if any(
+        not math.isclose(actual, recorded, abs_tol=1e-3)
+        for actual, recorded in zip(
+            upright_n, pose["upright_bolt_n_centers_mm"], strict=True
+        )
+    ) or any(
+        not math.isclose(actual, recorded, abs_tol=1e-3)
+        for actual, recorded in zip(rail_n, pose["rail_bolt_n_centers_mm"], strict=True)
+    ):
+        raise ValueError("PB-01 bolt center N differs from pose records")
+    if not math.isclose(
+        rail_x[1] - rail_x[0],
+        pose["rail_bolt_x_from_butt_mm"][1] - pose["rail_bolt_x_from_butt_mm"][0],
+        abs_tol=1e-3,
+    ):
+        raise ValueError("PB-01 rail bolt center X differs from pose records")
     if not math.isclose(
         _projection(upright_starts[0], tangent),
         _projection(upright_starts[1], tangent),
@@ -74,6 +103,25 @@ def screen() -> dict:
     ):
         raise ValueError("Rail bolts no longer share a cleat grain-N section")
     edges = pose["center_to_edges_and_spacing_mm"]
+    front_n = pose["adjusted_front_n_mm"]
+    if any(
+        not math.isclose(actual - front_n, row[0], abs_tol=1e-3)
+        for actual, row in zip(upright_n, edges["upright_in_cleat_n"], strict=True)
+    ):
+        raise ValueError("Upright cleat end distances differ from bolt centers")
+    if any(
+        not math.isclose(recorded, row[0], abs_tol=1e-3)
+        for recorded, row in zip(
+            pose["rail_bolt_x_from_butt_mm"], edges["rail_in_host_x"], strict=True
+        )
+    ):
+        raise ValueError("Rail host end distances differ from bolt centers")
+    if not math.isclose(
+        edges["upright_group_n_pitch"], upright_n[1] - upright_n[0], abs_tol=1e-3
+    ) or not math.isclose(
+        edges["rail_group_x_pitch"], rail_x[1] - rail_x[0], abs_tol=1e-3
+    ):
+        raise ValueError("PB-01 row pitches differ from bolt centers")
     if not math.isclose(sum(edges["upright_in_host_n"][0]), 139.7, abs_tol=1e-3):
         raise ValueError("Upright host net-section width changed")
     if not math.isclose(sum(edges["rail_in_host_n"]), 139.7, abs_tol=1e-3):
