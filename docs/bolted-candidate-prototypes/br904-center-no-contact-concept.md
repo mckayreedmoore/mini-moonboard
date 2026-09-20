@@ -10,6 +10,10 @@ electro-galvanized finish. It does not give bend-to-hole centers, plate width,
 leg lengths, finished minimum thickness, bend radius, or tolerances. The
 advertised spacing is not a dimensioned confirmation of pitch on each leg. The
 conditional material route is recorded in `newhouse-br904-retail.json`.
+The live manufacturer page links only a product photograph. Home Depot's
+overall 4 in length and a reseller's unlabelled three-number size cannot
+locate a hole relative to the bend or establish minimum finished thickness.
+The published pitch is useful for a trial envelope, not a drilling datum.
 
 ## One installed arrangement to investigate
 
