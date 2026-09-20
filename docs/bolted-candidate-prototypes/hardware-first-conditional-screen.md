@@ -178,6 +178,12 @@ while keeping the complete 127-mm seats on the existing front-limited
 header: 12.7 mm is the full-seat limit and both bores still exit wood.
 This rules out a simple bracket-row slide within that pose, not a changed
 header or a different factory connector.
+A [15-mm forward upper-row and 2.3-mm header-extension trial](hardware_first_center_hybrid_forward.md)
+contains all nominal bores and resects the same six rails, but the necessary
+header extension intersects both fixed kerf-right kicker panels. That
+specific extension is rejected while the panel outlines remain fixed; its
+nominal bore clearance does not qualify the wood joint or another header
+shape.
 A [six-rail inner-end resection screen](hardware_first_center_hybrid_rails.md)
 shows that the hybrid's widened-principal/upper-plate collisions can be
 removed in nominal CAD while all 66 protected screw receivers remain.

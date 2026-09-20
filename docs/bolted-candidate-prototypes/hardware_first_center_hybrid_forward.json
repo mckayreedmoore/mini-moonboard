@@ -1,0 +1,198 @@
+{
+  "status": "rejected_nominal_geometry_trial",
+  "source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "width_option": "kerf-right",
+  "upper_shift_mm": 15.0,
+  "header_forward_extension_mm": 2.3,
+  "protected_axis_count": 66,
+  "existing_frame_axis_count": 12,
+  "changed_rail_count": 6,
+  "changed_wood_bounds_mm": {
+    "base_header": [
+      -1219.2,
+      1216.025,
+      -258.25,
+      -33.7,
+      238.9,
+      327.8
+    ],
+    "base_post_center": [
+      -92.075,
+      92.075,
+      -175.7,
+      -36.0,
+      0.0,
+      238.9
+    ],
+    "base_principal_center_left": [
+      -114.45,
+      -25.55,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ],
+    "base_principal_center_right": [
+      25.55,
+      114.45,
+      -181.2365,
+      1511.0943,
+      327.8,
+      2217.1041
+    ],
+    "base_rail_bottom_left": [
+      -1130.3,
+      -120.0,
+      -113.0937,
+      18.4129,
+      319.212,
+      438.1957
+    ],
+    "base_rail_service_lower_left": [
+      -1130.3,
+      -120.0,
+      577.9994,
+      709.506,
+      1142.8246,
+      1261.8084
+    ],
+    "base_rail_service_upper_left": [
+      -1130.3,
+      -120.0,
+      670.5929,
+      802.0996,
+      1253.1733,
+      1372.1571
+    ],
+    "base_rail_bottom_right": [
+      120.0,
+      1127.125,
+      -113.0937,
+      18.4129,
+      319.212,
+      438.1957
+    ],
+    "base_rail_service_lower_right": [
+      120.0,
+      1127.125,
+      577.9994,
+      709.506,
+      1142.8246,
+      1261.8084
+    ],
+    "base_rail_service_upper_right": [
+      120.0,
+      1127.125,
+      670.5929,
+      802.0996,
+      1253.1733,
+      1372.1571
+    ]
+  },
+  "plate_bounds_mm": {
+    "lower_vertical": [
+      -63.5,
+      63.5,
+      -180.25,
+      -175.7,
+      156.35,
+      238.9
+    ],
+    "lower_seat": [
+      -63.5,
+      63.5,
+      -258.25,
+      -175.7,
+      234.35,
+      238.9
+    ],
+    "upper_left_vertical": [
+      -119.0,
+      -114.45,
+      -160.7,
+      -33.7,
+      327.8,
+      410.35
+    ],
+    "upper_left_seat": [
+      -197.0,
+      -114.45,
+      -160.7,
+      -33.7,
+      327.8,
+      332.35
+    ],
+    "upper_right_vertical": [
+      114.45,
+      119.0,
+      -160.7,
+      -33.7,
+      327.8,
+      410.35
+    ],
+    "upper_right_seat": [
+      114.45,
+      197.0,
+      -160.7,
+      -33.7,
+      327.8,
+      332.35
+    ]
+  },
+  "header_extension_panel_clashes_mm3": {
+    "kicker_left": 20015.787,
+    "kicker_right": 20294.013
+  },
+  "changed_wood_panel_clashes_mm3": {
+    "base_header": {
+      "kicker_left": 20015.787,
+      "kicker_right": 20294.013
+    }
+  },
+  "changed_wood_adjacent_clashes_mm3": {},
+  "plate_panel_clashes_mm3": {},
+  "plate_adjacent_clashes_mm3": {},
+  "plate_changed_wood_clashes_mm3": {},
+  "protected_screw_hardware_clashes_mm3": {},
+  "protected_receiver_loss_mm3": {},
+  "protected_receiver_missing": {},
+  "existing_frame_axis_hardware_clashes_mm3": {},
+  "existing_frame_axis_changed_wood_intersections_mm3": {},
+  "bore_missing_receiver_wood_mm3": {
+    "lower_post_1": 0,
+    "lower_header_1": 0,
+    "lower_post_2": 0,
+    "lower_header_2": 0,
+    "upper_left_principal_1": 0,
+    "upper_left_header_1": 0,
+    "upper_left_principal_2": 0,
+    "upper_left_header_2": 0,
+    "upper_right_principal_1": 0,
+    "upper_right_header_1": 0,
+    "upper_right_principal_2": 0,
+    "upper_right_header_2": 0
+  },
+  "one_piece_cad_solid": {
+    "base_header": true,
+    "base_post_center": true,
+    "base_principal_center_left": true,
+    "base_principal_center_right": true,
+    "base_rail_bottom_left": true,
+    "base_rail_service_lower_left": true,
+    "base_rail_service_upper_left": true,
+    "base_rail_bottom_right": true,
+    "base_rail_service_lower_right": true,
+    "base_rail_service_upper_right": true
+  },
+  "failures": [
+    "header extension intersects fixed panels",
+    "changed wood intersects panels"
+  ],
+  "unresolved": [
+    "Prefabricated rail-to-center connection and load path across the nominal 5.55-mm rail gap.",
+    "Other frame bolts and complete installed bolt stacks, heads, washers, nuts, tool and withdrawal clearance.",
+    "Delivered HL35 hole/bend geometry, wood edge/end distances, blank procurement and machinability.",
+    "Connector and bolt capacities; no cutting, drilling or procurement approval."
+  ],
+  "qualification": "Ideal 4.55-mm plate rectangles and 14.2875-mm bore envelopes; occupied screw axes are analysis geometry, never drilling coordinates."
+}
