@@ -248,6 +248,15 @@ post bolt, the upper principals each have only one HL33, and the cut rails
 have no bracketed center attachment. This is `geometry_only_unqualified`,
 not G1 closure, a complete joint rating, or a shop layout.
 
+A [nominal shared-post bolt-stack screen](hardware_first_center_post_stack.md)
+confirms that 8 in cannot contain the modeled 190.5-mm post, two ideal plates,
+two listed washers, and a full-pattern nut. Ten- and twelve-inch A307-listed
+retail examples have nominal length left, but those listings do not identify
+the Grade A subtype required by Simpson; thread engagement, coating pairing,
+delivered dimensions, protrusion, and head/nut/tool clearance remain open.
+An exact Grade A 12-in retail lead is separate and has no transferred
+thread-length claim.
+
 A [seven-axis wood geometry screen](hardware_first_center_tongue_wood.md)
 finds negative conditional reversible 4D/7D search margins at the shared
 post, upper header shoulders, and oblique principal toes. Load directions,
