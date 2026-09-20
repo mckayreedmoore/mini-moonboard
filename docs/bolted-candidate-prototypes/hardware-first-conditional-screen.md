@@ -236,3 +236,11 @@ These are retail leads, not received lumber or a claim of local stock. Green
 dimensions may change with drying; the HL minimum 3.5-in installed timber
 thickness, grade, species, and actual straight usable length must be checked
 on the delivered material before applying catalog loads or cutting.
+
+For a *different* short-bend HL33 outer-post trial, [Lowe's 4×8×8-ft
+Douglas-fir #2-and-better green lumber](https://www.lowes.com/pd/4-in-x-8-in-x-8-ft-Douglas-Fir-Lumber/1000028833)
+lists 3.562 × 7.5 in actual section. That is a dimensional lead for a
+roughly 184-mm-wide, 89-mm-deep one-piece common post; it does not establish
+delivered size after drying, treatment/service basis, local stock, a fitting
+HL33 bolt pattern, or a rated joint. The tested HL33 pose above used the
+larger original 139.7-mm post depth and remains rejected.
