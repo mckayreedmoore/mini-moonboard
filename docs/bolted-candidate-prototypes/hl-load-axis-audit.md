@@ -30,7 +30,9 @@ Rotating the bracket about Z rotates both axes; mirroring it reverses the
 signed reach while uplift remains up. The machine-readable
 [`hl_load_axes.py`](../../scripts/hl_load_axes.py) fixture and tests preserve
 this physical registration and project signed force and moment. They assign
-no allowable to either sign, moment, or combined action.
+no allowable to either sign, moment, or combined action. Wrench components
+must be about one declared joint origin before projection; the helper does
+not distribute force among brackets or transfer moment between points.
 
 For a corresponding outward-X MiTek B66 pose, its F1 and F2 axes would be X
 and Y, respectively, subject to the actual Figure 3 installation. Its

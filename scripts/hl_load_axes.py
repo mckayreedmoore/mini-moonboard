@@ -42,7 +42,11 @@ def local_wrench(
     force: tuple[float, float, float],
     moment: tuple[float, float, float],
 ) -> dict[str, tuple[float, float, float]]:
-    """Project simultaneous signed force and moment onto physical HL axes."""
+    """Project a signed wrench at one unchanged reference point onto HL axes.
+
+    The caller must first transfer moments to the chosen joint origin; this
+    function does not add a lever-arm cross product or distribute joint load.
+    """
     basis = (frame.reach, frame.bend, frame.uplift)
     return {
         "force": tuple(_dot(force, axis) for axis in basis),
