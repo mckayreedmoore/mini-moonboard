@@ -1,0 +1,189 @@
+{
+  "status": "rejected_nominal_installed_geometry",
+  "pose": "one center rear-Y post B66 under header; two rear-Y principal B66 atop one raised solid header",
+  "width_option": "kerf-right",
+  "axis_source": "docs/floor-flush-construction-kerf-right/connection-axes.csv",
+  "factory_pattern_source": "docs/bolted-candidate-prototypes/mitek-b66-drawing-followup.md",
+  "protected_screw_axes": 66,
+  "retained_frame_axes": 12,
+  "protected_screw_receiver_intersections": 66,
+  "kicker_inner_edges_backed": {
+    "left": true,
+    "right": true
+  },
+  "brackets": 3,
+  "bolts_per_brace": 4,
+  "factory_hole_paths": 12,
+  "nominal_dxf_free_end_offsets_mm": [
+    25.4,
+    126.744
+  ],
+  "nominal_dxf_circle_diameter_mm": 10.3,
+  "illustrative_plate_thickness_mm": 2.66,
+  "minimum_receiver_thickness_mm": 76.2,
+  "post_bounds_mm": [
+    -92.075,
+    92.075,
+    -175.7,
+    -36.0,
+    0.0,
+    238.9
+  ],
+  "header_bounds_mm": [
+    -1219.2,
+    1216.025,
+    -335.1,
+    -36.0,
+    238.9,
+    315.1
+  ],
+  "principal_bounds_mm": {
+    "left": [
+      -114.45,
+      -25.55,
+      -182.7,
+      1511.094,
+      315.1,
+      2217.104
+    ],
+    "right": [
+      25.55,
+      114.45,
+      -182.7,
+      1511.094,
+      315.1,
+      2217.104
+    ]
+  },
+  "plate_bounds_mm": {
+    "post_vertical": [
+      -19.05,
+      19.05,
+      -178.36,
+      -175.7,
+      86.5,
+      238.9
+    ],
+    "post_seat": [
+      -19.05,
+      19.05,
+      -328.1,
+      -175.7,
+      236.24,
+      238.9
+    ],
+    "principal_left_vertical": [
+      -89.05,
+      -50.95,
+      -185.36,
+      -182.7,
+      315.1,
+      467.5
+    ],
+    "principal_left_seat": [
+      -89.05,
+      -50.95,
+      -335.1,
+      -182.7,
+      315.1,
+      317.76
+    ],
+    "principal_right_vertical": [
+      50.95,
+      89.05,
+      -185.36,
+      -182.7,
+      315.1,
+      467.5
+    ],
+    "principal_right_seat": [
+      50.95,
+      89.05,
+      -335.1,
+      -182.7,
+      315.1,
+      317.76
+    ]
+  },
+  "upper_rear_reference_y_mm": -182.70000000000005,
+  "rear_y_upper_bore_missing_wood_mm3": {
+    "principal_left_vertical_1": 8113.368,
+    "principal_left_vertical_2": 1027.78,
+    "principal_right_vertical_1": 8113.368,
+    "principal_right_vertical_2": 1027.78
+  },
+  "all_bores_missing_wood_mm3": {
+    "principal_left_vertical_1": 8113.368,
+    "principal_left_vertical_2": 1027.78,
+    "principal_right_vertical_1": 8113.368,
+    "principal_right_vertical_2": 1027.78
+  },
+  "plate_pair_conflicts": [],
+  "bore_pair_conflicts": [],
+  "plate_panel_conflicts": [],
+  "plate_neighbor_conflicts": [],
+  "changed_wood_panel_conflicts": [],
+  "new_wood_neighbor_conflicts": [
+    {
+      "a": "header",
+      "b": "base_side_left",
+      "overlap_mm3": 471575.581
+    },
+    {
+      "a": "header",
+      "b": "base_side_right",
+      "overlap_mm3": 471575.581
+    },
+    {
+      "a": "principal_left",
+      "b": "base_rail_bottom_left",
+      "overlap_mm3": 135193.278
+    },
+    {
+      "a": "principal_left",
+      "b": "base_rail_service_lower_left",
+      "overlap_mm3": 135193.278
+    },
+    {
+      "a": "principal_left",
+      "b": "base_rail_service_upper_left",
+      "overlap_mm3": 135193.278
+    },
+    {
+      "a": "principal_right",
+      "b": "base_rail_bottom_right",
+      "overlap_mm3": 135193.278
+    },
+    {
+      "a": "principal_right",
+      "b": "base_rail_service_lower_right",
+      "overlap_mm3": 135193.278
+    },
+    {
+      "a": "principal_right",
+      "b": "base_rail_service_upper_right",
+      "overlap_mm3": 135193.278
+    }
+  ],
+  "screw_plate_conflicts": [],
+  "screw_bore_conflicts": [],
+  "bore_panel_conflicts": [],
+  "bore_neighbor_conflicts": [],
+  "old_frame_hardware_conflicts": [],
+  "old_frame_changed_wood_intersections": [],
+  "one_piece_blank_envelopes_mm": {
+    "post_xyz": [
+      184.15,
+      139.7,
+      238.9
+    ],
+    "header_xyz": [
+      2435.225,
+      299.1,
+      76.2
+    ],
+    "principal_width_x_each": 88.9
+  },
+  "qualification": "Nominal occupancy only. ESR-3455 B66 Table 3 uses C_D=1.6 and forbids duration conversion; ordinary-duration joint resistance requires separate wood/bolt/formed-steel analysis. Its steel is ASTM A653 Structural Steel Grade 40, minimum 0.099-in base thickness. No F1/F2 value is transferred.",
+  "unmodeled": "Delivered bend/hole tolerances, 3/8-in A307-or-better bolt stacks, washers, edge/end-distance design, tool access and removal, one-piece stock grade/availability, and actual load path. No drilling approval."
+}
