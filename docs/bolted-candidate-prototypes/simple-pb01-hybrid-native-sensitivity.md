@@ -83,5 +83,9 @@ The raw directory is
 `/tmp/mini_pb01_quarter_contact4_a12left_4c60e46`; it is temporary.
 The report retains a 260-entry native-plus-producer source manifest, 23
 legacy proxy stations, and explicit diagnostic/no-design/no-drilling scope.
+The converged cycle carried nonzero compression at two off-row samples on
+each PB-01 face; the other four were open. This verifies that the revised
+contact path participated in this trial response, not that its force
+distribution or bearing pressure is physically calibrated.
 This run is a numerical smoke test of the changed contact idealization,
 not a calibrated stiffness study or a V4 same-case demand.
