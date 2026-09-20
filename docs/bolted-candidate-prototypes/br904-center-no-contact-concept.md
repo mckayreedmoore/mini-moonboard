@@ -4,7 +4,11 @@ Status: search envelope only. No sample has been measured. No connector, bolt
 diameter, hole, joint resistance, or drilling pattern is selected.
 
 The exact [Newhouse BR904](https://newhouseelectric.com/products/bracket-90deg-4-hole)
-is listed at [Home Depot](https://www.homedepot.com/p/325186317). Newhouse states
+is listed at [Home Depot](https://www.homedepot.com/p/325186317).
+[Lowe's lists Adamax BR904](https://www.lowes.com/pd/Adamax-Electro-Galvanized-1-2-in-Angled-Strut-Bracket-with-4-Holes-Strut-Channel-Joining-Accessory/5002818545),
+and [Newhouse says it is by Adamax Inc.](https://newhouseelectric.com/pages/about-us).
+This supports a common branded model, not controlled identity of every
+factory lot or received part. Newhouse states
 four factory 9/16 in holes with 1-7/8 in spacing, 4-gauge Q235 steel, and an
 electro-galvanized finish. It does not give bend-to-hole centers, plate width,
 leg lengths, finished minimum thickness, bend radius, or tolerances. The
