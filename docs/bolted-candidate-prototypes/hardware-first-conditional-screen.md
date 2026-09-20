@@ -263,3 +263,8 @@ roughly 184-mm-wide, 89-mm-deep one-piece common post; it does not establish
 delivered size after drying, treatment/service basis, local stock, a fitting
 HL33 bolt pattern, or a rated joint. The tested HL33 pose above used the
 larger original 139.7-mm post depth and remains rejected.
+Lowe's also lists a [4×8×10-ft #2-and-better Douglas-fir kiln-dried
+piece](https://www.lowes.com/pd/Georgia-Pacific-4-in-x-8-in-x-10-ft-Douglas-Fir-Lumber-Common-3-562-in-x-7-5-in-x-10-ft-Actual/1000464221)
+with the same stated 3.562 × 7.5-in section. Its stated dry condition is
+preferable for screening the narrow 1.575-mm margin over the HL 3.5-in
+minimum, but neither delivered thickness nor local stock is established.
