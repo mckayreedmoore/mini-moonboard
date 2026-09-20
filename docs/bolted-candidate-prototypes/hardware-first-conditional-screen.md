@@ -248,6 +248,17 @@ post bolt, the upper principals each have only one HL33, and the cut rails
 have no bracketed center attachment. This is `geometry_only_unqualified`,
 not G1 closure, a complete joint rating, or a shop layout.
 
+A [seven-axis wood geometry screen](hardware_first_center_tongue_wood.md)
+finds negative conditional reversible 4D/7D search margins at the shared
+post, upper header shoulders, and oblique principal toes. Load directions,
+loaded-edge categories, shaped-end interpretation, and all joint capacities
+remain undetermined. Separately, [thickening all six rails rearward while
+holding their panel-bearing faces](hardware_first_center_thick_rails.md)
+retains the 66 fixed screw receivers but makes both bottom rails collide
+with the header and upper HL33 seats. That particular rail-thickening pose
+is rejected, so it cannot close the missing rail-to-center attachments.
+Neither screen accepts or rejects every possible factory-bracket layout.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
