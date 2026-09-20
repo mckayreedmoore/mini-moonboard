@@ -154,6 +154,12 @@ rails. The shaped one-piece header has only 3.175 mm total nominal surplus
 from an 8-ft 4×10 blank, so that length has no usable trim allowance;
 longer stock is a retail lead, not a received blank. This is a bounded
 geometry rejection, not a verdict on all factory-bracket architectures.
+A [toe/seat shift bound](hardware_first_center_hybrid_toe.md) shows that
+sliding those upper HL35s forward cannot contain their first nominal bores
+while keeping the complete 127-mm seats on the existing front-limited
+header: 12.7 mm is the full-seat limit and both bores still exit wood.
+This rules out a simple bracket-row slide within that pose, not a changed
+header or a different factory connector.
 
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
