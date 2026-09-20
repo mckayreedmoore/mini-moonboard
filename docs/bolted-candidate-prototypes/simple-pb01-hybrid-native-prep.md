@@ -24,8 +24,14 @@ Its temporary kerf-right mesh hooks are serialized within this adapter,
 reject an already-patched
 builder, and restore the shared functions after a preparation failure;
 run it in an isolated process because older diagnostic adapters do not
-share that lock. The model
-uses the current grain-N **four-bolt diagnostic pose**, which still has
+share that lock. The default model uses the grain-N **3/8-in four-bolt
+diagnostic pose**. `prepare_case(case, variant="quarter")` selects the
+same maintained 1/4-in four-bolt geometry with a distinct candidate identity
+and an explicit 6.35-mm trial-shaft mass. The two variants deliberately retain
+the same arbitrary 1,000-N/mm trial spring stiffness; a response difference
+would be a sensitivity to geometry/mass, **not a diameter-dependent stiffness
+or strength prediction**. The head/nut and 25.4-mm washer envelopes in the
+mass estimate remain provisional, not selected retail stacks. Both poses still have
 conditional placement and installed-access conflicts. The unilateral
 contacts use one point per face, not a pressure distribution. The code
 returns a structure and ownership metadata only; it invokes **no native
@@ -45,6 +51,7 @@ a candidate verdict.
 
 For a reproducible **hybrid sensitivity** solve, run
 `uv run python -m scripts.simple_pb01_hybrid_diagnostic_run a12-left --output DIR`.
+Add `--variant quarter` for the separate nominal 1/4-in geometry sensitivity.
 This wrapper fingerprints the adapter, pose generator, their repository
 Python import closure, and trial-pose JSON in addition to the native
 solver's regular source closure. It rejects changed producer files after import,

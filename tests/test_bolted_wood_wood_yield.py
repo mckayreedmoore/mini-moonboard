@@ -146,12 +146,72 @@ def test_reduction_terms_use_maximum_of_two_grain_angles():
         )
 
 
-def test_subquarter_root_rejected_when_threads_require_it():
-    with pytest.raises(ValueError, match="effective bolt diameter"):
-        wood_wood_single_shear_reference(
-            **(case() | {"bolt_thread_root_diameter_in": 0.2,
-                        "main_thread_bearing_length_in": 0.5})
-        )
+@pytest.mark.parametrize("root,kd", [
+    (0.1699, 2.2), (0.17, 2.2), (0.1701, 2.201), (0.2, 2.5), (0.2499, 2.999),
+])
+@pytest.mark.parametrize("threaded_member", ["main", "side"])
+def test_subquarter_root_uses_small_dowel_bearing_and_all_mode_reductions(
+    root, kd, threaded_member
+):
+    inputs = case() | {
+        "bolt_full_body_diameter_in": 0.25,
+        "bolt_thread_root_diameter_in": root,
+        f"{threaded_member}_thread_bearing_length_in": 0.5,
+        "bolt_bending_yield_strength_psi": 45_000,
+        "bolt_bending_yield_moment_lb_in": 45_000 * root**3 / 6,
+    }
+    kt = 1.25
+    reductions = dict.fromkeys(("Im", "Is", "II", "IIIm", "IIIs", "IV"), kd * kt)
+    inputs["reduction_terms"] = reductions
+    result = wood_wood_single_shear_reference(**inputs)
+    direct = single_shear(
+        main_length_in=1.5, side_length_in=1.5,
+        main_bearing_lb_in=4650 * root, side_bearing_lb_in=4650 * root,
+        main_yield_moment_lb_in=inputs["bolt_bending_yield_moment_lb_in"],
+        side_yield_moment_lb_in=inputs["bolt_bending_yield_moment_lb_in"],
+        gap_in=0, reduction_terms=reductions,
+    )
+    assert result["effective_bearing_diameter_in"] == root
+    assert result["main_bearing_psi"] == result["side_bearing_psi"] == 4650
+    assert result["reference_values_lbf"] == pytest.approx(direct["reference_values_lbf"])
+
+
+def test_thread_exposure_boundary_preserves_full_body_diameter_and_old_reductions():
+    inputs = case() | {
+        "bolt_full_body_diameter_in": 0.25,
+        "bolt_thread_root_diameter_in": 0.2,
+        "main_thread_bearing_length_in": 1.5 / 4,
+    }
+    assert wood_wood_single_shear_reference(**inputs)["effective_bearing_diameter_in"] == 0.25
+
+
+@pytest.mark.parametrize("override", [
+    {},
+    {"bolt_bending_yield_strength_psi": 0},
+    {"bolt_bending_yield_strength_psi": 45_000, "bolt_bending_yield_moment_lb_in": 1},
+])
+def test_subquarter_root_requires_sourced_strength_and_matching_moment(override):
+    inputs = case() | {
+        "bolt_thread_root_diameter_in": 0.2,
+        "main_thread_bearing_length_in": 0.5,
+        "bolt_bending_yield_moment_lb_in": 45_000 * 0.2**3 / 6,
+        "reduction_terms": dict.fromkeys(("Im", "Is", "II", "IIIm", "IIIs", "IV"), 2.5 * 1.25),
+    }
+    with pytest.raises(ValueError, match="bending yield"):
+        wood_wood_single_shear_reference(**(inputs | override))
+
+
+def test_subquarter_root_rejects_large_dowel_reduction_terms_and_axis_parallel():
+    inputs = case() | {
+        "bolt_thread_root_diameter_in": 0.2,
+        "main_thread_bearing_length_in": 0.5,
+        "bolt_bending_yield_strength_psi": 45_000,
+        "bolt_bending_yield_moment_lb_in": 45_000 * 0.2**3 / 6,
+    }
+    with pytest.raises(ValueError, match="reduction terms"):
+        wood_wood_single_shear_reference(**inputs)
+    with pytest.raises(ValueError, match="axis-parallel"):
+        wood_wood_single_shear_reference(**(inputs | {"main_bolt_axis_parallel_to_grain": True}))
 
 
 def test_every_parameter_is_required():

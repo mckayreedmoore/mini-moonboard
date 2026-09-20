@@ -26,13 +26,17 @@ an unverified store bolt or treated as a connection resistance.
 - [Table 12.3.1B][nds12] gives `R_d`: `4Kθ` for Im/Is, `3.6Kθ` for II,
   and `3.2Kθ` for IIIm/IIIs/IV for effective diameter 1/4–1 inch, where
   `Kθ = 1 + 0.25 × max(two load-to-grain angles)/90`. The caller supplies all
-  six values; the wrapper validates them against that table. The
-  [2024 NDS errata][errata] corrects the sub-1/4-inch `K_D` text; that range
-  is excluded here.
+  six values; the wrapper validates them against that table. If threads
+  require an effective `D_r < 1/4 in` for a nominal bolt at least 1/4 in,
+  every mode instead uses `R_d = K_D Kθ`. The rendered
+  [2024 NDS erratum][errata] gives `K_D = 2.2` through `D=0.17 in`, then
+  `K_D = 10D + 0.5` up to but not including `D=0.25 in`.
 - [Sections 12.3.3–12.3.5][nds12] provide solid-wood dowel bearing,
   angle-to-grain interpolation, and actual bearing-length rules. The existing
   `dfl_dowel_bearing_psi` helper provides each member's conditional DF-L
-  `G=0.50` value. This requires both members to actually be qualifying solid
+  `G=0.50` value. For selected `D < 1/4 in`, Table 12.3.3's
+  angle-independent `16,600 G^1.84` expression rounds to 4,650 psi for
+  DF-L. This requires both members to actually be qualifying solid
   DF-L, not plywood, steel, an unknown species, or unverified damaged wood.
 - [Section 12.3.7][nds12] distinguishes full shank `D` from thread-root
   `D_r`; full `D` for a threaded full-body fastener is permitted only when
@@ -43,7 +47,10 @@ an unverified store bolt or treated as a connection resistance.
   otherwise `D_r`. `bolt_bending_yield_moment_lb_in` must correspond to that
   selected diameter and the established bolt property, not a nominal grade
   or a shaft tensile/shear rating. The wrapper intentionally does not derive
-  this moment from an assumed `F_yb`.
+  this moment from an assumed `F_yb`. The sub-1/4-inch route additionally
+  requires an explicit sourced `F_yb` matching the supplied moment to the
+  selected root diameter. This consistency check does not certify the
+  source or the installed bolt.
 - [Section 12.3.3.4][nds12] has a special main-member end-grain rule for a
   bolt axis parallel to fibers. This simple wrapper rejects axis-parallel
   grain in either member so that neither a main/side role swap nor the usual
@@ -55,6 +62,12 @@ six modes to the existing solver with independent bearing inputs, exercise
 different angles and lengths, and reject a gap, axis-parallel grain, wrong
 reduction terms, and incomplete inputs. They verify code behavior, not a
 particular store-bought bolt or connection.
+
+The 1/4-in PB-01 four-bolt cleat has one upright/cleat bolt axis parallel
+to cleat grain, so this wrapper **cannot** evaluate that interface even
+conditionally. The retail source screen has no exact product root or
+`F_yb`, and no new-topology same-case force exists. The small-root branch
+is component groundwork, not a PB-01 capacity result.
 
 ## Still required for an actual PB joint
 

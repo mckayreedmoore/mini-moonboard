@@ -25,7 +25,12 @@ def test_dfl_angle_to_grain_uses_hankinson_bearing_interpolation():
     assert 3650 < expected < 5600
 
 
-@pytest.mark.parametrize("diameter", [0, -0.375, 0.2499, math.nan, math.inf])
+@pytest.mark.parametrize("diameter,angle", [(0.17, 0), (0.17, 45), (0.2499, 90)])
+def test_small_dowel_bearing_is_angle_independent(diameter, angle):
+    assert dfl_dowel_bearing_psi(diameter, angle) == 4650
+
+
+@pytest.mark.parametrize("diameter", [0, -0.375, math.nan, math.inf])
 def test_dfl_bearing_rejects_inapplicable_diameter(diameter):
     with pytest.raises(ValueError):
         dfl_dowel_bearing_psi(diameter, 0)

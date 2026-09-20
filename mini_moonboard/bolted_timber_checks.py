@@ -63,15 +63,18 @@ def dfl_dowel_bearing_psi(diameter_in: float, load_angle_degrees: float) -> floa
     """Return only the solid DF-L dowel-bearing input from NDS 12.3.3–12.3.4.
 
     This is not a bolt or joint design value. G=0.50 is the NDS-assigned DF-L
-    value; the large-dowel reference strengths are rounded to 50 psi before
+    value. Below 1/4 inch, Table 12.3.3 uses the angle-independent solid-wood
+    small-dowel expression. Large-dowel strengths are rounded to 50 psi before
     angle-to-grain interpolation. End-grain and panel cases are excluded.
     """
-    if not math.isfinite(diameter_in) or diameter_in < 0.25:
-        raise ValueError("solid-wood large-dowel diameter must be at least 1/4 inch")
+    if not math.isfinite(diameter_in) or diameter_in <= 0:
+        raise ValueError("solid-wood dowel diameter must be positive and finite")
     if not math.isfinite(load_angle_degrees) or not 0 <= load_angle_degrees <= 90:
         raise ValueError("load angle to grain must be between 0 and 90 degrees")
 
     specific_gravity = 0.50
+    if diameter_in < 0.25:
+        return round(16600 * specific_gravity**1.84 / 50) * 50
     parallel_psi = round(11200 * specific_gravity / 50) * 50
     perpendicular_psi = round(
         6100 * specific_gravity**1.45 / math.sqrt(diameter_in) / 50

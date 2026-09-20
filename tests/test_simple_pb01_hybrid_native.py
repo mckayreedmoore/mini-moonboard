@@ -122,9 +122,9 @@ def test_four_trial_bolt_gravity_loads_are_explicit_and_balance(prepared):
             -row["mass_kg"] * 9.80665 / 2
         )
         assert row["mass_basis"] == "diagnostic steel envelope only"
-    assert sum(load["force"][2] for load in metadata["additional_member_loads"]) == pytest.approx(
-        -total_mass * 9.80665
-    )
+    assert sum(
+        load["force"][2] for load in metadata["additional_member_loads"]
+    ) == pytest.approx(-total_mass * 9.80665)
 
 
 def test_failed_preparation_restores_shared_builders(monkeypatch):
@@ -141,3 +141,27 @@ def test_failed_preparation_restores_shared_builders(monkeypatch):
         panel_kernel.pressure_load,
         FlushStructure.member,
     ) == before
+
+
+def test_quarter_in_variant_has_distinct_identity_and_four_explicit_stack_weights(
+    prepared,
+):
+    quarter = HybridPB01(variant="quarter")
+    old = HybridPB01()
+    assert quarter.KEY != old.KEY
+    assert quarter.pose["nominal_trial_bolt_diameter_mm_not_selected"] == 6.35
+    assert quarter.pose["diagnostic_wood_bore_diameter_mm_not_drill_instruction"] == 7.5
+    structure, metadata = prepare_case("a12-left", variant="quarter")
+    assert metadata["candidate"] == quarter.KEY
+    assert metadata["pb01_pose_variant"] == "quarter"
+    assert metadata["pb01_trial_bolt_diameter_mm"] == 6.35
+    assert len(metadata["pb01_trial_bolt_gravity"]) == 4
+    assert all(
+        row["assumed_shaft_diameter_mm"] == 6.35
+        for row in metadata["pb01_trial_bolt_gravity"]
+    )
+    assert (
+        metadata["pb01_trial_bolt_total_mass_kg"]
+        < prepared[1]["pb01_trial_bolt_total_mass_kg"]
+    )
+    assert len(structure.springs) > 0

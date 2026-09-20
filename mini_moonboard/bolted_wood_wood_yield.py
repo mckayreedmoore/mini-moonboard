@@ -54,17 +54,19 @@ def wood_wood_single_shear_reference(
     bolt_bending_yield_moment_lb_in: float,
     gap_in: float,
     reduction_terms: dict[str, float],
+    bolt_bending_yield_strength_psi: float | None = None,
 ) -> dict:
     """Return six conditional, unadjusted one-bolt yield-mode values in lbf.
 
     The caller must establish the actual bearing lengths, delivered bolt's
     full-body and thread-root diameters, thread exposure in each member, and
-    corresponding bending-yield moment,
-    and both grain/load angles. Only a contacting, two-member, single-shear
+    corresponding bending-yield moment, and both grain/load angles. When root
+    D is below 1/4 inch, actual F_yb must also be supplied and match that
+    moment. Only a contacting, two-member, single-shear
     lateral connection with neither bolt axis parallel to grain is supported.
     The explicitly supplied reduction terms must match 2024 NDS Table 12.3.1B
-    for the larger of the two grain/load angles. No end/edge or group check is
-    performed here.
+    for the larger of the two grain/load angles, including the erratum for
+    sub-1/4-inch effective D. No end/edge or group check is performed here.
     """
     lengths = (main_bearing_length_in, side_bearing_length_in)
     angles = (main_load_to_grain_degrees, side_load_to_grain_degrees)
@@ -95,20 +97,37 @@ def wood_wood_single_shear_reference(
         bolt_full_body_diameter_in if full_body_allowed
         else bolt_thread_root_diameter_in
     )
-    if effective_bearing_diameter_in < 0.25:
-        raise ValueError("effective bolt diameter below 1/4 inch needs other terms")
     if (not _finite_number(bolt_bending_yield_moment_lb_in)
             or bolt_bending_yield_moment_lb_in <= 0):
         raise ValueError("bolt bending-yield moment must be positive and finite")
+    if effective_bearing_diameter_in < 0.25 and (
+        not _finite_number(bolt_bending_yield_strength_psi)
+        or bolt_bending_yield_strength_psi <= 0
+        or not math.isclose(
+            bolt_bending_yield_moment_lb_in,
+            dowel_bending_yield_moment_lb_in(
+                bending_yield_strength_psi=bolt_bending_yield_strength_psi,
+                effective_diameter_in=effective_bearing_diameter_in,
+            ),
+            rel_tol=1e-12,
+        )
+    ):
+        raise ValueError("sub-1/4-inch root requires exact bending yield strength and moment")
     if not _finite_number(gap_in) or gap_in != 0:
         raise ValueError("2024 NDS 12.3.1 requires contacting member faces (zero gap)")
 
     angle_factor = 1 + 0.25 * max(angles) / 90
-    expected_reductions = dict(zip(
-        _MODES, (4 * angle_factor, 4 * angle_factor,
-                 3.6 * angle_factor, 3.2 * angle_factor,
-                 3.2 * angle_factor, 3.2 * angle_factor),
-    ))
+    if effective_bearing_diameter_in < 0.25:
+        # 2024 NDS Table 12.3.1B, January 2025 AWC erratum: 10D + 0.5.
+        kd = (2.2 if effective_bearing_diameter_in <= 0.17
+              else 10 * effective_bearing_diameter_in + 0.5)
+        expected_reductions = dict.fromkeys(_MODES, kd * angle_factor)
+    else:
+        expected_reductions = dict(zip(
+            _MODES, (4 * angle_factor, 4 * angle_factor,
+                     3.6 * angle_factor, 3.2 * angle_factor,
+                     3.2 * angle_factor, 3.2 * angle_factor),
+        ))
     if (not isinstance(reduction_terms, dict)
             or set(reduction_terms) != set(_MODES)
             or any(not _finite_number(reduction_terms[mode])

@@ -37,9 +37,16 @@ _ORIGINAL_PRESSURE = panel_kernel.pressure_load
 _ORIGINAL_MEMBER = FlushStructure.member
 
 
-def _trial_bolt_mass_kg(length_mm):
+POSES = {
+    "three_eighth": ("cleat_grain_n_4x6_group", 9.525),
+    "quarter": ("cleat_grain_n_4x6_group_quarter", 6.35),
+}
+
+
+def _trial_bolt_mass_kg(length_mm, shaft_d):
     """Diagnostic steel mass, not a selected product or complete stack fit."""
-    shaft_d, washer_od, washer_id = 9.525, 25.4, 10.5
+    washer_od = 25.4
+    washer_id = 10.5 if shaft_d == 9.525 else 7.5
     end_d, head_h, nut_h, washer_h = 16.51, 6.8072, 8.5598, 2.5
     area = lambda diameter: math.pi * (diameter / 2) ** 2
     volume = (
@@ -51,13 +58,21 @@ def _trial_bolt_mass_kg(length_mm):
     return volume * 7.85e-6
 
 
-def _trial() -> dict:
+def _trial(variant: str) -> dict:
     data = json.loads(DIAGNOSTIC.read_text())
     if data["station"] != STATION or data["physical_width"] != "kerf-right":
         raise ValueError("PB01 diagnostic source identity changed")
-    pose = data["cleat_grain_n_4x6_group"]
+    if variant not in POSES:
+        raise ValueError("Unknown PB01 diagnostic bolt variant")
+    pose_key, diameter = POSES[variant]
+    pose = data[pose_key]
     if pose["status"] != "diagnostic_pose_only":
         raise ValueError("PB01 four-bolt pose is not a diagnostic pose")
+    if variant == "quarter" and (
+        pose["nominal_trial_bolt_diameter_mm_not_selected"] != diameter
+        or pose["diagnostic_wood_bore_diameter_mm_not_drill_instruction"] != 7.5
+    ):
+        raise ValueError("Quarter-inch PB01 pose diameter changed")
     if (
         len(pose["bolt_groups"]["upright"]) != 2
         or len(pose["bolt_groups"]["rail"]) != 2
@@ -96,9 +111,12 @@ class HybridPB01(DiagnosticProxy):
 
     KEY = "pb01-kerf-right-cleat-hybrid-preparation-only"
 
-    def __init__(self):
+    def __init__(self, *, variant: str = "three_eighth"):
         super().__init__()
-        self.pose = _trial()
+        self.pose = _trial(variant)
+        self.variant = variant
+        if variant == "quarter":
+            self.KEY = "pb01-kerf-right-cleat-quarter-hybrid-preparation-only"
         self.cleat = _cleat_part(self.raw.uncut_wood_parts(), self.pose)
         self.MEMBER_AXES = {
             **getattr(self.baseline, "MEMBER_AXES", {}),
@@ -199,7 +217,7 @@ def _add_pb01_paths(structure, metadata, module, spring_n_per_mm):
     metadata["pb01_contact_names"] = contacts
 
 
-def _add_trial_bolt_gravity(structure, metadata):
+def _add_trial_bolt_gravity(structure, metadata, diameter_mm):
     """Add four explicit diagnostic stack weights at the serial interfaces."""
     rows = []
     member_loads = []
@@ -209,7 +227,7 @@ def _add_trial_bolt_gravity(structure, metadata):
     ):
         for name in metadata["pb01_bolt_groups"][family]:
             point = metadata["connection_ownership"][name]["point"]
-            mass = _trial_bolt_mass_kg(length)
+            mass = _trial_bolt_mass_kg(length, diameter_mm)
             host_node = structure.attachment(host, point)
             cleat_node = structure.attachment(CLEAT, point)
             half_weight = -mass * 9.80665 / 2
@@ -224,6 +242,7 @@ def _add_trial_bolt_gravity(structure, metadata):
                     "name": name,
                     "family": family,
                     "assumed_length_mm": length,
+                    "assumed_shaft_diameter_mm": diameter_mm,
                     "mass_kg": mass,
                     "mass_basis": "diagnostic steel envelope only",
                     "host_node": host_node,
@@ -255,11 +274,13 @@ def _imprint_points(pose):
     return result
 
 
-def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
+def prepare_case(
+    case: str, *, variant: str = "three_eighth", spring_n_per_mm: float = 1000.0
+):
     """Prepare one unsolved hybrid; stiffness is a named trial input, not evidence."""
     if case not in CASES:
         raise ValueError("Unknown unchanged load case")
-    module = HybridPB01()
+    module = HybridPB01(variant=variant)
     raw = {part.name: part for part in module.uncut_wood_parts()}
     panel_names = [name for name in raw if name.startswith(("main_", "kicker_"))]
     bolts = {
@@ -340,7 +361,8 @@ def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
             raise ValueError(f"{name}: native mesh misses kerf-right panel bounds")
         panel_bounds[name] = [actual.xmin, actual.xmax]
     _add_pb01_paths(structure, metadata, module, spring_n_per_mm)
-    _add_trial_bolt_gravity(structure, metadata)
+    diameter_mm = POSES[variant][1]
+    _add_trial_bolt_gravity(structure, metadata, diameter_mm)
     names = sorted(
         {c.members[0] for c in module.connections() if c.name.startswith("clip_")}
     )
@@ -348,6 +370,8 @@ def prepare_case(case: str, *, spring_n_per_mm: float = 1000.0):
         raise ValueError("Hybrid proxy or panel inventory changed")
     metadata.update(
         pb01_pose_source=str(DIAGNOSTIC.relative_to(ROOT)),
+        pb01_pose_variant=variant,
+        pb01_trial_bolt_diameter_mm=diameter_mm,
         pb01_trial_stiffness_n_per_mm=spring_n_per_mm,
         kerf_panel_bounds_mm=panel_bounds,
         legacy_proxy_stations=names,
