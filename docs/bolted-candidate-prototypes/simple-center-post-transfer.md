@@ -1,6 +1,7 @@
 # PB-02: bolted wood path from shifted right post to right upright
 
-Status: **nominal CAD fit only; structural and hardware access unresolved**. This
+Status: **wood-only nominal CAD fit; old clip collisions, structural resistance,
+and hardware access unresolved**. This
 is one concrete connection trial in the V4 bolted candidate, not a drilling or
 fabrication release. Coordinates are world millimeters. The left post, header,
 upright, climbing panels, and all 66 panel/kicker screw axes stay fixed. Only
@@ -48,8 +49,18 @@ are diagnostic geometry, not selected products.
 ## CAD observations
 
 The two added cleats have zero positive-volume collision with the actual
-uncut timber solids, including the original upright, header, bottom rail,
-shifted post, and kicker backer. Measured nominal face areas are 9030.42 mm²
+uncut **timber** solids, including the original upright, header, bottom rail,
+shifted post, and kicker backer. This is not a complete hardware clearance.
+The shifted post intersects the historical
+`clip_split_header_center_right` steel by **21,944 mm³**, and the side
+cleat intersects `clip_split_base_center_right` by **11,009 mm³**. Ten
+modeled historical clip fastener shafts/heads also intersect those two
+new timber placements. The trial therefore requires removing/replacing
+these **two** old clip stations; the old clips cannot remain in the V4
+assembly. Their complete structural duties and any effects on the unchanged
+upright/header still need replacement checks. The new probe records the
+collisions explicitly, rather than hiding them behind its timber-only
+clearance result. Measured nominal face areas are 9030.42 mm²
 at post/rear cleat, 4453.57 mm² at upright/side cleat, and 6972.3 mm² at
 the cleat pair. The upright contact is measured on its actual inclined solid.
 The side cleat ends at Y=−124.9, 11.806 mm behind the nearest bottom rail
@@ -97,7 +108,8 @@ Removing the kicker restores nominal straight access to those seats.
   20 mm radius access probe only tests a short straight approach, not a full
   wrench operation.
 - The neighboring center/header and six rail-end duties, altered right-post
-  load entry, and any required native response/recheck. None is inherited
+  load entry, both displaced old clip duties, and any required native
+  response/recheck. None is inherited
   from the selected baseline or solved by this local positive path.
 
 Reproduce with `.venv/bin/python scripts/simple_center_post_transfer_probe.py`

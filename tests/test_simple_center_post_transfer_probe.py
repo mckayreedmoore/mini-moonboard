@@ -12,6 +12,11 @@ def test_post_transfer_has_contacting_bolted_members_and_clear_fixed_screws():
         "upright_side": [89.05, 127.15, -175.7, -124.9, 277.0, 460.0],
     }
     assert result["unintended_solid_overlaps_mm3"] == {}
+    assert result["legacy_clip_wood_hits_mm3"] == {
+        "shifted_right_post/clip_split_header_center_right": 21944.06212,
+        "upright_side_cleat/clip_split_base_center_right": 11008.93288,
+    }
+    assert len(result["legacy_clip_screw_wood_hits_mm3"]) == 10
     assert result["contacts_mm2"]["post_rear"] > 0
     assert result["contacts_mm2"]["upright_side"] > 0
     assert result["contacts_mm2"]["cleat_pair"] > 0

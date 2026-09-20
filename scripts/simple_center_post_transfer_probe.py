@@ -41,6 +41,34 @@ def probe():
     side = cq.Solid.makeBox(38.1, 50.8, 183.0, cq.Vector(89.05, -175.7, 277.0))
     parts.update(backer=backer, rear_cleat=rear, upright_side_cleat=side)
 
+    # Historical hardware is not retained by this V4 concept. Record the
+    # collisions explicitly so a wood-only fit cannot imply installability.
+    legacy_names = {
+        "clip_split_header_center_right",
+        "clip_split_base_center_right",
+    }
+    legacy_stations = tuple(
+        station for station in frame.stations() if station[0] in legacy_names
+    )
+    legacy_clips = {
+        part.name: part.shape for part in frame.hardware.clip_parts(legacy_stations)
+    }
+    legacy_clip_hits = {}
+    for wood_name in ("shifted_right_post", "rear_cleat", "upright_side_cleat"):
+        for clip_name, clip in legacy_clips.items():
+            volume = hit_volume(parts[wood_name], clip)
+            if volume > TOL:
+                legacy_clip_hits[f"{wood_name}/{clip_name}"] = round(volume, 5)
+    legacy_screw_hits = {}
+    for connection in frame.connections():
+        if not any(connection.name.startswith(name + "_") for name in legacy_names):
+            continue
+        shaft, head = connection.components()
+        for wood_name in ("shifted_right_post", "rear_cleat", "upright_side_cleat"):
+            volume = hit_volume(parts[wood_name], shaft.fuse(head))
+            if volume > TOL:
+                legacy_screw_hits[f"{wood_name}/{connection.name}"] = round(volume, 5)
+
     # A thin contact slice measures the actual inclined upright, not its box.
     upright = parts["base_principal_center_right"]
     upright_contact_slice = cq.Solid.makeBox(
@@ -191,6 +219,8 @@ def probe():
         "fixed_axes": fixed,
         "right_post_shift_mm": 37.8,
         "cleat_bounds_mm": {"rear": bounds(rear), "upright_side": bounds(side)},
+        "legacy_clip_wood_hits_mm3": legacy_clip_hits,
+        "legacy_clip_screw_wood_hits_mm3": legacy_screw_hits,
         "contacts_mm2": contacts,
         "unintended_solid_overlaps_mm3": overlaps,
         "inner_kicker_edges_supported": edge_support,
