@@ -58,7 +58,11 @@ base thickness, four 3/8-in ASTM A307 Grade A-or-better bolts, and at least
 3 in of receiving wood. One coordinated
 [B66 660-mm rail probe](bolted-candidate-prototypes/hardware_first_b66_660_component_route.md)
 has now been run: its first complete upright bore exits the rib, so that
-nominal pose is rejected, not the B66 family. ESR-3455's F1/F2 table is only
+nominal pose is rejected, not the B66 family. A
+[bounded repair screen](bolted-candidate-prototypes/hardware_first_b66_660_rib_repair.md)
+clears this nominal bore conflict either by moving the bracket 6 mm forward
+or extending the one-piece rib profile 6 mm rearward. These remain local fit
+probes, not a selected complete installation. ESR-3455's F1/F2 table is only
 at `C_D = 1.6` and expressly
 forbids duration conversion; it is not a normal-duration rating. An
 independent route still needs 2024 NDS wood/bolt checks, formed-steel checks
