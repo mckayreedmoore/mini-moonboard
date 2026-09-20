@@ -16,6 +16,9 @@ inward-plate contact and wood search margins. One
 [outward-seat upper pose](hardware_first_br904_outward_seat.md) clears nominal
 hardware contact but fails the conservative principal-edge search marker;
 its lower and rail joints remain untested. The
+[one-piece deeper-principal follow-up](hardware_first_br904_deep_principal.md)
+clears that nominal marker with only about 2.3 mm minimum search reserves;
+its one-piece blank and complete joint are unqualified. The
 [rear-Y B66](hardware_first_b66_rear_y.md) and
 [front-Y B66](hardware_first_b66_front_y.md) center poses each fail for
 different physical clashes. These are pose-specific failures, not factory
