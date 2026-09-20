@@ -84,6 +84,30 @@ def test_wrong_inventory_is_rejected():
     assert result["inventory_matches"] is False
 
 
+def test_br904_shared_header_stack_requires_received_plate_dimensions():
+    result = illustrative_stack(
+        inventory="left-center shared-header BR904",
+        top_plate_mm=None,
+        bottom_plate_mm=None,
+    )
+    assert result["status"] == "UNRESOLVED"
+    assert result["inventory_matches"] is True
+    assert result["missing_inputs"] == ("top_plate_mm", "bottom_plate_mm")
+    assert result["joint_accepted"] is False
+
+
+def test_br904_illustrative_stack_is_not_product_acceptance():
+    result = illustrative_stack(
+        inventory="left-center shared-header BR904",
+        top_plate_mm=5.0,
+        bottom_plate_mm=5.0,
+    )
+    assert result["status"] == "CONDITIONAL"
+    assert result["washer_stack_selected"] is False
+    assert result["joint_accepted"] is False
+    assert result["drill_release"] is False
+
+
 @pytest.mark.parametrize(
     "changes",
     [

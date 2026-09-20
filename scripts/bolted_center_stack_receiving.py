@@ -1,4 +1,4 @@
-"""Pure axial receiving screen for one left-center shared-header AB205 bolt stack.
+"""Pure axial receiving screen for a left-center shared-header angle stack.
 
 Distances are millimetres from the underside of the bolt head toward the nut.
 Only supplied, measured or explicitly illustrative dimensions are used. A
@@ -9,7 +9,10 @@ remains unassessed. Washer count does not select a washer stack.
 
 import math
 
-INVENTORY = "left-center shared-header AB205"
+INVENTORIES = frozenset((
+    "left-center shared-header AB205",
+    "left-center shared-header BR904",
+))
 DIMENSIONS = (
     "bolt_underhead_length_mm",
     "plain_shank_end_mm",
@@ -55,7 +58,7 @@ def check_stack(
     result = {
         "status": "UNRESOLVED",
         "missing_inputs": missing,
-        "inventory_matches": None if inventory is None else inventory == INVENTORY,
+        "inventory_matches": None if inventory is None else inventory in INVENTORIES,
         "shear_planes_mm": None,
         "nut_start_mm": None,
         "nut_end_mm": None,

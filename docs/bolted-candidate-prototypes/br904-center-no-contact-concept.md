@@ -86,6 +86,11 @@ bores, the protected screw axes and actual screw bodies, opposed plate/washer/
 nut stack, wrench access, removal, contact, and steel net section. An omitted
 factory hole still weakens steel; using it or leaving it empty is a separate
 joint decision. A fit sample is neither a load test nor construction approval.
+The shared-header receiving screen in
+`scripts/bolted_center_stack_receiving.py` now accepts an exact BR904
+inventory label, but returns unresolved while either measured plate thickness
+or the other delivered stack dimensions are absent. An illustrative
+conditional grip result is not product acceptance.
 
 The repeatable raw-CAD calculation is
 `scripts/bolted_candidate_br904_center_envelope.py`. It intentionally does
