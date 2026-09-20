@@ -14,6 +14,9 @@ within that gap to meet the underside of the one-piece, 88.9 mm-thick
 raised header. Its continuous seam backing reaches 11.1125 mm to the left
 and 14.2875 mm to the right of the kerf-right kicker seam. The post and
 tongue form one CAD solid; the header is a separate one-piece solid.
+The tongue is modeled as kicker-seam backing and nominal butt contact,
+not a lap joint or a replacement for the two factory brackets. No
+structural resistance is assigned to that contact here.
 Those are ideal contact widths, not an established bearing minimum or a
 tolerance pass. Half of a 19.05 mm plywood thickness is 9.525 mm; if that
 comparison is relevant, the left ideal width exceeds it by only 1.5875 mm.
