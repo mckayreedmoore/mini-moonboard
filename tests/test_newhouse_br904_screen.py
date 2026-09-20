@@ -16,3 +16,19 @@ def test_br904_grade_and_hole_pattern_remain_a_prototype_lead():
     assert record["complete_factory_hole_coordinates_verified"] is False
     assert record["wood_to_wood_capacity_established"] is False
     assert record["drilling_released"] is False
+
+
+def test_no_contact_material_route_separates_standard_input_from_product_acceptance():
+    record = json.loads(
+        Path("docs/bolted-candidate-prototypes/newhouse-br904-retail.json").read_text()
+    )
+    route = record["no_contact_evidence_route"]
+    conditional = route["conditional_base_metal_properties"]
+    assert route["manufacturer_contact_required"] is False
+    assert conditional["standard"] == "GB/T 700-2006"
+    assert conditional["thickness_range_mm"] == [0, 16]
+    assert conditional["minimum_yield_mpa"] == 235
+    assert conditional["minimum_tensile_mpa"] == 370
+    assert conditional["adopted_for_br904"] is False
+    assert route["sample_measured"] is False
+    assert route["formed_angle_or_joint_capacity_established"] is False

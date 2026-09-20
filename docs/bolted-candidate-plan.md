@@ -40,10 +40,10 @@ classified attachments per width, 24 station duties, twelve retained frame
 bolts, and draft separation references are in the panel and interface
 contracts. These are baseline records, not candidate bolt geometry.
 
-G1 remains open and is blocked on exact factory-connector evidence or the
-narrow owner source-scope decision in
-`docs/bolted-candidate-g1-decision.json:g1_resume_decision`. No manufacturer
-has been contacted. A66 is a common-retail prototype priority, while the fixed
+G1 remains open. The bounded no-contact route starts with Home Depot-listed
+BR904's named material grade and factory-fit assessment; it does not require
+a manufacturer inquiry. No manufacturer has been contacted or part measured.
+A66 remains an unqualified retail lead, while the fixed
 flush-bend AB205 center pose has been set aside under the explicitly
 conservative oblique-end grain-ray search filter and the competing narrow
 row band. This is not a formal NDS oblique-end verdict or a rejection of all
@@ -62,9 +62,9 @@ representative raw timber pairs have nominal end-to-side butt contact, rather
 than a defined short direct through-bolt stack. A different direct-bolt detail
 is not ruled out, but it needs its own bore, access, and load-path proposal.
 The bounded retail follow-ups found no substitute with published bolted loads
-applicable to the preserved single-2x6 thickness. The exact A66 manufacturer
-information request is in `docs/bolted-candidate-g1-decision.json`; it has not
-been sent, and a response would still need the three representative fit checks.
+applicable to the preserved single-2x6 thickness. The historical A66
+information request in `docs/bolted-candidate-g1-decision.json` was not sent
+and is not a resume condition.
 The Home Depot-listed ABB Superstrut AB205 four-hole angle is a further
 dimensioned retail lead: ABB gives nominal hole diameter and spacing, but its
 2,000-lb value covers a supported strut-channel configuration, not this
@@ -78,9 +78,12 @@ loaded-end minimum for a half-inch bolt. This rejects that hypothetical
 layout, not every AB205 position. Inclined, oblique-cut frame members need
 their own end-distance assessment.
 Newhouse BR904 is another Home Depot-listed four-hole angle with manufacturer-
-stated Q235 steel and nominal 9/16-inch holes on 1-7/8-inch centers. Its
-product-specific strength and complete factory layout are not published, and
-it has no wood-joint rating; AB205 dimensions cannot be transferred to it.
+stated Q235 steel and nominal 9/16-inch holes on 1-7/8-inch centers. An
+applicable material standard may supply conditional design properties without
+a bespoke SKU rating or certificate. The standard/grade/thickness chain,
+complete factory layout, received identity, and actual wood-joint calculation
+remain open; AB205 dimensions cannot be transferred to it. A genuine sample
+could establish geometry for a receiving envelope, not material strength.
 See `docs/bolted-candidate-prototypes/newhouse-br904-retail.json`.
 The bounded check of Simpson's current catalog and drawing finder also found
 no controlled A66 bolt-hole-center drawing; an online third-party model is

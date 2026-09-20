@@ -1,6 +1,6 @@
 {
   "task": "LB-02G",
-  "status": "named_material_common_retail_prototype_lead_only",
+  "status": "no_contact_named_grade_route_under_assessment; prototype_lead_only",
   "product": {
     "model": "BR904",
     "manufacturer": "Newhouse Electric",
@@ -16,11 +16,13 @@
     "home_depot_listing": "https://www.homedepot.com/p/325186317",
     "home_depot_questions": "https://www.homedepot.com/p/questions/NEWHOUSE-ELECTRIC-90-Degree-4-Hole-Strut-Channel-Bracket-Silver-No-Magnets-BR904/325186317/1",
     "manufacturer_product": "https://newhouseelectric.com/products/bracket-90deg-4-hole",
-    "q235_standard_context_only": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=728DD12CB05533A5AE309BF47E6CBAA0"
+    "q235_standard_context_only": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=728DD12CB05533A5AE309BF47E6CBAA0",
+    "official_design_table_crosscheck": "https://zjj.sz.gov.cn/attachment/1/1249/1249210/10030175.pdf"
   },
   "source_limits": [
-    "The manufacturer names Q235, but does not state a GB/T standard edition, Q235 subtype, numerical minimum strength, product certificate, or bending/forming basis for this SKU.",
+    "The manufacturer names Q235, but does not state a GB/T standard edition, Q235 subtype, numerical minimum strength, or bending/forming basis for this SKU. A bespoke certificate is not assumed mandatory; applicability of a cited standard still needs a defensible receiving/specification basis.",
     "The manufacturer gives hole size and pitch but not overall leg dimensions, edge/bend-to-hole coordinates, or tolerances; do not borrow AB205 dimensions because the two products are different.",
+    "The stated 1-7/8-inch spacing is not a dimensioned confirmation that each leg has that pitch; applying it to both pairs remains a trial assumption until measured.",
     "Neither the manufacturer nor Home Depot publishes a bolted wood-to-wood rating or an applicable combined shear, moment and separation test.",
     "A Home Depot product page exists; local shelf stock and received-part identity were not verified.",
     "The Home Depot BR904 Q&A had unanswered requests for full dimensions and supported weight when checked; neither it nor manufacturer-linked imagery supplies a controlled factory drawing."
@@ -31,9 +33,35 @@
     "outcome": "negative; published pitch alone is not a complete hole-center layout"
   },
   "comparison_with_ab205": "BR904 supplies a named material grade absent from ABB's AB205 public record, while AB205 supplies more complete nominal geometry. Neither evidence set transfers to the other product, and neither establishes the complete wood joint.",
+  "no_contact_evidence_route": {
+    "manufacturer_contact_required": false,
+    "product_identity": "Exact Newhouse BR904 electro-galvanized four-hole 90-degree bracket from the Home Depot listing; verify marking, packaging, and receipt before any acceptance.",
+    "conditional_base_metal_properties": {
+      "standard": "GB/T 700-2006",
+      "thickness_range_mm": [0, 16],
+      "minimum_yield_mpa": 235,
+      "minimum_tensile_mpa": 370,
+      "basis": "The official standards portal identifies GB/T 700-2006 as current; the published government design table cross-checks 235/370 MPa for Q235 at <=16 mm. These are conditional thin-Q235 base-metal properties, not a BR904 guarantee or formed-angle rating.",
+      "adopted_for_br904": false
+    },
+    "material_applicability_to_verify": [
+      "Whether the exact supplied BR904 Q235 declaration means conformity to GB/T 700-2006 or another identified Q235 material standard; the retail page names no edition.",
+      "Whether received base metal falls within the applicable thickness band; 4 gauge is a nominal description, not a minimum finished thickness.",
+      "Whether any needed formed-bend property or forming reduction is supported by the chosen design method; straight base-metal strength cannot be assigned to the bend without that check."
+    ],
+    "geometry_to_measure_on_genuine_sample": [
+      "Each leg length and plate width at the installed contact zone",
+      "All four actual hole-center coordinates from bend tangency and side edges, not pitch alone",
+      "Hole diameter and out-of-roundness, steel thickness near holes and bend, inside bend radius and included angle",
+      "Flat washer seating area, bolt/nut/tool access, and how received dimensional variation will be bounded for drilling"
+    ],
+    "sample_measured": false,
+    "formed_angle_or_joint_capacity_established": false,
+    "next_bounded_output": "One actual center-joint layout and receiving envelope using BR904-only dimensions, followed by occupied-hole wood/steel/contact checks; no whole-frame solve or drilling release until those pass."
+  },
   "product_specific_minimum_yield_strength_verified": false,
   "complete_factory_hole_coordinates_verified": false,
   "wood_to_wood_capacity_established": false,
   "drilling_released": false,
-  "next_action": "Find an exact BR904 dimensioned drawing and product-specific steel guarantee, then screen representative wood end/edge spacing, complete fit, and the steel-to-wood/formed-angle load path. Do not assign a numerical Q235 strength or AB205 geometry from the product name alone."
+  "next_action": "Test whether the exact product declaration plus applicable material standard and measured receiving envelope can support one independently engineered center-joint concept. Do not assume a bespoke certificate, use AB205 dimensions, assign conditional Q235 numbers as accepted BR904 strength, or release drilling."
 }

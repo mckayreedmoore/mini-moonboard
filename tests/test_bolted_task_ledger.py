@@ -48,6 +48,22 @@ def test_g1_records_exact_a66_information_gate_without_selecting_it() -> None:
     )
 
 
+def test_no_contact_route_is_open_without_releasing_g1() -> None:
+    owner = json.loads((ROOT / "docs/bolted-candidate-owner-inputs.json").read_text())
+    decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
+    ledger = json.loads((ROOT / "docs/bolted-candidate-task-ledger.json").read_text())
+    by_id = {task["id"]: task for task in ledger["tasks"]}
+    assert owner["manufacturer_contact"]["authorized"] is False
+    assert (
+        decision["g1_resume_decision"]["route"] == "no_contact_independent_engineering"
+    )
+    assert decision["g1_resume_decision"]["lead"] == "newhouse-br904"
+    assert decision["g1_resume_decision"]["retailer_scope_unchanged"] is True
+    assert by_id["LB-04"]["status"] == "incomplete"
+    assert by_id["LB-13"]["status"] == "blocked"
+    assert decision["g1_resume_decision"]["drilling_released"] is False
+
+
 def test_additional_retail_and_stock_leads_do_not_release_g1() -> None:
     decision = json.loads((ROOT / "docs/bolted-candidate-g1-decision.json").read_text())
     follow_up = json.loads((ROOT / decision["additional_retail_follow_up"]).read_text())
