@@ -90,6 +90,24 @@ shank/thread transition or root diameter. The washer listing does not supply
 verified wood-bearing dimensions or capacity. Nominal thread and zinc finish
 alone do not qualify the stack.
 
+A **separate, stronger thread-placement lead**, priced from Home Depot's
+online pages on 2026-09-20, uses two
+[Prime-Line 9058821 A307 Grade A 8-in bolts](https://www.homedepot.com/p/310465152)
+from a 10-pack at $16.71, two
+[Prime-Line 9058745 A307 Grade A 5-in bolts](https://www.homedepot.com/p/310326760)
+from a 25-pack at $14.52, four of the above Everbilt nuts from a $6.98
+100-pack, and eight
+[Everbilt 807210 wide-pattern washers](https://www.homedepot.com/p/204284538)
+from an $11.70 100-pack. Its four-bolt **allocated hardware** is
+`2×(16.71/10) + 2×(14.52/25) + 4×(6.98/100) + 8×(11.70/100)
+= $5.7188 ≈ $5.72`; the **initial four-pack checkout** is
+`16.71 + 14.52 + 6.98 + 11.70 = $49.91`. It leaves eight long bolts,
+23 short bolts, 96 nuts, and 92 washers. The [source screen](quarter-inch-bolt-source-screen.md)
+explains why standard thread-length expectations and published washer
+dimensions improve this *lead* but do not certify the delivered shank,
+washer, complete joint or local store stock. This is not a compatible
+selected BOM, and the unknown whole 4×6 purchase remains additional.
+
 A second **mixed-retailer pack illustration**, using the same Home Depot
 bolts and [Lowe's Hillman 12-nut pack, 490622](https://www.lowes.com/pd/Hillman-1-4-in-x-20-Zinc-Plated-Steel-Hex-Nut/1001265718)
 at $1.98 plus [Lowe's Hillman 16-washer pack, 490687](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated-Standard-Flat-Washer-16-Count/3035987)
@@ -167,7 +185,9 @@ The 3/8-in cleat has a **$13.72 known single-item hardware illustration** and
 an **$84.06 alternative pack-checkout illustration**. The separate 1/4-in
 cleat examples above have **$18.07 same-store** or **$7.08 mixed-store**
 listed hardware checkouts. None includes its unknown 4×6 purchase or proves
-a suitable bolt stack. The overlap has no defensible numeric total, and
+a suitable bolt stack. The separate Prime-Line/wide-washer lead is
+$5.72 allocated or $49.91 first checkout, also unqualified. The overlap
+has no defensible numeric total, and
 its separate backer material/attachment and 12-in-class fastener stack are
 unpriced. Consequently there is **no cost winner**. For either path,
 installed tooling, taxes, shipping, ordinary cuts, discarded or shared

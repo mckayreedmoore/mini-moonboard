@@ -19,6 +19,49 @@ and [Hillman 1/4-in washers](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated
 The latter listing gives 5/8-in outside diameter and 1/16-in thickness;
 neither item supplies a complete rated bolt/nut/washer assembly.
 
+## Strongest same-maker retail length lead and washer pattern
+
+The [Prime-Line 9058745 5-in 25-pack](https://www.homedepot.com/p/310326760)
+and [9058821 8-in 10-pack](https://www.homedepot.com/p/310465152)
+are online-listed Home Depot A307 Grade A bolts. This is a cleaner
+same-maker material lead than combining differently described singles;
+local shelf stock remains unverified. A [bolt-maker's explanation of
+ASME B18.2.1](https://www.portlandbolt.com/technical/faqs/bolt-thread-lengths/)
+gives nominal thread lengths of `2D + 1/4 in` through 6-in length and
+`2D + 1/2 in` above 6 in: **0.75 in** for the 5-in bolt and **1.0 in**
+for the 8-in bolt at `D=0.25 in`. This is a standard-pattern inference,
+not an exact thread-transition drawing for either delivered SKU. A
+permitted runout or gaging variation and reduced-body construction could
+change the effective bearing geometry. Verify both bolts' full-body
+diameter and first complete thread on receipt before giving shank credit.
+
+The modeled rail and upright wood-only grips are **3.75 and 7.00 in**.
+With one 0.065-in washer under the head, the corresponding wood spans
+0.065–3.815 and 0.065–7.065 in from the bolt head. Under nominal
+standard threads starting 4.25 and 7.00 in from the head, the rail wood
+has no thread and only the distal 0.065 in of upright wood does. Even a
+**hypothetical** 0.25-in transition allowance shifts those starts to
+4.00 and 6.75 in, leaving 0 and 0.315 in of thread in wood. The latter
+is below a quarter of the upright-side 5.5-in cleat thickness, but this
+does **not** establish the 2024 NDS full-body allowance: actual delivered
+body, thread location, member assignment, seating, nut engagement and
+washer stack remain to be checked. The separate
+[root-only yield screen](simple-pb01-quarter-yield-screen.md) makes no
+full-body claim.
+
+Home Depot also online-lists [Everbilt 807210 wide flat washers](https://www.homedepot.com/p/204284538).
+The retailer's [dimension sheet](https://images.thdstatic.com/catalog/pdfImages/13/1353fc43-4c14-45d4-ba92-5745b045eae3.pdf)
+and listing filters give a 1/4-in pattern with approximately **0.312-in
+ID, 0.734-in OD and 0.065-in thickness**. Use one beneath **each** bolt
+head and nut in the trial stack. The 2024 NDS §12.1.3.3 requires a
+standard cut washer or equal/larger metal plate or strap at both ends;
+retail dimensions and the name “flat washer” alone do not prove that
+classification or the required bearing/stiffness behavior. The earlier
+5/8-in-OD Hillman cost illustration is a different, smaller pattern,
+not a qualified substitute. The CAD's 1-in washer envelope was also only
+a clearance proxy. Nut dimensions and actual projection still need a
+complete stack check.
+
 The [2024 NDS](https://awc.org/resources/2024-nds/) §12.3.6.2 requires a
 valid bending-yield basis; §§12.3.7.1–.2 control when thread-root versus
 full-body diameter may be used in bearing. Its Table 12.3.1B footnote 1
