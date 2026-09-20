@@ -268,6 +268,14 @@ with the header and upper HL33 seats. That particular rail-thickening pose
 is rejected, so it cannot close the missing rail-to-center attachments.
 Neither screen accepts or rejects every possible factory-bracket layout.
 
+A [single-piece profiled bottom-rail relief](hardware_first_center_rail_relief.md)
+then removes only the added rear wood where the header, upper seats, and
+bores intruded. Both bottom rails retain the original panel-bearing wood and
+66 screw receivers, with no nominal CAD collision; a full-thickness 90.4748-mm
+rail-side contact band remains on each. This is **not** a rail connection:
+no installed factory bracket, mating header seat, complete bolt group,
+tool access, or resistance has been shown.
+
 One [B88/UB88 center pose](hardware_first_b88_center.md) using the official
 nominal DXF centers was screened too. Its four brackets and through-bolts
 preserve all 66 protected axes, but four nominal bolt paths intersect
