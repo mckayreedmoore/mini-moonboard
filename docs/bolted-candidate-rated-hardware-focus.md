@@ -45,8 +45,9 @@ uplift axes. Resolve duration applicability and every unlisted transverse,
 moment, separation, and simultaneous action through an independently
 supported path or calculation. Do not transfer the old proxy forces or
 multiply paired lateral values. The
-[load-axis audit](bolted-candidate-prototypes/hl-load-axis-audit.md) already
-shows why rotating an HL angle can leave global X action outside F1.
+[corrected load-axis audit](bolted-candidate-prototypes/hl-load-axis-audit.md)
+maps the outward-X pose's F1 to X; Y is the unlisted horizontal direction.
+Neither mapping alone qualifies the joint.
 
 ## What advances G1
 

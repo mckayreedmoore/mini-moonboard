@@ -91,9 +91,10 @@ The HL table publishes uplift and F1 only, so the unity equation cannot
 confer an unlisted F2 resistance or moment rating. The actual installed
 joint must first resolve its load directions and any load sharing; no
 interaction ratio can be evaluated from the current shortlist alone.
-The [load-axis audit](hl-load-axis-audit.md) maps the typical catalog
-beam/post drawing to the current outward-X pose: its local F1 rotates into
-global Y, leaving any global-X transverse action **unlisted for HL**.
+The [corrected load-axis audit](hl-load-axis-audit.md) maps the typical catalog
+beam/post drawing to the current outward-X pose: its local F1 follows the
+horizontal flange reach into global X, leaving global-Y transverse action
+**unlisted for HL**. The previous X/Y conclusion was rotated by 90 degrees.
 Adding a second HL for reversible local F1 would not fill that separate
 action gap. Current-geometry simultaneous joint forces remain unavailable.
 

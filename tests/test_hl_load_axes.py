@@ -1,0 +1,58 @@
+"""Physical HL load axes follow the catalog installation, not the bend."""
+
+import pytest
+
+from scripts.hl_load_axes import frame_for_reach, local_wrench, pose_frames
+
+
+def test_catalog_reference_fixture_and_quarter_turn():
+    typical = frame_for_reach((1, 0, 0))
+    assert typical.reach == (1, 0, 0)  # F1, along beam/flange reach.
+    assert typical.bend == (0, 1, 0)
+    assert typical.uplift == (0, 0, 1)
+    turned = frame_for_reach((0, 1, 0))
+    assert turned.reach == (0, 1, 0)
+    assert turned.bend == (-1, 0, 0)
+    assert turned.uplift == (0, 0, 1)
+
+
+def test_left_right_reflection_preserves_uplift_and_flips_f1():
+    right = frame_for_reach((1, 0, 0))
+    left = frame_for_reach((-1, 0, 0))
+    assert left.reach == (-1, 0, 0)
+    assert left.bend == (0, -1, 0)
+    assert right.uplift == left.uplift
+    assert right.reach != left.reach
+
+
+def test_all_installed_frames_are_orthonormal_and_handed():
+    for frame in pose_frames().values():
+        vectors = (frame.reach, frame.bend, frame.uplift)
+        for i, a in enumerate(vectors):
+            for j, b in enumerate(vectors):
+                assert sum(x * y for x, y in zip(a, b, strict=True)) == (i == j)
+        ax, ay, az = frame.reach
+        bx, by, bz = frame.bend
+        assert (ay * bz - az * by, az * bx - ax * bz, ax * by - ay * bx) == (
+            frame.uplift
+        )
+    with pytest.raises(ValueError):
+        frame_for_reach((0, 0, 1))
+
+
+def test_signed_force_and_moment_projection_in_actual_poses():
+    right = frame_for_reach((1, 0, 0))
+    left = frame_for_reach((-1, 0, 0))
+    lower = frame_for_reach((0, -1, 0))
+    assert local_wrench(right, (7, 11, 13), (17, 19, 23)) == {
+        "force": (7, 11, 13),
+        "moment": (17, 19, 23),
+    }
+    assert local_wrench(left, (7, 11, 13), (17, 19, 23)) == {
+        "force": (-7, -11, 13),
+        "moment": (-17, -19, 23),
+    }
+    assert local_wrench(lower, (7, 11, 13), (17, 19, 23)) == {
+        "force": (-11, 7, 13),
+        "moment": (-19, 17, 23),
+    }
