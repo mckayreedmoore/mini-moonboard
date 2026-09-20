@@ -282,6 +282,12 @@ overlap, and each enters the opposite principal. Symmetric outward shifts
 large enough to separate those seats would remove the fixed center panel
 screw axes from unchanged rectangular principals. This is an installed-pose
 failure, not a proof that all paired or repositioned factory brackets fail.
+The [bounded rearward shifts of both inward upper
+angles](hardware_first_center_upper_stagger.md) by 63.5, 66, and 70 mm do
+not rescue this principal shape: the inward seats still collide across the
+center, each enters the opposite principal, and the new principal bores
+lose wood at the oblique toes. These are discrete rejected poses, not a
+continuous search or a rejection of every factory connector.
 
 The [bounded six-rail factory-bracket shortlist](rail-factory-bracket-shortlist.md)
 separates exact retail A66, HL33 and UB66/B66 leads from applicable
