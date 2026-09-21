@@ -4,6 +4,7 @@ This is a partial visual overlay, not a combined V4 assembly or shop output.
 """
 
 import json
+from functools import lru_cache
 from pathlib import Path
 
 from mini_moonboard.floor_flush_width import (
@@ -15,11 +16,25 @@ from mini_moonboard.floor_flush_width import (
 )
 from scripts import simple_center_current_stack_tip_screen as pb02
 from scripts import simple_center_wide_post_probe as wide
-from scripts import simple_rail_joint_comparison as pb01
 from scripts.simple_center_pb02_geometry import (
     ACTIVE_FINGERPRINT,
     ACTIVE_TRIAL,
     active_geometry,
+)
+from scripts.simple_pb03_lower_center_pair import (
+    BLOCK_LENGTH_MM,
+    BLOCK_T_MM,
+    BLOCK_X_MM,
+    BORE_DIAMETER_MM,
+    HEAD_NUT_DIAMETER_MM,
+    TARGET_STATIONS,
+    WASHER_DIAMETER_MM,
+)
+from scripts.simple_pb03_lower_center_pair import (
+    build_pair as build_pb03_pair,
+)
+from scripts.simple_pb03_lower_center_pair import (
+    screen as screen_pb03_pair,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -99,6 +114,55 @@ def _trial_stack(name, start, direction, grip_mm):
     }
 
 
+def _pb03_stack(station, bolt):
+    """Export the five generic components maintained by the PB03 source."""
+    start = list(bolt.start.toTuple())
+    direction = list(bolt.direction.normalized().toTuple())
+    return {
+        "name": bolt.name,
+        "station": "PB03",
+        "source_station": station,
+        "orientation_selected": False,
+        "hardware_selected": False,
+        "components": [
+            _axial_component("shaft", start, direction, 0, bolt.length, bolt.diameter),
+            _axial_component(
+                "head",
+                start,
+                direction,
+                -5.5,
+                6.0,
+                HEAD_NUT_DIAMETER_MM,
+            ),
+            _axial_component(
+                "near_washer",
+                start,
+                direction,
+                0.5,
+                2.0,
+                WASHER_DIAMETER_MM,
+            ),
+            _axial_component(
+                "far_washer",
+                start,
+                direction,
+                bolt.length - 2.5,
+                2.0,
+                WASHER_DIAMETER_MM,
+            ),
+            _axial_component(
+                "nut",
+                start,
+                direction,
+                bolt.length - 0.5,
+                9.0,
+                HEAD_NUT_DIAMETER_MM,
+            ),
+        ],
+    }
+
+
+@lru_cache(maxsize=1)
 def build_scene():
     baseline = json.loads(BASELINE.read_text())
     names = {part["name"] for part in baseline["parts"]}
@@ -115,54 +179,24 @@ def build_scene():
     ]
     if len(fixed) != 66 or baseline["design"]["panel_kicker_screw_count"] != 66:
         raise ValueError("selected baseline no longer contains 66 fixed screw visuals")
+    hidden_legacy_visuals = sorted(
+        name
+        for name in names
+        if any(
+            name == station or name.startswith(f"fastener_{station}_")
+            for station in TARGET_STATIONS
+        )
+    )
+    if len(hidden_legacy_visuals) != 14:
+        raise ValueError("PB03 must hide exactly two angles and twelve SDS visuals")
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
     official_wood = {
         part.name: part.shape for part in variant(OFFICIAL).uncut_wood_parts()
     }
-    upright = wood[pb01.UPRIGHT].BoundingBox()
-    rail = wood[pb01.RAIL]
-    rail_box = rail.BoundingBox()
-    rail_t = [v.Y * pb01.T[0] + v.Z * pb01.T[1] for v in rail.Vertices()]
-    rail_n = [v.Y * pb01.N[0] + v.Z * pb01.N[1] for v in rail.Vertices()]
-    x_width, t_width, n_length = pb01.PB01_GROUP_TRIAL_SIZE_MM
-    t_face, n_front = max(rail_t), min(rail_n)
-    y, z = pb01._yz(t_face, n_front)
-    boxes = [
-        {
-            "name": "PB01 short rail block",
-            "station": "PB01",
-            "origin_mm": [upright.xmax, y, z],
-            "size_mm": [x_width, t_width, n_length],
-            "rotation_x_deg": 50,
-        }
-    ]
+    boxes = []
     axes = []
     hardware_stacks = []
-    for name, n_center in (("u1", 265.0), ("u2", 310.0)):
-        y, z = pb01._yz(t_face + t_width / 2, n_center)
-        axes.append(
-            {
-                "name": name,
-                "station": "PB01",
-                "start_mm": [upright.xmin - 2.5, y, z],
-                "axis": [1, 0, 0],
-                "length_mm": upright.xlen + x_width + 5,
-                "diameter_mm": 7.5,
-            }
-        )
-    for name, x_from_butt in (("r1", 70.0), ("r2", 110.0)):
-        y, z = pb01._yz(min(rail_t) - 2.5, 290.0)
-        axes.append(
-            {
-                "name": name,
-                "station": "PB01",
-                "start_mm": [rail_box.xmin + x_from_butt, y, z],
-                "axis": [0, *pb01.T],
-                "length_mm": 38.1 + t_width + 5,
-                "diameter_mm": 7.5,
-            }
-        )
 
     parts, bores, ends = active_geometry()
     block = parts["header_post_side_cleat"].BoundingBox()
@@ -210,6 +244,37 @@ def build_scene():
             }
         )
         hardware_stacks.append(_trial_stack(name, start, axes[-1]["axis"], length))
+    pb02_stack_count = len(hardware_stacks)
+
+    pb03_pair = build_pb03_pair()
+    pb03_status = screen_pb03_pair(pb03_pair)
+    if not pb03_status["all_geometry_gates_pass"]:
+        raise ValueError("PB03 geometry no longer passes its committed visual source")
+    for station, geometry in pb03_pair.items():
+        boxes.append(
+            {
+                "name": f"PB03 lower-center {geometry.side} block",
+                "station": "PB03",
+                "source_station": station,
+                "center_mm": list(geometry.block.Center().toTuple()),
+                "size_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
+                "rotation_x_deg": 50,
+            }
+        )
+        for bolt in geometry.bolts:
+            direction = list(bolt.direction.normalized().toTuple())
+            axes.append(
+                {
+                    "name": bolt.name,
+                    "station": "PB03",
+                    "source_station": station,
+                    "start_mm": list(bolt.start.toTuple()),
+                    "axis": direction,
+                    "length_mm": bolt.length,
+                    "diameter_mm": BORE_DIAMETER_MM,
+                }
+            )
+            hardware_stacks.append(_pb03_stack(station, bolt))
 
     kicker_left = wood["kicker_left"].BoundingBox()
     kicker_right = wood["kicker_right"].BoundingBox()
@@ -244,7 +309,13 @@ def build_scene():
         "outward_shifted_center_supports": 1,
         "inner_kicker_edges_supported": support,
         "pb02_bore_count": len(bores),
-        "pb02_trial_stack_count": len(hardware_stacks),
+        "pb02_trial_stack_count": pb02_stack_count,
+        "pb03_bore_count": sum(len(item.bores) for item in pb03_pair.values()),
+        "pb03_trial_stack_count": sum(len(item.stacks) for item in pb03_pair.values()),
+        "pb03_block_count": len(pb03_pair),
+        "legacy_station_count": 20,
+        "legacy_sds_axis_count": 120,
+        "replaced_pb03_legacy_stations": list(TARGET_STATIONS),
         "fixed_panel_kicker_screw_axes": len(fixed),
     }
     if abs(kicker_left.xlen - (official_kicker.xlen - KERF_EACH_MM)) > 1e-6:
@@ -255,10 +326,13 @@ def build_scene():
         "fixed_panel_kicker_screw_axes": len(fixed),
         "pb02_variant_id": ACTIVE_TRIAL.variant_id,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
+        "pb03_source_commit": "f8ca163",
+        "hidden_legacy_visual_names": hidden_legacy_visuals,
         "assembly_contract": assembly_contract,
         "hardware_stack_scope": (
-            "maintained trial-length envelopes only; deterministic display orientation; "
-            "no delivered product, thread interval, or head/nut orientation selected"
+            "PB02 maintained trial-length envelopes and PB03 source-derived generic "
+            "stack envelopes only; no delivered product, thread interval, exact hardware, "
+            "or head/nut orientation selected"
         ),
         "fabrication_released": False,
         "boxes": boxes,

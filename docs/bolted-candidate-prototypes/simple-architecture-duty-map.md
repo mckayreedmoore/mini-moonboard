@@ -1,9 +1,15 @@
-# PB-02 kerf-right architecture duty map
+# PB-02/PB-03 kerf-right architecture duty map
 
 Status: topology and cost-architecture inventory only. No joint, bolt group,
 member change, rating, or drilling is approved. The 24 ML24Z stations below
 are the original structural angle duties, not 24 proven interchangeable cleats.
 Each has six old structural SDS axes (144 total) to replace with a new load path.
+
+Current status at `f8ca163`: PB02 replaces the two right-center base/header
+stations. The first PB03 slice replaces the two lower-service center stations
+with two 300 mm solid timber blocks and eight unselected through-bolt stacks.
+Exactly **20 legacy angle stations and 120 SDS axes remain**. This is a partial
+development assembly, not a final frame or structural release.
 
 Sources: `mini_moonboard/compact_floor_flush_frame.py` `stations()` and
 `connections()`; `docs/bolted-candidate-interfaces.json` under
@@ -24,8 +30,9 @@ not a proposed bolt center. Left/right are not assumed geometrically identical.
 - `UL/UR` = `base_rail_service_upper_left/right`.
 - `same family` means only a possible template for study; the exact pose,
   neighbors, screws, cut lengths, and access still require a local CAD screen.
-- PB01 is `clip_horizontal_lower_right_1` (`CR`–`LR`), a 2x6 butt end at
-  X = 89.05. Its cleat/overlap results do not qualify any other station.
+- Historical PB01 is `clip_horizontal_lower_right_1` (`CR`–`LR`), a 2x6 butt
+  end at X = 89.05. PB03 now replaces this station and its independently built
+  left counterpart geometrically; neither result qualifies another station.
 
 ## All 24 original ML24Z duties
 
@@ -44,8 +51,8 @@ statement that one piece or one bolt pattern works at every row.
 | `clip_horizontal_bottom_right_1` | CR–BR | 89.05,-49.688,405.542 | bottom, center |
 | `clip_horizontal_bottom_right_2` | BR–SR | 1130.3,-49.688,405.542 | bottom, outer |
 | `clip_horizontal_lower_left_1` | LL–SL | -1130.3,616.914,1199.968 | lower, outer |
-| `clip_horizontal_lower_left_2` | CL–LL | -89.05,616.914,1199.968 | lower, center |
-| `clip_horizontal_lower_right_1` | CR–LR | 89.05,616.914,1199.968 | PB01 example |
+| `clip_horizontal_lower_left_2` | CL–LL | -89.05,616.914,1199.968 | PB03 converted, geometry only |
+| `clip_horizontal_lower_right_1` | CR–LR | 89.05,616.914,1199.968 | PB03 converted, geometry only |
 | `clip_horizontal_lower_right_2` | LR–SR | 1130.3,616.914,1199.968 | lower, outer |
 | `clip_horizontal_upper_left_1` | UL–SL | -1130.3,733.998,1339.503 | upper, outer |
 | `clip_horizontal_upper_left_2` | CL–UL | -89.05,733.998,1339.503 | upper, center |
@@ -54,9 +61,9 @@ statement that one piece or one bolt pattern works at every row.
 | `clip_timber_header_outer_left` | H–OL | -1181.1,-105.85,238.9 | header/post, outer |
 | `clip_timber_header_outer_right` | H–OR | 1181.1,-105.85,238.9 | header/post, outer |
 | `clip_split_header_center_left` | H–PL | -89.05,-105.85,238.9 | header/post, center |
-| `clip_split_header_center_right` | H–PR | 89.05,-105.85,238.9 | header/post, center |
+| `clip_split_header_center_right` | H–PR | 89.05,-105.85,238.9 | PB02 converted, development only |
 | `clip_split_base_center_left` | H–CL | -89.05,-124.9,277 | header/upright, center |
-| `clip_split_base_center_right` | H–CR | 89.05,-124.9,277 | header/upright, center |
+| `clip_split_base_center_right` | H–CR | 89.05,-124.9,277 | PB02 converted, development only |
 | `clip_angle_base_left` | H–SL | -1130.3,-105.85,277 | header/upright, outer |
 | `clip_angle_base_right` | H–SR | 1130.3,-105.85,277 | header/upright, outer |
 
@@ -124,8 +131,11 @@ screens of the other named stations, not extrapolated approval. Each screen
 must show both members, actual panel receivers, neighbor timber, complete
 bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
 
-1. `clip_horizontal_lower_right_1`: PB01 center/lower rail. Recheck any
-   revised cleat or overlap, including nearby upper rail and fixed screws.
+1. `clip_horizontal_lower_right_1` and `clip_horizontal_lower_left_2`: the
+   first PB03 slice now checks both actual kerf-right sides independently with
+   300 mm blocks, eight complete generic stacks, nearby timber, finished
+   panels, all 66 fixed axes, bore intersections, and tool paths. Hardware,
+   resistance, tolerances, and release remain open.
 2. `clip_horizontal_lower_right_2`: outer/lower rail; the outer side and
    rim make PB01's inward cleat/access assumptions nontransferable.
 3. `clip_horizontal_upper_right_1` and `_2`: center and outer upper-service
@@ -141,13 +151,12 @@ bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
 8. The three existing bolt-pair families: side/leg, front post/floor, and
    rear floor/leg, in the changed center/base load path and trim geometry.
 
-This is 12 representative ML24Z stations (including PB01) plus three
-old-bolt-pair families. After these screens, audit every mirrored left
-station and the remaining right stations against actual kerf-right stock,
-panel receivers, and neighbor volumes before finalizing a single or mixed
-architecture. A family may split further when contact, load angle, grain,
-edge/end distance, access, cost, or screw backing differs. Cost comparison
-must count distinct cleat stock/cuts, bolt lengths, washers/nuts, and added
-backers across **all** 24 stations and 12 old frame-bolt axes, not extrapolate
-the PB01 unit price. No strength, stiffness, or six-case verdict follows
-from this inventory.
+This is 12 representative original ML24Z stations plus three old-bolt-pair
+families. The first PB03 pair is now a geometry-only conversion. Audit the
+remaining 20 stations against actual kerf-right stock, panel receivers, and
+neighbor volumes before finalizing a single or mixed architecture. A family
+may split further when contact, load angle, grain, edge/end distance, access,
+cost, or screw backing differs. Cost comparison must count distinct cleat
+stock/cuts, bolt lengths, washers/nuts, and added backers across all original
+24 stations and 12 old frame-bolt axes. No strength, stiffness, or six-case
+verdict follows from this inventory.

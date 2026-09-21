@@ -264,7 +264,7 @@
       modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       lumberModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
-      modelSelect.add(new Option('DEVELOPMENT V4 · PB01/PB02 partial 3D scene', 'bolted-v4-development'));
+      modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB03 partial 3D scene', 'bolted-v4-development'));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
       const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with PB01 short rail block and PB02 ten-bore/ten trial-stack center overlaid. Legacy connectors may remain visible; this is not an assembled V4 design, structural acceptance, drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and first PB03 two-block/eight-stack slice overlaid. Exactly 20 legacy angle stations and 120 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -499,6 +499,9 @@
         return result;
       }
       const manifestKey = model === 'bolted-v4-development' ? 'compact-floor-flush-kerf-right' : model;
+      const v4ReplacedLegacyStations = new Set(['clip_horizontal_lower_left_2', 'clip_horizontal_lower_right_1']);
+      const isV4ReplacedLegacyPart = name => [...v4ReplacedLegacyStations].some(station =>
+        name === station || name.startsWith(`fastener_${station}_`));
       let resolveV4Baseline;
       const v4BaselineLoaded = model === 'bolted-v4-development' ? new Promise(resolve => { resolveV4Baseline = resolve; }) : null;
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
@@ -532,8 +535,8 @@
             more.replaceChildren();
             const v4Documents = [
               {label: 'V4 design sequence', path: 'docs/bolted-candidate-simple-joints-v4.md'},
-              {label: 'PB01 short block trial', path: 'docs/bolted-candidate-prototypes/simple-pb01-short-block-screen.md'},
               {label: 'PB02 current ten-bore placement', path: 'docs/bolted-candidate-prototypes/simple-center-current-placement-table.md'},
+              {label: 'PB03 lower-center pair', path: 'docs/bolted-candidate-prototypes/simple-pb03-lower-center-pair.md'},
             ];
             const documents = model === 'bolted-v4-development' ? v4Documents : design.documents;
             const first = new Set(model === 'bolted-v4-development' ? [] : ['Shop checklist', 'Assembly guide', 'Official vs 4×8 kerf width']);
@@ -549,15 +552,17 @@
           }
         }
         loadHolds();
-        for (const {name, label} of representativeBolts(parts)) {
+        const displayParts = model === 'bolted-v4-development' ?
+          parts.filter(part => !isV4ReplacedLegacyPart(part.name)) : parts;
+        for (const {name, label} of representativeBolts(displayParts)) {
           const option = new Option(label, name); option.disabled = true; boltSelect.add(option);
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Colored PB01/PB02 blocks, bore axes, and complete trial stack envelopes are diagnostic only; click to inspect.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The two replaced lower-center angles and twelve SDS visuals are hidden; colored PB02/PB03 blocks, bores, and complete trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
-        if (!parts.length) resolveV4Baseline?.();
-        parts.forEach(part => loader.load(part.path, geometry => {
+        if (!displayParts.length) resolveV4Baseline?.();
+        displayParts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
           const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: luminous ? .25 : .7, metalness: .05,
@@ -571,7 +576,7 @@
             const option = Array.from(boltSelect.options).find(option => option.value === name);
             if (option) option.disabled = false;
           }
-          if (++loadedParts === parts.length) resolveV4Baseline?.();
+          if (++loadedParts === displayParts.length) resolveV4Baseline?.();
         }, undefined, error => {
           partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`;
           if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 overlay unavailable: baseline context did not finish loading. No fabrication release.';
@@ -589,20 +594,30 @@
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
               data.pb02_variant_id !== 'ligament_priority' ||
               data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
-              data.boxes.length !== 7 || data.axes.length !== 14 || data.hardware_stacks.length !== 10 ||
+              data.boxes.length !== 8 || data.axes.length !== 18 || data.hardware_stacks.length !== 18 ||
+              data.hidden_legacy_visual_names?.length !== 14 ||
+              !data.hidden_legacy_visual_names.every(isV4ReplacedLegacyPart) ||
               data.assembly_contract?.width_option !== 'kerf-right' ||
               data.assembly_contract?.outward_shifted_center_supports !== 1 ||
               !data.assembly_contract?.inner_kicker_edges_supported?.left ||
               !data.assembly_contract?.inner_kicker_edges_supported?.right ||
+              data.assembly_contract?.pb02_bore_count !== 10 ||
+              data.assembly_contract?.pb02_trial_stack_count !== 10 ||
+              data.assembly_contract?.pb03_bore_count !== 8 ||
+              data.assembly_contract?.pb03_trial_stack_count !== 8 ||
+              data.assembly_contract?.pb03_block_count !== 2 ||
+              data.assembly_contract?.legacy_station_count !== 20 ||
+              data.assembly_contract?.legacy_sds_axis_count !== 120 ||
               data.assembly_contract?.fixed_panel_kicker_screw_axes !== 66) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = new THREE.BoxGeometry(...box.size_mm);
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
-              color: box.station === 'PB01' ? 0xf0b429 : 0x4ade80,
+              color: box.station === 'PB03' ? 0xf0b429 : 0x4ade80,
               transparent: true, opacity: .75, depthWrite: false, roughness: .7,
             }));
             mesh.rotation.x = box.rotation_x_deg * Math.PI / 180;
-            mesh.position.fromArray(box.origin_mm).add(new THREE.Vector3(...box.size_mm).multiplyScalar(.5).applyEuler(mesh.rotation));
+            if (box.center_mm) mesh.position.fromArray(box.center_mm);
+            else mesh.position.fromArray(box.origin_mm).add(new THREE.Vector3(...box.size_mm).multiplyScalar(.5).applyEuler(mesh.rotation));
             mesh.userData.part = {name: box.name, fabrication: {v4_overlay: true, kind: 'timber', category: 'timber',
               dimensions_mm: box.size_mm, description: `${box.station} source-derived trial block; partial V4 visualization, not a cut or fabrication instruction`}};
             mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
@@ -610,7 +625,7 @@
           for (const axis of data.axes) {
             const geometry = new THREE.CylinderGeometry(axis.diameter_mm / 2, axis.diameter_mm / 2, axis.length_mm, 12);
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
-              color: axis.station === 'PB01' ? 0xffd166 : 0x72e5ff, transparent: true,
+              color: axis.station === 'PB03' ? 0xffd166 : 0x72e5ff, transparent: true,
               opacity: .85, depthWrite: false, roughness: .45,
             }));
             const direction = new THREE.Vector3(...axis.axis);
@@ -635,8 +650,8 @@
               const direction = new THREE.Vector3(...component.axis);
               mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
               mesh.position.fromArray(component.start_mm).addScaledVector(direction, component.length_mm / 2);
-              mesh.userData.part = {name: `PB02 ${stack.name} ${component.role}`, fabrication: {
-                v4_overlay: true, kind: 'bolt', category: 'bolts', connection_name: `PB02_${stack.name}`,
+              mesh.userData.part = {name: `${stack.station} ${stack.name} ${component.role}`, fabrication: {
+                v4_overlay: true, kind: 'bolt', category: 'bolts', connection_name: `${stack.station}_${stack.name}`,
                 hardware_role: component.role,
                 dimensions_mm: [component.diameter_mm, component.diameter_mm, component.length_mm],
                 description: 'complete trial stack envelope; deterministic display orientation only; hardware and orientation not selected',

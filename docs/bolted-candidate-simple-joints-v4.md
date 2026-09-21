@@ -55,8 +55,8 @@ extension, and ratchet rather than assuming clearance from a generic cylinder.
   **ADVANCE** decision, but PB-02 has not passed G1.
 - **PB-03 — physical geometry:** build one coherent kerf-right CAD assembly with full hardware
   stacks, receivers, no unintended SDS path, and an individual-member transport sequence. This
-  remains open because 22 legacy connector stations have not been converted into a coherent
-  final all-bolted frame.
+  remains open. The first two-station slice is geometrically converted, but 20 legacy connector
+  stations remain and no coherent final all-bolted frame exists.
 - **PB-04 — G2 analysis inputs:** complete applicable 2024 NDS local checks, contact and stiffness
   inputs, and all 36 criteria without waiving their safety questions. This remains open and G2
   has not been reached or passed.
@@ -191,13 +191,32 @@ rear; the separate supplemental EC5 splitting ratio governs at **0.01071** at th
 high bore in K12 right. This advances only the listed local mechanism. Three-dimensional
 orthogonal-hole stress concentration and near-hole interaction remain unqualified.
 
+## PB-03 first lower-center geometry slice
+
+Commit `f8ca163` replaces `clip_horizontal_lower_left_2` and
+`clip_horizontal_lower_right_1` in the PB03 adapter. Each station is built
+independently from actual kerf-right geometry. The slice adds two 300 mm solid
+timber corner blocks and eight complete generic through-bolt stack envelopes,
+while removing the two angle duties and their 12 SDS axes.
+
+The bounded CAD gates check contact, complete 7.5 mm bores, finished panels,
+unrelated timber, all 66 fixed panel/kicker axes, all bore pairs, all stack
+components, and outward tool paths. Current geometry passes those gates. Exact
+retail hardware, tolerances, strength, drilling, and fabrication remain
+unselected and unreleased.
+
+The V4 viewer now hides the two replaced angle solids and 12 SDS visuals. It
+shows the two PB03 blocks and eight stacks alongside the unchanged PB02 visual
+contract. The resulting partial inventory is **20 legacy stations, 120 legacy
+SDS axes, two PB03 blocks, and eight PB03 stacks**. This is not the final frame.
+
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
 envelope support continued work on this architecture. They do not establish G2, final all-bolted
 frame geometry, drilling, fabrication, construction, or structural acceptance. The current
-whole-frame diagnostic still retains **22 legacy angle and SDS connector stations** outside the
-converted center.
+PB03 development adapter still retains **20 legacy angle and SDS connector stations** outside
+the converted center and lower-service pair.
 
 PB-04 must still resolve three-dimensional crossed-bore stress concentration and nearby-hole
 interaction, the inclined
@@ -208,10 +227,10 @@ preload, prying, nut and thread behavior, delivered hardware, fabrication tolera
 defensible floor-contact stiffness range or receiving criterion. It must map those results to all
 36 criteria before any G2 claim.
 
-PB-03 must convert and geometrically check the 22 legacy stations, then demonstrate one coherent
-kerf-right final all-bolted CAD assembly with actual stacks, receivers, tool access, panel
-clearance, and individual-member transport. Current PB-02 evidence must not be described as that
-final frame.
+PB-03 must convert and geometrically check the remaining 20 legacy stations, then demonstrate
+one coherent kerf-right final all-bolted CAD assembly with actual stacks, receivers, tool access,
+panel clearance, and individual-member transport. Current PB02/PB03 evidence must not be
+described as that final frame.
 
 PB-06 remains downstream of those tasks. It still requires a complete costed stock, cut, drill,
 hardware, assembly, inspection, and independent-review packet with physical receiving checks.

@@ -1,4 +1,4 @@
-"""The development overlay must follow the maintained PB01/PB02 poses."""
+"""The development overlay must follow the maintained PB02/PB03 poses."""
 
 import json
 from pathlib import Path
@@ -8,7 +8,7 @@ import pytest
 from scripts.export_v4_viewer_scene import build_scene
 
 
-def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
+def test_v4_overlay_uses_current_pb02_and_pb03_geometry():
     scene = build_scene()
     assert scene["status"] == "partial_development_visualization"
     assert scene["baseline"] == "compact-floor-flush-kerf-right"
@@ -18,7 +18,11 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
         "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
     )
     blocks = {part["name"]: part for part in scene["boxes"]}
-    assert blocks["PB01 short rail block"]["size_mm"] == [139.7, 57.15, 152.4]
+    assert "PB01 short rail block" not in blocks
+    assert blocks["PB03 lower-center left block"]["size_mm"] == [139.7, 57.15, 300]
+    assert blocks["PB03 lower-center right block"]["size_mm"] == [139.7, 57.15, 300]
+    assert blocks["PB03 lower-center left block"]["center_mm"][0] < 0
+    assert blocks["PB03 lower-center right block"]["center_mm"][0] > 0
     assert blocks["PB02 post/header block"]["size_mm"] == [88.9, 88.9, 143.9]
     assert blocks["PB02 revised upright-side cleat"]["size_mm"] == pytest.approx(
         [88.9, 61.6, 183]
@@ -35,8 +39,8 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     assert rear_cleat["size_mm"] == pytest.approx([88.9, 38.1, 455])
     assert rear_cleat["origin_mm"][2] + rear_cleat["size_mm"][2] == 460
     assert blocks["PB02 kicker backer"]["size_mm"] == [139.7, 88.9, 238.9]
-    assert len([axis for axis in scene["axes"] if axis["station"] == "PB01"]) == 4
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB02"]) == 10
+    assert len([axis for axis in scene["axes"] if axis["station"] == "PB03"]) == 8
     assert {axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"} == {
         "post_cleat_1",
         "post_cleat_2",
@@ -65,14 +69,32 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
         "inner_kicker_edges_supported": {"left": True, "right": True},
         "pb02_bore_count": 10,
         "pb02_trial_stack_count": 10,
+        "pb03_bore_count": 8,
+        "pb03_trial_stack_count": 8,
+        "pb03_block_count": 2,
+        "legacy_station_count": 20,
+        "legacy_sds_axis_count": 120,
+        "replaced_pb03_legacy_stations": [
+            "clip_horizontal_lower_left_2",
+            "clip_horizontal_lower_right_1",
+        ],
         "fixed_panel_kicker_screw_axes": 66,
+    }
+    assert len(scene["hidden_legacy_visual_names"]) == 14
+    assert set(scene["hidden_legacy_visual_names"]) >= {
+        "clip_horizontal_lower_left_2",
+        "clip_horizontal_lower_right_1",
     }
     assert scene["fabrication_released"] is False
 
 
 def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
     scene = build_scene()
-    stacks = {stack["name"]: stack for stack in scene["hardware_stacks"]}
+    stacks = {
+        stack["name"]: stack
+        for stack in scene["hardware_stacks"]
+        if stack["station"] == "PB02"
+    }
 
     assert set(stacks) == {
         axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"
@@ -92,9 +114,33 @@ def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
         assert all(part["length_mm"] > 0 for part in stack["components"])
         assert all(part["diameter_mm"] > 0 for part in stack["components"])
     assert scene["hardware_stack_scope"] == (
-        "maintained trial-length envelopes only; deterministic display orientation; "
-        "no delivered product, thread interval, or head/nut orientation selected"
+        "PB02 maintained trial-length envelopes and PB03 source-derived generic "
+        "stack envelopes only; no delivered product, thread interval, exact hardware, "
+        "or head/nut orientation selected"
     )
+
+
+def test_pb03_overlay_has_eight_complete_unselected_stacks():
+    scene = build_scene()
+    stacks = [stack for stack in scene["hardware_stacks"] if stack["station"] == "PB03"]
+
+    assert len(stacks) == 8
+    assert {stack["source_station"] for stack in stacks} == {
+        "clip_horizontal_lower_left_2",
+        "clip_horizontal_lower_right_1",
+    }
+    assert {stack["orientation_selected"] for stack in stacks} == {False}
+    assert {stack["hardware_selected"] for stack in stacks} == {False}
+    for stack in stacks:
+        assert [part["role"] for part in stack["components"]] == [
+            "shaft",
+            "head",
+            "near_washer",
+            "far_washer",
+            "nut",
+        ]
+        assert all(part["length_mm"] > 0 for part in stack["components"])
+        assert all(part["diameter_mm"] > 0 for part in stack["components"])
 
 
 def test_viewer_scene_artifact_matches_producer():
@@ -104,8 +150,10 @@ def test_viewer_scene_artifact_matches_producer():
         == build_scene()
     )
     html = (root / "site/index.html").read_text()
-    assert "DEVELOPMENT V4 · PB01/PB02 partial 3D scene" in html
+    assert "DEVELOPMENT V4 · PB02/PB03 partial 3D scene" in html
     assert "fetch('v4-diagnostic-scene.json')" in html
     assert "data.pb02_variant_id !== 'ligament_priority'" in html
-    assert "data.hardware_stacks.length !== 10" in html
+    assert "data.hardware_stacks.length !== 18" in html
+    assert "v4ReplacedLegacyStations" in html
+    assert "!isV4ReplacedLegacyPart(part.name)" in html
     assert "complete trial stack envelope" in html
