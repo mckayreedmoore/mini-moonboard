@@ -5,7 +5,7 @@ fabrication, or drilling verdict.** The
 [reproduction script](../../scripts/simple_center_pb02_integrated_stack_screen.py)
 applies the maintained
 [`simple_center_current_stack_tip_screen`](simple-center-current-stack-tip-screen.md)
-logic to the active PB02 `ligament_priority` Z370 pose. Relative to the historical
+logic to the active PB02 `ligament_priority` link-Z328.5 pose. Relative to the historical
 stack screen's source pose, the stagger changes no wood grip; the consolidated
 side-cleat geometry means
 `header_cleat` wood grip is **105.1 mm** instead of

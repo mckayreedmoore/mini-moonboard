@@ -22,8 +22,15 @@ def test_working_pose_has_complete_ten_bore_nominal_cad_fit():
     assert not any(result["side_checks"].values())
     assert not any(result["full_center_collision_checks"].values())
     assert result["nominal_cad_clear"]
-    assert result["conditional_negative_rows"] == []
-    assert result["conditional_subset_minimum_reserve_mm"] == 0
+    assert result["conditional_negative_rows"] == [
+        {
+            "bolt": "post_high",
+            "member": "shifted_right_post",
+            "feature": "z_high",
+            "reserve_mm": -12.55,
+        }
+    ]
+    assert result["conditional_subset_minimum_reserve_mm"] == -12.55
     assert not result["whole_center_classification_complete"]
     assert not result["rating_or_drilling_release"]
 

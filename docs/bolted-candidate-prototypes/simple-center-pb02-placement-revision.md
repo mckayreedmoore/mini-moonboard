@@ -3,14 +3,16 @@
 The [placement revision script](../../scripts/simple_center_pb02_placement_revision.py)
 checks three bounded variants from committed pose `e9e4e42`. It changes only the
 `post_high` bolt Z coordinate and the two vertical header-pair X/Y coordinates.
-The integrated side-cleat pose, post/header block, other seven bolt axes, and all
+The later active revision also moves only `cleat_link` from Z370 to Z328.5.
+The side-cleat solids, post/header block, other six bolt axes, and all
 66 panel/kicker screw axes remain fixed.
 
 `front_stagger` remains a viable conditional trial, but it is not the active
 pose. The active `ligament_priority` variant keeps the same header-pair stagger,
 95 mm block bottom, and Z145/176 post-cleat pair, but moves `post_high` alone to
-Z202.0. The crossed centerlines are 26.0 mm apart and retain 18.7 mm nominal
-orthogonal-bore surface ligament. One immutable
+Z202.0 and moves `cleat_link` to Z328.5. The post pair's crossed centerlines
+are 26.0 mm apart with 18.7 mm nominal surface ligament. The side-cleat pair's
+centerlines are 27.5 mm apart with 20.2 mm nominal surface ligament. One immutable
 candidate-local trial specification and one geometry builder feed the integrated
 CAD check, placement table, stack screen, connected kinematics, and V4 viewer.
 `working_reference`, `front_stagger`, and rejected `rear_stagger` remain named
@@ -39,6 +41,8 @@ the 44.45 mm 7D full-value distance. The conditional reduced end-distance
 factor is `CΔ = 36.9 / 44.45 = 0.83015`. It intentionally gives up the 7D+5
 project comparator, whose reserve is −12.55 mm, to achieve the 26.0 mm crossed
 centerline separation without enlarging the block or requiring 10-inch bolts.
+The link move retains its existing five-inch bolt and 99.7 mm wood grip. Its
+51.5 mm lower grain-end distance is 2.05 mm beyond the 7D+5 project comparator.
 
 The revised pose retains nominal CAD fit:
 

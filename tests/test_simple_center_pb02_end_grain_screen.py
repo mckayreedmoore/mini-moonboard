@@ -12,12 +12,12 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
 
     assert result["interface"] == "block_header"
     assert result["demand_by_bolt_n"] == pytest.approx(
-        {"bolt_1": 16.35670906081702, "bolt_2": 33.76660633999291}
+        {"bolt_1": 22.206508924798072, "bolt_2": 22.207912814588465}
     )
     assert result["pair_geometry"]["spacing_mm"] == pytest.approx(30.55360044)
     assert result["pair_geometry"]["spacing_nominal_diameters"] > 4.8
     assert result["pair_geometry"]["force_angle_from_pair_line_degrees"] == (
-        pytest.approx({"bolt_1": 78.18151, "bolt_2": 20.40886})
+        pytest.approx({"bolt_1": 48.39522936, "bolt_2": 33.43943022})
     )
     assert result["adjustments"] == {
         "end_grain_factor": 0.67,
@@ -32,10 +32,10 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
     assert typical["governing_mode"] == "IV"
     assert typical["reference_lateral_lbf"] == pytest.approx(99.8591351)
     assert typical["end_grain_adjusted_reference_n"] == pytest.approx(297.6110275)
-    assert typical["single_case_demand_n"] == pytest.approx(33.76660634)
-    assert typical["demand_ratio"] == pytest.approx(0.11345885)
+    assert typical["single_case_demand_n"] == pytest.approx(22.20791281)
+    assert typical["demand_ratio"] == pytest.approx(0.07462060)
     assert typical["individual_bolt_demand_ratios"] == pytest.approx(
-        {"bolt_1": 0.05496004, "bolt_2": 0.11345885}
+        {"bolt_1": 0.07461588, "bolt_2": 0.07462060}
     )
 
     assert smaller["yield_moment_lb_in"] == pytest.approx(43.74)
@@ -43,8 +43,8 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
     assert smaller["governing_mode"] == "IV"
     assert smaller["reference_lateral_lbf"] == pytest.approx(94.1194254)
     assert smaller["end_grain_adjusted_reference_n"] == pytest.approx(280.5049219)
-    assert smaller["demand_ratio"] == pytest.approx(0.12037795)
+    assert smaller["demand_ratio"] == pytest.approx(0.07917121)
     assert smaller["individual_bolt_demand_ratios"] == pytest.approx(
-        {"bolt_1": 0.05831167, "bolt_2": 0.12037795}
+        {"bolt_1": 0.07916620, "bolt_2": 0.07917121}
     )
     assert result["rating_or_drilling_release"] is False

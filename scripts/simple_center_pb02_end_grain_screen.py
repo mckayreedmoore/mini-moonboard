@@ -14,7 +14,8 @@ MODES = ("Im", "Is", "II", "IIIm", "IIIs", "IV")
 N_PER_LBF = 4.4482216152605
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE_REPORT = (
-    ROOT / "fea/results/diagnostics/pb02-corrected-a12-forward-z189p4-v1/report.json"
+    ROOT
+    / "fea/results/diagnostics/pb02-corrected-a12-forward-z202-link328p5-v1/report.json"
 )
 
 

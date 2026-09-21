@@ -4,13 +4,13 @@ The [integrated script](../../scripts/simple_center_pb02_integrated_trial.py)
 checks the active `ligament_priority` ten-bore assembly. It combines the 61.6 mm
 right side cleat (Y −175.7 to −114.1, Z 277 to 460), upright axis
 Y −144.5/Z 356, header-side cleat top Z 344, and post_cleat_2 Z 176.
-The `cleat_link` stays at Z 370. The `post_high` axis is Z 202.0, and the two
+The `cleat_link` is Z328.5. The `post_high` axis is Z202.0, and the two
 vertical axes are X/Y 208.35/−130.5 and 236/−117.5. The post/header block
 remains the `shorter_8in_trial` shape. Link Z 390 is checked as a rejected
 comparison in the same script. The earlier `working_reference` remains a named
 historical alternative in the shared trial specification.
 
-**The Z 370 combination passes the full nominal CAD collision check.** All
+**The Z328.5 combination passes the full nominal CAD collision check.** All
 ten modeled Ø7.3 mm bores are fully received in their intended wood and all
 20 modeled washer seats have full bearing. The new side cleat has no
 positive-volume wood or fixed-screw overlap. The full checker finds no
@@ -33,13 +33,14 @@ planes, receiver identities, wood grips, and the post/header block bounds.
 
 The `post_high/post_cleat_2` finite shared-member centerline gap is 26.0 mm,
 leaving **18.7 mm nominal cylindrical surface ligament** after the modeled
-7.3 mm bore diameter. The `upright/cleat_link` ligament remains 6.7 mm. All
-18 shared-member bore pairs have positive finite surface gaps; the minimum is
-6.7 mm. These are nominal CAD gaps, not strength or as-drilled guarantees.
+7.3 mm bore diameter. The `upright/cleat_link` centerline gap is 27.5 mm,
+leaving **20.2 mm nominal surface ligament**. All 18 shared-member bore pairs
+have positive finite surface gaps; the overall minimum is 7.2 mm at another
+pair. These are nominal CAD gaps, not strength or as-drilled guarantees.
 
 | Link Z | Upright/link nominal ligament | Front socket/rail hit | Full nominal CAD |
 | ---: | ---: | ---: | --- |
-| 370 | 6.7 mm | none | clear |
+| 328.5 | 20.2 mm | none | clear |
 | 390 | 26.7 mm | 471.14874 mm³ | rejected |
 
 For Z 390 the front socket envelope intersects `base_rail_bottom_right`.
@@ -49,7 +50,7 @@ local ligament while introducing a separate fit failure.
 
 The active conditional placement subset has one negative project-reserve row.
 The side Y
-4D+5 reserve is 0 mm, the side Z 7D+5 reserve is +29.55 mm, and the post pair
+4D+5 reserve is 0 mm, the link's lower side-Z 7D+5 reserve is +2.05 mm, and the post pair
 4D+5 pitch reserve is +0.6 mm. Each vertical header-bolt pair reserve is
 +0.1536 mm. The `post_high` top loaded-end distance is 36.9 mm: 14.675 mm
 above the conditional 3.5D minimum, but 7.55 mm below 7D and 12.55 mm below

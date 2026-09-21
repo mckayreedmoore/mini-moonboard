@@ -10,7 +10,7 @@ wood-piece dimension below to the active PB02 boxes in the V4 viewer. It also re
 the active `ligament_priority` geometry to contain ten PB02 bolt axes, all 66 fixed
 panel/kicker screw axes, and a closed fabrication-release flag. The current source
 fingerprint is
-`577806bc89522788fbfe4862c9129bf756590230a2e7a6ce4849b8557a7cc29a`.
+`06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387`.
 
 ## Current hardware count and arithmetic
 
@@ -64,6 +64,7 @@ not a machining plan, usable-offcut credit, or proof that delivered stock can fi
 to the modeled dimensions.
 
 Run `.venv/bin/python -m scripts.simple_center_pb02_current_bom` to reproduce the
-record. The active PB02 geometry still requires rerun demand evidence, crossed-bore
-ligament/splitting resolution, group and geometry factors, exact hardware checks, and
-the remaining load cases. No purchase, drilling, fabrication, or structural release.
+record. The active PB02 geometry has one corrected `a12-forward` developmental result,
+but still requires local-ligament/splitting resolution, group and geometry factors,
+exact hardware checks, and the remaining load cases. No purchase, drilling, fabrication,
+or structural release.

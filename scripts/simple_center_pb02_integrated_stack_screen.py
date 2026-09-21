@@ -132,7 +132,7 @@ def screen():
     return {
         "variant_id": ACTIVE_TRIAL.variant_id,
         "source_fingerprint": ACTIVE_FINGERPRINT,
-        "pose": "PB02 active front-stagger Z370 geometry; ten bores",
+        "pose": "PB02 active front-stagger link-Z328.5 geometry; ten bores",
         "grip_changes_from_maintained_pose_mm": changes,
         "sensitivity_bounds": {
             "wood_grip_each_side_in": stack.GRIP_SENSITIVITY_IN,

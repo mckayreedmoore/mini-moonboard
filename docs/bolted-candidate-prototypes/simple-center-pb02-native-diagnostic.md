@@ -9,26 +9,25 @@ supports retaining PB02 while its geometry and remaining checks are revised. It
 is one developmental load case, not a qualified connection design. It does not
 release drilling, fabrication, purchasing for construction, or construction.
 
-The active geometry now moves only `post_high` to Z = 202.0 mm while retaining
-the 95 mm block bottom and Z145/176 post-cleat pair. This gives 26.0 mm crossed
-centerline separation and 18.7 mm nominal surface ligament. Its 36.9 mm loaded
-end distance exceeds 3.5D but is below 7D; the conditional reduced factor is
-`CΔ = 0.83015`. This intentionally gives up the prior 7D+5 project comparator.
-The corrected rerun at Z = 189.4 mm below is authenticated pre-Z202 evidence,
-not a current-geometry demand result. A Z202 rerun remains required.
+The active geometry keeps `post_high` at Z202.0 and moves only `cleat_link` from
+Z370 to Z328.5. The post pair has 26.0 mm crossed centerline separation and
+18.7 mm nominal surface ligament. Its 36.9 mm loaded-end distance exceeds 3.5D
+but is below 7D; the conditional reduced factor is `CΔ = 0.83015`. The
+upright/link pair now has 27.5 mm centerline separation and 20.2 mm nominal
+surface ligament. Existing block sizes and ordinary bolt lengths are unchanged.
 
 ## Authenticated evidence
 
 The current-geometry evidence package is:
 
-`fea/results/diagnostics/pb02-corrected-a12-forward-z189p4-v1`
+`fea/results/diagnostics/pb02-corrected-a12-forward-z202-link328p5-v1`
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `report.json` | `fa37447a09679a61d13e6ed065c8d5bfa945b1efb539506b701c3436ad13a87e` |
-| `cycle-10/input.json` | `0fc96683d11edf4ad9c47d083b572a364f782e4c803371fbff9d55eff17d7c28` |
-| `cycle-10/frame.dat` | `628aed89300b50feeec892e559da23d3ee2cfe45dadc1be41e8069e60027ba0b` |
-| `cycle-10/frame.frd` | `5cedc08e03ce31607d033923456627ed9aebbe9e855884f7502e138399ddc801` |
+| `report.json` | `6e5fe950f796e86c17fc575899c4e5b3a3314166e1fc3fafc81c96e530f1c7df` |
+| `cycle-10/input.json` | `6a375d8d683b3f77353e6bb82eda91243472c05241cf33cf1b6aacdc6c317e6d` |
+| `cycle-10/frame.dat` | `857bf180560491427f5f09ee776713604b466fc5cfc32c7cb4bda68e4b86b2ca` |
+| `cycle-10/frame.frd` | `110a3977e07dc21c54cbfdaf6c670c6e5838451806a93b87f13d61cc153bbed8` |
 | `cycle-10/frame.12d` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 
 The package also retains the authenticated source-snapshot closure. The
@@ -59,21 +58,20 @@ routes:
   `principal_block_principal`; and
 - principal to upright to rear cleat to shifted post through the return path.
 
-The direct shifted-post/base-header bearing carries 114.52 N. All four samples
-are compressive. The governing interface is `rear_block_post`, with a 155.40 N
-resultant force and approximately 5.97 kN·mm resultant moment. The largest
-simultaneous bolt demand is 79.93 N lateral shear and 24.70 N tension. Relative
-to the pre-revision result, no interface force changed by more than 0.081 N and
-no bolt shear changed by more than 0.060 N; the load path is materially
-unchanged.
+The direct shifted-post/base-header bearing carries 99.63 N. All four samples
+are compressive. The governing interface remains `rear_block_post`, with a
+133.54 N resultant force and approximately 6.03 kN·mm resultant moment. The
+largest simultaneous bolt demand is 68.99 N lateral shear and 26.37 N tension,
+or 73.86 N combined. Moving the link materially redistributes this one case:
+the governing combined bolt decreases by 10.19 N relative to the earlier Z202
+result, while four PB02 bolts now carry positive axial tension.
 
-The preliminary conditional DF-L lateral screen reaches a maximum demand ratio
-of 0.148. Using the smaller thread-root sensitivity increases that ratio to
-0.157. The conditional A307 steel comparator has a maximum linear
-axial-plus-shear interaction of 0.0321. The idealized washer-annulus wood
-bearing ratio is 0.0256. These are component screens only; they do not establish
-joint resistance or resolve splitting, group action, washer metal behavior,
-prying, preload, or member interaction.
+The preliminary conditional DF-L post-high lateral screen reaches 0.1513 after
+its reduced `CΔ` factor. Using the smaller thread-root sensitivity increases
+that ratio to 0.1605. The separate block/header end-grain screen reaches 0.0746
+and 0.0792 for the two root assumptions. These are component screens only; they
+do not establish joint resistance or resolve splitting, group action, washer
+metal behavior, prying, preload, or member interaction.
 
 ## Hardware and access
 
@@ -95,29 +93,34 @@ The two `block_header` bolts are an axis-parallel/end-grain case for the current
 block grain orientation. A conditional 2024 NDS single-bolt yield calculation,
 using DF-L G = 0.50, 45 ksi bolt yield strength, the 0.67 end-grain factor, and
 the smaller 0.180-inch thread-root sensitivity, gives 280.50 N versus the
-33.77 N corrected-case demand, a ratio of 0.1204. The 0.189-inch typical-root
-sensitivity gives 297.61 N and a ratio of 0.1135. These are component references,
+22.21 N corrected-case demand, a ratio of 0.0792. The 0.189-inch typical-root
+sensitivity gives 297.61 N and a ratio of 0.0746. These are component references,
 not complete joint values. The post-revision force directions do not form one
 NDS row: they are neither mutually parallel nor aligned with the bolt-pair line,
 so no two-bolt group factor applies. The isolated-bolt screen uses `Cg = 1.0`
-with `n = 1` and conditionally supported `CΔ = 1.0` at the old Z189.4 pose;
-the active Z202 pose instead records conditional `CΔ = 0.83015`. It does not qualify local
-multiple-fastener stresses or splitting. This result does not require rotating
+with `n = 1` and `CΔ = 1.0` for this interface. The separate `post_high` member
+records conditional `CΔ = 0.83015`. It does not qualify local multiple-fastener
+stresses or splitting. This result does not require rotating
 the block grain or moving to 4x8 stock solely for the current one-case demand.
 
-The current 18.7 mm ligament between the orthogonal `post_high` and
-`post_cleat_2` bores has no applicable 2024 NDS resistance equation. Individual
+The current 18.7 mm ligament between `post_high` and `post_cleat_2`, and the
+20.2 mm ligament between `upright` and `cleat_link`, have no directly applicable
+2024 NDS resistance equation for their crossed-bore interaction. Individual
 dowel-yield, ordinary row-spacing, net-section, Appendix E, and group-action
 checks do not represent the local mixed-mode volume between perpendicular
-bores from separate connections. The current placement meets the project
-4D = 25.4 mm centerline target by 0.6 mm. This is not a claim that the ordinary
-NDS row rule applies or that local splitting is qualified.
+bores from separate connections. The two centerline separations exceed the
+project 4D = 25.4 mm target by 0.6 mm and 2.1 mm, respectively. This is not a
+claim that the ordinary NDS row rule applies or that local splitting is
+qualified. The inclined principal also has only 10.015 mm to one transverse
+edge; it passes only the conditional unloaded 1.5D comparison in this case and
+has just 0.49 mm nominal reserve before tolerance. A reversed transverse force
+would fail the 4D loaded-edge comparison.
 
 Before any physical release, work still includes:
 
-- rerun the corrected response model at Z202 and assess the conditional reduced
-  loaded-end factor with the resulting demands;
-- complete the `block_header` group, geometry-factor, and local wood checks;
+- complete force-direction-aware individual checks for the upright and link,
+  including the inclined-principal edge sensitivity and bore-aware sections;
+- complete the `block_header` local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
   insertion routes, and tool access;
 - complete bolt-row/group, perpendicular-tension, bore-aware member,

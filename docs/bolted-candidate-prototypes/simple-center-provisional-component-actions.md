@@ -5,7 +5,7 @@ turns each solved PB02 spring-reaction record into per-bolt, per-face, per-inter
 per-body actions. It uses the `ligament_priority` variant and source fingerprint
 `46da45226acf9660643cb88c76e80680a262efb38f0142d3156925cd2089a4e2`.
 That is the pre-Z202 evidence geometry. The active geometry fingerprint is
-`577806bc89522788fbfe4862c9129bf756590230a2e7a6ce4849b8557a7cc29a`;
+`06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387`;
 these actions are not transferred to it.
 
 This is an interpretation of authenticated old-duty trials. It is not a current PB02

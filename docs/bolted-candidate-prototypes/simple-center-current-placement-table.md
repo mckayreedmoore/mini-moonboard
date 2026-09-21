@@ -57,8 +57,10 @@ or claim of complete classification.
 Two orthogonal neighboring-bore pairs warrant a local wood check before
 selection. `post_high`/`post_cleat_2` in the shifted post has a **26.0 mm
 finite-centerline gap**, leaving **18.7 mm nominal wood between bore surfaces**.
-`upright`/`cleat_link` in the side block has a 14 mm centerline gap and 6.7 mm
-nominal wood. These values use the model's 3.65 mm bore radius. This is
+`upright`/`cleat_link` in the side block now has a **27.5 mm centerline gap**
+and **20.2 mm nominal wood** after moving only `cleat_link` to Z328.5. Its
+lower grain-end distance is 51.5 mm, 2.05 mm beyond the separate 7D+5 project
+comparator. These values use the model's 3.65 mm bore radius. This is
 not a measured ligament or a strength rating; drill variation, splitting,
 combined local stress and applicability of any spacing rule remain open.
 
