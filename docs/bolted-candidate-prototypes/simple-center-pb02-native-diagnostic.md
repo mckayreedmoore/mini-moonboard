@@ -100,6 +100,29 @@ not qualified. Across the A12-forward 0.5x/1x/2x contact-density range, maximum
 interface-force and moment ratios are 2.17094 and 2.39203; the governing bolt-
 force ratio is 1.13920. The six-case envelope is reference density only.
 
+## Six-case bore-member envelope
+
+The [bore-member envelope](../../scripts/simple_center_pb02_six_case_member_envelope.py)
+checks both sides of four current 7.3 mm diagnostic bore cuts in every accepted
+case. It reuses the signed section actions and 2024 NDS member helper. Dimension
+lumber uses the DF-L No. 2 base values without a size-factor increase; the 4x4
+side cleat uses the separately classified DF-L No. 2 post-and-timber values.
+
+Among the three cuts with exact paired report rows, the governing necessary
+fully-braced normal interaction is **0.04335** at the rear-cleat link bore,
+station-loads-included side, in K12 rear. Its same-cut average net-shear ratio is
+**0.00134**. The governing exact-cut result therefore remains **ADVANCE for
+development only**.
+
+That result is deliberately narrow. The principal-upright bore actions are
+extrapolated from the first valid full-section plane and are excluded from the
+disposition. The screen records torsional demands but evaluates no torsional
+resistance or torsion/shear interaction. It also does not qualify stability,
+local splitting, crossed- or nearby-hole interaction, or near-hole stress
+concentration. The largest recorded torsional demand at these four cuts is
+3,082.31 N-mm at the extrapolated principal cut in K12 rear; it is a demand to
+resolve, not a capacity result.
+
 ## Hardware, access, and retained geometry
 
 The center uses ten ordinary through-bolts, ten nuts, and twenty washers: three
@@ -124,7 +147,8 @@ coverage is incomplete. The next engineering work is bounded to:
   nominal ligaments;
 - the inclined principal's clipped local section and 0.490 mm unloaded-edge
   nominal reserve before tolerance;
-- complete net-section, torsion/shear, group, perpendicular-tension, washer-
+- local splitting, crossed-/nearby-hole behavior, principal-cut qualification,
+  torsion/shear interaction, stability, group, perpendicular-tension, washer-
   metal, preload, prying, nut/thread, and delivered-hardware checks;
 - a defensible floor-contact stiffness range or receiving criterion; and
 - conversion and checking of the 22 remaining legacy connector stations on

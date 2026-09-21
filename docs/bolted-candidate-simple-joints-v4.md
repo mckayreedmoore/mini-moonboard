@@ -1,6 +1,7 @@
 # Bolted candidate: active V4 simple-timber-joint plan
 
-Status through `0fc8c1c`: **PB-02 ADVANCE for development only; G1 remains open; no
+Status through the six-case bore-member envelope: **PB-02 ADVANCE for development only;
+G1 remains open; no
 cutting, drilling, fabrication, or structural release.** This plan implements the owner's V4
 direction for the separate `compact-floor-flush-bolted-development` lane. It supersedes the
 prior [rated-HL bracket focus](bolted-candidate-rated-hardware-focus.md) as the active design
@@ -169,6 +170,15 @@ not qualify the A307 long-grip method, delivered bolts, washer metal, preload, p
 splitting, group behavior, contact pressure, or a complete joint. The six-case envelope uses
 reference contact density; its local pressure is not qualified.
 
+The [six-case bore-member envelope](../scripts/simple_center_pb02_six_case_member_envelope.py)
+also checks both sides of four 7.3 mm diagnostic bore cuts in every accepted case. Its governing
+applicable exact-cut ratio is **0.04335** at the rear-cleat link bore in K12 rear; the same cut's
+average net-shear ratio is **0.00134**. Dimension-lumber values omit size-factor benefit and the
+4x4 side cleat uses the separately classified 2024 NDS Table 4D DF-L No. 2 post-and-timber
+values. This remains an **ADVANCE for development only** result: the principal cut is
+extrapolated and excluded, while torsion, stability, splitting and near-hole behavior remain
+unqualified.
+
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
@@ -178,8 +188,9 @@ whole-frame diagnostic still retains **22 legacy angle and SDS connector station
 converted center.
 
 PB-04 must still resolve crossed-bore splitting and nearby-hole interaction, the inclined
-principal's clipped local section and 0.490 mm nominal unloaded-edge reserve, complete
-net-section and torsion/shear mechanics, group effects, perpendicular tension, washer metal,
+principal's clipped local section and 0.490 mm nominal unloaded-edge reserve, the extrapolated
+principal bore cut, torsion/shear mechanics, stability, group effects, perpendicular tension,
+washer metal,
 preload, prying, nut and thread behavior, delivered hardware, fabrication tolerances, and a
 defensible floor-contact stiffness range or receiving criterion. It must map those results to all
 36 criteria before any G2 claim.
