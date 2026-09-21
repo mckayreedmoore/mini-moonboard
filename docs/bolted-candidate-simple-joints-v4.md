@@ -301,17 +301,20 @@ Everbilt part*, could allow a 4.572 mm under-head shortfall, greater than the de
 and wood/cut bounds are published for this complete stack. A measured or controlled receiving
 interval is required before selecting a pocket depth.
 
-A [narrow no-pocket lower-outer trial](../scripts/simple_pb04_narrow_lower_outer_detached.py)
-instead reduces one block's X width
-from 139.7 to 95.25 mm and moves its two rail-bolt X centers to 25 and 70 mm. It clears the
-modeled panel, fixed axes, neighbors, washer/nut and access envelopes at that representative
-station. Its outer-upright wood grip falls from 228.6 to 184.15 mm; nominal 8-inch bolt reach
-margin is 7.4676 mm including the same two-thread target. Even the conditional 4.572 mm
-standard-length shortfall would leave 2.8956 mm if the product actually conformed. This is
-**ADVANCE for geometry exploration only**; no actual product tolerance, all-station fit,
-changed contact/strength, or case-bound demand has been established. This route may avoid
-twelve deep pockets if the family-level screen succeeds, and it does not become the PB04
-geometry or inherit PB04 case forces.
+The [narrow no-pocket six-outer screen](../scripts/simple_pb05_narrow_outer_screen.py)
+extends the earlier one-station trial to both lower, upper, and bottom outer pairs. Each
+block's X width falls from 139.7 to 95.25 mm, with rail-bolt X centers 25 and 70 mm from
+the butt face. All six simultaneously clear the modeled neighboring parts, protected panel
+and 66 fixed axes, washer/nut and tool envelopes; two center blocks remain unchanged. The
+outer-upright wood grip falls from 228.6 to 184.15 mm, leaving 7.4676 mm nominal 8-inch
+bolt reach including two exposed thread pitches. The conditional 4.572 mm length shortfall
+would leave 2.8956 mm *if* the part conformed and other dimensions were nominal. The
+[hardware tolerance audit](bolted-candidate-prototypes/simple-pb05-no-pocket-hardware-tolerances.md)
+does not establish a product-backed worst case. This route removes twelve deep pockets but
+reduces each outer rail contact area by 6,209.665 mm². It is **ADVANCE for geometry only**:
+no updated joint resistance, same-case force/contact solution, complete hardware, or drilling
+release exists. PB04's pocketed geometry and case forces cannot transfer to this distinct
+trial.
 
 ## PB-02 G1 status and remaining boundaries
 
