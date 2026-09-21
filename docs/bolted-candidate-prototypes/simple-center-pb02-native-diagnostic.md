@@ -32,12 +32,38 @@ a conditional developmental input, not a measured or qualified property.
 
 The
 [bounded floor-stiffness evaluator](../../scripts/simple_center_pb02_floor_stiffness_sensitivity.py)
-prescribes 5,000, 10,000, and 20,000 N/mm as numerical trials and authenticates
-complete six-case suites before comparing governing identities, ratios, and 432
-signed action components. Only the 10,000 N/mm suite is presently retained, so
-the sensitivity conclusion is **not evaluated** until authenticated 5,000 and
-20,000 N/mm suites exist. The trial values are not measured floor properties or
-physical bounds.
+authenticates complete six-case suites before comparing governing identities,
+ratios, and 432 signed action components. The
+[compact evidence manifest](../../fea/results/diagnostics/pb02-floor-stiffness-5k-10k-15k-v1/manifest.json)
+retains source-comparable 5,000, 10,000, and 15,000 N/mm suites. All three share
+the same 278-file source map and producer map. Its self-authentication and
+comparison report **material numerical change detected**: the governing identity,
+one or more governing ratios, and one or more signed actions change under the
+evaluator's 5% screening rule. That rule is a numerical triage threshold, not a
+physical limit or acceptance criterion.
+
+| Floor trial, N/mm | Combined bolt, N | Interface moment, N-mm | Direct-shaft ratio | End-grain ratio | Individual-wood ratio |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 5,000 | 203.132 | 5,339.455 | 0.20284 | 0.11413 | 0.20261 |
+| 10,000 | 196.391 | 5,147.700 | 0.17441 | 0.09813 | 0.19984 |
+| 15,000 | 192.170 | 5,045.844 | 0.16719 | 0.09407 | 0.19807 |
+
+The largest governing-ratio change is 16.30%: the block/header end-grain ratio
+changes from 0.09813 at 10,000 N/mm to 0.11413 at 5,000 N/mm. At 15,000 N/mm,
+the governing complete-interface moment moves from
+`header_principal_block`/A12 rear to `rear_block_post`/K12 right, while the
+direct-shaft and block/header end-grain governors move from bolt 1/A12 forward
+to bolt 2/K12 right. Eleven small signed components reverse sign; the largest
+relative change is a 48.31 N-mm change in a near-zero-baseline interface moment.
+These changes prevent a claim of numerical insensitivity, but every listed
+conditional ratio remains below 0.203 and the **ADVANCE for development only**
+decision is unchanged.
+
+A separate 20,000 N/mm attempt accepted A12 forward but did not converge for
+A12 rear under either bounded all-at-once or seeded one-at-a-time contact
+updates. It is recorded as a failed trial; its reports, forces, and solver
+artifacts are excluded from the comparison. The 5,000–15,000 N/mm trial values
+are numerical inputs, not measured floor properties or asserted physical bounds.
 
 | Case | Applied force XYZ, N | Cycles | Max panel displacement, mm |
 | --- | ---: | ---: | ---: |
@@ -182,7 +208,9 @@ coverage is incomplete. The next engineering work is bounded to:
 - three-dimensional crossed-/nearby-hole stress concentration, principal-cut
   qualification, torsion/shear interaction, stability, group, perpendicular-tension, washer-
   metal, preload, prying, nut/thread, and delivered-hardware checks;
-- a defensible floor-contact stiffness range or receiving criterion; and
+- a defensible physical floor-contact stiffness basis or receiving criterion,
+  because the numerical 5,000–15,000 N/mm range is decision-stable but not a
+  measured material range; and
 - conversion and checking of the 22 remaining legacy connector stations on
   one coherent factory-connector-only frame.
 

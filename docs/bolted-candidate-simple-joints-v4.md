@@ -136,10 +136,21 @@ stiffness of **10,000 N/mm**. That floor value is a developmental input, not a m
 qualified property. The source-bound A12-forward case and current reference-density demands are
 therefore present; the older claims that they were missing no longer apply.
 
-The bounded stiffness evaluator prescribes 5,000, 10,000 and 20,000 N/mm numerical trials, but
-only the 10,000 N/mm six-case suite is currently retained. It therefore reports sensitivity as
-not evaluated rather than inferring missing results. Those trial values are not measured floor
-properties or physical bounds.
+The bounded stiffness evaluator now authenticates complete, source-comparable six-case suites at
+5,000, 10,000, and 15,000 N/mm from the compact
+[stiffness evidence package](../fea/results/diagnostics/pb02-floor-stiffness-5k-10k-15k-v1/manifest.json).
+It reports **material numerical change detected** under its 5% screening rule: governing identity,
+governing ratio, and signed action each change. The largest governing-ratio change is 16.30%, from
+the 10,000 N/mm block/header end-grain ratio of 0.09813 to 0.11413 at 5,000 N/mm. At 15,000 N/mm,
+the governing interface-moment and two bolt-ratio identities change. Eleven small signed
+components reverse sign; the largest relative change is a 48.31 N-mm change around a near-zero
+baseline moment. The 5% rule is numerical triage, not a physical or acceptance limit.
+
+The listed conditional ratios remain at or below 0.20284 over the three accepted trials, so the
+**ADVANCE for development only** decision survives this range even though numerical insensitivity
+is not claimed. A separate 20,000 N/mm run failed to converge at A12 rear under both bounded retry
+strategies; only its failure metadata is retained, and none of its forces or artifacts enter the
+comparison. These inputs are numerical trials, not measured floor properties or physical bounds.
 
 ## Six-case component-demand envelope
 
