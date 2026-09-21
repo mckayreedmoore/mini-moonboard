@@ -37,7 +37,30 @@ def test_center_hole_removes_transverse_rectangle_not_circle():
     result = action(centered_hole_diameter_mm=38.1)
     assert result['net_area_mm2'] == pytest.approx(3870.96)
     assert result['section_moduli_strong_weak_mm3'][0] == pytest.approx(121413.24690909)
+    assert result['centered_hole_spans_section_axis'] == 'width'
     assert not result['local_opening_resistance_evaluated']
+
+
+def test_center_hole_can_span_strong_depth_axis():
+    result = action(
+        centered_hole_diameter_mm=10.0,
+        centered_hole_spans_section_axis='depth',
+    )
+    width, depth, hole = 38.1, 139.7, 10.0
+    assert result['net_area_mm2'] == pytest.approx((width - hole) * depth)
+    assert result['section_moduli_strong_weak_mm3'] == pytest.approx([
+        (width - hole) * depth**2 / 6,
+        depth * (width**3 - hole**3) / (6 * width),
+    ])
+    assert result['centered_hole_spans_section_axis'] == 'depth'
+
+
+def test_center_hole_axis_is_validated():
+    with pytest.raises(ValueError, match='section axis'):
+        action(
+            centered_hole_diameter_mm=10.0,
+            centered_hole_spans_section_axis='diagonal',
+        )
 
 
 def test_bearing_end_angles_and_actual_shoe_row_failure():

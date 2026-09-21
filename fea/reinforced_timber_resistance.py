@@ -47,7 +47,8 @@ def stability_factor(ratio, c):
 def member_check(*, width_mm, depth_mm, axial_n, moment_strong_nmm,
                  moment_weak_nmm, shear_strong_n, shear_weak_n, torsion_nmm,
                  column_effective_strong_mm, column_effective_weak_mm,
-                 beam_effective_mm, centered_hole_diameter_mm=0., reference_override=None):
+                 beam_effective_mm, centered_hole_diameter_mm=0.,
+                 centered_hole_spans_section_axis='width', reference_override=None):
     """Strong dimension is depth; effective lengths must be externally justified.
 
     Gross rectangular stability equations combined with conservatively increased
@@ -61,16 +62,24 @@ def member_check(*, width_mm, depth_mm, axial_n, moment_strong_nmm,
     values = (width_mm, depth_mm, axial_n, moment_strong_nmm, moment_weak_nmm,
               shear_strong_n, shear_weak_n, torsion_nmm, column_effective_strong_mm,
               column_effective_weak_mm, beam_effective_mm, centered_hole_diameter_mm)
+    if centered_hole_spans_section_axis not in ('width', 'depth'):
+        raise ValueError('Centered hole must span one section axis')
+    hole_limit = depth_mm if centered_hole_spans_section_axis == 'width' else width_mm
     if (not all(math.isfinite(v) for v in values)
             or min(width_mm, depth_mm, column_effective_strong_mm,
                    column_effective_weak_mm, beam_effective_mm) <= 0
-            or width_mm > depth_mm or not 0 <= centered_hole_diameter_mm < depth_mm):
+            or width_mm > depth_mm or not 0 <= centered_hole_diameter_mm < hole_limit):
         raise ValueError('Require finite actions, positive effective lengths and strong depth')
     b, d, hole = width_mm, depth_mm, centered_hole_diameter_mm
     ref = adjusted_reference(d, reference_override)
-    area = b*(d-hole)
-    ss = b*(d**3-hole**3)/(6*d)
-    sw = (d-hole)*b*b/6
+    if centered_hole_spans_section_axis == 'width':
+        area = b*(d-hole)
+        ss = b*(d**3-hole**3)/(6*d)
+        sw = (d-hole)*b*b/6
+    else:
+        area = (b-hole)*d
+        ss = (b-hole)*d*d/6
+        sw = d*(b**3-hole**3)/(6*b)
     fc, ft = max(0., -axial_n)/area, max(0., axial_n)/area
     fb1, fb2 = abs(moment_strong_nmm)/ss, abs(moment_weak_nmm)/sw
     slender1, slender2 = column_effective_strong_mm/d, column_effective_weak_mm/b
@@ -100,6 +109,7 @@ def member_check(*, width_mm, depth_mm, axial_n, moment_strong_nmm,
     shear_ratio = ((max_average_shear if hole else gross_rectangular_shear)/ref['Fv_mpa'])
     applicable_ratios.append(shear_ratio)
     return {'references': ref, 'net_area_mm2': area,
+            'centered_hole_spans_section_axis': centered_hole_spans_section_axis,
             'section_moduli_strong_weak_mm3': [ss, sw],
             'stress_mpa': {'compression': fc, 'tension': ft, 'bending_strong': fb1,
                           'bending_weak': fb2, 'net_average_resultant_shear': max_average_shear,

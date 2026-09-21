@@ -1,125 +1,202 @@
 # Bolted candidate: active V4 simple-timber-joint plan
 
-Status: **development only; G1 open; no cutting or drilling release.** This
-plan implements the owner's V4 direction for the separate
-`compact-floor-flush-bolted-development` lane. It supersedes the prior
-[rated-HL bracket focus](bolted-candidate-rated-hardware-focus.md) as the
-active design sequence, without erasing its test results or the selected
+Status through `0fc8c1c`: **PB-02 ADVANCE for development only; G1 remains open; no
+cutting, drilling, fabrication, or structural release.** This plan implements the owner's V4
+direction for the separate `compact-floor-flush-bolted-development` lane. It supersedes the
+prior [rated-HL bracket focus](bolted-candidate-rated-hardware-focus.md) as the active design
+sequence without erasing its test results or the selected
 `compact-floor-flush-development` baseline.
 
-The owner's name for the rectangular timber connector is a **bolted
-solid-wood corner block**, or **corner block** below. Historical documents,
-file names, and machine identities use `cleat` for the same part; those
-identifiers remain stable for traceability.
+The owner's name for the rectangular timber connector is a **bolted solid-wood corner block**,
+or **corner block** below. Historical documents, file names, and machine identities use
+`cleat` for the same part; those identifiers remain stable for traceability.
 
 ## Fixed scope and design order
 
-The physical board is kerf-right, cut from two 4×8 panels. Preserve its
-climbing surface, panel outlines, holds/T-nuts/LED requirements, all 48
-main-panel and 18 kicker screw axes, and the existing panel-screw policy.
-Verify actual receiving timber and both inner kicker edge supports after
-any hidden-frame change. Keep the selected baseline and authentic six-case
-archives separate. The twelve old frame-bolt arrangements are starting
-references, not automatically valid after changing frame geometry.
+The physical board is kerf-right, cut from two 4×8 panels. Preserve its climbing surface,
+panel outlines, holds, T-nuts, LED requirements, all 48 main-panel and 18 kicker screw axes,
+and the existing panel-screw policy. Verify actual receiving timber and both inner kicker edge
+supports after any hidden-frame change. Keep the selected baseline and authenticated six-case
+archives separate. The twelve old frame-bolt arrangements are starting references, not
+automatically valid after changing frame geometry.
 
-Use ordinary through bolts, metal nuts and suitable bearing washers for
-structural move interfaces. A plain full-section face overlap is permitted;
-it retains both member thicknesses and has a real centerline offset. A
-rectangular solid-timber corner block with separate through-bolt groups is
-permitted where it simplifies a butt corner. A small block may remain
-bolted to one transport member. Factory metal brackets are optional when
-their **complete installed** cost or engineering value is better. No
-half-lap, housed/interlocking joinery, custom steel, panel through-bolts,
-new panel fasteners, unqualified inserts, structural wood-thread removal
-per move, manufacturer contact, or glued structural assembly is authorized.
-Do not inherit HL bracket timber minima for ordinary timber joints.
+Use ordinary through bolts, metal nuts, and suitable bearing washers for structural move
+interfaces. A plain full-section face overlap is permitted; it retains both member thicknesses
+and has a real centerline offset. A rectangular solid-timber corner block with separate
+through-bolt groups is permitted where it simplifies a butt corner. A small block may remain
+bolted to one transport member. Any metal connector introduced into the remaining work must be
+a documented factory connector. No half-lap, housed or interlocking joinery, custom steel,
+panel through-bolts, new panel fasteners, unqualified inserts, structural wood-thread removal
+per move, manufacturer contact, or glued structural assembly is authorized. Do not inherit HL
+bracket timber minima for ordinary timber joints.
 
-Keep floor support and landing-space assumptions explicit. Do not claim
-that nominal CAD fit, a single wood-bearing mode, bolt-shaft strength, or
-one old proxy load is a complete structural joint. Evaluate actual
-simultaneous actions, contact-only bearing, slip/rotation, load-to-grain
-directions, bolt group and eccentricity, wood/washer/bolt resistance,
-access, stock, disassembly and cost before selection. No member has been
-physically inspected, cut or drilled.
+Keep floor support and landing-space assumptions explicit. Do not claim that nominal CAD fit,
+a single wood-bearing mode, bolt-shaft strength, or one old proxy load is a complete structural
+joint. Evaluate actual simultaneous actions, contact-only bearing, slip and rotation,
+load-to-grain directions, bolt group and eccentricity, wood, washer and bolt resistance,
+access, stock, disassembly, and cost before selection. No member has been physically inspected,
+cut, or drilled.
 
-For installation access, distinguish permanent hardware that collides with
-the finished panel from a temporary tool that can be used with a removable
-panel off. Panel removal never excuses a finished-state hardware clash;
-tool clearance must be checked for the actual assembly order, socket,
-extension and ratchet rather than assumed from a generic cylinder alone.
+For installation access, distinguish permanent hardware that collides with the finished panel
+from a temporary tool that can be used with a removable panel off. Panel removal never excuses
+a finished-state hardware clash. Check tool clearance for the actual assembly order, socket,
+extension, and ratchet rather than assuming clearance from a generic cylinder.
 
-## Bounded sequence
+## Bounded sequence and current state
 
-| Task | Required outcome | Gate |
-| --- | --- | --- |
-| PB-00 | Reconcile candidate authority and tests; archive bracket-only decision without changing baseline rules. | Scope only |
-| PB-01 | Compare full-section overlap and rectangular cleat at one actual rail duty; complete bolt/wood geometry, preliminary action path, access and purchased-cost comparison. | Representative joint |
-| PB-02 | Connect the center/base assembly, backing and adjoining rail ends; map all original duties and select a costed mixed-or-single architecture. | G1 concept |
-| PB-03 | Build one coherent kerf-right CAD assembly with full stacks, receivers, no unintended SDS path and individual-member transport sequence. | Physical geometry |
-| PB-04 | Complete 2024 NDS-applicable local checks, contact/stiffness inputs and map all 36 criteria without waiving their safety questions. | G2 analysis inputs |
-| PB-05 | Run all six required cases on one frozen candidate, including the forward case; reconcile convergence and resistance. | Candidate evidence |
-| PB-06 | Deliver costed stock/cut/drill/hardware and assembly packet plus independent review, with remaining physical receiving checks explicit. | Owner decision packet |
+- **PB-00 — scope:** reconcile candidate authority and tests; archive the bracket-only decision
+  without changing baseline rules. This remains historical scope work.
+- **PB-01 — representative joint:** compare full-section overlap and a rectangular corner block
+  at one actual rail duty, including geometry, action path, access, and purchased cost. Its
+  local studies remain development inputs, not a selected complete-frame joint.
+- **PB-02 — G1 concept:** connect the center and base assembly, backing, and adjoining rail ends;
+  map original duties and select a costed architecture. The rear-clear center now has a bounded
+  **ADVANCE** decision, but PB-02 has not passed G1.
+- **PB-03 — physical geometry:** build one coherent kerf-right CAD assembly with full hardware
+  stacks, receivers, no unintended SDS path, and an individual-member transport sequence. This
+  remains open because 22 legacy connector stations have not been converted into a coherent
+  final all-bolted frame.
+- **PB-04 — G2 analysis inputs:** complete applicable 2024 NDS local checks, contact and stiffness
+  inputs, and all 36 criteria without waiving their safety questions. This remains open and G2
+  has not been reached or passed.
+- **PB-05 — candidate evidence:** run all six required cases on one frozen candidate, including
+  the forward case, then reconcile convergence and resistance. The six numerical cases are now
+  accepted; resistance reconciliation remains incomplete and does not close PB-04 or G1.
+- **PB-06 — owner decision packet:** deliver costed stock, cut, drill, hardware, and assembly
+  records plus independent review and explicit physical receiving checks. This remains open and
+  cannot release work before PB-03 and PB-04 close.
 
-PB-01 compares *both* simple joint types at the same rail duty, but does
-not force both to be selected. A 2×2 cleat is a screening suggestion, not
-an approved section; size it from actual edge/end, group and action checks.
-The cleat's two bolt groups are serial load-transfer interfaces, not
-capacities to add. Orthogonal bores must not collide and both ends of each
-bolt need washer/nut and tool access. Avoid precision joinery or a new
-generic optimization framework. PB-02 follows only after a credible rail
-detail or an exact limiting condition with one concrete adjustment.
+PB-01 compares both simple joint types at the same rail duty but does not force both to be
+selected. A 2×2 corner block is a screening suggestion, not an approved section; size it from
+actual edge, end, group, and action checks. Its two bolt groups are serial load-transfer
+interfaces, not capacities to add. Orthogonal bores must not collide, and both ends of each bolt
+need washer, nut, and tool access. Avoid precision joinery or a new generic optimization
+framework.
 
-Purchased cost includes full bolt/nut/washer stacks, changed timber,
-retained brackets if any, tooling/consumables, and known delivery/tax;
-unknown prices stay unknown. Keep owner-owned stock, sunk hardware,
-fabrication effort and move operations separate. The historical $122.70
-ML24Z/SDS subtotal is not a complete frame budget or a price ceiling.
+Purchased cost includes full bolt, nut, and washer stacks, changed timber, retained factory
+brackets if any, tooling and consumables, and known delivery and tax. Unknown prices stay
+unknown. Keep owner-owned stock, sunk hardware, fabrication effort, and move operations
+separate. The historical $122.70 ML24Z and SDS subtotal is not a complete frame budget or a
+price ceiling.
 
 ## Claim and evidence boundary
 
-Use the existing [2024 NDS component helpers](../mini_moonboard/bolted_timber_checks.py)
-only within their documented scope. A two-member lateral-yield result
-does not cover cleat integrity, splitting, axial separation, group
-effects, formed steel, or an entire frame. Same-case loads must be
-recomputed for the selected topology, including the earlier difficult
-forward contact state. Preserve failed and nonconverged diagnostics as
-history; never substitute them for accepted forces. No selected-candidate
-hash may be edited merely to silence the existing stale-snapshot CI gate.
+Use the existing
+[2024 NDS component helpers](../mini_moonboard/bolted_timber_checks.py) only within their
+documented scope. A two-member lateral-yield result does not cover corner-block integrity,
+splitting, axial separation, group effects, formed steel, or an entire frame. Preserve failed
+and nonconverged diagnostics as history; never substitute them for accepted forces. No
+selected-candidate hash may be edited merely to silence a stale-snapshot CI gate.
 
-At PR head `1711d30`, the V4 scope tests, normal suite and CAD smoke stage
-passed CI; selected-candidate verification then stopped on the pre-existing
-`compact_floor_flush_frame.py` geometry-source mismatch. Historical-export
-verification did not run. The saved `bolted-candidate-native-input.json` is
-an unrun, unready **older bracket-layout** producer record, not a V4 native
-model: its producer still imports `compact_floor_flush_bolted_frame.py` and
-the old `bolted_layouts` modules. Refreshing its owner-input fingerprint
-alone would neither build the V4 timber geometry nor reconcile the selected
-baseline. Replace that producer and regenerate a truthful V4 contract when
-the connected V4 candidate exists; keep `native_ready=false` until then.
+At the historical PR head `1711d30`, the V4 scope tests, normal suite, and CAD smoke stage
+passed CI. Selected-candidate verification then stopped on the pre-existing
+`compact_floor_flush_frame.py` geometry-source mismatch, and historical-export verification did
+not run. The saved `bolted-candidate-native-input.json` was an unrun, unready older
+bracket-layout producer record. That checkpoint remains useful history but is not the current
+PB-02 evidence state.
 
-PB-02 now has one active, fingerprinted ten-bore geometry shared by CAD,
-placement, stack, kinematics and the development viewer. Its
+The later
 [signed replacement-duty fixture](bolted-candidate-prototypes/simple-center-signed-duty-fixture.md)
-also shows that all five authenticated historical right-center action examples
-are equilibrium-feasible only with both compression-only face contact and
-no-preload bolt tension. This advances the load-path screen but does not close
-G1: stiffness-dependent sharing, the missing forward case, complete local
-resistance, and the final costed architecture remain open.
-
-The subsequent
+showed that five authenticated historical right-center actions required compression-only face
+contact and no-preload bolt tension. The subsequent
 [stiffness sensitivity](bolted-candidate-prototypes/simple-center-stiffness-sensitivity.md)
-converges all 50 historical-action scenario combinations. Two
-bolt-dominant/contact-soft trials pass through singular intermediate active
-sets before another unilateral row activates; those states are not proven
-physical mechanisms. Within a fixed case, the largest reaction ratio across
-the trial stiffness scenarios is about 1.47868. The wider cross-case envelopes
-mix different old loads and are not stiffness sensitivity. None of these
-conditional reactions is a current PB-02 design demand or qualified force-sizing
-input.
+converged all 50 historical-action scenario combinations. Within a fixed case, its largest
+reaction ratio across trial stiffnesses was about 1.47868. Those imported historical actions and
+their wider cross-case envelopes remain history; they are not the current source-bound PB-02
+demands.
+
+## Current PB-02 rear-clear evidence
+
+The active ten-bore rear-clear geometry fingerprint is
+`4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb`.
+The rear cleat spans Z=5–460 mm, has a 455 mm length, and has no modeled floor bearing. The
+panel and kicker screw layout remains unchanged at 66 axes, both inner kicker panel edges remain
+supported, and only one center support moved outward.
+
+The
+[rear-clear evidence](../fea/results/diagnostics/pb02-rear-clear-10333d2-v1/README.md)
+contains six source-bound, numerically accepted cases on that geometry:
+
+- A12 forward: `[0, -300, -2224.111]` N;
+- A12 rear: `[0, 300, -2224.111]` N;
+- A12 left: `[-300, 0, -2224.111]` N;
+- K12 right: `[300, 0, -2224.111]` N;
+- K12 rear: `[0, 300, -2224.111]` N; and
+- A1 rear: `[0, 300, -2224.111]` N.
+
+The
+[six-case authenticator](../scripts/simple_center_pb02_six_case_evidence.py) pins each report,
+full load vector, model and scope identity, contact partition, common 278-file source closure,
+and retained final-cycle solver artifacts. Every case passes its recorded contact and
+tension-only active-set, equilibrium, MPC, and numerical-acceptance gates.
+
+All six cases use the 8×8 reference-density contact model and a conditional floor-contact
+stiffness of **10,000 N/mm**. That floor value is a developmental input, not a measured or
+qualified property. The source-bound A12-forward case and current reference-density demands are
+therefore present; the older claims that they were missing no longer apply.
+
+## Six-case component-demand envelope
+
+The
+[component envelope](../scripts/simple_center_pb02_six_case_component_envelope.py) preserves
+every bolt's simultaneous axial and lateral action from each accepted solve. It also reports
+complete interface resultants and moments, including contact and bolt actions. Its disposition
+is **ADVANCE for development only**, not acceptance.
+
+Governing actions are:
+
+- combined bolt force: **196.391 N** at `principal_block_principal/bolt_1`, A12 rear;
+- bolt tension: **75.576 N** at `header_principal_block/bolt_1`, A12 rear;
+- bolt lateral force: **181.849 N** at `principal_block_principal/bolt_1`, A12 rear;
+- complete interface force: **195.771 N** at `principal_block_principal`, A12 rear;
+- complete interface moment: **5,147.700 N-mm** at `header_principal_block`, A12 rear; and
+- peak cell-average pressure: **0.01765 N/mm²** at `header_principal_block`, A12 left.
+
+The A12-rear governing combined bolt action contains 74.165 N tension and 181.849 N lateral
+force from the same solve. The supported conditional comparison ratios govern as follows:
+
+- individual wood yield: **0.19984**, `principal_upright_block/bolt_1`, K12 rear,
+  0.180-inch root sensitivity;
+- A307 direct-shaft comparator: **0.17441**, `block_header/bolt_1`, A12 forward;
+- block and header end-grain yield: **0.09813**, `block_header/bolt_1`, A12 forward,
+  0.180-inch root sensitivity; and
+- ideal 20 mm washer wood-bearing sensitivity: **0.06441**,
+  `header_principal_block/bolt_1`, A12 rear.
+
+All currently supported six-case conditional ratios are below 1.0. The separate A12-forward
+density-2× sensitivity has a 0.22815 direct-shaft ratio, also below 1.0. These comparisons do
+not qualify the A307 long-grip method, delivered bolts, washer metal, preload, prying, wood
+splitting, group behavior, contact pressure, or a complete joint. The six-case envelope uses
+reference contact density; its local pressure is not qualified.
+
+## PB-02 G1 status and remaining boundaries
+
+PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
+envelope support continued work on this architecture. They do not establish G2, final all-bolted
+frame geometry, drilling, fabrication, construction, or structural acceptance. The current
+whole-frame diagnostic still retains **22 legacy angle and SDS connector stations** outside the
+converted center.
+
+PB-04 must still resolve crossed-bore splitting and nearby-hole interaction, the inclined
+principal's clipped local section and 0.490 mm nominal unloaded-edge reserve, complete
+net-section and torsion/shear mechanics, group effects, perpendicular tension, washer metal,
+preload, prying, nut and thread behavior, delivered hardware, fabrication tolerances, and a
+defensible floor-contact stiffness range or receiving criterion. It must map those results to all
+36 criteria before any G2 claim.
+
+PB-03 must convert and geometrically check the 22 legacy stations, then demonstrate one coherent
+kerf-right final all-bolted CAD assembly with actual stacks, receivers, tool access, panel
+clearance, and individual-member transport. Current PB-02 evidence must not be described as that
+final frame.
+
+PB-06 remains downstream of those tasks. It still requires a complete costed stock, cut, drill,
+hardware, assembly, inspection, and independent-review packet with physical receiving checks.
+No purchase for construction, drilling, fabrication, or structural release follows from the
+current ADVANCE decision.
 
 Source scope: [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
-describes dowel-yield lateral methods and exclusions; the
+describes dowel-yield lateral methods and exclusions. The
 [USDA Wood Handbook, Chapter 8](https://research.fs.usda.gov/download/treesearch/62253.pdf)
-provides illustrative loaded-edge guidance, not a complete 2024 NDS
-joint verdict. The task-supplied V4 plan is the scope handoff; current
-model, authenticated sources and fresh candidate evidence govern numbers.
+provides illustrative loaded-edge guidance, not a complete 2024 NDS joint verdict. The
+task-supplied V4 plan remains the scope handoff; current authenticated sources and fresh
+candidate evidence govern current numbers.
