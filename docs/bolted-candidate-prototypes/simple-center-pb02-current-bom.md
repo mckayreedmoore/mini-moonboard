@@ -14,8 +14,9 @@ fingerprint is
 
 The active rear cleat now starts 5 mm above the floor and ends at the unchanged
 Z=460 mm top, giving a 455-mm length. This revision assigns no rear-cleat floor bearing.
-It was introduced as a concrete geometry response to A12-rear active-set cycling; no
-accepted source-bound native result exists for this revised fingerprint.
+It was introduced as a concrete geometry response to A12-rear active-set cycling. All
+six required cases now have accepted source-bound developmental results for this
+fingerprint at the conditional 10,000 N/mm floor-contact input.
 
 ## Current hardware count and arithmetic
 
@@ -68,9 +69,10 @@ offcuts are **14.75 mm** and **69.5 mm**. These are illustrative rip calculation
 not a machining plan, usable-offcut credit, or proof that delivered stock can finish
 to the modeled dimensions.
 
-Run `.venv/bin/python -m scripts.simple_center_pb02_current_bom` to reproduce the
-record. The prior floor-bearing geometry has one corrected `a12-forward` developmental
-result; it is not evidence for this 5-mm-clear revision. The active geometry still
-requires a new source-bound run, local-ligament/splitting resolution, group and geometry
-factors, exact hardware checks, and the remaining load cases. No purchase, drilling,
-fabrication, or structural release.
+Run `uv run python -m scripts.simple_center_pb02_current_bom` to reproduce the record.
+The [compact evidence package](../../fea/results/diagnostics/pb02-rear-clear-10333d2-v1/README.md)
+authenticates the six accepted runs and the A12-forward refinement study. Numerical
+acceptance does not qualify the 10,000 N/mm floor stiffness or the connection. The
+active geometry still requires local-ligament/splitting resolution, complete group and
+geometry factors, and exact hardware checks. No purchase, drilling, fabrication, or
+structural release.

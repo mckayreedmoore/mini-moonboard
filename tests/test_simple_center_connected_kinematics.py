@@ -43,7 +43,7 @@ def test_current_trial_axes_are_used():
     assert np.allclose(EDGES["principal_block_principal"][4], (50.95, -113.85, 310.5))
     assert np.allclose(EDGES["principal_upright_block"][4], (89.05, -144.9, 368.5))
     assert np.allclose(EDGES["upright_rear_block"][4], (133.5, -175.7, 368.5))
-    assert np.allclose(EDGES["rear_block_post"][4], (133.35, -175.7, 119.45))
+    assert np.allclose(EDGES["rear_block_post"][4], (133.35, -175.7, 121.95))
 
 
 def test_connected_rank_depends_on_return_path_and_contacts():

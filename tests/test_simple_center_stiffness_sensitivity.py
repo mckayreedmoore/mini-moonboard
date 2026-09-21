@@ -91,9 +91,9 @@ def test_compatibility_sensitivity_converges_and_preserves_equilibrium():
     governing = result["fixed_case_stiffness_sensitivity"]["a12-left"][
         "block_header"
     ]["total_contact_compression_n"]
-    assert governing["maximum_to_minimum"] == pytest.approx(122.04710822839961)
-    assert governing["minimum_n"] == pytest.approx(22.195436217098937)
-    assert governing["maximum_n"] == pytest.approx(2708.8888061648145)
+    assert governing["maximum_to_minimum"] == pytest.approx(121.3433649445826)
+    assert governing["minimum_n"] == pytest.approx(22.351300921008065)
+    assert governing["maximum_n"] == pytest.approx(2712.182064644067)
 
     assert "cross_case_and_scenario_reaction_envelopes" in result
     assert result["strength_or_fabrication_release"] is False

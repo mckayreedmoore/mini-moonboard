@@ -28,5 +28,7 @@ result as extrapolated and outside the report-valid full-section interval.
 
 Open items remain torsion/shear interaction, local interaction between the two
 nearby orthogonal bores, near-hole stress concentrations, material resistance,
-the principal's actual clipped local section, and the other five load cases.
-The screen is not a capacity verdict, drilling release, or fabrication release.
+and the principal's actual clipped local section. The six-case reports exist,
+but this section screen remains limited to the A12-forward density-2x
+sensitivity. It is not a capacity verdict, drilling release, or fabrication
+release.
