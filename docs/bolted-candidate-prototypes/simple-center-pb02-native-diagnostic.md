@@ -116,10 +116,15 @@ edge; it passes only the conditional unloaded 1.5D comparison in this case and
 has just 0.49 mm nominal reserve before tolerance. A reversed transverse force
 would fail the 4D loaded-edge comparison.
 
+The authenticated [upright/link component
+screen](simple-center-pb02-individual-component-screen.md) checks those two
+single-fastener interfaces with their actual bearing lengths and force angles.
+Mode IV governs; its largest conditional lateral ratio is 0.0756. That result
+does not qualify the nearby crossed bores or the complete connection.
+
 Before any physical release, work still includes:
 
-- complete force-direction-aware individual checks for the upright and link,
-  including the inclined-principal edge sensitivity and bore-aware sections;
+- complete bore-aware member sections and local crossed-bore interaction checks;
 - complete the `block_header` local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
   insertion routes, and tool access;
