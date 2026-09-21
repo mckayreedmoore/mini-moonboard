@@ -55,6 +55,36 @@ def test_short_quarter_preparation_tags_its_fresh_pose_and_contact_area():
     assert member["length"] == pytest.approx(152.4)
 
 
+def test_short_rail_active_contact_layout_restores_rigid_rotation_rank():
+    """Kinematic rank only; does not validate contact pressure or strength."""
+    module = HybridPB01(variant="quarter_short")
+    face = hybrid._face_samples(module, "rail")
+    datum = np.mean([sample["point"] for sample in face["samples"]], axis=0)
+
+    def row(direction, point):
+        direction = np.asarray(direction, dtype=float)
+        return np.r_[direction, np.cross(np.asarray(point) - datum, direction)]
+
+    rows = []
+    for index, bolt in enumerate(module.pose["bolt_groups"]["rail"]):
+        axis = np.asarray(bolt["axis_xyz"], dtype=float)
+        axis /= np.linalg.norm(axis)
+        seed = np.eye(3)[np.argmin(abs(axis))]
+        tangent = np.cross(axis, seed)
+        tangent /= np.linalg.norm(tangent)
+        point = np.asarray(bolt["start_xyz_mm"]) + axis * 40.6
+        rows.extend([row(tangent, point), row(np.cross(axis, tangent), point)])
+        if index == 0:  # The solved r1 spring is tensile; r2 is slack.
+            rows.append(row(axis, point))
+    assert np.linalg.matrix_rank(rows) == 4
+    rows.extend(
+        row(face["normal"], sample["point"])
+        for sample in face["samples"]
+        if sample["grid"][0] == 1
+    )
+    assert np.linalg.matrix_rank(rows) == 6
+
+
 @pytest.fixture(scope="module")
 def prepared():
     before = (panel_kernel.grid, panel_kernel.pressure_load, FlushStructure.member)

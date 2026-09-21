@@ -40,3 +40,18 @@ stiffness were each assumed 1,000 N/mm. The quarter variant changes trial
 stack mass only in this native model; bore diameter does not change its mesh.
 Convergence and equilibrium apply to this numerical diagnostic only. It is
 not a V4 same-case demand, joint rating, design acceptance or drilling release.
+
+## Later six-inch, tension-only diagnostic (different model)
+
+The separate [A12-left ZIP](pb01-short-tension-a12-165adbf-evidence.zip),
+[K12-right ZIP](pb01-short-tension-k12-165adbf-evidence.zip), and
+[signed comparison](pb01-short-tension-a12-k12-165adbf-comparison.json)
+record the 152.4-mm corner-block variant with no-preload tension-only bolt
+axial springs and compression-only face contacts. Both cases converged at
+cycle 13 with numerical equilibrium. Each ZIP contains the final-cycle
+input/report/native files and 260 authenticated source snapshots. Run
+`uv run --no-sync python -m scripts.simple_pb01_short_tension_evidence verify`
+followed by the ZIP path to verify it without the temporary run directory.
+See [the case note](../bolted-candidate-prototypes/simple-pb01-short-tension-evidence.md)
+for hashes and scope. These newer runs still retain 23 legacy connector
+stations and do not qualify a complete V4 frame, joint or drilling plan.

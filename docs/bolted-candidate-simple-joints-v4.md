@@ -42,6 +42,12 @@ directions, bolt group and eccentricity, wood/washer/bolt resistance,
 access, stock, disassembly and cost before selection. No member has been
 physically inspected, cut or drilled.
 
+For installation access, distinguish permanent hardware that collides with
+the finished panel from a temporary tool that can be used with a removable
+panel off. Panel removal never excuses a finished-state hardware clash;
+tool clearance must be checked for the actual assembly order, socket,
+extension and ratchet rather than assumed from a generic cylinder alone.
+
 ## Bounded sequence
 
 | Task | Required outcome | Gate |
