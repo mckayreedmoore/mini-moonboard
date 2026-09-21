@@ -10,7 +10,7 @@ wood-piece dimension below to the active PB02 boxes in the V4 viewer. It also re
 the active `ligament_priority` geometry to contain ten PB02 bolt axes, all 66 fixed
 panel/kicker screw axes, and a closed fabrication-release flag. The current source
 fingerprint is
-`46da45226acf9660643cb88c76e80680a262efb38f0142d3156925cd2089a4e2`.
+`577806bc89522788fbfe4862c9129bf756590230a2e7a6ce4849b8557a7cc29a`.
 
 ## Current hardware count and arithmetic
 

@@ -4,7 +4,7 @@ The [integrated script](../../scripts/simple_center_pb02_integrated_trial.py)
 checks the active `ligament_priority` ten-bore assembly. It combines the 61.6 mm
 right side cleat (Y −175.7 to −114.1, Z 277 to 460), upright axis
 Y −144.5/Z 356, header-side cleat top Z 344, and post_cleat_2 Z 176.
-The `cleat_link` stays at Z 370. The `post_high` axis is Z 189.4, and the two
+The `cleat_link` stays at Z 370. The `post_high` axis is Z 202.0, and the two
 vertical axes are X/Y 208.35/−130.5 and 236/−117.5. The post/header block
 remains the `shorter_8in_trial` shape. Link Z 390 is checked as a rejected
 comparison in the same script. The earlier `working_reference` remains a named
@@ -31,11 +31,11 @@ kinematics, and V4 viewer. Each consumer exposes the same variant identifier and
 SHA-256 source fingerprint; regression tests also compare all ten axes/end
 planes, receiver identities, wood grips, and the post/header block bounds.
 
-The `post_high/post_cleat_2` finite shared-member centerline gap is 13.4 mm,
-leaving **6.1 mm nominal cylindrical surface ligament** after the modeled
+The `post_high/post_cleat_2` finite shared-member centerline gap is 26.0 mm,
+leaving **18.7 mm nominal cylindrical surface ligament** after the modeled
 7.3 mm bore diameter. The `upright/cleat_link` ligament remains 6.7 mm. All
 18 shared-member bore pairs have positive finite surface gaps; the minimum is
-6.1 mm. These are nominal CAD gaps, not strength or as-drilled guarantees.
+6.7 mm. These are nominal CAD gaps, not strength or as-drilled guarantees.
 
 | Link Z | Upright/link nominal ligament | Front socket/rail hit | Full nominal CAD |
 | ---: | ---: | ---: | --- |
@@ -47,13 +47,16 @@ Its rear insertion still clears, but the positive socket collision makes
 the full assembly CAD check fail. Moving this link therefore improves the
 local ligament while introducing a separate fit failure.
 
-The active conditional placement subset has no negative project-reserve rows.
+The active conditional placement subset has one negative project-reserve row.
 The side Y
 4D+5 reserve is 0 mm, the side Z 7D+5 reserve is +29.55 mm, and the post pair
 4D+5 pitch reserve is +0.6 mm. Each vertical header-bolt pair reserve is
-+0.1536 mm. The `post_high` top grain-end distance is 5.05 mm beyond the
-conditional 7D marker and +0.05 mm after the separate 5 mm project allowance.
-The 0.1-mm drawing coordinate leaves the 6.1 mm nominal crossed-bore ligament.
++0.1536 mm. The `post_high` top loaded-end distance is 36.9 mm: 14.675 mm
+above the conditional 3.5D minimum, but 7.55 mm below 7D and 12.55 mm below
+the separate 7D+5 project comparator. The conditional reduced end-distance
+factor is `CΔ = 36.9 / 44.45 = 0.83015`. The Z202 coordinate leaves the
+18.7 mm nominal crossed-bore ligament while retaining the existing block and
+ordinary-length trial hardware.
 Inclined-principal and orthogonal-neighbor classifications remain open.
 These conditional markers use a 6.35 mm placement diameter and one 5 mm
 project allowance; the modeled CAD bore is Ø7.3 mm.

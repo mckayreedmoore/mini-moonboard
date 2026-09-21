@@ -9,12 +9,13 @@ supports retaining PB02 while its geometry and remaining checks are revised. It
 is one developmental load case, not a qualified connection design. It does not
 release drilling, fabrication, purchasing for construction, or construction.
 
-The active geometry now moves `post_high` from Z = 190.0 mm to Z = 189.4 mm.
-The retained pre-revision evidence is superseded for current-geometry demand
-comparison by a corrected rerun at Z = 189.4 mm. The move increases
-the post upper-end distance from 48.9 mm to 49.5 mm and leaves approximately
-6.1 mm of nominal wood ligament at the crossed `post_high`/`post_cleat_2`
-bores. That remaining ligament is not structurally qualified.
+The active geometry now moves only `post_high` to Z = 202.0 mm while retaining
+the 95 mm block bottom and Z145/176 post-cleat pair. This gives 26.0 mm crossed
+centerline separation and 18.7 mm nominal surface ligament. Its 36.9 mm loaded
+end distance exceeds 3.5D but is below 7D; the conditional reduced factor is
+`CΔ = 0.83015`. This intentionally gives up the prior 7D+5 project comparator.
+The corrected rerun at Z = 189.4 mm below is authenticated pre-Z202 evidence,
+not a current-geometry demand result. A Z202 rerun remains required.
 
 ## Authenticated evidence
 
@@ -99,23 +100,23 @@ sensitivity gives 297.61 N and a ratio of 0.1135. These are component references
 not complete joint values. The post-revision force directions do not form one
 NDS row: they are neither mutually parallel nor aligned with the bolt-pair line,
 so no two-bolt group factor applies. The isolated-bolt screen uses `Cg = 1.0`
-with `n = 1` and conditionally supports `CΔ = 1.0`; it does not qualify local
+with `n = 1` and conditionally supported `CΔ = 1.0` at the old Z189.4 pose;
+the active Z202 pose instead records conditional `CΔ = 0.83015`. It does not qualify local
 multiple-fastener stresses or splitting. This result does not require rotating
 the block grain or moving to 4x8 stock solely for the current one-case demand.
 
-The current 6.1 mm ligament between the orthogonal `post_high` and
+The current 18.7 mm ligament between the orthogonal `post_high` and
 `post_cleat_2` bores has no applicable 2024 NDS resistance equation. Individual
 dowel-yield, ordinary row-spacing, net-section, Appendix E, and group-action
 checks do not represent the local mixed-mode volume between perpendicular
-bores from separate connections. The current crossed-bore placement is
-therefore rejected while PB02 remains retained for revision. A conservative
-project geometry target separates those centerlines by at least 4D = 25.4 mm;
-this is a revision target, not a claim that the ordinary NDS row rule applies.
+bores from separate connections. The current placement meets the project
+4D = 25.4 mm centerline target by 0.6 mm. This is not a claim that the ordinary
+NDS row rule applies or that local splitting is qualified.
 
 Before any physical release, work still includes:
 
-- revise the crossed-bore placement to at least the 25.4 mm project separation
-  target, then recheck the changed geometry and response;
+- rerun the corrected response model at Z202 and assess the conditional reduced
+  loaded-end factor with the resulting demands;
 - complete the `block_header` group, geometry-factor, and local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
   insertion routes, and tool access;

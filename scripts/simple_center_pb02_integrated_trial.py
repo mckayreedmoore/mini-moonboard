@@ -163,6 +163,13 @@ def probe(link_z=WORKING_LINK_Z):
             "vertical_y": spec.vertical_y,
             "cleat_link_z": link_z,
         },
+        post_high_loaded_end_distance_mm=round(238.9 - spec.post_high_z, 5),
+        post_high_conditional_3_5d_reserve_mm=round(
+            238.9 - spec.post_high_z - 3.5 * placement.DIAMETER_MM, 5
+        ),
+        post_high_conditional_c_delta=round(
+            min(1.0, (238.9 - spec.post_high_z) / (7 * placement.DIAMETER_MM)), 5
+        ),
         header_side_cleat_header_contact_area_mm2=round(contact_area, 5),
         header_cleat_bore_reception_fraction=reception,
         all_66_fixed_axes_preserved=(

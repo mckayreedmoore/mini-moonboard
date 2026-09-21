@@ -47,7 +47,7 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     }
     axes = {axis["name"]: axis for axis in scene["axes"] if axis["station"] == "PB02"}
     assert axes["post_cleat_2"]["start_mm"][2] == 176
-    assert axes["post_high"]["start_mm"][2] == 189.4
+    assert axes["post_high"]["start_mm"][2] == 202
     assert axes["cleat_header_1"]["start_mm"][:2] == [208.35, -130.5]
     assert axes["cleat_header_2"]["start_mm"][:2] == [236.0, -117.5]
     assert axes["cleat_link"]["start_mm"][2] == 370

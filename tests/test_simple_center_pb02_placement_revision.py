@@ -31,16 +31,32 @@ def test_front_stagger_clears_target_reserves_and_keeps_nominal_fit():
     assert not selected["rating_or_drilling_release"]
 
 
-def test_active_drawing_revision_balances_end_reserve_and_ligament():
+def test_active_ordinary_hardware_revision_trades_end_factor_for_ligament():
     selected = probe()["ligament_priority"]
 
-    assert selected["post_high_z_mm"] == 189.4
+    assert selected["post_high_z_mm"] == 202
+    assert selected["post_high_loaded_end_distance_mm"] == 36.9
+    assert selected["post_high_conditional_3_5d_reserve_mm"] == 14.675
+    assert selected["post_high_conditional_c_delta"] == pytest.approx(0.83015)
     assert selected["target_conditional_reserves_mm"][
         "post_high/shifted_right_post/z_high"
-    ] == pytest.approx(0.05)
-    assert selected["conditional_negative_rows"] == []
+    ] == pytest.approx(-12.55)
+    assert selected["conditional_negative_rows"] == [
+        {
+            "bolt": "post_high",
+            "member": "shifted_right_post",
+            "feature": "z_high",
+            "reserve_mm": -12.55,
+        }
+    ]
     assert selected["fixed_screw_axes_preserved"]
     assert selected["nominal_cad_clear"]
+
+
+def test_historical_end_distance_factors_are_capped_at_one():
+    results = probe()
+    for name in ("working_reference", "rear_stagger", "front_stagger"):
+        assert results[name]["post_high_conditional_c_delta"] == 1.0
 
 
 def test_bounded_controls_reproduce_reference_and_reject_rear_stagger():

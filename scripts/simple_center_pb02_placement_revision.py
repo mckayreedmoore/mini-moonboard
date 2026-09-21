@@ -71,6 +71,13 @@ def trial(spec):
     return {
         "variant_id": spec.variant_id,
         "post_high_z_mm": spec.post_high_z,
+        "post_high_loaded_end_distance_mm": round(238.9 - spec.post_high_z, 5),
+        "post_high_conditional_3_5d_reserve_mm": round(
+            238.9 - spec.post_high_z - 3.5 * placement.DIAMETER_MM, 5
+        ),
+        "post_high_conditional_c_delta": round(
+            min(1.0, (238.9 - spec.post_high_z) / (7 * placement.DIAMETER_MM)), 5
+        ),
         "vertical_x_mm": spec.vertical_x,
         "vertical_y_mm": spec.vertical_y,
         "conditional_minimum_reserve_mm": inventory[

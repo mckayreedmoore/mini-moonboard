@@ -7,9 +7,9 @@ The integrated side-cleat pose, post/header block, other seven bolt axes, and al
 66 panel/kicker screw axes remain fixed.
 
 `front_stagger` remains a viable conditional trial, but it is not the active
-pose. The active `ligament_priority` variant keeps the same header-pair stagger
-and uses the 0.1-mm drawing coordinate Z189.4 for `post_high`. This clears the
-7D plus 5 mm project comparator by 0.05 mm while retaining 6.1 mm nominal
+pose. The active `ligament_priority` variant keeps the same header-pair stagger,
+95 mm block bottom, and Z145/176 post-cleat pair, but moves `post_high` alone to
+Z202.0. The crossed centerlines are 26.0 mm apart and retain 18.7 mm nominal
 orthogonal-bore surface ligament. One immutable
 candidate-local trial specification and one geometry builder feed the integrated
 CAD check, placement table, stack screen, connected kinematics, and V4 viewer.
@@ -33,9 +33,12 @@ reserve. Lowering `post_high` by 1 mm changes its upper grain-end distance to
 table has no negative conditional rows. Its overall minimum is 0 mm because the
 unchanged upright remains exactly at one side-cleat edge comparator.
 
-The selected 189.4 mm active value sits between those bounded alternatives. Its
-upper grain-end distance is 49.5 mm, its 7D plus 5 mm reserve is +0.05 mm, and
-its nominal crossed-bore surface ligament is 6.1 mm.
+The selected Z202.0 active value is a separate ordinary-hardware revision. Its
+upper loaded-end distance is 36.9 mm, which is 14.675 mm above 3.5D but below
+the 44.45 mm 7D full-value distance. The conditional reduced end-distance
+factor is `CΔ = 36.9 / 44.45 = 0.83015`. It intentionally gives up the 7D+5
+project comparator, whose reserve is −12.55 mm, to achieve the 26.0 mm crossed
+centerline separation without enlarging the block or requiring 10-inch bolts.
 
 The revised pose retains nominal CAD fit:
 
@@ -55,6 +58,7 @@ The revised pose retains nominal CAD fit:
 | `working_reference` | −2.9 mm minimum; three negative rows | clear |
 | `rear_stagger` | 0 mm minimum; no negative rows | rejected |
 | `front_stagger` | 0 mm minimum; no negative rows | clear |
+| active `ligament_priority` | −12.55 mm at `post_high`; one negative row | clear |
 
 The rearward stagger demonstrates that placement arithmetic alone is
 insufficient. Its second vertical bore intersects both horizontal post-cleat

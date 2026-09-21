@@ -32,7 +32,7 @@ def test_current_inventory_includes_changed_and_inherited_bolts():
     assert any(r["marker_status"] == "unknown" for r in result["rows"])
 
 
-def test_revised_post_high_clears_conditional_end_reserve():
+def test_revised_post_high_records_reduced_loaded_end_distance():
     # The review's old 0.3 mm position is real in the former single-bolt pose.
     old = historical.new_bores()["post_cleat"].BoundingBox()
     old_y = (old.ymin + old.ymax) / 2
@@ -40,10 +40,10 @@ def test_revised_post_high_clears_conditional_end_reserve():
 
     result = table()
     post_high = _find(result["rows"], "post_high", "shifted_right_post", "z_high")
-    assert post_high["nominal_distance_mm"] == 49.5
+    assert post_high["nominal_distance_mm"] == 36.9
     assert post_high["marker_mm"] == 44.45
     assert post_high["fabrication_allowance_mm"] == 5.0
-    assert post_high["reserve_mm"] == 0.05
+    assert post_high["reserve_mm"] == -12.55
     assert result["conditional_subset_minimum_reserve_mm"] < 5.0
     assert result["whole_center_classification_complete"] is False
 
@@ -64,7 +64,7 @@ def test_single_allowance_and_neighbor_classification():
     assert unknown["reserve_mm"] is None
 
     for bolt, member, other, distance in (
-        ("post_high", "shifted_right_post", "post_cleat_2", 13.4),
+        ("post_high", "shifted_right_post", "post_cleat_2", 26.0),
         ("upright", "upright_side_cleat", "cleat_link", 14.0),
     ):
         gap = _find(result["rows"], bolt, member, other)
