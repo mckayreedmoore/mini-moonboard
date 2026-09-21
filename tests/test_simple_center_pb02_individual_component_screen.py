@@ -12,16 +12,16 @@ def test_current_a12_forward_upright_and_link_component_screen():
         "candidate": "pb02-kerf-right-native-development-only",
         "case": "a12-forward",
         "active_geometry_fingerprint": (
-            "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+            "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
         ),
         "report_sha256": (
-            "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
+            "4e8f9c193c225fe3d28002ab93ed3258d7560558ed089f27a49752adeea36023"
         ),
         "model_identity": (
-            "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a"
+            "6ff81b19cd60be0e2241af7350534de26b3fb68214de6d73fa80433221468b6f"
         ),
         "diagnostic_scope_fingerprint": (
-            "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930"
+            "ce354d1ed95456b07e3c04cfe857f064d3987106124425391736c361d46dd773"
         ),
         "numerically_accepted": True,
         "actual_joint_demands_qualified": False,
@@ -30,12 +30,12 @@ def test_current_a12_forward_upright_and_link_component_screen():
     link = result["connections"]["upright_rear_block/bolt_1"]
 
     assert upright["demand"] == pytest.approx(
-        {"axial_n": 0.945499999999988, "lateral_n": 49.32286943116782}
+        {"axial_n": 9.970499999999994, "lateral_n": 46.36259486348288}
     )
     assert upright["load_to_grain_degrees"] == pytest.approx(
         {
-            "base_principal_center_right": 82.17788393463115,
-            "upright_side_cleat": 42.17788393463091,
+            "base_principal_center_right": 60.00281746030071,
+            "upright_side_cleat": 20.002817460300474,
         }
     )
     principal_edges = upright["placement"]["base_principal_center_right"][
@@ -49,7 +49,7 @@ def test_current_a12_forward_upright_and_link_component_screen():
     assert principal_edges["ten_mm_edge_is_loaded"] is False
 
     assert link["demand"] == pytest.approx(
-        {"axial_n": 0.0, "lateral_n": 43.061860344578655}
+        {"axial_n": 0.0, "lateral_n": 39.986125545245265}
     )
     assert link["washer"]["demand_n"] == 0
     assert link["washer"]["qualified"] is False

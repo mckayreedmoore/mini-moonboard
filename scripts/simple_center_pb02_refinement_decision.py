@@ -9,67 +9,74 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1"
+EVIDENCE = ROOT / "fea/results/diagnostics/pb02-rear-clear-10333d2-v1"
 SOURCE_SNAPSHOTS = EVIDENCE / "source_snapshots"
 GEOMETRY_SOURCE = "scripts/simple_center_pb02_geometry.py"
 EXPECTED_GEOMETRY_FINGERPRINT = (
-    "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+    "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
 )
 REPORTS = {
     "grid_2x2": (
-        "grid-2x2/report.json",
-        "837523aeebf3f997cc6271fe3f11a7bb19830573d6fbfabc3dbe8b90eb644504",
+        "refinement/grid-2x2/report.json",
+        "5eabdc13399213e7e1eab32d55b8f72e5c47fd536840b74e9b3d9fce8aa82c84",
     ),
     "grid_4x4": (
-        "grid-4x4/report.json",
-        "d1e04abaefbda829125b12cd13392d8567b8ed7c7df89baf1e931f9a0eda7653",
+        "refinement/grid-4x4/report.json",
+        "81c11dfd88bca1c34312210b49082f282e034b81b77a3974a555d68c0b654bd3",
     ),
     "grid_8x8": (
-        "grid-8x8/report.json",
-        "5587450b5760cee02e3b9895301959aa361c6cc644384f6ce35047c4f0de70ef",
+        "refinement/grid-8x8/report.json",
+        "eb3de71cc9c752244599540413c107c84eb225decd029183d491a5ac034cdfed",
     ),
     "density_0p5x": (
-        "density-0p5x/report.json",
-        "eb1cfe5987b7edfe79102c1f1507ab3302be9e570eff0560e64dab857cd1a6d6",
+        "refinement/density-0p5x/report.json",
+        "ff8b8cd6bc40f8b42f65d72971c0b12b4cee5097f31c55b0779a0bb4455a34ac",
     ),
     "density_2x": (
-        "density-2x/report.json",
-        "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631",
+        "refinement/density-2x/report.json",
+        "4e8f9c193c225fe3d28002ab93ed3258d7560558ed089f27a49752adeea36023",
     ),
 }
 EXPECTED_REPORT_SCOPE = {
     "grid_2x2": {
         "grid": [2, 2],
         "mean_contact_total_n_per_mm": 1000.0,
-        "model_identity": "83fc82f95c89a63d07ce2dccdbbdd059c2484e1dd985902e568e7087aba59d3c",
-        "scope_fingerprint": "359e4eacd3f9312f32e36963da20b90988fa1e9a52f934b6d294f1c0247048c3",
+        "model_identity": "2dff09bd82efc968c8355bb283647b4bcac07ae65f7674d66f97be897bee0dd5",
+        "scope_fingerprint": "a8498e3fd74b4229579c03d43a03f6cdc5de49308ba9d328b93263775f840786",
+        "partition_fingerprint": "2f105d500f308d344cf72773d53001c1a187321d625d20624f00cd463823d67a",
     },
     "grid_4x4": {
         "grid": [4, 4],
         "mean_contact_total_n_per_mm": 1000.0,
-        "model_identity": "6973760a3e837078db6b15619534acde6c1601e76e67829c56df29053b8e9232",
-        "scope_fingerprint": "f60d3bc138e08d8d68aacf4b15f9c563674945a8c9e53eb87e54a585e1fe4d26",
+        "model_identity": "9aebb8efc13d8df1ce41bfeef05164668a6363898738df5ece91cf5ee00fa492",
+        "scope_fingerprint": "6c3b4994a594960fb76f26624ea72a5090c5599a042ae94b395327847241648d",
+        "partition_fingerprint": "89079b51b9cad87bba882dc1b392f0a26d688109b556caf5a51a63f1180e5628",
     },
     "grid_8x8": {
         "grid": [8, 8],
         "mean_contact_total_n_per_mm": 1000.0,
-        "model_identity": "6c7826ff24b3427e5abfc4ac4f4d0deb1205905deec177f8bb80233babdc9824",
-        "scope_fingerprint": "0dc36a7cf57f8e1f93fc5505e094bbd459aa4893aca9027afc4b9abedd4e0ba1",
+        "model_identity": "19ee74cc32fe1079ac3647469aee6e1935d99a7253f912f28541fbb5e2774991",
+        "scope_fingerprint": "b6ae00b8b90622260bcf79e0f6a37ec382b66df1efc8a289d761789eefb0e5c0",
+        "partition_fingerprint": "e9cb8ea7a1f197728ed3f02e99b27b9b3445446b989a167474e9d6da674c77c4",
     },
     "density_0p5x": {
         "grid": [8, 8],
         "mean_contact_total_n_per_mm": 500.0,
-        "model_identity": "fd9379062004256ac4d8de3265d51a5e9b59274e1633a95060e0245d080eab7f",
-        "scope_fingerprint": "9b74e0754354938e2881806d4bddf46669be07b3922b1bf2f0ec05794dae3657",
+        "model_identity": "b92349520bca4a9d040d721ddc1a3c98fa88469f586636a72ca4c534cbf773a0",
+        "scope_fingerprint": "c8a72c2f503fe7dca994aba0a77a1c5c9c107e6e408f376b6402e20496ee3ec8",
+        "partition_fingerprint": "e9cb8ea7a1f197728ed3f02e99b27b9b3445446b989a167474e9d6da674c77c4",
     },
     "density_2x": {
         "grid": [8, 8],
         "mean_contact_total_n_per_mm": 2000.0,
-        "model_identity": "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a",
-        "scope_fingerprint": "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930",
+        "model_identity": "6ff81b19cd60be0e2241af7350534de26b3fb68214de6d73fa80433221468b6f",
+        "scope_fingerprint": "ce354d1ed95456b07e3c04cfe857f064d3987106124425391736c361d46dd773",
+        "partition_fingerprint": "e9cb8ea7a1f197728ed3f02e99b27b9b3445446b989a167474e9d6da674c77c4",
     },
 }
 CANDIDATE = "pb02-kerf-right-native-development-only"
+EXPECTED_FORCE_XYZ_N = [0.0, -300.0, -2224.11080763025]
+RETAINED_FINAL_FILES = ("input.json", "frame.dat", "frame.frd", "frame.12d")
 
 
 def _active_geometry_fingerprint() -> str:
@@ -112,11 +119,15 @@ def _authenticate(name, relative, expected_sha256):
         or scope.get("candidate") != CANDIDATE
         or scope.get("case") != "a12-forward"
         or report.get("parameters", {}).get("hold") != "A12"
+        or report.get("parameters", {}).get("force_xyz_n") != EXPECTED_FORCE_XYZ_N
         or contact.get("grid_resolution") != expected["grid"]
         or selected.get("face_normal_total_per_interface_n_per_mm")
         != expected["mean_contact_total_n_per_mm"]
+        or selected.get("floor_contact_n_per_mm") != 10000.0
         or report.get("pb02_model_identity") != expected["model_identity"]
         or scope.get("deterministic_input_fingerprint") != expected["scope_fingerprint"]
+        or report.get("pb02_contact_aggregation", {}).get("partition_fingerprint")
+        != expected["partition_fingerprint"]
         or _active_geometry_fingerprint() != EXPECTED_GEOMETRY_FINGERPRINT
         or scope.get("developmental_only") is not True
         or scope.get("qualified_for_design") is not False
@@ -132,6 +143,15 @@ def _authenticate(name, relative, expected_sha256):
         or report.get("fabrication_released") is not False
     ):
         raise ValueError(f"{name}: authenticated developmental scope changed")
+    final_cycle = report["contact_cycles"][-1]["directory"]
+    retained = {}
+    for filename in RETAINED_FINAL_FILES:
+        artifact = f"{final_cycle}/{filename}"
+        artifact_path = path.parent / artifact
+        actual_artifact = hashlib.sha256(artifact_path.read_bytes()).hexdigest()
+        if report.get("artifact_sha256", {}).get(artifact) != actual_artifact:
+            raise ValueError(f"{name}: retained final-cycle artifact changed")
+        retained[artifact] = actual_artifact
     return report, {
         "path": relative,
         "report_sha256": actual,
@@ -143,6 +163,7 @@ def _authenticate(name, relative, expected_sha256):
             "partition_fingerprint"
         ],
         "cycles": len(report["contact_cycles"]),
+        "retained_final_cycle_artifacts": retained,
     }
 
 
@@ -305,8 +326,8 @@ def screen():
             "use cell-average pressure as local bearing qualification."
         ),
         "next_case_action": (
-            "Run the remaining five prescribed cases at 8x8/reference density, then "
-            "apply the bounded density envelope where it can change the component decision."
+            "Use the separately authenticated six-case suite to build current-geometry "
+            "component envelopes; keep this density study scoped to A12-forward."
         ),
         "qualified_for_design": False,
         "drilling_released": False,

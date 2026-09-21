@@ -12,10 +12,10 @@ def test_active_a12_forward_bore_net_sections_are_bounded():
         "candidate": "pb02-kerf-right-native-development-only",
         "case": "a12-forward",
         "active_geometry_fingerprint": (
-            "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+            "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
         ),
         "report_sha256": (
-            "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
+            "4e8f9c193c225fe3d28002ab93ed3258d7560558ed089f27a49752adeea36023"
         ),
         "numerically_accepted": True,
         "actual_joint_demands_qualified": False,

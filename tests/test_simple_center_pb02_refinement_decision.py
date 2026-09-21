@@ -28,31 +28,35 @@ def test_refinement_and_density_evidence_are_authenticated_and_bounded():
     }
     refinement = result["grid_refinement_4x4_to_8x8"]
     assert refinement["maximum_force_change_percent"] == pytest.approx(
-        3.286506168568004
+        3.008075895613427
     )
     assert refinement["maximum_moment_change_percent"] == pytest.approx(
-        8.185850827401907
+        5.616425553541626
     )
     assert refinement["panel_displacement_change_percent"] == pytest.approx(
-        0.00024177338442399332
+        0.0002846069631745607
     )
     assert refinement["maximum_bolt_combined_force_change_percent"] == pytest.approx(
-        0.6973226663759324
+        0.8191841896050933
     )
-    assert refinement["governing_bolt_grid_4x4"]["name"] == ("rear_block_post/bolt_2")
-    assert refinement["governing_bolt_grid_8x8"]["name"] == ("rear_block_post/bolt_2")
-    assert refinement["maximum_active_area_change_percent"] > 40
+    assert refinement["governing_bolt_grid_4x4"]["name"] == (
+        "principal_block_principal/bolt_1"
+    )
+    assert refinement["governing_bolt_grid_8x8"]["name"] == (
+        "principal_block_principal/bolt_1"
+    )
+    assert refinement["maximum_active_area_change_percent"] > 8
     assert refinement["maximum_peak_cell_average_pressure_change_percent"] > 20
     assert refinement["selected_force_moment_resolution"] == "8x8"
     assert refinement["local_pressure_qualified"] is False
 
     density = result["contact_density_sensitivity_8x8"]
-    assert density["maximum_force_ratio"] == pytest.approx(1.737700021562633)
-    assert density["maximum_moment_ratio"] == pytest.approx(5.082957715910369)
+    assert density["maximum_force_ratio"] == pytest.approx(2.1709384552729065)
+    assert density["maximum_moment_ratio"] == pytest.approx(2.392028216656416)
     assert density["governing_bolt_combined_force_ratio"] == pytest.approx(
-        1.6494146902645872
+        1.1391976155276395
     )
-    assert density["panel_displacement_ratio"] == pytest.approx(1.0001764021567496)
+    assert density["panel_displacement_ratio"] == pytest.approx(1.000152465468062)
     assert density["stiffness_qualified"] is False
 
     assert result["decision"] == "RETAIN_PB02_FOR_DEVELOPMENT_WITH_REVISION"
@@ -73,6 +77,12 @@ def _mutated_evidence(tmp_path, monkeypatch, name, mutate):
     target = tmp_path / relative
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(report))
+    final_cycle = report["contact_cycles"][-1]["directory"]
+    for filename in decision.RETAINED_FINAL_FILES:
+        artifact_source = source.parent / final_cycle / filename
+        artifact_target = target.parent / final_cycle / filename
+        artifact_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(artifact_source, artifact_target)
     reports[name] = (str(target), hashlib.sha256(target.read_bytes()).hexdigest())
     monkeypatch.setattr(decision, "REPORTS", reports)
 
@@ -93,7 +103,24 @@ def _mutated_evidence(tmp_path, monkeypatch, name, mutate):
                 "exact_selected_values"
             ].update(face_normal_total_per_interface_n_per_mm=1000.0),
         ),
-        ("density_2x", lambda report: report.update(candidate="other-candidate")),
+        (
+            "density_0p5x",
+            lambda report: report["diagnostic_scope"]["stiffness_selection"][
+                "exact_selected_values"
+            ].update(floor_contact_n_per_mm=100000.0),
+        ),
+        (
+            "grid_8x8",
+            lambda report: report["parameters"].update(
+                force_xyz_n=[0.0, -299.0, -2224.11080763025]
+            ),
+        ),
+        (
+            "density_2x",
+            lambda report: report["diagnostic_scope"].update(
+                candidate="other-candidate"
+            ),
+        ),
         ("density_2x", lambda report: report.update(pb02_model_identity="changed")),
         ("density_2x", lambda report: report.update(numerically_accepted=False)),
         ("density_2x", lambda report: report.update(drilling_released=True)),

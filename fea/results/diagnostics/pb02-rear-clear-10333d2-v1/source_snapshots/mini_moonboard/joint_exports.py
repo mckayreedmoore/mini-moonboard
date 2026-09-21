@@ -1,0 +1,153 @@
+"""Separate viewer/export artifacts for provisional development variants."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+import cadquery as cq
+
+from . import joint_frame
+from .box_exports import exact_bounds, write_csv
+from .export import _export_step
+from .raster import render
+
+KEY = "joint-development"
+DESIGN = {
+    "key": KEY,
+    "baseline": "2x8-foot100",
+    "status": "PROVISIONAL — geometry development, not build-ready; candidate FEA not run",
+    "description": "Wider seam battens, solid ribs with wire chases, relocated custom rear angles and longer bolts. Steel fabrication, materials and fastener products remain unresolved.",
+}
+INDEPENDENT_DESIGN = {
+    "key": "independent-leg-development",
+    "baseline": KEY,
+    "status": "PROVISIONAL — independent-ply experiment; candidate FEA not run",
+    "description": "Four separate plywood leg plies and six internal stitch bolts on the joint redesign. No adhesive, interface-friction or external-bracing credit. Products and resistance unresolved.",
+}
+SPACING_DESIGN = {
+    "key": "screw-spacing-development",
+    "baseline": INDEPENDENT_DESIGN["key"],
+    "status": "PROVISIONAL — revised screw-spacing geometry; candidate FEA not run",
+    "description": "Longer seam ribs at rows 1/3, outward row-2 seam joints and relocated front screws/rear bolts. Separate leg plies retained. Mixed-product spacing approval, head seating, materials and resistance unresolved.",
+}
+CLIP_DESIGN = {
+    "key": "mid-batten-clip-development",
+    "baseline": SPACING_DESIGN["key"],
+    "status": "PROVISIONAL — clip-envelope inspection; candidate FEA not run",
+    "description": "Eight clip outlines replace the mid-batten end screws; dependent battens/ribs/angles move 5 mm. Separate leg plies and fixed MoonBoard holes retained. Clip screws are UNSELECTED envelopes, not the UK-specified nails or an approved US substitution. Product fit, installation and resistance unresolved.",
+}
+TRANSITION_DESIGN = {
+    "key": "lower-transition-development",
+    "baseline": CLIP_DESIGN["key"],
+    "status": "PROVISIONAL — perimeter replacement-route inspection; candidate FEA not run",
+    "description": "Ten custom steel angles and 40 unselected fasteners replace twelve perimeter/kicker end screws. Additive splice profiles are split into independent plywood plies. No glue/friction credit; products, installation and resistance unresolved. Top nominal washer/socket margins are only 0.5/0.9 mm, not approved tolerances.",
+}
+PRODUCT_DESIGN = {
+    "key": "selected-hardware-development",
+    "baseline": TRANSITION_DESIGN["key"],
+    "status": "PROVISIONAL — selected-product inspection envelopes; fit unqualified; candidate FEA not run",
+    "description": "Actual bolt, nut, washer and screw products selected for 278 connections; 23/32 CAT face panels retain the backing datums. Head seats, pilots and tool corridors are project allowances, not approved machining. US A21 uses an unverified UK geometry proxy. Install rib screws before panels and obstructed edge screws before legs. Upper top bolt timber end distance is only 23.4 mm and requires review; no installation or structural qualification.",
+}
+TOP_JOINT_DESIGN = {
+    "key": "top-joint-development",
+    "baseline": PRODUCT_DESIGN["key"],
+    "status": "PROVISIONAL — top-joint end-distance revision; extended steel resistance unresolved; candidate FEA not run",
+    "description": "Four top-rim bolts move 47 mm downhill, giving nominal timber end distances of 110.4/70.4 mm. Only the two custom angles' rim-facing leaves extend downhill; rail-facing leaves and screws stay fixed. Four receiving bodies are rebuilt; the other 83 bodies and 274 connections are preserved. Selected-product allowances and installation-order obstructions remain. Nominal spacing screens are not capacity approval; extended steel bending, prying, fabrication and installation remain unqualified.",
+}
+
+
+def export(directory=None, viewer=Path("site"), *, variant=KEY):
+    if variant == KEY:
+        model, design = joint_frame, DESIGN
+    elif variant == INDEPENDENT_DESIGN["key"]:
+        from . import independent_leg_frame
+        model, design = independent_leg_frame, INDEPENDENT_DESIGN
+    elif variant == SPACING_DESIGN["key"]:
+        from . import spacing_frame
+        model, design = spacing_frame, SPACING_DESIGN
+    elif variant == CLIP_DESIGN["key"]:
+        from . import clip_frame
+        model, design = clip_frame, CLIP_DESIGN
+    elif variant == TRANSITION_DESIGN["key"]:
+        from . import transition_frame
+        model, design = transition_frame, TRANSITION_DESIGN
+    elif variant == PRODUCT_DESIGN["key"]:
+        from . import product_frame
+        model, design = product_frame, PRODUCT_DESIGN
+    elif variant == TOP_JOINT_DESIGN["key"]:
+        from . import top_joint_frame
+        model, design = top_joint_frame, TOP_JOINT_DESIGN
+    else:
+        raise ValueError("Unknown development variant")
+    directory = Path(directory) if directory is not None else Path("exports")/variant
+    parts, connections = model.parts(), model.connections()
+    directory.mkdir(parents=True, exist_ok=True)
+    models = viewer/"hybrid"/variant/"models"
+    models.mkdir(parents=True, exist_ok=True)
+    assembly = cq.Assembly(name=variant.replace("-", "_")+"_PROVISIONAL")
+    def product_note(connection):
+        note = getattr(connection, "product_status", "")
+        return "; " + note if note else ""
+    entries = [(p.name, p.shape, p.blank, p.description, "part") for p in parts]
+    entries.extend(("fastener_"+c.name, cq.Compound.makeCompound(c.components()),
+                    (c.length, c.diameter, c.diameter), " + ".join(c.members)+
+                    "; nominal hardware envelope, capacity unvalidated" + product_note(c), c.kind) for c in connections)
+    items, solids = [], []
+    for name, shape, dims, description, kind in entries:
+        assembly.add(shape, name=name)
+        color = ((210, 65, 65) if kind == "bolt" else (41, 182, 214) if kind == "screw"
+                 else (120, 135, 145) if name.startswith(("angle_", "clip_", "transition_"))
+                 else (40, 46, 51) if name.startswith("main_") else (157, 90, 36))
+        solids.append((shape, color))
+        path = models/f"{name}.stl"
+        cq.exporters.export(shape, str(path), cq.exporters.ExportTypes.STL, tolerance=.5)
+        bounds = exact_bounds(shape)
+        items.append({"name": name, "path": str(path.relative_to(viewer)),
+                      "viewer_aabb_mm": [bounds.xlen, bounds.ylen, bounds.zlen],
+                      "fabrication": {"dimensions_mm": list(dims), "description": description,
+                                      "kind": kind, "clearance_status": "Development geometry; NOT structural approval"}})
+    bounds = exact_bounds(cq.Compound.makeCompound([p.shape for p in parts]))
+    viewer_manifest = models.parent/"parts.json"
+    viewer_manifest.write_text(json.dumps({"design": design, "parts": items,
+        "bounds_mm": [[getattr(bounds, axis+end) for axis in "xyz"] for end in ("min", "max")]}, indent=2)+"\n")
+    _export_step(assembly, directory/f"{variant}.step")
+    render(solids, directory/f"{variant}_front.png")
+    render([(shape.rotate((0, 0, 0), (0, 0, 1), 180), color) for shape, color in solids],
+           directory/f"{variant}_rear.png")
+    write_csv(directory, f"{variant}_parts.csv",
+              ("part", "layers", "dimension_1_mm", "dimension_2_mm", "dimension_3_mm",
+               "dimension_1_in", "dimension_2_in", "dimension_3_in", "description"),
+              [(p.name, p.laminations, *p.blank, *[v/25.4 for v in p.blank], p.description) for p in parts])
+    write_csv(directory, f"{variant}_connections.csv",
+              ("connection", "kind", "members", "x_mm", "y_mm", "z_mm", "axis_x", "axis_y", "axis_z",
+               "length_mm", "length_in", "diameter_mm", "grip_mm", "status"),
+              [(c.name, c.kind, " + ".join(c.members), *c.start.toTuple(), *c.direction.toTuple(),
+                c.length, c.length/25.4, c.diameter, c.grip, design["status"] + product_note(c)) for c in connections])
+    sources = list(map(Path, ("mini_moonboard/joint_exports.py", "mini_moonboard/joint_frame.py", "mini_moonboard/footprint_frame.py",
+               "mini_moonboard/shallow_frame.py", "mini_moonboard/hybrid_frame.py", "mini_moonboard/hybrid.py",
+               "mini_moonboard/box_frame.py", "mini_moonboard/model.py", "mini_moonboard/panel_grid.py",
+               "mini_moonboard/box_exports.py", "mini_moonboard/export.py", "mini_moonboard/raster.py")))
+    if variant in (INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
+        sources.append(Path("mini_moonboard/independent_leg_frame.py"))
+    if variant in (SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
+        sources.append(Path("mini_moonboard/spacing_frame.py"))
+    if variant in (CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
+        sources.append(Path("mini_moonboard/clip_frame.py"))
+    if variant in (TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
+        sources.append(Path("mini_moonboard/transition_frame.py"))
+    if variant in (PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]):
+        sources.extend(Path("mini_moonboard")/(name+".py") for name in
+                       ("product_frame", "product_connections", "selected_hardware"))
+    if variant == TOP_JOINT_DESIGN["key"]:
+        sources.append(Path("mini_moonboard/top_joint_frame.py"))
+    digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+    manifest = {"design": design, "sources": {str(p): digest(p) for p in sources},
+                "artifacts": {p.name: digest(p) for p in sorted(directory.iterdir()) if p.name != "manifest.json"},
+                "viewer_artifacts": {str(p.relative_to(viewer)): digest(p) for p in [viewer_manifest, *sorted(models.glob("*.stl"))]}}
+    (directory/"manifest.json").write_text(json.dumps(manifest, indent=2)+"\n")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--variant", choices=(KEY, INDEPENDENT_DESIGN["key"], SPACING_DESIGN["key"], CLIP_DESIGN["key"], TRANSITION_DESIGN["key"], PRODUCT_DESIGN["key"], TOP_JOINT_DESIGN["key"]), default=KEY)
+    export(variant=parser.parse_args().variant)

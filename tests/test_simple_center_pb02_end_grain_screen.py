@@ -15,8 +15,8 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
 
     assert result["interface"] == "block_header"
     assert result["evidence_report"] == (
-        "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1/"
-        "density-2x/report.json"
+        "fea/results/diagnostics/pb02-rear-clear-10333d2-v1/"
+        "refinement/density-2x/report.json"
     )
     assert result["authentication"] == {
         "candidate": "pb02-kerf-right-native-development-only",
@@ -31,12 +31,12 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
         "no_release": True,
     }
     assert result["demand_by_bolt_n"] == pytest.approx(
-        {"bolt_1": 18.11806500953031, "bolt_2": 35.81052578517264}
+        {"bolt_1": 36.009236018894825, "bolt_2": 25.06523110298114}
     )
     assert result["pair_geometry"]["spacing_mm"] == pytest.approx(30.55360044)
     assert result["pair_geometry"]["spacing_nominal_diameters"] > 4.8
     assert result["pair_geometry"]["force_angle_from_pair_line_degrees"] == (
-        pytest.approx({"bolt_1": 76.78127701, "bolt_2": 19.92493954})
+        pytest.approx({"bolt_1": 48.97384918, "bolt_2": 28.47030722})
     )
     assert result["adjustments"] == {
         "end_grain_factor": 0.67,
@@ -51,10 +51,10 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
     assert typical["governing_mode"] == "IV"
     assert typical["reference_lateral_lbf"] == pytest.approx(99.8591351)
     assert typical["end_grain_adjusted_reference_n"] == pytest.approx(297.6110275)
-    assert typical["single_case_demand_n"] == pytest.approx(35.81052579)
-    assert typical["demand_ratio"] == pytest.approx(0.12032661)
+    assert typical["single_case_demand_n"] == pytest.approx(36.00923602)
+    assert typical["demand_ratio"] == pytest.approx(0.12099429)
     assert typical["individual_bolt_demand_ratios"] == pytest.approx(
-        {"bolt_1": 0.06087834, "bolt_2": 0.12032661}
+        {"bolt_1": 0.12099429, "bolt_2": 0.08422145}
     )
 
     assert smaller["yield_moment_lb_in"] == pytest.approx(43.74)
@@ -62,9 +62,9 @@ def test_root_sensitivities_retain_z_grain_block_for_development():
     assert smaller["governing_mode"] == "IV"
     assert smaller["reference_lateral_lbf"] == pytest.approx(94.1194254)
     assert smaller["end_grain_adjusted_reference_n"] == pytest.approx(280.5049219)
-    assert smaller["demand_ratio"] == pytest.approx(0.12766452)
+    assert smaller["demand_ratio"] == pytest.approx(0.12837292)
     assert smaller["individual_bolt_demand_ratios"] == pytest.approx(
-        {"bolt_1": 0.06459090, "bolt_2": 0.12766452}
+        {"bolt_1": 0.12837292, "bolt_2": 0.08935754}
     )
     assert result["rating_or_drilling_release"] is False
 

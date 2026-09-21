@@ -1,0 +1,458 @@
+{
+  "case": "a1-rear",
+  "candidate": "pb02-kerf-right-native-development-only",
+  "deterministic_input_fingerprint": "b6ae00b8b90622260bcf79e0f6a37ec382b66df1efc8a289d761789eefb0e5c0",
+  "stiffness_selection": {
+    "exact_selected_values": {
+      "bolt_axial_n_per_mm": 1000.0,
+      "bolt_lateral_n_per_mm": 3086.746012418188,
+      "face_normal_total_per_interface_n_per_mm": 1000.0,
+      "floor_contact_n_per_mm": 10000.0
+    },
+    "contact_model": {
+      "law": "mean-interface-total-calibrated common areal density",
+      "partition_fingerprint": "e9cb8ea7a1f197728ed3f02e99b27b9b3445446b989a167474e9d6da674c77c4",
+      "grid_resolution": [
+        8,
+        8
+      ],
+      "contact_row_count": 413,
+      "partition": {
+        "schema": "pb02-canonical-contact-partition/v1",
+        "grid_resolution": [
+          8,
+          8
+        ],
+        "interfaces": {
+          "post_block": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 12792.710000000001,
+            "bore_area_mm2": 83.70773625490074,
+            "net_overlap_area_mm2": 12709.0022637451,
+            "net_centroid_mm": [
+              177.65000000000006,
+              -131.15943574093237,
+              166.99248287061718
+            ],
+            "net_first_moment_mm3": [
+              2257754.2521543177,
+              -1666905.5657430394,
+              2122307.8428310887
+            ],
+            "positive_component_count": 67,
+            "first": "post",
+            "second": "post_block",
+            "first_part": "shifted_right_post",
+            "second_part": "header_post_side_cleat",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "shifted_right_post": {
+                "start_mm": [
+                  133.2,
+                  -131.25,
+                  0.0
+                ],
+                "end_mm": [
+                  133.2,
+                  -131.25,
+                  238.9
+                ]
+              },
+              "header_post_side_cleat": {
+                "start_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  95.0
+                ],
+                "end_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  238.9
+                ]
+              }
+            },
+            "source_component_count": 67,
+            "native_attachment_coalesced_count": 0
+          },
+          "block_header": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 7903.210000000001,
+            "bore_area_mm2": 83.70773625490074,
+            "net_overlap_area_mm2": 7819.5022637451,
+            "net_centroid_mm": [
+              222.09919712534025,
+              -131.3276112171054,
+              238.90000000000006
+            ],
+            "net_first_moment_mm3": [
+              1736705.1746975675,
+              -1026916.5532043922,
+              1868079.090808705
+            ],
+            "positive_component_count": 65,
+            "first": "post_block",
+            "second": "header",
+            "first_part": "header_post_side_cleat",
+            "second_part": "base_header",
+            "canonical_first_to_second_normal": [
+              0,
+              0,
+              1
+            ],
+            "native_attachment_domains": {
+              "header_post_side_cleat": {
+                "start_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  95.0
+                ],
+                "end_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  238.9
+                ]
+              },
+              "base_header": {
+                "start_mm": [
+                  -1219.2,
+                  -105.85,
+                  257.95
+                ],
+                "end_mm": [
+                  1216.0250000000003,
+                  -105.85,
+                  257.95
+                ]
+              }
+            },
+            "source_component_count": 65,
+            "native_attachment_coalesced_count": 0
+          },
+          "header_principal_block": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 9273.164999999999,
+            "bore_area_mm2": 41.85386812745128,
+            "net_overlap_area_mm2": 9231.311131872548,
+            "net_centroid_mm": [
+              15.475,
+              -110.22010368248652,
+              276.99999999999994
+            ],
+            "net_first_moment_mm3": [
+              142854.53976572768,
+              -1017476.0700802843,
+              2557073.1835286953
+            ],
+            "positive_component_count": 64,
+            "first": "header",
+            "second": "principal_block",
+            "first_part": "base_header",
+            "second_part": "header_side_cleat",
+            "canonical_first_to_second_normal": [
+              0,
+              0,
+              1
+            ],
+            "native_attachment_domains": {
+              "base_header": {
+                "start_mm": [
+                  -1219.2,
+                  -105.85,
+                  257.95
+                ],
+                "end_mm": [
+                  1216.0250000000003,
+                  -105.85,
+                  257.95
+                ]
+              },
+              "header_side_cleat": {
+                "start_mm": [
+                  15.475000000000001,
+                  -190.0,
+                  310.5
+                ],
+                "end_mm": [
+                  15.475000000000001,
+                  -45.0,
+                  310.5
+                ]
+              }
+            },
+            "source_component_count": 64,
+            "native_attachment_coalesced_count": 0
+          },
+          "principal_block_principal": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 9090.807808780133,
+            "bore_area_mm2": 41.85386812744764,
+            "net_overlap_area_mm2": 9048.953940652686,
+            "net_centroid_mm": [
+              50.95,
+              -112.98425057334289,
+              310.0799230362716
+            ],
+            "net_first_moment_mm3": [
+              461044.20327625435,
+              -1022389.2794573416,
+              2805898.9414763516
+            ],
+            "positive_component_count": 49,
+            "first": "principal_block",
+            "second": "principal",
+            "first_part": "header_side_cleat",
+            "second_part": "base_principal_center_right",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "header_side_cleat": {
+                "start_mm": [
+                  15.475000000000001,
+                  -190.0,
+                  310.5
+                ],
+                "end_mm": [
+                  15.475000000000001,
+                  -45.0,
+                  310.5
+                ]
+              },
+              "base_principal_center_right": {
+                "start_mm": [
+                  70.0,
+                  -132.68003036784785,
+                  277.0
+                ],
+                "end_mm": [
+                  70.0,
+                  1457.5860952026026,
+                  2172.2053683294425
+                ]
+              }
+            },
+            "source_component_count": 64,
+            "native_attachment_coalesced_count": 15
+          },
+          "principal_upright_block": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 5796.813582293988,
+            "bore_area_mm2": 41.85386812744855,
+            "net_overlap_area_mm2": 5754.959714166539,
+            "net_centroid_mm": [
+              89.0500000000002,
+              -140.8691953431299,
+              326.22330817381555
+            ],
+            "net_first_moment_mm3": [
+              512479.1625465314,
+              -810696.5441667691,
+              1877401.9963624442
+            ],
+            "positive_component_count": 37,
+            "first": "principal",
+            "second": "upright_block",
+            "first_part": "base_principal_center_right",
+            "second_part": "upright_side_cleat",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "base_principal_center_right": {
+                "start_mm": [
+                  70.0,
+                  -132.68003036784785,
+                  277.0
+                ],
+                "end_mm": [
+                  70.0,
+                  1457.5860952026026,
+                  2172.2053683294425
+                ]
+              },
+              "upright_side_cleat": {
+                "start_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  277.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  460.0
+                ]
+              }
+            },
+            "source_component_count": 52,
+            "native_attachment_coalesced_count": 15
+          },
+          "upright_rear_block": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 16268.699999999999,
+            "bore_area_mm2": 41.85386812744946,
+            "net_overlap_area_mm2": 16226.84613187255,
+            "net_centroid_mm": [
+              133.5,
+              -175.70000000000002,
+              368.60317191101046
+            ],
+            "net_first_moment_mm3": [
+              2166283.9586049854,
+              -2851056.865370007,
+              5981266.954320133
+            ],
+            "positive_component_count": 64,
+            "first": "upright_block",
+            "second": "rear_block",
+            "first_part": "upright_side_cleat",
+            "second_part": "rear_cleat",
+            "canonical_first_to_second_normal": [
+              0,
+              -1,
+              0
+            ],
+            "native_attachment_domains": {
+              "upright_side_cleat": {
+                "start_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  277.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  460.0
+                ]
+              },
+              "rear_cleat": {
+                "start_mm": [
+                  133.5,
+                  -194.75,
+                  5.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -194.75,
+                  460.0
+                ]
+              }
+            },
+            "source_component_count": 64,
+            "native_attachment_coalesced_count": 0
+          },
+          "rear_block_post": {
+            "grid_resolution": [
+              8,
+              8
+            ],
+            "gross_overlap_area_mm2": 20723.54,
+            "bore_area_mm2": 83.70773625490256,
+            "net_overlap_area_mm2": 20639.8322637451,
+            "net_centroid_mm": [
+              133.3230299917663,
+              -175.7,
+              121.81190544656286
+            ],
+            "net_first_moment_mm3": [
+              2751764.9759243135,
+              -3626418.5287400135,
+              2514177.2961442354
+            ],
+            "positive_component_count": 67,
+            "first": "rear_block",
+            "second": "post",
+            "first_part": "rear_cleat",
+            "second_part": "shifted_right_post",
+            "canonical_first_to_second_normal": [
+              0,
+              1,
+              0
+            ],
+            "native_attachment_domains": {
+              "rear_cleat": {
+                "start_mm": [
+                  133.5,
+                  -194.75,
+                  5.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -194.75,
+                  460.0
+                ]
+              },
+              "shifted_right_post": {
+                "start_mm": [
+                  133.2,
+                  -131.25,
+                  0.0
+                ],
+                "end_mm": [
+                  133.2,
+                  -131.25,
+                  238.9
+                ]
+              }
+            },
+            "source_component_count": 67,
+            "native_attachment_coalesced_count": 0
+          }
+        },
+        "contact_row_count": 413,
+        "native_attachment_policy": "unsupported fine cells promoted to their 2x2 parent tile and coalesced at its area-weighted centroid",
+        "coalesced_pressure_limitation": "Each coalesced parent tile reports one average pressure and cannot resolve partial opening or a local pressure peak within that tile.",
+        "fingerprint": "e9cb8ea7a1f197728ed3f02e99b27b9b3445446b989a167474e9d6da674c77c4"
+      },
+      "mean_net_interface_area_mm2": 11632.915387114232,
+      "canonical_per_area_n_per_mm3": 0.0859629737449736,
+      "canonical_total_by_interface_n_per_mm": {
+        "post_block": 1092.5036279231301,
+        "block_header": 672.1876677970816,
+        "header_principal_block": 793.5509564608423,
+        "principal_block_principal": 777.8749900198021,
+        "principal_upright_block": 494.71345081227895,
+        "upright_rear_block": 1394.9079479978864,
+        "rear_block_post": 1774.2613589889788
+      },
+      "shifted_post_header_law": "separate existing four-point equal-total stiffness"
+    },
+    "selection_status": "explicit developmental trial inputs",
+    "published_basis_record": "scripts/simple_center_published_stiffness_basis.py",
+    "complete_joint_stiffness_qualified": false
+  },
+  "contact_update_strategy": "all",
+  "search_seed_case": null,
+  "developmental_only": true,
+  "qualified_for_design": false,
+  "actual_joint_demands_qualified": false,
+  "resistance_checked": false,
+  "acceptance": false,
+  "drilling_released": false,
+  "fabrication_released": false
+}

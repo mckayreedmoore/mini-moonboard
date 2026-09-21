@@ -17,22 +17,22 @@ MODES = ("Im", "Is", "II", "IIIm", "IIIs", "IV")
 N_PER_LBF = 4.4482216152605
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE_REPORT = (
-    ROOT / "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1/"
-    "density-2x/report.json"
+    ROOT / "fea/results/diagnostics/pb02-rear-clear-10333d2-v1/"
+    "refinement/density-2x/report.json"
 )
 CANDIDATE = "pb02-kerf-right-native-development-only"
 GEOMETRY_SOURCE = "scripts/simple_center_pb02_geometry.py"
 EXPECTED_GEOMETRY_FINGERPRINT = (
-    "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+    "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
 )
 EXPECTED_REPORT_SHA256 = (
-    "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
+    "4e8f9c193c225fe3d28002ab93ed3258d7560558ed089f27a49752adeea36023"
 )
 EXPECTED_MODEL_IDENTITY = (
-    "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a"
+    "6ff81b19cd60be0e2241af7350534de26b3fb68214de6d73fa80433221468b6f"
 )
 EXPECTED_SCOPE_FINGERPRINT = (
-    "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930"
+    "ce354d1ed95456b07e3c04cfe857f064d3987106124425391736c361d46dd773"
 )
 
 
