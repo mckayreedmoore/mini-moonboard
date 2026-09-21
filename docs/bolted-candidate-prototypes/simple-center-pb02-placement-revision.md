@@ -8,9 +8,9 @@ The integrated side-cleat pose, post/header block, other seven bolt axes, and al
 
 `front_stagger` remains a viable conditional trial, but it is not the active
 pose. The active `ligament_priority` variant keeps the same header-pair stagger
-while restoring `post_high` to Z190. That preserves the larger 6.7 mm nominal
-orthogonal-bore surface ligament instead of spending 1 mm of it to clear a
-−0.55 mm residual after the separate 5 mm project allowance. One immutable
+and uses the 0.1-mm drawing coordinate Z189.4 for `post_high`. This clears the
+7D plus 5 mm project comparator by 0.05 mm while retaining 6.1 mm nominal
+orthogonal-bore surface ligament. One immutable
 candidate-local trial specification and one geometry builder feed the integrated
 CAD check, placement table, stack screen, connected kinematics, and V4 viewer.
 `working_reference`, `front_stagger`, and rejected `rear_stagger` remain named
@@ -32,6 +32,10 @@ reserve. Lowering `post_high` by 1 mm changes its upper grain-end distance to
 49.9 mm and its conditional 7D plus 5 mm reserve to **+0.45 mm**. The placement
 table has no negative conditional rows. Its overall minimum is 0 mm because the
 unchanged upright remains exactly at one side-cleat edge comparator.
+
+The selected 189.4 mm active value sits between those bounded alternatives. Its
+upper grain-end distance is 49.5 mm, its 7D plus 5 mm reserve is +0.05 mm, and
+its nominal crossed-bore surface ligament is 6.1 mm.
 
 The revised pose retains nominal CAD fit:
 

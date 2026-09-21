@@ -3,7 +3,7 @@
 The [reproducible report](../../scripts/simple_center_provisional_component_actions.py)
 turns each solved PB02 spring-reaction record into per-bolt, per-face, per-interface, and
 per-body actions. It uses the `ligament_priority` variant and source fingerprint
-`4303388fad70e89ea4a65741e0fa2af38ab7d1d526f3af0be8ac0c9ac46de721`.
+`46da45226acf9660643cb88c76e80680a262efb38f0142d3156925cd2089a4e2`.
 
 This is an interpretation of authenticated old-duty trials. It is not a current PB02
 design-demand report, and the source set does not contain `a12-forward`.

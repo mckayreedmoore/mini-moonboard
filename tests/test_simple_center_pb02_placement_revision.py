@@ -31,6 +31,18 @@ def test_front_stagger_clears_target_reserves_and_keeps_nominal_fit():
     assert not selected["rating_or_drilling_release"]
 
 
+def test_active_drawing_revision_balances_end_reserve_and_ligament():
+    selected = probe()["ligament_priority"]
+
+    assert selected["post_high_z_mm"] == 189.4
+    assert selected["target_conditional_reserves_mm"][
+        "post_high/shifted_right_post/z_high"
+    ] == pytest.approx(0.05)
+    assert selected["conditional_negative_rows"] == []
+    assert selected["fixed_screw_axes_preserved"]
+    assert selected["nominal_cad_clear"]
+
+
 def test_bounded_controls_reproduce_reference_and_reject_rear_stagger():
     results = probe()
     reference = results["working_reference"]

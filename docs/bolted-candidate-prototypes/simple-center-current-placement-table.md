@@ -36,7 +36,7 @@ this chosen conditional marker plus project allowance is unmet.
 | Bolt / member and feature | Nominal mm | Conditional marker mm | Allowance mm | Reserve mm |
 | --- | ---: | ---: | ---: | ---: |
 | `post_cleat_1` / shifted post rear Y edge | 30.7 | 25.4 | 5 | +0.3 |
-| `post_high` / shifted post top grain end, inherited | 48.9 | 44.45 | 5 | −0.55 |
+| `post_high` / shifted post top grain end | 49.5 | 44.45 | 5 | +0.05 |
 | `upright` / side block front Y edge, inherited | 16.1 | 25.4 | 5 | −14.3 |
 | `cleat_header_1` / `cleat_header_2` parallel pair, header | 27.5 | 25.4 | 5 | −2.9 |
 | `upright` / inclined principal, Y lower box boundary | source-derived | unknown | none | unknown |
@@ -55,10 +55,10 @@ explicitly named *conditional subset minimum*. The subset minimum here is
 or claim of complete classification.
 
 Two orthogonal neighboring-bore pairs warrant a local wood check before
-selection: `post_high`/`post_cleat_2` in the shifted post and
-`upright`/`cleat_link` in the side block each have a **10 mm finite-centerline
-gap**. With the model's 3.65 mm bore radius on each axis, that leaves only
-**2.7 mm nominal wood between bore surfaces** at closest approach. This is
+selection. `post_high`/`post_cleat_2` in the shifted post has a **13.4 mm
+finite-centerline gap**, leaving **6.1 mm nominal wood between bore surfaces**.
+`upright`/`cleat_link` in the side block has a 14 mm centerline gap and 6.7 mm
+nominal wood. These values use the model's 3.65 mm bore radius. This is
 not a measured ligament or a strength rating; drill variation, splitting,
 combined local stress and applicability of any spacing rule remain open.
 

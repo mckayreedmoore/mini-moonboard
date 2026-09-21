@@ -1,67 +1,112 @@
-# PB02 native whole-frame diagnostic contract
+# PB02 corrected `a12-forward` decision record
 
-This diagnostic prepares the `pb02-kerf-right-native-development-only`
-candidate in the current-response whole-frame model. It preserves the six
-kerf-right panel solids and all 66 panel/kicker screw axes. Two right-center
-kicker receivers move to the backer without moving their axes. The model keeps
-22 unchanged legacy connector stations as response proxies.
+## Decision
 
-The connected PB02 joint inventory is exactly:
+**REVISE; retain PB02 for development.**
 
-- 10 tension-only axial bolt rows;
-- 20 lateral bolt rows;
-- 28 canonical compression-contact rows; and
-- four additional samples across the direct shifted-post/base-header face.
+The corrected `a12-forward` whole-frame result is numerically converged and
+supports retaining PB02 while its geometry and remaining checks are revised. It
+is one developmental load case, not a qualified connection design. It does not
+release drilling, fabrication, purchasing for construction, or construction.
 
-The four direct samples divide the selected total face-normal stiffness equally
-and do not credit backer/post contact. Automatic principal/header bearing from
-the current-response model remains present. The preparation also includes floor
-bearing for the shifted right post, backer, and rear cleat.
+The active geometry now moves `post_high` from Z = 190.0 mm to Z = 189.4 mm.
+The retained whole-frame evidence in this record predates that revision and
+must be rerun before its demands are attributed to the revised pose. The move
+increases
+the post upper-end distance from 48.9 mm to 49.5 mm and leaves approximately
+6.1 mm of nominal wood ligament at the crossed `post_high`/`post_cleat_2`
+bores. That remaining ligament is not structurally qualified.
 
-## Trial stiffness boundary
+## Authenticated evidence
 
-Every run must supply positive finite values for bolt axial stiffness, bolt
-lateral stiffness, and total face-normal stiffness per interface. The published
-stiffness-basis record supports sensitivity selection; it does not qualify a
-complete joint. Washer/contact compliance and a qualified axial joint stiffness
-remain unresolved. These inputs are numerical trial parameters, not strengths,
-capacities, or accepted design properties.
+The retained evidence package is:
 
-## Six-case runner
+`fea/results/diagnostics/pb02-corrected-a12-forward-v1`
 
-The runner uses this fixed order:
+| Artifact | SHA-256 |
+| --- | --- |
+| `report.json` | `7240026c654cb2b8b417741c0a895234a7c579fc271f9d4a8043cb83fcbb0020` |
+| `cycle-10/input.json` | `b153d9dc2600f31004bcc5ce27e5abdd4eda31ba9f6c6c22ff989f727e43a436` |
+| `cycle-10/frame.dat` | `1eea3da5d84bed06bcf04f15e260ca633c837a13c3794e8a7fb26c4df0419336` |
+| `cycle-10/frame.frd` | `bb4506708ff25d40dd1049bbb21f6f2ceca49a68ae484d2ff2679086fb0b4724` |
+| `cycle-10/frame.12d` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 
-1. `a12-forward`
-2. `a12-rear`
-3. `a12-left`
-4. `k12-right`
-5. `k12-rear`
-6. `a1-rear`
+The package also retains the authenticated source-snapshot closure. The
+corrected mapping reverses the seven canonical PB02 interface contact
+directions so compression closes and opening releases each interface. Bolt
+axes remain directed from the first member to the second. The four direct
+shifted-post/base-header samples remain inward in negative Z and do not credit
+backer/post contact.
 
-It first tries `a12-forward` with the unseeded `all` contact update. Only
-active-set nonconvergence permits an unseeded `one_at_a_time` retry. If both
-fail, the runner may continue the same case for a bounded number of
-`one_at_a_time` chunks. A continuation reuses only the authenticated Boolean
-normal-contact and axial-tension memberships from the rejected checkpoint; it
-does not reuse forces, displacements, demands, or acceptance. If forward still
-fails, the runner authenticates `a12-rear` through the same bounded sequence
-and may then seed `a12-forward` from the accepted rear-case normal-contact set.
-Other cases use the same sequence. A rejected attempt contributes no forces to
-the suite summary.
+The case converged in 11 cycles. The report passes the recorded contact and
+axial unilateral checks, member and global equilibrium checks, MPC checks, and
+positive-load-work gate. All retained artifacts referenced here match the
+hashes above. Numerical acceptance does not qualify the modeled demands as
+design demands.
 
-Before and after solving, the runner checks geometry, topology, candidate and
-load identity, selected stiffnesses, source hashes, active-set convergence, and
-global/member equilibrium. Accepted here means numerically authenticated only.
+## Corrected load path and demand
 
-## Artifacts
+The applied `a12-forward` load is `[0, -300, -2224.11] N`, in addition to
+modeled self-weight. The center-right load travels through three connected
+routes:
 
-Each attempt is written below `attempts/` with the native model artifacts. A
-numerically authenticated case also receives `diagnostic-scope.json` and an
-updated `report.json`. The suite-level
-`pb02-six-case-diagnostic.json` records the deterministic input fingerprint,
-stiffness selection, attempt history, validations, and paths and hashes for the
-six accepted case reports. It does not copy rejected-run forces.
+- base header to shifted post through direct wood bearing and the
+  `block_header` to `post_block` path;
+- base header to principal through `header_principal_block` and
+  `principal_block_principal`; and
+- principal to upright to rear cleat to shifted post through the return path.
 
-No PB02 six-case run is claimed by this document. The preparation and runner
-are developmental tooling only: no joint strength or resistance is established,
-and no design acceptance, drilling, or fabrication is released.
+The direct shifted-post/base-header bearing carries 114.64 N. All four samples
+are compressive. The governing interface is `rear_block_post`, with a 155.48 N
+resultant force and approximately 5.98 kN·mm resultant moment. The largest
+simultaneous bolt demand is 79.96 N lateral shear and 24.66 N tension.
+
+The preliminary conditional DF-L lateral screen reaches a maximum demand ratio
+of 0.148. Using the smaller thread-root sensitivity increases that ratio to
+0.157. The conditional A307 steel comparator has a maximum linear
+axial-plus-shear interaction of 0.0321. The idealized washer-annulus wood
+bearing ratio is 0.0256. These are component screens only; they do not establish
+joint resistance or resolve splitting, group action, washer metal behavior,
+prying, preload, or member interaction.
+
+## Hardware and access
+
+The current PB02 layout uses 10 through-bolts, 10 nuts, and 20 washers:
+
+- three 5-inch bolts;
+- three 6-inch bolts; and
+- four 8-inch bolts.
+
+The estimated hardware cost is $11.88 allocated or $13.69 at first checkout,
+excluding lumber. All modeled bolts have an insertion route, but 7 of 10 are
+one-ended access installations. Nominal washer seats and compact socket
+envelopes clear in this model. Delivered dimensions and tool access still need
+physical verification.
+
+## Required revision and unresolved work
+
+The two `block_header` bolts are an axis-parallel/end-grain case for the current
+block grain orientation. A conditional 2024 NDS single-bolt yield calculation,
+using DF-L G = 0.50, 45 ksi bolt yield strength, the 0.67 end-grain factor, and
+the smaller 0.180-inch thread-root sensitivity, gives 280.50 N versus the
+33.71 N corrected-case demand, a ratio of 0.1202. The 0.189-inch typical-root
+sensitivity gives 297.61 N and a ratio of 0.1133. These are component references,
+not final adjusted values: group action, geometry factor, splitting, and the
+remaining load cases remain unresolved. This result does not require rotating
+the block grain or moving to 4x8 stock solely for the current one-case demand.
+
+Before any physical release, work still includes:
+
+- rerun the corrected response at the integrated `post_high` Z = 189.4 mm
+  geometry;
+- resolve the approximately 6.1 mm crossed-bore ligament and local splitting;
+- complete the `block_header` group, geometry-factor, and local wood checks;
+- verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
+  insertion routes, and tool access;
+- complete bolt-row/group, perpendicular-tension, bore-aware member,
+  washer-metal, preload, and prying checks; and
+- run and envelope `a12-rear`, `a12-left`, `k12-right`, `k12-rear`, and
+  `a1-rear` with the corrected mapping and revised geometry.
+
+Until those items are completed and reviewed, PB02 remains developmental only:
+**no drilling, fabrication, or construction is authorized.**
