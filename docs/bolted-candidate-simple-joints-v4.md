@@ -285,6 +285,21 @@ cuts 37.9824 mm instead of 36.9824 mm in the six outer blocks. Its twelve seated
 gain 1.0 mm nominal length margin without a modeled collision, while remaining X-direction
 wood drops to 101.7176 mm. This is **ADVANCE for geometry exploration only**: 1 mm is not a
 verified bolt or machining tolerance, and reduced net wood and complete joint checks remain.
+The [same-case local pocket screen](../scripts/simple_pb04_pocket_local_screen.py)
+finds 6,274.12 mm² and 6,256.22 mm² exact pocket-axis net areas at the original and deeper
+depths. Six isolated force-only net-tension comparisons remain below their conditional
+references. The paired moment, contact transfer, block shear, splitting and torsion are not
+thereby rated. Its **REVISE_LOCAL_CHECKS** decision retains both pocket depths as development
+trials and calls next for exact cut-section centroids/second moments under signed same-case
+bolt-plus-contact actions; it selects no physical revision.
+
+The [tolerance audit](bolted-candidate-prototypes/simple-pb04-retail-tolerance-basis.md)
+cannot certify either
+pocket depth. A published general hex-bolt length tolerance, *if it applied to the exact
+Everbilt part*, could allow a 4.572 mm under-head shortfall, greater than the deeper trial's
+1 mm nominal reserve; neither the part's dimensional conformance nor companion washer/nut
+and wood/cut bounds are published for this complete stack. A measured or controlled receiving
+interval is required before selecting a pocket depth.
 
 ## PB-02 G1 status and remaining boundaries
 
