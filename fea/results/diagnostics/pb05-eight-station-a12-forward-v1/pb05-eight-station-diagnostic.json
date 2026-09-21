@@ -1,0 +1,1151 @@
+{
+  "schema": "simple_pb05_eight_station_diagnostic_run/v1",
+  "candidate": "pb05-six-narrow-no-pocket-outer-v1",
+  "case_order": [
+    "a12-forward",
+    "a12-rear",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "loads": {
+    "a12-forward": {
+      "hold": "A12",
+      "horizontal_force_xy_n": [
+        0.0,
+        -300.0
+      ]
+    },
+    "a12-rear": {
+      "hold": "A12",
+      "horizontal_force_xy_n": [
+        0.0,
+        300.0
+      ]
+    },
+    "a12-left": {
+      "hold": "A12",
+      "horizontal_force_xy_n": [
+        -300.0,
+        0.0
+      ]
+    },
+    "k12-right": {
+      "hold": "K12",
+      "horizontal_force_xy_n": [
+        300.0,
+        0.0
+      ]
+    },
+    "k12-rear": {
+      "hold": "K12",
+      "horizontal_force_xy_n": [
+        0.0,
+        300.0
+      ]
+    },
+    "a1-rear": {
+      "hold": "A1",
+      "horizontal_force_xy_n": [
+        0.0,
+        300.0
+      ]
+    }
+  },
+  "mechanics_identity": {
+    "mechanics_source_id": "pb05-eight-station-native-mechanics-v1",
+    "pb05_source_id": "pb05-six-narrow-no-pocket-outer-v1",
+    "source_fingerprint_sha256": "74ec72045345fe59ef1a225e85fcc1f608ccd36e6bfa15d8375b576cb5b943f2",
+    "pb02_source_fingerprint": "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb",
+    "replaced_stations": [
+      "clip_horizontal_lower_left_2",
+      "clip_horizontal_lower_right_1",
+      "clip_horizontal_lower_left_1",
+      "clip_horizontal_lower_right_2",
+      "clip_horizontal_upper_left_1",
+      "clip_horizontal_upper_right_2",
+      "clip_horizontal_bottom_left_1",
+      "clip_horizontal_bottom_right_2"
+    ],
+    "outer_stations": [
+      "clip_horizontal_lower_left_1",
+      "clip_horizontal_lower_right_2",
+      "clip_horizontal_upper_left_1",
+      "clip_horizontal_upper_right_2",
+      "clip_horizontal_bottom_left_1",
+      "clip_horizontal_bottom_right_2"
+    ],
+    "legacy_proxy_stations": 14,
+    "fixed_panel_kicker_axes": 66,
+    "contact_grid": [
+      2,
+      2
+    ],
+    "row_fingerprint_sha256": "4f2ae6f38e6d3fb9f9dc890fd810a8349128dce4b3238faccd6ebf0afcd7f151"
+  },
+  "topology_inventory": {
+    "legacy_station_count": 14,
+    "fixed_panel_kicker_axis_count": 66,
+    "pb05_tension_only_bolt_count": 32,
+    "pb02_tension_only_bolt_count": 10,
+    "pb05_contact_cell_count": 64,
+    "block_member_count": 8,
+    "tension_only_bolt_names": [
+      "block_header/bolt_1",
+      "block_header/bolt_2",
+      "header_principal_block/bolt_1",
+      "pb03_bottom_outer_left_rail_1",
+      "pb03_bottom_outer_left_rail_2",
+      "pb03_bottom_outer_left_upright_1",
+      "pb03_bottom_outer_left_upright_2",
+      "pb03_bottom_outer_right_rail_1",
+      "pb03_bottom_outer_right_rail_2",
+      "pb03_bottom_outer_right_upright_1",
+      "pb03_bottom_outer_right_upright_2",
+      "pb03_left_rail_1",
+      "pb03_left_rail_2",
+      "pb03_left_upright_1",
+      "pb03_left_upright_2",
+      "pb03_lower_outer_left_rail_1",
+      "pb03_lower_outer_left_rail_2",
+      "pb03_lower_outer_left_upright_1",
+      "pb03_lower_outer_left_upright_2",
+      "pb03_lower_outer_right_rail_1",
+      "pb03_lower_outer_right_rail_2",
+      "pb03_lower_outer_right_upright_1",
+      "pb03_lower_outer_right_upright_2",
+      "pb03_right_rail_1",
+      "pb03_right_rail_2",
+      "pb03_right_upright_1",
+      "pb03_right_upright_2",
+      "pb03_upper_outer_left_rail_1",
+      "pb03_upper_outer_left_rail_2",
+      "pb03_upper_outer_left_upright_1",
+      "pb03_upper_outer_left_upright_2",
+      "pb03_upper_outer_right_rail_1",
+      "pb03_upper_outer_right_rail_2",
+      "pb03_upper_outer_right_upright_1",
+      "pb03_upper_outer_right_upright_2",
+      "post_block/bolt_1",
+      "post_block/bolt_2",
+      "principal_block_principal/bolt_1",
+      "principal_upright_block/bolt_1",
+      "rear_block_post/bolt_1",
+      "rear_block_post/bolt_2",
+      "upright_rear_block/bolt_1"
+    ],
+    "pb05_bolt_names": [
+      "pb03_bottom_outer_left_rail_1",
+      "pb03_bottom_outer_left_rail_2",
+      "pb03_bottom_outer_left_upright_1",
+      "pb03_bottom_outer_left_upright_2",
+      "pb03_bottom_outer_right_rail_1",
+      "pb03_bottom_outer_right_rail_2",
+      "pb03_bottom_outer_right_upright_1",
+      "pb03_bottom_outer_right_upright_2",
+      "pb03_left_rail_1",
+      "pb03_left_rail_2",
+      "pb03_left_upright_1",
+      "pb03_left_upright_2",
+      "pb03_lower_outer_left_rail_1",
+      "pb03_lower_outer_left_rail_2",
+      "pb03_lower_outer_left_upright_1",
+      "pb03_lower_outer_left_upright_2",
+      "pb03_lower_outer_right_rail_1",
+      "pb03_lower_outer_right_rail_2",
+      "pb03_lower_outer_right_upright_1",
+      "pb03_lower_outer_right_upright_2",
+      "pb03_right_rail_1",
+      "pb03_right_rail_2",
+      "pb03_right_upright_1",
+      "pb03_right_upright_2",
+      "pb03_upper_outer_left_rail_1",
+      "pb03_upper_outer_left_rail_2",
+      "pb03_upper_outer_left_upright_1",
+      "pb03_upper_outer_left_upright_2",
+      "pb03_upper_outer_right_rail_1",
+      "pb03_upper_outer_right_rail_2",
+      "pb03_upper_outer_right_upright_1",
+      "pb03_upper_outer_right_upright_2"
+    ],
+    "pb05_contact_names": [
+      "pb03_bottom_outer_left_block_rail_contact_1_1",
+      "pb03_bottom_outer_left_block_rail_contact_1_2",
+      "pb03_bottom_outer_left_block_rail_contact_2_1",
+      "pb03_bottom_outer_left_block_rail_contact_2_2",
+      "pb03_bottom_outer_left_block_upright_contact_1_1",
+      "pb03_bottom_outer_left_block_upright_contact_1_2",
+      "pb03_bottom_outer_left_block_upright_contact_2_1",
+      "pb03_bottom_outer_left_block_upright_contact_2_2",
+      "pb03_bottom_outer_right_block_rail_contact_1_1",
+      "pb03_bottom_outer_right_block_rail_contact_1_2",
+      "pb03_bottom_outer_right_block_rail_contact_2_1",
+      "pb03_bottom_outer_right_block_rail_contact_2_2",
+      "pb03_bottom_outer_right_block_upright_contact_1_1",
+      "pb03_bottom_outer_right_block_upright_contact_1_2",
+      "pb03_bottom_outer_right_block_upright_contact_2_1",
+      "pb03_bottom_outer_right_block_upright_contact_2_2",
+      "pb03_lower_center_left_block_rail_contact_1_1",
+      "pb03_lower_center_left_block_rail_contact_1_2",
+      "pb03_lower_center_left_block_rail_contact_2_1",
+      "pb03_lower_center_left_block_rail_contact_2_2",
+      "pb03_lower_center_left_block_upright_contact_1_1",
+      "pb03_lower_center_left_block_upright_contact_1_2",
+      "pb03_lower_center_left_block_upright_contact_2_1",
+      "pb03_lower_center_left_block_upright_contact_2_2",
+      "pb03_lower_center_right_block_rail_contact_1_1",
+      "pb03_lower_center_right_block_rail_contact_1_2",
+      "pb03_lower_center_right_block_rail_contact_2_1",
+      "pb03_lower_center_right_block_rail_contact_2_2",
+      "pb03_lower_center_right_block_upright_contact_1_1",
+      "pb03_lower_center_right_block_upright_contact_1_2",
+      "pb03_lower_center_right_block_upright_contact_2_1",
+      "pb03_lower_center_right_block_upright_contact_2_2",
+      "pb03_lower_outer_left_block_rail_contact_1_1",
+      "pb03_lower_outer_left_block_rail_contact_1_2",
+      "pb03_lower_outer_left_block_rail_contact_2_1",
+      "pb03_lower_outer_left_block_rail_contact_2_2",
+      "pb03_lower_outer_left_block_upright_contact_1_1",
+      "pb03_lower_outer_left_block_upright_contact_1_2",
+      "pb03_lower_outer_left_block_upright_contact_2_1",
+      "pb03_lower_outer_left_block_upright_contact_2_2",
+      "pb03_lower_outer_right_block_rail_contact_1_1",
+      "pb03_lower_outer_right_block_rail_contact_1_2",
+      "pb03_lower_outer_right_block_rail_contact_2_1",
+      "pb03_lower_outer_right_block_rail_contact_2_2",
+      "pb03_lower_outer_right_block_upright_contact_1_1",
+      "pb03_lower_outer_right_block_upright_contact_1_2",
+      "pb03_lower_outer_right_block_upright_contact_2_1",
+      "pb03_lower_outer_right_block_upright_contact_2_2",
+      "pb03_upper_outer_left_block_rail_contact_1_1",
+      "pb03_upper_outer_left_block_rail_contact_1_2",
+      "pb03_upper_outer_left_block_rail_contact_2_1",
+      "pb03_upper_outer_left_block_rail_contact_2_2",
+      "pb03_upper_outer_left_block_upright_contact_1_1",
+      "pb03_upper_outer_left_block_upright_contact_1_2",
+      "pb03_upper_outer_left_block_upright_contact_2_1",
+      "pb03_upper_outer_left_block_upright_contact_2_2",
+      "pb03_upper_outer_right_block_rail_contact_1_1",
+      "pb03_upper_outer_right_block_rail_contact_1_2",
+      "pb03_upper_outer_right_block_rail_contact_2_1",
+      "pb03_upper_outer_right_block_rail_contact_2_2",
+      "pb03_upper_outer_right_block_upright_contact_1_1",
+      "pb03_upper_outer_right_block_upright_contact_1_2",
+      "pb03_upper_outer_right_block_upright_contact_2_1",
+      "pb03_upper_outer_right_block_upright_contact_2_2"
+    ],
+    "block_member_names": [
+      "pb03_bottom_outer_left_block",
+      "pb03_bottom_outer_right_block",
+      "pb03_lower_center_left_block",
+      "pb03_lower_center_right_block",
+      "pb03_lower_outer_left_block",
+      "pb03_lower_outer_right_block",
+      "pb03_upper_outer_left_block",
+      "pb03_upper_outer_right_block"
+    ],
+    "required_physical_names": [
+      "block_header/bolt_1",
+      "block_header/bolt_2",
+      "block_header/contact_r1c1p1",
+      "block_header/contact_r1c2p1",
+      "block_header/contact_r2c1p1",
+      "block_header/contact_r2c2p1",
+      "header_principal_block/bolt_1",
+      "header_principal_block/contact_r1c1p1",
+      "header_principal_block/contact_r1c2p1",
+      "header_principal_block/contact_r2c1p1",
+      "header_principal_block/contact_r2c2p1",
+      "pb02_shifted_post_header_compression_1_1",
+      "pb02_shifted_post_header_compression_1_2",
+      "pb02_shifted_post_header_compression_2_1",
+      "pb02_shifted_post_header_compression_2_2",
+      "pb03_bottom_outer_left_block_rail_contact_1_1",
+      "pb03_bottom_outer_left_block_rail_contact_1_2",
+      "pb03_bottom_outer_left_block_rail_contact_2_1",
+      "pb03_bottom_outer_left_block_rail_contact_2_2",
+      "pb03_bottom_outer_left_block_upright_contact_1_1",
+      "pb03_bottom_outer_left_block_upright_contact_1_2",
+      "pb03_bottom_outer_left_block_upright_contact_2_1",
+      "pb03_bottom_outer_left_block_upright_contact_2_2",
+      "pb03_bottom_outer_left_rail_1",
+      "pb03_bottom_outer_left_rail_2",
+      "pb03_bottom_outer_left_upright_1",
+      "pb03_bottom_outer_left_upright_2",
+      "pb03_bottom_outer_right_block_rail_contact_1_1",
+      "pb03_bottom_outer_right_block_rail_contact_1_2",
+      "pb03_bottom_outer_right_block_rail_contact_2_1",
+      "pb03_bottom_outer_right_block_rail_contact_2_2",
+      "pb03_bottom_outer_right_block_upright_contact_1_1",
+      "pb03_bottom_outer_right_block_upright_contact_1_2",
+      "pb03_bottom_outer_right_block_upright_contact_2_1",
+      "pb03_bottom_outer_right_block_upright_contact_2_2",
+      "pb03_bottom_outer_right_rail_1",
+      "pb03_bottom_outer_right_rail_2",
+      "pb03_bottom_outer_right_upright_1",
+      "pb03_bottom_outer_right_upright_2",
+      "pb03_left_rail_1",
+      "pb03_left_rail_2",
+      "pb03_left_upright_1",
+      "pb03_left_upright_2",
+      "pb03_lower_center_left_block_rail_contact_1_1",
+      "pb03_lower_center_left_block_rail_contact_1_2",
+      "pb03_lower_center_left_block_rail_contact_2_1",
+      "pb03_lower_center_left_block_rail_contact_2_2",
+      "pb03_lower_center_left_block_upright_contact_1_1",
+      "pb03_lower_center_left_block_upright_contact_1_2",
+      "pb03_lower_center_left_block_upright_contact_2_1",
+      "pb03_lower_center_left_block_upright_contact_2_2",
+      "pb03_lower_center_right_block_rail_contact_1_1",
+      "pb03_lower_center_right_block_rail_contact_1_2",
+      "pb03_lower_center_right_block_rail_contact_2_1",
+      "pb03_lower_center_right_block_rail_contact_2_2",
+      "pb03_lower_center_right_block_upright_contact_1_1",
+      "pb03_lower_center_right_block_upright_contact_1_2",
+      "pb03_lower_center_right_block_upright_contact_2_1",
+      "pb03_lower_center_right_block_upright_contact_2_2",
+      "pb03_lower_outer_left_block_rail_contact_1_1",
+      "pb03_lower_outer_left_block_rail_contact_1_2",
+      "pb03_lower_outer_left_block_rail_contact_2_1",
+      "pb03_lower_outer_left_block_rail_contact_2_2",
+      "pb03_lower_outer_left_block_upright_contact_1_1",
+      "pb03_lower_outer_left_block_upright_contact_1_2",
+      "pb03_lower_outer_left_block_upright_contact_2_1",
+      "pb03_lower_outer_left_block_upright_contact_2_2",
+      "pb03_lower_outer_left_rail_1",
+      "pb03_lower_outer_left_rail_2",
+      "pb03_lower_outer_left_upright_1",
+      "pb03_lower_outer_left_upright_2",
+      "pb03_lower_outer_right_block_rail_contact_1_1",
+      "pb03_lower_outer_right_block_rail_contact_1_2",
+      "pb03_lower_outer_right_block_rail_contact_2_1",
+      "pb03_lower_outer_right_block_rail_contact_2_2",
+      "pb03_lower_outer_right_block_upright_contact_1_1",
+      "pb03_lower_outer_right_block_upright_contact_1_2",
+      "pb03_lower_outer_right_block_upright_contact_2_1",
+      "pb03_lower_outer_right_block_upright_contact_2_2",
+      "pb03_lower_outer_right_rail_1",
+      "pb03_lower_outer_right_rail_2",
+      "pb03_lower_outer_right_upright_1",
+      "pb03_lower_outer_right_upright_2",
+      "pb03_right_rail_1",
+      "pb03_right_rail_2",
+      "pb03_right_upright_1",
+      "pb03_right_upright_2",
+      "pb03_upper_outer_left_block_rail_contact_1_1",
+      "pb03_upper_outer_left_block_rail_contact_1_2",
+      "pb03_upper_outer_left_block_rail_contact_2_1",
+      "pb03_upper_outer_left_block_rail_contact_2_2",
+      "pb03_upper_outer_left_block_upright_contact_1_1",
+      "pb03_upper_outer_left_block_upright_contact_1_2",
+      "pb03_upper_outer_left_block_upright_contact_2_1",
+      "pb03_upper_outer_left_block_upright_contact_2_2",
+      "pb03_upper_outer_left_rail_1",
+      "pb03_upper_outer_left_rail_2",
+      "pb03_upper_outer_left_upright_1",
+      "pb03_upper_outer_left_upright_2",
+      "pb03_upper_outer_right_block_rail_contact_1_1",
+      "pb03_upper_outer_right_block_rail_contact_1_2",
+      "pb03_upper_outer_right_block_rail_contact_2_1",
+      "pb03_upper_outer_right_block_rail_contact_2_2",
+      "pb03_upper_outer_right_block_upright_contact_1_1",
+      "pb03_upper_outer_right_block_upright_contact_1_2",
+      "pb03_upper_outer_right_block_upright_contact_2_1",
+      "pb03_upper_outer_right_block_upright_contact_2_2",
+      "pb03_upper_outer_right_rail_1",
+      "pb03_upper_outer_right_rail_2",
+      "pb03_upper_outer_right_upright_1",
+      "pb03_upper_outer_right_upright_2",
+      "post_block/bolt_1",
+      "post_block/bolt_2",
+      "post_block/contact_r1c1p1",
+      "post_block/contact_r1c2p1",
+      "post_block/contact_r2c1p1",
+      "post_block/contact_r2c2p1",
+      "principal_block_principal/bolt_1",
+      "principal_block_principal/contact_r1c1p1",
+      "principal_block_principal/contact_r1c2p1",
+      "principal_block_principal/contact_r2c1p1",
+      "principal_block_principal/contact_r2c2p1",
+      "principal_upright_block/bolt_1",
+      "principal_upright_block/contact_r1c1p1",
+      "principal_upright_block/contact_r1c2p1",
+      "principal_upright_block/contact_r2c1p1",
+      "principal_upright_block/contact_r2c2p1",
+      "rear_block_post/bolt_1",
+      "rear_block_post/bolt_2",
+      "rear_block_post/contact_r1c1p1",
+      "rear_block_post/contact_r1c2p1",
+      "rear_block_post/contact_r2c1p1",
+      "rear_block_post/contact_r2c2p1",
+      "upright_rear_block/bolt_1",
+      "upright_rear_block/contact_r1c1p1",
+      "upright_rear_block/contact_r1c2p1",
+      "upright_rear_block/contact_r2c1p1",
+      "upright_rear_block/contact_r2c2p1"
+    ]
+  },
+  "stiffness_selection": {
+    "exact_selected_values": {
+      "bolt_axial_n_per_mm": 700.0,
+      "bolt_lateral_n_per_mm": 1200.0,
+      "face_normal_total_per_interface_n_per_mm": 2400.0,
+      "floor_contact_n_per_mm": 10000.0
+    },
+    "contact_model": {
+      "law": "mean-interface-total-calibrated common areal density",
+      "partition_fingerprint": "2f105d500f308d344cf72773d53001c1a187321d625d20624f00cd463823d67a",
+      "grid_resolution": [
+        2,
+        2
+      ],
+      "contact_row_count": 28,
+      "partition": {
+        "schema": "pb02-canonical-contact-partition/v1",
+        "grid_resolution": [
+          2,
+          2
+        ],
+        "interfaces": {
+          "post_block": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 12792.710000000001,
+            "bore_area_mm2": 83.70773625490074,
+            "net_overlap_area_mm2": 12709.0022637451,
+            "net_centroid_mm": [
+              177.65000000000006,
+              -131.15943574093237,
+              166.99248287061718
+            ],
+            "net_first_moment_mm3": [
+              2257754.2521543177,
+              -1666905.5657430394,
+              2122307.8428310887
+            ],
+            "positive_component_count": 4,
+            "first": "post",
+            "second": "post_block",
+            "first_part": "shifted_right_post",
+            "second_part": "header_post_side_cleat",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "shifted_right_post": {
+                "start_mm": [
+                  133.2,
+                  -131.25,
+                  0.0
+                ],
+                "end_mm": [
+                  133.2,
+                  -131.25,
+                  238.9
+                ]
+              },
+              "header_post_side_cleat": {
+                "start_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  95.0
+                ],
+                "end_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  238.9
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "block_header": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 7903.210000000001,
+            "bore_area_mm2": 83.70773625490074,
+            "net_overlap_area_mm2": 7819.5022637451,
+            "net_centroid_mm": [
+              222.09919712534025,
+              -131.3276112171054,
+              238.90000000000006
+            ],
+            "net_first_moment_mm3": [
+              1736705.1746975675,
+              -1026916.5532043922,
+              1868079.090808705
+            ],
+            "positive_component_count": 4,
+            "first": "post_block",
+            "second": "header",
+            "first_part": "header_post_side_cleat",
+            "second_part": "base_header",
+            "canonical_first_to_second_normal": [
+              0,
+              0,
+              1
+            ],
+            "native_attachment_domains": {
+              "header_post_side_cleat": {
+                "start_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  95.0
+                ],
+                "end_mm": [
+                  222.10000000000002,
+                  -131.25,
+                  238.9
+                ]
+              },
+              "base_header": {
+                "start_mm": [
+                  -1219.2,
+                  -105.85,
+                  257.95
+                ],
+                "end_mm": [
+                  1216.0250000000003,
+                  -105.85,
+                  257.95
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "header_principal_block": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 9273.164999999999,
+            "bore_area_mm2": 41.85386812745128,
+            "net_overlap_area_mm2": 9231.311131872548,
+            "net_centroid_mm": [
+              15.475,
+              -110.22010368248652,
+              276.99999999999994
+            ],
+            "net_first_moment_mm3": [
+              142854.53976572768,
+              -1017476.0700802843,
+              2557073.1835286953
+            ],
+            "positive_component_count": 4,
+            "first": "header",
+            "second": "principal_block",
+            "first_part": "base_header",
+            "second_part": "header_side_cleat",
+            "canonical_first_to_second_normal": [
+              0,
+              0,
+              1
+            ],
+            "native_attachment_domains": {
+              "base_header": {
+                "start_mm": [
+                  -1219.2,
+                  -105.85,
+                  257.95
+                ],
+                "end_mm": [
+                  1216.0250000000003,
+                  -105.85,
+                  257.95
+                ]
+              },
+              "header_side_cleat": {
+                "start_mm": [
+                  15.475000000000001,
+                  -190.0,
+                  310.5
+                ],
+                "end_mm": [
+                  15.475000000000001,
+                  -45.0,
+                  310.5
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "principal_block_principal": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 9090.807808780133,
+            "bore_area_mm2": 41.85386812744764,
+            "net_overlap_area_mm2": 9048.953940652686,
+            "net_centroid_mm": [
+              50.95,
+              -112.98425057334289,
+              310.0799230362716
+            ],
+            "net_first_moment_mm3": [
+              461044.20327625435,
+              -1022389.2794573416,
+              2805898.9414763516
+            ],
+            "positive_component_count": 4,
+            "first": "principal_block",
+            "second": "principal",
+            "first_part": "header_side_cleat",
+            "second_part": "base_principal_center_right",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "header_side_cleat": {
+                "start_mm": [
+                  15.475000000000001,
+                  -190.0,
+                  310.5
+                ],
+                "end_mm": [
+                  15.475000000000001,
+                  -45.0,
+                  310.5
+                ]
+              },
+              "base_principal_center_right": {
+                "start_mm": [
+                  70.0,
+                  -132.68003036784785,
+                  277.0
+                ],
+                "end_mm": [
+                  70.0,
+                  1457.5860952026026,
+                  2172.2053683294425
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "principal_upright_block": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 5796.813582293988,
+            "bore_area_mm2": 41.85386812744855,
+            "net_overlap_area_mm2": 5754.959714166539,
+            "net_centroid_mm": [
+              89.0500000000002,
+              -140.8691953431299,
+              326.22330817381555
+            ],
+            "net_first_moment_mm3": [
+              512479.1625465314,
+              -810696.5441667691,
+              1877401.9963624442
+            ],
+            "positive_component_count": 4,
+            "first": "principal",
+            "second": "upright_block",
+            "first_part": "base_principal_center_right",
+            "second_part": "upright_side_cleat",
+            "canonical_first_to_second_normal": [
+              1,
+              0,
+              0
+            ],
+            "native_attachment_domains": {
+              "base_principal_center_right": {
+                "start_mm": [
+                  70.0,
+                  -132.68003036784785,
+                  277.0
+                ],
+                "end_mm": [
+                  70.0,
+                  1457.5860952026026,
+                  2172.2053683294425
+                ]
+              },
+              "upright_side_cleat": {
+                "start_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  277.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  460.0
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "upright_rear_block": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 16268.699999999999,
+            "bore_area_mm2": 41.85386812744946,
+            "net_overlap_area_mm2": 16226.84613187255,
+            "net_centroid_mm": [
+              133.5,
+              -175.70000000000002,
+              368.60317191101046
+            ],
+            "net_first_moment_mm3": [
+              2166283.9586049854,
+              -2851056.865370007,
+              5981266.954320133
+            ],
+            "positive_component_count": 4,
+            "first": "upright_block",
+            "second": "rear_block",
+            "first_part": "upright_side_cleat",
+            "second_part": "rear_cleat",
+            "canonical_first_to_second_normal": [
+              0,
+              -1,
+              0
+            ],
+            "native_attachment_domains": {
+              "upright_side_cleat": {
+                "start_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  277.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -144.89999999999998,
+                  460.0
+                ]
+              },
+              "rear_cleat": {
+                "start_mm": [
+                  133.5,
+                  -194.75,
+                  5.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -194.75,
+                  460.0
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          },
+          "rear_block_post": {
+            "grid_resolution": [
+              2,
+              2
+            ],
+            "gross_overlap_area_mm2": 20723.54,
+            "bore_area_mm2": 83.70773625490256,
+            "net_overlap_area_mm2": 20639.8322637451,
+            "net_centroid_mm": [
+              133.3230299917663,
+              -175.7,
+              121.81190544656286
+            ],
+            "net_first_moment_mm3": [
+              2751764.9759243135,
+              -3626418.5287400135,
+              2514177.2961442354
+            ],
+            "positive_component_count": 4,
+            "first": "rear_block",
+            "second": "post",
+            "first_part": "rear_cleat",
+            "second_part": "shifted_right_post",
+            "canonical_first_to_second_normal": [
+              0,
+              1,
+              0
+            ],
+            "native_attachment_domains": {
+              "rear_cleat": {
+                "start_mm": [
+                  133.5,
+                  -194.75,
+                  5.0
+                ],
+                "end_mm": [
+                  133.5,
+                  -194.75,
+                  460.0
+                ]
+              },
+              "shifted_right_post": {
+                "start_mm": [
+                  133.2,
+                  -131.25,
+                  0.0
+                ],
+                "end_mm": [
+                  133.2,
+                  -131.25,
+                  238.9
+                ]
+              }
+            },
+            "source_component_count": 4,
+            "native_attachment_coalesced_count": 0
+          }
+        },
+        "contact_row_count": 28,
+        "native_attachment_policy": "unsupported fine cells promoted to their 2x2 parent tile and coalesced at its area-weighted centroid",
+        "coalesced_pressure_limitation": "Each coalesced parent tile reports one average pressure and cannot resolve partial opening or a local pressure peak within that tile.",
+        "fingerprint": "2f105d500f308d344cf72773d53001c1a187321d625d20624f00cd463823d67a"
+      },
+      "mean_net_interface_area_mm2": 11632.915387114232,
+      "canonical_per_area_n_per_mm3": 0.20631113698793663,
+      "canonical_total_by_interface_n_per_mm": {
+        "post_block": 2622.0087070155123,
+        "block_header": 1613.250402712996,
+        "header_principal_block": 1904.5222955060215,
+        "principal_block_principal": 1866.8999760475251,
+        "principal_upright_block": 1187.3122819494695,
+        "upright_rear_block": 3347.779075194927,
+        "rear_block_post": 4258.227261573549
+      },
+      "shifted_post_header_law": "separate existing four-point equal-total stiffness"
+    },
+    "selection_status": "explicit developmental trial inputs",
+    "published_basis_record": "scripts/simple_center_published_stiffness_basis.py",
+    "complete_joint_stiffness_qualified": false,
+    "pb05_contact_model": {
+      "identity": {
+        "mechanics_source_id": "pb05-eight-station-native-mechanics-v1",
+        "pb05_source_id": "pb05-six-narrow-no-pocket-outer-v1",
+        "source_fingerprint_sha256": "74ec72045345fe59ef1a225e85fcc1f608ccd36e6bfa15d8375b576cb5b943f2",
+        "pb02_source_fingerprint": "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb",
+        "replaced_stations": [
+          "clip_horizontal_lower_left_2",
+          "clip_horizontal_lower_right_1",
+          "clip_horizontal_lower_left_1",
+          "clip_horizontal_lower_right_2",
+          "clip_horizontal_upper_left_1",
+          "clip_horizontal_upper_right_2",
+          "clip_horizontal_bottom_left_1",
+          "clip_horizontal_bottom_right_2"
+        ],
+        "outer_stations": [
+          "clip_horizontal_lower_left_1",
+          "clip_horizontal_lower_right_2",
+          "clip_horizontal_upper_left_1",
+          "clip_horizontal_upper_right_2",
+          "clip_horizontal_bottom_left_1",
+          "clip_horizontal_bottom_right_2"
+        ],
+        "legacy_proxy_stations": 14,
+        "fixed_panel_kicker_axes": 66,
+        "contact_grid": [
+          2,
+          2
+        ],
+        "row_fingerprint_sha256": "4f2ae6f38e6d3fb9f9dc890fd810a8349128dce4b3238faccd6ebf0afcd7f151"
+      },
+      "law": "four equal-area centroid cells per face with common areal density",
+      "common_areal_density_n_per_mm3": 0.21013281214580923,
+      "input_mean_total_per_interface_n_per_mm": 2400.0,
+      "rotation_and_partial_opening_resolved": true
+    },
+    "pb05_mechanics_identity": {
+      "mechanics_source_id": "pb05-eight-station-native-mechanics-v1",
+      "pb05_source_id": "pb05-six-narrow-no-pocket-outer-v1",
+      "source_fingerprint_sha256": "74ec72045345fe59ef1a225e85fcc1f608ccd36e6bfa15d8375b576cb5b943f2",
+      "pb02_source_fingerprint": "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb",
+      "replaced_stations": [
+        "clip_horizontal_lower_left_2",
+        "clip_horizontal_lower_right_1",
+        "clip_horizontal_lower_left_1",
+        "clip_horizontal_lower_right_2",
+        "clip_horizontal_upper_left_1",
+        "clip_horizontal_upper_right_2",
+        "clip_horizontal_bottom_left_1",
+        "clip_horizontal_bottom_right_2"
+      ],
+      "outer_stations": [
+        "clip_horizontal_lower_left_1",
+        "clip_horizontal_lower_right_2",
+        "clip_horizontal_upper_left_1",
+        "clip_horizontal_upper_right_2",
+        "clip_horizontal_bottom_left_1",
+        "clip_horizontal_bottom_right_2"
+      ],
+      "legacy_proxy_stations": 14,
+      "fixed_panel_kicker_axes": 66,
+      "contact_grid": [
+        2,
+        2
+      ],
+      "row_fingerprint_sha256": "4f2ae6f38e6d3fb9f9dc890fd810a8349128dce4b3238faccd6ebf0afcd7f151"
+    }
+  },
+  "producer_source_sha256": {
+    "fea/angle_base_audit.py": "d696a5d61fe7b8707bc9b3a4cc354bbb618ee0effae330487422d4e28d3470e8",
+    "fea/box_results.py": "dc5660f8d95560a6f7810060ba0f7471220ecc5f29146a2409131f6ec9124d89",
+    "fea/compact_assumption_checks.py": "404711377b48977da7a9712f4d4fe43e75b8641beea36ed9110461141f2e1e1d",
+    "fea/compact_rail_checks.py": "0337b5383faffbcd3826506e8429ba1efaca7b70c50fb51c103f7a9eeb52d297",
+    "fea/compact_thick_checks.py": "036da136ba732d97b20a026ae98f5c78dfe3c9571b2b49b3be188909ba3c3dc4",
+    "fea/contact_energy_search.py": "d695c7cc89b06c7c00f1a4fa632ec6f426ae8968779984583a5fc04dec915c92",
+    "fea/current_coulomb_run.py": "83b5f55794a04f00d3a7a46712f92318a4fbc8629d8eb86f510f16d1e40462dc",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/current_response_model.py": "40922fddfcda85fd906c068b79f2bb3bfb2ab6c8341b91a67c8da5b30147e50d",
+    "fea/current_response_resistance.py": "0054509a15aa2c3f6e420a2396cb6d2a00a9d252853a968fdba352b14080d427",
+    "fea/current_response_run.py": "994ae1132686d2a3d76d43e481cc88201e4a1c62c0cf4003534433164e97a78b",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/floor_contact_results.py": "7d7f8c7f8c3f09ebce9710090493f11e1325c79d89d6dfdc4a3c2995c8e89cd4",
+    "fea/floor_flush_mesh.py": "a130b1be0d474216c7ce9ee5f395dc54b751d14afb5c19bedda89564c5f01d79",
+    "fea/floor_flush_run.py": "ee595b7fa92b5146769a98f685e819d634df00c07239a316e78568fc6b3dfc88",
+    "fea/floor_recess_mesh.py": "518e3ee913537fb0e42a6dd843166974a011299921e116759bf2d330f221d184",
+    "fea/floor_taper_mesh.py": "a1728dd0bb37bf1f7c5087318bb270ca6d60b3093b32929f238c5614a44e4946",
+    "fea/frd_displacements.py": "8e580ffdb49ee24f669984b8e944e614a6c7c4b825d76ee7e2fa4d859baec01c",
+    "fea/horizontal_frame_members.py": "7496205335f28021ec45d45fdbe718f2a080afbd8e5edb5709ba5eedf28be9db",
+    "fea/horizontal_frame_stress.py": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b",
+    "fea/horizontal_panel_frame.py": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9",
+    "fea/horizontal_service_audit.py": "22f60ecb14deab9badb1b5da9afc55159177af404e39baf8c74dbbc86445bf38",
+    "fea/horizontal_service_floor.py": "9ace378eb2c11720c9581bfedbdc18be4e18df59f61d65bb11062c10b1d06e59",
+    "fea/hybrid_results.py": "c4eef7ad8b334f41fa8bc18f3278ba80c6644c70034076a1c07dd10d6fc28b62",
+    "fea/infill_panel_audit.py": "5e417289d9e45c91f63d2bd94a13f749150595aea8c8ee6a9aac2220f3cd37d5",
+    "fea/knee_tab_mesh.py": "1a6e0886386142382fb3d2fbb47624e4451383b3ec98a2ca78ec638ab855c81c",
+    "fea/leg_stock_screen.py": "1e0056c6e4bd6d8375db6266862aeddc6f5d5f94c016266ad9e5cda90ebc7b9d",
+    "fea/lumber_leg_resistance.py": "56ceb1e65f07504c1277930cb5f314dacf6b4608c0c54cefdcf223e4e8ab5609",
+    "fea/paired_rail_audit.py": "85fc7c10e1fc210558b51bb3234692185e453110db8a4d29dc44d9b29fe7292d",
+    "fea/panel_screw_sensitivity.py": "c70ccbc75e1280d5dec76f172c3cdf28e16904c210350ef53cb7ecdcd4626b83",
+    "fea/prepare_easy_structural.py": "814255a32def848a03884759955e1ef5cc47f3a7f94e97369b2c98fe52c67d49",
+    "fea/prepare_hybrid_frame.py": "4577217db349850954c49d6b8d4ddd66bf8e189e5ce0029e66666fa4e837cac2",
+    "fea/reinforced_fastener_checks.py": "11eb48b3ddcea64728a43b468f5cf9c6856485cee8fd5c75cf898b55b48436ee",
+    "fea/reinforced_frame_demand.py": "7c9d9b19155ddb257bdb3479eafa98cdb2fe81788b5f0e62b35d12fae0667655",
+    "fea/reinforced_timber_resistance.py": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc",
+    "fea/reinforcement_review.py": "45df2ba005f25b3687fb304f238d6b1db8d1a8ee0d16e51d13f36cd739e5900f",
+    "fea/rigid_floor_screen.py": "e8da993de886c0315ebc159017fec23fe09c72167fbf02bfbed6f52f7a2d3e77",
+    "fea/round_insert_floor.py": "43cbe526a999af8567ca4b9fb08a395fb02163874ad47569238c39afb1e85b2f",
+    "fea/round_insert_frame.py": "a4d831e559c1d73c175421e6073f34f3b6c5e520ff7d9f9751f046c527456f14",
+    "fea/round_structural_audit.py": "620f861a24b186eb7e46ed41cdec12fff79dd847f79c584c51c1f1113e04b089",
+    "fea/round_structural_frame.py": "d8b0cfda736b19b006ee1d460c2422c1166d59101106b7b42e27e5d9ede253d9",
+    "fea/round_structural_global_envelope.py": "83548b2a7863b63f56ff52a9003e704d48349cfc4e6da2598a685af63381bf36",
+    "fea/round_structural_screw_reference.py": "bf345886ecb390bd742e6d5f3e97b1d9c1cf149ec67603a0a81138d9efa40fc6",
+    "fea/screw_insert_repair_reserve.py": "cd1807377e5095c34a6d30d763ca2321dc5ccf2ad4d931167b78ae2e77bec0db",
+    "fea/selective_connection_strength.py": "9211d899186d853fecdb59e8a572a7f1a8f0f3a052331d51b410e324a6fca11a",
+    "fea/selective_floor_screen.py": "2020570a6420b060e8bde6213ddeba007235830590ee5ce3de7773a319f54c80",
+    "fea/shell_surface_recovery.py": "852266005f160a5a519621687b0eb1b06fb07cc50b090ee3d4d3a75d046ec10c",
+    "fea/single_2x6_screen.py": "f562f04adb04a4812a9a1815ecb19aa3fbee381f1126489c8a04d73cf173990e",
+    "fea/solve_bearing_frame.py": "3e6219ef535842540f6bbd70b1f17a18f7b2af6e0e46f28c3737f12620fb6709",
+    "fea/solve_easy_frame.py": "d996504c1ba154aa6df373d9080327c57cfb6f620e1e8eed4909c42cc72c079f",
+    "fea/split_center_audit.py": "61e4ed8923c5a04aeb3bcf211b78f32e864f954fffa5f90fac0cbffd36b5e2b2",
+    "fea/split_center_floor.py": "15a533da9c19cdcf53023b6cc5b98d8f73fe07ef61f25cbd43d97f3efeb61c52",
+    "fea/thick_leg_checks.py": "0609afebe3664d70b60de9499ffeedaa3fc1cd31991bb95f7ca76d18117cf041",
+    "fea/timber_floor_screen.py": "f44aa500295304e1523226d592c2cfceea91a433ae634af873fcba2e7359e2ac",
+    "fea/timber_structural.py": "cafd3753a40f54060df7879faca6b314eedd3cb2b182d86c0003cde214441137",
+    "fea/user_load_envelope.py": "8a88c80b9a1dad26c6b06b95761dedd703ccce8ddd47ca7b3a18586226879b3e",
+    "fea/vertical_panel_comparison.py": "e3079c6d82219ccc255905a38f4b61bb0354bfd52454f490b1590dc8fa0e79ea",
+    "fea/vertical_principal_audit.py": "e20f2b7434ccbe0f5c68973033ba7dc14a103ca4b5e6f7e663dacbbdec467bc3",
+    "fea/wide_structural.py": "11f96b330f079decf4d28371a94a98429af40beeca43ab80b586649b6f2015e9",
+    "fea/wider_leg_wood_checks.py": "3d1da520e9c21f68cd9c93ff2b792ed2f12699c78e6b934458376ada3180c310",
+    "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+    "mini_moonboard/angle_base_frame.py": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bolted_floor_flush_width.py": "45db2b467398af50918cc1ed504a0a90fd7bfa3a156206243559a2a74a2d1717",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/bolted_layout_common.py": "a23267799effbb715bd5a45405224bb10edff333fc9b10fa1f7736cc9a2e02bc",
+    "mini_moonboard/bolted_layouts/__init__.py": "eca2b5fa590e327039543f591ab0582b8ea3c7dbe48a48fc3eeb868ffd0d9e18",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+    "mini_moonboard/compact_floor_flush_bolted_frame.py": "5ceb31b5a02d6df4cec19aba71ab2ea0b982e86f288c00fefa4f0dcd5ce5d2ea",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/compact_knee_frame.py": "775fa8614fc7a9b0d8ab9f2a2151a1325016930dbc42cc672be7ea3a4aec68c8",
+    "mini_moonboard/compact_knee_two_frame.py": "0c7cc4f1612bc561b05f04e1762d2e68d271a8571fb9edf374c681afabf28681",
+    "mini_moonboard/compact_rail_frame.py": "2e6875e85abfa722d7f5c8fc797753cca8c24c557c4fe985075a0bcd96995917",
+    "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+    "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+    "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+    "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+    "mini_moonboard/compact_thick_frame.py": "2cc0693053645a2d6c3bccab7c69a66f06a8347ba0440c6b95dc04866d4bb362",
+    "mini_moonboard/compact_three_leg_225_refined.py": "3f165f649339cee6ab62932db19bb2ca35211cb58f27b19e5bbff7136c7381f5",
+    "mini_moonboard/compact_three_leg_options.py": "5cda1980c0a42d492e53c3059f22c86a0851763b7c4aa16a2422d5a0d395bf59",
+    "mini_moonboard/compact_two_frame.py": "4f2c23c4345173796d9c29b2bafcdbff6fb5170ecd8dd4bb3c206681fa13321e",
+    "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/demountable_connections.py": "09948f6dfdc19ea71c2b8ac37b0a41bb52843f1f1e2674d02ff1191853bcddca",
+    "mini_moonboard/easy_blocks.py": "18b5b6005c8d5bbaa4c31a937e8fba0c7d71812351afbdf36ec1ef2e145d1400",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/export.py": "7ce29f73f642550c4673f47e6fa292ce632b992e3b0e3f9704662e5b2adc6936",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/horizontal_service_frame.py": "d253b9b74df4fb0fca83f690eec3474a5bd43c54c6b295f20b7d63f98c25f2b6",
+    "mini_moonboard/horizontal_service_wiring.py": "5e5893d86032a312c6b2c0985856710e2a9e21ba8dfd589a541d98a56d1be994",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/infill_panel_frame.py": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/kicker_header_reinforcement.py": "7131264344d3f2529a2b46392b542fbe3e23dfc8bb6e2ca64eb8d49be900c2c4",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/leg_mvp_frame.py": "2b86101eac5cd9bb63388759b2f7e44c4526d421eccb6f788387e742215e548a",
+    "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+    "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/round_insert_frame.py": "a28786d88b92a478d1658a8c29a6cdf8465f1ffbad87fa7fff8cf95e9ad7ca8a",
+    "mini_moonboard/round_insert_hardware.py": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5",
+    "mini_moonboard/round_panel_hardware.py": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec",
+    "mini_moonboard/round_panel_layout.py": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916",
+    "mini_moonboard/round_reinforcement_frame.py": "65df8d53cb499f81bcc634bb9a290f89fdc8b62fec79ddcfa205a3e3db419867",
+    "mini_moonboard/round_service_frame.py": "477d5b068153093a84c6537f77fbce22db6e2879d401c78c6a7ca82433d4dcf8",
+    "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+    "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+    "mini_moonboard/round_structural_wiring.py": "b802d10f1d73d2865e3a67613db0935ec2eec28d6222abc3b8c8c10dd3bbb5b2",
+    "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/split_center_frame.py": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d",
+    "mini_moonboard/split_center_hardware.py": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f",
+    "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+    "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+    "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+    "mini_moonboard/stability.py": "e3b0fec80ec43aac39b61e314781cc8c63f790351772ac9cd76b277ca3112328",
+    "mini_moonboard/steel_base_reinforcement.py": "3e7d4c07fc9320a060a5ab56bb8f73c6f509bf30fa3ba2099f0f5c4b0783f7e9",
+    "mini_moonboard/thick_leg_frame.py": "b09493de2b1c909ee1e24408122d51dc70da9b501fd49ebfa2b8a3a67d845606",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/vertical_principal_frame.py": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wider_leg_hardware.py": "9540e573f995d4c3630f072c3fe333778e7d402d29fdfd2ec6fc76b53d7c0e52",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "scripts/bolted_candidate_ab205_center_fit.py": "c32860b6e19a9916bb1927395cc595479177825d05580bb0ce02508ee1128021",
+    "scripts/bolted_center_joint_model.py": "72eebad143bfed0688cbefdbd18d2fa9072eb6800bb3146dceaef17dbd0d20ef",
+    "scripts/bolted_center_response_adapter.py": "f81ac8855c42bd12ec2a69d17ec86e5e2db4f92a48f67f7536dc7d427fc5f499",
+    "scripts/bolted_kerf_diagnostic_probe.py": "e7efcd0e7026d8baf249089a00bbff6066287afa2e89141dc2eac8d42e1ae4d8",
+    "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+    "scripts/clear_space_case_contract.py": "17e0dab0d2df4c54f29325da6109507673add506a56f13ac5f7625166b2166e5",
+    "scripts/clear_space_results.py": "66d2e84e3e147aa220b11fa69f64680280a92aa48914ad1e3053d58087832d74",
+    "scripts/clear_space_study.py": "870aa9b8f48440da020363b578f6a52d597fb088515253d7eb80c0bb1d031eb3",
+    "scripts/compact_knee_results.py": "0cd449ea25ab90ab2a9a10f3c8d53524913f88015c8ca1b49c9f5c6bf8944f0d",
+    "scripts/compact_rail_study.py": "2c468c8f3a88c404e7c5391669c7ecebe52ae0512f9f253e8a8bb1a605e7da85",
+    "scripts/compact_splice_results.py": "10fd2ffd2afc563edb8f0c9017adec37423ae60d8026fa1fe4e72a85cf38dbdc",
+    "scripts/compact_thick_geometry.py": "b3ef4fbb5842b55be57b6117dbcb81d7a9b78b14a9121db1191827aab6557212",
+    "scripts/compact_thick_results.py": "3f4f0ec5bfd1535c602c0c00c8017665fd336ca32f9cd6b38ccf9d5813853c1a",
+    "scripts/floor_recess_checks.py": "a1a5ef786e2d8aff8446ffa00c09555c1cf4377ec54799894176ad3719170f36",
+    "scripts/floor_taper_checks.py": "bf15d8983b42d95dda0d0329bc2d8c2664f9c146813f21e1a0cc8f0f6a3bf1c3",
+    "scripts/hardware_first_center_hybrid.py": "9405a2701ba9729a4c6197576d44233ec884044ac36425d9ff9705c91cde2618",
+    "scripts/leg_foot_bearing.py": "e00cde3da20b1b3e99d80e1fa3c2f68abcf1d16aedae53d8cc6f42af9e1696ac",
+    "scripts/leg_mvp_geometry.py": "e069d581b5d9c3154721b24a758f8b97400cda6a142c592697d5eac93c8e7a47",
+    "scripts/simple_center_combined_cleats_probe.py": "06a86b829c04e7f91e2dcc3dbb9fb85971cf96dd8badc253bef4ddb1bc0d9ee1",
+    "scripts/simple_center_combined_small_tool_probe.py": "91689b5c580edde377637e151848275d734942f631a6bdd666b5087b050230ee",
+    "scripts/simple_center_connected_kinematics.py": "8c3f0d5b3a5d750b1dec523fc6c00a8382aa4cc3e85fee3da2210152685d7feb",
+    "scripts/simple_center_current_placement_table.py": "0e30238d17f4ba631106f2228217e79ba8eb6caa80447097661301aee5aaee7e",
+    "scripts/simple_center_current_stack_tip_screen.py": "d2fc729a299fd18f9e04a1eb435a07b4f2261ebe945e15d16cf7b0002acede8a",
+    "scripts/simple_center_edge_reserve_probe.py": "d2fdbf09ddac9f39a41bfcfe376b6636ed0b855308c88a6ededa6249e6a7ae63",
+    "scripts/simple_center_header_post_side_cleat_probe.py": "42c91b1d33ce0ec232dd9aeb9dc2d827baceda9300cdb11f9deb9fb99e75aaf0",
+    "scripts/simple_center_header_principal_probe.py": "a76ea0b11887ad43fde1fd8f4b9da4402c25e1fe92cb015960c9e07b7e4c8b65",
+    "scripts/simple_center_link_edge_probe.py": "9d46e36c04f222d709ef1b038a7513c4c85fdeedf9aab0f4df8672f1d39262e0",
+    "scripts/simple_center_pb02_diagnostic_run.py": "16df40b034b954cfb14cfd92363f4271ae7b915cc004b631e11d2a3580d5d6ec",
+    "scripts/simple_center_pb02_geometry.py": "ccb172e9761649b458236bb43f98e0e0a81ae9dd380ba59a910994a6ee9934a3",
+    "scripts/simple_center_pb02_native.py": "0cf6417cf5e62b3fcaf428e69184dce88fa96480fac9089c512424c78ba2e1c8",
+    "scripts/simple_center_post_header_two_bolt_probe.py": "a0379b22c26873f6aaabd3f3b66eb9eab9724911431e09a6f213877b6e3de1a3",
+    "scripts/simple_center_post_transfer_adjusted.py": "29afe9ca63287dadc16beaf86775ddd3066ccf7838fbbe2067817edc2c4e0cd0",
+    "scripts/simple_center_post_transfer_probe.py": "929cf19ef118cf3bbab38ba653301de16a07b7d790c29dc841384d3632879202",
+    "scripts/simple_center_principal_cleat_reserve_probe.py": "23d0f026cfa915591311e5d9299c31c3fcf7c8098e6cb5927eeb20d612e744cb",
+    "scripts/simple_center_published_stiffness_basis.py": "f3ad4be9739045bf70a2ef6ad66dc0acee50faed64dd8152f2a95aad5b273622",
+    "scripts/simple_center_second_bolt_probe.py": "34b040afb6879c660f92c40e04b4846dc3f6761a71cf51f4d7fc1153ceac4195",
+    "scripts/simple_center_second_bolt_tolerance_probe.py": "a77835ded40f907a2e0c3560d9249f2beea6352013405cd53147403ba40d4a6b",
+    "scripts/simple_center_side_depth_y_probe.py": "b6134670e2d552bcb32f140c4b53185d35dc882bcd57acb137d0b89bde11a343",
+    "scripts/simple_center_tolerance_pose_probe.py": "6accd66d0f5500971a1e73bf7dee489417404f9f74b7e4d78cd87e9b35cba173",
+    "scripts/simple_center_wide_post_probe.py": "2bae4828cd088409338daaaa91f0f97712ea5d48b79a7712a23ff313092e9a83",
+    "scripts/simple_pb01_thread_stack_screen.py": "bb7db051b6c44ebc5980e01fbddf2a6149c52bd2f518b5686b89aaab7ad599ee",
+    "scripts/simple_pb03_bottom_outer_pair.py": "8b57ed1650fd8a06a617b77f19e2c19bcb9c06172ebeb7ada098808211a0d6ad",
+    "scripts/simple_pb03_cross_family.py": "17a7639d42aaef890fcced468e58f7f448b5d7779486ca8d70581a13c42fc493",
+    "scripts/simple_pb03_diagnostic_run.py": "53240e5990ef5c53c3301678447e1b048a20ea0dabd412054f9ab2f8d491ffef",
+    "scripts/simple_pb03_lower_center_pair.py": "1f066b08f94d92a22ac38d6bc5bb000e90119f1a4c5a4945d8d176e9f8a6c536",
+    "scripts/simple_pb03_native.py": "eba830673353ae11ee52d13d264b1542d566ac1a7c41671925dd099066a469a7",
+    "scripts/simple_pb03_native_mechanics.py": "d705e301099aa243da3240517940d1be7e4a1e87cf9a00a0df84e9e7bfa4dfac",
+    "scripts/simple_pb03_outer_counterbore_revision.py": "b2a171b5afe85255c59de87d8d5b36fc7a7dc296a28266f5b27c6e3f133e2457",
+    "scripts/simple_pb03_upper_outer_edge_revision.py": "4c9d138d010018115352abb9015c2df1b0e042bf05180b2a2443e5b6f7a3faf6",
+    "scripts/simple_pb03_upper_outer_pair.py": "79526079689b2216694020ee3a6da6bc039c465e177343949533cec933ed9c1c",
+    "scripts/simple_pb04_native.py": "0131871c47e20a5be2f964fc0ba63fbfed3463e292a9fd082889c977fc7db566",
+    "scripts/simple_pb05_diagnostic_run.py": "616bddee06f74cb946604ac40a4334109eeffcc3484883fc637790321a750c6e",
+    "scripts/simple_pb05_native.py": "bc3e7ef5d179bc20ad9ef43e1b3de926b7942491144837f6871f4e8087f59d52",
+    "scripts/simple_pb05_native_mechanics.py": "9944cea753b2def38191aaf26d1aa5a66b9662197159b4f507c99fb40324089f",
+    "scripts/simple_rail_joint_comparison.py": "03ea2362994069421cab4315b320efd359bd94c481786119bdd2d39006c1d923",
+    "scripts/thick_leg_geometry.py": "73df6b0973f87b7c1dd7f85bd1e9aefb714bb30fba45e51b9fca5abcb13fe99e"
+  },
+  "developmental_only": true,
+  "qualified_for_design": false,
+  "acceptance": false,
+  "drilling_released": false,
+  "fabrication_released": false,
+  "structural_released": false,
+  "deterministic_input_fingerprint": "9fc6d74b949ec9f82e933182263c8e219cb09b82a5a885b625f4c32e1ae145e3",
+  "validation": {
+    "candidate_and_mechanics_identity": true,
+    "topology_and_stiffness_inventory": true,
+    "producer_source_inventory": true,
+    "accepted_case_equilibrium_audits": true
+  },
+  "attempts": [
+    {
+      "case": "a12-forward",
+      "attempt": "01-all-unseeded",
+      "contact_update_strategy": "all",
+      "seeded_from_authenticated_a12_rear": false,
+      "same_case_continuation_from_attempt": null,
+      "contact_active_set_converged": true,
+      "numerically_accepted": true,
+      "termination": "Contact and PB01 axial active sets converged",
+      "native_report_sha256": "6b58b7df844b2071f0cfc04e501a2d761c51e0ce12064b9cb6292100eec2cdee",
+      "forces_in_suite_summary": false
+    }
+  ],
+  "accepted_cases": {
+    "a12-forward": {
+      "attempt": "01-all-unseeded",
+      "path": "attempts/a12-forward-01-all-unseeded",
+      "report_sha256": "6b58b7df844b2071f0cfc04e501a2d761c51e0ce12064b9cb6292100eec2cdee",
+      "contact_update_strategy": "all",
+      "search_seed_case": null,
+      "numerically_accepted": true,
+      "forces_reported_only_in_authenticated_case_report": true
+    }
+  },
+  "accepted_case_count": 1,
+  "rejected_attempt_forces_included": false,
+  "max_cycles_per_attempt": 120,
+  "max_same_case_continuations": 3
+}
