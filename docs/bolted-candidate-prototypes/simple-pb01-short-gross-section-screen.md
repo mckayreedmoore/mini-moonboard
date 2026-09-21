@@ -31,9 +31,10 @@ elastic stresses are **not** evidence of a safe bored block. At bolt cuts,
 the effective area and second moments differ from this rectangle; local
 wood embedment, splitting, tear-out, washer bearing, torsion, combined
 stress, group action and all-six full-V4 demands remain open. Actual wood
-grade and adjustment factors are also unverified. A bored-section geometry
-screen could quantify removed area, but even that cannot by itself supply
-local fracture resistance or final demand.
+grade and adjustment factors are also unverified. The separate
+[bored-section geometry screen](simple-pb01-short-bored-section-probe.md)
+quantifies removed area, but it cannot by itself supply local fracture
+resistance or final demand.
 
 Reproduce with `.venv/bin/python -m
 scripts.simple_pb01_short_gross_section_screen` and
