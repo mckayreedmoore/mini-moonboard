@@ -12,30 +12,13 @@ from scripts.simple_center_stiffness_sensitivity import (
 )
 
 
-def test_compatibility_sensitivity_preserves_failures_and_equilibrium():
+def test_compatibility_sensitivity_converges_and_preserves_equilibrium():
     result = screen()
 
     assert result["source_fingerprint"] == ACTIVE_FINGERPRINT
     assert result["case_count"] == 5
     assert result["attempted_scenario_count"] == 50
-    assert result["converged_scenario_count"] == 48
-    assert result["unresolved_scenario_count"] == 2
-    assert result["unresolved_results"] == [
-        {
-            "case": "a12-left",
-            "scenario": "bolt_dominant_contrast",
-            "status": "relative_mechanism_in_trial_active_tangent",
-            "active_tangent_rank": 35,
-            "required_rank": 36,
-        },
-        {
-            "case": "k12-rear",
-            "scenario": "bolt_dominant_contrast",
-            "status": "relative_mechanism_in_trial_active_tangent",
-            "active_tangent_rank": 35,
-            "required_rank": 36,
-        },
-    ]
+    assert result["converged_scenario_count"] == 50
     assert [row["name"] for row in result["scenarios"]] == [row[0] for row in SCENARIOS]
     for solved in result["results"]:
         assert solved["equilibrium"]["maximum_force_residual_n"] < 1e-5
@@ -45,11 +28,30 @@ def test_compatibility_sensitivity_preserves_failures_and_equilibrium():
         assert len(solved["rows"]) == 58
         assert len({row["name"] for row in solved["rows"]}) == 58
 
-    post = result["all_case_scenario_edge_envelopes"]["post_block"]
-    assert (
-        post["total_bolt_tension_n"]["maximum_n"]
-        > 3 * post["total_bolt_tension_n"]["minimum_n"]
+    sensitivity = result["fixed_case_stiffness_sensitivity"]
+    controlling = sensitivity["a12-rear"]["principal_block_principal"]
+    assert controlling["total_bolt_tension_n"]["maximum_to_minimum"] == pytest.approx(
+        1.478677614
     )
+
+    for case in sensitivity.values():
+        assert case["post_block"]["total_bolt_tension_n"][
+            "maximum_to_minimum"
+        ] == pytest.approx(1.0, abs=2e-10)
+
+    singular_traversals = {
+        (solved["case"], solved["scenario"]): solved["seed_optimizer"][
+            "singular_refinement_advances"
+        ]
+        for solved in result["results"]
+        if solved["seed_optimizer"]["singular_refinement_advances"]
+    }
+    assert singular_traversals == {
+        ("a12-left", "bolt_dominant_contrast"): 1,
+        ("k12-rear", "bolt_dominant_contrast"): 1,
+    }
+
+    assert "cross_case_and_scenario_reaction_envelopes" in result
     assert result["strength_or_fabrication_release"] is False
 
 

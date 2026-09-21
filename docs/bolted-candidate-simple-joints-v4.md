@@ -108,9 +108,14 @@ resistance, and the final costed architecture remain open.
 
 The subsequent
 [stiffness sensitivity](bolted-candidate-prototypes/simple-center-stiffness-sensitivity.md)
-converges 48 of 50 historical-action scenario combinations and preserves two
-rank-35 bolt-dominant/contact-soft trials as unresolved. Its broad diagnostic
-reaction ranges make a single arbitrary stiffness unsuitable for force sizing.
+converges all 50 historical-action scenario combinations. Two
+bolt-dominant/contact-soft trials pass through singular intermediate active
+sets before another unilateral row activates; those states are not proven
+physical mechanisms. Within a fixed case, the largest reaction ratio across
+the trial stiffness scenarios is about 1.47868. The wider cross-case envelopes
+mix different old loads and are not stiffness sensitivity. None of these
+conditional reactions is a current PB-02 design demand or qualified force-sizing
+input.
 
 Source scope: [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
 describes dowel-yield lateral methods and exclusions; the

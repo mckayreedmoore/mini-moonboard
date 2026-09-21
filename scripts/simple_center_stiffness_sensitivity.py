@@ -39,14 +39,6 @@ SCENARIOS = (
 )
 
 
-class RelativeMechanismError(ValueError):
-    """The trial active tangent cannot restrain all relative coordinates."""
-
-    def __init__(self, rank):
-        super().__init__("PB02 spring active set has a relative mechanism")
-        self.rank = rank
-
-
 def _active_rows(rows, gaps, tolerance=1e-9, *, boundary_active=False):
     return np.asarray(
         [
@@ -130,6 +122,7 @@ def solve_case(
     )
     displacement = optimized.x
     seen = set()
+    singular_refinement_advances = 0
     for refinement in range(20):
         gaps = free @ displacement
         active = _active_rows(rows, gaps, boundary_active=True)
@@ -140,7 +133,38 @@ def solve_case(
         stiffness_matrix = free.T @ (stiffness[:, None] * active[:, None] * free)
         rank = int(np.linalg.matrix_rank(stiffness_matrix, tol=1e-9))
         if rank != free.shape[1]:
-            raise RelativeMechanismError(rank)
+            _, singular_values, right = np.linalg.svd(stiffness_matrix)
+            nullspace = right[singular_values <= 1e-9].T
+            drive = nullspace @ (nullspace.T @ free_load)
+            if np.linalg.norm(drive) <= 1e-8:
+                raise ValueError("PB02 spring active tangent has a neutral mechanism")
+            direction = drive / np.linalg.norm(drive)
+            rates = free @ direction
+            crossings = []
+            for index, (row, is_active, gap, rate) in enumerate(
+                zip(rows, active, gaps, rates, strict=True)
+            ):
+                if is_active:
+                    continue
+                if (
+                    row["kind"] == "bolt_tension"
+                    and rate > 1e-12
+                    or row["kind"] == "contact_compression"
+                    and rate < -1e-12
+                ):
+                    distance = -gap / rate
+                else:
+                    continue
+                if distance >= -1e-9:
+                    crossings.append((max(0.0, distance), row["name"], index))
+            if not crossings:
+                raise ValueError(
+                    "PB02 spring active tangent cannot reach another unilateral row"
+                )
+            distance, _, _ = min(crossings)
+            displacement += (distance + 1e-8) * direction
+            singular_refinement_advances += 1
+            continue
         exact = np.linalg.solve(stiffness_matrix, free_load)
         exact_active = _active_rows(rows, free @ exact, boundary_active=True)
         displacement = exact
@@ -272,6 +296,7 @@ def solve_case(
             "iterations": int(optimized.nit),
             "message": optimized.message,
             "exact_refinement_cycles": refinement + 1,
+            "singular_refinement_advances": singular_refinement_advances,
             "active_tangent_rank": rank,
             "active_tangent_condition_number": float(np.linalg.cond(stiffness_matrix)),
         },
@@ -288,30 +313,17 @@ def solve_case(
 def screen():
     """Run ten explicit stiffness sensitivities for five old-action examples."""
     cases = _source_cases()
-    results = []
-    unresolved = []
-    for case in cases:
-        for name, lateral, axial, contact in SCENARIOS:
-            try:
-                results.append(
-                    solve_case(
-                        case,
-                        scenario=name,
-                        lateral_factor=lateral,
-                        axial_factor=axial,
-                        contact_factor=contact,
-                    )
-                )
-            except RelativeMechanismError as error:
-                unresolved.append(
-                    {
-                        "case": case["source"]["case"],
-                        "scenario": name,
-                        "status": "relative_mechanism_in_trial_active_tangent",
-                        "active_tangent_rank": error.rank,
-                        "required_rank": 36,
-                    }
-                )
+    results = [
+        solve_case(
+            case,
+            scenario=name,
+            lateral_factor=lateral,
+            axial_factor=axial,
+            contact_factor=contact,
+        )
+        for case in cases
+        for name, lateral, axial, contact in SCENARIOS
+    ]
     edge_envelopes = {}
     for edge in EDGES:
         edge_envelopes[edge] = {
@@ -325,6 +337,26 @@ def screen():
                 "total_contact_compression_n",
             )
         }
+    case_sensitivity = {}
+    for case in cases:
+        case_name = case["source"]["case"]
+        selected = [row for row in results if row["case"] == case_name]
+        case_sensitivity[case_name] = {}
+        for edge in EDGES:
+            case_sensitivity[case_name][edge] = {}
+            for field in (
+                "maximum_bolt_shear_n",
+                "total_bolt_tension_n",
+                "total_contact_compression_n",
+            ):
+                values = [row["edges"][edge][field] for row in selected]
+                low, high = min(values), max(values)
+                case_sensitivity[case_name][edge][field] = {
+                    "minimum_n": low,
+                    "maximum_n": high,
+                    "maximum_to_minimum": high / low if low > 1e-9 else None,
+                    "absolute_spread_n": high - low,
+                }
     return {
         "scope": "PB02 compatibility-aware historical-action stiffness sensitivity",
         "variant_id": ACTIVE_TRIAL.variant_id,
@@ -332,7 +364,6 @@ def screen():
         "case_count": len(cases),
         "attempted_scenario_count": len(cases) * len(SCENARIOS),
         "converged_scenario_count": len(results),
-        "unresolved_scenario_count": len(unresolved),
         "reference_stiffness_n_per_mm": REFERENCE_STIFFNESS_N_PER_MM,
         "scenarios": [
             {
@@ -352,8 +383,8 @@ def screen():
         },
         "common_stiffness_scale_is_not_qualified": True,
         "results": results,
-        "unresolved_results": unresolved,
-        "all_case_scenario_edge_envelopes": edge_envelopes,
+        "cross_case_and_scenario_reaction_envelopes": edge_envelopes,
+        "fixed_case_stiffness_sensitivity": case_sensitivity,
         "limitations": [
             "Stiffness factors are sensitivity ratios, not measured or qualified properties.",
             "Old complete interface actions are authenticated examples, not PB02 design demands.",

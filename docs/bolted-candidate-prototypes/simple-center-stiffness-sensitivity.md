@@ -1,10 +1,12 @@
 # PB02 compatibility-aware stiffness sensitivity
 
 The active PB02 point topology has a compatible one-sided spring solution in
-48 of 50 authenticated historical-action sensitivities. Two bolt-dominant,
-contact-soft trials expose a rank-35 relative mechanism and remain unresolved.
-The result does not provide qualified stiffness, current PB02 design demand,
-strength, or fabrication release.
+all 50 authenticated historical-action sensitivities. Two bolt-dominant,
+contact-soft trials encounter a singular intermediate active set; the solver
+advances along its null direction until another unilateral row activates and
+then continues to a converged solution. Those intermediate states are not
+proven physical mechanisms. The result does not provide qualified stiffness,
+current PB02 design demand, strength, or fabrication release.
 
 The [reproducible script](../../scripts/simple_center_stiffness_sensitivity.py)
 uses the same fingerprinted ten-bore geometry and actual CAD-face contact
@@ -29,9 +31,11 @@ For relative displacement `g`, signed reaction `r`, and trial stiffness
 - face contact uses `r = −k min(g, 0)`.
 
 A convex energy minimization seeds the active set. An exact 36-coordinate
-linear refinement then has to retain full rank, satisfy every one-sided law,
-and close force and moment equilibrium. The seed optimizer's stopping flag is
-not used as acceptance; the exact constitutive and equilibrium checks govern.
+linear refinement then has to satisfy every one-sided law and close force and
+moment equilibrium. If an intermediate active tangent is singular, refinement
+advances along its energy-reducing null direction to the next unilateral-row
+activation and resumes. The seed optimizer's stopping flag is not used as
+acceptance; the exact constitutive and equilibrium checks govern.
 
 ## Inputs are sensitivities, not properties
 
@@ -50,13 +54,16 @@ nor the 1,000/10,000/100,000 levels are qualified PB02 inputs.
 
 ## Results
 
-All 48 converged combinations have maximum whole-system residual below
+All 50 combinations converge with maximum whole-system residual below
 0.000001 N and 0.00001 N·mm after exact refinement. The bolt-dominant contrast
-has a rank-35 active tangent for `a12-left` and `k12-rear`; those cases are
-preserved as unresolved rather than assigned reactions.
+passes through a singular intermediate active set for `a12-left` and
+`k12-rear`; null-direction advance reaches the next unilateral activation and
+the final compatible solution. A singular intermediate set alone does not
+establish a physical mechanism.
 
-The following ranges span all converged old-action cases and sensitivity
-scenarios. They are diagnostic reactions, not design demands or capacities.
+The following ranges span different old-action cases as well as sensitivity
+scenarios. They are cross-case diagnostic reaction envelopes, not measures of
+fixed-load stiffness sensitivity, design demands, or capacities.
 
 | Edge | Max one shear component, N | Total tension, N | Contact compression, N |
 | --- | ---: | ---: | ---: |
@@ -68,11 +75,13 @@ scenarios. They are diagnostic reactions, not design demands or capacities.
 | upright–rear block | 34–278 | 855–4,390 | 1,083–5,139 |
 | rear block–post | 17–908 | 1,955–8,527 | 1,727–7,779 |
 
-The post-block tension range changes by more than 3× across these deliberately
-unqualified inputs. The center therefore cannot be force-sized from one
-arbitrary stiffness choice. The mechanism in two contrast trials also means
-the earlier equilibrium-feasibility result is not enough to establish a
-compatible response.
+Within each fixed historical case, post-block tension is essentially invariant
+across the deliberately unqualified stiffness scenarios. The largest
+fixed-case ratio is about 1.47868 for principal-block–principal tension in
+`a12-rear` (about 54.78–80.996 N). Larger spreads in the table above result
+from mixing different historical load cases with different stiffness
+scenarios; they are not stiffness sensitivity. These conditional compatible
+responses still do not establish qualified stiffness or a design demand.
 
 Next work must derive or bound the actual bolt lateral, bolt axial, and
 washer/contact stiffnesses from frozen stack geometry and applicable sources,
