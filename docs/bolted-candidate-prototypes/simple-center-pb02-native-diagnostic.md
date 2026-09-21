@@ -96,13 +96,26 @@ using DF-L G = 0.50, 45 ksi bolt yield strength, the 0.67 end-grain factor, and
 the smaller 0.180-inch thread-root sensitivity, gives 280.50 N versus the
 33.77 N corrected-case demand, a ratio of 0.1204. The 0.189-inch typical-root
 sensitivity gives 297.61 N and a ratio of 0.1135. These are component references,
-not final adjusted values: group action, geometry factor, splitting, and the
-remaining load cases remain unresolved. This result does not require rotating
+not complete joint values. The post-revision force directions do not form one
+NDS row: they are neither mutually parallel nor aligned with the bolt-pair line,
+so no two-bolt group factor applies. The isolated-bolt screen uses `Cg = 1.0`
+with `n = 1` and conditionally supports `CΔ = 1.0`; it does not qualify local
+multiple-fastener stresses or splitting. This result does not require rotating
 the block grain or moving to 4x8 stock solely for the current one-case demand.
+
+The current 6.1 mm ligament between the orthogonal `post_high` and
+`post_cleat_2` bores has no applicable 2024 NDS resistance equation. Individual
+dowel-yield, ordinary row-spacing, net-section, Appendix E, and group-action
+checks do not represent the local mixed-mode volume between perpendicular
+bores from separate connections. The current crossed-bore placement is
+therefore rejected while PB02 remains retained for revision. A conservative
+project geometry target separates those centerlines by at least 4D = 25.4 mm;
+this is a revision target, not a claim that the ordinary NDS row rule applies.
 
 Before any physical release, work still includes:
 
-- resolve the approximately 6.1 mm crossed-bore ligament and local splitting;
+- revise the crossed-bore placement to at least the 25.4 mm project separation
+  target, then recheck the changed geometry and response;
 - complete the `block_header` group, geometry-factor, and local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
   insertion routes, and tool access;
