@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and first PB03 two-block/eight-stack slice overlaid. Exactly 20 legacy angle stations and 120 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB03 four-block/sixteen-stack lower-service core overlaid. Exactly 18 legacy angle stations and 108 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -499,7 +499,12 @@
         return result;
       }
       const manifestKey = model === 'bolted-v4-development' ? 'compact-floor-flush-kerf-right' : model;
-      const v4ReplacedLegacyStations = new Set(['clip_horizontal_lower_left_2', 'clip_horizontal_lower_right_1']);
+      const v4ReplacedLegacyStations = new Set([
+        'clip_horizontal_lower_left_2',
+        'clip_horizontal_lower_right_1',
+        'clip_horizontal_lower_left_1',
+        'clip_horizontal_lower_right_2',
+      ]);
       const isV4ReplacedLegacyPart = name => [...v4ReplacedLegacyStations].some(station =>
         name === station || name.startsWith(`fastener_${station}_`));
       let resolveV4Baseline;

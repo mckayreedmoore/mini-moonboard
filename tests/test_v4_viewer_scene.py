@@ -174,9 +174,10 @@ def test_pb03_overlay_has_sixteen_complete_unselected_stacks():
 
 def test_viewer_scene_artifact_matches_producer():
     root = Path(__file__).resolve().parents[1]
+    scene = build_scene()
     assert (
         json.loads((root / "site/v4-diagnostic-scene.json").read_text())
-        == build_scene()
+        == scene
     )
     html = (root / "site/index.html").read_text()
     assert "DEVELOPMENT V4 · PB02/PB03 partial 3D scene" in html
@@ -186,6 +187,10 @@ def test_viewer_scene_artifact_matches_producer():
     assert "data.hidden_legacy_visual_names?.length !== 28" in html
     assert "data.assembly_contract?.total_connection_count !== 202" in html
     assert "data.assembly_contract?.bolt_kind_connection_count !== 28" in html
+    assert "PB03 four-block/sixteen-stack lower-service core" in html
+    assert "Exactly 18 legacy angle stations and 108 SDS axes remain" in html
     assert "v4ReplacedLegacyStations" in html
+    for station in scene["assembly_contract"]["replaced_pb03_legacy_stations"]:
+        assert f"'{station}'" in html
     assert "!isV4ReplacedLegacyPart(part.name)" in html
     assert "complete trial stack envelope" in html
