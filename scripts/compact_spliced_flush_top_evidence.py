@@ -7,6 +7,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+from zipfile import ZipFile
 
 from scripts.compact_spliced_flush_top_study import CASES as LOAD_CASES
 
@@ -27,6 +28,34 @@ def extreme(rows, field, *, lowest=False):
     case, value = function(((case, values[field]) for case, values in rows.items()),
                            key=lambda item: item[1])
     return {'case': case, 'value': value}
+
+
+def authenticate_archived_sources(archive, archive_name, report, geometry, splice, manifest):
+    """Authenticate frozen producer sources without consulting today's tree."""
+    expected = report.get('source_sha256', {})
+    if not isinstance(expected, dict) or not expected:
+        raise ValueError('Archived source identity is missing: ' + archive_name)
+    with ZipFile(archive / 'sources.zip') as sources:
+        names = sources.namelist()
+        if len(names) != len(set(names)) or set(names) != set(expected):
+            raise ValueError('Archived source inventory differs: ' + archive_name)
+        for name, source_sha256 in expected.items():
+            if hashlib.sha256(sources.read(name)).hexdigest() != source_sha256:
+                raise ValueError('Archived source hash differs: ' + archive_name + '/' + name)
+
+    # Geometry and splice records may name sources from the native closure.
+    # When they do, require the same archived identity rather than a live file.
+    for record_name, record in (('Geometry', geometry), ('Splice-check', splice)):
+        for name, source_sha256 in record.get('source_sha256', {}).items():
+            if name in expected and expected[name] != source_sha256:
+                raise ValueError(record_name + ' archived source hash differs: ' + name)
+
+    splice_sources = splice.get('source_sha256', {})
+    for filename in ('report.json.gz', 'geometry.json'):
+        inputs = [source_sha256 for name, source_sha256 in splice_sources.items()
+                  if Path(name).name == filename]
+        if inputs != [manifest['files'][filename]]:
+            raise ValueError('Splice-check archived input hash differs: ' + filename)
 
 
 def read_case(root, label, archive_name):
@@ -52,6 +81,8 @@ def read_case(root, label, archive_name):
     geometry = json.loads((archive / 'geometry.json').read_text())
     saved_first = json.loads((archive / 'checks.json').read_text())
     splice = json.loads((archive / 'splice-checks.json').read_text())
+    authenticate_archived_sources(
+        archive, archive_name, report, geometry, splice, manifest)
     first = splice.get('stage_one', {})
     if any(record.get('candidate') != CANDIDATE
            for record in (report, geometry, saved_first, splice, first)):
@@ -72,12 +103,6 @@ def read_case(root, label, archive_name):
             or report.get('floor_scope') !=
             'Conditional no sliding; normal contact may open; no friction coefficient qualification'):
         raise ValueError('Saved case load or no-slip scope differs: ' + archive_name)
-    for name, expected in splice.get('source_sha256', {}).items():
-        path = Path(name)
-        path = path if path.is_absolute() else root / path
-        if not path.is_file() or digest(path) != expected:
-            raise ValueError('Splice-check source hash differs: ' + name)
-
     overlap = max((row['wood_bearing_ratio']
                    for row in splice['overlap_contact']['wood_bearing']), default=0.)
     metrics = {**splice['metrics'],

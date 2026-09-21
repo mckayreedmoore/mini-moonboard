@@ -2,6 +2,7 @@
 import json
 import shutil
 from pathlib import Path
+from zipfile import ZIP_DEFLATED, ZipFile
 
 import pytest
 
@@ -20,6 +21,20 @@ def copy_authenticated_archives(tmp_path):
         manifest_path.write_text(json.dumps(manifest))
         copied[label] = str(archive)
     return copied
+
+
+def rewrite_sources(archive, transform):
+    sources_path = archive / 'sources.zip'
+    with ZipFile(sources_path) as sources:
+        retained = {name: sources.read(name) for name in sources.namelist()}
+    retained = transform(retained)
+    with ZipFile(sources_path, 'w', compression=ZIP_DEFLATED) as sources:
+        for name, payload in retained.items():
+            sources.writestr(name, payload)
+    manifest_path = archive / 'manifest.json'
+    manifest = json.loads(manifest_path.read_text())
+    manifest['files']['sources.zip'] = digest(sources_path)
+    manifest_path.write_text(json.dumps(manifest))
 
 
 def test_five_file_archives_can_be_aggregated(tmp_path):
@@ -80,4 +95,34 @@ def test_archive_manifest_or_case_failure_cannot_be_aggregated(tmp_path):
     archive = Path(cases['a12-left'])
     (archive / 'splice-checks.json').write_text('{}\n')
     with pytest.raises(ValueError, match=r'Archive manifest hash differs: .*splice-checks.json'):
+        build(root=ROOT, cases=cases)
+
+
+def test_tampered_archived_source_cannot_be_aggregated(tmp_path):
+    cases = copy_authenticated_archives(tmp_path)
+    archive = Path(cases['a12-left'])
+
+    def tamper(sources):
+        sources['fea/reinforced_frame_demand.py'] += b'\n# tampered\n'
+        return sources
+
+    rewrite_sources(archive, tamper)
+
+    with pytest.raises(
+            ValueError,
+            match=r'Archived source hash differs: .*reinforced_frame_demand.py'):
+        build(root=ROOT, cases=cases)
+
+
+def test_missing_archived_source_cannot_be_aggregated(tmp_path):
+    cases = copy_authenticated_archives(tmp_path)
+    archive = Path(cases['a12-left'])
+
+    def omit(sources):
+        del sources['fea/reinforced_frame_demand.py']
+        return sources
+
+    rewrite_sources(archive, omit)
+
+    with pytest.raises(ValueError, match=r'Archived source inventory differs: .*a12-left-07'):
         build(root=ROOT, cases=cases)
