@@ -106,6 +106,12 @@ no-preload bolt tension. This advances the load-path screen but does not close
 G1: stiffness-dependent sharing, the missing forward case, complete local
 resistance, and the final costed architecture remain open.
 
+The subsequent
+[stiffness sensitivity](bolted-candidate-prototypes/simple-center-stiffness-sensitivity.md)
+converges 48 of 50 historical-action scenario combinations and preserves two
+rank-35 bolt-dominant/contact-soft trials as unresolved. Its broad diagnostic
+reaction ranges make a single arbitrary stiffness unsuitable for force sizing.
+
 Source scope: [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
 describes dowel-yield lateral methods and exclusions; the
 [USDA Wood Handbook, Chapter 8](https://research.fs.usda.gov/download/treesearch/62253.pdf)

@@ -70,6 +70,11 @@ compatible gaps, actual contact pressure, stiffness-dependent sharing,
 fastener or timber resistance, the missing forward case, or whole-frame
 response. Those remain required before G1/G2 or fabrication release.
 
+The later
+[compatibility-aware sensitivity](simple-center-stiffness-sensitivity.md)
+adds one-sided spring compatibility and preserves two rank-deficient contrast
+trials. Its stiffnesses and historical actions remain provisional.
+
 Reproduce with `.venv/bin/python -m scripts.simple_center_signed_duty_fixture`
 and `.venv/bin/python -m pytest -q
 tests/test_simple_center_signed_duty_fixture.py`.

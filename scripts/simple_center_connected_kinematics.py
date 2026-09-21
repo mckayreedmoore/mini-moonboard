@@ -162,6 +162,10 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                     "name": f"{name}/bolt_{bolt_index}/shear_{index}",
                     "edge": name,
                     "kind": "bolt_shear",
+                    "first": first,
+                    "second": second,
+                    "direction": tuple(tangent),
+                    "point_mm": tuple(point),
                     "row": _point_row(first, second, tangent, point),
                 }
                 for index, tangent in enumerate(tangents, 1)
@@ -172,6 +176,10 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                         "name": f"{name}/bolt_{bolt_index}/tension",
                         "edge": name,
                         "kind": "bolt_tension",
+                        "first": first,
+                        "second": second,
+                        "direction": tuple(n),
+                        "point_mm": tuple(point),
                         "row": _point_row(first, second, n, point),
                     }
                 )
@@ -186,6 +194,9 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                         "name": f"{name}/contact_{contact_index}",
                         "edge": name,
                         "kind": "contact_compression",
+                        "first": first,
+                        "second": second,
+                        "direction": tuple(n),
                         "point_mm": tuple(point),
                         "row": _point_row(first, second, n, point),
                     }
