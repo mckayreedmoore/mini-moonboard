@@ -149,6 +149,23 @@ def test_native_refinement_coalescing_preserves_exact_area_and_first_moments():
     )
 
 
+def test_eight_by_eight_partition_refines_perforated_cells_and_remains_finite():
+    cells, partition = native_contact_partition(8)
+
+    assert partition["contact_row_count"] == 410
+    assert sum(
+        row["native_attachment_coalesced_count"]
+        for row in partition["interfaces"].values()
+    ) == 30
+    assert all(
+        cell["tributary_area_mm2"] > 0
+        and cell["inside_both_true_faces"]
+        and cell["outside_all_bore_footprints"]
+        for rows in cells.values()
+        for cell in rows
+    )
+
+
 def test_screen_keeps_claim_boundary(module):
     result = screen()
     assert result["active_fingerprint"] == ACTIVE_FINGERPRINT

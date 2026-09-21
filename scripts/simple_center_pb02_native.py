@@ -23,8 +23,6 @@ from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
 from scripts.simple_center_connected_kinematics import (
-    CONTACT_CELLS,
-    CONTACT_PARTITION,
     DEFAULT_CONTACT_GRID,
     EDGE_BORE_NAMES,
     EDGES,
@@ -251,9 +249,19 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
         unsupported = [
             row for row in groups if edge_margin(edge, row["point_mm"]) < -1.0e-5
         ]
+        parent_height, parent_width = resolution[0] // 2, resolution[1] // 2
+        if unsupported and (
+            resolution[0] % 2
+            or resolution[1] % 2
+            or min(parent_height, parent_width) < 1
+        ):
+            raise ValueError("PB02 unsupported contact cells require an even grid")
         parent_tiles = sorted(
             {
-                ((row["grid_row"] - 1) // 2, (row["grid_column"] - 1) // 2)
+                (
+                    (row["grid_row"] - 1) // parent_height,
+                    (row["grid_column"] - 1) // parent_width,
+                )
                 for row in unsupported
             }
         )
@@ -261,8 +269,8 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
             tile = [
                 row
                 for row in groups
-                if (row["grid_row"] - 1) // 2 == parent_row
-                and (row["grid_column"] - 1) // 2 == parent_column
+                if (row["grid_row"] - 1) // parent_height == parent_row
+                and (row["grid_column"] - 1) // parent_width == parent_column
             ]
             if len(tile) < 2:
                 raise ValueError(f"PB02 {edge} unsupported parent contact tile")
@@ -290,12 +298,6 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
             native_attachment_coalesced_count=(len(source_cells) - len(groups)),
         )
 
-    if all(
-        len(result[edge]) == len(source_cells)
-        for edge, source_cells in cells_by_edge.items()
-    ):
-        return cells_by_edge, source_partition
-
     partition = {
         "schema": "pb02-canonical-contact-partition/v1",
         "grid_resolution": list(resolution),
@@ -319,11 +321,7 @@ def native_row_inventory(
 ):
     """Return the authoritative PB02 spring rows without solver-only matrices."""
     if partition_bundle is None:
-        partition_bundle = (
-            (CONTACT_CELLS, CONTACT_PARTITION)
-            if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID
-            else native_contact_partition(contact_grid_resolution)
-        )
+        partition_bundle = native_contact_partition(contact_grid_resolution)
     _, partition = partition_bundle
     rows = constraint_rows(
         closed=tuple(EDGES),
@@ -799,10 +797,7 @@ def screen(contact_grid_resolution=DEFAULT_CONTACT_GRID):
         for name in baseline_panels
         if current_panels[name].members != baseline_panels[name].members
     }
-    if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID:
-        partition_bundle = (CONTACT_CELLS, CONTACT_PARTITION)
-    else:
-        partition_bundle = native_contact_partition(contact_grid_resolution)
+    partition_bundle = native_contact_partition(contact_grid_resolution)
     _, partition = partition_bundle
     rows = native_row_inventory(
         contact_grid_resolution, partition_bundle=partition_bundle

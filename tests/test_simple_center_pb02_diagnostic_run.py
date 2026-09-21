@@ -11,10 +11,11 @@ AXIAL_STIFFNESS = 700.0
 LATERAL_STIFFNESS = 1200.0
 FACE_STIFFNESS = 2400.0
 SOURCE_INVENTORY = {"scripts/pb02-producer.py": "a" * 64}
+NATIVE_PARTITION = runner.native_contact_partition(2)[1]
 BOLT_NAMES = {f"pb02-bolt-{index}" for index in range(10)}
 CONTACT_NAMES = {
     f"pb02-contact-{index}"
-    for index in range(runner.CONTACT_PARTITION["contact_row_count"])
+    for index in range(NATIVE_PARTITION["contact_row_count"])
 }
 
 
@@ -94,9 +95,9 @@ def isolated_runner(monkeypatch):
             "native_rows": {
                 "bolt_shear": 20,
                 "bolt_tension": 10,
-                "contact_compression": runner.CONTACT_PARTITION["contact_row_count"],
+                "contact_compression": NATIVE_PARTITION["contact_row_count"],
             },
-            "canonical_contact_partition": runner.CONTACT_PARTITION,
+            "canonical_contact_partition": NATIVE_PARTITION,
             "qualified_for_design": False,
             "drilling_released": False,
             "active_fingerprint": "pb02-test-geometry",
@@ -121,9 +122,9 @@ def isolated_runner(monkeypatch):
         runner,
         "_contact_aggregation",
         lambda report, stiffnesses: {
-            "partition_fingerprint": runner.CONTACT_PARTITION["fingerprint"],
-            "grid_resolution": runner.CONTACT_PARTITION["grid_resolution"],
-            "interfaces": {edge: {} for edge in runner.CONTACT_PARTITION["interfaces"]},
+            "partition_fingerprint": NATIVE_PARTITION["fingerprint"],
+            "grid_resolution": NATIVE_PARTITION["grid_resolution"],
+            "interfaces": {edge: {} for edge in NATIVE_PARTITION["interfaces"]},
         },
     )
 
@@ -445,11 +446,11 @@ def test_stiffness_selection_records_exact_explicit_values_and_unqualified_statu
     assert result["complete_joint_stiffness_qualified"] is False
     assert "developmental" in result["selection_status"]
     assert result["contact_model"]["partition_fingerprint"] == (
-        runner.CONTACT_PARTITION["fingerprint"]
+        NATIVE_PARTITION["fingerprint"]
     )
     assert (
         result["contact_model"]["contact_row_count"]
-        == (runner.CONTACT_PARTITION["contact_row_count"])
+        == (NATIVE_PARTITION["contact_row_count"])
     )
     assert result["contact_model"]["canonical_per_area_n_per_mm3"] > 0
 
@@ -464,10 +465,10 @@ def test_stiffness_selection_exposes_four_by_four_native_partition():
 
     assert result["contact_model"]["grid_resolution"] == [4, 4]
     assert result["contact_model"]["partition_fingerprint"] != (
-        runner.CONTACT_PARTITION["fingerprint"]
+        NATIVE_PARTITION["fingerprint"]
     )
     assert result["contact_model"]["contact_row_count"] > (
-        runner.CONTACT_PARTITION["contact_row_count"]
+        NATIVE_PARTITION["contact_row_count"]
     )
 
 
@@ -514,10 +515,8 @@ def test_contact_aggregation_records_refinement_comparison_fields():
                 "first": row["first_part"],
                 "second": row["second_part"],
                 "scalar_normal": [-value for value in row["direction"]],
-                "contact_partition_fingerprint": runner.CONTACT_PARTITION[
-                    "fingerprint"
-                ],
-                "contact_grid_resolution": runner.CONTACT_PARTITION["grid_resolution"],
+                "contact_partition_fingerprint": NATIVE_PARTITION["fingerprint"],
+                "contact_grid_resolution": NATIVE_PARTITION["grid_resolution"],
                 "force_on_first_xyz_n": (
                     [-value for value in row["direction"]]
                     if row["name"] in active
@@ -530,8 +529,8 @@ def test_contact_aggregation_records_refinement_comparison_fields():
 
     result = runner._contact_aggregation(report, stiffnesses)
 
-    assert result["partition_fingerprint"] == runner.CONTACT_PARTITION["fingerprint"]
-    assert set(result["interfaces"]) == set(runner.CONTACT_PARTITION["interfaces"])
+    assert result["partition_fingerprint"] == NATIVE_PARTITION["fingerprint"]
+    assert set(result["interfaces"]) == set(NATIVE_PARTITION["interfaces"])
     assert sum(
         row["active_tributary_area_mm2"] for row in result["interfaces"].values()
     ) == pytest.approx(

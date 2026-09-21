@@ -14,6 +14,7 @@ from scipy.optimize import linprog
 
 from scripts.bolted_center_demand_extract import extract_files
 from scripts.simple_center_connected_kinematics import (
+    CONTACT_PARTITION,
     EDGES,
     NODES,
     ORIGIN,
@@ -244,14 +245,17 @@ def screen():
             "edges": list(EDGES),
             "bolt_shear": "bilateral point action",
             "bolt_axial": "no-preload tension only",
-            "face_contact": "compression only at four illustrative rank points",
+            "face_contact": "compression only at exact net-face tributary centroids",
+            "contact_partition_fingerprint": CONTACT_PARTITION["fingerprint"],
+            "contact_grid_resolution": CONTACT_PARTITION["grid_resolution"],
+            "contact_row_count": CONTACT_PARTITION["contact_row_count"],
         },
         "cases": cases,
         "limitations": [
             "Old complete interface actions are authenticated examples, not PB02 design demands.",
             "The five cases omit a12-forward and are not a complete envelope.",
             "Feasibility proves equilibrium only; it does not solve gaps, stiffness, compatibility, force sharing, strength, or pressure.",
-            "Contact samples are illustrative rank points, not verified bearing patches.",
+            "Finite tributary cells are a discretized frictionless normal patch, not resolved local bearing pressure.",
             "A feasible LP witness is nonunique and its reaction magnitudes are not design forces.",
         ],
         "strength_or_fabrication_release": False,

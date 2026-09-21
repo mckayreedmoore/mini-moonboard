@@ -1,14 +1,31 @@
 """The PB02 signed fixture remains source-bound and physically one-sided."""
 
-from scripts.simple_center_connected_kinematics import EDGES
+from scripts.simple_center_connected_kinematics import (
+    CONTACT_PARTITION_FINGERPRINT,
+    EDGES,
+)
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_signed_duty_fixture import screen
+
+EXPECTED_CONTACT_EDGES = [
+    "post_block",
+    "principal_upright_block",
+    "upright_rear_block",
+]
+EXPECTED_TENSION_EDGES = [
+    "block_header",
+    "header_principal_block",
+    "rear_block_post",
+]
 
 
 def test_five_authenticated_cases_need_contact_and_tension_paths():
     result = screen()
 
     assert result["source_fingerprint"] == ACTIVE_FINGERPRINT
+    assert result["model"]["contact_partition_fingerprint"] == (
+        CONTACT_PARTITION_FINGERPRINT
+    )
     assert [row["case"] for row in result["cases"]] == [
         "a1-rear",
         "a12-left",
@@ -48,6 +65,12 @@ def test_five_authenticated_cases_need_contact_and_tension_paths():
         ]
         assert omission["required_contact_edges_in_this_point_model"]
         assert omission["required_tension_edges_in_this_point_model"]
+        assert omission["required_contact_edges_in_this_point_model"] == (
+            EXPECTED_CONTACT_EDGES
+        )
+        assert omission["required_tension_edges_in_this_point_model"] == (
+            EXPECTED_TENSION_EDGES
+        )
         assert all(
             duty["source_interface_residual_passed"]
             for duty in case["simultaneous_replacement_duties"]

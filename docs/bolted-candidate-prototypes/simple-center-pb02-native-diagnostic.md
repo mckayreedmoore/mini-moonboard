@@ -74,6 +74,13 @@ area and first moments and without extending fictional timber. A coalesced tile
 reports one average pressure; it cannot resolve partial opening or a local
 pressure peak inside that tile.
 
+An 8x8 partition is also generated deterministically for the required fallback
+refinement check. Perforated fine cells recursively subdivide only when a face
+centroid would fall inside a bore footprint; unsupported inclined-end cells are
+promoted to their containing 2x2 coarse parent tile. The 8x8 native inventory
+contains 410 contact springs and preserves the same exact net areas and first
+moments. It has not yet been solved.
+
 The runner authenticates partition identity, area-derived stiffness, cell
 ownership, physical force direction, and per-interface force, moment, active
 area, and peak cell-average pressure. Physical opening/closing tests and 2x2

@@ -19,7 +19,6 @@ from fea import current_response_run as native
 from fea.reinforced_frame_demand import repository_source_closure
 from scripts.clear_space_batch import CASES
 from scripts.simple_center_connected_kinematics import (
-    CONTACT_PARTITION,
     DEFAULT_CONTACT_GRID,
 )
 from scripts.simple_center_pb02_native import (
@@ -92,11 +91,7 @@ def _selected_stiffnesses(
         for value in values.values()
     ):
         raise ValueError("PB02 trial stiffnesses must be positive and finite")
-    _, partition = (
-        (None, CONTACT_PARTITION)
-        if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID
-        else native_contact_partition(contact_grid_resolution)
-    )
+    _, partition = native_contact_partition(contact_grid_resolution)
     mean_contact_area = sum(
         interface["net_overlap_area_mm2"]
         for interface in partition["interfaces"].values()

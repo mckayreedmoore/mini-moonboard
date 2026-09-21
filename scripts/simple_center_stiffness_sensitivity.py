@@ -426,7 +426,7 @@ def screen():
                 "name": name,
                 "lateral_factor": lateral,
                 "axial_factor": axial,
-                "contact_total_factor": contact,
+                "contact_mean_total_factor": contact,
             }
             for name, lateral, axial, contact in SCENARIOS
         ],

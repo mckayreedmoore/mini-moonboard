@@ -84,6 +84,16 @@ def test_compatibility_sensitivity_converges_and_preserves_equilibrium():
         solved["seed_optimizer"]["singular_refinement_advances"] >= 0
         for solved in result["results"]
     )
+    assert all(
+        solved["seed_optimizer"]["singular_refinement_advances"] == 0
+        for solved in result["results"]
+    )
+    governing = result["fixed_case_stiffness_sensitivity"]["a12-left"][
+        "block_header"
+    ]["total_contact_compression_n"]
+    assert governing["maximum_to_minimum"] == pytest.approx(122.04710822839961)
+    assert governing["minimum_n"] == pytest.approx(22.195436217098937)
+    assert governing["maximum_n"] == pytest.approx(2708.8888061648145)
 
     assert "cross_case_and_scenario_reaction_envelopes" in result
     assert result["strength_or_fabrication_release"] is False

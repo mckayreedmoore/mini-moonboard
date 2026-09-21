@@ -113,7 +113,7 @@ def test_contact_cells_cover_exact_net_face_overlap_and_exclude_bores():
         ]
 
 
-@pytest.mark.parametrize("resolution", [2, 4])
+@pytest.mark.parametrize("resolution", [2, 4, 8])
 def test_contact_partition_refines_deterministically_and_preserves_first_moments(
     resolution,
 ):

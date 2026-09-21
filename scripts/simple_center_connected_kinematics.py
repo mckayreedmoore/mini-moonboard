@@ -166,13 +166,9 @@ def _contact_cells(
     low = overlap.min(axis=0)
     high = overlap.max(axis=0)
     cells = []
-    for row, column in itertools.product(range(resolution[0]), range(resolution[1])):
-        cell_low = low + (high - low) * np.array(
-            (row / resolution[0], column / resolution[1])
-        )
-        cell_high = low + (high - low) * np.array(
-            ((row + 1) / resolution[0], (column + 1) / resolution[1])
-        )
+
+    def clipped_components(cell_low, cell_high, path=(), depth=0):
+        """Split a perforated cell until every emitted centroid is net material."""
         rectangle = cq.Face.makeFromWires(
             cq.Wire.makePolygon(
                 [
@@ -184,14 +180,16 @@ def _contact_cells(
                 close=True,
             )
         )
-        clipped = net_face.intersect(rectangle)
         faces = sorted(
-            (face for face in clipped.Faces() if face.Area() > 1.0e-9),
+            (
+                face
+                for face in net_face.intersect(rectangle).Faces()
+                if face.Area() > 1.0e-9
+            ),
             key=lambda face: face.Center().toTuple(),
         )
-        # Empty grid cells and multiple disconnected positive components are
-        # both valid outcomes for clipped or perforated overlap polygons.
-        for component, face in enumerate(faces):
+        checked = []
+        for face in faces:
             point = np.asarray(face.Center().toTuple())
             projected = point[list(tangents)]
             inside_faces = _point_in_convex_polygon(
@@ -201,23 +199,64 @@ def _contact_cells(
                 np.linalg.norm(projected - center) > radius + 1.0e-7
                 for center, radius in bore_data
             )
-            if not inside_faces or not outside_bores:
-                raise ValueError(
-                    "PB02 contact component centroid is not on the net true face"
+            checked.append((face, point, inside_faces, outside_bores))
+        if all(inside_faces and outside_bores for _, _, inside_faces, outside_bores in checked):
+            return [(face, point, path) for face, point, _, _ in checked]
+        if depth >= 6:
+            raise ValueError(
+                "PB02 contact component centroid is not on the net true face"
+            )
+        middle = (cell_low + cell_high) / 2.0
+        refined = []
+        for subrow, subcolumn in itertools.product(range(2), range(2)):
+            sublow = np.array(
+                (
+                    cell_low[0] if subrow == 0 else middle[0],
+                    cell_low[1] if subcolumn == 0 else middle[1],
                 )
+            )
+            subhigh = np.array(
+                (
+                    middle[0] if subrow == 0 else cell_high[0],
+                    middle[1] if subcolumn == 0 else cell_high[1],
+                )
+            )
+            refined.extend(
+                clipped_components(
+                    sublow,
+                    subhigh,
+                    (*path, subrow * 2 + subcolumn + 1),
+                    depth + 1,
+                )
+            )
+        return refined
+
+    for row, column in itertools.product(range(resolution[0]), range(resolution[1])):
+        cell_low = low + (high - low) * np.array(
+            (row / resolution[0], column / resolution[1])
+        )
+        cell_high = low + (high - low) * np.array(
+            ((row + 1) / resolution[0], (column + 1) / resolution[1])
+        )
+        # Empty grid cells and multiple disconnected positive components are
+        # both valid outcomes for clipped or perforated overlap polygons.
+        for component, (face, point, subpath) in enumerate(
+            clipped_components(cell_low, cell_high), 1
+        ):
+            suffix = "" if not subpath else "s" + "-".join(map(str, subpath))
             cells.append(
                 {
-                    "cell_id": f"r{row + 1}c{column + 1}p{component + 1}",
+                    "cell_id": f"r{row + 1}c{column + 1}{suffix}p{component}",
                     "grid_row": row + 1,
                     "grid_column": column + 1,
-                    "component": component + 1,
+                    "component": component,
                     "point_mm": tuple(point),
                     "tributary_area_mm2": face.Area(),
                     "net_overlap_area_mm2": net_face.Area(),
                     "gross_overlap_area_mm2": ConvexHull(overlap).volume,
                     "bore_area_mm2": ConvexHull(overlap).volume - net_face.Area(),
-                    "inside_both_true_faces": inside_faces,
-                    "outside_all_bore_footprints": outside_bores,
+                    "inside_both_true_faces": True,
+                    "outside_all_bore_footprints": True,
                 }
             )
     if (
