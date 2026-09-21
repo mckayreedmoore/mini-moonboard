@@ -26,8 +26,9 @@ from scripts.simple_pb03_lower_center_pair import (
     HEAD_NUT_DIAMETER_MM,
     WASHER_DIAMETER_MM,
 )
-from scripts.simple_pb03_native import SOURCE_ID, PB03Native
-from scripts.simple_pb03_native import screen as screen_pb03_native
+from scripts.simple_pb03_outer_counterbore_revision import HARDWARE_SOURCES
+from scripts.simple_pb04_native import SOURCE_ID, PB04Native
+from scripts.simple_pb04_native import screen as screen_pb04_native
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/v4-diagnostic-scene.json"
@@ -106,13 +107,13 @@ def _trial_stack(name, start, direction, grip_mm):
     }
 
 
-def _pb03_stack(station, bolt):
-    """Export the five generic components maintained by the PB03 source."""
+def _pb04_stack(station, bolt):
+    """Export the five generic components maintained by the PB04 source."""
     start = list(bolt.start.toTuple())
     direction = list(bolt.direction.normalized().toTuple())
     return {
         "name": bolt.name,
-        "station": "PB03",
+        "station": "PB04",
         "source_station": station,
         "orientation_selected": False,
         "hardware_selected": False,
@@ -154,13 +155,23 @@ def _pb03_stack(station, bolt):
     }
 
 
+def _shape_mesh(shape):
+    """Serialize the actual CAD solid so counterbores remain visible."""
+    vertices, triangles = shape.tessellate(0.5)
+    return {
+        "vertices_mm": [list(vertex.toTuple()) for vertex in vertices],
+        "triangles": [list(triangle) for triangle in triangles],
+    }
+
+
 @lru_cache(maxsize=1)
 def build_scene():
     baseline = json.loads(BASELINE.read_text())
     names = {part["name"] for part in baseline["parts"]}
-    pb03_module = PB03Native()
-    pb03_status = screen_pb03_native(pb03_module)
-    replaced_pb03_stations = tuple(pb03_status["replaced_legacy_stations"])
+    pb04_module = PB04Native()
+    pb04_status = screen_pb04_native(pb04_module)
+    pb04_core = pb04_module.pb03_geometries()
+    replaced_pb04_stations = tuple(pb04_core)
     fixed = [
         name
         for name in names
@@ -179,12 +190,12 @@ def build_scene():
         for name in names
         if any(
             name == station or name.startswith(f"fastener_{station}_")
-            for station in replaced_pb03_stations
+            for station in replaced_pb04_stations
         )
     )
     if len(hidden_legacy_visuals) != 56:
         raise ValueError(
-            "PB03 must hide exactly eight angles and forty-eight SDS visuals"
+            "PB04 must hide exactly eight angles and forty-eight SDS visuals"
         )
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
@@ -243,18 +254,20 @@ def build_scene():
         hardware_stacks.append(_trial_stack(name, start, axes[-1]["axis"], length))
     pb02_stack_count = len(hardware_stacks)
 
-    pb03_core = pb03_module.pb03_geometries()
-    if not pb03_status["geometry_gates_pass"]:
-        raise ValueError("PB03 geometry no longer passes its committed visual source")
-    for station, geometry in pb03_core.items():
+    pb04_parts = {part.name: part.shape for part in pb04_module.wood_parts()}
+    if not pb04_status["combined_geometry_gates_pass"]:
+        raise ValueError("PB04 geometry no longer passes its committed visual source")
+    for station, geometry in pb04_core.items():
+        block = pb04_parts[geometry.block_name]
         boxes.append(
             {
                 "name": geometry.block_name,
-                "station": "PB03",
+                "station": "PB04",
                 "source_station": station,
-                "center_mm": list(geometry.block.Center().toTuple()),
+                "center_mm": list(block.Center().toTuple()),
                 "size_mm": geometry.report["block_dimensions_mm"],
                 "rotation_x_deg": 50,
+                "mesh": _shape_mesh(block),
             }
         )
         for bolt in geometry.bolts:
@@ -262,7 +275,7 @@ def build_scene():
             axes.append(
                 {
                     "name": bolt.name,
-                    "station": "PB03",
+                    "station": "PB04",
                     "source_station": station,
                     "start_mm": list(bolt.start.toTuple()),
                     "axis": direction,
@@ -270,7 +283,7 @@ def build_scene():
                     "diameter_mm": BORE_DIAMETER_MM,
                 }
             )
-            hardware_stacks.append(_pb03_stack(station, bolt))
+            hardware_stacks.append(_pb04_stack(station, bolt))
 
     kicker_left = wood["kicker_left"].BoundingBox()
     kicker_right = wood["kicker_right"].BoundingBox()
@@ -306,15 +319,31 @@ def build_scene():
         "inner_kicker_edges_supported": support,
         "pb02_bore_count": len(bores),
         "pb02_trial_stack_count": pb02_stack_count,
-        "pb03_bore_count": sum(len(item.bores) for item in pb03_core.values()),
-        "pb03_trial_stack_count": sum(len(item.stacks) for item in pb03_core.values()),
-        "pb03_block_count": len(pb03_core),
-        "legacy_station_count": pb03_status["legacy_proxy_stations"],
-        "legacy_sds_axis_count": pb03_status["legacy_sds_axes"],
-        "replaced_pb03_legacy_stations": list(replaced_pb03_stations),
+        "pb04_bore_count": sum(len(item.bores) for item in pb04_core.values()),
+        "pb04_trial_stack_count": sum(len(item.stacks) for item in pb04_core.values()),
+        "pb04_block_count": len(pb04_core),
+        "pb04_upper_outer_rail_offset_mm": pb04_status["upper_outer_rail_offset_mm"],
+        "pb04_counterbore_count": pb04_status["inventory"]["counterbores"],
+        "pb04_counterbore_depth_mm": round(pb04_status["counterbore_depth_mm"], 4),
+        "pb04_upright_bolt_product_lead": {
+            "retailer": "Home Depot",
+            "product": "Everbilt 800696",
+            "nominal_size": "1/4-20 x 8 in",
+            "url": HARDWARE_SOURCES["bolt"],
+            "selected": False,
+        },
+        "legacy_station_count": pb04_status["inventory"]["legacy_proxy_stations"],
+        "legacy_sds_axis_count": pb04_status["inventory"]["legacy_sds_axes"],
+        "replaced_pb04_legacy_stations": list(replaced_pb04_stations),
         "fixed_panel_kicker_screw_axes": len(fixed),
-        "total_connection_count": pb03_status["total_connections"],
-        "bolt_kind_connection_count": pb03_status["total_bolt_connections"],
+        "total_connection_count": pb04_status["inventory"]["total_connections"],
+        "bolt_kind_connection_count": sum(
+            row.kind == "bolt" for row in pb04_module.connections()
+        ),
+        "development_only": not pb04_status["qualified_for_design"],
+        "drilling_released": pb04_status["drilling_released"],
+        "fabrication_released": pb04_status["fabrication_released"],
+        "structural_released": pb04_status["structural_released"],
     }
     if abs(kicker_left.xlen - (official_kicker.xlen - KERF_EACH_MM)) > 1e-6:
         raise ValueError("kerf-right kicker width visual contract changed")
@@ -324,11 +353,12 @@ def build_scene():
         "fixed_panel_kicker_screw_axes": len(fixed),
         "pb02_variant_id": ACTIVE_TRIAL.variant_id,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
-        "pb03_source_id": SOURCE_ID,
+        "pb04_source_id": SOURCE_ID,
+        "pb04_source_fingerprint": pb04_status["source_fingerprint_sha256"],
         "hidden_legacy_visual_names": hidden_legacy_visuals,
         "assembly_contract": assembly_contract,
         "hardware_stack_scope": (
-            "PB02 maintained trial-length envelopes and PB03 source-derived generic "
+            "PB02 maintained trial-length envelopes and PB04 source-derived generic "
             "stack envelopes only; no delivered product, thread interval, exact hardware, "
             "or head/nut orientation selected"
         ),
