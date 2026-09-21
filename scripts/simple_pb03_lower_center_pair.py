@@ -177,14 +177,30 @@ def _intersection_volume(first, second):
     return first.intersect(second).Volume()
 
 
-def _stack(name, wood_start, direction, wood_grip, members):
+def _stack(
+    name,
+    wood_start,
+    direction,
+    wood_grip,
+    members,
+    *,
+    bolt_diameter_mm=BOLT_DIAMETER_MM,
+    bore_diameter_mm=BORE_DIAMETER_MM,
+):
     """Create a complete display/check stack with deliberately generic hardware."""
+    if (
+        not math.isfinite(bolt_diameter_mm)
+        or not math.isfinite(bore_diameter_mm)
+        or bolt_diameter_mm <= 0
+        or bore_diameter_mm <= bolt_diameter_mm
+    ):
+        raise ValueError("PB03 requires a positive bore larger than the bolt shaft")
     reverse = tuple(-value for value in direction)
     bore_start = _shift(wood_start, reverse, END_ALLOWANCE_MM)
     bore_length = wood_grip + 2 * END_ALLOWANCE_MM
     wood_end = _shift(wood_start, direction, wood_grip)
-    shaft = _cylinder(bore_start, direction, bore_length, BOLT_DIAMETER_MM)
-    bore = _cylinder(bore_start, direction, bore_length, BORE_DIAMETER_MM)
+    shaft = _cylinder(bore_start, direction, bore_length, bolt_diameter_mm)
+    bore = _cylinder(bore_start, direction, bore_length, bore_diameter_mm)
     near_washer = _cylinder(
         _shift(wood_start, reverse, 2.0), direction, 2.0, WASHER_DIAMETER_MM
     )
@@ -209,7 +225,7 @@ def _stack(name, wood_start, direction, wood_grip, members):
         cq.Vector(*bore_start),
         cq.Vector(*direction),
         bore_length,
-        BOLT_DIAMETER_MM,
+        bolt_diameter_mm,
         members,
         "bolt",
         wood_grip,
@@ -263,6 +279,8 @@ def _build_station(
     fixed_axes,
     *,
     rail_n_offset_mm=RAIL_N_OFFSET_MM,
+    bolt_diameter_mm=BOLT_DIAMETER_MM,
+    bore_diameter_mm=BORE_DIAMETER_MM,
 ):
     station = spec.station
     extension = spec.rail_extension_direction
@@ -337,7 +355,15 @@ def _build_station(
             )
         )
     for name, start, direction, grip, members in specs:
-        bolt, stack, bore, access = _stack(name, start, direction, grip, members)
+        bolt, stack, bore, access = _stack(
+            name,
+            start,
+            direction,
+            grip,
+            members,
+            bolt_diameter_mm=bolt_diameter_mm,
+            bore_diameter_mm=bore_diameter_mm,
+        )
         bolts.append(bolt)
         stacks[name] = stack
         bores[name] = bore
@@ -359,9 +385,11 @@ def _build_station(
     }
     block_timber_hits = _hits(block, unrelated_timber)
     block_panel_hits = _hits(block, panel_parts)
+    block_fixed_axis_hits = _hits(block, fixed_axes)
     complete_bores = {}
     bore_timber_hits = {}
     bore_panel_hits = {}
+    bore_fixed_axis_hits = {}
     stack_timber_hits = {}
     stack_panel_hits = {}
     stack_fixed_axis_hits = {}
@@ -380,7 +408,7 @@ def _build_station(
         complete_bores[bolt.name] = all(
             abs(
                 bore.intersect(hosts[member]).Volume()
-                - math.pi * (BORE_DIAMETER_MM / 2) ** 2 * length
+                - math.pi * (bore_diameter_mm / 2) ** 2 * length
             )
             <= TOL_MM3
             for member, length in expected.items()
@@ -392,6 +420,7 @@ def _build_station(
         }
         bore_timber_hits[bolt.name] = _hits(bore, bolt_unrelated_timber)
         bore_panel_hits[bolt.name] = _hits(bore, panel_parts)
+        bore_fixed_axis_hits[bolt.name] = _hits(bore, fixed_axes)
         stack_timber_hits[bolt.name] = {
             role: _hits(shape, bolt_unrelated_timber)
             for role, shape in stacks[bolt.name].items()
@@ -449,6 +478,8 @@ def _build_station(
         "actual_member_names": [upright_name, rail_name],
         "source_rail_length_mm": rb.xlen,
         "rail_bore_n_offset_mm": rail_n_offset_mm,
+        "bolt_diameter_mm": bolt_diameter_mm,
+        "bore_diameter_mm": bore_diameter_mm,
         "block_dimensions_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
         "contact_area_mm2": contact,
         "contact_verified": all(value > 0 for value in contact.values()),
@@ -456,8 +487,10 @@ def _build_station(
         "complete_bores": all(complete_bores.values()),
         "block_unrelated_timber_hits_mm3": block_timber_hits,
         "block_finished_panel_hits_mm3": block_panel_hits,
+        "block_fixed_axis_hits_mm3": block_fixed_axis_hits,
         "bore_unrelated_timber_hits_mm3": bore_timber_hits,
         "bore_finished_panel_hits_mm3": bore_panel_hits,
+        "bore_fixed_axis_hits_mm3": bore_fixed_axis_hits,
         "same_station_bore_hits_mm3": same_bore_hits,
         "stack_unrelated_timber_hits_mm3": stack_timber_hits,
         "stack_finished_panel_hits_mm3": stack_panel_hits,
@@ -476,8 +509,10 @@ def _build_station(
         "cross_stack_hits_mm3": pair_hits,
         "collision_clear": not block_timber_hits
         and not block_panel_hits
+        and not block_fixed_axis_hits
         and not any(bore_timber_hits.values())
         and not any(bore_panel_hits.values())
+        and not any(bore_fixed_axis_hits.values())
         and not same_bore_hits
         and not any(any(hits.values()) for hits in stack_timber_hits.values())
         and not any(any(hits.values()) for hits in stack_panel_hits.values())
@@ -539,6 +574,8 @@ def _build_targets(
     panel_connections=None,
     stations=None,
     connections=None,
+    bolt_diameter_mm=BOLT_DIAMETER_MM,
+    bore_diameter_mm=BORE_DIAMETER_MM,
 ):
     """Build declared stations separately and reject changed source inventory."""
     target_stations = tuple(target_stations)
@@ -611,7 +648,12 @@ def _build_targets(
         raise ValueError("PB03 finished-panel inventory changed")
     return {
         station: _build_station(
-            STATION_SPECS[station], parts, finished_parts, fixed_axes
+            STATION_SPECS[station],
+            parts,
+            finished_parts,
+            fixed_axes,
+            bolt_diameter_mm=bolt_diameter_mm,
+            bore_diameter_mm=bore_diameter_mm,
         )
         for station in target_stations
     }
@@ -696,9 +738,7 @@ def _screen_targets(geometries, target_stations, schema):
             for second_stack, second_components in second.stacks.items():
                 for first_role, first_component in first_components.items():
                     for second_role, second_component in second_components.items():
-                        volume = _intersection_volume(
-                            first_component, second_component
-                        )
+                        volume = _intersection_volume(first_component, second_component)
                         if volume > TOL_MM3:
                             key = (
                                 f"{first_stack}/{first_role}|"
@@ -716,13 +756,7 @@ def _screen_targets(geometries, target_stations, schema):
         len(geometries) == len(target_stations),
         sum(len(item.bolts) for item in geometries.values())
         == 4 * len(target_stations),
-        len(
-            {
-                bolt.name
-                for item in geometries.values()
-                for bolt in item.bolts
-            }
-        )
+        len({bolt.name for item in geometries.values() for bolt in item.bolts})
         == 4 * len(target_stations),
         len(panel_connections) == 66,
         all(support.values()),
@@ -777,9 +811,7 @@ def screen(pair=None):
     """Preserve the original lower-center screen and schema."""
     if pair is None:
         pair = build_pair()
-    return _screen_targets(
-        pair, TARGET_STATIONS, "simple_pb03_lower_center_pair/v1"
-    )
+    return _screen_targets(pair, TARGET_STATIONS, "simple_pb03_lower_center_pair/v1")
 
 
 def screen_core_slice(core_slice=None):
