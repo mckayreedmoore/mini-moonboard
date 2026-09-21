@@ -1,0 +1,77 @@
+{
+  "candidate": "round-insert-development",
+  "checked_date_utc": "2026-09-11",
+  "status": "Manufacturer dimensional references and explicit development assumptions; not an installation or resistance approval",
+  "historical_dimension_record": "docs/panel-insert-reference.json",
+  "primary_sources": {
+    "insert_product": "https://www.ezlok.com/ezhex-insert-801420-13",
+    "insert_drawing": "https://www.ezlok.com/assets/documents/dimensional_drawings/Dimensional%20Dwg%20-%20HexDriveFlush.pdf",
+    "insert_installation": "https://www.ezlok.com/e-z-hex-drive-insert-installation",
+    "machine_screw_product": "https://lhdottie.com/14-20-flat-head-squarephillips/fmdd14114",
+    "machine_screw_technical_sheet": "https://axjajfi6s7ed.objectstorage.us-phoenix-1.oci.customer-oci.com/p/GErcQA5fiECdu1FFc-U2mTY4wqjfsz5LctKiDPhxcB0pBfgP4Jsw2lB6qNKPIySv/n/axjajfi6s7ed/b/Magento/o/TechnicalDataSheets%2FFMDD14114.pdf"
+  },
+  "verified_product_dimensions_mm": {
+    "insert": {
+      "sku": "E-Z LOK 801420-13",
+      "material": "die-cast zinc",
+      "internal_thread": "1/4-20",
+      "length_nominal": 13.0048,
+      "outside_diameter_nominal": 11.5062,
+      "drawing_general_tolerance_plus_minus": 0.635,
+      "recommended_pilot_diameter": 9.128125,
+      "recommended_pilot_fraction_inch": "23/64",
+      "hex_drive_across_flats": 6.0,
+      "installation_tool": "9000",
+      "seating_instruction": "Type E flush inserts are designed to be installed below the surface; manufacturer does not specify a recess depth on the reviewed page"
+    },
+    "machine_screw": {
+      "sku": "L.H. Dottie FMDD14114",
+      "material": "zinc-plated carbon steel",
+      "thread": "1/4-20 UNC-2A",
+      "nominal_overall_length": 31.75,
+      "length_minus_tolerance": 1.524,
+      "major_diameter_min": 6.11632,
+      "major_diameter_max": 6.32206,
+      "head_diameter_min": 11.2268,
+      "head_diameter_max": 12.1158,
+      "head_angle_degrees_min": 80.0,
+      "head_angle_degrees_max": 82.0,
+      "head_height_reference": 3.8862,
+      "driver": "3R square/Phillips combination",
+      "torque_note": "The sheet's advisory machine-screw torque is not adopted for this wood-insert/plywood assembly"
+    }
+  },
+  "current_cad_assumptions_mm": {
+    "attachment_pairs": 56,
+    "main_panel_pairs_each": 12,
+    "kicker_pairs_each": 4,
+    "insert_recess_below_receiver_surface": 0.25,
+    "panel_clearance_bore": 7.0,
+    "receiver_axial_reserve": 17.0,
+    "panel_thickness": 18.25625,
+    "machine_screw_shaft_envelope_diameter": 6.35,
+    "head_clearance_envelope": "Maximum published head diameter with minimum 80-degree included angle; not a nominal exact head or shop countersink",
+    "insert_body": "Nominal outside diameter and length annulus with a 6.35 mm thread clearance; helix, hex recess and runouts omitted",
+    "receiver_display_cut": "Maximum-tolerance insert envelope extended to receiver face, plus 17 mm deep pilot-diameter reserve; not literal installation machining"
+  },
+  "recess_sensitivity": {
+    "idealized_drill_point_included_angle_degrees": 118.0,
+    "maximum_insert_length_mm": 13.6398,
+    "remaining_reserve_at_0_25mm_recess_mm": 0.36783458096952604,
+    "remaining_reserve_at_0_75mm_recess_mm": -0.13216541903047396,
+    "minimum_gross_screw_reach_from_insert_front_at_0_25mm_recess_mm": 11.71975,
+    "effective_thread_engagement_mm": null,
+    "interpretation": "Small positive geometric remainder is not a bottom-clearance requirement or released recess; deeper recess can exceed the current reserve"
+  },
+  "unresolved": [
+    "Required insert recess, installation tolerance, bottom clearance and actual drill-point geometry",
+    "Insert full internal-thread interval, hex recess depth, and both thread runouts",
+    "Actual screw full-thread interval and effective male/female engagement",
+    "Installation torque and clamp force for the selected plywood/insert/wood assembly",
+    "Plywood countersink bearing and pull-through, local receiver splitting and combined axial/lateral insert resistance",
+    "Repeat-removal durability, actual lot dimensions, delivered lumber/plywood properties and physical assembly testing"
+  ],
+  "qualified_for_machining": false,
+  "qualified_for_design": false,
+  "physically_installed_or_tested": false
+}
