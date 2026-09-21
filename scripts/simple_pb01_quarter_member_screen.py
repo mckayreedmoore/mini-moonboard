@@ -12,6 +12,10 @@ from mini_moonboard.bolted_timber_checks import (
     dfl_net_parallel_tension_reference_lbf,
     dfl_parallel_row_tear_out_reference_lbf,
 )
+from scripts.simple_rail_joint_comparison import (
+    PB01_GROUP_HISTORICAL_N_MM,
+    PB01_GROUP_TRIAL_SIZE_MM,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/bolted-candidate-prototypes/simple_rail_joint_comparison.json"
@@ -23,9 +27,9 @@ def _projection(point, axis):
     return sum(a * b for a, b in zip(point, axis, strict=True))
 
 
-def screen() -> dict:
+def screen(pose_data: dict | None = None) -> dict:
     """Calculate only conditional row/net-tension reference components."""
-    data = json.loads(SOURCE.read_text())
+    data = pose_data if pose_data is not None else json.loads(SOURCE.read_text())
     pose = data[POSE]
     if (
         data["physical_width"] != "kerf-right"
@@ -40,9 +44,12 @@ def screen() -> dict:
     x_mm, t_mm, n_mm = pose["size_local_x_t_n_mm"]
     host_mm = 38.1
     if (
-        not math.isclose(n_mm, 300.0)
-        or not math.isclose(x_mm, 139.7)
-        or not math.isclose(t_mm, 57.15)
+        not any(
+            math.isclose(n_mm, length)
+            for length in (PB01_GROUP_HISTORICAL_N_MM, PB01_GROUP_TRIAL_SIZE_MM[2])
+        )
+        or not math.isclose(x_mm, PB01_GROUP_TRIAL_SIZE_MM[0])
+        or not math.isclose(t_mm, PB01_GROUP_TRIAL_SIZE_MM[1])
     ):
         raise ValueError("PB-01 cleat stock or geometry changed")
     if not math.isclose(

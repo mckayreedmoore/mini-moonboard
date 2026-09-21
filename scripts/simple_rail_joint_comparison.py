@@ -32,6 +32,8 @@ OFFSET = 139.7
 ANGLE = math.radians(50)
 T = (math.cos(ANGLE), math.sin(ANGLE))
 N = (-math.sin(ANGLE), math.cos(ANGLE))
+PB01_GROUP_TRIAL_SIZE_MM = (139.7, 57.15, 152.4)
+PB01_GROUP_HISTORICAL_N_MM = 300.0
 
 
 def _volume_hits(shape, others):
@@ -502,6 +504,7 @@ def _screen_grain_n_group(
     *,
     bolt_diameter=BOLT_DIAMETER,
     bore_diameter=DIAMETER,
+    n_length=PB01_GROUP_HISTORICAL_N_MM,
 ):
     """One four-bolt 4x6 pose; diagnostics only, including an initial rejected front."""
     if not bolt_diameter + 25.4 / 32 <= bore_diameter <= bolt_diameter + 25.4 / 16:
@@ -511,7 +514,9 @@ def _screen_grain_n_group(
     rail_n = [v.Y * N[0] + v.Z * N[1] for v in rail.Vertices()]
     upright_n = [v.Y * N[0] + v.Z * N[1] for v in upright.Vertices()]
     t_face = max(rail_t)
-    x_width, t_width, n_length = 139.7, 57.15, 300.0
+    x_width, t_width = PB01_GROUP_TRIAL_SIZE_MM[:2]
+    if n_length <= 0 or not math.isfinite(n_length):
+        raise ValueError("invalid grain-N length")
 
     def cleat_at(n_front):
         y, z = _yz(t_face, n_front)
@@ -710,7 +715,7 @@ def _screen_grain_n_group(
             "all NDS edge/end/spacing, bearing, group, splitting, and net-section checks",
             "four-bolt force/moment distribution, cleat equilibrium, contact-only compression, and deformation",
             "real bolt shanks/lengths, nuts, washers, socket paths, and installed access",
-            "300-mm usable graded grain-N 4x6 stock, post-rip grade/dimensions, and purchase cost",
+            f"{n_length:g}-mm usable graded grain-N 4x6 stock, post-rip grade/dimensions, and purchase cost",
         ],
     }
     if bolt_diameter != BOLT_DIAMETER:
@@ -785,7 +790,7 @@ def _screen_grain_n_group(
     return group
 
 
-def compare():
+def compare(*, quarter_n_length=PB01_GROUP_HISTORICAL_N_MM):
     raw = {p.name: p.shape for p in variant(KERF_RIGHT).uncut_wood_parts()}
     panel_axes = _read_panel_axes()
     panel_axis_solids = {row["name"]: _axis_solid(row) for row in panel_axes}
@@ -1110,6 +1115,7 @@ def compare():
             purchased_screws,
             bolt_diameter=6.35,
             bore_diameter=7.5,
+            n_length=quarter_n_length,
         ),
         "load_rating_adopted": False,
         "drilling_released": False,

@@ -43,3 +43,28 @@ def test_quarter_runner_has_distinct_candidate_and_diagnostic_scope(
         in outcome["diagnostic_scope"]["variant_native_difference"]
     )
     assert outcome["diagnostic_scope"]["v4_same_case_demand"] is False
+
+
+def test_tension_only_runner_passes_law_into_preparation_and_scope(tmp_path, monkeypatch):
+    seen = {}
+
+    def fake_prepare(case, **kwargs):
+        seen["case"] = case
+        seen["preparation"] = kwargs
+        return "prepared"
+
+    def fake_run(output, **kwargs):
+        seen.update(kwargs)
+        output.mkdir()
+        return {"artifact_sha256": {}, "numerically_accepted": False}
+
+    monkeypatch.setattr(runner.native, "run", fake_run)
+    monkeypatch.setattr(runner, "prepare_case", fake_prepare)
+    outcome = runner.run_case("k12-right", tmp_path / "candidate", variant="quarter",
+                              tension_only_axial=True)
+    assert seen["expected_candidate"] == seen["module"].KEY
+    assert seen["prepare_factory"]() == "prepared"
+    assert seen["case"] == "k12-right"
+    assert seen["preparation"]["tension_only_axial"] is True
+    assert outcome["diagnostic_scope"]["pb01_axial_law"] == "tension_only_no_preload"
+    assert outcome["diagnostic_scope"]["pb01_face_contact_law"] == "compression_only"

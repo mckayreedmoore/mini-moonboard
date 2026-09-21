@@ -38,6 +38,7 @@ def run_case(
     bolt_axial_n_per_mm: float = 1000.0,
     bolt_lateral_n_per_mm: float = 1000.0,
     face_normal_total_n_per_mm: float = 1000.0,
+    tension_only_axial: bool = False,
 ):
     """Retain a source-fingerprinted old-proxy diagnostic, not design demand."""
     if case not in CASES:
@@ -55,6 +56,7 @@ def run_case(
             bolt_axial_n_per_mm=bolt_axial_n_per_mm,
             bolt_lateral_n_per_mm=bolt_lateral_n_per_mm,
             face_normal_total_n_per_mm=face_normal_total_n_per_mm,
+            tension_only_axial=tension_only_axial,
         ),
         extra_source_paths=PRODUCER_PATHS,
         max_cycles=max_cycles,
@@ -65,13 +67,19 @@ def run_case(
         "old_ml24z_sds_proxy_stations": 23,
         "pb01_cleat_station": "clip_horizontal_lower_right_1",
         "pb01_pose_variant": variant,
+        "pb01_axial_law": "tension_only_no_preload" if tension_only_axial else "bilateral_historical",
+        "pb01_face_contact_law": "compression_only",
         "pb01_nominal_trial_bolt_diameter_mm": POSES[variant][1],
         "trial_stiffness_n_per_mm": {
             "bolt_axial": bolt_axial_n_per_mm,
             "bolt_lateral": bolt_lateral_n_per_mm,
             "face_normal_total_per_interface": face_normal_total_n_per_mm,
         },
-        "variant_native_difference": "trial_stack_mass_only; identical centers and spring stiffness",
+        "variant_native_difference": (
+            "152.4mm_grain_length_and_mass; historical_300mm_forces_not_transferred"
+            if variant == "quarter_short"
+            else "trial_stack_mass_only; identical centers and spring stiffness"
+        ),
         "bore_diameter_changes_mesh": False,
         "v4_same_case_demand": False,
         "qualified_for_design": False,
@@ -94,6 +102,8 @@ if __name__ == "__main__":
     parser.add_argument("--bolt-axial-n-per-mm", type=float, default=1000.0)
     parser.add_argument("--bolt-lateral-n-per-mm", type=float, default=1000.0)
     parser.add_argument("--face-normal-total-n-per-mm", type=float, default=1000.0)
+    parser.add_argument("--tension-only-axial", action="store_true",
+                        help="Resolve no-preload PB01 bolt tension in the active set")
     args = parser.parse_args()
     outcome = run_case(
         args.case,
@@ -103,6 +113,7 @@ if __name__ == "__main__":
         bolt_axial_n_per_mm=args.bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm=args.bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm=args.face_normal_total_n_per_mm,
+        tension_only_axial=args.tension_only_axial,
     )
     print(
         json.dumps(

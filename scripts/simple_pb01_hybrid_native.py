@@ -21,6 +21,7 @@ from fea.horizontal_panel_frame import add_load, panel_kernel
 from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
+from scripts.simple_rail_joint_comparison import PB01_GROUP_TRIAL_SIZE_MM, compare
 
 ROOT = Path(__file__).resolve().parents[1]
 DIAGNOSTIC = ROOT / "docs/bolted-candidate-prototypes/simple_rail_joint_comparison.json"
@@ -40,6 +41,7 @@ _ORIGINAL_MEMBER = FlushStructure.member
 POSES = {
     "three_eighth": ("cleat_grain_n_4x6_group", 9.525),
     "quarter": ("cleat_grain_n_4x6_group_quarter", 6.35),
+    "quarter_short": ("cleat_grain_n_4x6_group_quarter", 6.35),
 }
 
 
@@ -59,7 +61,11 @@ def _trial_bolt_mass_kg(length_mm, shaft_d):
 
 
 def _trial(variant: str) -> dict:
-    data = json.loads(DIAGNOSTIC.read_text())
+    data = (
+        compare(quarter_n_length=PB01_GROUP_TRIAL_SIZE_MM[2])
+        if variant == "quarter_short"
+        else json.loads(DIAGNOSTIC.read_text())
+    )
     if data["station"] != STATION or data["physical_width"] != "kerf-right":
         raise ValueError("PB01 diagnostic source identity changed")
     if variant not in POSES:
@@ -68,7 +74,7 @@ def _trial(variant: str) -> dict:
     pose = data[pose_key]
     if pose["status"] != "diagnostic_pose_only":
         raise ValueError("PB01 four-bolt pose is not a diagnostic pose")
-    if variant == "quarter" and (
+    if variant in ("quarter", "quarter_short") and (
         pose["nominal_trial_bolt_diameter_mm_not_selected"] != diameter
         or pose["diagnostic_wood_bore_diameter_mm_not_drill_instruction"] != 7.5
     ):
@@ -88,7 +94,10 @@ def _cleat_part(raw_parts, pose):
     t_face = max(np.dot(T, v.Center().toTuple()) for v in rail.Vertices())
     n_front = min(np.dot(N, v.Center().toTuple()) for v in rail.Vertices())
     x_width, t_width, n_length = pose["size_local_x_t_n_mm"]
-    if not np.allclose((x_width, t_width, n_length), (139.7, 57.15, 300.0)):
+    if not np.allclose((x_width, t_width), PB01_GROUP_TRIAL_SIZE_MM[:2]) or not any(
+        math.isclose(n_length, length)
+        for length in (300.0, PB01_GROUP_TRIAL_SIZE_MM[2])
+    ):
         raise ValueError("PB01 trial cleat dimensions changed")
     x = upright.BoundingBox().xmax
     origin = T * t_face + N * n_front
@@ -117,6 +126,8 @@ class HybridPB01(DiagnosticProxy):
         self.variant = variant
         if variant == "quarter":
             self.KEY = "pb01-kerf-right-cleat-quarter-hybrid-preparation-only"
+        elif variant == "quarter_short":
+            self.KEY = "pb01-kerf-right-cleat-quarter-short-hybrid-preparation-only"
         self.cleat = _cleat_part(self.raw.uncut_wood_parts(), self.pose)
         self.MEMBER_AXES = {
             **getattr(self.baseline, "MEMBER_AXES", {}),
@@ -177,7 +188,7 @@ def _face_samples(module, family):
         limits.append((low, high))
     span_a = limits[0][1] - limits[0][0]
     span_b = limits[1][1] - limits[1][0]
-    bore_diameter = 7.5 if module.variant == "quarter" else 10.5
+    bore_diameter = 7.5 if module.variant in ("quarter", "quarter_short") else 10.5
     net_area = span_a * span_b - 2 * math.pi * (bore_diameter / 2) ** 2
     if net_area <= 0:
         raise ValueError(f"{family}: nonpositive net seated area")
@@ -221,6 +232,7 @@ def _add_pb01_paths(
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
     faces,
+    tension_only_axial=False,
 ):
     for value in (
         bolt_axial_n_per_mm,
@@ -261,6 +273,13 @@ def _add_pb01_paths(
                 name,
                 owner,
             )
+            if tension_only_axial:
+                axial = [spring for spring in structure.springs
+                         if spring["name"] == name and spring["dof"] == 1]
+                if len(axial) != 1:
+                    raise ValueError("Expected one PB01 axial spring per bolt")
+                axial[0]["bearing_closed_assumption"] = True
+                axial[0]["tension_only_assumption"] = True
             ownership[name] = owner
             groups[family].append(name)
             interface_points[family].append(point)
@@ -291,6 +310,9 @@ def _add_pb01_paths(
             }
             contacts.append(name)
     metadata["pb01_bolt_groups"] = groups
+    metadata["pb01_axial_law"] = (
+        "tension_only_no_preload" if tension_only_axial else "bilateral_historical"
+    )
     metadata["pb01_contact_names"] = contacts
     metadata["pb01_contact_faces"] = {
         family: {"limits_mm": face["limits_mm"], "net_area_mm2": face["net_area_mm2"]}
@@ -362,6 +384,7 @@ def prepare_case(
     bolt_axial_n_per_mm: float = 1000.0,
     bolt_lateral_n_per_mm: float = 1000.0,
     face_normal_total_n_per_mm: float = 1000.0,
+    tension_only_axial: bool = False,
 ):
     """Prepare one unsolved hybrid; stiffness is a named trial input, not evidence."""
     if case not in CASES:
@@ -455,6 +478,7 @@ def prepare_case(
         bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm,
         faces,
+        tension_only_axial=tension_only_axial,
     )
     diameter_mm = POSES[variant][1]
     _add_trial_bolt_gravity(structure, metadata, diameter_mm)
@@ -464,7 +488,11 @@ def prepare_case(
     if len(names) != 23 or STATION in names or len(module.panel_connections()) != 66:
         raise ValueError("Hybrid proxy or panel inventory changed")
     metadata.update(
-        pb01_pose_source=str(DIAGNOSTIC.relative_to(ROOT)),
+        pb01_pose_source=(
+            "scripts/simple_rail_joint_comparison.py:PB01_GROUP_TRIAL_SIZE_MM"
+            if variant == "quarter_short"
+            else str(DIAGNOSTIC.relative_to(ROOT))
+        ),
         pb01_pose_variant=variant,
         pb01_trial_bolt_diameter_mm=diameter_mm,
         pb01_trial_stiffness_n_per_mm={

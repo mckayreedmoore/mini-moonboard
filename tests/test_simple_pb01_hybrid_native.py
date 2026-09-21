@@ -11,6 +11,50 @@ from scripts import simple_pb01_hybrid_native as hybrid
 from scripts.simple_pb01_hybrid_native import HybridPB01, prepare_case
 
 
+def test_candidate_axial_springs_are_switchable_without_changing_lateral_or_face_paths():
+    structure, metadata = prepare_case("a12-left", tension_only_axial=True)
+    names = {name for group in metadata["pb01_bolt_groups"].values() for name in group}
+    axial = [spring for spring in structure.springs if spring.get("tension_only_assumption")]
+    assert {spring["name"] for spring in axial} == names
+    assert all(spring["dof"] == 1 and spring["bearing_closed_assumption"] for spring in axial)
+    assert metadata["pb01_axial_law"] == "tension_only_no_preload"
+    assert all(not spring["bearing_closed_assumption"] for spring in structure.springs
+               if spring["name"] in names and spring["dof"] != 1)
+    active = {spring["name"] for spring in structure.springs if spring["bearing_closed_assumption"]}
+    deck = structure.deck(active_bearings=active - names)
+    for spring in axial:
+        assert f"*SPRING,ELSET={spring['group']}" not in deck
+    for spring in structure.springs:
+        if spring["name"] in names and spring["dof"] != 1:
+            assert f"*SPRING,ELSET={spring['group']}" in deck
+
+
+def test_short_quarter_variant_rebuilds_native_member_without_reusing_archive():
+    short = HybridPB01(variant="quarter_short")
+    historical = HybridPB01(variant="quarter")
+    assert short.KEY != historical.KEY
+    assert short.pose["size_local_x_t_n_mm"] == [139.7, 57.15, 152.4]
+    assert historical.pose["size_local_x_t_n_mm"] == [139.7, 57.15, 300]
+    assert short.cleat.shape.Volume() / historical.cleat.shape.Volume() == pytest.approx(
+        152.4 / 300
+    )
+    assert short.pose["bolt_groups"] == historical.pose["bolt_groups"]
+    assert len(short.panel_connections()) == 66
+
+
+def test_short_quarter_preparation_tags_its_fresh_pose_and_contact_area():
+    structure, metadata = prepare_case(
+        "a12-left", variant="quarter_short", tension_only_axial=True
+    )
+    assert metadata["pb01_pose_variant"] == "quarter_short"
+    assert metadata["pb01_pose_source"].endswith("PB01_GROUP_TRIAL_SIZE_MM")
+    assert metadata["pb01_axial_law"] == "tension_only_no_preload"
+    assert metadata["pb01_contact_faces"]["upright"]["net_area_mm2"] > 0
+    assert metadata["pb01_contact_faces"]["rail"]["net_area_mm2"] > 0
+    member = structure.members[hybrid.CLEAT]
+    assert member["length"] == pytest.approx(152.4)
+
+
 @pytest.fixture(scope="module")
 def prepared():
     before = (panel_kernel.grid, panel_kernel.pressure_load, FlushStructure.member)
@@ -39,6 +83,8 @@ def test_hybrid_inventory_has_one_replaced_station_and_all_panel_axes():
 
 def test_prepared_hybrid_has_two_serial_groups_and_traceable_force_ownership(prepared):
     structure, metadata = prepared
+    assert metadata["pb01_axial_law"] == "bilateral_historical"
+    assert not any(spring.get("tension_only_assumption") for spring in structure.springs)
     assert "base_cleat_pb01" in structure.members
     assert len(metadata["pb01_bolt_groups"]["upright"]) == 2
     assert len(metadata["pb01_bolt_groups"]["rail"]) == 2

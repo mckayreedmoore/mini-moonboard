@@ -87,7 +87,8 @@ def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-develop
     if record.get('candidate') != expected_candidate or any(e[0] == 'S8' for e in record['elements'].values()):
         raise ValueError('Require the current candidate with physical layered panel solids')
     ordinary = {**record, 'springs': [dict(s, bearing_closed_assumption=False)
-        if s['name'].endswith('_friction') else s for s in record['springs']]}
+        if s['name'].endswith('_friction') or s.get('tension_only_assumption')
+        else s for s in record['springs']]}
     result = frame.assess(ordinary, data)
     physical = physical_forces(record, result, frame.displacement_roundoff(data))
     result['physical_connection_forces'] = physical
@@ -184,6 +185,30 @@ def next_contact_names(bearings, strategy='all'):
     return proposed
 
 
+def axial_tension_state(record, displacements, tolerance=1.e-7):
+    """Evaluate no-preload axial gaps on the solved displacement field."""
+    rows = []
+    for spring in record['springs']:
+        if not spring.get('tension_only_assumption'):
+            continue
+        first, second = spring['nodes']
+        dof = spring['dof'] - 1
+        extension = float(displacements[second][dof] - displacements[first][dof])
+        active = spring['active']
+        rows.append({'name': spring['name'], 'active': active,
+                     'extension_mm': extension,
+                     'tension_force_n': spring['stiffness_n_per_mm'] * extension if active else 0.,
+                     'tension_only_assumption_satisfied':
+                         extension >= -tolerance if active else extension <= tolerance})
+    return rows
+
+
+def next_axial_tension_names(rows, tolerance=1.e-7):
+    return {row['name'] for row in rows if
+            (row['active'] and row['extension_mm'] >= -tolerance) or
+            (not row['active'] and row['extension_mm'] > tolerance)}
+
+
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
         module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
         contact_update_strategy='all', initial_contact_names=None, prepare_factory=None,
@@ -237,12 +262,16 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
     with (directory/'model.pkl').open('wb') as target:
         pickle.dump({'model': (structure,metadata), 'source_sha256': before}, target)
     active = {s['name'] for s in structure.springs if s['bearing_closed_assumption']}
+    axial_names = {s['name'] for s in structure.springs if s.get('tension_only_assumption')}
+    if any(s['dof'] != 1 or not s['bearing_closed_assumption']
+           for s in structure.springs if s.get('tension_only_assumption')):
+        raise ValueError('Tension-only axial springs must be switchable local-axis springs')
     spring_names = {s['name'] for s in structure.springs}
     if initial_contact_names is not None:
         normals = set(initial_contact_names)
-        if not normals <= active or any(name.endswith('_friction') for name in normals):
+        if not normals <= active - axial_names or any(name.endswith('_friction') for name in normals):
             raise ValueError('Initial contact inventory must contain actual normal contacts')
-        active = active_with_friction(normals, spring_names, metadata['connection_ownership'])
+        active = active_with_friction(normals, spring_names, metadata['connection_ownership']) | axial_names
     seen, history = set(), []
     report = {'contact_active_set_converged': False}
     for iteration in range(max_cycles):
@@ -267,25 +296,42 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         if native.returncode or '*ERROR' in log.upper():
             raise ValueError('Native current-frame solve failed; inspect '+str(job/'frame.log'))
         report = assess(record,(job/'frame.dat').read_text(),(job/'frame.frd').read_text(),(job/'frame.12d').read_text(), expected_candidate=expected_candidate)
+        if axial_names:
+            report['axial_tension'] = axial_tension_state(
+                record, frame.panel_kernel.read_blocks((job/'frame.dat').read_text())['displacements'])
+            report['axial_tension_assumption_passed'] = all(
+                row['tension_only_assumption_satisfied'] for row in report['axial_tension'])
         (job/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
         history.append({'directory':job.name,'active_count':len(active),
-            'contact_passed':report['closed_bearing_assumption_passed']})
+            'contact_passed':report['closed_bearing_assumption_passed'],
+            'axial_tension_active_names': sorted(active & axial_names),
+            'axial_tension_passed': report.get('axial_tension_assumption_passed')})
         print(json.dumps({'cycle':iteration,'equilibrium':report['global_equilibrium_passed'],
             'member_equilibrium':report['member_equilibrium_passed'],
             'contacts':report['closed_bearing_assumption_passed'],
             'panel_displacement_mm':report['maximum_panel_displacement_mm']}),flush=True)
-        if report['closed_bearing_assumption_passed']:
+        if report['closed_bearing_assumption_passed'] and report.get('axial_tension_assumption_passed', True):
             report['contact_active_set_converged'] = True
-            report['termination'] = 'Normal contact active set converged'
+            report['termination'] = ('Contact and PB01 axial active sets converged'
+                                     if axial_names else 'Normal contact active set converged')
             break
         active = active_with_friction(next_contact_names(report['bearings'], contact_update_strategy),spring_names,metadata['connection_ownership'])
+        if axial_names:
+            active |= next_axial_tension_names(report['axial_tension'])
     report.setdefault('contact_active_set_converged',False)
     report['contact_update_strategy'] = contact_update_strategy
+    report['axial_tension_active_set_converged'] = bool(
+        axial_names and report['contact_active_set_converged'] and
+        report.get('axial_tension_assumption_passed', False))
+    report['axial_tension_names'] = sorted(axial_names)
+    report['pb01_axial_law'] = metadata.get('pb01_axial_law')
     report['initial_contact_names'] = sorted(initial_contact_names) if initial_contact_names is not None else None
     report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','floor_rail_support','native_panel_cutouts','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
         contact_cycles=history,solver_image=frame.panel_kernel.IMAGE,assumptions=__doc__,qualified_for_design=False)
     report['numerically_accepted'] = all(report.get(k,False) for k in (
         'contact_active_set_converged','global_equilibrium_passed','member_equilibrium_passed','mpc_check_passed'))
+    if axial_names:
+        report['numerically_accepted'] &= report['axial_tension_active_set_converged']
     report['artifact_sha256'] = {str(p.relative_to(directory)):hashlib.sha256(p.read_bytes()).hexdigest()
         for p in directory.rglob('*') if p.is_file()}
     (directory/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')

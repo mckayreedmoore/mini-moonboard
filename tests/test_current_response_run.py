@@ -124,3 +124,27 @@ def test_floor_contact_search_changes_one_corner_without_relaxing_other_contacts
     assert next_contact_names(rows, 'one_at_a_time') == {'floor_other_1', 'seating_1'}
     with pytest.raises(ValueError, match='Unknown contact'):
         next_contact_names(rows, 'ignore_contacts')
+
+
+def test_tension_only_axial_opening_and_closing_use_solved_extension():
+    from fea.current_response_run import axial_tension_state, next_axial_tension_names
+
+    spring = {'name': 'pb01_bolt', 'nodes': [1, 2], 'dof': 1,
+              'stiffness_n_per_mm': 1000., 'tension_only_assumption': True}
+    def state(active, extension):
+        return axial_tension_state(
+            {'springs': [{**spring, 'active': active}]},
+            {1: [0., 0., 0.], 2: [extension, 0., 0.]})[0]
+
+    closed = state(True, -.02)
+    assert closed['tension_force_n'] < 0
+    assert not closed['tension_only_assumption_satisfied']
+    assert next_axial_tension_names([closed]) == set()
+    opened = state(False, -.02)
+    assert opened['tension_force_n'] == 0
+    assert opened['tension_only_assumption_satisfied']
+    assert next_axial_tension_names([opened]) == set()
+    reclosed = state(False, .02)
+    assert not reclosed['tension_only_assumption_satisfied']
+    assert next_axial_tension_names([reclosed]) == {'pb01_bolt'}
+    assert state(True, .02)['tension_force_n'] == 20.
