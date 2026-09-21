@@ -1,7 +1,6 @@
 """PB03 upper-service outer mirrored pair; geometry only, no release."""
 
-from itertools import product
-
+from scripts import simple_pb03_cross_family as cross_family
 from scripts import simple_pb03_lower_center_pair as lower
 
 TARGET_STATIONS = (
@@ -114,90 +113,6 @@ def build_lower_reference():
     return lower.build_core_slice()
 
 
-def _record_hit(hits, key, first, second):
-    volume = lower._intersection_volume(first, second)
-    if volume > lower.TOL_MM3:
-        hits[key] = round(volume, 6)
-
-
-def _cross_family_screen(pair, lower_reference):
-    bore_hits = {}
-    block_hits = {}
-    stack_block_hits = {}
-    stack_component_hits = {}
-    tool_hits = {}
-    for upper_geometry, lower_geometry in product(
-        pair.values(), lower_reference.values()
-    ):
-        _record_hit(
-            block_hits,
-            f"{upper_geometry.block_name}|{lower_geometry.block_name}",
-            upper_geometry.block,
-            lower_geometry.block,
-        )
-        for upper_name, upper_bore in upper_geometry.bores.items():
-            for lower_name, lower_bore in lower_geometry.bores.items():
-                _record_hit(
-                    bore_hits,
-                    f"{upper_name}|{lower_name}",
-                    upper_bore,
-                    lower_bore,
-                )
-        for source, opposite in (
-            (upper_geometry, lower_geometry),
-            (lower_geometry, upper_geometry),
-        ):
-            for stack_name, components in source.stacks.items():
-                for role, component in components.items():
-                    _record_hit(
-                        stack_block_hits,
-                        f"{stack_name}/{role}|{opposite.block_name}",
-                        component,
-                        opposite.block,
-                    )
-            for tool_name, ends in source.tools.items():
-                for end, tool in ends.items():
-                    _record_hit(
-                        tool_hits,
-                        f"{tool_name}/{end}|{opposite.block_name}",
-                        tool,
-                        opposite.block,
-                    )
-                    for stack_name, components in opposite.stacks.items():
-                        for role, component in components.items():
-                            _record_hit(
-                                tool_hits,
-                                f"{tool_name}/{end}|{stack_name}/{role}",
-                                tool,
-                                component,
-                            )
-                    for other_name, other_ends in opposite.tools.items():
-                        for other_end, other_tool in other_ends.items():
-                            _record_hit(
-                                tool_hits,
-                                f"{tool_name}/{end}|{other_name}/{other_end}",
-                                tool,
-                                other_tool,
-                            )
-        for upper_name, upper_components in upper_geometry.stacks.items():
-            for lower_name, lower_components in lower_geometry.stacks.items():
-                for upper_role, upper_component in upper_components.items():
-                    for lower_role, lower_component in lower_components.items():
-                        _record_hit(
-                            stack_component_hits,
-                            f"{upper_name}/{upper_role}|{lower_name}/{lower_role}",
-                            upper_component,
-                            lower_component,
-                        )
-    return {
-        "lower_family_bore_hits_mm3": bore_hits,
-        "lower_family_block_hits_mm3": block_hits,
-        "lower_family_stack_block_hits_mm3": stack_block_hits,
-        "lower_family_stack_component_hits_mm3": stack_component_hits,
-        "lower_family_tool_hits_mm3": tool_hits,
-    }
-
-
 def screen(pair=None, *, lower_reference=None):
     """Fail closed on local geometry and every upper/lower family interaction."""
     pair = build_pair() if pair is None else pair
@@ -207,17 +122,30 @@ def screen(pair=None, *, lower_reference=None):
     local = lower._screen_targets(
         pair, TARGET_STATIONS, "simple_pb03_upper_outer_pair/v1"
     )
-    cross = _cross_family_screen(pair, lower_reference)
+    cross = cross_family.screen_cross_family(pair, lower_reference)
     clearances = {
         side: pair[TARGET_STATIONS[index]].block.distance(
             lower_reference[SAME_SIDE_LOWER_STATIONS[side]].block
         )
         for index, side in enumerate(("left", "right"))
     }
-    lower_clear = not any(cross.values())
+    lower_clear = cross["all_cross_family_collision_gates_pass"]
+    legacy_tool_hits = {
+        **cross["cross_family_tool_block_hits_mm3"],
+        **cross["cross_family_tool_stack_hits_mm3"],
+        **cross["cross_family_tool_tool_hits_mm3"],
+    }
     result = {
         **local,
         **cross,
+        # Compatibility aliases for the composed adapter and existing reports.
+        "lower_family_bore_hits_mm3": cross["cross_family_bore_hits_mm3"],
+        "lower_family_block_hits_mm3": cross["cross_family_block_hits_mm3"],
+        "lower_family_stack_block_hits_mm3": cross["cross_family_stack_block_hits_mm3"],
+        "lower_family_stack_component_hits_mm3": cross[
+            "cross_family_stack_component_hits_mm3"
+        ],
+        "lower_family_tool_hits_mm3": legacy_tool_hits,
         "same_side_lower_block_clearance_mm": clearances,
         "all_upper_pair_geometry_gates_pass": local["all_geometry_gates_pass"],
         "all_lower_family_collision_gates_pass": lower_clear,
