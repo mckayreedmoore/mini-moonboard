@@ -190,11 +190,7 @@ def _validate_accepted_report(report, case, stiffnesses):
         raise ValueError(f"{case}: retained proxy topology changed")
 
     rows = native_row_inventory()
-    bolt_rows = {}
-    for row in rows:
-        if row["kind"].startswith("bolt_"):
-            name = row["name"].split("/", 1)[0]
-            bolt_rows.setdefault(name, set()).add(row["name"])
+    bolt_rows = _bolt_row_inventory(rows)
     bolt_names = set(bolt_rows)
     contact_names = {
         row["name"] for row in rows if row["kind"] == "contact_compression"
@@ -231,6 +227,16 @@ def _validate_accepted_report(report, case, stiffnesses):
     ):
         raise ValueError(f"{case}: producer source inventory is unauthenticated")
     return report
+
+
+def _bolt_row_inventory(rows):
+    """Group three canonical spring rows under each physical PB02 bolt."""
+    bolt_rows = {}
+    for row in rows:
+        if row["kind"].startswith("bolt_"):
+            name = row["name"].rsplit("/", 1)[0]
+            bolt_rows.setdefault(name, set()).add(row["name"])
+    return bolt_rows
 
 
 def _verify_model_stiffness(path, stiffnesses):
