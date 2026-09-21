@@ -26,7 +26,7 @@ def test_current_trial_axes_are_used():
     assert EDGES["header_principal_block"][3] == [(15.475, -139, 291.45)]
     assert EDGES["principal_block_principal"][3] == [(34.525, -95, 312.5)]
     assert np.allclose(EDGES["principal_upright_block"][3], [(114.45, -144.5, 356)])
-    assert np.allclose(EDGES["upright_rear_block"][3], [(133.5, -163.95, 370)])
+    assert np.allclose(EDGES["upright_rear_block"][3], [(133.5, -163.95, 328.5)])
     assert EDGES["rear_block_post"][3][1] == (140, -150.3, 202.0)
     assert EDGES["upright_rear_block"][2] == (0, -1, 0)
     assert EDGES["rear_block_post"][2] == (0, 1, 0)

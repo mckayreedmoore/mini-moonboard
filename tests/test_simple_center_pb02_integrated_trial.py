@@ -1,4 +1,4 @@
-"""Pin the viable Z370 pose and the rejected Z390 comparison."""
+"""Pin the viable Z328.5 pose and the rejected Z390 comparison."""
 
 from copy import deepcopy
 
@@ -22,7 +22,7 @@ def test_combined_ten_bore_trial_and_rejected_link_comparison():
     result = probe()
     assert result["variant_id"] == "ligament_priority"
     assert result["coordinates_mm"]["post_cleat_2_z"] == 176
-    assert result["coordinates_mm"]["cleat_link_z"] == 370
+    assert result["coordinates_mm"]["cleat_link_z"] == 328.5
     assert result["side_bounds_mm"] == [89.05, 177.95, -175.7, -114.1, 277, 460]
     assert result["bore_count"] == 10
     assert set(result["bore_received_fraction"].values()) == {1.0}
@@ -41,10 +41,13 @@ def test_combined_ten_bore_trial_and_rejected_link_comparison():
         result["finite_shared_member_bore_ligaments_mm"]["post_high/post_cleat_2"]
         == 18.7
     )
-    assert result["finite_shared_member_bore_ligaments_mm"]["upright/cleat_link"] == 6.7
-    assert result["minimum_finite_shared_member_bore_ligament_mm"] == 6.7
+    assert (
+        result["finite_shared_member_bore_ligaments_mm"]["upright/cleat_link"]
+        == 20.2
+    )
+    assert result["minimum_finite_shared_member_bore_ligament_mm"] == 7.2
     assert result["side_y_conditional_4d_plus_project_5_reserve_mm"] == 0
-    assert result["side_z_conditional_7d_plus_5_reserve_mm"] == 29.55
+    assert result["side_z_conditional_7d_plus_5_reserve_mm"] == 2.05
     assert result["post_pair_conditional_4d_plus_5_reserve_mm"] == 0.6
     assert result["conditional_subset_minimum_reserve_mm"] == -12.55
     assert result["conditional_negative_rows"] == [
@@ -89,7 +92,7 @@ def test_active_geometry_prioritizes_the_post_bore_ligament():
     assert ends["post_rear_high"][0][2] == 202
     assert ends["cleat_header_1_bottom"][0][:2] == (208.35, -130.5)
     assert ends["cleat_header_2_bottom"][0][:2] == (236.0, -117.5)
-    assert ends["link_rear"][0][2] == 370
+    assert ends["link_rear"][0][2] == 328.5
 
 
 def test_active_geometry_identity_agrees_across_all_consumers():
@@ -115,7 +118,7 @@ def test_active_geometry_identity_agrees_across_all_consumers():
         scene["pb02_source_fingerprint"],
     } == {scene["pb02_source_fingerprint"]}
     assert scene["pb02_source_fingerprint"] == (
-        "577806bc89522788fbfe4862c9129bf756590230a2e7a6ce4849b8557a7cc29a"
+        "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
     )
     assert len(bores) == len(ends) // 2 == len(owners) == 10
 

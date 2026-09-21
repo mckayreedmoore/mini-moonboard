@@ -50,7 +50,7 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     assert axes["post_high"]["start_mm"][2] == 202
     assert axes["cleat_header_1"]["start_mm"][:2] == [208.35, -130.5]
     assert axes["cleat_header_2"]["start_mm"][:2] == [236.0, -117.5]
-    assert axes["cleat_link"]["start_mm"][2] == 370
+    assert axes["cleat_link"]["start_mm"][2] == 328.5
     assert axes["upright"]["start_mm"][1:] == [-144.5, 356]
     assert scene["fabrication_released"] is False
 

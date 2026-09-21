@@ -27,7 +27,7 @@ from scripts.simple_center_pb02_geometry import (
     build_center_geometry,
 )
 
-WORKING_LINK_Z = 370
+WORKING_LINK_Z = ACTIVE_TRIAL.link_z
 COMPARISON_LINK_Z = 390
 POST_CLEAT_2_Z = 176
 
@@ -207,7 +207,7 @@ def probe(link_z=WORKING_LINK_Z):
 if __name__ == "__main__":
     print(
         json.dumps(
-            {"working_z370": probe(), "rejected_z390": probe(COMPARISON_LINK_Z)},
+            {"working_z328p5": probe(), "rejected_z390": probe(COMPARISON_LINK_Z)},
             indent=2,
             sort_keys=True,
         )

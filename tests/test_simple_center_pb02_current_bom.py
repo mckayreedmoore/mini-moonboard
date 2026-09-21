@@ -15,7 +15,7 @@ def test_current_inventory_matches_active_ten_bolt_geometry():
         "baseline": "compact-floor-flush-kerf-right",
         "pb02_variant_id": "ligament_priority",
         "pb02_source_fingerprint": (
-            "577806bc89522788fbfe4862c9129bf756590230a2e7a6ce4849b8557a7cc29a"
+            "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
         ),
         "pb02_bolt_axes": 10,
         "fixed_panel_kicker_screw_axes": 66,

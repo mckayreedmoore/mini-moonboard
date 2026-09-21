@@ -65,7 +65,7 @@ def test_single_allowance_and_neighbor_classification():
 
     for bolt, member, other, distance in (
         ("post_high", "shifted_right_post", "post_cleat_2", 26.0),
-        ("upright", "upright_side_cleat", "cleat_link", 14.0),
+        ("upright", "upright_side_cleat", "cleat_link", 27.5),
     ):
         gap = _find(result["rows"], bolt, member, other)
         assert gap["kind"] == "orthogonal_neighbor"

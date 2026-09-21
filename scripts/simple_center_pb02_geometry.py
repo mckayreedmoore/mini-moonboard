@@ -33,7 +33,11 @@ TRIAL_SPECS = MappingProxyType(
             "front_stagger", 189, (208.35, 236), (-130.5, -117.5)
         ),
         "ligament_priority": CenterTrialSpec(
-            "ligament_priority", 202.0, (208.35, 236), (-130.5, -117.5)
+            "ligament_priority",
+            202.0,
+            (208.35, 236),
+            (-130.5, -117.5),
+            link_z=328.5,
         ),
     }
 )
