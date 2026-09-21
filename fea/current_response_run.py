@@ -209,9 +209,44 @@ def next_axial_tension_names(rows, tolerance=1.e-7):
             (not row['active'] and row['extension_mm'] > tolerance)}
 
 
+def initial_active_set(structure, metadata, initial_contact_names=None,
+        initial_axial_tension_names=None):
+    """Build a checkpoint active set without importing friction rows directly."""
+    spring_names = {spring['name'] for spring in structure.springs}
+    axial_names = {spring['name'] for spring in structure.springs
+                   if spring.get('tension_only_assumption')}
+    if any(spring['dof'] != 1 or not spring['bearing_closed_assumption']
+           for spring in structure.springs if spring.get('tension_only_assumption')):
+        raise ValueError('Tension-only axial springs must be switchable local-axis springs')
+    normal_names = {spring['name'] for spring in structure.springs
+                    if spring['bearing_closed_assumption']
+                    and not spring.get('tension_only_assumption')
+                    and not spring['name'].endswith('_friction')}
+    if initial_contact_names is not None:
+        selected_normals = set(initial_contact_names)
+        if not selected_normals <= normal_names:
+            raise ValueError('Initial contact inventory must contain actual normal contacts')
+    else:
+        selected_normals = normal_names
+    if initial_axial_tension_names is not None:
+        selected_axials = set(initial_axial_tension_names)
+        if not selected_axials <= axial_names:
+            raise ValueError('Initial axial inventory must contain tension-only axial springs')
+    else:
+        selected_axials = axial_names
+    if initial_contact_names is None and initial_axial_tension_names is None:
+        active = {spring['name'] for spring in structure.springs
+                  if spring['bearing_closed_assumption']}
+    else:
+        active = active_with_friction(selected_normals, spring_names,
+                                      metadata['connection_ownership']) | selected_axials
+    return active, axial_names
+
+
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
         module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
-        contact_update_strategy='all', initial_contact_names=None, prepare_factory=None,
+        contact_update_strategy='all', initial_contact_names=None,
+        initial_axial_tension_names=None, prepare_factory=None,
         extra_source_paths=(),
         **parameters):
     next_contact_names([], contact_update_strategy)
@@ -261,17 +296,9 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         target.write_bytes(content)
     with (directory/'model.pkl').open('wb') as target:
         pickle.dump({'model': (structure,metadata), 'source_sha256': before}, target)
-    active = {s['name'] for s in structure.springs if s['bearing_closed_assumption']}
-    axial_names = {s['name'] for s in structure.springs if s.get('tension_only_assumption')}
-    if any(s['dof'] != 1 or not s['bearing_closed_assumption']
-           for s in structure.springs if s.get('tension_only_assumption')):
-        raise ValueError('Tension-only axial springs must be switchable local-axis springs')
+    active, axial_names = initial_active_set(structure, metadata, initial_contact_names,
+        initial_axial_tension_names)
     spring_names = {s['name'] for s in structure.springs}
-    if initial_contact_names is not None:
-        normals = set(initial_contact_names)
-        if not normals <= active - axial_names or any(name.endswith('_friction') for name in normals):
-            raise ValueError('Initial contact inventory must contain actual normal contacts')
-        active = active_with_friction(normals, spring_names, metadata['connection_ownership']) | axial_names
     seen, history = set(), []
     report = {'contact_active_set_converged': False}
     for iteration in range(max_cycles):
@@ -326,6 +353,8 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
     report['axial_tension_names'] = sorted(axial_names)
     report['pb01_axial_law'] = metadata.get('pb01_axial_law')
     report['initial_contact_names'] = sorted(initial_contact_names) if initial_contact_names is not None else None
+    report['initial_axial_tension_names'] = (sorted(initial_axial_tension_names)
+        if initial_axial_tension_names is not None else None)
     report.update(candidate=metadata['candidate'],angle_stations=metadata['angle_stations'],parameters={k:metadata.get(k) for k in ('hold','pounds','force_xyz_n','standoff_from_front_mm','stiffnesses','materials','equipment_kg','frame_size_mm','panel_size_mm','leg_bolt_scale','leg_floor_grid','floor_rail_support','native_panel_cutouts','leg_floor_pressure_assumption','leg_joint_assumption','header_bearing_assumption')},source_sha256=before,
         contact_cycles=history,solver_image=frame.panel_kernel.IMAGE,assumptions=__doc__,qualified_for_design=False)
     report['numerically_accepted'] = all(report.get(k,False) for k in (
