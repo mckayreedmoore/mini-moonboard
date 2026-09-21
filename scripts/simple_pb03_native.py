@@ -1,23 +1,21 @@
-"""PB03 adapter for the first lower-center pair; no solve or release."""
+"""PB03 adapter for both lower-service pairs; no solve or release."""
 
 from mini_moonboard.box_frame import Part
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_pb02_native import PB02Native
 from scripts.simple_pb03_lower_center_pair import (
+    ALL_BLOCK_NAMES,
+    ALL_TARGET_STATIONS,
     BLOCK_LENGTH_MM,
-    BLOCK_NAMES,
-    TARGET_STATIONS,
-    build_pair,
-)
-from scripts.simple_pb03_lower_center_pair import (
-    screen as pair_screen,
+    build_core_slice,
+    screen_core_slice,
 )
 
 
 class PB03Native(PB02Native):
-    """PB02 geometry plus two blocks and eight unselected through-bolt stacks."""
+    """PB02 plus four blocks and sixteen unselected through-bolt stacks."""
 
-    KEY = "pb03-lower-center-pair-development-only"
+    KEY = "pb03-lower-service-core-development-only"
     ACTIVE_FINGERPRINT = ACTIVE_FINGERPRINT
 
     def __init__(self):
@@ -28,7 +26,7 @@ class PB03Native(PB02Native):
         base_stations = tuple(PB02Native.stations(self))
         panel_names = {row.name for row in self.raw.panel_connections()}
         base_panels = tuple(row for row in base_connections if row.name in panel_names)
-        self._pair = build_pair(
+        self._pair = build_core_slice(
             parts={part.name: part.shape for part in base_parts},
             finished_parts={part.name: part.shape for part in base_finished_parts},
             panel_connections=base_panels,
@@ -63,7 +61,9 @@ class PB03Native(PB02Native):
 
     def parts(self):
         retained = tuple(
-            part for part in PB02Native.parts(self) if part.name not in TARGET_STATIONS
+            part
+            for part in PB02Native.parts(self)
+            if part.name not in ALL_TARGET_STATIONS
         )
         return (*retained, *self._blocks)
 
@@ -72,14 +72,15 @@ class PB03Native(PB02Native):
             row
             for row in self._base_connections
             if not any(
-                row.name.startswith(f"{station}_") for station in TARGET_STATIONS
+                row.name.startswith(f"{station}_")
+                for station in ALL_TARGET_STATIONS
             )
         )
         return (*retained, *self._pb03_bolts)
 
     def stations(self):
         return tuple(
-            row for row in self._base_stations if row[0] not in TARGET_STATIONS
+            row for row in self._base_stations if row[0] not in ALL_TARGET_STATIONS
         )
 
     def legacy_proxy_stations(self):
@@ -89,26 +90,28 @@ class PB03Native(PB02Native):
 def screen(module=None):
     """Authenticate the exact bounded mutation and retain all no-release flags."""
     module = PB03Native() if module is None else module
-    pair = pair_screen(module._pair)
+    pair = screen_core_slice(module._pair)
     connections = module.connections()
     stations = module.stations()
     panels = module.panel_connections()
     legacy_sds = sum(row.name.startswith("clip_") for row in connections)
     new_bolts = [row for row in connections if row.name.startswith("pb03_")]
     blocks = {part.name for part in module.uncut_wood_parts()} & set(
-        BLOCK_NAMES.values()
+        ALL_BLOCK_NAMES.values()
     )
     gates = (
         pair["all_geometry_gates_pass"]
-        and len(stations) == 20
-        and legacy_sds == 120
-        and len(blocks) == 2
-        and len(new_bolts) == 8
+        and len(stations) == 18
+        and legacy_sds == 108
+        and len(blocks) == 4
+        and len(new_bolts) == 16
         and len(panels) == 66
-        and not ({row[0] for row in stations} & set(TARGET_STATIONS))
+        and len(connections) == 202
+        and sum(row.kind == "bolt" for row in connections) == 28
+        and not ({row[0] for row in stations} & set(ALL_TARGET_STATIONS))
     )
     if not gates:
-        raise ValueError("PB03 lower-center native inventory or geometry gate changed")
+        raise ValueError("PB03 lower-service inventory or geometry gate changed")
     return {
         "schema": "simple_pb03_native/v1",
         "pb02_source_fingerprint": module.ACTIVE_FINGERPRINT,
@@ -117,6 +120,8 @@ def screen(module=None):
         "new_timber_blocks": len(blocks),
         "new_through_bolt_stacks": len(new_bolts),
         "fixed_panel_kicker_axes": len(panels),
+        "total_connections": len(connections),
+        "total_bolt_connections": sum(row.kind == "bolt" for row in connections),
         "geometry_gates_pass": True,
         "exact_retail_hardware_selected": False,
         "qualified_for_design": False,

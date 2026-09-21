@@ -1,7 +1,8 @@
-"""First PB03 lower-center corner-block pair; geometry only, no release."""
+"""PB03 lower-service corner-block core; geometry only, no release."""
 
 import math
 from dataclasses import dataclass
+from itertools import combinations
 
 import cadquery as cq
 
@@ -16,21 +17,19 @@ TARGET_STATIONS = (
     "clip_horizontal_lower_left_2",
     "clip_horizontal_lower_right_1",
 )
+LOWER_OUTER_STATIONS = (
+    "clip_horizontal_lower_left_1",
+    "clip_horizontal_lower_right_2",
+)
+ALL_TARGET_STATIONS = (*TARGET_STATIONS, *LOWER_OUTER_STATIONS)
 BLOCK_NAMES = {
     TARGET_STATIONS[0]: "pb03_lower_center_left_block",
     TARGET_STATIONS[1]: "pb03_lower_center_right_block",
 }
-STATION_MEMBERS = {
-    TARGET_STATIONS[0]: (
-        "left",
-        "base_principal_center_left",
-        "base_rail_service_lower_left",
-    ),
-    TARGET_STATIONS[1]: (
-        "right",
-        "base_principal_center_right",
-        "base_rail_service_lower_right",
-    ),
+ALL_BLOCK_NAMES = {
+    **BLOCK_NAMES,
+    LOWER_OUTER_STATIONS[0]: "pb03_lower_outer_left_block",
+    LOWER_OUTER_STATIONS[1]: "pb03_lower_outer_right_block",
 }
 BLOCK_X_MM = 139.7
 BLOCK_T_MM = 57.15
@@ -49,11 +48,76 @@ RAIL_X_OFFSETS_MM = (70.0, 110.0)
 
 
 @dataclass(frozen=True)
+class StationSpec:
+    """Declarative identity and orientation for one actual kerf-right station."""
+
+    station: str
+    frame_side: str
+    rail_extension_direction: str
+    physical_rail_end: str
+    upright_name: str
+    rail_name: str
+    block_name: str
+    bolt_prefix: str
+
+
+STATION_SPECS = {
+    TARGET_STATIONS[0]: StationSpec(
+        TARGET_STATIONS[0],
+        "left",
+        "left",
+        "right",
+        "base_principal_center_left",
+        "base_rail_service_lower_left",
+        BLOCK_NAMES[TARGET_STATIONS[0]],
+        "pb03_left",
+    ),
+    TARGET_STATIONS[1]: StationSpec(
+        TARGET_STATIONS[1],
+        "right",
+        "right",
+        "left",
+        "base_principal_center_right",
+        "base_rail_service_lower_right",
+        BLOCK_NAMES[TARGET_STATIONS[1]],
+        "pb03_right",
+    ),
+    LOWER_OUTER_STATIONS[0]: StationSpec(
+        LOWER_OUTER_STATIONS[0],
+        "left",
+        "right",
+        "left",
+        "base_side_left",
+        "base_rail_service_lower_left",
+        ALL_BLOCK_NAMES[LOWER_OUTER_STATIONS[0]],
+        "pb03_lower_outer_left",
+    ),
+    LOWER_OUTER_STATIONS[1]: StationSpec(
+        LOWER_OUTER_STATIONS[1],
+        "right",
+        "left",
+        "right",
+        "base_side_right",
+        "base_rail_service_lower_right",
+        ALL_BLOCK_NAMES[LOWER_OUTER_STATIONS[1]],
+        "pb03_lower_outer_right",
+    ),
+}
+# Backward-compatible view used by the first-slice tests and downstream readers.
+STATION_MEMBERS = {
+    name: (spec.rail_extension_direction, spec.upright_name, spec.rail_name)
+    for name, spec in STATION_SPECS.items()
+}
+
+
+@dataclass(frozen=True)
 class StationGeometry:
     """One independently derived station and its unselected stack envelopes."""
 
     station: str
-    side: str
+    frame_side: str
+    rail_extension_direction: str
+    physical_rail_end: str
     upright_name: str
     rail_name: str
     block_name: str
@@ -65,6 +129,11 @@ class StationGeometry:
     bores: dict[str, cq.Shape]
     tools: dict[str, dict[str, cq.Shape]]
     report: dict
+
+    @property
+    def side(self):
+        """Backward-compatible physical frame-side label for existing viewers."""
+        return self.frame_side
 
 
 def _cylinder(point, direction, length, diameter):
@@ -187,21 +256,29 @@ def _bore_pair_hits(bores):
     return hits
 
 
-def _build_station(station, parts, finished_parts, fixed_axes):
-    side, upright_name, rail_name = STATION_MEMBERS[station]
+def _build_station(spec, parts, finished_parts, fixed_axes):
+    station = spec.station
+    extension = spec.rail_extension_direction
+    upright_name, rail_name = spec.upright_name, spec.rail_name
     upright, rail = parts[upright_name], parts[rail_name]
     ub, rb = upright.BoundingBox(), rail.BoundingBox()
     rail_t = [vertex.Y * pb01.T[0] + vertex.Z * pb01.T[1] for vertex in rail.Vertices()]
     rail_n = [vertex.Y * pb01.N[0] + vertex.Z * pb01.N[1] for vertex in rail.Vertices()]
     t_face, n_front = max(rail_t), min(rail_n)
-    if side == "right":
+    if extension == "right":
         butt = ub.xmax
-        if not math.isclose(rb.xmin, butt, abs_tol=1e-6):
+        rail_butt = rb.xmin
+        if spec.physical_rail_end != "left" or not math.isclose(
+            rail_butt, butt, abs_tol=1e-6
+        ):
             raise ValueError(f"{station}: actual right butt faces changed")
         block_x, outward = butt, 1.0
     else:
         butt = ub.xmin
-        if not math.isclose(rb.xmax, butt, abs_tol=1e-6):
+        rail_butt = rb.xmax
+        if spec.physical_rail_end != "right" or not math.isclose(
+            rail_butt, butt, abs_tol=1e-6
+        ):
             raise ValueError(f"{station}: actual left butt faces changed")
         block_x, outward = butt - BLOCK_X_MM, -1.0
     base_y, base_z = pb01._yz(t_face, n_front)
@@ -224,7 +301,7 @@ def _build_station(station, parts, finished_parts, fixed_axes):
     for index, offset in enumerate(UPRIGHT_N_OFFSETS_MM, 1):
         n_center = n_front + offset
         y, z = pb01._yz(t_face + BLOCK_T_MM / 2, n_center)
-        if side == "right":
+        if extension == "right":
             wood_start = (ub.xmin, y, z)
             direction = (1.0, 0.0, 0.0)
         else:
@@ -232,24 +309,24 @@ def _build_station(station, parts, finished_parts, fixed_axes):
             direction = (-1.0, 0.0, 0.0)
         specs.append(
             (
-                f"pb03_{side}_upright_{index}",
+                f"{spec.bolt_prefix}_upright_{index}",
                 wood_start,
                 direction,
                 ub.xlen + BLOCK_X_MM,
-                (upright_name, BLOCK_NAMES[station]),
+                (upright_name, spec.block_name),
             )
         )
     for index, x_offset in enumerate(RAIL_X_OFFSETS_MM, 1):
         n_center = n_front + RAIL_N_OFFSET_MM
         y, z = pb01._yz(min(rail_t), n_center)
-        x = rb.xmin + x_offset if side == "right" else rb.xmax - x_offset
+        x = rb.xmin + x_offset if extension == "right" else rb.xmax - x_offset
         specs.append(
             (
-                f"pb03_{side}_rail_{index}",
+                f"{spec.bolt_prefix}_rail_{index}",
                 (x, y, z),
                 (0.0, *pb01.T),
                 38.1 + BLOCK_T_MM,
-                (rail_name, BLOCK_NAMES[station]),
+                (rail_name, spec.block_name),
             )
         )
     for name, start, direction, grip, members in specs:
@@ -259,7 +336,7 @@ def _build_station(station, parts, finished_parts, fixed_axes):
         bores[name] = bore
         tools[name] = access
 
-    hosts = {upright_name: upright, rail_name: rail, BLOCK_NAMES[station]: block}
+    hosts = {upright_name: upright, rail_name: rail, spec.block_name: block}
     panel_parts = {
         name: shape
         for name, shape in finished_parts.items()
@@ -329,7 +406,7 @@ def _build_station(station, parts, finished_parts, fixed_axes):
             end: _hits(shape, fixed_axes) for end, shape in tools[bolt.name].items()
         }
         intended_hosts = {
-            name: (block if name == BLOCK_NAMES[station] else finished_parts[name])
+            name: (block if name == spec.block_name else finished_parts[name])
             for name in bolt.members
         }
         tool_host_intrusions[bolt.name] = {
@@ -353,7 +430,15 @@ def _build_station(station, parts, finished_parts, fixed_axes):
     }
     report = {
         "station": station,
-        "side": side,
+        "side": spec.frame_side,
+        "frame_side": spec.frame_side,
+        "rail_extension_direction": spec.rail_extension_direction,
+        "physical_rail_end": spec.physical_rail_end,
+        "butt_faces_x_mm": {
+            "upright": round(butt, 6),
+            "rail": round(rail_butt, 6),
+        },
+        "butt_faces_coincident": math.isclose(rail_butt, butt, abs_tol=1e-6),
         "actual_member_names": [upright_name, rail_name],
         "source_rail_length_mm": rb.xlen,
         "block_dimensions_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
@@ -401,10 +486,12 @@ def _build_station(station, parts, finished_parts, fixed_axes):
     }
     return StationGeometry(
         station,
-        side,
+        spec.frame_side,
+        spec.rail_extension_direction,
+        spec.physical_rail_end,
         upright_name,
         rail_name,
-        BLOCK_NAMES[station],
+        spec.block_name,
         block,
         BLOCK_LENGTH_MM,
         rb.xlen,
@@ -436,7 +523,8 @@ def _source_inventory():
     return parts, finished_parts, panels, stations, connections
 
 
-def build_pair(
+def _build_targets(
+    target_stations,
     *,
     parts=None,
     finished_parts=None,
@@ -444,7 +532,14 @@ def build_pair(
     stations=None,
     connections=None,
 ):
-    """Build both stations separately and reject any changed source inventory."""
+    """Build declared stations separately and reject changed source inventory."""
+    target_stations = tuple(target_stations)
+    if (
+        not target_stations
+        or len(set(target_stations)) != len(target_stations)
+        or not set(target_stations) <= set(STATION_SPECS)
+    ):
+        raise ValueError("PB03 target station declaration changed")
     if ACTIVE_FINGERPRINT != EXPECTED_PB02_FINGERPRINT:
         raise ValueError("PB02 geometry fingerprint changed before PB03")
     if any(
@@ -474,18 +569,28 @@ def build_pair(
             _source_inventory()
         )
     station_names = {row[0] for row in stations}
-    if len(station_names) != 22 or not set(TARGET_STATIONS) <= station_names:
+    if len(station_names) != 22 or not set(target_stations) <= station_names:
         raise ValueError("PB03 requires the exact 22-station PB02 source inventory")
     target_sds = [
         row
         for row in connections
-        if any(row.name.startswith(f"{name}_") for name in TARGET_STATIONS)
+        if any(row.name.startswith(f"{name}_") for name in target_stations)
     ]
-    if len(target_sds) != 12 or any(row.kind != "screw" for row in target_sds):
-        raise ValueError("PB03 target stations must own exactly twelve SDS axes")
+    expected_sds = 6 * len(target_stations)
+    if len(target_sds) != expected_sds or any(
+        row.kind != "screw" for row in target_sds
+    ):
+        raise ValueError(
+            f"PB03 target stations must own exactly {expected_sds} SDS axes"
+        )
     fixed_axes = _fixed_axis_solids(panel_connections)
     required_parts = {
-        member for members in STATION_MEMBERS.values() for member in members[1:]
+        member
+        for station in target_stations
+        for member in (
+            STATION_SPECS[station].upright_name,
+            STATION_SPECS[station].rail_name,
+        )
     }
     if not required_parts <= set(parts):
         raise ValueError("PB03 target member inventory changed")
@@ -497,9 +602,21 @@ def build_pair(
     ):
         raise ValueError("PB03 finished-panel inventory changed")
     return {
-        station: _build_station(station, parts, finished_parts, fixed_axes)
-        for station in TARGET_STATIONS
+        station: _build_station(
+            STATION_SPECS[station], parts, finished_parts, fixed_axes
+        )
+        for station in target_stations
     }
+
+
+def build_pair(**kwargs):
+    """Build the original lower-center pair with its established public behavior."""
+    return _build_targets(TARGET_STATIONS, **kwargs)
+
+
+def build_core_slice(**kwargs):
+    """Build both lower-service pairs from the actual kerf-right members."""
+    return _build_targets(ALL_TARGET_STATIONS, **kwargs)
 
 
 def _receiver_support(panel_connections, parts):
@@ -516,94 +633,110 @@ def _receiver_support(panel_connections, parts):
     return support
 
 
-def screen(pair=None):
-    """Return fail-closed geometry gates without selecting or rating hardware."""
-    if pair is None:
-        pair = build_pair()
+def _screen_targets(geometries, target_stations, schema):
+    """Apply every local and cross-station gate to the declared station set."""
+    target_stations = tuple(target_stations)
     parts, _, panel_connections, stations, connections = _source_inventory()
     # Finished receivers contain the modeled screw openings, so positive backing
     # is proved against the matching uncut receiver while panel-clearance checks
     # above use the explicit finished panel solids.
     support = _receiver_support(panel_connections, parts)
-    rows = {name: geometry.report for name, geometry in pair.items()}
+    rows = {name: geometry.report for name, geometry in geometries.items()}
     cross_station_bore_hits = {}
-    first, second = (pair[name] for name in TARGET_STATIONS)
-    for first_name, first_bore in first.bores.items():
-        for second_name, second_bore in second.bores.items():
-            volume = first_bore.intersect(second_bore).Volume()
-            if volume > TOL_MM3:
-                cross_station_bore_hits[f"{first_name}|{second_name}"] = round(
-                    volume, 6
-                )
+    ordered = [geometries[name] for name in target_stations]
+    station_pairs = tuple(combinations(ordered, 2))
+    for first, second in station_pairs:
+        for first_name, first_bore in first.bores.items():
+            for second_name, second_bore in second.bores.items():
+                volume = _intersection_volume(first_bore, second_bore)
+                if volume > TOL_MM3:
+                    cross_station_bore_hits[f"{first_name}|{second_name}"] = round(
+                        volume, 6
+                    )
     all_bore_pairs_clear = not cross_station_bore_hits and all(
         not row["same_station_bore_hits_mm3"] for row in rows.values()
     )
-    block_volume = _intersection_volume(first.block, second.block)
-    cross_station_block_hits = (
-        {f"{first.block_name}|{second.block_name}": round(block_volume, 6)}
-        if block_volume > TOL_MM3
-        else {}
-    )
+    cross_station_block_hits = {}
     cross_station_stack_block_hits = {}
     cross_station_stack_component_hits = {}
     cross_station_tool_opposite_hits = {}
-    for source, opposite in ((first, second), (second, first)):
-        for stack_name, components in source.stacks.items():
-            for role, component in components.items():
-                volume = _intersection_volume(component, opposite.block)
-                if volume > TOL_MM3:
-                    key = f"{stack_name}/{role}|{opposite.block_name}"
-                    cross_station_stack_block_hits[key] = round(volume, 6)
-    for first_stack, first_components in first.stacks.items():
-        for second_stack, second_components in second.stacks.items():
-            for first_role, first_component in first_components.items():
-                for second_role, second_component in second_components.items():
-                    volume = _intersection_volume(first_component, second_component)
+    for first, second in station_pairs:
+        block_volume = _intersection_volume(first.block, second.block)
+        if block_volume > TOL_MM3:
+            key = f"{first.block_name}|{second.block_name}"
+            cross_station_block_hits[key] = round(block_volume, 6)
+        for source, opposite in ((first, second), (second, first)):
+            for stack_name, components in source.stacks.items():
+                for role, component in components.items():
+                    volume = _intersection_volume(component, opposite.block)
                     if volume > TOL_MM3:
-                        key = f"{first_stack}/{first_role}|{second_stack}/{second_role}"
-                        cross_station_stack_component_hits[key] = round(volume, 6)
-    for source, opposite in ((first, second), (second, first)):
-        for tool_name, ends in source.tools.items():
-            for end, tool in ends.items():
-                volume = _intersection_volume(tool, opposite.block)
-                if volume > TOL_MM3:
-                    key = f"{tool_name}/{end}|{opposite.block_name}"
-                    cross_station_tool_opposite_hits[key] = round(volume, 6)
-                for stack_name, components in opposite.stacks.items():
-                    for role, component in components.items():
-                        volume = _intersection_volume(tool, component)
+                        key = f"{stack_name}/{role}|{opposite.block_name}"
+                        cross_station_stack_block_hits[key] = round(volume, 6)
+            for tool_name, ends in source.tools.items():
+                for end, tool in ends.items():
+                    volume = _intersection_volume(tool, opposite.block)
+                    if volume > TOL_MM3:
+                        key = f"{tool_name}/{end}|{opposite.block_name}"
+                        cross_station_tool_opposite_hits[key] = round(volume, 6)
+                    for stack_name, components in opposite.stacks.items():
+                        for role, component in components.items():
+                            volume = _intersection_volume(tool, component)
+                            if volume > TOL_MM3:
+                                key = f"{tool_name}/{end}|{stack_name}/{role}"
+                                cross_station_tool_opposite_hits[key] = round(volume, 6)
+        for first_stack, first_components in first.stacks.items():
+            for second_stack, second_components in second.stacks.items():
+                for first_role, first_component in first_components.items():
+                    for second_role, second_component in second_components.items():
+                        volume = _intersection_volume(
+                            first_component, second_component
+                        )
                         if volume > TOL_MM3:
-                            key = f"{tool_name}/{end}|{stack_name}/{role}"
-                            cross_station_tool_opposite_hits[key] = round(volume, 6)
-    all_eight_stacks_mutually_clear = (
+                            key = (
+                                f"{first_stack}/{first_role}|"
+                                f"{second_stack}/{second_role}"
+                            )
+                            cross_station_stack_component_hits[key] = round(volume, 6)
+    all_stacks_mutually_clear = (
         not cross_station_block_hits
         and not cross_station_stack_block_hits
         and not cross_station_stack_component_hits
     )
     all_cross_station_access_paths_clear = not cross_station_tool_opposite_hits
     gates = [
-        len(pair) == 2,
-        sum(len(item.bolts) for item in pair.values()) == 8,
+        tuple(geometries) == target_stations,
+        len(geometries) == len(target_stations),
+        sum(len(item.bolts) for item in geometries.values())
+        == 4 * len(target_stations),
+        len(
+            {
+                bolt.name
+                for item in geometries.values()
+                for bolt in item.bolts
+            }
+        )
+        == 4 * len(target_stations),
         len(panel_connections) == 66,
         all(support.values()),
+        all(row["butt_faces_coincident"] for row in rows.values()),
         all(row["contact_verified"] for row in rows.values()),
         all(row["complete_bores"] for row in rows.values()),
         all(row["collision_clear"] for row in rows.values()),
         all(row["access_clear"] for row in rows.values()),
         all_bore_pairs_clear,
-        all_eight_stacks_mutually_clear,
+        all_stacks_mutually_clear,
         all_cross_station_access_paths_clear,
     ]
-    return {
-        "schema": "simple_pb03_lower_center_pair/v1",
+    result = {
+        "schema": schema,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
-        "target_stations": list(TARGET_STATIONS),
+        "target_stations": list(target_stations),
         "inventory": {
-            "target_legacy_stations": len(TARGET_STATIONS),
-            "removed_legacy_sds_axes": 12,
-            "added_timber_blocks": len(pair),
+            "target_legacy_stations": len(target_stations),
+            "removed_legacy_sds_axes": 6 * len(target_stations),
+            "added_timber_blocks": len(geometries),
             "added_through_bolt_stacks": sum(
-                len(item.stacks) for item in pair.values()
+                len(item.stacks) for item in geometries.values()
             ),
             "fixed_panel_kicker_axes": len(panel_connections),
         },
@@ -617,7 +750,7 @@ def screen(pair=None):
         "cross_station_stack_block_hits_mm3": cross_station_stack_block_hits,
         "cross_station_stack_component_hits_mm3": (cross_station_stack_component_hits),
         "cross_station_tool_opposite_hits_mm3": cross_station_tool_opposite_hits,
-        "all_eight_stacks_mutually_clear": all_eight_stacks_mutually_clear,
+        "all_stacks_mutually_clear": all_stacks_mutually_clear,
         "all_cross_station_access_paths_clear": (all_cross_station_access_paths_clear),
         "fixed_axes_unchanged": len(panel_connections) == 66,
         "all_fixed_axes_have_positive_receiver_support": all(support.values()),
@@ -627,3 +760,24 @@ def screen(pair=None):
         "drilling_released": False,
         "fabrication_released": False,
     }
+    if target_stations == TARGET_STATIONS:
+        result["all_eight_stacks_mutually_clear"] = all_stacks_mutually_clear
+    return result
+
+
+def screen(pair=None):
+    """Preserve the original lower-center screen and schema."""
+    if pair is None:
+        pair = build_pair()
+    return _screen_targets(
+        pair, TARGET_STATIONS, "simple_pb03_lower_center_pair/v1"
+    )
+
+
+def screen_core_slice(core_slice=None):
+    """Screen all four lower-service stations without pairwise shortcuts."""
+    if core_slice is None:
+        core_slice = build_core_slice()
+    return _screen_targets(
+        core_slice, ALL_TARGET_STATIONS, "simple_pb03_lower_service_core/v1"
+    )
