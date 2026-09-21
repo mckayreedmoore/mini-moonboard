@@ -301,6 +301,18 @@ Everbilt part*, could allow a 4.572 mm under-head shortfall, greater than the de
 and wood/cut bounds are published for this complete stack. A measured or controlled receiving
 interval is required before selecting a pocket depth.
 
+A [narrow no-pocket lower-outer trial](../scripts/simple_pb04_narrow_lower_outer_detached.py)
+instead reduces one block's X width
+from 139.7 to 95.25 mm and moves its two rail-bolt X centers to 25 and 70 mm. It clears the
+modeled panel, fixed axes, neighbors, washer/nut and access envelopes at that representative
+station. Its outer-upright wood grip falls from 228.6 to 184.15 mm; nominal 8-inch bolt reach
+margin is 7.4676 mm including the same two-thread target. Even the conditional 4.572 mm
+standard-length shortfall would leave 2.8956 mm if the product actually conformed. This is
+**ADVANCE for geometry exploration only**; no actual product tolerance, all-station fit,
+changed contact/strength, or case-bound demand has been established. This route may avoid
+twelve deep pockets if the family-level screen succeeds, and it does not become the PB04
+geometry or inherit PB04 case forces.
+
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
