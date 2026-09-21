@@ -5,14 +5,14 @@ member change, rating, or drilling is approved. The 24 ML24Z stations below
 are the original structural angle duties, not 24 proven interchangeable cleats.
 Each has six old structural SDS axes (144 total) to replace with a new load path.
 
-Current status at `74fba89`: PB02 replaces the two right-center base/header
-stations. The PB03 lower-service core replaces the two center and two outer
-lower-service stations with four 300 mm solid timber blocks and 16 unselected
-through-bolt stacks. Exactly **18 legacy angle stations and 108 SDS axes
-remain**. The outer upright stacks use a 228.6 mm illustrative wood grip.
-Exact retail hardware and outer-pair resistance remain unresolved. This is a
-partial development assembly, not a drilling, fabrication, or structural
-release.
+Current status at `3c282c5e`: PB02 replaces the two right-center base/header
+stations. PB03 replaces four lower-service stations and both upper-service
+outer stations with six 300 mm solid timber blocks and 24 unselected
+through-bolt stacks. Exactly **16 legacy angle stations and 96 SDS axes
+remain**. The partial assembly has 198 connections, including 36 bolt-kind
+connections. The outer upright stacks use a 228.6 mm illustrative wood grip.
+Exact retail hardware and PB03 resistance remain unresolved. This is a partial
+development assembly, not a drilling, fabrication, or structural release.
 
 Sources: `mini_moonboard/compact_floor_flush_frame.py` `stations()` and
 `connections()`; `docs/bolted-candidate-interfaces.json` under
@@ -35,8 +35,9 @@ not a proposed bolt center. Left/right are not assumed geometrically identical.
   neighbors, screws, cut lengths, and access still require a local CAD screen.
 - Historical PB01 is `clip_horizontal_lower_right_1` (`CR`–`LR`), a 2x6 butt
   end at X = 89.05. PB03 now replaces this station, its independently built
-  left counterpart, and both lower-service outer stations geometrically. No
-  resistance result has been transferred to the outer pair.
+  left counterpart, both lower-service outer stations, and both upper-service
+  outer stations geometrically. No resistance result has been transferred to
+  those PB03 stations.
 
 ## All 24 original ML24Z duties
 
@@ -58,10 +59,10 @@ statement that one piece or one bolt pattern works at every row.
 | `clip_horizontal_lower_left_2` | CL–LL | -89.05,616.914,1199.968 | PB03 geometry only |
 | `clip_horizontal_lower_right_1` | CR–LR | 89.05,616.914,1199.968 | PB03 geometry only |
 | `clip_horizontal_lower_right_2` | LR–SR | 1130.3,616.914,1199.968 | PB03 geometry only |
-| `clip_horizontal_upper_left_1` | UL–SL | -1130.3,733.998,1339.503 | upper, outer |
+| `clip_horizontal_upper_left_1` | UL–SL | -1130.3,733.998,1339.503 | PB03 geometry only |
 | `clip_horizontal_upper_left_2` | CL–UL | -89.05,733.998,1339.503 | upper, center |
 | `clip_horizontal_upper_right_1` | CR–UR | 89.05,733.998,1339.503 | upper, center |
-| `clip_horizontal_upper_right_2` | UR–SR | 1130.3,733.998,1339.503 | upper, outer |
+| `clip_horizontal_upper_right_2` | UR–SR | 1130.3,733.998,1339.503 | PB03 geometry only |
 | `clip_timber_header_outer_left` | H–OL | -1181.1,-105.85,238.9 | header/post, outer |
 | `clip_timber_header_outer_right` | H–OR | 1181.1,-105.85,238.9 | header/post, outer |
 | `clip_split_header_center_left` | H–PL | -89.05,-105.85,238.9 | header/post, center |
@@ -135,15 +136,17 @@ screens of the other named stations, not extrapolated approval. Each screen
 must show both members, actual panel receivers, neighbor timber, complete
 bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
 
-1. The four `clip_horizontal_lower_*` stations: the PB03 lower-service core
-   checks actual kerf-right center and outer conditions independently with four
-   300 mm blocks, 16 complete generic stacks, nearby timber, finished panels,
-   all 66 fixed axes, bore intersections, and tool paths. The outer pair uses
-   the actual side members and coincident rail butt faces. Its upright stacks
-   have a 228.6 mm illustrative grip. Exact retail hardware, resistance,
-   tolerances, and release remain open.
-2. `clip_horizontal_upper_right_1` and `_2`: center and outer upper-service
-   ends. Their lower-neighbor gap and fixed upper-panel receivers differ.
+1. The four `clip_horizontal_lower_*` stations and the two upper-service outer
+   stations: the PB03 service-rail core checks actual kerf-right conditions
+   independently with six 300 mm blocks, 24 complete generic stacks, nearby
+   timber, finished panels, all 66 fixed axes, bore intersections, and tool
+   paths. The outer stations use actual side members and coincident rail butt
+   faces. Upright stacks have a 228.6 mm illustrative grip. The upper rail
+   bores use a 125 mm offset, and each upper block clears its lower neighbor by
+   86.9 mm. Exact retail hardware, resistance, tolerances, and release remain
+   open.
+2. `clip_horizontal_upper_left_2` and `clip_horizontal_upper_right_1`: the two
+   remaining center upper-service ends and their fixed upper-panel receivers.
 3. `clip_horizontal_bottom_right_1` and `_2`: center and outer bottom-rail
    ends. The header, kicker, and lower-panel bottom screws bound this region.
 4. `clip_split_top_center_right` and `clip_single_top_right_2`: center and
@@ -156,8 +159,8 @@ bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
    rear floor/leg, in the changed center/base load path and trim geometry.
 
 These are representative original ML24Z station families plus three old-bolt-
-pair families. The four-station PB03 lower-service core is a geometry-only
-conversion. Audit the remaining 18 stations against actual kerf-right stock,
+pair families. The six-station PB03 service-rail core is a geometry-only
+conversion. Audit the remaining 16 stations against actual kerf-right stock,
 panel receivers, and neighbor volumes before finalizing a single or mixed
 architecture. A family may split further when contact, load angle, grain,
 edge/end distance, access, cost, or screw backing differs. Cost comparison

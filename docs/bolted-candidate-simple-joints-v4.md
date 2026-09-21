@@ -55,7 +55,7 @@ extension, and ratchet rather than assuming clearance from a generic cylinder.
   **ADVANCE** decision, but PB-02 has not passed G1.
 - **PB-03 — physical geometry:** build one coherent kerf-right CAD assembly with full hardware
   stacks, receivers, no unintended SDS path, and an individual-member transport sequence. This
-  remains open. The four-station lower-service core is geometrically converted, but 18 legacy
+  remains open. Six service-rail stations are geometrically converted, but 16 legacy
   connector stations remain and no coherent final all-bolted frame exists.
 - **PB-04 — G2 analysis inputs:** complete applicable 2024 NDS local checks, contact and stiffness
   inputs, and all 36 criteria without waiving their safety questions. This remains open and G2
@@ -203,21 +203,23 @@ rear; the separate supplemental EC5 splitting ratio governs at **0.01071** at th
 high bore in K12 right. This advances only the listed local mechanism. Three-dimensional
 orthogonal-hole stress concentration and near-hole interaction remain unqualified.
 
-## PB-03 lower-service geometry core
+## PB-03 service-rail geometry core
 
-Commits `f8ca163` and `74fba89` replace the two lower-center and two lower-outer
-service-rail stations in the PB03 adapter. Each station is built independently
-from actual kerf-right geometry. The outer pair joins the lower service rails
-to `base_side_left` and `base_side_right` at their coincident physical butt
-faces. The core adds four 300 mm solid timber corner blocks and 16 complete
-generic through-bolt stack envelopes while removing four angle duties and 24
+At `3c282c5e`, the PB03 adapter replaces the two lower-center, two lower-outer,
+and two upper-outer service-rail stations. Each station is built independently
+from actual kerf-right geometry. The four outer stations join their service
+rails to `base_side_left` and `base_side_right` at coincident physical butt
+faces. The core adds six 300 mm solid timber corner blocks and 24 complete
+generic through-bolt stack envelopes while removing six angle duties and 36
 SDS axes.
 
 The outer upright stacks use a **228.6 mm illustrative wood grip**; the outer
-rail stacks use 95.25 mm. Those are geometric stack inputs, not selected retail
-bolt lengths. Exact retail bolts, washers, nuts, threads, orientations, and
-tolerances remain unresolved. No PB02 or PB01 resistance result has been
-transferred to the outer pair.
+rail stacks use 95.25 mm. The upper rail bores use a 125 mm offset to clear the
+lower-pair hardware and tool paths. Each upper block has 86.9 mm actual-shape
+clearance from its same-side lower block. Those are geometric inputs, not
+selected retail bolt lengths or qualified resistance. Exact retail bolts,
+washers, nuts, threads, orientations, and tolerances remain unresolved. No PB02
+or PB01 resistance result has been transferred to the PB03 service-rail joints.
 
 The bounded CAD gates check contact, complete 7.5 mm bores, finished panels,
 unrelated timber, all 66 fixed panel/kicker axes, all bore pairs, all stack
@@ -225,19 +227,21 @@ components, and outward tool paths. Current geometry passes those gates. Exact
 retail hardware, tolerances, strength, drilling, and fabrication remain
 unselected and unreleased.
 
-The V4 viewer now hides the four replaced angle solids and 24 SDS visuals. It
-shows the four PB03 blocks and 16 stacks alongside the unchanged PB02 visual
-contract. The resulting partial inventory is **18 legacy stations, 108 legacy
-SDS axes, four PB03 blocks, and 16 PB03 stacks**. This is not the final frame.
-No drilling or fabrication release follows from this geometry work.
+The live V4 viewer is current. It hides the six replaced angle solids and 36
+SDS visuals and shows six PB03 blocks and 24 stacks alongside the unchanged
+PB02 visual contract. The partial inventory is **16 legacy stations, 96 legacy
+SDS axes, six PB03 blocks, 24 PB03 stacks, 198 total connections, and 36
+bolt-kind connections**. All 66 fixed panel/kicker axes remain unchanged. This
+is not the final frame. Hardware, resistance, drilling, and fabrication remain
+unresolved and unreleased.
 
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
 envelope support continued work on this architecture. They do not establish G2, final all-bolted
 frame geometry, drilling, fabrication, construction, or structural acceptance. The current
-PB03 development adapter still retains **18 legacy angle and SDS connector stations** outside
-the converted lower-service core.
+PB03 development adapter still retains **16 legacy angle and SDS connector stations** outside
+the converted service-rail core.
 
 PB-04 must still resolve three-dimensional crossed-bore stress concentration and nearby-hole
 interaction, the inclined
@@ -248,7 +252,7 @@ preload, prying, nut and thread behavior, delivered hardware, fabrication tolera
 defensible floor-contact stiffness range or receiving criterion. It must map those results to all
 36 criteria before any G2 claim.
 
-PB-03 must convert and geometrically check the remaining 18 legacy stations, then demonstrate
+PB-03 must convert and geometrically check the remaining 16 legacy stations, then demonstrate
 one coherent kerf-right final all-bolted CAD assembly with actual stacks, receivers, tool access,
 panel clearance, and individual-member transport. Current PB02/PB03 evidence must not be
 described as that final frame.
