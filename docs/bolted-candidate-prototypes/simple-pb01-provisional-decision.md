@@ -6,6 +6,14 @@ Do not advance this rail detail to the connected V4 candidate, release drilling,
 or infer a rated joint. This is a bounded decision about what to investigate
 next, not a rejection of every possible corner-block geometry.
 
+The later [six-inch length trial](simple-pb01-short-block-screen.md) and
+[two tension-only hybrid cases](simple-pb01-short-tension-component-comparison.md)
+address bulk and axial-spring interpretation without changing this whole-joint
+decision. Both cases retain 23 old connector proxies. The largest reported
+conditional one-bolt lateral ratio is 0.0801, but group, washer, bored block,
+physical contact and complete joint utilization remain unresolved. Treat the
+older numerical table below as historical bilateral-model evidence only.
+
 Run `uv run --no-sync python -m scripts.simple_pb01_provisional_decision` from
 the repository root for the full signed JSON. The script writes no files and
 runs no native solve. It uses the existing

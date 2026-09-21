@@ -46,6 +46,11 @@ comparison gives every bolt and face point, with deltas defined as K12 minus A12
 | Rail closed face points / summed compression | 2 / 19.808 N | 2 / 31.196 N |
 
 The summed face forces are model spring outputs, not allowable joint capacities.
+An isolated rigid-body kinematic test gives rank 4 for the two rail lateral
+bolt paths plus the one active axial path, and rank 6 after adding the two
+active off-row face samples. That detects a free-rotation mechanism in the
+point idealization; it does not establish physical contact pressure,
+stiffness calibration, bored timber resistance, or joint strength.
 
 ## Rebuild and verify
 
