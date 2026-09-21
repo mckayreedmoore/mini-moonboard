@@ -39,7 +39,9 @@ equal-or-greater dimensional and material/bearing substantiation.
 | Lowe's [Hillman 811070][lowes] | 1/4-in hot-dipped galvanized **standard flat** USS washer; listed steel, **3/4-in OD** and **1/16-in thickness**. | Nominal ID is labeled 1/4 in, without actual bore or tolerances. No published B18.22.1/B18.21.1 cut-washer classification, type, steel grade, or bearing/flexure values. Similar OD and thickness to 807210 are not conformance evidence. |
 
 Home Depot's 807276 page calls the part a cut washer while its specification
-categorizes it as a flat washer. That inconsistency reinforces the need for a
+categorizes it as a flat washer. Those descriptions are not inherently
+inconsistent: a cut washer can be flat. The missing applicable dimensions and
+conformity basis, rather than the wording alone, reinforce the need for a
 product-specific standard statement. The published **0.032-in** thickness is
 confirmed as a listing value, not an accepted minimum or metal capacity. No
 reviewed Lowe's or Home Depot product source establishes that any of these

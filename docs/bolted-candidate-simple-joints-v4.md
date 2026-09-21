@@ -7,6 +7,11 @@ plan implements the owner's V4 direction for the separate
 active design sequence, without erasing its test results or the selected
 `compact-floor-flush-development` baseline.
 
+The owner's name for the rectangular timber connector is a **bolted
+solid-wood corner block**, or **corner block** below. Historical documents,
+file names, and machine identities use `cleat` for the same part; those
+identifiers remain stable for traceability.
+
 ## Fixed scope and design order
 
 The physical board is kerf-right, cut from two 4×8 panels. Preserve its
@@ -20,8 +25,8 @@ references, not automatically valid after changing frame geometry.
 Use ordinary through bolts, metal nuts and suitable bearing washers for
 structural move interfaces. A plain full-section face overlap is permitted;
 it retains both member thicknesses and has a real centerline offset. A
-rectangular solid-timber corner cleat with separate through-bolt groups is
-permitted where it simplifies a butt corner. A small cleat may remain
+rectangular solid-timber corner block with separate through-bolt groups is
+permitted where it simplifies a butt corner. A small block may remain
 bolted to one transport member. Factory metal brackets are optional when
 their **complete installed** cost or engineering value is better. No
 half-lap, housed/interlocking joinery, custom steel, panel through-bolts,

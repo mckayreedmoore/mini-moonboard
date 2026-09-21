@@ -1,9 +1,10 @@
 # PB-01 rail provisional decision (Astra RV-2)
 
-**Decision: revise the quarter-inch solid-cleat family for development only.**
+**Decision: revise the quarter-inch bolted solid-wood corner block family for
+development only.** Historical code and documents call this part a `cleat`.
 Do not advance this rail detail to the connected V4 candidate, release drilling,
 or infer a rated joint. This is a bounded decision about what to investigate
-next, not a rejection of every possible solid-cleat geometry.
+next, not a rejection of every possible corner-block geometry.
 
 Run `uv run --no-sync python -m scripts.simple_pb01_provisional_decision` from
 the repository root for the full signed JSON. The script writes no files and
@@ -23,6 +24,12 @@ Forces act **on the host**; moments use the extractor's common PB-01 datum.
 The JSON retains each signed bolt force and axial/lateral decomposition,
 all four contact locations and active states per face, and equal-opposite
 force and moment resultants on the cleat.
+
+These are the archived **bilateral axial-spring** diagnostic actions. Negative
+axial components are model output, not physical compression carried by an
+ordinary unpreloaded bolt. A tension-only bolt/face-contact model must be
+solved anew before using these axial values as washer or bolt demands; they
+cannot be corrected by clipping this table after the solve.
 
 - Principal–cleat: host force (−18.272, −2.815, −14.055) N; host moment
   (+825.136, −739.433, +132.376) N·mm; 2/4 active contacts, 12.281 N
