@@ -40,6 +40,10 @@ an acceptance result for a purchased fastener. The washer source gives an
 approximately 0.312-in ID, 0.734-in OD, and 0.065-in thickness pattern;
 physical bearing suitability still needs review. One washer is required at
 each end of the trial stack. No lock washer or second nut is included.
+The [source screen](quarter-inch-bolt-source-screen.md) records a 2024 NDS
+Chapter 12 / Appendix L6-versus-L8 cross-reference discrepancy and a
+separate 1/4-in retail cut-washer lead. Neither proves that this 807210
+wide-flat-washer stack meets the cut-washer-or-equivalent requirement.
 
 | Derived interval | RV-1 result, in |
 | --- | ---: |

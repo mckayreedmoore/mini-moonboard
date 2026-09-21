@@ -77,6 +77,23 @@ not a qualified substitute. The CAD's 1-in washer envelope was also only
 a clearance proxy. Nut dimensions and actual projection still need a
 complete stack check.
 
+The official 2024 NDS PDFs have a washer cross-reference discrepancy:
+[Chapter 12 §12.1.3.3][nds-ch12] says Appendix Table **L6**, while the
+[2024 Appendix page 195][nds-appendix] labels **L8** as the standard
+cut-washer table. The displayed L8 rows begin at **3/8 in**, not 1/4 in;
+its footnote points to ANSI/ASME B18.22.1 for other standard cut washers.
+This does not mean 1/4-in cut washers are prohibited. Home Depot lists an
+[Everbilt 807276 1/4-in cut washer][cut-washer] with 3/4-in OD and
+0.032-in thickness. That retail name and dimensions do not verify its
+ASME classification, equivalent metal bearing/stiffness, or suitability
+for this joint. It is not interchangeable with the 0.065-in-thick 807210
+stack assumed above. Resolve the exact compliant washer and redo the
+stack and wood/metal bearing checks before hardware selection.
+
+[nds-ch12]: https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf
+[nds-appendix]: https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240719_AWCWebsite_Appendix.pdf
+[cut-washer]: https://www.homedepot.com/p/204633086
+
 The [2024 NDS](https://awc.org/resources/2024-nds/) §12.3.6.2 requires a
 valid bending-yield basis; §§12.3.7.1–.2 control when thread-root versus
 full-body diameter may be used in bearing. Its Table 12.3.1B footnote 1
