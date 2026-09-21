@@ -24,12 +24,13 @@ SPECS = {**lower.STATION_SPECS, **upper.STATION_SPECS, **bottom.STATION_SPECS}
 def _openings(geometry):
     """Provisional end reserves for every bore and no-pocket washer seat."""
     rows = {}
-    washer_diameter = (
-        narrow.hardware.WASHER_OUTSIDE_DIAMETER_MM
-        if geometry.station in pb05.OUTER_STATIONS
-        else lower.WASHER_DIAMETER_MM
-    )
     for bolt in geometry.bolts:
+        washer_diameter = (
+            narrow.hardware.WASHER_OUTSIDE_DIAMETER_MM
+            if geometry.station in pb05.OUTER_STATIONS
+            and bolt.members[0] == geometry.upright_name
+            else lower.WASHER_DIAMETER_MM
+        )
         n = (
             lower.UPRIGHT_N_OFFSETS_MM[int(bolt.name.rsplit("_", 1)[1]) - 1]
             if bolt.members[0] == geometry.upright_name

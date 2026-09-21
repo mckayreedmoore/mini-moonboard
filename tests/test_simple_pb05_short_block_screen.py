@@ -1,10 +1,33 @@
 """The PB05 short-stock proposal retains all eight geometry duties."""
 
 import math
+from types import SimpleNamespace
 
 import pytest
 
 from scripts import simple_pb05_short_block_screen as short
+
+
+def test_outer_washer_openings_follow_bolt_interface():
+    geometry = SimpleNamespace(
+        station=short.pb05.OUTER_STATIONS[0],
+        upright_name="upright",
+        rail_name="rail",
+        block_length_mm=152.4,
+        report={"rail_bore_n_offset_mm": 80.159},
+        bolts=(
+            SimpleNamespace(name="trial_upright_1", members=("upright", "block")),
+            SimpleNamespace(name="trial_rail_1", members=("rail", "block")),
+        ),
+    )
+    openings = short._openings(geometry)
+    upright_n = short.lower.UPRIGHT_N_OFFSETS_MM[0]
+    assert openings["trial_upright_1/washer"]["near_net_mm"] == pytest.approx(
+        upright_n - short.narrow.hardware.WASHER_OUTSIDE_DIAMETER_MM / 2
+    )
+    assert openings["trial_rail_1/washer"]["near_net_mm"] == pytest.approx(
+        80.159 - short.lower.WASHER_DIAMETER_MM / 2
+    )
 
 
 @pytest.fixture(scope="module")
