@@ -10,28 +10,30 @@ is one developmental load case, not a qualified connection design. It does not
 release drilling, fabrication, purchasing for construction, or construction.
 
 The active geometry now moves `post_high` from Z = 190.0 mm to Z = 189.4 mm.
-The retained whole-frame evidence in this record predates that revision and
-must be rerun before its demands are attributed to the revised pose. The move
-increases
+The retained pre-revision evidence is superseded for current-geometry demand
+comparison by a corrected rerun at Z = 189.4 mm. The move increases
 the post upper-end distance from 48.9 mm to 49.5 mm and leaves approximately
 6.1 mm of nominal wood ligament at the crossed `post_high`/`post_cleat_2`
 bores. That remaining ligament is not structurally qualified.
 
 ## Authenticated evidence
 
-The retained evidence package is:
+The current-geometry evidence package is:
 
-`fea/results/diagnostics/pb02-corrected-a12-forward-v1`
+`fea/results/diagnostics/pb02-corrected-a12-forward-z189p4-v1`
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `report.json` | `7240026c654cb2b8b417741c0a895234a7c579fc271f9d4a8043cb83fcbb0020` |
-| `cycle-10/input.json` | `b153d9dc2600f31004bcc5ce27e5abdd4eda31ba9f6c6c22ff989f727e43a436` |
-| `cycle-10/frame.dat` | `1eea3da5d84bed06bcf04f15e260ca633c837a13c3794e8a7fb26c4df0419336` |
-| `cycle-10/frame.frd` | `bb4506708ff25d40dd1049bbb21f6f2ceca49a68ae484d2ff2679086fb0b4724` |
+| `report.json` | `fa37447a09679a61d13e6ed065c8d5bfa945b1efb539506b701c3436ad13a87e` |
+| `cycle-10/input.json` | `0fc96683d11edf4ad9c47d083b572a364f782e4c803371fbff9d55eff17d7c28` |
+| `cycle-10/frame.dat` | `628aed89300b50feeec892e559da23d3ee2cfe45dadc1be41e8069e60027ba0b` |
+| `cycle-10/frame.frd` | `5cedc08e03ce31607d033923456627ed9aebbe9e855884f7502e138399ddc801` |
 | `cycle-10/frame.12d` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 
 The package also retains the authenticated source-snapshot closure. The
+compact copy retains the final cycle but omits prior cycles and other large raw
+artifacts, so it does not satisfy the full 389-artifact manifest in the report.
+The package README records that scope explicitly. The
 corrected mapping reverses the seven canonical PB02 interface contact
 directions so compression closes and opening releases each interface. Bolt
 axes remain directed from the first member to the second. The four direct
@@ -56,10 +58,13 @@ routes:
   `principal_block_principal`; and
 - principal to upright to rear cleat to shifted post through the return path.
 
-The direct shifted-post/base-header bearing carries 114.64 N. All four samples
-are compressive. The governing interface is `rear_block_post`, with a 155.48 N
-resultant force and approximately 5.98 kN·mm resultant moment. The largest
-simultaneous bolt demand is 79.96 N lateral shear and 24.66 N tension.
+The direct shifted-post/base-header bearing carries 114.52 N. All four samples
+are compressive. The governing interface is `rear_block_post`, with a 155.40 N
+resultant force and approximately 5.97 kN·mm resultant moment. The largest
+simultaneous bolt demand is 79.93 N lateral shear and 24.70 N tension. Relative
+to the pre-revision result, no interface force changed by more than 0.081 N and
+no bolt shear changed by more than 0.060 N; the load path is materially
+unchanged.
 
 The preliminary conditional DF-L lateral screen reaches a maximum demand ratio
 of 0.148. Using the smaller thread-root sensitivity increases that ratio to
@@ -89,16 +94,14 @@ The two `block_header` bolts are an axis-parallel/end-grain case for the current
 block grain orientation. A conditional 2024 NDS single-bolt yield calculation,
 using DF-L G = 0.50, 45 ksi bolt yield strength, the 0.67 end-grain factor, and
 the smaller 0.180-inch thread-root sensitivity, gives 280.50 N versus the
-33.71 N corrected-case demand, a ratio of 0.1202. The 0.189-inch typical-root
-sensitivity gives 297.61 N and a ratio of 0.1133. These are component references,
+33.77 N corrected-case demand, a ratio of 0.1204. The 0.189-inch typical-root
+sensitivity gives 297.61 N and a ratio of 0.1135. These are component references,
 not final adjusted values: group action, geometry factor, splitting, and the
 remaining load cases remain unresolved. This result does not require rotating
 the block grain or moving to 4x8 stock solely for the current one-case demand.
 
 Before any physical release, work still includes:
 
-- rerun the corrected response at the integrated `post_high` Z = 189.4 mm
-  geometry;
 - resolve the approximately 6.1 mm crossed-bore ligament and local splitting;
 - complete the `block_header` group, geometry-factor, and local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,

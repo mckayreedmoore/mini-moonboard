@@ -35,7 +35,7 @@ def root_case(root_diameter_in: float) -> dict:
     )
     end_grain_factor = 0.67
     adjusted_n = result["reference_lateral_lbf"] * end_grain_factor * N_PER_LBF
-    demand_n = 33.71
+    demand_n = 33.76660633999291
     return {
         "root_diameter_in": root_diameter_in,
         "dfl_specific_gravity": 0.5,
