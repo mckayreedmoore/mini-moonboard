@@ -97,6 +97,15 @@ alone would neither build the V4 timber geometry nor reconcile the selected
 baseline. Replace that producer and regenerate a truthful V4 contract when
 the connected V4 candidate exists; keep `native_ready=false` until then.
 
+PB-02 now has one active, fingerprinted ten-bore geometry shared by CAD,
+placement, stack, kinematics and the development viewer. Its
+[signed replacement-duty fixture](bolted-candidate-prototypes/simple-center-signed-duty-fixture.md)
+also shows that all five authenticated historical right-center action examples
+are equilibrium-feasible only with both compression-only face contact and
+no-preload bolt tension. This advances the load-path screen but does not close
+G1: stiffness-dependent sharing, the missing forward case, complete local
+resistance, and the final costed architecture remain open.
+
 Source scope: [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
 describes dowel-yield lateral methods and exclusions; the
 [USDA Wood Handbook, Chapter 8](https://research.fs.usda.gov/download/treesearch/62253.pdf)

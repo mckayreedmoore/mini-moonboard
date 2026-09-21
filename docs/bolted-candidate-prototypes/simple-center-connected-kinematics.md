@@ -22,8 +22,8 @@ in version history; they are not silently rewritten as the active pose.
 | header–principal block | Z | (15.475, −139, 291.45) |
 | principal block–right principal | X | (34.525, −95, 312.5) |
 | right principal–upright block | X | (114.45, −144.5, 356) |
-| upright block–rear block | Y | (133.5, −163.95, 370) |
-| rear block–post | Y | (140, −150.3, 110), (140, −150.3, 190) |
+| upright block–rear block | −Y | (133.5, −163.95, 370) |
+| rear block–post | +Y | (140, −150.3, 110), (140, −150.3, 190) |
 
 Each listed point is the midpoint between the active geometry's named bolt end
 planes. The graph is a seven-body cycle. The old displaced center clips are not
@@ -78,6 +78,11 @@ axial rows engage, actual load split, and joint/member resistance all require
 a same-configuration equilibrium/contact and strength analysis. This study
 does not select a second principal-side bolt or claim that one is unnecessary
 for the finished frame. No strength verdict follows.
+
+The later [signed replacement-duty fixture](simple-center-signed-duty-fixture.md)
+adds a bounded equilibrium feasibility result for five authenticated historical
+interface-action examples. It does not retroactively turn this rank screen into
+a stiffness, pressure, strength, or complete-case solution.
 
 Reproduce with `.venv/bin/python -m scripts.simple_center_connected_kinematics`
 and `.venv/bin/python -m pytest -q

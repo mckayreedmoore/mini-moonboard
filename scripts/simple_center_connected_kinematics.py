@@ -72,7 +72,7 @@ def current_edges():
         "upright_rear_block": (
             "upright_block",
             "rear_block",
-            (0, 1, 0),
+            (0, -1, 0),
             [center("link_rear", "link_front")],
         ),
         "rear_block_post": (
@@ -104,8 +104,8 @@ def _point_row(first, second, direction, point):
     return row
 
 
-def matrix(*, closed=(), axial=True, return_path=True, anchor_post=True):
-    """Closed faces supply four normal rows; open faces supply none."""
+def constraint_rows(*, closed=(), axial=True, return_path=True):
+    """Return labeled point constraints before an optional coordinate anchor."""
     rows = []
     for name, (first, second, normal, bolts) in EDGES.items():
         if not return_path and name in (
@@ -116,20 +116,48 @@ def matrix(*, closed=(), axial=True, return_path=True, anchor_post=True):
             continue
         n = np.asarray(normal, dtype=float)
         tangents = [axis for axis in np.eye(3) if abs(axis @ n) < 0.5]
-        for point in bolts:
+        for bolt_index, point in enumerate(bolts, 1):
             rows.extend(
-                _point_row(first, second, tangent, point) for tangent in tangents
+                {
+                    "name": f"{name}/bolt_{bolt_index}/shear_{index}",
+                    "edge": name,
+                    "kind": "bolt_shear",
+                    "row": _point_row(first, second, tangent, point),
+                }
+                for index, tangent in enumerate(tangents, 1)
             )
             if axial:
-                rows.append(_point_row(first, second, n, point))
+                rows.append(
+                    {
+                        "name": f"{name}/bolt_{bolt_index}/tension",
+                        "edge": name,
+                        "kind": "bolt_tension",
+                        "row": _point_row(first, second, n, point),
+                    }
+                )
         if name in closed:
             center = np.mean(bolts, axis=0)
-            for a in (-20.0, 20.0):
-                for b in (-20.0, 20.0):
-                    point = center + a * tangents[0] + b * tangents[1]
-                    rows.append(_point_row(first, second, n, point))
+            for contact_index, (a, b) in enumerate(
+                ((a, b) for a in (-20.0, 20.0) for b in (-20.0, 20.0)), 1
+            ):
+                point = center + a * tangents[0] + b * tangents[1]
+                rows.append(
+                    {
+                        "name": f"{name}/contact_{contact_index}",
+                        "edge": name,
+                        "kind": "contact_compression",
+                        "row": _point_row(first, second, n, point),
+                    }
+                )
+    return rows
+
+
+def matrix(*, closed=(), axial=True, return_path=True, anchor_post=True):
+    """Closed faces supply four normal rows; open faces supply none."""
+    rows = constraint_rows(closed=closed, axial=axial, return_path=return_path)
+    values = np.asarray([item["row"] for item in rows])
     # Fixing the post removes six arbitrary whole-assembly rigid motions only.
-    anchored = np.asarray(rows)[:, 6:] if anchor_post else np.asarray(rows)
+    anchored = values[:, 6:] if anchor_post else values
     if not return_path:
         anchored = anchored[:, : 6 * (4 if anchor_post else 5)]
     return anchored
