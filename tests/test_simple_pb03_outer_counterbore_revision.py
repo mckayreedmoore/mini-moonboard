@@ -67,6 +67,7 @@ def test_remaining_ligaments_are_reported_without_strength_claim(result):
     assert ligaments["pocket_to_block_edge"] == pytest.approx(15.875)
     assert ligaments["between_counterbores"] == pytest.approx(19.6)
     assert ligaments["pocket_to_unintended_bore"] > 0
+    assert ligaments["pocket_to_preserved_stack"] > 0
     assert result["decision"] == "PASS_ISOLATED_GEOMETRY_ONLY"
     assert result["strength_checked"] is False
     assert result["active_design_integrated"] is False
@@ -79,3 +80,18 @@ def test_remaining_ligaments_are_reported_without_strength_claim(result):
 def test_invalid_forstner_size_fails_closed():
     with pytest.raises(ValueError, match="Forstner"):
         revision.screen(forstner_diameter_mm=18.0)
+
+
+def test_reusable_builder_returns_the_exact_twelve_pockets():
+    module = revision.PB03Native()
+    pockets, blocks = revision.build_counterbored_blocks(module.pb03_geometries())
+
+    assert len(pockets) == 12
+    assert set(blocks) == set(revision.TARGET_STATIONS)
+    for station in revision.TARGET_STATIONS:
+        original = module.pb03_geometries()[station].block
+        revised = blocks[station]
+        assert original.BoundingBox().xlen == pytest.approx(revised.BoundingBox().xlen)
+        assert original.BoundingBox().ylen == pytest.approx(revised.BoundingBox().ylen)
+        assert original.BoundingBox().zlen == pytest.approx(revised.BoundingBox().zlen)
+        assert original.Volume() - revised.Volume() > 0

@@ -92,7 +92,45 @@ def _same_box(first, second):
     )
 
 
-def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
+def build_counterbored_blocks(geometries, *, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
+    """Cut the exact twelve outer-upright pockets from supplied PB03 blocks."""
+    if not set(TARGET_STATIONS) <= set(geometries):
+        raise ValueError("PB03 counterbore station inventory changed")
+    depth = _required_depth_mm()
+    pockets = {}
+    counterbored_blocks = {}
+    for station in TARGET_STATIONS:
+        geometry = geometries[station]
+        revised = geometry.block
+        upright_bolts = [
+            bolt for bolt in geometry.bolts if bolt.members[0] == geometry.upright_name
+        ]
+        if len(upright_bolts) != 2:
+            raise ValueError(f"{station}: PB03 outer upright bolt inventory changed")
+        for bolt in upright_bolts:
+            direction = bolt.direction.normalized()
+            wood_start = bolt.start + direction * lower.END_ALLOWANCE_MM
+            outer_face = wood_start + direction * bolt.grip
+            pocket = _cylinder(
+                outer_face.toTuple(),
+                (-direction).toTuple(),
+                depth,
+                forstner_diameter_mm,
+            )
+            pockets[f"{station}/{bolt.name}"] = pocket
+            revised = revised.cut(pocket)
+        counterbored_blocks[station] = revised
+    if len(pockets) != 12:
+        raise ValueError("PB03 counterbore inventory changed")
+    return pockets, counterbored_blocks
+
+
+def screen(
+    *,
+    forstner_diameter_mm=FORSTNER_DIAMETER_MM,
+    module=None,
+    expected_source_id=PB03_SOURCE_ID,
+):
     """Screen detached pockets against the authenticated eight-station source."""
     minimum_seat_diameter = max(
         WASHER_OUTSIDE_DIAMETER_MM,
@@ -105,10 +143,10 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
     ):
         raise ValueError("Forstner diameter cannot clear the washer and socket")
 
-    module = PB03Native()
+    module = PB03Native() if module is None else module
     geometries = module.pb03_geometries()
     if (
-        module.KEY != PB03_SOURCE_ID
+        module.KEY != expected_source_id
         or module.ACTIVE_FINGERPRINT != lower.EXPECTED_PB02_FINGERPRINT
         or not set(TARGET_STATIONS) <= set(geometries)
     ):
@@ -145,10 +183,11 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
     }
 
     depth = _required_depth_mm()
-    pockets = {}
+    pockets, counterbored_blocks = build_counterbored_blocks(
+        geometries, forstner_diameter_mm=forstner_diameter_mm
+    )
     approach_tools = {}
     socket_tools = {}
-    counterbored_blocks = {}
     target_upright_bolts = []
     target_rail_bolts = []
     for station in TARGET_STATIONS:
@@ -163,20 +202,11 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
             raise ValueError(f"{station}: PB03 outer bolt inventory changed")
         target_upright_bolts.extend(upright_bolts)
         target_rail_bolts.extend(rail_bolts)
-        station_pockets = []
         for bolt in upright_bolts:
             direction = bolt.direction.normalized()
             wood_start = bolt.start + direction * lower.END_ALLOWANCE_MM
             outer_face = wood_start + direction * bolt.grip
-            pocket = _cylinder(
-                outer_face.toTuple(),
-                (-direction).toTuple(),
-                depth,
-                forstner_diameter_mm,
-            )
             key = f"{station}/{bolt.name}"
-            pockets[key] = pocket
-            station_pockets.append(pocket)
             approach_tools[key] = _cylinder(
                 outer_face.toTuple(),
                 direction.toTuple(),
@@ -190,13 +220,6 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
                 depth,
                 SOCKET_DIAMETER_MM,
             )
-        revised = geometry.block
-        for pocket in station_pockets:
-            revised = revised.cut(pocket)
-        counterbored_blocks[station] = revised
-
-    if len(pockets) != 12:
-        raise ValueError("PB03 counterbore inventory changed")
 
     pocket_unintended_bore_hits = {}
     pocket_preserved_stack_hits = {}
@@ -208,6 +231,7 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
     intended_bores_open = {}
     pocket_inside_block = {}
     unintended_bore_clearances = []
+    preserved_stack_clearances = []
     for key, pocket in pockets.items():
         station, bolt_name = key.split("/", 1)
         geometry = geometries[station]
@@ -232,6 +256,9 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
             for name, shape in all_stacks.items()
             if not name.startswith(own_stack_prefix)
         }
+        preserved_stack_clearances.extend(
+            pocket.distance(shape) for shape in preserved_stacks.values()
+        )
         pocket_preserved_stack_hits.update(
             {
                 f"{key}|{name}": volume
@@ -416,6 +443,7 @@ def screen(*, forstner_diameter_mm=FORSTNER_DIAMETER_MM):
                 for left, right in combinations(lower.UPRIGHT_N_OFFSETS_MM, 2)
             ),
             "pocket_to_unintended_bore": min(unintended_bore_clearances),
+            "pocket_to_preserved_stack": min(preserved_stack_clearances),
             "nearest_other_counterbore": min(pocket_pair_clearances),
         },
         "all_geometry_checks_pass": all_geometry_checks_pass,
