@@ -54,6 +54,14 @@ explicitly named *conditional subset minimum*. The subset minimum here is
 −14.3 mm after the single allowance; there is **no whole-center minimum**
 or claim of complete classification.
 
+Two orthogonal neighboring-bore pairs warrant a local wood check before
+selection: `post_high`/`post_cleat_2` in the shifted post and
+`upright`/`cleat_link` in the side block each have a **10 mm finite-centerline
+gap**. With the model's 3.65 mm bore radius on each axis, that leaves only
+**2.7 mm nominal wood between bore surfaces** at closest approach. This is
+not a measured ligament or a strength rating; drill variation, splitting,
+combined local stress and applicability of any spacing rule remain open.
+
 The older post/block single-bolt Y=−150 mm position has 25.7 mm to the rear
 Y face: just **0.3 mm above 4D before allowance**. The regression test keeps
 that position visible as a historical warning. The current post/block pair

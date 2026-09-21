@@ -61,3 +61,12 @@ def test_single_allowance_and_neighbor_classification():
     unknown = _find(result["rows"], "upright", "base_principal_center_right", "y_low")
     assert unknown["marker_status"] == "unknown"
     assert unknown["reserve_mm"] is None
+
+    for bolt, member, other in (
+        ("post_high", "shifted_right_post", "post_cleat_2"),
+        ("upright", "upright_side_cleat", "cleat_link"),
+    ):
+        gap = _find(result["rows"], bolt, member, other)
+        assert gap["kind"] == "orthogonal_neighbor"
+        assert gap["nominal_distance_mm"] == 10.0
+        assert gap["marker_status"] == "unknown"
