@@ -67,6 +67,9 @@ def _report(case, **changes):
         },
         "axial_tension_names": sorted(BOLT_NAMES),
         "bearings": [{"name": name, "active": True} for name in sorted(CONTACT_NAMES)],
+        "axial_tension": [
+            {"name": name, "active": True} for name in sorted(BOLT_NAMES)
+        ],
         "source_sha256": dict(SOURCE_INVENTORY),
         "artifact_sha256": {},
         "termination": "accepted",
@@ -95,20 +98,29 @@ def isolated_runner(monkeypatch):
         },
     )
     monkeypatch.setattr(runner, "_source_inventory", lambda: dict(SOURCE_INVENTORY))
+    monkeypatch.setattr(
+        runner, "_native_source_inventory", lambda: dict(SOURCE_INVENTORY)
+    )
     monkeypatch.setattr(runner, "native_row_inventory", _rows)
     monkeypatch.setattr(
         runner,
         "_verify_model_stiffness",
         lambda path, stiffnesses: stiffnesses,
     )
+    monkeypatch.setattr(
+        runner,
+        "_model_identity",
+        lambda path, case, stiffnesses: f"authenticated-model-{case}",
+    )
 
 
-def _run(tmp_path):
+def _run(tmp_path, **changes):
     return runner.run_suite(
         tmp_path / "pb02",
         bolt_axial_n_per_mm=AXIAL_STIFFNESS,
         bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
         face_normal_total_n_per_mm=FACE_STIFFNESS,
+        **changes,
     )
 
 
@@ -126,6 +138,7 @@ def _install_fake_native_run(monkeypatch, reports, calls):
                 "path": path,
                 "strategy": kwargs["contact_update_strategy"],
                 "seed": kwargs["initial_contact_names"],
+                "axial_seed": kwargs["initial_axial_tension_names"],
                 "max_cycles": kwargs["max_cycles"],
             }
         )
@@ -187,8 +200,119 @@ def test_forward_uses_only_prescribed_fallback_and_authenticated_rear_seed(
         ("a12-forward", "one_at_a_time", True),
     ]
     assert calls[3]["seed"] == sorted(CONTACT_NAMES)
+    assert calls[3]["axial_seed"] is None
     assert summary["accepted_cases"]["a12-forward"]["search_seed_case"] == ("a12-rear")
     assert summary["accepted_cases"]["a12-rear"]["attempt"] == "01-all-unseeded"
+
+
+def _exhausted(case, max_cycles, *, normal_names=None, axial_names=None, **changes):
+    normal_names = CONTACT_NAMES if normal_names is None else set(normal_names)
+    axial_names = BOLT_NAMES if axial_names is None else set(axial_names)
+    report = _report(
+        case,
+        contact_active_set_converged=False,
+        axial_tension_active_set_converged=False,
+        numerically_accepted=False,
+        termination="Maximum active-set cycles exhausted without convergence",
+        contact_update_strategy="one_at_a_time",
+        contact_cycles=[{"cycle": index} for index in range(max_cycles)],
+        bearings=[
+            {"name": name, "active": name in normal_names}
+            for name in sorted(CONTACT_NAMES)
+        ],
+        axial_tension=[
+            {"name": name, "active": name in axial_names} for name in sorted(BOLT_NAMES)
+        ],
+    )
+    report.update(changes)
+    return report
+
+
+def test_same_case_continuation_reuses_only_unilateral_memberships(
+    tmp_path, monkeypatch, isolated_runner
+):
+    max_cycles = 2
+    calls = []
+    active_normals = {"pb02-contact-1", "pb02-contact-7"}
+    active_axials = {"pb02-bolt-2"}
+    rejected = _exhausted(
+        "a12-forward",
+        max_cycles,
+        normal_names=active_normals,
+        axial_names=active_axials,
+        physical_connection_forces={"ALTERED_REJECTED_FORCE": 9.9e99},
+    )
+    reports = [
+        _report("a12-forward", contact_active_set_converged=False),
+        rejected,
+        _report("a12-forward"),
+        *map(_report, runner.CASE_ORDER[1:]),
+    ]
+    _install_fake_native_run(monkeypatch, reports, calls)
+
+    summary = _run(tmp_path, max_cycles=max_cycles, max_same_case_continuations=1)
+
+    continuation = calls[2]
+    assert continuation["case"] == "a12-forward"
+    assert continuation["seed"] == sorted(active_normals)
+    assert continuation["axial_seed"] == sorted(active_axials)
+    assert continuation["path"].name.endswith("same-case-continuation-01")
+    assert "ALTERED_REJECTED_FORCE" not in json.dumps(summary)
+    assert summary["attempts"][2]["same_case_continuation_from_attempt"] == (
+        "02-one-at-a-time-unseeded"
+    )
+
+
+def test_same_case_continuation_never_reuses_a_different_case_checkpoint(
+    tmp_path, monkeypatch, isolated_runner
+):
+    max_cycles = 2
+    calls = []
+    wrong_case = _exhausted("a12-rear", max_cycles)
+    reports = [
+        _report("a12-forward", contact_active_set_converged=False),
+        wrong_case,
+    ]
+    _install_fake_native_run(monkeypatch, reports, calls)
+
+    with pytest.raises(ValueError, match="checkpoint load identity changed"):
+        _run(tmp_path, max_cycles=max_cycles, max_same_case_continuations=1)
+
+    assert len(calls) == 2
+
+
+def test_same_case_continuations_have_a_strict_configured_bound(
+    tmp_path, monkeypatch, isolated_runner
+):
+    max_cycles = 2
+    calls = []
+    reports = [
+        _report("a12-forward", contact_active_set_converged=False),
+        _exhausted("a12-forward", max_cycles),
+        _exhausted("a12-forward", max_cycles),
+        _report("a12-rear"),
+        _report("a12-forward"),
+        *map(_report, runner.CASE_ORDER[2:]),
+    ]
+    _install_fake_native_run(monkeypatch, reports, calls)
+
+    summary = _run(tmp_path, max_cycles=max_cycles, max_same_case_continuations=1)
+
+    forward_calls = [call for call in calls if call["case"] == "a12-forward"]
+    assert len(forward_calls) == 4
+    assert (
+        sum("same-case-continuation" in call["path"].name for call in forward_calls)
+        == 1
+    )
+    assert summary["max_same_case_continuations"] == 1
+
+
+@pytest.mark.parametrize("value", [-1, 1.5, True])
+def test_same_case_continuation_bound_must_be_a_nonnegative_integer(
+    tmp_path, isolated_runner, value
+):
+    with pytest.raises(ValueError, match="nonnegative integer"):
+        _run(tmp_path, max_same_case_continuations=value)
 
 
 def test_rear_must_authenticate_before_its_contacts_can_seed_forward(

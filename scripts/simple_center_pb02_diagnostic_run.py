@@ -97,6 +97,11 @@ def _source_inventory():
     return current
 
 
+def _native_source_inventory():
+    """Return the exact source inventory embedded in a fresh native model."""
+    return {**native.source_hashes(), **_source_inventory()}
+
+
 def _preflight(stiffnesses):
     if set(CASES) != set(EXPECTED_LOADS) or any(
         CASES[name] != expected for name, expected in EXPECTED_LOADS.items()
@@ -292,14 +297,91 @@ def _verify_model_stiffness(path, stiffnesses):
     return stiffnesses
 
 
-def _attempt_summary(case, label, strategy, seeded, path, report):
+def _model_identity(path, case, stiffnesses):
+    """Authenticate the generated model used by a continuation checkpoint."""
+    model_path = path / "model.pkl"
+    with model_path.open("rb") as source:
+        payload = pickle.load(source)
+    structure, metadata = payload["model"]
+    del structure
+    hold, horizontal = EXPECTED_LOADS[case]
+    expected_force = [*horizontal, EXPECTED_VERTICAL_FORCE_N]
+    values = stiffnesses["exact_selected_values"]
+    expected_pb02 = {
+        "bolt_axial": values["bolt_axial_n_per_mm"],
+        "bolt_lateral": values["bolt_lateral_n_per_mm"],
+        "face_normal_total_per_interface": values[
+            "face_normal_total_per_interface_n_per_mm"
+        ],
+    }
+    if (
+        payload.get("source_sha256") != _native_source_inventory()
+        or metadata.get("candidate") != CANDIDATE_ID
+        or metadata.get("hold") != hold
+        or metadata.get("pounds") != 250.0
+        or metadata.get("force_xyz_n") != expected_force
+        or metadata.get("pb02_trial_stiffness_n_per_mm") != expected_pb02
+    ):
+        raise ValueError(f"{case}: generated model identity is unauthenticated")
+    return hashlib.sha256(model_path.read_bytes()).hexdigest()
+
+
+def _max_cycles_exhausted(report, max_cycles):
+    """Recognize only a bounded one-at-a-time chunk that used every cycle."""
+    termination = str(report.get("termination", "")).lower()
+    repeated = "repeat" in termination
+    explicit_exhaustion = "max" in termination and (
+        "cycle" in termination or "exhaust" in termination
+    )
+    return (
+        report.get("contact_update_strategy") == "one_at_a_time"
+        and _is_active_set_nonconvergence(report)
+        and len(report.get("contact_cycles", ())) == max_cycles
+        and not repeated
+        and (not termination or explicit_exhaustion)
+    )
+
+
+def _same_case_checkpoint(path, report, case, stiffnesses, max_cycles):
+    """Return unilateral memberships, never forces, from one rejected chunk."""
+    if not _max_cycles_exhausted(report, max_cycles):
+        raise ValueError(f"{case}: report is not a max-cycle continuation checkpoint")
+    if report.get("candidate") != CANDIDATE_ID:
+        raise ValueError(f"{case}: checkpoint candidate identity changed")
+    if not _load_matches(report, case):
+        raise ValueError(f"{case}: checkpoint load identity changed")
+    if report.get("source_sha256") != _native_source_inventory():
+        raise ValueError(f"{case}: checkpoint source identity changed")
+    if report.get("pb02_stiffness_verification") != stiffnesses:
+        raise ValueError(f"{case}: checkpoint stiffness identity changed")
+    if report.get("pb02_model_identity") != _model_identity(path, case, stiffnesses):
+        raise ValueError(f"{case}: checkpoint model identity changed")
+
+    bearings = report.get("bearings")
+    axial_rows = report.get("axial_tension")
+    if not isinstance(bearings, list) or not isinstance(axial_rows, list):
+        raise TypeError(f"{case}: checkpoint unilateral state is incomplete")
+    normal_names = {
+        row["name"]
+        for row in bearings
+        if row.get("active") is True and not row["name"].endswith("_friction")
+    }
+    axial_names = {row["name"] for row in axial_rows if row.get("active") is True}
+    axial_inventory = set(report.get("axial_tension_names", ()))
+    if not axial_names <= axial_inventory or normal_names & axial_inventory:
+        raise ValueError(f"{case}: checkpoint unilateral state is invalid")
+    return sorted(normal_names), sorted(axial_names)
+
+
+def _attempt_summary(case, label, strategy, seed_case, continuation_from, path, report):
     """Record search status without copying forces from a rejected result."""
     report_path = path / "report.json"
     return {
         "case": case,
         "attempt": label,
         "contact_update_strategy": strategy,
-        "seeded_from_authenticated_a12_rear": seeded,
+        "seeded_from_authenticated_a12_rear": seed_case == "a12-rear",
+        "same_case_continuation_from_attempt": continuation_from,
         "contact_active_set_converged": report.get(
             "contact_active_set_converged", False
         ),
@@ -318,6 +400,7 @@ def _run_attempt(
     stiffnesses,
     max_cycles,
     initial_contact_names=None,
+    initial_axial_tension_names=None,
 ):
     values = stiffnesses["exact_selected_values"]
     module = PB02Native()
@@ -336,9 +419,11 @@ def _run_attempt(
         extra_source_paths=PRODUCER_PATHS,
         contact_update_strategy=strategy,
         initial_contact_names=initial_contact_names,
+        initial_axial_tension_names=initial_axial_tension_names,
         max_cycles=max_cycles,
     )
     report["pb02_stiffness_verification"] = _verify_model_stiffness(path, stiffnesses)
+    report["pb02_model_identity"] = _model_identity(path, case, stiffnesses)
     return report
 
 
@@ -386,10 +471,13 @@ def run_suite(
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
     max_cycles=120,
+    max_same_case_continuations=3,
 ):
     """Run the prescribed six cases and return only authenticated case records."""
     if type(max_cycles) is not int or max_cycles < 1:
         raise ValueError("max_cycles must be a positive integer")
+    if type(max_same_case_continuations) is not int or max_same_case_continuations < 0:
+        raise ValueError("max_same_case_continuations must be a nonnegative integer")
     root = Path(output)
     root.mkdir(parents=True, exist_ok=False)
     attempts_root = root / "attempts"
@@ -403,7 +491,15 @@ def run_suite(
     attempts = []
     accepted = {}
 
-    def attempt(case, label, strategy, seed_names=None, seed_case=None):
+    def attempt(
+        case,
+        label,
+        strategy,
+        seed_names=None,
+        seed_axial_names=None,
+        seed_case=None,
+        continuation_from=None,
+    ):
         path = attempts_root / f"{case}-{label}"
         report = _run_attempt(
             case,
@@ -412,19 +508,32 @@ def run_suite(
             stiffnesses=stiffnesses,
             max_cycles=max_cycles,
             initial_contact_names=seed_names,
+            initial_axial_tension_names=seed_axial_names,
         )
         if _is_active_set_nonconvergence(report):
             attempts.append(
                 _attempt_summary(
-                    case, label, strategy, seed_names is not None, path, report
+                    case,
+                    label,
+                    strategy,
+                    seed_case,
+                    continuation_from,
+                    path,
+                    report,
                 )
             )
-            return None
+            return report
         validated = _validate_accepted_report(report, case, stiffnesses)
         _write_accepted_scope(path, validated, case, strategy, seed_case, contract)
         attempts.append(
             _attempt_summary(
-                case, label, strategy, seed_names is not None, path, validated
+                case,
+                label,
+                strategy,
+                seed_case,
+                continuation_from,
+                path,
+                validated,
             )
         )
         accepted[case] = {
@@ -440,35 +549,67 @@ def run_suite(
         }
         return validated
 
+    def continue_same_case(case, report, prior_label, label_prefix="03"):
+        """Run at most the configured number of same-case continuation chunks."""
+        for index in range(1, max_same_case_continuations + 1):
+            if case in accepted or not _max_cycles_exhausted(report, max_cycles):
+                break
+            prior_path = attempts_root / f"{case}-{prior_label}"
+            normals, axials = _same_case_checkpoint(
+                prior_path, report, case, stiffnesses, max_cycles
+            )
+            label = f"{label_prefix}-one-at-a-time-same-case-continuation-{index:02d}"
+            report = attempt(
+                case,
+                label,
+                "one_at_a_time",
+                seed_names=normals,
+                seed_axial_names=axials,
+                continuation_from=prior_label,
+            )
+            prior_label = label
+        return report
+
     forward = attempt("a12-forward", "01-all-unseeded", "all")
-    if forward is None:
+    if "a12-forward" not in accepted:
         forward = attempt("a12-forward", "02-one-at-a-time-unseeded", "one_at_a_time")
-    if forward is None:
+        forward = continue_same_case(
+            "a12-forward", forward, "02-one-at-a-time-unseeded"
+        )
+    if "a12-forward" not in accepted:
         rear = attempt("a12-rear", "01-all-unseeded", "all")
-        if rear is None:
+        if "a12-rear" not in accepted:
             rear = attempt("a12-rear", "02-one-at-a-time-unseeded", "one_at_a_time")
-        if rear is None:
+            rear = continue_same_case("a12-rear", rear, "02-one-at-a-time-unseeded")
+        if "a12-rear" not in accepted:
             raise RuntimeError(
                 "a12-rear did not converge; unauthenticated state cannot seed forward"
             )
         seed = _normal_contact_seed(rear)
         forward = attempt(
             "a12-forward",
-            "03-one-at-a-time-seeded-from-a12-rear",
+            "90-one-at-a-time-seeded-from-a12-rear",
             "one_at_a_time",
             seed_names=seed,
             seed_case="a12-rear",
         )
-    if forward is None:
+        forward = continue_same_case(
+            "a12-forward",
+            forward,
+            "90-one-at-a-time-seeded-from-a12-rear",
+            label_prefix="91",
+        )
+    if "a12-forward" not in accepted:
         raise RuntimeError("a12-forward active set did not converge")
 
     for case in CASE_ORDER[1:]:
         if case in accepted:
             continue
         report = attempt(case, "01-all-unseeded", "all")
-        if report is None:
+        if case not in accepted:
             report = attempt(case, "02-one-at-a-time-unseeded", "one_at_a_time")
-        if report is None:
+            report = continue_same_case(case, report, "02-one-at-a-time-unseeded")
+        if case not in accepted:
             raise RuntimeError(f"{case} active set did not converge")
 
     if set(accepted) != set(CASE_ORDER):
@@ -489,6 +630,8 @@ def run_suite(
         "accepted_cases": ordered_accepted,
         "accepted_case_count": len(ordered_accepted),
         "rejected_attempt_forces_included": False,
+        "max_cycles_per_attempt": max_cycles,
+        "max_same_case_continuations": max_same_case_continuations,
         "developmental_only": True,
         "qualified_for_design": False,
         "actual_joint_demands_qualified": False,
@@ -510,6 +653,7 @@ if __name__ == "__main__":
     parser.add_argument("--bolt-lateral-n-per-mm", type=float, required=True)
     parser.add_argument("--face-normal-total-n-per-mm", type=float, required=True)
     parser.add_argument("--max-cycles", type=int, default=120)
+    parser.add_argument("--max-same-case-continuations", type=int, default=3)
     args = parser.parse_args()
     result = run_suite(
         args.output,
@@ -517,6 +661,7 @@ if __name__ == "__main__":
         bolt_lateral_n_per_mm=args.bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm=args.face_normal_total_n_per_mm,
         max_cycles=args.max_cycles,
+        max_same_case_continuations=args.max_same_case_continuations,
     )
     print(
         json.dumps(

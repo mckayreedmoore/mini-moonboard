@@ -40,11 +40,14 @@ The runner uses this fixed order:
 
 It first tries `a12-forward` with the unseeded `all` contact update. Only
 active-set nonconvergence permits an unseeded `one_at_a_time` retry. If both
-fail, the runner authenticates `a12-rear`, trying those same two strategies in
-order, and may then seed one final `a12-forward` `one_at_a_time` attempt from
-the accepted rear-case normal-contact set. Other cases use the two unseeded
-strategies in the same order. A rejected attempt contributes no forces to the
-suite summary.
+fail, the runner may continue the same case for a bounded number of
+`one_at_a_time` chunks. A continuation reuses only the authenticated Boolean
+normal-contact and axial-tension memberships from the rejected checkpoint; it
+does not reuse forces, displacements, demands, or acceptance. If forward still
+fails, the runner authenticates `a12-rear` through the same bounded sequence
+and may then seed `a12-forward` from the accepted rear-case normal-contact set.
+Other cases use the same sequence. A rejected attempt contributes no forces to
+the suite summary.
 
 Before and after solving, the runner checks geometry, topology, candidate and
 load identity, selected stiffnesses, source hashes, active-set convergence, and
