@@ -1,8 +1,9 @@
 # PB-01 direct cross-dowel CD-01 trial
 
-Status: **bounded geometry sensitivity and procurement screen only.** This is
-not a selected joint, structural verdict, purchase instruction, or fabrication
-and drilling release.
+Status: **PARK — bounded direct-joint alternative.** This is not a selected
+joint, structural verdict, purchase instruction, or fabrication/drilling release.
+The active [V4 plan](../bolted-candidate-simple-joints-v4.md) can continue with
+the corner-block family while this alternative is parked.
 
 The [reproduction script](../../scripts/simple_pb01_cross_dowel_trial.py)
 models one direct steel cross-dowel/barrel-nut connection between the existing
@@ -32,6 +33,26 @@ contact was made.
 Source: [Home Depot Everbilt 801914](https://www.homedepot.com/p/204276112).
 Local price and stock can vary.
 
+An identifiable closer match is **Hillman 880543**, Lowe's item **137362** and
+Home Depot Internet **202242356**. Both retailers identify a 1/4-20 steel
+barrel nut; Lowe's calls it zinc-plated steel and lists one piece at **$1.48**
+on 2026-09-21. In a Lowe's product Q&A, **Hillman customer service** gives
+outside diameter **0.394 in = 10.0076 mm** and overall length **0.630 in =
+16.002 mm**. Home Depot's specifications call the outside diameter **3/8 in**,
+apparently a nominal size; the Hillman answer is more specific and is larger
+than 3/8 in (0.375 in), so a nominal 3/8 in hole cannot be assumed to accept
+the stated OD. Neither is a tolerance or a drill-bit instruction.
+The title's 5/8 in likewise is nominal. The actual-piece limits, thread-axis
+offset from either end, usable internal-thread span, steel strength/grade,
+and joint resistance remain unreported. The retailer's “all-purpose” or “not
+graded” category is not a mechanical strength value. This is a supported
+nominal **diameter/length/material route**, not a capacity specification.
+
+Sources: [Lowe's Hillman 880543 listing](https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559),
+[Hillman customer-service dimension answer on Lowe's](https://www.lowes.com/questions/hillman-880543-specialty-nuts/3012559/0d07d7d4-94c9-59c7-b300-30a2fd0be7bd),
+[Home Depot Hillman 880543 listing](https://www.homedepot.com/p/202242356).
+No manufacturer was contacted.
+
 A second current Home Depot lead, Everbilt **817828** (Internet 204281673),
 publishes **16 mm** in its title: “1/4 in. x 16 mm Type F Zinc Cross Dowel
 Nut.” That corroborates only the trial barrel length. Its public page does not
@@ -58,7 +79,14 @@ path is therefore 27.05 mm deep. The two barrels enter from opposite T faces.
 
 The geometry sensitivity uses a 10 mm barrel outside diameter, 16 mm barrel
 length, centered 8 mm thread-axis offset, and 7.5 mm machine-bolt wood bore.
-None is attributed to 801914, and none is a drill size. With a nominal 6.35 mm
+None is attributed to 801914, and none is a drill size. Hillman 880543's
+published nominal dimensions differ from the 10 × 16 mm diagnostic cylinders
+by only **+0.0076 mm in diameter and +0.002 mm in length**. Re-centering a
+16.002 mm body in 38.1 mm timber would put each body end **11.049 mm** from
+its adjacent face. If, and only if, its thread were centered at 8.001 mm
+from either end, the thread axis would still be 19.05 mm from that face. The
+model has not been rerun for 880543; the dimensional closeness cannot establish
+delivered fit, because its axis offset and tolerances are unknown. With a nominal 6.35 mm
 thread major diameter, the centered trial leaves 4.825 mm of barrel metal from
 the thread radius to each barrel end. This only shows that a dimensionally
 similar part could be arranged without a nominal CAD clash;
@@ -85,6 +113,7 @@ The public and diagnostic dimensions stay separate:
 | Barrel internal thread | 1/4-20 | Public listing |
 | Barrel outside diameter | 10 mm | Unverified sensitivity |
 | Barrel length | 16 mm | Unverified sensitivity |
+| Hillman 880543 OD / length | 10.0076 / 16.002 mm | Nominal; no tolerances |
 | Barrel insertion from timber face | 11.05 mm | Unverified sensitivity |
 | Thread axis from barrel end | 8 mm | Unverified centered sensitivity |
 | Thread axis from timber face | 19.05 mm | Sum of insertion and barrel offset |
@@ -98,7 +127,7 @@ The script reports radial wood to both T and N faces for the machine bore,
 radial wood to N faces for the barrel envelope, wood beyond the inserted barrel
 at the opposite T face, bore-to-bore gaps, and the intentional machine-bore to
 barrel intersection. These are nominal sensitivity distances. Exact remaining
-wood cannot be established until the SKU dimensions and tolerances are known.
+wood cannot be established until the chosen SKU dimensions and tolerances are known.
 Barrel bore clearance, alignment method, depth stop/support, removal method,
 bottoming clearance, and effective thread engagement remain unresolved.
 
@@ -108,7 +137,8 @@ proxy envelopes for all 66 screw axes: the 63.5 mm full-length cylinder at the
 margin. Both cases are clash-free in the retained CAD. This is conditional
 clearance only: shaft maximum, head profile/tolerance, total length, and the
 installed seating datum are not controlled, so physical clearance is not
-accepted.
+accepted. The script's `actual_801914_geometry_clear` field concerns 801914
+only; it is not a finding for Hillman 880543.
 
 ## Candidate mechanism and missing mechanics
 
@@ -121,10 +151,31 @@ restraint. No stiffness, contact state, load distribution, or capacity is
 assigned to those routes. Tightening friction and optional wooden dowels/pins
 receive no capacity credit.
 
-Wood bearing, barrel bearing length, splitting/tear-out, net sections, machine
-bolt bending, head/washer behavior, barrel transverse section, thread stripping,
-and barrel bending remain open. An end-entering bolt and transverse barrel are
-not treated as the existing two-solid-member PB-01 through-bolt helper.
+The barrel receives axial bolt tension as a lateral force into the rail,
+nominally parallel to its X grain. The two 10 mm trial cross-bores are 45 mm
+apart along local N and their axes are 70 mm from the rail butt end. The
+Hillman nominal OD × length is about 160.14 mm² of **gross projected area**;
+it is not an effective bearing area or capacity. Neither that area nor the
+end distance establishes a loaded bearing length: the intersecting 7.5 mm
+bolt bore interrupts contact, and wood deformation can concentrate load.
+Check bearing **at the actual barrel
+contact**, end tear-out, splitting along X, reduced/net rail section and
+group interaction. Also check principal head/washer bearing and any cross-grain
+tension there. These are not covered by a simple bolt-in-two-solid-members
+yield result.
+
+For transverse shear, trace each direction through bolt-to-principal bearing,
+bolt bending/shear, bolt-to-rail-end-bore bearing, and local wood splitting;
+the barrel is not automatically a shear key. The two N-separated bolts can
+form a couple for one bending direction, conditional on contact and tension
+state; they do not establish all-axis moment or torsion resistance. Butt-face
+compression is one-sided and tightening friction gets no resistance credit.
+Changed-topology simultaneous PB-01 actions, bolt-group distribution, slip,
+and rotation stiffness are still absent. Steel checks need a documented
+strength basis for the barrel's transverse section, bending and thread
+stripping, plus the compatible bolt's steel/root and washer seat. A calculation
+route using supported inputs is sufficient; an assembled-joint product rating
+is not inherently required.
 
 [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf)
 provides single-fastener lateral dowel yield equations and separately identifies
@@ -149,32 +200,65 @@ reach values do not establish effective thread engagement, clearance against
 bottoming, or bolt suitability. This is a part-count/volume comparison, not a
 strength equivalence or evidence that the cross-dowel is preferable.
 
-At the displayed package price, two barrels consume $2.99 of a four-pack and
-require a $5.98 initial checkout. Machine bolts, washers, correct lengths,
-drill bits, jig, block wood/waste, and shared-stock allocation remain unknown,
-so neither complete consumed cost nor checkout-cost savings is established.
+At the displayed Everbilt package price, two barrels consume $2.99 of a
+four-pack and require a $5.98 initial checkout. The closer Hillman lead is
+**$2.96 for two singles**. For a rough *illustration*, two [Home Depot Everbilt
+800676 1/4-20 × 5-in bolts](https://www.homedepot.com/p/204633308) at $0.62
+each and two [Lowe's Hillman 490687 washers](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated-Standard-Flat-Washer-16-Count/3035987)
+from a $1.98/16 pack add $1.24 and $0.2475 allocated. That is **about $4.45
+consumed** or **$6.18 initial checkout** for these three hardware lines before
+tax/shipping; it mixes retailers and assumes the unused washers have another
+use. The bolt's usable threads, seat, head, and washer adequacy have not been
+qualified, so these are price leads, not a buyable joint BOM. Correct hardware,
+drill bits, depth stop/jig, wasted stock, labor, and delivery/tax could change
+the total. Corner-block wood checkout/allocated yield and its four complete
+bolt stacks are also unresolved here; two barrels and no added block are not
+proof of installed savings.
 The direct concept requires +X end drilling plus barrel holes from opposite T
 faces; the longest wood path to a thread axis is 108.1 mm. Both intersecting
 bores require a positioning jig or equivalent controlled process.
 
+**Insertion is not engagement.** The 11.05 mm recess positions the *barrel
+body* from a T face; it says nothing about threads used by the bolt. In the
+trial, a 127 mm under-head bolt reaches 18.9 mm beyond the barrel thread axis,
+13.9 mm beyond the nominal barrel far surface along X. A 10 mm outside
+diameter gives at most a 10 mm geometric intersection along the bolt axis,
+before entry/exit chamfers, the bolt's first complete thread, washer thickness,
+and thread runout. The model's 127 mm bore envelope does not prove a 127 mm
+usable under-head bolt or a threaded tip, and the overrun needs a compatible
+blind hole with no bottoming. Measuring the bolt's full-thread start and the
+barrel's complete-thread span, then checking worst-case seat and tip position,
+is necessary before any thread-stripping calculation. The 1/4-20 designation
+alone cannot supply effective engaged turns.
+
 An eventual assembly would require cross-drilling the two barrel entries,
 drilling the two aligned +X paths, inserting and orienting both barrels, then
-installing the two bolts and washers from the principal outside face. That is
-not a fabrication sequence or drilling instruction. Actual alignment,
-clearance, depth support, removal, delivered fit, tool motion, wear, and repeat
-assembly are unresolved or untested.
+installing the two bolts and washers from the principal outside face. One
+barrel enters each opposite T face. Recessed placement needs a controlled
+depth stop/support and an extraction method; a slotted/Phillips alignment end
+does not by itself retrieve a barrel recessed 11 mm. Removing the two machine
+bolts would avoid routine structural wood-thread removal, but repeated removal
+of the buried barrels, clearing chips, re-alignment, access with panels off,
+and wear have not been demonstrated. This is not a fabrication/drilling
+instruction.
 
 ## CD-01 decision
 
-**Hold before CD-02.** The one recessed-centered pose is nominally clear under
-explicit unverified sensitivity dimensions, so the basic geometry is not
-rejected. Both complete purchased-screw proxy envelopes also clear
-conditionally, but physical clearance is not accepted.
-The exact 801914 listing lacks barrel geometry. The separate 817828 title
-confirms a 16 mm product length, but still lacks outside diameter, thread-axis
-position, tolerances, and a metal basis needed to establish alignment,
-remaining wood, or a supportable mechanics route. No PB-01 corner-block
-reaction is transferred to this changed topology, and neither named
-provisional scenario is reanalyzed. The cross-dowel is not selected over the
-six-inch corner block. There is no structural verdict, hardware selection,
-purchase instruction, fabrication release, or drilling release.
+**PARK.** Hillman 880543 supplies a permitted-retailer, steel, nominally
+near-matching barrel diameter and length, so this direct joint is a credible
+bounded geometry alternative. It has no established bolt engagement,
+anchorage, shear/rotation resistance, or complete installed-cost advantage.
+The script remains the original geometry sensitivity and prints its historical
+`hold_before_CD-02` label; this document records the current disposition.
+No PB-01 corner-block reaction is transferred to the changed topology, and
+neither named provisional scenario is reanalyzed. This alternative does not
+block the active corner-block work.
+
+**Reopen only when** a retailer-supported 880543 drawing or measured sample
+establishes outside/body limits, thread-axis offset, usable thread span and
+fit, **and** a traceable steel-strength basis or conservative applicable
+specification permits barrel section/thread calculations with the actual bolt
+stack. Then run the changed-topology PB-01 demand and wood/metal/contact
+checks plus a priced, repeatable drill/removal trial before selection. An
+assembled-joint rating is not the trigger. No purchase, fabrication, drilling,
+or structural acceptance follows from this screen.
