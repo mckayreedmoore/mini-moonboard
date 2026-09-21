@@ -65,7 +65,7 @@ def screen():
         "interfaces": {
             name: _interface(*geometry) for name, geometry in INTERFACES.items()
         },
-        "interpretation": "Each one-bolt point idealization has an unresisted relative face-normal twist even if all four contacts are closed; real through-thickness dowel bearing, friction or other restraint is not represented or credited.",
+        "interpretation": "Each one-bolt point idealization has an unresisted relative face-normal twist even if all four contacts are closed. Ideal coaxial round-bolt/bore radial bearing alone cannot resist twist about that axis; friction or another independently justified restraint is not represented or credited.",
         "two_bolt_result_is_geometry_or_capacity_check": False,
         "physical_joint_failure_claimed": False,
         "rating_or_drilling_release": False,

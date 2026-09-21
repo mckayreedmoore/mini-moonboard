@@ -35,11 +35,13 @@ other connected members may constrain some relative motions, and the four
 interfaces have different actual loading.
 
 Real through-thickness bolt–bore bearing is distributed, not a perfect point
-constraint; friction, washer clamping and other mechanisms can also resist
-twist. None is quantified or credited here. Conversely, merely assuming
-friction from tightening an ordinary through-bolt would be an unsupported
-load path. Before a one-bolt serial interface is accepted, its actual
-torsional transfer and compatibility with the complete joint must be
+constraint. But ideal radial bearing between a coaxial round bolt and round
+bore alone supplies **no torque about their common axis** and cannot close
+this particular face-normal twist. Friction, washer clamping or another
+separate restraint might, but none is quantified or credited here. Merely
+assuming friction from tightening an ordinary through-bolt would be an
+unsupported load path. Before a one-bolt serial interface is accepted, its
+actual torsional transfer and compatibility with the complete joint must be
 demonstrated by an applicable model and source-backed resistance route, or
 the geometry must be revised to provide a checked bolt group. All four
 interfaces still need full bearing, yield, tension, washer, splitting,
