@@ -1,5 +1,7 @@
 """Finite protected-service envelopes for both owner-review concepts."""
 
+import cadquery as cq
+
 from scripts import owner_layout_protected as protected
 
 
@@ -26,3 +28,21 @@ def test_real_service_solids_are_not_zero_length_points():
     tnut_name, tnut = next(iter(model["solids"]["tnuts"].items()))
     hits = protected.hits({"known_collision": tnut}, model)
     assert hits["known_collision"]["tnuts"][tnut_name] > 0
+
+
+def test_cached_bounds_preserve_intersection_results():
+    fixed = cq.Solid.makeBox(10, 10, 10)
+    crossing = cq.Solid.makeBox(10, 10, 10, cq.Vector(5, 0, 0))
+    separate = cq.Solid.makeBox(10, 10, 10, cq.Vector(20, 0, 0))
+    inventory = {"solids": {"test": {"fixed": fixed}}}
+    cached = {
+        **inventory,
+        "bounds": {"test": {"fixed": fixed.BoundingBox()}},
+    }
+    candidates = {"crossing": crossing, "separate": separate}
+    expected = {
+        "crossing": {"test": {"fixed": 500.0}},
+        "separate": {},
+    }
+    assert protected.hits(candidates, inventory) == expected
+    assert protected.hits(candidates, cached) == expected

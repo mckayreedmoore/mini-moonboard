@@ -72,6 +72,10 @@ def inventory():
         "schema": "owner_layout_protected/v1",
         "counts": counts,
         "solids": solids,
+        "bounds": {
+            family: {name: shape.BoundingBox() for name, shape in rows.items()}
+            for family, rows in solids.items()
+        },
         "hold_rear_projection_mm": TRIAL_HOLD_REAR_PROJECTION_MM,
         "delivered_hold_bolt_lengths_verified": False,
         "receiving_clearance_verified": False,
@@ -83,8 +87,9 @@ def inventory():
     }
 
 
-def _volume(first, second):
-    a, b = first.BoundingBox(), second.BoundingBox()
+def _volume(first, second, a=None, b=None):
+    a = first.BoundingBox() if a is None else a
+    b = second.BoundingBox() if b is None else b
     if (
         a.xmax < b.xmin
         or b.xmax < a.xmin
@@ -100,6 +105,13 @@ def _volume(first, second):
 def hits(candidate_solids, protected=None):
     """Report 3D intersection volumes without granting clearance approval."""
     protected = inventory() if protected is None else protected
+    candidate_bounds = {
+        name: shape.BoundingBox() for name, shape in candidate_solids.items()
+    }
+    fixed_bounds = protected.get("bounds") or {
+        family: {name: shape.BoundingBox() for name, shape in rows.items()}
+        for family, rows in protected["solids"].items()
+    }
     return {
         candidate: {
             family: collisions
@@ -108,7 +120,14 @@ def hits(candidate_solids, protected=None):
                 collisions := {
                     name: round(volume, 6)
                     for name, fixed in members.items()
-                    if (volume := _volume(shape, fixed)) > HIT_TOL_MM3
+                    if (
+                        volume := _volume(
+                            shape,
+                            fixed,
+                            candidate_bounds[candidate],
+                            fixed_bounds[family][name],
+                        )
+                    ) > HIT_TOL_MM3
                 }
             )
         }
