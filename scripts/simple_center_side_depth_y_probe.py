@@ -24,7 +24,7 @@ SIDE_REAR_Y = -175.7
 LINK_REAR_Y = -213.8
 
 
-def _change(parts, bores, ends, front_y, upright_y, upright_z):
+def _change(parts, bores, ends, front_y, upright_y, upright_z, link_z=370):
     parts["upright_side_cleat"] = cq.Solid.makeBox(
         88.9, front_y - SIDE_REAR_Y, 183, cq.Vector(89.05, SIDE_REAR_Y, 277)
     )
@@ -32,7 +32,7 @@ def _change(parts, bores, ends, front_y, upright_y, upright_z):
         wide.BORE_RADIUS, 127, (50.95, upright_y, upright_z), (1, 0, 0)
     )
     bores["cleat_link"] = combined.cylinder(
-        wide.BORE_RADIUS, front_y - LINK_REAR_Y, (133.5, LINK_REAR_Y, 370), (0, 1, 0)
+        wide.BORE_RADIUS, front_y - LINK_REAR_Y, (133.5, LINK_REAR_Y, link_z), (0, 1, 0)
     )
     if ends is not None:
         ends["upright_left"] = (
@@ -45,16 +45,21 @@ def _change(parts, bores, ends, front_y, upright_y, upright_z):
             (1, 0, 0),
             "upright_side_cleat",
         )
-        ends["link_front"] = ((133.5, front_y, 370), (0, 1, 0), "upright_side_cleat")
+        ends["link_rear"] = ((133.5, LINK_REAR_Y, link_z), (0, -1, 0), "rear_cleat")
+        ends["link_front"] = ((133.5, front_y, link_z), (0, 1, 0), "upright_side_cleat")
     return parts, bores, ends
 
 
-def probe_one(front_y, upright_y, upright_z):
+def probe_one(front_y, upright_y, upright_z, link_z=370):
     """Use the maintained full-center checker, then correct its fixed link insertion length."""
     original_geometry = prior._geometry
 
+    def apply_change(parts, bores, ends):
+        args = (parts, bores, ends, front_y, upright_y, upright_z)
+        return _change(*args) if link_z == 370 else _change(*args, link_z)
+
     def changed_prior_geometry():
-        return _change(*original_geometry(), front_y, upright_y, upright_z)
+        return apply_change(*original_geometry())
 
     with patch.object(prior, "_geometry", changed_prior_geometry):
         checked = post._candidate(post.VARIANTS["shorter_8in_trial"])
@@ -63,7 +68,7 @@ def probe_one(front_y, upright_y, upright_z):
 
     def changed_current_geometry():
         parts, bores, owners = original_current()
-        _change(parts, bores, None, front_y, upright_y, upright_z)
+        apply_change(parts, bores, None)
         return parts, bores, owners
 
     with patch.object(placement, "_geometry", changed_current_geometry):
@@ -85,8 +90,8 @@ def probe_one(front_y, upright_y, upright_z):
         "side_screw_hits_mm3": combined.hits(side, screws),
     }
     ends = {
-        "link_rear": ((133.5, LINK_REAR_Y, 370), (0, -1, 0), "rear_cleat"),
-        "link_front": ((133.5, front_y, 370), (0, 1, 0), "upright_side_cleat"),
+        "link_rear": ((133.5, LINK_REAR_Y, link_z), (0, -1, 0), "rear_cleat"),
+        "link_front": ((133.5, front_y, link_z), (0, 1, 0), "upright_side_cleat"),
     }
     # Rebuild all 20 end envelopes for the changed link approach; the maintained
     # checker otherwise uses its original 94.9-mm link insertion length.

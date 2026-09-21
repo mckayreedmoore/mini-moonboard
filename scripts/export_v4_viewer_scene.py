@@ -8,6 +8,7 @@ from pathlib import Path
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import simple_center_current_stack_tip_screen as pb02
+from scripts import simple_center_pb02_integrated_trial as integrated
 from scripts import simple_center_wide_post_probe as wide
 from scripts import simple_rail_joint_comparison as pb01
 
@@ -77,7 +78,7 @@ def build_scene():
             }
         )
 
-    parts, bores, ends = pb02._geometry()
+    parts, bores, ends = integrated.working_geometry()
     block = parts["header_post_side_cleat"].BoundingBox()
     boxes.append(
         {
@@ -88,6 +89,20 @@ def build_scene():
             "rotation_x_deg": 0,
         }
     )
+    for part_name, label in (
+        ("upright_side_cleat", "PB02 revised upright-side cleat"),
+        ("header_side_cleat", "PB02 revised header-side cleat"),
+    ):
+        bounds = parts[part_name].BoundingBox()
+        boxes.append(
+            {
+                "name": label,
+                "station": "PB02",
+                "origin_mm": [bounds.xmin, bounds.ymin, bounds.zmin],
+                "size_mm": [bounds.xlen, bounds.ylen, bounds.zlen],
+                "rotation_x_deg": 0,
+            }
+        )
     if set(bores) != set(pb02.PAIRS):
         raise ValueError("PB02 ten-bore source inventory changed")
     for name, (start_name, end_name) in pb02.PAIRS.items():
