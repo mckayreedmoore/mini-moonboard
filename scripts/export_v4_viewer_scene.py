@@ -92,6 +92,9 @@ def build_scene():
     for part_name, label in (
         ("upright_side_cleat", "PB02 revised upright-side cleat"),
         ("header_side_cleat", "PB02 revised header-side cleat"),
+        ("shifted_right_post", "PB02 shifted right center post"),
+        ("rear_cleat", "PB02 rear return block"),
+        ("backer", "PB02 kicker backer"),
     ):
         bounds = parts[part_name].BoundingBox()
         boxes.append(

@@ -2,17 +2,28 @@
 
 import numpy as np
 
-from scripts.simple_center_connected_kinematics import EDGES, matrix, screen
-from scripts.simple_center_post_header_two_bolt_probe import VARIANTS
-from scripts.simple_center_second_bolt_tolerance_probe import POSE
+from scripts.simple_center_connected_kinematics import (
+    EDGES,
+    current_edges,
+    matrix,
+    screen,
+)
 
 
 def test_current_trial_axes_are_used():
-    _, y, z_pair, x_pair = VARIANTS["shorter_8in_trial"]
-    assert EDGES["post_block"][3] == [(177.65, y, z) for z in z_pair]
-    assert EDGES["block_header"][3] == [(x, -130, 238.9) for x in x_pair]
-    assert EDGES["header_principal_block"][3] == [(15.475, POSE.vertical_y, 277)]
-    assert EDGES["principal_block_principal"][3] == [(50.95, -95, POSE.cross_z)]
+    assert EDGES == current_edges()
+    assert EDGES["post_block"][3] == [
+        (177.65, -145, 145),
+        (177.65, -145, 176),
+    ]
+    assert EDGES["block_header"][3] == [
+        (208.35, -130, 186),
+        (235.85, -130, 186),
+    ]
+    assert EDGES["header_principal_block"][3] == [(15.475, -139, 291.45)]
+    assert EDGES["principal_block_principal"][3] == [(34.525, -95, 312.5)]
+    assert np.allclose(EDGES["principal_upright_block"][3], [(114.45, -144.5, 356)])
+    assert np.allclose(EDGES["upright_rear_block"][3], [(133.5, -163.95, 370)])
 
 
 def test_connected_rank_depends_on_return_path_and_contacts():

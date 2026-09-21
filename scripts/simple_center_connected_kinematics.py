@@ -4,8 +4,7 @@ import json
 
 import numpy as np
 
-from scripts.simple_center_post_header_two_bolt_probe import VARIANTS
-from scripts.simple_center_second_bolt_tolerance_probe import POSE
+from scripts.simple_center_pb02_integrated_trial import working_geometry
 
 # Coordinates are global millimeters. The first four edges use the current
 # shorter_8in_trial and tolerance-pose bores. The return path uses the inherited
@@ -19,51 +18,72 @@ NODES = (
     "upright_block",
     "rear_block",
 )
-POST_BOTTOM, POST_Y, POST_Z, HEADER_X = VARIANTS["shorter_8in_trial"]
-EDGES = {
-    "post_block": (
-        "post",
-        "post_block",
-        (1, 0, 0),
-        [(177.65, POST_Y, z) for z in POST_Z],
-    ),
-    "block_header": (
-        "post_block",
-        "header",
-        (0, 0, 1),
-        [(x, -130, 238.9) for x in HEADER_X],
-    ),
-    "header_principal_block": (
-        "header",
-        "principal_block",
-        (0, 0, 1),
-        [(15.475, POSE.vertical_y, 277)],
-    ),
-    "principal_block_principal": (
-        "principal_block",
-        "principal",
-        (1, 0, 0),
-        [(50.95, -95, POSE.cross_z)],
-    ),
-    "principal_upright_block": (
-        "principal",
-        "upright_block",
-        (1, 0, 0),
-        [(50.95, POSE.upright_y, POSE.upright_z)],
-    ),
-    "upright_rear_block": (
-        "upright_block",
-        "rear_block",
-        (0, 1, 0),
-        [(POSE.link_x, -166.35, 370)],
-    ),
-    "rear_block_post": (
-        "rear_block",
-        "post",
-        (0, 1, 0),
-        [(140, -150.3, z) for z in (110, 190)],
-    ),
-}
+
+
+def _midpoint(first, second):
+    return tuple((a + b) / 2 for a, b in zip(first, second))
+
+
+def current_edges():
+    """Build rank-model bolt centers from the same active PB02 geometry as CAD."""
+    _, _, ends = working_geometry()
+
+    def center(first, second):
+        return _midpoint(ends[first][0], ends[second][0])
+
+    return {
+        "post_block": (
+            "post",
+            "post_block",
+            (1, 0, 0),
+            [center(f"post_cleat_{i}_left", f"post_cleat_{i}_right") for i in (1, 2)],
+        ),
+        "block_header": (
+            "post_block",
+            "header",
+            (0, 0, 1),
+            [
+                center(f"cleat_header_{i}_bottom", f"cleat_header_{i}_top")
+                for i in (1, 2)
+            ],
+        ),
+        "header_principal_block": (
+            "header",
+            "principal_block",
+            (0, 0, 1),
+            [center("principal_header_bottom", "principal_cleat_top")],
+        ),
+        "principal_block_principal": (
+            "principal_block",
+            "principal",
+            (1, 0, 0),
+            [center("principal_cleat_left", "principal_right")],
+        ),
+        "principal_upright_block": (
+            "principal",
+            "upright_block",
+            (1, 0, 0),
+            [center("upright_left", "upright_right")],
+        ),
+        "upright_rear_block": (
+            "upright_block",
+            "rear_block",
+            (0, 1, 0),
+            [center("link_rear", "link_front")],
+        ),
+        "rear_block_post": (
+            "rear_block",
+            "post",
+            (0, 1, 0),
+            [
+                center(f"post_rear_{name}", f"post_front_{name}")
+                for name in ("low", "high")
+            ],
+        ),
+    }
+
+
+EDGES = current_edges()
 ORIGIN = np.array((140.0, -140.0, 270.0))
 ROTATION_SCALE_MM = 100.0
 

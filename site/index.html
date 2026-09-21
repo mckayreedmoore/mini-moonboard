@@ -587,7 +587,7 @@
         }).then(data => {
           if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
-              data.boxes.length !== 4 || data.axes.length !== 14) throw new Error('V4 source inventory changed');
+              data.boxes.length !== 7 || data.axes.length !== 14) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = new THREE.BoxGeometry(...box.size_mm);
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({

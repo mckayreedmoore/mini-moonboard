@@ -21,6 +21,15 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     )
     assert blocks["PB02 revised header-side cleat"]["origin_mm"][2] == 277
     assert blocks["PB02 revised header-side cleat"]["size_mm"][2] == 67
+    assert blocks["PB02 shifted right center post"]["origin_mm"] == [
+        88.75,
+        -175.7,
+        0,
+    ]
+    assert blocks["PB02 rear return block"]["size_mm"] == pytest.approx(
+        [88.9, 38.1, 460]
+    )
+    assert blocks["PB02 kicker backer"]["size_mm"] == [139.7, 88.9, 238.9]
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB01"]) == 4
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB02"]) == 10
     assert {axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"} == {

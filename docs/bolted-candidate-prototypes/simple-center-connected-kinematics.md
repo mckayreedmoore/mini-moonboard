@@ -8,27 +8,25 @@ reproduces the ranks below.
 
 ## Source geometry and graph
 
-This combines the `shorter_8in_trial` in
-[`simple_center_post_header_two_bolt_probe.py`](../../scripts/simple_center_post_header_two_bolt_probe.py)
-with the [current tolerance pose](../../scripts/simple_center_second_bolt_tolerance_probe.py)
-and its unchanged principal-side one-bolt bores. The return path follows the
-inherited `post_low`, `post_high`, `cleat_link`, and `upright` bores in
-[`simple_center_combined_cleats_probe.py`](../../scripts/simple_center_combined_cleats_probe.py)
-and the current pose. Global coordinates are millimeters.
+The graph now reads every bolt center from the same active
+[integrated PB02 geometry](simple-center-pb02-integrated-trial.md) used by the
+nominal CAD check and development viewer. The return path follows its inherited
+`post_low` and `post_high` bores plus its revised `cleat_link` and `upright`
+bores. Global coordinates are millimeters. Historical kinematic inputs remain
+in version history; they are not silently rewritten as the active pose.
 
 | Edge (members) | Face normal | Bolt-axis center(s) |
 | --- | --- | --- |
-| post–post block | X | (177.65, −145, 145), (177.65, −145, 180) |
-| post block–header | Z | (208.35, −130, 238.9), (235.85, −130, 238.9) |
-| header–principal block | Z | (15.475, −139, 277) |
-| principal block–right principal | X | (50.95, −95, 312.5) |
-| right principal–upright block | X | (50.95, −135, 360) |
-| upright block–rear block | Y | (133.5, −166.35, 370) |
+| post–post block | X | (177.65, −145, 145), (177.65, −145, 176) |
+| post block–header | Z | (208.35, −130, 186), (235.85, −130, 186) |
+| header–principal block | Z | (15.475, −139, 291.45) |
+| principal block–right principal | X | (34.525, −95, 312.5) |
+| right principal–upright block | X | (114.45, −144.5, 356) |
+| upright block–rear block | Y | (133.5, −163.95, 370) |
 | rear block–post | Y | (140, −150.3, 110), (140, −150.3, 190) |
 
-The last two Y coordinates are midpoints of the source bore's modeled wood
-span; shifting a point along its normal does not alter its normal-row moment
-arm. The graph is a seven-body cycle. The old displaced center clips are not
+Each listed point is the midpoint between the active geometry's named bolt end
+planes. The graph is a seven-body cycle. The old displaced center clips are not
 included. Panels, screws, floor, rails, opposite-side center, and other frame
 members are also outside this small graph. The return path is included as a
 conditional bolted path; its face contact and load transfer have not been
