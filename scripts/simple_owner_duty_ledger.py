@@ -137,6 +137,22 @@ def _name(item):
     return item.name
 
 
+def legacy_visual_names(duties, baseline_parts):
+    """Resolve all original angle/SDS viewer parts before overlaying a full trial."""
+    expected = set(duties) | {
+        f"fastener_{axis}"
+        for duty in duties.values()
+        for axis in duty["sds_axes"]
+    }
+    actual = {_name(part) for part in baseline_parts}
+    missing = expected - actual
+    if len(duties) != 24 or len(expected) != 168 or missing:
+        raise ValueError(
+            f"Incomplete original 24-angle/144-SDS viewer inventory: {sorted(missing)}"
+        )
+    return sorted(expected)
+
+
 def inventory_status(duties, replacement_by_station, parts, connections):
     """Screen only layout completeness; never imply fabrication/strength approval."""
     mapped = {

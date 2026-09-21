@@ -1,8 +1,18 @@
 """The owner layout must account for every selected-baseline SDS duty."""
 
+import json
+from pathlib import Path
 from types import SimpleNamespace
 
-from scripts.simple_owner_duty_ledger import inventory_status, selected_duties
+import pytest
+
+from scripts.simple_owner_duty_ledger import (
+    inventory_status,
+    legacy_visual_names,
+    selected_duties,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_selected_duties_are_exact_and_same_side():
@@ -83,3 +93,18 @@ def test_prospective_inventory_cannot_complete_with_old_hardware():
         "all_66_panel_screws": "unverified",
         "retained_frame_bolts": "unverified",
     }
+
+
+def test_full_viewer_hides_exactly_all_old_angle_and_sds_parts():
+    parts = json.loads(
+        (ROOT / "site/hybrid/compact-floor-flush-kerf-right/parts.json").read_text()
+    )["parts"]
+    hidden = legacy_visual_names(selected_duties(), parts)
+    assert len(hidden) == 168
+    assert sum(name.startswith("fastener_") for name in hidden) == 144
+    assert sum(name.startswith("clip_") for name in hidden) == 24
+    with pytest.raises(ValueError, match="Incomplete original"):
+        legacy_visual_names(
+            selected_duties(),
+            [part for part in parts if part["name"] != hidden[0]],
+        )
