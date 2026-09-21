@@ -262,3 +262,77 @@ stack. Then run the changed-topology PB-01 demand and wood/metal/contact
 checks plus a priced, repeatable drill/removal trial before selection. An
 assembled-joint rating is not the trigger. No purchase, fabrication, drilling,
 or structural acceptance follows from this screen.
+
+## Follow-up investigation — 2026-09-21
+
+The bounded follow-up continued the direct barrel-nut route and found a viable
+way to remove the *geometry* dependency on an assumed centered thread. It did
+not find a Hillman technical drawing or specification that establishes model
+880543's thread-axis position, usable complete-thread span, thread class,
+steel grade, or strength. Lowe's still establishes only the product identity,
+1/4-20 thread, steel, finish, and retail route; the Hillman customer-service
+answer on that page establishes nominal **0.394 in OD** and **0.630 in overall
+length**. Home Depot's 3/8 × 5/8 title is less precise and supplies no material
+property or tolerance. Thus neither retailer supports transferring a nut
+property class, proof load, root section, or effective thread engagement.
+
+Two third-party manufacturer drawings show why a centered-axis assumption is
+unsafe. JET PRESS lists its separate FCD008 M6 part as 10 mm diameter, 16 mm
+long, with a centered 8 mm cross-hole offset, while SISO lists its separate
+12.07.044 M6 part as 10 × 16 mm with unequal **10/6 mm** end distances. These
+are analogous products, not Hillman 880543 evidence. They bound a useful
+offset sensitivity only; their metric thread, material description, geometry,
+and any resistance cannot be transferred to Hillman.
+
+Sources: [Lowe's Hillman 880543 listing](https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559),
+[Hillman dimension answer hosted by Lowe's](https://www.lowes.com/questions/hillman-880543-specialty-nuts/3012559/0d07d7d4-94c9-59c7-b300-30a2fd0be7bd),
+[Home Depot Hillman 880543 listing](https://www.homedepot.com/p/202242356),
+[JET PRESS FCD008 dimension table](https://www.jetpress.com/component-and-fastener-products/cross-dowels-barrel-nuts/FCD008),
+and [SISO cross-dowel catalog page](https://siso.dk/products/furniture-fittings/knock-down-fittings/screws-bushings-nuts/cross-dowels).
+
+The new [offset sensitivity script](../../scripts/simple_pb01_cross_dowel_followup.py)
+keeps the CD-01 thread axis at 19.05 mm from the rail T face while varying the
+entry-end offset through 6, 8.001, and 10 mm. With Hillman's nominal 16.002 mm
+body length, the corresponding body recesses are 13.050, 11.049, and 9.050 mm;
+cross-bore depths are 29.052, 27.051, and 25.052 mm. Every nominal body remains
+inside the 38.1 mm timber, with at least 9.048 mm wood beyond it. The nominal
+1/4-in thread major circle also remains inside the body length in all three
+cases. This calculation establishes that a measured 6–10 mm offset can be
+absorbed by receiver depth without moving the existing bolt axis. It does not
+establish that a delivered 880543 lies in that range, prescribe a bore, or
+include dimensional and drilling tolerances.
+
+Run:
+
+```sh
+uv run --no-sync python -m scripts.simple_pb01_cross_dowel_followup
+uv run --no-sync pytest -q tests/test_simple_pb01_cross_dowel_followup.py
+```
+
+**Development finding:** advance the direct concept only through an
+inspection-controlled geometry qualification. The next tangible step is to
+obtain an ordinary-store 880543 sample and record, from a consistently marked
+entry end, the actual overall length, maximum OD, thread-axis offset, and
+complete-thread span for each piece. Feed measured low/high limits into this
+sensitivity and prove barrel-hole/bolt-hole intersection, clearance, and
+bottoming with the chosen bolt stack before any drilling instruction. This is
+a viable workaround for the missing axis drawing because bore depth can follow
+the measured offset rather than assume a centered hole.
+
+The mechanical evidence remains insufficient to advance structurally. The
+exact missing values are (1) effective complete internal-thread engagement and
+minor/root geometry for the delivered nut/bolt pairing and (2) a traceable
+barrel steel strength/grade. “Steel,” zinc plating, “all-purpose,” and the
+1/4-20 designation do not supply those values. Wood bearing also cannot be
+closed from gross OD × length: the transverse bolt hole interrupts contact and
+the effective loaded barrel length and pressure distribution are unknown. A
+measured sample can establish geometry and engagement limits, but it cannot
+establish steel strength. A structurally usable route therefore needs a
+documented strength basis for the exact factory part or a bounded physical
+qualification program tied to identified production parts and the actual wood,
+bolt, washer, fit, and failure modes. No manufacturer contact is proposed.
+
+The historical **PARK** decision remains correct for structural selection.
+This follow-up advances a candidate-local geometry qualification route only;
+it provides no purchase, drilling, fabrication, resistance, or release
+authority.
