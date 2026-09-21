@@ -55,7 +55,7 @@ nor the 1,000/10,000/100,000 levels are qualified PB02 inputs.
 ## Results
 
 All 50 combinations converge with maximum whole-system residual below
-0.000001 N and 0.00001 N·mm after exact refinement. The bolt-dominant contrast
+0.000001 N and 0.00002 N·mm after exact refinement. The bolt-dominant contrast
 passes through a singular intermediate active set for `a12-left` and
 `k12-rear`; null-direction advance reaches the next unilateral activation and
 the final compatible solution. A singular intermediate set alone does not
