@@ -3,6 +3,14 @@
 from mini_moonboard.box_frame import Part
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_pb02_native import PB02Native
+from scripts.simple_pb03_bottom_outer_pair import (
+    BLOCK_NAMES as BOTTOM_BLOCK_NAMES,
+)
+from scripts.simple_pb03_bottom_outer_pair import (
+    TARGET_STATIONS as BOTTOM_TARGET_STATIONS,
+)
+from scripts.simple_pb03_bottom_outer_pair import build_pair as build_bottom_outer_pair
+from scripts.simple_pb03_bottom_outer_pair import screen as screen_bottom_outer_pair
 from scripts.simple_pb03_lower_center_pair import (
     ALL_BLOCK_NAMES as LOWER_BLOCK_NAMES,
 )
@@ -10,7 +18,6 @@ from scripts.simple_pb03_lower_center_pair import (
     ALL_TARGET_STATIONS as LOWER_TARGET_STATIONS,
 )
 from scripts.simple_pb03_lower_center_pair import (
-    BLOCK_LENGTH_MM,
     build_core_slice,
     screen_core_slice,
 )
@@ -23,13 +30,33 @@ from scripts.simple_pb03_upper_outer_pair import (
 from scripts.simple_pb03_upper_outer_pair import build_pair as build_upper_outer_pair
 from scripts.simple_pb03_upper_outer_pair import screen as screen_upper_outer_pair
 
-REPLACED_STATIONS = (*LOWER_TARGET_STATIONS, *UPPER_TARGET_STATIONS)
-BLOCK_NAMES = {**LOWER_BLOCK_NAMES, **UPPER_BLOCK_NAMES}
-SOURCE_ID = "pb03-lower-service-plus-upper-outer-v1"
+REPLACED_STATIONS = (
+    *LOWER_TARGET_STATIONS,
+    *UPPER_TARGET_STATIONS,
+    *BOTTOM_TARGET_STATIONS,
+)
+BLOCK_NAMES = {
+    **LOWER_BLOCK_NAMES,
+    **UPPER_BLOCK_NAMES,
+    **BOTTOM_BLOCK_NAMES,
+}
+SOURCE_ID = "pb03-lower-service-plus-upper-and-bottom-outer-v1"
+
+
+def _block_part(geometry):
+    block_x, block_t, block_length = geometry.report["block_dimensions_mm"]
+    return Part(
+        geometry.block_name,
+        geometry.block,
+        (block_length, block_x, block_t),
+        "PB03 developmental solid timber corner block; exact stock, hardware, "
+        "resistance, drilling, and fabrication are unselected",
+        1,
+    )
 
 
 class PB03Native(PB02Native):
-    """PB02 plus six blocks and twenty-four unselected through-bolt stacks."""
+    """PB02 plus eight blocks and thirty-two unselected through-bolt stacks."""
 
     KEY = SOURCE_ID
     ACTIVE_FINGERPRINT = ACTIVE_FINGERPRINT
@@ -51,22 +78,14 @@ class PB03Native(PB02Native):
         }
         self._lower_service = build_core_slice(**source)
         self._upper_outer = build_upper_outer_pair(**source)
+        self._bottom_outer = build_bottom_outer_pair(**source)
         self._pb03_geometries = {
             **self._lower_service,
             **self._upper_outer,
+            **self._bottom_outer,
         }
-        # Temporary compatibility for consumers predating the public accessor.
-        self._pair = self._lower_service
         self._blocks = tuple(
-            Part(
-                geometry.block_name,
-                geometry.block,
-                (BLOCK_LENGTH_MM, 139.7, 57.15),
-                "PB03 developmental solid timber corner block; exact stock, "
-                "hardware, resistance, drilling, and fabrication are unselected",
-                1,
-            )
-            for geometry in self._pb03_geometries.values()
+            _block_part(geometry) for geometry in self._pb03_geometries.values()
         )
         self._pb03_bolts = tuple(
             bolt
@@ -123,6 +142,8 @@ def screen(module=None):
     upper = screen_upper_outer_pair(
         module._upper_outer, lower_reference=module._lower_service
     )
+    existing = {**module._lower_service, **module._upper_outer}
+    bottom = screen_bottom_outer_pair(module._bottom_outer, existing_reference=existing)
     connections = module.connections()
     stations = module.stations()
     panels = module.panel_connections()
@@ -135,13 +156,15 @@ def screen(module=None):
         lower["all_geometry_gates_pass"]
         and upper["all_geometry_gates_pass"]
         and upper["all_lower_family_collision_gates_pass"]
-        and len(stations) == 16
-        and legacy_sds == 96
-        and len(blocks) == 6
-        and len(new_bolts) == 24
+        and bottom["all_geometry_gates_pass"]
+        and bottom["all_cross_family_collision_gates_pass"]
+        and len(stations) == 14
+        and legacy_sds == 84
+        and len(blocks) == 8
+        and len(new_bolts) == 32
         and len(panels) == 66
-        and len(connections) == 198
-        and sum(row.kind == "bolt" for row in connections) == 36
+        and len(connections) == 194
+        and sum(row.kind == "bolt" for row in connections) == 44
         and not ({row[0] for row in stations} & set(REPLACED_STATIONS))
     )
     if not gates:
@@ -160,9 +183,13 @@ def screen(module=None):
         "total_bolt_connections": sum(row.kind == "bolt" for row in connections),
         "lower_service_geometry_gates_pass": lower["all_geometry_gates_pass"],
         "upper_outer_geometry_gates_pass": upper["all_upper_pair_geometry_gates_pass"],
+        "bottom_outer_geometry_gates_pass": bottom[
+            "all_bottom_pair_geometry_gates_pass"
+        ],
         "cross_family_collision_gates_pass": upper[
             "all_lower_family_collision_gates_pass"
-        ],
+        ]
+        and bottom["all_cross_family_collision_gates_pass"],
         "geometry_gates_pass": True,
         "exact_retail_hardware_selected": False,
         "qualified_for_design": False,

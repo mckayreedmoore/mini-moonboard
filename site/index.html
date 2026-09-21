@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB03 six-block/twenty-four-stack service core overlaid. Exactly 16 legacy angle stations and 96 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB03 eight-block/thirty-two-stack service core overlaid. Exactly 14 legacy angle stations and 84 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -506,6 +506,8 @@
         'clip_horizontal_lower_right_2',
         'clip_horizontal_upper_left_1',
         'clip_horizontal_upper_right_2',
+        'clip_horizontal_bottom_left_1',
+        'clip_horizontal_bottom_right_2',
       ]);
       const isV4ReplacedLegacyPart = name => [...v4ReplacedLegacyStations].some(station =>
         name === station || name.startsWith(`fastener_${station}_`));
@@ -566,7 +568,7 @@
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The six replaced service-rail angles and thirty-six SDS visuals are hidden; colored PB02/PB03 blocks, bores, and complete trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The eight replaced service-rail angles and forty-eight SDS visuals are hidden; colored PB02/PB03 blocks, bores, and complete trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) resolveV4Baseline?.();
         displayParts.forEach(part => loader.load(part.path, geometry => {
@@ -600,10 +602,10 @@
           if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
               data.pb02_variant_id !== 'ligament_priority' ||
-              data.pb03_source_id !== 'pb03-lower-service-plus-upper-outer-v1' ||
+              data.pb03_source_id !== 'pb03-lower-service-plus-upper-and-bottom-outer-v1' ||
               data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
-              data.boxes.length !== 12 || data.axes.length !== 34 || data.hardware_stacks.length !== 34 ||
-              data.hidden_legacy_visual_names?.length !== 42 ||
+              data.boxes.length !== 14 || data.axes.length !== 42 || data.hardware_stacks.length !== 42 ||
+              data.hidden_legacy_visual_names?.length !== 56 ||
               !data.hidden_legacy_visual_names.every(isV4ReplacedLegacyPart) ||
               data.assembly_contract?.width_option !== 'kerf-right' ||
               data.assembly_contract?.outward_shifted_center_supports !== 1 ||
@@ -611,13 +613,13 @@
               !data.assembly_contract?.inner_kicker_edges_supported?.right ||
               data.assembly_contract?.pb02_bore_count !== 10 ||
               data.assembly_contract?.pb02_trial_stack_count !== 10 ||
-              data.assembly_contract?.pb03_bore_count !== 24 ||
-              data.assembly_contract?.pb03_trial_stack_count !== 24 ||
-              data.assembly_contract?.pb03_block_count !== 6 ||
-              data.assembly_contract?.legacy_station_count !== 16 ||
-              data.assembly_contract?.legacy_sds_axis_count !== 96 ||
-              data.assembly_contract?.total_connection_count !== 198 ||
-              data.assembly_contract?.bolt_kind_connection_count !== 36 ||
+              data.assembly_contract?.pb03_bore_count !== 32 ||
+              data.assembly_contract?.pb03_trial_stack_count !== 32 ||
+              data.assembly_contract?.pb03_block_count !== 8 ||
+              data.assembly_contract?.legacy_station_count !== 14 ||
+              data.assembly_contract?.legacy_sds_axis_count !== 84 ||
+              data.assembly_contract?.total_connection_count !== 194 ||
+              data.assembly_contract?.bolt_kind_connection_count !== 44 ||
               data.assembly_contract?.fixed_panel_kicker_screw_axes !== 66) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = new THREE.BoxGeometry(...box.size_mm);

@@ -182,8 +182,10 @@ def build_scene():
             for station in replaced_pb03_stations
         )
     )
-    if len(hidden_legacy_visuals) != 42:
-        raise ValueError("PB03 must hide exactly six angles and thirty-six SDS visuals")
+    if len(hidden_legacy_visuals) != 56:
+        raise ValueError(
+            "PB03 must hide exactly eight angles and forty-eight SDS visuals"
+        )
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
     official_wood = {

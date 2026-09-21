@@ -4,14 +4,28 @@
   "fixed_panel_kicker_screw_axes": 66,
   "pb02_variant_id": "ligament_priority",
   "pb02_source_fingerprint": "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb",
-  "pb03_source_id": "pb03-lower-service-plus-upper-outer-v1",
+  "pb03_source_id": "pb03-lower-service-plus-upper-and-bottom-outer-v1",
   "hidden_legacy_visual_names": [
+    "clip_horizontal_bottom_left_1",
+    "clip_horizontal_bottom_right_2",
     "clip_horizontal_lower_left_1",
     "clip_horizontal_lower_left_2",
     "clip_horizontal_lower_right_1",
     "clip_horizontal_lower_right_2",
     "clip_horizontal_upper_left_1",
     "clip_horizontal_upper_right_2",
+    "fastener_clip_horizontal_bottom_left_1_beam_1",
+    "fastener_clip_horizontal_bottom_left_1_beam_2",
+    "fastener_clip_horizontal_bottom_left_1_beam_3",
+    "fastener_clip_horizontal_bottom_left_1_upright_1",
+    "fastener_clip_horizontal_bottom_left_1_upright_2",
+    "fastener_clip_horizontal_bottom_left_1_upright_3",
+    "fastener_clip_horizontal_bottom_right_2_beam_1",
+    "fastener_clip_horizontal_bottom_right_2_beam_2",
+    "fastener_clip_horizontal_bottom_right_2_beam_3",
+    "fastener_clip_horizontal_bottom_right_2_upright_1",
+    "fastener_clip_horizontal_bottom_right_2_upright_2",
+    "fastener_clip_horizontal_bottom_right_2_upright_3",
     "fastener_clip_horizontal_lower_left_1_beam_1",
     "fastener_clip_horizontal_lower_left_1_beam_2",
     "fastener_clip_horizontal_lower_left_1_beam_3",
@@ -61,22 +75,24 @@
     },
     "pb02_bore_count": 10,
     "pb02_trial_stack_count": 10,
-    "pb03_bore_count": 24,
-    "pb03_trial_stack_count": 24,
-    "pb03_block_count": 6,
-    "legacy_station_count": 16,
-    "legacy_sds_axis_count": 96,
+    "pb03_bore_count": 32,
+    "pb03_trial_stack_count": 32,
+    "pb03_block_count": 8,
+    "legacy_station_count": 14,
+    "legacy_sds_axis_count": 84,
     "replaced_pb03_legacy_stations": [
       "clip_horizontal_lower_left_2",
       "clip_horizontal_lower_right_1",
       "clip_horizontal_lower_left_1",
       "clip_horizontal_lower_right_2",
       "clip_horizontal_upper_left_1",
-      "clip_horizontal_upper_right_2"
+      "clip_horizontal_upper_right_2",
+      "clip_horizontal_bottom_left_1",
+      "clip_horizontal_bottom_right_2"
     ],
     "fixed_panel_kicker_screw_axes": 66,
-    "total_connection_count": 198,
-    "bolt_kind_connection_count": 36
+    "total_connection_count": 194,
+    "bolt_kind_connection_count": 44
   },
   "hardware_stack_scope": "PB02 maintained trial-length envelopes and PB03 source-derived generic stack envelopes only; no delivered product, thread interval, exact hardware, or head/nut orientation selected",
   "fabrication_released": false,
@@ -259,6 +275,38 @@
         1057.275,
         705.560555549152,
         1400.6674944477138
+      ],
+      "size_mm": [
+        139.7,
+        57.15,
+        300.0
+      ],
+      "rotation_x_deg": 50
+    },
+    {
+      "name": "pb03_bottom_outer_left_block",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "center_mm": [
+        -1060.45,
+        -78.12609818067675,
+        466.70610939705557
+      ],
+      "size_mm": [
+        139.7,
+        57.15,
+        300.0
+      ],
+      "rotation_x_deg": 50
+    },
+    {
+      "name": "pb03_bottom_outer_right_block",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "center_mm": [
+        1057.275,
+        -78.12609818067672,
+        466.7061093970555
       ],
       "size_mm": [
         139.7,
@@ -828,6 +876,142 @@
         1017.125,
         680.24683372706,
         1331.6066798527947
+      ],
+      "axis": [
+        0.0,
+        0.6427876096865394,
+        0.766044443118978
+      ],
+      "length_mm": 100.25,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_left_upright_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "start_mm": [
+        -1221.7,
+        -5.4736771508297295,
+        405.74348970677454
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "length_mm": 233.60000000000008,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_left_upright_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "start_mm": [
+        -1221.7,
+        -39.94567709118374,
+        434.66893214266884
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "length_mm": 233.60000000000008,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_left_rail_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "start_mm": [
+        -1060.3,
+        -69.08962112887055,
+        368.82205559618274
+      ],
+      "axis": [
+        0.0,
+        0.6427876096865394,
+        0.766044443118978
+      ],
+      "length_mm": 100.25,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_left_rail_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "start_mm": [
+        -1020.3,
+        -69.08962112887055,
+        368.82205559618274
+      ],
+      "axis": [
+        0.0,
+        0.6427876096865394,
+        0.766044443118978
+      ],
+      "length_mm": 100.25,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_right_upright_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "start_mm": [
+        1218.525,
+        -5.4736771508297295,
+        405.74348970677454
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "length_mm": 233.60000000000008,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_right_upright_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "start_mm": [
+        1218.525,
+        -39.94567709118374,
+        434.66893214266884
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "length_mm": 233.60000000000008,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_right_rail_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "start_mm": [
+        1057.125,
+        -69.08962112887055,
+        368.82205559618274
+      ],
+      "axis": [
+        0.0,
+        0.6427876096865394,
+        0.766044443118978
+      ],
+      "length_mm": 100.25,
+      "diameter_mm": 7.5
+    },
+    {
+      "name": "pb03_bottom_outer_right_rail_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "start_mm": [
+        1017.125,
+        -69.08962112887055,
+        368.82205559618274
       ],
       "axis": [
         0.0,
@@ -3684,6 +3868,678 @@
             1017.125,
             744.3648977932924,
             1408.0196130539127
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_left_upright_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            -1221.7,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 233.60000000000008,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            -1227.2,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            -1221.2,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            -990.5999999999999,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            -988.5999999999999,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_left_upright_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            -1221.7,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 233.60000000000008,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            -1227.2,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            -1221.2,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            -990.5999999999999,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            -988.5999999999999,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_left_rail_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            -1060.3,
+            -69.08962112887055,
+            368.82205559618274
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 100.25,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            -1060.3,
+            -72.62495298214651,
+            364.60881115902833
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            -1060.3,
+            -68.76822732402728,
+            369.2050778177422
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            -1060.3,
+            -6.257132282011327,
+            443.70289991106284
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            -1060.3,
+            -4.97155706263824,
+            445.2349887973008
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_left_rail_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_left_1",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            -1020.3,
+            -69.08962112887055,
+            368.82205559618274
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 100.25,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            -1020.3,
+            -72.62495298214651,
+            364.60881115902833
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            -1020.3,
+            -68.76822732402728,
+            369.2050778177422
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            -1020.3,
+            -6.257132282011327,
+            443.70289991106284
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            -1020.3,
+            -4.97155706263824,
+            445.2349887973008
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_right_upright_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            1218.525,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 233.60000000000008,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            1224.025,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            1218.025,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            987.425,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            985.425,
+            -5.4736771508297295,
+            405.74348970677454
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_right_upright_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            1218.525,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 233.60000000000008,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            1224.025,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            1218.025,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            987.425,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            985.425,
+            -39.94567709118374,
+            434.66893214266884
+          ],
+          "axis": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_right_rail_1",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            1057.125,
+            -69.08962112887055,
+            368.82205559618274
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 100.25,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            1057.125,
+            -72.62495298214651,
+            364.60881115902833
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            1057.125,
+            -68.76822732402728,
+            369.2050778177422
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            1057.125,
+            -6.257132282011327,
+            443.70289991106284
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            1057.125,
+            -4.97155706263824,
+            445.2349887973008
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 9.0,
+          "diameter_mm": 18.0
+        }
+      ]
+    },
+    {
+      "name": "pb03_bottom_outer_right_rail_2",
+      "station": "PB03",
+      "source_station": "clip_horizontal_bottom_right_2",
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            1017.125,
+            -69.08962112887055,
+            368.82205559618274
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 100.25,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            1017.125,
+            -72.62495298214651,
+            364.60881115902833
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 6.0,
+          "diameter_mm": 18.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            1017.125,
+            -68.76822732402728,
+            369.2050778177422
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            1017.125,
+            -6.257132282011327,
+            443.70289991106284
+          ],
+          "axis": [
+            0.0,
+            0.6427876096865394,
+            0.766044443118978
+          ],
+          "length_mm": 2.0,
+          "diameter_mm": 25.4
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            1017.125,
+            -4.97155706263824,
+            445.2349887973008
           ],
           "axis": [
             0.0,
