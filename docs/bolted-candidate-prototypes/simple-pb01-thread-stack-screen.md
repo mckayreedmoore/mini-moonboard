@@ -84,6 +84,10 @@ maximum grip, washers, complete nut engagement and the adopted projection.
 The wood-thread occupancy and root-based bearing/yield calculation remain
 separate from this axial fit test. No retailer listing yet verifies the
 full receiving envelope or the washer's NDS classification.
+This simplified interval assumes usable thread continues to the nominal tip;
+the more complete [rail receiving screen](simple-pb01-rail-receiving-envelope.md)
+also allows an unusable tip and variable bolt and washer lengths. Its stricter
+receiving equations govern any rail development decision.
 
 Before any stack or hole is released, measure the delivered bolt's first
 complete thread, usable threaded length and overall length; identify and
