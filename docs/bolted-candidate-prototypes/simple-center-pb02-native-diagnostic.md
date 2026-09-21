@@ -122,9 +122,15 @@ single-fastener interfaces with their actual bearing lengths and force angles.
 Mode IV governs; its largest conditional lateral ratio is 0.0756. That result
 does not qualify the nearby crossed bores or the complete connection.
 
+The [bore-aware net-section screen](simple-center-pb02-bore-net-section-screen.md)
+retains axial force, biaxial bending, transverse shear, and separate torsion at
+four relevant cuts. Three cuts use exact report rows. The inclined-principal
+cut requires a clearly marked 5.691 mm free-body extrapolation below the
+report-valid full-section interval, so it is not used as a capacity verdict.
+
 Before any physical release, work still includes:
 
-- complete bore-aware member sections and local crossed-bore interaction checks;
+- resolve the inclined-principal local section and crossed-bore interaction;
 - complete the `block_header` local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
   insertion routes, and tool access;
