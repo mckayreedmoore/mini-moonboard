@@ -14,6 +14,14 @@ backing, installed hardware, separations for moving, and the complete layout
 for owner approval **before** a major detailed-analysis campaign. Layout approval
 is not structural acceptance or permission to drill.
 
+The owner confirmed the concept sequence: complete the corner-block assembly
+and viewer first, then draw a comparable direct cross-dowel/barrel-nut assembly
+and viewer before selecting which concept to qualify. The barrel-nut concept
+may use explicitly provisional part geometry, but must identify every original
+structural duty and its sourcing/strength uncertainties. Neither concept is a
+build package. Check finite hold/T-nut and LED/wiring envelopes, including
+unused hold positions, in addition to the fixed screws and frame bolts.
+
 The PB02 through PB07 work below remains retained development history,
 not an approved layout under this reset. In particular, the 300 mm PB07 blocks,
 the detached 152.4 mm trial, and PB02's one-sided post move do not satisfy the
