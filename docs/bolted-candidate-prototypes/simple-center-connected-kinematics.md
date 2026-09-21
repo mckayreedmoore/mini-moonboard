@@ -15,15 +15,25 @@ nominal CAD check and development viewer. The return path follows its inherited
 bores. Global coordinates are millimeters. Historical kinematic inputs remain
 in version history; they are not silently rewritten as the active pose.
 
-| Edge (members) | Face normal | Bolt-axis center(s) |
+| Edge (members) | Normal | Shared-face center |
 | --- | --- | --- |
-| post–post block | X | (177.65, −145, 145), (177.65, −145, 176) |
-| post block–header | Z | (208.35, −130.5, 186), (236, −117.5, 186) |
-| header–principal block | Z | (15.475, −139, 291.45) |
-| principal block–right principal | X | (34.525, −95, 312.5) |
-| right principal–upright block | X | (114.45, −144.5, 356) |
-| upright block–rear block | −Y | (133.5, −163.95, 370) |
-| rear block–post | +Y | (140, −150.3, 110), (140, −150.3, 190) |
+| post–post block | +X | (177.65, −131.25, 166.95) |
+| post block–header | +Z | (222.1, −131.25, 238.9) |
+| header–principal block | +Z | (15.475, −110.35, 277) |
+| principal block–right principal | +X | (50.95, −113.85, 310.5) |
+| right principal–upright block | +X | (89.05, −144.9, 368.5) |
+| upright block–rear block | −Y | (133.5, −175.7, 368.5) |
+| rear block–post | +Y | (133.35, −175.7, 119.45) |
+
+The bolt-axis centers are:
+
+- post–post block: (177.65, −145, 145) and (177.65, −145, 176);
+- post block–header: (208.35, −130.5, 186) and (236, −117.5, 186);
+- header–principal block: (15.475, −139, 291.45);
+- principal block–right principal: (34.525, −95, 312.5);
+- right principal–upright block: (114.45, −144.5, 356);
+- upright block–rear block: (133.5, −163.95, 370); and
+- rear block–post: (140, −150.3, 110) and (140, −150.3, 190).
 
 Each listed point is the midpoint between the active geometry's named bolt end
 planes. The graph is a seven-body cycle. The old displaced center clips are not
@@ -38,8 +48,10 @@ selected, one axial constraint. An open face contributes no rows. A closed
 frictionless face contributes only four illustrative normal rows at
 non-collinear points 20 mm from its bolt-group center. These rows suppress
 normal separation and face rocking in a closed linearized state but offer no
-face shear or frictional torque. Their 20 mm spans are rank devices, not
-measured bearing patches or a pressure solution. A single axial row is an
+face shear or frictional torque. The four points are offset 20 mm from the
+actual shared-face overlap center derived from both active CAD solids. Their
+spans remain rank devices, not measured bearing patches or a pressure solution.
+A single axial row is an
 optimistic engaged tensile/axial state; `axial off` removes all axial rows.
 Actual bolt axial engagement is unilateral and may differ by bolt. Contact
 must have nonnegative compression pressure and a compatible gap; the rank

@@ -22,6 +22,15 @@ NODES = (
     "upright_block",
     "rear_block",
 )
+NODE_PARTS = {
+    "post": "shifted_right_post",
+    "post_block": "header_post_side_cleat",
+    "header": "base_header",
+    "principal_block": "header_side_cleat",
+    "principal": "base_principal_center_right",
+    "upright_block": "upright_side_cleat",
+    "rear_block": "rear_cleat",
+}
 
 
 def _midpoint(first, second):
@@ -30,12 +39,12 @@ def _midpoint(first, second):
 
 def current_edges():
     """Build rank-model bolt centers from the same active PB02 geometry as CAD."""
-    _, _, ends = active_geometry()
+    parts, _, ends = active_geometry()
 
     def center(first, second):
         return _midpoint(ends[first][0], ends[second][0])
 
-    return {
+    edges = {
         "post_block": (
             "post",
             "post_block",
@@ -85,6 +94,37 @@ def current_edges():
             ],
         ),
     }
+    bounds = {node: parts[part].BoundingBox() for node, part in NODE_PARTS.items()}
+    axes = ("x", "y", "z")
+    result = {}
+    for name, (first, second, normal, bolts) in edges.items():
+        normal_index = next(index for index, value in enumerate(normal) if value)
+        first_box, second_box = bounds[first], bounds[second]
+        normal_axis = axes[normal_index]
+        first_face = getattr(
+            first_box, f"{normal_axis}{'max' if normal[normal_index] > 0 else 'min'}"
+        )
+        second_face = getattr(
+            second_box, f"{normal_axis}{'min' if normal[normal_index] > 0 else 'max'}"
+        )
+        if abs(first_face - second_face) > 1e-6:
+            raise ValueError(f"PB02 contact faces do not coincide: {name}")
+        center = []
+        for index, axis in enumerate(axes):
+            if index == normal_index:
+                center.append(first_face)
+                continue
+            low = max(
+                getattr(first_box, f"{axis}min"), getattr(second_box, f"{axis}min")
+            )
+            high = min(
+                getattr(first_box, f"{axis}max"), getattr(second_box, f"{axis}max")
+            )
+            if high - low < 40:
+                raise ValueError(f"PB02 contact patch cannot hold rank samples: {name}")
+            center.append((low + high) / 2)
+        result[name] = (first, second, normal, bolts, tuple(center))
+    return result
 
 
 EDGES = current_edges()
@@ -107,7 +147,7 @@ def _point_row(first, second, direction, point):
 def constraint_rows(*, closed=(), axial=True, return_path=True):
     """Return labeled point constraints before an optional coordinate anchor."""
     rows = []
-    for name, (first, second, normal, bolts) in EDGES.items():
+    for name, (first, second, normal, bolts, contact_center) in EDGES.items():
         if not return_path and name in (
             "principal_upright_block",
             "upright_rear_block",
@@ -136,7 +176,7 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                     }
                 )
         if name in closed:
-            center = np.mean(bolts, axis=0)
+            center = np.asarray(contact_center)
             for contact_index, (a, b) in enumerate(
                 ((a, b) for a in (-20.0, 20.0) for b in (-20.0, 20.0)), 1
             ):
@@ -146,6 +186,7 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                         "name": f"{name}/contact_{contact_index}",
                         "edge": name,
                         "kind": "contact_compression",
+                        "point_mm": tuple(point),
                         "row": _point_row(first, second, n, point),
                     }
                 )
@@ -178,7 +219,12 @@ def screen():
         "source_fingerprint": ACTIVE_FINGERPRINT,
         "nodes": NODES,
         "edges": {
-            name: {"members": edge[:2], "normal": edge[2], "bolt_centers_mm": edge[3]}
+            name: {
+                "members": edge[:2],
+                "normal": edge[2],
+                "bolt_centers_mm": edge[3],
+                "contact_patch_center_mm": edge[4],
+            }
             for name, edge in EDGES.items()
         },
         "post_anchored": {

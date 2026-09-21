@@ -34,8 +34,11 @@ not inherit them as design demand.
 ## Signed point model
 
 Every active PB02 bolt center supplies two bilateral shear reaction rows. Its
-axial row is tension-only with no preload. Four illustrative face points per
-interface supply compression-only reactions. The contact normal is oriented
+axial row is tension-only with no preload. Four face points offset 20 mm from
+the actual shared-face overlap center supply compression-only reactions. The
+builder derives each plane and overlap from both active CAD solids and stops if
+the faces do not coincide or cannot contain the sample pattern. The pattern is
+still illustrative rather than a pressure patch. The contact normal is oriented
 from the first named body toward the second; this work corrected the
 upright-side-cleat to rear-cleat normal to global −Y because the rear cleat is
 on that side of the shared face. The correction does not change the prior rank
@@ -55,11 +58,9 @@ reported as design forces.
 
 Single-edge omission gives the same necessity result in all five examples:
 
-- compression at `post_block` and `upright_rear_block` cannot individually be
-  removed from this point model;
-- tension at `block_header`, `header_principal_block`,
-  `principal_block_principal`, and `rear_block_post` cannot individually be
-  removed; and
+- compression at every edge except `header_principal_block` cannot
+  individually be removed from this point model;
+- tension at every one of the seven edges cannot individually be removed; and
 - other individual rows may be removable only within this non-stiffness point
   equilibrium model. That does not prove they are unloaded in the real joint.
 
