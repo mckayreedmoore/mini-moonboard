@@ -1,26 +1,33 @@
 """CD-01 direct PB-01 cross-dowel geometry sensitivity; never a drill schedule."""
 
-import csv
 import json
-import math
 from dataclasses import dataclass
 
 import cadquery as cq
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
-from scripts.hardware_first_center_hybrid import AXES
-from scripts.simple_rail_joint_comparison import RAIL, UPRIGHT, N, T
+from scripts.simple_rail_joint_comparison import (
+    RAIL,
+    UPRIGHT,
+    N,
+    T,
+    _has_hits,
+    _purchased_hillman_solids,
+    _read_panel_axes,
+    _screw_envelope_hits,
+)
 
 NEIGHBOR = "base_rail_service_upper_right"
 TOLERANCE_MM3 = 0.01
 MACHINE_BOLT_NOMINAL_DIAMETER_MM = 6.35
 MACHINE_BOLT_TRIAL_BORE_DIAMETER_MM = 7.5
 
-# These three values define a reproducible geometry sensitivity only. Home Depot's
+# These values define a reproducible geometry sensitivity only. Home Depot's
 # public 801914 listing controls none of them.
 TRIAL_BARREL_OUTSIDE_DIAMETER_MM = 10.0
 TRIAL_BARREL_LENGTH_MM = 16.0
-TRIAL_THREAD_AXIS_FROM_ENTRY_MM = 12.7
+TRIAL_THREAD_AXIS_FROM_BARREL_END_MM = 8.0
+TRIAL_MACHINE_BOLT_LENGTH_MM = 127.0
 
 BARREL_X_FROM_BUTT_MM = 70.0
 ROW_N_MM = (265.0, 310.0)
@@ -33,7 +40,8 @@ class FastenerPose:
     name: str
     n_mm: float
     entry_face: str
-    thread_axis_from_entry_mm: float
+    barrel_insertion_depth_mm: float
+    thread_axis_from_barrel_end_mm: float
 
 
 def _cylinder(point, axis, length, diameter):
@@ -61,25 +69,19 @@ def _local_bounds(shape):
     }
 
 
-def _axis_solid(row):
-    return _cylinder(
-        tuple(float(row[f"start_{axis}_mm"]) for axis in "xyz"),
-        tuple(float(row[f"direction_{axis}"]) for axis in "xyz"),
-        float(row["occupied_length_mm"]),
-        float(row["occupied_diameter_mm"]),
-    )
-
-
 def _panel_axes():
-    with AXES.open(newline="") as stream:
-        rows = [
-            row
-            for row in csv.DictReader(stream)
-            if row["shop_opening_kind"] == "hillman_panel"
-        ]
-    if len(rows) != 66 or len({row["name"] for row in rows}) != 66:
-        raise ValueError("expected 66 unique protected panel/kicker axes")
-    return {row["name"]: _axis_solid(row) for row in rows}
+    rows = _read_panel_axes()
+    historical = {
+        row["name"]: _cylinder(
+            tuple(float(row[f"start_{axis}_mm"]) for axis in "xyz"),
+            tuple(float(row[f"direction_{axis}"]) for axis in "xyz"),
+            float(row["occupied_length_mm"]),
+            float(row["occupied_diameter_mm"]),
+        )
+        for row in rows
+    }
+    metadata, purchased = _purchased_hillman_solids(rows)
+    return historical, metadata, purchased
 
 
 def _hits(shape, others):
@@ -99,39 +101,67 @@ def _contained_volume(shape, members):
     }
 
 
-def _fastener_report(spec, *, bounds, principal, rail, protected, unrelated):
+def _fastener_report(
+    spec,
+    *,
+    bounds,
+    principal,
+    rail,
+    protected,
+    purchased_screws,
+    unrelated,
+):
     butt_x = bounds["rail"]["x"][0]
     principal_outer_x = bounds["principal"]["x"][0]
     receiver_x = butt_x + BARREL_X_FROM_BUTT_MM
     t_min, t_max = bounds["rail"]["t"]
+    insertion = spec.barrel_insertion_depth_mm
+    thread_offset = spec.thread_axis_from_barrel_end_mm
+    if (
+        insertion < 0
+        or thread_offset <= MACHINE_BOLT_NOMINAL_DIAMETER_MM / 2
+        or thread_offset
+        >= TRIAL_BARREL_LENGTH_MM - MACHINE_BOLT_NOMINAL_DIAMETER_MM / 2
+    ):
+        raise ValueError("trial insertion or thread offset leaves invalid barrel metal")
     if spec.entry_face == "minus_t":
         entry_t = t_min
         barrel_axis = (0.0, T[0], T[1])
         access_axis = (0.0, -T[0], -T[1])
-        thread_t = t_min + spec.thread_axis_from_entry_mm
-        opposite_wood = t_max - (t_min + TRIAL_BARREL_LENGTH_MM)
+        barrel_body_t = entry_t + insertion
+        thread_t = barrel_body_t + thread_offset
+        opposite_wood = t_max - (barrel_body_t + TRIAL_BARREL_LENGTH_MM)
     elif spec.entry_face == "plus_t":
         entry_t = t_max
         barrel_axis = (0.0, -T[0], -T[1])
         access_axis = (0.0, T[0], T[1])
-        thread_t = t_max - spec.thread_axis_from_entry_mm
-        opposite_wood = (t_max - TRIAL_BARREL_LENGTH_MM) - t_min
+        barrel_body_t = entry_t - insertion
+        thread_t = barrel_body_t - thread_offset
+        opposite_wood = (barrel_body_t - TRIAL_BARREL_LENGTH_MM) - t_min
     else:
         raise ValueError("entry face must be minus_t or plus_t")
 
     machine_start = _xyz(principal_outer_x, thread_t, spec.n_mm)
-    machine_length = receiver_x - principal_outer_x
+    machine_length_to_thread_axis = receiver_x - principal_outer_x
+    machine_envelope_length = TRIAL_MACHINE_BOLT_LENGTH_MM
     machine_bore = _cylinder(
         machine_start,
         (1, 0, 0),
-        machine_length,
+        machine_envelope_length,
         MACHINE_BOLT_TRIAL_BORE_DIAMETER_MM,
     )
-    barrel_start = _xyz(receiver_x, entry_t, spec.n_mm)
+    barrel_entry = _xyz(receiver_x, entry_t, spec.n_mm)
+    barrel_start = _xyz(receiver_x, barrel_body_t, spec.n_mm)
     barrel = _cylinder(
         barrel_start,
         barrel_axis,
         TRIAL_BARREL_LENGTH_MM,
+        TRIAL_BARREL_OUTSIDE_DIAMETER_MM,
+    )
+    barrel_cross_bore = _cylinder(
+        barrel_entry,
+        barrel_axis,
+        insertion + TRIAL_BARREL_LENGTH_MM,
         TRIAL_BARREL_OUTSIDE_DIAMETER_MM,
     )
     bolt_access = _cylinder(
@@ -141,7 +171,7 @@ def _fastener_report(spec, *, bounds, principal, rail, protected, unrelated):
         ACCESS_DIAMETER_MM,
     )
     barrel_access = _cylinder(
-        barrel_start,
+        barrel_entry,
         access_axis,
         ACCESS_LENGTH_MM,
         ACCESS_DIAMETER_MM,
@@ -157,6 +187,15 @@ def _fastener_report(spec, *, bounds, principal, rail, protected, unrelated):
         spec.n_mm - bounds["rail"]["n"][0] - barrel_radius,
         bounds["rail"]["n"][1] - spec.n_mm - barrel_radius,
     )
+    physical_envelopes = {
+        "machine_bolt_bore_and_tip": machine_bore,
+        "barrel_cross_bore": barrel_cross_bore,
+        "barrel_body": barrel,
+        "bolt_head_approach": bolt_access,
+        "barrel_insertion_removal_approach": barrel_access,
+    }
+    purchased_screen = _screw_envelope_hits(physical_envelopes, purchased_screws)
+    thread_radius = MACHINE_BOLT_NOMINAL_DIAMETER_MM / 2
     return {
         "name": spec.name,
         "machine_bolt": {
@@ -165,7 +204,22 @@ def _fastener_report(spec, *, bounds, principal, rail, protected, unrelated):
             "thread_axis_xyz_mm": [
                 round(value, 3) for value in _xyz(receiver_x, thread_t, spec.n_mm)
             ],
-            "wood_path_to_thread_axis_mm": round(machine_length, 3),
+            "wood_path_to_thread_axis_mm": round(machine_length_to_thread_axis, 3),
+            "trial_tip_beyond_thread_axis_mm": (
+                round(
+                    TRIAL_MACHINE_BOLT_LENGTH_MM - machine_length_to_thread_axis,
+                    3,
+                )
+            ),
+            "trial_under_head_axis_to_tip_mm_excluding_head_washer": round(
+                machine_envelope_length, 3
+            ),
+            "trial_tip_beyond_barrel_far_surface_mm": round(
+                TRIAL_MACHINE_BOLT_LENGTH_MM
+                - machine_length_to_thread_axis
+                - TRIAL_BARREL_OUTSIDE_DIAMETER_MM / 2,
+                3,
+            ),
             "nominal_diameter_mm_from_1_4_20_listing": (
                 MACHINE_BOLT_NOMINAL_DIAMETER_MM
             ),
@@ -182,34 +236,70 @@ def _fastener_report(spec, *, bounds, principal, rail, protected, unrelated):
         "receiver": {
             "type": "transverse steel cross-dowel/barrel nut",
             "entry_face": spec.entry_face,
-            "entry_xyz_mm": [round(value, 3) for value in barrel_start],
+            "timber_entry_xyz_mm": [round(value, 3) for value in barrel_entry],
+            "barrel_body_start_xyz_mm": [round(value, 3) for value in barrel_start],
             "axis_xyz": [round(value, 6) for value in barrel_axis],
-            "thread_axis_from_entry_mm_required_by_pose": (
-                spec.thread_axis_from_entry_mm
-            ),
+            "barrel_insertion_depth_mm": round(insertion, 3),
+            "thread_axis_from_barrel_end_mm": thread_offset,
+            "bolt_depth_from_timber_face_mm": round(insertion + thread_offset, 3),
             "trial_outside_diameter_mm_unverified_for_801914": (
                 TRIAL_BARREL_OUTSIDE_DIAMETER_MM
             ),
             "trial_length_mm_unverified_for_801914": TRIAL_BARREL_LENGTH_MM,
             "body_path": _contained_volume(barrel, (rail,)),
+            "cross_bore_path": _contained_volume(barrel_cross_bore, (rail,)),
             "trial_radial_wood_to_rail_n_faces_mm": [
                 round(v, 3) for v in n_edges_barrel
             ],
             "trial_wood_beyond_body_at_opposite_t_face_mm": round(opposite_wood, 3),
             "protected_axis_clashes_mm3": _hits(barrel, protected),
             "unrelated_part_clashes_mm3": _hits(barrel, unrelated),
+            "cross_bore_protected_axis_clashes_mm3": _hits(
+                barrel_cross_bore, protected
+            ),
+            "cross_bore_unrelated_part_clashes_mm3": _hits(
+                barrel_cross_bore, unrelated
+            ),
             "entry_access_clashes_mm3": _hits(barrel_access, unrelated),
             "machine_bore_intersection_mm3": round(
                 barrel.intersect(machine_bore).Volume(), 3
             ),
+            "nominal_metal_beyond_thread_major_radius_mm": [
+                round(thread_offset - thread_radius, 3),
+                round(TRIAL_BARREL_LENGTH_MM - thread_offset - thread_radius, 3),
+            ],
             "loaded_barrel_length_mm": None,
             "thread_minor_diameter_mm": None,
+            "thread_engagement_length_mm": None,
+            "effective_thread_engagement_mm": None,
+            "first_complete_thread_datum_mm": None,
+            "barrel_thread_chamfer_mm": None,
+            "bottoming_clearance_verified": False,
+            "barrel_bore_clearance_mm": None,
+            "barrel_alignment_method_verified": False,
+            "barrel_depth_stop_or_support_verified": False,
+            "barrel_removal_method_verified": False,
         },
-        "solids": {"machine_bore": machine_bore, "barrel": barrel},
+        "purchased_hillman_screen": purchased_screen,
+        "solids": {
+            "machine_bore": machine_bore,
+            "barrel": barrel,
+            "barrel_cross_bore": barrel_cross_bore,
+        },
     }
 
 
-def _pose(name, specs, *, bounds, principal, rail, protected, unrelated):
+def _pose(
+    name,
+    specs,
+    *,
+    bounds,
+    principal,
+    rail,
+    protected,
+    purchased_screws,
+    unrelated,
+):
     reports = [
         _fastener_report(
             spec,
@@ -217,6 +307,7 @@ def _pose(name, specs, *, bounds, principal, rail, protected, unrelated):
             principal=principal,
             rail=rail,
             protected=protected,
+            purchased_screws=purchased_screws,
             unrelated=unrelated,
         )
         for spec in specs
@@ -226,34 +317,39 @@ def _pose(name, specs, *, bounds, principal, rail, protected, unrelated):
         second["solids"]["machine_bore"]
     )
     barrel_gap = first["solids"]["barrel"].distance(second["solids"]["barrel"])
-    required_offsets = [
-        report["receiver"]["thread_axis_from_entry_mm_required_by_pose"]
-        for report in reports
-    ]
-    geometry_clear_under_trial_dimensions = all(
-        report[family][key]["contained_within_1_mm3"]
-        for report in reports
-        for family, key in (
-            ("machine_bolt", "wood_path"),
-            ("receiver", "body_path"),
+    cross_bore_gap = first["solids"]["barrel_cross_bore"].distance(
+        second["solids"]["barrel_cross_bore"]
+    )
+    geometry_clear_under_trial_dimensions = (
+        all(
+            report[family][key]["contained_within_1_mm3"]
+            for report in reports
+            for family, key in (
+                ("machine_bolt", "wood_path"),
+                ("receiver", "body_path"),
+                ("receiver", "cross_bore_path"),
+            )
         )
-    ) and all(
-        not report[family][key]
-        for report in reports
-        for family, key in (
-            ("machine_bolt", "protected_axis_clashes_mm3"),
-            ("machine_bolt", "unrelated_part_clashes_mm3"),
-            ("machine_bolt", "entry_access_clashes_mm3"),
-            ("receiver", "protected_axis_clashes_mm3"),
-            ("receiver", "unrelated_part_clashes_mm3"),
-            ("receiver", "entry_access_clashes_mm3"),
+        and all(
+            not report[family][key]
+            for report in reports
+            for family, key in (
+                ("machine_bolt", "protected_axis_clashes_mm3"),
+                ("machine_bolt", "unrelated_part_clashes_mm3"),
+                ("machine_bolt", "entry_access_clashes_mm3"),
+                ("receiver", "protected_axis_clashes_mm3"),
+                ("receiver", "unrelated_part_clashes_mm3"),
+                ("receiver", "cross_bore_protected_axis_clashes_mm3"),
+                ("receiver", "cross_bore_unrelated_part_clashes_mm3"),
+                ("receiver", "entry_access_clashes_mm3"),
+            )
+        )
+        and all(
+            not _has_hits(report["purchased_hillman_screen"]["clashes_mm3"])
+            for report in reports
         )
     )
     public_product_geometry_matches_trial = False
-    alignment_matches_trial = all(
-        math.isclose(offset, TRIAL_THREAD_AXIS_FROM_ENTRY_MM, abs_tol=1e-9)
-        for offset in required_offsets
-    )
     cleaned = []
     for report in reports:
         cleaned.append({key: value for key, value in report.items() if key != "solids"})
@@ -262,9 +358,9 @@ def _pose(name, specs, *, bounds, principal, rail, protected, unrelated):
         "fasteners": cleaned,
         "machine_bore_surface_gap_mm": round(bolt_gap, 3),
         "barrel_body_surface_gap_mm": round(barrel_gap, 3),
-        "trial_thread_alignment_matches": alignment_matches_trial,
+        "barrel_cross_bore_surface_gap_mm": round(cross_bore_gap, 3),
         "geometry_clear_under_unverified_trial_dimensions": (
-            geometry_clear_under_trial_dimensions and alignment_matches_trial
+            geometry_clear_under_trial_dimensions
         ),
         "public_product_geometry_matches_trial": public_product_geometry_matches_trial,
         "actual_801914_geometry_clear": None,
@@ -274,11 +370,11 @@ def _pose(name, specs, *, bounds, principal, rail, protected, unrelated):
 
 
 def screen():
-    """Build the initial and sole corrective direct-joint poses."""
+    """Build one recessed, centered direct-joint pose."""
     raw = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
     principal = raw[UPRIGHT]
     rail = raw[RAIL]
-    protected = _panel_axes()
+    protected, hillman_metadata, purchased_screws = _panel_axes()
     unrelated = {
         name: shape for name, shape in raw.items() if name not in {UPRIGHT, RAIL}
     }
@@ -286,38 +382,38 @@ def screen():
         "principal": _local_bounds(principal),
         "rail": _local_bounds(rail),
     }
-    t_min, t_max = bounds["rail"]["t"]
-    t_center = (t_min + t_max) / 2
-    initial = _pose(
-        "initial_centered_two_receiver_row",
-        (
-            FastenerPose("cd1", ROW_N_MM[0], "minus_t", t_center - t_min),
-            FastenerPose("cd2", ROW_N_MM[1], "plus_t", t_max - t_center),
-        ),
-        bounds=bounds,
-        principal=principal,
-        rail=rail,
-        protected=protected,
-        unrelated=unrelated,
-    )
-    corrective = _pose(
-        "corrective_diagonal_receiver_row",
+    rail_t = bounds["rail"]["t"][1] - bounds["rail"]["t"][0]
+    insertion = round((rail_t - TRIAL_BARREL_LENGTH_MM) / 2, 3)
+    recessed = _pose(
+        "recessed_centered_receiver_pair",
         (
             FastenerPose(
-                "cd1", ROW_N_MM[0], "minus_t", TRIAL_THREAD_AXIS_FROM_ENTRY_MM
+                "cd1",
+                ROW_N_MM[0],
+                "minus_t",
+                insertion,
+                TRIAL_THREAD_AXIS_FROM_BARREL_END_MM,
             ),
-            FastenerPose("cd2", ROW_N_MM[1], "plus_t", TRIAL_THREAD_AXIS_FROM_ENTRY_MM),
+            FastenerPose(
+                "cd2",
+                ROW_N_MM[1],
+                "plus_t",
+                insertion,
+                TRIAL_THREAD_AXIS_FROM_BARREL_END_MM,
+            ),
         ),
         bounds=bounds,
         principal=principal,
         rail=rail,
         protected=protected,
+        purchased_screws=purchased_screws,
         unrelated=unrelated,
     )
     return {
         "study": "CD-01 direct steel cross-dowel at PB-01 only",
         "participants": [UPRIGHT, RAIL],
         "fixed_panel_and_kicker_axes_checked": len(protected),
+        "purchased_hillman_envelope_basis": hillman_metadata,
         "meeting_surface": {
             "type": "existing end-to-side butt",
             "butt_plane_x_mm": round(bounds["rail"]["x"][0], 3),
@@ -373,19 +469,46 @@ def screen():
             "machine_bolt_trial_wood_bore_diameter_mm": (
                 MACHINE_BOLT_TRIAL_BORE_DIAMETER_MM
             ),
+            "machine_bolt_trial_under_head_length_mm": (TRIAL_MACHINE_BOLT_LENGTH_MM),
             "barrel_outside_diameter_mm": TRIAL_BARREL_OUTSIDE_DIAMETER_MM,
             "barrel_length_mm": TRIAL_BARREL_LENGTH_MM,
-            "thread_axis_from_entry_mm": TRIAL_THREAD_AXIS_FROM_ENTRY_MM,
+            "barrel_insertion_depth_mm": insertion,
+            "thread_axis_from_barrel_end_mm": (TRIAL_THREAD_AXIS_FROM_BARREL_END_MM),
+            "bolt_depth_from_timber_face_mm": (
+                insertion + TRIAL_THREAD_AXIS_FROM_BARREL_END_MM
+            ),
         },
-        "poses": [initial, corrective],
-        "pose_count": 2,
-        "corrective_pose_count": 1,
+        "poses": [recessed],
+        "pose_count": 1,
         "reference_six_inch_corner_block": {
             "size_x_t_n_mm": [139.7, 57.15, 152.4],
             "gross_volume_mm3": round(139.7 * 57.15 * 152.4, 3),
             "bolt_count": 4,
             "interfaces": 2,
             "status": "retained PB-01 comparison reference",
+        },
+        "inventory_comparison": {
+            "recessed_cross_dowel": {
+                "added_wood_volume_mm3": 0.0,
+                "main_bolts": 2,
+                "cross_dowels": 2,
+                "interfaces": 1,
+                "t_n_drilling": "two 27.05 mm blind cross-bores",
+                "strength_established": False,
+            },
+            "six_inch_corner_block": {
+                "added_wood_volume_mm3": round(139.7 * 57.15 * 152.4, 3),
+                "main_bolts": 4,
+                "cross_dowels": 0,
+                "interfaces": 2,
+                "t_n_drilling": "four through-bolt stacks",
+                "strength_established": False,
+            },
+            "mechanically_preferable_option": None,
+            "observation": (
+                "the cross-dowel uses less wood and hardware, but current evidence "
+                "does not establish it as mechanically preferable"
+            ),
         },
         "comparison_duties": {
             "retained_scenario_names": ["a12-left", "k12-right"],
@@ -401,9 +524,7 @@ def screen():
             "optional_pins": 0,
             "drilling_directions": ["+X machine-bolt/end bores", "+/-T barrel bores"],
             "longest_aligned_wood_path_mm": round(
-                corrective["fasteners"][0]["machine_bolt"][
-                    "wood_path_to_thread_axis_mm"
-                ],
+                recessed["fasteners"][0]["machine_bolt"]["wood_path_to_thread_axis_mm"],
                 3,
             ),
             "precision_dependency": (
@@ -422,7 +543,8 @@ def screen():
                 "rail bores; wood bearing, splitting, and bolt yield unresolved"
             ),
             "rotation": (
-                "two diagonally separated bolt axes provide a candidate force-couple "
+                "two N-separated bolt axes at the rail T center provide a candidate "
+                "force-couple "
                 "route with face contact; stiffness, contact state, and capacity unresolved"
             ),
             "friction_credited": False,
@@ -451,13 +573,15 @@ def screen():
             "wood_bearing_splitting_tearout_net_section_checked": False,
             "barrel_thread_stripping_bending_section_checked": False,
             "bolt_head_washer_and_steel_checked": False,
+            "purchased_hillman_physical_clearance_accepted": False,
             "complete_joint_utilization": None,
         },
         "decision": {
             "cd01": "hold_before_CD-02",
             "geometry_observation": (
-                "the sole corrective pose clears the retained model under explicit "
-                "unverified sensitivity dimensions"
+                "one recessed centered pose clears the retained model and both "
+                "conditional purchased-screw envelopes under unverified barrel "
+                "dimensions"
             ),
             "blocking_reason": (
                 "801914 does not publish barrel geometry; the separate 817828 title "

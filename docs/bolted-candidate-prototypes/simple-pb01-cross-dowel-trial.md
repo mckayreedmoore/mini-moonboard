@@ -41,34 +41,38 @@ than being transferred from a differently identified product.
 
 Source: [Home Depot Everbilt 817828](https://www.homedepot.com/p/204281673).
 
-## Existing joint and two-pose limit
+## Existing joint and one-pose limit
 
 The retained kerf-right solids put the rail end against the principal at
 X=89.05 mm. The rail section at the joint is 38.1 mm in local T by 139.7 mm in
 local N; rail grain runs along X. The principal remains inclined. The direct
-concept sends each machine bolt in +X through the 38.1 mm principal and 70 mm
-into the rail, where it intersects a barrel inserted from a rail T face.
+concept sends each machine bolt in +X through the 38.1 mm principal and into
+the rail, where it intersects a barrel inserted from a rail T face.
 
-Exactly two poses are evaluated:
-
-| Pose | Bolt rows | Barrel entry | Required thread-axis depth | Outcome |
-| --- | --- | --- | ---: | --- |
-| Initial | N=265/310, T mid-plane | opposite T faces | 19.05 mm | Fails trial offset. |
-| Sole correction | N=265/310, diagonal T | opposite T faces | 12.7 mm | Trial-clear only. |
+Exactly one `recessed_centered_receiver_pair` pose is evaluated. Each 16 mm
+barrel is recessed 11.05 mm from its entry face, putting its body from 11.05 to
+27.05 mm through the 38.1 mm rail thickness and leaving 11.05 mm of wood beyond
+the far end. The trial thread axis is separately located 8 mm from the barrel
+end, so it is 19.05 mm from the timber face. The complete transverse cross-bore
+path is therefore 27.05 mm deep. The two barrels enter from opposite T faces.
 
 The geometry sensitivity uses a 10 mm barrel outside diameter, 16 mm barrel
-length, 12.7 mm thread-axis offset, and 7.5 mm machine-bolt wood bore. None is
-attributed to 801914, and none is a drill size. The correction only shows that
-a dimensionally similar part could be arranged without a nominal CAD clash.
+length, centered 8 mm thread-axis offset, and 7.5 mm machine-bolt wood bore.
+None is attributed to 801914, and none is a drill size. With a nominal 6.35 mm
+thread major diameter, the centered trial leaves 4.825 mm of barrel metal from
+the thread radius to each barrel end. This only shows that a dimensionally
+similar part could be arranged without a nominal CAD clash;
 `actual_801914_geometry_clear` remains null.
 
-For the correction, the machine-bolt and barrel envelopes are contained in the
-intended principal/rail wood, intersect each other, remain separated from the
-other fastener, and report no collision with any protected panel/kicker screw
-axis. Each barrel is end-accessible from its named T face and each bolt is
-inserted from the principal outside face. Delivered parts, a jig, drilling
-accuracy, head/washer dimensions, tools, and an actual assembly trial remain
-unverified.
+The complete machine-bolt, barrel-body, and barrel cross-bore envelopes are
+contained in the intended wood and report no collision with any of the 66
+protected historical panel/kicker screw axes. The gaps between paired
+envelopes are 37.5 mm for the machine bores, 35 mm for the barrel bodies, and
+35 mm for the complete barrel cross-bores. Each barrel is accessible from its
+named T face and each bolt is inserted from the principal outside face.
+Delivered-part fit, a jig, drilling accuracy, alignment, clearance, depth
+support, removal method, head/washer dimensions, tools, and an actual assembly
+trial remain unverified.
 
 ## Hole and receiver inventory
 
@@ -81,7 +85,12 @@ The public and diagnostic dimensions stay separate:
 | Barrel internal thread | 1/4-20 | Public listing |
 | Barrel outside diameter | 10 mm | Unverified sensitivity |
 | Barrel length | 16 mm | Unverified sensitivity |
-| Thread axis from entry end | 12.7 mm | Unverified sensitivity |
+| Barrel insertion from timber face | 11.05 mm | Unverified sensitivity |
+| Thread axis from barrel end | 8 mm | Unverified centered sensitivity |
+| Thread axis from timber face | 19.05 mm | Sum of insertion and barrel offset |
+| Complete barrel cross-bore depth | 27.05 mm | Insertion plus barrel length |
+| Wood beyond barrel body | 11.05 mm | Nominal geometry sensitivity |
+| Metal beyond thread major radius | 4.825 mm each end | Nominal geometry sensitivity |
 | Loaded barrel bearing length | unknown | No barrel anchorage calculation |
 | Thread minor diameter/engagement | unknown | No stripping calculation |
 
@@ -90,6 +99,16 @@ radial wood to N faces for the barrel envelope, wood beyond the inserted barrel
 at the opposite T face, bore-to-bore gaps, and the intentional machine-bore to
 barrel intersection. These are nominal sensitivity distances. Exact remaining
 wood cannot be established until the SKU dimensions and tolerances are known.
+Barrel bore clearance, alignment method, depth stop/support, removal method,
+bottoming clearance, and effective thread engagement remain unresolved.
+
+Both fasteners are also screened against the complete purchased Hillman 42605
+proxy envelopes for all 66 screw axes: the 63.5 mm full-length cylinder at the
+9.017 mm nominal head diameter and the same envelope with 1 mm added radial
+margin. Both cases are clash-free in the retained CAD. This is conditional
+clearance only: shaft maximum, head profile/tolerance, total length, and the
+installed seating datum are not controlled, so physical clearance is not
+accepted.
 
 ## Candidate mechanism and missing mechanics
 
@@ -97,10 +116,10 @@ The intended separation path is principal head/washer to machine-bolt tension,
 through the barrel threads, then barrel bearing into the rail. Compression can
 cross the existing butt face. Shear in either local direction would require
 machine-bolt shank bearing in the principal and in the end-entering rail bore.
-Two diagonally separated axes and face contact offer a candidate route for
-rotation restraint. No stiffness, contact state, load distribution, or
-capacity is assigned to those routes. Tightening friction and optional wooden
-dowels/pins receive no capacity credit.
+Two separated axes and face contact offer a candidate route for rotation
+restraint. No stiffness, contact state, load distribution, or capacity is
+assigned to those routes. Tightening friction and optional wooden dowels/pins
+receive no capacity credit.
 
 Wood bearing, barrel bearing length, splitting/tear-out, net sections, machine
 bolt bending, head/washer behavior, barrel transverse section, thread stripping,
@@ -122,9 +141,13 @@ scaled or transferred to this joint.
 ## Reference, cost, and assembly
 
 The reference remains the 139.7 × 57.15 × 152.4 mm six-inch corner block,
-gross volume 1.217 L, with four bolts across two interfaces. The direct concept
-adds no wood and inventories two barrels, two machine bolts, and two head
-washers. This is a part-count/volume comparison, not a strength equivalence.
+gross volume **1,216,739.502 mm³**, with four bolts across two interfaces. The
+direct concept adds no wood and inventories two barrels, two 127 mm trial
+machine bolts, and two head washers. Each complete 127 mm bolt reaches 18.9 mm
+past its thread axis and 13.9 mm past the trial barrel's far surface. Those
+reach values do not establish effective thread engagement, clearance against
+bottoming, or bolt suitability. This is a part-count/volume comparison, not a
+strength equivalence or evidence that the cross-dowel is preferable.
 
 At the displayed package price, two barrels consume $2.99 of a four-pack and
 require a $5.98 initial checkout. Machine bolts, washers, correct lengths,
@@ -134,19 +157,24 @@ The direct concept requires +X end drilling plus barrel holes from opposite T
 faces; the longest wood path to a thread axis is 108.1 mm. Both intersecting
 bores require a positioning jig or equivalent controlled process.
 
-Assembly would cross-drill the two barrel entries, drill the two aligned +X
-paths, insert and orient both barrels, then install the two bolts and washers
-from the principal outside face. Removal uses accessible metal threads. Actual
-delivered fit, tool motion, wear, and repeat assembly are untested.
+An eventual assembly would require cross-drilling the two barrel entries,
+drilling the two aligned +X paths, inserting and orienting both barrels, then
+installing the two bolts and washers from the principal outside face. That is
+not a fabrication sequence or drilling instruction. Actual alignment,
+clearance, depth support, removal, delivered fit, tool motion, wear, and repeat
+assembly are unresolved or untested.
 
 ## CD-01 decision
 
-**Hold before CD-02.** The sole correction is nominally clear under explicit
-unverified sensitivity dimensions, so the basic geometry is not rejected.
+**Hold before CD-02.** The one recessed-centered pose is nominally clear under
+explicit unverified sensitivity dimensions, so the basic geometry is not
+rejected. Both complete purchased-screw proxy envelopes also clear
+conditionally, but physical clearance is not accepted.
 The exact 801914 listing lacks barrel geometry. The separate 817828 title
 confirms a 16 mm product length, but still lacks outside diameter, thread-axis
 position, tolerances, and a metal basis needed to establish alignment,
 remaining wood, or a supportable mechanics route. No PB-01 corner-block
 reaction is transferred to this changed topology, and neither named
-provisional scenario is reanalyzed. There is no structural verdict, hardware
-selection, or drilling release.
+provisional scenario is reanalyzed. The cross-dowel is not selected over the
+six-inch corner block. There is no structural verdict, hardware selection,
+purchase instruction, fabrication release, or drilling release.
