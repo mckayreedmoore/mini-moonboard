@@ -1,0 +1,42 @@
+{
+  "status": "Primary US product family dimensions; nominal geometry, not a machining tolerance or connection qualification",
+  "checked_date": "2026-09-12",
+  "product": "SPAX XFT08P-2000, #8 x 2 inch T-STAR Plus flat countersunk head",
+  "product_page": "https://spax.us/products/t-star-plus-flat-head-hcr-x",
+  "drawing": {
+    "url": "https://dxf82wtg340bb.cloudfront.net/resources/8-Flat-Head-Unidrive-and-T-Star-Plus-2D-11-5-21.pdf",
+    "drawing_number": "CP-XF_08",
+    "drawing_date": "2019-06-11",
+    "family": "#8 multi-purpose flat countersunk head, Unidrive and T-STAR Plus",
+    "sha256": "ad119b2dbfff8c6c55a230f3edc02d079e2cd9742120c578cdee139f5eb5e9d5",
+    "redistribution": "Link and extracted dimensions only; vendor drawing not redistributed"
+  },
+  "full_scale_family_drawing": "https://dxf82wtg340bb.cloudfront.net/resources/8-FLAT-HEAD-T-STAR-PLUS-Full-Scale.pdf",
+  "nominal": {
+    "included_head_angle_degrees": 90.0,
+    "head_diameter_mm": 8.128,
+    "shank_diameter_mm": 2.921,
+    "minor_thread_diameter_mm": 2.54,
+    "major_thread_diameter_mm": 4.1402,
+    "overall_length_from_head_top_mm": 50.8,
+    "thread_length_including_tip_mm": 31.496
+  },
+  "length_source": {
+    "url": "https://www.drjcertification.org/report/download/1936",
+    "report": "TER 2010-02, revision2025-11-04,Table2 XFT08P-2000",
+    "thread_includes_tapered_tip": true
+  },
+  "derived_geometry": {
+    "ideal_cone_depth_to_shank_mm": 2.6035,
+    "ideal_cone_depth_to_major_diameter_mm": 1.9939,
+    "nominal_thread_start_from_head_top_mm": 19.304
+  },
+  "limits": [
+    "US #8 family drawing states nominal dimensions without tolerances; delivered screw must match selected product.",
+    "Derived cone depths are geometric envelopes, not instructions to countersink wood to that depth.",
+    "Use matched90-degree tool and actual screw/offcut to set flush seat; do not overdrive or cut below face veneer unnecessarily.",
+    "Ribs, head/neck radii, thread transition and tapered tip require separate profile detail if resolved contact is needed.",
+    "New round candidate only; historical3mmcone is preserved as an unqualified visual hypothesis.",
+    "Lead holes are not required for this evaluated SPAX screw underTER9.5; head countersinking is a separate face preparation, not a full-shank pilot."
+  ]
+}
