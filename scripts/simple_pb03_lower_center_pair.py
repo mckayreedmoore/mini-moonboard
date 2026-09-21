@@ -281,7 +281,10 @@ def _build_station(
     rail_n_offset_mm=RAIL_N_OFFSET_MM,
     bolt_diameter_mm=BOLT_DIAMETER_MM,
     bore_diameter_mm=BORE_DIAMETER_MM,
+    block_length_mm=BLOCK_LENGTH_MM,
 ):
+    if not math.isfinite(block_length_mm) or block_length_mm <= 0:
+        raise ValueError("PB03 block length must be positive and finite")
     station = spec.station
     extension = spec.rail_extension_direction
     upright_name, rail_name = spec.upright_name, spec.rail_name
@@ -311,7 +314,7 @@ def _build_station(
         cq.Solid.makeBox(
             BLOCK_X_MM,
             BLOCK_T_MM,
-            BLOCK_LENGTH_MM,
+            block_length_mm,
             cq.Vector(block_x, 0, 0),
         )
         .rotate((0, 0, 0), (1, 0, 0), 50)
@@ -480,7 +483,7 @@ def _build_station(
         "rail_bore_n_offset_mm": rail_n_offset_mm,
         "bolt_diameter_mm": bolt_diameter_mm,
         "bore_diameter_mm": bore_diameter_mm,
-        "block_dimensions_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
+        "block_dimensions_mm": [BLOCK_X_MM, BLOCK_T_MM, block_length_mm],
         "contact_area_mm2": contact,
         "contact_verified": all(value > 0 for value in contact.values()),
         "complete_bores_by_bolt": complete_bores,
@@ -536,7 +539,7 @@ def _build_station(
         rail_name,
         spec.block_name,
         block,
-        BLOCK_LENGTH_MM,
+        block_length_mm,
         rb.xlen,
         tuple(bolts),
         stacks,

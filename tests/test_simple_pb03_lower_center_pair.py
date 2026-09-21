@@ -51,6 +51,29 @@ def test_pair_is_built_independently_from_actual_kerf_right_members(pair):
     assert left.block.Center().x < 0 < right.block.Center().x
 
 
+def test_detached_station_length_parameter_preserves_default(pair):
+    parts, finished, panels, _, _ = pb03._source_inventory()
+    left = pair[TARGET_STATIONS[0]]
+    short = pb03._build_station(
+        pb03.STATION_SPECS[TARGET_STATIONS[0]],
+        parts,
+        finished,
+        pb03._fixed_axis_solids(panels),
+        block_length_mm=152.4,
+    )
+    assert short.block_length_mm == short.report["block_dimensions_mm"][2] == 152.4
+    assert short.block.Volume() == pytest.approx(left.block.Volume() * 152.4 / 300)
+    assert [bolt.grip for bolt in short.bolts] == [bolt.grip for bolt in left.bolts]
+    with pytest.raises(ValueError, match="positive and finite"):
+        pb03._build_station(
+            pb03.STATION_SPECS[TARGET_STATIONS[0]],
+            parts,
+            finished,
+            pb03._fixed_axis_solids(panels),
+            block_length_mm=0,
+        )
+
+
 def test_each_station_has_four_complete_unselected_through_bolt_stacks(pair):
     names = set()
     for station in pair.values():
