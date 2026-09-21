@@ -35,8 +35,28 @@ class CurrentModule:
         return getattr(self.module, name)
 
     def wood_parts(self):
-        return tuple(p for p in self.module.parts()
-                     if p.name.startswith(('base_', 'lumber_leg_', 'main_', 'kicker_')))
+        supplier = getattr(self.module, 'current_response_wood_parts', None)
+        parts = (tuple(supplier()) if supplier is not None else
+                 tuple(p for p in self.module.parts()
+                       if p.name.startswith(('base_', 'lumber_leg_', 'main_', 'kicker_'))))
+        names = [part.name for part in parts]
+        if len(names) != len(set(names)):
+            raise ValueError('Current response wood parts require unique names')
+        return parts
+
+
+def additional_floor_member_names(module, by_name, floor_rails):
+    """Validate candidate-owned floor-bearing members outside legacy prefixes."""
+    names = tuple(getattr(module, 'FLOOR_BEARING_MEMBER_NAMES', ()))
+    if len(names) != len(set(names)):
+        raise ValueError('Additional floor-bearing member names must be distinct')
+    if any(name not in by_name or name.startswith(('main_', 'kicker_')) for name in names):
+        raise ValueError('Additional floor-bearing names must identify existing non-panel timber')
+    if any(name.startswith(('base_post_', 'lumber_leg_')) for name in names):
+        raise ValueError('Additional floor member already receives automatic foot support')
+    if set(names) & set(floor_rails):
+        raise ValueError('Additional floor member cannot also be a floor rail')
+    return names
 
 
 def directional_connector(structure, first, second, properties, name, owner):
@@ -546,6 +566,11 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             or any(name not in by_name or name.startswith(('base_post_', 'lumber_leg_')) for name in floor_rails)):
         raise ValueError('Floor rail names must identify distinct non-foot timber members')
     rail_samples = {name:floor_rail_samples(raw[name].shape, floor_rail_grid) for name in floor_rails}
+    extra_floor_members = additional_floor_member_names(module, by_name, floor_rails)
+    for name in extra_floor_members:
+        points = level_face_points(raw[name].shape, bottom=True)
+        planned[name].extend(points)
+        planned[name].append(np.mean(points, axis=0))
     for name, samples in rail_samples.items():
         if not np.allclose(by_name[name]['axis'], [0., 1., 0.], atol=1.e-8, rtol=0.):
             raise ValueError('Floor rail contact adapter requires positive Y grain')
@@ -579,7 +604,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
                          name,dofs=(3,),bearing=True)
         ownership[name] = {'first': first, 'second': second, 'point': point.tolist()}
     for r in records:
-        if r['name'].startswith(('base_post_','lumber_leg_')):
+        if r['name'].startswith(('base_post_','lumber_leg_')) or r['name'] in extra_floor_members:
             add_member_floor(structure, r['name'], ownership, raw[r['name']].shape, stiffnesses,
                              grid=leg_floor_grid if r['name'].startswith('lumber_leg_') else None)
         if r['name'] in rail_samples:
@@ -701,6 +726,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
         metadata['floor_rail_support'] = {'members':list(floor_rails), 'grid_yx':list(floor_rail_grid),
             'normal_penalty_per_body_n_per_mm':4.*stiffnesses['floor'],
             'scope':'Equal-area midpoint normal contacts at actual member stations; unchanged total normal penalty per body; centroid no-slip spring conditional on bearing. No floor property qualification.'}
+    if extra_floor_members:
+        metadata['extra_floor_bearing_members'] = list(extra_floor_members)
     if panel_cutout_records:
         metadata['native_panel_cutouts'] = panel_cutout_records
     metadata['hardware_mass_inventory'] = hardware_mass
