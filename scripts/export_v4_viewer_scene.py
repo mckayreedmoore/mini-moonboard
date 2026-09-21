@@ -22,15 +22,11 @@ from scripts.simple_center_pb02_geometry import (
     active_geometry,
 )
 from scripts.simple_pb03_lower_center_pair import (
-    ALL_TARGET_STATIONS,
-    BLOCK_LENGTH_MM,
-    BLOCK_T_MM,
-    BLOCK_X_MM,
     BORE_DIAMETER_MM,
     HEAD_NUT_DIAMETER_MM,
     WASHER_DIAMETER_MM,
 )
-from scripts.simple_pb03_native import PB03Native
+from scripts.simple_pb03_native import SOURCE_ID, PB03Native
 from scripts.simple_pb03_native import screen as screen_pb03_native
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -162,6 +158,9 @@ def _pb03_stack(station, bolt):
 def build_scene():
     baseline = json.loads(BASELINE.read_text())
     names = {part["name"] for part in baseline["parts"]}
+    pb03_module = PB03Native()
+    pb03_status = screen_pb03_native(pb03_module)
+    replaced_pb03_stations = tuple(pb03_status["replaced_legacy_stations"])
     fixed = [
         name
         for name in names
@@ -180,13 +179,11 @@ def build_scene():
         for name in names
         if any(
             name == station or name.startswith(f"fastener_{station}_")
-            for station in ALL_TARGET_STATIONS
+            for station in replaced_pb03_stations
         )
     )
-    if len(hidden_legacy_visuals) != 28:
-        raise ValueError(
-            "PB03 must hide exactly four angles and twenty-four SDS visuals"
-        )
+    if len(hidden_legacy_visuals) != 42:
+        raise ValueError("PB03 must hide exactly six angles and thirty-six SDS visuals")
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
     official_wood = {
@@ -244,9 +241,7 @@ def build_scene():
         hardware_stacks.append(_trial_stack(name, start, axes[-1]["axis"], length))
     pb02_stack_count = len(hardware_stacks)
 
-    pb03_module = PB03Native()
-    pb03_core = pb03_module._pair
-    pb03_status = screen_pb03_native(pb03_module)
+    pb03_core = pb03_module.pb03_geometries()
     if not pb03_status["geometry_gates_pass"]:
         raise ValueError("PB03 geometry no longer passes its committed visual source")
     for station, geometry in pb03_core.items():
@@ -256,7 +251,7 @@ def build_scene():
                 "station": "PB03",
                 "source_station": station,
                 "center_mm": list(geometry.block.Center().toTuple()),
-                "size_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
+                "size_mm": geometry.report["block_dimensions_mm"],
                 "rotation_x_deg": 50,
             }
         )
@@ -314,7 +309,7 @@ def build_scene():
         "pb03_block_count": len(pb03_core),
         "legacy_station_count": pb03_status["legacy_proxy_stations"],
         "legacy_sds_axis_count": pb03_status["legacy_sds_axes"],
-        "replaced_pb03_legacy_stations": list(ALL_TARGET_STATIONS),
+        "replaced_pb03_legacy_stations": list(replaced_pb03_stations),
         "fixed_panel_kicker_screw_axes": len(fixed),
         "total_connection_count": pb03_status["total_connections"],
         "bolt_kind_connection_count": pb03_status["total_bolt_connections"],
@@ -327,7 +322,7 @@ def build_scene():
         "fixed_panel_kicker_screw_axes": len(fixed),
         "pb02_variant_id": ACTIVE_TRIAL.variant_id,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
-        "pb03_source_commit": "74fba89",
+        "pb03_source_id": SOURCE_ID,
         "hidden_legacy_visual_names": hidden_legacy_visuals,
         "assembly_contract": assembly_contract,
         "hardware_stack_scope": (

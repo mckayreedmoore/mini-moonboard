@@ -1,21 +1,37 @@
-"""PB03 adapter for both lower-service pairs; no solve or release."""
+"""PB03 adapter for six converted service-rail stations; no solve or release."""
 
 from mini_moonboard.box_frame import Part
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_pb02_native import PB02Native
 from scripts.simple_pb03_lower_center_pair import (
-    ALL_BLOCK_NAMES,
-    ALL_TARGET_STATIONS,
+    ALL_BLOCK_NAMES as LOWER_BLOCK_NAMES,
+)
+from scripts.simple_pb03_lower_center_pair import (
+    ALL_TARGET_STATIONS as LOWER_TARGET_STATIONS,
+)
+from scripts.simple_pb03_lower_center_pair import (
     BLOCK_LENGTH_MM,
     build_core_slice,
     screen_core_slice,
 )
+from scripts.simple_pb03_upper_outer_pair import (
+    BLOCK_NAMES as UPPER_BLOCK_NAMES,
+)
+from scripts.simple_pb03_upper_outer_pair import (
+    TARGET_STATIONS as UPPER_TARGET_STATIONS,
+)
+from scripts.simple_pb03_upper_outer_pair import build_pair as build_upper_outer_pair
+from scripts.simple_pb03_upper_outer_pair import screen as screen_upper_outer_pair
+
+REPLACED_STATIONS = (*LOWER_TARGET_STATIONS, *UPPER_TARGET_STATIONS)
+BLOCK_NAMES = {**LOWER_BLOCK_NAMES, **UPPER_BLOCK_NAMES}
+SOURCE_ID = "pb03-lower-service-plus-upper-outer-v1"
 
 
 class PB03Native(PB02Native):
-    """PB02 plus four blocks and sixteen unselected through-bolt stacks."""
+    """PB02 plus six blocks and twenty-four unselected through-bolt stacks."""
 
-    KEY = "pb03-lower-service-core-development-only"
+    KEY = SOURCE_ID
     ACTIVE_FINGERPRINT = ACTIVE_FINGERPRINT
 
     def __init__(self):
@@ -26,13 +42,21 @@ class PB03Native(PB02Native):
         base_stations = tuple(PB02Native.stations(self))
         panel_names = {row.name for row in self.raw.panel_connections()}
         base_panels = tuple(row for row in base_connections if row.name in panel_names)
-        self._pair = build_core_slice(
-            parts={part.name: part.shape for part in base_parts},
-            finished_parts={part.name: part.shape for part in base_finished_parts},
-            panel_connections=base_panels,
-            stations=base_stations,
-            connections=base_connections,
-        )
+        source = {
+            "parts": {part.name: part.shape for part in base_parts},
+            "finished_parts": {part.name: part.shape for part in base_finished_parts},
+            "panel_connections": base_panels,
+            "stations": base_stations,
+            "connections": base_connections,
+        }
+        self._lower_service = build_core_slice(**source)
+        self._upper_outer = build_upper_outer_pair(**source)
+        self._pb03_geometries = {
+            **self._lower_service,
+            **self._upper_outer,
+        }
+        # Temporary compatibility for consumers predating the public accessor.
+        self._pair = self._lower_service
         self._blocks = tuple(
             Part(
                 geometry.block_name,
@@ -42,10 +66,12 @@ class PB03Native(PB02Native):
                 "hardware, resistance, drilling, and fabrication are unselected",
                 1,
             )
-            for geometry in self._pair.values()
+            for geometry in self._pb03_geometries.values()
         )
         self._pb03_bolts = tuple(
-            bolt for geometry in self._pair.values() for bolt in geometry.bolts
+            bolt
+            for geometry in self._pb03_geometries.values()
+            for bolt in geometry.bolts
         )
         self._base_connections = base_connections
         self._base_stations = base_stations
@@ -63,7 +89,7 @@ class PB03Native(PB02Native):
         retained = tuple(
             part
             for part in PB02Native.parts(self)
-            if part.name not in ALL_TARGET_STATIONS
+            if part.name not in REPLACED_STATIONS
         )
         return (*retained, *self._blocks)
 
@@ -72,49 +98,59 @@ class PB03Native(PB02Native):
             row
             for row in self._base_connections
             if not any(
-                row.name.startswith(f"{station}_")
-                for station in ALL_TARGET_STATIONS
+                row.name.startswith(f"{station}_") for station in REPLACED_STATIONS
             )
         )
         return (*retained, *self._pb03_bolts)
 
     def stations(self):
         return tuple(
-            row for row in self._base_stations if row[0] not in ALL_TARGET_STATIONS
+            row for row in self._base_stations if row[0] not in REPLACED_STATIONS
         )
 
     def legacy_proxy_stations(self):
         return tuple(row[0] for row in self.stations())
 
+    def pb03_geometries(self):
+        """Return the complete declared PB03 geometry without exposing internals."""
+        return dict(self._pb03_geometries)
+
 
 def screen(module=None):
     """Authenticate the exact bounded mutation and retain all no-release flags."""
     module = PB03Native() if module is None else module
-    pair = screen_core_slice(module._pair)
+    lower = screen_core_slice(module._lower_service)
+    upper = screen_upper_outer_pair(
+        module._upper_outer, lower_reference=module._lower_service
+    )
     connections = module.connections()
     stations = module.stations()
     panels = module.panel_connections()
     legacy_sds = sum(row.name.startswith("clip_") for row in connections)
     new_bolts = [row for row in connections if row.name.startswith("pb03_")]
     blocks = {part.name for part in module.uncut_wood_parts()} & set(
-        ALL_BLOCK_NAMES.values()
+        BLOCK_NAMES.values()
     )
     gates = (
-        pair["all_geometry_gates_pass"]
-        and len(stations) == 18
-        and legacy_sds == 108
-        and len(blocks) == 4
-        and len(new_bolts) == 16
+        lower["all_geometry_gates_pass"]
+        and upper["all_geometry_gates_pass"]
+        and upper["all_lower_family_collision_gates_pass"]
+        and len(stations) == 16
+        and legacy_sds == 96
+        and len(blocks) == 6
+        and len(new_bolts) == 24
         and len(panels) == 66
-        and len(connections) == 202
-        and sum(row.kind == "bolt" for row in connections) == 28
-        and not ({row[0] for row in stations} & set(ALL_TARGET_STATIONS))
+        and len(connections) == 198
+        and sum(row.kind == "bolt" for row in connections) == 36
+        and not ({row[0] for row in stations} & set(REPLACED_STATIONS))
     )
     if not gates:
-        raise ValueError("PB03 lower-service inventory or geometry gate changed")
+        raise ValueError("PB03 composed service inventory or geometry gate changed")
     return {
         "schema": "simple_pb03_native/v1",
+        "pb03_source_id": SOURCE_ID,
         "pb02_source_fingerprint": module.ACTIVE_FINGERPRINT,
+        "replaced_legacy_stations": list(REPLACED_STATIONS),
         "legacy_proxy_stations": len(stations),
         "legacy_sds_axes": legacy_sds,
         "new_timber_blocks": len(blocks),
@@ -122,6 +158,11 @@ def screen(module=None):
         "fixed_panel_kicker_axes": len(panels),
         "total_connections": len(connections),
         "total_bolt_connections": sum(row.kind == "bolt" for row in connections),
+        "lower_service_geometry_gates_pass": lower["all_geometry_gates_pass"],
+        "upper_outer_geometry_gates_pass": upper["all_upper_pair_geometry_gates_pass"],
+        "cross_family_collision_gates_pass": upper[
+            "all_lower_family_collision_gates_pass"
+        ],
         "geometry_gates_pass": True,
         "exact_retail_hardware_selected": False,
         "qualified_for_design": False,
