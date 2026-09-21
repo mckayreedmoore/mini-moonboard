@@ -1,6 +1,6 @@
 # PB03 service-rail geometry core
 
-Status at `1b027d13`: **geometry gates pass; development only.** The PB03
+Status through `8d5f2f0c`: **REVISE; development only.** The active PB03
 adapter replaces these eight historical angle duties:
 
 - `clip_horizontal_lower_left_2`;
@@ -46,9 +46,26 @@ ten stacks, one outward-shifted center support, both supported inner kicker
 edges, and geometry fingerprint
 `4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb`.
 
-The 228.6 mm outer grip is a geometric stack input, not a selected bolt length.
-Exact retail bolts, washers, nuts, threads, orientations, and tolerances remain
-unresolved. No resistance result has been transferred to the PB03 service-rail
-stations. No drilling instruction, fabrication release, or structural acceptance follows
-from this slice. Fourteen legacy stations remain, so this is not the final
-frame.
+## Retained first-case evidence
+
+The retained eight-station `a12-forward` native case was accepted numerically.
+Its largest simultaneous PB03 actions were 110.400 N transverse shear and
+54.929 N axial tension. Separate conditional component screens gave a maximum
+ratio of 0.231. These are first-case development results, not a complete joint
+verdict, and the component capacities were not combined.
+
+The active 1/4-inch geometry fails the loaded-edge check at the two upper-outer
+stations. A detached prototype moves only those upper-outer rail bores from
+125 mm to 111.3 mm. It provides 28.4 mm loaded-edge distance and 3.0 mm nominal
+reserve while passing the bounded eight-station and 66 fixed-axis collision
+checks. That prototype is not active geometry.
+
+The detached 3/8-inch geometry fails loaded-edge checks at all eight stations.
+The 228.6 mm outer grip remains a geometric stack input, not a selected bolt
+length. An exact ordinary factory 1/4-20 x 10-inch bolt from Lowe's or Home
+Depot remains unverified. A counterbore revision intended to use an available
+8-inch Everbilt lead is still under evaluation and is not active.
+
+The verdict remains **REVISE**. No purchase, drilling, fabrication, design, or
+structural release follows from this evidence. Fourteen legacy stations remain,
+so this is not the final frame.

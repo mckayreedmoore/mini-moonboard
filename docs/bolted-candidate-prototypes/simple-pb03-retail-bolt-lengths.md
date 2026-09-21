@@ -1,6 +1,6 @@
 # PB03 retail bolt-length geometry lead
 
-Status: **geometry lead only; no structural selection.** This note converts the
+Status through `8d5f2f0c`: **REVISE; development only.** This note converts the
 current PB03 wood-grip envelopes into nominal retail bolt lengths. It does not
 qualify a bolt, nut, washer, timber connection, or completed joint.
 
@@ -118,12 +118,11 @@ performance, or complete PB03 joint capacity.
 
 The active PB03 geometry uses 6.35 mm modeled shafts and 7.5 mm bores. The
 3/8-inch retail leads above are 9.525 mm in diameter and therefore do not fit
-that active geometry. The separate eight-station 3/8-inch screen uses ordinary
+that active geometry. The detached eight-station 3/8-inch screen uses ordinary
 7/16-inch (11.1125 mm) bores and preserves the existing block positions and
-panel screws. It clears the bounded collision checks, but its nominal unloaded
-edge margin is only 0.4125 mm and its possible loaded-edge margin is negative.
-Load direction and tolerance remain open; that screen does not select the
-larger diameter.
+panel screws. It clears the bounded collision checks, but the retained
+`a12-forward` directions fail the loaded-edge check at all eight stations. That
+screen does not select the larger diameter.
 
 Ordinary 1/4-20 hardware can retain the active bore geometry for the shorter
 grips:
@@ -144,11 +143,30 @@ the 9-inch outer-upright grip, while the 3/8-inch family does not yet close the
 loaded-edge geometry. Online sale or shipping stock is not a promise of local
 shelf inventory.
 
+## Eight-station evidence and detached revisions
+
+The retained eight-station `a12-forward` native case was accepted numerically.
+Its largest simultaneous PB03 actions were 110.400 N transverse shear and
+54.929 N axial tension. Separate conditional component screens gave a maximum
+ratio of 0.231; capacities were not combined. The active 1/4-inch geometry
+nevertheless fails its loaded-edge check at the two upper-outer stations.
+
+A detached prototype changes only the upper-outer rail-bore offset from 125 mm
+to 111.3 mm. It gives 28.4 mm loaded-edge distance and 3.0 mm nominal reserve,
+and passes the bounded eight-station and 66 fixed-axis collision checks. It is
+not active geometry.
+
+Home Depot Everbilt model 800696 remains an ordinary 1/4-20 x 8-inch A307 lead,
+but it does not span the active 9-inch outer-upright wood grip. A counterbore
+revision intended to reduce that grip is still under evaluation. It is not an
+active detail and does not select the 8-inch bolt.
+
 ## Release boundary
 
-The length leads remain a 5-inch bolt for each 3.75-inch rail stack and a
-10-inch bolt for each 9-inch outer-upright stack. No one diameter currently
-closes both the modeled wood geometry and the ordinary-retail length inventory.
-These are not structural selections or purchasing recommendations. No
-purchase, drilling, fabrication, construction, or structural release follows
-from this note.
+The nominal length needs remain 5 inches for each 3.75-inch rail stack and
+10 inches for each active 9-inch outer-upright stack. The exact ordinary
+factory 1/4-20 x 10-inch bolt remains unverified at Lowe's and Home Depot. No
+one diameter currently closes both the modeled wood geometry and ordinary
+retail inventory. The verdict remains **REVISE**. These are not structural
+selections or purchasing recommendations. No purchase, drilling, fabrication,
+design, construction, or structural release follows from this note.
