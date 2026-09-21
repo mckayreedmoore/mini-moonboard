@@ -1,6 +1,7 @@
 # Bolted candidate: active V4 simple-timber-joint plan
 
-Status through PB04 at `ee34a65a`: **PB-02 ADVANCE for development only;
+Status at `96f6892f`: **PB-02 ADVANCE for development only; PB06 has ten
+geometrically modeled stations but twelve legacy angle/SDS duties remain.
 G1 remains open; no cutting, drilling, fabrication, or structural release.** This plan
 implements the owner's V4
 direction for the separate `compact-floor-flush-bolted-development` lane. It supersedes the
@@ -55,14 +56,18 @@ extension, and ratchet rather than assuming clearance from a generic cylinder.
   **ADVANCE** decision, but PB-02 has not passed G1.
 - **PB-03 — physical geometry:** build one coherent kerf-right CAD assembly with full hardware
   stacks, receivers, no unintended SDS path, and an individual-member transport sequence. This
-  remains open. Eight rail stations are geometrically converted, but 14 legacy
-  connector stations remain and no coherent final all-bolted frame exists.
+  remains open. PB05 has eight service-rail stations; PB06 adds the upper-center pair and
+  retains twelve legacy connector stations. PB05's first-case signed rail-hole screen found
+  six end/edge misses. A detached 1 mm X and upper-row N revision passes nominal geometry
+  only; it is not yet in PB06 native geometry or an accepted new load case.
 - **PB-04 — G2 analysis inputs:** complete applicable 2024 NDS local checks, contact and stiffness
   inputs, and all 36 criteria without waiving their safety questions. This remains open and G2
   has not been reached or passed.
 - **PB-05 — candidate evidence:** run all six required cases on one frozen candidate, including
   the forward case, then reconcile convergence and resistance. Six PB02 center cases are accepted
-  on a partial frame; they are not final all-bolted-frame cases and do not close PB-04 or G1.
+  on a partial frame. One source-bound PB05 A12-forward case is numerically accepted and
+  archived; its local extraction is diagnostic, and the PB06 first-case runner is prepared
+  but unrun. None is a final all-bolted-frame case or closes PB-04 or G1.
 - **PB-06 — owner decision packet:** deliver costed stock, cut, drill, hardware, and assembly
   records plus independent review and explicit physical receiving checks. This remains open and
   cannot release work before PB-03 and PB-04 close.
@@ -77,8 +82,10 @@ framework.
 The [direct barrel-nut trial](bolted-candidate-prototypes/simple-pb01-cross-dowel-trial.md)
 is **PARKED**, not selected or rejected. A named permitted-retailer steel part is nominally close
 to the modeled barrel, but its thread location/engagement and strength basis do not yet support
-the direct joint. Its recorded reopening trigger is bounded; it does not delay the corner-block
-family.
+the direct joint. The
+[bounded continuation](bolted-candidate-prototypes/cross-dowel-continuation.md)
+checks the exact recessed-centered pose and records the missing SKU-linked thread and barrel
+resistance evidence. Its reopening trigger does not delay the corner-block family.
 
 Purchased cost includes full bolt, nut, and washer stacks, changed timber, retained factory
 brackets if any, tooling and consumables, and known delivery and tax. Unknown prices stay
@@ -321,7 +328,19 @@ outer solids and two unchanged centers as a separate fingerprinted source. Its
 [mechanics preparation](../scripts/simple_pb05_native_mechanics.py) owns 32 new bolt rows
 and 64 face-contact cells, with 66 fixed panel/kicker axes, twelve original frame-bolt
 axes, and fourteen legacy connector duties still present. Six focused source/mechanics
-tests pass. No PB05 load case has been solved; these row counts are not joint capacities.
+tests pass. The
+[A12-forward diagnostic](../fea/results/diagnostics/pb05-eight-station-a12-forward-v1/)
+is numerically accepted for PB05 only. Its
+[local extraction](../scripts/simple_pb05_first_case_demand.py)
+finds six signed outer rail-hole end/edge misses. A
+[detached hole-placement revision](bolted-candidate-prototypes/simple-pb05-outer-rail-revision.md)
+passes nominal geometry under the old force directions, but needs a new native solve and
+complete joint checks; row counts and one case are not joint capacities.
+
+[PB06 geometry](../scripts/simple_pb06_upper_center_native.py) converts two upper-center
+legacy duties and retains twelve. Its
+[mechanics preparation](../scripts/simple_pb06_upper_center_mechanics.py)
+and [first-case runner](../scripts/simple_pb06_diagnostic_run.py) are source-bound but unrun.
 
 A [detached eight-block short-stock screen](../scripts/simple_pb05_short_block_screen.py)
 also finds a common 152.4 mm length geometrically clear for the six narrow outers and two
@@ -335,9 +354,9 @@ replace the 300 mm development blocks.
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
 envelope support continued work on this architecture. They do not establish G2, final all-bolted
-frame geometry, drilling, fabrication, construction, or structural acceptance. The current
-PB03 development adapter still retains **14 legacy angle and SDS connector stations** outside
-the converted service-rail core.
+frame geometry, drilling, fabrication, construction, or structural acceptance. PB05 retains
+**14 legacy angle/SDS duties**; the later PB06 geometry retains **12**. Neither is a finished
+all-bolted frame.
 
 PB-04 must still resolve three-dimensional crossed-bore stress concentration and nearby-hole
 interaction, the inclined
