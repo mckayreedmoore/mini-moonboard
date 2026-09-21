@@ -1,0 +1,86 @@
+# PB-02 connected center: conditional point-model kinematics
+
+The current center loop has **no relative infinitesimal mode if every modeled
+face contact is closed**. That is a conditional kinematic result, not a
+complete frame proof, load path acceptance, joint rating, or drilling release.
+Opening contacts can restore modes. The [script](../../scripts/simple_center_connected_kinematics.py)
+reproduces the ranks below.
+
+## Source geometry and graph
+
+This combines the `shorter_8in_trial` in
+[`simple_center_post_header_two_bolt_probe.py`](../../scripts/simple_center_post_header_two_bolt_probe.py)
+with the [current tolerance pose](../../scripts/simple_center_second_bolt_tolerance_probe.py)
+and its unchanged principal-side one-bolt bores. The return path follows the
+inherited `post_low`, `post_high`, `cleat_link`, and `upright` bores in
+[`simple_center_combined_cleats_probe.py`](../../scripts/simple_center_combined_cleats_probe.py)
+and the current pose. Global coordinates are millimeters.
+
+| Edge (members) | Face normal | Bolt-axis center(s) |
+| --- | --- | --- |
+| post–post block | X | (177.65, −145, 145), (177.65, −145, 180) |
+| post block–header | Z | (208.35, −130, 238.9), (235.85, −130, 238.9) |
+| header–principal block | Z | (15.475, −139, 277) |
+| principal block–right principal | X | (50.95, −95, 312.5) |
+| right principal–upright block | X | (50.95, −135, 360) |
+| upright block–rear block | Y | (133.5, −166.35, 370) |
+| rear block–post | Y | (140, −150.3, 110), (140, −150.3, 190) |
+
+The last two Y coordinates are midpoints of the source bore's modeled wood
+span; shifting a point along its normal does not alter its normal-row moment
+arm. The graph is a seven-body cycle. The old displaced center clips are not
+included. Panels, screws, floor, rails, opposite-side center, and other frame
+members are also outside this small graph. The return path is included as a
+conditional bolted path; its face contact and load transfer have not been
+verified for a signed load case.
+
+Each timber is one rigid body with six infinitesimal degrees of freedom. At
+each bolt center, the point model has two lateral constraints and, when
+selected, one axial constraint. An open face contributes no rows. A closed
+frictionless face contributes only four illustrative normal rows at
+non-collinear points 20 mm from its bolt-group center. These rows suppress
+normal separation and face rocking in a closed linearized state but offer no
+face shear or frictional torque. Their 20 mm spans are rank devices, not
+measured bearing patches or a pressure solution. A single axial row is an
+optimistic engaged tensile/axial state; `axial off` removes all axial rows.
+Actual bolt axial engagement is unilateral and may differ by bolt. Contact
+must have nonnegative compression pressure and a compatible gap; the rank
+calculation does not solve those complementarity or equilibrium conditions.
+
+## Rank results
+
+The post is fixed only as a coordinate reference. There are 36 remaining
+relative degrees of freedom across six other bodies. Matrix rank uses point
+velocity constraints with rotations scaled by 100 mm.
+
+| Contact state | Axial bolt rows | Rank / 36 | Free relative modes |
+| --- | --- | ---: | ---: |
+| All seven faces closed | on | 36 | 0 |
+| All seven faces closed | off | 36 | 0 |
+| One face open, other six closed (any edge) | on | 36 | 0 |
+| One face open, other six closed (any edge) | off | 35 | 1 |
+| Both principal-block faces open, other five closed | on | 34 | 2 |
+| Four main-path faces closed, three return-path faces open | on / off | 33 / 29 | 3 / 7 |
+| All seven faces open | on / off | 27 / 17 | 9 / 19 |
+
+With the inherited return path removed and the four main-path faces closed,
+the post-anchored serial chain has **two** free relative modes. These are the
+isolated face-normal twists at the two principal-side one-bolt interfaces.
+The closed return loop eliminates them in this ideal point model. With the
+post unfixed, the fully closed assembly has six additional rigid-body modes;
+these describe arbitrary motion of the entire center, not internal freedom.
+Fixing the post does **not** establish a floor anchor or a globally braced
+frame. A real boundary model could add or remove effective restraints through
+the rest of the frame, floor contact, and applied loads.
+
+The rank result does not assign force or moment to any bolt. In particular,
+the closed loop could need torsion or axial action at a one-bolt edge for a
+given load case. Whether all assumed contacts can remain closed, which bolt
+axial rows engage, actual load split, and joint/member resistance all require
+a same-configuration equilibrium/contact and strength analysis. This study
+does not select a second principal-side bolt or claim that one is unnecessary
+for the finished frame. No strength verdict follows.
+
+Reproduce with `.venv/bin/python -m scripts.simple_center_connected_kinematics`
+and `.venv/bin/python -m pytest -q
+tests/test_simple_center_connected_kinematics.py`.

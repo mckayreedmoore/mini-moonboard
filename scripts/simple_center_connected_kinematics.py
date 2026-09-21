@@ -1,0 +1,161 @@
+"""Small-displacement point-constraint rank of the current PB-02 center loop."""
+
+import json
+
+import numpy as np
+
+from scripts.simple_center_post_header_two_bolt_probe import VARIANTS
+from scripts.simple_center_second_bolt_tolerance_probe import POSE
+
+# Coordinates are global millimeters. The first four edges use the current
+# shorter_8in_trial and tolerance-pose bores. The return path uses the inherited
+# post_low/high, cleat_link, and upright bores in the same pose.
+NODES = (
+    "post",
+    "post_block",
+    "header",
+    "principal_block",
+    "principal",
+    "upright_block",
+    "rear_block",
+)
+POST_BOTTOM, POST_Y, POST_Z, HEADER_X = VARIANTS["shorter_8in_trial"]
+EDGES = {
+    "post_block": (
+        "post",
+        "post_block",
+        (1, 0, 0),
+        [(177.65, POST_Y, z) for z in POST_Z],
+    ),
+    "block_header": (
+        "post_block",
+        "header",
+        (0, 0, 1),
+        [(x, -130, 238.9) for x in HEADER_X],
+    ),
+    "header_principal_block": (
+        "header",
+        "principal_block",
+        (0, 0, 1),
+        [(15.475, POSE.vertical_y, 277)],
+    ),
+    "principal_block_principal": (
+        "principal_block",
+        "principal",
+        (1, 0, 0),
+        [(50.95, -95, POSE.cross_z)],
+    ),
+    "principal_upright_block": (
+        "principal",
+        "upright_block",
+        (1, 0, 0),
+        [(50.95, POSE.upright_y, POSE.upright_z)],
+    ),
+    "upright_rear_block": (
+        "upright_block",
+        "rear_block",
+        (0, 1, 0),
+        [(POSE.link_x, -166.35, 370)],
+    ),
+    "rear_block_post": (
+        "rear_block",
+        "post",
+        (0, 1, 0),
+        [(140, -150.3, z) for z in (110, 190)],
+    ),
+}
+ORIGIN = np.array((140.0, -140.0, 270.0))
+ROTATION_SCALE_MM = 100.0
+
+
+def _point_row(first, second, direction, point):
+    """Relative point velocity in one direction; rotations use 100-mm scaling."""
+    direction = np.asarray(direction, dtype=float)
+    lever = (np.asarray(point, dtype=float) - ORIGIN) / ROTATION_SCALE_MM
+    local = np.r_[direction, np.cross(lever, direction)]
+    row = np.zeros(6 * len(NODES))
+    for node, sign in ((first, -1), (second, 1)):
+        start = 6 * NODES.index(node)
+        row[start : start + 6] += sign * local
+    return row
+
+
+def matrix(*, closed=(), axial=True, return_path=True, anchor_post=True):
+    """Closed faces supply four normal rows; open faces supply none."""
+    rows = []
+    for name, (first, second, normal, bolts) in EDGES.items():
+        if not return_path and name in (
+            "principal_upright_block",
+            "upright_rear_block",
+            "rear_block_post",
+        ):
+            continue
+        n = np.asarray(normal, dtype=float)
+        tangents = [axis for axis in np.eye(3) if abs(axis @ n) < 0.5]
+        for point in bolts:
+            rows.extend(
+                _point_row(first, second, tangent, point) for tangent in tangents
+            )
+            if axial:
+                rows.append(_point_row(first, second, n, point))
+        if name in closed:
+            center = np.mean(bolts, axis=0)
+            for a in (-20.0, 20.0):
+                for b in (-20.0, 20.0):
+                    point = center + a * tangents[0] + b * tangents[1]
+                    rows.append(_point_row(first, second, n, point))
+    # Fixing the post removes six arbitrary whole-assembly rigid motions only.
+    anchored = np.asarray(rows)[:, 6:] if anchor_post else np.asarray(rows)
+    if not return_path:
+        anchored = anchored[:, : 6 * (4 if anchor_post else 5)]
+    return anchored
+
+
+def nullity(*, closed=(), axial=True, return_path=True, anchor_post=True):
+    mat = matrix(
+        closed=closed, axial=axial, return_path=return_path, anchor_post=anchor_post
+    )
+    rank = int(np.linalg.matrix_rank(mat, tol=1e-9))
+    return {"rank": rank, "relative_dof": mat.shape[1] - rank}
+
+
+def screen():
+    names = tuple(EDGES)
+    return {
+        "nodes": NODES,
+        "edges": {
+            name: {"members": edge[:2], "normal": edge[2], "bolt_centers_mm": edge[3]}
+            for name, edge in EDGES.items()
+        },
+        "post_anchored": {
+            "all_faces_closed_axial_on": nullity(closed=names),
+            "all_faces_closed_axial_off": nullity(closed=names, axial=False),
+            "all_faces_open_axial_on": nullity(),
+            "all_faces_open_axial_off": nullity(axial=False),
+            "principal_faces_open_axial_on": nullity(closed=names[:2] + names[4:]),
+            "main_faces_closed_return_faces_open_axial_on": nullity(closed=names[:4]),
+            "main_faces_closed_return_faces_open_axial_off": nullity(
+                closed=names[:4], axial=False
+            ),
+            "one_face_open_axial_on": {
+                name: nullity(closed=tuple(other for other in names if other != name))
+                for name in names
+            },
+            "one_face_open_axial_off": {
+                name: nullity(
+                    closed=tuple(other for other in names if other != name), axial=False
+                )
+                for name in names
+            },
+            "serial_only_closed_axial_on": nullity(closed=names, return_path=False),
+        },
+        "free_assembly_all_faces_closed_axial_on": nullity(
+            closed=names, anchor_post=False
+        ),
+        "contact_and_axial_rows_are_conditional": True,
+        "strength_or_frame_verdict": False,
+    }
+
+
+if __name__ == "__main__":
+    print(json.dumps(screen(), indent=2))
