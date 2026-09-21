@@ -2,10 +2,18 @@
 
 import hashlib
 import json
+from pathlib import Path
 
 import pytest
 
 from scripts import bolted_center_diagnostic_packet as packet
+
+REFERENCE_MANIFEST = Path(
+    "docs/bolted-candidate-prototypes/center-reference-diagnostic.json"
+)
+ARCHIVED_MODEL_SHA256 = (
+    "e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce"
+)
 
 
 def make_case(root, series, case, accepted):
@@ -74,6 +82,35 @@ def make_case(root, series, case, accepted):
     }
     (folder / "report.json").write_text(json.dumps(report))
     return folder
+
+
+@pytest.mark.parametrize(
+    "case",
+    ("a1-rear", "a12-left", "a12-rear", "k12-rear", "k12-right"),
+)
+def test_accepted_reference_preserves_archived_identity(case):
+    manifest = json.loads(REFERENCE_MANIFEST.read_text())
+    reference = next(
+        row for row in manifest["accepted_default_v2"] if row["case"] == case
+    )
+    source = reference["source"]
+    report_path = Path(source["report"])
+    record_path = Path(source["record"])
+    report = json.loads(report_path.read_text())
+
+    assert hashlib.sha256(report_path.read_bytes()).hexdigest() == source[
+        "report_sha256"
+    ]
+    assert hashlib.sha256(record_path.read_bytes()).hexdigest() == source[
+        "record_sha256"
+    ]
+
+    record_relative = record_path.relative_to(report_path.parent).as_posix()
+    assert report["artifact_sha256"][record_relative] == source["record_sha256"]
+    assert (
+        report["source_sha256"]["fea/current_response_model.py"]
+        == ARCHIVED_MODEL_SHA256
+    )
 
 
 def test_accepted_uses_final_record_and_both_center_sides(tmp_path, monkeypatch):

@@ -17,6 +17,12 @@ the SHA-256 values recorded in `center-reference-diagnostic.json`. The five
 cases are `a1-rear`, `a12-left`, `a12-rear`, `k12-rear`, and `k12-right`.
 There is no accepted `a12-forward` case.
 
+Those retained reports were produced with archived `fea/current_response_model.py`
+SHA-256 `e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce`.
+The current shared model contains opt-in candidate extensions and is not byte-identical.
+Historical identity is verified from the retained report and source hashes; separate
+default-path and candidate-opt-in tests verify current compatibility.
+
 The fixture retains both simultaneous complete old-interface wrenches:
 
 - old right principal/header action maps to PB02 `principal`;
