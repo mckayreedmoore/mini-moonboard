@@ -4,24 +4,25 @@ One bounded bolted solid-wood corner-block revision has a nominal collision fit 
 conditional 4D/7D placement margins at the latest PB-02 tolerance pose. This
 is a geometry result, not a joint rating or drilling instruction.
 
-The probe tests five named variants: the reference block with trial second
-bolts, a longer block, relocated pairs, a 5-mm-forward post pair, and a
-balanced header pair. It does not optimize continuously. The principal-side block,
+The probe tests six named variants: the reference block with trial second
+bolts, a longer block, relocated pairs, a 5-mm-forward post pair, a balanced
+header pair, and a shorter block intended to admit an ordinary 8-in bolt
+stack. It does not optimize continuously. The principal-side block,
 header, shifted right post, backer, other cleats, panel outlines, and all 66
 fixed panel/kicker axes retain the tolerance-pose geometry.
 
-The best-screened block is one rectangular piece, X=177.65…266.55,
-Y=−175.7…−86.8, Z=75…238.9 mm (88.9 × 88.9 × 163.9 mm), with grain in Z.
-Its lower face is 35 mm below the earlier block; its upper face still meets
+The shortest fitting trial block is one rectangular piece, X=177.65…266.55,
+Y=−175.7…−86.8, Z=95…238.9 mm (88.9 × 88.9 × 143.9 mm), with grain in Z.
+Its lower face is 15 mm below the earlier reference block; its upper face still meets
 the original header underside. Ordinary square cuts suffice. It has no
 pocket, lap, or steel fitting.
 
 | Serial face | Two full bore axes, global mm | Nominal wood grip |
 | --- | --- | ---: |
-| Post to block, X direction | Y=−145; Z=130 and 180; X=88.75…266.55 | 177.8 mm each |
-| Block to header, Z direction | X=208.35 and 235.85; Y=−130; Z=75…277 | 202 mm each |
+| Post to block, X direction | Y=−145; Z=145 and 180; X=88.75…266.55 | 177.8 mm each |
+| Block to header, Z direction | X=208.35 and 235.85; Y=−130; Z=95…277 | 182 mm each |
 
-The first post/block bolt moves from Y=−150/Z=160 to Y=−145/Z=130 mm; the
+The first post/block bolt moves from Y=−150/Z=160 to Y=−145/Z=145 mm; the
 first block/header bolt moves from X=222.1 to 208.35 mm. The other bolt
 centers also change. These are **changed bolts**, not inherited
 acceptance. The probe rebuilds and checks their full bores and exposed-end
@@ -30,16 +31,20 @@ bores. The post-low/high, upright, link, header/principal-block, and
 principal-block/principal axes remain at the tolerance pose. There are ten
 full intended bores in this screen.
 
-The post pair has 50 mm center spacing (+24.6 mm over conditional 4D). The
+The post pair has 35 mm center spacing (+9.6 mm over conditional 4D). The
 balanced vertical pair has 27.5 mm spacing (**+2.1 mm** over 4D). All measured
 box-boundary 4D transverse and 7D grain-end markers are positive. The
 tightest conditional edge/end reserve is **+5.3 mm**: the post bolts have
 30.7 mm to the post rear Y edge, and the first vertical bolt has 30.7 mm
-to the block left X edge, each against 4D=25.4 mm. The upper post bolt
-has 58.9 mm to the post/block top grain ends (+14.45 mm over 7D=44.45 mm).
+to the block left X edge, each against 4D=25.4 mm. The lower post bolt
+has 50 mm to the new block bottom (+5.55 mm over 7D=44.45 mm); the upper
+has 58.9 mm to the post/block top grain ends (+14.45 mm).
 The earlier relocated-pairs variant had only +0.3 mm minimum; moving only
 the post pair forward raised that to +1.95 mm. The balanced trial improves
-edge/end reserve but narrows its vertical bolt-pitch reserve. These are
+edge/end reserve but narrows its vertical bolt-pitch reserve. Raising the
+block bottom from Z=75 to 95 mm and moving the lower post bolt to Z=145
+retains the same 5.3-mm minimum edge/end marker while shortening both
+vertical grips by 20 mm. These are
 nominal distances without a demonstrated cut, drill, or stock tolerance
 budget. The header's grain-X ends are remote;
 the principal's oblique grain/end remains unclassified.
@@ -57,9 +62,11 @@ hardware is included in the insertion screen. The fixed 48 panel and 18
 kicker axes remain clear; both inner kicker edges remain supported. The
 unchanged tolerance-pose screen supplies their receiver checks.
 
-The 202 mm vertical wood grip requires a bolt stack longer than the wood
-alone; a nominal 8-in (203.2-mm) bolt leaves only 1.2 mm before washer,
-nut, tip and thread requirements. No longer retail lead has been selected.
+The 182 mm vertical wood grip leaves **21.2 mm** on a nominal 8-in
+(203.2-mm) bolt before washers, nut, tip and thread requirements. That is
+only a length arithmetic lead; no exact 8-in SKU stack is selected. The
+earlier 202-mm grip left just 1.2 mm and cannot use an 8-in stack under
+ordinary washer/nut allowance assumptions.
 The 35 mm insertion extension is only a geometric allowance. Delivered bolt
 length, thread start, washers, nut engagement,
 actual insertion order, socket drive and swing, and installed access need a

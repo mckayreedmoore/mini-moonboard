@@ -11,6 +11,7 @@ def test_named_variants_recheck_complete_assembly():
         "relocated_pairs",
         "post_axis_forward_5",
         "balanced_pair_5",
+        "shorter_8in_trial",
     }
     assert result["fixed_axes"] == {"panel": 48, "kicker": 18}
     assert result["fixed_screw_axes_checked"] == 66
@@ -56,5 +57,15 @@ def test_balanced_pair_has_five_mm_conditional_edge_reserve():
 
     candidate = _candidate(VARIANTS["balanced_pair_5"])
     assert candidate["post_axis_y_mm"] == -145
+    assert candidate["minimum_conditional_edge_end_margin_mm"] >= 5
+    assert candidate["nominal_geometry"] == "feasible"
+
+
+def test_shorter_block_retains_group_fit_with_182_mm_vertical_grip():
+    from scripts.simple_center_post_header_two_bolt_probe import VARIANTS, _candidate
+
+    candidate = _candidate(VARIANTS["shorter_8in_trial"])
+    assert candidate["block_bounds_mm"][-2] == 95
+    assert candidate["vertical_wood_grip_mm"] == 182
     assert candidate["minimum_conditional_edge_end_margin_mm"] >= 5
     assert candidate["nominal_geometry"] == "feasible"

@@ -20,6 +20,7 @@ VARIANTS = {
     "relocated_pairs": (75, -150, (130, 180), (205, 235)),
     "post_axis_forward_5": (75, -145, (130, 180), (205, 235)),
     "balanced_pair_5": (75, -145, (130, 180), (208.35, 235.85)),
+    "shorter_8in_trial": (95, -145, (145, 180), (208.35, 235.85)),
 }
 INSERTION_ALLOWANCE = 35.0  # Illustrative protrusion beyond wood grip.
 
@@ -229,6 +230,7 @@ def _candidate(config):
     return {
         "block_bounds_mm": [177.65, 266.55, -175.7, -86.8, bottom, 238.9],
         "post_axis_y_mm": post_y,
+        "vertical_wood_grip_mm": 277 - bottom,
         "post_axis_z_mm": post_z,
         "vertical_axis_x_mm": vertical_x,
         "new_bores": list(bores)[-4:],
