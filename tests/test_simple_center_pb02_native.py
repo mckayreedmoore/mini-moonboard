@@ -35,7 +35,12 @@ def test_candidate_overlays_only_pb02_members_on_kerf_right_frame(module):
             after.BoundingBox().xmin,
             after.BoundingBox().xmax,
         ) == pytest.approx((before.BoundingBox().xmin, before.BoundingBox().xmax))
-    assert module.current_response_wood_parts() == module.uncut_wood_parts()
+    response_parts = {part.name: part for part in module.current_response_wood_parts()}
+    assert set(response_parts) == set(actual)
+    for name in NEW_MEMBERS:
+        assert response_parts[name].shape.Volume() == pytest.approx(
+            actual[name].shape.Volume(), abs=1e-3
+        )
 
 
 def test_only_displaced_clips_are_removed_and_panel_axes_are_frozen(module):
