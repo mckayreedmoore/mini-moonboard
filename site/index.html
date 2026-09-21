@@ -264,7 +264,7 @@
       modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       lumberModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
-      modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB04 partial 3D scene', 'bolted-v4-development'));
+      modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB04 center + PB05 outer scene', 'bolted-v4-development'));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
       const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB04 eight-block/thirty-two-stack service core overlaid. The six outer blocks show trial counterbores and twelve nominally seated 8-inch bolt stacks, with zero dimensional tolerance reserve. Exactly 14 legacy angle stations and 84 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -568,7 +568,7 @@
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The eight replaced service-rail angles and forty-eight SDS visuals are hidden; colored PB02/PB04 blocks, counterbores, bores, and trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) resolveV4Baseline?.();
         displayParts.forEach(part => loader.load(part.path, geometry => {
@@ -602,14 +602,16 @@
           if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
               data.pb02_variant_id !== 'ligament_priority' ||
-              data.pb04_source_id !== 'pb04-upper-edge-plus-outer-counterbores-v1' ||
-              data.assembly_contract?.pb04_upper_outer_rail_offset_mm !== 35.709 ||
-              data.assembly_contract?.pb04_counterbore_count !== 12 ||
-              data.assembly_contract?.pb04_recessed_trial_stack_count !== 12 ||
-              data.assembly_contract?.pb04_recessed_stack_tolerance_pass !== false ||
-              Math.abs(data.assembly_contract?.pb04_counterbore_depth_mm - 36.9824) > 1e-6 ||
+              data.pb05_source_id !== 'pb05-six-narrow-no-pocket-outer-v1' ||
+              data.assembly_contract?.pb05_outer_width_mm !== 95.25 ||
+              data.assembly_contract?.pb05_outer_counterbores !== 0 ||
+              data.assembly_contract?.pb05_geometry_decision !== 'ADVANCE_GEOMETRY_ONLY' ||
               data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
               data.boxes.length !== 14 || data.axes.length !== 42 || data.hardware_stacks.length !== 42 ||
+              data.boxes.filter(box => box.station === 'PB05').length !== 6 ||
+              data.boxes.filter(box => box.station === 'PB04').length !== 2 ||
+              data.hardware_stacks.filter(stack => stack.station === 'PB05').length !== 24 ||
+              data.hardware_stacks.filter(stack => stack.station === 'PB04').length !== 8 ||
               data.hidden_legacy_visual_names?.length !== 56 ||
               !data.hidden_legacy_visual_names.every(isV4ReplacedLegacyPart) ||
               data.assembly_contract?.width_option !== 'kerf-right' ||
@@ -618,13 +620,17 @@
               !data.assembly_contract?.inner_kicker_edges_supported?.right ||
               data.assembly_contract?.pb02_bore_count !== 10 ||
               data.assembly_contract?.pb02_trial_stack_count !== 10 ||
-              data.assembly_contract?.pb04_bore_count !== 32 ||
-              data.assembly_contract?.pb04_trial_stack_count !== 32 ||
-              data.assembly_contract?.pb04_block_count !== 8 ||
+              data.assembly_contract?.pb04_center_block_count !== 2 ||
+              data.assembly_contract?.pb05_outer_block_count !== 6 ||
+              data.assembly_contract?.pb05_outer_bore_count !== 24 ||
+              data.assembly_contract?.pb05_outer_stack_count !== 24 ||
               data.assembly_contract?.legacy_station_count !== 14 ||
               data.assembly_contract?.legacy_sds_axis_count !== 84 ||
               data.assembly_contract?.total_connection_count !== 194 ||
               data.assembly_contract?.bolt_kind_connection_count !== 44 ||
+              data.assembly_contract?.drilling_released !== false ||
+              data.assembly_contract?.structural_released !== false ||
+              data.assembly_contract?.fabrication_released !== false ||
               data.assembly_contract?.fixed_panel_kicker_screw_axes !== 66) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = box.mesh ? new THREE.BufferGeometry() : new THREE.BoxGeometry(...box.size_mm);
@@ -637,7 +643,7 @@
               geometry.computeVertexNormals();
             }
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
-              color: box.station === 'PB04' ? 0xf0b429 : 0x4ade80,
+              color: box.station === 'PB04' ? 0xf0b429 : box.station === 'PB05' ? 0xe879f9 : 0x4ade80,
               transparent: true, opacity: .75, depthWrite: false, roughness: .7,
             }));
             if (!box.mesh) {
@@ -652,7 +658,7 @@
           for (const axis of data.axes) {
             const geometry = new THREE.CylinderGeometry(axis.diameter_mm / 2, axis.diameter_mm / 2, axis.length_mm, 12);
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
-              color: axis.station === 'PB04' ? 0xffd166 : 0x72e5ff, transparent: true,
+              color: axis.station === 'PB04' ? 0xffd166 : axis.station === 'PB05' ? 0xf5a7ff : 0x72e5ff, transparent: true,
               opacity: .85, depthWrite: false, roughness: .45,
             }));
             const direction = new THREE.Vector3(...axis.axis);
@@ -660,7 +666,7 @@
             mesh.position.fromArray(axis.start_mm).addScaledVector(direction, axis.length_mm / 2);
             mesh.userData.part = {name: `${axis.station} ${axis.name} diagnostic bore`, fabrication: {v4_overlay: true,
               kind: 'bolt', category: 'bolts', dimensions_mm: [axis.diameter_mm, axis.diameter_mm, axis.length_mm],
-              description: 'source-derived trial bore axis; no selected bolt, drill size, or hardware stack'}};
+              description: 'source-derived trial bore axis; no selected drill size or construction instruction'}};
             mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
           }
           for (const stack of data.hardware_stacks) {
@@ -681,7 +687,7 @@
                 v4_overlay: true, kind: 'bolt', category: 'bolts', connection_name: `${stack.station}_${stack.name}`,
                 hardware_role: component.role,
                 dimensions_mm: [component.diameter_mm, component.diameter_mm, component.length_mm],
-                description: 'complete trial stack envelope; deterministic display orientation only; hardware and orientation not selected',
+                description: stack.station === 'PB05' ? `nominal ${stack.nominal_length_in}-inch through-bolt stack envelope; actual delivered hardware and tolerance unverified; no drilling or structural release` : 'complete trial stack envelope; deterministic display orientation only; hardware and orientation not selected',
               }};
               mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
             }

@@ -1,14 +1,12 @@
-"""The development overlay must follow the maintained PB02/PB04 poses."""
+"""The development overlay must follow the passing PB05 trial and retained sources."""
 
 import json
 from pathlib import Path
 
 import pytest
 
-from scripts import simple_pb03_outer_counterbore_revision as pocket
 from scripts.export_v4_viewer_scene import build_scene
-from scripts.simple_pb03_lower_center_pair import END_ALLOWANCE_MM
-from scripts.simple_pb04_native import SOURCE_ID
+from scripts.simple_pb05_native import SOURCE_ID
 
 
 def _mesh_volume(mesh):
@@ -24,7 +22,7 @@ def _mesh_volume(mesh):
     return abs(volume / 6)
 
 
-def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
+def test_v4_overlay_uses_passing_pb05_outer_and_unchanged_pb04_centers():
     scene = build_scene()
     assert scene["status"] == "partial_development_visualization"
     assert scene["baseline"] == "compact-floor-flush-kerf-right"
@@ -33,8 +31,8 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
     assert scene["pb02_source_fingerprint"] == (
         "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
     )
-    assert scene["pb04_source_id"] == SOURCE_ID
-    assert len(scene["pb04_source_fingerprint"]) == 64
+    assert scene["pb05_source_id"] == SOURCE_ID
+    assert len(scene["pb05_source_fingerprint"]) == 64
     blocks = {part["name"]: part for part in scene["boxes"]}
     assert "PB01 short rail block" not in blocks
     pb04_blocks = {
@@ -43,6 +41,11 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
     assert set(pb04_blocks) == {
         "pb03_lower_center_left_block",
         "pb03_lower_center_right_block",
+    }
+    pb05_blocks = {
+        name: block for name, block in blocks.items() if block["station"] == "PB05"
+    }
+    assert set(pb05_blocks) == {
         "pb03_lower_outer_left_block",
         "pb03_lower_outer_right_block",
         "pb03_upper_outer_left_block",
@@ -53,19 +56,20 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
     assert {tuple(block["size_mm"]) for block in pb04_blocks.values()} == {
         (139.7, 57.15, 300)
     }
+    assert {tuple(block["size_mm"]) for block in pb05_blocks.values()} == {
+        (95.25, 57.15, 300)
+    }
     assert pb04_blocks["pb03_lower_center_left_block"]["center_mm"][0] < 0
     assert pb04_blocks["pb03_lower_center_right_block"]["center_mm"][0] > 0
-    assert all(block["mesh"]["vertices_mm"] for block in pb04_blocks.values())
-    assert all(block["mesh"]["triangles"] for block in pb04_blocks.values())
-    counterbored = [
-        block for name, block in pb04_blocks.items() if "lower_center" not in name
-    ]
-    assert len(counterbored) == 6
-    assert all(len(block["mesh"]["triangles"]) > 12 for block in counterbored)
-    full_block_volume = 139.7 * 57.15 * 300
     assert all(
-        _mesh_volume(block["mesh"]) < full_block_volume for block in counterbored
+        block["mesh"]["triangles"]
+        for block in (*pb04_blocks.values(), *pb05_blocks.values())
     )
+    assert all(
+        _mesh_volume(block["mesh"]) == pytest.approx(95.25 * 57.15 * 300, rel=1e-6)
+        for block in pb05_blocks.values()
+    )
+    full_block_volume = 139.7 * 57.15 * 300
     assert _mesh_volume(
         pb04_blocks["pb03_lower_center_left_block"]["mesh"]
     ) == pytest.approx(full_block_volume, rel=1.0e-6)
@@ -86,7 +90,8 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
     assert rear_cleat["origin_mm"][2] + rear_cleat["size_mm"][2] == 460
     assert blocks["PB02 kicker backer"]["size_mm"] == [139.7, 88.9, 238.9]
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB02"]) == 10
-    assert len([axis for axis in scene["axes"] if axis["station"] == "PB04"]) == 32
+    assert len([axis for axis in scene["axes"] if axis["station"] == "PB04"]) == 8
+    assert len([axis for axis in scene["axes"] if axis["station"] == "PB05"]) == 24
     assert {axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"} == {
         "post_cleat_1",
         "post_cleat_2",
@@ -115,15 +120,14 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
         "inner_kicker_edges_supported": {"left": True, "right": True},
         "pb02_bore_count": 10,
         "pb02_trial_stack_count": 10,
-        "pb04_bore_count": 32,
-        "pb04_trial_stack_count": 32,
-        "pb04_block_count": 8,
-        "pb04_upper_outer_rail_offset_mm": 35.709,
-        "pb04_counterbore_count": 12,
-        "pb04_counterbore_depth_mm": 36.9824,
-        "pb04_recessed_trial_stack_count": 12,
-        "pb04_recessed_stack_tolerance_pass": False,
-        "pb04_upright_bolt_product_lead": {
+        "pb04_center_block_count": 2,
+        "pb05_outer_block_count": 6,
+        "pb05_outer_bore_count": 24,
+        "pb05_outer_stack_count": 24,
+        "pb05_outer_counterbores": 0,
+        "pb05_outer_width_mm": 95.25,
+        "pb05_geometry_decision": "ADVANCE_GEOMETRY_ONLY",
+        "pb05_upright_bolt_product_lead": {
             "retailer": "Home Depot",
             "product": "Everbilt 800696",
             "nominal_size": "1/4-20 x 8 in",
@@ -132,7 +136,7 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
         },
         "legacy_station_count": 14,
         "legacy_sds_axis_count": 84,
-        "replaced_pb04_legacy_stations": [
+        "replaced_legacy_stations": [
             "clip_horizontal_lower_left_2",
             "clip_horizontal_lower_right_1",
             "clip_horizontal_lower_left_1",
@@ -160,10 +164,10 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
             name == station or name.startswith(f"fastener_{station}_")
             for name in scene["hidden_legacy_visual_names"]
         )
-        for station in scene["assembly_contract"]["replaced_pb04_legacy_stations"]
+        for station in scene["assembly_contract"]["replaced_legacy_stations"]
     }
     assert set(hidden_counts) == set(
-        scene["assembly_contract"]["replaced_pb04_legacy_stations"]
+        scene["assembly_contract"]["replaced_legacy_stations"]
     )
     assert set(hidden_counts.values()) == {7}
     assert scene["fabrication_released"] is False
@@ -194,16 +198,20 @@ def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
         ]
         assert all(part["length_mm"] > 0 for part in stack["components"])
         assert all(part["diameter_mm"] > 0 for part in stack["components"])
-    assert scene["hardware_stack_scope"] == (
-        "PB02 trial envelopes, PB04 generic rail/center stacks, and twelve "
-        "recessed outer-upright 8-inch nominal stack trials; zero tolerance reserve, "
-        "no delivered hardware or construction approval"
+    assert "six PB05 95.25-mm no-pocket outer blocks" in scene["hardware_stack_scope"]
+    assert (
+        "no drilling, structural, or fabrication release"
+        in scene["hardware_stack_scope"]
     )
 
 
-def test_pb04_overlay_has_thirty_two_complete_unselected_stacks():
+def test_center_and_outer_overlay_has_thirty_two_complete_unselected_stacks():
     scene = build_scene()
-    stacks = [stack for stack in scene["hardware_stacks"] if stack["station"] == "PB04"]
+    stacks = [
+        stack
+        for stack in scene["hardware_stacks"]
+        if stack["station"] in ("PB04", "PB05")
+    ]
 
     assert len(stacks) == 32
     assert {stack["source_station"] for stack in stacks} == {
@@ -218,6 +226,8 @@ def test_pb04_overlay_has_thirty_two_complete_unselected_stacks():
     }
     assert {stack["orientation_selected"] for stack in stacks} == {False}
     assert {stack["hardware_selected"] for stack in stacks} == {False}
+    assert sum(stack["station"] == "PB04" for stack in stacks) == 8
+    assert sum(stack["station"] == "PB05" for stack in stacks) == 24
     for stack in stacks:
         assert [part["role"] for part in stack["components"]] == [
             "shaft",
@@ -230,42 +240,18 @@ def test_pb04_overlay_has_thirty_two_complete_unselected_stacks():
         assert all(part["diameter_mm"] > 0 for part in stack["components"])
 
 
-def test_pocketed_outer_upright_stacks_show_seated_eight_inch_bolt():
+def test_pb05_outer_stacks_show_nominal_through_bolt_lengths_and_no_pockets():
     scene = build_scene()
-    axes = {axis["name"]: axis for axis in scene["axes"] if axis["station"] == "PB04"}
-    stacks = [
-        stack
-        for stack in scene["hardware_stacks"]
-        if stack["station"] == "PB04" and stack.get("recessed_upright_trial")
-    ]
-    assert len(stacks) == 12
-    for stack in stacks:
-        axis = axes[stack["name"]]
-        direction = axis["axis"]
-        bore_start = axis["start_mm"]
-        components = {row["role"]: row for row in stack["components"]}
-
-        def offset(row, direction=direction, bore_start=bore_start):
-            return sum(
-                (coordinate - origin) * direction[index]
-                for index, (coordinate, origin) in enumerate(
-                    zip(row["start_mm"], bore_start, strict=True)
-                )
-            )
-
-        near_face = END_ALLOWANCE_MM
-        assert components["shaft"]["length_mm"] == pytest.approx(203.2)
-        assert offset(components["shaft"]) == pytest.approx(
-            near_face - pocket.WASHER_EACH_SIDE_MM
-        )
-        assert offset(components["far_washer"]) == pytest.approx(
-            near_face + pocket.ORIGINAL_GRIP_MM - pocket._required_depth_mm()
-        )
-        assert offset(components["nut"]) == pytest.approx(
-            offset(components["far_washer"]) + pocket.WASHER_EACH_SIDE_MM
-        )
-    assert scene["assembly_contract"]["pb04_recessed_trial_stack_count"] == 12
-    assert scene["assembly_contract"]["pb04_recessed_stack_tolerance_pass"] is False
+    stacks = [stack for stack in scene["hardware_stacks"] if stack["station"] == "PB05"]
+    upright = [stack for stack in stacks if "_upright_" in stack["name"]]
+    rail = [stack for stack in stacks if "_rail_" in stack["name"]]
+    assert len(stacks) == 24
+    assert len(upright) == len(rail) == 12
+    assert {stack["nominal_length_in"] for stack in upright} == {8}
+    assert {stack["nominal_length_in"] for stack in rail} == {5}
+    assert {stack["components"][0]["length_mm"] for stack in upright} == {203.2}
+    assert {stack["components"][0]["length_mm"] for stack in rail} == {127.0}
+    assert scene["assembly_contract"]["pb05_outer_counterbores"] == 0
 
 
 def test_viewer_scene_artifact_matches_producer():
@@ -273,17 +259,17 @@ def test_viewer_scene_artifact_matches_producer():
     scene = build_scene()
     assert json.loads((root / "site/v4-diagnostic-scene.json").read_text()) == scene
     html = (root / "site/index.html").read_text()
-    assert "DEVELOPMENT V4 · PB02/PB04 partial 3D scene" in html
+    assert "DEVELOPMENT V4 · PB02/PB04 center + PB05 outer scene" in html
     assert "fetch('v4-diagnostic-scene.json')" in html
     assert "data.pb02_variant_id !== 'ligament_priority'" in html
     assert "data.hardware_stacks.length !== 42" in html
     assert "data.hidden_legacy_visual_names?.length !== 56" in html
     assert "data.assembly_contract?.total_connection_count !== 194" in html
     assert "data.assembly_contract?.bolt_kind_connection_count !== 44" in html
-    assert "PB04 eight-block/thirty-two-stack service core" in html
-    assert "Exactly 14 legacy angle stations and 84 SDS axes remain" in html
+    assert "six outer blocks are 95.25 mm narrow, no-pocket PB05 solids" in html
+    assert "Exactly 14 legacy angle duties and 84 SDS axes remain" in html
     assert "v4ReplacedLegacyStations" in html
-    for station in scene["assembly_contract"]["replaced_pb04_legacy_stations"]:
+    for station in scene["assembly_contract"]["replaced_legacy_stations"]:
         assert f"'{station}'" in html
     assert "!isV4ReplacedLegacyPart(part.name)" in html
-    assert "complete trial stack envelope" in html
+    assert "through-bolt stack envelope" in html
