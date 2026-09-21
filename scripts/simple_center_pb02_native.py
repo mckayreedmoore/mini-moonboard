@@ -303,6 +303,9 @@ def add_native_paths(
     for row in contacts:
         point = row["point_mm"]
         first, second = row["first_part"], row["second_part"]
+        # Canonical rows point first-to-second, while normal_contact and its
+        # ownership metadata require the contact normal inward into first.
+        inward_normal = [-component for component in row["direction"]]
         shared.normal_contact(
             structure,
             row["name"],
@@ -310,14 +313,14 @@ def add_native_paths(
             [structure.attachment(second, point)],
             [1.0],
             list(point),
-            list(row["direction"]),
+            inward_normal,
             face_normal_total_n_per_mm / 4,
         )
         ownership[row["name"]] = {
             "first": first,
             "second": second,
             "point": list(point),
-            "scalar_normal": list(row["direction"]),
+            "scalar_normal": inward_normal,
             "edge": row["edge"],
             "developmental_only": True,
         }
