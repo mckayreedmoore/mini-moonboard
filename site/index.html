@@ -247,7 +247,7 @@
       const clearSpaceModels = [['compact-floor-flush-development', 'Bought 4×4 plywood · official Mini faces'], ['compact-floor-flush-kerf-right', 'Cut from 4×8 · kerf on the right'], ['compact-spliced-flush-top-development', 'Historical 4×6 frame · spliced knees · flush leg tops'], ['compact-floor-rail-development', 'Previous 2×6 floor rails · conditional no-slip package'], ['compact-exterior-brace-development', 'Previous exterior knees · conditional μ=0.4 package'], ['compact-floor-rail-2x4-development', '2×4 floor rails · numerical response rejected · NOT ACCEPTED'], ['compact-floor-recess-development', 'Outboard floor rails · recessed leg ends · development / unaccepted'], ['compact-floor-taper-development', 'Tapered leg recess · 2×6 floor rails · development']];
       const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Historical 2×6 with shoes · four bolts per leg · assessed / unqualified'], ['wider-leg-development', 'Historical 2×8 with shoes · six bolts per leg · assessed / unqualified'], ['no-shoes-development', '2×6 legs · standard base angles · no custom shoes · unassessed'], ['thick-leg-centered-pivot-development', '4×6 legs / rims · centered ⅝-inch pivot · development'], ['compact-thick-development', 'Historical 4×6 compact frame · three bolts per leg · unqualified'], ['compact-spliced-knee-development', 'Previous 4×6 frame · inboard spliced knees · conditional package']];
       squareModels.push(...clearSpaceModels);
-      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', 'compact-floor-flush-kerf-right', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'compact-floor-flush-development';
+      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', 'compact-floor-flush-kerf-right', 'bolted-v4-development', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'compact-floor-flush-development';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
       [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware'], ['selected-hardware-development', 'Selected products · fit unqualified'], ['top-joint-development', 'Revised top joint · strength unqualified'], ['wood-first-mvp', 'Wood-first MVP · housed joints'], ['commercial-bracket-mvp', 'Commercial-bracket MVP · factory connectors']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
@@ -264,8 +264,10 @@
       modelSelect.add(new Option('Wider central supports · backing bolt clearance', 'wide-principal-development'));
       lumberModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      modelSelect.add(new Option('DEVELOPMENT V4 · PB01/PB02 partial 3D scene', 'bolted-v4-development'));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
+      const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
       const recentDesigns = document.createElement('optgroup'); recentDesigns.label = 'Recent floor-runner / 4×6 history';
       const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Earlier studies';
       const recentKeys = new Set([...clearSpaceModels.map(([value]) => value),
@@ -274,9 +276,9 @@
       recentKeys.delete('compact-floor-flush-development');
       recentKeys.delete('compact-floor-flush-kerf-right');
       for (const option of Array.from(modelSelect.options).reverse()) {
-        (option.value === 'compact-floor-flush-development' ? currentDesigns : option.value === 'compact-floor-flush-kerf-right' ? currentDesigns : recentKeys.has(option.value) ? recentDesigns : historicalDesigns).append(option);
+        (option.value === 'bolted-v4-development' ? developmentDesigns : ['compact-floor-flush-development', 'compact-floor-flush-kerf-right'].includes(option.value) ? currentDesigns : recentKeys.has(option.value) ? recentDesigns : historicalDesigns).append(option);
       }
-      modelSelect.replaceChildren(currentDesigns, recentDesigns, historicalDesigns);
+      modelSelect.replaceChildren(currentDesigns, developmentDesigns, recentDesigns, historicalDesigns);
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
@@ -284,6 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with PB01 short rail block and PB02 ten-bore center overlaid. Legacy connectors may remain visible; this is not an assembled V4 design, structural acceptance, drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -495,7 +498,10 @@
         }
         return result;
       }
-      const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${model}/parts.json`);
+      const manifestKey = model === 'bolted-v4-development' ? 'compact-floor-flush-kerf-right' : model;
+      let resolveV4Baseline;
+      const v4BaselineLoaded = model === 'bolted-v4-development' ? new Promise(resolve => { resolveV4Baseline = resolve; }) : null;
+      const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
           mainFaceHeight = design.main_face_height_mm ?? 225;
@@ -504,13 +510,13 @@
             rowStations = design.tnut_row_stations_mm;
             if (overlaySelect.value !== 'none') makeGridOverlay(overlaySelect.value === 'grid' ? '#f0b429' : '#f5f0e6');
           }
-          if (Array.isArray(design.documents) && design.documents.length) {
+          if (model === 'bolted-v4-development' || (Array.isArray(design.documents) && design.documents.length)) {
             let box = document.querySelector('#shop-docs');
             if (!box) {
               box = document.createElement('details');
               box.id = 'shop-docs';
               const sum = document.createElement('summary');
-              sum.textContent = 'Shop packet and evidence';
+              sum.textContent = model === 'bolted-v4-development' ? 'V4 development references · no shop release' : 'Shop packet and evidence';
               const primary = document.createElement('nav');
               primary.id = 'shop-docs-primary';
               primary.className = 'doc-row';
@@ -524,8 +530,14 @@
             const more = box.querySelector('#model-documents');
             primaryNav.replaceChildren();
             more.replaceChildren();
-            const first = new Set(['Shop checklist', 'Assembly guide', 'Official vs 4×8 kerf width']);
-            for (const row of design.documents) {
+            const v4Documents = [
+              {label: 'V4 design sequence', path: 'docs/bolted-candidate-simple-joints-v4.md'},
+              {label: 'PB01 short block trial', path: 'docs/bolted-candidate-prototypes/simple-pb01-short-block-screen.md'},
+              {label: 'PB02 current ten-bore placement', path: 'docs/bolted-candidate-prototypes/simple-center-current-placement-table.md'},
+            ];
+            const documents = model === 'bolted-v4-development' ? v4Documents : design.documents;
+            const first = new Set(model === 'bolted-v4-development' ? [] : ['Shop checklist', 'Assembly guide', 'Official vs 4×8 kerf width']);
+            for (const row of documents) {
               const link = document.createElement('a');
               link.textContent = row.label;
               link.className = 'support-link';
@@ -542,7 +554,9 @@
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Colored PB01/PB02 blocks and bore axes are diagnostic only; click to inspect.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        let loadedParts = 0;
+        if (!parts.length) resolveV4Baseline?.();
         parts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
@@ -557,11 +571,54 @@
             const option = Array.from(boltSelect.options).find(option => option.value === name);
             if (option) option.disabled = false;
           }
-        }, undefined, error => { partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`; }));
+          if (++loadedParts === parts.length) resolveV4Baseline?.();
+        }, undefined, error => {
+          partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`;
+          if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 overlay unavailable: baseline context did not finish loading. No fabrication release.';
+        }));
       }).catch(error => {
         partCard.textContent = `Could not load CAD parts: ${error.message}`;
         holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
       });
+      if (model === 'bolted-v4-development') {
+        v4BaselineLoaded.then(() => fetch('v4-diagnostic-scene.json')).then(response => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        }).then(data => {
+          if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
+              data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
+              data.boxes.length !== 2 || data.axes.length !== 14) throw new Error('V4 source inventory changed');
+          for (const box of data.boxes) {
+            const geometry = new THREE.BoxGeometry(...box.size_mm);
+            const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
+              color: box.station === 'PB01' ? 0xf0b429 : 0x4ade80,
+              transparent: true, opacity: .75, depthWrite: false, roughness: .7,
+            }));
+            mesh.rotation.x = box.rotation_x_deg * Math.PI / 180;
+            mesh.position.fromArray(box.origin_mm).add(new THREE.Vector3(...box.size_mm).multiplyScalar(.5).applyEuler(mesh.rotation));
+            mesh.userData.part = {name: box.name, fabrication: {v4_overlay: true, kind: 'timber', category: 'timber',
+              dimensions_mm: box.size_mm, description: `${box.station} source-derived trial block; partial V4 visualization, not a cut or fabrication instruction`}};
+            mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
+          }
+          for (const axis of data.axes) {
+            const geometry = new THREE.CylinderGeometry(axis.diameter_mm / 2, axis.diameter_mm / 2, axis.length_mm, 12);
+            const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
+              color: axis.station === 'PB01' ? 0xffd166 : 0x72e5ff, transparent: true,
+              opacity: .85, depthWrite: false, roughness: .45,
+            }));
+            const direction = new THREE.Vector3(...axis.axis);
+            mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
+            mesh.position.fromArray(axis.start_mm).addScaledVector(direction, axis.length_mm / 2);
+            mesh.userData.part = {name: `${axis.station} ${axis.name} diagnostic bore`, fabrication: {v4_overlay: true,
+              kind: 'bolt', category: 'bolts', dimensions_mm: [axis.diameter_mm, axis.diameter_mm, axis.length_mm],
+              description: 'source-derived trial bore axis; no selected bolt, drill size, or hardware stack'}};
+            mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
+          }
+          updateBoltVisibility();
+        }).catch(error => {
+          document.querySelector('#model-status').textContent = `DEVELOPMENT V4 overlay unavailable (${error.message}). Showing selected kerf-right context only; no fabrication release.`;
+        });
+      }
       const overlay = new THREE.Group(); assemblyView.add(overlay);
       // Decal planes lie 0.5 mm in front of the actual underside face. Their
       // orientation and positions use the same 40° datum as the drilled-hole model.
@@ -683,7 +740,7 @@
         selected = part === personPart ? personMeshes : [hit.object];
         selected.forEach(mesh => mesh.material.emissive.setHex(mesh.userData.baseEmissive || 0x5f3600));
         const [x, y, z] = part.fabrication.dimensions_mm;
-        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${[x, y, z].map(v => Number(v.toFixed(3))).join(' × ')} mm (${[x, y, z].map(feetAndInches).join(' × ')}).`;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${[x, y, z].map(v => Number(v.toFixed(3))).join(' × ')} mm (${[x, y, z].map(feetAndInches).join(' × ')}).${model === 'bolted-v4-development' && !part.fabrication.v4_overlay ? ' Selected baseline context only; not V4 fabrication geometry.' : ''}`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.zoom=Math.min(1,w/h); camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();
