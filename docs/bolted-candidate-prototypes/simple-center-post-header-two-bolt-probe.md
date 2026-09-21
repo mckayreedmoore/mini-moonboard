@@ -4,13 +4,13 @@ One bounded bolted solid-wood corner-block revision has a nominal collision fit 
 conditional 4D/7D placement margins at the latest PB-02 tolerance pose. This
 is a geometry result, not a joint rating or drilling instruction.
 
-The probe tests three named variants: the reference block with trial second
-bolts, the same axes with a longer block, and a longer block with both bolt
-pairs relocated. It does not optimize continuously. The principal-side block,
+The probe tests five named variants: the reference block with trial second
+bolts, a longer block, relocated pairs, a 5-mm-forward post pair, and a
+balanced header pair. It does not optimize continuously. The principal-side block,
 header, shifted right post, backer, other cleats, panel outlines, and all 66
 fixed panel/kicker axes retain the tolerance-pose geometry.
 
-The passing block is one rectangular piece, X=177.65…266.55,
+The best-screened block is one rectangular piece, X=177.65…266.55,
 Y=−175.7…−86.8, Z=75…238.9 mm (88.9 × 88.9 × 163.9 mm), with grain in Z.
 Its lower face is 35 mm below the earlier block; its upper face still meets
 the original header underside. Ordinary square cuts suffice. It has no
@@ -18,11 +18,12 @@ pocket, lap, or steel fitting.
 
 | Serial face | Two full bore axes, global mm | Nominal wood grip |
 | --- | --- | ---: |
-| Post to block, X direction | Y=−150; Z=130 and 180; X=88.75…266.55 | 177.8 mm each |
-| Block to header, Z direction | X=205 and 235; Y=−130; Z=75…277 | 202 mm each |
+| Post to block, X direction | Y=−145; Z=130 and 180; X=88.75…266.55 | 177.8 mm each |
+| Block to header, Z direction | X=208.35 and 235.85; Y=−130; Z=75…277 | 202 mm each |
 
-The first post/block bolt moves from Z=160 to 130 mm; the first block/header
-bolt moves from X=222.1 to 205 mm. These are **changed bolts**, not inherited
+The first post/block bolt moves from Y=−150/Z=160 to Y=−145/Z=130 mm; the
+first block/header bolt moves from X=222.1 to 208.35 mm. The other bolt
+centers also change. These are **changed bolts**, not inherited
 acceptance. The probe rebuilds and checks their full bores and exposed-end
 envelopes together with both second bolts and all six otherwise inherited
 bores. The post-low/high, upright, link, header/principal-block, and
@@ -30,13 +31,17 @@ principal-block/principal axes remain at the tolerance pose. There are ten
 full intended bores in this screen.
 
 The post pair has 50 mm center spacing (+24.6 mm over conditional 4D). The
-vertical pair has 30 mm spacing (+4.6 mm over 4D). All measured box-boundary
-4D transverse and 7D grain-end markers are positive. The tightest is the
-post bolts' 25.7 mm distance to the post rear Y edge, just **+0.3 mm** over
-4D=25.4 mm. The vertical pair's tightest X edge is 27.35 mm from the block
-left edge (+1.95 mm); the upper post bolt has 58.9 mm to the post/block top
-grain ends (+14.45 mm over 7D=44.45 mm). These are nominal distances with no
-cut, drill, or stock tolerance reserve. The header's grain-X ends are remote;
+balanced vertical pair has 27.5 mm spacing (**+2.1 mm** over 4D). All measured
+box-boundary 4D transverse and 7D grain-end markers are positive. The
+tightest conditional edge/end reserve is **+5.3 mm**: the post bolts have
+30.7 mm to the post rear Y edge, and the first vertical bolt has 30.7 mm
+to the block left X edge, each against 4D=25.4 mm. The upper post bolt
+has 58.9 mm to the post/block top grain ends (+14.45 mm over 7D=44.45 mm).
+The earlier relocated-pairs variant had only +0.3 mm minimum; moving only
+the post pair forward raised that to +1.95 mm. The balanced trial improves
+edge/end reserve but narrows its vertical bolt-pitch reserve. These are
+nominal distances without a demonstrated cut, drill, or stock tolerance
+budget. The header's grain-X ends are remote;
 the principal's oblique grain/end remains unclassified.
 
 The passing CAD screen reports full intended reception for all ten bores,
@@ -58,8 +63,9 @@ nut, tip and thread requirements. No longer retail lead has been selected.
 The 35 mm insertion extension is only a geometric allowance. Delivered bolt
 length, thread start, washers, nut engagement,
 actual insertion order, socket drive and swing, and installed access need a
-separate hardware check. The post rear-edge reserve is too small to claim
-tolerance robustness. The corner block's two vertical bores run along its
+separate hardware check. The 5.3-mm minimum edge/end and 2.1-mm bolt-pitch
+reserves have not been propagated through cut/drill, bore-size, or delivered
+stock variation. The corner block's two vertical bores run along its
 grain and the contact faces' force/moment paths, net section, splitting,
 bearing, bolt group action, and full joint resistance have not been solved.
 Conditional 4D/7D comparisons are placement markers, not an NDS verdict.

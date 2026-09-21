@@ -5,7 +5,13 @@ from scripts.simple_center_post_header_two_bolt_probe import probe
 
 def test_named_variants_recheck_complete_assembly():
     result = probe()
-    assert set(result["variants"]) == {"reference", "lowered_block", "relocated_pairs"}
+    assert set(result["variants"]) == {
+        "reference",
+        "lowered_block",
+        "relocated_pairs",
+        "post_axis_forward_5",
+        "balanced_pair_5",
+    }
     assert result["fixed_axes"] == {"panel": 48, "kicker": 18}
     assert result["fixed_screw_axes_checked"] == 66
     assert result["inner_kicker_edges_supported"] == {"left": True, "right": True}
@@ -33,3 +39,22 @@ def test_failed_variants_retain_exact_limiter():
     result = probe()
     assert result["variants"]["reference"]["conditional_markers_pass"] is False
     assert result["variants"]["lowered_block"]["conditional_markers_pass"] is False
+
+
+def test_forward_post_axis_variant_reports_reserve_and_full_assembly():
+    result = probe()
+    candidate = result["variants"]["post_axis_forward_5"]
+    assert candidate["post_axis_y_mm"] == -145
+    assert candidate["minimum_conditional_edge_end_margin_mm"] > 0.3
+    assert len(candidate["all_bores_checked"]) == 10
+    assert result["fixed_screw_axes_checked"] == 66
+    assert result["rating_or_drilling_release"] is False
+
+
+def test_balanced_pair_has_five_mm_conditional_edge_reserve():
+    from scripts.simple_center_post_header_two_bolt_probe import VARIANTS, _candidate
+
+    candidate = _candidate(VARIANTS["balanced_pair_5"])
+    assert candidate["post_axis_y_mm"] == -145
+    assert candidate["minimum_conditional_edge_end_margin_mm"] >= 5
+    assert candidate["nominal_geometry"] == "feasible"

@@ -15,9 +15,11 @@ from scripts import simple_center_tolerance_pose_probe as tolerance
 from scripts import simple_center_wide_post_probe as wide
 
 VARIANTS = {
-    "reference": (110, (160, 205), (222.1, 235)),
-    "lowered_block": (75, (160, 205), (222.1, 235)),
-    "relocated_pairs": (75, (130, 180), (205, 235)),
+    "reference": (110, -150, (160, 205), (222.1, 235)),
+    "lowered_block": (75, -150, (160, 205), (222.1, 235)),
+    "relocated_pairs": (75, -150, (130, 180), (205, 235)),
+    "post_axis_forward_5": (75, -145, (130, 180), (205, 235)),
+    "balanced_pair_5": (75, -145, (130, 180), (208.35, 235.85)),
 }
 INSERTION_ALLOWANCE = 35.0  # Illustrative protrusion beyond wood grip.
 
@@ -31,7 +33,7 @@ def _pair_hits(shapes):
 
 
 def _candidate(config):
-    bottom, post_z, vertical_x = config
+    bottom, post_y, post_z, vertical_x = config
     parts, bores, ends = prior._geometry()
     block = cq.Solid.makeBox(
         88.9, 88.9, 238.9 - bottom, cq.Vector(177.65, -175.7, bottom)
@@ -52,10 +54,14 @@ def _candidate(config):
     for index, z in enumerate(post_z, 1):
         name = f"post_cleat_{index}"
         bores[name] = combined.cylinder(
-            wide.BORE_RADIUS, 177.8, (88.75, -150, z), (1, 0, 0)
+            wide.BORE_RADIUS, 177.8, (88.75, post_y, z), (1, 0, 0)
         )
-        ends[f"{name}_left"] = ((88.75, -150, z), (-1, 0, 0), "shifted_right_post")
-        ends[f"{name}_right"] = ((266.55, -150, z), (1, 0, 0), "header_post_side_cleat")
+        ends[f"{name}_left"] = ((88.75, post_y, z), (-1, 0, 0), "shifted_right_post")
+        ends[f"{name}_right"] = (
+            (266.55, post_y, z),
+            (1, 0, 0),
+            "header_post_side_cleat",
+        )
     for index, x in enumerate(vertical_x, 1):
         name = f"cleat_header_{index}"
         bores[name] = combined.cylinder(
@@ -222,6 +228,7 @@ def _candidate(config):
     )
     return {
         "block_bounds_mm": [177.65, 266.55, -175.7, -86.8, bottom, 238.9],
+        "post_axis_y_mm": post_y,
         "post_axis_z_mm": post_z,
         "vertical_axis_x_mm": vertical_x,
         "new_bores": list(bores)[-4:],
