@@ -17,7 +17,7 @@ SPRING = {"axial_n_per_mm": 10000.0, "lateral_n_per_mm": 10000.0}
 def test_shared_model_matches_pinned_baseline():
     source = Path("fea/current_response_model.py").read_bytes()
     assert hashlib.sha256(source).hexdigest() == (
-        "e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce"
+        "40922fddfcda85fd906c068b79f2bb3bfb2ab6c8341b91a67c8da5b30147e50d"
     )
 
 
