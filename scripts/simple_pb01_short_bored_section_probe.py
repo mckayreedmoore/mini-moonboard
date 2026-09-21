@@ -114,6 +114,11 @@ def screen():
         _section(rail_rectangles, width, depth, ["r1", "r2"], centers["r1"]),
         _section(upright_rectangles, width, depth, ["u2"], centers["u2"]),
     ]
+    u1 = bores["u1"][1]
+    start = [
+        u1["washer_wood_face_xyz_mm"]["nut"][0] - width / 2,
+        *(u1["start_xyz_mm"][i + 1] - (centers["u1"] - front) * N[i] for i in range(2)),
+    ]
     return {
         "variant": "quarter_short",
         "source": "maintained simple_rail_joint_comparison.compare pose",
@@ -121,6 +126,10 @@ def screen():
         "bore_names": ["u1", "u2", "r1", "r2"],
         "size_x_t_n_mm": [width, depth, length],
         "front_n_mm": front,
+        "pose_member_centerline_start_xyz_mm": start,
+        "pose_member_grain_axis_xyz": [0, *N],
+        "pose_member_section_u_xyz": [1, 0, 0],
+        "pose_member_section_v_xyz": [0, *T],
         "diameter_mm_diagnostic_only": diameter,
         "grain_normal_planes_n_mm": [row["n_mm"] for row in sections],
         "gross_area_mm2": width * depth,

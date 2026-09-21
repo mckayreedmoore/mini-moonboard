@@ -7,6 +7,9 @@ identifiers). It calls the maintained
 and reads its four actual diagnostic bore reports. It does not create a new
 variant, move geometry, run a native solve, or alter preserved evidence. The
 pose retains all 66 fixed panel/kicker axes.
+The machine output also reconstructs the gross centerline start and local
+axes from the maintained `u1` bore/face geometry for a separate same-pose
+section-action comparison; it does not change the retained pose.
 
 The block is 139.7 mm in local X, 57.15 mm in local T, and 152.4 mm along
 grain N. Its front is N=209.841 mm. The diagnostic bore diameter is 7.5 mm;
