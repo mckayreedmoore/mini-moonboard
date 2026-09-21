@@ -22,6 +22,10 @@ def test_centroid_shift_changes_bending_moment_and_corner_stress():
     assert result["net_centroid_moment_v_nmm"] == pytest.approx(-70.0)
     assert result["corner_normal_mpa"]["x0_t0"] == pytest.approx(2 - 0.6 - 1.4)
     assert result["corner_normal_mpa"]["x10_t6"] == pytest.approx(2 + 0.6 + 2.1)
+    shifted_t = {**net, "centroid_x_t_mm": [5.0, 2.0]}
+    other = elastic_corners(row, shifted_t, width=10.0, depth=6.0)
+    assert other["net_centroid_moment_u_nmm"] == pytest.approx(120.0)
+    assert other["net_centroid_moment_v_nmm"] == pytest.approx(30.0)
 
 
 def test_bore_center_cut_sides_remain_diagnostic_only():
