@@ -30,6 +30,15 @@ partition. The selected reference inputs are 1,000 N/mm bolt axial stiffness,
 contact stiffness, and 10,000 N/mm floor-contact stiffness. The floor value is
 a conditional developmental input, not a measured or qualified property.
 
+The
+[bounded floor-stiffness evaluator](../../scripts/simple_center_pb02_floor_stiffness_sensitivity.py)
+prescribes 5,000, 10,000, and 20,000 N/mm as numerical trials and authenticates
+complete six-case suites before comparing governing identities, ratios, and 432
+signed action components. Only the 10,000 N/mm suite is presently retained, so
+the sensitivity conclusion is **not evaluated** until authenticated 5,000 and
+20,000 N/mm suites exist. The trial values are not measured floor properties or
+physical bounds.
+
 | Case | Applied force XYZ, N | Cycles | Max panel displacement, mm |
 | --- | ---: | ---: | ---: |
 | A12 forward | `[0, -300, -2224.111]` | 12 | 13.6140 |

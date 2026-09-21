@@ -136,6 +136,11 @@ stiffness of **10,000 N/mm**. That floor value is a developmental input, not a m
 qualified property. The source-bound A12-forward case and current reference-density demands are
 therefore present; the older claims that they were missing no longer apply.
 
+The bounded stiffness evaluator prescribes 5,000, 10,000 and 20,000 N/mm numerical trials, but
+only the 10,000 N/mm six-case suite is currently retained. It therefore reports sensitivity as
+not evaluated rather than inferring missing results. Those trial values are not measured floor
+properties or physical bounds.
+
 ## Six-case component-demand envelope
 
 The
