@@ -20,6 +20,9 @@ bolts use PB05's no-pocket 8 in trial and **24 washers** with a 0.734 in OD
 envelope. The 24 outer-rail and 16 center-block washer positions use the
 PB03 model's 25.4 mm diameter envelope. These are modeled envelopes, not
 approved retail stacks.
+The two center uprights are 38.1 mm thick, so their separate modeled grip is
+38.1 + 139.7 = **177.8 mm**; the 228.6 mm gross grip in the PB04 pocket study
+belongs to the 88.9 mm outer uprights, not these center joints.
 
 | Nominal bolt length | PB02 | PB05 | Together | Online single-bolt lead |
 | --- | ---: | ---: | ---: | ---: |

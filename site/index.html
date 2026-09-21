@@ -595,9 +595,14 @@
         holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
       });
       if (model === 'bolted-v4-development') {
-        v4BaselineLoaded.then(() => fetch('v4-diagnostic-scene.json')).then(response => {
+        v4BaselineLoaded.then(() => fetch('v4-diagnostic-scene.json')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
+          const raw = await response.text();
+          const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
+            .map(byte => byte.toString(16).padStart(2, '0')).join('');
+          if (digest !== '333ad9c77218a8580f198502af8a0a51ccf98ff702105709baf0aa91ef3d6d2b')
+            throw new Error('V4 scene bytes differ from the reviewed export');
+          return JSON.parse(raw);
         }).then(data => {
           if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||

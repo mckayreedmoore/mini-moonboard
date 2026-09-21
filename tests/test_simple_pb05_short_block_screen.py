@@ -1,5 +1,7 @@
 """The PB05 short-stock proposal retains all eight geometry duties."""
 
+import math
+
 import pytest
 
 from scripts import simple_pb05_short_block_screen as short
@@ -28,6 +30,14 @@ def test_common_six_inch_rebuild_keeps_fixed_inventory(result):
         assert row["block_dimensions_mm"] == pytest.approx([width, 57.15, 152.4])
         assert len(row["end_openings_mm"]) == 8
         assert len(row["rail_tool_x_edge_reserves_mm"]) == 2
+        expected_area = math.pi * (short.lower.BOLT_DIAMETER_MM / 2) ** 2
+        lengths = row["installed_shaft_volumes_mm3"]
+        assert len(lengths) == 4
+        assert all(
+            volume
+            == pytest.approx(expected_area * (203.2 if "_upright_" in bolt else 127.0))
+            for bolt, volume in lengths.items()
+        )
 
 
 def test_all_eight_simultaneous_gates_and_no_release(result):

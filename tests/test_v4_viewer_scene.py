@@ -1,5 +1,6 @@
 """The development overlay must follow the passing PB05 trial and retained sources."""
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -7,6 +8,14 @@ import pytest
 
 from scripts.export_v4_viewer_scene import build_scene
 from scripts.simple_pb05_native import SOURCE_ID
+
+
+def test_v4_scene_bytes_pinned_in_viewer():
+    root = Path(__file__).resolve().parents[1]
+    scene = (root / "site/v4-diagnostic-scene.json").read_bytes()
+    html = (root / "site/index.html").read_text()
+    assert f"'{hashlib.sha256(scene).hexdigest()}'" in html
+    assert "crypto.subtle.digest('SHA-256'" in html
 
 
 def _mesh_volume(mesh):

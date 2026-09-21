@@ -118,6 +118,30 @@ def _envelopes_overlap(first, second):
     )
 
 
+def _nominal_stack(geometry, bolt):
+    """Check whole 8/5-in shafts; retain generic seats except outer uprights."""
+    if (
+        geometry.station in pb05.OUTER_STATIONS
+        and bolt.members[0] == geometry.upright_name
+    ):
+        return narrow._installed_upright(bolt)
+    stack = dict(geometry.stacks[bolt.name])
+    direction = bolt.direction.normalized()
+    near = bolt.start + direction * lower.END_ALLOWANCE_MM
+    length = (
+        8 * narrow.hardware.MM_PER_IN
+        if bolt.members[0] == geometry.upright_name
+        else 5 * narrow.hardware.MM_PER_IN
+    )
+    stack["shaft"] = narrow.hardware._cylinder(
+        (near - direction * 2.0).toTuple(),
+        direction.toTuple(),
+        length,
+        lower.BOLT_DIAMETER_MM,
+    )
+    return stack
+
+
 def screen(length_mm=SIX_INCH_MM):
     """Rebuild all eight at one stock length and check their simultaneous envelope."""
     if not math.isfinite(length_mm) or length_mm <= 0:
@@ -179,18 +203,12 @@ def screen(length_mm=SIX_INCH_MM):
         for name, geometry in geometries.items()
     ):
         raise ValueError("shortening moved a PB05 bolt axis")
-    # Outer upright hardware uses the PB05 nominal 8-in no-pocket stack.
+    # ponytail: retain existing generic seats, but screen the whole nominal shafts.
     installed = {
         name: replace(
             geometry,
             stacks={
-                bolt.name: (
-                    narrow._installed_upright(bolt)
-                    if name in pb05.OUTER_STATIONS
-                    and bolt.members[0] == geometry.upright_name
-                    else geometry.stacks[bolt.name]
-                )
-                for bolt in geometry.bolts
+                bolt.name: _nominal_stack(geometry, bolt) for bolt in geometry.bolts
             },
         )
         for name, geometry in geometries.items()
@@ -277,6 +295,10 @@ def screen(length_mm=SIX_INCH_MM):
         }
         station_rows[name] = {
             "block_dimensions_mm": local["block_dimensions_mm"],
+            "installed_shaft_volumes_mm3": {
+                bolt.name: geometry.stacks[bolt.name]["shaft"].Volume()
+                for bolt in geometry.bolts
+            },
             "rail_x_offsets_from_butt_mm": x_offsets,
             "rail_tool_x_edge_reserves_mm": x_reserves,
             "end_openings_mm": openings,
