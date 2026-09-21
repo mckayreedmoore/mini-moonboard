@@ -1,4 +1,4 @@
-"""PB03 adapter for six converted service-rail stations; no solve or release."""
+"""PB03 adapter for eight converted service-rail stations; no solve or release."""
 
 from mini_moonboard.box_frame import Part
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT

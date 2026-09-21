@@ -5,14 +5,16 @@ member change, rating, or drilling is approved. The 24 ML24Z stations below
 are the original structural angle duties, not 24 proven interchangeable cleats.
 Each has six old structural SDS axes (144 total) to replace with a new load path.
 
-Current status at `3c282c5e`: PB02 replaces the two right-center base/header
-stations. PB03 replaces four lower-service stations and both upper-service
-outer stations with six 300 mm solid timber blocks and 24 unselected
-through-bolt stacks. Exactly **16 legacy angle stations and 96 SDS axes
-remain**. The partial assembly has 198 connections, including 36 bolt-kind
+Current status at `1b027d13`: PB02 replaces the two right-center base/header
+stations. PB03 replaces four lower-service stations, both upper-service outer
+stations, and both bottom-rail outer stations with eight 300 mm solid timber
+blocks and 32 unselected through-bolt stacks. Exactly **14 legacy angle
+stations and 84 SDS axes remain**. The partial assembly has 194 connections,
+including 44 bolt-kind
 connections. The outer upright stacks use a 228.6 mm illustrative wood grip.
-Exact retail hardware and PB03 resistance remain unresolved. This is a partial
-development assembly, not a drilling, fabrication, or structural release.
+The live V4 viewer is current with this eight-station inventory. Exact retail
+hardware and PB03 resistance remain unresolved. This is a partial development
+assembly, not a drilling, fabrication, or structural release.
 
 Sources: `mini_moonboard/compact_floor_flush_frame.py` `stations()` and
 `connections()`; `docs/bolted-candidate-interfaces.json` under
@@ -36,8 +38,8 @@ not a proposed bolt center. Left/right are not assumed geometrically identical.
 - Historical PB01 is `clip_horizontal_lower_right_1` (`CR`–`LR`), a 2x6 butt
   end at X = 89.05. PB03 now replaces this station, its independently built
   left counterpart, both lower-service outer stations, and both upper-service
-  outer stations geometrically. No resistance result has been transferred to
-  those PB03 stations.
+  outer stations geometrically. PB03 also replaces both bottom-rail outer
+  stations. No resistance result has been transferred to those PB03 stations.
 
 ## All 24 original ML24Z duties
 
@@ -51,10 +53,10 @@ statement that one piece or one bolt pattern works at every row.
 | `clip_single_top_right_2` | T–SR | 1130.3,1442.993,2184.45 | top, outer end |
 | `clip_split_top_center_left` | CL–T | -89.05,1442.993,2184.45 | top, center |
 | `clip_split_top_center_right` | CR–T | 89.05,1442.993,2184.45 | top, center |
-| `clip_horizontal_bottom_left_1` | BL–SL | -1130.3,-49.688,405.542 | bottom, outer |
+| `clip_horizontal_bottom_left_1` | BL–SL | -1130.3,-49.688,405.542 | PB03 geometry only |
 | `clip_horizontal_bottom_left_2` | CL–BL | -89.05,-49.688,405.542 | bottom, center |
 | `clip_horizontal_bottom_right_1` | CR–BR | 89.05,-49.688,405.542 | bottom, center |
-| `clip_horizontal_bottom_right_2` | BR–SR | 1130.3,-49.688,405.542 | bottom, outer |
+| `clip_horizontal_bottom_right_2` | BR–SR | 1130.3,-49.688,405.542 | PB03 geometry only |
 | `clip_horizontal_lower_left_1` | LL–SL | -1130.3,616.914,1199.968 | PB03 geometry only |
 | `clip_horizontal_lower_left_2` | CL–LL | -89.05,616.914,1199.968 | PB03 geometry only |
 | `clip_horizontal_lower_right_1` | CR–LR | 89.05,616.914,1199.968 | PB03 geometry only |
@@ -136,19 +138,22 @@ screens of the other named stations, not extrapolated approval. Each screen
 must show both members, actual panel receivers, neighbor timber, complete
 bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
 
-1. The four `clip_horizontal_lower_*` stations and the two upper-service outer
+1. The four `clip_horizontal_lower_*` stations, the two upper-service outer
+   stations, and the two bottom-rail outer
    stations: the PB03 service-rail core checks actual kerf-right conditions
-   independently with six 300 mm blocks, 24 complete generic stacks, nearby
+   independently with eight 300 mm blocks, 32 complete generic stacks, nearby
    timber, finished panels, all 66 fixed axes, bore intersections, and tool
    paths. The outer stations use actual side members and coincident rail butt
    faces. Upright stacks have a 228.6 mm illustrative grip. The upper rail
    bores use a 125 mm offset, and each upper block clears its lower neighbor by
-   86.9 mm. Exact retail hardware, resistance, tolerances, and release remain
-   open.
+   86.9 mm. The bottom-outer rail bores use an 80.159 mm offset; each bottom
+   block has 1018 mm nearest clearance to an existing PB03 block. Exact retail
+   hardware, resistance, tolerances, and release remain open.
 2. `clip_horizontal_upper_left_2` and `clip_horizontal_upper_right_1`: the two
    remaining center upper-service ends and their fixed upper-panel receivers.
-3. `clip_horizontal_bottom_right_1` and `_2`: center and outer bottom-rail
-   ends. The header, kicker, and lower-panel bottom screws bound this region.
+3. `clip_horizontal_bottom_left_2` and `clip_horizontal_bottom_right_1`: the
+   remaining center bottom-rail ends. The header, kicker, and lower-panel
+   bottom screws bound this region.
 4. `clip_split_top_center_right` and `clip_single_top_right_2`: center and
    outer top-rail conditions, including its four fixed upper-panel screws.
 5. `clip_split_header_center_right` and `clip_timber_header_outer_right`:
@@ -159,8 +164,8 @@ bolt bores, head/washer/nut/tool volumes, assembly order, and separation.
    rear floor/leg, in the changed center/base load path and trim geometry.
 
 These are representative original ML24Z station families plus three old-bolt-
-pair families. The six-station PB03 service-rail core is a geometry-only
-conversion. Audit the remaining 16 stations against actual kerf-right stock,
+pair families. The eight-station PB03 service-rail core is a geometry-only
+conversion. Audit the remaining 14 stations against actual kerf-right stock,
 panel receivers, and neighbor volumes before finalizing a single or mixed
 architecture. A family may split further when contact, load angle, grain,
 edge/end distance, access, cost, or screw backing differs. Cost comparison
