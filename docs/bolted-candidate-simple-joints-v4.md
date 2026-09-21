@@ -259,14 +259,32 @@ bound to new source-distinct native mechanics before reuse of case forces.
 The [first-case receiver comparison](../scripts/simple_pb04_first_case_demand.py)
 authenticates that one PB04 solve and checks simultaneous actions in both grain directions.
 It finds the two upper-outer rail-1 block-side loaded ends at 35.709 mm against a conditional
-44.450 mm full-value marker; the current development disposition is **REVISE**, not a complete
-joint verdict. A reduced-geometry route and block-end revision need independent evaluation.
+44.450 mm full-value marker. The 2024 NDS minimum softwood tension-end marker is 22.225 mm,
+not 44.450 mm; a parallel-end component sensitivity uses a reduced geometry factor of 0.80335.
+Its separate conditional wood-yield ratios are 0.139 and 0.129 in the authenticated forward
+case. Oblique-load shear area, paired bolts, local pocket net section and splitting still lack
+a supported route; the development disposition is **REVISE**, not a complete joint verdict.
 The [bounded block-length trial](../scripts/simple_pb04_six_inch_block_screen.py)
 finds nominal six-inch geometry feasible at one lower-center and one upper-outer station,
 including their modeled contact areas and bores. This is not a resistance check or evidence
 that all eight blocks can shorten. Shortening grain length does not solve the X-direction
 long-grip hardware. Preserve PB03/PB04 source-bound results as historical until one installed
 configuration is rerun.
+
+A [compact upper-outer front-extension trial](../scripts/simple_pb04_compact_upper_revision.py)
+holds the bolt coordinates while combining
+a six-inch rear limit with 11.741 mm more wood at the loaded front end. The 164.141 mm block
+passes the provisional end geometry but intersects `main_upper_left` by approximately
+92,600 mm³. **REVISE**: it cannot be installed with the protected panel in that pose. The
+conditional reduced end-distance route on the original block avoids automatically requiring
+this front extension, but does not qualify the oblique shear area or complete joint. Any
+changed pose needs a fresh panel/receiver and same-configuration check.
+
+A [detached 1 mm deeper pocket trial](../scripts/simple_pb04_pocket_reserve_trial.py)
+cuts 37.9824 mm instead of 36.9824 mm in the six outer blocks. Its twelve seated trial stacks
+gain 1.0 mm nominal length margin without a modeled collision, while remaining X-direction
+wood drops to 101.7176 mm. This is **ADVANCE for geometry exploration only**: 1 mm is not a
+verified bolt or machining tolerance, and reduced net wood and complete joint checks remain.
 
 ## PB-02 G1 status and remaining boundaries
 
