@@ -1,4 +1,4 @@
-"""PB03 native adapter composes the six converted service-rail stations."""
+"""PB03 native adapter composes the eight converted rail stations."""
 
 import pytest
 
