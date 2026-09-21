@@ -73,16 +73,48 @@ def test_counterbore_net_gates_remain_unqualified(result):
     assert local["group_action_qualified"] is False
     assert local["splitting_qualified"] is False
     assert result["summary"]["development_decision"] == "REVISE"
-    assert result["summary"]["failed_signed_edge_end_bolts"] == [
-        "pb03_upper_outer_left_rail_1",
-        "pb03_upper_outer_right_rail_1",
-    ]
+    assert result["summary"]["failed_signed_edge_end_bolts"] == []
     assert result["summary"]["maximum_transverse_shear_n"] == pytest.approx(
         111.4434667003
     )
     assert result["summary"]["maximum_axial_tension_n"] == pytest.approx(69.0783045185)
-    assert "11.741 mm" in result["summary"]["exact_next_physical_revision_or_gate"]
+    assert "net-section" in result["summary"]["exact_next_physical_revision_or_gate"]
+    assert result["summary"]["altered_geometry_assessed"] is False
     assert result["structural_released"] is False
+
+
+def test_upper_outer_block_short_ends_use_reduced_geometry_reference(result):
+    expected = {
+        "pb03_upper_outer_left_rail_1": (-39.0837606600, 396.4410528350),
+        "pb03_upper_outer_right_rail_1": (-45.7190298883, 371.6172637401),
+    }
+    targets = [bolt for bolt in result["bolts"] if bolt["name"] in expected]
+    assert len(targets) == 2
+    for bolt in targets:
+        block = bolt["members"][1]
+        end = bolt["separate_checks"]["signed_end_edge"]["members"][block]["grain_end"]
+        conditional = bolt["separate_checks"]["wood_yield_bearing_sensitivity"][
+            "conditional_block_end_distance"
+        ]
+        assert end["force_component_n"] == pytest.approx(expected[bolt["name"]][0])
+        assert end["loaded_distance_mm"] == pytest.approx(35.709)
+        assert end["minimum_loaded_mm"] == pytest.approx(22.225)
+        assert end["full_value_loaded_mm"] == pytest.approx(44.45)
+        assert end["passes"] is True
+        assert end["full_value_attained"] is False
+        assert end["oblique_shear_area_qualified"] is False
+        assert conditional["geometry_factor"] == pytest.approx(35.709 / 44.45)
+        assert conditional["conditional_reference_n"] == pytest.approx(
+            expected[bolt["name"]][1]
+        )
+        assert conditional["conditional_reference_n"] == pytest.approx(
+            bolt["separate_checks"]["wood_yield_bearing_sensitivity"]["capacity_n"]
+            * conditional["geometry_factor"]
+        )
+        assert conditional["demand_n"] == pytest.approx(bolt["transverse_shear_n"])
+        assert conditional["geometry_scope"] == "initial_authenticated_PB04_only"
+        assert conditional["joint_rating"] is False
+        assert conditional["oblique_shear_area_qualified"] is False
 
 
 def test_rejects_report_mutation(tmp_path):

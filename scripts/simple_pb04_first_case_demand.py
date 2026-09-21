@@ -222,6 +222,30 @@ def analyze(report_path=DEFAULT_REPORT):
                 "load_to_grain_degrees": _angle_to_grain(member_force, grain),
             }
             signed[member] = _direction(parts[member], point, member_force, grain, edge)
+            if index == 1 and name in {
+                "pb03_upper_outer_left_rail_1",
+                "pb03_upper_outer_right_rail_1",
+            }:
+                end = signed[member]["grain_end"]
+                # ponytail: classify only the two authenticated short BLOCK ends.
+                minimum = 3.5 * quarter.SHAFT_DIAMETER_MM
+                full = 7 * quarter.SHAFT_DIAMETER_MM
+                if end["force_component_n"] >= 0:
+                    raise ValueError(f"{name}: BLOCK short-end action changed sign")
+                end.update(
+                    minimum_loaded_mm=minimum,
+                    full_value_loaded_mm=full,
+                    full_value_attained=end["loaded_distance_mm"] >= full,
+                    loaded_required_mm=minimum,
+                    loaded_margin_mm=end["loaded_distance_mm"] - minimum,
+                    passes=end["loaded_distance_mm"] >= minimum
+                    and end["unloaded_distance_mm"] >= end["unloaded_required_mm"],
+                    classification="softwood tension component; oblique lateral action",
+                    oblique_shear_area_qualified=False,
+                )
+                signed[member]["passes"] = (
+                    end["passes"] and signed[member]["cross_grain_edge"]["passes"]
+                )
             lo, hi = _extent(parts[member], axis)
             effective = hi - lo
             if (
@@ -263,8 +287,29 @@ def analyze(report_path=DEFAULT_REPORT):
             "signed_end_edge": {
                 "members": signed,
                 "passes": all(item["passes"] for item in signed.values()),
+                "scope": "signed orthogonal components only; oblique shear-area check open",
             },
         }
+        if name in {
+            "pb03_upper_outer_left_rail_1",
+            "pb03_upper_outer_right_rail_1",
+        }:
+            end = signed[members[1]]["grain_end"]
+            factor = min(1.0, end["loaded_distance_mm"] / end["full_value_loaded_mm"])
+            reference = wood["capacity_n"] * factor
+            checks["wood_yield_bearing_sensitivity"][
+                "conditional_block_end_distance"
+            ] = {
+                "provision": "2024 NDS 12.5.1.2(a), Table 12.5.1A; softwood tension end component; 12.5.1.2(b) oblique shear area still open",
+                "geometry_factor": factor,
+                "conditional_reference_n": reference,
+                "demand_n": shear,
+                "conditional_ratio": shear / reference,
+                "geometry_scope": "initial_authenticated_PB04_only",
+                "joint_rating": False,
+                "oblique_shear_area_qualified": False,
+                "limit": "End-distance factor on isolated yield reference only; oblique action, other geometry factors, group transfer, pockets, and splitting remain unqualified.",
+            }
         bolts.append(
             {
                 "station": row["station"],
@@ -351,9 +396,9 @@ def analyze(report_path=DEFAULT_REPORT):
     reason = (
         "Conditional separate component comparator exceeds unity."
         if over
-        else "Signed loaded edge/end fails in this case."
+        else "Signed minimum edge/end geometry fails in this case."
         if failed
-        else "Counterbore net-section, paired-bolt group action, and splitting remain unqualified; one case is not an envelope."
+        else "Two BLOCK ends require reduced C_delta; counterbore net-section, paired-bolt group action, and splitting remain unqualified; one case is not an envelope."
     )
     if over:
         revision = (
@@ -361,19 +406,13 @@ def analyze(report_path=DEFAULT_REPORT):
             "case before extending the load envelope."
         )
     elif failed:
-        revision = (
-            "Prototype both upper-outer blocks with at least 11.741 mm added at "
-            "their negative grain-axis ends (300.000 to at least 311.741 mm), "
-            "keeping the rail bolts, upright bolts, counterbores, and fixed panel "
-            "axes in place. This would give the governing rail-1 loaded ends "
-            "44.450 mm required plus 3.000 mm nominal reserve; re-screen every "
-            "timber/fastener/tool collision and rerun a12-forward before adoption."
-        )
+        revision = "Resolve the failed signed minimum geometry before proceeding."
     else:
         revision = (
-            "Keep PB04 geometry; next check both 1-inch pockets in each outer "
+            "For initial PB04 geometry, check both 1-inch pockets in each outer "
             "block as a cut-net-section, two-bolt group, and splitting system "
-            "under simultaneous interface force/moment, then run the other five cases."
+            "under simultaneous interface force/moment, then run the other five cases. "
+            "Any altered geometry needs its own screen and same-case solve."
         )
     return {
         "schema": "simple_pb04_first_case_demand/v1",
@@ -402,6 +441,7 @@ def analyze(report_path=DEFAULT_REPORT):
             "reason": reason,
             "exact_next_physical_revision_or_gate": revision,
             "scope": "one_authenticated_case_development_only",
+            "altered_geometry_assessed": False,
         },
         "capacity_aggregation": "prohibited_serial_components_not_combined",
         "actual_joint_demands_qualified": False,
