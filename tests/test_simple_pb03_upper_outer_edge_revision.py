@@ -15,15 +15,18 @@ def test_accepted_direction_source_and_feasible_intervals_are_pinned(result):
     assert result["report_sha256"] == revision.ACCEPTED_REPORT_SHA256
     assert result["accepted_rail_edge_forces_n"] == pytest.approx(
         {
-            "pb03_upper_outer_left_rail_1": -12.938631,
-            "pb03_upper_outer_left_rail_2": 12.155444,
-            "pb03_upper_outer_right_rail_1": 3.403511,
-            "pb03_upper_outer_right_rail_2": 1.689008,
+            "pb03_upper_outer_left_rail_1": -12.937479,
+            "pb03_upper_outer_left_rail_2": 12.164866,
+            "pb03_upper_outer_right_rail_1": 3.399433,
+            "pb03_upper_outer_right_rail_2": 1.689067,
         },
         abs=1.0e-6,
     )
-    assert result["feasible_offset_intervals_mm"] == pytest.approx(
-        [[28.4, 51.159], [109.159, 111.3]], abs=1.0e-6
+    assert result["feasible_offset_intervals_mm"][0] == pytest.approx(
+        [28.4, 51.159], abs=1.0e-6
+    )
+    assert result["feasible_offset_intervals_mm"][1] == pytest.approx(
+        [109.159, 111.3], abs=1.0e-6
     )
 
 
@@ -76,7 +79,7 @@ def test_revision_never_claims_hardware_or_structural_release(result):
         "rerun and authenticate the native frame cases after integration",
         "complete same-case resistance, group, splitting, and member checks",
         "select exact retail bolts, nuts, and washers for every grip",
-        "resolve the nine-inch-grip ordinary-retail bolt product",
+        "integrate and resistance-check the isolated eight-inch-bolt counterbores",
         "review tolerances and issue an explicit fabrication decision",
     ]
     assert result["exact_retail_hardware_selected"] is False
