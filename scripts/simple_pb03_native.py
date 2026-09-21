@@ -1,6 +1,11 @@
 """PB03 adapter for eight converted service-rail stations; no solve or release."""
 
+import math
+
+import cadquery as cq
+
 from mini_moonboard.box_frame import Part
+from scripts import simple_rail_joint_comparison as pb01
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_pb02_native import PB02Native
 from scripts.simple_pb03_bottom_outer_pair import (
@@ -41,6 +46,8 @@ BLOCK_NAMES = {
     **BOTTOM_BLOCK_NAMES,
 }
 SOURCE_ID = "pb03-lower-service-plus-upper-and-bottom-outer-v1"
+BLOCK_GRAIN_AXIS = cq.Vector(0.0, *pb01.N)
+BLOCK_SECTION_AXIS = cq.Vector(1.0, 0.0, 0.0)
 
 
 def _block_part(geometry):
@@ -94,6 +101,44 @@ class PB03Native(PB02Native):
         )
         self._base_connections = base_connections
         self._base_stations = base_stations
+        self.MEMBER_AXES = {
+            **self.MEMBER_AXES,
+            **{
+                name: (BLOCK_GRAIN_AXIS, BLOCK_SECTION_AXIS)
+                for name in BLOCK_NAMES.values()
+            },
+        }
+        self.NATIVE_SQUARE_END_MEMBERS = (
+            *self.NATIVE_SQUARE_END_MEMBERS,
+            *BLOCK_NAMES.values(),
+        )
+        self._pb03_bolt_points = self._build_pb03_bolt_interface_points()
+
+    def _build_pb03_bolt_interface_points(self):
+        """Intersect each declared bolt axis with its verified host/block face."""
+        parts = {part.name: part.shape for part in self.uncut_wood_parts()}
+        points = {}
+        for geometry in self._pb03_geometries.values():
+            block = geometry.block
+            for bolt in geometry.bolts:
+                direction = bolt.direction.normalized()
+                host = parts[bolt.members[0]]
+                host_face = max(
+                    vertex.Center().dot(direction) for vertex in host.Vertices()
+                )
+                block_face = min(
+                    vertex.Center().dot(direction) for vertex in block.Vertices()
+                )
+                if not math.isclose(host_face, block_face, abs_tol=1.0e-6):
+                    raise ValueError(f"{bolt.name}: PB03 host/block face changed")
+                distance = host_face - bolt.start.dot(direction)
+                point = bolt.start + direction * distance
+                if bolt.name in points:
+                    raise ValueError("PB03 bolt point names must be unique")
+                points[bolt.name] = point
+        if len(points) != 32:
+            raise ValueError("PB03 bolt interface-point inventory changed")
+        return points
 
     def uncut_wood_parts(self):
         return (*PB02Native.uncut_wood_parts(self), *self._blocks)
@@ -133,6 +178,54 @@ class PB03Native(PB02Native):
     def pb03_geometries(self):
         """Return the complete declared PB03 geometry without exposing internals."""
         return dict(self._pb03_geometries)
+
+    def pb03_bolt_interface_points(self):
+        """Return exact verified host/block face points for all PB03 bolt axes."""
+        return dict(self._pb03_bolt_points)
+
+    def bolt_interface_point(self, connection):
+        """Use PB03 face geometry while preserving every inherited bolt point."""
+        if connection.name in self._pb03_bolt_points:
+            return self._pb03_bolt_points[connection.name]
+        return super().bolt_interface_point(connection)
+
+    def validate_prepared_case(self, structure, metadata):
+        """Validate only PB03 preparation inventory; add no mechanics or release."""
+        block_names = set(BLOCK_NAMES.values())
+        ownership = metadata.get("connection_ownership", {})
+        pb03_bolts = {row.name for row in self._pb03_bolts}
+        legacy_sds = [row for row in self.connections() if row.name.startswith("clip_")]
+        if (
+            len(self.legacy_proxy_stations()) != 14
+            or len(legacy_sds) != 84
+            or len(pb03_bolts) != 32
+            or len(self.panel_connections()) != 66
+            or not block_names <= set(structure.members)
+            or not pb03_bolts <= set(ownership)
+            or any(
+                name.startswith("pb03_") and name.endswith("_contact")
+                for name in ownership
+            )
+        ):
+            raise ValueError("PB03 prepared inventory changed")
+        for name in block_names:
+            record = structure.members[name]["record"]
+            grain, section = self.MEMBER_AXES[name]
+            if (
+                (cq.Vector(*record["axis"]) - grain).Length > 1.0e-8
+                or (cq.Vector(*record["section_u"]) - section).Length > 1.0e-8
+                or name not in self.NATIVE_SQUARE_END_MEMBERS
+            ):
+                raise ValueError(f"{name}: PB03 block member axes changed")
+        metadata.update(
+            pb03_preparation_validated=True,
+            fabrication_released=False,
+            qualified_for_design=False,
+            acceptance=False,
+            drilling_released=False,
+            preparation_only=True,
+            developmental_only=True,
+        )
 
 
 def screen(module=None):

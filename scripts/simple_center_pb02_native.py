@@ -200,7 +200,9 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
         for interface in source_partition["interfaces"].values()
         for part in (interface["first_part"], interface["second_part"])
     }
-    parts = {part.name: part for part in module.uncut_wood_parts() if part.name in needed}
+    parts = {
+        part.name: part for part in module.uncut_wood_parts() if part.name in needed
+    }
     records = {
         name: response.gross_member_record(
             part,
@@ -228,13 +230,16 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
 
     def combine(rows):
         area = sum(row["tributary_area_mm2"] for row in rows)
-        point = sum(
-            (
-                row["tributary_area_mm2"] * np.asarray(row["point_mm"])
-                for row in rows
-            ),
-            np.zeros(3),
-        ) / area
+        point = (
+            sum(
+                (
+                    row["tributary_area_mm2"] * np.asarray(row["point_mm"])
+                    for row in rows
+                ),
+                np.zeros(3),
+            )
+            / area
+        )
         source_ids = sorted(row["cell_id"] for row in rows)
         first = rows[0]
         return {
@@ -247,7 +252,9 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
         }
 
     result = {}
-    interfaces = {name: dict(row) for name, row in source_partition["interfaces"].items()}
+    interfaces = {
+        name: dict(row) for name, row in source_partition["interfaces"].items()
+    }
     for edge, source_cells in cells_by_edge.items():
         groups = [dict(cell) for cell in source_cells]
         unsupported = [
@@ -281,8 +288,7 @@ def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
             merged = combine(tile)
             point = cq.Vector(*merged["point_mm"])
             if edge_margin(edge, merged["point_mm"]) < -1.0e-5 or any(
-                bores[name].isInside(point, 1.0e-7)
-                for name in EDGE_BORE_NAMES[edge]
+                bores[name].isInside(point, 1.0e-7) for name in EDGE_BORE_NAMES[edge]
             ):
                 raise ValueError(f"PB02 {edge} parent contact tile is not attachable")
             groups = [row for row in groups if row not in tile]
@@ -424,7 +430,9 @@ def add_native_paths(
         raise ValueError("PB02 trial spring stiffnesses must be positive and finite")
 
     if contact_partition_data is None:
-        cells, contact_partition_data = native_contact_partition(contact_grid_resolution)
+        cells, contact_partition_data = native_contact_partition(
+            contact_grid_resolution
+        )
     else:
         cells = None
     if row_inventory is None:
@@ -448,9 +456,7 @@ def add_native_paths(
         or any(
             not np.isclose(
                 sum(
-                    row["tributary_area_mm2"]
-                    for row in contacts
-                    if row["edge"] == edge
+                    row["tributary_area_mm2"] for row in contacts if row["edge"] == edge
                 ),
                 interface["net_overlap_area_mm2"],
                 atol=1.0e-5,
@@ -590,8 +596,13 @@ def prepare_case(
     face_normal_total_n_per_mm,
     floor_contact_n_per_mm=1.0e5,
     contact_grid_resolution=DEFAULT_CONTACT_GRID,
+    module=None,
+    expected_candidate=None,
+    member_contacts=None,
+    expected_legacy_station_count=22,
+    post_prepare=None,
 ):
-    """Prepare one unsolved PB02 whole frame with explicit trial stiffnesses."""
+    """Prepare one unsolved PB02-based frame with explicit trial stiffnesses."""
     if case not in CASES:
         raise ValueError("Unknown unchanged load case")
     trial_stiffnesses = (
@@ -603,7 +614,19 @@ def prepare_case(
     if any(not np.isfinite(value) or value <= 0 for value in trial_stiffnesses):
         raise ValueError("PB02 trial spring stiffnesses must be positive and finite")
 
-    module = PB02Native()
+    module = PB02Native() if module is None else module
+    expected_candidate = (
+        module.KEY if expected_candidate is None else expected_candidate
+    )
+    if expected_candidate != module.KEY:
+        raise ValueError("Preparation candidate identity changed")
+    if (
+        type(expected_legacy_station_count) is not int
+        or expected_legacy_station_count <= 0
+    ):
+        raise ValueError("Expected legacy-station count must be a positive integer")
+    if post_prepare is not None and not callable(post_prepare):
+        raise TypeError("Post-preparation hook must be callable")
     contact_cells, contact_partition_data = native_contact_partition(
         contact_grid_resolution
     )
@@ -618,7 +641,9 @@ def prepare_case(
     post_header_contacts = _shifted_post_header_contacts(
         module, face_normal_total_n_per_mm
     )
-    existing_contacts = tuple(face_contacts(module))
+    existing_contacts = tuple(
+        face_contacts(module) if member_contacts is None else member_contacts
+    )
     if any(
         {contact["first"], contact["second"]} == {"backer", "shifted_right_post"}
         for contact in (*existing_contacts, *post_header_contacts)
@@ -683,7 +708,7 @@ def prepare_case(
             FlushStructure.member = joint_member
             structure, metadata = prepare_flush(
                 module,
-                expected_candidate=module.KEY,
+                expected_candidate=expected_candidate,
                 materials=materials(),
                 stiffnesses=stiffnesses,
                 hold=hold,
@@ -751,7 +776,7 @@ def prepare_case(
     floor_members = metadata.get("extra_floor_bearing_members")
     shifted_contacts = {contact["name"] for contact in post_header_contacts}
     if (
-        len(proxy_stations) != 22
+        len(proxy_stations) != expected_legacy_station_count
         or floor_members != list(module.FLOOR_BEARING_MEMBER_NAMES)
         or not shifted_contacts.issubset(metadata["connection_ownership"])
     ):
@@ -772,7 +797,11 @@ def prepare_case(
         pb02_principal_header_bearing="preserved automatic current-response bearing",
         kerf_panel_bounds_mm=panel_bounds,
         legacy_proxy_stations=proxy_stations,
-        provisional_structural_connectors="22 baseline ML24Z/SDS station proxies",
+        provisional_structural_connectors=(
+            "22 baseline ML24Z/SDS station proxies"
+            if expected_legacy_station_count == 22
+            else f"{expected_legacy_station_count} baseline ML24Z/SDS station proxies"
+        ),
         pb02_same_case_demand=False,
         solved=False,
         qualified_for_design=False,
@@ -782,6 +811,8 @@ def prepare_case(
         preparation_only=True,
         developmental_only=True,
     )
+    if post_prepare is not None:
+        post_prepare(structure, metadata)
     return structure, metadata
 
 
