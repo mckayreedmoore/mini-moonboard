@@ -10,7 +10,12 @@ wood-piece dimension below to the active PB02 boxes in the V4 viewer. It also re
 the active `ligament_priority` geometry to contain ten PB02 bolt axes, all 66 fixed
 panel/kicker screw axes, and a closed fabrication-release flag. The current source
 fingerprint is
-`06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387`.
+`4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb`.
+
+The active rear cleat now starts 5 mm above the floor and ends at the unchanged
+Z=460 mm top, giving a 455-mm length. This revision assigns no rear-cleat floor bearing.
+It was introduced as a concrete geometry response to A12-rear active-set cycling; no
+accepted source-bound native result exists for this revised fingerprint.
 
 ## Current hardware count and arithmetic
 
@@ -40,7 +45,7 @@ below follows the established grain/cut direction, not necessarily the first dim
 | Post/header block | 88.9×88.9×143.9 | 4×4 |
 | Upright-side cleat | 88.9×61.6×183 | 4×4, ripped |
 | Header-side cleat | 70.95×145×67 | 4×6, two illustrative rips |
-| Rear cleat | 88.9×38.1×460 | 2×4 |
+| Rear cleat | 88.9×38.1×455 | 2×4 |
 | Kicker backer | 139.7×88.9×238.9 | 4×6 |
 
 ## Illustrative stock arithmetic
@@ -52,7 +57,7 @@ defect rejection, or dimensional tolerance.
 | Stock | Cut lengths plus kerfs, mm | Consumed | Remainder |
 | --- | ---: | ---: | ---: |
 | 4×4 | 238.9 + 183 + 143.9 + 3×3.2 | **575.4 mm** | **1863.0 mm** |
-| 2×4 | 460 + 1×3.2 | **463.2 mm** | **1975.2 mm** |
+| 2×4 | 455 + 1×3.2 | **458.2 mm** | **1980.2 mm** |
 | 4×6 | 238.9 + 145 + 2×3.2 | **390.3 mm** | **2048.1 mm** |
 
 The upright-side example assumes a nominal 88.9-mm 4×4 blank ripped to 61.6 mm
@@ -64,7 +69,8 @@ not a machining plan, usable-offcut credit, or proof that delivered stock can fi
 to the modeled dimensions.
 
 Run `.venv/bin/python -m scripts.simple_center_pb02_current_bom` to reproduce the
-record. The active PB02 geometry has one corrected `a12-forward` developmental result,
-but still requires local-ligament/splitting resolution, group and geometry factors,
-exact hardware checks, and the remaining load cases. No purchase, drilling, fabrication,
-or structural release.
+record. The prior floor-bearing geometry has one corrected `a12-forward` developmental
+result; it is not evidence for this 5-mm-clear revision. The active geometry still
+requires a new source-bound run, local-ligament/splitting resolution, group and geometry
+factors, exact hardware checks, and the remaining load cases. No purchase, drilling,
+fabrication, or structural release.

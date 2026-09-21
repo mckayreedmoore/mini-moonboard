@@ -14,6 +14,9 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     assert scene["baseline"] == "compact-floor-flush-kerf-right"
     assert scene["fixed_panel_kicker_screw_axes"] == 66
     assert scene["pb02_variant_id"] == "ligament_priority"
+    assert scene["pb02_source_fingerprint"] == (
+        "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
+    )
     blocks = {part["name"]: part for part in scene["boxes"]}
     assert blocks["PB01 short rail block"]["size_mm"] == [139.7, 57.15, 152.4]
     assert blocks["PB02 post/header block"]["size_mm"] == [88.9, 88.9, 143.9]
@@ -27,9 +30,10 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
         -175.7,
         0,
     ]
-    assert blocks["PB02 rear return block"]["size_mm"] == pytest.approx(
-        [88.9, 38.1, 460]
-    )
+    rear_cleat = blocks["PB02 rear return block"]
+    assert rear_cleat["origin_mm"] == pytest.approx([89.05, -213.8, 5])
+    assert rear_cleat["size_mm"] == pytest.approx([88.9, 38.1, 455])
+    assert rear_cleat["origin_mm"][2] + rear_cleat["size_mm"][2] == 460
     assert blocks["PB02 kicker backer"]["size_mm"] == [139.7, 88.9, 238.9]
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB01"]) == 4
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB02"]) == 10

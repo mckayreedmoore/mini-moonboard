@@ -88,6 +88,8 @@ def test_active_geometry_prioritizes_the_post_bore_ligament():
     assert len(bores) == 10
     assert parts["upright_side_cleat"].BoundingBox().ymax == -114.1
     assert parts["header_side_cleat"].BoundingBox().zmax == 344
+    rear = parts["rear_cleat"].BoundingBox()
+    assert (rear.zmin, rear.zmax, rear.zlen) == pytest.approx((5.0, 460.0, 455.0))
     assert ends["post_cleat_2_left"][0][2] == 176
     assert ends["post_rear_high"][0][2] == 202
     assert ends["cleat_header_1_bottom"][0][:2] == (208.35, -130.5)
@@ -118,7 +120,7 @@ def test_active_geometry_identity_agrees_across_all_consumers():
         scene["pb02_source_fingerprint"],
     } == {scene["pb02_source_fingerprint"]}
     assert scene["pb02_source_fingerprint"] == (
-        "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+        "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
     )
     assert len(bores) == len(ends) // 2 == len(owners) == 10
 

@@ -105,8 +105,8 @@ def test_prepare_keeps_22_proxies_and_exact_floor_members(prepared):
     assert metadata["extra_floor_bearing_members"] == [
         "shifted_right_post",
         "backer",
-        "rear_cleat",
     ]
+    assert metadata["pb02_rear_cleat_floor_clearance_mm"] == 5.0
 
 
 def test_prepare_adds_exact_canonical_spring_inventory(prepared):

@@ -152,7 +152,7 @@ def test_native_refinement_coalescing_preserves_exact_area_and_first_moments():
 def test_eight_by_eight_partition_refines_perforated_cells_and_remains_finite():
     cells, partition = native_contact_partition(8)
 
-    assert partition["contact_row_count"] == 410
+    assert partition["contact_row_count"] == 413
     assert sum(
         row["native_attachment_coalesced_count"]
         for row in partition["interfaces"].values()
@@ -178,6 +178,7 @@ def test_screen_keeps_claim_boundary(module):
         "bolt_tension": 10,
         "contact_compression": CONTACT_PARTITION["contact_row_count"],
     }
+    assert result["rear_cleat_floor_clearance_mm"] == 5.0
     assert result["developmental_only"] is True
     assert result["qualified_for_design"] is False
     assert result["drilling_released"] is False

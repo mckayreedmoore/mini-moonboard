@@ -32,7 +32,11 @@ from scripts.simple_center_connected_kinematics import (
     contact_partition,
 )
 from scripts.simple_center_current_placement_table import GRAIN_AXIS
-from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT, active_geometry
+from scripts.simple_center_pb02_geometry import (
+    ACTIVE_FINGERPRINT,
+    REAR_CLEAT_FLOOR_CLEARANCE_MM,
+    active_geometry,
+)
 
 CANDIDATE_ID = "pb02-kerf-right-native-development-only"
 REMOVED_POST = "base_post_center_right"
@@ -90,7 +94,7 @@ class PB02Native(DiagnosticProxy):
 
     KEY = CANDIDATE_ID
     ACTIVE_FINGERPRINT = ACTIVE_FINGERPRINT
-    FLOOR_BEARING_MEMBER_NAMES = ("shifted_right_post", "backer", "rear_cleat")
+    FLOOR_BEARING_MEMBER_NAMES = ("shifted_right_post", "backer")
 
     def __init__(self):
         super().__init__()
@@ -570,6 +574,7 @@ def add_native_paths(
             "separate_from_canonical_areal_density": True,
             "face_normal_total_n_per_mm": face_normal_total_n_per_mm,
         },
+        pb02_rear_cleat_floor_clearance_mm=REAR_CLEAT_FLOOR_CLEARANCE_MM,
         qualified_for_design=False,
         acceptance=False,
         drilling_released=False,
@@ -822,6 +827,7 @@ def screen(contact_grid_resolution=DEFAULT_CONTACT_GRID):
             for kind in ("bolt_shear", "bolt_tension", "contact_compression")
         },
         "canonical_contact_partition": partition,
+        "rear_cleat_floor_clearance_mm": REAR_CLEAT_FLOOR_CLEARANCE_MM,
         "developmental_only": True,
         "qualified_for_design": False,
         "drilling_released": False,

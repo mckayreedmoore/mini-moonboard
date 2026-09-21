@@ -29,7 +29,7 @@ PIECES = {
     ),
     "rear_cleat": (
         "PB02 rear return block",
-        (Decimal("88.9"), Decimal("38.1"), Decimal(460)),
+        (Decimal("88.9"), Decimal("38.1"), Decimal(455)),
     ),
     "kicker_backer": (
         "PB02 kicker backer",
@@ -141,7 +141,7 @@ def report():
                 "defect_allowance_mm": 0.0,
             },
             "4x4_8ft": _cut_row(("238.9", "183", "143.9")),
-            "2x4_8ft": _cut_row(("460",)),
+            "2x4_8ft": _cut_row(("455",)),
             "4x6_8ft": _cut_row(("238.9", "145")),
             "illustrative_rip_offcuts_mm": {
                 "upright_side_from_4x4": 24.1,

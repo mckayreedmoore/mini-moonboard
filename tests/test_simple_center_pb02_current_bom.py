@@ -15,7 +15,7 @@ def test_current_inventory_matches_active_ten_bolt_geometry():
         "baseline": "compact-floor-flush-kerf-right",
         "pb02_variant_id": "ligament_priority",
         "pb02_source_fingerprint": (
-            "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+            "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
         ),
         "pb02_bolt_axes": 10,
         "fixed_panel_kicker_screw_axes": 66,
@@ -33,7 +33,7 @@ def test_current_piece_dimensions_are_bound_to_viewer_boxes():
         "post_header_block": [88.9, 88.9, 143.9],
         "upright_side_cleat": [88.9, 61.6, 183.0],
         "header_side_cleat": [70.95, 145.0, 67.0],
-        "rear_cleat": [88.9, 38.1, 460.0],
+        "rear_cleat": [88.9, 38.1, 455.0],
         "kicker_backer": [139.7, 88.9, 238.9],
     }
     assert all(row["matches_active_viewer"] for row in pieces.values())
@@ -55,10 +55,10 @@ def test_current_cost_and_stock_arithmetic_are_reproducible():
         "remainder_mm": 1863.0,
     }
     assert stock["2x4_8ft"] == {
-        "cut_lengths_mm": [460.0],
+        "cut_lengths_mm": [455.0],
         "crosscut_kerf_mm": 3.2,
-        "consumed_mm": 463.2,
-        "remainder_mm": 1975.2,
+        "consumed_mm": 458.2,
+        "remainder_mm": 1980.2,
     }
     assert stock["4x6_8ft"] == {
         "cut_lengths_mm": [238.9, 145.0],
@@ -86,6 +86,8 @@ def test_record_and_ledger_keep_all_release_gates_closed():
     latest = ledger["latest_center_pb02_current_bom"]
     assert "ten bolts" in latest
     assert "66 fixed" in latest
+    assert "Z=5 mm" in latest
+    assert "no rear-cleat floor bearing" in latest
     assert "No purchase, drilling, fabrication or structural release" in latest
 
     document = (
@@ -93,4 +95,6 @@ def test_record_and_ledger_keep_all_release_gates_closed():
     ).read_text()
     assert "Current PB02 BOM and cut-list" in document
     assert "Historical eight-bolt" in document
+    assert "5 mm above the floor" in document
+    assert "no rear-cleat floor bearing" in document
     assert "No purchase, drilling, fabrication, or structural release" in document

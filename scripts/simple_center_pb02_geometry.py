@@ -6,6 +6,8 @@ from dataclasses import asdict, dataclass, replace
 from types import MappingProxyType
 from unittest.mock import patch
 
+import cadquery as cq
+
 from scripts import simple_center_current_stack_tip_screen as stack
 from scripts import simple_center_post_header_two_bolt_probe as post
 from scripts import simple_center_second_bolt_tolerance_probe as prior
@@ -50,6 +52,7 @@ HEADER_SIDE_TOP_Z = 344
 POST_CLEAT_Z = (145, 176)
 BLOCK_BOTTOM_Z = 95
 POST_AXIS_Y = -145
+REAR_CLEAT_FLOOR_CLEARANCE_MM = 5.0
 RECEIVERS = MappingProxyType(
     {
         "header_cleat": ("base_header", "header_side_cleat"),
@@ -79,6 +82,7 @@ def trial_fingerprint(spec=ACTIVE_TRIAL):
             "post_cleat_z": POST_CLEAT_Z,
             "block_bottom_z": BLOCK_BOTTOM_Z,
             "post_axis_y": POST_AXIS_Y,
+            "rear_cleat_floor_clearance_mm": REAR_CLEAT_FLOOR_CLEARANCE_MM,
         },
         "receivers": dict(RECEIVERS),
     }
@@ -105,6 +109,20 @@ def build_center_geometry(spec=ACTIVE_TRIAL):
         patch.object(prior, "_geometry", integrated_geometry),
     ):
         parts, bores, ends = stack._geometry()
+
+    rear_bounds = parts["rear_cleat"].BoundingBox()
+    parts["rear_cleat"] = parts["rear_cleat"].intersect(
+        cq.Solid.makeBox(
+            rear_bounds.xlen,
+            rear_bounds.ylen,
+            rear_bounds.zmax - REAR_CLEAT_FLOOR_CLEARANCE_MM,
+            cq.Vector(
+                rear_bounds.xmin,
+                rear_bounds.ymin,
+                REAR_CLEAT_FLOOR_CLEARANCE_MM,
+            ),
+        )
+    )
 
     dz = spec.post_high_z - ends["post_rear_high"][0][2]
     bores["post_high"] = bores["post_high"].translate((0, 0, dz))
