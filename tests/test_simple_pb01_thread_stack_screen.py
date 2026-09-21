@@ -4,7 +4,57 @@ import math
 
 import pytest
 
-from scripts.simple_pb01_thread_stack_screen import evaluate_stack, screen
+from scripts.simple_pb01_thread_stack_screen import (
+    evaluate_grip_interval,
+    evaluate_stack,
+    screen,
+)
+
+
+def test_minimum_grip_seating_and_maximum_grip_projection_are_separate():
+    rail = evaluate_grip_interval(
+        bolt_length_in=5,
+        wood_grip_range_in=(3.70, 3.80),
+        washer_each_side_in=0.065,
+        usable_thread_start_in=0.25,
+        nut_height_range_in=(0.20, 0.25),
+        required_tip_projection_in=0.25,
+    )
+    assert rail["minimum_grip_nut_bearing_plane_in"] == pytest.approx(3.83)
+    assert rail["maximum_grip_nut_bearing_plane_in"] == pytest.approx(3.93)
+    assert rail["minimum_grip_seating_margin_in"] == pytest.approx(3.58)
+    assert rail["maximum_grip_tip_projection_margin_in"] == pytest.approx(0.57)
+    assert rail["passes_assumed_interval"] is True
+    failed = evaluate_grip_interval(
+        bolt_length_in=5,
+        wood_grip_range_in=(3.70, 3.80),
+        washer_each_side_in=0.065,
+        usable_thread_start_in=4.25,
+        nut_height_range_in=(0.20, 0.25),
+        required_tip_projection_in=0.25,
+    )
+    assert failed["minimum_grip_seating_margin_in"] == pytest.approx(-0.42)
+    assert failed["passes_assumed_interval"] is False
+
+
+@pytest.mark.parametrize(
+    "grip,nut,start",
+    [
+        ((3.8, 3.7), (0.2, 0.25), 0.25),
+        ((3.7, 3.8), (0.25, 0.2), 0.25),
+        ((3.7, 3.8), (0.2, 0.25), math.nan),
+    ],
+)
+def test_grip_interval_rejects_invalid_dimensions(grip, nut, start):
+    with pytest.raises(ValueError):
+        evaluate_grip_interval(
+            bolt_length_in=5,
+            wood_grip_range_in=grip,
+            washer_each_side_in=0.065,
+            usable_thread_start_in=start,
+            nut_height_range_in=nut,
+            required_tip_projection_in=0.25,
+        )
 
 
 def test_prime_line_two_sided_intervals():

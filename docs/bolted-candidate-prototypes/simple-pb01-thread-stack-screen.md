@@ -55,6 +55,36 @@ bolt would also put threads through the wood, so the earlier conditional
 full-body assumptions cannot be transferred to it. It is not a selected
 replacement or a released stack.
 
+## Provisional receiving envelope, not a product approval
+
+The calculator now screens the **minimum** assumed grip for a seated nut
+and the **maximum** assumed grip for full nut height plus tip projection.
+For development only, use a 3.70–3.80-in rail wood grip and a 6.95–7.05-in
+upright wood grip (each nominal ±0.05 in). These are deliberately stated
+trial intervals, **not measured lumber tolerances**. Retain the two
+0.065-in washer assumptions, a 0.20–0.25-in nut-height interval, and an
+illustrative 0.25-in minimum tip projection. The actual nut/washer
+selection and projection requirement must be established separately.
+
+| Trial | Assumed last usable-thread start from head | Minimum-grip seating margin | Maximum-grip projection margin |
+| --- | ---: | ---: | ---: |
+| 5-in Prime-Line rail, nominal pattern | 4.25 in | **−0.42 in** | +0.57 in |
+| 5-in fully threaded rail concept | 0.25 in illustrative, not verified | +3.58 in | +0.57 in |
+| 8-in Prime-Line upright, nominal pattern | 7.00 in | +0.08 in | +0.32 in |
+
+The positive margins prove only the arithmetic of those **assumed**
+dimensions. The viable provisional pattern is a 5-in fully threaded rail
+bolt analyzed on its actual effective root and an independent 8-in
+partially threaded upright bolt, each with a compatible nut and qualified
+washer at both ends. A received rail bolt must have a usable full thread
+beginning no later than the **measured minimum nut bearing plane**; its
+threaded interval must continue through the entire nut at maximum grip.
+Both bolts must have measured under-head length sufficient for the actual
+maximum grip, washers, complete nut engagement and the adopted projection.
+The wood-thread occupancy and root-based bearing/yield calculation remain
+separate from this axial fit test. No retailer listing yet verifies the
+full receiving envelope or the washer's NDS classification.
+
 Before any stack or hole is released, measure the delivered bolt's first
 complete thread, usable threaded length and overall length; identify and
 measure the actual nut and both washers; confirm complete nut engagement and
