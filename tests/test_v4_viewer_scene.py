@@ -17,12 +17,23 @@ def test_v4_overlay_uses_current_pb02_and_pb03_geometry():
     assert scene["pb02_source_fingerprint"] == (
         "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb"
     )
+    assert scene["pb03_source_commit"] == "74fba89"
     blocks = {part["name"]: part for part in scene["boxes"]}
     assert "PB01 short rail block" not in blocks
-    assert blocks["PB03 lower-center left block"]["size_mm"] == [139.7, 57.15, 300]
-    assert blocks["PB03 lower-center right block"]["size_mm"] == [139.7, 57.15, 300]
-    assert blocks["PB03 lower-center left block"]["center_mm"][0] < 0
-    assert blocks["PB03 lower-center right block"]["center_mm"][0] > 0
+    pb03_blocks = {
+        name: block for name, block in blocks.items() if block["station"] == "PB03"
+    }
+    assert set(pb03_blocks) == {
+        "pb03_lower_center_left_block",
+        "pb03_lower_center_right_block",
+        "pb03_lower_outer_left_block",
+        "pb03_lower_outer_right_block",
+    }
+    assert {tuple(block["size_mm"]) for block in pb03_blocks.values()} == {
+        (139.7, 57.15, 300)
+    }
+    assert pb03_blocks["pb03_lower_center_left_block"]["center_mm"][0] < 0
+    assert pb03_blocks["pb03_lower_center_right_block"]["center_mm"][0] > 0
     assert blocks["PB02 post/header block"]["size_mm"] == [88.9, 88.9, 143.9]
     assert blocks["PB02 revised upright-side cleat"]["size_mm"] == pytest.approx(
         [88.9, 61.6, 183]
@@ -40,7 +51,7 @@ def test_v4_overlay_uses_current_pb02_and_pb03_geometry():
     assert rear_cleat["origin_mm"][2] + rear_cleat["size_mm"][2] == 460
     assert blocks["PB02 kicker backer"]["size_mm"] == [139.7, 88.9, 238.9]
     assert len([axis for axis in scene["axes"] if axis["station"] == "PB02"]) == 10
-    assert len([axis for axis in scene["axes"] if axis["station"] == "PB03"]) == 8
+    assert len([axis for axis in scene["axes"] if axis["station"] == "PB03"]) == 16
     assert {axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"} == {
         "post_cleat_1",
         "post_cleat_2",
@@ -69,21 +80,37 @@ def test_v4_overlay_uses_current_pb02_and_pb03_geometry():
         "inner_kicker_edges_supported": {"left": True, "right": True},
         "pb02_bore_count": 10,
         "pb02_trial_stack_count": 10,
-        "pb03_bore_count": 8,
-        "pb03_trial_stack_count": 8,
-        "pb03_block_count": 2,
-        "legacy_station_count": 20,
-        "legacy_sds_axis_count": 120,
+        "pb03_bore_count": 16,
+        "pb03_trial_stack_count": 16,
+        "pb03_block_count": 4,
+        "legacy_station_count": 18,
+        "legacy_sds_axis_count": 108,
         "replaced_pb03_legacy_stations": [
             "clip_horizontal_lower_left_2",
             "clip_horizontal_lower_right_1",
+            "clip_horizontal_lower_left_1",
+            "clip_horizontal_lower_right_2",
         ],
         "fixed_panel_kicker_screw_axes": 66,
+        "total_connection_count": 202,
+        "bolt_kind_connection_count": 28,
     }
-    assert len(scene["hidden_legacy_visual_names"]) == 14
+    assert len(scene["hidden_legacy_visual_names"]) == 28
     assert set(scene["hidden_legacy_visual_names"]) >= {
         "clip_horizontal_lower_left_2",
         "clip_horizontal_lower_right_1",
+    }
+    assert {
+        station: sum(
+            name == station or name.startswith(f"fastener_{station}_")
+            for name in scene["hidden_legacy_visual_names"]
+        )
+        for station in scene["assembly_contract"]["replaced_pb03_legacy_stations"]
+    } == {
+        "clip_horizontal_lower_left_2": 7,
+        "clip_horizontal_lower_right_1": 7,
+        "clip_horizontal_lower_left_1": 7,
+        "clip_horizontal_lower_right_2": 7,
     }
     assert scene["fabrication_released"] is False
 
@@ -120,14 +147,16 @@ def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
     )
 
 
-def test_pb03_overlay_has_eight_complete_unselected_stacks():
+def test_pb03_overlay_has_sixteen_complete_unselected_stacks():
     scene = build_scene()
     stacks = [stack for stack in scene["hardware_stacks"] if stack["station"] == "PB03"]
 
-    assert len(stacks) == 8
+    assert len(stacks) == 16
     assert {stack["source_station"] for stack in stacks} == {
         "clip_horizontal_lower_left_2",
         "clip_horizontal_lower_right_1",
+        "clip_horizontal_lower_left_1",
+        "clip_horizontal_lower_right_2",
     }
     assert {stack["orientation_selected"] for stack in stacks} == {False}
     assert {stack["hardware_selected"] for stack in stacks} == {False}
@@ -153,7 +182,10 @@ def test_viewer_scene_artifact_matches_producer():
     assert "DEVELOPMENT V4 · PB02/PB03 partial 3D scene" in html
     assert "fetch('v4-diagnostic-scene.json')" in html
     assert "data.pb02_variant_id !== 'ligament_priority'" in html
-    assert "data.hardware_stacks.length !== 18" in html
+    assert "data.hardware_stacks.length !== 26" in html
+    assert "data.hidden_legacy_visual_names?.length !== 28" in html
+    assert "data.assembly_contract?.total_connection_count !== 202" in html
+    assert "data.assembly_contract?.bolt_kind_connection_count !== 28" in html
     assert "v4ReplacedLegacyStations" in html
     assert "!isV4ReplacedLegacyPart(part.name)" in html
     assert "complete trial stack envelope" in html

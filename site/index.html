@@ -559,7 +559,7 @@
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The two replaced lower-center angles and twelve SDS visuals are hidden; colored PB02/PB03 blocks, bores, and complete trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. The four replaced lower-service angles and twenty-four SDS visuals are hidden; colored PB02/PB03 blocks, bores, and complete trial stack envelopes are diagnostic only.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) resolveV4Baseline?.();
         displayParts.forEach(part => loader.load(part.path, geometry => {
@@ -594,8 +594,8 @@
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
               data.pb02_variant_id !== 'ligament_priority' ||
               data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
-              data.boxes.length !== 8 || data.axes.length !== 18 || data.hardware_stacks.length !== 18 ||
-              data.hidden_legacy_visual_names?.length !== 14 ||
+              data.boxes.length !== 10 || data.axes.length !== 26 || data.hardware_stacks.length !== 26 ||
+              data.hidden_legacy_visual_names?.length !== 28 ||
               !data.hidden_legacy_visual_names.every(isV4ReplacedLegacyPart) ||
               data.assembly_contract?.width_option !== 'kerf-right' ||
               data.assembly_contract?.outward_shifted_center_supports !== 1 ||
@@ -603,11 +603,13 @@
               !data.assembly_contract?.inner_kicker_edges_supported?.right ||
               data.assembly_contract?.pb02_bore_count !== 10 ||
               data.assembly_contract?.pb02_trial_stack_count !== 10 ||
-              data.assembly_contract?.pb03_bore_count !== 8 ||
-              data.assembly_contract?.pb03_trial_stack_count !== 8 ||
-              data.assembly_contract?.pb03_block_count !== 2 ||
-              data.assembly_contract?.legacy_station_count !== 20 ||
-              data.assembly_contract?.legacy_sds_axis_count !== 120 ||
+              data.assembly_contract?.pb03_bore_count !== 16 ||
+              data.assembly_contract?.pb03_trial_stack_count !== 16 ||
+              data.assembly_contract?.pb03_block_count !== 4 ||
+              data.assembly_contract?.legacy_station_count !== 18 ||
+              data.assembly_contract?.legacy_sds_axis_count !== 108 ||
+              data.assembly_contract?.total_connection_count !== 202 ||
+              data.assembly_contract?.bolt_kind_connection_count !== 28 ||
               data.assembly_contract?.fixed_panel_kicker_screw_axes !== 66) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = new THREE.BoxGeometry(...box.size_mm);

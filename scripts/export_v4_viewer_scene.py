@@ -22,20 +22,16 @@ from scripts.simple_center_pb02_geometry import (
     active_geometry,
 )
 from scripts.simple_pb03_lower_center_pair import (
+    ALL_TARGET_STATIONS,
     BLOCK_LENGTH_MM,
     BLOCK_T_MM,
     BLOCK_X_MM,
     BORE_DIAMETER_MM,
     HEAD_NUT_DIAMETER_MM,
-    TARGET_STATIONS,
     WASHER_DIAMETER_MM,
 )
-from scripts.simple_pb03_lower_center_pair import (
-    build_pair as build_pb03_pair,
-)
-from scripts.simple_pb03_lower_center_pair import (
-    screen as screen_pb03_pair,
-)
+from scripts.simple_pb03_native import PB03Native
+from scripts.simple_pb03_native import screen as screen_pb03_native
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/v4-diagnostic-scene.json"
@@ -184,11 +180,13 @@ def build_scene():
         for name in names
         if any(
             name == station or name.startswith(f"fastener_{station}_")
-            for station in TARGET_STATIONS
+            for station in ALL_TARGET_STATIONS
         )
     )
-    if len(hidden_legacy_visuals) != 14:
-        raise ValueError("PB03 must hide exactly two angles and twelve SDS visuals")
+    if len(hidden_legacy_visuals) != 28:
+        raise ValueError(
+            "PB03 must hide exactly four angles and twenty-four SDS visuals"
+        )
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
     official_wood = {
@@ -246,14 +244,15 @@ def build_scene():
         hardware_stacks.append(_trial_stack(name, start, axes[-1]["axis"], length))
     pb02_stack_count = len(hardware_stacks)
 
-    pb03_pair = build_pb03_pair()
-    pb03_status = screen_pb03_pair(pb03_pair)
-    if not pb03_status["all_geometry_gates_pass"]:
+    pb03_module = PB03Native()
+    pb03_core = pb03_module._pair
+    pb03_status = screen_pb03_native(pb03_module)
+    if not pb03_status["geometry_gates_pass"]:
         raise ValueError("PB03 geometry no longer passes its committed visual source")
-    for station, geometry in pb03_pair.items():
+    for station, geometry in pb03_core.items():
         boxes.append(
             {
-                "name": f"PB03 lower-center {geometry.side} block",
+                "name": geometry.block_name,
                 "station": "PB03",
                 "source_station": station,
                 "center_mm": list(geometry.block.Center().toTuple()),
@@ -310,13 +309,15 @@ def build_scene():
         "inner_kicker_edges_supported": support,
         "pb02_bore_count": len(bores),
         "pb02_trial_stack_count": pb02_stack_count,
-        "pb03_bore_count": sum(len(item.bores) for item in pb03_pair.values()),
-        "pb03_trial_stack_count": sum(len(item.stacks) for item in pb03_pair.values()),
-        "pb03_block_count": len(pb03_pair),
-        "legacy_station_count": 20,
-        "legacy_sds_axis_count": 120,
-        "replaced_pb03_legacy_stations": list(TARGET_STATIONS),
+        "pb03_bore_count": sum(len(item.bores) for item in pb03_core.values()),
+        "pb03_trial_stack_count": sum(len(item.stacks) for item in pb03_core.values()),
+        "pb03_block_count": len(pb03_core),
+        "legacy_station_count": pb03_status["legacy_proxy_stations"],
+        "legacy_sds_axis_count": pb03_status["legacy_sds_axes"],
+        "replaced_pb03_legacy_stations": list(ALL_TARGET_STATIONS),
         "fixed_panel_kicker_screw_axes": len(fixed),
+        "total_connection_count": pb03_status["total_connections"],
+        "bolt_kind_connection_count": pb03_status["total_bolt_connections"],
     }
     if abs(kicker_left.xlen - (official_kicker.xlen - KERF_EACH_MM)) > 1e-6:
         raise ValueError("kerf-right kicker width visual contract changed")
@@ -326,7 +327,7 @@ def build_scene():
         "fixed_panel_kicker_screw_axes": len(fixed),
         "pb02_variant_id": ACTIVE_TRIAL.variant_id,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
-        "pb03_source_commit": "f8ca163",
+        "pb03_source_commit": "74fba89",
         "hidden_legacy_visual_names": hidden_legacy_visuals,
         "assembly_contract": assembly_contract,
         "hardware_stack_scope": (
