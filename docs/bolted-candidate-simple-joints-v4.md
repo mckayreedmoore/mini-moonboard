@@ -184,6 +184,13 @@ values. This remains an **ADVANCE for development only** result: the principal c
 extrapolated and excluded, while torsion, stability, splitting and near-hole behavior remain
 unqualified.
 
+The crossed-bore local wood envelope evaluates 24 signed case/incidence records around the
+18.7 and 20.2 mm nominal ligaments without force cancellation. Its governing conditional NDS
+Appendix E parallel row-tear-out ratio is **0.02373** at the upright-side-cleat link bore in K12
+rear; the separate supplemental EC5 splitting ratio governs at **0.01071** at the shifted-post
+high bore in K12 right. This advances only the listed local mechanism. Three-dimensional
+orthogonal-hole stress concentration and near-hole interaction remain unqualified.
+
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
@@ -192,7 +199,8 @@ frame geometry, drilling, fabrication, construction, or structural acceptance. T
 whole-frame diagnostic still retains **22 legacy angle and SDS connector stations** outside the
 converted center.
 
-PB-04 must still resolve crossed-bore splitting and nearby-hole interaction, the inclined
+PB-04 must still resolve three-dimensional crossed-bore stress concentration and nearby-hole
+interaction, the inclined
 principal's clipped local section and 0.490 mm nominal unloaded-edge reserve, the extrapolated
 principal bore cut, torsion/shear mechanics, stability, group effects, perpendicular tension,
 washer metal,

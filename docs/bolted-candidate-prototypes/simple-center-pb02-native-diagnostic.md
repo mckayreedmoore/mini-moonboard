@@ -132,6 +132,29 @@ concentration. The largest recorded torsional demand at these four cuts is
 3,082.31 N-mm at the extrapolated principal cut in K12 rear; it is a demand to
 resolve, not a capacity result.
 
+## Crossed-bore local wood envelope
+
+The
+[local wood envelope](../../scripts/simple_center_pb02_six_case_local_wood_envelope.py)
+evaluates four bolt/member incidences around the 18.7 and 20.2 mm nominal
+crossed-bore ligaments in all six accepted cases. Each of the 24 records uses
+one bolt force without neighbor-force cancellation. An incidence-specific
+orthonormal frame preserves the signed three-dimensional action and the loaded
+edge. The perpendicular neighbor bore is represented as a separate orthogonal
+strip at its actual grain station, rather than as a false same-orientation
+helper opening.
+
+The governing conditional 2024 NDS Appendix E ratio is **0.02373** for
+parallel row tear-out at `upright_side_cleat/cleat_link` in K12 rear. The
+separate supplemental EC5 splitting comparison governs at **0.01071** at
+`shifted_right_post/post_high` in K12 right. Both use `CD = 1` and the lower
+Table 4D DF-L No. 2 values as a conservative conditional input without a size
+factor benefit; the finished stock classification remains a receiving item.
+
+This mechanism therefore remains **ADVANCE for development only**. The result
+does not qualify three-dimensional orthogonal-hole stress concentration,
+near-hole interaction, fabrication tolerance, or the complete joint.
+
 ## Hardware, access, and retained geometry
 
 The center uses ten ordinary through-bolts, ten nuts, and twenty washers: three
@@ -156,8 +179,8 @@ coverage is incomplete. The next engineering work is bounded to:
   nominal ligaments;
 - the inclined principal's clipped local section and 0.490 mm unloaded-edge
   nominal reserve before tolerance;
-- local splitting, crossed-/nearby-hole behavior, principal-cut qualification,
-  torsion/shear interaction, stability, group, perpendicular-tension, washer-
+- three-dimensional crossed-/nearby-hole stress concentration, principal-cut
+  qualification, torsion/shear interaction, stability, group, perpendicular-tension, washer-
   metal, preload, prying, nut/thread, and delivered-hardware checks;
 - a defensible floor-contact stiffness range or receiving criterion; and
 - conversion and checking of the 22 remaining legacy connector stations on
