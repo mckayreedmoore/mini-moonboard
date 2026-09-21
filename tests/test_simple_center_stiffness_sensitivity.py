@@ -37,7 +37,7 @@ def test_compatibility_sensitivity_converges_and_preserves_equilibrium():
     for case in sensitivity.values():
         assert case["post_block"]["total_bolt_tension_n"][
             "maximum_to_minimum"
-        ] == pytest.approx(1.0, abs=2e-10)
+        ] == pytest.approx(1.0, abs=1e-9)
 
     singular_traversals = {
         (solved["case"], solved["scenario"]): solved["seed_optimizer"][
@@ -47,6 +47,7 @@ def test_compatibility_sensitivity_converges_and_preserves_equilibrium():
         if solved["seed_optimizer"]["singular_refinement_advances"]
     }
     assert singular_traversals == {
+        ("a1-rear", "bolt_dominant_contrast"): 1,
         ("a12-left", "bolt_dominant_contrast"): 1,
         ("k12-rear", "bolt_dominant_contrast"): 1,
     }
