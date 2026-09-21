@@ -5,6 +5,7 @@ import copy
 import pytest
 
 from scripts import simple_center_pb02_floor_stiffness_sensitivity as sensitivity
+from scripts import simple_center_pb02_stiffness_evidence as compact_evidence
 
 
 def test_retained_evidence_reports_only_10k_and_fails_closed_on_missing_trials():
@@ -84,3 +85,54 @@ def test_external_suite_contract_rejects_missing_summary(tmp_path):
 def test_only_prescribed_trial_values_are_accepted(tmp_path):
     with pytest.raises(ValueError, match="prescribed trial"):
         sensitivity.evaluate({7500.0: tmp_path})
+
+
+def test_compact_package_evaluates_explicit_5k_10k_15k_order(monkeypatch, tmp_path):
+    baseline = sensitivity._retained_baseline_record()
+    records = {
+        5000.0: copy.deepcopy(baseline),
+        10000.0: copy.deepcopy(baseline),
+        15000.0: copy.deepcopy(baseline),
+    }
+    records[15000.0]["governing_identities"]["bolt_combined_demand"]["case"] = (
+        "a12-left"
+    )
+    records[15000.0]["governing_ratios"]["direct_shaft"] *= 1.06
+    action = next(iter(records[15000.0]["signed_actions_n_or_nmm"]))
+    records[15000.0]["signed_actions_n_or_nmm"][action] += 10.0
+    monkeypatch.setattr(
+        compact_evidence,
+        "authenticate",
+        lambda package: {
+            "trial_floor_contact_n_per_mm": [5000.0, 10000.0, 15000.0],
+            "reports": {
+                stiffness: {"case": {"stiffness": stiffness}} for stiffness in records
+            },
+            "failed_trials": {
+                "20000": {"accepted_comparison_slot": False, "forces_retained": False}
+            },
+            "single_variable_stiffness_comparison_eligible": True,
+        },
+    )
+    monkeypatch.setattr(sensitivity, "_component_result", lambda reports: reports)
+    monkeypatch.setattr(
+        sensitivity,
+        "_record",
+        lambda component, stiffness, evidence_status: records[stiffness],
+    )
+
+    result = sensitivity.evaluate_compact_package(tmp_path / "package")
+
+    assert result["status"] == "complete_authenticated_numerical_sensitivity"
+    assert result["trial_floor_contact_n_per_mm"] == [5000.0, 10000.0, 15000.0]
+    assert result["comparison"]["complete"] is True
+    assert result["comparison"]["baseline_floor_contact_n_per_mm"] == 10000.0
+    assert result["comparison"]["governing_identity_changed"] is True
+    assert result["comparison"]["governing_ratio_materially_changed"] is True
+    assert result["comparison"]["signed_action_materially_changed"] is True
+    assert result["comparison"]["material_change_conclusion"] == (
+        "material_change_detected"
+    )
+    assert result["failed_trials"]["20000"]["accepted_comparison_slot"] is False
+    assert result["qualified_for_design"] is False
+    assert result["structural_released"] is False

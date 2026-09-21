@@ -292,8 +292,13 @@ def _relative_change(value: float, baseline: float, floor: float = 0.0) -> float
     return abs(value - baseline) / max(abs(baseline), floor)
 
 
-def _compare_records(records: dict[float, dict]) -> dict:
-    if set(records) != set(TRIAL_STIFFNESSES_N_PER_MM):
+def _compare_records(
+    records: dict[float, dict], ordered_stiffnesses=TRIAL_STIFFNESSES_N_PER_MM
+) -> dict:
+    trial_order = tuple(float(value) for value in ordered_stiffnesses)
+    if BASELINE_STIFFNESS_N_PER_MM not in trial_order:
+        raise ValueError("stiffness comparison requires the 10,000 N/mm baseline")
+    if set(records) != set(trial_order):
         return {
             "complete": False,
             "baseline_floor_contact_n_per_mm": BASELINE_STIFFNESS_N_PER_MM,
@@ -308,7 +313,7 @@ def _compare_records(records: dict[float, dict]) -> dict:
     ratio_changes = []
     action_changes = []
     baseline_actions = baseline["signed_actions_n_or_nmm"]
-    for stiffness in TRIAL_STIFFNESSES_N_PER_MM:
+    for stiffness in trial_order:
         if stiffness == BASELINE_STIFFNESS_N_PER_MM:
             continue
         trial = records[stiffness]
@@ -394,12 +399,56 @@ def _compare_records(records: dict[float, dict]) -> dict:
     }
 
 
+def evaluate_compact_package(package: Path) -> dict:
+    """Evaluate one self-contained compact package in its accepted trial order."""
+    from scripts import simple_center_pb02_stiffness_evidence as compact_evidence
+
+    authentication = compact_evidence.authenticate(package)
+    order = tuple(authentication["trial_floor_contact_n_per_mm"])
+    if (
+        authentication.get("single_variable_stiffness_comparison_eligible") is not True
+        or len(order) < 2
+        or set(authentication.get("reports", {})) != set(order)
+    ):
+        raise ValueError("compact package is not eligible for stiffness comparison")
+    records = {
+        stiffness: _record(
+            _component_result(authentication["reports"][stiffness]),
+            stiffness,
+            "authenticated_compact_stiffness_suite",
+        )
+        for stiffness in order
+    }
+    comparison = _compare_records(records, order)
+    return {
+        "status": "complete_authenticated_numerical_sensitivity",
+        "trial_floor_contact_n_per_mm": list(order),
+        "available_authenticated_trials": list(order),
+        "missing_authenticated_trials": [],
+        "trials": {_stiffness_key(value): records[value] for value in order},
+        "failed_trials": authentication["failed_trials"],
+        "comparison": comparison,
+        "interpretation": (
+            "These are numerical trial values only. They are not measured floor "
+            "properties or physical bounds."
+        ),
+        "floor_stiffness_is_physical_property": False,
+        "complete_joint_verdict": False,
+        "qualified_for_design": False,
+        "drilling_released": False,
+        "fabrication_released": False,
+        "structural_released": False,
+    }
+
+
 def evaluate(external_suites: dict[float, Path] | None = None) -> dict:
     """Evaluate available authenticated suites and report missing evidence."""
     external_suites = external_suites or {}
     unsupported = set(external_suites) - set(TRIAL_STIFFNESSES_N_PER_MM)
     if unsupported:
-        raise ValueError(f"only prescribed trial values are accepted: {sorted(unsupported)}")
+        raise ValueError(
+            f"only prescribed trial values are accepted: {sorted(unsupported)}"
+        )
     if BASELINE_STIFFNESS_N_PER_MM in external_suites:
         raise ValueError("the retained 10,000 N/mm baseline cannot be overridden")
 
