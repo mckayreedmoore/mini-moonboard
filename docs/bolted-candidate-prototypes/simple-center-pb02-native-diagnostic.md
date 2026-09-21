@@ -2,7 +2,7 @@
 
 ## Decision
 
-**REVISE; retain PB02 for development.**
+**REVISE THE CONTACT DISCRETIZATION; retain PB02 for development.**
 
 The corrected `a12-forward` whole-frame result is numerically converged and
 supports retaining PB02 while its geometry and remaining checks are revised. It
@@ -45,6 +45,18 @@ axial unilateral checks, member and global equilibrium checks, MPC checks, and
 positive-load-work gate. All retained artifacts referenced here match the
 hashes above. Numerical acceptance does not qualify the modeled demands as
 design demands.
+
+## Contact-cell correction required
+
+A subsequent exact-face audit found that `principal_upright_block/contact_1`
+lies 0.791 mm outside the true principal/cleat overlap while carrying 17.18 N.
+The current four equal interface springs also have no tributary areas and use
+equal stiffness regardless of actual face polygon. The result remains an
+authenticated numerical record, but its force distribution is not current
+joint-demand evidence. Replace the canonical face samples with contained,
+area-weighted cells and rerun before advancing the resistance decision or the
+remaining five cases. The direct shifted-post/header samples are a separate
+contact family and are not implicated by this finding.
 
 ## Corrected load path and demand
 
@@ -128,12 +140,18 @@ four relevant cuts. Three cuts use exact report rows. The inclined-principal
 cut requires a clearly marked 5.691 mm free-body extrapolation below the
 report-valid full-section interval, so it is not used as a capacity verdict.
 
+The authenticated [hardware screen](simple-center-pb02-hardware-screen.md)
+checks all ten one-case demands against the existing conditional A307 direct-
+shaft comparator. Its governing linear ratio is 0.1616. The idealized 20 mm
+washer-envelope wood-bearing sensitivity reaches 0.0225, but no actual washer
+ID, thickness, material, or bending resistance is established.
+
 Before any physical release, work still includes:
 
 - resolve the inclined-principal local section and crossed-bore interaction;
 - complete the `block_header` local wood checks;
 - verify exact delivered bolts, thread-root diameter, nuts, washers, lumber,
-  insertion routes, and tool access;
+  insertion routes, tool access, and the steel long-grip method's applicability;
 - complete bolt-row/group, perpendicular-tension, bore-aware member,
   washer-metal, preload, and prying checks; and
 - run and envelope `a12-rear`, `a12-left`, `k12-right`, `k12-rear`, and

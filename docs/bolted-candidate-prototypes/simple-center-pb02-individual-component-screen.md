@@ -7,6 +7,11 @@ diagnostic-scope fingerprint, force owners/axes/source rows, and active geometry
 fingerprint `06f0cd1a…d61387`. The report is numerically accepted but explicitly
 does **not** qualify actual joint demands.
 
+A later face audit found one active canonical spring outside the true
+principal/cleat overlap and no tributary-area basis for the four equal face
+springs. These ratios are retained as pre-contact-cell-correction sensitivity,
+not current demand evidence, and require recomputation after the model rerun.
+
 ## Conditional result
 
 The calculation uses the 2024 NDS with current errata, dry unincised DF-L No. 2,

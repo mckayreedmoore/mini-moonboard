@@ -5,6 +5,11 @@ This screen binds four timber cuts to the corrected Z202/link-Z328.5
 current geometry fingerprint, geometry-source hash, numerical acceptance, and
 the report's explicit nonqualification and no-release state.
 
+A later face audit found one active canonical spring outside the true
+principal/cleat overlap and no tributary-area basis for the four equal face
+springs. These section actions remain pre-contact-cell-correction numerical
+history and require recomputation after the corrected model rerun.
+
 The cuts are the inclined principal at the upright bolt, the upright-side cleat
 at both bolts, and the rear cleat at the link bolt. The two side-cleat cuts are
 27.5 mm apart. Every cut uses a 7.3 mm diagnostic bore as a centered rectangular
