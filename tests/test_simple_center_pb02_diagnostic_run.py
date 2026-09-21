@@ -10,6 +10,7 @@ from scripts import simple_center_pb02_diagnostic_run as runner
 AXIAL_STIFFNESS = 700.0
 LATERAL_STIFFNESS = 1200.0
 FACE_STIFFNESS = 2400.0
+FLOOR_STIFFNESS = 10000.0
 SOURCE_INVENTORY = {"scripts/pb02-producer.py": "a" * 64}
 NATIVE_PARTITION = runner.native_contact_partition(2)[1]
 BOLT_NAMES = {f"pb02-bolt-{index}" for index in range(10)}
@@ -135,6 +136,7 @@ def _run(tmp_path, **changes):
         bolt_axial_n_per_mm=AXIAL_STIFFNESS,
         bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
         face_normal_total_n_per_mm=FACE_STIFFNESS,
+        floor_contact_n_per_mm=FLOOR_STIFFNESS,
         **changes,
     )
 
@@ -511,6 +513,7 @@ def test_stiffness_selection_records_exact_explicit_values_and_unqualified_statu
         "bolt_axial_n_per_mm": AXIAL_STIFFNESS,
         "bolt_lateral_n_per_mm": LATERAL_STIFFNESS,
         "face_normal_total_per_interface_n_per_mm": FACE_STIFFNESS,
+        "floor_contact_n_per_mm": 1.0e5,
     }
     assert result["complete_joint_stiffness_qualified"] is False
     assert "developmental" in result["selection_status"]
@@ -550,6 +553,7 @@ def test_model_stiffness_verifier_authenticates_generated_contact_partition(tmp_
         bolt_axial_n_per_mm=AXIAL_STIFFNESS,
         bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
         face_normal_total_n_per_mm=FACE_STIFFNESS,
+        floor_contact_n_per_mm=1.0e5,
     )
     path = tmp_path / "model"
     path.mkdir()

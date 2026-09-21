@@ -79,12 +79,14 @@ def _selected_stiffnesses(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    floor_contact_n_per_mm=1.0e5,
     contact_grid_resolution=DEFAULT_CONTACT_GRID,
 ):
     values = {
         "bolt_axial_n_per_mm": bolt_axial_n_per_mm,
         "bolt_lateral_n_per_mm": bolt_lateral_n_per_mm,
         "face_normal_total_per_interface_n_per_mm": (face_normal_total_n_per_mm),
+        "floor_contact_n_per_mm": floor_contact_n_per_mm,
     }
     if any(
         type(value) not in (int, float) or not math.isfinite(value) or value <= 0
@@ -297,6 +299,13 @@ def _verify_model_stiffness(path, stiffnesses):
     }
     if metadata.get("pb02_trial_stiffness_n_per_mm") != expected_metadata:
         raise ValueError("Generated model PB02 stiffness metadata changed")
+    if (
+        metadata.get("pb02_floor_contact_input_n_per_mm")
+        != values["floor_contact_n_per_mm"]
+        or metadata.get("stiffnesses", {}).get("floor")
+        != values["floor_contact_n_per_mm"]
+    ):
+        raise ValueError("Generated model floor-contact stiffness changed")
     contact_model = stiffnesses["contact_model"]
     partition = contact_model["partition"]
     generated_contact = metadata.get("pb02_contact_stiffness", {})
@@ -432,6 +441,10 @@ def _model_identity(path, case, stiffnesses):
         or metadata.get("pounds") != 250.0
         or metadata.get("force_xyz_n") != expected_force
         or metadata.get("pb02_trial_stiffness_n_per_mm") != expected_pb02
+        or metadata.get("pb02_floor_contact_input_n_per_mm")
+        != values["floor_contact_n_per_mm"]
+        or metadata.get("stiffnesses", {}).get("floor")
+        != values["floor_contact_n_per_mm"]
         or metadata.get("pb02_contact_stiffness", {}).get("partition_fingerprint")
         != stiffnesses["contact_model"]["partition_fingerprint"]
         or metadata.get("pb02_contact_stiffness", {}).get(
@@ -657,6 +670,7 @@ def _run_attempt(
             face_normal_total_n_per_mm=(
                 values["face_normal_total_per_interface_n_per_mm"]
             ),
+            floor_contact_n_per_mm=values["floor_contact_n_per_mm"],
             contact_grid_resolution=tuple(
                 stiffnesses["contact_model"]["grid_resolution"]
             ),
@@ -720,6 +734,7 @@ def run_suite(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    floor_contact_n_per_mm=1.0e5,
     contact_grid_resolution=DEFAULT_CONTACT_GRID[0],
     max_cycles=120,
     max_same_case_continuations=3,
@@ -737,6 +752,7 @@ def run_suite(
         bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm,
+        floor_contact_n_per_mm=floor_contact_n_per_mm,
         contact_grid_resolution=contact_grid_resolution,
     )
     contract = _preflight(stiffnesses)
@@ -925,6 +941,7 @@ if __name__ == "__main__":
     parser.add_argument("--bolt-axial-n-per-mm", type=float, required=True)
     parser.add_argument("--bolt-lateral-n-per-mm", type=float, required=True)
     parser.add_argument("--face-normal-total-n-per-mm", type=float, required=True)
+    parser.add_argument("--floor-contact-n-per-mm", type=float, default=1.0e5)
     parser.add_argument("--contact-grid-resolution", type=int, default=2)
     parser.add_argument("--max-cycles", type=int, default=120)
     parser.add_argument("--max-same-case-continuations", type=int, default=3)
@@ -934,6 +951,7 @@ if __name__ == "__main__":
         bolt_axial_n_per_mm=args.bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm=args.bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm=args.face_normal_total_n_per_mm,
+        floor_contact_n_per_mm=args.floor_contact_n_per_mm,
         contact_grid_resolution=args.contact_grid_resolution,
         max_cycles=args.max_cycles,
         max_same_case_continuations=args.max_same_case_continuations,

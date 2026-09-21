@@ -15,6 +15,7 @@ from scripts.simple_center_pb02_native import (
 AXIAL_STIFFNESS = 700.0
 LATERAL_STIFFNESS = 1200.0
 FACE_STIFFNESS = 2400.0
+FLOOR_STIFFNESS = 10000.0
 
 
 @pytest.fixture(scope="module")
@@ -24,6 +25,7 @@ def prepared():
         bolt_axial_n_per_mm=AXIAL_STIFFNESS,
         bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
         face_normal_total_n_per_mm=FACE_STIFFNESS,
+        floor_contact_n_per_mm=FLOOR_STIFFNESS,
     )
 
 
@@ -60,6 +62,7 @@ def test_prepare_rejects_unknown_case():
         "bolt_axial_n_per_mm",
         "bolt_lateral_n_per_mm",
         "face_normal_total_n_per_mm",
+        "floor_contact_n_per_mm",
     ],
 )
 def test_prepare_rejects_nonpositive_or_nonfinite_stiffness(field, invalid):
@@ -67,6 +70,7 @@ def test_prepare_rejects_nonpositive_or_nonfinite_stiffness(field, invalid):
         "bolt_axial_n_per_mm": AXIAL_STIFFNESS,
         "bolt_lateral_n_per_mm": LATERAL_STIFFNESS,
         "face_normal_total_n_per_mm": FACE_STIFFNESS,
+        "floor_contact_n_per_mm": FLOOR_STIFFNESS,
     }
     values[field] = invalid
     with pytest.raises(ValueError, match="positive and finite"):
@@ -107,6 +111,8 @@ def test_prepare_keeps_22_proxies_and_exact_floor_members(prepared):
         "backer",
     ]
     assert metadata["pb02_rear_cleat_floor_clearance_mm"] == 5.0
+    assert metadata["pb02_floor_contact_input_n_per_mm"] == FLOOR_STIFFNESS
+    assert metadata["stiffnesses"]["floor"] == FLOOR_STIFFNESS
 
 
 def test_prepare_adds_exact_canonical_spring_inventory(prepared):

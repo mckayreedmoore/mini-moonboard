@@ -588,6 +588,7 @@ def prepare_case(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    floor_contact_n_per_mm=1.0e5,
     contact_grid_resolution=DEFAULT_CONTACT_GRID,
 ):
     """Prepare one unsolved PB02 whole frame with explicit trial stiffnesses."""
@@ -597,6 +598,7 @@ def prepare_case(
         bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm,
+        floor_contact_n_per_mm,
     )
     if any(not np.isfinite(value) or value <= 0 for value in trial_stiffnesses):
         raise ValueError("PB02 trial spring stiffnesses must be positive and finite")
@@ -634,7 +636,7 @@ def prepare_case(
         raise ValueError("PB02 whole frame lost its retained bolt inventory")
     stiffnesses = {
         **connection_stiffnesses(),
-        "floor": 1.0e5,
+        "floor": floor_contact_n_per_mm,
         "bearing": 1.0e6,
         "seating_per_area": 100.0,
         "bolt": {**next(iter(bolts.values())), "by_name": bolts},
@@ -757,6 +759,7 @@ def prepare_case(
     metadata.update(
         pb02_case=case,
         pb02_load_source="unchanged CASES definition at 250 lb",
+        pb02_floor_contact_input_n_per_mm=floor_contact_n_per_mm,
         pb02_geometry_source="active_geometry()",
         pb02_canonical_points_imprinted=True,
         pb02_shifted_post_header_contacts={
