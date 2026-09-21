@@ -52,6 +52,9 @@ receiver depth; neither the unchanged screw axes nor the remaining short
 penetration qualify those screws as supported. Screw reach also cannot
 restore the missing edge bearing. The other 56 fixed axes were checked for
 collision with the trial bore, not requalified for receiver or load capacity.
+The probe compares every kicker-header receiver fraction with the original
+header and independently rejects any loss, even if a later edit clears the
+separate edge-support and bolt-edge screens.
 
 For the nominal D=6.35 mm bolt, [2024 NDS Tables 12.5.1A–C][nds]
 remain conditional on actual load direction, member grain, and joint

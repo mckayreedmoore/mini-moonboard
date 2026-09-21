@@ -19,6 +19,17 @@ BOLT_Z = 251.6
 D = 6.35
 
 
+def receivers_preserved(
+    candidate: dict[str, float], baseline: dict[str, float]
+) -> bool:
+    """Require every original fixed header screw to retain its wood receiver."""
+    return (
+        bool(baseline)
+        and candidate.keys() == baseline.keys()
+        and all(candidate[name] >= fraction for name, fraction in baseline.items())
+    )
+
+
 def probe():
     """Check one ordinary Y bolt after a full-length rectangular header rip."""
     prior = link.probe()
@@ -65,6 +76,7 @@ def probe():
     fixed_hits = {}
     counts = {"panel": 0, "kicker": 0}
     header_screw_receiver = {}
+    original_header_screw_receiver = {}
     for row in csv.DictReader(wide.AXES.open(newline="")):
         name = row["name"]
         if name.startswith("round_panel_"):
@@ -84,6 +96,9 @@ def probe():
         if name.startswith("kicker_header_"):
             header_screw_receiver[name] = round(
                 wide.hit_volume(screw, header) / screw.Volume(), 8
+            )
+            original_header_screw_receiver[name] = round(
+                wide.hit_volume(screw, original_header) / screw.Volume(), 8
             )
     existing = {
         "post_low": (140, 110, 127),
@@ -132,9 +147,13 @@ def probe():
     }
     one_direction = header_edges[0] >= 1.5 * D and header_edges[1] >= 4 * D
     reversible_edges = min(header_edges) >= 4 * D
+    receiver_depth_preserved = receivers_preserved(
+        header_screw_receiver, original_header_screw_receiver
+    )
     accepted = (
         counts == {"panel": 48, "kicker": 18}
         and all(edge_support.values())
+        and receiver_depth_preserved
         and full_bore
         and not unintended
         and not fixed_hits
@@ -155,6 +174,8 @@ def probe():
         "fixed_axes": counts,
         "inner_kicker_edges_supported": edge_support,
         "header_screw_receiver_fraction": header_screw_receiver,
+        "original_header_screw_receiver_fraction": original_header_screw_receiver,
+        "header_screw_receivers_preserved": receiver_depth_preserved,
         "removed_legacy_stations": prior["removed_legacy_stations"],
         "bore_received_fraction_by_member": received,
         "full_intended_bore_received": full_bore,

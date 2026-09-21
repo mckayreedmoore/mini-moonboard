@@ -1,6 +1,16 @@
 """One recessed-header PB-02 joint trial must reject lost support."""
 
-from scripts.simple_center_header_post_alternate_probe import probe
+from scripts.simple_center_header_post_alternate_probe import (
+    probe,
+    receivers_preserved,
+)
+
+
+def test_receiver_loss_independently_prevents_geometry_acceptance():
+    baseline = {"left": 0.7125, "right": 0.7125}
+    assert receivers_preserved({"left": 0.7125, "right": 0.7125}, baseline)
+    assert not receivers_preserved({"left": 0.3125, "right": 0.7125}, baseline)
+    assert not receivers_preserved({"left": 0.7125}, baseline)
 
 
 def test_recessed_header_trial():
@@ -18,6 +28,8 @@ def test_recessed_header_trial():
     assert trial["inner_kicker_edges_supported"]["left"] is False
     assert len(trial["header_screw_receiver_fraction"]) == 10
     assert set(trial["header_screw_receiver_fraction"].values()) == {0.3125}
+    assert set(trial["original_header_screw_receiver_fraction"].values()) == {0.7125}
+    assert trial["header_screw_receivers_preserved"] is False
     assert trial["header_z_edge_distances_mm"] == [12.7, 25.4]
     assert trial["conditional_one_direction_z_edges_pass"] is True
     assert trial["conditional_reversible_z_edges_pass"] is False
