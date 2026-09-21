@@ -43,9 +43,15 @@ No identified 5-in or 6-in product has been accepted for the other bores.
 ## Longer ordinary-retailer leads at the two limiting grips
 
 The [Home Depot Everbilt 805336](https://www.homedepot.com/p/204633310)
-listing identifies a 1/4-20 × 5½-in hex bolt, while
+listing identifies a **single** 1/4-20 × 5½-in hex bolt, while
 [Lowe's Hillman 190062](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000379701)
-lists the same nominal size and describes a partially threaded shank.
+lists the same nominal size, a partially threaded shank, and no controlled
+thread length. The separate
+[Home Depot Everbilt 805330 25-pack](https://www.homedepot.com/p/204281446)
+lists A307 steel and full threading for that **different SKU**; neither
+property can be transferred to the single 805336. Full threading is not
+itself V4 approval: the effective root and applicable bolt/wood resistance
+must be checked for the actual product and topology.
 The [Home Depot Everbilt 805436](https://www.homedepot.com/p/204633311)
 listing identifies a 1/4-20 × 6-in A307 galvanized hex bolt and says it is
 fully threaded. These are dated public retailer leads, not verified delivered
@@ -67,6 +73,8 @@ usable thread still must begin no later than 4.345 / 4.343 in from under the
 head under the assumed minimum-grip/thin-washer case. Neither 5½-in listing
 establishes that datum. Its actual grade, root diameter, washer/nut match,
 thread engagement, delivered length, torque and tool access are not qualified.
+The 25-pack's full-thread description also does not locate the first and
+last *complete usable* thread or control the delivered under-head length.
 The six-inch clash is orientation-specific, not proof that every six-inch
 arrangement fails; an opposite orientation still needs the complete stack,
 hold-and-turn access and contact checks. None of these rows selects hardware
@@ -80,8 +88,9 @@ from the wood face through the maximum nominal exposed length at minimum grip
 and thin head washer. It also places a **10-mm-radius** washer/nut cylinder
 through the thick washer plus tall nut. The opposite head uses the earlier
 pose's 10-mm-radius × 5-mm generic envelope. These radii and head height are
-model envelopes, not purchased dimensions. All 60 envelopes have zero
-positive-volume overlap with modeled wood and 66 fixed panel/kicker screw
+model envelopes, not purchased dimensions. In the default five-inch screen,
+all 60 envelopes have zero positive-volume overlap with modeled wood and 66
+fixed panel/kicker screw
 axes. There are no potential overlaps between envelopes on *different* center
 bolts in the tested alternate orientations. The shaft/tip test covers
 finished assembly occupancy: removing panels during assembly cannot resolve
@@ -93,9 +102,9 @@ access. Socket internal depth around the projecting tip, nut engagement,
 drive coupling, handle sweep, hand clearance, hold-and-turn pair, insertion
 sequence and installed panel access are still unknown. Actual washer OD,
 washer bearing, nut across-flats/height, head size, delivered bolt shank and
-usable thread interval must be measured against this same pose. The two
-109-mm grips have essentially no nominal length reserve after the stated
-sensitivity stack. The conditional edge/end markers, member resistance and
+usable thread interval must be measured against this same pose. With the
+default five-inch length, the two 109-mm grips have essentially no reserve
+after the stated sensitivity stack. The conditional edge/end markers, member resistance and
 connected-center load path are separate unresolved checks.
 
 Run `.venv/bin/python -m scripts.simple_center_current_stack_tip_screen` and
