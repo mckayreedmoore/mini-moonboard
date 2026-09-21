@@ -114,9 +114,41 @@ dimensional clues. It does not establish wood bearing, splitting, row or group
 action, washer bearing, carriage-neck crushing, threaded-section shear, cyclic
 performance, or complete PB03 joint capacity.
 
+## Active-geometry compatibility and 1/4-inch fallback search
+
+The active PB03 geometry uses 6.35 mm modeled shafts and 7.5 mm bores. The
+3/8-inch retail leads above are 9.525 mm in diameter and therefore do not fit
+that active geometry. The separate eight-station 3/8-inch screen uses ordinary
+7/16-inch (11.1125 mm) bores and preserves the existing block positions and
+panel screws. It clears the bounded collision checks, but its nominal unloaded
+edge margin is only 0.4125 mm and its possible loaded-edge margin is negative.
+Load direction and tolerance remain open; that screen does not select the
+larger diameter.
+
+Ordinary 1/4-20 hardware can retain the active bore geometry for the shorter
+grips:
+
+- Home Depot Everbilt [model 805426](https://www.homedepot.com/p/204633307)
+  is a 1/4-20 × 5-inch galvanized, fully threaded ASTM A307 hex bolt.
+- Home Depot Everbilt [model 800696](https://www.homedepot.com/p/204281626)
+  is a 1/4-20 × 8-inch zinc-plated A307 hex bolt. Its listing states a six-inch
+  threaded length, so a conservative wood check must use thread-root bearing
+  where applicable.
+- Matching ordinary Home Depot leads include Everbilt
+  [1/4-20 galvanized nuts](https://www.homedepot.com/p/204276133) and
+  [1/4-inch galvanized washers](https://www.homedepot.com/p/204633085).
+
+No qualifying ordinary 1/4-20 × 10-inch hex bolt was found in Lowe's or Home
+Depot's current online catalogs. A 1/4-inch family therefore does not yet close
+the 9-inch outer-upright grip, while the 3/8-inch family does not yet close the
+loaded-edge geometry. Online sale or shipping stock is not a promise of local
+shelf inventory.
+
 ## Release boundary
 
-The geometry leads are a 5-inch galvanized hex bolt for each 3.75-inch rail
-stack and a 10-inch bolt for each 9-inch outer-upright stack. They are not a
-structural selection or purchasing recommendation. No purchase, drilling,
-fabrication, construction, or structural release follows from this note.
+The length leads remain a 5-inch bolt for each 3.75-inch rail stack and a
+10-inch bolt for each 9-inch outer-upright stack. No one diameter currently
+closes both the modeled wood geometry and the ordinary-retail length inventory.
+These are not structural selections or purchasing recommendations. No
+purchase, drilling, fabrication, construction, or structural release follows
+from this note.
