@@ -459,10 +459,8 @@ def _max_cycles_exhausted(report, max_cycles):
     )
 
 
-def _same_case_checkpoint(path, report, case, stiffnesses, max_cycles):
-    """Return unilateral memberships, never forces, from one rejected chunk."""
-    if not _max_cycles_exhausted(report, max_cycles):
-        raise ValueError(f"{case}: report is not a max-cycle continuation checkpoint")
+def _same_case_unilateral_memberships(path, report, case, stiffnesses):
+    """Authenticate and return only unilateral memberships from a rejected run."""
     if report.get("candidate") != CANDIDATE_ID:
         raise ValueError(f"{case}: checkpoint candidate identity changed")
     if not _load_matches(report, case):
@@ -488,6 +486,29 @@ def _same_case_checkpoint(path, report, case, stiffnesses, max_cycles):
     if not axial_names <= axial_inventory or normal_names & axial_inventory:
         raise ValueError(f"{case}: checkpoint unilateral state is invalid")
     return sorted(normal_names), sorted(axial_names)
+
+
+def _same_case_checkpoint(path, report, case, stiffnesses, max_cycles):
+    """Return unilateral memberships, never forces, from one exhausted chunk."""
+    if not _max_cycles_exhausted(report, max_cycles):
+        raise ValueError(f"{case}: report is not a max-cycle continuation checkpoint")
+    return _same_case_unilateral_memberships(path, report, case, stiffnesses)
+
+
+def _is_repeated_all_state(report):
+    """Recognize a rejected all-at-once state suitable only for same-case seeding."""
+    return (
+        report.get("contact_update_strategy") == "all"
+        and _is_active_set_nonconvergence(report)
+        and "repeat" in str(report.get("termination", "")).lower()
+    )
+
+
+def _same_case_repeated_seed(path, report, case, stiffnesses):
+    """Return memberships, never forces, from a repeated same-case all-state."""
+    if not _is_repeated_all_state(report):
+        raise ValueError(f"{case}: report is not a repeated all-state checkpoint")
+    return _same_case_unilateral_memberships(path, report, case, stiffnesses)
 
 
 def _attempt_summary(case, label, strategy, seed_case, continuation_from, path, report):
@@ -801,17 +822,38 @@ def run_suite(
             prior_label = label
         return report
 
+    def start_one_at_a_time(case, report):
+        """Retry one case, seeding only authenticated unilateral memberships."""
+        prior_label = "01-all-unseeded"
+        if _is_repeated_all_state(report):
+            prior_path = attempts_root / f"{case}-{prior_label}"
+            normals, axials = _same_case_repeated_seed(
+                prior_path, report, case, stiffnesses
+            )
+            label = "02-one-at-a-time-seeded-from-repeated-all"
+            return (
+                attempt(
+                    case,
+                    label,
+                    "one_at_a_time",
+                    seed_names=normals,
+                    seed_axial_names=axials,
+                    continuation_from=prior_label,
+                ),
+                label,
+            )
+        label = "02-one-at-a-time-unseeded"
+        return attempt(case, label, "one_at_a_time"), label
+
     forward = attempt("a12-forward", "01-all-unseeded", "all")
     if "a12-forward" not in accepted:
-        forward = attempt("a12-forward", "02-one-at-a-time-unseeded", "one_at_a_time")
-        forward = continue_same_case(
-            "a12-forward", forward, "02-one-at-a-time-unseeded"
-        )
+        forward, forward_label = start_one_at_a_time("a12-forward", forward)
+        forward = continue_same_case("a12-forward", forward, forward_label)
     if "a12-forward" not in accepted:
         rear = attempt("a12-rear", "01-all-unseeded", "all")
         if "a12-rear" not in accepted:
-            rear = attempt("a12-rear", "02-one-at-a-time-unseeded", "one_at_a_time")
-            rear = continue_same_case("a12-rear", rear, "02-one-at-a-time-unseeded")
+            rear, rear_label = start_one_at_a_time("a12-rear", rear)
+            rear = continue_same_case("a12-rear", rear, rear_label)
         if "a12-rear" not in accepted:
             raise RuntimeError(
                 "a12-rear did not converge; unauthenticated state cannot seed forward"
@@ -838,8 +880,8 @@ def run_suite(
             continue
         report = attempt(case, "01-all-unseeded", "all")
         if case not in accepted:
-            report = attempt(case, "02-one-at-a-time-unseeded", "one_at_a_time")
-            report = continue_same_case(case, report, "02-one-at-a-time-unseeded")
+            report, report_label = start_one_at_a_time(case, report)
+            report = continue_same_case(case, report, report_label)
         if case not in accepted:
             raise RuntimeError(f"{case} active set did not converge")
 

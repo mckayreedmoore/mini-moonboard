@@ -382,6 +382,53 @@ def test_later_case_retries_when_either_active_set_does_not_converge(
     )
 
 
+def test_repeated_all_state_seeds_same_case_one_at_a_time_memberships(
+    tmp_path, monkeypatch, isolated_runner
+):
+    calls = []
+    active_normals = {"pb02-contact-3", "pb02-contact-11"}
+    active_axials = {"pb02-bolt-4"}
+    repeated = _report(
+        "a12-left",
+        contact_active_set_converged=False,
+        axial_tension_active_set_converged=False,
+        numerically_accepted=False,
+        termination="Contact active set repeated without convergence",
+        contact_update_strategy="all",
+        bearings=[
+            {"name": name, "active": name in active_normals}
+            for name in sorted(CONTACT_NAMES)
+        ],
+        axial_tension=[
+            {"name": name, "active": name in active_axials}
+            for name in sorted(BOLT_NAMES)
+        ],
+        physical_connection_forces={"REJECTED_FORCE": {"signed_force_n": 1e99}},
+    )
+    reports = [
+        _report("a12-forward"),
+        _report("a12-rear"),
+        repeated,
+        _report("a12-left"),
+        _report("k12-right"),
+        _report("k12-rear"),
+        _report("a1-rear"),
+    ]
+    _install_fake_native_run(monkeypatch, reports, calls)
+
+    summary = _run(tmp_path)
+
+    left_calls = [call for call in calls if call["case"] == "a12-left"]
+    assert [call["strategy"] for call in left_calls] == ["all", "one_at_a_time"]
+    assert left_calls[1]["seed"] == sorted(active_normals)
+    assert left_calls[1]["axial_seed"] == sorted(active_axials)
+    assert left_calls[1]["path"].name.endswith("seeded-from-repeated-all")
+    assert summary["attempts"][3]["same_case_continuation_from_attempt"] == (
+        "01-all-unseeded"
+    )
+    assert "REJECTED_FORCE" not in json.dumps(summary)
+
+
 @pytest.mark.parametrize(
     ("changes", "message"),
     [
