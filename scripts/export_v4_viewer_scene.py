@@ -16,6 +16,7 @@ from mini_moonboard.floor_flush_width import (
 )
 from scripts import simple_center_current_stack_tip_screen as pb02
 from scripts import simple_center_wide_post_probe as wide
+from scripts import simple_pb03_outer_counterbore_revision as pocket
 from scripts.simple_center_pb02_geometry import (
     ACTIVE_FINGERPRINT,
     ACTIVE_TRIAL,
@@ -23,10 +24,10 @@ from scripts.simple_center_pb02_geometry import (
 )
 from scripts.simple_pb03_lower_center_pair import (
     BORE_DIAMETER_MM,
+    END_ALLOWANCE_MM,
     HEAD_NUT_DIAMETER_MM,
     WASHER_DIAMETER_MM,
 )
-from scripts.simple_pb03_outer_counterbore_revision import HARDWARE_SOURCES
 from scripts.simple_pb04_native import SOURCE_ID, PB04Native
 from scripts.simple_pb04_native import screen as screen_pb04_native
 
@@ -107,10 +108,60 @@ def _trial_stack(name, start, direction, grip_mm):
     }
 
 
-def _pb04_stack(station, bolt):
-    """Export the five generic components maintained by the PB04 source."""
+def _pb04_stack(station, bolt, *, recessed_upright=False):
+    """Show the recessed trial seat separately from PB04's gross through-bore."""
     start = list(bolt.start.toTuple())
     direction = list(bolt.direction.normalized().toTuple())
+    if recessed_upright:
+        near = END_ALLOWANCE_MM
+        under_head = near - pocket.WASHER_EACH_SIDE_MM
+        far_seat = near + bolt.grip - pocket._required_depth_mm()
+        washer = pocket.WASHER_EACH_SIDE_MM
+        return {
+            "name": bolt.name,
+            "station": "PB04",
+            "source_station": station,
+            "recessed_upright_trial": True,
+            "orientation_selected": False,
+            "hardware_selected": False,
+            "components": [
+                _axial_component(
+                    "shaft",
+                    start,
+                    direction,
+                    under_head,
+                    pocket.BOLT_LENGTH_MM,
+                    bolt.diameter,
+                ),
+                _axial_component(
+                    "head", start, direction, under_head - 6, 6, HEAD_NUT_DIAMETER_MM
+                ),
+                _axial_component(
+                    "near_washer",
+                    start,
+                    direction,
+                    under_head,
+                    washer,
+                    pocket.WASHER_OUTSIDE_DIAMETER_MM,
+                ),
+                _axial_component(
+                    "far_washer",
+                    start,
+                    direction,
+                    far_seat,
+                    washer,
+                    pocket.WASHER_OUTSIDE_DIAMETER_MM,
+                ),
+                _axial_component(
+                    "nut",
+                    start,
+                    direction,
+                    far_seat + washer,
+                    pocket.NUT_HEIGHT_MM,
+                    pocket.NUT_MAX_ACROSS_CORNERS_MM,
+                ),
+            ],
+        }
     return {
         "name": bolt.name,
         "station": "PB04",
@@ -283,7 +334,16 @@ def build_scene():
                     "diameter_mm": BORE_DIAMETER_MM,
                 }
             )
-            hardware_stacks.append(_pb04_stack(station, bolt))
+            hardware_stacks.append(
+                _pb04_stack(
+                    station,
+                    bolt,
+                    recessed_upright=(
+                        station in pocket.TARGET_STATIONS
+                        and bolt.members[0] == geometry.upright_name
+                    ),
+                )
+            )
 
     kicker_left = wood["kicker_left"].BoundingBox()
     kicker_right = wood["kicker_right"].BoundingBox()
@@ -325,11 +385,22 @@ def build_scene():
         "pb04_upper_outer_rail_offset_mm": pb04_status["upper_outer_rail_offset_mm"],
         "pb04_counterbore_count": pb04_status["inventory"]["counterbores"],
         "pb04_counterbore_depth_mm": round(pb04_status["counterbore_depth_mm"], 4),
+        "pb04_recessed_trial_stack_count": sum(
+            bool(stack.get("recessed_upright_trial")) for stack in hardware_stacks
+        ),
+        "pb04_recessed_stack_tolerance_pass": (
+            pocket.BOLT_LENGTH_MM
+            - (pocket.ORIGINAL_GRIP_MM - pocket._required_depth_mm())
+            - 2 * pocket.WASHER_EACH_SIDE_MM
+            - pocket.NUT_HEIGHT_MM
+            - pocket.TWO_THREAD_PROJECTION_MM
+            >= 1.0  # Development sensitivity, not an actual product tolerance.
+        ),
         "pb04_upright_bolt_product_lead": {
             "retailer": "Home Depot",
             "product": "Everbilt 800696",
             "nominal_size": "1/4-20 x 8 in",
-            "url": HARDWARE_SOURCES["bolt"],
+            "url": pocket.HARDWARE_SOURCES["bolt"],
             "selected": False,
         },
         "legacy_station_count": pb04_status["inventory"]["legacy_proxy_stations"],
@@ -358,9 +429,9 @@ def build_scene():
         "hidden_legacy_visual_names": hidden_legacy_visuals,
         "assembly_contract": assembly_contract,
         "hardware_stack_scope": (
-            "PB02 maintained trial-length envelopes and PB04 source-derived generic "
-            "stack envelopes only; no delivered product, thread interval, exact hardware, "
-            "or head/nut orientation selected"
+            "PB02 trial envelopes, PB04 generic rail/center stacks, and twelve "
+            "recessed outer-upright 8-inch nominal stack trials; zero tolerance reserve, "
+            "no delivered hardware or construction approval"
         ),
         "fabrication_released": False,
         "boxes": boxes,

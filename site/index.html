@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB04 eight-block/thirty-two-stack service core overlaid. The six outer blocks show trial counterbores. Exactly 14 legacy angle stations and 84 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with the PB02 ten-bore center and PB04 eight-block/thirty-two-stack service core overlaid. The six outer blocks show trial counterbores and twelve nominally seated 8-inch bolt stacks, with zero dimensional tolerance reserve. Exactly 14 legacy angle stations and 84 SDS axes remain; this is not the final frame, structural acceptance, a drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -605,6 +605,8 @@
               data.pb04_source_id !== 'pb04-upper-edge-plus-outer-counterbores-v1' ||
               data.assembly_contract?.pb04_upper_outer_rail_offset_mm !== 35.709 ||
               data.assembly_contract?.pb04_counterbore_count !== 12 ||
+              data.assembly_contract?.pb04_recessed_trial_stack_count !== 12 ||
+              data.assembly_contract?.pb04_recessed_stack_tolerance_pass !== false ||
               Math.abs(data.assembly_contract?.pb04_counterbore_depth_mm - 36.9824) > 1e-6 ||
               data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
               data.boxes.length !== 14 || data.axes.length !== 42 || data.hardware_stacks.length !== 42 ||

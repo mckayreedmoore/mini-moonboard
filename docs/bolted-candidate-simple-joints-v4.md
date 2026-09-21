@@ -74,6 +74,12 @@ interfaces, not capacities to add. Orthogonal bores must not collide, and both e
 need washer, nut, and tool access. Avoid precision joinery or a new generic optimization
 framework.
 
+The [direct barrel-nut trial](bolted-candidate-prototypes/simple-pb01-cross-dowel-trial.md)
+is **PARKED**, not selected or rejected. A named permitted-retailer steel part is nominally close
+to the modeled barrel, but its thread location/engagement and strength basis do not yet support
+the direct joint. Its recorded reopening trigger is bounded; it does not delay the corner-block
+family.
+
 Purchased cost includes full bolt, nut, and washer stacks, changed timber, retained factory
 brackets if any, tooling and consumables, and known delivery and tax. Unknown prices stay
 unknown. Keep owner-owned stock, sunk hardware, fabrication effort, and move operations
@@ -242,12 +248,25 @@ unresolved and unreleased.
 PB04 retains an authenticated, numerically accepted A12-forward diagnostic on its combined
 geometry. It is one case, not the six-case final envelope. The twelve outer block counterbores
 are nominally 36.9824 mm deep for an 8-inch bolt, but the inherited 228.6 mm grip and generic
-stack have not been replaced with the 191.6176 mm recessed bearing-seat grip. The nominal
-two-thread projection has zero additional dimensional reserve. The relocated upper rail row
-also needs a signed grain-end check on the block as well as the rail edge check. Compare a
-six-inch block at representative stations with the current 300 mm producer; shortening its
-grain length does not solve the X-direction long-grip hardware. Preserve PB03/PB04 source-bound
-results as historical until one installed configuration is rerun.
+stack in the authenticated native solve have not been replaced with the 191.6176 mm recessed
+bearing-seat grip. A separate
+[installed-stack trial](../scripts/simple_pb04_installed_stack.py) seats all twelve outer
+washer/nut pairs against the
+pocket floors and retains the gross through-bores. It returns **REVISE** because nominal
+two-thread projection has zero additional dimensional reserve. Its geometry must still be
+bound to new source-distinct native mechanics before reuse of case forces.
+
+The [first-case receiver comparison](../scripts/simple_pb04_first_case_demand.py)
+authenticates that one PB04 solve and checks simultaneous actions in both grain directions.
+It finds the two upper-outer rail-1 block-side loaded ends at 35.709 mm against a conditional
+44.450 mm full-value marker; the current development disposition is **REVISE**, not a complete
+joint verdict. A reduced-geometry route and block-end revision need independent evaluation.
+The [bounded block-length trial](../scripts/simple_pb04_six_inch_block_screen.py)
+finds nominal six-inch geometry feasible at one lower-center and one upper-outer station,
+including their modeled contact areas and bores. This is not a resistance check or evidence
+that all eight blocks can shorten. Shortening grain length does not solve the X-direction
+long-grip hardware. Preserve PB03/PB04 source-bound results as historical until one installed
+configuration is rerun.
 
 ## PB-02 G1 status and remaining boundaries
 

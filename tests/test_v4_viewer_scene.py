@@ -5,7 +5,9 @@ from pathlib import Path
 
 import pytest
 
+from scripts import simple_pb03_outer_counterbore_revision as pocket
 from scripts.export_v4_viewer_scene import build_scene
+from scripts.simple_pb03_lower_center_pair import END_ALLOWANCE_MM
 from scripts.simple_pb04_native import SOURCE_ID
 
 
@@ -119,6 +121,8 @@ def test_v4_overlay_uses_current_pb02_and_pb04_geometry():
         "pb04_upper_outer_rail_offset_mm": 35.709,
         "pb04_counterbore_count": 12,
         "pb04_counterbore_depth_mm": 36.9824,
+        "pb04_recessed_trial_stack_count": 12,
+        "pb04_recessed_stack_tolerance_pass": False,
         "pb04_upright_bolt_product_lead": {
             "retailer": "Home Depot",
             "product": "Everbilt 800696",
@@ -191,9 +195,9 @@ def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
         assert all(part["length_mm"] > 0 for part in stack["components"])
         assert all(part["diameter_mm"] > 0 for part in stack["components"])
     assert scene["hardware_stack_scope"] == (
-        "PB02 maintained trial-length envelopes and PB04 source-derived generic "
-        "stack envelopes only; no delivered product, thread interval, exact hardware, "
-        "or head/nut orientation selected"
+        "PB02 trial envelopes, PB04 generic rail/center stacks, and twelve "
+        "recessed outer-upright 8-inch nominal stack trials; zero tolerance reserve, "
+        "no delivered hardware or construction approval"
     )
 
 
@@ -224,6 +228,44 @@ def test_pb04_overlay_has_thirty_two_complete_unselected_stacks():
         ]
         assert all(part["length_mm"] > 0 for part in stack["components"])
         assert all(part["diameter_mm"] > 0 for part in stack["components"])
+
+
+def test_pocketed_outer_upright_stacks_show_seated_eight_inch_bolt():
+    scene = build_scene()
+    axes = {axis["name"]: axis for axis in scene["axes"] if axis["station"] == "PB04"}
+    stacks = [
+        stack
+        for stack in scene["hardware_stacks"]
+        if stack["station"] == "PB04" and stack.get("recessed_upright_trial")
+    ]
+    assert len(stacks) == 12
+    for stack in stacks:
+        axis = axes[stack["name"]]
+        direction = axis["axis"]
+        bore_start = axis["start_mm"]
+        components = {row["role"]: row for row in stack["components"]}
+
+        def offset(row, direction=direction, bore_start=bore_start):
+            return sum(
+                (coordinate - origin) * direction[index]
+                for index, (coordinate, origin) in enumerate(
+                    zip(row["start_mm"], bore_start, strict=True)
+                )
+            )
+
+        near_face = END_ALLOWANCE_MM
+        assert components["shaft"]["length_mm"] == pytest.approx(203.2)
+        assert offset(components["shaft"]) == pytest.approx(
+            near_face - pocket.WASHER_EACH_SIDE_MM
+        )
+        assert offset(components["far_washer"]) == pytest.approx(
+            near_face + pocket.ORIGINAL_GRIP_MM - pocket._required_depth_mm()
+        )
+        assert offset(components["nut"]) == pytest.approx(
+            offset(components["far_washer"]) + pocket.WASHER_EACH_SIDE_MM
+        )
+    assert scene["assembly_contract"]["pb04_recessed_trial_stack_count"] == 12
+    assert scene["assembly_contract"]["pb04_recessed_stack_tolerance_pass"] is False
 
 
 def test_viewer_scene_artifact_matches_producer():
