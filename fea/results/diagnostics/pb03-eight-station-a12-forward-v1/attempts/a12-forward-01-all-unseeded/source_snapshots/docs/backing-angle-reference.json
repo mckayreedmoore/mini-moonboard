@@ -1,0 +1,50 @@
+{
+  "status": "A21 research candidate only; not an approved replacement for backing bolts",
+  "retrieved_date": "2026-09-08",
+  "redistribution": "Links and extracted facts only; vendor files retained outside repository",
+  "sources": [
+    {"url": "https://www.icc-es.org/wp-content/uploads/report-directory/ESR-3096.pdf", "sha256": "ca6a6cd0b714512fa7a90a6e538c0997ee0f8f2223c73af1f752191fd5da27ad", "reference": "Reissued January 2026; sections 3.2.2 and Table 1/Figure 1, page 6"},
+    {"url": "https://www.strongtie.co.uk/sites/default/files/field_media_file_1/2024/05/15/025404/c-a21-3d-cad-mult-prod.sat", "sha256": "e8b1b91c046da3d39c6d10cac84a65a5f1d9b350d560eebc6b20b898e8c35aec", "reference": "Manufacturer A21.IPT nominal geometry; UK-hosted inch-derived model, US purchased variant equivalence unconfirmed"},
+    {"url": "https://www.strongtie.co.uk/sites/default/files/field_media_file_1/2024/05/15/025405/c-a21-2do-cad-mult-prod.dxf", "sha256": "bf76831510ef6dbc2c28a328a44c33dc361b47a17188ac6e11c1154854c5b660", "reference": "Downloaded companion drawing; hole coordinates below extracted from SAT, not inferred from raster"},
+    {"url": "https://www.strongtie.com/products/fastening-systems/technical-notes/sd-connector-screw-approved-connectors", "reference": "A21: four separately purchased #9 x1.5 inch SD connector screws"}
+  ],
+  "a21_sat_observations_mm": {
+    "coordinate_system": "Original SAT XYZ, not board coordinates; X is bend width",
+    "width": 34.925,
+    "thickness": 1.1684,
+    "nominal_hole_diameter": 4.3434,
+    "hole_axis_points_raw": [[7.9375, 0.0004, 42.443], [-7.9375, 0.0004, 29.743], [-7.9375, -29.743, -0.0004], [7.9375, -17.043, -0.0004]],
+    "hole_axis_directions_raw": [[0, 1, 0], [0, 1, 0], [0, 0, 1], [0, 0, 1]],
+    "warning": "Axis sign is arbitrary here, not installation direction. These observations do not reconstruct corner chamfers/bend topology or certify manufacturing tolerances. Do not silently round raw datum offsets."
+  },
+  "us_schedule": {
+    "catalog_width_mm": 34.925,
+    "catalog_flange_dimensions_mm": [50.8, 38.1],
+    "screws_per_connector": 4,
+    "screw": "SD9112",
+    "screw_length_mm": 38.1,
+    "screw_maximum_head_diameter_mm": null,
+    "screw_head_height_mm": null,
+    "actual_driver_envelope_mm": null,
+    "minimum_receiver_thickness_mm": 38.1,
+    "minimum_wood_specific_gravity": 0.5,
+    "sawn_wood_maximum_moisture_percent": 19
+  },
+  "published_loads_not_assigned_to_frame": {
+    "single_connector_lbf": {"F1": 430, "F2": 165},
+    "duration": "CD1.6 ten-minute wind/earthquake; table explicitly excludes other durations",
+    "interaction": "F1 and F2 cannot be combined",
+    "F1": "Bearing on connector flange; opposite-side connectors required for both directions",
+    "F2": "Unpaired connector requires terminating-member rotation restraint",
+    "opposite_side_pair_minimum_member_thickness_mm": 76.2,
+    "frame_capacity": null
+  },
+  "proposed_layout_unverified": {
+    "quantity": 2,
+    "principal_outer_x_mm": [-76.2, 38.1],
+    "backing_rear_n_mm": 38.1,
+    "bend_width_center_s_mm": 62,
+    "width_s_interval_mm": [44.5375, 79.4625],
+    "limits": "Gross placement only; exact rigid orientation, screw receivers, LED/panel-fastener collisions and driver access not tested. Do not remove existing bolts based on this file."
+  }
+}

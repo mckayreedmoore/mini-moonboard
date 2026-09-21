@@ -1,0 +1,27 @@
+[project]
+name = "mini-moonboard"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.18.1",
+    "pillow>=11.0",
+    "cadquery>=2.8.0",
+    "ocp-vscode>=3.4.0",
+    "skppy>=0.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.15.18",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+# Immutable launch/search snapshots are evidence, not maintained application code.
+extend-exclude = ["fea/results/**/*.launch.py", "fea/results/**/search/*.py"]

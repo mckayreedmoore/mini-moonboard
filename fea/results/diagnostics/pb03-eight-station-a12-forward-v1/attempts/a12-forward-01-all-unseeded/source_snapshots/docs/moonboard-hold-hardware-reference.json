@@ -1,0 +1,142 @@
+{
+  "checked_date": "2026-09-12",
+  "status": "Published kit guidance and user-measured T-nut geometry; not a per-hold installed bolt schedule or connection qualification",
+  "selected_tnut": {
+    "product": "Escape Standard 3-Hole screw-in T-Nut",
+    "thread": "3/8-16",
+    "amazon_asin": "B00FJGT7QI",
+    "manufacturer_url": "https://escapeclimbing.com/products/hd3hnut",
+    "measurement_source": "docs/site-survey.md:158-161",
+    "measurements_mm": {
+      "flange_diameter": 25.4,
+      "flange_thickness": 1.86,
+      "body_depth": 12.7,
+      "retention_hole_diameter_approx": 3.2,
+      "adjacent_hole_inside_gap": 12.78,
+      "derived_adjacent_hole_pitch": 15.98
+    },
+    "specified_panel_bore_mm": 11.1125,
+    "retention_hole_count": 3,
+    "prongs": false,
+    "retention_screws_included_per_listing": true,
+    "retention_screw_dimensions": null,
+    "cad_assumptions": {
+      "barrel_outer_diameter_mm": 11.0,
+      "smooth_thread_placeholder_inner_diameter_mm": 8.0,
+      "body_depth_interpretation": "12.7 mm projection into panel from flange seating face; total depth 14.56 mm; measurement datum unresolved",
+      "hole_pattern": "Equilateral triangle, 15.98 mm adjacent pitch; actual complete pattern not measured",
+      "hole_circle_radius_mm": 9.22605730165022,
+      "clocking": "First hole local +X, arbitrary",
+      "threads_modeled": false
+    },
+    "limits": [
+      "Measured values are user observations, not a manufacturer tolerance drawing.",
+      "Bore size does not establish actual barrel outside diameter.",
+      "No retention-screw geometry is specified by this evidence."
+    ]
+  },
+  "owned_hold_bundle": {
+    "sku": "60-105-2025",
+    "url": "https://us.moonclimbing.com/products/mini-moonboard-2025-hold-set",
+    "count": 138,
+    "sets": [
+      "Original School Holds including kicker footholds",
+      "School Holds Set F",
+      "Wood Holds Set B",
+      "Wood Holds Set C"
+    ],
+    "excluded": [
+      "bolts",
+      "T-nuts",
+      "LED system"
+    ]
+  },
+  "us_bolt_kits": [
+    {
+      "sku": "60-202-WO-USA",
+      "url": "https://us.moonclimbing.com/products/moonboard-wood-hold-bolts",
+      "hold_family": "wood",
+      "thread": "3/8-16",
+      "head": "flat countersunk",
+      "contents": [
+        {
+          "count": 32,
+          "length_in": 3.5,
+          "length_mm": 88.9
+        }
+      ],
+      "hex_key_in": 0.25,
+      "published_material": "high-strength steel",
+      "grade": null,
+      "one_kit_per_hold_set": true
+    },
+    {
+      "sku": "60-202-USA",
+      "url": "https://us.moonclimbing.com/products/universal-bolt-kit",
+      "hold_family": "PE/PU plastic",
+      "thread": "3/8-16",
+      "head": "cap head",
+      "contents": [
+        {
+          "count": 32,
+          "length_in": 2.5,
+          "length_mm": 63.5
+        },
+        {
+          "count": 20,
+          "length_in": 3.5,
+          "length_mm": 88.9
+        }
+      ],
+      "hex_key_in": 0.3125,
+      "published_material": "high-strength steel",
+      "grade": null,
+      "one_kit_per_hold_set": true
+    }
+  ],
+  "bundle_kit_count_inference": {
+    "wood_kits": 2,
+    "plastic_kits": 2,
+    "basis": "One kit per hold set; 2025 bundle has two wood and two school sets",
+    "purchase_authorized": false,
+    "per_hold_plastic_length_mapping": null,
+    "installed_bolt_start_positions": null
+  },
+  "metric_comparison": {
+    "url": "https://moonclimbing.com/moonboard/parts-and-components/moonboard-holds-bolt-kit-metric-m10-1.html",
+    "wood": "32 x M10 x 90 mm countersunk, 6 mm hex",
+    "plastic": "32 x M10 x 60 mm plus 20 x M10 x 90 mm caphead, 8 mm hex",
+    "interchangeable_with_selected_imperial_threads": false
+  },
+  "moon_tnut_comparison": {
+    "us_build_guide": "https://us.moonclimbing.com/blogs/guides/how-to-build-your-moonboard",
+    "imperial_bore_in": 0.5,
+    "imperial_barrel_in": 0.393,
+    "metric_bore_mm": 13,
+    "metric_barrel_mm": 10,
+    "selected": false,
+    "note": "Moon hardware dimensions do not replace measured Escape dimensions."
+  },
+  "installation_guidance": {
+    "publisher": "Escape Climbing",
+    "url": "https://cdn.shopify.com/s/files/1/0051/0374/7160/files/2020_Website_Editorial_HoldInstallation_Final02_fa528c3c-9929-4c46-af56-5f88bca8e014.pdf?v=1668023898",
+    "pdf_sha256": "5afc769c40e93286c9a0e00464f797a7de87a4185d79d0282578a3ceed8f71cc",
+    "full_thread_engagement_required": true,
+    "guide_rotation_range": [
+      6,
+      9
+    ],
+    "rotation_range_condition": "Depends on T-nut barrel length; not an independent substitute for full engagement",
+    "must_tighten_hold_fully": true,
+    "unthreaded_shoulder_must_not_prevent_tightening": true,
+    "published_extra_protrusion_mm": null,
+    "guide_scope": "General Escape hold installation; Moon hold-specific head type and tool sizes take precedence"
+  },
+  "unresolved": [
+    "Per-hold recess/seat depth and installed head start",
+    "Which plastic hold receives each kit length",
+    "Bolt grade, fully threaded extent and head profile dimensions absent from Moon listings",
+    "Clearance behind T-nut and full barrel engagement in actual assembly",
+    "Hold-specific pin screw requirements and geometry"
+  ]
+}
