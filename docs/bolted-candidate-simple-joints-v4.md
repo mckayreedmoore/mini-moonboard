@@ -1,5 +1,25 @@
 # Bolted candidate: active V4 simple-timber-joint plan
 
+## Owner-directed layout reset (2026-09-21)
+
+The immediate milestone is one owner-reviewable kerf-right frame layout with all 24
+original structural bracket duties replaced in the candidate assembly, not another
+isolated load case. The owner now limits ordinary corner-block rearward length to
+the adjacent 2×6 envelope (139.7 mm in local N), wants both original center base
+posts moved outside the KICK5/KICK6 T-nut flanges, and wants the blocks at the
+original brackets' local corners and sides. The two outer-base and two outer
+header/post joints are the anticipated shape exceptions. Preserve all 66
+panel/kicker screw axes and their receivers. Propose exact post coordinates,
+backing, installed hardware, separations for moving, and the complete layout
+for owner approval **before** a major detailed-analysis campaign. Layout approval
+is not structural acceptance or permission to drill.
+
+The PB02 through PB07 work below remains retained development history,
+not an approved layout under this reset. In particular, the 300 mm PB07 blocks,
+the detached 152.4 mm trial, and PB02's one-sided post move do not satisfy the
+new physical direction. Do not transfer their load results to the new layout.
+The historical bracket-only sequence also does not govern the current candidate.
+
 Status at `96f6892f`: **PB-02 ADVANCE for development only; PB06 has ten
 geometrically modeled stations but twelve legacy angle/SDS duties remain.
 G1 remains open; no cutting, drilling, fabrication, or structural release.** This plan
