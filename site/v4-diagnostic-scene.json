@@ -4,6 +4,21 @@
   "fixed_panel_kicker_screw_axes": 66,
   "pb02_variant_id": "ligament_priority",
   "pb02_source_fingerprint": "4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb",
+  "assembly_contract": {
+    "width_option": "kerf-right",
+    "kerf_total_mm": 3.175,
+    "kicker_panel_width_mm": 1217.6125,
+    "official_kicker_panel_width_mm": 1219.2,
+    "outward_shifted_center_supports": 1,
+    "inner_kicker_edges_supported": {
+      "left": true,
+      "right": true
+    },
+    "pb02_bore_count": 10,
+    "pb02_trial_stack_count": 10,
+    "fixed_panel_kicker_screw_axes": 66
+  },
+  "hardware_stack_scope": "maintained trial-length envelopes only; deterministic display orientation; no delivered product, thread interval, or head/nut orientation selected",
   "fabrication_released": false,
   "boxes": [
     {
@@ -336,6 +351,848 @@
       ],
       "length_mm": 182.0,
       "diameter_mm": 7.3
+    }
+  ],
+  "hardware_stacks": [
+    {
+      "name": "header_cleat",
+      "station": "PB02",
+      "trial_length_in": 5,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            15.475,
+            -139.0,
+            236.995
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 127.0,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            15.475,
+            -139.0,
+            231.995
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            15.475,
+            -139.0,
+            236.995
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            15.475,
+            -139.0,
+            344.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            15.475,
+            -139.0,
+            345.905
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "cleat_principal",
+      "station": "PB02",
+      "trial_length_in": 5,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            -21.905,
+            -95.0,
+            312.5
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 127.0,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            -26.905,
+            -95.0,
+            312.5
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            -21.905,
+            -95.0,
+            312.5
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            89.05,
+            -95.0,
+            312.5
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            90.955,
+            -95.0,
+            312.5
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "post_low",
+      "station": "PB02",
+      "trial_length_in": 6,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            140.0,
+            -215.705,
+            110.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 152.39999999999998,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            140.0,
+            -220.705,
+            110.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            140.0,
+            -215.705,
+            110.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            140.0,
+            -86.8,
+            110.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            140.0,
+            -84.89500000000001,
+            110.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "post_high",
+      "station": "PB02",
+      "trial_length_in": 6,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            140.0,
+            -215.705,
+            202.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 152.39999999999998,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            140.0,
+            -220.705,
+            202.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            140.0,
+            -215.705,
+            202.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            140.0,
+            -86.8,
+            202.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            140.0,
+            -84.89500000000001,
+            202.0
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "upright",
+      "station": "PB02",
+      "trial_length_in": 6,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            49.045,
+            -144.5,
+            356.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 152.39999999999998,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            44.045,
+            -144.5,
+            356.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            49.045,
+            -144.5,
+            356.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            177.95,
+            -144.5,
+            356.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            179.85499999999996,
+            -144.5,
+            356.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "cleat_link",
+      "station": "PB02",
+      "trial_length_in": 5,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            133.5,
+            -215.705,
+            328.5
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 127.0,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            133.5,
+            -220.705,
+            328.5
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            133.5,
+            -215.705,
+            328.5
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            133.5,
+            -114.1,
+            328.5
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            133.5,
+            -112.195,
+            328.5
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "post_cleat_1",
+      "station": "PB02",
+      "trial_length_in": 8,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            86.845,
+            -145.0,
+            145.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 203.2,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            81.845,
+            -145.0,
+            145.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            86.845,
+            -145.0,
+            145.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            266.55,
+            -145.0,
+            145.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            268.45500000000004,
+            -145.0,
+            145.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "cleat_header_1",
+      "station": "PB02",
+      "trial_length_in": 8,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            208.35,
+            -130.5,
+            93.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 203.2,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            208.35,
+            -130.5,
+            88.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            208.35,
+            -130.5,
+            93.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            208.35,
+            -130.5,
+            277.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            208.35,
+            -130.5,
+            278.905
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "post_cleat_2",
+      "station": "PB02",
+      "trial_length_in": 8,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            86.845,
+            -145.0,
+            176.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 203.2,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            81.845,
+            -145.0,
+            176.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            86.845,
+            -145.0,
+            176.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            266.55,
+            -145.0,
+            176.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            268.45500000000004,
+            -145.0,
+            176.0
+          ],
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
+    },
+    {
+      "name": "cleat_header_2",
+      "station": "PB02",
+      "trial_length_in": 8,
+      "orientation_selected": false,
+      "hardware_selected": false,
+      "components": [
+        {
+          "role": "shaft",
+          "start_mm": [
+            236.0,
+            -117.5,
+            93.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 203.2,
+          "diameter_mm": 6.35
+        },
+        {
+          "role": "head",
+          "start_mm": [
+            236.0,
+            -117.5,
+            88.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 5.0,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "near_washer",
+          "start_mm": [
+            236.0,
+            -117.5,
+            93.095
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "far_washer",
+          "start_mm": [
+            236.0,
+            -117.5,
+            277.0
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 1.9049999999999998,
+          "diameter_mm": 20.0
+        },
+        {
+          "role": "nut",
+          "start_mm": [
+            236.0,
+            -117.5,
+            278.905
+          ],
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "length_mm": 6.35,
+          "diameter_mm": 20.0
+        }
+      ]
     }
   ]
 }

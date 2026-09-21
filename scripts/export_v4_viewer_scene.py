@@ -6,7 +6,13 @@ This is a partial visual overlay, not a combined V4 assembly or shop output.
 import json
 from pathlib import Path
 
-from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
+from mini_moonboard.floor_flush_width import (
+    KERF_EACH_MM,
+    KERF_RIGHT,
+    KERF_RIGHT_MM,
+    OFFICIAL,
+    variant,
+)
 from scripts import simple_center_current_stack_tip_screen as pb02
 from scripts import simple_center_wide_post_probe as wide
 from scripts import simple_rail_joint_comparison as pb01
@@ -19,6 +25,78 @@ from scripts.simple_center_pb02_geometry import (
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/v4-diagnostic-scene.json"
 BASELINE = ROOT / "site/hybrid/compact-floor-flush-kerf-right/parts.json"
+
+TRIAL_SHANK_DIAMETER_MM = 6.35
+TRIAL_HEAD_LENGTH_MM = 5.0
+TRIAL_ENVELOPE_DIAMETER_MM = 20.0
+
+
+def _axial_component(role, origin, direction, offset, length, diameter):
+    return {
+        "role": role,
+        "start_mm": [
+            value + offset * axis for value, axis in zip(origin, direction, strict=True)
+        ],
+        "axis": direction,
+        "length_mm": length,
+        "diameter_mm": diameter,
+    }
+
+
+def _trial_stack(name, start, direction, grip_mm):
+    """Build a display-only five-role envelope from maintained PB02 bounds."""
+    washer_mm = pb02.WASHER_RANGE_IN[1] * pb02.MM_PER_IN
+    nut_mm = pb02.NUT_RANGE_IN[1] * pb02.MM_PER_IN
+    bolt_mm = pb02.TRIAL_LENGTH_IN[name] * pb02.MM_PER_IN
+    return {
+        "name": name,
+        "station": "PB02",
+        "trial_length_in": pb02.TRIAL_LENGTH_IN[name],
+        "orientation_selected": False,
+        "hardware_selected": False,
+        "components": [
+            _axial_component(
+                "shaft",
+                start,
+                direction,
+                -washer_mm,
+                bolt_mm,
+                TRIAL_SHANK_DIAMETER_MM,
+            ),
+            _axial_component(
+                "head",
+                start,
+                direction,
+                -(washer_mm + TRIAL_HEAD_LENGTH_MM),
+                TRIAL_HEAD_LENGTH_MM,
+                TRIAL_ENVELOPE_DIAMETER_MM,
+            ),
+            _axial_component(
+                "near_washer",
+                start,
+                direction,
+                -washer_mm,
+                washer_mm,
+                TRIAL_ENVELOPE_DIAMETER_MM,
+            ),
+            _axial_component(
+                "far_washer",
+                start,
+                direction,
+                grip_mm,
+                washer_mm,
+                TRIAL_ENVELOPE_DIAMETER_MM,
+            ),
+            _axial_component(
+                "nut",
+                start,
+                direction,
+                grip_mm + washer_mm,
+                nut_mm,
+                TRIAL_ENVELOPE_DIAMETER_MM,
+            ),
+        ],
+    }
 
 
 def build_scene():
@@ -39,6 +117,9 @@ def build_scene():
         raise ValueError("selected baseline no longer contains 66 fixed screw visuals")
 
     wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
+    official_wood = {
+        part.name: part.shape for part in variant(OFFICIAL).uncut_wood_parts()
+    }
     upright = wood[pb01.UPRIGHT].BoundingBox()
     rail = wood[pb01.RAIL]
     rail_box = rail.BoundingBox()
@@ -57,6 +138,7 @@ def build_scene():
         }
     ]
     axes = []
+    hardware_stacks = []
     for name, n_center in (("u1", 265.0), ("u2", 310.0)):
         y, z = pb01._yz(t_face + t_width / 2, n_center)
         axes.append(
@@ -127,15 +209,61 @@ def build_scene():
                 "diameter_mm": 2 * wide.BORE_RADIUS,
             }
         )
+        hardware_stacks.append(_trial_stack(name, start, axes[-1]["axis"], length))
+
+    kicker_left = wood["kicker_left"].BoundingBox()
+    kicker_right = wood["kicker_right"].BoundingBox()
+    official_kicker = official_wood["kicker_left"].BoundingBox()
+    backer = parts["backer"].BoundingBox()
+    shifted = parts["shifted_right_post"].BoundingBox()
+    original_right = wood["base_post_center_right"].BoundingBox()
+
+    def edge_supported(edge_x):
+        return (
+            backer.xmin <= edge_x <= backer.xmax
+            and abs(backer.ymax - kicker_left.ymin) < 1e-6
+            and backer.zmin <= kicker_left.zmin
+            and backer.zmax > kicker_left.zmin
+        )
+
+    support = {
+        "left": edge_supported(kicker_left.xmax),
+        "right": edge_supported(kicker_right.xmin),
+    }
+    shifted_outward = (shifted.xmin + shifted.xmax) / 2 > (
+        original_right.xmin + original_right.xmax
+    ) / 2
+    if not shifted_outward or not all(support.values()):
+        raise ValueError("PB02 center-support or kicker-edge visual contract changed")
+
+    assembly_contract = {
+        "width_option": KERF_RIGHT,
+        "kerf_total_mm": KERF_RIGHT_MM,
+        "kicker_panel_width_mm": kicker_left.xlen,
+        "official_kicker_panel_width_mm": official_kicker.xlen,
+        "outward_shifted_center_supports": 1,
+        "inner_kicker_edges_supported": support,
+        "pb02_bore_count": len(bores),
+        "pb02_trial_stack_count": len(hardware_stacks),
+        "fixed_panel_kicker_screw_axes": len(fixed),
+    }
+    if abs(kicker_left.xlen - (official_kicker.xlen - KERF_EACH_MM)) > 1e-6:
+        raise ValueError("kerf-right kicker width visual contract changed")
     return {
         "status": "partial_development_visualization",
         "baseline": "compact-floor-flush-kerf-right",
         "fixed_panel_kicker_screw_axes": len(fixed),
         "pb02_variant_id": ACTIVE_TRIAL.variant_id,
         "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
+        "assembly_contract": assembly_contract,
+        "hardware_stack_scope": (
+            "maintained trial-length envelopes only; deterministic display orientation; "
+            "no delivered product, thread interval, or head/nut orientation selected"
+        ),
         "fabrication_released": False,
         "boxes": boxes,
         "axes": axes,
+        "hardware_stacks": hardware_stacks,
     }
 
 

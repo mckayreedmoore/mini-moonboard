@@ -56,7 +56,45 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     assert axes["cleat_header_2"]["start_mm"][:2] == [236.0, -117.5]
     assert axes["cleat_link"]["start_mm"][2] == 328.5
     assert axes["upright"]["start_mm"][1:] == [-144.5, 356]
+    assert scene["assembly_contract"] == {
+        "width_option": "kerf-right",
+        "kerf_total_mm": 3.175,
+        "kicker_panel_width_mm": 1217.6125,
+        "official_kicker_panel_width_mm": 1219.2,
+        "outward_shifted_center_supports": 1,
+        "inner_kicker_edges_supported": {"left": True, "right": True},
+        "pb02_bore_count": 10,
+        "pb02_trial_stack_count": 10,
+        "fixed_panel_kicker_screw_axes": 66,
+    }
     assert scene["fabrication_released"] is False
+
+
+def test_pb02_overlay_has_ten_complete_but_non_selected_trial_stacks():
+    scene = build_scene()
+    stacks = {stack["name"]: stack for stack in scene["hardware_stacks"]}
+
+    assert set(stacks) == {
+        axis["name"] for axis in scene["axes"] if axis["station"] == "PB02"
+    }
+    assert {stack["station"] for stack in stacks.values()} == {"PB02"}
+    assert {stack["orientation_selected"] for stack in stacks.values()} == {False}
+    assert {stack["hardware_selected"] for stack in stacks.values()} == {False}
+    assert {stack["trial_length_in"] for stack in stacks.values()} == {5, 6, 8}
+    for stack in stacks.values():
+        assert [part["role"] for part in stack["components"]] == [
+            "shaft",
+            "head",
+            "near_washer",
+            "far_washer",
+            "nut",
+        ]
+        assert all(part["length_mm"] > 0 for part in stack["components"])
+        assert all(part["diameter_mm"] > 0 for part in stack["components"])
+    assert scene["hardware_stack_scope"] == (
+        "maintained trial-length envelopes only; deterministic display orientation; "
+        "no delivered product, thread interval, or head/nut orientation selected"
+    )
 
 
 def test_viewer_scene_artifact_matches_producer():
@@ -69,3 +107,5 @@ def test_viewer_scene_artifact_matches_producer():
     assert "DEVELOPMENT V4 · PB01/PB02 partial 3D scene" in html
     assert "fetch('v4-diagnostic-scene.json')" in html
     assert "data.pb02_variant_id !== 'ligament_priority'" in html
+    assert "data.hardware_stacks.length !== 10" in html
+    assert "complete trial stack envelope" in html

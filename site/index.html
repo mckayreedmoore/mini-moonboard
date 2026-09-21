@@ -286,7 +286,7 @@
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
-      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with PB01 short rail block and PB02 ten-bore center overlaid. Legacy connectors may remain visible; this is not an assembled V4 design, structural acceptance, drilling plan, or fabrication release.';
+      if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · partial visualization only: selected kerf-right assembly is context, with PB01 short rail block and PB02 ten-bore/ten trial-stack center overlaid. Legacy connectors may remain visible; this is not an assembled V4 design, structural acceptance, drilling plan, or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -554,7 +554,7 @@
         }
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
-        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Colored PB01/PB02 blocks and bore axes are diagnostic only; click to inspect.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
+        partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Colored PB01/PB02 blocks, bore axes, and complete trial stack envelopes are diagnostic only; click to inspect.' : 'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!parts.length) resolveV4Baseline?.();
         parts.forEach(part => loader.load(part.path, geometry => {
@@ -587,8 +587,14 @@
         }).then(data => {
           if (data.status !== 'partial_development_visualization' || data.baseline !== manifestKey ||
               data.fixed_panel_kicker_screw_axes !== 66 || data.fabrication_released !== false ||
-              data.pb02_variant_id !== 'ligament_priority' || !/^[0-9a-f]{64}$/.test(data.pb02_source_fingerprint) ||
-              data.boxes.length !== 7 || data.axes.length !== 14) throw new Error('V4 source inventory changed');
+              data.pb02_variant_id !== 'ligament_priority' ||
+              data.pb02_source_fingerprint !== '4ef3ff0376b4c49142c8a1bc347270da024852e4554cfc4e549b6cafab63dccb' ||
+              data.boxes.length !== 7 || data.axes.length !== 14 || data.hardware_stacks.length !== 10 ||
+              data.assembly_contract?.width_option !== 'kerf-right' ||
+              data.assembly_contract?.outward_shifted_center_supports !== 1 ||
+              !data.assembly_contract?.inner_kicker_edges_supported?.left ||
+              !data.assembly_contract?.inner_kicker_edges_supported?.right ||
+              data.assembly_contract?.fixed_panel_kicker_screw_axes !== 66) throw new Error('V4 source inventory changed');
           for (const box of data.boxes) {
             const geometry = new THREE.BoxGeometry(...box.size_mm);
             const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
@@ -614,6 +620,29 @@
               kind: 'bolt', category: 'bolts', dimensions_mm: [axis.diameter_mm, axis.diameter_mm, axis.length_mm],
               description: 'source-derived trial bore axis; no selected bolt, drill size, or hardware stack'}};
             mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
+          }
+          for (const stack of data.hardware_stacks) {
+            for (const component of stack.components) {
+              const radialSegments = ['head', 'nut'].includes(component.role) ? 6 : 20;
+              const geometry = new THREE.CylinderGeometry(
+                component.diameter_mm / 2, component.diameter_mm / 2,
+                component.length_mm, radialSegments,
+              );
+              const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
+                color: component.role === 'shaft' ? 0xc7d2da : 0xe5edf2,
+                metalness: .65, roughness: .3,
+              }));
+              const direction = new THREE.Vector3(...component.axis);
+              mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
+              mesh.position.fromArray(component.start_mm).addScaledVector(direction, component.length_mm / 2);
+              mesh.userData.part = {name: `PB02 ${stack.name} ${component.role}`, fabrication: {
+                v4_overlay: true, kind: 'bolt', category: 'bolts', connection_name: `PB02_${stack.name}`,
+                hardware_role: component.role,
+                dimensions_mm: [component.diameter_mm, component.diameter_mm, component.length_mm],
+                description: 'complete trial stack envelope; deterministic display orientation only; hardware and orientation not selected',
+              }};
+              mesh.userData.baseEmissive = 0; meshes.push(mesh); climberView.add(mesh);
+            }
           }
           updateBoltVisibility();
         }).catch(error => {
