@@ -648,7 +648,11 @@ def _run_attempt(
     )
     report["pb02_stiffness_verification"] = _verify_model_stiffness(path, stiffnesses)
     report["pb02_model_identity"] = _model_identity(path, case, stiffnesses)
-    report["pb02_contact_aggregation"] = _contact_aggregation(report, stiffnesses)
+    # A rejected active-set iterate may still contain tension in an active
+    # compression row. Preserve it only as retry state; aggregate forces once
+    # the native solver has accepted the unilateral solution.
+    if report.get("numerically_accepted") is True:
+        report["pb02_contact_aggregation"] = _contact_aggregation(report, stiffnesses)
     return report
 
 

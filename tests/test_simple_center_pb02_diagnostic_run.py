@@ -407,12 +407,29 @@ def test_rejected_attempt_forces_never_enter_suite_summary(
     tmp_path, monkeypatch, isolated_runner
 ):
     calls = []
+    aggregated = []
     sentinel = "FORCE_FROM_REJECTED_NATIVE_ATTEMPT"
     rejected = _report(
         "a12-forward",
         contact_active_set_converged=False,
+        numerically_accepted=False,
+        termination="Contact active set repeated without convergence",
         physical_connection_forces={sentinel: {"signed_force_n": 9.9e88}},
         bearings=[{"name": sentinel, "active": True}],
+    )
+    monkeypatch.setattr(
+        runner,
+        "_contact_aggregation",
+        lambda report, _stiffnesses: (
+            aggregated.append(report)
+            or {
+                "partition_fingerprint": NATIVE_PARTITION["fingerprint"],
+                "grid_resolution": NATIVE_PARTITION["grid_resolution"],
+                "interfaces": {
+                    edge: {} for edge in NATIVE_PARTITION["interfaces"]
+                },
+            }
+        ),
     )
     reports = [rejected, _report("a12-forward"), *map(_report, runner.CASE_ORDER[1:])]
     _install_fake_native_run(monkeypatch, reports, calls)
@@ -425,6 +442,11 @@ def test_rejected_attempt_forces_never_enter_suite_summary(
     assert summary["rejected_attempt_forces_included"] is False
     assert summary["attempts"][0]["forces_in_suite_summary"] is False
     assert "physical_connection_forces" not in summary["attempts"][0]
+    assert len(calls) == 7
+    # Each accepted case is aggregated once by the attempt and once by strict
+    # accepted-report validation; the rejected search state is never included.
+    assert len(aggregated) == 2 * len(runner.CASE_ORDER)
+    assert rejected not in aggregated
 
 
 @pytest.mark.parametrize("value", [0, -1, float("inf"), float("nan"), True])
@@ -567,6 +589,42 @@ def test_contact_aggregation_records_refinement_comparison_fields():
     ] = list(rows[0]["direction"])
     with pytest.raises(ValueError, match="force reversed"):
         runner._contact_aggregation(reversed_report, stiffnesses)
+
+
+def test_nonconverged_attempt_defers_strict_contact_aggregation(
+    tmp_path, monkeypatch, isolated_runner
+):
+    report = _report(
+        "a12-rear",
+        contact_active_set_converged=False,
+        axial_tension_active_set_converged=False,
+        numerically_accepted=False,
+        termination="max_cycles",
+    )
+    calls = []
+    _install_fake_native_run(monkeypatch, [report], calls)
+    monkeypatch.setattr(
+        runner,
+        "_contact_aggregation",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("nonconverged forces are not accepted evidence")
+        ),
+    )
+    stiffnesses = runner._selected_stiffnesses(
+        AXIAL_STIFFNESS, LATERAL_STIFFNESS, FACE_STIFFNESS
+    )
+
+    result = runner._run_attempt(
+        "a12-rear",
+        tmp_path / "a12-rear-01-all-unseeded",
+        strategy="all",
+        stiffnesses=stiffnesses,
+        max_cycles=20,
+    )
+
+    assert runner._is_active_set_nonconvergence(result) is True
+    assert "pb02_contact_aggregation" not in result
+    assert len(calls) == 1
 
 
 def test_changed_source_inventory_is_rejected_before_any_native_solve(
