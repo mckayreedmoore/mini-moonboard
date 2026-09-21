@@ -1,6 +1,7 @@
 """Current PB-02 ten-bore stack and permanent occupancy sensitivity screen."""
 
 import json
+import math
 from itertools import combinations
 
 import cadquery as cq
@@ -90,7 +91,14 @@ def _geometry():
     return parts, bores, ends
 
 
-def screen():
+def screen(*, length_overrides=None):
+    """Screen trial nominal lengths without selecting actual purchased bolts."""
+    overrides = length_overrides or {}
+    if set(overrides) - set(TRIAL_LENGTH_IN):
+        raise ValueError("unknown center bolt in trial length override")
+    if any(not math.isfinite(length) or length <= 0 for length in overrides.values()):
+        raise ValueError("trial bolt lengths must be positive and finite")
+    trial_lengths = TRIAL_LENGTH_IN | overrides
     parts, bores, ends = _geometry()
     _, screws = frame._fixed_screws()
     if set(bores) != set(PAIRS) or set(ends) != {
@@ -101,7 +109,7 @@ def screen():
     for name, pair in PAIRS.items():
         near, far = (ends[end][0] for end in pair)
         grip_mm = sum(abs(a - b) for a, b in zip(near, far))
-        length = TRIAL_LENGTH_IN[name]
+        length = trial_lengths[name]
         grip_in = grip_mm / MM_PER_IN
         common = {
             "bolt_length_in": length,

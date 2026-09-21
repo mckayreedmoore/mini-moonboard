@@ -19,3 +19,24 @@ def test_current_pose_all_ten_bores_and_limiting_stacks():
     assert result["potential_other_bolt_permanent_hits_mm3"] == {}
     assert not result["procurement_or_drilling_released"]
     assert all(not row["actual_thread_nut_washer_verified"] for row in rows.values())
+
+
+def test_longer_principal_side_trials_report_tips_without_selecting_hardware():
+    result = screen(length_overrides={"header_cleat": 5.5, "cleat_principal": 5.5})
+    rows = result["rows"]
+    assert rows["header_cleat"]["trial_length_in"] == 5.5
+    assert rows["cleat_principal"]["trial_length_in"] == 5.5
+    assert rows["header_cleat"]["minimum_projection_margin_in"] > 0.5
+    assert rows["cleat_principal"]["minimum_projection_margin_in"] > 0.5
+    assert rows["header_cleat"]["maximum_tip_from_wood_mm"] > 25
+    assert not rows["header_cleat"]["actual_thread_nut_washer_verified"]
+    assert not result["procurement_or_drilling_released"]
+
+    six = screen(length_overrides={"header_cleat": 6, "cleat_principal": 6})
+    hit = six["per_end_permanent_occupancy"][
+        "cleat_principal:principal_cleat_left:tip"
+    ]["wood_hits_mm3"]
+    assert (
+        hit["cleat_principal:principal_cleat_left:tip/base_principal_center_left"] > 0
+    )
+    assert six["rows"]["cleat_principal"]["minimum_projection_margin_in"] > 1

@@ -40,6 +40,38 @@ assumed start no later than 7.05 in (post/block) or 7.215 in
 length, thread placement, runout and tip chamfer could erase the small margins.
 No identified 5-in or 6-in product has been accepted for the other bores.
 
+## Longer ordinary-retailer leads at the two limiting grips
+
+The [Home Depot Everbilt 805336](https://www.homedepot.com/p/204633310)
+listing identifies a 1/4-20 × 5½-in hex bolt, while
+[Lowe's Hillman 190062](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000379701)
+lists the same nominal size and describes a partially threaded shank.
+The [Home Depot Everbilt 805436](https://www.homedepot.com/p/204633311)
+listing identifies a 1/4-20 × 6-in A307 galvanized hex bolt and says it is
+fully threaded. These are dated public retailer leads, not verified delivered
+thread/runout dimensions or approved substitutions.
+
+Using the *same invented* grip, washer, nut and tip intervals above, changing
+only `header_cleat` and `cleat_principal` gives:
+
+| Trial nominal length | Minimum tip margin, mm | Maximum exposed tip from wood, mm | Modeled permanent envelope |
+| --- | ---: | ---: | --- |
+| 5 in, prior | 0.12 / 0.17 | 17.90 / 17.95 | No tested clash |
+| 5½ in | 12.82 / 12.87 | 30.60 / 30.65 | No positive-volume wood, fixed-screw or other-bolt clash at either end |
+| 6 in | 25.52 / 25.57 | 43.30 / 43.35 | Left end of principal cross-bolt tip enters left center principal by 518.99 mm³; opposite end avoids that modeled clash |
+
+Each pair of numbers is header-to-principal-block, then
+principal-block-to-principal. The 5½-in length is a better **nominal length
+and occupancy lead** than the marginal 5-in trial, but the first complete
+usable thread still must begin no later than 4.345 / 4.343 in from under the
+head under the assumed minimum-grip/thin-washer case. Neither 5½-in listing
+establishes that datum. Its actual grade, root diameter, washer/nut match,
+thread engagement, delivered length, torque and tool access are not qualified.
+The six-inch clash is orientation-specific, not proof that every six-inch
+arrangement fails; an opposite orientation still needs the complete stack,
+hold-and-turn access and contact checks. None of these rows selects hardware
+or supports drilling.
+
 ## Permanent envelope, separate from temporary access
 
 For each end of each bore the script tests both possible head/nut assignments.
