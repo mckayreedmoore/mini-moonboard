@@ -316,6 +316,21 @@ no updated joint resistance, same-case force/contact solution, complete hardware
 release exists. PB04's pocketed geometry and case forces cannot transfer to this distinct
 trial.
 
+The [PB05 native adapter](../scripts/simple_pb05_native.py) now assembles the six narrow
+outer solids and two unchanged centers as a separate fingerprinted source. Its
+[mechanics preparation](../scripts/simple_pb05_native_mechanics.py) owns 32 new bolt rows
+and 64 face-contact cells, with 66 fixed panel/kicker axes, twelve original frame-bolt
+axes, and fourteen legacy connector duties still present. Six focused source/mechanics
+tests pass. No PB05 load case has been solved; these row counts are not joint capacities.
+
+A [detached eight-block short-stock screen](../scripts/simple_pb05_short_block_screen.py)
+also finds a common 152.4 mm length geometrically clear for the six narrow outers and two
+centers, retaining every existing PB05 bolt axis and all 66 protected panel/kicker axes.
+Its provisional end-distance floor is 125.559 mm, but that floor has **not** itself been
+screened as a full assembly. The six-inch option is not in the PB05 native source or viewer;
+it needs its own contact, section, group, hardware, cost, and same-case checks before it can
+replace the 300 mm development blocks.
+
 ## PB-02 G1 status and remaining boundaries
 
 PB-02 is **ADVANCE, development only; G1 remains open**. The accepted cases and component
