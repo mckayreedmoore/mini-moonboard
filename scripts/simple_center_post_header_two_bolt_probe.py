@@ -34,7 +34,8 @@ def _pair_hits(shapes):
 
 
 def _candidate(config):
-    bottom, post_y, post_z, vertical_x = config
+    bottom, post_y, post_z, vertical_x = config[:4]
+    vertical_y = config[4] if len(config) == 5 else (-130, -130)
     parts, bores, ends = prior._geometry()
     block = cq.Solid.makeBox(
         88.9, 88.9, 238.9 - bottom, cq.Vector(177.65, -175.7, bottom)
@@ -63,17 +64,17 @@ def _candidate(config):
             (1, 0, 0),
             "header_post_side_cleat",
         )
-    for index, x in enumerate(vertical_x, 1):
+    for index, (x, y) in enumerate(zip(vertical_x, vertical_y, strict=True), 1):
         name = f"cleat_header_{index}"
         bores[name] = combined.cylinder(
-            wide.BORE_RADIUS, 277 - bottom, (x, -130, bottom), (0, 0, 1)
+            wide.BORE_RADIUS, 277 - bottom, (x, y, bottom), (0, 0, 1)
         )
         ends[f"{name}_bottom"] = (
-            (x, -130, bottom),
+            (x, y, bottom),
             (0, 0, -1),
             "header_post_side_cleat",
         )
-        ends[f"{name}_top"] = ((x, -130, 277), (0, 0, 1), "base_header")
+        ends[f"{name}_top"] = ((x, y, 277), (0, 0, 1), "base_header")
 
     intended = (
         combined.INTENDED
@@ -182,7 +183,16 @@ def _candidate(config):
     pitch = {
         "post_cleat": round(abs(post_z[1] - post_z[0]) - 4 * small.DIAMETER, 5),
         "cleat_header": round(
-            abs(vertical_x[1] - vertical_x[0]) - 4 * small.DIAMETER, 5
+            sum(
+                (a - b) ** 2
+                for a, b in zip(
+                    (vertical_x[0], vertical_y[0]),
+                    (vertical_x[1], vertical_y[1]),
+                )
+            )
+            ** 0.5
+            - 4 * small.DIAMETER,
+            5,
         ),
     }
     new_wood = {"header_post_side_cleat": block}
@@ -233,6 +243,7 @@ def _candidate(config):
         "vertical_wood_grip_mm": 277 - bottom,
         "post_axis_z_mm": post_z,
         "vertical_axis_x_mm": vertical_x,
+        "vertical_axis_y_mm": vertical_y,
         "new_bores": list(bores)[-4:],
         "all_bores_checked": list(bores),
         "bore_received_fraction": received,
