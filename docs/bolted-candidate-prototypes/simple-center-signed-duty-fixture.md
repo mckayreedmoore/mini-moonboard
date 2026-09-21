@@ -19,9 +19,14 @@ There is no accepted `a12-forward` case.
 
 Those retained reports were produced with archived `fea/current_response_model.py`
 SHA-256 `e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce`.
-The current shared model contains opt-in candidate extensions and is not byte-identical.
-Historical identity is verified from the retained report and source hashes; separate
-default-path and candidate-opt-in tests verify current compatibility.
+Repository commit `5b20a38a2cb0ff213105678a2082aa892cdb80a8` preserves byte-identical
+producer source. The current shared model contains opt-in candidate extensions and is
+not byte-identical. Historical report and input identity is verified against the
+pre-existing reference manifest, whose SHA-256 is pinned separately as
+`193bef4f3c8b73473d11cc6d61f4a085eae850a21f63ae71dd650cbf53609f51`.
+A bounded default-path test checks the current unsolved preparation's member and floor
+support inventory and metadata; separate tests exercise the candidate opt-ins. These
+are semantic compatibility checks, not source-byte equivalence or solver-result replay.
 
 The fixture retains both simultaneous complete old-interface wrenches:
 

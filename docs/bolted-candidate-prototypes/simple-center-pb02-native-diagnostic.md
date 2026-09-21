@@ -46,17 +46,42 @@ positive-load-work gate. All retained artifacts referenced here match the
 hashes above. Numerical acceptance does not qualify the modeled demands as
 design demands.
 
-## Contact-cell correction required
+## Contact-cell correction implemented; corrected rerun pending
 
 A subsequent exact-face audit found that `principal_upright_block/contact_1`
 lies 0.791 mm outside the true principal/cleat overlap while carrying 17.18 N.
-The current four equal interface springs also have no tributary areas and use
-equal stiffness regardless of actual face polygon. The result remains an
+The old four equal interface springs also had no tributary areas and used equal
+stiffness regardless of actual face polygon. That result remains an
 authenticated numerical record, but its force distribution is not current
-joint-demand evidence. Replace the canonical face samples with contained,
-area-weighted cells and rerun before advancing the resistance decision or the
-remaining five cases. The direct shifted-post/header samples are a separate
-contact family and are not implicated by this finding.
+joint-demand evidence.
+
+The current adapter now intersects the two true CAD faces at each of the seven
+canonical interfaces, subtracts the exact circular bolt-hole footprints, and
+partitions the remaining face into finite tributary cells. It verifies positive
+cell area, complete net-area coverage, exact first moments, contained cell
+centroids, deterministic ordering, and a source-bound partition fingerprint.
+Every canonical spring uses one common areal stiffness calibrated so the mean
+interface total equals the selected developmental input. The unequal interface
+totals are therefore explicit consequences of unequal net face areas. The four
+direct shifted-post/header samples remain a separate equal-total contact law.
+
+Both 2x2 and 4x4 native partitions are selectable without changing source. The
+4x4 source partition has 110 positive components. At the inclined principal
+end, two 2x2 parent tiles are each represented by one area-weighted spring
+because their individual fine-cell centroids fall outside the retained beam
+centerline end. This produces 104 native contact springs while preserving exact
+area and first moments and without extending fictional timber. A coalesced tile
+reports one average pressure; it cannot resolve partial opening or a local
+pressure peak inside that tile.
+
+The runner authenticates partition identity, area-derived stiffness, cell
+ownership, physical force direction, and per-interface force, moment, active
+area, and peak cell-average pressure. Physical opening/closing tests and 2x2
+and 4x4 unsolved preparation tests pass. A corrected native response has not
+yet been accepted, so the archived forces and all dependent component screens
+remain pre-contact-cell-correction history. Rerun `a12-forward` at both
+resolutions before advancing the resistance decision or the remaining five
+cases.
 
 ## Corrected load path and demand
 

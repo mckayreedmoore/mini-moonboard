@@ -4,8 +4,10 @@ import math
 
 import pytest
 
+from scripts.simple_center_connected_kinematics import CONTACT_PARTITION
 from scripts.simple_center_pb02_native import (
     PB02Native,
+    native_contact_partition,
     native_row_inventory,
     prepare_case,
 )
@@ -22,6 +24,17 @@ def prepared():
         bolt_axial_n_per_mm=AXIAL_STIFFNESS,
         bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
         face_normal_total_n_per_mm=FACE_STIFFNESS,
+    )
+
+
+@pytest.fixture(scope="module")
+def refined_prepared():
+    return prepare_case(
+        "a12-forward",
+        bolt_axial_n_per_mm=AXIAL_STIFFNESS,
+        bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
+        face_normal_total_n_per_mm=FACE_STIFFNESS,
+        contact_grid_resolution=4,
     )
 
 
@@ -117,13 +130,13 @@ def test_prepare_adds_exact_canonical_spring_inventory(prepared):
     assert metadata["pb02_native_row_counts"] == {
         "bolt_shear": 20,
         "bolt_tension_only": 10,
-        "contact_compression": 28,
+        "contact_compression": CONTACT_PARTITION["contact_row_count"],
     }
     assert {spring["name"] for spring in bolt_springs} == bolt_names
     assert len([spring for spring in bolt_springs if spring["dof"] == 1]) == 10
     assert len([spring for spring in bolt_springs if spring["dof"] in (2, 3)]) == 20
     assert {spring["name"] for spring in contact_springs} == contact_names
-    assert len(contact_springs) == 28
+    assert len(contact_springs) == CONTACT_PARTITION["contact_row_count"]
 
     axial = [spring for spring in bolt_springs if spring["dof"] == 1]
     lateral = [spring for spring in bolt_springs if spring["dof"] in (2, 3)]
@@ -180,3 +193,28 @@ def test_prepare_is_explicitly_unsolved_and_never_a_release(prepared):
     assert metadata["drilling_released"] is False
     assert metadata["preparation_only"] is True
     assert metadata["developmental_only"] is True
+
+
+def test_four_by_four_partition_prepares_with_exact_boundary_cell_coalescing(
+    refined_prepared,
+):
+    structure, metadata = refined_prepared
+    cells, partition = native_contact_partition(4)
+    contact_names = {
+        row["name"]
+        for row in native_row_inventory(4)
+        if row["kind"] == "contact_compression"
+    }
+
+    assert partition["grid_resolution"] == [4, 4]
+    assert partition["contact_row_count"] == 104
+    assert sum(
+        row["native_attachment_coalesced_count"]
+        for row in partition["interfaces"].values()
+    ) == 6
+    assert sum(len(rows) for rows in cells.values()) == 104
+    assert metadata["pb02_contact_stiffness"]["partition_fingerprint"] == (
+        partition["fingerprint"]
+    )
+    assert metadata["pb02_native_row_counts"]["contact_compression"] == 104
+    assert contact_names <= {spring["name"] for spring in structure.springs}

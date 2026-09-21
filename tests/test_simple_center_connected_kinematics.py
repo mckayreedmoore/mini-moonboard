@@ -1,11 +1,18 @@
 """Connected point model keeps contact and boundary assumptions explicit."""
 
+import copy
+
 import numpy as np
+import pytest
 
 from scripts.simple_center_connected_kinematics import (
+    CONTACT_CELLS,
+    CONTACT_PARTITION,
     EDGES,
     NODE_PARTS,
+    _partition_fingerprint,
     constraint_rows,
+    contact_partition,
     current_edges,
     matrix,
     screen,
@@ -85,3 +92,69 @@ def test_contact_samples_lie_on_both_active_cad_faces():
                 assert low - 1e-6 <= coordinate <= high + 1e-6
                 if index == normal_index:
                     assert min(abs(coordinate - low), abs(coordinate - high)) < 1e-6
+
+
+def test_contact_cells_cover_exact_net_face_overlap_and_exclude_bores():
+    for edge, cells in CONTACT_CELLS.items():
+        assert len(cells) == 4
+        assert sum(cell["tributary_area_mm2"] for cell in cells) == pytest.approx(
+            cells[0]["net_overlap_area_mm2"], abs=1e-5
+        )
+        assert all(cell["inside_both_true_faces"] for cell in cells)
+        assert all(cell["outside_all_bore_footprints"] for cell in cells)
+        rows = [
+            row
+            for row in constraint_rows(closed=(edge,))
+            if row["kind"] == "contact_compression"
+        ]
+        assert [row["point_mm"] for row in rows] == [cell["point_mm"] for cell in cells]
+        assert [row["tributary_area_mm2"] for row in rows] == [
+            cell["tributary_area_mm2"] for cell in cells
+        ]
+
+
+@pytest.mark.parametrize("resolution", [2, 4])
+def test_contact_partition_refines_deterministically_and_preserves_first_moments(
+    resolution,
+):
+    first_cells, first = contact_partition(resolution)
+    second_cells, second = contact_partition((resolution, resolution))
+
+    assert first == second
+    assert first_cells == second_cells
+    assert first["grid_resolution"] == [resolution, resolution]
+    assert len(first["fingerprint"]) == 64
+    assert first["contact_row_count"] == sum(map(len, first_cells.values()))
+    for edge, cells in first_cells.items():
+        interface = first["interfaces"][edge]
+        area = sum(cell["tributary_area_mm2"] for cell in cells)
+        first_moment = sum(
+            (
+                cell["tributary_area_mm2"] * np.asarray(cell["point_mm"])
+                for cell in cells
+            ),
+            np.zeros(3),
+        )
+        assert area == pytest.approx(interface["net_overlap_area_mm2"], abs=1e-5)
+        np.testing.assert_allclose(
+            first_moment,
+            interface["net_first_moment_mm3"],
+            atol=1e-4,
+        )
+        assert all(cell["inside_both_true_faces"] for cell in cells)
+        assert all(cell["outside_all_bore_footprints"] for cell in cells)
+
+    if resolution == 2:
+        assert first == CONTACT_PARTITION
+    else:
+        assert first["fingerprint"] != CONTACT_PARTITION["fingerprint"]
+        assert first["contact_row_count"] > CONTACT_PARTITION["contact_row_count"]
+
+
+def test_contact_partition_fingerprint_binds_member_ownership_and_normal():
+    interfaces = copy.deepcopy(CONTACT_PARTITION["interfaces"])
+    interfaces["post_block"]["canonical_first_to_second_normal"] = [-1, 0, 0]
+
+    changed = _partition_fingerprint((2, 2), CONTACT_CELLS, interfaces)
+
+    assert changed != CONTACT_PARTITION["fingerprint"]

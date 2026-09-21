@@ -1,6 +1,7 @@
 """PB02 diagnostic orchestration accepts only authenticated native results."""
 
 import json
+import pickle
 
 import pytest
 
@@ -11,10 +12,13 @@ LATERAL_STIFFNESS = 1200.0
 FACE_STIFFNESS = 2400.0
 SOURCE_INVENTORY = {"scripts/pb02-producer.py": "a" * 64}
 BOLT_NAMES = {f"pb02-bolt-{index}" for index in range(10)}
-CONTACT_NAMES = {f"pb02-contact-{index}" for index in range(28)}
+CONTACT_NAMES = {
+    f"pb02-contact-{index}"
+    for index in range(runner.CONTACT_PARTITION["contact_row_count"])
+}
 
 
-def _rows():
+def _rows(*_args, **_kwargs):
     bolts = []
     for name in sorted(BOLT_NAMES):
         bolts.extend(
@@ -83,15 +87,16 @@ def isolated_runner(monkeypatch):
     monkeypatch.setattr(
         runner,
         "screen",
-        lambda: {
+        lambda *args: {
             "candidate": runner.CANDIDATE_ID,
             "panel_kicker_axis_count": 66,
             "legacy_proxy_station_count": 22,
             "native_rows": {
                 "bolt_shear": 20,
                 "bolt_tension": 10,
-                "contact_compression": 28,
+                "contact_compression": runner.CONTACT_PARTITION["contact_row_count"],
             },
+            "canonical_contact_partition": runner.CONTACT_PARTITION,
             "qualified_for_design": False,
             "drilling_released": False,
             "active_fingerprint": "pb02-test-geometry",
@@ -111,6 +116,15 @@ def isolated_runner(monkeypatch):
         runner,
         "_model_identity",
         lambda path, case, stiffnesses: f"authenticated-model-{case}",
+    )
+    monkeypatch.setattr(
+        runner,
+        "_contact_aggregation",
+        lambda report, stiffnesses: {
+            "partition_fingerprint": runner.CONTACT_PARTITION["fingerprint"],
+            "grid_resolution": runner.CONTACT_PARTITION["grid_resolution"],
+            "interfaces": {edge: {} for edge in runner.CONTACT_PARTITION["interfaces"]},
+        },
     )
 
 
@@ -430,6 +444,130 @@ def test_stiffness_selection_records_exact_explicit_values_and_unqualified_statu
     }
     assert result["complete_joint_stiffness_qualified"] is False
     assert "developmental" in result["selection_status"]
+    assert result["contact_model"]["partition_fingerprint"] == (
+        runner.CONTACT_PARTITION["fingerprint"]
+    )
+    assert (
+        result["contact_model"]["contact_row_count"]
+        == (runner.CONTACT_PARTITION["contact_row_count"])
+    )
+    assert result["contact_model"]["canonical_per_area_n_per_mm3"] > 0
+
+
+def test_stiffness_selection_exposes_four_by_four_native_partition():
+    result = runner._selected_stiffnesses(
+        AXIAL_STIFFNESS,
+        LATERAL_STIFFNESS,
+        FACE_STIFFNESS,
+        contact_grid_resolution=4,
+    )
+
+    assert result["contact_model"]["grid_resolution"] == [4, 4]
+    assert result["contact_model"]["partition_fingerprint"] != (
+        runner.CONTACT_PARTITION["fingerprint"]
+    )
+    assert result["contact_model"]["contact_row_count"] > (
+        runner.CONTACT_PARTITION["contact_row_count"]
+    )
+
+
+def test_model_stiffness_verifier_authenticates_generated_contact_partition(tmp_path):
+    stiffnesses = runner._selected_stiffnesses(
+        AXIAL_STIFFNESS, LATERAL_STIFFNESS, FACE_STIFFNESS
+    )
+    model = runner.prepare_case(
+        "a12-forward",
+        bolt_axial_n_per_mm=AXIAL_STIFFNESS,
+        bolt_lateral_n_per_mm=LATERAL_STIFFNESS,
+        face_normal_total_n_per_mm=FACE_STIFFNESS,
+    )
+    path = tmp_path / "model"
+    path.mkdir()
+    with (path / "model.pkl").open("wb") as target:
+        pickle.dump({"model": model}, target)
+
+    assert runner._verify_model_stiffness(path, stiffnesses) == stiffnesses
+
+    model[1]["pb02_contact_stiffness"]["partition_fingerprint"] = "changed"
+    with (path / "model.pkl").open("wb") as target:
+        pickle.dump({"model": model}, target)
+    with pytest.raises(ValueError, match="area-derived contact metadata"):
+        runner._verify_model_stiffness(path, stiffnesses)
+
+
+def test_contact_aggregation_records_refinement_comparison_fields():
+    stiffnesses = runner._selected_stiffnesses(
+        AXIAL_STIFFNESS, LATERAL_STIFFNESS, FACE_STIFFNESS
+    )
+    rows = [
+        row
+        for row in runner.native_row_inventory()
+        if row["kind"] == "contact_compression"
+    ]
+    active = {rows[0]["name"], rows[-1]["name"]}
+    report = {
+        "bearings": [
+            {"name": row["name"], "active": row["name"] in active} for row in rows
+        ],
+        "physical_connection_forces": {
+            row["name"]: {
+                "first": row["first_part"],
+                "second": row["second_part"],
+                "scalar_normal": [-value for value in row["direction"]],
+                "contact_partition_fingerprint": runner.CONTACT_PARTITION[
+                    "fingerprint"
+                ],
+                "contact_grid_resolution": runner.CONTACT_PARTITION["grid_resolution"],
+                "force_on_first_xyz_n": (
+                    [-value for value in row["direction"]]
+                    if row["name"] in active
+                    else [0.0] * 3
+                ),
+            }
+            for row in rows
+        },
+    }
+
+    result = runner._contact_aggregation(report, stiffnesses)
+
+    assert result["partition_fingerprint"] == runner.CONTACT_PARTITION["fingerprint"]
+    assert set(result["interfaces"]) == set(runner.CONTACT_PARTITION["interfaces"])
+    assert sum(
+        row["active_tributary_area_mm2"] for row in result["interfaces"].values()
+    ) == pytest.approx(
+        sum(row["tributary_area_mm2"] for row in rows if row["name"] in active)
+    )
+    assert all(
+        {
+            "force_resultant_n",
+            "moment_resultant_about_net_centroid_nmm",
+            "active_tributary_area_mm2",
+            "peak_average_cell_pressure_n_per_mm2",
+        }
+        <= set(row)
+        for row in result["interfaces"].values()
+    )
+
+    missing = {
+        **report,
+        "physical_connection_forces": dict(report["physical_connection_forces"]),
+    }
+    missing["physical_connection_forces"].pop(rows[0]["name"])
+    with pytest.raises(ValueError, match="missing canonical physical-force"):
+        runner._contact_aggregation(missing, stiffnesses)
+
+    reversed_report = {
+        **report,
+        "physical_connection_forces": {
+            name: dict(force)
+            for name, force in report["physical_connection_forces"].items()
+        },
+    }
+    reversed_report["physical_connection_forces"][rows[0]["name"]][
+        "force_on_first_xyz_n"
+    ] = list(rows[0]["direction"])
+    with pytest.raises(ValueError, match="force reversed"):
+        runner._contact_aggregation(reversed_report, stiffnesses)
 
 
 def test_changed_source_inventory_is_rejected_before_any_native_solve(

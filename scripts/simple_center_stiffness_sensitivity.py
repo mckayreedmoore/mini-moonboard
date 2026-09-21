@@ -10,6 +10,8 @@ import numpy as np
 from scipy.optimize import minimize
 
 from scripts.simple_center_connected_kinematics import (
+    CONTACT_PARTITION,
+    CONTACT_PARTITION_FINGERPRINT,
     EDGES,
     NODES,
     ROTATION_SCALE_MM,
@@ -84,7 +86,7 @@ def solve_case(
     if inventory != {
         "bolt_shear": 20,
         "bolt_tension": 10,
-        "contact_compression": 28,
+        "contact_compression": CONTACT_PARTITION["contact_row_count"],
     } or len({row["name"] for row in rows}) != len(rows):
         raise ValueError("PB02 labeled spring inventory changed")
     compatibility = np.asarray([row["row"] for row in rows])
@@ -92,6 +94,13 @@ def solve_case(
     load, _ = _fixture_load(extracted)
     _validate_self_equilibrium(load)
     free_load = load[6:]
+    mean_contact_area = sum(
+        interface["net_overlap_area_mm2"]
+        for interface in CONTACT_PARTITION["interfaces"].values()
+    ) / len(CONTACT_PARTITION["interfaces"])
+    contact_stiffness_per_area = (
+        REFERENCE_STIFFNESS_N_PER_MM * contact_factor / mean_contact_area
+    )
     stiffness = np.asarray(
         [
             REFERENCE_STIFFNESS_N_PER_MM
@@ -100,7 +109,9 @@ def solve_case(
                 if row["kind"] == "bolt_shear"
                 else axial_factor
                 if row["kind"] == "bolt_tension"
-                else contact_factor / 4
+                else contact_stiffness_per_area
+                * row["tributary_area_mm2"]
+                / REFERENCE_STIFFNESS_N_PER_MM
             )
             for row in rows
         ]
@@ -223,6 +234,35 @@ def solve_case(
                 for row, _, is_active in selected
             ),
         }
+        contacts = [
+            (row, reaction)
+            for row, reaction, is_active in selected
+            if row["kind"] == "contact_compression" and is_active
+        ]
+        centroid = np.asarray(CONTACT_PARTITION["interfaces"][edge]["net_centroid_mm"])
+        # Compatibility reactions act on the second body along the canonical
+        # first-to-second direction. Report force on the first body, matching
+        # the native PB02 ownership convention.
+        contact_forces = [
+            -reaction * np.asarray(row["direction"]) for row, reaction in contacts
+        ]
+        edges[edge]["contact_aggregation"] = {
+            "force_resultant_n": sum(contact_forces, np.zeros(3)).tolist(),
+            "moment_resultant_about_net_centroid_nmm": sum(
+                (
+                    np.cross(np.asarray(row["point_mm"]) - centroid, force)
+                    for (row, _), force in zip(contacts, contact_forces, strict=True)
+                ),
+                np.zeros(3),
+            ).tolist(),
+            "active_tributary_area_mm2": sum(
+                row["tributary_area_mm2"] for row, _ in contacts
+            ),
+            "peak_average_cell_pressure_n_per_mm2": max(
+                (reaction / row["tributary_area_mm2"] for row, reaction in contacts),
+                default=0.0,
+            ),
+        }
     row_results = [
         {
             "name": row["name"],
@@ -236,6 +276,18 @@ def solve_case(
             "relative_displacement_mm": float(gap),
             "signed_reaction_n": float(reaction),
             "stiffness_n_per_mm": float(value),
+            **(
+                {
+                    "tributary_area_mm2": row["tributary_area_mm2"],
+                    "average_cell_pressure_n_per_mm2": (
+                        float(reaction) / row["tributary_area_mm2"]
+                        if is_active
+                        else 0.0
+                    ),
+                }
+                if row["kind"] == "contact_compression"
+                else {}
+            ),
             "spring_energy_nmm": float(0.5 * value * gap**2 if is_active else 0),
         }
         for row, reaction, gap, is_active, value in zip(
@@ -282,14 +334,17 @@ def solve_case(
         "scenario": scenario,
         "lateral_to_reference_stiffness_factor": lateral_factor,
         "axial_to_reference_stiffness_factor": axial_factor,
-        "contact_total_to_reference_stiffness_factor": contact_factor,
+        "contact_mean_total_to_reference_stiffness_factor": contact_factor,
+        "contact_partition_fingerprint": CONTACT_PARTITION_FINGERPRINT,
+        "contact_grid_resolution": CONTACT_PARTITION["grid_resolution"],
         "trial_stiffness_n_per_mm": {
             "bolt_shear_per_direction": (REFERENCE_STIFFNESS_N_PER_MM * lateral_factor),
             "bolt_axial_tension": REFERENCE_STIFFNESS_N_PER_MM * axial_factor,
-            "face_contact_total": REFERENCE_STIFFNESS_N_PER_MM * contact_factor,
-            "face_contact_per_sample": (
-                REFERENCE_STIFFNESS_N_PER_MM * contact_factor / 4
+            "face_contact_law": (
+                "mean-interface-total-calibrated common areal density"
             ),
+            "face_contact_mean_total": (REFERENCE_STIFFNESS_N_PER_MM * contact_factor),
+            "face_contact_per_area_n_per_mm3": contact_stiffness_per_area,
         },
         "seed_optimizer": {
             "success": bool(optimized.success),
@@ -365,6 +420,7 @@ def screen():
         "attempted_scenario_count": len(cases) * len(SCENARIOS),
         "converged_scenario_count": len(results),
         "reference_stiffness_n_per_mm": REFERENCE_STIFFNESS_N_PER_MM,
+        "contact_partition": CONTACT_PARTITION,
         "scenarios": [
             {
                 "name": name,

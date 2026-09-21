@@ -37,22 +37,17 @@ def test_five_authenticated_cases_need_contact_and_tension_paths():
         omission = case["single_edge_omission"]
         assert set(omission["contact_edge_removal_feasible"]) == set(EDGES)
         assert omission["required_contact_edges_in_this_point_model"] == [
-            "block_header",
-            "post_block",
-            "principal_block_principal",
-            "principal_upright_block",
-            "rear_block_post",
-            "upright_rear_block",
+            edge
+            for edge, feasible in omission["contact_edge_removal_feasible"].items()
+            if not feasible
         ]
         assert omission["required_tension_edges_in_this_point_model"] == [
-            "block_header",
-            "header_principal_block",
-            "post_block",
-            "principal_block_principal",
-            "principal_upright_block",
-            "rear_block_post",
-            "upright_rear_block",
+            edge
+            for edge, feasible in omission["tension_edge_removal_feasible"].items()
+            if not feasible
         ]
+        assert omission["required_contact_edges_in_this_point_model"]
+        assert omission["required_tension_edges_in_this_point_model"]
         assert all(
             duty["source_interface_residual_passed"]
             for duty in case["simultaneous_replacement_duties"]

@@ -13,12 +13,19 @@ import math
 import pickle
 from pathlib import Path
 
+import numpy as np
+
 from fea import current_response_run as native
 from fea.reinforced_frame_demand import repository_source_closure
 from scripts.clear_space_batch import CASES
+from scripts.simple_center_connected_kinematics import (
+    CONTACT_PARTITION,
+    DEFAULT_CONTACT_GRID,
+)
 from scripts.simple_center_pb02_native import (
     CANDIDATE_ID,
     PB02Native,
+    native_contact_partition,
     native_row_inventory,
     prepare_case,
     screen,
@@ -58,6 +65,10 @@ PRODUCER_PATHS = tuple(
 LOADED_PRODUCER_SHA256 = native.extra_source_hashes(PRODUCER_PATHS)
 
 
+def _contact_resolution(value):
+    return (value, value) if type(value) is int else tuple(value)
+
+
 def _canonical_sha256(value):
     encoded = json.dumps(
         value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -69,6 +80,7 @@ def _selected_stiffnesses(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    contact_grid_resolution=DEFAULT_CONTACT_GRID,
 ):
     values = {
         "bolt_axial_n_per_mm": bolt_axial_n_per_mm,
@@ -80,8 +92,37 @@ def _selected_stiffnesses(
         for value in values.values()
     ):
         raise ValueError("PB02 trial stiffnesses must be positive and finite")
+    _, partition = (
+        (None, CONTACT_PARTITION)
+        if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID
+        else native_contact_partition(contact_grid_resolution)
+    )
+    mean_contact_area = sum(
+        interface["net_overlap_area_mm2"]
+        for interface in partition["interfaces"].values()
+    ) / len(partition["interfaces"])
     return {
         "exact_selected_values": values,
+        "contact_model": {
+            "law": "mean-interface-total-calibrated common areal density",
+            "partition_fingerprint": partition["fingerprint"],
+            "grid_resolution": partition["grid_resolution"],
+            "contact_row_count": partition["contact_row_count"],
+            "partition": partition,
+            "mean_net_interface_area_mm2": mean_contact_area,
+            "canonical_per_area_n_per_mm3": (
+                face_normal_total_n_per_mm / mean_contact_area
+            ),
+            "canonical_total_by_interface_n_per_mm": {
+                edge: face_normal_total_n_per_mm
+                / mean_contact_area
+                * interface["net_overlap_area_mm2"]
+                for edge, interface in partition["interfaces"].items()
+            },
+            "shifted_post_header_law": (
+                "separate existing four-point equal-total stiffness"
+            ),
+        },
         "selection_status": "explicit developmental trial inputs",
         "published_basis_record": (
             "scripts/simple_center_published_stiffness_basis.py"
@@ -107,17 +148,19 @@ def _preflight(stiffnesses):
         CASES[name] != expected for name, expected in EXPECTED_LOADS.items()
     ):
         raise ValueError("PB02 unchanged six-case load inventory changed")
-    geometry = screen()
+    partition = stiffnesses["contact_model"]["partition"]
+    geometry = screen(tuple(partition["grid_resolution"]))
     expected_rows = {
         "bolt_shear": 20,
         "bolt_tension": 10,
-        "contact_compression": 28,
+        "contact_compression": partition["contact_row_count"],
     }
     if (
         geometry.get("candidate") != CANDIDATE_ID
         or geometry.get("panel_kicker_axis_count") != 66
         or geometry.get("legacy_proxy_station_count") != 22
         or geometry.get("native_rows") != expected_rows
+        or geometry.get("canonical_contact_partition") != partition
         or geometry.get("qualified_for_design") is not False
         or geometry.get("drilling_released") is not False
     ):
@@ -189,7 +232,8 @@ def _validate_accepted_report(report, case, stiffnesses):
     if len(report.get("angle_stations", ())) != 22:
         raise ValueError(f"{case}: retained proxy topology changed")
 
-    rows = native_row_inventory()
+    partition = stiffnesses["contact_model"]["partition"]
+    rows = native_row_inventory(tuple(partition["grid_resolution"]))
     bolt_rows = _bolt_row_inventory(rows)
     bolt_names = set(bolt_rows)
     contact_names = {
@@ -218,6 +262,9 @@ def _validate_accepted_report(report, case, stiffnesses):
         raise ValueError(f"{case}: PB02 tension-only bolt inventory changed")
     if report.get("pb02_stiffness_verification") != stiffnesses:
         raise ValueError(f"{case}: solved PB02 stiffness inventory is unauthenticated")
+    aggregation = report.get("pb02_contact_aggregation")
+    if aggregation != _contact_aggregation(report, stiffnesses):
+        raise ValueError(f"{case}: PB02 contact aggregation is unauthenticated")
 
     expected_sources = _source_inventory()
     reported_sources = report.get("source_sha256", {})
@@ -255,23 +302,65 @@ def _verify_model_stiffness(path, stiffnesses):
     }
     if metadata.get("pb02_trial_stiffness_n_per_mm") != expected_metadata:
         raise ValueError("Generated model PB02 stiffness metadata changed")
+    contact_model = stiffnesses["contact_model"]
+    partition = contact_model["partition"]
+    generated_contact = metadata.get("pb02_contact_stiffness", {})
+    expected_contact_metadata = {
+        "law": contact_model["law"],
+        "canonical_per_area_n_per_mm3": contact_model["canonical_per_area_n_per_mm3"],
+        "canonical_net_area_by_interface_mm2": {
+            edge: interface["net_overlap_area_mm2"]
+            for edge, interface in partition["interfaces"].items()
+        },
+        "canonical_total_by_interface_n_per_mm": contact_model[
+            "canonical_total_by_interface_n_per_mm"
+        ],
+        "input_mean_total_per_interface_n_per_mm": values[
+            "face_normal_total_per_interface_n_per_mm"
+        ],
+        "area_derived": True,
+        "partition_fingerprint": partition["fingerprint"],
+        "grid_resolution": partition["grid_resolution"],
+        "contact_row_count": partition["contact_row_count"],
+        "interface_geometry": partition["interfaces"],
+        "rerun_aggregation_fields": [
+            "force_resultant_n",
+            "moment_resultant_about_net_centroid_nmm",
+            "active_tributary_area_mm2",
+            "peak_average_cell_pressure_n_per_mm2",
+        ],
+    }
+    if generated_contact != expected_contact_metadata:
+        raise ValueError("Generated model PB02 area-derived contact metadata changed")
+    if metadata.get("pb02_shifted_post_header_contact_law") != {
+        "law": "existing four-point equal-total stiffness",
+        "separate_from_canonical_areal_density": True,
+        "face_normal_total_n_per_mm": values[
+            "face_normal_total_per_interface_n_per_mm"
+        ],
+    }:
+        raise ValueError("Generated shifted-post/header contact law changed")
 
-    rows = native_row_inventory()
+    rows = native_row_inventory(tuple(partition["grid_resolution"]))
     bolt_names = {
         row["name"].removesuffix("/tension")
         for row in rows
         if row["kind"] == "bolt_tension"
     }
-    canonical_contacts = {
-        row["name"] for row in rows if row["kind"] == "contact_compression"
+    contact_rows = {
+        row["name"]: row for row in rows if row["kind"] == "contact_compression"
     }
+    canonical_contacts = set(contact_rows)
     bolt_springs = [
         spring for spring in structure.springs if spring["name"] in bolt_names
     ]
-    contacts = [
+    canonical_springs = [
+        spring for spring in structure.springs if spring["name"] in canonical_contacts
+    ]
+    shifted_springs = [
         spring
         for spring in structure.springs
-        if spring["name"] in canonical_contacts | SHIFTED_POST_HEADER_CONTACTS
+        if spring["name"] in SHIFTED_POST_HEADER_CONTACTS
     ]
     if (
         len(bolt_springs) != 30
@@ -289,17 +378,38 @@ def _verify_model_stiffness(path, stiffnesses):
             )
             for spring in bolt_springs
         )
-        or len(contacts) != 32
+        or len(canonical_springs) != partition["contact_row_count"]
+        or any(
+            not math.isclose(
+                spring["stiffness_n_per_mm"],
+                contact_model["canonical_per_area_n_per_mm3"]
+                * contact_rows[spring["name"]]["tributary_area_mm2"],
+                abs_tol=1.0e-12,
+            )
+            for spring in canonical_springs
+        )
+        or len(shifted_springs) != len(SHIFTED_POST_HEADER_CONTACTS)
         or any(
             not math.isclose(
                 spring["stiffness_n_per_mm"],
                 values["face_normal_total_per_interface_n_per_mm"] / 4.0,
                 abs_tol=1.0e-12,
             )
-            for spring in contacts
+            for spring in shifted_springs
         )
     ):
         raise ValueError("Generated model PB02 spring stiffness inventory changed")
+    ownership = metadata.get("connection_ownership", {})
+    for name, row in contact_rows.items():
+        owner = ownership.get(name, {})
+        if (
+            owner.get("tributary_area_mm2") != row["tributary_area_mm2"]
+            or owner.get("stiffness_per_area_n_per_mm3")
+            != contact_model["canonical_per_area_n_per_mm3"]
+            or owner.get("contact_partition_fingerprint") != partition["fingerprint"]
+            or owner.get("contact_grid_resolution") != partition["grid_resolution"]
+        ):
+            raise ValueError(f"Generated model {name} contact ownership changed")
     return stiffnesses
 
 
@@ -327,6 +437,12 @@ def _model_identity(path, case, stiffnesses):
         or metadata.get("pounds") != 250.0
         or metadata.get("force_xyz_n") != expected_force
         or metadata.get("pb02_trial_stiffness_n_per_mm") != expected_pb02
+        or metadata.get("pb02_contact_stiffness", {}).get("partition_fingerprint")
+        != stiffnesses["contact_model"]["partition_fingerprint"]
+        or metadata.get("pb02_contact_stiffness", {}).get(
+            "canonical_per_area_n_per_mm3"
+        )
+        != stiffnesses["contact_model"]["canonical_per_area_n_per_mm3"]
     ):
         raise ValueError(f"{case}: generated model identity is unauthenticated")
     return hashlib.sha256(model_path.read_bytes()).hexdigest()
@@ -398,6 +514,110 @@ def _attempt_summary(case, label, strategy, seed_case, continuation_from, path, 
     }
 
 
+def _contact_aggregation(report, stiffnesses):
+    """Aggregate authenticated canonical cells for refinement comparisons."""
+    partition = stiffnesses["contact_model"]["partition"]
+    resolution = tuple(partition["grid_resolution"])
+    physical = report.get("physical_connection_forces", {})
+    rows = [
+        row
+        for row in native_row_inventory(resolution)
+        if row["kind"] == "contact_compression"
+    ]
+    canonical_names = {row["name"] for row in rows}
+    if len(canonical_names) != partition["contact_row_count"]:
+        raise ValueError("PB02 canonical contact row count changed")
+    bearings = [
+        row for row in report.get("bearings", ()) if row.get("name") in canonical_names
+    ]
+    if (
+        len(bearings) != len(canonical_names)
+        or {row["name"] for row in bearings} != canonical_names
+    ):
+        raise ValueError("PB02 report is missing canonical bearing rows")
+    if not canonical_names <= set(physical):
+        raise ValueError("PB02 report is missing canonical physical-force rows")
+    active_by_name = {row["name"]: row.get("active") is True for row in bearings}
+
+    result = {}
+    for edge, interface in partition["interfaces"].items():
+        selected = [row for row in rows if row["edge"] == edge]
+        if len(selected) != interface["positive_component_count"] or not math.isclose(
+            sum(row["tributary_area_mm2"] for row in selected),
+            interface["net_overlap_area_mm2"],
+            abs_tol=1.0e-5,
+        ):
+            raise ValueError(f"PB02 {edge} contact-cell geometry changed")
+        centroid = np.asarray(interface["net_centroid_mm"])
+        first = selected[0]["first_part"]
+        second = selected[0]["second_part"]
+        inward_normal = -np.asarray(selected[0]["direction"], dtype=float)
+        force = np.zeros(3)
+        moment = np.zeros(3)
+        active_area = 0.0
+        active_count = 0
+        peak_pressure = 0.0
+        peak_pressure_cell = None
+        for row in selected:
+            owner = physical[row["name"]]
+            if (
+                owner.get("first") != first
+                or owner.get("second") != second
+                or owner.get("contact_partition_fingerprint")
+                != partition["fingerprint"]
+                or owner.get("contact_grid_resolution") != partition["grid_resolution"]
+                or not np.allclose(owner.get("scalar_normal"), inward_normal)
+            ):
+                raise ValueError(f"PB02 {row['name']} contact ownership changed")
+            vector = np.asarray(owner.get("force_on_first_xyz_n"), dtype=float)
+            if vector.shape != (3,) or not np.all(np.isfinite(vector)):
+                raise ValueError(f"PB02 {row['name']} contact force is invalid")
+            compression = float(vector @ inward_normal)
+            if active_by_name[row["name"]] and compression < -1.0e-6:
+                raise ValueError(f"PB02 {row['name']} active contact force reversed")
+            if not active_by_name[row["name"]] and np.linalg.norm(vector) > 1.0e-6:
+                raise ValueError(f"PB02 {row['name']} inactive contact carries force")
+            force += vector
+            moment += np.cross(np.asarray(row["point_mm"]) - centroid, vector)
+            if active_by_name[row["name"]]:
+                active_count += 1
+                active_area += row["tributary_area_mm2"]
+                pressure = max(0.0, compression) / row["tributary_area_mm2"]
+                if pressure > peak_pressure:
+                    peak_pressure = pressure
+                    peak_pressure_cell = row["name"]
+        result[edge] = {
+            "first": first,
+            "second": second,
+            "reference_net_centroid_mm": centroid.tolist(),
+            "inward_normal_into_first": inward_normal.tolist(),
+            "force_resultant_n": force.tolist(),
+            "moment_resultant_about_net_centroid_nmm": moment.tolist(),
+            "active_tributary_area_mm2": active_area,
+            "active_cell_count": active_count,
+            "peak_average_cell_pressure_n_per_mm2": peak_pressure,
+            "peak_pressure_cell": peak_pressure_cell,
+            "net_overlap_area_mm2": interface["net_overlap_area_mm2"],
+            "cell_count": len(selected),
+        }
+    if set(result) != set(partition["interfaces"]) or len(result) != 7:
+        raise ValueError("PB02 contact aggregation must contain seven interfaces")
+    return {
+        "schema": "pb02-contact-interface-resultants/v1",
+        "partition_fingerprint": partition["fingerprint"],
+        "grid_resolution": partition["grid_resolution"],
+        "contact_row_count": partition["contact_row_count"],
+        "force_convention": "global force exerted on first member",
+        "moment_convention": "cross(cell point - net centroid, force on first)",
+        "pressure_convention": (
+            "positive compression dot force-on-first with inward normal divided by "
+            "tributary area"
+        ),
+        "interfaces": result,
+        "pressure_is_cell_average_not_resolved_peak": True,
+    }
+
+
 def _run_attempt(
     case,
     path,
@@ -421,6 +641,9 @@ def _run_attempt(
             face_normal_total_n_per_mm=(
                 values["face_normal_total_per_interface_n_per_mm"]
             ),
+            contact_grid_resolution=tuple(
+                stiffnesses["contact_model"]["grid_resolution"]
+            ),
         ),
         extra_source_paths=PRODUCER_PATHS,
         contact_update_strategy=strategy,
@@ -430,6 +653,7 @@ def _run_attempt(
     )
     report["pb02_stiffness_verification"] = _verify_model_stiffness(path, stiffnesses)
     report["pb02_model_identity"] = _model_identity(path, case, stiffnesses)
+    report["pb02_contact_aggregation"] = _contact_aggregation(report, stiffnesses)
     return report
 
 
@@ -476,6 +700,7 @@ def run_suite(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    contact_grid_resolution=DEFAULT_CONTACT_GRID[0],
     max_cycles=120,
     max_same_case_continuations=3,
 ):
@@ -492,6 +717,7 @@ def run_suite(
         bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm,
+        contact_grid_resolution=contact_grid_resolution,
     )
     contract = _preflight(stiffnesses)
     attempts = []
@@ -658,6 +884,7 @@ if __name__ == "__main__":
     parser.add_argument("--bolt-axial-n-per-mm", type=float, required=True)
     parser.add_argument("--bolt-lateral-n-per-mm", type=float, required=True)
     parser.add_argument("--face-normal-total-n-per-mm", type=float, required=True)
+    parser.add_argument("--contact-grid-resolution", type=int, default=2)
     parser.add_argument("--max-cycles", type=int, default=120)
     parser.add_argument("--max-same-case-continuations", type=int, default=3)
     args = parser.parse_args()
@@ -666,6 +893,7 @@ if __name__ == "__main__":
         bolt_axial_n_per_mm=args.bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm=args.bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm=args.face_normal_total_n_per_mm,
+        contact_grid_resolution=args.contact_grid_resolution,
         max_cycles=args.max_cycles,
         max_same_case_continuations=args.max_same_case_continuations,
     )

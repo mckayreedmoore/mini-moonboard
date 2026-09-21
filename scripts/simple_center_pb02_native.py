@@ -7,6 +7,7 @@ Native PB02 springs are sourced from the shared connected-kinematics inventory.
 
 import threading
 from dataclasses import replace
+from functools import lru_cache
 
 import cadquery as cq
 import numpy as np
@@ -22,9 +23,15 @@ from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
 from scripts.simple_center_connected_kinematics import (
+    CONTACT_CELLS,
+    CONTACT_PARTITION,
+    DEFAULT_CONTACT_GRID,
+    EDGE_BORE_NAMES,
     EDGES,
     NODE_PARTS,
+    _partition_fingerprint,
     constraint_rows,
+    contact_partition,
 )
 from scripts.simple_center_current_placement_table import GRAIN_AXIS
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT, active_geometry
@@ -55,6 +62,10 @@ _PREPARE_LOCK = threading.RLock()
 _ORIGINAL_GRID = panel_kernel.grid
 _ORIGINAL_PRESSURE = panel_kernel.pressure_load
 _ORIGINAL_MEMBER = FlushStructure.member
+
+
+def _contact_resolution(value):
+    return (value, value) if type(value) is int else tuple(value)
 
 
 def _new_part(name, shape):
@@ -167,9 +178,158 @@ class PB02Native(DiagnosticProxy):
         return tuple(row[0] for row in self.stations())
 
 
-def native_row_inventory():
+@lru_cache(maxsize=8)
+def native_contact_partition(contact_grid_resolution=DEFAULT_CONTACT_GRID):
+    """Coalesce only boundary cells unsupported by the retained beam surrogate.
+
+    The exact face partition is the source geometry. A finer grid can place a
+    cell centroid beyond the centerline end of an inclined prismatic member,
+    even though that tributary region is real wood. The containing 2x2 parent
+    tile is then combined at its area-weighted centroid. This preserves total
+    area and first moments without extending the retained one-dimensional member.
+    """
+    resolution = _contact_resolution(contact_grid_resolution)
+    cells_by_edge, source_partition = contact_partition(resolution)
+    module = PB02Native()
+    from fea.horizontal_frame_members import axes
+
+    needed = {
+        part
+        for interface in source_partition["interfaces"].values()
+        for part in (interface["first_part"], interface["second_part"])
+    }
+    parts = {part.name: part for part in module.uncut_wood_parts() if part.name in needed}
+    records = {
+        name: response.gross_member_record(
+            part,
+            *(getattr(module, "MEMBER_AXES", {}).get(name) or axes(module, name)),
+            square_ends=name in getattr(module, "NATIVE_SQUARE_END_MEMBERS", ()),
+        )
+        for name, part in parts.items()
+    }
+    _, bores, _ = active_geometry()
+
+    def attachment_margin(record, point):
+        start = np.asarray(record["start"], dtype=float)
+        end = np.asarray(record["end"], dtype=float)
+        length = float(np.linalg.norm(end - start))
+        axis = (end - start) / length
+        station = float((np.asarray(point) - start) @ axis)
+        return min(station, length - station)
+
+    def edge_margin(edge, point):
+        interface = source_partition["interfaces"][edge]
+        return min(
+            attachment_margin(records[interface["first_part"]], point),
+            attachment_margin(records[interface["second_part"]], point),
+        )
+
+    def combine(rows):
+        area = sum(row["tributary_area_mm2"] for row in rows)
+        point = sum(
+            (
+                row["tributary_area_mm2"] * np.asarray(row["point_mm"])
+                for row in rows
+            ),
+            np.zeros(3),
+        ) / area
+        source_ids = sorted(row["cell_id"] for row in rows)
+        first = rows[0]
+        return {
+            **first,
+            "cell_id": "merged_" + "__".join(source_ids),
+            "point_mm": tuple(point),
+            "tributary_area_mm2": area,
+            "source_cell_ids": source_ids,
+            "coalesced_for_native_attachment": True,
+        }
+
+    result = {}
+    interfaces = {name: dict(row) for name, row in source_partition["interfaces"].items()}
+    for edge, source_cells in cells_by_edge.items():
+        groups = [dict(cell) for cell in source_cells]
+        unsupported = [
+            row for row in groups if edge_margin(edge, row["point_mm"]) < -1.0e-5
+        ]
+        parent_tiles = sorted(
+            {
+                ((row["grid_row"] - 1) // 2, (row["grid_column"] - 1) // 2)
+                for row in unsupported
+            }
+        )
+        for parent_row, parent_column in parent_tiles:
+            tile = [
+                row
+                for row in groups
+                if (row["grid_row"] - 1) // 2 == parent_row
+                and (row["grid_column"] - 1) // 2 == parent_column
+            ]
+            if len(tile) < 2:
+                raise ValueError(f"PB02 {edge} unsupported parent contact tile")
+            merged = combine(tile)
+            point = cq.Vector(*merged["point_mm"])
+            if edge_margin(edge, merged["point_mm"]) < -1.0e-5 or any(
+                bores[name].isInside(point, 1.0e-7)
+                for name in EDGE_BORE_NAMES[edge]
+            ):
+                raise ValueError(f"PB02 {edge} parent contact tile is not attachable")
+            groups = [row for row in groups if row not in tile]
+            groups.append(merged)
+        result[edge] = tuple(sorted(groups, key=lambda row: row["cell_id"]))
+        interface = interfaces[edge]
+        interface["native_attachment_domains"] = {
+            part: {
+                "start_mm": records[part]["start"],
+                "end_mm": records[part]["end"],
+            }
+            for part in (interface["first_part"], interface["second_part"])
+        }
+        interfaces[edge].update(
+            source_component_count=len(source_cells),
+            positive_component_count=len(groups),
+            native_attachment_coalesced_count=(len(source_cells) - len(groups)),
+        )
+
+    if all(
+        len(result[edge]) == len(source_cells)
+        for edge, source_cells in cells_by_edge.items()
+    ):
+        return cells_by_edge, source_partition
+
+    partition = {
+        "schema": "pb02-canonical-contact-partition/v1",
+        "grid_resolution": list(resolution),
+        "interfaces": interfaces,
+        "contact_row_count": sum(len(cells) for cells in result.values()),
+        "native_attachment_policy": (
+            "unsupported fine cells promoted to their 2x2 parent tile and "
+            "coalesced at its area-weighted centroid"
+        ),
+        "coalesced_pressure_limitation": (
+            "Each coalesced parent tile reports one average pressure and cannot "
+            "resolve partial opening or a local pressure peak within that tile."
+        ),
+    }
+    partition["fingerprint"] = _partition_fingerprint(resolution, result, interfaces)
+    return result, partition
+
+
+def native_row_inventory(
+    contact_grid_resolution=DEFAULT_CONTACT_GRID, *, partition_bundle=None
+):
     """Return the authoritative PB02 spring rows without solver-only matrices."""
-    rows = constraint_rows(closed=tuple(EDGES))
+    if partition_bundle is None:
+        partition_bundle = (
+            (CONTACT_CELLS, CONTACT_PARTITION)
+            if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID
+            else native_contact_partition(contact_grid_resolution)
+        )
+    _, partition = partition_bundle
+    rows = constraint_rows(
+        closed=tuple(EDGES),
+        contact_grid_resolution=tuple(partition["grid_resolution"]),
+        contact_partition_bundle=partition_bundle,
+    )
     result = []
     for row in rows:
         result.append(
@@ -186,7 +346,7 @@ def native_row_inventory():
     if counts != {
         "bolt_shear": 20,
         "bolt_tension": 10,
-        "contact_compression": 28,
+        "contact_compression": partition["contact_row_count"],
     }:
         raise ValueError("PB02 connected-kinematics row inventory changed")
     return tuple(result)
@@ -229,10 +389,10 @@ def _shifted_post_header_contacts(module, face_normal_total_n_per_mm):
     return tuple(contacts)
 
 
-def _imprint_points(member_contacts):
+def _imprint_points(member_contacts, rows=None):
     """Place every canonical PB02 path point on both participating meshes."""
     result = {}
-    for row in native_row_inventory():
+    for row in rows if rows is not None else native_row_inventory():
         for member in (row["first_part"], row["second_part"]):
             result.setdefault(member, []).append(row["point_mm"])
     for contact in member_contacts:
@@ -248,6 +408,9 @@ def add_native_paths(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    contact_grid_resolution=DEFAULT_CONTACT_GRID,
+    row_inventory=None,
+    contact_partition_data=None,
 ):
     """Add PB02 developmental springs to an already meshed whole frame."""
     values = (
@@ -258,10 +421,54 @@ def add_native_paths(
     if any(not np.isfinite(value) or value <= 0 for value in values):
         raise ValueError("PB02 trial spring stiffnesses must be positive and finite")
 
-    rows = native_row_inventory()
+    if contact_partition_data is None:
+        cells, contact_partition_data = native_contact_partition(contact_grid_resolution)
+    else:
+        cells = None
+    if row_inventory is None:
+        row_inventory = native_row_inventory(
+            contact_grid_resolution,
+            partition_bundle=(cells, contact_partition_data),
+        )
+    rows = row_inventory
     ownership = metadata.setdefault("connection_ownership", {})
     tension_rows = [row for row in rows if row["kind"] == "bolt_tension"]
     contacts = [row for row in rows if row["kind"] == "contact_compression"]
+    partition_fingerprint = contact_partition_data["fingerprint"]
+    partition_resolution = contact_partition_data["grid_resolution"]
+    if (
+        len(contacts) != contact_partition_data["contact_row_count"]
+        or any(
+            row.get("contact_partition_fingerprint") != partition_fingerprint
+            or list(row.get("contact_grid_resolution", ())) != partition_resolution
+            for row in contacts
+        )
+        or any(
+            not np.isclose(
+                sum(
+                    row["tributary_area_mm2"]
+                    for row in contacts
+                    if row["edge"] == edge
+                ),
+                interface["net_overlap_area_mm2"],
+                atol=1.0e-5,
+            )
+            for edge, interface in contact_partition_data["interfaces"].items()
+        )
+    ):
+        raise ValueError("PB02 contact rows do not match partition metadata")
+    contact_area_by_edge = {
+        edge: contact_partition_data["interfaces"][edge]["net_overlap_area_mm2"]
+        for edge in EDGES
+    }
+    mean_contact_area = sum(contact_area_by_edge.values()) / len(contact_area_by_edge)
+    # Preserve the bounded trial input as the mean interface calibration while
+    # giving every canonical spring one common, explicit stiffness per area.
+    contact_stiffness_per_area = face_normal_total_n_per_mm / mean_contact_area
+    contact_total_by_edge = {
+        edge: contact_stiffness_per_area * area
+        for edge, area in contact_area_by_edge.items()
+    }
 
     for row in tension_rows:
         name = row["name"].removesuffix("/tension")
@@ -314,7 +521,7 @@ def add_native_paths(
             [1.0],
             list(point),
             inward_normal,
-            face_normal_total_n_per_mm / 4,
+            contact_stiffness_per_area * row["tributary_area_mm2"],
         )
         ownership[row["name"]] = {
             "first": first,
@@ -322,6 +529,10 @@ def add_native_paths(
             "point": list(point),
             "scalar_normal": inward_normal,
             "edge": row["edge"],
+            "tributary_area_mm2": row["tributary_area_mm2"],
+            "stiffness_per_area_n_per_mm3": contact_stiffness_per_area,
+            "contact_partition_fingerprint": partition_fingerprint,
+            "contact_grid_resolution": partition_resolution,
             "developmental_only": True,
         }
 
@@ -331,12 +542,35 @@ def add_native_paths(
         pb02_native_row_counts={
             "bolt_shear": 20,
             "bolt_tension_only": 10,
-            "contact_compression": 28,
+            "contact_compression": len(contacts),
         },
         pb02_trial_stiffness_n_per_mm={
             "bolt_axial": bolt_axial_n_per_mm,
             "bolt_lateral": bolt_lateral_n_per_mm,
             "face_normal_total_per_interface": face_normal_total_n_per_mm,
+        },
+        pb02_contact_stiffness={
+            "law": "mean-interface-total-calibrated common areal density",
+            "canonical_per_area_n_per_mm3": contact_stiffness_per_area,
+            "canonical_net_area_by_interface_mm2": contact_area_by_edge,
+            "canonical_total_by_interface_n_per_mm": contact_total_by_edge,
+            "input_mean_total_per_interface_n_per_mm": (face_normal_total_n_per_mm),
+            "area_derived": True,
+            "partition_fingerprint": contact_partition_data["fingerprint"],
+            "grid_resolution": contact_partition_data["grid_resolution"],
+            "contact_row_count": contact_partition_data["contact_row_count"],
+            "interface_geometry": contact_partition_data["interfaces"],
+            "rerun_aggregation_fields": [
+                "force_resultant_n",
+                "moment_resultant_about_net_centroid_nmm",
+                "active_tributary_area_mm2",
+                "peak_average_cell_pressure_n_per_mm2",
+            ],
+        },
+        pb02_shifted_post_header_contact_law={
+            "law": "existing four-point equal-total stiffness",
+            "separate_from_canonical_areal_density": True,
+            "face_normal_total_n_per_mm": face_normal_total_n_per_mm,
         },
         qualified_for_design=False,
         acceptance=False,
@@ -351,6 +585,7 @@ def prepare_case(
     bolt_axial_n_per_mm,
     bolt_lateral_n_per_mm,
     face_normal_total_n_per_mm,
+    contact_grid_resolution=DEFAULT_CONTACT_GRID,
 ):
     """Prepare one unsolved PB02 whole frame with explicit trial stiffnesses."""
     if case not in CASES:
@@ -364,6 +599,13 @@ def prepare_case(
         raise ValueError("PB02 trial spring stiffnesses must be positive and finite")
 
     module = PB02Native()
+    contact_cells, contact_partition_data = native_contact_partition(
+        contact_grid_resolution
+    )
+    row_inventory = native_row_inventory(
+        contact_grid_resolution,
+        partition_bundle=(contact_cells, contact_partition_data),
+    )
     raw = {part.name: part for part in module.uncut_wood_parts()}
     panel_names = [name for name in raw if name.startswith(("main_", "kicker_"))]
     if len(panel_names) != 6:
@@ -378,7 +620,7 @@ def prepare_case(
     ):
         raise ValueError("PB02 preparation must not credit backer/post contact")
     member_contacts = (*existing_contacts, *post_header_contacts)
-    extra_points = _imprint_points(post_header_contacts)
+    extra_points = _imprint_points(post_header_contacts, row_inventory)
 
     bolts = {
         connection.name: bolt_properties(connection)
@@ -470,19 +712,20 @@ def prepare_case(
         bolt_axial_n_per_mm=bolt_axial_n_per_mm,
         bolt_lateral_n_per_mm=bolt_lateral_n_per_mm,
         face_normal_total_n_per_mm=face_normal_total_n_per_mm,
+        contact_grid_resolution=contact_grid_resolution,
+        row_inventory=row_inventory,
+        contact_partition_data=contact_partition_data,
     )
     pb02_bolt_names = {
         row["name"].removesuffix("/tension")
-        for row in native_row_inventory()
+        for row in row_inventory
         if row["kind"] == "bolt_tension"
     }
     pb02_bolt_springs = [
         spring for spring in structure.springs if spring["name"] in pb02_bolt_names
     ]
     canonical_contacts = {
-        row["name"]
-        for row in native_row_inventory()
-        if row["kind"] == "contact_compression"
+        row["name"] for row in row_inventory if row["kind"] == "contact_compression"
     }
     canonical_contact_springs = [
         spring for spring in structure.springs if spring["name"] in canonical_contacts
@@ -491,7 +734,7 @@ def prepare_case(
         len(pb02_bolt_names) != 10
         or sum(spring["dof"] == 1 for spring in pb02_bolt_springs) != 10
         or sum(spring["dof"] in (2, 3) for spring in pb02_bolt_springs) != 20
-        or len(canonical_contact_springs) != 28
+        or len(canonical_contact_springs) != contact_partition_data["contact_row_count"]
         or any(
             not spring["bearing_closed_assumption"]
             for spring in canonical_contact_springs
@@ -536,7 +779,7 @@ def prepare_case(
     return structure, metadata
 
 
-def screen():
+def screen(contact_grid_resolution=DEFAULT_CONTACT_GRID):
     """Lightweight source-bound inventory check; does not prepare or solve FEA."""
     module = PB02Native()
     panels = module.panel_connections()
@@ -556,7 +799,14 @@ def screen():
         for name in baseline_panels
         if current_panels[name].members != baseline_panels[name].members
     }
-    rows = native_row_inventory()
+    if _contact_resolution(contact_grid_resolution) == DEFAULT_CONTACT_GRID:
+        partition_bundle = (CONTACT_CELLS, CONTACT_PARTITION)
+    else:
+        partition_bundle = native_contact_partition(contact_grid_resolution)
+    _, partition = partition_bundle
+    rows = native_row_inventory(
+        contact_grid_resolution, partition_bundle=partition_bundle
+    )
     result = {
         "candidate": CANDIDATE_ID,
         "active_fingerprint": ACTIVE_FINGERPRINT,
@@ -576,6 +826,7 @@ def screen():
             kind: sum(row["kind"] == kind for row in rows)
             for kind in ("bolt_shear", "bolt_tension", "contact_compression")
         },
+        "canonical_contact_partition": partition,
         "developmental_only": True,
         "qualified_for_design": False,
         "drilling_released": False,

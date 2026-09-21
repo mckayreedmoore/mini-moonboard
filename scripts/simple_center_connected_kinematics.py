@@ -1,8 +1,12 @@
 """Small-displacement point-constraint rank of the current PB-02 center loop."""
 
+import hashlib
+import itertools
 import json
 
+import cadquery as cq
 import numpy as np
+from scipy.spatial import ConvexHull
 
 from scripts.simple_center_pb02_geometry import (
     ACTIVE_FINGERPRINT,
@@ -31,15 +35,254 @@ NODE_PARTS = {
     "upright_block": "upright_side_cleat",
     "rear_block": "rear_cleat",
 }
+EDGE_BORE_NAMES = {
+    "post_block": ("post_cleat_1", "post_cleat_2"),
+    "block_header": ("cleat_header_1", "cleat_header_2"),
+    "header_principal_block": ("header_cleat",),
+    "principal_block_principal": ("cleat_principal",),
+    "principal_upright_block": ("upright",),
+    "upright_rear_block": ("cleat_link",),
+    "rear_block_post": ("post_low", "post_high"),
+}
+DEFAULT_CONTACT_GRID = (2, 2)
 
 
 def _midpoint(first, second):
     return tuple((a + b) / 2 for a, b in zip(first, second))
 
 
-def current_edges():
-    """Build rank-model bolt centers from the same active PB02 geometry as CAD."""
-    parts, _, ends = active_geometry()
+def _convex_overlap(first_points, second_points):
+    """Return the exact convex intersection of two coplanar face polygons."""
+    equations = []
+    for points in (first_points, second_points):
+        equations.extend(ConvexHull(np.asarray(points)).equations)
+    coefficients = np.asarray(equations)[:, :2]
+    offsets = np.asarray(equations)[:, 2]
+    vertices = []
+    for first, second in itertools.combinations(range(len(coefficients)), 2):
+        pair = coefficients[[first, second]]
+        if abs(np.linalg.det(pair)) < 1.0e-10:
+            continue
+        point = np.linalg.solve(pair, -offsets[[first, second]])
+        if np.max(coefficients @ point + offsets) <= 1.0e-6 and not any(
+            np.linalg.norm(point - existing) < 1.0e-6 for existing in vertices
+        ):
+            vertices.append(point)
+    if len(vertices) < 3:
+        raise ValueError("PB02 contact faces have no positive polygon overlap")
+    polygon = np.asarray(vertices)
+    return polygon[ConvexHull(polygon).vertices]
+
+
+def _face_polygon(shape, normal_index, interface_coordinate):
+    """Project the true planar CAD face at one interface into global tangent axes."""
+    tangents = tuple(index for index in range(3) if index != normal_index)
+    candidates = []
+    for face in shape.Faces():
+        normal = np.asarray(face.normalAt().toTuple())
+        center = np.asarray(face.Center().toTuple())
+        if (
+            abs(abs(normal[normal_index]) - 1.0) < 1.0e-7
+            and abs(center[normal_index] - interface_coordinate) < 1.0e-6
+        ):
+            points = np.unique(
+                [
+                    np.asarray(vertex.Center().toTuple())[list(tangents)]
+                    for vertex in face.Vertices()
+                ],
+                axis=0,
+            )
+            if len(points) >= 3:
+                candidates.append(points)
+    if len(candidates) != 1:
+        raise ValueError("PB02 interface must resolve to one true planar CAD face")
+    return candidates[0], tangents
+
+
+def _point_in_convex_polygon(point, polygon, tolerance=1.0e-6):
+    hull = ConvexHull(np.asarray(polygon))
+    return bool(
+        np.max(hull.equations[:, :2] @ point + hull.equations[:, 2]) <= tolerance
+    )
+
+
+def _contact_cells(
+    name,
+    parts,
+    bores,
+    first,
+    second,
+    normal,
+    interface_coordinate,
+    resolution,
+):
+    """Partition exact net face overlap into finite rectangular-grid cells."""
+    normal_index = next(index for index, value in enumerate(normal) if value)
+    first_polygon, tangents = _face_polygon(
+        parts[NODE_PARTS[first]], normal_index, interface_coordinate
+    )
+    second_polygon, second_tangents = _face_polygon(
+        parts[NODE_PARTS[second]], normal_index, interface_coordinate
+    )
+    if tangents != second_tangents:
+        raise ValueError("PB02 interface tangent axes changed")
+    overlap = _convex_overlap(first_polygon, second_polygon)
+
+    def xyz(point):
+        result = np.zeros(3)
+        result[normal_index] = interface_coordinate
+        result[list(tangents)] = point
+        return cq.Vector(*result)
+
+    outer = cq.Wire.makePolygon([xyz(point) for point in overlap], close=True)
+    bore_data = []
+    hole_wires = []
+    normal_vector = np.zeros(3)
+    normal_vector[normal_index] = 1.0
+    for bore_name in EDGE_BORE_NAMES[name]:
+        bounds = bores[bore_name].BoundingBox()
+        radius = min(bounds.xlen, bounds.ylen, bounds.zlen) / 2.0
+        center = np.asarray(bores[bore_name].Center().toTuple())
+        projected = center[list(tangents)]
+        if not _point_in_convex_polygon(projected, overlap):
+            raise ValueError(
+                f"PB02 bore center is outside contact overlap: {bore_name}"
+            )
+        bore_data.append((projected, radius))
+        hole_wires.append(
+            cq.Wire.makeCircle(
+                radius,
+                xyz(projected),
+                cq.Vector(*normal_vector),
+            )
+        )
+    net_face = cq.Face.makeFromWires(outer, hole_wires)
+    expected_net_area = ConvexHull(overlap).volume - sum(
+        np.pi * radius**2 for _, radius in bore_data
+    )
+    if abs(net_face.Area() - expected_net_area) > 1.0e-5:
+        raise ValueError("PB02 net contact face area does not match bore deduction")
+
+    low = overlap.min(axis=0)
+    high = overlap.max(axis=0)
+    cells = []
+    for row, column in itertools.product(range(resolution[0]), range(resolution[1])):
+        cell_low = low + (high - low) * np.array(
+            (row / resolution[0], column / resolution[1])
+        )
+        cell_high = low + (high - low) * np.array(
+            ((row + 1) / resolution[0], (column + 1) / resolution[1])
+        )
+        rectangle = cq.Face.makeFromWires(
+            cq.Wire.makePolygon(
+                [
+                    xyz((cell_low[0], cell_low[1])),
+                    xyz((cell_high[0], cell_low[1])),
+                    xyz((cell_high[0], cell_high[1])),
+                    xyz((cell_low[0], cell_high[1])),
+                ],
+                close=True,
+            )
+        )
+        clipped = net_face.intersect(rectangle)
+        faces = sorted(
+            (face for face in clipped.Faces() if face.Area() > 1.0e-9),
+            key=lambda face: face.Center().toTuple(),
+        )
+        # Empty grid cells and multiple disconnected positive components are
+        # both valid outcomes for clipped or perforated overlap polygons.
+        for component, face in enumerate(faces):
+            point = np.asarray(face.Center().toTuple())
+            projected = point[list(tangents)]
+            inside_faces = _point_in_convex_polygon(
+                projected, first_polygon
+            ) and _point_in_convex_polygon(projected, second_polygon)
+            outside_bores = all(
+                np.linalg.norm(projected - center) > radius + 1.0e-7
+                for center, radius in bore_data
+            )
+            if not inside_faces or not outside_bores:
+                raise ValueError(
+                    "PB02 contact component centroid is not on the net true face"
+                )
+            cells.append(
+                {
+                    "cell_id": f"r{row + 1}c{column + 1}p{component + 1}",
+                    "grid_row": row + 1,
+                    "grid_column": column + 1,
+                    "component": component + 1,
+                    "point_mm": tuple(point),
+                    "tributary_area_mm2": face.Area(),
+                    "net_overlap_area_mm2": net_face.Area(),
+                    "gross_overlap_area_mm2": ConvexHull(overlap).volume,
+                    "bore_area_mm2": ConvexHull(overlap).volume - net_face.Area(),
+                    "inside_both_true_faces": inside_faces,
+                    "outside_all_bore_footprints": outside_bores,
+                }
+            )
+    if (
+        abs(sum(cell["tributary_area_mm2"] for cell in cells) - net_face.Area())
+        > 1.0e-5
+    ):
+        raise ValueError("PB02 tributary contact cells do not cover net face overlap")
+    expected_first_moment = net_face.Area() * np.asarray(net_face.Center().toTuple())
+    actual_first_moment = sum(
+        (cell["tributary_area_mm2"] * np.asarray(cell["point_mm"]) for cell in cells),
+        np.zeros(3),
+    )
+    if not np.allclose(actual_first_moment, expected_first_moment, atol=1.0e-4):
+        raise ValueError("PB02 tributary contact cells do not preserve first moments")
+    return tuple(cells), {
+        "grid_resolution": list(resolution),
+        "gross_overlap_area_mm2": ConvexHull(overlap).volume,
+        "bore_area_mm2": ConvexHull(overlap).volume - net_face.Area(),
+        "net_overlap_area_mm2": net_face.Area(),
+        "net_centroid_mm": list(net_face.Center().toTuple()),
+        "net_first_moment_mm3": expected_first_moment.tolist(),
+        "positive_component_count": len(cells),
+    }
+
+
+def _resolution(value):
+    if type(value) is int:
+        value = (value, value)
+    if (
+        not isinstance(value, tuple)
+        or len(value) != 2
+        or any(type(item) is not int or item < 2 for item in value)
+    ):
+        raise ValueError("PB02 contact grid must be an integer pair of at least 2x2")
+    return value
+
+
+def _partition_fingerprint(resolution, contacts, interfaces):
+    payload = {
+        "schema": "pb02-canonical-contact-partition/v1",
+        "active_geometry_fingerprint": ACTIVE_FINGERPRINT,
+        "grid_resolution": list(resolution),
+        "interfaces": {
+            name: {
+                **interfaces[name],
+                "cells": [
+                    {
+                        "cell_id": cell["cell_id"],
+                        "point_mm": [round(value, 12) for value in cell["point_mm"]],
+                        "tributary_area_mm2": round(cell["tributary_area_mm2"], 12),
+                    }
+                    for cell in contacts[name]
+                ],
+            }
+            for name in contacts
+        },
+    }
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _current_edges_and_contacts(resolution=DEFAULT_CONTACT_GRID):
+    """Build bolt centers and exact contact cells from active PB02 CAD."""
+    resolution = _resolution(resolution)
+    parts, bores, ends = active_geometry()
 
     def center(first, second):
         return _midpoint(ends[first][0], ends[second][0])
@@ -97,6 +340,8 @@ def current_edges():
     bounds = {node: parts[part].BoundingBox() for node, part in NODE_PARTS.items()}
     axes = ("x", "y", "z")
     result = {}
+    contacts = {}
+    interfaces = {}
     for name, (first, second, normal, bolts) in edges.items():
         normal_index = next(index for index, value in enumerate(normal) if value)
         first_box, second_box = bounds[first], bounds[second]
@@ -124,10 +369,48 @@ def current_edges():
                 raise ValueError(f"PB02 contact patch cannot hold rank samples: {name}")
             center.append((low + high) / 2)
         result[name] = (first, second, normal, bolts, tuple(center))
-    return result
+        contacts[name], interfaces[name] = _contact_cells(
+            name,
+            parts,
+            bores,
+            first,
+            second,
+            normal,
+            first_face,
+            resolution,
+        )
+        interfaces[name].update(
+            {
+                "first": first,
+                "second": second,
+                "first_part": NODE_PARTS[first],
+                "second_part": NODE_PARTS[second],
+                "canonical_first_to_second_normal": list(normal),
+            }
+        )
+    partition = {
+        "schema": "pb02-canonical-contact-partition/v1",
+        "grid_resolution": list(resolution),
+        "interfaces": interfaces,
+        "contact_row_count": sum(len(cells) for cells in contacts.values()),
+    }
+    partition["fingerprint"] = _partition_fingerprint(resolution, contacts, interfaces)
+    return result, contacts, partition
 
 
-EDGES = current_edges()
+def current_edges():
+    """Return current rank-model edges from the same active PB02 geometry as CAD."""
+    return _current_edges_and_contacts()[0]
+
+
+def contact_partition(resolution=DEFAULT_CONTACT_GRID):
+    """Return a deterministic exact-face partition at the requested resolution."""
+    _, contacts, partition = _current_edges_and_contacts(resolution)
+    return contacts, partition
+
+
+EDGES, CONTACT_CELLS, CONTACT_PARTITION = _current_edges_and_contacts()
+CONTACT_PARTITION_FINGERPRINT = CONTACT_PARTITION["fingerprint"]
 ORIGIN = np.array((140.0, -140.0, 270.0))
 ROTATION_SCALE_MM = 100.0
 
@@ -144,8 +427,25 @@ def _point_row(first, second, direction, point):
     return row
 
 
-def constraint_rows(*, closed=(), axial=True, return_path=True):
+def constraint_rows(
+    *,
+    closed=(),
+    axial=True,
+    return_path=True,
+    contact_grid_resolution=DEFAULT_CONTACT_GRID,
+    contact_partition_bundle=None,
+):
     """Return labeled point constraints before an optional coordinate anchor."""
+    if contact_partition_bundle is None:
+        resolution = _resolution(contact_grid_resolution)
+        if resolution == DEFAULT_CONTACT_GRID:
+            contact_cells, partition = CONTACT_CELLS, CONTACT_PARTITION
+        else:
+            contact_cells, partition = contact_partition(resolution)
+    else:
+        contact_cells, partition = contact_partition_bundle
+        if tuple(partition["grid_resolution"]) != _resolution(contact_grid_resolution):
+            raise ValueError("PB02 contact partition bundle resolution changed")
     rows = []
     for name, (first, second, normal, bolts, contact_center) in EDGES.items():
         if not return_path and name in (
@@ -184,20 +484,21 @@ def constraint_rows(*, closed=(), axial=True, return_path=True):
                     }
                 )
         if name in closed:
-            center = np.asarray(contact_center)
-            for contact_index, (a, b) in enumerate(
-                ((a, b) for a in (-20.0, 20.0) for b in (-20.0, 20.0)), 1
-            ):
-                point = center + a * tangents[0] + b * tangents[1]
+            for cell in contact_cells[name]:
+                point = cell["point_mm"]
                 rows.append(
                     {
-                        "name": f"{name}/contact_{contact_index}",
+                        "name": f"{name}/contact_{cell['cell_id']}",
                         "edge": name,
                         "kind": "contact_compression",
                         "first": first,
                         "second": second,
                         "direction": tuple(n),
                         "point_mm": tuple(point),
+                        "tributary_area_mm2": cell["tributary_area_mm2"],
+                        "net_overlap_area_mm2": cell["net_overlap_area_mm2"],
+                        "contact_partition_fingerprint": (partition["fingerprint"]),
+                        "contact_grid_resolution": tuple(partition["grid_resolution"]),
                         "row": _point_row(first, second, n, point),
                     }
                 )
@@ -238,6 +539,7 @@ def screen():
             }
             for name, edge in EDGES.items()
         },
+        "contact_partition": CONTACT_PARTITION,
         "post_anchored": {
             "all_faces_closed_axial_on": nullity(closed=names),
             "all_faces_closed_axial_off": nullity(closed=names, axial=False),

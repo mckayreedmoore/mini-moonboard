@@ -1,8 +1,13 @@
 """PB02 native adapter preserves kerf-right scope and canonical spring rows."""
 
+import numpy as np
 import pytest
 
-from scripts.simple_center_connected_kinematics import EDGES
+from scripts.simple_center_connected_kinematics import (
+    CONTACT_PARTITION,
+    EDGES,
+    contact_partition,
+)
 from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 from scripts.simple_center_pb02_native import (
     NEW_MEMBERS,
@@ -10,6 +15,8 @@ from scripts.simple_center_pb02_native import (
     REMOVED_STATIONS,
     RETARGETED_PANEL_CONNECTIONS,
     PB02Native,
+    add_native_paths,
+    native_contact_partition,
     native_row_inventory,
     screen,
 )
@@ -70,13 +77,76 @@ def test_only_displaced_clips_are_removed_and_panel_axes_are_frozen(module):
 
 def test_native_rows_match_shared_connected_kinematics():
     rows = native_row_inventory()
-    assert len(rows) == 58
+    assert len(rows) == 30 + CONTACT_PARTITION["contact_row_count"]
     assert {row["edge"] for row in rows} == set(EDGES)
     assert sum(row["kind"] == "bolt_shear" for row in rows) == 20
     assert sum(row["kind"] == "bolt_tension" for row in rows) == 10
-    assert sum(row["kind"] == "contact_compression" for row in rows) == 28
+    assert (
+        sum(row["kind"] == "contact_compression" for row in rows)
+        == (CONTACT_PARTITION["contact_row_count"])
+    )
     for row in rows:
         assert {"first_part", "second_part", "point_mm", "direction"} <= set(row)
+
+
+def test_native_paths_reject_rows_from_a_different_contact_partition():
+    _, refined_partition = contact_partition(4)
+
+    with pytest.raises(ValueError, match="rows do not match partition"):
+        add_native_paths(
+            object(),
+            {},
+            bolt_axial_n_per_mm=700.0,
+            bolt_lateral_n_per_mm=1200.0,
+            face_normal_total_n_per_mm=2400.0,
+            row_inventory=native_row_inventory(),
+            contact_partition_data=refined_partition,
+        )
+
+
+def test_native_refinement_coalescing_preserves_exact_area_and_first_moments():
+    cells, partition = native_contact_partition(4)
+
+    for edge, rows in cells.items():
+        interface = partition["interfaces"][edge]
+        assert sum(row["tributary_area_mm2"] for row in rows) == pytest.approx(
+            interface["net_overlap_area_mm2"], abs=1e-5
+        )
+        first_moment = sum(
+            (
+                row["tributary_area_mm2"] * np.asarray(row["point_mm"])
+                for row in rows
+            ),
+            np.zeros(3),
+        )
+        np.testing.assert_allclose(
+            first_moment,
+            interface["net_first_moment_mm3"],
+            atol=1e-4,
+        )
+
+    merged = {
+        edge: next(
+            row for row in rows if row.get("coalesced_for_native_attachment")
+        )
+        for edge, rows in cells.items()
+        if any(row.get("coalesced_for_native_attachment") for row in rows)
+    }
+    assert set(merged) == {
+        "principal_block_principal",
+        "principal_upright_block",
+    }
+    assert all(
+        row["source_cell_ids"]
+        == ["r1c1p1", "r1c2p1", "r2c1p1", "r2c2p1"]
+        for row in merged.values()
+    )
+    assert merged["principal_block_principal"]["point_mm"] == pytest.approx(
+        (50.95, -148.275, 293.75)
+    )
+    assert merged["principal_upright_block"]["point_mm"] == pytest.approx(
+        (89.05, -160.121899, 309.296088), abs=1e-6
+    )
 
 
 def test_screen_keeps_claim_boundary(module):
@@ -89,7 +159,7 @@ def test_screen_keeps_claim_boundary(module):
     assert result["native_rows"] == {
         "bolt_shear": 20,
         "bolt_tension": 10,
-        "contact_compression": 28,
+        "contact_compression": CONTACT_PARTITION["contact_row_count"],
     }
     assert result["developmental_only"] is True
     assert result["qualified_for_design"] is False

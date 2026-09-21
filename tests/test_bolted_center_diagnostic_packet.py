@@ -11,6 +11,9 @@ from scripts import bolted_center_diagnostic_packet as packet
 REFERENCE_MANIFEST = Path(
     "docs/bolted-candidate-prototypes/center-reference-diagnostic.json"
 )
+REFERENCE_MANIFEST_SHA256 = (
+    "193bef4f3c8b73473d11cc6d61f4a085eae850a21f63ae71dd650cbf53609f51"
+)
 ARCHIVED_MODEL_SHA256 = (
     "e724bbb74150923265b13be2513c2634c3cb02b4c3568c43b3aee55626507dce"
 )
@@ -89,6 +92,10 @@ def make_case(root, series, case, accepted):
     ("a1-rear", "a12-left", "a12-rear", "k12-rear", "k12-right"),
 )
 def test_accepted_reference_preserves_archived_identity(case):
+    assert (
+        hashlib.sha256(REFERENCE_MANIFEST.read_bytes()).hexdigest()
+        == REFERENCE_MANIFEST_SHA256
+    )
     manifest = json.loads(REFERENCE_MANIFEST.read_text())
     reference = next(
         row for row in manifest["accepted_default_v2"] if row["case"] == case

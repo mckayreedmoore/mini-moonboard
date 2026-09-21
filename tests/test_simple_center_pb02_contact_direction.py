@@ -198,6 +198,42 @@ def test_shifted_post_header_samples_keep_inward_z_and_total_face_stiffness():
         total_stiffness
     )
 
+
+def test_canonical_contacts_use_one_per_area_stiffness_and_area_derived_totals():
+    structure = PointStructure()
+    metadata = {}
+    target_mean_total = 2400.0
+    add_native_paths(
+        structure,
+        metadata,
+        bolt_axial_n_per_mm=700.0,
+        bolt_lateral_n_per_mm=1200.0,
+        face_normal_total_n_per_mm=target_mean_total,
+    )
+
+    rows = [
+        row for row in native_row_inventory() if row["kind"] == "contact_compression"
+    ]
+    per_area = metadata["pb02_contact_stiffness"]["canonical_per_area_n_per_mm3"]
+    by_edge = metadata["pb02_contact_stiffness"][
+        "canonical_total_by_interface_n_per_mm"
+    ]
+    assert per_area > 0
+    assert sum(by_edge.values()) / len(by_edge) == pytest.approx(target_mean_total)
+    for row in rows:
+        spring = _spring(structure, row["name"], dof=1)
+        assert spring["stiffness_n_per_mm"] == pytest.approx(
+            per_area * row["tributary_area_mm2"]
+        )
+    for edge in EDGES:
+        expected = per_area * sum(
+            row["tributary_area_mm2"] for row in rows if row["edge"] == edge
+        )
+        assert by_edge[edge] == pytest.approx(expected)
+
+
+def test_shifted_post_header_closing_pushes_apart():
+    contacts = _shifted_post_header_contacts(PB02Native(), 2400.0)
     structure = PointStructure()
     ownership = {}
     for contact in contacts:
