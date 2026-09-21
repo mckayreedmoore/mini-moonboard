@@ -175,3 +175,17 @@ def test_common_source_snapshot_is_authenticated(tmp_path, monkeypatch):
 
     with pytest.raises(ValueError, match="common source snapshot closure changed"):
         evidence.screen()
+
+
+def test_source_authentication_ignores_files_outside_pb02_manifest(
+    tmp_path, monkeypatch
+):
+    snapshots = tmp_path / "source_snapshots"
+    shutil.copytree(evidence.SOURCE_SNAPSHOTS, snapshots)
+    unrelated = snapshots / "scripts/simple_pb03_future_study.py"
+    unrelated.write_text("# unrelated PB03 source\n")
+    monkeypatch.setattr(evidence, "SOURCE_SNAPSHOTS", snapshots)
+
+    result = evidence.screen()
+
+    assert result["source_snapshot_authentication"]["file_count"] == 278

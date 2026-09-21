@@ -266,16 +266,20 @@ def _authenticate_sources(summary: dict, reports: dict) -> dict:
     ):
         raise ValueError("common source snapshot closure changed")
     common = source_maps[0]
-    actual = {
-        path.relative_to(SOURCE_SNAPSHOTS).as_posix(): _sha256(path)
-        for path in SOURCE_SNAPSHOTS.rglob("*")
-        if path.is_file()
-    }
     producer = summary.get("producer_source_sha256")
+    if not isinstance(common, dict) or len(common) != EXPECTED_SOURCE_FILE_COUNT:
+        raise ValueError("common source snapshot closure changed")
+    try:
+        actual = {
+            relative: _sha256(SOURCE_SNAPSHOTS / relative)
+            for relative in common
+            if not Path(relative).is_absolute() and ".." not in Path(relative).parts
+        }
+    except OSError as error:
+        raise ValueError("common source snapshot closure changed") from error
     if (
         actual != common
         or not isinstance(producer, dict)
-        or len(actual) != EXPECTED_SOURCE_FILE_COUNT
         or len(producer) != EXPECTED_PRODUCER_SOURCE_FILE_COUNT
         or any(common.get(path) != digest for path, digest in producer.items())
     ):
