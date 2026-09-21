@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import shutil
 
 import pytest
 
@@ -172,3 +173,31 @@ def test_package_inventory_rejects_extra_solver_bulk(tmp_path, monkeypatch):
 
     with pytest.raises(ValueError, match="missing or extra files"):
         evidence._authenticate_package_inventory(report)
+
+
+def test_retained_package_ignores_python_cache_only(tmp_path, monkeypatch):
+    package = tmp_path / "package"
+    shutil.copytree(evidence.PACKAGE, package)
+    attempt = package / evidence.ATTEMPT_PATH
+    snapshots = attempt / "source_snapshots"
+    cache = snapshots / "scripts/__pycache__/native.cpython-312.pyc"
+    cache.parent.mkdir()
+    cache.write_bytes(b"transient bytecode")
+    monkeypatch.setattr(evidence, "PACKAGE", package)
+    monkeypatch.setattr(evidence, "SUMMARY", package / evidence.SUMMARY.name)
+    monkeypatch.setattr(evidence, "ATTEMPT", attempt)
+    monkeypatch.setattr(evidence, "SOURCE_SNAPSHOTS", snapshots)
+
+    assert evidence.screen()["source_snapshot_authentication"]["file_count"] == 287
+
+    unlisted = snapshots / "scripts/unlisted.py"
+    unlisted.write_text("pass\n")
+    with pytest.raises(ValueError, match="extra=\\['scripts/unlisted.py'\\]"):
+        evidence.screen()
+
+    unlisted.unlink()
+    (snapshots / "scripts/simple_pb03_native_mechanics.py").unlink()
+    with pytest.raises(
+        ValueError, match="missing=\\['scripts/simple_pb03_native_mechanics.py'\\]"
+    ):
+        evidence.screen()

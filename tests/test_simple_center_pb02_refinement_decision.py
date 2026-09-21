@@ -150,3 +150,31 @@ def test_refinement_authentication_rejects_changed_common_snapshot(
 
     with pytest.raises(ValueError, match="source snapshot closure changed"):
         decision.screen()
+
+
+def test_refinement_authentication_ignores_python_cache_only(tmp_path, monkeypatch):
+    snapshots = tmp_path / "source_snapshots"
+    shutil.copytree(decision.SOURCE_SNAPSHOTS, snapshots)
+    cache = snapshots / "scripts/__pycache__/geometry.cpython-312.pyc"
+    cache.parent.mkdir()
+    cache.write_bytes(b"transient bytecode")
+    monkeypatch.setattr(decision, "SOURCE_SNAPSHOTS", snapshots)
+    reports = {
+        name: json.loads((decision.EVIDENCE / relative).read_text())
+        for name, (relative, _) in decision.REPORTS.items()
+    }
+    monkeypatch.setattr(decision, "EVIDENCE", tmp_path)
+
+    assert decision._authenticate_source_snapshots(reports)["file_count"] == 278
+
+    unlisted = snapshots / "scripts/unlisted.py"
+    unlisted.write_text("pass\n")
+    with pytest.raises(ValueError, match="extra=\\['scripts/unlisted.py'\\]"):
+        decision._authenticate_source_snapshots(reports)
+
+    unlisted.unlink()
+    (snapshots / decision.GEOMETRY_SOURCE).unlink()
+    with pytest.raises(
+        ValueError, match="missing=\\['scripts/simple_center_pb02_geometry.py'\\]"
+    ):
+        decision._authenticate_source_snapshots(reports)

@@ -169,19 +169,33 @@ def _authenticate(name, relative, expected_sha256):
 
 def _authenticate_source_snapshots(reports):
     source_maps = [report.get("source_sha256") for report in reports.values()]
-    if not source_maps or any(
-        source_map != source_maps[0] for source_map in source_maps
+    if (
+        not source_maps
+        or not isinstance(source_maps[0], dict)
+        or any(source_map != source_maps[0] for source_map in source_maps)
     ):
         raise ValueError("common source snapshot closure changed")
+    expected = source_maps[0]
     actual = {
         path.relative_to(SOURCE_SNAPSHOTS).as_posix(): hashlib.sha256(
             path.read_bytes()
         ).hexdigest()
         for path in SOURCE_SNAPSHOTS.rglob("*")
         if path.is_file()
+        and not (path.suffix == ".pyc" and "__pycache__" in path.parts)
     }
-    if actual != source_maps[0]:
-        raise ValueError("common source snapshot closure changed")
+    if actual != expected:
+        missing = sorted(expected.keys() - actual.keys())
+        extra = sorted(actual.keys() - expected.keys())
+        altered = sorted(
+            name
+            for name in expected.keys() & actual.keys()
+            if expected[name] != actual[name]
+        )
+        raise ValueError(
+            "common source snapshot closure changed: "
+            f"missing={missing}, extra={extra}, hash_mismatches={altered}"
+        )
     return {
         "path": str(SOURCE_SNAPSHOTS.relative_to(EVIDENCE)),
         "file_count": len(actual),

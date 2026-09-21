@@ -38,6 +38,10 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _python_cache(path: Path) -> bool:
+    return path.suffix == ".pyc" and "__pycache__" in path.parts
+
+
 def _load(path: Path) -> dict:
     return json.loads(path.read_text())
 
@@ -230,17 +234,28 @@ def _authenticate_sources(summary: dict, report: dict) -> dict:
     actual = {
         path.relative_to(SOURCE_SNAPSHOTS).as_posix(): _sha256(path)
         for path in SOURCE_SNAPSHOTS.rglob("*")
-        if path.is_file()
+        if path.is_file() and not _python_cache(path)
     }
     producer = summary.get("producer_source_sha256")
     if (
         not isinstance(expected, dict)
         or len(expected) != SOURCE_FILE_COUNT
-        or actual != expected
         or not isinstance(producer, dict)
         or any(expected.get(name) != digest for name, digest in producer.items())
     ):
         raise ValueError("source snapshot closure changed")
+    if actual != expected:
+        missing = sorted(expected.keys() - actual.keys())
+        extra = sorted(actual.keys() - expected.keys())
+        altered = sorted(
+            name
+            for name in expected.keys() & actual.keys()
+            if expected[name] != actual[name]
+        )
+        raise ValueError(
+            "source snapshot closure changed: "
+            f"missing={missing}, extra={extra}, hash_mismatches={altered}"
+        )
     return {
         "path": f"{ATTEMPT_PATH}/source_snapshots",
         "file_count": len(actual),
@@ -266,6 +281,7 @@ def _authenticate_package_inventory(report: dict) -> None:
         path.relative_to(PACKAGE).as_posix()
         for path in PACKAGE.rglob("*")
         if path.is_file()
+        and not (path.is_relative_to(SOURCE_SNAPSHOTS) and _python_cache(path))
     }
     if actual != expected:
         raise ValueError("compact package contains missing or extra files")
