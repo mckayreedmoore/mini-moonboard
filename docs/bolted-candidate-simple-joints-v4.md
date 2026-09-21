@@ -1,8 +1,8 @@
 # Bolted candidate: active V4 simple-timber-joint plan
 
-Status through the six-case bore-member envelope: **PB-02 ADVANCE for development only;
-G1 remains open; no
-cutting, drilling, fabrication, or structural release.** This plan implements the owner's V4
+Status through PB04 at `ee34a65a`: **PB-02 ADVANCE for development only;
+G1 remains open; no cutting, drilling, fabrication, or structural release.** This plan
+implements the owner's V4
 direction for the separate `compact-floor-flush-bolted-development` lane. It supersedes the
 prior [rated-HL bracket focus](bolted-candidate-rated-hardware-focus.md) as the active design
 sequence without erasing its test results or the selected
@@ -61,8 +61,8 @@ extension, and ratchet rather than assuming clearance from a generic cylinder.
   inputs, and all 36 criteria without waiving their safety questions. This remains open and G2
   has not been reached or passed.
 - **PB-05 — candidate evidence:** run all six required cases on one frozen candidate, including
-  the forward case, then reconcile convergence and resistance. The six numerical cases are now
-  accepted; resistance reconciliation remains incomplete and does not close PB-04 or G1.
+  the forward case, then reconcile convergence and resistance. Six PB02 center cases are accepted
+  on a partial frame; they are not final all-bolted-frame cases and do not close PB-04 or G1.
 - **PB-06 — owner decision packet:** deliver costed stock, cut, drill, hardware, and assembly
   records plus independent review and explicit physical receiving checks. This remains open and
   cannot release work before PB-03 and PB-04 close.
@@ -229,13 +229,25 @@ components, and outward tool paths. Current geometry passes those gates. Exact
 retail hardware, tolerances, strength, drilling, and fabrication remain
 unselected and unreleased.
 
-The live V4 viewer is current. It hides the eight replaced angle solids and 48
-SDS visuals and shows eight PB03 blocks and 32 stacks alongside the unchanged
-PB02 visual contract. The partial inventory is **14 legacy stations, 84 legacy
+The live V4 viewer shows PB04's actual pocketed block meshes and the upper-outer rail row
+shifted 35.709 mm from the front datum. Its generic bolt/washer/nut visuals still use the
+original exterior grip, not an installed recessed hardware stack. It hides the eight replaced
+angle solids and 48 SDS visuals alongside the unchanged PB02 visual contract. The partial
+inventory is **14 legacy stations, 84 legacy
 SDS axes, eight PB03 blocks, 32 PB03 stacks, 194 total connections, and 44
 bolt-kind connections**. All 66 fixed panel/kicker axes remain unchanged. This
 is not the final frame. Hardware, resistance, drilling, and fabrication remain
 unresolved and unreleased.
+
+PB04 retains an authenticated, numerically accepted A12-forward diagnostic on its combined
+geometry. It is one case, not the six-case final envelope. The twelve outer block counterbores
+are nominally 36.9824 mm deep for an 8-inch bolt, but the inherited 228.6 mm grip and generic
+stack have not been replaced with the 191.6176 mm recessed bearing-seat grip. The nominal
+two-thread projection has zero additional dimensional reserve. The relocated upper rail row
+also needs a signed grain-end check on the block as well as the rail edge check. Compare a
+six-inch block at representative stations with the current 300 mm producer; shortening its
+grain length does not solve the X-direction long-grip hardware. Preserve PB03/PB04 source-bound
+results as historical until one installed configuration is rerun.
 
 ## PB-02 G1 status and remaining boundaries
 
