@@ -1,0 +1,368 @@
+{
+  "authentication": {
+    "density_0p5x": {
+      "cycles": 11,
+      "deterministic_input_fingerprint": "9b74e0754354938e2881806d4bddf46669be07b3922b1bf2f0ec05794dae3657",
+      "model_identity": "fd9379062004256ac4d8de3265d51a5e9b59274e1633a95060e0245d080eab7f",
+      "partition_fingerprint": "1efb7f0d5fd1f5d82735c339561ba59c77ba2ccb30077b8ba61f00b3825249c7",
+      "path": "density-0p5x/report.json",
+      "report_sha256": "eb1cfe5987b7edfe79102c1f1507ab3302be9e570eff0560e64dab857cd1a6d6"
+    },
+    "density_2x": {
+      "cycles": 13,
+      "deterministic_input_fingerprint": "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930",
+      "model_identity": "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a",
+      "partition_fingerprint": "1efb7f0d5fd1f5d82735c339561ba59c77ba2ccb30077b8ba61f00b3825249c7",
+      "path": "density-2x/report.json",
+      "report_sha256": "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
+    },
+    "grid_2x2": {
+      "cycles": 11,
+      "deterministic_input_fingerprint": "359e4eacd3f9312f32e36963da20b90988fa1e9a52f934b6d294f1c0247048c3",
+      "model_identity": "83fc82f95c89a63d07ce2dccdbbdd059c2484e1dd985902e568e7087aba59d3c",
+      "partition_fingerprint": "fa8cc34a4a77b450aaae03dcfbc8e0d678ce43b487b6cd3374e2e58eafdbe980",
+      "path": "grid-2x2/report.json",
+      "report_sha256": "837523aeebf3f997cc6271fe3f11a7bb19830573d6fbfabc3dbe8b90eb644504"
+    },
+    "grid_4x4": {
+      "cycles": 11,
+      "deterministic_input_fingerprint": "f60d3bc138e08d8d68aacf4b15f9c563674945a8c9e53eb87e54a585e1fe4d26",
+      "model_identity": "6973760a3e837078db6b15619534acde6c1601e76e67829c56df29053b8e9232",
+      "partition_fingerprint": "472ea0b144381625e427fcf787564d872d1f57b6e68d2f4da96de050dc1e00a3",
+      "path": "grid-4x4/report.json",
+      "report_sha256": "d1e04abaefbda829125b12cd13392d8567b8ed7c7df89baf1e931f9a0eda7653"
+    },
+    "grid_8x8": {
+      "cycles": 11,
+      "deterministic_input_fingerprint": "0dc36a7cf57f8e1f93fc5505e094bbd459aa4893aca9027afc4b9abedd4e0ba1",
+      "model_identity": "6c7826ff24b3427e5abfc4ac4f4d0deb1205905deec177f8bb80233babdc9824",
+      "partition_fingerprint": "1efb7f0d5fd1f5d82735c339561ba59c77ba2ccb30077b8ba61f00b3825249c7",
+      "path": "grid-8x8/report.json",
+      "report_sha256": "5587450b5760cee02e3b9895301959aa361c6cc644384f6ce35047c4f0de70ef"
+    }
+  },
+  "contact_density_sensitivity_8x8": {
+    "governing_bolt_by_density": {
+      "density_0p5x": {
+        "axial_n": 8.416900000000005,
+        "combined_n": 60.32185558049457,
+        "lateral_n": 59.731750811976404,
+        "name": "rear_block_post/bolt_2"
+      },
+      "density_2x": {
+        "axial_n": 17.659800000000004,
+        "combined_n": 99.49575473848661,
+        "lateral_n": 97.91596741564207,
+        "name": "rear_block_post/bolt_2"
+      },
+      "grid_8x8": {
+        "axial_n": 12.597899999999996,
+        "combined_n": 80.76491492901009,
+        "lateral_n": 79.77633984509592,
+        "name": "rear_block_post/bolt_2"
+      }
+    },
+    "governing_bolt_combined_force_ratio": 1.6494146902645872,
+    "interfaces": {
+      "block_header": {
+        "force_n": {
+          "density_0p5x": 19.41793850642826,
+          "density_2x": 26.011689602336308,
+          "grid_8x8": 24.230695995031603,
+          "maximum_to_minimum": 1.3395700884378228
+        },
+        "moment_nmm": {
+          "density_0p5x": 335.8226114738266,
+          "density_2x": 621.4469468098916,
+          "grid_8x8": 479.57788996671724,
+          "maximum_to_minimum": 1.8505214526280522
+        }
+      },
+      "header_principal_block": {
+        "force_n": {
+          "density_0p5x": 16.981837440849908,
+          "density_2x": 15.680907042820525,
+          "grid_8x8": 16.4478582413636,
+          "maximum_to_minimum": 1.0829627007211302
+        },
+        "moment_nmm": {
+          "density_0p5x": 803.8213206704639,
+          "density_2x": 823.3388948266143,
+          "grid_8x8": 821.2734413446348,
+          "maximum_to_minimum": 1.0242809859035225
+        }
+      },
+      "post_block": {
+        "force_n": {
+          "density_0p5x": 17.608751531297802,
+          "density_2x": 24.405751853204425,
+          "grid_8x8": 22.098992611973912,
+          "maximum_to_minimum": 1.3860012624873281
+        },
+        "moment_nmm": {
+          "density_0p5x": 537.5891816641805,
+          "density_2x": 610.4804842139497,
+          "grid_8x8": 590.8176278204796,
+          "maximum_to_minimum": 1.1355892287938611
+        }
+      },
+      "principal_block_principal": {
+        "force_n": {
+          "density_0p5x": 12.056915616789826,
+          "density_2x": 16.381135818553936,
+          "grid_8x8": 14.936781617868222,
+          "maximum_to_minimum": 1.3586506150662967
+        },
+        "moment_nmm": {
+          "density_0p5x": 609.9246888038305,
+          "density_2x": 865.2079479421946,
+          "grid_8x8": 769.9380696690308,
+          "maximum_to_minimum": 1.418548820574913
+        }
+      },
+      "principal_upright_block": {
+        "force_n": {
+          "density_0p5x": 19.335235865114388,
+          "density_2x": 31.18780405323022,
+          "grid_8x8": 25.323455917775497,
+          "maximum_to_minimum": 1.613003548071572
+        },
+        "moment_nmm": {
+          "density_0p5x": 376.84854407960114,
+          "density_2x": 704.0095414480123,
+          "grid_8x8": 538.3640474480146,
+          "maximum_to_minimum": 1.8681498244008221
+        }
+      },
+      "rear_block_post": {
+        "force_n": {
+          "density_0p5x": 20.221696000800016,
+          "density_2x": 35.1392415766232,
+          "grid_8x8": 27.498279645792124,
+          "maximum_to_minimum": 1.737700021562633
+        },
+        "moment_nmm": {
+          "density_0p5x": 1160.1981605804076,
+          "density_2x": 2479.524085709707,
+          "grid_8x8": 1739.0038982977999,
+          "maximum_to_minimum": 2.1371556773278155
+        }
+      },
+      "upright_rear_block": {
+        "force_n": {
+          "density_0p5x": 19.39372783196717,
+          "density_2x": 33.117298836555335,
+          "grid_8x8": 26.183810880142907,
+          "maximum_to_minimum": 1.707629349215021
+        },
+        "moment_nmm": {
+          "density_0p5x": 68.75918888546789,
+          "density_2x": 349.50004968512746,
+          "grid_8x8": 176.16298273704987,
+          "maximum_to_minimum": 5.082957715910369
+        }
+      }
+    },
+    "maximum_force_ratio": 1.737700021562633,
+    "maximum_moment_ratio": 5.082957715910369,
+    "panel_displacement_mm": {
+      "density_0p5x": 13.549655284080625,
+      "density_2x": 13.552045472495951,
+      "grid_8x8": 13.55095310078483
+    },
+    "panel_displacement_ratio": 1.0001764021567496,
+    "stiffness_qualified": false
+  },
+  "decision": "RETAIN_PB02_FOR_DEVELOPMENT_WITH_REVISION",
+  "drilling_released": false,
+  "fabrication_released": false,
+  "grid_refinement_4x4_to_8x8": {
+    "governing_bolt_grid_4x4": {
+      "axial_n": 12.82709999999998,
+      "combined_n": 81.33206183118986,
+      "lateral_n": 80.3141941832357,
+      "name": "rear_block_post/bolt_2"
+    },
+    "governing_bolt_grid_8x8": {
+      "axial_n": 12.597899999999996,
+      "combined_n": 80.76491492901009,
+      "lateral_n": 79.77633984509592,
+      "name": "rear_block_post/bolt_2"
+    },
+    "interfaces": {
+      "block_header": {
+        "active_area_mm2": {
+          "absolute_change_percent": 1.9484769382246192,
+          "grid_4x4": 6337.650388745101,
+          "grid_8x8": 6461.138044995102
+        },
+        "force_n": {
+          "absolute_change_percent": 0.4189180743136234,
+          "grid_4x4": 24.129612686227127,
+          "grid_8x8": 24.230695995031603
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 3.334328630569461,
+          "grid_4x4": 464.1031652523297,
+          "grid_8x8": 479.57788996671724
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 9.738614061228867,
+          "grid_4x4": 0.008005845161878437,
+          "grid_8x8": 0.008785503524533342
+        }
+      },
+      "header_principal_block": {
+        "active_area_mm2": {
+          "absolute_change_percent": 48.19462424630845,
+          "grid_4x4": 2318.291250000001,
+          "grid_8x8": 3435.583006872549
+        },
+        "force_n": {
+          "absolute_change_percent": 0.7710332038669332,
+          "grid_4x4": 16.57566209991473,
+          "grid_8x8": 16.4478582413636
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 0.7444215279094557,
+          "grid_4x4": 815.2048807160162,
+          "grid_8x8": 821.2734413446348
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 16.1591871068816,
+          "grid_4x4": 0.008124158449073403,
+          "grid_8x8": 0.009436956413718705
+        }
+      },
+      "post_block": {
+        "active_area_mm2": {
+          "absolute_change_percent": 7.771561172376096e-14,
+          "grid_4x4": 11909.4578887451,
+          "grid_8x8": 11909.457888745092
+        },
+        "force_n": {
+          "absolute_change_percent": 2.2702204934705095,
+          "grid_4x4": 22.61234264884169,
+          "grid_8x8": 22.098992611973912
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 0.24153430696725042,
+          "grid_4x4": 589.3940390130432,
+          "grid_8x8": 590.8176278204796
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 5.416179665953624,
+          "grid_4x4": 0.003746743033920199,
+          "grid_8x8": 0.003949673368258919
+        }
+      },
+      "principal_block_principal": {
+        "active_area_mm2": {
+          "absolute_change_percent": 13.873896314158852,
+          "grid_4x4": 2883.093750000001,
+          "grid_8x8": 3283.091187514995
+        },
+        "force_n": {
+          "absolute_change_percent": 3.286506168568004,
+          "grid_4x4": 14.461503416032636,
+          "grid_8x8": 14.936781617868222
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 5.254574353844332,
+          "grid_4x4": 731.5008154236192,
+          "grid_8x8": 769.9380696690308
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 21.091410499742835,
+          "grid_4x4": 0.007329054900547129,
+          "grid_8x8": 0.008874855955373042
+        }
+      },
+      "principal_upright_block": {
+        "active_area_mm2": {
+          "absolute_change_percent": 1.0450013749948805,
+          "grid_4x4": 4329.597397333379,
+          "grid_8x8": 4374.8417496672555
+        },
+        "force_n": {
+          "absolute_change_percent": 1.4663300695236137,
+          "grid_4x4": 25.700307250956225,
+          "grid_8x8": 25.323455917775497
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 1.4854927259523976,
+          "grid_4x4": 530.4837499304384,
+          "grid_8x8": 538.3640474480146
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 15.913449562102455,
+          "grid_4x4": 0.007859637432960772,
+          "grid_8x8": 0.009110376871619108
+        }
+      },
+      "rear_block_post": {
+        "active_area_mm2": {
+          "absolute_change_percent": 2.7875769653384674,
+          "grid_4x4": 11864.324881872551,
+          "grid_8x8": 12195.05206937255
+        },
+        "force_n": {
+          "absolute_change_percent": 1.4984493579238256,
+          "grid_4x4": 27.916595694734056,
+          "grid_8x8": 27.498279645792124
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 1.821815058963172,
+          "grid_4x4": 1707.8893135923515,
+          "grid_8x8": 1739.0038982977999
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 11.564652406463294,
+          "grid_4x4": 0.00494973107063546,
+          "grid_8x8": 0.005522150264009165
+        }
+      },
+      "upright_rear_block": {
+        "active_area_mm2": {
+          "absolute_change_percent": 8.881784197001252e-14,
+          "grid_4x4": 16226.846131872544,
+          "grid_8x8": 16226.846131872559
+        },
+        "force_n": {
+          "absolute_change_percent": 0.09887366958633015,
+          "grid_4x4": 26.20972539743185,
+          "grid_8x8": 26.183810880142907
+        },
+        "moment_nmm": {
+          "absolute_change_percent": 8.185850827401907,
+          "grid_4x4": 162.83366206371818,
+          "grid_8x8": 176.16298273704987
+        },
+        "peak_cell_average_pressure_n_per_mm2": {
+          "absolute_change_percent": 5.242238735596749,
+          "grid_4x4": 0.0021941055713319097,
+          "grid_8x8": 0.0023091258234921577
+        }
+      }
+    },
+    "local_pressure_qualified": false,
+    "maximum_active_area_change_percent": 48.19462424630845,
+    "maximum_bolt_combined_force_change_percent": 0.6973226663759324,
+    "maximum_force_change_percent": 3.286506168568004,
+    "maximum_moment_change_percent": 8.185850827401907,
+    "maximum_peak_cell_average_pressure_change_percent": 21.091410499742835,
+    "panel_displacement_change_percent": 0.00024177338442399332,
+    "selected_force_moment_resolution": "8x8"
+  },
+  "next_case_action": "Run the remaining five prescribed cases at 8x8/reference density, then apply the bounded density envelope where it can change the component decision.",
+  "qualified_for_design": false,
+  "revision": "Use the 8x8 model for global force and moment demand; carry the 2x contact-density case as the current same-case component screen. Do not use cell-average pressure as local bearing qualification.",
+  "source_snapshot_authentication": {
+    "all_snapshot_hashes_match": true,
+    "file_count": 278,
+    "path": "source_snapshots",
+    "source_sha256_map_identical_across_reports": true
+  },
+  "status": "authenticated_a12_forward_development_decision",
+  "structural_released": false
+}

@@ -31,20 +31,20 @@ def test_current_case_hardware_screen_is_bound_and_conditional():
     }
     assert positive == pytest.approx(
         {
-            "post_block/bolt_2": 15.175270000000005,
-            "block_header/bolt_2": 5.489588,
-            "principal_upright_block/bolt_1": 20.077500000000025,
-            "rear_block_post/bolt_2": 26.373599999999996,
+            "header_principal_block/bolt_1": 0.5501900000000007,
+            "principal_block_principal/bolt_1": 9.8539,
+            "principal_upright_block/bolt_1": 0.945499999999988,
+            "rear_block_post/bolt_2": 17.659800000000004,
         }
     )
     assert rows["block_header/bolt_2"]["demand"]["transverse_shear_n"] == (
-        pytest.approx(22.207912814588465)
+        pytest.approx(35.81052578517264)
     )
 
     governing = result["governing_direct_shaft_comparator"]
     assert governing["name"] == "block_header/bolt_2"
     assert governing["conservative_linear_interaction_ratio"] == pytest.approx(
-        0.162, abs=0.001
+        0.2269, abs=0.0001
     )
     assert rows["block_header/bolt_2"]["direct_shaft_comparator"][
         "long_grip_factor"
@@ -66,7 +66,7 @@ def test_current_case_hardware_screen_is_bound_and_conditional():
         "ideal_20mm_od_7p3mm_bore_sensitivity"
     ]
     assert sensitivity["wood_bearing_reference_n"] == pytest.approx(1173, abs=1)
-    assert sensitivity["demand_ratio"] == pytest.approx(0.0225, abs=0.0001)
+    assert sensitivity["demand_ratio"] == pytest.approx(0.01505, abs=0.00001)
     assert result["qualified"] is False
 
 

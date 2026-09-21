@@ -1,7 +1,10 @@
 """Conditional PB02 block/header end-grain single-bolt yield screen."""
 
+import hashlib
+import importlib
 import json
 import math
+import sys
 from pathlib import Path
 
 from fea.dowel_yield import single_shear
@@ -14,9 +17,83 @@ MODES = ("Im", "Is", "II", "IIIm", "IIIs", "IV")
 N_PER_LBF = 4.4482216152605
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE_REPORT = (
-    ROOT
-    / "fea/results/diagnostics/pb02-corrected-a12-forward-z202-link328p5-v1/report.json"
+    ROOT / "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1/"
+    "density-2x/report.json"
 )
+CANDIDATE = "pb02-kerf-right-native-development-only"
+GEOMETRY_SOURCE = "scripts/simple_center_pb02_geometry.py"
+EXPECTED_GEOMETRY_FINGERPRINT = (
+    "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
+)
+EXPECTED_REPORT_SHA256 = (
+    "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
+)
+EXPECTED_MODEL_IDENTITY = (
+    "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a"
+)
+EXPECTED_SCOPE_FINGERPRINT = (
+    "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930"
+)
+
+
+def _active_geometry_fingerprint() -> str:
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    geometry = importlib.import_module("scripts.simple_center_pb02_geometry")
+    return geometry.ACTIVE_FINGERPRINT
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _authenticated_report() -> tuple[dict, dict]:
+    report = json.loads(EVIDENCE_REPORT.read_text())
+    scope = report.get("diagnostic_scope", {})
+    stiffness = scope.get("stiffness_selection", {})
+    selected = stiffness.get("exact_selected_values", {})
+    contact = stiffness.get("contact_model", {})
+    geometry_path = ROOT / GEOMETRY_SOURCE
+    checks = (
+        _sha256(EVIDENCE_REPORT) == EXPECTED_REPORT_SHA256,
+        report.get("candidate") == CANDIDATE,
+        scope.get("candidate") == CANDIDATE,
+        scope.get("case") == "a12-forward",
+        report.get("parameters", {}).get("hold") == "A12",
+        contact.get("grid_resolution") == [8, 8],
+        selected.get("face_normal_total_per_interface_n_per_mm") == 2000.0,
+        report.get("pb02_model_identity") == EXPECTED_MODEL_IDENTITY,
+        scope.get("deterministic_input_fingerprint") == EXPECTED_SCOPE_FINGERPRINT,
+        _active_geometry_fingerprint() == EXPECTED_GEOMETRY_FINGERPRINT,
+        report.get("source_sha256", {}).get(GEOMETRY_SOURCE) == _sha256(geometry_path),
+        report.get("numerically_accepted") is True,
+        report.get("actual_joint_demands_qualified") is False,
+        report.get("qualified_for_design") is False,
+        report.get("drilling_released") is False,
+        report.get("fabrication_released") is False,
+        report.get("structural_released", False) is False,
+        scope.get("developmental_only") is True,
+        scope.get("qualified_for_design") is False,
+        scope.get("actual_joint_demands_qualified") is False,
+        scope.get("resistance_checked") is False,
+        scope.get("acceptance") is False,
+        scope.get("drilling_released") is False,
+        scope.get("fabrication_released") is False,
+    )
+    if not all(checks):
+        raise ValueError("PB02 end-grain evidence authentication changed")
+    return report, {
+        "candidate": CANDIDATE,
+        "case": "a12-forward",
+        "contact_grid": [8, 8],
+        "mean_contact_total_n_per_mm": 2000.0,
+        "report_sha256": EXPECTED_REPORT_SHA256,
+        "model_identity": EXPECTED_MODEL_IDENTITY,
+        "diagnostic_scope_fingerprint": EXPECTED_SCOPE_FINGERPRINT,
+        "active_geometry_fingerprint": EXPECTED_GEOMETRY_FINGERPRINT,
+        "numerically_accepted": True,
+        "no_release": True,
+    }
 
 
 def root_case(root_diameter_in: float, demand_n: float) -> dict:
@@ -67,7 +144,7 @@ def root_case(root_diameter_in: float, demand_n: float) -> dict:
 
 
 def screen() -> dict:
-    report = json.loads(EVIDENCE_REPORT.read_text())
+    report, authentication = _authenticated_report()
     forces = report["physical_connection_forces"]
     bolt_rows = [forces[f"block_header/bolt_{index}"] for index in (1, 2)]
     demand_by_bolt = {
@@ -98,10 +175,11 @@ def screen() -> dict:
             name: demand / reference for name, demand in demand_by_bolt.items()
         }
     return {
-        "candidate": "pb02-kerf-right-native-development-only",
+        "candidate": CANDIDATE,
         "interface": "block_header",
         "disposition": "retain_current_z_grain_block_for_development",
         "evidence_report": str(EVIDENCE_REPORT.relative_to(ROOT)),
+        "authentication": authentication,
         "demand_by_bolt_n": demand_by_bolt,
         "pair_geometry": {
             "spacing_mm": pair_spacing_mm,

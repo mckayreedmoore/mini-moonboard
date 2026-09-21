@@ -13,20 +13,21 @@ from scripts.simple_center_pb02_geometry import ACTIVE_FINGERPRINT
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = ROOT / (
-    "fea/results/diagnostics/pb02-corrected-a12-forward-z202-link328p5-v1/report.json"
+    "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1/"
+    "density-2x/report.json"
 )
 CANDIDATE = "pb02-kerf-right-native-development-only"
 EXPECTED_GEOMETRY_FINGERPRINT = (
     "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
 )
 EXPECTED_REPORT_SHA256 = (
-    "6e5fe950f796e86c17fc575899c4e5b3a3314166e1fc3fafc81c96e530f1c7df"
+    "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
 )
 EXPECTED_MODEL_IDENTITY = (
-    "c6981acec1a15913cd792189f5bb2d7081d0b2afe9a7509503e974d0aca94cc3"
+    "876f860e709ab8a0d5fc6d3e755367adeb51e97f6aa63f28f3be0541c4c73d1a"
 )
 EXPECTED_SCOPE_FINGERPRINT = (
-    "c90bfe845d12bfed4a2d4a4b657cb26f34ba0e6b95af43fb8800596a723020d3"
+    "9c019a17ebf5b2600e67b4686d55363be6f6b109861ef6db71ef13718cf9d930"
 )
 GEOMETRY_SOURCE = "scripts/simple_center_pb02_geometry.py"
 N_PER_LBF = 4.4482216152605

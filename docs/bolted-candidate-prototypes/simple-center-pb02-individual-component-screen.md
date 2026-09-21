@@ -1,16 +1,17 @@
 # PB02 upright/link individual-component screen
 
 The [screen](../../scripts/simple_center_pb02_individual_component_screen.py)
-authenticates the retained `a12-forward` report before using either bolt force.
+authenticates the corrected-contact `a12-forward` report before using either
+bolt force.
 It pins the report SHA-256, candidate, numerical acceptance, model identity,
 diagnostic-scope fingerprint, force owners/axes/source rows, and active geometry
 fingerprint `06f0cd1a…d61387`. The report is numerically accepted but explicitly
 does **not** qualify actual joint demands.
 
-A later face audit found one active canonical spring outside the true
-principal/cleat overlap and no tributary-area basis for the four equal face
-springs. These ratios are retained as pre-contact-cell-correction sensitivity,
-not current demand evidence, and require recomputation after the model rerun.
+The report uses the 8x8 contact partition and twice the selected mean interface
+contact stiffness. These ratios are a bounded same-case density-2x sensitivity,
+not qualified demand evidence. They do not establish design loads or qualify
+the joint.
 
 ## Conditional result
 
@@ -20,10 +21,10 @@ zero face gap, and actual member bearing lengths. `CD`, `CM`, `Ct`, `Cdi`,
 `Ctn`, `CΔ`, and `Cg` are each 1.0. Each interface has one fastener (`n = 1`),
 so the two orthogonal bolts are not treated as one row or group.
 
-| Connection | Axial / lateral demand | Member angles to grain | 0.189-in reference / ratio | 0.180-in reference / ratio |
+| Connection | Demand A/L N | Angles | 0.189-in ref/ratio | 0.180-in ref/ratio |
 |---|---:|---:|---:|---:|
-| principal–upright cleat | 20.08 / 32.50 N | 38.46° / 78.46° | 455.89 N / 0.0713 | 429.68 N / 0.0756 |
-| upright cleat–rear cleat | 0 / 18.49 N | 47.90° / 47.90° | 490.04 N / 0.0377 | 461.87 N / 0.0400 |
+| principal/upright | 0.95 / 49.32 | 82.18° / 42.18° | 452.05 / 0.1091 | 426.07 / **0.1158** |
+| upright/rear | 0 / 43.06 | 44.61° / 44.61° | 494.02 / 0.0872 | 465.63 / 0.0925 |
 
 Mode IV governs all four sensitivities. The machine-readable output retains all
 six mode values, both bearing values, root bending moments, reduction terms,
@@ -41,7 +42,7 @@ grain-end distances and every cleat end/edge distance pass their nominal
 direction-dependent markers for this one force vector.
 
 The link bolt has zero tensile washer demand in this case; this does not qualify
-its washer. The upright bolt has 20.08 N tensile washer demand, but no washer
+its washer. The upright bolt has 0.95 N tensile washer demand, but no washer
 resistance is calculated.
 
 Local crossed-bore splitting and nearby-hole interaction, combined net-section

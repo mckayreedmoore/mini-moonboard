@@ -15,7 +15,7 @@ def test_active_a12_forward_bore_net_sections_are_bounded():
             "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
         ),
         "report_sha256": (
-            "6e5fe950f796e86c17fc575899c4e5b3a3314166e1fc3fafc81c96e530f1c7df"
+            "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
         ),
         "numerically_accepted": True,
         "actual_joint_demands_qualified": False,

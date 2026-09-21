@@ -13,7 +13,8 @@ from scripts.simple_pb01_short_net_elastic_screen import elastic_corners
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = ROOT / (
-    "fea/results/diagnostics/pb02-corrected-a12-forward-z202-link328p5-v1/report.json"
+    "fea/results/diagnostics/pb02-contact-refinement-a12-forward-v1/"
+    "density-2x/report.json"
 )
 CANDIDATE = "pb02-kerf-right-native-development-only"
 GEOMETRY_SOURCE = "scripts/simple_center_pb02_geometry.py"
@@ -21,7 +22,7 @@ EXPECTED_GEOMETRY_FINGERPRINT = (
     "06f0cd1a1754d26fb2ff74cc2eb7da8eed80fbbea5cc84d7627ae8ff07d61387"
 )
 EXPECTED_REPORT_SHA256 = (
-    "6e5fe950f796e86c17fc575899c4e5b3a3314166e1fc3fafc81c96e530f1c7df"
+    "a5e24552a90e4d6e27a987e381665bcc489a9021b61769c77fbbd0c5948e3631"
 )
 DIAGNOSTIC_BORE_DIAMETER_MM = 7.3
 
