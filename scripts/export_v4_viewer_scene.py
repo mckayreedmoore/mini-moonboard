@@ -8,9 +8,13 @@ from pathlib import Path
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import simple_center_current_stack_tip_screen as pb02
-from scripts import simple_center_pb02_integrated_trial as integrated
 from scripts import simple_center_wide_post_probe as wide
 from scripts import simple_rail_joint_comparison as pb01
+from scripts.simple_center_pb02_geometry import (
+    ACTIVE_FINGERPRINT,
+    ACTIVE_TRIAL,
+    active_geometry,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/v4-diagnostic-scene.json"
@@ -78,7 +82,7 @@ def build_scene():
             }
         )
 
-    parts, bores, ends = integrated.working_geometry()
+    parts, bores, ends = active_geometry()
     block = parts["header_post_side_cleat"].BoundingBox()
     boxes.append(
         {
@@ -127,6 +131,8 @@ def build_scene():
         "status": "partial_development_visualization",
         "baseline": "compact-floor-flush-kerf-right",
         "fixed_panel_kicker_screw_axes": len(fixed),
+        "pb02_variant_id": ACTIVE_TRIAL.variant_id,
+        "pb02_source_fingerprint": ACTIVE_FINGERPRINT,
         "fabrication_released": False,
         "boxes": boxes,
         "axes": axes,

@@ -4,7 +4,11 @@ import json
 
 import numpy as np
 
-from scripts.simple_center_pb02_integrated_trial import working_geometry
+from scripts.simple_center_pb02_geometry import (
+    ACTIVE_FINGERPRINT,
+    ACTIVE_TRIAL,
+    active_geometry,
+)
 
 # Coordinates are global millimeters. The first four edges use the current
 # shorter_8in_trial and tolerance-pose bores. The return path uses the inherited
@@ -26,7 +30,7 @@ def _midpoint(first, second):
 
 def current_edges():
     """Build rank-model bolt centers from the same active PB02 geometry as CAD."""
-    _, _, ends = working_geometry()
+    _, _, ends = active_geometry()
 
     def center(first, second):
         return _midpoint(ends[first][0], ends[second][0])
@@ -142,6 +146,8 @@ def nullity(*, closed=(), axial=True, return_path=True, anchor_post=True):
 def screen():
     names = tuple(EDGES)
     return {
+        "variant_id": ACTIVE_TRIAL.variant_id,
+        "source_fingerprint": ACTIVE_FINGERPRINT,
         "nodes": NODES,
         "edges": {
             name: {"members": edge[:2], "normal": edge[2], "bolt_centers_mm": edge[3]}

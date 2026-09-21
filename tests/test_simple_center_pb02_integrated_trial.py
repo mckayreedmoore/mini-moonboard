@@ -2,15 +2,22 @@
 
 import pytest
 
+from scripts import simple_center_connected_kinematics as kinematics_module
+from scripts import simple_center_current_placement_table as placement
+from scripts import simple_center_current_stack_tip_screen as stack
+from scripts.export_v4_viewer_scene import build_scene
+from scripts.simple_center_pb02_integrated_stack_screen import screen as stack_screen
 from scripts.simple_center_pb02_integrated_trial import (
+    ACTIVE_TRIAL,
     COMPARISON_LINK_Z,
+    active_geometry,
     probe,
-    working_geometry,
 )
 
 
 def test_combined_ten_bore_trial_and_rejected_link_comparison():
     result = probe()
+    assert result["variant_id"] == "ligament_priority"
     assert result["coordinates_mm"]["post_cleat_2_z"] == 176
     assert result["coordinates_mm"]["cleat_link_z"] == 370
     assert result["side_bounds_mm"] == [89.05, 177.95, -175.7, -114.1, 277, 460]
@@ -36,8 +43,15 @@ def test_combined_ten_bore_trial_and_rejected_link_comparison():
     assert result["side_y_conditional_4d_plus_project_5_reserve_mm"] == 0
     assert result["side_z_conditional_7d_plus_5_reserve_mm"] == 29.55
     assert result["post_pair_conditional_4d_plus_5_reserve_mm"] == 0.6
-    assert result["conditional_subset_minimum_reserve_mm"] == -2.9
-    assert len(result["conditional_negative_rows"]) == 3
+    assert result["conditional_subset_minimum_reserve_mm"] == -0.55
+    assert result["conditional_negative_rows"] == [
+        {
+            "bolt": "post_high",
+            "member": "shifted_right_post",
+            "feature": "z_high",
+            "reserve_mm": -0.55,
+        }
+    ]
     assert result["header_side_cleat_header_contact_area_mm2"] > 0
     assert sum(result["header_cleat_bore_reception_fraction"].values()) == 1
     assert result["integrated_nominal_cad_clear"]
@@ -55,10 +69,76 @@ def test_combined_ten_bore_trial_and_rejected_link_comparison():
     assert not rejected["integrated_nominal_cad_clear"]
 
 
-def test_viewer_geometry_uses_the_checked_working_pose():
-    parts, bores, ends = working_geometry()
+def test_active_geometry_prioritizes_the_post_bore_ligament():
+    parts, bores, ends = active_geometry()
+    assert ACTIVE_TRIAL.variant_id == "ligament_priority"
     assert len(bores) == 10
     assert parts["upright_side_cleat"].BoundingBox().ymax == -114.1
     assert parts["header_side_cleat"].BoundingBox().zmax == 344
     assert ends["post_cleat_2_left"][0][2] == 176
+    assert ends["post_rear_high"][0][2] == 190
+    assert ends["cleat_header_1_bottom"][0][:2] == (208.35, -130.5)
+    assert ends["cleat_header_2_bottom"][0][:2] == (236.0, -117.5)
     assert ends["link_rear"][0][2] == 370
+
+
+def test_active_geometry_identity_agrees_across_all_consumers():
+    parts, bores, ends = active_geometry()
+    owners = placement._owners()
+    placement_result = placement.table()
+    stack_result = stack_screen()
+    kinematics_result = kinematics_module.screen()
+    scene = build_scene()
+
+    assert {
+        probe()["variant_id"],
+        placement_result["variant_id"],
+        stack_result["variant_id"],
+        kinematics_result["variant_id"],
+        scene["pb02_variant_id"],
+    } == {ACTIVE_TRIAL.variant_id}
+    assert {
+        probe()["source_fingerprint"],
+        placement_result["source_fingerprint"],
+        stack_result["source_fingerprint"],
+        kinematics_result["source_fingerprint"],
+        scene["pb02_source_fingerprint"],
+    } == {scene["pb02_source_fingerprint"]}
+    assert len(scene["pb02_source_fingerprint"]) == 64
+    assert len(bores) == len(ends) // 2 == len(owners) == 10
+
+    rows = stack_result["scenarios"]["current_lengths"]["rows"]
+    viewer_axes = {
+        axis["name"]: axis for axis in scene["axes"] if axis["station"] == "PB02"
+    }
+    expected_centers = []
+    for bolt, pair in stack.PAIRS.items():
+        start, finish = (ends[end][0] for end in pair)
+        assert tuple(ends[end][2] for end in pair) == owners[bolt]
+        assert rows[bolt]["wood_grip_mm"] == pytest.approx(
+            sum(abs(a - b) for a, b in zip(start, finish, strict=True))
+        )
+        assert viewer_axes[bolt]["start_mm"] == list(start)
+        rendered_finish = [
+            start[i] + viewer_axes[bolt]["axis"][i] * viewer_axes[bolt]["length_mm"]
+            for i in range(3)
+        ]
+        assert rendered_finish == pytest.approx(finish)
+        expected_centers.append(tuple((a + b) / 2 for a, b in zip(start, finish)))
+
+    edge_centers = [
+        center
+        for edge in kinematics_module.current_edges().values()
+        for center in edge[3]
+    ]
+    assert sorted(edge_centers) == sorted(expected_centers)
+    block = parts["header_post_side_cleat"].BoundingBox()
+    viewer_block = next(
+        box for box in scene["boxes"] if box["name"] == "PB02 post/header block"
+    )
+    assert viewer_block["origin_mm"] == pytest.approx(
+        [block.xmin, block.ymin, block.zmin]
+    )
+    assert viewer_block["size_mm"] == pytest.approx(
+        [block.xlen, block.ylen, block.zlen]
+    )

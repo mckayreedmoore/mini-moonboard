@@ -18,7 +18,7 @@ in version history; they are not silently rewritten as the active pose.
 | Edge (members) | Face normal | Bolt-axis center(s) |
 | --- | --- | --- |
 | post–post block | X | (177.65, −145, 145), (177.65, −145, 176) |
-| post block–header | Z | (208.35, −130, 186), (235.85, −130, 186) |
+| post block–header | Z | (208.35, −130.5, 186), (236, −117.5, 186) |
 | header–principal block | Z | (15.475, −139, 291.45) |
 | principal block–right principal | X | (34.525, −95, 312.5) |
 | right principal–upright block | X | (114.45, −144.5, 356) |

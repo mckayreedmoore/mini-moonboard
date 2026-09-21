@@ -11,7 +11,7 @@ def result():
 
 
 def test_working_pose_changes_only_the_two_documented_grips(result):
-    assert result["source_commit"] == "e9e4e42"
+    assert result["variant_id"] == "ligament_priority"
     rows = result["scenarios"]["current_lengths"]["rows"]
     assert len(rows) == 10
     assert rows["header_cleat"]["wood_grip_mm"] == 105.1

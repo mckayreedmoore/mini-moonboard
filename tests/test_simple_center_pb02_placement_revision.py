@@ -9,6 +9,7 @@ def test_front_stagger_clears_target_reserves_and_keeps_nominal_fit():
     results = probe()
     selected = results["front_stagger"]
 
+    assert selected["variant_id"] == "front_stagger"
     assert selected["post_high_z_mm"] == 189
     assert selected["vertical_x_mm"] == (208.35, 236.0)
     assert selected["vertical_y_mm"] == (-130.5, -117.5)

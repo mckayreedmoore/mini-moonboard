@@ -13,6 +13,7 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     assert scene["status"] == "partial_development_visualization"
     assert scene["baseline"] == "compact-floor-flush-kerf-right"
     assert scene["fixed_panel_kicker_screw_axes"] == 66
+    assert scene["pb02_variant_id"] == "ligament_priority"
     blocks = {part["name"]: part for part in scene["boxes"]}
     assert blocks["PB01 short rail block"]["size_mm"] == [139.7, 57.15, 152.4]
     assert blocks["PB02 post/header block"]["size_mm"] == [88.9, 88.9, 143.9]
@@ -46,6 +47,9 @@ def test_v4_overlay_uses_current_short_blocks_and_ten_center_axes():
     }
     axes = {axis["name"]: axis for axis in scene["axes"] if axis["station"] == "PB02"}
     assert axes["post_cleat_2"]["start_mm"][2] == 176
+    assert axes["post_high"]["start_mm"][2] == 190
+    assert axes["cleat_header_1"]["start_mm"][:2] == [208.35, -130.5]
+    assert axes["cleat_header_2"]["start_mm"][:2] == [236.0, -117.5]
     assert axes["cleat_link"]["start_mm"][2] == 370
     assert axes["upright"]["start_mm"][1:] == [-144.5, 356]
     assert scene["fabrication_released"] is False
@@ -60,3 +64,4 @@ def test_viewer_scene_artifact_matches_producer():
     html = (root / "site/index.html").read_text()
     assert "DEVELOPMENT V4 · PB01/PB02 partial 3D scene" in html
     assert "fetch('v4-diagnostic-scene.json')" in html
+    assert "data.pb02_variant_id !== 'ligament_priority'" in html

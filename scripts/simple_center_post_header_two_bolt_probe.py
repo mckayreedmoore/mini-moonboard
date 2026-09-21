@@ -33,48 +33,55 @@ def _pair_hits(shapes):
     }
 
 
-def _candidate(config):
+def _candidate(config, geometry=None):
     bottom, post_y, post_z, vertical_x = config[:4]
     vertical_y = config[4] if len(config) == 5 else (-130, -130)
-    parts, bores, ends = prior._geometry()
-    block = cq.Solid.makeBox(
-        88.9, 88.9, 238.9 - bottom, cq.Vector(177.65, -175.7, bottom)
-    )
-    parts["header_post_side_cleat"] = block
+    parts, bores, ends = geometry if geometry is not None else prior._geometry()
+    block = parts.get("header_post_side_cleat")
+    if geometry is None:
+        block = cq.Solid.makeBox(
+            88.9, 88.9, 238.9 - bottom, cq.Vector(177.65, -175.7, bottom)
+        )
+        parts["header_post_side_cleat"] = block
     _, screws = frame._fixed_screws()
     # The two first axes are explicitly replaced and all ten bores rechecked.
-    for name in ("post_cleat", "cleat_header"):
-        bores.pop(name)
-    for name in (
-        "post_left",
-        "post_cleat_right",
-        "post_cleat_bottom",
-        "post_header_top",
-    ):
-        ends.pop(name)
+    if geometry is None:
+        for name in ("post_cleat", "cleat_header"):
+            bores.pop(name)
+        for name in (
+            "post_left",
+            "post_cleat_right",
+            "post_cleat_bottom",
+            "post_header_top",
+        ):
+            ends.pop(name)
 
-    for index, z in enumerate(post_z, 1):
-        name = f"post_cleat_{index}"
-        bores[name] = combined.cylinder(
-            wide.BORE_RADIUS, 177.8, (88.75, post_y, z), (1, 0, 0)
-        )
-        ends[f"{name}_left"] = ((88.75, post_y, z), (-1, 0, 0), "shifted_right_post")
-        ends[f"{name}_right"] = (
-            (266.55, post_y, z),
-            (1, 0, 0),
-            "header_post_side_cleat",
-        )
-    for index, (x, y) in enumerate(zip(vertical_x, vertical_y, strict=True), 1):
-        name = f"cleat_header_{index}"
-        bores[name] = combined.cylinder(
-            wide.BORE_RADIUS, 277 - bottom, (x, y, bottom), (0, 0, 1)
-        )
-        ends[f"{name}_bottom"] = (
-            (x, y, bottom),
-            (0, 0, -1),
-            "header_post_side_cleat",
-        )
-        ends[f"{name}_top"] = ((x, y, 277), (0, 0, 1), "base_header")
+        for index, z in enumerate(post_z, 1):
+            name = f"post_cleat_{index}"
+            bores[name] = combined.cylinder(
+                wide.BORE_RADIUS, 177.8, (88.75, post_y, z), (1, 0, 0)
+            )
+            ends[f"{name}_left"] = (
+                (88.75, post_y, z),
+                (-1, 0, 0),
+                "shifted_right_post",
+            )
+            ends[f"{name}_right"] = (
+                (266.55, post_y, z),
+                (1, 0, 0),
+                "header_post_side_cleat",
+            )
+        for index, (x, y) in enumerate(zip(vertical_x, vertical_y, strict=True), 1):
+            name = f"cleat_header_{index}"
+            bores[name] = combined.cylinder(
+                wide.BORE_RADIUS, 277 - bottom, (x, y, bottom), (0, 0, 1)
+            )
+            ends[f"{name}_bottom"] = (
+                (x, y, bottom),
+                (0, 0, -1),
+                "header_post_side_cleat",
+            )
+            ends[f"{name}_top"] = ((x, y, 277), (0, 0, 1), "base_header")
 
     intended = (
         combined.INTENDED
@@ -101,18 +108,6 @@ def _candidate(config):
     }
     insertion = {}
     insertion_pairs = {}
-    lengths = {
-        "post_cleat_1": 177.8,
-        "post_cleat_2": 177.8,
-        "cleat_header_1": 277 - bottom,
-        "cleat_header_2": 277 - bottom,
-        "header_cleat": prior.POSE.top_z - 238.9,
-        "cleat_principal": 109.05,
-        "post_low": 127,
-        "post_high": 127,
-        "upright": 127,
-        "cleat_link": 94.9,
-    }
     original_pairs = {
         "header_cleat": ("principal_header_bottom", "principal_cleat_top"),
         "cleat_principal": ("principal_cleat_left", "principal_right"),
@@ -134,6 +129,12 @@ def _candidate(config):
             for i in (1, 2)
         }
     )
+    lengths = {
+        bolt: sum(
+            abs(a - b) for a, b in zip(ends[pair[0]][0], ends[pair[1]][0], strict=True)
+        )
+        for bolt, pair in insertion_pairs.items()
+    }
     for bolt, pair in insertion_pairs.items():
         for end in pair:
             point, outward, _ = ends[end]

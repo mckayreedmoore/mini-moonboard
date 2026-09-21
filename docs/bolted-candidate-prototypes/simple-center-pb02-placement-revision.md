@@ -6,6 +6,16 @@ checks three bounded variants from committed pose `e9e4e42`. It changes only the
 The integrated side-cleat pose, post/header block, other seven bolt axes, and all
 66 panel/kicker screw axes remain fixed.
 
+`front_stagger` remains a viable conditional trial, but it is not the active
+pose. The active `ligament_priority` variant keeps the same header-pair stagger
+while restoring `post_high` to Z190. That preserves the larger 6.7 mm nominal
+orthogonal-bore surface ligament instead of spending 1 mm of it to clear a
+−0.55 mm residual after the separate 5 mm project allowance. One immutable
+candidate-local trial specification and one geometry builder feed the integrated
+CAD check, placement table, stack screen, connected kinematics, and V4 viewer.
+`working_reference`, `front_stagger`, and rejected `rear_stagger` remain named
+alternatives.
+
 ## Viable conditional co-design
 
 The `front_stagger` trial uses these bolt-axis coordinates in millimeters:

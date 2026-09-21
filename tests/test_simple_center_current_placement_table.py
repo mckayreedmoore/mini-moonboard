@@ -14,6 +14,7 @@ def _find(rows, bolt, member, feature):
 
 def test_current_inventory_includes_changed_and_inherited_bolts():
     result = table()
+    assert result["variant_id"] == "ligament_priority"
     assert result["bolt_count"] == 10
     assert {r["bolt"] for r in result["rows"]} == {
         "post_cleat_1",
@@ -56,17 +57,17 @@ def test_single_allowance_and_neighbor_classification():
     assert row["reserve_mm"] == 0.3  # 30.7 - 25.4 - 5, not minus 10.
 
     pair = _find(result["rows"], "cleat_header_1", "base_header", "cleat_header_2")
-    assert pair["nominal_distance_mm"] == 27.5
-    assert pair["reserve_mm"] == -2.9
+    assert pair["nominal_distance_mm"] == 30.5536
+    assert pair["reserve_mm"] == 0.1536
     unknown = _find(result["rows"], "upright", "base_principal_center_right", "y_low")
     assert unknown["marker_status"] == "unknown"
     assert unknown["reserve_mm"] is None
 
-    for bolt, member, other in (
-        ("post_high", "shifted_right_post", "post_cleat_2"),
-        ("upright", "upright_side_cleat", "cleat_link"),
+    for bolt, member, other, distance in (
+        ("post_high", "shifted_right_post", "post_cleat_2", 14.0),
+        ("upright", "upright_side_cleat", "cleat_link", 14.0),
     ):
         gap = _find(result["rows"], bolt, member, other)
         assert gap["kind"] == "orthogonal_neighbor"
-        assert gap["nominal_distance_mm"] == 10.0
+        assert gap["nominal_distance_mm"] == distance
         assert gap["marker_status"] == "unknown"

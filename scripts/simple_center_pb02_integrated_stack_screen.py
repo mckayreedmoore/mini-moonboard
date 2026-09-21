@@ -4,9 +4,12 @@ import json
 from unittest.mock import patch
 
 from scripts import simple_center_current_stack_tip_screen as stack
-from scripts import simple_center_pb02_integrated_trial as integrated
+from scripts.simple_center_pb02_geometry import (
+    ACTIVE_FINGERPRINT,
+    ACTIVE_TRIAL,
+    active_geometry,
+)
 
-SOURCE_COMMIT = "e9e4e42"
 TRIALS = {
     "current_lengths": {},
     "principal_pair_5_5in": {"header_cleat": 5.5, "cleat_principal": 5.5},
@@ -97,7 +100,7 @@ def _grips_mm(ends):
 def screen():
     """Apply the maintained sensitivity bounds to the checked ten-bore pose."""
     original_grips = _grips_mm(stack._geometry()[2])
-    geometry = integrated.working_geometry()
+    geometry = active_geometry()
     working_grips = _grips_mm(geometry[2])
     changes = {
         name: round(working_grips[name] - original_grips[name], 3)
@@ -127,8 +130,9 @@ def screen():
                 ],
             }
     return {
-        "source_commit": SOURCE_COMMIT,
-        "pose": "PB02 integrated Z370 working geometry; ten bores",
+        "variant_id": ACTIVE_TRIAL.variant_id,
+        "source_fingerprint": ACTIVE_FINGERPRINT,
+        "pose": "PB02 active front-stagger Z370 geometry; ten bores",
         "grip_changes_from_maintained_pose_mm": changes,
         "sensitivity_bounds": {
             "wood_grip_each_side_in": stack.GRIP_SENSITIVITY_IN,
