@@ -1,0 +1,45 @@
+{
+  "purpose": "replay seed only; do not run as part of archive verification",
+  "source_commit": "4c60e46",
+  "source_archive_sha256": "fc298a3a481437a5dc9f24c02bc9a234458074c2ffcba6753fe33875f4805546",
+  "report_sha256": "c10b2b2d1b979fe82ffc5bca31c60e374650610e4c44245e8e56431c7b0c4918",
+  "source_manifest_entries": 260,
+  "final_cycle": "cycle-13",
+  "case": "a12-left",
+  "variant": "quarter",
+  "contact_update_strategy": "all",
+  "initial_contact_names": null,
+  "max_cycles_cli_default": 30,
+  "trial_stiffness_n_per_mm": {
+    "bolt_axial": 1000.0,
+    "bolt_lateral": 1000.0,
+    "face_normal_total_per_interface": 1000.0
+  },
+  "solver_image": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+  "native_runner": "scripts.simple_pb01_hybrid_diagnostic_run",
+  "native_runner_arguments": [
+    "a12-left",
+    "--variant",
+    "quarter",
+    "--output",
+    "<new-output-directory>"
+  ],
+  "diagnostic_scope": {
+    "case": "a12-left",
+    "diagnostic_only": true,
+    "old_ml24z_sds_proxy_stations": 23,
+    "pb01_cleat_station": "clip_horizontal_lower_right_1",
+    "pb01_pose_variant": "quarter",
+    "pb01_nominal_trial_bolt_diameter_mm": 6.35,
+    "trial_stiffness_n_per_mm": {
+      "bolt_axial": 1000.0,
+      "bolt_lateral": 1000.0,
+      "face_normal_total_per_interface": 1000.0
+    },
+    "variant_native_difference": "trial_stack_mass_only; identical centers and spring stiffness",
+    "bore_diameter_changes_mesh": false,
+    "v4_same_case_demand": false,
+    "qualified_for_design": false,
+    "drilling_released": false
+  }
+}
