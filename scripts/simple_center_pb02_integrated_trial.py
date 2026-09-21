@@ -37,6 +37,34 @@ def working_geometry():
     return active_geometry()
 
 
+def _integrated_nominal_clear(result):
+    """Require every reported collision category in the nominal summary."""
+    side_checks = result.get("side_checks", {})
+    required_side_checks = {
+        "side_other_wood_hits_mm3",
+        "side_screw_hits_mm3",
+    }
+    return (
+        result["bore_count"] == 10
+        and result["all_66_fixed_axes_preserved"]
+        and all(result["inner_kicker_edges_supported"].values())
+        and result["parent_nominal_geometry"] == "feasible"
+        and result["all_20_washer_seats_full"]
+        and result["one_insertion_end_per_bolt_clear"]
+        and all(value == 1 for value in result["bore_received_fraction"].values())
+        and min(result["finite_shared_member_bore_ligaments_mm"].values()) > 0
+        and result["header_side_cleat_header_contact_area_mm2"] > 0
+        and all(
+            value > 0
+            for value in result["header_cleat_bore_reception_fraction"].values()
+        )
+        and round(sum(result["header_cleat_bore_reception_fraction"].values()), 8) == 1
+        and set(side_checks) == required_side_checks
+        and not any(side_checks["side_other_wood_hits_mm3"].values())
+        and not any(side_checks["side_screw_hits_mm3"].values())
+    )
+
+
 def probe(link_z=WORKING_LINK_Z):
     source_counts, source_screws = frame._fixed_screws()
     source_axes = {
@@ -94,6 +122,7 @@ def probe(link_z=WORKING_LINK_Z):
         "bore_received_fraction": fit["bore_received_fraction"],
         "washer_bearing_fraction": fit["washer_bearing_fraction"],
         "clear_insertion_ends_by_bolt": fit["clear_insertion_ends_by_bolt"],
+        "parent_nominal_geometry": fit["nominal_geometry"],
         "side_checks": side_checks,
         "full_center_collision_checks": fit["collision_checks"],
         "whole_center_classification_complete": False,
@@ -164,19 +193,7 @@ def probe(link_z=WORKING_LINK_Z):
         conditional_geometry_only=True,
         rating_or_drilling_release=False,
     )
-    result["integrated_nominal_cad_clear"] = (
-        result["bore_count"] == 10
-        and result["all_66_fixed_axes_preserved"]
-        and all(result["inner_kicker_edges_supported"].values())
-        and fit["nominal_geometry"] == "feasible"
-        and result["all_20_washer_seats_full"]
-        and result["one_insertion_end_per_bolt_clear"]
-        and all(value == 1 for value in result["bore_received_fraction"].values())
-        and min(finite_ligaments.values()) > 0
-        and contact_area > 0
-        and all(value > 0 for value in reception.values())
-        and round(sum(reception.values()), 8) == 1
-    )
+    result["integrated_nominal_cad_clear"] = _integrated_nominal_clear(result)
     return result
 
 

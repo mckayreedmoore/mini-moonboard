@@ -7,7 +7,11 @@ import argparse
 import json
 from collections import defaultdict
 
+import cadquery as cq
+
 from scripts import simple_center_combined_cleats_probe as combined
+from scripts import simple_center_post_header_two_bolt_probe as post_header
+from scripts import simple_center_second_bolt_tolerance_probe as prior
 from scripts import simple_center_wide_post_probe as wide
 
 DIAMETER_MM = 6.35
@@ -90,6 +94,41 @@ def _geometry():
         raise ValueError(
             "Center bore inventory changed; update placement classifications"
         )
+    return parts, bores, owners
+
+
+def historical_geometry():
+    """Rebuild the pre-consolidation pose for explicit historical comparisons."""
+    parts, bores, _ = prior._geometry()
+    bottom, post_y, post_z, vertical_x = post_header.VARIANTS["shorter_8in_trial"]
+    old = wide.bounds(parts["header_post_side_cleat"])
+    old_post_bore = wide.bounds(bores["post_cleat"])
+    old_vertical_bore = wide.bounds(bores["cleat_header"])
+    parts["header_post_side_cleat"] = cq.Solid.makeBox(
+        old[1] - old[0],
+        old[3] - old[2],
+        old[5] - bottom,
+        cq.Vector(old[0], old[2], bottom),
+    )
+    bores.pop("post_cleat")
+    bores.pop("cleat_header")
+    for index, z in enumerate(post_z, 1):
+        bores[f"post_cleat_{index}"] = combined.cylinder(
+            wide.BORE_RADIUS,
+            old_post_bore[1] - old_post_bore[0],
+            (old_post_bore[0], post_y, z),
+            (1, 0, 0),
+        )
+    for index, x in enumerate(vertical_x, 1):
+        bores[f"cleat_header_{index}"] = combined.cylinder(
+            wide.BORE_RADIUS,
+            old_vertical_bore[5] - bottom,
+            (x, (old_vertical_bore[2] + old_vertical_bore[3]) / 2, bottom),
+            (0, 0, 1),
+        )
+    owners = _owners()
+    if set(bores) != set(AXES) or set(bores) != set(owners):
+        raise ValueError("Historical center bore inventory changed")
     return parts, bores, owners
 
 

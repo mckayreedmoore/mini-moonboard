@@ -1,5 +1,7 @@
 """Pin the viable Z370 pose and the rejected Z390 comparison."""
 
+from copy import deepcopy
+
 import pytest
 
 from scripts import simple_center_connected_kinematics as kinematics_module
@@ -10,6 +12,7 @@ from scripts.simple_center_pb02_integrated_stack_screen import screen as stack_s
 from scripts.simple_center_pb02_integrated_trial import (
     ACTIVE_TRIAL,
     COMPARISON_LINK_Z,
+    _integrated_nominal_clear,
     active_geometry,
     probe,
 )
@@ -55,6 +58,10 @@ def test_combined_ten_bore_trial_and_rejected_link_comparison():
     assert result["header_side_cleat_header_contact_area_mm2"] > 0
     assert sum(result["header_cleat_bore_reception_fraction"].values()) == 1
     assert result["integrated_nominal_cad_clear"]
+    for category in ("side_other_wood_hits_mm3", "side_screw_hits_mm3"):
+        collision = deepcopy(result)
+        collision["side_checks"][category] = {"synthetic_collision": 1.0}
+        assert not _integrated_nominal_clear(collision)
     assert not result["whole_center_classification_complete"]
     assert not result["rating_or_drilling_release"]
 

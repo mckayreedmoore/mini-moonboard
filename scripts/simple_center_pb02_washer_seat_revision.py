@@ -43,9 +43,9 @@ def evaluate(trial: Trial):
         for name, solid in fixed_screws.items()
     }
 
-    def changed(parts, bores, ends, front_y, upright_y, upright_z):
+    def changed(parts, bores, ends, front_y, upright_y, upright_z, link_z=LINK_Z):
         parts, bores, ends = original_change(
-            parts, bores, ends, front_y, upright_y, upright_z
+            parts, bores, ends, front_y, upright_y, upright_z, link_z
         )
         if trial.side_bottom_z != 277:
             parts["upright_side_cleat"] = cq.Solid.makeBox(

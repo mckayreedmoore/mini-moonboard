@@ -12,8 +12,8 @@ DIAMETER = 2 * wide.BORE_RADIUS
 PAIRS = (("post_high", "post_cleat_2"), ("upright", "cleat_link"))
 
 
-def _sample(post_upper_z, link_z):
-    parts, bores, owners = placement._geometry()
+def _sample(post_upper_z, link_z, geometry):
+    parts, bores, owners = geometry()
     bores["post_cleat_2"] = combined.cylinder(
         wide.BORE_RADIUS, 177.8, (88.75, -145, post_upper_z), (1, 0, 0)
     )
@@ -96,11 +96,11 @@ def _sample(post_upper_z, link_z):
 
 def probe():
     samples = {
-        "current": _sample(180, 370),
-        "bounded_adjustment": _sample(176, 390),
+        "current": _sample(180, 370, placement.historical_geometry),
+        "bounded_adjustment": _sample(176, 390, placement.historical_geometry),
     }
     return {
-        "source_pose": "second_bolt_tolerance_pose + shorter_8in_trial",
+        "source_pose": "explicit pre-consolidation placement geometry",
         "wood_and_fixed_axis_geometry_unchanged": True,
         "samples": samples,
         "post_fixed_block_gap_cap_with_5mm_mm": round(
