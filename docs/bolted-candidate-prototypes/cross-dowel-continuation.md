@@ -29,6 +29,8 @@ Lowe's page gives 0.394 in OD and 0.630 in length. Neither retail page supplies
 a Hillman-controlled dimension drawing with end-to-thread-axis limits,
 complete internal-thread span, tolerances, steel grade, proof load, or joint
 resistance.
+Home Depot explicitly labels the model **Not Graded**; Lowe's generic
+**All-Purpose** field is not a strength classification for this barrel.
 
 The exact mating lead is [Everbilt 800676][bolt], Home Depot Internet
 204633308: 1/4-20 × 5 in, fully threaded, zinc-plated steel, listed as A307,
