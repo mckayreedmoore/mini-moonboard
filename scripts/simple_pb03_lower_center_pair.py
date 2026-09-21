@@ -256,7 +256,14 @@ def _bore_pair_hits(bores):
     return hits
 
 
-def _build_station(spec, parts, finished_parts, fixed_axes):
+def _build_station(
+    spec,
+    parts,
+    finished_parts,
+    fixed_axes,
+    *,
+    rail_n_offset_mm=RAIL_N_OFFSET_MM,
+):
     station = spec.station
     extension = spec.rail_extension_direction
     upright_name, rail_name = spec.upright_name, spec.rail_name
@@ -317,7 +324,7 @@ def _build_station(spec, parts, finished_parts, fixed_axes):
             )
         )
     for index, x_offset in enumerate(RAIL_X_OFFSETS_MM, 1):
-        n_center = n_front + RAIL_N_OFFSET_MM
+        n_center = n_front + rail_n_offset_mm
         y, z = pb01._yz(min(rail_t), n_center)
         x = rb.xmin + x_offset if extension == "right" else rb.xmax - x_offset
         specs.append(
@@ -441,6 +448,7 @@ def _build_station(spec, parts, finished_parts, fixed_axes):
         "butt_faces_coincident": math.isclose(rail_butt, butt, abs_tol=1e-6),
         "actual_member_names": [upright_name, rail_name],
         "source_rail_length_mm": rb.xlen,
+        "rail_bore_n_offset_mm": rail_n_offset_mm,
         "block_dimensions_mm": [BLOCK_X_MM, BLOCK_T_MM, BLOCK_LENGTH_MM],
         "contact_area_mm2": contact,
         "contact_verified": all(value > 0 for value in contact.values()),

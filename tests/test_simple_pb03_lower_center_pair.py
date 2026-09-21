@@ -98,6 +98,9 @@ def test_lower_outer_pair_uses_actual_kerf_right_members_and_unique_identities(
     bolts = [bolt for geometry in core_slice.values() for bolt in geometry.bolts]
     assert len({bolt.name for bolt in bolts}) == 16
     for geometry in (left, right):
+        assert geometry.report["rail_bore_n_offset_mm"] == pytest.approx(
+            pb03.RAIL_N_OFFSET_MM
+        )
         upright_bolts = [
             bolt for bolt in geometry.bolts if bolt.members[0] == geometry.upright_name
         ]
