@@ -36,6 +36,18 @@ and bearing under either footprint are **not modeled**. Both ordinary
 nominal stock sections require delivered dimensions, species/grade,
 straightness, and cut length (238.9 mm) to be checked before use.
 
+Ordinary-store 4×4 leads exist online: [Lowe's item 4023][lowes-4x4] lists
+Douglas fir, grade `#2 PREM`, and 3.5-in nominal *actual* width but also an
+industry minimum width of 3.437 in (about 87.3 mm). [Home Depot model
+279542][hd-4x4] lists Douglas fir No. 2 and 3.5-in actual width, with
+store-dependent product variation. Neither listing verifies local stock or
+the delivered member. A CAD edge reserve of only 0.30 mm cannot absorb
+the Lowe's published minimum-size difference; its exact 88.9-mm section
+must not be treated as a purchase tolerance or drilling dimension.
+
+[lowes-4x4]: https://www.lowes.com/pd/Lumber/3606730
+[hd-4x4]: https://www.homedepot.com/p/300874740
+
 The actual post/rear-cleat contact slice is 12,136.12 mm² in either pose.
 The backer remains X=−50.95…88.75, Y=−124.9…−36.0, supporting both inner
 kerf-right kicker edges without a positive-volume overlap. The unchanged
