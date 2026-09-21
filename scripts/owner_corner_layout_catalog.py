@@ -4,36 +4,30 @@ This catalog proves coverage only. A complete viewer still requires one
 collision-screened assembly, installed hardware, and explicit open gates.
 """
 
-from scripts import owner_layout_bottom_center_pair as bottom_center
-from scripts import owner_layout_center_header_four as center_header
-from scripts import owner_layout_outer_header_pair as outer_header
 from scripts import simple_owner_duty_ledger as ledger
-from scripts import simple_owner_outer_base_pair as outer_base
-from scripts import simple_pb09_owner_layout_screen as rail
-from scripts import simple_top_same_side_four as top
 
-FAMILIES = {
-    "rail_ten": rail.STATIONS,
-    "top_four": top.TARGET_STATIONS,
-    "bottom_center_pair": bottom_center.STATIONS,
-    "center_header_four": center_header.STATIONS,
-    "outer_header_pair": outer_header.STATIONS,
-    "outer_base_pair": outer_base.TARGETS,
+FAMILY_TO_PRODUCER = {
+    "top_outer": "top_four",
+    "top_center": "top_four",
+    "bottom_outer": "rail_ten",
+    "bottom_center": "bottom_center_pair",
+    "lower_outer": "rail_ten",
+    "lower_center": "rail_ten",
+    "upper_outer": "rail_ten",
+    "upper_center": "rail_ten",
+    "header_outer_post": "outer_header_pair",
+    "header_center": "center_header_four",
+    "base_center": "center_header_four",
+    "base_outer_side": "outer_base_pair",
 }
 
 
 def station_producers():
-    """Return one producer per duty, rejecting omissions and duplicates."""
-    producers = {}
-    for producer, stations in FAMILIES.items():
-        for station in stations:
-            if station in producers:
-                raise ValueError(f"Duplicate owner-layout duty: {station}")
-            producers[station] = producer
-    expected = set(ledger.selected_duties())
-    if set(producers) != expected:
-        raise ValueError(
-            f"Owner-layout duty mismatch: missing={sorted(expected - set(producers))}, "
-            f"unexpected={sorted(set(producers) - expected)}"
-        )
-    return producers
+    """Assign each authenticated duty to one intended geometry family."""
+    duties = ledger.selected_duties()
+    actual_families = {row["family"] for row in duties.values()}
+    if actual_families != set(FAMILY_TO_PRODUCER):
+        raise ValueError("Owner-layout duty families changed")
+    return {
+        station: FAMILY_TO_PRODUCER[row["family"]] for station, row in duties.items()
+    }
