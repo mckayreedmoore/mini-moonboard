@@ -216,6 +216,37 @@ def test_integrated_partial_thread_comparator_tracks_trial_overlap_without_quali
     )
 
 
+def test_barrel_insertion_bores_are_occupancy_envelopes_not_drill_sizes(
+    integrated_report,
+):
+    fit = integrated_report["barrel_bore_fit"]
+    assert fit["equal_body_and_bore_diameter_pairs"] == 46
+    assert fit["negative_nominal_diametral_clearance_pairs"] == []
+    assert fit["available_13_32in_bit_nominal_diameter_mm"] == pytest.approx(
+        10.3188, abs=0.0001
+    )
+    assert fit["maximum_modeled_insertion_bore_length_mm"] == pytest.approx(68.501)
+    assert len(fit["deepest_insertion_bores"]) == 4
+    assert all(
+        "clip_split_header_center_" in name for name in fit["deepest_insertion_bores"]
+    )
+    assert len(fit["13_32in_bit_nominal_diametral_difference_from_body_mm"]) == 46
+    assert all(
+        value == pytest.approx(0.3112, abs=0.0001)
+        for value in fit[
+            "13_32in_bit_nominal_diametral_difference_from_body_mm"
+        ].values()
+    )
+    assert all(
+        row["modeled_barrel_diametral_clearance_mm"] == 0
+        and row["barrel_insertion_bore_path"]
+        and row["barrel_insertion_bore_length_mm"] > 0
+        for row in integrated_report["rows"]
+    )
+    assert fit["drill_diameter_selected"] is False
+    assert fit["installed_insertion_fit_qualified"] is False
+
+
 def test_nominal_thread_overlap_clips_thread_segment_to_barrel_body():
     assert audit._thread_body_overlap(10, 20, 30, 10) == 0
     assert audit._thread_body_overlap(10, 20, 25, 19) == 10

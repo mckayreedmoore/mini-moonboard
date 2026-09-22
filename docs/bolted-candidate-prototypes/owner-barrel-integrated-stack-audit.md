@@ -31,6 +31,28 @@ the nominal classification “within bore” does not supply positive tip
 clearance. The shorter shafts retain their former bore depths; bore depth
 has not been redesigned or approved.
 
+### Barrel insertion holes are not yet drill sizes
+
+The [same live 46-pair audit](../../scripts/owner_barrel_installed_stack_audit.py)
+now measures each barrel body against its modeled insertion bore. All **46
+barrel bores have the same 10.0076 mm nominal diameter as the modeled barrel
+OD**: the viewer gives **zero nominal diametral insertion allowance**. Those
+solids are occupancy envelopes, not a press-fit or bit-size instruction. The
+deepest modeled insertion paths are the four center post/header blind bores,
+**68.501 mm** from their entries; the other path lengths are 27.051,
+57.3016 and 62.451 mm.
+
+For scale only, a 13/32-in bit is **10.31875 mm** nominal diameter, **0.31115 mm
+larger** than the modeled barrel body. [Home Depot lists a Drill America
+13/32-in general-purpose six-pack](https://www.homedepot.com/p/306050162)
+at $20.25 and catalogs 3.875 in of drilling depth, longer than the deepest
+modeled 68.501 mm bore. This is an ordinary-store **tool lead**, not a selected
+bit or tolerance: a delivered 880543 OD, actual drilled hole, wood condition,
+barrel retention, internal-thread alignment and the enlarged cut-wood
+sections must be measured and checked first. In particular, widening a bore
+can worsen the already thin center and outer-header wood margins. Do not
+drill from the CAD diameter or add this tool price to a qualified build bill.
+
 The four top-outer bolts belong to `clip_single_top_left_1` and
 `clip_single_top_right_2`, two per station. A **read-only**, source-solid
 2 mm extension of each existing 125.349 mm machine bore would give 127.349 mm

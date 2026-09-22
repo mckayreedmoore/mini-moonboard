@@ -72,7 +72,10 @@ marks a problem or unqualified fit, not a structural rating.
    single](https://www.homedepot.com/p/204633291) is an ordinary-store
    full-thread/A307 *listing*, and the [Hillman 880543 barrel](https://www.homedepot.com/p/202242356)
    is described as threaded through its sides. Neither listing supplies
-   controlled usable engagement or barrel resistance.
+   controlled usable engagement or barrel resistance. The
+   [insertion-bore audit](owner-barrel-integrated-stack-audit.md#barrel-insertion-holes-are-not-yet-drill-sizes)
+   also finds zero nominal barrel-to-bore diameter allowance in all 46 CAD
+   rows. No actual drill size or barrel fit is selected.
 
    A [combined read-only owner trial](../../scripts/owner_barrel_combined_owner_trial.py)
    now applies **both proposed changes together** to a detached copy of the

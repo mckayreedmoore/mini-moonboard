@@ -18,6 +18,7 @@ MM_TOL = 1e-4
 OUTER_RAIL_FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
 TRIAL_BORE_TIP_CLEARANCE_MM = 2.0
 PARTIAL_THREAD_COMPARATOR_MM = 19.05  # 3/4 in nominal male end thread
+THIRTEEN_THIRTYSECONDS_MM = 13 / 32 * 25.4  # available bit, not a drill selection
 
 
 def _rounded(value):
@@ -129,6 +130,22 @@ def _row(assembly, bolt_name):
     barrel_center = barrel.Center()
     reach_axis = (barrel_center - shaft_start).dot(direction)
     barrel_radius = barrel_od / 2
+    barrel_bore_names = [
+        name
+        for name in (
+            f"{barrel_name}/barrel_bore",
+            f"{barrel_name}/barrel_cross_bore",
+        )
+        if name in paths
+    ]
+    if len(barrel_bore_names) != 1:
+        raise ValueError(f"{barrel_name}: expected one barrel insertion bore")
+    barrel_bore_name = barrel_bore_names[0]
+    insertion_axis, insertion_length, insertion_od, _ = _cylinder(
+        paths[barrel_bore_name], barrel_bore_name
+    )
+    if abs(insertion_axis.dot(barrel_axis)) < 1 - MM_TOL:
+        raise ValueError(f"{barrel_name}: insertion bore and barrel axes differ")
     near_wall = reach_axis - barrel_radius
     far_wall = reach_axis + barrel_radius
     # Necessary axial overlap only; real thread runout and internal barrel
@@ -167,6 +184,10 @@ def _row(assembly, bolt_name):
         "barrel_body_center_xyz_mm": _xyz(barrel_center),
         "barrel_body_length_mm": _rounded(barrel_length),
         "barrel_body_od_mm": _rounded(barrel_od),
+        "barrel_insertion_bore_path": barrel_bore_name,
+        "barrel_insertion_bore_length_mm": _rounded(insertion_length),
+        "barrel_insertion_bore_od_mm": _rounded(insertion_od),
+        "modeled_barrel_diametral_clearance_mm": _rounded(insertion_od - barrel_od),
         "outer_rail_barrel_setback_from_nearest_end_mm": (
             _rounded(outer_rail_setback) if outer_rail_setback is not None else None
         ),
@@ -328,6 +349,42 @@ def build_report(assembly=None):
             "Zero overlap in this comparator is not a measured product verdict."
         ),
     }
+    deepest_insertion_mm = max(row["barrel_insertion_bore_length_mm"] for row in rows)
+    barrel_bore_fit = {
+        "source": "live barrel bodies and drilling-path cylinders",
+        "equal_body_and_bore_diameter_pairs": sum(
+            abs(row["modeled_barrel_diametral_clearance_mm"]) <= MM_TOL for row in rows
+        ),
+        "negative_nominal_diametral_clearance_pairs": [
+            row["bolt_name"]
+            for row in rows
+            if row["modeled_barrel_diametral_clearance_mm"] < -MM_TOL
+        ],
+        "maximum_modeled_insertion_bore_length_mm": deepest_insertion_mm,
+        "deepest_insertion_bores": [
+            row["barrel_insertion_bore_path"]
+            for row in rows
+            if row["barrel_insertion_bore_length_mm"] == deepest_insertion_mm
+        ],
+        "available_13_32in_bit_nominal_diameter_mm": _rounded(
+            THIRTEEN_THIRTYSECONDS_MM
+        ),
+        "13_32in_bit_nominal_diametral_difference_from_body_mm": {
+            row["bolt_name"]: _rounded(
+                THIRTEEN_THIRTYSECONDS_MM - row["barrel_body_od_mm"]
+            )
+            for row in rows
+        },
+        "drill_diameter_selected": False,
+        "installed_insertion_fit_qualified": False,
+        "limits": (
+            "Modeled equal diameters are occupancy envelopes, not a bit or "
+            "press-fit instruction. The 13/32-in bit is a catalog-size "
+            "comparator only. Delivered barrel OD, bit and cut-hole tolerance, "
+            "wood swelling, insertion/retention and enlarged-bore wood sections "
+            "must be checked before selecting a drilling diameter."
+        ),
+    }
     return {
         "schema": SCHEMA,
         "source": (
@@ -340,6 +397,7 @@ def build_report(assembly=None):
         "rows": rows,
         "family_axial_windows": _family_axial_windows(rows),
         "partial_thread_comparator": thread_comparator,
+        "barrel_bore_fit": barrel_bore_fit,
         "counts": {
             "short_of_assumed_barrel_axis": len(short),
             "beyond_modeled_machine_bore": len(overrun),
