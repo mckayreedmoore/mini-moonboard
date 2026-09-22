@@ -39,11 +39,16 @@ marks a problem or unqualified fit, not a structural rating.
 1. **Clear the two actual left center-rail bore/service crossings.** The
    lower-left and upper-left center-rail first machine bores intersect
    inherited service voids `_054` and `_055`, about 320.5 mm³ each in the
-   current cut scene. A first-row shift from N = 60 to N = 48 mm is a
-   **candidate-only proposal**, not a selected pose. Owner approval is needed
-   before changing these frame holes. Then the complete integrated cut,
-   protected-feature, hardware and timber-section screens must be rerun;
-   a zero-hit isolated trial would not suffice.
+   current cut scene. Read-only trials of the unchanged source-built assembly
+   move only these first rows: N = 48 mm removes the nominal overlap but
+   leaves just **1.120 mm** minimum modeled bore-to-service gap; N = 42 mm
+   leaves **6.641 mm** at each station and passes the isolated direct-geometry
+   screen. Both are **candidate-only proposals**, not selected poses. N = 42 mm
+   moves the axis toward the rail front edge, so its wood edge/end and
+   net-section checks remain open. Owner approval is needed before changing
+   these frame holes. Then rerun the complete integrated cut, protected-feature,
+   peer-hardware, tolerance and timber-section screens; a zero-hit isolated
+   trial would not suffice.
 2. **Close one delivered hardware stack by family.** The current 6-in
    outer-rail tips pass only 1.849 mm beyond the *assumed* Hillman 880543
    barrel center. Moving those barrels 2 mm toward the rail ends improves
@@ -99,7 +104,7 @@ purchase follows from the catalog subtotal.
 
 **Immediate owner decision requested:** may the candidate shift only the
 first bore/bolt row at each of the two left center-rail stations from N =
-60 to 48 mm, subject to a fresh integrated clearance and cut-section check?
+60 to **42 mm**, subject to a fresh integrated clearance and cut-section check?
 This would not move any panel, panel screw, retained frame bolt, or center
 post; it would not approve drilling or climbing. This sheet requests no other
 geometry change.
