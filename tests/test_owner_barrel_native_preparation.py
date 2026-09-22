@@ -39,6 +39,10 @@ def test_barrel_mass_envelopes_and_contact_normals_are_not_legacy_angles(module)
     assert sum(row["name"].startswith("clip_split_base_center_") for row in contacts) == 32
     assert all(row["conditional_only"] for row in contacts)
     for station, face in module.faces["stations"].items():
+        assert sum(
+            row["tributary_area_mm2"]
+            for row in contacts if row["station"] == station
+        ) == pytest.approx(face["trial_cut_contact_area_mm2"], abs=0.002)
         first = next(row for row in contacts if row["station"] == station)
         outward = face["normal_outward_from_first_xyz"]
         assert sum(a * b for a, b in zip(first["normal_xyz"], outward, strict=True)) == (

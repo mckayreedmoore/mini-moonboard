@@ -65,11 +65,13 @@ header face 10,828.845 of 11,930.617 gross mm² after its trial cuts. All
 24 remaining patches are one connected CAD face. Only the two horizontal
 single-bolt principal/header faces have exact **trial-cut cell** areas: the
 modeled contact strip behind each bolt line retains **588.180 mm²**, or
-11.63% of its 5,055.451 mm² cut face. The other 22 faces retain gross-cell
-weights because the general cutout-clipping method did not close reliably on
-an inclined face;
-their whole-face trial-cut areas are still reported separately. The current
-cut scene also contains known bore/service collisions, and
+11.63% of its 5,055.451 mm² cut face. The other 22 faces now distribute
+their measured total trial-cut area proportionally among the four gross cells;
+**their individual cut-cell areas are not exact** because the general
+cutout-clipping method did not close reliably on inclined faces. A gross-grid
+cell center falling in a bore is moved to a sampled point on surviving wood
+within that cell; this is a provisional spring location, not a contact law.
+The current cut scene also contains known bore/service collisions, and
 neither nominal cut area nor face continuity proves usable contact pressure,
 edge stock, wood strength, or a signed moment/twist path.
 

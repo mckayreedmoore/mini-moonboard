@@ -18,6 +18,7 @@ def test_all_integrated_joint_faces_and_bolt_crossings_are_source_bound(report):
     assert report["bolt_interface_count"] == 46
     assert report["trial_cut_face_count"] == 24
     assert report["trial_cut_cell_face_count"] == 2
+    assert 0 < report["adjusted_contact_point_count"] < 120
     assert report["fixed_panel_kicker_screw_count"] == 66
     assert report["retained_frame_bolt_count"] == 12
     assert report["contact_law_qualified"] is False
@@ -47,7 +48,7 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
         pytest.approx(10828.845, abs=0.01)
     )
     assert rows["clip_split_top_center_left"]["contact_cell_area_basis"] == (
-        "gross_uncut_face"
+        "proportional_trial_cut_face"
     )
     assert all(
         0 < row["trial_cut_contact_area_mm2"] < row["gross_contact_area_mm2"]
@@ -62,12 +63,7 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
         sum(cell["gross_tributary_area_mm2"] for cell in row["contact_cells"])
         == pytest.approx(row["gross_contact_area_mm2"], abs=0.002)
         and sum(cell["tributary_area_mm2"] for cell in row["contact_cells"])
-        == pytest.approx(
-            row["trial_cut_contact_area_mm2"]
-            if row["family"] == "base_center"
-            else row["gross_contact_area_mm2"],
-            abs=0.002,
-        )
+        == pytest.approx(row["trial_cut_contact_area_mm2"], abs=0.002)
         for row in rows.values()
     )
     assert all(
@@ -77,6 +73,23 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
     )
     assert len(rows["clip_split_base_center_left"]["bolt_face_crossings"]) == 1
     assert len(rows["clip_split_base_center_right"]["bolt_face_crossings"]) == 1
+
+
+def test_every_contact_cell_conserves_current_trial_cut_face_area(report):
+    """Native preparation must not apply gross pressure area to cut timber."""
+    assert report["trial_cut_cell_face_count"] == 2
+    for row in report["stations"].values():
+        assert row["contact_cell_area_basis"] in {
+            "exact_trial_cut_face",
+            "proportional_trial_cut_face",
+        }
+        assert all(
+            isinstance(cell["point_adjusted_from_gross_center"], bool)
+            for cell in row["contact_cells"]
+        )
+        assert sum(cell["tributary_area_mm2"] for cell in row["contact_cells"]) == (
+            pytest.approx(row["trial_cut_contact_area_mm2"], abs=0.002)
+        )
 
 
 def test_center_single_bolt_has_numerically_resolved_rear_contact_strip(report):

@@ -11,7 +11,7 @@ import cadquery as cq
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
-SCHEMA = "owner_barrel_native_face_contacts/v4"
+SCHEMA = "owner_barrel_native_face_contacts/v5"
 TOL_MM = 1e-3
 TOL_AREA_MM2 = 1e-2
 
@@ -35,7 +35,7 @@ def _touching_face(first, second, station):
 
 
 def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
-    """Resolve the center rear strip exactly; retain gross cells elsewhere."""
+    """Conserve cut-face area; resolve only the center rear strip exactly."""
     edges = [edge for edge in patch.Edges() if len(edge.Vertices()) == 2]
     if len(edges) != 4 or len(patch.Vertices()) != 4:
         raise ValueError(f"{station}: contact patch is not four-sided")
@@ -80,21 +80,46 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
             ]
             if patch.distance(cq.Vertex.makeVertex(*gross_point.toTuple())) > TOL_MM:
                 raise ValueError(f"{station}: gross cell left timber face")
-            cell_area = area / (u_count * v_count)
+            gross_cell_area = area / (u_count * v_count)
+            cell_area = gross_cell_area * cut_patch.Area() / area
             cell_point = gross_point
+            adjusted = False
+            if not refine_y:
+                # A gross-grid center can fall inside a bore. Keep the
+                # provisional spring on surviving wood within its own cell.
+                offsets = (0, -0.125, 0.125, -0.25, 0.25, -0.375, 0.375)
+                candidates = sorted(
+                    ((du, dv) for du in offsets for dv in offsets),
+                    key=lambda pair: pair[0] ** 2 + pair[1] ** 2,
+                )
+                for du, dv in candidates:
+                    point = point_at(
+                        (u_min + u_max) / 2 + du * (u_max - u_min),
+                        (v_min + v_max) / 2 + dv * (v_max - v_min),
+                    )
+                    if cut_patch.distance(
+                        cq.Vertex.makeVertex(*point.toTuple())
+                    ) <= TOL_MM:
+                        cell_point = point
+                        adjusted = du != 0 or dv != 0
+                        break
+                else:
+                    raise ValueError(
+                        f"{station}: no surviving contact point in cell {row},{column}"
+                    )
             if refine_y:
-                # The two horizontal principal/header faces preserve cutouts
-                # in exact coplanar intersections. Other faces remain gross
-                # until one cut-cell method closes on every orientation.
+                # Coplanar clipping closes on the two horizontal center
+                # interfaces. It does not close reliably on inclined faces.
                 cell_face = cq.Face.makeFromWires(
                     cq.Wire.makePolygon(corners, close=True)
                 )
                 cut_cell = cut_patch.intersect(cell_face)
                 cell_area = cut_cell.Area()
                 cell_point = cut_cell.Center()
+                adjusted = (cell_point - gross_point).Length > TOL_MM
                 if (
                     cell_area <= 0
-                    or cell_area > area / (u_count * v_count) + TOL_AREA_MM2
+                    or cell_area > gross_cell_area + TOL_AREA_MM2
                     or cut_patch.distance(cq.Vertex.makeVertex(*cell_point.toTuple()))
                     > TOL_MM
                 ):
@@ -107,11 +132,15 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
                     "gross_cell_center_xyz_mm": _xyz(gross_point),
                     "gross_tributary_area_mm2": round(area / (u_count * v_count), 6),
                     "tributary_area_mm2": round(cell_area, 6),
+                    "point_adjusted_from_gross_center": adjusted,
                 }
             )
-    target_area = cut_patch.Area() if refine_y else patch.Area()
+    target_area = cut_patch.Area()
     if not isclose(total_area, target_area, abs_tol=TOL_AREA_MM2):
-        raise ValueError(f"{station}: contact-cell areas do not close")
+        raise ValueError(
+            f"{station}: contact-cell areas do not close "
+            f"({total_area:.6f} versus {target_area:.6f} mm2)"
+        )
     return cells
 
 
@@ -252,7 +281,7 @@ def build_report(assembly=None):
             "contact_cell_area_basis": (
                 "exact_trial_cut_face"
                 if duty["family"] == "base_center"
-                else "gross_uncut_face"
+                else "proportional_trial_cut_face"
             ),
             "bolt_face_crossings": crossings,
             "gross_face_y_edge_margins_from_bolt_mm": center_margin,
@@ -270,6 +299,11 @@ def build_report(assembly=None):
             row["contact_cell_area_basis"] == "exact_trial_cut_face"
             for row in stations.values()
         ),
+        "adjusted_contact_point_count": sum(
+            cell["point_adjusted_from_gross_center"]
+            for row in stations.values()
+            for cell in row["contact_cells"]
+        ),
         "bolt_interface_count": sum(
             len(row["bolt_face_crossings"]) for row in stations.values()
         ),
@@ -277,17 +311,17 @@ def build_report(assembly=None):
         "retained_frame_bolt_count": len(assembly["frame_connections"]),
         "stations": stations,
         "limits": (
-            "Only the two horizontal principal/header faces have exact "
-            "trial-cut cell areas; other cells retain gross weights because "
-            "the general cutout-clipping method did not close on an inclined "
-            "face. This is "
-            "not a certified contact law. Current visual cutters include "
+            "All 24 faces conserve their total trial-cut area. Only the two "
+            "horizontal principal/header faces have exact cut-cell areas; "
+            "other cells distribute the cut area proportionally across gross "
+            "cells, not according to local holes. This is not a certified "
+            "contact law. Current visual cutters include "
             "unresolved bore/service "
             "collisions; neither gross nor cut face establishes delivered "
             "contact, gaps, preload, tolerances, moisture, partial opening, "
             "slip, stiffness, or resistance. The two single-"
             "bolt principal/header faces use 2x8 cells to resolve their narrow "
-            "rear strips; all other gross faces use 2x2 cells."
+            "rear strips; all other faces use 2x2 cells."
         ),
         "contact_law_qualified": False,
         "native_solve": False,

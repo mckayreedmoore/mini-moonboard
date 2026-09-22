@@ -52,8 +52,10 @@ ahead of this bolt and miss the narrow rear strip; the current geometry input
 uses 2×8 cells at each single-bolt center duty. Exact cut-face clipping shows
 **588.180 mm²** of face remaining behind each bolt line (11.63% of the cut
 face), and the 16 center cell areas sum to that trial-cut face. The other 22
-joints still use gross-cell weights. These are **geometric lever-arm and
-area bounds**, not moment resistance or stiffness. Cut-edge pressure,
+joints distribute measured cut-face area proportionally among four gross-grid
+cells; this is **not exact local hole clipping**. These are **geometric
+lever-arm and area bounds**, not moment resistance or stiffness. Cut-edge
+pressure,
 wood orientation, contact opening, barrel breakout, and signed demand must
 still be calculated before a two-way resisting couple can be claimed.
 

@@ -17,7 +17,7 @@ from scripts.compact_rail_study import bolt_properties
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.owner_barrel_native_face_contacts import build_report as face_report
 
-SOURCE_ID = "owner-barrel-integrated-native-preparation-v1"
+SOURCE_ID = "owner-barrel-integrated-native-preparation-v2"
 
 
 class BarrelBolt:

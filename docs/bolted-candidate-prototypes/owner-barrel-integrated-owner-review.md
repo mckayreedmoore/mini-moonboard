@@ -99,11 +99,14 @@ for just the nominal bolts and Hillman-shaped barrels was **$97.28** on
 22 September 2026. Adding one unqualified washer-pack comparator makes
 **$105.25**; a different size-only barrel/washer comparator is **$112.92**.
 These are neither a compatible 46-pair order nor a complete low/high range.
-They exclude qualified washers, the 12 retained frame-bolt stacks, lumber,
-owned or additional plywood, hold/LED/pad shortfalls, tools, delivery and
-tax. The [cost record](owner-barrel-integrated-cost.md) lists the exact
-retailer leads and the plywood measurement gate. No construction-hardware
-purchase follows from the catalog subtotal.
+The [cost record](owner-barrel-integrated-cost.md) now also prices a **$433.92
+full frame-and-face comparison basket**, including all counted frame sticks,
+two face sheets, 12 retained bolt stacks and 66 panel screws. That basket
+substitutes treated Southern pine and sheathing for the specified DF-L and
+Roseburg plywood, and some fasteners are not Grade 5. It is **not** a buildable
+bill, actual owner cash need, floor or ceiling. Hold/LED/pad shortfalls,
+tools, delivery and tax remain outside it. No construction-hardware purchase
+follows from either catalog subtotal.
 
 **Immediate owner decision requested:** may the candidate shift only the
 first bore/bolt row at each of the two left center-rail stations from N =
