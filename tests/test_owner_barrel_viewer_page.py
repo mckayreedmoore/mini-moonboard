@@ -20,6 +20,8 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     )[0]
     assert "owner-barrel-outer-header-cut-integrity.md" in barrel_documents
     assert "owner-barrel-rim-withdrawal-hardware-probe.md" in barrel_documents
+    assert "owner-barrel-native-connector-inventory.md" in barrel_documents
+    assert "Twelve outer-rail bolt shafts stop short" in page
     assert "owner-corner-viewer.md" not in barrel_documents
     overlay = (
         Path(__file__).resolve().parents[1] / "site/owner-barrel-overlay.mjs"

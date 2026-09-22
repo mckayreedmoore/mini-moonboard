@@ -63,6 +63,12 @@ The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)
 uses the current Y = −85 mm viewer as its source and compares Y = −75,
 −80, and −90 mm alternatives. The current pose has 24.600 mm between
 counterbores; it remains provisional and `REVISE`.
+The [source-bound connector inventory](owner-barrel-native-connector-inventory.md)
+finds that all 12 modeled 5 in shafts at the six bottom/lower/upper outer-rail
+stations stop about 33.551 mm before their provisional barrel-thread axis
+points. Those rows are not connected as drawn. A longer ordinary bolt is a
+research lead only; delivered thread span, bore depth, clearance, and complete
+joint resistance are still open.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.

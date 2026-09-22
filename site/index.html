@@ -570,6 +570,7 @@
               {label: 'Conditional outer-header recess geometry', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-recess-probe.md'},
               {label: 'Rim-first sequence limits', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-sequence-probe.md'},
               {label: 'Rim withdrawal with retained hardware', path: 'docs/bolted-candidate-prototypes/owner-barrel-rim-withdrawal-hardware-probe.md'},
+              {label: 'Connector inventory and rail bolt reach', path: 'docs/bolted-candidate-prototypes/owner-barrel-native-connector-inventory.md'},
               {label: 'Outer-header wood cut screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-cut-integrity.md'},
             ];
             const documents = model === 'bolted-v4-development' ? v4Documents :
@@ -600,7 +601,7 @@
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
-          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner-joint blocks; the green wood pieces are kicker-screw backers, not joint blocks. Orange head, gold washer and magenta wireframe recess are conditional outer-header trials, not cuts. Rims must be removed for driver access; actual sequence and strength unverified. Red means revise; all joints remain unqualified. Alt-click to inspect; no drilling release.' :
+          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner-joint blocks; the green wood pieces are kicker-screw backers, not joint blocks. Twelve outer-rail bolt shafts stop short of their provisional barrels. Orange head, gold washer and magenta wireframe recess are conditional outer-header trials, not cuts. Rims must be removed for driver access; actual sequence and strength unverified. Red means revise; all joints remain unqualified. Alt-click to inspect; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
@@ -770,7 +771,7 @@
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Barrel-only development concept — not structurally qualified or build-ready. No corner-joint blocks; green wood pieces are kicker-screw backers, not joint blocks. Red barrels and cyan bolt paths are diagnostic; orange heads, gold washers and magenta wireframe recesses show a conditional outer-header trial with its forward row at Y = −85 mm. Its driver remains blocked by each installed side rim: rim-first removal is required but not physically verified. Hardware fit, counterbore wood capacity and all 24 joints remain REVISE. Alt-click to inspect. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling or fabrication release.';
+            'Barrel-only development concept — not structurally qualified or build-ready. No corner-joint blocks; green wood pieces are kicker-screw backers, not joint blocks. Twelve outer-rail bolt shafts stop short of their provisional barrels. Red barrels and cyan bolt paths are diagnostic; orange heads, gold washers and magenta wireframe recesses show a conditional outer-header trial with its forward row at Y = −85 mm. Its driver remains blocked by each installed side rim: rim-first removal is required but not physically verified. Hardware fit, counterbore wood capacity and all 24 joints remain REVISE. Alt-click to inspect. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling or fabrication release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;
