@@ -48,6 +48,11 @@ a verified alignment, retention and removal method.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
+The [detached nominal cut-solid screen](owner-barrel-outer-header-cut-integrity.md)
+finds the header and outer posts remain single solids after the modeled
+recess/bores, but only 2.706 mm separates a post cut from a fixed kicker
+screw envelope. That small nominal gap is a `REVISE` finding, not clearance
+or wood-strength approval.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
