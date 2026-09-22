@@ -22,6 +22,9 @@ rear trial is not a selected substitute. The outer-base and outer-header
 families have six symmetric integrated clashes: each outer-base header
 bolt's shaft, head, and near washer intersect the neighboring outer-header
 block. The scene reports those intersections rather than hiding them.
+A later [detached compact forward trial](outer-header-forward-pose-trial.md)
+clears those stack clashes but still intersects the right kicker-10
+provisional hold path. It is **not** installed in this viewer or selected.
 
 The integrated cross-family screen currently checks block–block and
 block–generic-stack intersections only. It is **not** a complete screen of
