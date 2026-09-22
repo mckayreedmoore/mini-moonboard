@@ -153,8 +153,10 @@ def build_assembly(
             "Exactly rail10, center6, and outer_top8 producers are required"
         )
     source = variant(KERF_RIGHT) if source is None else source
-    if post_placement not in ("outward", "original"):
-        raise ValueError("Barrel post placement must be outward or original")
+    if post_placement not in ("outward", "original", "integrated"):
+        raise ValueError(
+            "Barrel post placement must be outward, original, or integrated"
+        )
     placement = (
         posts.build_layout()
         if placement is None and post_placement == "outward"
@@ -187,18 +189,43 @@ def build_assembly(
         raise ValueError("Kerf-right fixed and legacy connection inventory changed")
 
     wood = {part.name: part.shape for part in source.uncut_wood_parts()}
+    seam = None
+    if post_placement == "integrated":
+        seam = wood["kicker_left"].BoundingBox().xmax
+        if abs(seam - wood["kicker_right"].BoundingBox().xmin) > 1e-6:
+            raise ValueError("Kerf-right kicker seam changed")
     for side, sign in (("left", -1), ("right", 1)):
         name = f"base_post_center_{side}"
         if post_placement == "outward":
             wood[name] = wood[name].translate(
                 cq.Vector(placement["post_shift_x_mm"][side], 0, 0)
             )
-        center = (wood[name].BoundingBox().xmin + wood[name].BoundingBox().xmax) / 2
-        target = 180.0 if post_placement == "outward" else 70.0
-        if abs(center - sign * target) > 1e-6:
-            raise ValueError(
-                f"Expected ±{target:g} mm center-post pose changed: {name}"
+        elif post_placement == "integrated":
+            original = wood[name].BoundingBox()
+            if (
+                abs(original.xlen - 38.1) > 1e-6
+                or abs(original.ylen - 139.7) > 1e-6
+                or abs(original.zlen - 238.9) > 1e-6
+            ):
+                raise ValueError(f"{name}: original post section changed")
+            width, depth = 88.9, 139.7
+            x0 = seam - width if sign < 0 else seam
+            wood[name] = cq.Solid.makeBox(
+                width,
+                depth,
+                original.zlen,
+                cq.Vector(x0, original.ymax - depth, original.zmin),
             )
+        center = (wood[name].BoundingBox().xmin + wood[name].BoundingBox().xmax) / 2
+        target = (
+            sign * 180.0
+            if post_placement == "outward"
+            else sign * 70.0
+            if post_placement == "original"
+            else seam + sign * 44.45
+        )
+        if abs(center - target) > 1e-6:
+            raise ValueError(f"Expected center-post pose changed: {name}")
         if post_placement == "outward":
             x0, x1 = placement["backer_bounds_x_mm"][side]
             wood[f"inner_kicker_backer_{side}"] = cq.Solid.makeBox(
@@ -275,6 +302,8 @@ def build_assembly(
                 "approved ±180-mm posts and two kicker backers"
                 if post_placement == "outward"
                 else "original ±70-mm center posts and no added kicker backers"
+                if post_placement == "original"
+                else "two seam-side 88.9×139.7-mm posts receiving fixed kicker screws"
             )
             + "; drill paths are envelopes, not cuts"
         ),
@@ -296,6 +325,8 @@ def build_assembly(
                 "Backer structural attachment and complete changed-topology load path"
                 if post_placement == "outward"
                 else "Original-post kicker screw support and complete load path"
+                if post_placement == "original"
+                else "Seam-side post joints, kicker screw support and complete load path"
             ),
         ),
     }

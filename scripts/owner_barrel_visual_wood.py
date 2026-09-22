@@ -109,6 +109,12 @@ def build_visual_wood(*, assembly=None, placement=None):
     source_raw = {part.name: part.shape for part in source.uncut_wood_parts()}
     fixed_panels = {row.name: row for row in assembly["panel_connections"]}
     fixed_frame = {row.name: row for row in assembly["frame_connections"]}
+    pose = assembly["post_placement"]
+    receiver_map = dict(placement["panel_receiver_map"])
+    if pose == "integrated":
+        for row in fixed_panels.values():
+            if row.name.startswith("round_kicker_") and "_center_" in row.name:
+                receiver_map[row.name] = row.members[1]
     if (
         targets != EXPECTED_TIMBERS
         or len(duties) != 24
@@ -117,18 +123,29 @@ def build_visual_wood(*, assembly=None, placement=None):
         or set(assembly["removed_legacy_stations"]) != set(duties)
         or len(fixed_panels) != 66
         or len(fixed_frame) != 12
-        or set(placement["panel_receiver_map"]) != set(fixed_panels)
-        or assembly["post_placement"] != "outward"
+        or set(receiver_map) != set(fixed_panels)
+        or pose not in ("outward", "integrated")
         or any(assembly["release_flags"].values())
         or not targets <= set(assembly["wood"]) & set(source_raw)
     ):
-        raise ValueError("Active outward barrel visual-wood source changed")
+        raise ValueError("Active barrel visual-wood source changed")
     for name in targets:
         shifted = source_raw[name]
-        if name.startswith("base_post_center_"):
+        if name.startswith("base_post_center_") and pose == "outward":
             side = name.removeprefix("base_post_center_")
             shifted = shifted.translate(
                 cq.Vector(placement["post_shift_x_mm"][side], 0, 0)
+            )
+        if name.startswith("base_post_center_") and pose == "integrated":
+            post = assembly["wood"][name].BoundingBox()
+            seam = source_raw["kicker_left"].BoundingBox().xmax
+            side = name.removeprefix("base_post_center_")
+            x0 = seam - 88.9 if side == "left" else seam
+            shifted = cq.Solid.makeBox(
+                88.9,
+                139.7,
+                source_raw[name].BoundingBox().zlen,
+                cq.Vector(x0, source_raw[name].BoundingBox().ymax - 139.7, post.zmin),
             )
         if not _same_envelope(shifted, assembly["wood"][name]):
             raise ValueError(
@@ -167,7 +184,7 @@ def build_visual_wood(*, assembly=None, placement=None):
     panel_cuts = 0
     backer_landings = 0
     for row in fixed_panels.values():
-        receiver = placement["panel_receiver_map"][row.name]
+        receiver = receiver_map[row.name]
         if receiver in targets:
             # In the selected source the timber is the second member; no
             # screw-head cutter belongs in the timber receiver.
@@ -208,11 +225,13 @@ def build_visual_wood(*, assembly=None, placement=None):
                 add(member, "retained_frame", row.name, cutter)
                 frame_cuts += 1
 
+    expected_panel_cuts = 66 if pose == "integrated" else 62
+    expected_backer_landings = 0 if pose == "integrated" else 4
     if (service_count, additional_count, panel_cuts, backer_landings, frame_cuts) != (
         32,
         0,
-        62,
-        4,
+        expected_panel_cuts,
+        expected_backer_landings,
         8,
     ):
         raise ValueError("Current inherited cut inventory changed")
@@ -268,6 +287,11 @@ def build_visual_wood(*, assembly=None, placement=None):
             | {"total": sum(map(len, names.values()))},
             "cutter_names": names,
         }
+    landing_note = (
+        "integrated center posts. "
+        if pose == "integrated"
+        else "separate backers, outside these 16 replacements. "
+    )
     return {
         "wood": visual,
         "report": {
@@ -289,8 +313,9 @@ def build_visual_wood(*, assembly=None, placement=None):
             "trial_to_trial_intersections": trial_intersections,
             "release": False,
             "limits": (
-                "Detached visual wood only. The four moved kicker screw landings are on "
-                "separate backers, outside these 16 replacements. Only the 16 source-defined "
+                "Detached visual wood only. The four center kicker screw landings are on "
+                + landing_note
+                + "Only the 16 source-defined "
                 "outer-header trial paths are shown; other candidate barrel, machine-bolt, "
                 "washer-seat and counterbore cuts are omitted. Delivered hardware, "
                 "clearance, wood strength, load path, drilling and fabrication remain open."

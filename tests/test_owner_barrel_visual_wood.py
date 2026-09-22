@@ -1,5 +1,6 @@
 """Visual-only timber replacement for the outward-post barrel viewer."""
 
+import cadquery as cq
 import pytest
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
@@ -130,3 +131,30 @@ def test_outer_header_trial_bores_remain_after_fixed_cuts_with_overlap_report(vi
             )
     assert isinstance(result["report"]["trial_to_protected_cut_intersections"], list)
     assert isinstance(result["report"]["trial_to_trial_intersections"], list)
+
+
+def test_integrated_center_posts_receive_all_four_fixed_kicker_screw_cuts(visual):
+    assembly, _ = visual
+    wood = dict(assembly["wood"])
+    seam = wood["kicker_left"].BoundingBox().xmax
+    for side in ("left", "right"):
+        original = wood[f"base_post_center_{side}"].BoundingBox()
+        x0 = seam - 88.9 if side == "left" else seam
+        wood[f"base_post_center_{side}"] = cq.Solid.makeBox(
+            88.9,
+            139.7,
+            original.zlen,
+            cq.Vector(x0, original.ymax - 139.7, original.zmin),
+        )
+        wood.pop(f"inner_kicker_backer_{side}")
+    integrated = {**assembly, "wood": wood, "post_placement": "integrated"}
+    result = build_visual_wood(assembly=integrated)
+    report = result["report"]
+    assert report["fixed_panel_receiver_cuts_in_replacements"] == 66
+    assert report["fixed_panel_axes_landing_on_separate_backers"] == 0
+    for side in ("left", "right"):
+        assert (
+            report["per_member"][f"base_post_center_{side}"]["counts"]["fixed_panel"]
+            == 2
+        )
+    assert "integrated center posts" in report["limits"]
