@@ -137,8 +137,10 @@ def test_ordinary_nominal_length_sensitivity_at_22mm_seat(report):
                 assert bolt["embedded_nominal_shaft_uncontained_mm3"] == 0
 
 
-def test_listed_19mm_washer_is_separate_nominal_geometry_trial(report):
+def test_conflicted_19mm_listing_is_only_nominal_geometry_trial(report):
     lead = report["retail_washer_od_lead_19_05mm"]
+    assert lead["retail_dimensions_conflicted"]
+    assert "0.868-0.905-in OD" in lead["same_page_hillman_answer"]
     assert not lead["bearing_qualified"]
     assert not lead["delivered_dimensions_verified"]
     trial = lead["trial"]

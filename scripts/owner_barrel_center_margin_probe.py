@@ -403,7 +403,12 @@ def build():
         "bounded_full_bolt_tip_proof": _full_bolt_tip_bound(wood),
         "trials": trials,
         "retail_washer_od_lead_19_05mm": {
-            "listing": "Hillman 811070, Lowe's item 67343; listed 3/4-in OD and 1/16-in thickness",
+            "listing": "Hillman 811070, Lowe's item 67343; table lists 3/4-in OD and 1/16-in thickness",
+            "same_page_hillman_answer": (
+                "Hillman response reports 0.868-0.905-in OD, 0.370-0.390-in ID, "
+                "and 0.064-0.104-in thickness; conflicts with product table"
+            ),
+            "retail_dimensions_conflicted": True,
             "trial": retail_washer_trial,
             "bearing_qualified": False,
             "delivered_dimensions_verified": False,

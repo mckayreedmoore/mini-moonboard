@@ -96,18 +96,60 @@ identify nominal 1/4-20 × 4.5 in retail leads. The Lowe's listing says
 “Full Thread: No”; neither listing supplies a usable threaded-span limit
 for this barrel position. The 4.5 in nominal path also breaks out here,
 so neither listing qualifies a bolt for this pose. Retail availability of
-the 4.0 in candidate remains for separate verification.
+the 4.0 in candidate is addressed below.
 
-## Separate 3/4 in washer lead
+## Ordinary-store 4 in bolt leads and thread reach
+
+[Lowe's Hillman 883149](https://www.lowes.com/pd/3024614) is listed as
+1/4-20 × 4 in and “Full Thread: Yes.” The listing also calls it a tap bolt,
+but its generic overview mentions a smooth shoulder and its grade is only
+“All-purpose.” [Lowe's Hillman 811522](https://www.lowes.com/pd/1000381585)
+is listed as 1/4-20 × 4 in, A307, and “Full Thread: Yes,” while its overview
+explicitly describes a *partially* threaded shank. These contradictory
+retailer fields require inspection of the exact delivered product; neither
+listing establishes a controlled complete-thread span or bolt resistance.
+[Home Depot Everbilt 804302](https://www.homedepot.com/p/204283058) is a
+1/4-20 × 4 in *fully threaded machine-screw* lead with a combo round head;
+its head, grade, and strength have not been substituted into the hex-head
+CAD trial. It is not a selected equivalent.
+The common [Hillman 190052](https://www.lowes.com/pd/1000897808) and the
+listed [Grade 5 Hillman 200045](https://www.lowes.com/pd/5005390807)
+are both marked “Full Thread: No.” Grade 5 alone therefore does not make
+the modeled center connection usable.
+
+At the balanced 22 mm washer pose, the 4 in tip projects 33.849 mm past the
+assumed barrel thread axis. To place complete external threads all the way
+to the barrel's head-side outer surface, the full-thread span measured back
+from the bolt tip would need to reach **33.849 + 10.0076/2 = 38.853 mm**
+(1.530 in). With the separate 3/4 in washer lead below, the corresponding
+span is 38.917 mm. These are conservative nominal *reach* screens, not an
+engagement requirement or an allowance for tip chamfer, thread runout,
+barrel chamfer, misalignment, or tolerance. A “Full Thread: Yes” field does
+not quantify those features. A fully threaded candidate would also require
+thread-root shaft and wood-bearing checks; the 6.35 mm envelope here is
+only a collision solid.
+
+## Conflicted 3/4 in washer listing; CAD sensitivity only
 
 The [Lowe's Hillman 811070 listing](https://www.lowes.com/pd/3037537)
-states 3/4 in (19.05 mm) OD and 1/16 in (1.5875 mm) thickness. At that
-nominal washer envelope, balanced rows are Y = −161.942/−138.658 mm and
+states 3/4 in (19.05 mm) OD and 1/16 in (1.5875 mm) thickness. However,
+a [Hillman answer on that exact product page](https://www.lowes.com/questions/hillman-811070-flat-washers/3037537/8bdce6ec-9668-5e14-b743-a57321514d80)
+reports **0.868–0.905 in OD, 0.370–0.390 in ID, and 0.064–0.104 in
+thickness**. That conflicts with the table and gives an unexpectedly large
+hole for a nominal 1/4 in washer. Shared retailer Q&A may be mixing
+variants; the online evidence cannot establish which dimensions apply to
+delivered 811070 stock. Do not source or drill from the 19.05 mm claim.
+
+At the *listing-only* 19.05 mm OD envelope, balanced rows are
+Y = −161.942/−138.658 mm and
 each Y reserve is 4.233 mm. A separate 4.0 in nominal bolt trial contains
 all four embedded shaft and full bore paths, exceeds the provisional 10 mm
 axis overrun (33.913 mm), and has no reported protected, unrelated-wood,
-or other-row finite hit above 1 mm³. It is a washer geometry and sourcing
-lead, not a washer bearing check or delivered-part measurement.
+or other-row finite hit above 1 mm³. It is only a washer geometry
+sensitivity, not a verified retail fit, bearing check, or delivered-part
+measurement. The 22 and 23 mm OD trials above partially overlap Hillman's
+reported OD range but use a different trial thickness; they are not a
+substitute product qualification either.
 
 The 22–24 mm washer ODs remain trial envelopes, and none of the washer
 trials is bearing-qualified. The 8.001 mm barrel thread-axis offset,
