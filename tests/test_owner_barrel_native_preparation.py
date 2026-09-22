@@ -50,6 +50,24 @@ def test_barrel_mass_envelopes_and_contact_normals_are_not_legacy_angles(module)
         )
 
 
+def test_retained_right_rim_leg_bolts_and_face_cells_use_current_shared_face(module):
+    right_face_x = module.assembly["wood"]["base_side_right"].BoundingBox().xmax
+    for bolt in module.assembly["frame_connections"]:
+        if bolt.name.startswith("lumber_leg_bolt_right_"):
+            assert module.bolt_interface_point(bolt).x == pytest.approx(
+                right_face_x, abs=1e-6
+            )
+    rows = native.retained_face_contacts(module, stiffness_per_area=100.0)
+    right = [
+        row for row in rows
+        if row["first"] == "base_side_right"
+        and row["second"] == "lumber_leg_right"
+    ]
+    assert len(right) == 12
+    assert all(row["point_xyz_mm"][0] == pytest.approx(right_face_x, abs=1e-6)
+               for row in right)
+
+
 def test_one_signed_case_prepares_without_legacy_connectors(module):
     structure, metadata, summary = native.prepare_case("a12-rear", module=module)
     names = {row["name"] for row in structure.springs}

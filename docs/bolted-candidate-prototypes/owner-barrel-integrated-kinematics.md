@@ -2,10 +2,10 @@
 
 22 September 2026; [reproducible source](../../scripts/owner_barrel_integrated_kinematics.py).
 This screen reads the **maintained 46-pair, 24-duty integrated barrel assembly**
-and its current trial-cut face points. It changes no frame geometry. It is a
-conditional six-degree-of-freedom check of each timber pair in isolation,
-**not** a signed-case solve, load path acceptance, joint rating, or drilling
-release.
+and its current trial-cut face points. It changes no frame geometry. It gives
+conditional ranks for each timber pair and for the connected framing timbers.
+It is **not** a signed-case solve, load path acceptance, joint rating, or
+drilling release.
 
 Each joint treats its first timber as a coordinate reference. A modeled bolt
 contributes two ideal lateral point constraints; the optimistic engaged case
@@ -35,6 +35,39 @@ mode only in the closed-face linearization. A rank of six says merely that
 the specified ideal point constraints remove infinitesimal rigid motion.
 It says nothing about whether a real barrel engages, a face stays compressed,
 the cut wood survives, or the joint is stiff enough.
+
+## Connected framing sensitivity
+
+The source-built graph contains **20 framing timbers in one component**, joined
+by 46 barrel bolts and the 12 retained frame bolts. Its six plywood panels
+are excluded from this framing-only rank; **no structural panel-screw or floor
+support credit** is taken. The closed-face state adds 120 trial barrel-face
+points and 72 retained-bolt face points. The two right rim/leg retained points
+use the [corrected kerf-right shared face](../../scripts/owner_barrel_retained_interfaces.py)
+at X = 1216.025 mm, rather than the inherited official-width X = 1219.200 mm.
+Fixing the base header removes six coordinate-gauge motions; it is **not** a
+physical anchor. The remaining relative rigid-body model has 114 degrees of
+freedom.
+
+| Idealized state | Matrix rank / 114 | Free relative modes |
+| --- | ---: | ---: |
+| All 58 bolts carry axial and lateral point constraints; all faces open | **112** | 2 |
+| All 58 bolts full; all 192 face cells closed | **114** | 0 |
+| Barrel axial constraints omitted; retained bolts full; all faces closed | **114** | 0 |
+| Both single-bolt center faces open; all other barrel and retained faces closed; all bolts full | **114** | 0 |
+
+This says the present 20-timber *ideal point graph* has no disconnected frame
+member. It also has two relative infinitesimal modes when every wood face is
+open, even if all 58 bolts are optimistically engaged in three directions.
+The rest of the connected frame can kinematically remove the isolated center
+twist when **other** faces are assumed closed. That is an inference about
+constraint rank, not proof that signed loads keep those faces compressed or
+that their wood, bolts and barrels can carry the required reaction. Likewise,
+the lateral-only/closed-face full rank does **not** establish that barrel axial
+engagement is unnecessary. The retained-face points are inherited
+uncut-face quadrature, not a checked pressure field at every cut runner/leg
+interface. No signed loading, unilateral pressure, joint slip, member
+deformation or floor stability is solved here.
 
 The current [face inventory](owner-barrel-native-connector-inventory.md)
 contains 46 bolt crossings and 120 contact cells; only two faces have exact

@@ -9,15 +9,19 @@ from dataclasses import replace
 import cadquery as cq
 
 from fea.current_response_materials import connection_stiffnesses, materials
-from fea.floor_flush_run import face_contacts, taper_top_monitors
+from fea.floor_flush_run import taper_top_monitors
 from mini_moonboard.box_frame import Part
 from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy, prepare_diagnostic
 from scripts.clear_space_batch import CASES
 from scripts.compact_rail_study import bolt_properties
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.owner_barrel_native_face_contacts import build_report as face_report
+from scripts.owner_barrel_retained_interfaces import (
+    retained_contact_rows,
+    retained_interface_point,
+)
 
-SOURCE_ID = "owner-barrel-integrated-native-preparation-v2"
+SOURCE_ID = "owner-barrel-integrated-native-preparation-v3"
 
 
 class BarrelBolt:
@@ -176,8 +180,8 @@ class IntegratedBarrelNative(DiagnosticProxy):
         return self.assembly["panel_connections"]
 
     def bolt_interface_point(self, connection):
-        return self._bolt_face_points.get(connection.name) or self.baseline.bolt_interface_point(
-            connection
+        return self._bolt_face_points.get(connection.name) or retained_interface_point(
+            self.assembly, self.baseline, connection
         )
 
 
@@ -209,6 +213,15 @@ def member_contacts(module, *, stiffness_per_area):
     if len(rows) != 120 or len({row["name"] for row in rows}) != 120:
         raise ValueError("Current integrated contact cell inventory changed")
     return tuple(rows)
+
+
+def retained_face_contacts(module, *, stiffness_per_area):
+    """Keep baseline six face groups at the current kerf-right interfaces."""
+    return retained_contact_rows(
+        module.assembly,
+        module.baseline,
+        stiffness_per_area=stiffness_per_area,
+    )
 
 
 def prepare_case(case, *, module=None, barrel_axial_n_per_mm=1000.0,
@@ -248,11 +261,9 @@ def prepare_case(case, *, module=None, barrel_axial_n_per_mm=1000.0,
     barrel_contacts = member_contacts(
         module, stiffness_per_area=contact_n_per_mm2
     )
-    retained_contacts = face_contacts(
-        module.baseline, stiffness_per_area=contact_n_per_mm2
+    retained_contacts = retained_face_contacts(
+        module, stiffness_per_area=contact_n_per_mm2
     )
-    if len(retained_contacts) != 72:
-        raise ValueError("Retained frame-bolt face-contact inventory changed")
     structure, metadata = prepare_diagnostic(
         module,
         expected_candidate=module.KEY,

@@ -61,6 +61,37 @@ def test_two_row_header_has_conditional_closed_rank_but_open_mode(report):
         assert row["complete_joint_capacity_or_stiffness_claimed"] is False
 
 
+def test_connected_framing_sensitivity_uses_all_current_frame_links(report):
+    frame = report["connected_frame"]
+    assert frame["timber_count"] == 20
+    assert frame["barrel_bolt_count"] == 46
+    assert frame["retained_bolt_count"] == 12
+    assert frame["barrel_contact_cell_count"] == 120
+    assert frame["retained_contact_cell_count"] == 72
+    assert frame["contact_cell_count"] == 192
+    assert frame["graph_component_count"] == 1
+    assert frame["relative_dof_count"] == 114
+    assert frame["panel_screw_structural_credit"] is False
+    assert frame["floor_support_credit"] is False
+    ranks = frame["ranks"]
+    assert 0 <= ranks["all_bolts_full_all_faces_open"] <= ranks[
+        "all_bolts_full_all_faces_closed"
+    ] <= 114
+    assert 0 <= ranks["barrel_axial_off_all_faces_closed"] <= ranks[
+        "all_bolts_full_all_faces_closed"
+    ]
+    assert ranks["both_center_faces_open"] <= ranks[
+        "all_bolts_full_all_faces_closed"
+    ]
+    assert ranks == {
+        "all_bolts_full_all_faces_open": 112,
+        "all_bolts_full_all_faces_closed": 114,
+        "barrel_axial_off_all_faces_closed": 114,
+        "both_center_faces_open": 114,
+    }
+    assert frame["rank_stable_at_tolerance_1e_9_to_1e_7"] is True
+
+
 def test_point_jacobian_matches_a_small_rigid_motion():
     point = np.array((25.0, -40.0, 80.0))
     origin = np.array((-10.0, 15.0, 30.0))

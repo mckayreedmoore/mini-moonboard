@@ -96,6 +96,14 @@ source's ten other cut wood parts; this avoids placing a floor support spring
 on a removed leg-recess strip. The response preparer can suppress its baseline
 implicit header-bearing springs and classify a `clip_`-named barrel as a bolt.
 
+The [retained-interface correction](../../scripts/owner_barrel_retained_interfaces.py)
+keeps all twelve physical retained-bolt axes unchanged but places the two
+right rim/leg analytical interface points, and their retained contact cells,
+at the **current kerf-right shared face X = 1216.025 mm**. The inherited lookup
+returned X = 1219.200 mm, the official-width face, 3.175 mm outside this pair.
+The other ten inherited points are unchanged. This is an analysis input fix,
+not a moved hole, delivered-fit check or retained-bolt resistance verdict.
+
 All six unchanged signed cases prepared **without a native solve** on 22
 September 2026: `a12-rear`, `a12-forward`, `a12-left`, `k12-right`, `k12-rear`,
 and `a1-rear`. Each had 46 barrel pairs, 120 barrel-face cells and 72

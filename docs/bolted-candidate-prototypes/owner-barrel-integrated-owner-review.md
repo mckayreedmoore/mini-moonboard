@@ -66,8 +66,11 @@ marks a problem or unqualified fit, not a structural rating.
    and twist demands. The [24-duty local rank screen](owner-barrel-integrated-kinematics.md)
    retains a face-normal twist mode at both single-bolt center joints even
    with all modeled face cells closed. Every two-bolt duty reaches full *local*
-   rank only under a closed-face assumption; neither finding settles the
-   connected frame. The [cut-face screen](owner-barrel-integrated-preliminary.md)
+   rank only under a closed-face assumption. The same screen gives the
+   connected 20-timber framing a conditional 114/114 rank with every face
+   closed but 112/114 with all faces open; it does **not** decide which contacts
+   stay compressed in a signed case. The
+   [cut-face screen](owner-barrel-integrated-preliminary.md)
    finds only 588.180 mm² of modeled face behind each bolt line; that is
    geometry, not a capacity or verified compression path. The modeled header
    pocket leaves only 2.092 mm nominal edge stock. Outer-header counterbores
