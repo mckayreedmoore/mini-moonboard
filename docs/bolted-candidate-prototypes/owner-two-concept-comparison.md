@@ -24,6 +24,10 @@ all 24 blocks and 92 new bolt axes, but it is not a complete physical hardware
 screen. Its [viewer note](owner-corner-viewer.md) records protected
 light/wire/T-nut and access conflicts in the ten rail duties, bottom-center
 E1/G1 nut/tool conflicts, and outer-base/outer-header block–stack clashes.
+The bottom-center 77 mm pose has only a 0.213 mm lower-row interval under
+its provisional 40 mm tool and G1 path; a 1 mm extra end reserve removes
+that two-row option without a changed tool or topology. This is a bounded
+space check, not a universal strength or geometry impossibility.
 Its cross-family check omits several bore, stack, and tool interactions. The
 PB09 wire relief is an actual modeled cut only where its measured pre-cut
 wire overlap requires one; owner approval, feeding, net wood section, and

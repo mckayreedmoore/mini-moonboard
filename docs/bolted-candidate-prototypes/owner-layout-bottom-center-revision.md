@@ -79,6 +79,22 @@ principal-1 far tool reaches the E1 flange. These are real modeled
 intersections, not merely overlapping axis-aligned boxes, but their exact
 CAD volumes and any other feature hits were not retained by the test.
 
+An additional [necessary-space gate](../../scripts/owner_layout_bottom_center_revision.py)
+tests whether moving only the two right principal bolt rows within this
+77 × 57.15 × 139.7 mm block could clear the modeled G1 hold projection
+and 40 mm far-tool cylinder. It gives the washer the most favorable
+possible T position while just touching the block edge, retains the
+conditional 4D = 25.4 mm N end/row markers, and uses the recorded G1
+local N = [245.840968, 296.640968] mm path. The allowable *lower* N
+interval is only 0.213 mm wide; the upper interval is 17.113 mm wide,
+less than the 25.4 mm two-row pitch. Even 1 mm extra N end reserve
+eliminates a two-row solution under those assumptions. The favorable T
+pose itself has zero washer-edge reserve. Thus another minor row shift
+does not make this same tool/topology robust; a changed tool, receiver,
+block/interface, or joint topology needs a new source-bound screen.
+This is a provisional 2D necessary condition, not an absolute geometric
+impossibility or an NDS strength verdict.
+
 Disposition: **REVISE**, unselected and blocked as a viewer *joint pose*
 pending a new bottom-center concept. The front 77 mm pose solves the first
 block and missing-wood issues only; the installed tool/nut and provisional

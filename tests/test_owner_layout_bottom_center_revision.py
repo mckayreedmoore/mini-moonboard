@@ -64,3 +64,16 @@ def test_revision_checks_both_hosts_and_protected_solids(report):
         report["protected_3d_gates"]["delivered_hold_bolt_length"]["status"]
         == "UNVERIFIED"
     )
+
+
+def test_right_principal_tool_has_no_one_mm_reserve_two_row_pose():
+    gate = revision.principal_tool_reserve_gate()
+    assert gate["source_id"] == revision.SOURCE_ID
+    assert gate["assumed_tool_diameter_mm"] == 40.0
+    assert gate["max_separated_t_mm"] == pytest.approx(23.35)
+    assert gate["nominal_low_n_interval_width_mm"] == pytest.approx(0.212536, abs=1e-5)
+    assert gate["nominal_high_n_interval_width_mm"] == pytest.approx(
+        17.112536, abs=1e-5
+    )
+    assert gate["two_rows_with_1mm_extra_end_reserve"] is False
+    assert gate["disposition"] == "REVISE_TOOL_OR_TOPOLOGY"
