@@ -159,7 +159,13 @@ def report(source=None):
         for path, tip in tips.items()
     }
     moved_barrels = [name.removesuffix("_bolt") for name in moved]
-    moved_paths = {f"{name}/machine_bore" for name in moved_barrels}
+    moved_paths = {
+        path
+        for path in trial["drilling_paths"]
+        if path.rsplit("/", 1)[0] in moved_barrels
+    }
+    if len(moved_paths) != 4 or len(extended) != 4:
+        raise ValueError("Expected four moved and four extended drill paths")
     changed_paths = moved_paths | set(extended)
     changed_cut_intersections = {
         key: [
@@ -201,6 +207,8 @@ def report(source=None):
         "maintained_scene_changed": False,
         "source_wood_panel_frame_release_unchanged": unchanged,
         "moved_first_row_bolts": moved,
+        "moved_first_row_drilling_paths": sorted(moved_paths),
+        "changed_drilling_paths_checked": sorted(changed_paths),
         "first_row_trial_n_mm": 42.0,
         "extended_top_machine_bores": extended,
         "extension_mm": TOP_BORE_EXTENSION_MM,

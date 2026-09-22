@@ -3,11 +3,30 @@
 import pytest
 
 from scripts import owner_barrel_center_margin_options as options
+from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 
 
 @pytest.fixture(scope="module")
 def trial():
     return options.build()
+
+
+def test_same_x_second_rear_pocket_and_underside_head_are_not_simple_fits():
+    assembly = build_integrated_viewer_assembly()
+    header = assembly["wood"]["base_header"].BoundingBox()
+    principal = assembly["wood"]["base_principal_center_right"].BoundingBox()
+    post = assembly["wood"]["base_post_center_right"].BoundingBox()
+    x = (principal.xmin + principal.xmax) / 2
+    radius = options.HEAD_POCKET_DIAMETER_MM / 2
+    assert header.zlen == pytest.approx(38.1)
+    # Two disjoint equal circular pockets need center pitch >= diameter;
+    # the available center span after both header-edge radii is smaller.
+    assert header.zlen - 2 * radius < 2 * radius
+    assert x == pytest.approx(70.0)
+    assert post.xmin < x - radius and x + radius < post.xmax
+    assert post.ymin == pytest.approx(header.ymin)
+    assert post.ymax == pytest.approx(header.ymax)
+    assert post.zmax == pytest.approx(header.zmin)
 
 
 def test_source_bound_broad_face_pose_preserves_fixed_model_and_is_unreleased(trial):

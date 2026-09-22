@@ -81,7 +81,8 @@ marks a problem or unqualified fit, not a structural rating.
    now applies **both proposed changes together** to a detached copy of the
    full 46-pair assembly. The complete visual cut still represents all 46
    pairs, with no missing drill path, unexpected path host or intersection
-   involving the six changed bore paths and another protected/source cut.
+   involving all eight changed drill paths (including both shifted barrel
+   entry bores) and another protected/source cut.
    The four extra bore-tip segments stay within the modeled top rail and
    report no protected-feature or unrelated-wood hit above the 1 mm³ screen.
    Each top-outer shaft would have 2 mm nominal bore-tip clearance. This
@@ -120,6 +121,20 @@ marks a problem or unqualified fit, not a structural rating.
    barrel engagement, splitting and resistance have no acceptance basis.
    Local closed-face rank could improve, but that is not a strength or
    signed-case result.
+
+   Two seemingly simpler second-bolt directions also have immediate envelope
+   limits in the maintained wood. At the same principal X center, two
+   separate 21 mm rear-entry head pockets cannot both stay within the
+   38.1 mm-high header: after allowing one radius at each edge, their
+   centerlines can separate at most **17.1 mm**, less than the **21 mm**
+   needed to keep the pockets distinct. A vertical bolt driven upward from
+   the header underside at the principal center would put its head beneath
+   the seam-side center post: on the right, the post spans X = −1.5875 to
+   87.3125 mm and the bolt would sit at X = 70 mm; the post covers the same
+   header Y span and meets its underside. Neither observation rules out a
+   different head/driver envelope or a redesigned member, but it explains
+   why simply adding a second ordinary barrel bolt is not yet an integrated
+   center-joint solution.
 4. **Verify material and panel yield.** The proposed 25.4 mm F1–G1 LED
    passage in one principal clears the modeled center hardware, but a real
    prewired strand and connectors have not been fed through it. The modeled

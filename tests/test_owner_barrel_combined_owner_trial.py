@@ -34,6 +34,15 @@ def test_whole_assembly_trial_keeps_all_connections(trial_report):
     assert trial_report["source_wood_panel_frame_release_unchanged"] is True
     assert trial_report["first_row_trial_n_mm"] == 42.0
     assert trial_report["extension_mm"] == 2.0
+    assert len(trial_report["moved_first_row_drilling_paths"]) == 4
+    assert len(trial_report["changed_drilling_paths_checked"]) == 8
+    assert (
+        sum(
+            path.endswith("/barrel_bore")
+            for path in trial_report["changed_drilling_paths_checked"]
+        )
+        == 2
+    )
     assert len(trial_report["top_tip_clearance_mm"]) == 4
     assert set(trial_report["top_tip_clearance_mm"].values()) == {2.0}
 
