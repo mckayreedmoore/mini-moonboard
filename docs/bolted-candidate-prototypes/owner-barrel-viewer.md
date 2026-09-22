@@ -10,6 +10,10 @@ The original 66 panel/kicker screws and 12 frame bolts remain; both original-
 width center posts are shown at the owner-approved X = ±180 mm with two
 separate kicker screw backers. The backers are not structurally attached by
 this concept. The historical angle assembly remains the selected baseline.
+A detached [backer/header attachment screen](owner-barrel-backer-attachment-probe.md)
+shows four provisional bolt/barrel pairs with no nominal finite clashes, but
+its 3½ in trial bolt overextends the modeled barrel and does not establish
+fit, strength, assembly access, or attachment approval.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
 reviewed snapshot. Its published JSON is checked against the source-built
