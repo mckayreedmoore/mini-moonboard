@@ -33,10 +33,10 @@ integrated-layout demand or resistance result. New calculations may now
 inventory the integrated 24 stations, check exact bore/wood sections and
 conditional 2024 material inputs, and plan signed force cases. A positive
 CAD gap, constituent estimate, or old ML24Z force is not a proof load.
-The [current four-duty preliminary screen](owner-barrel-integrated-preliminary.md)
+The [current six-duty preliminary screen](owner-barrel-integrated-preliminary.md)
 now gives conditional washer/wood, net-slot and steel-only stiffness scales
-for the integrated rail, single-bolt principal/header, and both recessed
-outer-header/post joints. It is not a
+for the integrated rail, single-bolt principal/header, both center
+post/header duties, and both recessed outer-header/post joints. It is not a
 complete capacity or demand result.
 The current viewer now cuts all 46 barrel pairs into visual timber; it
 reveals two left rail machine-bore intersections with inherited service
