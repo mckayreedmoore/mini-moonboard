@@ -28,6 +28,26 @@ the detached 152.4 mm trial, and PB02's one-sided post move do not satisfy the
 new physical direction. Do not transfer their load results to the new layout.
 The historical bracket-only sequence also does not govern the current candidate.
 
+### Owner-review layout progress
+
+The owner approved original-width center posts at X = −180 and +180 mm for
+the *viewer concept*. Two separate kicker backers retain the four fixed
+center kicker-screw receivers; their frame attachment remains unqualified.
+The [center-header screen](bolted-candidate-prototypes/owner-layout-center-header-four.md)
+now models four direct, same-side duties in that pose with complete nominal
+bores and no modeled protected-solid hits. Several nominal reserves are below
+1 mm, so this is neither a tolerance approval nor a drilling release.
+
+The [duty catalog](../scripts/owner_corner_layout_catalog.py) assigns all 24
+selected bracket duties to six proposed geometry families. The
+[viewer inventory check](../scripts/simple_owner_duty_ledger.py) identifies
+the 24 old angles and 144 SDS visuals that a complete corner-block scene
+must replace while preserving the 66 panel/kicker screws and twelve frame
+bolts. This is coverage bookkeeping, not a completed assembly. Compact rail,
+bottom-center, and outer-base trial revisions are still being screened; the
+live V4 viewer still shows historical partial development geometry. Do not
+interpret it as the new all-block proposal.
+
 Status at `96f6892f`: **PB-02 ADVANCE for development only; PB06 has ten
 geometrically modeled stations but twelve legacy angle/SDS duties remain.
 G1 remains open; no cutting, drilling, fabrication, or structural release.** This plan
