@@ -42,6 +42,10 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.backer_head_washer_envelopes !== 0 ||
       data.backer_head_washer_envelopes?.length !== 0 ||
       data.backer_attachment?.status !== 'not_applicable_integrated_center_posts' ||
+      data.integrated_kicker_backing?.status !== 'geometric_receiver_and_post_header_path_only' ||
+      data.integrated_kicker_backing?.fixed_center_kicker_screw_count !== 4 ||
+      data.integrated_kicker_backing?.post_header_barrel_pair_count !== 4 ||
+      data.integrated_kicker_backing?.complete_backing_load_path_verified !== false ||
       data.integrated_center_joint_trial?.structural_capacity_verified !== false ||
       data.integrated_center_joint_trial?.nominal_geometry_disposition !== 'CANDIDATE_ONLY_UNVERIFIED' ||
       data.integrated_center_joint_trial?.candidate_service_diameter_mm !== 25.4 ||

@@ -1,7 +1,13 @@
-# Integrated center principal/header: ordinary retail leads
+# Historical two-row center principal/header: ordinary retail leads
+
+The maintained barrel viewer now uses one centered principal/header bolt per
+side, seam-side posts and no separate kicker backers. The 4½-in bolt and
+two-row geometry below belong to a superseded trial. For current geometry,
+see the [integrated viewer note](owner-barrel-viewer.md) and
+[current preliminary screen](owner-barrel-integrated-preliminary.md).
 
 Checked 22 September 2026, public US Lowe's/Home Depot pages only; no contact,
-cart, or purchase. The current [integrated replan](../../scripts/owner_barrel_center_post_joint_replan.py)
+cart, or purchase. The historical [two-row replan](../../scripts/owner_barrel_center_post_joint_replan.py)
 uses **one nominal 1/4-20 × 5 in and one × 4½ in bolt per side** (two of each),
 four Hillman-880543-shaped barrels, and four **19.05 mm OD trial washer** seats
 in angled header-rear recesses. These are model inputs, not a qualified stack.
@@ -44,7 +50,7 @@ barrel recess. Its shank-to-bore fit, blade-to-slot fit, ability to place the
 barrel at that depth, and withdrawal after alignment remain unverified. Do
 not infer complete insertion access from the modeled exterior tool envelope.
 
-The 50° trial is not yet the maintained viewer pose. Its nominal bolt-tip
+This two-row 50° trial is not the maintained viewer pose. Its nominal bolt-tip
 reach and wood margins need their own exact-stack check before replacing the
 figures above; no retailer page establishes female-thread span, lead-in,
 runout, stripping capacity, or delivered thread engagement.

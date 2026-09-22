@@ -37,11 +37,24 @@ defects, trimming and offcut allocations must be verified. Baseline full-stick
 allowance remains two 4×6×10 ft, two 4×6×8 ft, three 2×6×10 ft and six
 2×6×8 ft, all unpriced on an exact delivered-stock basis. The kerf-right
 kicker panels may need another plywood sheet/offcut after two 4×8 main-panel
-sheets; quantity and price remain open. Retained frame stacks, hold/LED/pad
+sheets; quantity and price remain open. The
+[Lowe's Roseburg sheet listing](https://www.lowes.com/pd/Roseburg-23-32-CAT-PS1-09-Square-Structural-Plywood-Douglas-Fir-Application-as-4-x-8/1000015973)
+shows an **actual width of 3.953 ft (47.436 in)**, while each
+[kerf-right blank](../floor-flush-construction-kerf-right/stock.csv)
+requires 1217.6125 mm (47.9375 in). If that listing describes the owned
+sheets, they are about **0.5015 in too narrow before cutting**. Roseburg's
+[AC sanded brochure](https://www.roseburg.com/wp-content/uploads/2026/03/SandedPlywood_Brochure.pdf)
+calls the product 4 × 8 ft but does not establish the owned sheet's actual
+width. This is a measurement gate, not a finding that the user's sheets are
+wrong; do not change fixed panel geometry to match an unmeasured listing.
+Retained frame stacks, hold/LED/pad
 shortfalls, finishing, tools, delivery, tax and labor are likewise outside
 the $97.28 subset.
 
 Do not quote $97.28 as an MVP total or treat these catalog leads as qualified
-hardware. A complete estimate requires an exact store/stock check and an
-accepted geometry/material package first; no drilling, fabrication or climbing
+hardware. A defensible complete low/high range is not available: exact
+store-specific timber, plywood, washer, retained-bolt and other item prices,
+quantities or fit remain open. A complete estimate requires an exact
+store/stock check and an accepted geometry/material package first; no
+drilling, fabrication or climbing
 is authorized by this cost screen.

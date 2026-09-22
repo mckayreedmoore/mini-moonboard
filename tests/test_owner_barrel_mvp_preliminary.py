@@ -20,7 +20,8 @@ class PreliminaryBarrelAssessmentTest(unittest.TestCase):
         self.assertAlmostEqual(
             header["rows"][0]["tip_past_barrel_far_wall_mm"], 18.8962, places=3
         )
-        self.assertEqual(header["rows"][0]["tip_to_bore_cap_mm"], 0)
+        # The later header-bore depth revision leaves nominal tip clearance.
+        self.assertEqual(header["rows"][0]["tip_to_bore_cap_mm"], 4)
         for joint in (rail, header):
             self.assertEqual(len(joint["rows"]), 2)
             self.assertAlmostEqual(joint["shaft_diameter_mm"], 6.35)

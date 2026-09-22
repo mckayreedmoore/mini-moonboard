@@ -92,9 +92,10 @@ preserve individual-member transport and check complete joints and costs.
 This scope approval does not select a connector or authorize cutting or
 drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.
-For this separate lane, the
-[simple-joints V4 plan](docs/bolted-candidate-simple-joints-v4.md) is the
-active G1 design sequence; the rated-hardware focus is retained as history.
+For this separate lane, the owner selected direct cross-dowel/barrel-nut
+connections as the current development approach; the
+[simple-joints V4 plan](docs/bolted-candidate-simple-joints-v4.md) and
+rated-hardware focus are retained as history.
 The selected-candidate stock/geometry constraints above remain binding only
 for selected-baseline changes. The bolted candidate must keep the fixed
 panel/screw policy and prove any new receiver/backer connections rather

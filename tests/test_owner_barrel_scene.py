@@ -48,6 +48,11 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert inventory["rail_head_washer_envelopes"] == 40
     assert inventory["other_head_washer_envelopes"] == 44
     assert inventory["backer_attachment_duties"] == 0
+    backing = scene["integrated_kicker_backing"]
+    assert backing["status"] == "geometric_receiver_and_post_header_path_only"
+    assert backing["fixed_center_kicker_screw_count"] == 4
+    assert backing["post_header_barrel_pair_count"] == 4
+    assert backing["complete_backing_load_path_verified"] is False
     assert inventory["backer_barrel_nut_envelopes"] == 0
     assert inventory["backer_diagnostic_bolt_axes"] == 0
     all_axes = scene["diagnostic_bolt_axes"] + scene["backer_diagnostic_bolt_axes"]

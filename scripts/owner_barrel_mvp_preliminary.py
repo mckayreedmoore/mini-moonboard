@@ -162,8 +162,10 @@ def _joint(assembly, duties, historical, station):
             "centered_7p5_vs_6p35_radial_clearance_mm": (bore_d - shaft_d) / 2,
             "complete_axial_or_lateral_joint_stiffness_n_per_mm": None,
         },
-        "historical_bracket_two_point_scale_only": _historical_scale(
-            station, spacing, historical
+        "historical_bracket_two_point_scale_only": (
+            _historical_scale(station, spacing, historical)
+            if historical is not None
+            else None
         ),
         "actual_barrel_joint_demand_n": None,
         "complete_joint_capacity_n": None,

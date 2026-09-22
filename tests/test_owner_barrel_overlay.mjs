@@ -56,6 +56,12 @@ const scene = {
   backer_diagnostic_bolt_axes: [],
   backer_head_washer_envelopes: [],
   backer_attachment: {status: 'not_applicable_integrated_center_posts'},
+  integrated_kicker_backing: {
+    status: 'geometric_receiver_and_post_header_path_only',
+    fixed_center_kicker_screw_count: 4,
+    post_header_barrel_pair_count: 4,
+    complete_backing_load_path_verified: false,
+  },
   integrated_center_joint_trial: {
     stations: Object.fromEntries(stations.slice(0, 4).map(name => [name, {}])),
     nominal_geometry_disposition: 'CANDIDATE_ONLY_UNVERIFIED',
@@ -106,6 +112,7 @@ const scene = {
 };
 
 assert.equal(validateOwnerBarrelScene(scene, hidden), scene);
+assert.throws(() => validateOwnerBarrelScene({...scene, integrated_kicker_backing: {...scene.integrated_kicker_backing, complete_backing_load_path_verified: true}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, structural_released: true}, hidden), /release boundary/);
 assert.throws(() => validateOwnerBarrelScene({...scene, solids: [...scene.solids, {role: 'joint_wood'}]}, hidden), /Barrel-only/);
 assert.throws(() => validateOwnerBarrelScene({...scene, station_dispositions: {}}, hidden), /24 duties/);

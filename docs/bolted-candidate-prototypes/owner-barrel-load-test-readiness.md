@@ -33,6 +33,10 @@ integrated-layout demand or resistance result. New calculations may now
 inventory the integrated 24 stations, check exact bore/wood sections and
 conditional 2024 material inputs, and plan signed force cases. A positive
 CAD gap, constituent estimate, or old ML24Z force is not a proof load.
+The [current two-joint preliminary screen](owner-barrel-integrated-preliminary.md)
+now gives conditional washer/wood, net-slot and steel-only stiffness scales
+for the integrated rail and single-bolt principal/header joints. It is not a
+complete capacity or demand result.
 
 These remain **exact current blockers**:
 
@@ -57,6 +61,11 @@ These remain **exact current blockers**:
   green stock. Delivered section, grade stamp, moisture, defects and usable
   offcuts are unknown. Nominal support at the kicker seam is not an as-built
   measurement.
+- The [integrated backing trace](../../scripts/owner_barrel_integrated_backing.py)
+  confirms four fixed purchased-length kicker screw axes enter the two posts
+  and shows two post/header barrel pairs per post. It does not establish the
+  screws' holding strength, post splitting, header transfer or an adequate
+  backing load path under panel actions.
 - The outer-header [recess](owner-barrel-outer-header-recess-probe.md) leaves
   only modeled residuals; its installed rim blocks the driver. The
   [rim-first sequence](owner-barrel-outer-header-sequence-probe.md) and
@@ -177,11 +186,14 @@ fabrication/structural/climbing release.
 
 ## Shortest path from this revision
 
-Resolve the inherited service-hole/barrel and driver/pocket conflicts first.
-Then freeze the integrated source and per-station stack list; obtain and measure
-one coherent hardware/wood lot; close its tolerance and service sequence;
-write a guarded, sacrificial two-row center-joint coupon plan and run
-exploratory tests. In parallel, calculate signed actions for the **new**
+Resolve the current single-center pocket edge, one-fastener moment path,
+barrel insertion and F1–G1 LED-feed questions first; the old 38.1 mm bore
+clash belongs to a superseded pose. Check the 6-in rail bolts' delivered
+thread engagement, and measure the owned plywood width against the kerf-right
+blank allowance. Then freeze the integrated source and per-station stack list;
+obtain and measure one coherent hardware/wood lot; close its tolerance and
+service sequence; write a guarded, sacrificial **single-center-joint** coupon
+plan and run exploratory tests. In parallel, calculate signed actions for the **new**
 24-station topology and close all joint/wood/floor paths. Only then set
 coupon proof values and a non-climbing full-frame protocol. Until these gates
 are met, preparation and preliminary calculations may continue, but physical

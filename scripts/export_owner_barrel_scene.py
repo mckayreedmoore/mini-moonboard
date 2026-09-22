@@ -6,6 +6,7 @@ from pathlib import Path
 
 from scripts import owner_barrel_backer_layout as backer
 from scripts import owner_barrel_center_layout as center
+from scripts import owner_barrel_integrated_backing as backing
 from scripts import owner_barrel_outer_top_layout as outer
 from scripts import owner_barrel_rail_layout as rail
 from scripts.owner_barrel_layout_assembly import build_assembly
@@ -395,6 +396,7 @@ def build_scene():
         "backer_diagnostic_bolt_axes": [],
         "backer_head_washer_envelopes": [],
         "backer_attachment": {"status": "not_applicable_integrated_center_posts"},
+        "integrated_kicker_backing": backing.report(assembly),
         "integrated_center_joint_trial": assembly["diagnostics"][
             "producer_diagnostics"
         ]["center6"]["revised_center"],

@@ -1,4 +1,10 @@
-# Bolted candidate: active V4 simple-timber-joint plan
+# Bolted candidate: historical V4 simple-timber-joint plan
+
+The owner subsequently selected the direct cross-dowel/barrel-nut concept
+for development. The [integrated barrel viewer](bolted-candidate-prototypes/owner-barrel-viewer.md)
+and its linked current calculations supersede this page's outward-post,
+separate-backer and 48-pair progress notes. This V4 plan remains historical
+evidence; it is not a cut or structural release.
 
 ## Owner-directed layout reset (2026-09-21)
 

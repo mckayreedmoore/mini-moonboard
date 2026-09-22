@@ -26,14 +26,16 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "provisional 25.4 mm F1–G1 LED passage" in page
     assert "single-bolt moment transfer" in page
     assert "actual thread engagement remains UNKNOWN" in page
+    assert "10 pairs have visible timber trial cuts and 36 remain overlays" in page
     assert "cut-derived header" in page
-    assert "no separate green backers remain" in page
+    assert "no separate backers remain" in page
     barrel_documents = page.split("const ownerBarrelDocuments = [", 1)[1].split(
         "];", 1
     )[0]
     assert "owner-barrel-outer-header-cut-integrity.md" in barrel_documents
     assert "owner-barrel-mvp-preliminary.md" in barrel_documents
     assert "owner-barrel-integrated-center-prelim.md" in barrel_documents
+    assert "owner-barrel-integrated-preliminary.md" in barrel_documents
     assert "owner-barrel-integrated-cost.md" in barrel_documents
     assert "owner-barrel-integrated-center-hardware.md" in barrel_documents
     assert "owner-barrel-load-test-readiness.md" in barrel_documents

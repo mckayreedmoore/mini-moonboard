@@ -268,7 +268,7 @@
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB04 center + PB05 outer scene', 'bolted-v4-development'));
       modelSelect.add(new Option('Corner-block layout · complete concept · NOT build-ready', 'owner-corner-layout'));
-      modelSelect.add(new Option('Barrel-nut trial · 24 joints · NOT build-ready', 'owner-barrel-layout'));
+      modelSelect.add(new Option('Barrel-nut layout · 24 duties · NOT build-ready', 'owner-barrel-layout'));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
       const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
@@ -292,7 +292,7 @@
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
-      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths. The centered one-barrel joint and smaller F1–G1 passage fit the nominal CAD screen, but strand feeding, moment transfer, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths; 10 pairs have visible timber trial cuts and 36 remain overlays against uncut wood. The centered one-barrel joint and smaller F1–G1 passage fit the nominal CAD screen, but strand feeding, moment transfer, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -581,14 +581,15 @@
               {label: 'Conditional outer-header recess geometry', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-recess-probe.md'},
               {label: 'Rim-first sequence limits', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-sequence-probe.md'},
               {label: 'Rim withdrawal with retained hardware', path: 'docs/bolted-candidate-prototypes/owner-barrel-rim-withdrawal-hardware-probe.md'},
-              {label: 'Connector inventory and rail bolt reach', path: 'docs/bolted-candidate-prototypes/owner-barrel-native-connector-inventory.md'},
-              {label: 'Installed bolt-stack audit', path: 'docs/bolted-candidate-prototypes/owner-barrel-installed-stack-audit.md'},
+              {label: 'Historical outward-post connector inventory', path: 'docs/bolted-candidate-prototypes/owner-barrel-native-connector-inventory.md'},
+              {label: 'Historical outward-post bolt-stack audit', path: 'docs/bolted-candidate-prototypes/owner-barrel-installed-stack-audit.md'},
               {label: 'Retail bolt/thread evidence — unverified fit', path: 'docs/bolted-candidate-prototypes/owner-barrel-retail-thread-evidence.md'},
-              {label: 'Integrated center hardware retail leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-hardware.md'},
+              {label: 'Historical two-row center hardware leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-hardware.md'},
               {label: 'Six-inch outer-rail setback', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-rail-setback-probe.md'},
               {label: 'Integrated center-post stock leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-center-post-retail.md'},
               {label: 'Outer-header wood cut screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-cut-integrity.md'},
-              {label: 'Integrated center joint preliminary components — no structural release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-prelim.md'},
+              {label: 'Current integrated rail and center numerical screen — no structural release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-preliminary.md'},
+              {label: 'Historical two-row center preliminary components', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-prelim.md'},
               {label: 'Historical outward-post two-joint screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-mvp-preliminary.md'},
               {label: 'Integrated partial retail cost — no purchase release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-cost.md'},
               {label: 'Load-test readiness — no climbing release', path: 'docs/bolted-candidate-prototypes/owner-barrel-load-test-readiness.md'},
@@ -623,7 +624,7 @@
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
-          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. The wood-colored seam-side center posts now receive the four fixed kicker screws; no separate green backers remain. The cut-derived header shows four shallow outer-header seats and bores. The magenta wireframes still mark trial counterbores. Center-joint tolerances, rim-first service and net-section strength remain unverified. Alt-click to inspect; no drilling release.' :
+          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. The seam-side center posts receive four fixed kicker screws; no separate backers remain. Ten barrel pairs have visible timber trial cuts, including the cut-derived header; 36 remain overlays against uncut wood. Center-joint tolerances, rim-first service and wood strength remain unverified. Alt-click to inspect; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
@@ -787,7 +788,7 @@
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '408a6f0d5605434cf298069b51a44943acac680d08334a4dc1fc9e640a81f6ab') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== 'de38c74f82fff58d3533d435ac3e13b8a16e47fadf8d4a5ea209ddfd44b0a76b') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);

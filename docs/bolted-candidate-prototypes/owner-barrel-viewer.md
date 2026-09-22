@@ -10,6 +10,11 @@ panel/kicker screws and 12 frame bolts retain their axes. The scene hides the
 bolt paths with 46 provisional Hillman 880543-shaped barrel envelopes. No
 corner-block or separate-backer solids remain. The historical angle assembly
 remains the selected baseline, not a release for this candidate.
+The [integrated backing trace](../../scripts/owner_barrel_integrated_backing.py)
+ties those four purchased-length kicker screws to the two widened posts and
+each post to two modeled post/header barrel pairs. This closes the *geometric*
+receiver inventory, not screw holding capacity, post/header resistance,
+or the complete backing load path.
 The modeled post section is **not** a verified delivered 4×6 size: the
 [ordinary retail leads](owner-barrel-center-post-retail.md) list green
 approximately 90.5 × 142.9 mm stock, and local price, grade stamp, moisture,
@@ -109,6 +114,9 @@ heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
 The earlier two-row center [conditional numerical screen](owner-barrel-integrated-center-prelim.md)
 is historical component sensitivity, not a rating for the single-row joint.
+The [current integrated two-joint screen](owner-barrel-integrated-preliminary.md)
+reports conditional rail and single-center component numbers without
+claiming complete joint resistance or new-topology demand.
 The [current retail hardware leads](owner-barrel-integrated-center-hardware.md),
 [partial cost](owner-barrel-integrated-cost.md), and
 [load-test readiness gates](owner-barrel-load-test-readiness.md) are separate:
