@@ -28,6 +28,27 @@ controlled tip/runout or barrel-thread tolerance. The separate
 these newly angled center paths. Neither A307 nor “All-purpose” assigns the
 barrel a grade or supplies complete-joint capacity.
 
+## Installation evidence for the 50° detached trial
+
+[Lowe's exact 880543 listing](https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559)
+says to place the nut in a predrilled wood hole and align its threaded opening
+with the bolt hole using a flat-head screwdriver. The same Lowe's description
+says the threaded portion passes through the barrel's sides;
+[Home Depot lists the exact model](https://www.homedepot.com/p/202242356).
+This supports an ordinary orientation method and a possible opposite-side
+thread exit, but is
+not a controlled section drawing or usable-thread specification. The
+[Klein 601-4 product sheet](https://data.kleintools.com/sites/all/product_assets/documents/brochures/klein/kleintools_datasheet_6014.pdf)
+lists a 4 in shank, longer than the detached 50° trial's approximately 41 mm
+barrel recess. Its shank-to-bore fit, blade-to-slot fit, ability to place the
+barrel at that depth, and withdrawal after alignment remain unverified. Do
+not infer complete insertion access from the modeled exterior tool envelope.
+
+The 50° trial is not yet the maintained viewer pose. Its nominal bolt-tip
+reach and wood margins need their own exact-stack check before replacing the
+figures above; no retailer page establishes female-thread span, lead-in,
+runout, stripping capacity, or delivered thread engagement.
+
 ## Washer leads within 19.05 mm nominal OD
 
 - [Lowe's Hillman 490687, item 58124](https://www.lowes.com/pd/Hillman-1-4-in-Zinc-plated-Standard-Flat-Washer-16-Count/3035987): **$1.98/16**; listed 1/4 in ID, **5/8 in (15.875 mm) OD**, 1/16 in thick. Smaller seat/bearing area than modeled; shipping shown, pickup unavailable in default context.
