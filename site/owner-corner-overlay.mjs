@@ -44,8 +44,21 @@ export function renderOwnerCornerScene(THREE, data, group, meshes) {
   const diagnostics = data.assembly_diagnostics;
   const family = diagnostics.station_family;
   const local = diagnostics.local_dispositions;
+  const clashStations = new Set();
+  for (const pair of Object.keys(diagnostics.cross_family_hits_mm3)) {
+    for (const part of pair.split('|')) {
+      if (part.startsWith('block/')) clashStations.add(part.slice('block/'.length));
+      if (part.startsWith('bolt/')) {
+        const boltName = part.slice('bolt/'.length).split('/')[0];
+        clashStations.add(diagnostics.bolt_station[boltName]);
+      }
+    }
+  }
   for (const row of data.solids) {
-    const revise = row.role === 'corner_block' && local[family[row.source_station]]?.startsWith('REVISE');
+    const revise = row.role === 'corner_block' && (
+      local[family[row.source_station]]?.startsWith('REVISE') ||
+      clashStations.has(row.source_station)
+    );
     const color = row.role === 'moved_center_post' ? 0x38bdf8 :
       row.role === 'kicker_screw_backer' ? 0x4ade80 : revise ? 0xf87171 : 0xf0b429;
     const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
