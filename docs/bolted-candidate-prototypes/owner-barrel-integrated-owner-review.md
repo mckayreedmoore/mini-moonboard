@@ -63,7 +63,11 @@ marks a problem or unqualified fit, not a structural rating.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
-   and twist demands. The [cut-face screen](owner-barrel-integrated-preliminary.md)
+   and twist demands. The [24-duty local rank screen](owner-barrel-integrated-kinematics.md)
+   retains a face-normal twist mode at both single-bolt center joints even
+   with all modeled face cells closed. Every two-bolt duty reaches full *local*
+   rank only under a closed-face assumption; neither finding settles the
+   connected frame. The [cut-face screen](owner-barrel-integrated-preliminary.md)
    finds only 588.180 mm² of modeled face behind each bolt line; that is
    geometry, not a capacity or verified compression path. The modeled header
    pocket leaves only 2.092 mm nominal edge stock. Outer-header counterbores
