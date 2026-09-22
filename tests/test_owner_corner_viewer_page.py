@@ -20,7 +20,7 @@ def test_owner_corner_viewer_has_pinned_full_scene():
     assert f"'{hashlib.sha256(scene_bytes).hexdigest()}'" in html
     assert "'owner-corner-layout'" in html
     assert "fetch('owner-corner-layout-scene.json')" in html
-    assert "validateOwnerCornerScene(JSON.parse(raw), ownerCornerHiddenNames)" in html
+    assert "validateOwnerCornerScene(JSON.parse(raw), ownerConceptHiddenNames)" in html
     assert "renderOwnerCornerScene(THREE, data, climberView, meshes)" in html
     assert "Complete layout concept — not structurally qualified or build-ready" in html
     assert scene["drilling_released"] is False

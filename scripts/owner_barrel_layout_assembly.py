@@ -195,7 +195,7 @@ def build_assembly(producers=None, *, source=None, placement=None):
             cq.Vector(x0, posts.BACKER_REAR_Y_MM, 0),
         )
 
-    bolts, barrels, stacks, drilling, access, blocks = {}, {}, {}, {}, {}, {}
+    bolts, barrels, stacks, drilling, access = {}, {}, {}, {}, {}
     replacement_solids, station_modes, station_dispositions = {}, {}, {}
     bolt_station, barrel_station = {}, {}
     station_family, producer_diagnostics = {}, {}
@@ -210,14 +210,10 @@ def build_assembly(producers=None, *, source=None, placement=None):
         for station, row in rows.items():
             mode = row["mode"]
             block = row.get("compact_alternate_block")
-            if mode not in ("direct", "mixed"):
-                raise ValueError(f"{station}: mode must be direct or mixed")
-            if mode == "direct" and block is not None:
-                raise ValueError(f"{station}: direct station contains a block")
-            if mode == "mixed" and block is None:
-                raise ValueError(
-                    f"{station}: mixed station lacks explicit compact block"
-                )
+            if mode != "direct":
+                raise ValueError(f"{station}: barrel-only direct mode required")
+            if block is not None:
+                raise ValueError(f"{station}: barrel-only station contains a block")
             if abs(row["axis_offset_mm"] - provisional_offset) > 1e-6:
                 raise ValueError(
                     f"{station}: barrel axis must use provisional 8.001 mm pose"
@@ -235,13 +231,9 @@ def build_assembly(producers=None, *, source=None, placement=None):
             station_modes[station], station_family[station] = mode, family
             station_dispositions[station] = disposition
             replacement_solids[station] = (
-                *((block,) if block is not None else ()),
                 *row_barrels.values(),
                 *(solid for roles in row_stacks.values() for solid in roles.values()),
             )
-            if block is not None:
-                blocks[station] = block
-                physical[f"block/{station}"] = (family, block)
             _add_unique(bolts, row_bolts, "bolt")
             _add_unique(barrels, row_barrels, "barrel")
             bolt_station.update({name: station for name in row_bolts})
@@ -287,7 +279,6 @@ def build_assembly(producers=None, *, source=None, placement=None):
     }
     return {
         "wood": wood,
-        "blocks": blocks,
         "replacement_solids": replacement_solids,
         "barrels": barrels,
         "barrel_solids": barrels,

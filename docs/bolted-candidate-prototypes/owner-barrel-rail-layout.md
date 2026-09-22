@@ -20,12 +20,10 @@ Generic bolt, barrel, bolt-drive, and barrel-insertion/access solids are
 exposed by `build_geometry()`. The `build_layout(wood)` assembly adapter uses
 the caller's exact owner-frame wood pose and returns named bolt axes, barrel
 solids, shaft-only stacks, both drilling paths, and both access paths per row.
-Its blocked direct trials use `mode="mixed"` and show a compact 76.2 X ×
-38.1 T × 139.7 N mm solid-timber cleat against the rail/upright faces.
-That cleat is screened as a finite solid, but its own bolts and load path are
-**not** designed; the blocked direct trial hardware remains visible only for
-comparison. No catalog drilling diameter, tool path, installation sequence,
-or delivered fit is established.
+Blocked direct trials remain `mode="direct"` with a `REVISE` disposition. Their
+bolt and barrel axes remain visible as diagnostics; there is no alternate
+wood block or fallback joint in this layout. No catalog drilling diameter,
+tool path, installation sequence, or delivered fit is established.
 The whole-frame assembly's rail10 producer map must name
 `scripts.owner_barrel_rail_layout`; an older draft expects
 `scripts.owner_barrel_rail10`.
@@ -39,9 +37,7 @@ identify the retail part, not its controlled geometry, material strength,
 thread engagement, or complete wood-joint capacity. No manufacturer was
 contacted.
 
-The first focused CAD screen passed **1/1 in 41.09 s**. After the viewer
-adapter and cleat solids were added, the bounded rail suite passed **2/2 in
-39.11 s**. A readback of the direct screen gave these station dispositions:
+A readback of the direct screen gave these station dispositions:
 
 | Duty | Direct trial | Protected / unrelated wood |
 | --- | --- | --- |
@@ -54,11 +50,11 @@ adapter and cleat solids were added, the bounded rail suite passed **2/2 in
 | Bottom outer left/right | Geometry-only | 0 / 0 hits each |
 
 The exact protected-solid names and volumes are returned by each station's
-`protected_hits_mm3` dictionary. The two blocked right-center duties have a
-visible compact cleat volume and an explicit `mixed`/REVISE label. It is not
-a legacy bracket or a proved collision-free relocation: alternate block
-protected and unrelated-wood hits are reported separately. Its own bores,
-service access, load path, and stock hardware remain to be developed.
+`protected_hits_mm3` dictionary. The two blocked right-center duties remain
+direct barrel poses labeled REVISE in the assembly adapter. The screen retains
+their protected-volume collisions and bore geometry; there is no cleared
+relocation or alternate joint. Their service access, load path, and stock
+hardware remain to be developed.
 
 Overall disposition: **DEVELOPMENT_REVISE**. Even eight geometry-only poses
 are not fit or structural passes. Generic access cylinders and finite T-nut,

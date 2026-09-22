@@ -3,8 +3,9 @@
 The [interactive rear view][scene] is a kerf-right *comparison concept*, not a
 cut, drilling, purchased-hardware, fabrication, or structural release. It
 replaces the **visuals** of all 24 historical structural angles and 144 SDS
-fasteners with 48 diagnostic 1/4-20 bolt paths, 48 provisional Hillman
-880543-shaped barrel envelopes, and four visible compact fallback blocks.
+fasteners with 48 diagnostic 1/4-20 bolt paths and 48 provisional Hillman
+880543-shaped barrel envelopes. No corner-block fallback solids are in this
+scene.
 The original 66 panel/kicker screws and 12 frame bolts remain; both original-
 width center posts are shown at the owner-approved X = ±180 mm with two
 separate kicker screw backers. The backers are not structurally attached by
@@ -15,13 +16,16 @@ reviewed snapshot. A browser smoke check loaded it with all 24 duties and
 the no-release warning. Yellow barrels and cyan bolt paths are diagnostic
 X-ray overlays; red indicates a recorded station revision. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
-selects an internal joint for its warning. The four purple fallback blocks
-are *unfastened space placeholders*, not completed replacement joints.
+selects an internal joint for its warning. This scene is generated independently
+of the corner-block assembly; both views share only the original frame and
+owner-approved center-post/backer placement.
 
-The integrated assembly has 20 nominal direct-bore duties and four mixed
-placeholder duties: two right-center rail stations intersect protected
-geometry, and both center-principal/header stations have zero nominal
-washer-to-edge/backer tolerance. The outer/top eight are all marked
+The integrated assembly shows 24 direct-bore *trials*, not 24 accepted joints.
+Four previously illustrated fallback positions remain unresolved: two
+right-center rail stations intersect protected geometry, and both
+center-principal/header stations have zero nominal washer-to-edge/backer
+tolerance. Their diagnostic barrel/bolt paths remain visible and flagged for
+revision; no wood-block fallback is implied. The outer/top eight are all marked
 `REVISE`, including the outer-base pair's unscreened neighboring access.
 The integrated cross-family screen found no positive-volume **physical**
 or drill/access intersections among its supplied finite solids. That is

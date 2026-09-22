@@ -82,13 +82,9 @@ def build_scene():
     if len(hidden) != 170:
         raise ValueError("Owner barrel legacy visual inventory changed")
     solids = [
-        _solid(f"owner_barrel_{station}_block", "joint_wood", shape, station)
-        for station, shape in assembly["blocks"].items()
-    ]
-    solids.extend(
         _solid(name, "moved_center_post", assembly["wood"][name])
         for name in MOVED_POSTS
-    )
+    ]
     solids.extend(
         _solid(name, "kicker_screw_backer", assembly["wood"][name]) for name in BACKERS
     )
@@ -110,9 +106,7 @@ def build_scene():
     for pair in assembly["diagnostics"]["cross_family_physical_hits_mm3"]:
         for part in pair.split("|"):
             kind, name, *_ = part.split("/")
-            if kind == "block":
-                clash_stations.add(name)
-            elif kind == "barrel":
+            if kind == "barrel":
                 clash_stations.add(assembly["barrel_station"][name])
             elif kind == "bolt":
                 clash_stations.add(assembly["bolt_station"][name])
@@ -137,7 +131,6 @@ def build_scene():
             "direct_joint_duties": sum(
                 mode == "direct" for mode in assembly["station_modes"].values()
             ),
-            "mixed_compact_block_duties": len(assembly["blocks"]),
             "moved_center_posts": len(MOVED_POSTS),
             "kicker_screw_backers": len(BACKERS),
             "barrel_nut_envelopes": len(barrels),
@@ -146,7 +139,7 @@ def build_scene():
             "retained_frame_bolt_axes": len(assembly["frame_connections"]),
         },
         "limits": (
-            "A complete comparison layout, including red REVISE stations, not a cut, drill, "
+            "A barrel-only comparison layout, including red REVISE stations, not a cut, drill, "
             "purchase, or structural release. Retail barrel identity is provisional; "
             "thread-axis location, engagement, strength, access, service conflicts, "
             "backer attachment, tolerances and whole-frame load path remain open."

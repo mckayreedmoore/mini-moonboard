@@ -17,8 +17,13 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert set(scene["station_modes"]) == set(scene["station_dispositions"]) == duties
     assert inventory["replaced_angle_duties"] == 24
     assert inventory["removed_structural_sds"] == 144
-    assert inventory["direct_joint_duties"] == 20
-    assert inventory["mixed_compact_block_duties"] == 4
+    assert inventory["direct_joint_duties"] == 24
+    assert "mixed_compact_block_duties" not in inventory
+    assert {row["role"] for row in scene["solids"]} == {
+        "moved_center_post",
+        "kicker_screw_backer",
+    }
+    assert len(scene["solids"]) == 4
     assert inventory["barrel_nut_envelopes"] == 48
     assert inventory["new_diagnostic_bolt_axes"] == 48
     assert inventory["fixed_panel_kicker_screw_axes"] == 66

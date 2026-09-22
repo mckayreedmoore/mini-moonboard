@@ -22,7 +22,6 @@ STATIONS = (
     *upper_center.TARGET_STATIONS,
     *bottom.TARGET_STATIONS,
 )
-CENTER_STATIONS = (*lower.TARGET_STATIONS, *upper_center.TARGET_STATIONS)
 SPECS = {
     **lower.STATION_SPECS,
     **upper_outer.STATION_SPECS,
@@ -37,8 +36,6 @@ MACHINE_BORE_DIAMETER_MM = cd01.MACHINE_BOLT_TRIAL_BORE_DIAMETER_MM
 ACCESS_DIAMETER_MM = cd01.ACCESS_DIAMETER_MM
 ACCESS_LENGTH_MM = cd01.ACCESS_LENGTH_MM
 TOL_MM3 = 1.0
-ALTERNATE_X_MM = 76.2
-ALTERNATE_T_MM = 38.1
 
 
 def _box_bounds(shape):
@@ -184,18 +181,6 @@ def build_geometry(wood=None):
             cut_rail = cut_rail.cut(bore)
         for bore in upright_bores:
             cut_upright = cut_upright.cut(bore)
-        # ponytail: this is only a visible fallback volume, not a proven joint.
-        alternate_x0 = rail_butt_x if sign == 1 else rail_butt_x - ALTERNATE_X_MM
-        alternate = (
-            cq.Solid.makeBox(
-                ALTERNATE_X_MM,
-                ALTERNATE_T_MM,
-                n_max - n_min,
-                cq.Vector(alternate_x0, 0, 0),
-            )
-            .rotate((0, 0, 0), (1, 0, 0), 50)
-            .translate(_xyz(0, t_max, n_min))
-        )
         geometry[station] = {
             "station": station,
             "spec": spec,
@@ -203,7 +188,6 @@ def build_geometry(wood=None):
             "upright": upright,
             "cut_rail": cut_rail.clean(),
             "cut_upright": cut_upright.clean(),
-            "alternate_block": alternate,
             "rows": tuple(rows),
             "rail_n_depth_mm": n_max - n_min,
             "butt_mismatch_mm": butt_mismatch,
@@ -253,29 +237,6 @@ def screen(built=None):
             <= TOL_MM3
             for row in rows
         )
-        compact_alternate = None
-        if not pose["direct_butt_available"]:
-            compact_alternate = (
-                "Trim the existing rail to the approved ±180-mm post side face; "
-                "retain a separate explicit kicker/backer receiver, then rederive "
-                "two direct end-to-side barrel rows. This is unmodeled and needs "
-                "panel-screw/support and frame-bolt checks."
-            )
-        elif service_hits or unrelated_hits:
-            compact_alternate = (
-                "Short solid 139.7-mm-N timber corner cleat with two face-to-face "
-                "interfaces and separate barrel pairs. Its visible trial block "
-                "has not cleared the identified protected volume. This is not an "
-                "old bracket; its bores, service space, and load path need new checks."
-            )
-        alternate_protected_hits = {
-            key: value
-            for key, value in protected.hits(
-                {"block": pose["alternate_block"]}, fixed
-            ).items()
-            if value
-        }
-        alternate_wood_hits = _hits(pose["alternate_block"], unrelated)
         stations[name] = {
             "participants": [pose["spec"].upright_name, pose["spec"].rail_name],
             "rail_n_depth_mm": round(pose["rail_n_depth_mm"], 6),
@@ -302,9 +263,6 @@ def screen(built=None):
             ],
             "protected_hits_mm3": service_hits,
             "unrelated_wood_hits_mm3": unrelated_hits,
-            "compact_alternate": compact_alternate,
-            "compact_alternate_protected_hits_mm3": alternate_protected_hits,
-            "compact_alternate_unrelated_wood_hits_mm3": alternate_wood_hits,
             "geometry_status": (
                 "DIRECT_TRIAL_BLOCKED"
                 if not pose["direct_butt_available"]
@@ -376,10 +334,11 @@ def build_layout(wood):
         }
         blocked = report["stations"][name]["geometry_status"] == "DIRECT_TRIAL_BLOCKED"
         stations[name] = {
-            "mode": "mixed" if blocked else "direct",
-            "compact_alternate_block": pose["alternate_block"] if blocked else None,
+            "mode": "direct",
             "axis_offset_mm": BARREL_AXIS_OFFSET_MM,
-            "disposition": report["stations"][name]["geometry_status"],
+            "disposition": (
+                "REVISE" if blocked else report["stations"][name]["geometry_status"]
+            ),
             "bolts": bolts,
             "barrels": {row["name"]: row["barrel"] for row in pose["rows"]},
             "stacks": {

@@ -18,7 +18,7 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     )
     assert "event.altKey && model === 'owner-barrel-layout'" in page
     assert (
-        "rejectOwnerCornerBaseline?.(new Error(`Baseline mesh ${part.name} failed`))"
+        "rejectOwnerConceptBaseline?.(new Error(`Baseline mesh ${part.name} failed`))"
         in page
     )
     assert "incomplete baseline context with old joints hidden" in page

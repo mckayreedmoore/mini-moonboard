@@ -30,7 +30,7 @@ def assembly():
                     "mode": row["mode"],
                     "disposition": row["disposition"],
                     "reasons": assembled["diagnostics"]["stations"][station][
-                        "alternate_reasons"
+                        "revise_reasons"
                     ],
                     "protected_hit_features": [
                         name
@@ -39,9 +39,6 @@ def assembly():
                         ].values()
                         for name in bolt["protected_hits_mm3"]
                     ],
-                    "alternate_block_screen": assembled["diagnostics"][
-                        "compact_alternate_screen"
-                    ].get(station),
                 }
                 for station, row in assembled["stations"].items()
             },
@@ -76,7 +73,7 @@ def test_six_source_duties_and_fixed_axes(assembly):
     assert not report["drilling_released"]
 
 
-def test_actual_intersection_and_explicit_alternate_gates(assembly):
+def test_actual_intersection_and_direct_revision_gates(assembly):
     report = assembly["diagnostics"]
     for station in candidate.STATIONS:
         row = report["stations"][station]
@@ -89,12 +86,26 @@ def test_actual_intersection_and_explicit_alternate_gates(assembly):
             assert not bolt["complete_thread_engagement_verified"]
     for side in ("left", "right"):
         principal = report["stations"][f"clip_split_base_center_{side}"]
-        assert principal["alternate_required"]
-        assert "backer/washer tolerance" in principal["alternate_reasons"]
+        assert principal["revise_required"]
+        assert "backer/washer tolerance" in principal["revise_reasons"]
+        assert principal["nominal_washer_to_edge_or_backer_margin_mm"] == pytest.approx(
+            0
+        )
+        for bolt in principal["bolts"].values():
+            assert bolt["bolt_axis_xyz"] == [0.0, 0.0, 1.0]
+            assert bolt["barrel_axis_xyz"] == [
+                (-1.0 if side == "left" else 1.0),
+                0.0,
+                0.0,
+            ]
+            assert bolt["barrel_entry_xyz_mm"][2] == pytest.approx(305.0)
+            assert bolt["thread_axis_xyz_mm"][2] == pytest.approx(305.0)
+    assert "compact_alternate_screen" not in report
+    assert "alternate_block_scope" not in report
     assert report["decision"] == "REVISE_VIEWER_ONLY"
 
 
-def test_viewer_contract_has_real_geometry_and_explicit_alternates(assembly):
+def test_viewer_contract_has_only_direct_barrel_geometry(assembly):
     assert set(assembly["stations"]) == set(candidate.STATIONS)
     for station, row in assembly["stations"].items():
         assert row["axis_offset_mm"] == pytest.approx(8.001)
@@ -107,12 +118,18 @@ def test_viewer_contract_has_real_geometry_and_explicit_alternates(assembly):
             for roles in row["stacks"].values()
             for shape in roles.values()
         )
-        assert row["mode"] in {"direct", "mixed"}
-        if row["mode"] == "mixed":
-            assert row["disposition"] == "REVISE"
-            assert row["compact_alternate_block"].Volume() > 0
-            assert not assembly["diagnostics"]["compact_alternate_screen"][station][
-                "fastened"
-            ]
-        else:
-            assert row["compact_alternate_block"] is None
+        assert row["mode"] == "direct"
+        assert "compact_alternate_block" not in row
+        assert row["disposition"] == (
+            "REVISE"
+            if assembly["diagnostics"]["stations"][station]["revise_required"]
+            else "VIEWER_ONLY_UNVERIFIED"
+        )
+    assert {
+        station
+        for station, row in assembly["stations"].items()
+        if row["disposition"] == "REVISE"
+    } == {
+        "clip_split_base_center_left",
+        "clip_split_base_center_right",
+    }

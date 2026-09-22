@@ -17,7 +17,7 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.kicker_screw_backers !== 2 ||
       inventory.fixed_panel_kicker_screw_axes !== 66 ||
       inventory.retained_frame_bolt_axes !== 12 ||
-      inventory.direct_joint_duties + inventory.mixed_compact_block_duties !== 24 ||
+      inventory.direct_joint_duties !== 24 ||
       inventory.barrel_nut_envelopes !== data.barrel_nut_envelopes?.length ||
       inventory.new_diagnostic_bolt_axes !== data.diagnostic_bolt_axes?.length ||
       Object.keys(data.station_dispositions || {}).length !== 24 ||
@@ -31,6 +31,10 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.solids.filter(row => row.role === 'moved_center_post').length !== 2 ||
       data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 2) {
     throw new Error('Barrel viewer does not cover all 24 duties and fixed sources');
+  }
+  if (data.solids.some(row => !['moved_center_post', 'kicker_screw_backer'].includes(row.role)) ||
+      Object.hasOwn(inventory, 'mixed_compact_block_duties')) {
+    throw new Error('Barrel-only scene contains a corner-block artifact');
   }
   if (data.hidden_baseline_visual_names?.length !== 170 ||
       hiddenNames?.length !== 170 ||

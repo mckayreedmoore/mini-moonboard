@@ -21,7 +21,6 @@ const scene = {
     barrel_nut_envelopes: 24,
     new_diagnostic_bolt_axes: 0,
     direct_joint_duties: 24,
-    mixed_compact_block_duties: 0,
   },
   station_dispositions: Object.fromEntries(stations.map(name => [name, 'LAYOUT_TRIAL'])),
   cross_family_physical_clash_stations: [],
@@ -34,6 +33,7 @@ const scene = {
 
 assert.equal(validateOwnerBarrelScene(scene, hidden), scene);
 assert.throws(() => validateOwnerBarrelScene({...scene, structural_released: true}, hidden), /release boundary/);
+assert.throws(() => validateOwnerBarrelScene({...scene, solids: [...scene.solids, {role: 'joint_wood'}]}, hidden), /Barrel-only/);
 assert.throws(() => validateOwnerBarrelScene({...scene, station_dispositions: {}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, barrel_nut_envelopes: []}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, cross_family_physical_clash_stations: ['unknown']}, hidden), /24 duties/);

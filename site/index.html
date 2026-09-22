@@ -292,7 +292,7 @@
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
-      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-nut layout concept — not structurally qualified or build-ready. The 24 structural angle duties are represented for comparison; provisional barrel envelopes and bolt paths are not selected hardware. The 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. All 24 angle duties have provisional barrel/bolt trials, including four unresolved joint positions; no corner blocks are included. The 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -517,14 +517,14 @@
       ]);
       const isV4ReplacedLegacyPart = name => [...v4ReplacedLegacyStations].some(station =>
         name === station || name.startsWith(`fastener_${station}_`));
-      const isOwnerCornerReplacedPart = name => name.startsWith('clip_') ||
+      const isOwnerConceptReplacedPart = name => name.startsWith('clip_') ||
         name.startsWith('fastener_clip_') ||
         ['base_post_center_left', 'base_post_center_right'].includes(name);
       let resolveV4Baseline;
       const v4BaselineLoaded = model === 'bolted-v4-development' ? new Promise(resolve => { resolveV4Baseline = resolve; }) : null;
-      let resolveOwnerCornerBaseline, rejectOwnerCornerBaseline, ownerCornerHiddenNames = [];
-      const ownerCornerBaselineLoaded = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
-        new Promise((resolve, reject) => { resolveOwnerCornerBaseline = resolve; rejectOwnerCornerBaseline = reject; }) : null;
+      let resolveOwnerConceptBaseline, rejectOwnerConceptBaseline, ownerConceptHiddenNames = [];
+      const ownerConceptBaselineLoaded = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
+        new Promise((resolve, reject) => { resolveOwnerConceptBaseline = resolve; rejectOwnerConceptBaseline = reject; }) : null;
       const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
@@ -585,11 +585,11 @@
           }
         }
         loadHolds();
-        ownerCornerHiddenNames = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
-          parts.filter(part => isOwnerCornerReplacedPart(part.name)).map(part => part.name).sort() : [];
+        ownerConceptHiddenNames = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
+          parts.filter(part => isOwnerConceptReplacedPart(part.name)).map(part => part.name).sort() : [];
         const displayParts = model === 'bolted-v4-development' ?
           parts.filter(part => !isV4ReplacedLegacyPart(part.name)) :
-          ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ? parts.filter(part => !isOwnerCornerReplacedPart(part.name)) : parts;
+          ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ? parts.filter(part => !isOwnerConceptReplacedPart(part.name)) : parts;
         for (const {name, label} of representativeBolts(displayParts)) {
           const option = new Option(label, name); option.disabled = true; boltSelect.add(option);
         }
@@ -597,10 +597,10 @@
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
-          model === 'owner-barrel-layout' ? 'Complete barrel-nut layout proposal: 24 old angles and 144 SDS visuals hidden. Yellow barrels and cyan bolt paths are diagnostic X-ray overlays; red means revise. Alt-click to inspect an internal joint; no drilling release.' :
+          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner blocks. Yellow barrels and cyan bolt paths are diagnostic X-ray overlays; red means revise. Alt-click to inspect an internal joint; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
-        if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerCornerBaseline?.(); }
+        if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
         displayParts.forEach(part => loader.load(part.path, geometry => {
           geometry.computeVertexNormals();
           const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
@@ -615,16 +615,16 @@
             const option = Array.from(boltSelect.options).find(option => option.value === name);
             if (option) option.disabled = false;
           }
-          if (++loadedParts === displayParts.length) { resolveV4Baseline?.(); resolveOwnerCornerBaseline?.(); }
+          if (++loadedParts === displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
         }, undefined, error => {
           partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`;
-          rejectOwnerCornerBaseline?.(new Error(`Baseline mesh ${part.name} failed`));
+          rejectOwnerConceptBaseline?.(new Error(`Baseline mesh ${part.name} failed`));
           if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 overlay unavailable: baseline context did not finish loading. No fabrication release.';
           if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Owner corner layout overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
           if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Owner barrel overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
         }));
       }).catch(error => {
-        rejectOwnerCornerBaseline?.(error);
+        rejectOwnerConceptBaseline?.(error);
         partCard.textContent = `Could not load CAD parts: ${error.message}`;
         holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
       });
@@ -737,13 +737,13 @@
         });
       }
       if (model === 'owner-corner-layout') {
-        ownerCornerBaselineLoaded.then(() => fetch('owner-corner-layout-scene.json')).then(async response => {
+        ownerConceptBaselineLoaded.then(() => fetch('owner-corner-layout-scene.json')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
           if (digest !== '328dd3b6e0340bbb4edf8cc9f3d04029c23daa3ec8afe86332c5a6c16585704d') throw new Error('Owner corner scene bytes differ from reviewed export');
-          return validateOwnerCornerScene(JSON.parse(raw), ownerCornerHiddenNames);
+          return validateOwnerCornerScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerCornerScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
@@ -756,18 +756,18 @@
         });
       }
       if (model === 'owner-barrel-layout') {
-        ownerCornerBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json')).then(async response => {
+        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== 'dc801b622ba6b06c5c626f77357364cd7df3cea11de21dfd063f097274c1c34c') throw new Error('Owner barrel scene bytes differ from reviewed export');
-          return validateOwnerBarrelScene(JSON.parse(raw), ownerCornerHiddenNames);
+          if (digest !== '94f0f75e34314ddc4a2a1cbf23b442953160f6fe942f80a4d503a40defd6ce5c') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Complete barrel-nut layout concept — not structurally qualified or build-ready. Yellow barrel envelopes and cyan bolt paths are diagnostic X-ray overlays; red barrels mark known station revisions. Alt-click to inspect an internal joint. All 24 old angles/SDS groups are hidden. All 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
+            'Barrel-only development concept — not structurally qualified or build-ready. No corner blocks are in this scene. Yellow barrel envelopes and cyan bolt paths are diagnostic X-ray overlays; red barrels mark known station revisions, including four unresolved positions. Alt-click to inspect an internal joint. All 24 old angles/SDS groups are hidden. All 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

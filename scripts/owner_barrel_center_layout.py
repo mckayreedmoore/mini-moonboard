@@ -373,7 +373,7 @@ def build(wood=None):
             "butt_contact_area_mm2": round(contact, 6),
             "bolts": bolt_reports,
             "nominal_washer_to_edge_or_backer_margin_mm": y_margin,
-            "alternate_reasons": reasons,
+            "revise_reasons": reasons,
         }
     finite_hits = protected.hits(all_solids, protected_inventory)
     for station, row in station_reports.items():
@@ -398,15 +398,13 @@ def build(wood=None):
             if any(
                 value < 0.999 for value in bolt["intended_wood_core_fraction"].values()
             ):
-                row["alternate_reasons"].append("incomplete intended wood/bore path")
+                row["revise_reasons"].append("incomplete intended wood/bore path")
             if bolt["protected_hits_mm3"]:
-                row["alternate_reasons"].append("finite protected-service intersection")
+                row["revise_reasons"].append("finite protected-service intersection")
             if bolt["unrelated_timber_hits_mm3"]:
-                row["alternate_reasons"].append(
-                    "unrelated timber or backer intersection"
-                )
-        row["alternate_reasons"] = sorted(set(row["alternate_reasons"]))
-        row["alternate_required"] = bool(row["alternate_reasons"])
+                row["revise_reasons"].append("unrelated timber or backer intersection")
+        row["revise_reasons"] = sorted(set(row["revise_reasons"]))
+        row["revise_required"] = bool(row["revise_reasons"])
     return {
         "solids": all_solids,
         "report": {
@@ -446,46 +444,12 @@ def build(wood=None):
     }
 
 
-def _compact_alternate(station, wood, spec):
-    """Show an unfastened side block at the butt; this is not a joint design."""
-    family = _station_spec(station, wood)[0]
-    side = "left" if "_left" in station else "right"
-    sign = -1 if side == "left" else 1
-    if family == "bottom_center":
-        rail = wood[f"base_rail_bottom_{side}"]
-        bounds = _local_bounds(rail)
-        butt_x = bounds["x"][1] if sign < 0 else bounds["x"][0]
-        x0, x1 = butt_x - 19.05, butt_x + 19.05
-        t0, t1 = bounds["t"][0] - 25.4, bounds["t"][0]
-        n0, n1 = 270.0, 295.4
-        plane = cq.Plane(
-            origin=(x0, *_yz(t0, n0)),
-            xDir=(1, 0, 0),
-            normal=(0, *N),
-        )
-        return (
-            cq.Workplane(plane)
-            .rect(x1 - x0, t1 - t0, centered=False)
-            .extrude(n1 - n0)
-            .val()
-        )
-    receiver = wood[spec["barrel_host"]]
-    rb = receiver.BoundingBox()
-    x0, x1 = (rb.xmin - 25.4, rb.xmin) if sign < 0 else (rb.xmax, rb.xmax + 25.4)
-    if family == "post_header":
-        z0, z1 = rb.zmax - 28.0, rb.zmax
-    else:
-        z0, z1 = rb.zmin, rb.zmin + 28.0
-    return cq.Solid.makeBox(x1 - x0, 25.4, z1 - z0, cq.Vector(x0, -163.0, z0))
-
-
 def build_layout(wood):
     """Leibniz viewer adapter: full provisional poses, never a fit verdict."""
     built = build(wood)
     report = built["report"]
     solids = built["solids"]
     stations = {}
-    alternate_blocks = {}
     for station in STATIONS:
         diagnostic = report["stations"][station]
         _, specs, _ = _station_spec(station, wood)
@@ -514,13 +478,9 @@ def build_layout(wood):
             drilling[f"{base}/barrel_cross_bore"] = solids[f"{base}/barrel_cross_bore"]
             access[f"{base}/bolt_tool"] = solids[f"{base}/bolt_tool"]
             access[f"{base}/barrel_tool"] = solids[f"{base}/barrel_tool"]
-        revise = diagnostic["alternate_required"]
-        block = _compact_alternate(station, wood, specs[0]) if revise else None
-        if block is not None:
-            alternate_blocks[station] = block
+        revise = diagnostic["revise_required"]
         stations[station] = {
-            "mode": "mixed" if revise else "direct",
-            "compact_alternate_block": block,
+            "mode": "direct",
             "axis_offset_mm": THREAD_AXIS_OFFSET_MM,
             "disposition": "REVISE" if revise else "VIEWER_ONLY_UNVERIFIED",
             "bolts": bolts,
@@ -529,26 +489,9 @@ def build_layout(wood):
             "drilling_paths": drilling,
             "access_paths": access,
         }
-    block_protected_hits = protected.hits(alternate_blocks, protected.inventory())
-    block_screen = {
-        station: {
-            "protected_hits_mm3": block_protected_hits.get(station, {}),
-            "wood_overlaps_mm3": _finite_hits(block, wood),
-            "fastened": False,
-            "layout_accepted": False,
-        }
-        for station, block in alternate_blocks.items()
-    }
     return {
         "stations": stations,
-        "diagnostics": {
-            **report,
-            "alternate_block_scope": (
-                "Unfastened compact side blocks illustrate space only; direct bolt/barrel "
-                "poses remain provisional and do not fasten the blocks."
-            ),
-            "compact_alternate_screen": block_screen,
-        },
+        "diagnostics": report,
     }
 
 

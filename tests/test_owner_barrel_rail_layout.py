@@ -4,7 +4,8 @@ from scripts import owner_barrel_rail_layout as barrel
 
 
 def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
-    result = barrel.screen()
+    built = barrel.build_geometry()
+    result = barrel.screen(built)
     assert result["source_id"] == barrel.SOURCE_ID
     assert result["parent_source_id"] == barrel.pb07.SOURCE_ID
     assert result["inventory"] == {
@@ -14,6 +15,7 @@ def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
         "candidate_brackets": 0,
     }
     assert set(result["stations"]) == set(barrel.STATIONS)
+    assert all("alternate_block" not in pose for pose in built["stations"].values())
     assert result["protected_inventory_counts"] == {
         "tnuts": 142,
         "hold_hole_and_trial_projection": 142,
@@ -30,10 +32,16 @@ def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
         if row["direct_butt_available"]
     )
     assert all(
-        result["stations"][name]["compact_alternate"] is not None
-        for name in barrel.CENTER_STATIONS
-        if not result["stations"][name]["direct_butt_available"]
+        not any(key.startswith("compact_alternate") for key in row)
+        for row in result["stations"].values()
     )
+    for name in (
+        barrel.lower.TARGET_STATIONS[1],
+        barrel.upper_center.TARGET_STATIONS[1],
+    ):
+        row = result["stations"][name]
+        assert row["geometry_status"] == "DIRECT_TRIAL_BLOCKED"
+        assert row["protected_hits_mm3"]
     assert result["disposition"] == "DEVELOPMENT_REVISE"
     assert result["manufacturer_contacted"] is False
     assert result["strength_qualified"] is False
@@ -59,7 +67,6 @@ def test_assembly_adapter_uses_supplied_wood_and_distinct_trial_solids(monkeypat
             },
         ),
         "spec": type("Spec", (), {"upright_name": "upright", "rail_name": "rail"})(),
-        "alternate_block": "visible_cleat",
     }
     supplied = {"upright": "owner_upright", "rail": "owner_rail"}
 
@@ -79,10 +86,14 @@ def test_assembly_adapter_uses_supplied_wood_and_distinct_trial_solids(monkeypat
     monkeypatch.setattr(barrel, "_connection", lambda row, spec: "bolt_axis")
     layout = barrel.build_layout(supplied)
     row = layout["stations"]["trial"]
-    assert row["mode"] == "mixed"
-    assert row["compact_alternate_block"] == "visible_cleat"
+    assert row["mode"] == "direct"
+    assert "compact_alternate_block" not in row
     assert row["axis_offset_mm"] == 8.001
-    assert row["disposition"] == "DIRECT_TRIAL_BLOCKED"
+    assert row["disposition"] == "REVISE"
+    assert (
+        layout["diagnostics"]["station_screens"]["trial"]["geometry_status"]
+        == "DIRECT_TRIAL_BLOCKED"
+    )
     assert row["bolts"] == {"trial_barrel_1_bolt": "bolt_axis"}
     assert row["barrels"] == {"trial_barrel_1": "body"}
     assert row["stacks"] == {"trial_barrel_1_bolt": {"shaft": "shaft"}}

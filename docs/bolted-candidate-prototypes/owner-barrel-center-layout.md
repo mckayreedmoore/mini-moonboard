@@ -27,9 +27,8 @@ vertical bolts from the header underside into the principals, crossing
 X-axis barrels at Z = 305 mm. Their Y rows are −163/−137.6 mm. A 25.4 mm
 washer at the rear row meets the header rear edge with **zero nominal Y
 margin**; the forward row meets the fixed kicker backer's rear Y edge with
-**zero nominal margin**. These principal/header stations require a compact
-explicit alternate or verified revised hardware/pose, not a tolerance-free
-selection.
+**zero nominal margin**. These principal/header direct barrel poses are
+**REVISE** and require a verified change to hardware or pose before selection.
 
 The two bottom-center joints use +/−X bolts from each principal outside
 face through its 38.1 mm thickness into the same-side rail butt. The rail
@@ -47,19 +46,17 @@ bodies, 131 wires, all 66 panel screws, 12 frame bolts, and unrelated
 timber/backers. A mathematical hole intersection is not proof of thread
 engagement, adequate metal, wood strength, installability, or load path.
 The source reports each incomplete core, protected hit, unrelated-wood hit,
-and station requiring an alternate; it does not silently accept them.
+and station requiring revision; it does not silently accept them.
 
 The `build_layout(wood)` viewer entry point supplies six station rows with
 provisional full-length bolt axes, barrel solids, shaft/washer/head stacks,
 drilling envelopes, and tool paths. The focused CAD suite found no finite
 protected-service hits on those direct paths. Both bottom-center and both
 post/header stations remain direct viewer-only poses. The two
-principal/header stations are **REVISE** because their nominal washer
-edge/backer margin is zero. Those two rows carry a small explicit side-block
-solid as a visual compact-alternate placeholder. Its screened protected and
-wood overlaps are empty, but it has no fasteners, no verified contact/load
-path, and is **not** a corrected joint. The shown direct bolts do not fasten
-it. Whole uncut timber is used for this new topology; legacy SDS cuts in the
+principal/header stations remain **direct + REVISE** because their nominal
+washer edge/backer margin is zero. They retain their diagnostic bolt and
+barrel geometry, bores, and access paths; no fallback block is included.
+Whole uncut timber is used for this new topology; legacy SDS cuts in the
 historical finished parts must not be treated as current bore voids.
 
 This is a viewer-development concept only. Barrel material and internal

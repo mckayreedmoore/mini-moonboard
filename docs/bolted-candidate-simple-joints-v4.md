@@ -45,12 +45,13 @@ angles and 144 SDS visuals to both full-inventory owner-review scenes. The
 shows 24 proposed blocks and 92 diagnostic bolt paths; it remains `REVISE`
 for protected-service and neighboring-block/stack conflicts. The
 [barrel-nut viewer](bolted-candidate-prototypes/owner-barrel-viewer.md)
-shows 20 direct-bore trials, four **unfastened** compact block placeholders,
-and 48 provisional bolt/barrel pairs; it also remains `REVISE`. Both use
+shows 24 direct-bore trials, four of which still have unresolved local
+geometry, and 48 provisional bolt/barrel pairs; it contains no joint blocks
+and remains `REVISE`. Both use
 the approved X = ±180 mm center posts, two separate kicker backers, all 66
 fixed panel/kicker screws, and 12 retained frame-bolt visuals. The
 [comparison](bolted-candidate-prototypes/owner-two-concept-comparison.md)
-is ready for the owner's choice of *development direction only*. Neither
+records the owner's preference to develop barrel nuts if they work. Neither
 viewer is a joint design, hardware purchase list, drilling plan, or
 structural/climbing release. The old V4 viewer remains partial history.
 

@@ -78,7 +78,7 @@ def test_whole_frame_contract_without_heavy_producers():
     result = build_assembly(builders, source=source, placement=placement)
     assert len(result["station_modes"]) == 24
     assert set(result["station_modes"].values()) == {"direct"}
-    assert not result["blocks"]
+    assert "blocks" not in result
     assert len(result["barrels"]) == 24
     assert len(result["bolts"]) == 24
     assert len(result["replacement_solids"]) == 24
@@ -106,7 +106,7 @@ def test_whole_frame_contract_without_heavy_producers():
     assert not result["release_flags"]["fabrication_released"]
 
 
-def test_rejects_unmarked_compact_block_and_divergent_offset():
+def test_rejects_any_compact_block_and_divergent_offset():
     source, placement, builders = _fixtures()
     first = next(iter(FAMILY_STATIONS))
     original = builders[first]
@@ -118,7 +118,18 @@ def test_rejects_unmarked_compact_block_and_divergent_offset():
         return result
 
     builders[first] = marked
-    with pytest.raises(ValueError, match="direct station contains a block"):
+    with pytest.raises(ValueError, match="barrel-only station contains a block"):
+        build_assembly(builders, source=source, placement=placement)
+
+    def mixed(wood):
+        result = original(wood)
+        station = next(iter(result["stations"]))
+        result["stations"][station]["mode"] = "mixed"
+        result["stations"][station]["compact_alternate_block"] = _box(0)
+        return result
+
+    builders[first] = mixed
+    with pytest.raises(ValueError, match="barrel-only direct"):
         build_assembly(builders, source=source, placement=placement)
 
     def divergent(wood):
@@ -132,19 +143,19 @@ def test_rejects_unmarked_compact_block_and_divergent_offset():
         build_assembly(builders, source=source, placement=placement)
 
 
-def test_explicit_mixed_block_and_cross_family_clash_are_visible():
+def test_cross_family_barrel_clash_is_visible_without_a_block():
     source, placement, builders = _fixtures()
     first, second = tuple(FAMILY_STATIONS)[:2]
     original_first, original_second = builders[first], builders[second]
     stations = {}
 
-    def mixed(wood):
+    def first_barrel(wood):
         result = original_first(wood)
         station = next(iter(result["stations"]))
         row = result["stations"][station]
-        row["mode"] = "mixed"
-        row["compact_alternate_block"] = _box(0)
-        stations["mixed"] = station
+        barrel_name = next(iter(row["barrels"]))
+        row["barrels"] = {barrel_name: _box(0)}
+        stations["first"] = station
         return result
 
     def clash(wood):
@@ -156,10 +167,10 @@ def test_explicit_mixed_block_and_cross_family_clash_are_visible():
         stations["clash"] = station
         return result
 
-    builders[first], builders[second] = mixed, clash
+    builders[first], builders[second] = first_barrel, clash
     result = build_assembly(builders, source=source, placement=placement)
-    assert result["station_modes"][stations["mixed"]] == "mixed"
-    assert len(result["replacement_solids"][stations["mixed"]]) == 3
+    assert result["station_modes"][stations["first"]] == "direct"
+    assert len(result["replacement_solids"][stations["first"]]) == 2
     assert result["diagnostics"]["cross_family_physical_hits_mm3"]
 
 

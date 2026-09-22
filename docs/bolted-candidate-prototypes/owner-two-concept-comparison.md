@@ -1,7 +1,8 @@
 # Two full-inventory bolted viewer concepts — owner comparison
 
-Status: **development comparison, 21 September 2026; neither concept is
-viable, build-ready, or a drilling release**. This compares the current
+Status: **barrel-nut concept preferred for further development, 21 September
+2026; neither concept is viable, build-ready, or a drilling release**. This
+compares the current
 [corner-block viewer](owner-corner-viewer.md) and the developing
 [barrel-nut assembly](../../scripts/owner_barrel_layout_assembly.py), not the
 selected construction packet. Both aim to replace 24 historical angle/SDS
@@ -13,9 +14,9 @@ part of the selected baseline, not accepted replacement hardware.
 
 | Measure | Corner-block concept | Cross-dowel/barrel concept |
 | --- | --- | --- |
-| Visible replacement | 24 solid timber blocks | 20 direct poses; four mixed fallback blocks |
+| Visible replacement | 24 solid timber blocks | 24 direct-bore trials, including four blocked/revise poses |
 | New hardware axes | 92 bolts | 48 bolt/barrel pairs |
-| Added timber | 24 blocks | Four unfastened fallback blocks |
+| Added timber | 24 blocks | No joint blocks; two shared kicker-screw backers |
 | Assembly | Through bores; two-sided seats | Perpendicular bores; barrel alignment |
 | Current status | **REVISE** | **REVISE** |
 
@@ -37,17 +38,17 @@ solid in the viewer.
 The barrel concept is source-distinct, not a replacement of those corner
 results. Its [ten rail duties](owner-barrel-rail-layout.md) have nominal
 intersecting bore pairs and true rail/principal or rail/side butt contact;
-two right-center direct poses still hit protected geometry and display
-unfastened compact cleat volumes. The [center six](owner-barrel-center-layout.md)
-include two principal/header mixed/REVISE positions with zero nominal
+two right-center direct poses still hit protected geometry and are flagged
+REVISE, without showing a fallback cleat. The [center six](owner-barrel-center-layout.md)
+include two principal/header direct/REVISE positions with zero nominal
 washer-to-edge margin. The [outer/top eight](owner-barrel-outer-top-layout.md)
 are all **REVISE**, including explicit outer-base neighbor-access exceptions.
 The integrated barrel
 assembly exposes barrel bodies, diagnostic shafts, bores, and access volumes,
 but does not finish same-family collisions, full protected-service clearance,
 or a physical assembly sequence. Showing a direct bore intersection proves
-neither thread engagement nor a load path. The four fallback blocks are space
-illustrations, not fastened joints.
+neither thread engagement nor a load path. The barrel scene contains no corner
+blocks; all four affected duties still need a feasible barrel-only revision.
 
 For repeated disassembly, both concepts have a plausible *mechanical action*
 but no qualified cycle life. Corner bolts could be removed from nuts if both
@@ -92,7 +93,10 @@ Online prices and stock vary by store and date.
 
 Both layouts need all finite hold/T-nut/unused-hole/hold-bolt, LED/wire,
 panel-screw, frame-bolt, candidate-hardware, and tool interactions closed in
-the *integrated* geometry. They also need selected, measurable hardware and
+the *integrated* geometry. The owner's aesthetic preference makes the
+barrel-only route the next development target, contingent on fit and strength;
+it does not qualify the four blocked positions or any joint. They also need
+selected, measurable hardware and
 clearances; repeatable drilling/insertion and transport sequence; wood
 edge/end/net-section and full joint-family resistance; whole-frame load path;
 backer attachment; and resolution of every recorded REVISE/exception.
