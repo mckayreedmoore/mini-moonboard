@@ -14,6 +14,7 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "No drilling or fabrication release." in page
     assert "rim-first removal is required but not physically verified" in page
     assert "orange heads, gold washers and magenta wireframe recesses" in page
+    assert "green wood pieces are kicker-screw backers, not joint blocks" in page
     barrel_documents = page.split("const ownerBarrelDocuments = [", 1)[1].split(
         "];", 1
     )[0]
