@@ -44,6 +44,18 @@ def test_each_row_is_source_bound_and_has_a_signed_tip_bore_clearance(report):
             max(0, -row["tip_to_bore_far_cap_clearance_mm"]), abs=0.0002
         )
         assert row["nominal_axial_flags"]
+        assert row["maximum_body_overlap_with_fully_threaded_shaft_mm"] <= (
+            row["barrel_body_od_mm"] + 0.0002
+        )
+        assert row["bolt_end_thread_length_needed_to_reach_near_wall_mm"] == (
+            pytest.approx(
+                max(
+                    0,
+                    row["shaft_length_mm"] - row["reach_to_barrel_near_wall_mm"],
+                ),
+                abs=0.0002,
+            )
+        )
 
 
 def test_independent_short_and_overrun_flags_can_coexist():
@@ -70,6 +82,11 @@ def test_six_inch_60_mm_outer_rail_revision_is_in_the_current_viewer(report):
     )
     assert all(
         row["nominal_axial_flags"] == ["AXIS_REACHED_WITHIN_MODELED_BORE"]
+        for row in outer
+    )
+    assert all(
+        row["maximum_body_overlap_with_fully_threaded_shaft_mm"]
+        == pytest.approx(6.8528, abs=0.0002)
         for row in outer
     )
 

@@ -38,6 +38,13 @@ That 10.2452 mm is only the nominal added depth needed to reach the tip with
 *zero* end clearance; it is not a proposed bore dimension or drilling plan.
 All 12 revised 152.4 mm (6 in) outer-rail shafts at 60 mm setback are in the
 within-bore group; this does not resolve the eight other rows.
+Their modeled tips reach only 1.849 mm past the assumed barrel axis, so the
+maximum shaft overlap through the 10.0076 mm barrel body is **6.8528 mm**
+even if the bolt end is fully threaded. This is a geometric upper bound,
+not verified engagement or capacity. The report now records the threaded
+end length required merely to reach each barrel near wall and the maximum
+possible body overlap for every bolt; actual bolt runout and barrel threads
+remain unknown.
 A shorter 4½ in hex-bolt substitution is not selected: the readily listed
 [Hillman 190055][short-bolt] is expressly **not full-thread**, and its actual
 thread runout at the barrel is unverified. A deeper center-rail bore would

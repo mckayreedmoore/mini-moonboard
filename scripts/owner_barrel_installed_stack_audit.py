@@ -114,6 +114,12 @@ def _row(assembly, bolt_name):
     barrel_center = barrel.Center()
     reach_axis = (barrel_center - shaft_start).dot(direction)
     barrel_radius = barrel_od / 2
+    near_wall = reach_axis - barrel_radius
+    far_wall = reach_axis + barrel_radius
+    # Necessary axial overlap only; real thread runout and internal barrel
+    # thread geometry are not supplied by the retail listings.
+    possible_body_overlap = max(0.0, min(shaft_tip, far_wall) - near_wall)
+    threaded_end_length_to_near_wall = max(0.0, shaft_tip - near_wall)
     duty = ledger.selected_duties()[assembly["bolt_station"][bolt_name]]
     outer_rail_setback = None
     if duty["family"] in OUTER_RAIL_FAMILIES:
@@ -150,8 +156,14 @@ def _row(assembly, bolt_name):
             _rounded(outer_rail_setback) if outer_rail_setback is not None else None
         ),
         "assumed_thread_axis_reach_mm": _rounded(reach_axis),
-        "reach_to_barrel_near_wall_mm": _rounded(reach_axis - barrel_radius),
-        "reach_to_barrel_far_wall_mm": _rounded(reach_axis + barrel_radius),
+        "reach_to_barrel_near_wall_mm": _rounded(near_wall),
+        "reach_to_barrel_far_wall_mm": _rounded(far_wall),
+        "maximum_body_overlap_with_fully_threaded_shaft_mm": _rounded(
+            possible_body_overlap
+        ),
+        "bolt_end_thread_length_needed_to_reach_near_wall_mm": _rounded(
+            threaded_end_length_to_near_wall
+        ),
         "tip_past_assumed_axis_mm": _rounded(shaft_tip - reach_axis),
         "tip_past_barrel_far_wall_mm": _rounded(shaft_tip - reach_axis - barrel_radius),
         "machine_bore_path": path_names[0],
