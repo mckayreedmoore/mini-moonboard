@@ -85,14 +85,24 @@ adapter, not force demands, capacities, drilling dimensions, or fabrication
 approval.
 
 The [source-bound preparation module](../../scripts/owner_barrel_native_preparation.py)
-now exposes the current 26 wood solids, 66 fixed panel screws, 12 retained
-frame bolts, 46 barrel bolt stacks, and 120 compression-cell inputs without
-importing any legacy angle/SDS connector. The response preparer can suppress
-its baseline implicit header-bearing springs and classify a `clip_`-named
-barrel as a bolt. These are topology and preparer capabilities, not a completed
-integrated load case. A trial of the full unsolved preparation stopped first
-because a center-principal barrel interface projected about 17.24 mm before
-the existing centroid-based inclined-beam endpoint. An analysis-only beam-end
-extension passed that point but subsequently stopped at a floor-leg taper-mesh
-attachment. Neither issue was bypassed in the maintained adapter. No signed
-integrated response, joint demand, rating, or drilling release follows.
+now exposes the current 26 uncut wood solids, 66 fixed panel screws, 12 retained
+frame bolts, 46 barrel bolt stacks, and 120 barrel-face compression cells
+without importing any legacy angle/SDS connector. It also carries 72
+retained-bolt face-contact cells. For response mass and floor placement it uses
+the maintained viewer's 16 trial-cut former-angle timbers and the selected
+source's ten other cut wood parts; this avoids placing a floor support spring
+on a removed leg-recess strip. The response preparer can suppress its baseline
+implicit header-bearing springs and classify a `clip_`-named barrel as a bolt.
+
+All six unchanged signed cases prepared **without a native solve** on 22
+September 2026: `a12-rear`, `a12-forward`, `a12-left`, `k12-right`, `k12-rear`,
+and `a1-rear`. Each had 46 barrel pairs, 120 barrel-face cells and 72
+retained-bolt face cells. The four inclined principal/side members use an
+explicit **analysis-only** beam-start extension to span the actual horizontal
+cut face; the original center-principal barrel face point lay about 17.24 mm
+before the old centroid-based beam start. This extension is a gross-section
+interpolation, not real extra wood or a local-bearing check. Barrel spring
+stiffnesses and face laws are conditional, not product data. Preparation gives
+no signed interface force, joint demand, rating, accepted case, or drilling
+release. Current trial bores and service/wood clashes remain separate design
+findings.

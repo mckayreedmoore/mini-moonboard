@@ -8,8 +8,12 @@ from dataclasses import replace
 
 import cadquery as cq
 
+from fea.current_response_materials import connection_stiffnesses, materials
+from fea.floor_flush_run import face_contacts, taper_top_monitors
 from mini_moonboard.box_frame import Part
-from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy
+from scripts.bolted_kerf_diagnostic_probe import DiagnosticProxy, prepare_diagnostic
+from scripts.clear_space_batch import CASES
+from scripts.compact_rail_study import bolt_properties
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.owner_barrel_native_face_contacts import build_report as face_report
 
@@ -72,10 +76,37 @@ class IntegratedBarrelNative(DiagnosticProxy):
                 wood.append(replace(part, shape=shape))
         self._wood = tuple(wood)
         wood_names = set(baseline_wood)
+        cut_source = {part.name: part for part in self.baseline.parts()}
+        from scripts.owner_barrel_visual_wood import EXPECTED_TIMBERS, build_visual_wood
+
+        visual = build_visual_wood(
+            assembly=self.assembly,
+            candidate_service=True,
+            candidate_center_cuts=True,
+            candidate_all_cuts=True,
+        )
+        if (
+            set(visual["wood"]) != EXPECTED_TIMBERS
+            or visual["report"]["excluded_legacy_sds_axes"] != 144
+            or visual["report"]["candidate_barrel_pairs_with_cut_wood"] != 46
+            or visual["report"]["barrel_drilling_paths_without_cut_wood"]
+            or visual["report"]["barrel_path_host_anomalies"]
+        ):
+            raise ValueError("Integrated visual-only timber cut source changed")
+        self._response_wood = tuple(
+            replace(
+                part,
+                shape=(
+                    visual["wood"][part.name]
+                    if part.name in EXPECTED_TIMBERS
+                    else cut_source[part.name].shape
+                ),
+            )
+            for part in self._wood
+        )
         self._hardware_parts = tuple(
-            part
-            for part in self.baseline.parts()
-            if part.name not in wood_names and part.name.startswith("hold_tnut_")
+            part for name, part in cut_source.items()
+            if name not in wood_names and name.startswith("hold_tnut_")
         )
         if len(self._hardware_parts) != 142:
             raise ValueError("Fixed hold/T-nut hardware inventory changed")
@@ -122,12 +153,18 @@ class IntegratedBarrelNative(DiagnosticProxy):
             "base_post_center_left",
             "base_post_center_right",
         )
+        self.FULL_BEVEL_PROJECTION_MEMBERS = (
+            "base_principal_center_left",
+            "base_principal_center_right",
+            "base_side_left",
+            "base_side_right",
+        )
 
     def uncut_wood_parts(self):
         return self._wood
 
     def current_response_wood_parts(self):
-        return self._wood
+        return self._response_wood
 
     def parts(self):
         return (*self._wood, *self._hardware_parts)
@@ -172,3 +209,95 @@ def member_contacts(module, *, stiffness_per_area):
     if len(rows) != 120 or len({row["name"] for row in rows}) != 120:
         raise ValueError("Current integrated contact cell inventory changed")
     return tuple(rows)
+
+
+def prepare_case(case, *, module=None, barrel_axial_n_per_mm=1000.0,
+                 barrel_lateral_n_per_mm=500.0, contact_n_per_mm2=100.0):
+    """Prepare but never solve one signed case with unrated conditional springs."""
+    if case not in CASES:
+        raise ValueError(f"Unknown signed load case: {case}")
+    for value in (barrel_axial_n_per_mm, barrel_lateral_n_per_mm,
+                  contact_n_per_mm2):
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError("Conditional stiffnesses must be positive and finite")
+    if module is None:
+        module = IntegratedBarrelNative()
+    if not isinstance(module, IntegratedBarrelNative):
+        raise TypeError("Require current integrated barrel source")
+    bolts = {
+        row.name: (
+            {"axial_n_per_mm": barrel_axial_n_per_mm,
+             "lateral_n_per_mm": barrel_lateral_n_per_mm,
+             "basis": "Conditional barrel stiffness; no tested fastener or joint rating"}
+            if row.name in module.barrel_bolt_names else bolt_properties(row)
+        )
+        for row in module.connections() if row.kind == "bolt"
+    }
+    if len(bolts) != 58:
+        raise ValueError("Current integrated bolt count changed")
+    stiffnesses = {
+        **connection_stiffnesses(),
+        "floor": 1.0e5,
+        "bearing": 1.0e6,
+        "seating_per_area": 100.0,
+        "bolt": {"axial_n_per_mm": barrel_axial_n_per_mm,
+                 "lateral_n_per_mm": barrel_lateral_n_per_mm,
+                 "by_name": bolts},
+    }
+    hold, force = CASES[case]
+    barrel_contacts = member_contacts(
+        module, stiffness_per_area=contact_n_per_mm2
+    )
+    retained_contacts = face_contacts(
+        module.baseline, stiffness_per_area=contact_n_per_mm2
+    )
+    if len(retained_contacts) != 72:
+        raise ValueError("Retained frame-bolt face-contact inventory changed")
+    structure, metadata = prepare_diagnostic(
+        module,
+        expected_candidate=module.KEY,
+        materials=materials(),
+        stiffnesses=stiffnesses,
+        hold=hold,
+        pounds=250.0,
+        horizontal_force=force,
+        leg_floor_grid=3,
+        patch_size=20.0,
+        member_contacts=(*retained_contacts, *barrel_contacts),
+        clearance_monitors=taper_top_monitors(module),
+        implicit_header_bearings=False,
+    )
+    ownership = metadata["connection_ownership"]
+    for name in module.barrel_bolt_names:
+        springs = [row for row in structure.springs if row["name"] == name]
+        if len(springs) != 3 or {row["dof"] for row in springs} != {1, 2, 3}:
+            raise ValueError(f"{name}: missing barrel directional springs")
+        axial = next(row for row in springs if row["dof"] == 1)
+        axial["bearing_closed_assumption"] = True
+        axial["tension_only_assumption"] = True
+        ownership[name]["developmental_only"] = True
+    metadata["provisional_structural_connectors"] = (
+        "46 modeled barrel pairs with conditional stiffness; 12 retained bolts; "
+        "66 panel screws; no legacy angle proxies"
+    )
+    metadata["bolted_joint_demands"] = False
+    metadata["acceptance"] = False
+    summary = {
+        "case": case,
+        "hold": hold,
+        "horizontal_force_n": force,
+        "candidate": module.KEY,
+        "barrel_pairs": len(module.barrel_bolt_names),
+        "retained_bolts": len(bolts) - len(module.barrel_bolt_names),
+        "panel_screws": len(module.panel_connections()),
+        "face_contact_cells": len(barrel_contacts),
+        "retained_face_contact_cells": len(retained_contacts),
+        "implicit_header_bearings": False,
+        "analysis_only_full_bevel_members": list(module.FULL_BEVEL_PROJECTION_MEMBERS),
+        "conditional_barrel_axial_n_per_mm": barrel_axial_n_per_mm,
+        "conditional_barrel_lateral_n_per_mm": barrel_lateral_n_per_mm,
+        "conditional_contact_n_per_mm2": contact_n_per_mm2,
+        "native_solve": False,
+        "structural_released": False,
+    }
+    return structure, metadata, summary

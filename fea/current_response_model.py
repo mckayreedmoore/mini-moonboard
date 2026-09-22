@@ -113,8 +113,9 @@ def mass_by_body(module,raw,materials):
     return result,inventory
 
 
-def gross_member_record(part, grain, section_u, *, square_ends=False):
-    """Preserve full gross section; level bevels use plane-section end offsets."""
+def gross_member_record(part, grain, section_u, *, square_ends=False,
+                        full_bevel_projection=False):
+    """Preserve full gross section; optionally span an entire level bevel."""
     grain, section_u = grain.normalized(), section_u.normalized()
     section_v = grain.cross(section_u).normalized()
     local=cq.Plane(origin=(0,0,0),xDir=section_u,normal=grain).toLocalCoords(part.shape)
@@ -128,16 +129,34 @@ def gross_member_record(part, grain, section_u, *, square_ends=False):
             raise ValueError('Square-ended gross member requires two full normal end faces')
     world=part.shape.BoundingBox()
     bevel=not square_ends and 1.e-8 < abs(grain.z) < 1-1.e-8
+    if full_bevel_projection and (not bevel or grain.z<=0):
+        raise ValueError('Full bevel projection requires an upward inclined level-cut member')
     if bevel:
         low=(world.zmin-centre.z)/grain.z
+    baseline_low=low
+    if full_bevel_projection:
+        bottom_stations=[v.Center().dot(grain) for v in part.shape.Vertices()
+                         if abs(v.Z-world.zmin)<1.e-6]
+        if len(bottom_stations)<4 or baseline_low-min(bottom_stations)<=1.e-6:
+            raise ValueError('Full bevel projection requires a complete nonzero cut face')
+        low=min(bottom_stations)
     width,depth=bb.xlen,bb.ylen
-    return {'name':part.name,'start':list((centre+grain*low).toTuple()),
+    record={'name':part.name,'start':list((centre+grain*low).toTuple()),
         'end':list((centre+grain*high).toTuple()),'axis':list(grain.toTuple()),
         'section_u':list(section_u.toTuple()),'section_v':list(section_v.toTuple()),
         'width_mm':width,'depth_mm':depth,'gross_width_mm':width,'gross_depth_mm':depth,
         'area_mm2':width*depth,'retained_area_fraction':1.,
         'verification_grain_interval_mm':[max(v.Center().dot(grain) for v in part.shape.Vertices() if abs(v.Z-world.zmin)<1.e-6) if bevel else low,high],
         'section_centroid_xyz_mm':list(centre.toTuple()),'qualified_for_design':False}
+    if full_bevel_projection:
+        record['bevel_projection']={
+            'mode':'full_zmin_cut_face_grain_envelope',
+            'start_extension_mm':baseline_low-low,
+            'source':'minimum grain projection of CAD vertices on the zmin cut face',
+            'limitation':'Gross rectangular section extends into the partial bevel; '
+                         'analysis-only attachment interpolation, not actual retained '
+                         'volume, local bearing, or design qualification.'}
+    return record
 
 
 def level_face_points(shape, bottom):
@@ -478,9 +497,15 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     foot_samples([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[1.,1.,0.]], leg_floor_grid)
     raw={p.name:p for p in module.wood_parts()}
     body_mass,hardware_mass=mass_by_body(module,raw,materials)
+    full_bevel_members=tuple(getattr(module, 'FULL_BEVEL_PROJECTION_MEMBERS', ()))
+    if len(full_bevel_members)!=len(set(full_bevel_members)):
+        raise ValueError('Full bevel projection member names must be distinct')
     records = [gross_member_record(p, *(getattr(module, 'MEMBER_AXES', {}).get(p.name) or axes(module, p.name)),
-               square_ends=p.name in getattr(module, 'NATIVE_SQUARE_END_MEMBERS', ())) for p in module.uncut_wood_parts()
+               square_ends=p.name in getattr(module, 'NATIVE_SQUARE_END_MEMBERS', ()),
+               full_bevel_projection=p.name in full_bevel_members) for p in module.uncut_wood_parts()
                if not p.name.startswith(('main_', 'kicker_'))]
+    if set(full_bevel_members)-{r['name'] for r in records}:
+        raise ValueError('Full bevel projection names must identify modeled timber members')
     if tab_geometry:
         knees = set(module.KNEE_NAMES)
         cutters = module.additional_machining_cutters()
