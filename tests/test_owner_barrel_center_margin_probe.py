@@ -42,6 +42,7 @@ def test_positive_reserve_point_and_bounded_row_window(report):
     assert window["minimum_row_spacing_mm"] == pytest.approx(23.0)
     trial = report["trials"][0]
     assert trial["washer_od_mm"] == 22.0
+    assert "forward_backer_rear_mm" in trial["reserves_mm"]
     assert trial["rows_y_mm"] == pytest.approx([-162.4333333333, -138.1666666667])
     assert trial["washer_seat_cad_opportunity"]
     assert not trial["full_nominal_bolt_bore_contained"]

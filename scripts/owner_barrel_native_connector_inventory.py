@@ -23,6 +23,7 @@ SOURCE_PATHS = (
     "scripts/owner_barrel_rail_layout.py",
     "scripts/owner_barrel_center_layout.py",
     "scripts/owner_barrel_outer_top_layout.py",
+    "scripts/owner_barrel_backer_layout.py",
     "scripts/owner_barrel_center_margin_probe.py",
     "scripts/center_posts_outward_owner_layout.py",
     "scripts/owner_barrel_coordinates.py",
@@ -131,19 +132,44 @@ def _physical_hosts(barrel, bolt, wood):
 
 def build_inventory(*, assembly=None, placement=None):
     """Bind one viewer pose to exact candidate axes; leave native laws unresolved."""
-    if (assembly is None) != (placement is None):
-        raise ValueError("Supply both source-built assembly and placement, or neither")
+    default_viewer = assembly is None
     if assembly is None:
-        assembly, placement = build_viewer_assembly(), post_layout()
+        assembly = build_viewer_assembly()
+    post_placement = assembly.get("post_placement")
+    if default_viewer and (
+        post_placement != "outward" or assembly.get("backer_attachment") is None
+    ):
+        raise ValueError("Default inventory requires outward posts and backer duties")
+    if post_placement not in ("original", "outward"):
+        raise ValueError("Require an original or outward center-post assembly")
+    if post_placement == "outward" and placement is None:
+        placement = post_layout()
+    if post_placement == "original" and placement is not None:
+        raise ValueError("Original center posts use the fixed source receivers")
     duties = selected_duties()
     diagnostics = assembly["diagnostics"]["producer_diagnostics"]
+    post_centers = {
+        side: (
+            assembly["wood"][f"base_post_center_{side}"].BoundingBox().xmin
+            + assembly["wood"][f"base_post_center_{side}"].BoundingBox().xmax
+        )
+        / 2
+        for side in ("left", "right")
+    }
+    expected_post_x = 70.0 if post_placement == "original" else 180.0
+    present_backers = set(BACKERS) & set(assembly["wood"])
+    has_backers = bool(present_backers)
     if (
         set(assembly["station_modes"]) != set(duties)
         or set(assembly["removed_legacy_stations"]) != set(duties)
         or set(assembly["station_modes"].values()) != {"direct"}
         or diagnostics["outer_top8"]["viewer_trial_outer_header_forward_y_mm"] != -85.0
         or diagnostics["outer_top8"]["viewer_trial_outer_header_recess_mm"] is None
-        or not set(BACKERS).issubset(assembly["wood"])
+        or any(
+            abs(post_centers[side] - sign * expected_post_x) > 1e-5
+            for side, sign in (("left", -1), ("right", 1))
+        )
+        or present_backers != (set(BACKERS) if post_placement == "outward" else set())
     ):
         raise ValueError("Require the complete -85 mm barrel-only viewer pose")
     legacy_sds = {name for duty in duties.values() for name in duty["sds_axes"]}
@@ -164,40 +190,120 @@ def build_inventory(*, assembly=None, placement=None):
         or set(assembly["barrel_station"]) != set(barrel_source)
     ):
         raise ValueError("Candidate fixed, legacy, bolt, or barrel inventory changed")
-    # Check original source axes against the independent placement record.
-    if set(placement["fixed_panel_axes"]) != set(panel):
+    # The outward record remaps only four receivers; original posts use source members.
+    if placement is not None and set(placement["fixed_panel_axes"]) != set(panel):
         raise ValueError("Fixed panel screw identities changed")
-    receivers = placement["panel_receiver_map"]
-    landings = placement["center_kicker_screws"]
+    receivers = (
+        placement["panel_receiver_map"]
+        if placement is not None
+        else {name: row.members[1] for name, row in panel.items()}
+    )
+    landings = (
+        set(placement["center_kicker_screws"])
+        if placement is not None
+        else {
+            name
+            for name in panel
+            if name.startswith("round_kicker_") and "_center_" in name
+        }
+    )
+    expected_receivers = (
+        set(BACKERS)
+        if post_placement == "outward"
+        else {"base_post_center_left", "base_post_center_right"}
+    )
     if (
         set(receivers) != set(panel)
         or len(landings) != 4
         or set(landings)
-        != {name for name, receiver in receivers.items() if receiver in BACKERS}
-        or placement["backer_frame_attachment_qualified"] is not False
+        != {
+            name
+            for name, receiver in receivers.items()
+            if receiver in expected_receivers
+        }
+        or (
+            placement is not None
+            and placement["backer_frame_attachment_qualified"] is not False
+        )
     ):
-        raise ValueError("Backer screw landing or attachment status changed")
+        raise ValueError("Center kicker screw receiver or attachment status changed")
     fixed_screws = {}
     for name, row in panel.items():
-        source_axis = placement["fixed_panel_axes"][name]
         record = _connection(row, receiver=receivers[name])
-        if any(
-            abs(a - b) > 1e-5 for a, b in zip(record["start_mm"], source_axis[0])
-        ) or any(
-            abs(a - b) > 1e-8 for a, b in zip(record["direction_xyz"], source_axis[1])
-        ):
-            raise ValueError(f"{name}: fixed screw axis differs from placement source")
+        if placement is not None:
+            source_axis = placement["fixed_panel_axes"][name]
+            if any(
+                abs(a - b) > 1e-5 for a, b in zip(record["start_mm"], source_axis[0])
+            ) or any(
+                abs(a - b) > 1e-8
+                for a, b in zip(record["direction_xyz"], source_axis[1])
+            ):
+                raise ValueError(
+                    f"{name}: fixed screw axis differs from placement source"
+                )
         fixed_screws[name] = record
+    attachment = assembly.get("backer_attachment")
+    if post_placement == "original" and attachment is not None:
+        raise ValueError("Original center posts cannot have backer attachment duties")
+    attachment_stations = {} if attachment is None else attachment["stations"]
+    if attachment is not None and (
+        set(attachment_stations)
+        != {"backer_attachment_left", "backer_attachment_right"}
+        or any(attachment["release_flags"].values())
+    ):
+        raise ValueError("Current backer attachment duties or release flags changed")
     backers = {}
-    for backer in BACKERS:
+    for backer in BACKERS if has_backers else ():
         screws = sorted(name for name in landings if receivers[name] == backer)
         if len(screws) != 2 or backer not in assembly["wood"]:
             raise ValueError(f"{backer}: missing screw landings or timber")
+        side = backer.removeprefix("inner_kicker_backer_")
+        attachment_row = attachment_stations.get(f"backer_attachment_{side}")
+        attachment_names = (
+            [] if attachment_row is None else sorted(attachment_row["bolts"])
+        )
+        if attachment is not None and len(attachment_names) != 2:
+            raise ValueError(f"{backer}: missing two header attachment bolts")
         backers[backer] = {
             "screw_names": screws,
-            "frame_attachment_status": "missing",
-            "frame_attachment_connections": [],
+            "frame_attachment_status": (
+                "nominal_geometry_defined_unqualified"
+                if attachment_names
+                else "missing"
+            ),
+            "frame_attachment_connections": attachment_names,
         }
+
+    attachment_bolts = {}
+    for station, row in attachment_stations.items():
+        backer_name = (
+            f"inner_kicker_backer_{station.removeprefix('backer_attachment_')}"
+        )
+        if row["disposition"] != "REVISE" or len(row["barrels"]) != 2:
+            raise ValueError(f"{station}: unqualified backer duty changed")
+        for name, source_bolt in row["bolts"].items():
+            barrel_name = name.removesuffix("_bolt")
+            if barrel_name not in row["barrels"]:
+                raise ValueError(f"{name}: missing backer barrel")
+            bolt = _connection(source_bolt)
+            if set(bolt["members"]) != {"base_header", backer_name}:
+                raise ValueError(f"{name}: wrong backer load-path members")
+            center, _, _, _ = _barrel_axis(row["barrels"][barrel_name])
+            distance, along = _axis_distance(
+                center, bolt["start_mm"], bolt["direction_xyz"]
+            )
+            if distance > 1e-3:
+                raise ValueError(f"{name}: backer bolt misses provisional axis")
+            attachment_bolts[name] = {
+                **bolt,
+                "station": station,
+                "receiving_member": backer_name,
+                "barrel_name": barrel_name,
+                "provisional_thread_axis_point_mm": center,
+                "provisional_axis_point_from_bolt_start_mm": along,
+                "thread_engagement_verified": False,
+                "capacity_verified": False,
+            }
 
     bolts, barrels, stations = {}, {}, {}
     for station, duty in duties.items():
@@ -272,9 +378,11 @@ def build_inventory(*, assembly=None, placement=None):
         for name, row in bolts.items()
         if not row["modeled_shaft_reaches_provisional_axis"]
     }
-    candidate_names = sorted(set(fixed_screws) | set(retained) | set(bolts))
+    candidate_names = sorted(
+        set(fixed_screws) | set(retained) | set(bolts) | set(attachment_bolts)
+    )
     if (
-        len(candidate_names) != 126
+        len(candidate_names) != 126 + len(attachment_bolts)
         or set(candidate_names) & legacy_sds
         or set(candidate_names) & set(duties)
     ):
@@ -287,6 +395,7 @@ def build_inventory(*, assembly=None, placement=None):
         "schema": SCHEMA,
         "status": "preparation_inventory_only",
         "viewer_pose": {
+            "post_placement": post_placement,
             "outer_header_forward_y_mm": -85.0,
             "outer_header_recess_mm_provisional": diagnostics["outer_top8"][
                 "viewer_trial_outer_header_recess_mm"
@@ -298,6 +407,7 @@ def build_inventory(*, assembly=None, placement=None):
         "stations": stations,
         "bolts": bolts,
         "barrels": barrels,
+        "backer_attachment_bolts": attachment_bolts,
         "modeled_shaft_reach_shortfalls_mm": reach_shortfalls,
         "fixed_panel_screws": fixed_screws,
         "retained_frame_bolts": retained,
@@ -307,7 +417,7 @@ def build_inventory(*, assembly=None, placement=None):
             "sds_axes": sorted(legacy_sds),
         },
         "backers": backers,
-        "backer_screw_landings": {
+        "center_kicker_screw_landings": {
             name: {
                 "receiver": receivers[name],
                 "start_mm": fixed_screws[name]["start_mm"],
@@ -317,7 +427,6 @@ def build_inventory(*, assembly=None, placement=None):
             for name in sorted(landings)
         },
         "missing_native_inputs": {
-            "backer_frame_attachment": "No connection to frame is defined for either backer",
             "bolt_reach_and_engagement": (
                 "Viewer shaft lengths and provisional thread-axis points require "
                 "per-bolt reach, tip-clearance, and delivered engagement checks"
@@ -329,7 +438,7 @@ def build_inventory(*, assembly=None, placement=None):
             "connector_laws": [
                 "no-preload axial tension and lateral bearing/clearance for each bolt",
                 "barrel-to-wood reaction and stiffness at each thread center",
-                "backer attachment stiffness and retained-frame-bolt recheck",
+                "retained-frame-bolt recheck",
             ],
         },
         "source_sha256": source_sha256,
@@ -338,5 +447,18 @@ def build_inventory(*, assembly=None, placement=None):
         "capacities_claimed": False,
         "release_claimed": False,
     }
+    inventory["backer_screw_landings"] = (
+        inventory["center_kicker_screw_landings"] if has_backers else {}
+    )
+    if has_backers:
+        inventory["missing_native_inputs"]["backer_frame_attachment"] = (
+            "Four nominal header-to-backer paths are defined, but no "
+            "capacity or connection stiffness is qualified"
+            if attachment_bolts
+            else "No connection to frame is defined for either backer"
+        )
+        inventory["missing_native_inputs"]["connector_laws"].append(
+            "backer attachment stiffness"
+        )
     inventory["inventory_fingerprint_sha256"] = _digest(inventory)
     return inventory

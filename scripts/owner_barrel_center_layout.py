@@ -155,9 +155,11 @@ def _station_spec(station, wood):
             }
             for y in rows
         ]
+        backer = wood.get(f"inner_kicker_backer_{side}")
+        forward_edge_y = backer.BoundingBox().ymin if backer else bb.ymax
         y_margin = min(
             rows[0] - bb.ymin - WASHER_DIAMETER_MM / 2,
-            posts.BACKER_REAR_Y_MM - rows[1] - WASHER_DIAMETER_MM / 2,
+            forward_edge_y - rows[1] - WASHER_DIAMETER_MM / 2,
         )
     else:
         family = "bottom_center"
@@ -274,12 +276,35 @@ def build(wood=None):
     """Return direct CAD solids and finite stop-gate evidence for six duties."""
     source, default_wood, _layout = _wood()
     wood = default_wood if wood is None else wood
-    if not set(default_wood) <= set(wood):
-        raise ValueError("Center viewer missing whole-timber or kicker backer solids")
-    for side, target in (("left", -180.0), ("right", 180.0)):
-        bounds = wood[f"base_post_center_{side}"].BoundingBox()
-        if abs((bounds.xmin + bounds.xmax) / 2 - target) > 1e-5:
-            raise ValueError("Center viewer input must use approved X±180 post pose")
+    backer_names = {f"inner_kicker_backer_{side}" for side in ("left", "right")}
+    if not set(default_wood).difference(backer_names) <= set(wood):
+        raise ValueError("Center viewer missing whole-timber solids")
+    centers = {
+        side: (
+            wood[f"base_post_center_{side}"].BoundingBox().xmin
+            + wood[f"base_post_center_{side}"].BoundingBox().xmax
+        )
+        / 2
+        for side in ("left", "right")
+    }
+    if all(
+        abs(centers[side] - target) < 1e-5
+        for side, target in (("left", -70.0), ("right", 70.0))
+    ):
+        approved_centers = [-70.0, 70.0]
+        expected_backers = set()
+    elif all(
+        abs(centers[side] - target) < 1e-5
+        for side, target in (("left", -180.0), ("right", 180.0))
+    ):
+        approved_centers = [-180.0, 180.0]
+        expected_backers = backer_names
+    else:
+        raise ValueError(
+            "Center viewer input must use original X±70 or approved X±180 post pose"
+        )
+    if set(wood).intersection(backer_names) != expected_backers:
+        raise ValueError("Center viewer kicker backers do not match post pose")
     duties = ledger.selected_duties()
     source_connections = tuple(source.connections())
     panel = tuple(source.panel_connections())
@@ -367,7 +392,7 @@ def build(wood=None):
         if y_margin is not None and y_margin < 1.0:
             reasons.append(
                 "backer/washer tolerance"
-                if family == "principal_header"
+                if family == "principal_header" and expected_backers
                 else "washer edge tolerance"
             )
         station_reports[station] = {
@@ -412,7 +437,7 @@ def build(wood=None):
         "report": {
             "source_id": SOURCE_ID,
             "stations": station_reports,
-            "approved_post_centers_x_mm": [-180.0, 180.0],
+            "approved_post_centers_x_mm": approved_centers,
             "inventory": {
                 "candidate_barrels": 12,
                 "candidate_bolts": 12,
@@ -564,6 +589,14 @@ def build_revised_layout(wood):
             access[f"{name}/bolt_tool"] = solids[f"{name}/bolt_tool"]
             access[f"{name}/barrel_tool"] = solids[f"{name}/barrel_tool"]
             bolt_reports[name] = {**datum, **trial["bolts"][name]}
+        revise_reasons = [
+            "nominal 22 mm washer and 4 in full-thread bolt not product-qualified",
+            "complete barrel thread/wood/assembly resistance unverified",
+        ]
+        if any(row["unrelated_wood_hits_mm3"] for row in bolt_reports.values()):
+            revise_reasons.append("unrelated timber or backer intersection")
+        if any(row["protected_hits_mm3"] for row in bolt_reports.values()):
+            revise_reasons.append("finite protected-service intersection")
         stations[station] = {
             "mode": "direct",
             "axis_offset_mm": THREAD_AXIS_OFFSET_MM,
@@ -580,10 +613,7 @@ def build_revised_layout(wood):
             "nominal_washer_to_edge_or_backer_margin_mm": min(
                 trial["reserves_mm"].values()
             ),
-            "revise_reasons": [
-                "nominal 22 mm washer and 4 in full-thread bolt not product-qualified",
-                "complete barrel thread/wood/assembly resistance unverified",
-            ],
+            "revise_reasons": revise_reasons,
             "revise_required": True,
         }
     for station in STATIONS:

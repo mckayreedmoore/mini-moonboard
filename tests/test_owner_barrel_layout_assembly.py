@@ -106,6 +106,19 @@ def test_whole_frame_contract_without_heavy_producers():
     assert not result["release_flags"]["fabrication_released"]
 
 
+def test_original_center_posts_are_independent_of_outward_corner_layout():
+    source, _placement, builders = _fixtures()
+    result = build_assembly(builders, source=source, post_placement="original")
+    assert result["wood"]["base_post_center_left"].BoundingBox().xmin == pytest.approx(
+        -89.05
+    )
+    assert result["wood"]["base_post_center_right"].BoundingBox().xmax == pytest.approx(
+        89.05
+    )
+    assert not any(name.startswith("inner_kicker_backer_") for name in result["wood"])
+    assert "original ±70-mm center posts" in result["diagnostics"]["wood_basis"]
+
+
 def test_rejects_any_compact_block_and_divergent_offset():
     source, placement, builders = _fixtures()
     first = next(iter(FAMILY_STATIONS))

@@ -1,10 +1,10 @@
-"""Detached length sensitivity on the exact current outer-rail viewer axes."""
+"""Preserved length sensitivity on the historical 70-mm outer-rail axes."""
 
 from copy import copy
 
 import pytest
 
-from scripts.owner_barrel_outer_rail_bolt_length_probe import probe
+from scripts.owner_barrel_outer_rail_bolt_length_probe import historical_assembly, probe
 from scripts.simple_owner_duty_ledger import selected_duties
 
 
@@ -13,7 +13,7 @@ def result():
     return probe()
 
 
-def test_exact_current_viewer_ownership_and_fixed_inventory(result):
+def test_historical_70mm_ownership_and_fixed_inventory(result):
     expected = {
         name
         for name, duty in selected_duties().items()
@@ -99,9 +99,7 @@ def test_screen_records_all_envelope_families_without_release(result):
 
 
 def test_probe_rejects_missing_exact_station_owner(result):
-    from scripts.export_owner_barrel_scene import build_viewer_assembly
-
-    assembly = build_viewer_assembly()
+    assembly = historical_assembly()
     changed = {**assembly, "bolt_station": copy(assembly["bolt_station"])}
     name = next(iter(result["bolts"]))
     changed["bolt_station"][name] = "clip_horizontal_lower_center_1"

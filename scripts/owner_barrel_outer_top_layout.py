@@ -11,6 +11,7 @@ import cadquery as cq
 from mini_moonboard.box_frame import Connection
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import owner_barrel_coordinates as coordinates
+from scripts import owner_layout_protected as protected
 from scripts import simple_cross_dowel_continuation as hardware
 from scripts import simple_owner_duty_ledger as ledger
 
@@ -22,7 +23,7 @@ MACHINE_BORE_D_MM = 7.5  # Provisional pilot/access screen, not drill release.
 BARREL_BORE_D_MM = hardware.BARREL_OD_MM
 TOL_MM3 = 1.0
 VIEWER_OUTER_BASE_INWARD_MM = 10.0
-# The recessed-header envelope is a conditional viewer trial, not a drill size.
+# Provisional outer/top viewer stack; the header recess alone is a bore trial.
 VIEWER_HEADER_WASHER_OD_MM = 25.4
 VIEWER_HEADER_HEAD_OD_MM = 11.0
 VIEWER_HEADER_HEAD_HEIGHT_MM = 4.0
@@ -182,6 +183,22 @@ def _base_outer(side, wood, inward_mm=0.0):
     ]
 
 
+def _stack_collision_hits(shapes, wood, own_members, fixed):
+    """Check only provisional heads/washers; modeled paths need separate review."""
+    unrelated = {name: shape for name, shape in wood.items() if name not in own_members}
+    hits = {}
+    for role, shape in shapes.items():
+        fixed_hits = protected.hits({role: shape}, fixed)[role]
+        wood_hits = {
+            name: round(volume, 6)
+            for name, target in unrelated.items()
+            if (volume := protected._volume(shape, target)) > TOL_MM3
+        }
+        if fixed_hits or wood_hits:
+            hits[role] = {"protected": fixed_hits, "unrelated_wood": wood_hits}
+    return hits
+
+
 def screen():
     module = variant(KERF_RIGHT)
     wood = {part.name: part.shape for part in module.uncut_wood_parts()}
@@ -329,6 +346,9 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
         "base_outer_side": _base_outer,
     }
     stations = {}
+    fixed = protected.inventory() if recessed_header else None
+    stack_hits = {}
+    complete_stack_rows = 0
     for station, duty in duties.items():
         if duty["family"] not in FAMILIES:
             continue
@@ -388,17 +408,25 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                     hardware.THREAD_MAJOR_MM,
                 )
             }
-            if recessed_header and duty["family"] == "header_outer_post":
+            if recessed_header:
                 washer_t = hardware.WASHER_THICKNESS_SENSITIVITY_MM
-                stacks[bolt_name]["washer"] = _cylinder(
-                    start, -bolt_dir, washer_t, VIEWER_HEADER_WASHER_OD_MM
-                )
-                stacks[bolt_name]["head"] = _cylinder(
-                    shaft_start,
-                    -bolt_dir,
-                    VIEWER_HEADER_HEAD_HEIGHT_MM,
-                    VIEWER_HEADER_HEAD_OD_MM,
-                )
+                trial = {
+                    "washer": _cylinder(
+                        start, -bolt_dir, washer_t, VIEWER_HEADER_WASHER_OD_MM
+                    ),
+                    "head": _cylinder(
+                        shaft_start,
+                        -bolt_dir,
+                        VIEWER_HEADER_HEAD_HEIGHT_MM,
+                        VIEWER_HEADER_HEAD_OD_MM,
+                    ),
+                }
+                hits = _stack_collision_hits(trial, wood, set(duty["timber"]), fixed)
+                if hits:
+                    stack_hits[bolt_name] = hits
+                    raise ValueError(f"{bolt_name}: provisional stack clashes: {hits}")
+                stacks[bolt_name].update(trial)
+                complete_stack_rows += 1
             drilling[f"{name}/machine_bore"] = _cylinder(
                 start,
                 bolt_dir,
@@ -461,6 +489,12 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
             "viewer_trial_outer_header_forward_y_mm": VIEWER_HEADER_FORWARD_Y_MM
             if recessed_header
             else None,
+            "viewer_trial_complete_stack_rows": complete_stack_rows
+            if recessed_header
+            else None,
+            "viewer_trial_head_washer_hits_mm3": stack_hits
+            if recessed_header
+            else None,
             "conditional_rim_removal_required": recessed_header,
             "limits": (
                 "All eight have diagnostic nominal direct-bore shapes. Outer-base "
@@ -470,8 +504,10 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                     else "pair is a held exception pending PB09/header clearance. "
                 )
                 + (
-                    "Outer-header provisional recessed head/washer/counterbore "
-                    "require rim-first service; actual removal unverified. "
+                    "All outer/top heads/washers are provisional and clear the "
+                    "finite protected/unrelated-wood screen. Outer-header "
+                    "counterbores require rim-first service; actual removal "
+                    "unverified. "
                     if recessed_header
                     else "Shaft-only stacks; washer/head open. "
                 )
@@ -487,7 +523,7 @@ def build_revised_layout(wood):
 
 
 def build_recessed_viewer_layout(wood):
-    """Add the conditional outer-header seat only in the standalone viewer."""
+    """Complete provisional stacks and recess only the outer-header seats."""
     return build_layout(wood, viewer_revision=True, recessed_header=True)
 
 

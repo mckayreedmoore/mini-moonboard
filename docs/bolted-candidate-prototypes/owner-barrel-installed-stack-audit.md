@@ -1,0 +1,61 @@
+# Current barrel viewer: nominal installed-stack axial audit
+
+This is an independent read of the **current**
+`export_owner_barrel_scene.build_viewer_assembly()` composition. It does not
+read an older exported scene or rebuild the three families from their producer
+defaults. The assembled outer-rail trial is the new **6 in / 60 mm setback**
+geometry. The script checks every one of the 48 bolt/barrel pairs and leaves
+the producer and exporter unchanged.
+
+Run `.venv/bin/python -m scripts.owner_barrel_installed_stack_audit` for the
+48 named records and their shaft start/length, barrel-body center/OD,
+near/assumed-axis/far-wall reach, modeled machine-bore far cap, signed tip
+clearance, and head/washer presence. `tests/test_owner_barrel_installed_stack_audit.py`
+guards the counts and exact exception names.
+
+| Nominal CAD observation | Count | Status |
+| --- | ---: | --- |
+| Tip short of assumed barrel center | 0 | Thread axis unverified |
+| Tip beyond modeled machine-bore cap | **8** | CAD inconsistency |
+| Axis reached; tip within modeled bore | 40 | Not a fit pass |
+| Head absent / washer absent | 0 / 0 | Provisional envelopes only |
+| Delivered thread engagement | 48 | **UNKNOWN** |
+
+The eight bore overruns are both rows at each of these four stations:
+
+- `clip_horizontal_lower_left_2_barrel_1_bolt`,
+  `clip_horizontal_lower_left_2_barrel_2_bolt`
+- `clip_horizontal_lower_right_1_barrel_1_bolt`,
+  `clip_horizontal_lower_right_1_barrel_2_bolt`
+- `clip_horizontal_upper_left_2_barrel_1_bolt`,
+  `clip_horizontal_upper_left_2_barrel_2_bolt`
+- `clip_horizontal_upper_right_1_barrel_1_bolt`,
+  `clip_horizontal_upper_right_1_barrel_2_bolt`
+
+Each has a modeled 127.0 mm (5 in) shaft, tip 17.249 mm past the assumed
+barrel center and **10.2452 mm beyond its existing machine-bore cap**.
+That 10.2452 mm is only the nominal added depth needed to reach the tip with
+*zero* end clearance; it is not a proposed bore dimension or drilling plan.
+All 12 revised 152.4 mm (6 in) outer-rail shafts at 60 mm setback are in the
+within-bore group; this does not resolve the eight other rows.
+A shorter 4½ in hex-bolt substitution is not selected: the readily listed
+[Hillman 190055][short-bolt] is expressly **not full-thread**, and its actual
+thread runout at the barrel is unverified. A deeper center-rail bore would
+change the proposed drilling geometry and requires separate review before
+it is integrated; neither option is a fabrication instruction.
+
+All 48 former-angle bolt paths now have nominal CAD head/washer envelopes,
+including the 12 outer/top rows previously omitted. Presence in CAD is not
+evidence of a selected retail part or a seated, installable stack.
+
+The audit uses the actual cylindrical shaft, barrel body, and bore solids.
+It confirms the connection axis agrees with the shaft solid and that each
+bore is coaxial with its bolt. The **barrel-body midpoint** is used solely as
+the provisional thread-axis proxy. It does not establish where the threads
+really are, whether the bolt's threaded portion reaches them, or adequate
+engagement. No delivered dimensions, tolerances, tool access, assembly
+sequence, wood net-section strength, barrel resistance, or whole-frame load
+case is passed by this audit. There is **no overall PASS, structural release,
+drilling release, or fabrication release**.
+
+[short-bolt]: https://www.lowes.com/pd/Hillman-1-4-in-x-4-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000897796

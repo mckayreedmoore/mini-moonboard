@@ -5,8 +5,13 @@ from dataclasses import replace
 
 import pytest
 
+from scripts import owner_barrel_center_layout as center
+from scripts import owner_barrel_native_connector_inventory as native_inventory
+from scripts import owner_barrel_outer_top_layout as outer
+from scripts import owner_barrel_rail_layout as rail
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
 from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.owner_barrel_layout_assembly import build_assembly
 from scripts.owner_barrel_native_connector_inventory import build_inventory
 from scripts.simple_owner_duty_ledger import selected_duties
 
@@ -14,6 +19,18 @@ from scripts.simple_owner_duty_ledger import selected_duties
 @pytest.fixture(scope="module")
 def sources():
     return build_viewer_assembly(), post_layout()
+
+
+@pytest.fixture(scope="module")
+def original_sources():
+    return build_assembly(
+        producers={
+            "rail10": rail.build_revised_layout,
+            "center6": center.build_revised_layout,
+            "outer_top8": outer.build_recessed_viewer_layout,
+        },
+        post_placement="original",
+    )
 
 
 @pytest.fixture(scope="module")
@@ -28,6 +45,7 @@ def test_current_viewer_connector_inventory_is_complete_and_source_bound(
     duties = selected_duties()
     assert inventory["schema"] == "owner_barrel_native_connector_inventory/v1"
     assert inventory["viewer_pose"]["outer_header_forward_y_mm"] == -85.0
+    assert inventory["viewer_pose"]["post_placement"] == "outward"
     assert inventory["native_ready"] is False
     assert inventory["native_solve"] is False
     assert inventory["capacities_claimed"] is False
@@ -42,8 +60,10 @@ def test_current_viewer_connector_inventory_is_complete_and_source_bound(
     assert set(inventory["barrels"]) == set(assembly["barrels"])
     assert len(inventory["fixed_panel_screws"]) == 66
     assert len(inventory["retained_frame_bolts"]) == 12
+    assert len(inventory["backer_attachment_bolts"]) == 4
     assert set(inventory["candidate_connection_names"]) == (
         set(inventory["bolts"])
+        | set(inventory["backer_attachment_bolts"])
         | set(inventory["fixed_panel_screws"])
         | set(inventory["retained_frame_bolts"])
     )
@@ -56,19 +76,13 @@ def test_current_viewer_connector_inventory_is_complete_and_source_bound(
     assert inventory["source_sha256"]
     assert len(inventory["inventory_fingerprint_sha256"]) == 64
     shortfalls = inventory["modeled_shaft_reach_shortfalls_mm"]
-    assert len(shortfalls) == 12
-    assert set(shortfalls) == {
-        name
-        for name, bolt in inventory["bolts"].items()
-        if bolt["station"]
-        in {
-            station
-            for station, duty in duties.items()
-            if duty["family"] in {"bottom_outer", "lower_outer", "upper_outer"}
-        }
-    }
-    assert all(
-        value == pytest.approx(33.55125, abs=0.01) for value in shortfalls.values()
+    assert shortfalls == {}
+    assert (
+        sum(
+            abs(bolt["length_mm"] - 152.4) < 1e-6
+            for bolt in inventory["bolts"].values()
+        )
+        == 12
     )
     for name, bolt in inventory["bolts"].items():
         assert bolt["barrel_name"] == name.removesuffix("_bolt")
@@ -100,25 +114,68 @@ def test_current_viewer_connector_inventory_is_complete_and_source_bound(
         )
 
 
-def test_backer_landings_and_missing_native_laws_are_explicit(inventory, sources):
-    _, placement = sources
-    assert set(inventory["backers"]) == {
-        "inner_kicker_backer_left",
-        "inner_kicker_backer_right",
-    }
-    for name, row in inventory["backers"].items():
-        assert len(row["screw_names"]) == 2
-        assert row["frame_attachment_status"] == "missing"
-        for screw in row["screw_names"]:
-            assert placement["panel_receiver_map"][screw] == name
-            assert inventory["fixed_panel_screws"][screw]["receiver"] == name
-    assert set(inventory["backer_screw_landings"]) == set(
-        placement["center_kicker_screws"]
-    )
-    assert inventory["missing_native_inputs"]["backer_frame_attachment"]
+def test_original_center_screws_land_in_posts_without_backer_duties(original_sources):
+    assembly = original_sources
+    inventory = build_inventory(assembly=assembly)
+    assert inventory["viewer_pose"]["post_placement"] == "original"
+    assert len(inventory["candidate_connection_names"]) == 126
+    assert inventory["backer_attachment_bolts"] == {}
+    assert inventory["backers"] == {}
+    assert inventory["backer_screw_landings"] == {}
+    assert "backer_frame_attachment" not in inventory["missing_native_inputs"]
+    landings = inventory["center_kicker_screw_landings"]
+    assert len(landings) == 4
+    for name, row in landings.items():
+        source = next(
+            item for item in assembly["panel_connections"] if item.name == name
+        )
+        assert row["receiver"] == source.members[1]
+        assert row["receiver"] in {"base_post_center_left", "base_post_center_right"}
+        assert inventory["fixed_panel_screws"][name]["receiver"] == row["receiver"]
     assert inventory["missing_native_inputs"]["bolt_reach_and_engagement"]
     assert inventory["missing_native_inputs"]["contact_laws"]
     assert inventory["missing_native_inputs"]["connector_laws"]
+
+
+def test_active_backer_duties_and_unqualified_laws_are_explicit(inventory, sources):
+    assembly, placement = sources
+    assert inventory["viewer_pose"]["post_placement"] == "outward"
+    assert set(assembly["backer_attachment"]["stations"]) == {
+        "backer_attachment_left",
+        "backer_attachment_right",
+    }
+    assert len(inventory["backer_attachment_bolts"]) == 4
+    assert len(inventory["backers"]) == 2
+    assert len(inventory["backer_screw_landings"]) == 4
+    assert len(inventory["candidate_connection_names"]) == 130
+    assert inventory["missing_native_inputs"]["backer_frame_attachment"]
+    for name, row in inventory["backers"].items():
+        assert len(row["screw_names"]) == 2
+        assert row["frame_attachment_status"] == "nominal_geometry_defined_unqualified"
+        assert len(row["frame_attachment_connections"]) == 2
+        assert all(
+            inventory["fixed_panel_screws"][screw]["receiver"] == name
+            for screw in row["screw_names"]
+        )
+        assert all(
+            placement["panel_receiver_map"][screw] == name
+            for screw in row["screw_names"]
+        )
+
+
+def test_default_inventory_uses_active_outward_viewer():
+    row = build_inventory()
+    assert row["viewer_pose"]["post_placement"] == "outward"
+    assert len(row["backer_attachment_bolts"]) == 4
+    assert len(row["candidate_connection_names"]) == 130
+
+
+def test_default_rejects_detached_original_trial(original_sources, monkeypatch):
+    monkeypatch.setattr(
+        native_inventory, "build_viewer_assembly", lambda: original_sources
+    )
+    with pytest.raises(ValueError, match="Default inventory"):
+        build_inventory()
 
 
 def test_inventory_rejects_missing_barrel_and_changed_viewer_pose(sources):
@@ -138,6 +195,22 @@ def test_inventory_rejects_missing_barrel_and_changed_viewer_pose(sources):
     }
     with pytest.raises(ValueError, match="-85"):
         build_inventory(assembly=moved, placement=placement)
+
+    mixed = {
+        **assembly,
+        "wood": {
+            name: shape
+            for name, shape in assembly["wood"].items()
+            if name != "inner_kicker_backer_left"
+        },
+    }
+    with pytest.raises(ValueError, match="viewer pose"):
+        build_inventory(assembly=mixed)
+
+
+def test_original_trial_rejects_shifted_placement(original_sources):
+    with pytest.raises(ValueError, match="Original center posts"):
+        build_inventory(assembly=original_sources, placement=post_layout())
 
 
 def test_host_ownership_uses_solids_not_connection_member_order(sources, inventory):

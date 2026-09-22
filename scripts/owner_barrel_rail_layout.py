@@ -46,6 +46,17 @@ VIEWER_REVISED_STATIONS = (
     "clip_horizontal_upper_right_1",
 )
 VIEWER_REVISED_ROWS_N_MM = (50.0, 92.25)
+VIEWER_OUTER_FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
+VIEWER_OUTER_STATIONS = tuple(
+    name
+    for name, duty in ledger.selected_duties().items()
+    if duty["family"] in VIEWER_OUTER_FAMILIES
+)
+VIEWER_OUTER_SETBACK_MM = 60.0
+VIEWER_OUTER_BOLT_LENGTH_MM = 6.0 * continuation.INCH_MM
+VIEWER_WASHER_DIAMETER_MM = 25.4
+VIEWER_HEAD_DIAMETER_MM = 11.0
+VIEWER_HEAD_HEIGHT_MM = 4.0
 BARREL_AXIS_OFFSET_MM = continuation.BARREL_LENGTH_MM / 2
 BARREL_RECESS_MM = (continuation.SECTION_MM[0] - continuation.BARREL_LENGTH_MM) / 2
 MACHINE_BORE_DIAMETER_MM = 7.5
@@ -95,6 +106,8 @@ def build_geometry(
     *,
     row_n_mm=ROW_N_FROM_FRONT_MM,
     barrel_setback_mm=BARREL_X_FROM_BUTT_MM,
+    bolt_length_mm=continuation.BOLT_LENGTH_MM,
+    complete_stack=False,
     stations=STATIONS,
     cut_wood=True,
 ):
@@ -106,7 +119,12 @@ def build_geometry(
         raise ValueError("Fixed kerf-right axis or rail-duty inventory changed")
     wood = _owner_wood(source) if wood is None else wood
     geometry = {}
-    if len(row_n_mm) != 2 or row_n_mm[0] >= row_n_mm[1] or barrel_setback_mm <= 0:
+    if (
+        len(row_n_mm) != 2
+        or row_n_mm[0] >= row_n_mm[1]
+        or barrel_setback_mm <= 0
+        or bolt_length_mm <= 0
+    ):
         raise ValueError("Expected two ordered rows and positive barrel setback")
     if not set(stations) <= set(STATIONS):
         raise ValueError("Unknown rail duty")
@@ -165,12 +183,33 @@ def build_geometry(
                 continuation.BARREL_LENGTH_MM,
                 continuation.BARREL_OD_MM,
             )
+            washer_t = continuation.WASHER_THICKNESS_SENSITIVITY_MM
+            shaft_start = wood_seat - bolt_direction * washer_t
             bolt = _cylinder(
-                wood_seat
-                - bolt_direction * continuation.WASHER_THICKNESS_SENSITIVITY_MM,
+                shaft_start,
                 bolt_direction,
-                continuation.BOLT_LENGTH_MM,
+                bolt_length_mm,
                 continuation.THREAD_MAJOR_MM,
+            )
+            washer = (
+                _cylinder(
+                    wood_seat,
+                    -bolt_direction,
+                    washer_t,
+                    VIEWER_WASHER_DIAMETER_MM,
+                )
+                if complete_stack
+                else None
+            )
+            head = (
+                _cylinder(
+                    shaft_start,
+                    -bolt_direction,
+                    VIEWER_HEAD_HEIGHT_MM,
+                    VIEWER_HEAD_DIAMETER_MM,
+                )
+                if complete_stack
+                else None
             )
             bolt_access = _cylinder(
                 wood_seat,
@@ -192,10 +231,13 @@ def build_geometry(
                     "thread_center": thread_center,
                     "wood_seat": wood_seat,
                     "bolt_direction": bolt_direction,
+                    "bolt_length_mm": bolt_length_mm,
                     "machine_bore": machine_bore,
                     "barrel_bore": barrel_bore,
                     "barrel": barrel,
                     "bolt": bolt,
+                    "washer": washer,
+                    "head": head,
                     "bolt_access": bolt_access,
                     "barrel_access": barrel_access,
                     "wood_path_to_thread_mm": path_to_thread,
@@ -246,9 +288,12 @@ def screen(built=None):
                 "barrel_bore",
                 "barrel",
                 "bolt",
+                "washer",
+                "head",
                 "bolt_access",
                 "barrel_access",
             )
+            if row.get(kind) is not None
         }
         service_hits = {
             solid: hits for solid, hits in protected.hits(solids, fixed).items() if hits
@@ -267,6 +312,16 @@ def screen(built=None):
             <= TOL_MM3
             for row in rows
         )
+        tip_past_axis = tuple(
+            row["bolt_length_mm"]
+            - continuation.WASHER_THICKNESS_SENSITIVITY_MM
+            - row["wood_path_to_thread_mm"]
+            for row in rows
+        )
+        shaft_reaches_body = tuple(
+            margin > -continuation.BARREL_OD_MM / 2 for margin in tip_past_axis
+        )
+        shaft_passes_axis = tuple(margin > 0 for margin in tip_past_axis)
         stations[name] = {
             "participants": [pose["spec"].upright_name, pose["spec"].rail_name],
             "rail_n_depth_mm": round(pose["rail_n_depth_mm"], 6),
@@ -291,6 +346,16 @@ def screen(built=None):
                 )
                 for row in rows
             ],
+            "nominal_bolt_lengths_mm": [row["bolt_length_mm"] for row in rows],
+            "nominal_tip_past_assumed_axis_mm": [
+                round(margin, 6) for margin in tip_past_axis
+            ],
+            "nominal_shaft_reaches_barrel_body": shaft_reaches_body,
+            "nominal_shaft_passes_assumed_axis": shaft_passes_axis,
+            "nominal_tip_to_barrel_far_wall_mm": [
+                round(continuation.BARREL_OD_MM / 2 - margin, 6)
+                for margin in tip_past_axis
+            ],
             "protected_hits_mm3": service_hits,
             "unrelated_wood_hits_mm3": unrelated_hits,
             "geometry_status": (
@@ -300,6 +365,7 @@ def screen(built=None):
                 or unrelated_hits
                 or not all(barrel_contained)
                 or not all(v > TOL_MM3 for v in bore_intersections)
+                or not all(shaft_reaches_body)
                 else "DIRECT_TRIAL_GEOMETRY_ONLY"
             ),
         }
@@ -345,7 +411,7 @@ def _connection(row, spec):
         f"{row['name']}_bolt",
         start,
         row["bolt_direction"],
-        continuation.BOLT_LENGTH_MM,
+        row["bolt_length_mm"],
         continuation.THREAD_MAJOR_MM,
         (spec.upright_name, spec.rail_name),
         "bolt",
@@ -354,7 +420,7 @@ def _connection(row, spec):
 
 def build_layout(wood, *, viewer_revision=False):
     """Assembly adapter: use its exact wood pose and retain REVISE dispositions."""
-    built = build_geometry(wood=wood)
+    built = build_geometry(wood=wood, complete_stack=viewer_revision)
     if viewer_revision:
         trial = build_geometry(
             wood=wood,
@@ -362,8 +428,18 @@ def build_layout(wood, *, viewer_revision=False):
             barrel_setback_mm=BARREL_X_FROM_BUTT_MM,
             stations=VIEWER_REVISED_STATIONS,
             cut_wood=False,
+            complete_stack=True,
         )
         built["stations"].update(trial["stations"])
+        outer_trial = build_geometry(
+            wood=wood,
+            barrel_setback_mm=VIEWER_OUTER_SETBACK_MM,
+            bolt_length_mm=VIEWER_OUTER_BOLT_LENGTH_MM,
+            stations=VIEWER_OUTER_STATIONS,
+            cut_wood=False,
+            complete_stack=True,
+        )
+        built["stations"].update(outer_trial["stations"])
     report = screen(built)
     stations = {}
     for name, pose in built["stations"].items():
@@ -383,7 +459,15 @@ def build_layout(wood, *, viewer_revision=False):
             "bolts": bolts,
             "barrels": {row["name"]: row["barrel"] for row in pose["rows"]},
             "stacks": {
-                f"{row['name']}_bolt": {"shaft": row["bolt"]} for row in pose["rows"]
+                f"{row['name']}_bolt": {
+                    "shaft": row["bolt"],
+                    **(
+                        {"washer": row["washer"], "head": row["head"]}
+                        if viewer_revision
+                        else {}
+                    ),
+                }
+                for row in pose["rows"]
             },
             "drilling_paths": {
                 f"{row['name']}/{kind}": row[kind]
@@ -405,8 +489,17 @@ def build_layout(wood, *, viewer_revision=False):
             "viewer_trial_front_n_mm": VIEWER_REVISED_ROWS_N_MM[0]
             if viewer_revision
             else None,
+            "viewer_trial_outer_rail_setback_mm": (
+                VIEWER_OUTER_SETBACK_MM if viewer_revision else None
+            ),
+            "viewer_trial_outer_rail_bolt_length_mm": (
+                VIEWER_OUTER_BOLT_LENGTH_MM if viewer_revision else None
+            ),
             "limits": (
-                "Shaft-only generic stacks; heads, washer seats, delivered thread "
+                "Provisional heads/washers in the viewer only; delivered thread "
+                "fit, drilling sizes, tolerances and tool insertion remain unverified"
+                if viewer_revision
+                else "Shaft-only generic stacks; heads, washer seats, delivered thread "
                 "fit, drilling sizes and tool insertion remain unverified"
             ),
         },

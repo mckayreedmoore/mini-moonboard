@@ -28,6 +28,29 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert len(scene["solids"]) == 4
     assert inventory["barrel_nut_envelopes"] == 48
     assert inventory["new_diagnostic_bolt_axes"] == 48
+    assert inventory["rail_head_washer_envelopes"] == 40
+    assert inventory["other_head_washer_envelopes"] == 48
+    assert inventory["backer_attachment_duties"] == 2
+    assert inventory["backer_barrel_nut_envelopes"] == 4
+    assert inventory["backer_diagnostic_bolt_axes"] == 4
+    assert inventory["backer_head_washer_envelopes"] == 8
+    assert {row["role"] for row in scene["rail_head_washer_envelopes"]} == {
+        "rail_head",
+        "rail_washer",
+    }
+    assert {row["role"] for row in scene["other_head_washer_envelopes"]} == {
+        "joint_head",
+        "joint_washer",
+    }
+    assert {row["role"] for row in scene["backer_head_washer_envelopes"]} == {
+        "backer_head",
+        "backer_washer",
+    }
+    assert set(scene["backer_attachment"]["station_dispositions"].values()) == {
+        "REVISE"
+    }
+    assert scene["backer_attachment"]["thread_engagement_verified"] is False
+    assert scene["backer_attachment"]["capacity_verified"] is False
     assert inventory["conditional_outer_header_recess_envelopes"] == 12
     assert inventory["fixed_panel_kicker_screw_axes"] == 66
     assert inventory["retained_frame_bolt_axes"] == 12

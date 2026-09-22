@@ -6,16 +6,12 @@ replaces the **visuals** of all 24 historical structural angles and 144 SDS
 fasteners with 48 diagnostic 1/4-20 bolt paths and 48 provisional Hillman
 880543-shaped barrel envelopes. No corner-block fallback solids are in this
 scene.
-The original 66 panel/kicker screws and 12 frame bolts remain; both original-
-width center posts are shown at the owner-approved X = ±180 mm with two
-separate kicker screw backers. The backers are not structurally attached by
-this concept. The historical angle assembly remains the selected baseline.
-A detached [backer/header attachment screen](owner-barrel-backer-attachment-probe.md)
-shows four provisional bolt/barrel pairs with no nominal finite clashes, but
-its 3½ in trial bolt overextends the modeled barrel and does not establish
-fit, strength, assembly access, or attachment approval.
-A detached 3 in bolt / raised-barrel sensitivity avoids that nominal overrun
-but remains unselected for the same fit and capacity reasons.
+The original 66 panel/kicker screws and 12 frame bolts remain. The active
+barrel candidate retains the approved X = ±180 mm center posts and two
+separate kicker-screw backers. Four provisional header-to-backer bolt/barrel
+paths are shown in two added [backer duties](owner-barrel-backer-layout.md).
+These paths do not yet establish a qualified attachment or load path. The
+historical angle assembly remains the selected baseline.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
 reviewed snapshot. Its published JSON is checked against the source-built
@@ -24,10 +20,14 @@ browser smoke check. Barrel and bolt paths are diagnostic X-ray overlays;
 red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. This scene is generated independently
-of the corner-block assembly; both views share only the original frame and
-owner-approved center-post/backer placement.
+of the corner-block assembly; the two concepts share the approved post/backer
+placement, not their joint solids.
 
-The integrated assembly shows 24 direct-bore *trials*, not 24 accepted joints.
+The integrated assembly shows 24 former-angle and two added backer direct-bore
+*trials*, not 26 accepted joints.
+Provisional head and washer solids now accompany all 48 former-angle bolt
+paths, plus the four added backer bolts. These are modeled envelopes, not
+controlled retail dimensions or verified seats.
 This scene now illustrates four bounded geometry revisions: the two
 right-center rail stations use a 50/92.25 mm row pair found in the
 [rail-position probe](owner-barrel-rail-clearance-probe.md); both
@@ -70,20 +70,20 @@ uses the current Y = −85 mm viewer as its source and compares Y = −75,
 −80, and −90 mm alternatives. The current pose has 24.600 mm between
 counterbores; it remains provisional and `REVISE`.
 The [source-bound connector inventory](owner-barrel-native-connector-inventory.md)
-finds that all 12 modeled 5 in shafts at the six bottom/lower/upper outer-rail
-stations stop about 33.551 mm before their provisional barrel-thread axis
-points. Those rows are not connected as drawn. A longer ordinary bolt is a
-research lead only; delivered thread span, bore depth, clearance, and complete
-joint resistance are still open.
+now reads the same current viewer revision. The
+[installed-stack audit](owner-barrel-installed-stack-audit.md) finds no bolt
+short of an *assumed* barrel center, but eight 5 in center-rail tips extend
+10.2452 mm past their modeled machine-bore caps. All 48 have provisional
+heads and washers; delivered thread span, usable engagement, bore-tip
+clearance, and complete joint resistance remain open.
 The detached [6/7 in length screen](owner-barrel-outer-rail-bolt-length-probe.md)
 finds 6 in still short and a 7 in nominal tip 12.2452 mm past the modeled
 barrel's far wall. Neither is selected hardware; a longer bore and tip
 clearance would need separate verification.
-A separate [60 mm setback screen](owner-barrel-outer-rail-setback-probe.md)
-tests moving only these six rail barrels 10 mm toward their butt faces and
-using nominal 6 in bolts. It clears the bounded collision screen but remains
-detached from this viewer pending thread, tolerance, service, and capacity
-checks.
+The [60 mm setback screen](owner-barrel-outer-rail-setback-probe.md)
+led to the depicted six-rail provisional revision: twelve 6 in shaft paths
+reach their assumed axes by 1.849 mm, with head/washer envelopes now shown.
+Thread, tolerance, service, and capacity checks are still open.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
@@ -109,7 +109,7 @@ The revised integrated cross-family screen found no positive-volume **physical**
 or drill/access intersections among its supplied finite solids. It is a
 limited screen: same-family contacts, protected
 hold/T-nut/LED/wire features, the 66 screws and 12 original frame bolts,
-full hardware heads/washers at every duty, and actual driver sweeps are not
+delivered head/washer fit at every duty, and actual driver sweeps are not
 cleared by this whole-frame test. Individual producer notes record their
 own identified conflicts: [rail ten](owner-barrel-rail-layout.md),
 [center six](owner-barrel-center-layout.md), and
@@ -147,6 +147,13 @@ transferred to this wood joint.
 The [two-concept comparison](owner-two-concept-comparison.md) is for choosing
 which *development direction* to study next, after viewing both scenes. A
 choice would not authorize fabrication or climbing.
+
+An inactive original-post trial kept X = ±70 mm and omitted the backers.
+Those posts receive the four fixed center kicker screws and avoid the
+KICK5/KICK6 T-nut steel, but leave 49–53 mm between their inner edges and
+the kicker seam. Its inherited center/header bolt stacks intersect opposite
+timber, and a barrel-tool path intersects the provisional hold-bolt rear
+projection at KICK5/KICK6. It is not the active layout or a support solution.
 
 [scene]: https://mckayreedmoore.github.io/mini-moonboard/?model=owner-barrel-layout&view=rear
 [lowes]: https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559

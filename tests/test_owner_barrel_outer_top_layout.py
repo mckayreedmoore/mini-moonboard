@@ -4,6 +4,9 @@ import pytest
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import owner_barrel_outer_top_layout as layout
+from scripts import owner_layout_protected as protected
+from scripts import simple_cross_dowel_continuation as hardware
+from scripts import simple_owner_duty_ledger as ledger
 
 
 def test_eight_duties_use_one_provisional_part_basis_without_release():
@@ -62,7 +65,11 @@ def test_conditional_recess_only_changes_four_outer_header_viewer_rows():
             assert [b.start.toTuple() for b in row["bolts"].values()] == [
                 b.start.toTuple() for b in before["bolts"].values()
             ]
-            assert all(set(stack) == {"shaft"} for stack in row["stacks"].values())
+            assert all(set(stack) == {"shaft"} for stack in before["stacks"].values())
+            assert all(
+                set(stack) == {"shaft", "washer", "head"}
+                for stack in row["stacks"].values()
+            )
             continue
         assert sorted(
             bolt.start.y for bolt in original["stations"][station]["bolts"].values()
@@ -87,3 +94,88 @@ def test_conditional_recess_only_changes_four_outer_header_viewer_rows():
         assert sum("counterbore" in name for name in row["drilling_paths"]) == 2
         assert row["disposition"] == "REVISE"
     assert recessed["diagnostics"]["conditional_rim_removal_required"] is True
+
+
+def test_recessed_viewer_adds_exactly_twelve_nonheader_stacks_at_bolt_seats():
+    wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
+    default = layout.build_layout(wood)
+    revised = layout.build_revised_layout(wood)
+    viewer = layout.build_recessed_viewer_layout(wood)
+    added = {
+        name
+        for station, row in viewer["stations"].items()
+        if not station.startswith("clip_timber_header_outer_")
+        for name in row["stacks"]
+    }
+    expected_stations = (
+        "clip_angle_base_left",
+        "clip_angle_base_right",
+        "clip_single_top_left_1",
+        "clip_single_top_right_2",
+        "clip_split_top_center_left",
+        "clip_split_top_center_right",
+    )
+    assert added == {
+        f"barrel_trial_{station}_{index}_bolt"
+        for station in expected_stations
+        for index in (1, 2)
+    }
+    assert viewer["diagnostics"]["viewer_trial_complete_stack_rows"] == 16
+    assert viewer["diagnostics"]["viewer_trial_head_washer_hits_mm3"] == {}
+    for station, row in viewer["stations"].items():
+        for name, bolt in row["bolts"].items():
+            if name not in added:
+                continue
+            assert set(default["stations"][station]["stacks"][name]) == {"shaft"}
+            assert set(revised["stations"][station]["stacks"][name]) == {"shaft"}
+            stack = row["stacks"][name]
+            seat = (
+                bolt.start + bolt.direction * hardware.WASHER_THICKNESS_SENSITIVITY_MM
+            )
+            washer = stack["washer"]
+            head = stack["head"]
+            axis = bolt.direction.normalized()
+            washer_extent = sorted(
+                vertex.Center().dot(axis) for vertex in washer.Vertices()
+            )
+            head_extent = sorted(
+                vertex.Center().dot(axis) for vertex in head.Vertices()
+            )
+            assert washer_extent[0] == pytest.approx(bolt.start.dot(axis))
+            assert washer_extent[-1] == pytest.approx(seat.dot(axis))
+            assert head_extent[-1] == pytest.approx(bolt.start.dot(axis))
+
+
+def test_recessed_viewer_new_heads_and_washers_clear_fixed_and_unrelated_wood():
+    wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
+    viewer = layout.build_recessed_viewer_layout(wood)
+    fixed = protected.inventory()
+    duties = ledger.selected_duties()
+    for station, row in viewer["stations"].items():
+        if station.startswith("clip_timber_header_outer_"):
+            continue
+        unrelated = {
+            name: shape
+            for name, shape in wood.items()
+            if name not in duties[station]["timber"]
+        }
+        for stack in row["stacks"].values():
+            for role in ("head", "washer"):
+                shape = stack[role]
+                assert not any(protected.hits({role: shape}, fixed).values())
+                assert all(
+                    protected._volume(shape, target) <= layout.TOL_MM3
+                    for target in unrelated.values()
+                )
+
+
+def test_recessed_viewer_reports_exact_unrelated_wood_stack_blocker():
+    wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
+    viewer = layout.build_recessed_viewer_layout(wood)
+    station = "clip_single_top_left_1"
+    bolt_name = next(iter(viewer["stations"][station]["bolts"]))
+    wood["unrelated_trial_obstacle"] = viewer["stations"][station]["stacks"][bolt_name][
+        "head"
+    ]
+    with pytest.raises(ValueError, match=f"{bolt_name}.*unrelated_trial_obstacle"):
+        layout.build_recessed_viewer_layout(wood)

@@ -20,6 +20,21 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.direct_joint_duties !== 24 ||
       inventory.barrel_nut_envelopes !== data.barrel_nut_envelopes?.length ||
       inventory.new_diagnostic_bolt_axes !== data.diagnostic_bolt_axes?.length ||
+      inventory.rail_head_washer_envelopes !== 40 ||
+      data.rail_head_washer_envelopes?.length !== 40 ||
+      inventory.other_head_washer_envelopes !== 48 ||
+      data.other_head_washer_envelopes?.length !== 48 ||
+      inventory.backer_attachment_duties !== 2 ||
+      inventory.backer_barrel_nut_envelopes !== 4 ||
+      data.backer_barrel_nut_envelopes?.length !== 4 ||
+      inventory.backer_diagnostic_bolt_axes !== 4 ||
+      data.backer_diagnostic_bolt_axes?.length !== 4 ||
+      inventory.backer_head_washer_envelopes !== 8 ||
+      data.backer_head_washer_envelopes?.length !== 8 ||
+      data.backer_attachment?.thread_engagement_verified !== false ||
+      data.backer_attachment?.capacity_verified !== false ||
+      Object.values(data.backer_attachment?.release_flags || {}).some(Boolean) ||
+      Object.keys(data.backer_attachment?.station_dispositions || {}).length !== 2 ||
       Object.keys(data.station_dispositions || {}).length !== 24 ||
       !Array.isArray(data.cross_family_physical_clash_stations) ||
       data.cross_family_physical_clash_stations.some(station =>
@@ -116,7 +131,34 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
   }
   for (const row of data.diagnostic_bolt_axes) {
     const mesh = cylinder(THREE, row, 0x72e5ff,
-      'Diagnostic bolt path only; length, head, engagement, and drilling are not approved');
+      'Provisional bolt path; modeled length and head are shown, but delivered fit, engagement, and drilling are not approved');
+    meshes.push(mesh);
+    group.add(mesh);
+  }
+  for (const row of data.backer_diagnostic_bolt_axes) {
+    const mesh = cylinder(THREE, row, 0x72e5ff,
+      'New kicker-backer/header attachment trial; thread, capacity, and drilling unverified');
+    meshes.push(mesh);
+    group.add(mesh);
+  }
+  for (const row of [...data.rail_head_washer_envelopes, ...data.other_head_washer_envelopes,
+                     ...data.backer_head_washer_envelopes,
+                     ...data.backer_barrel_nut_envelopes]) {
+    const barrel = row.role === 'backer_barrel';
+    const washer = row.role.endsWith('washer');
+    const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
+      color: barrel ? 0xf87171 : washer ? 0xffd166 : 0xff8c42,
+      transparent: true, opacity: .88, depthWrite: false, depthTest: false,
+    }));
+    mesh.userData.part = {
+      name: row.name,
+      fabrication: {
+        owner_barrel_overlay: true, kind: 'bolt', category: 'bolts',
+        description: `${row.role.replaceAll('_', ' ')}; nominal barrel concept only. Delivered fit, tool access, strength and drilling are unverified`,
+      },
+    };
+    mesh.userData.baseEmissive = 0;
+    mesh.renderOrder = 11;
     meshes.push(mesh);
     group.add(mesh);
   }
@@ -164,5 +206,8 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
     boltAxes: data.diagnostic_bolt_axes.length,
     barrelNutEnvelopes: data.barrel_nut_envelopes.length,
     conditionalRecessEnvelopes: data.conditional_outer_header_recess_envelopes.length,
+    railHeadWasherEnvelopes: data.rail_head_washer_envelopes.length,
+    otherHeadWasherEnvelopes: data.other_head_washer_envelopes.length,
+    backerAttachmentBarrels: data.backer_barrel_nut_envelopes.length,
   };
 }

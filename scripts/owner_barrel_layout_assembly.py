@@ -143,7 +143,9 @@ def _validate_bolt(name, bolt):
         raise ValueError(f"{name}: invalid diagnostic bolt axis")
 
 
-def build_assembly(producers=None, *, source=None, placement=None):
+def build_assembly(
+    producers=None, *, source=None, placement=None, post_placement="outward"
+):
     """Compose three producer poses without qualifying hardware or drilling."""
     producers = _default_builders() if producers is None else producers
     if set(producers) != set(FAMILY_STATIONS):
@@ -151,7 +153,13 @@ def build_assembly(producers=None, *, source=None, placement=None):
             "Exactly rail10, center6, and outer_top8 producers are required"
         )
     source = variant(KERF_RIGHT) if source is None else source
-    placement = posts.build_layout() if placement is None else placement
+    if post_placement not in ("outward", "original"):
+        raise ValueError("Barrel post placement must be outward or original")
+    placement = (
+        posts.build_layout()
+        if placement is None and post_placement == "outward"
+        else placement
+    )
     duties = ledger.selected_duties()
     expected = {station for names in FAMILY_STATIONS.values() for station in names}
     if len(expected) != 24 or set(duties) != expected:
@@ -181,19 +189,24 @@ def build_assembly(producers=None, *, source=None, placement=None):
     wood = {part.name: part.shape for part in source.uncut_wood_parts()}
     for side, sign in (("left", -1), ("right", 1)):
         name = f"base_post_center_{side}"
-        wood[name] = wood[name].translate(
-            cq.Vector(placement["post_shift_x_mm"][side], 0, 0)
-        )
+        if post_placement == "outward":
+            wood[name] = wood[name].translate(
+                cq.Vector(placement["post_shift_x_mm"][side], 0, 0)
+            )
         center = (wood[name].BoundingBox().xmin + wood[name].BoundingBox().xmax) / 2
-        if abs(center - sign * 180.0) > 1e-6:
-            raise ValueError(f"Approved ±180 mm center-post pose changed: {name}")
-        x0, x1 = placement["backer_bounds_x_mm"][side]
-        wood[f"inner_kicker_backer_{side}"] = cq.Solid.makeBox(
-            x1 - x0,
-            posts.BACKER_FRONT_Y_MM - posts.BACKER_REAR_Y_MM,
-            posts.BACKER_TOP_Z_MM,
-            cq.Vector(x0, posts.BACKER_REAR_Y_MM, 0),
-        )
+        target = 180.0 if post_placement == "outward" else 70.0
+        if abs(center - sign * target) > 1e-6:
+            raise ValueError(
+                f"Expected ±{target:g} mm center-post pose changed: {name}"
+            )
+        if post_placement == "outward":
+            x0, x1 = placement["backer_bounds_x_mm"][side]
+            wood[f"inner_kicker_backer_{side}"] = cq.Solid.makeBox(
+                x1 - x0,
+                posts.BACKER_FRONT_Y_MM - posts.BACKER_REAR_Y_MM,
+                posts.BACKER_TOP_Z_MM,
+                cq.Vector(x0, posts.BACKER_REAR_Y_MM, 0),
+            )
 
     bolts, barrels, stacks, drilling, access = {}, {}, {}, {}, {}
     replacement_solids, station_modes, station_dispositions = {}, {}, {}
@@ -257,8 +270,13 @@ def build_assembly(producers=None, *, source=None, placement=None):
     diagnostics = {
         "status": "REVISE",
         "wood_basis": (
-            "Kerf-right uncut source members with only approved ±180-mm posts and "
-            "two kicker backers moved/added; drill paths are envelopes, not cuts"
+            "Kerf-right uncut source members with "
+            + (
+                "approved ±180-mm posts and two kicker backers"
+                if post_placement == "outward"
+                else "original ±70-mm center posts and no added kicker backers"
+            )
+            + "; drill paths are envelopes, not cuts"
         ),
         "station_family": station_family,
         "producer_diagnostics": producer_diagnostics,
@@ -274,10 +292,15 @@ def build_assembly(producers=None, *, source=None, placement=None):
             "Finished-wood complete bore coverage and drilling sequence",
             "Bolt thread engagement, nominal length, washer seats and driver access",
             "6-10 mm barrel-axis sensitivity, tolerances and wood net-section strength",
-            "Backer structural attachment and complete changed-topology load path",
+            (
+                "Backer structural attachment and complete changed-topology load path"
+                if post_placement == "outward"
+                else "Original-post kicker screw support and complete load path"
+            ),
         ),
     }
     return {
+        "post_placement": post_placement,
         "wood": wood,
         "replacement_solids": replacement_solids,
         "barrels": barrels,

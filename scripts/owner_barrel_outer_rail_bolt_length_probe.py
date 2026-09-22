@@ -1,4 +1,4 @@
-"""Detached nominal bolt-length screen on the current -85 outer-rail viewer pose.
+"""Historical 70 mm/5 in outer-rail length screen, retained for comparison.
 
 No viewer solids or source axes are changed. All lengths and bores are
 provisional envelopes, not hardware selection or drilling instructions.
@@ -10,9 +10,11 @@ import math
 import cadquery as cq
 
 from scripts import owner_barrel_rail_layout as rail
+from scripts import owner_barrel_center_layout as center
+from scripts import owner_barrel_outer_top_layout as outer
 from scripts import owner_layout_protected as protected
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
-from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.owner_barrel_layout_assembly import build_assembly
 from scripts.owner_barrel_native_connector_inventory import build_inventory
 from scripts.simple_owner_duty_ledger import selected_duties
 
@@ -20,6 +22,17 @@ SCHEMA = "owner_barrel_outer_rail_bolt_length_probe/v1"
 FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
 LENGTHS_MM = {"6_in": 152.4, "7_in": 177.8}
 HIT_TOL_MM3 = protected.HIT_TOL_MM3
+
+
+def historical_assembly():
+    """Keep old 70 mm rail producer with the -85 mm outer-header pose."""
+    return build_assembly(
+        producers={
+            "rail10": rail.build_layout,
+            "center6": center.build_revised_layout,
+            "outer_top8": outer.build_recessed_viewer_layout,
+        }
+    )
 
 
 def _hits(shape, targets):
@@ -121,7 +134,7 @@ def _screen_length(
 
 def probe(assembly=None):
     """Screen six exact outer stations without changing the viewer or wood."""
-    assembly = build_viewer_assembly() if assembly is None else assembly
+    assembly = historical_assembly() if assembly is None else assembly
     duties = selected_duties()
     stations = tuple(
         name for name, duty in duties.items() if duty["family"] in FAMILIES
@@ -155,7 +168,7 @@ def probe(assembly=None):
         != -85.0
     ):
         raise ValueError(
-            "Exact current -85 viewer outer-rail station ownership changed"
+            "Historical 70-mm outer-rail station ownership changed"
         )
 
     inventory = build_inventory(assembly=assembly, placement=post_layout())
@@ -167,7 +180,7 @@ def probe(assembly=None):
         or set(fixed["solids"]["frame_bolts"]) != set(inventory["retained_frame_bolts"])
         or set(inventory["modeled_shaft_reach_shortfalls_mm"]) != set(expected)
     ):
-        raise ValueError("Current fixed/protected or 5-in shaft inventory changed")
+        raise ValueError("Historical fixed/protected or 5-in shaft inventory changed")
     shaft_diameters = {inventory["bolts"][name]["diameter_mm"] for name in expected}
     if len(shaft_diameters) != 1:
         raise ValueError("Outer-rail shaft diameters are inconsistent")
@@ -182,7 +195,7 @@ def probe(assembly=None):
             or not math.isclose(source.length, 127.0, abs_tol=1e-6)
             or bolt["modeled_shaft_shortfall_mm"] <= 0
         ):
-            raise ValueError(f"{name}: current 5-in outer shaft changed")
+            raise ValueError(f"{name}: historical 5-in outer shaft changed")
         start = cq.Vector(*bolt["start_mm"])
         direction = cq.Vector(*bolt["direction_xyz"])
         barrel = inventory["barrels"][bolt["barrel_name"]]

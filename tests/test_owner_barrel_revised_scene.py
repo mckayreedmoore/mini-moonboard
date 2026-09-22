@@ -17,7 +17,18 @@ def test_revised_viewer_assembly_keeps_complete_no_release_inventory():
     assert assembly["hardware_basis"]["bolt_lengths_mm_nominal_trials"] == [
         101.6,
         127.0,
+        152.4,
     ]
+    assert assembly["post_placement"] == "outward"
+    backers = assembly["backer_attachment"]["stations"]
+    assert set(backers) == {"backer_attachment_left", "backer_attachment_right"}
+    assert sum(len(row["bolts"]) for row in backers.values()) == 4
+    assert all(
+        abs(bolt.length - 76.2) < 1e-6
+        for row in backers.values()
+        for bolt in row["bolts"].values()
+    )
+    assert not any(assembly["backer_attachment"]["release_flags"].values())
     producer = assembly["diagnostics"]["producer_diagnostics"]
     assert all(
         "viewer-revision-v1" in producer[family]["source_id"]
@@ -39,6 +50,10 @@ def test_revised_viewer_assembly_keeps_complete_no_release_inventory():
             if assembly["bolt_station"][name] == station
         ]
         assert sorted(rows) == [-135.0, -85.0]
+    assert (
+        sum(abs(bolt.length - 152.4) < 1e-6 for bolt in assembly["bolts"].values())
+        == 12
+    )
 
 
 def test_published_scene_is_the_exact_current_source_export():

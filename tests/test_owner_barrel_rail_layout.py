@@ -94,8 +94,9 @@ def test_assembly_adapter_uses_supplied_wood_and_distinct_trial_solids(monkeypat
     }
     supplied = {"upright": "owner_upright", "rail": "owner_rail"}
 
-    def fake_build(wood=None):
+    def fake_build(wood=None, **kwargs):
         assert wood is supplied
+        assert kwargs == {"complete_stack": False}
         return {"stations": {"trial": pose}}
 
     monkeypatch.setattr(barrel, "build_geometry", fake_build)

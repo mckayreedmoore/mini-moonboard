@@ -27,11 +27,19 @@ def _bounds(wood):
     header = wood["base_header"].BoundingBox()
     if abs(header.ymin + 175.7) > 1e-5 or abs(header.ymax + 36.0) > 1e-5:
         raise ValueError("Original kerf-right header Y edges changed")
+    backer_names = {f"inner_kicker_backer_{side}" for side in SIDES}
+    present_backers = set(wood).intersection(backer_names)
+    if not present_backers:
+        return header.ymin, header.ymax, "forward_header_edge_mm"
+    if present_backers != backer_names:
+        raise ValueError(
+            "Center principal margin requires both kicker backers or neither"
+        )
     for side in SIDES:
         backer = wood[f"inner_kicker_backer_{side}"].BoundingBox()
         if abs(backer.ymin + 124.9) > 1e-5:
             raise ValueError("Fixed kicker-backer rear edge changed")
-    return header.ymin, -124.9
+    return header.ymin, -124.9, "forward_backer_rear_mm"
 
 
 def row_window(od_mm, reserve_mm=0.0):
@@ -170,7 +178,7 @@ def screen_pose(
     )
     if washer_thickness_mm <= 0 or bolt_length_mm <= washer_thickness_mm:
         raise ValueError("Nominal bolt length must exceed washer thickness")
-    rear_edge, backer_edge = _bounds(wood)
+    rear_edge, forward_edge, forward_margin_name = _bounds(wood)
     rear_y, forward_y = rows
     if rear_y >= forward_y:
         raise ValueError("Rows must be ordered rear to front")
@@ -178,7 +186,7 @@ def screen_pose(
     reserves = {
         "rear_header_edge_mm": rear_y - radius - rear_edge,
         "washer_to_washer_mm": forward_y - rear_y - od_mm,
-        "forward_backer_rear_mm": backer_edge - forward_y - radius,
+        forward_margin_name: forward_edge - forward_y - radius,
     }
     all_solids, bolts, pair_hits = {}, {}, {}
     header = wood["base_header"].BoundingBox()

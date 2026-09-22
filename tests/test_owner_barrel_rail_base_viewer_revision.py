@@ -36,6 +36,41 @@ def test_right_center_rail_viewer_trial_moves_only_front_rows(wood):
     assert revised["diagnostics"]["viewer_trial_front_n_mm"] == 50.0
 
 
+def test_outer_rail_viewer_shows_reachable_six_inch_full_stacks(wood):
+    source = rail.build_layout(wood)
+    revised = rail.build_revised_layout(wood)
+    duties = rail.ledger.selected_duties()
+    outer = {
+        name
+        for name, duty in duties.items()
+        if duty["family"] in {"bottom_outer", "lower_outer", "upper_outer"}
+    }
+    assert len(outer) == 6
+    for station in outer:
+        old, trial = source["stations"][station], revised["stations"][station]
+        assert len(trial["bolts"]) == 2
+        assert all(
+            bolt.length == pytest.approx(152.4) for bolt in trial["bolts"].values()
+        )
+        assert all(
+            bolt.length == pytest.approx(127.0) for bolt in old["bolts"].values()
+        )
+        assert all(
+            set(stack) == {"shaft", "washer", "head"}
+            for stack in trial["stacks"].values()
+        )
+        screen = revised["diagnostics"]["station_screens"][station]
+        assert all(screen["nominal_shaft_passes_assumed_axis"])
+        assert all(
+            value == pytest.approx(1.849, abs=0.01)
+            for value in screen["nominal_tip_past_assumed_axis_mm"]
+        )
+        assert screen["protected_hits_mm3"] == {}
+        assert screen["unrelated_wood_hits_mm3"] == {}
+        assert trial["disposition"] == "REVISE"
+    assert revised["diagnostics"]["viewer_trial_outer_rail_setback_mm"] == 60.0
+
+
 def test_outer_base_viewer_trial_moves_only_two_axes_inward(wood):
     source = outer.build_layout(wood)
     revised = outer.build_revised_layout(wood)

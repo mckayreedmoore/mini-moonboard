@@ -1,9 +1,11 @@
 # Outer-rail barrel-bolt length sensitivity
 
-This detached screen uses the current kerf-right `build_viewer_assembly()` pose,
-including the provisional outer-header row at Y = −85 mm. It consumes the
-source-bound connector inventory and changes no viewer station, shaft, wood,
-fixed axis, or drilling path. The six exact outer-rail duties are:
+This preserved detached screen reconstructs the **historical 5 in bolt /
+70 mm barrel setback** rail producer with the kerf-right outer-header row at
+Y = −85 mm. The current viewer instead uses nominal 6 in bolts / 60 mm
+setbacks at these six stations. This comparison consumes a source-bound
+historical connector inventory and changes no selected baseline, fixed axis,
+or current viewer pose. The six exact outer-rail duties are:
 
 | Family | Left station | Right station |
 | --- | --- | --- |
