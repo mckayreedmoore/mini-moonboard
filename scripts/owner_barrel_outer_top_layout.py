@@ -29,6 +29,7 @@ VIEWER_HEADER_HEAD_OD_MM = 11.0
 VIEWER_HEADER_HEAD_HEIGHT_MM = 4.0
 VIEWER_HEADER_HEAD_COVER_MM = 1.0
 VIEWER_HEADER_FORWARD_Y_MM = -85.0
+VIEWER_HEADER_BORE_TIP_CLEARANCE_MM = 4.0
 VIEWER_HEADER_RECESS_MM = (
     hardware.WASHER_THICKNESS_SENSITIVITY_MM
     + VIEWER_HEADER_HEAD_HEIGHT_MM
@@ -49,15 +50,27 @@ def _bounds(shape, direction):
     return min(values), max(values)
 
 
-def _row(machine_start, machine_direction, axis, barrel_entry, barrel_direction, hosts):
+def _row(
+    machine_start,
+    machine_direction,
+    axis,
+    barrel_entry,
+    barrel_direction,
+    hosts,
+    *,
+    tip_clearance_mm=0.0,
+):
     """A solid machine path must reach an actual intersecting barrel cross-bore."""
+    if tip_clearance_mm < 0:
+        raise ValueError("Bore-tip clearance must be nonnegative")
     axis_offset = hardware.BARREL_LENGTH_MM / 2
     from_entry = (axis - barrel_entry).dot(barrel_direction)
     recess = from_entry - axis_offset
     length = (axis - machine_start).dot(machine_direction)
     installed_reach = hardware.BOLT_LENGTH_MM - hardware.WASHER_THICKNESS_SENSITIVITY_MM
+    machine_depth = installed_reach + tip_clearance_mm
     machine = _cylinder(
-        machine_start, machine_direction, installed_reach, MACHINE_BORE_D_MM
+        machine_start, machine_direction, machine_depth, MACHINE_BORE_D_MM
     )
     cross = _cylinder(
         barrel_entry,
@@ -82,7 +95,9 @@ def _row(machine_start, machine_direction, axis, barrel_entry, barrel_direction,
         "machine_bore_meets_barrel_bore": machine.intersect(body).Volume() > TOL_MM3,
         "source_wood_bore_coverage": round(min(machine_coverage, cross_coverage), 6),
         "machine_path_to_axis_mm": round(length, 4),
-        "nominal_full_machine_bore_depth_mm": round(installed_reach, 4),
+        "nominal_full_machine_bore_depth_mm": round(machine_depth, 4),
+        "nominal_shaft_installed_reach_mm": round(installed_reach, 4),
+        "nominal_bore_tip_clearance_mm": round(tip_clearance_mm, 4),
         "nominal_tip_beyond_axis_mm": round(installed_reach - length, 4),
         "barrel_recess_mm": round(recess, 4),
         "barrel_cross_bore_depth_mm": round(recess + hardware.BARREL_LENGTH_MM, 4),
@@ -141,7 +156,7 @@ def _top_center(side, wood):
     ]
 
 
-def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0):
+def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0, tip_clearance_mm=0.0):
     name = f"base_post_outer_{side}"
     post, header = wood[name], wood["base_header"]
     pb, hb = post.BoundingBox(), header.BoundingBox()
@@ -156,6 +171,7 @@ def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0):
             cq.Vector(entry_x, y, pb.zmax - 70),
             cross_dir,
             {"base_header": header, name: post},
+            tip_clearance_mm=tip_clearance_mm,
         )
         for y in (-135.0, forward_y_mm)
     ]
@@ -361,6 +377,7 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                 wood,
                 VIEWER_HEADER_RECESS_MM,
                 VIEWER_HEADER_FORWARD_Y_MM,
+                VIEWER_HEADER_BORE_TIP_CLEARANCE_MM,
             )
         elif viewer_revision and duty["family"] == "base_outer_side":
             rows = _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
@@ -489,6 +506,9 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
             "viewer_trial_outer_header_forward_y_mm": VIEWER_HEADER_FORWARD_Y_MM
             if recessed_header
             else None,
+            "viewer_trial_outer_header_bore_tip_clearance_mm": (
+                VIEWER_HEADER_BORE_TIP_CLEARANCE_MM if recessed_header else None
+            ),
             "viewer_trial_complete_stack_rows": complete_stack_rows
             if recessed_header
             else None,

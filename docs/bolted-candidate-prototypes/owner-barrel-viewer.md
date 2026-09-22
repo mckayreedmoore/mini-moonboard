@@ -2,13 +2,17 @@
 
 The [interactive rear view][scene] is a kerf-right *comparison concept*, not a
 cut, drilling, purchased-hardware, fabrication, or structural release. It
+is temporarily behind the owner's latest support direction: the two base-center
+posts must replace the green inner kicker backers while retaining the four fixed
+center kicker screws. Do not treat this snapshot's backers or X = ±180 mm posts
+as the accepted physical layout.
 replaces the **visuals** of all 24 historical structural angles and 144 SDS
 fasteners with 48 diagnostic 1/4-20 bolt paths and 48 provisional Hillman
 880543-shaped barrel envelopes. No corner-block fallback solids are in this
 scene.
-The original 66 panel/kicker screws and 12 frame bolts remain. The active
-barrel candidate retains the approved X = ±180 mm center posts and two
-separate kicker-screw backers. Four provisional header-to-backer bolt/barrel
+The original 66 panel/kicker screws and 12 frame bolts remain. This older
+viewer snapshot retains X = ±180 mm center posts and two separate kicker-screw
+backers pending their replacement. Four provisional header-to-backer bolt/barrel
 paths are shown in two added [backer duties](owner-barrel-backer-layout.md).
 These paths do not yet establish a qualified attachment or load path. The
 historical angle assembly remains the selected baseline.
@@ -20,8 +24,16 @@ browser smoke check. Barrel and bolt paths are diagnostic X-ray overlays;
 red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. This scene is generated independently
-of the corner-block assembly; the two concepts share the approved post/backer
-placement, not their joint solids.
+of the corner-block assembly; the two concepts shared the prior post/backer
+placement, not their joint solids. The owner has since superseded that support
+placement for the barrel candidate.
+The viewer now replaces all 16 timber meshes that contained old angle/SDS
+holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
+62 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,
+and inherited service cuts are replayed where they affect those timbers.
+Only the outer-header trial's candidate bores/counterbores are cut into the
+replacement wood; other candidate barrel paths remain overlays. These
+display solids are not a shop machining model or wood-strength approval.
 
 The integrated assembly shows 24 former-angle and two added backer direct-bore
 *trials*, not 26 accepted joints.
@@ -86,8 +98,9 @@ counterbores; it remains provisional and `REVISE`.
 The [source-bound connector inventory](owner-barrel-native-connector-inventory.md)
 now reads the same current viewer revision. The
 [installed-stack audit](owner-barrel-installed-stack-audit.md) finds no bolt
-short of an *assumed* barrel center, but eight 5 in center-rail tips extend
-10.2452 mm past their modeled machine-bore caps. All 48 have provisional
+short of an *assumed* barrel center. The eight formerly overrun 5 in
+center-rail bores now have 4 mm nominal tip clearance after an owner-approved
+depth revision, as do the four recessed outer-header bores. All 48 have provisional
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
 The detached [6/7 in length screen](owner-barrel-outer-rail-bolt-length-probe.md)

@@ -520,7 +520,17 @@
       const isOwnerConceptReplacedPart = name => name.startsWith('clip_') ||
         name.startsWith('fastener_clip_') ||
         ['base_post_center_left', 'base_post_center_right'].includes(name);
-      const isOwnerBarrelReplacedPart = name => isOwnerConceptReplacedPart(name) || name === 'base_header';
+      const barrelTimberReplacements = new Set([
+        'base_header', 'base_post_center_left', 'base_post_center_right',
+        'base_post_outer_left', 'base_post_outer_right',
+        'base_principal_center_left', 'base_principal_center_right',
+        'base_rail_bottom_left', 'base_rail_bottom_right',
+        'base_rail_service_lower_left', 'base_rail_service_lower_right',
+        'base_rail_service_upper_left', 'base_rail_service_upper_right',
+        'base_rail_top', 'base_side_left', 'base_side_right',
+      ]);
+      const isOwnerBarrelReplacedPart = name => isOwnerConceptReplacedPart(name) ||
+        barrelTimberReplacements.has(name);
       let resolveV4Baseline;
       const v4BaselineLoaded = model === 'bolted-v4-development' ? new Promise(resolve => { resolveV4Baseline = resolve; }) : null;
       let resolveOwnerConceptBaseline, rejectOwnerConceptBaseline, ownerConceptHiddenNames = [];
@@ -774,13 +784,13 @@
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '468220b4b685caec1bde8683676faa17b2e14b0b12b6acc124264f18056d86d2') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== '5ca88ff276efe5bbe73ca0b5c7332ad1368f5bb45eaf55bd76ed05d6760dc3de') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Barrel-only development concept — not structurally qualified or build-ready. No corner-joint blocks; green wood pieces are kicker-screw backers, not joint blocks: they receive four fixed kicker screws that the moved posts no longer receive. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not actual threads. Six outer-rail joints show nominal 6 in bolts and 60 mm barrel setbacks; their tips pass assumed barrel centers by only 1.85 mm. Two new backer duties show four header bolts, whose tips pass assumed centers by 2.2 mm. All 48 former-angle bolts have trial heads and washers; eight orange center-rail bolt paths exceed their modeled bores. Alt-click a bolt to see its exact nominal reach and bore clearance; real thread engagement remains UNKNOWN. The wood-colored cut-derived header shows four shallow counterbores and machine bores; magenta wireframes, orange heads and gold washers remain conditional trial envelopes at Y = −85 mm. Its driver remains blocked by each installed side rim: rim-first removal is required but not physically verified. Conditional removal: unload and support the board; per rim temporarily undo eight rim-receiver screws, two leg/rim bolts and ten trial rim-joint bolts, withdraw the rim, then operate the header/post bolts. Conditional installation reverses that order: operate header/post bolts with rim absent, fit rim, then reconnect on unchanged axes. Sampled withdrawal is not a continuous sweep or service approval. The cut header remains one nominal solid with finite edge/floor stock; net-section capacity is unverified. Delivered thread fit, counterbore wood capacity and all 26 duties remain REVISE. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling or fabrication release.';
+            'Transitional barrel development scene — not build-ready. This snapshot still shows the two green kicker backers and outward center posts; the owner has directed that the base-center posts replace those backers, and that layout is not yet integrated here. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. The eight formerly overrun center-rail bores and four outer-header bores now show 4 mm nominal tip clearance. Alt-click a bolt for its reach and bore clearance; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

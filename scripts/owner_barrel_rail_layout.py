@@ -54,6 +54,15 @@ VIEWER_OUTER_STATIONS = tuple(
 )
 VIEWER_OUTER_SETBACK_MM = 60.0
 VIEWER_OUTER_BOLT_LENGTH_MM = 6.0 * continuation.INCH_MM
+VIEWER_CENTER_BORE_CLEARANCE_STATIONS = frozenset(
+    {
+        "clip_horizontal_lower_left_2",
+        "clip_horizontal_lower_right_1",
+        "clip_horizontal_upper_left_2",
+        "clip_horizontal_upper_right_1",
+    }
+)
+VIEWER_BORE_TIP_CLEARANCE_MM = 4.0
 VIEWER_WASHER_DIAMETER_MM = 25.4
 VIEWER_HEAD_DIAMETER_MM = 11.0
 VIEWER_HEAD_HEIGHT_MM = 4.0
@@ -110,6 +119,7 @@ def build_geometry(
     complete_stack=False,
     stations=STATIONS,
     cut_wood=True,
+    bore_clearance_stations=frozenset(),
 ):
     """Expose cut wood, intersecting bores, trial solids, and access per duty."""
     source = variant(KERF_RIGHT)
@@ -128,6 +138,8 @@ def build_geometry(
         raise ValueError("Expected two ordered rows and positive barrel setback")
     if not set(stations) <= set(STATIONS):
         raise ValueError("Unknown rail duty")
+    if not set(bore_clearance_stations) <= set(stations):
+        raise ValueError("Bore clearance requested outside selected rail duties")
     for station in stations:
         spec = SPECS[station]
         upright, rail = wood[spec.upright_name], wood[spec.rail_name]
@@ -165,10 +177,20 @@ def build_geometry(
             wood_seat = _xyz(upright_outer_x, (t_min + t_max) / 2, n)
             path_to_thread = abs(barrel_x - upright_outer_x)
             bore_start = wood_seat - bolt_direction * 2.0
+            washer_t = continuation.WASHER_THICKNESS_SENSITIVITY_MM
+            original_bore_depth = path_to_thread + continuation.BARREL_OD_MM / 2 + 4.0
+            machine_bore_depth = (
+                max(
+                    original_bore_depth,
+                    2.0 - washer_t + bolt_length_mm + VIEWER_BORE_TIP_CLEARANCE_MM,
+                )
+                if station in bore_clearance_stations
+                else original_bore_depth
+            )
             machine_bore = _cylinder(
                 bore_start,
                 bolt_direction,
-                path_to_thread + continuation.BARREL_OD_MM / 2 + 4.0,
+                machine_bore_depth,
                 MACHINE_BORE_DIAMETER_MM,
             )
             barrel_bore = _cylinder(
@@ -183,7 +205,6 @@ def build_geometry(
                 continuation.BARREL_LENGTH_MM,
                 continuation.BARREL_OD_MM,
             )
-            washer_t = continuation.WASHER_THICKNESS_SENSITIVITY_MM
             shaft_start = wood_seat - bolt_direction * washer_t
             bolt = _cylinder(
                 shaft_start,
@@ -420,7 +441,15 @@ def _connection(row, spec):
 
 def build_layout(wood, *, viewer_revision=False):
     """Assembly adapter: use its exact wood pose and retain REVISE dispositions."""
-    built = build_geometry(wood=wood, complete_stack=viewer_revision)
+    built = build_geometry(
+        wood=wood,
+        complete_stack=viewer_revision,
+        **(
+            {"bore_clearance_stations": VIEWER_CENTER_BORE_CLEARANCE_STATIONS}
+            if viewer_revision
+            else {}
+        ),
+    )
     if viewer_revision:
         trial = build_geometry(
             wood=wood,
@@ -429,6 +458,9 @@ def build_layout(wood, *, viewer_revision=False):
             stations=VIEWER_REVISED_STATIONS,
             cut_wood=False,
             complete_stack=True,
+            bore_clearance_stations=VIEWER_CENTER_BORE_CLEARANCE_STATIONS.intersection(
+                VIEWER_REVISED_STATIONS
+            ),
         )
         built["stations"].update(trial["stations"])
         outer_trial = build_geometry(
@@ -494,6 +526,9 @@ def build_layout(wood, *, viewer_revision=False):
             ),
             "viewer_trial_outer_rail_bolt_length_mm": (
                 VIEWER_OUTER_BOLT_LENGTH_MM if viewer_revision else None
+            ),
+            "viewer_center_rail_bore_tip_clearance_mm": (
+                VIEWER_BORE_TIP_CLEARANCE_MM if viewer_revision else None
             ),
             "limits": (
                 "Provisional heads/washers in the viewer only; delivered thread "

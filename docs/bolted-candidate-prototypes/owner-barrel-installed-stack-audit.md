@@ -16,12 +16,13 @@ guards the counts and exact exception names.
 | Nominal CAD observation | Count | Status |
 | --- | ---: | --- |
 | Tip short of assumed barrel center | 0 | Thread axis unverified |
-| Tip beyond modeled machine-bore cap | **8** | CAD inconsistency |
-| Axis reached; tip within modeled bore | 40 | Not a fit pass |
+| Tip beyond modeled machine-bore cap | **0** | Revised nominal bores only |
+| Axis reached; tip within modeled bore | 48 | Not a fit pass |
 | Head absent / washer absent | 0 / 0 | Provisional envelopes only |
 | Delivered thread engagement | 48 | **UNKNOWN** |
 
-The eight bore overruns are both rows at each of these four stations:
+The owner-approved nominal bore-depth revision applies to both rows at each
+of these four stations:
 
 - `clip_horizontal_lower_left_2_barrel_1_bolt`,
   `clip_horizontal_lower_left_2_barrel_2_bolt`
@@ -33,11 +34,12 @@ The eight bore overruns are both rows at each of these four stations:
   `clip_horizontal_upper_right_1_barrel_2_bolt`
 
 Each has a modeled 127.0 mm (5 in) shaft, tip 17.249 mm past the assumed
-barrel center and **10.2452 mm beyond its existing machine-bore cap**.
-That 10.2452 mm is only the nominal added depth needed to reach the tip with
-*zero* end clearance; it is not a proposed bore dimension or drilling plan.
-All 12 revised 152.4 mm (6 in) outer-rail shafts at 60 mm setback are in the
-within-bore group; this does not resolve the eight other rows.
+barrel center. The earlier pilot stopped **10.2452 mm before its tip**; the
+revised trial adds **14.2452 mm of depth**, yielding **4.0 mm nominal tip
+clearance**. The four recessed outer-header bores also now extend 4.0 mm
+past their modeled tips, rather than ending flush. Neither change is a
+drill dimension or a fit pass. The 12 revised 152.4 mm (6 in) outer-rail
+shafts at 60 mm setback remain within their bores.
 Their modeled tips reach only 1.849 mm past the assumed barrel axis, so the
 maximum shaft overlap through the 10.0076 mm barrel body is **6.8528 mm**
 even if the bolt end is fully threaded. This is a geometric upper bound,
@@ -47,9 +49,8 @@ possible body overlap for every bolt; actual bolt runout and barrel threads
 remain unknown.
 A shorter 4½ in hex-bolt substitution is not selected: the readily listed
 [Hillman 190055][short-bolt] is expressly **not full-thread**, and its actual
-thread runout at the barrel is unverified. A deeper center-rail bore would
-change the proposed drilling geometry and requires separate review before
-it is integrated; neither option is a fabrication instruction.
+thread runout at the barrel is unverified. The owner approved the bounded
+depth revision only; it does not authorize drilling or fabrication.
 
 All 48 former-angle bolt paths now have nominal CAD head/washer envelopes,
 including the 12 outer/top rows previously omitted. Presence in CAD is not

@@ -12,13 +12,12 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "renderOwnerBarrelScene" in page
     assert "['owner-corner-layout', 'owner-barrel-layout'].includes(model)" in page
     assert "No drilling or fabrication release." in page
-    assert "rim-first removal is required but not physically verified" in page
+    assert "Transitional barrel development scene" in page
+    assert "base-center posts replace those backers" in page
+    assert "4 mm nominal tip clearance" in page
+    assert "actual thread engagement remains UNKNOWN" in page
     assert "cut-derived header" in page
-    assert (
-        "eight rim-receiver screws, two leg/rim bolts and ten trial rim-joint bolts"
-        in page
-    )
-    assert "green wood pieces are kicker-screw backers, not joint blocks" in page
+    assert "green wood pieces are kicker-screw backers" in page
     barrel_documents = page.split("const ownerBarrelDocuments = [", 1)[1].split(
         "];", 1
     )[0]

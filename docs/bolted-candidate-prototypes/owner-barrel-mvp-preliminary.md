@@ -17,8 +17,9 @@ and the other 22 former-angle duties are outside this screen.
 Both have two 6.35 mm shaft envelopes and 10.0076 mm barrel envelopes. At the
 rail, 152.4 mm shafts reach assumed barrel centers by 1.849 mm and leave
 5.155 mm to modeled bore caps. At the recessed header, 127 mm shafts extend
-23.9 mm past assumed centers, **18.9 mm past barrel far walls**, and end at
-modeled bore caps with **0 mm clearance**. Header counterbores are 25.4 mm OD
+23.9 mm past assumed centers, **18.9 mm past barrel far walls**, and now have
+**4 mm nominal clearance** to the revised modeled bore caps. This is not
+verified delivered tip clearance. Header counterbores are 25.4 mm OD
 and 6.651 mm deep; their nominal edge-to-edge gap is 24.6 mm.
 
 The scale calculation is `|F|/2 + |M|/pitch`, using force and moment from the
@@ -91,8 +92,9 @@ actual seating, initial bolt position, threads, and cyclic slip are unknown.
 - Solve signed forces and moments at these *new* joint stations for the
   adopted load cases, with contact and unequal sharing between the two rows.
 - Obtain controlled delivered bolt/barrel/thread geometry and part properties.
-  In particular, resolve the header's zero modeled bore-tip clearance and
-  18.9 mm far-wall overrun before treating its nominal stack as installable.
+  In particular, resolve the header's 18.9 mm barrel far-wall overrun and
+  tolerance-sensitive tip clearance before treating its nominal stack as
+  installable.
 - Check the complete axial and lateral chain: steel and threads, barrel wall,
   barrel-to-wood bearing and breakout, head/washer seating, split and net
   sections of both members, group action, installation tolerance, and repeated

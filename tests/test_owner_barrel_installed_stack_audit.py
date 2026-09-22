@@ -91,7 +91,7 @@ def test_six_inch_60_mm_outer_rail_revision_is_in_the_current_viewer(report):
     )
 
 
-def test_exact_other_family_bore_overruns_are_not_hidden(report):
+def test_approved_center_rail_bore_depth_revision_has_positive_tip_clearance(report):
     expected_stations = {
         "clip_horizontal_lower_left_2",
         "clip_horizontal_lower_right_1",
@@ -105,24 +105,24 @@ def test_exact_other_family_bore_overruns_are_not_hidden(report):
     }
     assert report["counts"] == {
         "short_of_assumed_barrel_axis": 0,
-        "beyond_modeled_machine_bore": 8,
-        "axis_reached_within_modeled_bore": 40,
+        "beyond_modeled_machine_bore": 0,
+        "axis_reached_within_modeled_bore": 48,
         "head_absent": 0,
         "washer_absent": 0,
         "thread_engagement_unknown": 48,
     }
-    assert set(report["named_exceptions"]["beyond_modeled_machine_bore"]) == (
-        expected_names
-    )
+    assert report["named_exceptions"]["beyond_modeled_machine_bore"] == []
     for row in report["rows"]:
         if row["bolt_name"] in expected_names:
             assert row["shaft_length_mm"] == 127.0
             assert row["tip_past_assumed_axis_mm"] == 17.249
             assert row["tip_past_barrel_far_wall_mm"] == 12.2452
-            assert row["tip_to_bore_far_cap_clearance_mm"] == -10.2452
-            assert row["minimum_added_bore_depth_to_tip_mm"] == 10.2452
+            assert row["tip_to_bore_far_cap_clearance_mm"] == 4.0
+            assert row["minimum_added_bore_depth_to_tip_mm"] == 0.0
         else:
             assert "BEYOND_MODELED_MACHINE_BORE" not in row["nominal_axial_flags"]
+        if row["station"].startswith("clip_timber_header_outer_"):
+            assert row["tip_to_bore_far_cap_clearance_mm"] == 4.0
 
 
 def test_all_48_assembled_rows_have_provisional_heads_and_washers(report):

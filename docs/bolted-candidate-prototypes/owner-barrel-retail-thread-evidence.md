@@ -1,6 +1,7 @@
 # Outward-post barrel candidate: retail thread and seat evidence
 
-Checked 21 September 2026, against HEAD `cd0341f7`. Public US retailer/manufacturer
+Retail checked 21 September 2026; model geometry refreshed after the owner's
+nominal bore-depth approval. Public US retailer/manufacturer
 material only; no contact or purchase. These are exact ordinary retail *leads* for
 the active kerf-right viewer, not selected construction hardware. The 48 former-angle
 paths come from the [installed-stack audit](owner-barrel-installed-stack-audit.md);
@@ -46,7 +47,7 @@ that modeled near wall; it does not prove any real internal threads there.
 | --- | ---: | ---: | ---: | --- |
 | 3 in, 4 backer (separate backer producer) | 2.2 mm | 7.2038 mm | 7.2038 mm | **Unknown engagement.** The tip passes a provisional axis only 2.2 mm; delivered bolt tip threads and actual dowel axis/span could remove usable overlap. The modeled washer is 2 mm thick. |
 | 4 in, 4 center-principal | 33.849 mm | 10.0076 mm | 38.8528 mm | **Nominal reach only.** All modeled bodies are traversed and bores contain the tips; bolt thread extent, barrel threads, head/washer seat and grade remain open. |
-| 5 in, 32 former-angle | 6.449–48.349 mm | 10.0076 mm | 11.4528–53.3528 mm | **Revise eight paths:** their tips overrun the modeled machine-bore caps by 10.2452 mm. The other 24 still have unknown engagement and fit. |
+| 5 in, 32 former-angle | 6.449–48.349 mm | 10.0076 mm | 11.4528–53.3528 mm | Eight center-rail paths now have 4 mm nominal bore-tip clearance after an owner-approved depth revision. All 32 still have unknown delivered engagement and fit. |
 | 6 in, 12 outer-rail at 60 mm setback | 1.849 mm | **6.8528 mm** | **6.8528 mm** | **Unknown engagement, especially sensitive to axis/thread limits.** Even an entirely threaded nominal shaft can intersect at most 6.8528 mm of the barrel OD; no usable female-thread depth, first complete bolt thread, or tolerance stack is established. All tips are within modeled bores. |
 
 The backer values follow its 3-in shaft, 2.2 mm tip-past-axis and the same
@@ -77,5 +78,5 @@ or verified bearing resistance for these eight seats.
 
 **Per-length disposition:** 3 in and 6 in remain unverified at the very
 cross-dowel thread; 4 in has nominal shaft reach but no qualified thread/seat;
-5 in also has eight known bore overruns. None is a selected installed stack,
+5 in has eight revised trial bores, not qualified cuts. None is a selected installed stack,
 drilling plan, complete-joint rating, or fabrication release.

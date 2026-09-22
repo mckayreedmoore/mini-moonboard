@@ -20,13 +20,17 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert inventory["replaced_angle_duties"] == 24
     assert inventory["removed_structural_sds"] == 144
     assert inventory["direct_joint_duties"] == 24
+    assert inventory["barrel_replacement_timbers"] == 16
     assert "mixed_compact_block_duties" not in inventory
     assert {row["role"] for row in scene["solids"]} == {
         "moved_center_post",
+        "barrel_replacement_timber",
         "kicker_screw_backer",
         "derived_cut_header",
     }
-    assert len(scene["solids"]) == 5
+    assert len(scene["solids"]) == 18
+    assert scene["visual_wood_replacement"]["excluded_legacy_sds_axes"] == 144
+    assert scene["visual_wood_replacement"]["release"] is False
     assert inventory["barrel_nut_envelopes"] == 48
     assert inventory["new_diagnostic_bolt_axes"] == 48
     assert inventory["rail_head_washer_envelopes"] == 40
@@ -45,7 +49,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
             "BEYOND_MODELED_MACHINE_BORE" in row["nominal_axial"]["flags"]
             for row in all_axes
         )
-        == 8
+        == 0
     )
     assert {
         row["nominal_axial"]["tip_past_assumed_axis_mm"]
@@ -72,7 +76,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert inventory["conditional_outer_header_recess_envelopes"] == 12
     assert inventory["fixed_panel_kicker_screw_axes"] == 66
     assert inventory["retained_frame_bolt_axes"] == 12
-    assert len(scene["hidden_baseline_visual_names"]) == 171
+    assert len(scene["hidden_baseline_visual_names"]) == 184
     assert "base_header" in scene["hidden_baseline_visual_names"]
     header = next(row for row in scene["solids"] if row["role"] == "derived_cut_header")
     assert header["name"] == "base_header/derived_outer_header_cut"

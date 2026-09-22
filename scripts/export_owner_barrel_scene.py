@@ -222,6 +222,19 @@ def build_scene():
         raise ValueError("Owner barrel legacy visual inventory changed")
     cut_header, cut_diagnostics = _cut_header_trial(assembly)
     rim_sequence = _rim_first_sequence()
+    from scripts.owner_barrel_visual_wood import EXPECTED_TIMBERS, build_visual_wood
+
+    visual = build_visual_wood(assembly=assembly)
+    if (
+        set(visual["wood"]) != EXPECTED_TIMBERS
+        or visual["report"]["excluded_legacy_sds_axes"] != 144
+        or visual["report"]["replacement_timber_members"] != 16
+        or visual["report"]["release"]
+    ):
+        raise ValueError("Barrel visual timber replacement changed")
+    hidden = sorted(set(hidden) | EXPECTED_TIMBERS)
+    if len(hidden) != 184:
+        raise ValueError("Owner barrel replaced timber inventory changed")
     # Surface the source-built axial audit in the viewer without changing a bore.
     from scripts.owner_barrel_installed_stack_audit import build_report
 
@@ -230,19 +243,29 @@ def build_scene():
     if (
         set(reach_by_bolt) != set(assembly["bolts"])
         or reach["counts"]["short_of_assumed_barrel_axis"] != 0
-        or reach["counts"]["beyond_modeled_machine_bore"] != 8
+        or reach["counts"]["beyond_modeled_machine_bore"] != 0
         or reach["fit_qualified"]
     ):
         raise ValueError("Current viewer nominal axial audit changed")
     solids = [
-        _solid(name, "moved_center_post", assembly["wood"][name])
-        for name in MOVED_POSTS
+        _solid(name, "moved_center_post", visual["wood"][name]) for name in MOVED_POSTS
     ]
+    solids.extend(
+        _solid(name, "barrel_replacement_timber", visual["wood"][name])
+        for name in sorted(EXPECTED_TIMBERS - set(MOVED_POSTS) - {"base_header"})
+    )
     solids.extend(
         _solid(name, "kicker_screw_backer", assembly["wood"][name]) for name in BACKERS
     )
+    visual_header = visual["wood"]["base_header"]
+    if visual_header.Volume() > cut_header.Volume() + 0.1:
+        raise ValueError("Visual header has lost its derived outer-header cuts")
+    cut_diagnostics["displayed_visual_header_volume_mm3"] = visual_header.Volume()
+    cut_diagnostics["displayed_visual_header_includes_retained_cuts"] = True
     solids.append(
-        _solid("base_header/derived_outer_header_cut", "derived_cut_header", cut_header)
+        _solid(
+            "base_header/derived_outer_header_cut", "derived_cut_header", visual_header
+        )
     )
     barrels = [
         _solid(name, "barrel_nut_envelope", shape, assembly["barrel_station"][name])
@@ -410,6 +433,7 @@ def build_scene():
         },
         "conditional_outer_header_recess_envelopes": recessed,
         "outer_header_cut_diagnostics": cut_diagnostics,
+        "visual_wood_replacement": visual["report"],
         "rim_first_sequence": rim_sequence,
         "outer_header_recess_trial": {
             "forward_row_y_mm": outer.VIEWER_HEADER_FORWARD_Y_MM,
@@ -432,6 +456,7 @@ def build_scene():
                 mode == "direct" for mode in assembly["station_modes"].values()
             ),
             "moved_center_posts": len(MOVED_POSTS),
+            "barrel_replacement_timbers": len(visual["wood"]),
             "kicker_screw_backers": len(BACKERS),
             "derived_cut_headers": 1,
             "barrel_nut_envelopes": len(barrels),
