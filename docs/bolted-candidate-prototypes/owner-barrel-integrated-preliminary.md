@@ -2,9 +2,10 @@
 
 The [live calculation](../../scripts/owner_barrel_integrated_preliminary.py)
 reads the maintained **integrated** barrel assembly, not the earlier
-outward-post/backer layout. It checks one lower outer rail duty and the
-single-bolt right center principal/header duty. The left center is mirrored;
-the other 22 duties are **not** assessed here. Both use conditional dry,
+outward-post/backer layout. It checks one lower outer rail duty, the
+single-bolt right center principal/header duty, and **both recessed outer
+header/post duties**. The left center is mirrored; the other 20 duties are
+**not** assessed here. All four use conditional dry,
 unincised DF-L No. 2 inputs from the [2024 NDS material record](../bolted-candidate-material-basis.json).
 The [American Wood Council](https://awc.org/resources/2024-nds-supplement/)
 warns not to mix provisions and values from different NDS editions. Delivered
@@ -15,6 +16,7 @@ lumber and hardware are not verified. These are component sensitivities,
 | --- | --- | --- |
 | Lower right outer rail to right side, `clip_horizontal_lower_right_2` | Two 6-in bolts, 32.25 mm pitch, barrels 60 mm from the rail end; each nominal tip is only 1.849 mm past the assumed thread axis and 3.155 mm **short of the far barrel wall**. Ideal full-contact washer/wood `Fc⊥` reference is 1.993 kN **per bolt**. A deliberately isolated two-full-slot parallel-tension sensitivity is 18.078 kN for the rail section. Typical-root, steel-only axial `EA/L` is 24.65 kN/mm per bolt. | Real thread start/span and barrel strength; two-row action sharing, rail cut section and breakout; signed case forces and moment. Neither two washer references nor the slot scale may be summed into a joint resistance. |
 | Center right principal to base header, `clip_split_base_center_right` | One angled 5-in bolt and barrel, 19.05 mm trial washer, 14.046 mm nominal principal X-edge ligament, 41.300 mm barrel recess. The tip extends 20.345 mm **past** the barrel far wall inside the modeled bore. The header head pocket leaves only 2.092 mm nominal edge stock. Ideal full-contact washer/wood `Fc⊥` reference is 1.038 kN. A one-full-slot section sensitivity is 19.590 kN, and typical-root steel-only `EA/L` is 36.50 kN/mm. | The actual blind-cut section, pocket splitting, barrel breakout, open far-side thread path, and the compression/contact path needed for moment or twist. One point fastener alone supplies no free resisting couple. |
+| Recessed outer header to left/right outer posts, `clip_timber_header_outer_{left,right}` | Each side has two 5-in bolts at 50.0 mm Y pitch. Each modeled face has 5,322.57 mm² gross contact and 5,234.213 mm² after trial cuts; **6.35 mm** is the smallest modeled header-counterbore radial side stock. Conditional ideal full-contact header washer/wood `Fc⊥` is **1.993 kN per bolt**; an isolated two-full-slot post-section scale is **18.078 kN**, and typical-root steel-only `EA/L` is **35.99 kN/mm per bolt**. | The thin pocket side stock, post barrel bearing/breakout, real thread engagement, signed row sharing and the rim-first assembly/service sequence are unqualified. Neither washer reference nor full-slot scale is complete-joint resistance. |
 
 The NDS [connection calculator](https://awc.org/resources/connection-calculator/)
 addresses ordinary single-bolt and other listed fasteners; its lateral-bolt
@@ -22,13 +24,23 @@ result does not qualify a buried cross-dowel, axial thread path, pocket,
 or complete demountable joint. The rail's 18.078 kN calculation treats two
 full through-width slots in a 38.1 × 139.7 mm section; the actual rail has
 blind cuts and other openings. The center's 19.590 kN scale treats one full
-slot, not the actual service-bored, blind-cut principal. Both are *sizing*
+slot, not the actual service-bored, blind-cut principal. The outer-header
+post's two-slot scale likewise omits the actual pocket and other cuts. All
+are *sizing*
 numbers only. The washer numbers assume a stiff, fully seated, correctly
 sized washer on sound wood; no such purchased washer is selected. Steel-only
 `EA/L` uses hypothetical 205 GPa modulus and a typical 0.189-in thread root;
 it omits thread, barrel, wood, seating, hole play and slip. The 2024 DF-L
 dowel-bearing inputs (5,600 psi parallel; 4,450 psi perpendicular at 1/4 in)
 are wood properties, not barrel-joint resistances.
+
+At each outer header/post joint the two bolt axes are Z-directed and spaced
+50 mm along Y. An equal-stiffness, contact-free pair would have axial row
+actions `Fz/2 ± Mx/50 mm` for a moment about global X. This is only a
+geometric sensitivity: actual contact opening, bearing, eccentricity, slip,
+and unequal row stiffness can change it. The modeled **6.35 mm** pocket side
+stock is especially sensitive to delivered washer/counterbore diameter and
+drilling tolerance. It is not an edge-distance or splitting check.
 
 For a two-point rail *sensitivity* under a signed in-plane force `F` and
 moment `M`, an equal-stiffness idealization gives row actions

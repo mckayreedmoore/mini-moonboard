@@ -85,7 +85,7 @@ assembly/service fit; a same-topology **signed six-case** response with
 contact, opening and joint slip; complete 24-duty bolt/barrel/thread/wood
 checks, retained-bolt and member checks, and floor stability; then a
 predeclared guarded coupon and non-climbing frame-test program. The
-[two-joint 2024-NDS preliminary](owner-barrel-integrated-preliminary.md)
+[four-duty 2024-NDS preliminary](owner-barrel-integrated-preliminary.md)
 contains conditional component scales, **not** complete connection
 resistances or new-topology demands. The
 [test-readiness note](owner-barrel-load-test-readiness.md) separates

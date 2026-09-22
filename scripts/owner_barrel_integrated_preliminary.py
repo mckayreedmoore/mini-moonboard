@@ -1,4 +1,4 @@
-"""Conditional components for two joints in the maintained barrel assembly.
+"""Conditional components for representative joints in the barrel assembly.
 
 No constituent number is a complete barrel-joint resistance or a load rating.
 """
@@ -23,6 +23,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MATERIAL = ROOT / "docs/bolted-candidate-material-basis.json"
 RAIL = "clip_horizontal_lower_right_2"
 CENTER = "clip_split_base_center_right"
+OUTER_HEADERS = {
+    side: f"clip_timber_header_outer_{side}" for side in ("left", "right")
+}
 MM_PER_IN = 25.4
 N_PER_LBF = 4.4482216152605
 STEEL_E_MPA_SENSITIVITY = 205_000.0
@@ -158,6 +161,64 @@ def _center(assembly, face):
     }
 
 
+def _outer_header(assembly, duties, faces, side):
+    """Bound the two-row header/post example without assigning a case demand."""
+    station = OUTER_HEADERS[side]
+    joint = historical_two_row_components(assembly, duties, None, station)
+    joint.pop("historical_bracket_two_point_scale_only")
+    face = faces[station]
+    crossings = face["bolt_face_crossings"]
+    if len(crossings) != 2:
+        raise ValueError(f"{station}: outer-header bolt count changed")
+    delta = [
+        second - first
+        for first, second in zip(
+            crossings[0]["point_xyz_mm"],
+            crossings[1]["point_xyz_mm"],
+            strict=True,
+        )
+    ]
+    if (
+        abs(delta[0]) > 1e-3
+        or not math.isclose(abs(delta[1]), joint["row_spacing_mm"], abs_tol=1e-3)
+        or abs(delta[2]) > 1e-3
+        or any(abs(abs(row["direction_xyz"][2]) - 1) > 1e-6 for row in crossings)
+    ):
+        raise ValueError(f"{station}: Y-pitched/Z-axial pair assumption changed")
+    header = assembly["wood"]["base_header"].BoundingBox()
+    pocket_stock = []
+    for row in joint["rows"]:
+        prefix = row["bolt"].removesuffix("_bolt")
+        cutter = assembly["drilling_paths"][f"{prefix}/counterbore"].BoundingBox()
+        pocket_stock.extend(
+            (
+                cutter.xmin - header.xmin,
+                header.xmax - cutter.xmax,
+                cutter.ymin - header.ymin,
+                header.ymax - cutter.ymax,
+            )
+        )
+    if min(pocket_stock) <= 0:
+        raise ValueError(f"{station}: outer-header pocket or face source changed")
+    joint.update(
+        {
+            "gross_face_contact_area_mm2": face["gross_contact_area_mm2"],
+            "trial_cut_face_area_mm2": face["trial_cut_contact_area_mm2"],
+            "contact_cell_area_basis": face["contact_cell_area_basis"],
+            "counterbore_min_radial_edge_stock_mm": round(min(pocket_stock), 3),
+            "ideal_equal_stiffness_pair_axial_row_action": (
+                "Fz/2 ± Mx/row_spacing_mm for Z-axis force and opening "
+                "moment about global X only (Y-spaced rows); no contact or "
+                "unequal stiffness represented"
+            ),
+            "rim_first_assembly_sequence_verified": False,
+            "actual_new_topology_demand_n": None,
+            "complete_joint_stiffness_n_per_mm": None,
+        }
+    )
+    return joint
+
+
 def report(assembly=None):
     """Read integrated viewer geometry and keep conditional quantities separate."""
     assembly = build_integrated_viewer_assembly() if assembly is None else assembly
@@ -175,7 +236,8 @@ def report(assembly=None):
         or len(set(assembly["bolt_station"].values())) != 24
     ):
         raise ValueError("Current barrel assembly or material edition changed")
-    rail = historical_two_row_components(assembly, selected_duties(), None, RAIL)
+    duties = selected_duties()
+    rail = historical_two_row_components(assembly, duties, None, RAIL)
     rail.pop("historical_bracket_two_point_scale_only")
     faces = face_report(assembly)
     if faces["station_count"] != 24 or faces["bolt_interface_count"] != 46:
@@ -188,8 +250,12 @@ def report(assembly=None):
     ]
     rail["actual_new_topology_demand_n"] = None
     rail["complete_joint_stiffness_n_per_mm"] = None
+    outer_headers = {
+        f"outer_header_{side}": _outer_header(assembly, duties, faces["stations"], side)
+        for side in OUTER_HEADERS
+    }
     return {
-        "schema": "owner_barrel_integrated_preliminary/v4",
+        "schema": "owner_barrel_integrated_preliminary/v5",
         "geometry_source": "integrated_viewer_assembly",
         "material_source": "docs/bolted-candidate-material-basis.json",
         "edition": material["source"]["edition"],
@@ -200,11 +266,13 @@ def report(assembly=None):
         "joints": {
             "lower_outer_rail": rail,
             "center_principal_header": _center(assembly, faces["stations"][CENTER]),
+            **outer_headers,
         },
         "missing": [
             "new-topology signed six-case forces and moments with contact/load sharing",
             "delivered bolt/barrel/washer geometry, grade, thread span and resistance",
             "center one-fastener moment path; header-pocket and principal breakout",
+            "outer-header pocket side stock, two-row moment path and rim-first service",
             "actual cut wood sections, grading, moisture, splitting and net section",
             "complete-joint slip/stiffness and repeated-demounting evidence",
         ],

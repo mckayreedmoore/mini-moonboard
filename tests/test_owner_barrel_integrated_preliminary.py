@@ -15,10 +15,33 @@ class IntegratedPreliminaryTest(unittest.TestCase):
         self.assertEqual(result["retained_frame_bolts"], 12)
         rail = result["joints"]["lower_outer_rail"]
         center = result["joints"]["center_principal_header"]
+        outer_headers = [
+            result["joints"][f"outer_header_{side}"]
+            for side in ("left", "right")
+        ]
         self.assertEqual(rail["station"], "clip_horizontal_lower_right_2")
         self.assertEqual(center["station"], "clip_split_base_center_right")
         self.assertEqual(len(rail["rows"]), 2)
         self.assertEqual(len(center["rows"]), 1)
+        for side, joint in zip(("left", "right"), outer_headers, strict=True):
+            self.assertEqual(joint["station"], f"clip_timber_header_outer_{side}")
+            self.assertEqual(len(joint["rows"]), 2)
+            self.assertAlmostEqual(joint["row_spacing_mm"], 50.0, places=3)
+            self.assertGreater(joint["trial_cut_face_area_mm2"], 0)
+            self.assertLess(
+                joint["trial_cut_face_area_mm2"],
+                joint["gross_face_contact_area_mm2"],
+            )
+            self.assertAlmostEqual(
+                joint["counterbore_min_radial_edge_stock_mm"], 6.35, places=2
+            )
+            self.assertIn("Mx/row_spacing_mm", joint["ideal_equal_stiffness_pair_axial_row_action"])
+            self.assertNotIn("historical_bracket_two_point_scale_only", joint)
+            self.assertIsNone(joint["actual_barrel_joint_demand_n"])
+            self.assertFalse(joint["rim_first_assembly_sequence_verified"])
+            self.assertIsNone(joint["actual_new_topology_demand_n"])
+            self.assertIsNone(joint["complete_joint_capacity_n"])
+            self.assertIsNone(joint["complete_joint_stiffness_n_per_mm"])
         self.assertNotIn("historical_bracket_two_point_scale_only", rail)
         self.assertAlmostEqual(rail["row_spacing_mm"], 32.25, places=3)
         self.assertAlmostEqual(rail["gross_face_contact_area_mm2"], 5322.57, places=2)
@@ -44,7 +67,7 @@ class IntegratedPreliminaryTest(unittest.TestCase):
         )
         self.assertGreater(center["stiffness"]["steel_only_ea_over_length_n_per_mm"], 0)
         self.assertIsNone(center["single_fastener_free_moment_resistance_nmm"])
-        for joint in (rail, center):
+        for joint in (rail, center, *outer_headers):
             self.assertIsNone(joint["actual_new_topology_demand_n"])
             self.assertIsNone(joint["complete_joint_capacity_n"])
             self.assertIsNone(joint["complete_joint_stiffness_n_per_mm"])
