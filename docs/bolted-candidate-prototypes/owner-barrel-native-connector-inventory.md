@@ -23,7 +23,7 @@ plus a digest of the returned record, bind this inventory to its source.
 Per-bolt modeled shaft reach to that point is recorded as a diagnostic, and
 shortfall does not become a load-bearing connector or native-ready claim.
 Both viewer compositions move the six bottom/lower/upper outer-rail barrels to a
-60 mm setback and models twelve nominal 6 in shafts. These pass the assumed
+60 mm setback and model twelve nominal 6 in shafts. These pass the assumed
 thread-axis points by 1.849 mm. The earlier 5 in / 70 mm viewer had twelve
 33.551 mm shortfalls; that is preserved in the historical detached length
 screen, not in either current viewer inventory. Passing a provisional axis does not
@@ -49,8 +49,21 @@ backer-attachment duties. `center_kicker_screw_landings` records the four
 receivers in either pose; `backers`, `backer_screw_landings`, and
 `backer_attachment_bolts` are empty in the original trial.
 
+The separate [gross-face contact input](../../scripts/owner_barrel_native_face_contacts.py)
+now reads the same integrated assembly. Each of the **24** former-angle timber
+pairs has exactly one opposing planar gross contact patch, divided into four
+equal-area candidate compression cells (**96** total). All **46** trial bolt
+axes cross their own patch within its boundary. Representative gross areas
+are 5,322.57 mm² at a top-outer rail, 12,419.33 mm² at a center-post/header
+joint, and 5,113.122 mm² at a center-principal/header joint. These are
+**uncut** CAD faces: actual bores, edge loss, gaps, partial opening, grain
+direction, and delivered contact have not been accounted for. The four cells
+define locations and tributary gross area, not a verified stiffness or
+compression law. In particular, one principal/header bolt plus this face
+inventory does not by itself establish a signed moment or twist path.
+
 `missing_native_inputs` records the contact and connector laws still needed:
-compression-only butt-face cells and stiffness; reconciliation of existing
+compression-only butt-face law and stiffness; reconciliation of existing
 header bearing and floor support; bolt axial tension, lateral bearing and
 clearance; barrel-to-wood reaction and stiffness; and recheck of retained frame
 bolts. The historical outward/backer pose also lists its unresolved attachment.
