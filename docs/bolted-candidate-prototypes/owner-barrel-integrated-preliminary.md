@@ -49,9 +49,11 @@ bolt, versus **118.008 mm** ahead. The bolt's axial direction has an absolute
 **0.766** projection onto the contact normal, so it also has a substantial
 in-plane component. A 2×2 face grid would put every compression-cell center
 ahead of this bolt and miss the narrow rear strip; the current geometry input
-uses 2×8 cells at each single-bolt center duty. These are **geometric
-lever-arm bounds**, not moment resistance or stiffness. The cell weights
-still use gross area, not the trial-cut distribution. Cut-edge pressure,
+uses 2×8 cells at each single-bolt center duty. Exact cut-face clipping shows
+**588.180 mm²** of face remaining behind each bolt line (11.63% of the cut
+face), and the 16 center cell areas sum to that trial-cut face. The other 22
+joints still use gross-cell weights. These are **geometric lever-arm and
+area bounds**, not moment resistance or stiffness. Cut-edge pressure,
 wood orientation, contact opening, barrel breakout, and signed demand must
 still be calculated before a two-way resisting couple can be claimed.
 

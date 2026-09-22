@@ -38,6 +38,7 @@ class IntegratedPreliminaryTest(unittest.TestCase):
             face["front_edge_margin_from_bolt_mm"], 118.008, places=2
         )
         self.assertAlmostEqual(face["bolt_axis_normal_projection_abs"], 0.766, places=3)
+        self.assertAlmostEqual(face["trial_cut_rear_strip_area_mm2"], 588.18, places=2)
         self.assertGreater(
             center["conditional_wood"]["ideal_full_contact_washer_fc_perp_n"], 0
         )

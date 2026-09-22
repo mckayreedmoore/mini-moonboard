@@ -1,6 +1,6 @@
-"""Gross, source-built contact faces for the integrated barrel frame.
+"""Source-built contact faces for the integrated barrel frame.
 
-This is a native-model input, not a contact law, cut-wood face, solve, or release.
+This is a native-model input, not a contact law, solve, or release.
 """
 
 import json
@@ -11,7 +11,7 @@ import cadquery as cq
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
-SCHEMA = "owner_barrel_native_face_contacts/v3"
+SCHEMA = "owner_barrel_native_face_contacts/v4"
 TOL_MM = 1e-3
 TOL_AREA_MM2 = 1e-2
 
@@ -34,8 +34,8 @@ def _touching_face(first, second, station):
     return hits[0]
 
 
-def _contact_cells(patch, normal, station, *, refine_y=False):
-    """Partition a rectangular face; resolve the center bolt's rear strip."""
+def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
+    """Resolve the center rear strip exactly; retain gross cells elsewhere."""
     edges = [edge for edge in patch.Edges() if len(edge.Vertices()) == 2]
     if len(edges) != 4 or len(patch.Vertices()) != 4:
         raise ValueError(f"{station}: contact patch is not four-sided")
@@ -59,25 +59,59 @@ def _contact_cells(patch, normal, station, *, refine_y=False):
     u_count = 8 if refine_y and abs(tangent_u.y) > abs(tangent_v.y) else 2
     v_count = 8 if refine_y and u_count == 2 else 2
     plane = patch.Center().dot(normal)
+
+    def point_at(u, v):
+        return normal * plane + tangent_u * u + tangent_v * v
+
     cells = []
+    total_area = 0.0
     for row in range(1, u_count + 1):
-        u_fraction = (row - 0.5) / u_count
+        u_min = u0 + (row - 1) * (u1 - u0) / u_count
+        u_max = u0 + row * (u1 - u0) / u_count
         for column in range(1, v_count + 1):
-            v_fraction = (column - 0.5) / v_count
-            point = (
-                normal * plane
-                + tangent_u * (u0 + u_fraction * (u1 - u0))
-                + tangent_v * (v0 + v_fraction * (v1 - v0))
-            )
-            if patch.distance(cq.Vertex.makeVertex(*point.toTuple())) > TOL_MM:
-                raise ValueError(f"{station}: contact cell is outside timber face")
+            v_min = v0 + (column - 1) * (v1 - v0) / v_count
+            v_max = v0 + column * (v1 - v0) / v_count
+            gross_point = point_at((u_min + u_max) / 2, (v_min + v_max) / 2)
+            corners = [
+                point_at(u_min, v_min),
+                point_at(u_max, v_min),
+                point_at(u_max, v_max),
+                point_at(u_min, v_max),
+            ]
+            if patch.distance(cq.Vertex.makeVertex(*gross_point.toTuple())) > TOL_MM:
+                raise ValueError(f"{station}: gross cell left timber face")
+            cell_area = area / (u_count * v_count)
+            cell_point = gross_point
+            if refine_y:
+                # The two horizontal principal/header faces preserve cutouts
+                # in exact coplanar intersections. Other faces remain gross
+                # until one cut-cell method closes on every orientation.
+                cell_face = cq.Face.makeFromWires(
+                    cq.Wire.makePolygon(corners, close=True)
+                )
+                cut_cell = cut_patch.intersect(cell_face)
+                cell_area = cut_cell.Area()
+                cell_point = cut_cell.Center()
+                if (
+                    cell_area <= 0
+                    or cell_area > area / (u_count * v_count) + TOL_AREA_MM2
+                    or cut_patch.distance(cq.Vertex.makeVertex(*cell_point.toTuple()))
+                    > TOL_MM
+                ):
+                    raise ValueError(f"{station}: invalid cut center cell")
+            total_area += cell_area
             cells.append(
                 {
                     "name": f"{station}_contact_{row}_{column}",
-                    "point_xyz_mm": _xyz(point),
-                    "tributary_area_mm2": round(area / (u_count * v_count), 6),
+                    "point_xyz_mm": _xyz(cell_point),
+                    "gross_cell_center_xyz_mm": _xyz(gross_point),
+                    "gross_tributary_area_mm2": round(area / (u_count * v_count), 6),
+                    "tributary_area_mm2": round(cell_area, 6),
                 }
             )
+    target_area = cut_patch.Area() if refine_y else patch.Area()
+    if not isclose(total_area, target_area, abs_tol=TOL_AREA_MM2):
+        raise ValueError(f"{station}: contact-cell areas do not close")
     return cells
 
 
@@ -172,9 +206,33 @@ def build_report(assembly=None):
             rear, front = bolt_y - bounds.ymin, bounds.ymax - bolt_y
             if rear <= 0 or front <= 0:
                 raise ValueError(f"{station}: center bolt left its gross face")
-            center_margin = {"rear": round(rear, 6), "front": round(front, 6)}
+            z = patch.Center().z
+            rear_face = cq.Face.makeFromWires(
+                cq.Wire.makePolygon(
+                    [
+                        cq.Vector(bounds.xmin, bounds.ymin, z),
+                        cq.Vector(bounds.xmax, bounds.ymin, z),
+                        cq.Vector(bounds.xmax, bolt_y, z),
+                        cq.Vector(bounds.xmin, bolt_y, z),
+                    ],
+                    close=True,
+                )
+            )
+            cut_rear = cut_patch.intersect(rear_face).Area()
+            if not 0 < cut_rear < cut_patch.Area():
+                raise ValueError(f"{station}: rear cut-contact strip disappeared")
+            center_margin = {
+                "rear": round(rear, 6),
+                "front": round(front, 6),
+                "trial_cut_rear_strip_area_mm2": round(cut_rear, 6),
+                "trial_cut_front_area_mm2": round(cut_patch.Area() - cut_rear, 6),
+            }
         cells = _contact_cells(
-            patch, normal, station, refine_y=duty["family"] == "base_center"
+            patch,
+            cut_patch,
+            normal,
+            station,
+            refine_y=duty["family"] == "base_center",
         )
         if center_margin is not None:
             cell_y = [cell["point_xyz_mm"][1] for cell in cells]
@@ -191,6 +249,11 @@ def build_report(assembly=None):
             "gross_contact_centroid_xyz_mm": _xyz(patch.Center()),
             "normal_outward_from_first_xyz": _xyz(normal),
             "contact_cells": cells,
+            "contact_cell_area_basis": (
+                "exact_trial_cut_face"
+                if duty["family"] == "base_center"
+                else "gross_uncut_face"
+            ),
             "bolt_face_crossings": crossings,
             "gross_face_y_edge_margins_from_bolt_mm": center_margin,
         }
@@ -203,6 +266,10 @@ def build_report(assembly=None):
             len(row["contact_cells"]) for row in stations.values()
         ),
         "trial_cut_face_count": len(stations),
+        "trial_cut_cell_face_count": sum(
+            row["contact_cell_area_basis"] == "exact_trial_cut_face"
+            for row in stations.values()
+        ),
         "bolt_interface_count": sum(
             len(row["bolt_face_crossings"]) for row in stations.values()
         ),
@@ -210,8 +277,12 @@ def build_report(assembly=None):
         "retained_frame_bolt_count": len(assembly["frame_connections"]),
         "stations": stations,
         "limits": (
-            "Gross cells are not yet redistributed over the reported trial-cut "
-            "faces. Current visual cutters include unresolved bore/service "
+            "Only the two horizontal principal/header faces have exact "
+            "trial-cut cell areas; other cells retain gross weights because "
+            "the general cutout-clipping method did not close on an inclined "
+            "face. This is "
+            "not a certified contact law. Current visual cutters include "
+            "unresolved bore/service "
             "collisions; neither gross nor cut face establishes delivered "
             "contact, gaps, preload, tolerances, moisture, partial opening, "
             "slip, stiffness, or resistance. The two single-"

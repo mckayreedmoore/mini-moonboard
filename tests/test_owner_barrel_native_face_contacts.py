@@ -17,6 +17,7 @@ def test_all_integrated_joint_faces_and_bolt_crossings_are_source_bound(report):
     assert report["contact_cell_count"] == 120
     assert report["bolt_interface_count"] == 46
     assert report["trial_cut_face_count"] == 24
+    assert report["trial_cut_cell_face_count"] == 2
     assert report["fixed_panel_kicker_screw_count"] == 66
     assert report["retained_frame_bolt_count"] == 12
     assert report["contact_law_qualified"] is False
@@ -45,6 +46,9 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
     assert rows["clip_angle_base_right"]["trial_cut_contact_area_mm2"] == (
         pytest.approx(10828.845, abs=0.01)
     )
+    assert rows["clip_split_top_center_left"]["contact_cell_area_basis"] == (
+        "gross_uncut_face"
+    )
     assert all(
         0 < row["trial_cut_contact_area_mm2"] < row["gross_contact_area_mm2"]
         and row["trial_cut_face_continuous"]
@@ -55,8 +59,15 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
         for row in rows.values()
     )
     assert all(
-        sum(cell["tributary_area_mm2"] for cell in row["contact_cells"])
+        sum(cell["gross_tributary_area_mm2"] for cell in row["contact_cells"])
         == pytest.approx(row["gross_contact_area_mm2"], abs=0.002)
+        and sum(cell["tributary_area_mm2"] for cell in row["contact_cells"])
+        == pytest.approx(
+            row["trial_cut_contact_area_mm2"]
+            if row["family"] == "base_center"
+            else row["gross_contact_area_mm2"],
+            abs=0.002,
+        )
         for row in rows.values()
     )
     assert all(
@@ -74,9 +85,27 @@ def test_center_single_bolt_has_numerically_resolved_rear_contact_strip(report):
         bolt_y = row["bolt_face_crossings"][0]["point_xyz_mm"][1]
         cell_y = [cell["point_xyz_mm"][1] for cell in row["contact_cells"]]
         assert min(cell_y) < bolt_y < max(cell_y)
+        rear_area = sum(
+            cell["tributary_area_mm2"]
+            for cell in row["contact_cells"]
+            if cell["point_xyz_mm"][1] < bolt_y
+        )
+        assert rear_area == pytest.approx(605.959553, abs=0.01)
+        assert row["contact_cell_area_basis"] == "exact_trial_cut_face"
         assert row["gross_face_y_edge_margins_from_bolt_mm"]["rear"] == pytest.approx(
             16.194623, abs=0.0002
         )
         assert row["gross_face_y_edge_margins_from_bolt_mm"]["front"] == pytest.approx(
             118.007, abs=0.002
         )
+        margin = row["gross_face_y_edge_margins_from_bolt_mm"]
+        assert margin["trial_cut_rear_strip_area_mm2"] == pytest.approx(
+            588.179572, abs=0.001
+        )
+        assert (
+            margin["trial_cut_rear_strip_area_mm2"]
+            < row["trial_cut_contact_area_mm2"] / 2
+        )
+        assert margin["trial_cut_rear_strip_area_mm2"] + margin[
+            "trial_cut_front_area_mm2"
+        ] == pytest.approx(row["trial_cut_contact_area_mm2"], abs=0.001)

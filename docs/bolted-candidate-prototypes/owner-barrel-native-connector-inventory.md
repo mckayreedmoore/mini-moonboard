@@ -49,7 +49,7 @@ backer-attachment duties. `center_kicker_screw_landings` records the four
 receivers in either pose; `backers`, `backer_screw_landings`, and
 `backer_attachment_bolts` are empty in the original trial.
 
-The separate [gross-face contact input](../../scripts/owner_barrel_native_face_contacts.py)
+The separate [contact-face input](../../scripts/owner_barrel_native_face_contacts.py)
 now reads the same integrated assembly. Each of the **24** former-angle timber
 pairs has exactly one opposing planar gross contact patch. The 22 two-bolt
 faces use four equal-area candidate compression cells each. The two
@@ -62,9 +62,14 @@ gross **uncut** CAD faces. The same input also intersects all 24 patches with
 the viewer's complete trial-cut timber. The rail example retains
 5,234.213 mm², the principal/header face 5,055.451 mm², and the outer-base
 header face 10,828.845 of 11,930.617 gross mm² after its trial cuts. All
-24 remaining patches are one connected CAD face. The cell tributary areas
-still represent **gross** faces; they have not been redistributed over cut
-wood. The current cut scene also contains known bore/service collisions, and
+24 remaining patches are one connected CAD face. Only the two horizontal
+single-bolt principal/header faces have exact **trial-cut cell** areas: the
+modeled contact strip behind each bolt line retains **588.180 mm²**, or
+11.63% of its 5,055.451 mm² cut face. The other 22 faces retain gross-cell
+weights because the general cutout-clipping method did not close reliably on
+an inclined face;
+their whole-face trial-cut areas are still reported separately. The current
+cut scene also contains known bore/service collisions, and
 neither nominal cut area nor face continuity proves usable contact pressure,
 edge stock, wood strength, or a signed moment/twist path.
 

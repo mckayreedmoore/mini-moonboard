@@ -129,6 +129,7 @@ def _center(assembly, face):
             ),
             "rear_edge_margin_from_bolt_mm": margins["rear"],
             "front_edge_margin_from_bolt_mm": margins["front"],
+            "trial_cut_rear_strip_area_mm2": margins["trial_cut_rear_strip_area_mm2"],
             "bolt_axis_normal_projection_abs": round(normal_projection, 6),
             "actual_cut_face_or_contact_law_verified": False,
         },
@@ -188,7 +189,7 @@ def report(assembly=None):
     rail["actual_new_topology_demand_n"] = None
     rail["complete_joint_stiffness_n_per_mm"] = None
     return {
-        "schema": "owner_barrel_integrated_preliminary/v3",
+        "schema": "owner_barrel_integrated_preliminary/v4",
         "geometry_source": "integrated_viewer_assembly",
         "material_source": "docs/bolted-candidate-material-basis.json",
         "edition": material["source"]["edition"],

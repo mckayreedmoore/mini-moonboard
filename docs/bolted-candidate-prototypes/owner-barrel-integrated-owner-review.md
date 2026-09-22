@@ -63,8 +63,11 @@ marks a problem or unqualified fit, not a structural rating.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
-   and twist demands. The modeled header pocket leaves 2.092 mm nominal edge
-   stock. Outer-header counterbores leave 6.35 mm nominal side stock, and
+   and twist demands. The [cut-face screen](owner-barrel-integrated-preliminary.md)
+   finds only 588.180 mm² of modeled face behind each bolt line; that is
+   geometry, not a capacity or verified compression path. The modeled header
+   pocket leaves only 2.092 mm nominal edge stock. Outer-header counterbores
+   leave 6.35 mm nominal side stock, and
    the installed rim blocks the driver; the rim-first sequence is only a
    finite-screen option. These are not acceptable by appearance or by a
    bolt-shaft rating.
