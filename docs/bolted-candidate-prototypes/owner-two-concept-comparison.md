@@ -1,7 +1,7 @@
 # Two full-inventory bolted viewer concepts — owner comparison
 
 Status: **barrel-nut concept preferred for further development, 21 September
-2026; neither concept is viable, build-ready, or a drilling release**. This
+2026; neither concept is qualified, build-ready, or a drilling release**. This
 compares the current
 [corner-block viewer](owner-corner-viewer.md) and the developing
 [barrel-nut assembly](../../scripts/owner_barrel_layout_assembly.py), not the
@@ -14,7 +14,7 @@ part of the selected baseline, not accepted replacement hardware.
 
 | Measure | Corner-block concept | Cross-dowel/barrel concept |
 | --- | --- | --- |
-| Visible replacement | 24 solid timber blocks | 24 direct-bore trials, including four blocked/revise poses |
+| Visible replacement | 24 solid timber blocks | 24 direct-bore trials, including four outer-header `REVISE` poses |
 | New hardware axes | 92 bolts | 48 bolt/barrel pairs |
 | Added timber | 24 blocks | No joint blocks; two shared kicker-screw backers |
 | Assembly | Through bores; two-sided seats | Perpendicular bores; barrel alignment |
@@ -49,6 +49,15 @@ but does not finish same-family collisions, full protected-service clearance,
 or a physical assembly sequence. Showing a direct bore intersection proves
 neither thread engagement nor a load path. The barrel scene contains no corner
 blocks; all four affected duties still need a feasible barrel-only revision.
+
+A newer [recessed outer-header trial](owner-barrel-outer-header-recess-probe.md)
+eliminates the nominal installed bolt/side-rim interference for four bolt
+rows, but only with a head/washer recess and temporary side-rim removal for
+driver access. The [rim-first sequence probe](owner-barrel-outer-header-sequence-probe.md)
+finds no fastener-dependency cycle and a clear sampled *bare-wood* path; it
+does not establish real hardware clearance, safe handling, repeatable service,
+or header strength beside the recess. These are development leads, not four
+accepted joints or a construction revision.
 
 For repeated disassembly, both concepts have a plausible *mechanical action*
 but no qualified cycle life. Corner bolts could be removed from nuts if both
@@ -109,7 +118,6 @@ Neither a shaft rating, a nominal bore intersection, nor a store listing is a
 complete joint verdict. All drilling, fabrication, structural, and climbing
 release flags remain **false**.
 
-Do not request an owner selection yet. First publish and inspect **both**
-switchable full-inventory viewers with their blocked solids and limitations
-visible; only then ask which development concept to advance for further
-engineering. That choice would select a research path, not authorize a build.
+The owner has selected the barrel-nut layout as the preferred development
+path *if it works*. Keep the separate corner-block viewer for comparison and
+do not interpret that preference as fabrication or climbing approval.
