@@ -1,6 +1,7 @@
-# Rim-on service screen: four outer-top rim-touching stations
+# Historical outward-post rim-on service screen: four outer-top stations
 
-This is a bounded diagnostic of the current barrel-nut viewer, not a service
+This is a bounded diagnostic of the historical 48-pair outward-post viewer,
+not a service
 procedure, drilling plan, or fabrication release. The probe consumes
 `scripts.export_owner_barrel_scene.build_viewer_assembly()`; it changes no
 viewer shapes and cuts no wood.
@@ -31,7 +32,7 @@ measures the access-cylinder span, and rejects a changed 40 mm path or an
 entry that no longer matches the modeled bore. The derived nominal barrel
 recesses are 11.049 mm and 46.449 mm, respectively.
 
-## Current finite result
+## Historical finite result
 
 | Family | Sides | Rows | Four nominal operations per row |
 | --- | --- | ---: | --- |
@@ -46,9 +47,9 @@ that delivered hardware can be installed or removed.
 
 ## Limits and next gate
 
-- The two producer families have shaft-only viewer stacks. Heads, washers,
-  actual barrel extraction grips/slots, and delivered fastener dimensions
-  are not checked by the withdrawal screen.
+- The two producer families now have provisional heads and washers. Their
+  delivered fit, barrel extraction grips/slots, and fastener dimensions are
+  not checked by the withdrawal screen.
 - A 20 mm straight cylinder does not establish a real driver, hand, rotation,
   or continuous tool sweep; tolerances and repeatable service remain open.
 - Temporarily removing eight panel screws while keeping the panels in place

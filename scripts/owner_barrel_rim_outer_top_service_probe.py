@@ -76,7 +76,7 @@ def _service_paths(assembly, station, barrel_name):
     # The access cylinder is 40 mm long and starts at the entry face, pointing
     # outward. Thus its center is 20 mm outside that face.
     if (
-        set(stack) != {"shaft"}
+        set(stack) != {"shaft", "washer", "head"}
         or abs(body.Volume() - pi * (body_diameter / 2) ** 2 * body_length) > 1e-3
         or abs(stack["shaft"].Volume() - pi * (bolt.diameter / 2) ** 2 * bolt.length)
         > 1e-3
@@ -287,7 +287,11 @@ def probe(assembly=None, fixed=None):
         }
     return {
         "schema": SCHEMA,
-        "viewer_source": "scripts.export_owner_barrel_scene.build_viewer_assembly",
+        "viewer_source": (
+            "scripts.export_owner_barrel_scene.build_integrated_viewer_assembly"
+            if assembly.get("post_placement") == "integrated"
+            else "scripts.export_owner_barrel_scene.build_viewer_assembly"
+        ),
         "station_count": len(output),
         "station_names": list(STATIONS),
         "fixed_inventory": fixed["counts"],
@@ -305,7 +309,7 @@ def probe(assembly=None, fixed=None):
         ],
         "limits": (
             "Finite nominal shaft/body and cylindrical access envelopes only. Missing "
-            "head/washer fit, real tool sweep, extraction grip, tolerances, strength, "
+            "delivered head/washer fit, real tool sweep, extraction grip, tolerances, strength, "
             "repeated service and safe panel support are not verified. No wood is drilled."
         ),
         "rim_removal_verified": False,

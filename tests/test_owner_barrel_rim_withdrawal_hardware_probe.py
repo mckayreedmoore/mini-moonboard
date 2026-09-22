@@ -42,12 +42,12 @@ def test_current_viewer_inventory_and_temporary_removal():
             stack.endswith("_bolt") and f"header_outer_{side}" in stack
             for stack in row["retained_outer_header_stacks"]
         )
-        assert len(row["viewer_supplemental_heads_washers_absent_for"]) == 22
+        assert row["viewer_supplemental_heads_washers_absent_for"] == []
         assert not set(row["retained_outer_header_stacks"]) & set(
             row["viewer_supplemental_heads_washers_absent_for"]
         )
         assert row["retained_inventory"]["barrels"] > 0
-        assert row["retained_inventory"]["bolt_stack_solids"] == 70
+        assert row["retained_inventory"]["bolt_stack_solids"] == 114
         assert row["retained_inventory"]["protected_panel_screws"] == 58
         assert row["retained_inventory"]["protected_frame_bolts"] == 10
 

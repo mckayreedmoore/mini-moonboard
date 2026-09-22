@@ -1,4 +1,4 @@
-"""Detached sampled rim withdrawal against the current barrel viewer solids.
+"""Detached sampled rim withdrawal against either barrel composition.
 
 Nominal positive-volume intersections are evidence of interference, while an
 empty sampled result cannot qualify a continuous or real service operation.
@@ -24,15 +24,6 @@ CATEGORIES = (
     "retained_barrels",
     "retained_bolt_stacks",
     "protected_envelopes",
-)
-FULL_STACK_FAMILIES = frozenset(
-    {"bottom_center", "base_center", "header_center", "header_outer_post"}
-)
-FULL_STACK_STATIONS = frozenset(
-    station
-    for family, left, right in ledger.PAIRS
-    if family in FULL_STACK_FAMILIES
-    for station in (left, right)
 )
 
 
@@ -161,12 +152,7 @@ def _side_inventory(assembly, fixed, side, release):
     if set(assembly["station_modes"]) != expected_stations:
         raise ValueError("Viewer station inventory changed")
     for name, roles in assembly["stacks"].items():
-        expected_roles = (
-            {"shaft", "washer", "head"}
-            if assembly["bolt_station"][name] in FULL_STACK_STATIONS
-            else {"shaft"}
-        )
-        if set(roles) != expected_roles:
+        if set(roles) != {"shaft", "washer", "head"}:
             raise ValueError(f"Viewer bolt stack changed: {name}")
     retained_barrels = {
         f"barrel/{name}": shape
@@ -240,7 +226,7 @@ def _side_inventory(assembly, fixed, side, release):
 
 
 def probe(*, assembly=None):
-    """Screen the unchanged current viewer after classified temporary removal."""
+    """Screen a supplied viewer composition after temporary rim-fastener removal."""
     assembly = viewer.build_viewer_assembly() if assembly is None else assembly
     _validate_current_viewer(assembly)
     graph = sequence.probe()
@@ -295,7 +281,11 @@ def probe(*, assembly=None):
         }
     return {
         "schema": SCHEMA,
-        "source_assembly": "export_owner_barrel_scene.build_viewer_assembly",
+        "source_assembly": (
+            "export_owner_barrel_scene.build_integrated_viewer_assembly"
+            if assembly.get("post_placement") == "integrated"
+            else "export_owner_barrel_scene.build_viewer_assembly"
+        ),
         "width_option": KERF_RIGHT,
         "source_forward_row_y_mm": SOURCE_FORWARD_Y_MM,
         "fixed_axis_inventory": graph["fixed_axis_inventory"],
@@ -308,8 +298,7 @@ def probe(*, assembly=None):
         "limits": (
             "Isolated 0..160 mm positions at 5 mm spacing, not a continuous swept "
             "volume or tolerance proof. Represented barrel/stack solids are provisional; "
-            "the reported shaft-only viewer rows have no modeled supplemental "
-            "head/washer solids, so their real projections are unscreened. "
+            "all modeled heads/washers are provisional envelopes, not delivered parts. "
             "protected holds, T-nuts and electrical shapes are modeled envelopes, "
             "including a trial hold-bolt projection. Actual delivered hardware, "
             "tools, support, fastener access, demounting, reassembly and strength "

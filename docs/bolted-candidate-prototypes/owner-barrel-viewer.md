@@ -82,20 +82,27 @@ The [rail-to-rim service screen](owner-barrel-rim-rail-service-probe.md)
 finds no nominal straight-path obstacle at the six bottom/lower/upper outer
 stations with rims installed; it does not verify delivered heads, barrel
 extraction or a real tool sweep.
-The separate [top/outer-base service screen](owner-barrel-rim-outer-top-service-probe.md)
-finds no nominal straight-path obstacle at the remaining four rim-attached
-stations, but its outer-base barrels have deep entry recesses and still need
-a verified alignment, retention and removal method.
+The historical [top/outer-base service screen](owner-barrel-rim-outer-top-service-probe.md)
+used the 48-pair outward-post scene. Re-running the same finite operations
+against the **current 46-pair integrated assembly**, with provisional heads
+and washers at every row, finds no modeled straight-path obstacle at those
+four rim-attached stations. The outer-base barrels have 46.449 mm nominal
+entry recesses and still need a real insertion, alignment, retention and
+removal method.
 For conditional removal, unload and independently support the board and panels.
 Per rim, temporarily undo eight rim-receiver panel screws, two original leg/rim
 frame bolts, and ten trial bolts at the five rim-touching stations. Withdraw
 the rim, then operate the recessed header/post bolts. Conditional installation
 reverses this order: operate the header/post bolts with the rim absent, fit the
 rim, then reconnect on the original fixed axes. The
-[retained-hardware rim-withdrawal screen](owner-barrel-rim-withdrawal-hardware-probe.md)
-finds no intersection at 33 isolated positions on either side after the
-specified temporary fastener removals. It does not verify a continuous
-sweep, delivered heads/washers, tools, safe support, or repeated service.
+[historical retained-hardware rim-withdrawal screen](owner-barrel-rim-withdrawal-hardware-probe.md)
+used the outward-post composition. The **integrated 46-pair rerun** finds no
+intersection at 33 isolated positions on either side after the specified
+temporary fastener removals. Its retained inventory includes 36 barrels and
+108 bolt-stack solids per side, including all modeled heads and washers.
+The current viewer records this as `sampled_nominal_only`, not an operational
+pass. It does not verify a continuous sweep, delivered hardware, tools,
+barrel extraction, safe support, or repeated service.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.

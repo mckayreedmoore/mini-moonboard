@@ -203,6 +203,50 @@ def _rim_first_sequence():
     }
 
 
+def _integrated_service_geometry(assembly):
+    """Summarize current sampled access without upgrading it to service approval."""
+    from scripts import owner_barrel_rim_outer_top_service_probe as outer_service
+    from scripts import owner_barrel_rim_withdrawal_hardware_probe as rim_service
+
+    outer = outer_service.probe(assembly=assembly)
+    rim = rim_service.probe(assembly=assembly)
+    if (
+        not outer["viewer_source"].endswith("build_integrated_viewer_assembly")
+        or not rim["source_assembly"].endswith("build_integrated_viewer_assembly")
+        or outer["station_count"] != 4
+        or set(rim["sides"]) != {"left", "right"}
+        or any(
+            rim[key]
+            for key in (
+                "drilling_released",
+                "fabrication_released",
+                "structural_released",
+            )
+        )
+    ):
+        raise ValueError("Integrated service-screen inventory changed")
+    return {
+        "source_pair_count": len(assembly["bolts"]),
+        "outer_top_station_count": outer["station_count"],
+        "outer_top_nominal_straight_paths_clear": all(
+            row["rim_on_nominal_service_clear"] for row in outer["stations"].values()
+        ),
+        "rim_sample_count_per_side": len(rim["sides"]["left"]["withdrawal"]["samples"]),
+        "both_rims_sampled_clear_with_retained_modeled_hardware": all(
+            row["withdrawal"]["sampled_clear"] for row in rim["sides"].values()
+        ),
+        "all_retained_trial_stacks_include_heads_and_washers": all(
+            not row["viewer_supplemental_heads_washers_absent_for"]
+            for row in rim["sides"].values()
+        ),
+        "continuous_withdrawal_verified": False,
+        "delivered_hardware_or_tool_verified": False,
+        "barrel_insertion_alignment_extraction_verified": False,
+        "safe_supported_panel_removal_verified": False,
+        "operational_result": "sampled_nominal_only",
+    }
+
+
 @lru_cache(maxsize=1)
 def build_scene():
     """Preserve every source duty and release flag in one detached viewer export."""
@@ -245,6 +289,7 @@ def build_scene():
         raise ValueError("Owner barrel legacy visual inventory changed")
     cut_header, cut_diagnostics = _cut_header_trial(assembly)
     rim_sequence = _rim_first_sequence()
+    service_geometry = _integrated_service_geometry(assembly)
     from scripts.owner_barrel_visual_wood import EXPECTED_TIMBERS, build_visual_wood
 
     visual = build_visual_wood(
@@ -411,6 +456,7 @@ def build_scene():
         "outer_header_cut_diagnostics": cut_diagnostics,
         "visual_wood_replacement": visual["report"],
         "rim_first_sequence": rim_sequence,
+        "integrated_service_geometry": service_geometry,
         "outer_header_recess_trial": {
             "forward_row_y_mm": outer.VIEWER_HEADER_FORWARD_Y_MM,
             "counterbore_depth_mm": outer.VIEWER_HEADER_RECESS_MM,

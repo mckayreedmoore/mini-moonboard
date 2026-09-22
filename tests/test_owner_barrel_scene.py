@@ -152,6 +152,18 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert (
         scene["rim_first_sequence"]["temporary_fixed_fastener_removal_required"] is True
     )
+    service = scene["integrated_service_geometry"]
+    assert service["source_pair_count"] == 46
+    assert service["outer_top_station_count"] == 4
+    assert service["rim_sample_count_per_side"] == 33
+    assert service["outer_top_nominal_straight_paths_clear"] is True
+    assert service["both_rims_sampled_clear_with_retained_modeled_hardware"] is True
+    assert service["all_retained_trial_stacks_include_heads_and_washers"] is True
+    assert service["continuous_withdrawal_verified"] is False
+    assert service["delivered_hardware_or_tool_verified"] is False
+    assert service["barrel_insertion_alignment_extraction_verified"] is False
+    assert service["safe_supported_panel_removal_verified"] is False
+    assert service["operational_result"] == "sampled_nominal_only"
     assert {row["source_station"] for row in scene["barrel_nut_envelopes"]} == duties
     assert {row["source_station"] for row in scene["diagnostic_bolt_axes"]} == duties
     assert all(row["mesh"]["triangles"] for row in scene["barrel_nut_envelopes"])
