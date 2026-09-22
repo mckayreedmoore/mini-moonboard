@@ -41,6 +41,10 @@ The [rail-to-rim service screen](owner-barrel-rim-rail-service-probe.md)
 finds no nominal straight-path obstacle at the six bottom/lower/upper outer
 stations with rims installed; it does not verify delivered heads, barrel
 extraction or a real tool sweep.
+The separate [top/outer-base service screen](owner-barrel-rim-outer-top-service-probe.md)
+finds no nominal straight-path obstacle at the remaining four rim-attached
+stations, but its outer-base barrels have deep entry recesses and still need
+a verified alignment, retention and removal method.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
