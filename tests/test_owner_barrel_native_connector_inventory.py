@@ -10,7 +10,10 @@ from scripts import owner_barrel_native_connector_inventory as native_inventory
 from scripts import owner_barrel_outer_top_layout as outer
 from scripts import owner_barrel_rail_layout as rail
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
-from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.export_owner_barrel_scene import (
+    build_integrated_viewer_assembly,
+    build_viewer_assembly,
+)
 from scripts.owner_barrel_layout_assembly import build_assembly
 from scripts.owner_barrel_native_connector_inventory import build_inventory
 from scripts.simple_owner_duty_ledger import selected_duties
@@ -137,6 +140,43 @@ def test_original_center_screws_land_in_posts_without_backer_duties(original_sou
     assert inventory["missing_native_inputs"]["connector_laws"]
 
 
+def test_integrated_viewer_connector_inventory_uses_current_single_center_pair():
+    assembly = build_integrated_viewer_assembly()
+    inventory = build_inventory(assembly=assembly)
+    assert inventory["viewer_pose"]["post_placement"] == "integrated"
+    assert inventory["viewer_pose"]["service_passage_option"] == (
+        "F1_G1_same_axis_25.4_mm_unqualified"
+    )
+    assert len(inventory["stations"]) == 24
+    assert len(inventory["bolts"]) == len(inventory["barrels"]) == 46
+    assert len(inventory["candidate_connection_names"]) == 124
+    assert inventory["backers"] == {}
+    assert inventory["backer_attachment_bolts"] == {}
+    assert inventory["backer_screw_landings"] == {}
+    assert inventory["modeled_shaft_reach_shortfalls_mm"] == {}
+    assert all(
+        len(row["bolt_names"]) == (1 if row["family"] == "base_center" else 2)
+        for row in inventory["stations"].values()
+    )
+    assert len(inventory["center_kicker_screw_landings"]) == 4
+    assert all(
+        row["receiver"] in {"base_post_center_left", "base_post_center_right"}
+        for row in inventory["center_kicker_screw_landings"].values()
+    )
+    assert inventory["native_ready"] is False
+    assert inventory["native_solve"] is False
+    assert inventory["release_claimed"] is False
+
+    missing = {**assembly, "barrels": copy(assembly["barrels"])}
+    missing["barrels"].pop(next(iter(missing["barrels"])))
+    with pytest.raises(ValueError, match="inventory changed"):
+        build_inventory(assembly=missing)
+    with pytest.raises(ValueError, match="Integrated center backing"):
+        build_inventory(
+            assembly={**assembly, "service_passage_option": "unverified_change"}
+        )
+
+
 def test_active_backer_duties_and_unqualified_laws_are_explicit(inventory, sources):
     assembly, placement = sources
     assert inventory["viewer_pose"]["post_placement"] == "outward"
@@ -163,16 +203,16 @@ def test_active_backer_duties_and_unqualified_laws_are_explicit(inventory, sourc
         )
 
 
-def test_default_inventory_uses_active_outward_viewer():
+def test_default_inventory_uses_current_integrated_viewer():
     row = build_inventory()
-    assert row["viewer_pose"]["post_placement"] == "outward"
-    assert len(row["backer_attachment_bolts"]) == 4
-    assert len(row["candidate_connection_names"]) == 130
+    assert row["viewer_pose"]["post_placement"] == "integrated"
+    assert row["backer_attachment_bolts"] == {}
+    assert len(row["candidate_connection_names"]) == 124
 
 
 def test_default_rejects_detached_original_trial(original_sources, monkeypatch):
     monkeypatch.setattr(
-        native_inventory, "build_viewer_assembly", lambda: original_sources
+        native_inventory, "build_integrated_viewer_assembly", lambda: original_sources
     )
     with pytest.raises(ValueError, match="Default inventory"):
         build_inventory()

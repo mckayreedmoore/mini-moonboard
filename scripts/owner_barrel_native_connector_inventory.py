@@ -1,4 +1,4 @@
-"""Source-built connector inventory for the -85 mm owner barrel viewer pose.
+"""Source-built connector inventory for owner barrel viewer poses.
 
 This is a preparation input, not a native model, solve, joint rating, or release.
 """
@@ -10,8 +10,9 @@ from pathlib import Path
 
 import cadquery as cq
 
+from scripts import owner_barrel_integrated_backing as integrated_backing
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
-from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +23,11 @@ SOURCE_PATHS = (
     "scripts/owner_barrel_layout_assembly.py",
     "scripts/owner_barrel_rail_layout.py",
     "scripts/owner_barrel_center_layout.py",
+    "scripts/owner_barrel_center_single_layout.py",
+    "scripts/owner_barrel_center_margin_options.py",
+    "scripts/owner_barrel_center_post_joint_replan.py",
+    "scripts/owner_barrel_candidate_service.py",
+    "scripts/owner_barrel_integrated_backing.py",
     "scripts/owner_barrel_outer_top_layout.py",
     "scripts/owner_barrel_backer_layout.py",
     "scripts/owner_barrel_center_margin_probe.py",
@@ -134,18 +140,20 @@ def build_inventory(*, assembly=None, placement=None):
     """Bind one viewer pose to exact candidate axes; leave native laws unresolved."""
     default_viewer = assembly is None
     if assembly is None:
-        assembly = build_viewer_assembly()
+        assembly = build_integrated_viewer_assembly()
     post_placement = assembly.get("post_placement")
     if default_viewer and (
-        post_placement != "outward" or assembly.get("backer_attachment") is None
+        post_placement != "integrated" or assembly.get("backer_attachment") is not None
     ):
-        raise ValueError("Default inventory requires outward posts and backer duties")
-    if post_placement not in ("original", "outward"):
-        raise ValueError("Require an original or outward center-post assembly")
+        raise ValueError("Default inventory requires integrated seam-side posts")
+    if post_placement not in ("original", "outward", "integrated"):
+        raise ValueError("Require an original, outward, or integrated assembly")
     if post_placement == "outward" and placement is None:
         placement = post_layout()
     if post_placement == "original" and placement is not None:
         raise ValueError("Original center posts use the fixed source receivers")
+    if post_placement == "integrated" and placement is not None:
+        raise ValueError("Integrated center posts use the fixed source receivers")
     duties = selected_duties()
     diagnostics = assembly["diagnostics"]["producer_diagnostics"]
     post_centers = {
@@ -159,15 +167,27 @@ def build_inventory(*, assembly=None, placement=None):
     expected_post_x = 70.0 if post_placement == "original" else 180.0
     present_backers = set(BACKERS) & set(assembly["wood"])
     has_backers = bool(present_backers)
+    if post_placement == "integrated":
+        backing = integrated_backing.report(assembly)
+        if (
+            backing["fixed_center_kicker_screw_count"] != 4
+            or backing["post_header_barrel_pair_count"] != 4
+            or assembly.get("service_passage_option")
+            != "F1_G1_same_axis_25.4_mm_unqualified"
+        ):
+            raise ValueError("Integrated center backing or service pose changed")
     if (
         set(assembly["station_modes"]) != set(duties)
         or set(assembly["removed_legacy_stations"]) != set(duties)
         or set(assembly["station_modes"].values()) != {"direct"}
         or diagnostics["outer_top8"]["viewer_trial_outer_header_forward_y_mm"] != -85.0
         or diagnostics["outer_top8"]["viewer_trial_outer_header_recess_mm"] is None
-        or any(
-            abs(post_centers[side] - sign * expected_post_x) > 1e-5
-            for side, sign in (("left", -1), ("right", 1))
+        or (
+            post_placement != "integrated"
+            and any(
+                abs(post_centers[side] - sign * expected_post_x) > 1e-5
+                for side, sign in (("left", -1), ("right", 1))
+            )
         )
         or present_backers != (set(BACKERS) if post_placement == "outward" else set())
     ):
@@ -178,14 +198,15 @@ def build_inventory(*, assembly=None, placement=None):
     frame = {row.name: row for row in assembly["frame_connections"]}
     bolt_source = assembly["bolts"]
     barrel_source = assembly["barrels"]
+    expected_pairs = 46 if post_placement == "integrated" else 48
     if (
         len(legacy_sds) != 144
         or len(removed_sds) != 144
         or removed_sds != legacy_sds
         or len(panel) != 66
         or len(frame) != 12
-        or len(bolt_source) != 48
-        or len(barrel_source) != 48
+        or len(bolt_source) != expected_pairs
+        or len(barrel_source) != expected_pairs
         or set(assembly["bolt_station"]) != set(bolt_source)
         or set(assembly["barrel_station"]) != set(barrel_source)
     ):
@@ -315,9 +336,13 @@ def build_inventory(*, assembly=None, placement=None):
             for name, owner in assembly["barrel_station"].items()
             if owner == station
         )
+        expected_rows = (
+            1 if post_placement == "integrated" and duty["family"] == "base_center"
+            else 2
+        )
         if (
-            len(bolt_names) != 2
-            or len(barrel_names) != 2
+            len(bolt_names) != expected_rows
+            or len(barrel_names) != expected_rows
             or {name.removesuffix("_bolt") for name in bolt_names} != set(barrel_names)
         ):
             raise ValueError(f"{station}: missing paired bolt or barrel")
@@ -382,7 +407,7 @@ def build_inventory(*, assembly=None, placement=None):
         set(fixed_screws) | set(retained) | set(bolts) | set(attachment_bolts)
     )
     if (
-        len(candidate_names) != 126 + len(attachment_bolts)
+        len(candidate_names) != 78 + expected_pairs + len(attachment_bolts)
         or set(candidate_names) & legacy_sds
         or set(candidate_names) & set(duties)
     ):
@@ -396,6 +421,7 @@ def build_inventory(*, assembly=None, placement=None):
         "status": "preparation_inventory_only",
         "viewer_pose": {
             "post_placement": post_placement,
+            "service_passage_option": assembly.get("service_passage_option"),
             "outer_header_forward_y_mm": -85.0,
             "outer_header_recess_mm_provisional": diagnostics["outer_top8"][
                 "viewer_trial_outer_header_recess_mm"

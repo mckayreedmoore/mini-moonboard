@@ -124,9 +124,10 @@ The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)
 uses the current Y = −85 mm viewer as its source and compares Y = −75,
 −80, and −90 mm alternatives. The current pose has 24.600 mm between
 counterbores; it remains provisional and `REVISE`.
-The earlier [connector inventory](owner-barrel-native-connector-inventory.md)
-and [standalone installed-stack note](owner-barrel-installed-stack-audit.md)
-default to the superseded outward-post pose. The integrated scene exporter
+The [connector inventory](owner-barrel-native-connector-inventory.md)
+now defaults to this integrated 46-pair pose; the
+[standalone installed-stack note](owner-barrel-installed-stack-audit.md)
+still defaults to the superseded outward-post pose. The integrated scene exporter
 passes its own assembly into the same axial-audit helper and finds all 46
 tips reach an *assumed* barrel center with no modeled bore overruns. The eight formerly overrun 5 in
 center-rail bores now have 4 mm nominal tip clearance after an owner-approved
