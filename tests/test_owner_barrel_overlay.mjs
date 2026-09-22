@@ -7,6 +7,13 @@ const hidden = ['base_header', ...Array.from({length: 170}, (_, index) => `part_
 const recessEnvelopes = headerStations.flatMap(source_station =>
   [1, 2].flatMap(index => ['recess_head', 'recess_washer', 'recess_counterbore']
     .map(role => ({name: `${source_station}_${index}_${role}`, role, source_station}))));
+const nominalAxial = {
+  tip_past_assumed_axis_mm: 2.2,
+  maximum_body_overlap_if_fully_threaded_mm: 7.2038,
+  tip_to_modeled_bore_cap_mm: 4,
+  flags: ['AXIS_REACHED_WITHIN_MODELED_BORE'],
+  thread_engagement: 'UNKNOWN',
+};
 const scene = {
   schema: 'owner_barrel_layout_scene/v1',
   status: 'complete_layout_concept_not_qualified',
@@ -43,7 +50,7 @@ const scene = {
   rail_head_washer_envelopes: Array(40).fill({role: 'rail_washer'}),
   other_head_washer_envelopes: Array(48).fill({role: 'joint_washer'}),
   backer_barrel_nut_envelopes: Array(4).fill({role: 'backer_barrel'}),
-  backer_diagnostic_bolt_axes: Array(4).fill({}),
+  backer_diagnostic_bolt_axes: Array(4).fill({nominal_axial: nominalAxial}),
   backer_head_washer_envelopes: Array(8).fill({role: 'backer_washer'}),
   backer_attachment: {
     station_dispositions: {backer_attachment_left: 'REVISE', backer_attachment_right: 'REVISE'},
@@ -87,4 +94,5 @@ assert.throws(() => validateOwnerBarrelScene({...scene, outer_header_cut_diagnos
 assert.throws(() => validateOwnerBarrelScene({...scene, rim_first_sequence: {...scene.rim_first_sequence, operational_result: 'verified'}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, outer_header_recess_trial: {...scene.outer_header_recess_trial, structural_capacity_verified: true}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, cross_family_physical_clash_stations: ['unknown']}, hidden), /24 duties/);
+assert.throws(() => validateOwnerBarrelScene({...scene, backer_diagnostic_bolt_axes: Array(4).fill({})}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene(scene, hidden.slice(1)), /baseline inventory/);

@@ -34,6 +34,23 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert inventory["backer_attachment_duties"] == 2
     assert inventory["backer_barrel_nut_envelopes"] == 4
     assert inventory["backer_diagnostic_bolt_axes"] == 4
+    all_axes = scene["diagnostic_bolt_axes"] + scene["backer_diagnostic_bolt_axes"]
+    assert len(all_axes) == 52
+    assert all(
+        row["nominal_axial"]["thread_engagement"] == "UNKNOWN" for row in all_axes
+    )
+    assert all(row["nominal_axial"]["tip_past_assumed_axis_mm"] > 0 for row in all_axes)
+    assert (
+        sum(
+            "BEYOND_MODELED_MACHINE_BORE" in row["nominal_axial"]["flags"]
+            for row in all_axes
+        )
+        == 8
+    )
+    assert {
+        row["nominal_axial"]["tip_past_assumed_axis_mm"]
+        for row in scene["backer_diagnostic_bolt_axes"]
+    } == {2.2}
     assert inventory["backer_head_washer_envelopes"] == 8
     assert {row["role"] for row in scene["rail_head_washer_envelopes"]} == {
         "rail_head",

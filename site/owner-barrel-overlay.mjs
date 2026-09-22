@@ -21,6 +21,12 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.direct_joint_duties !== 24 ||
       inventory.barrel_nut_envelopes !== data.barrel_nut_envelopes?.length ||
       inventory.new_diagnostic_bolt_axes !== data.diagnostic_bolt_axes?.length ||
+      [...(data.diagnostic_bolt_axes || []), ...(data.backer_diagnostic_bolt_axes || [])]
+        .some(row => !Number.isFinite(row.nominal_axial?.tip_past_assumed_axis_mm) ||
+          !Number.isFinite(row.nominal_axial?.maximum_body_overlap_if_fully_threaded_mm) ||
+          !Number.isFinite(row.nominal_axial?.tip_to_modeled_bore_cap_mm) ||
+          row.nominal_axial?.thread_engagement !== 'UNKNOWN' ||
+          !Array.isArray(row.nominal_axial?.flags)) ||
       inventory.rail_head_washer_envelopes !== 40 ||
       data.rail_head_washer_envelopes?.length !== 40 ||
       inventory.other_head_washer_envelopes !== 48 ||
@@ -112,7 +118,8 @@ function meshGeometry(THREE, source) {
 function cylinder(THREE, row, color, description) {
   const mesh = new THREE.Mesh(
     new THREE.CylinderGeometry(row.diameter_mm / 2, row.diameter_mm / 2, row.length_mm, 12),
-    new THREE.MeshStandardMaterial({color, transparent: true, opacity: .8, depthWrite: false, depthTest: false}),
+    new THREE.MeshStandardMaterial({color, transparent: true, opacity: .95, depthWrite: false, depthTest: false,
+      metalness: .55, roughness: .35}),
   );
   const direction = new THREE.Vector3(...row.axis).normalize();
   mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
@@ -125,8 +132,31 @@ function cylinder(THREE, row, color, description) {
     },
   };
   mesh.userData.baseEmissive = 0;
-  mesh.renderOrder = 10;
+  mesh.renderOrder = 12;
   return mesh;
+}
+
+function boltTip(THREE, row, color, description) {
+  const direction = new THREE.Vector3(...row.axis).normalize();
+  const tip = new THREE.Mesh(new THREE.SphereGeometry(4, 12, 8),
+    new THREE.MeshBasicMaterial({color, depthWrite: false, depthTest: false}));
+  tip.position.fromArray(row.start_mm).addScaledVector(direction, row.length_mm);
+  tip.userData.part = {name: `${row.name}/nominal_tip`, fabrication: {
+    owner_barrel_overlay: true, kind: 'bolt', category: 'bolts', description,
+  }};
+  tip.userData.baseEmissive = 0;
+  tip.renderOrder = 13;
+  return tip;
+}
+
+function axialDescription(row) {
+  const axial = row.nominal_axial;
+  const bore = axial.tip_to_modeled_bore_cap_mm;
+  const boreWarning = bore < 0 ? ` Tip overruns the modeled bore by ${(-bore).toFixed(2)} mm.` :
+    ` Modeled bore-tip clearance is ${bore.toFixed(2)} mm.`;
+  return `${row.name}: nominal tip ${axial.tip_past_assumed_axis_mm.toFixed(2)} mm past the assumed barrel center; ` +
+    `at most ${axial.maximum_body_overlap_if_fully_threaded_mm.toFixed(2)} mm of barrel-body overlap ` +
+    `if the shaft end is fully threaded.${boreWarning} Real thread engagement and fit are UNKNOWN; no drilling release.`;
 }
 
 export function renderOwnerBarrelScene(THREE, data, group, meshes) {
@@ -157,16 +187,19 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
     group.add(mesh);
   }
   for (const row of data.diagnostic_bolt_axes) {
-    const mesh = cylinder(THREE, row, 0x72e5ff,
-      'Provisional bolt path; modeled length and head are shown, but delivered fit, engagement, and drilling are not approved');
-    meshes.push(mesh);
-    group.add(mesh);
+    const color = row.nominal_axial.flags.includes('BEYOND_MODELED_MACHINE_BORE') ? 0xff8c42 : 0xb7d3e2;
+    for (const mesh of [cylinder(THREE, row, color, axialDescription(row)),
+                        boltTip(THREE, row, color, axialDescription(row))]) {
+      meshes.push(mesh);
+      group.add(mesh);
+    }
   }
   for (const row of data.backer_diagnostic_bolt_axes) {
-    const mesh = cylinder(THREE, row, 0x72e5ff,
-      'New kicker-backer/header attachment trial; thread, capacity, and drilling unverified');
-    meshes.push(mesh);
-    group.add(mesh);
+    for (const mesh of [cylinder(THREE, row, 0xb7d3e2, axialDescription(row)),
+                        boltTip(THREE, row, 0xb7d3e2, axialDescription(row))]) {
+      meshes.push(mesh);
+      group.add(mesh);
+    }
   }
   for (const row of [...data.rail_head_washer_envelopes, ...data.other_head_washer_envelopes,
                      ...data.backer_head_washer_envelopes,

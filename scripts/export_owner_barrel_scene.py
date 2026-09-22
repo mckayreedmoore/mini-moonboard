@@ -60,7 +60,7 @@ def _solid(name, role, shape, station=None):
     }
 
 
-def _axis(name, bolt, station):
+def _axis(name, bolt, station, nominal_axial=None):
     direction = bolt.direction.normalized()
     return {
         "name": name,
@@ -70,6 +70,7 @@ def _axis(name, bolt, station):
         "length_mm": bolt.length,
         "diameter_mm": bolt.diameter,
         "diagnostic_only": True,
+        "nominal_axial": nominal_axial,
     }
 
 
@@ -221,6 +222,18 @@ def build_scene():
         raise ValueError("Owner barrel legacy visual inventory changed")
     cut_header, cut_diagnostics = _cut_header_trial(assembly)
     rim_sequence = _rim_first_sequence()
+    # Surface the source-built axial audit in the viewer without changing a bore.
+    from scripts.owner_barrel_installed_stack_audit import build_report
+
+    reach = build_report(assembly)
+    reach_by_bolt = {row["bolt_name"]: row for row in reach["rows"]}
+    if (
+        set(reach_by_bolt) != set(assembly["bolts"])
+        or reach["counts"]["short_of_assumed_barrel_axis"] != 0
+        or reach["counts"]["beyond_modeled_machine_bore"] != 8
+        or reach["fit_qualified"]
+    ):
+        raise ValueError("Current viewer nominal axial audit changed")
     solids = [
         _solid(name, "moved_center_post", assembly["wood"][name])
         for name in MOVED_POSTS
@@ -236,7 +249,24 @@ def build_scene():
         for name, shape in assembly["barrels"].items()
     ]
     bolts = [
-        _axis(name, bolt, assembly["bolt_station"][name])
+        _axis(
+            name,
+            bolt,
+            assembly["bolt_station"][name],
+            {
+                "tip_past_assumed_axis_mm": reach_by_bolt[name][
+                    "tip_past_assumed_axis_mm"
+                ],
+                "maximum_body_overlap_if_fully_threaded_mm": reach_by_bolt[name][
+                    "maximum_body_overlap_with_fully_threaded_shaft_mm"
+                ],
+                "tip_to_modeled_bore_cap_mm": reach_by_bolt[name][
+                    "tip_to_bore_far_cap_clearance_mm"
+                ],
+                "flags": reach_by_bolt[name]["nominal_axial_flags"],
+                "thread_engagement": "UNKNOWN",
+            },
+        )
         for name, bolt in assembly["bolts"].items()
     ]
     rail_stacks = [
@@ -261,11 +291,34 @@ def build_scene():
         for station, row in backer_stations.items()
         for name, shape in row["barrels"].items()
     ]
-    backer_bolts = [
-        _axis(name, bolt, station)
-        for station, row in backer_stations.items()
-        for name, bolt in row["bolts"].items()
-    ]
+    backer_bolts = []
+    for station, row in backer_stations.items():
+        side = station.removeprefix("backer_attachment_")
+        for name, bolt in row["bolts"].items():
+            label = name.removeprefix(f"{station}_").removesuffix("_bolt")
+            candidate = backer_attachment["collision_screen"]["candidates"][
+                f"inner_kicker_backer_{side}/{label}"
+            ]
+            past_axis = candidate["nominal_shaft_reach_past_axis_mm"]
+            barrel_od = row["barrels"][name.removesuffix("_bolt")].BoundingBox().xlen
+            backer_bolts.append(
+                _axis(
+                    name,
+                    bolt,
+                    station,
+                    {
+                        "tip_past_assumed_axis_mm": past_axis,
+                        "maximum_body_overlap_if_fully_threaded_mm": round(
+                            past_axis + barrel_od / 2, 4
+                        ),
+                        "tip_to_modeled_bore_cap_mm": candidate[
+                            "modeled_bore_depth_past_nominal_tip_mm"
+                        ],
+                        "flags": ["AXIS_REACHED_WITHIN_MODELED_BORE"],
+                        "thread_engagement": "UNKNOWN",
+                    },
+                )
+            )
     backer_stacks = [
         _solid(f"{name}/{role}", f"backer_{role}", shape, station)
         for station, row in backer_stations.items()
