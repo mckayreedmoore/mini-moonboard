@@ -16,6 +16,7 @@ HEADER = "base_header"
 ROWS = (("rear", -35.0, 20.0, -100.0), ("front", -20.0, 35.0, -65.0))
 SHAFT_DIAMETER_MM = 6.35
 NOMINAL_BOLT_LENGTH_MM = 88.9  # 3 1/2 in trial, not a selected store item.
+BARREL_AXIS_Z_MM = 200.0
 MACHINE_BORE_DIAMETER_MM = 7.5
 BARREL_DIAMETER_MM = 10.0076
 BARREL_LENGTH_MM = 16.002
@@ -63,8 +64,15 @@ def _existing_hardware(assembly):
     return solids
 
 
-def probe(assembly=None):
+def probe(
+    assembly=None,
+    *,
+    nominal_bolt_length_mm=NOMINAL_BOLT_LENGTH_MM,
+    barrel_axis_z_mm=BARREL_AXIS_Z_MM,
+):
     """Screen two diagonal bolt/barrel pairs per existing backer, unchanged CAD."""
+    if nominal_bolt_length_mm <= 0 or not 0 < barrel_axis_z_mm < 238.9:
+        raise ValueError("Backer bolt length or barrel height is outside the trial")
     assembly = build_viewer_assembly() if assembly is None else assembly
     placement = post_layout()
     source = build_inventory(assembly=assembly, placement=placement)
@@ -109,9 +117,9 @@ def probe(assembly=None):
                     f"{backer_name}: trial washer exits nominal backer width"
                 )
             name = f"{backer_name}/{label}"
-            # The assumed barrel thread axis is at z=200; the rear-entry bore
+            # The assumed barrel thread axis is at trial Z; the rear-entry bore
             # crosses it in Y. Neither assumption is a drilling dimension.
-            seat_z, axis_z = header_box.zmax, 200.0
+            seat_z, axis_z = header_box.zmax, barrel_axis_z_mm
             barrel_start_y = y - BARREL_LENGTH_MM / 2
             barrel = _cylinder(
                 (x, barrel_start_y, axis_z),
@@ -126,19 +134,19 @@ def probe(assembly=None):
                 BARREL_DIAMETER_MM,
             )
             shaft_start_z = seat_z + WASHER_THICKNESS_MM
-            nominal_tip_z = shaft_start_z - NOMINAL_BOLT_LENGTH_MM
+            nominal_tip_z = shaft_start_z - nominal_bolt_length_mm
             modeled_barrel_far_wall_z = axis_z - BARREL_DIAMETER_MM / 2
-            modeled_bore_end_z = seat_z - NOMINAL_BOLT_LENGTH_MM - BORE_TIP_ALLOWANCE_MM
+            modeled_bore_end_z = seat_z - nominal_bolt_length_mm - BORE_TIP_ALLOWANCE_MM
             shaft = _cylinder(
                 (x, y, shaft_start_z),
                 (0, 0, -1),
-                NOMINAL_BOLT_LENGTH_MM,
+                nominal_bolt_length_mm,
                 SHAFT_DIAMETER_MM,
             )
             machine_bore = _cylinder(
                 (x, y, seat_z),
                 (0, 0, -1),
-                NOMINAL_BOLT_LENGTH_MM + BORE_TIP_ALLOWANCE_MM,
+                nominal_bolt_length_mm + BORE_TIP_ALLOWANCE_MM,
                 MACHINE_BORE_DIAMETER_MM,
             )
             washer = _cylinder(
@@ -196,7 +204,7 @@ def probe(assembly=None):
                 "backer_bounds_xyz_mm": _bounds(backer),
                 "seat_to_assumed_axis_mm": seat_z - axis_z,
                 "nominal_shaft_reach_past_axis_mm": round(
-                    NOMINAL_BOLT_LENGTH_MM - WASHER_THICKNESS_MM - (seat_z - axis_z),
+                    nominal_bolt_length_mm - WASHER_THICKNESS_MM - (seat_z - axis_z),
                     6,
                 ),
                 "nominal_tip_to_backer_bottom_mm": round(nominal_tip_z - box.zmin, 6),
@@ -213,7 +221,7 @@ def probe(assembly=None):
                     y + BARREL_LENGTH_MM / 2 - box.ymin, 6
                 ),
                 "machine_bore_depth_from_header_top_mm": (
-                    NOMINAL_BOLT_LENGTH_MM + BORE_TIP_ALLOWANCE_MM
+                    nominal_bolt_length_mm + BORE_TIP_ALLOWANCE_MM
                 ),
                 "nominal_margin_to_backer_x_edges_mm": round(
                     min(x - box.xmin, box.xmax - x), 6
@@ -267,7 +275,8 @@ def probe(assembly=None):
         "fixed_inventory_counts": fixed["counts"],
         "candidate_hardware": {
             "per_backer_bolt_barrel_pairs": 2,
-            "trial_nominal_bolt_length_mm": NOMINAL_BOLT_LENGTH_MM,
+            "trial_nominal_bolt_length_mm": nominal_bolt_length_mm,
+            "trial_barrel_axis_z_mm": barrel_axis_z_mm,
             "trial_shaft_diameter_mm": SHAFT_DIAMETER_MM,
             "trial_barrel_od_mm": BARREL_DIAMETER_MM,
             "trial_barrel_length_mm": BARREL_LENGTH_MM,

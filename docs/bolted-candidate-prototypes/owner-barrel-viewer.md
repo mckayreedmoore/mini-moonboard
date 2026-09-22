@@ -14,6 +14,8 @@ A detached [backer/header attachment screen](owner-barrel-backer-attachment-prob
 shows four provisional bolt/barrel pairs with no nominal finite clashes, but
 its 3½ in trial bolt overextends the modeled barrel and does not establish
 fit, strength, assembly access, or attachment approval.
+A detached 3 in bolt / raised-barrel sensitivity avoids that nominal overrun
+but remains unselected for the same fit and capacity reasons.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
 reviewed snapshot. Its published JSON is checked against the source-built

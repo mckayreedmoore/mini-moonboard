@@ -75,3 +75,20 @@ def test_all_non_geometry_gates_remain_closed(result):
         "fabrication_released",
     ):
         assert result[key] is False
+
+
+def test_three_inch_bolt_with_raised_barrel_is_nominally_contained():
+    trial = probe(nominal_bolt_length_mm=76.2, barrel_axis_z_mm=205.0)
+    assert trial["candidate_hardware"]["trial_nominal_bolt_length_mm"] == 76.2
+    assert trial["candidate_hardware"]["trial_barrel_axis_z_mm"] == 205.0
+    assert trial["finite_clearance_screen_passed"] is True
+    assert trial["mutual_candidate_hits_mm3"] == {}
+    assert trial["nonempty_existing_obstacles"] == {}
+    for row in trial["candidates"].values():
+        assert row["nominal_shaft_reach_past_axis_mm"] == pytest.approx(2.2)
+        assert row["nominal_tip_past_modeled_barrel_far_wall_mm"] == pytest.approx(
+            -2.8038
+        )
+        assert row["modeled_bore_depth_past_nominal_tip_mm"] == pytest.approx(4.0)
+    assert trial["thread_engagement_verified"] is False
+    assert trial["drilling_released"] is False

@@ -50,15 +50,31 @@ An initial more outboard trial intersected both existing center principals at
 the header top. The inward coordinates above avoid that finite obstacle; the
 probe contains only this final bounded candidate, not an open-ended search.
 
+## Shorter ordinary-bolt sensitivity
+
+The same four XY pairs were also screened with a **3 in (76.2 mm) nominal
+bolt** and the backer barrel center raised from Z = 200 to **205 mm**. All
+four nominal tips end 2.2 mm past their assumed barrel thread axes and
+2.8038 mm *before* the modeled far barrel wall; the trial machine bores end
+4 mm past the tips. The protected, unrelated-wood, other-viewer-hardware and
+mutual-candidate finite screens remain free of >1 mm³ hits. This is a better
+nominal tip position than the 3½ in trial, though 2.2 mm is still a narrow
+axis-side margin and does not prove usable thread engagement or tolerance.
+
+[Home Depot lists Everbilt 1/4-20 × 3 in galvanized hex bolt 805396](https://www.homedepot.com/p/204633284)
+as an ordinary retail lead. Its product listing does not control the
+delivered thread span, head/washer geometry or compatibility with the
+provisional barrel; local store inventory varies. Nothing was purchased.
+This Z = 205 mm variant remains detached from the viewer and unselected.
+
 ## Still open
 
 - The Hillman-style barrel dimensions and thread-axis location are provisional;
   no delivered part, thread span, bolt length/grade, washer/head, or retail fit
   is verified. This does not select hardware.
-- A shorter 3¼ in bolt or more washer spacing might reduce the modeled barrel
-  overrun, but neither is adopted. Part-specific ordinary-store availability,
-  delivered shaft/thread dimensions, washer seating, and head/tool clearance
-  would need evidence before either could be considered.
+- The detached 3 in / Z = 205 mm sensitivity removes modeled barrel overrun
+  but is not adopted. Delivered shaft/thread dimensions, washer seating, and
+  head/tool clearance still need evidence before hardware selection.
 - Wood edge/end distances, hole tolerance, actual intersecting-bores workflow,
   complete wood/bolt/barrel strength, and four-joint load distribution are not
   checked. The ~5 mm nominal X clearance especially needs delivered hardware
