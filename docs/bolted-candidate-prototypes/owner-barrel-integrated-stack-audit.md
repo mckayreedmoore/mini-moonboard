@@ -31,6 +31,17 @@ the nominal classification “within bore” does not supply positive tip
 clearance. The shorter shafts retain their former bore depths; bore depth
 has not been redesigned or approved.
 
+The four top-outer bolts belong to `clip_single_top_left_1` and
+`clip_single_top_right_2`, two per station. A **read-only**, source-solid
+2 mm extension of each existing 125.349 mm machine bore would give 127.349 mm
+depth from its wood entry face and 2 mm nominal tip clearance; a 4 mm trial
+would give 129.349 mm depth and 4 mm clearance. Both tested extensions stayed
+inside `base_rail_top` and reported no modeled protected-feature, service,
+retained-hardware, unrelated-wood, peer-hardware, or other-barrel-path hit
+above the 1 mm³ screening threshold. This is not an installed tolerance or
+wood-resistance check. The maintained scene retains **zero** top-outer tip
+clearance until the owner approves a bore-depth revision.
+
 The **12 outer-rail rows** have the least nominal axial reach: their tips pass
 the assumed barrel axis by only 1.849 mm and stop 3.155 mm before the far wall.
 Even with a fully threaded shaft, no more than 6.853 mm of the modeled barrel

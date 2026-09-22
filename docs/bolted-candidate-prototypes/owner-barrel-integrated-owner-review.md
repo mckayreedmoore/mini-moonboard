@@ -63,7 +63,16 @@ marks a problem or unqualified fit, not a structural rating.
    barrel axis, through-thread/usable depth, and a positive tip-clearance
    allowance before a drilling plan. The
    [reach audit](owner-barrel-integrated-stack-audit.md)
-   also flags four top-outer tips exactly at their modeled bore caps.
+   also flags four top-outer tips exactly at their modeled bore caps. A
+   read-only 2 mm depth-extension trial kept all four bore cylinders inside
+   `base_rail_top` without a modeled protected-feature, service, retained-
+   hardware, other-wood or peer-path intersection. This is a proposed frame
+   bore change, not the maintained scene; owner approval and actual hardware
+   dimensions are still required. The [Home Depot Everbilt 800646 3½-in
+   single](https://www.homedepot.com/p/204633291) is an ordinary-store
+   full-thread/A307 *listing*, and the [Hillman 880543 barrel](https://www.homedepot.com/p/202242356)
+   is described as threaded through its sides. Neither listing supplies
+   controlled usable engagement or barrel resistance.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
@@ -120,12 +129,13 @@ bill, actual owner cash need, floor or ceiling. Hold/LED/pad shortfalls,
 tools, delivery and tax remain outside it. No construction-hardware purchase
 follows from either catalog subtotal.
 
-**Immediate owner decision requested:** may the candidate shift only the
-first bore/bolt row at each of the two left center-rail stations from N =
-60 to **42 mm**, subject to a fresh integrated clearance and cut-section check?
-This would not move any panel, panel screw, retained frame bolt, or center
-post; it would not approve drilling or climbing. This sheet requests no other
-geometry change.
+**Immediate owner decisions requested:** (1) may the candidate shift only
+the first bore/bolt row at each of the two left center-rail stations from
+N = 60 to **42 mm**, subject to a fresh integrated clearance and cut-section
+check? (2) may the four top-outer 5-in bolt machine bores be modeled **2 mm
+deeper** to provide a nominal 2 mm bore-tip gap, subject to the same complete
+checks? Neither trial moves a panel, panel screw, retained frame bolt, or
+center post. Neither authorizes drilling, fabrication, or climbing.
 
 [viewer]: https://mckayreedmoore.github.io/mini-moonboard/?model=owner-barrel-layout&view=rear
 [plywood]: https://www.lowes.com/pd/Roseburg-23-32-CAT-PS1-09-Square-Structural-Plywood-Douglas-Fir-Application-as-4-x-8/1000015973
