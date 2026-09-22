@@ -73,10 +73,13 @@ These remain **exact current blockers**:
   backing load path under panel actions.
 - The outer-header [recess](owner-barrel-outer-header-recess-probe.md) leaves
   only modeled residuals; its installed rim blocks the driver. The
-  [rim-first sequence](owner-barrel-outer-header-sequence-probe.md) and
-  [retained-hardware samples](owner-barrel-rim-withdrawal-hardware-probe.md)
-  are conditional, not a continuous, delivered-tool or supported-panel service
-  demonstration. The [cut screen](owner-barrel-outer-header-cut-integrity.md)
+  [rim-first sequence](owner-barrel-outer-header-sequence-probe.md) is
+  conditional. The current integrated
+  [46-pair viewer](owner-barrel-viewer.md) reports 33 nominal sampled rim
+  positions clear on each side with modeled heads/washers, but not a
+  continuous, delivered-tool or supported-panel service demonstration. The
+  older [outward-post samples](owner-barrel-rim-withdrawal-hardware-probe.md)
+  are historical. The [cut screen](owner-barrel-outer-header-cut-integrity.md)
   reports 6.35 mm header side stock and a 12.706 mm outer-post-cut to fixed
   screw gap, both `REVISE` findings, not strength or tolerance approval.
 - No signed, same-case interface forces/moments, load sharing, joint

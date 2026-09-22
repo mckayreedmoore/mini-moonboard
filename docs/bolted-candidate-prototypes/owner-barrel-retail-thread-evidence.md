@@ -1,9 +1,12 @@
-# Outward-post barrel candidate: retail thread and seat evidence
+# Historical outward-post barrel candidate: retail thread and seat evidence
 
 Retail checked 21 September 2026; model geometry refreshed after the owner's
 nominal bore-depth approval. Public US retailer/manufacturer
 material only; no contact or purchase. These are exact ordinary retail *leads* for
-the active kerf-right viewer, not selected construction hardware. The 48 former-angle
+the superseded 48-pair outward-post kerf-right viewer, not selected construction
+hardware. The [current integrated reach audit](owner-barrel-integrated-stack-audit.md)
+and [integrated cost snapshot](owner-barrel-integrated-cost.md) govern the 46-pair
+scene instead. The 48 former-angle
 paths come from the [installed-stack audit](owner-barrel-installed-stack-audit.md);
 the four header-to-backer paths come from the [backer producer](owner-barrel-backer-layout.md).
 No full joint capacity is inferred.
