@@ -91,6 +91,20 @@ marks a problem or unqualified fit, not a structural rating.
    the installed rim blocks the driver; the rim-first sequence is only a
    finite-screen option. These are not acceptable by appearance or by a
    bolt-shaft rating.
+
+   A read-only [center-pose screen](../../scripts/owner_barrel_center_margin_options.py)
+   found one collision-free *alternative*: replace each centered bolt with
+   two rear-entry angled 4½-in trial bolts at principal X offsets ±11.25 mm,
+   header entry Z = 257.7/258.1 mm. The nominal pair has 22.5 mm X pitch,
+   but leaves only **2.796 mm principal side wood** beside a barrel,
+   **2.092 mm header pocket edge wood**, and **1.501 mm** between pockets.
+   Its right-side bores clear the candidate 25.4 mm F1–G1 passage by at least
+   5.009 mm. Simply adding a second bolt next to the *existing* centered
+   one instead produced pocket, washer and driver collisions. The two-bolt
+   pose is **not selected**: its thin wood margins, installation tolerances,
+   barrel engagement, splitting and resistance have no acceptance basis.
+   Local closed-face rank could improve, but that is not a strength or
+   signed-case result.
 4. **Verify material and panel yield.** The proposed 25.4 mm F1–G1 LED
    passage in one principal clears the modeled center hardware, but a real
    prewired strand and connectors have not been fed through it. The modeled
