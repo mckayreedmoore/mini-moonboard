@@ -1,45 +1,56 @@
 """Source-distinct ten-duty direct cross-dowel viewer geometry; no release."""
 
+from typing import NamedTuple
+
 import cadquery as cq
 
 from mini_moonboard.box_frame import Connection
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import center_posts_outward_owner_layout as posts
+from scripts import owner_barrel_coordinates as coordinates
 from scripts import owner_layout_protected as protected
 from scripts import simple_cross_dowel_continuation as continuation
-from scripts import simple_pb01_cross_dowel_trial as cd01
-from scripts import simple_pb03_bottom_outer_pair as bottom
-from scripts import simple_pb03_lower_center_pair as lower
-from scripts import simple_pb03_upper_center_pair as upper_center
-from scripts import simple_pb03_upper_outer_pair as upper_outer
-from scripts import simple_pb07_outer_rail_native as pb07
+from scripts import simple_owner_duty_ledger as ledger
 
 SOURCE_ID = "owner-barrel-direct-ten-rail-v1"
-STATIONS = (
-    *lower.TARGET_STATIONS,
-    *lower.LOWER_OUTER_STATIONS,
-    *upper_outer.TARGET_STATIONS,
-    *upper_center.TARGET_STATIONS,
-    *bottom.TARGET_STATIONS,
+RAIL_FAMILIES = (
+    "lower_center",
+    "lower_outer",
+    "upper_outer",
+    "upper_center",
+    "bottom_outer",
 )
+STATIONS = tuple(
+    station
+    for family in RAIL_FAMILIES
+    for selected_family, left, right in ledger.PAIRS
+    if selected_family == family
+    for station in (left, right)
+)
+
+
+class StationSpec(NamedTuple):
+    upright_name: str
+    rail_name: str
+
+
 SPECS = {
-    **lower.STATION_SPECS,
-    **upper_outer.STATION_SPECS,
-    **upper_center.STATION_SPECS,
-    **bottom.STATION_SPECS,
+    station: StationSpec(duty["timber"][1], duty["timber"][0])
+    for station, duty in ledger.selected_duties().items()
+    if station in STATIONS
 }
 ROW_N_FROM_FRONT_MM = (60.0, 92.25)
-BARREL_X_FROM_BUTT_MM = cd01.BARREL_X_FROM_BUTT_MM
+BARREL_X_FROM_BUTT_MM = 70.0
 BARREL_AXIS_OFFSET_MM = continuation.BARREL_LENGTH_MM / 2
 BARREL_RECESS_MM = (continuation.SECTION_MM[0] - continuation.BARREL_LENGTH_MM) / 2
-MACHINE_BORE_DIAMETER_MM = cd01.MACHINE_BOLT_TRIAL_BORE_DIAMETER_MM
-ACCESS_DIAMETER_MM = cd01.ACCESS_DIAMETER_MM
-ACCESS_LENGTH_MM = cd01.ACCESS_LENGTH_MM
+MACHINE_BORE_DIAMETER_MM = 7.5
+ACCESS_DIAMETER_MM = 20.0
+ACCESS_LENGTH_MM = 40.0
 TOL_MM3 = 1.0
 
 
 def _box_bounds(shape):
-    return cd01._local_bounds(shape)
+    return coordinates.local_bounds(shape)
 
 
 def _cylinder(point, direction, length, diameter):
@@ -47,7 +58,7 @@ def _cylinder(point, direction, length, diameter):
 
 
 def _xyz(x, t, n):
-    return cq.Vector(*cd01._xyz(x, t, n))
+    return cq.Vector(*coordinates.xyz(x, t, n))
 
 
 def _axis(row):
@@ -87,7 +98,7 @@ def build_geometry(wood=None):
         spec = SPECS[station]
         upright, rail = wood[spec.upright_name], wood[spec.rail_name]
         ub, rb = _box_bounds(upright), _box_bounds(rail)
-        sign = 1 if spec.rail_extension_direction == "right" else -1
+        sign = 1 if sum(rb["x"]) > sum(ub["x"]) else -1
         rail_butt_x = rb["x"][0] if sign == 1 else rb["x"][1]
         upright_butt_x = ub["x"][1] if sign == 1 else ub["x"][0]
         upright_outer_x = ub["x"][0] if sign == 1 else ub["x"][1]
@@ -105,7 +116,9 @@ def build_geometry(wood=None):
             n = n_min + n_offset
             entry_from_minus_t = index == 1
             entry_t = t_min if entry_from_minus_t else t_max
-            barrel_direction = cq.Vector(0, *cd01.T) * (1 if entry_from_minus_t else -1)
+            barrel_direction = cq.Vector(0, *coordinates.T) * (
+                1 if entry_from_minus_t else -1
+            )
             bolt_direction = cq.Vector(sign, 0, 0)
             body_start = _xyz(
                 barrel_x,
@@ -276,7 +289,7 @@ def screen(built=None):
     return {
         "schema": "owner_barrel_rail_layout/v1",
         "source_id": SOURCE_ID,
-        "parent_source_id": pb07.SOURCE_ID,
+        "parent_source_id": variant(KERF_RIGHT).KEY,
         "inventory": {
             "rail_duties": len(stations),
             "panel_kicker_axes": len(built["panel"]),

@@ -10,9 +10,11 @@ import cadquery as cq
 
 from mini_moonboard.box_frame import Connection
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
+from scripts import owner_barrel_coordinates as coordinates
 from scripts import simple_cross_dowel_continuation as hardware
 from scripts import simple_owner_duty_ledger as ledger
-from scripts.simple_rail_joint_comparison import N, T
+
+N, T = coordinates.N, coordinates.T
 
 SOURCE_ID = "owner-barrel-outer-top-kerf-right-v1"
 FAMILIES = ("top_outer", "top_center", "header_outer_post", "base_outer_side")

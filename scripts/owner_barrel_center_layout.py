@@ -7,10 +7,12 @@ import cadquery as cq
 from mini_moonboard.box_frame import Connection
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import center_posts_outward_owner_layout as posts
+from scripts import owner_barrel_coordinates as coordinates
 from scripts import owner_layout_protected as protected
 from scripts import simple_cross_dowel_continuation as hardware
 from scripts import simple_owner_duty_ledger as ledger
-from scripts.simple_rail_joint_comparison import N, T
+
+N, T = coordinates.N, coordinates.T
 
 SOURCE_ID = "owner-barrel-center-six-direct-layout-v1"
 STATIONS = (
@@ -52,18 +54,7 @@ def _yz(t, n):
 
 
 def _local_bounds(shape):
-    vertices = shape.Vertices()
-    return {
-        "x": (min(v.X for v in vertices), max(v.X for v in vertices)),
-        "t": (
-            min(v.Y * T[0] + v.Z * T[1] for v in vertices),
-            max(v.Y * T[0] + v.Z * T[1] for v in vertices),
-        ),
-        "n": (
-            min(v.Y * N[0] + v.Z * N[1] for v in vertices),
-            max(v.Y * N[0] + v.Z * N[1] for v in vertices),
-        ),
-    }
+    return coordinates.local_bounds(shape)
 
 
 def _finite_hits(shape, obstacles):

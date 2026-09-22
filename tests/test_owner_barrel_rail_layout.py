@@ -1,13 +1,18 @@
 """Direct cross-dowel ten-rail layout is evidence, never a drilling packet."""
 
+import subprocess
+import sys
+
+from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import owner_barrel_rail_layout as barrel
+from scripts import simple_owner_duty_ledger as ledger
 
 
 def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
     built = barrel.build_geometry()
     result = barrel.screen(built)
     assert result["source_id"] == barrel.SOURCE_ID
-    assert result["parent_source_id"] == barrel.pb07.SOURCE_ID
+    assert result["parent_source_id"] == variant(KERF_RIGHT).KEY
     assert result["inventory"] == {
         "rail_duties": 10,
         "panel_kicker_axes": 66,
@@ -35,10 +40,7 @@ def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
         not any(key.startswith("compact_alternate") for key in row)
         for row in result["stations"].values()
     )
-    for name in (
-        barrel.lower.TARGET_STATIONS[1],
-        barrel.upper_center.TARGET_STATIONS[1],
-    ):
+    for name in ("clip_horizontal_lower_right_1", "clip_horizontal_upper_right_1"):
         row = result["stations"][name]
         assert row["geometry_status"] == "DIRECT_TRIAL_BLOCKED"
         assert row["protected_hits_mm3"]
@@ -48,6 +50,28 @@ def test_direct_barrel_layout_keeps_fixed_axes_and_reports_each_duty():
     assert result["fit_qualified"] is False
     assert result["drilling_released"] is False
     assert result["fabrication_released"] is False
+
+
+def test_ten_stations_bind_selected_rail_and_upright():
+    duties = ledger.selected_duties()
+    assert len(barrel.STATIONS) == 10
+    for station in barrel.STATIONS:
+        assert barrel.SPECS[station].rail_name == duties[station]["timber"][0]
+        assert barrel.SPECS[station].upright_name == duties[station]["timber"][1]
+
+
+def test_barrel_producers_import_without_corner_or_pb_geometry():
+    check = """
+import importlib
+import sys
+for name in ('owner_barrel_rail_layout', 'owner_barrel_center_layout',
+             'owner_barrel_outer_top_layout'):
+    importlib.import_module('scripts.' + name)
+for name in sys.modules:
+    assert not name.startswith(('scripts.simple_pb', 'scripts.owner_corner'))
+    assert name != 'scripts.simple_rail_joint_comparison'
+"""
+    subprocess.run([sys.executable, "-c", check], check=True)
 
 
 def test_assembly_adapter_uses_supplied_wood_and_distinct_trial_solids(monkeypatch):
