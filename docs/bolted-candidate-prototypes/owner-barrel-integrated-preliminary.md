@@ -78,3 +78,9 @@ old forces are not demands for this topology. Before an exploratory physical
 coupon, select one delivered bolt/barrel/washer/wood lot, measure usable
 thread engagement and complete the center pocket/LED-feed and rail fit gates.
 No load, drilling, fabrication or climbing acceptance is claimed.
+
+All six required case identities (`a12-rear`, `a12-forward`, `a12-left`,
+`k12-right`, `k12-rear`, `a1-rear`) now prepare from the same maintained
+46-pair assembly using [conditional barrel/contact springs](../../scripts/owner_barrel_native_preparation.py).
+Each preparation reports `native_solve: false` and `structural_released: false`.
+This confirms input assembly, not a response, demand, stiffness, or pass.
