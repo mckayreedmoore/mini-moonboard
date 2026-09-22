@@ -292,7 +292,7 @@
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
-      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. All 24 old angle duties and two new kicker-backer attachment duties have provisional barrel/bolt paths. Six outer-rail joints show nominal 6 in bolts at 60 mm setbacks. Outer-header recessed heads require side-rim removal for tool access; actual removal, thread fit, hardware, wood capacity and drilling remain unresolved. No corner-joint blocks; green wood pieces are kicker-screw backers. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths. Center-joint clearance, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -585,7 +585,7 @@
               {label: 'Installed bolt-stack audit', path: 'docs/bolted-candidate-prototypes/owner-barrel-installed-stack-audit.md'},
               {label: 'Retail bolt/thread evidence — unverified fit', path: 'docs/bolted-candidate-prototypes/owner-barrel-retail-thread-evidence.md'},
               {label: 'Six-inch outer-rail setback', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-rail-setback-probe.md'},
-              {label: 'New kicker-backer attachment', path: 'docs/bolted-candidate-prototypes/owner-barrel-backer-layout.md'},
+              {label: 'Integrated center-post stock leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-center-post-retail.md'},
               {label: 'Outer-header wood cut screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-cut-integrity.md'},
               {label: 'Preliminary two-joint numerical screen — no structural release', path: 'docs/bolted-candidate-prototypes/owner-barrel-mvp-preliminary.md'},
               {label: 'Partial retail cost screen — no purchase release', path: 'docs/bolted-candidate-prototypes/owner-barrel-mvp-retail-cost.md'},
@@ -620,7 +620,7 @@
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
-          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner-joint blocks; green wood pieces are kicker-screw backers. The wood-colored cut-derived header shows four shallow outer-header seats and bores. The magenta wireframes still mark trial counterbores. Rim-first service and net-section strength remain unverified. Alt-click to inspect; no drilling release.' :
+          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. The wood-colored seam-side center posts now receive the four fixed kicker screws; no separate green backers remain. The cut-derived header shows four shallow outer-header seats and bores. The magenta wireframes still mark trial counterbores. Center-joint tolerances, rim-first service and net-section strength remain unverified. Alt-click to inspect; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
@@ -779,18 +779,18 @@
         });
       }
       if (model === 'owner-barrel-layout') {
-        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json')).then(async response => {
+        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json?v=integrated-posts')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '5ca88ff276efe5bbe73ca0b5c7332ad1368f5bb45eaf55bd76ed05d6760dc3de') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== 'bcaabe55fe90d2d9636dedd79f66e4b9b352378b162a9072851699b46fec0699') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Transitional barrel development scene — not build-ready. This snapshot still shows the two green kicker backers and outward center posts; the owner has directed that the base-center posts replace those backers, and that layout is not yet integrated here. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. The eight formerly overrun center-rail bores and four outer-header bores now show 4 mm nominal tip clearance. Alt-click a bolt for its reach and bore clearance; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
+            'Integrated barrel development scene — not build-ready. The wood-colored seam-side center posts replace the separate green backers and receive all four fixed center kicker screws. The old 144 angle/SDS visuals and their holes in 16 affected timbers are hidden. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. The revised center joints clear the nominal CAD occupancy screen, but their small recess/tool margins, delivered hardware fit, tolerances and strength remain unverified. Alt-click a bolt for its nominal reach; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

@@ -1,21 +1,19 @@
-# Owner-review barrel-nut viewer — full inventory, geometry REVISE
+# Owner-review barrel-nut viewer — integrated center-post trial
 
 The [interactive rear view][scene] is a kerf-right *comparison concept*, not a
-cut, drilling, purchased-hardware, fabrication, or structural release. It
-is temporarily behind the owner's latest support direction: the two base-center
-posts must replace the green inner kicker backers while retaining the four fixed
-center kicker screws. Do not treat this snapshot's backers or X = ±180 mm posts
-as the accepted physical layout.
-replaces the **visuals** of all 24 historical structural angles and 144 SDS
-fasteners with 48 diagnostic 1/4-20 bolt paths and 48 provisional Hillman
-880543-shaped barrel envelopes. No corner-block fallback solids are in this
-scene.
-The original 66 panel/kicker screws and 12 frame bolts remain. This older
-viewer snapshot retains X = ±180 mm center posts and two separate kicker-screw
-backers pending their replacement. Four provisional header-to-backer bolt/barrel
-paths are shown in two added [backer duties](owner-barrel-backer-layout.md).
-These paths do not yet establish a qualified attachment or load path. The
-historical angle assembly remains the selected baseline.
+cut, drilling, purchased-hardware, fabrication, or structural release. Two
+seam-side 88.9 × 139.7 mm modeled base-center posts replace the former X =
+±180 mm posts **and** both separate kicker backers. Those two wood-colored
+posts receive the four fixed center kicker screws. The original 66
+panel/kicker screws and 12 frame bolts retain their axes. The scene hides the
+24 historical angles and 144 SDS fasteners and displays 48 diagnostic 1/4-20
+bolt paths with 48 provisional Hillman 880543-shaped barrel envelopes. No
+corner-block or separate-backer solids remain. The historical angle assembly
+remains the selected baseline, not a release for this candidate.
+The modeled post section is **not** a verified delivered 4×6 size: the
+[ordinary retail leads](owner-barrel-center-post-retail.md) list green
+approximately 90.5 × 142.9 mm stock, and local price, grade stamp, moisture,
+cuttable offcuts and finished dimensions remain unconfirmed.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
 reviewed snapshot. Its published JSON is checked against the source-built
@@ -24,27 +22,28 @@ browser smoke check. Barrel and bolt paths are diagnostic X-ray overlays;
 red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. This scene is generated independently
-of the corner-block assembly; the two concepts shared the prior post/backer
-placement, not their joint solids. The owner has since superseded that support
-placement for the barrel candidate.
+of the corner-block assembly.
 The viewer now replaces all 16 timber meshes that contained old angle/SDS
 holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
-62 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,
+66 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,
 and inherited service cuts are replayed where they affect those timbers.
 Only the outer-header trial's candidate bores/counterbores are cut into the
 replacement wood; other candidate barrel paths remain overlays. These
 display solids are not a shop machining model or wood-strength approval.
 
-The integrated assembly shows 24 former-angle and two added backer direct-bore
-*trials*, not 26 accepted joints.
-Provisional head and washer solids now accompany all 48 former-angle bolt
-paths, plus the four added backer bolts. These are modeled envelopes, not
+The integrated assembly shows 24 former-angle direct-bore *trials*, not 24
+accepted joints. Provisional head and washer solids accompany all 48 bolts.
+These are modeled envelopes, not
 controlled retail dimensions or verified seats.
 This scene now illustrates four bounded geometry revisions: the two
 right-center rail stations use a 50/92.25 mm row pair found in the
 [rail-position probe](owner-barrel-rail-clearance-probe.md); both
-center-principal/header stations use the [4 in nominal bolt and 22 mm
-trial washer](owner-barrel-center-viewer-revision.md); and the two outer-base
+center-principal/header stations now use the
+[seam-side-post replan](../../scripts/owner_barrel_center_post_joint_replan.py)
+with two 4 in post/header bolts and 5 in and 4½ in principal/header bolts
+per side. The latter use a 19.05 mm trial washer envelope and recessed,
+angled header-rear entries. These are unselected hardware dimensions, not
+drilling instructions. The two outer-base
 stations move their bolt axes [10 mm inward](owner-barrel-outer-base-clearance-probe.md).
 The four outer-header bolts use the
 [conditional recessed-head trial](owner-barrel-outer-header-recess-probe.md):
@@ -111,9 +110,12 @@ The [60 mm setback screen](owner-barrel-outer-rail-setback-probe.md)
 led to the depicted six-rail provisional revision: twelve 6 in shaft paths
 reach their assumed axes by 1.849 mm, with head/washer envelopes now shown.
 Thread, tolerance, service, and capacity checks are still open.
-The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
-is **not a selected retail product**. Every station remains `REVISE`; the
-changed drawings are not complete joints or a drilling plan.
+The older 5 in center bolt broke out of receiving wood; its 22 mm washer
+trial is superseded. The integrated center replan reports nominal clear
+occupancy and complete modeled bore cores, but its tightest barrel recess is
+about 1.05 mm and its closest tool paths are about 0.71 mm apart. Those
+small margins need tolerance and real-tool checks. The revised drawings
+are not complete joints or a drilling plan.
 
 The two outer-header/post duties had installed-shaft and straight
 access clashes with the side rims at the unrecessed pose. The recessed trial
@@ -156,7 +158,7 @@ position are only provisional viewer inputs. The 6–10 mm axis-offset
 sensitivity is open. The actual barrel material/grade, internal thread
 strength, bolt grade and grip, usable engagement, tip clearance, washer
 bearing, wood edge/end/net-section resistance, splitting and group action,
-insertion/retention, repeated disassembly, backer attachment, and complete
+insertion/retention, repeated disassembly, center-post joint resistance, and complete
 changed-topology load cases remain unverified. A nominal bore intersection
 does not imply a usable or load-bearing joint. Do not drill or buy
 construction hardware from this scene.

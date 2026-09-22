@@ -13,16 +13,16 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
   }
   if (inventory?.replaced_angle_duties !== 24 ||
       inventory.removed_structural_sds !== 144 ||
-      inventory.moved_center_posts !== 2 ||
+      inventory.integrated_center_posts !== 2 ||
       inventory.barrel_replacement_timbers !== 16 ||
-      inventory.kicker_screw_backers !== 2 ||
+      inventory.kicker_screw_backers !== 0 ||
       inventory.derived_cut_headers !== 1 ||
       inventory.fixed_panel_kicker_screw_axes !== 66 ||
       inventory.retained_frame_bolt_axes !== 12 ||
       inventory.direct_joint_duties !== 24 ||
       inventory.barrel_nut_envelopes !== data.barrel_nut_envelopes?.length ||
       inventory.new_diagnostic_bolt_axes !== data.diagnostic_bolt_axes?.length ||
-      [...(data.diagnostic_bolt_axes || []), ...(data.backer_diagnostic_bolt_axes || [])]
+      (data.diagnostic_bolt_axes || [])
         .some(row => !Number.isFinite(row.nominal_axial?.tip_past_assumed_axis_mm) ||
           !Number.isFinite(row.nominal_axial?.maximum_body_overlap_if_fully_threaded_mm) ||
           !Number.isFinite(row.nominal_axial?.tip_to_modeled_bore_cap_mm) ||
@@ -32,17 +32,17 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.rail_head_washer_envelopes?.length !== 40 ||
       inventory.other_head_washer_envelopes !== 48 ||
       data.other_head_washer_envelopes?.length !== 48 ||
-      inventory.backer_attachment_duties !== 2 ||
-      inventory.backer_barrel_nut_envelopes !== 4 ||
-      data.backer_barrel_nut_envelopes?.length !== 4 ||
-      inventory.backer_diagnostic_bolt_axes !== 4 ||
-      data.backer_diagnostic_bolt_axes?.length !== 4 ||
-      inventory.backer_head_washer_envelopes !== 8 ||
-      data.backer_head_washer_envelopes?.length !== 8 ||
-      data.backer_attachment?.thread_engagement_verified !== false ||
-      data.backer_attachment?.capacity_verified !== false ||
-      Object.values(data.backer_attachment?.release_flags || {}).some(Boolean) ||
-      Object.keys(data.backer_attachment?.station_dispositions || {}).length !== 2 ||
+      inventory.backer_attachment_duties !== 0 ||
+      inventory.backer_barrel_nut_envelopes !== 0 ||
+      data.backer_barrel_nut_envelopes?.length !== 0 ||
+      inventory.backer_diagnostic_bolt_axes !== 0 ||
+      data.backer_diagnostic_bolt_axes?.length !== 0 ||
+      inventory.backer_head_washer_envelopes !== 0 ||
+      data.backer_head_washer_envelopes?.length !== 0 ||
+      data.backer_attachment?.status !== 'not_applicable_integrated_center_posts' ||
+      data.integrated_center_joint_trial?.structural_capacity_verified !== false ||
+      Object.values(data.integrated_center_joint_trial?.release_flags || {}).some(Boolean) ||
+      Object.keys(data.integrated_center_joint_trial?.stations || {}).length !== 4 ||
       Object.keys(data.station_dispositions || {}).length !== 24 ||
       !Array.isArray(data.cross_family_physical_clash_stations) ||
       data.cross_family_physical_clash_stations.some(station =>
@@ -51,9 +51,9 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       Object.keys(data.station_dispositions).some(station =>
         !data.solids.some(row => row.source_station === station) &&
         !data.barrel_nut_envelopes.some(row => row.source_station === station)) ||
-      data.solids.filter(row => row.role === 'moved_center_post').length !== 2 ||
+      data.solids.filter(row => row.role === 'integrated_center_post').length !== 2 ||
       data.solids.filter(row => row.role === 'barrel_replacement_timber').length !== 13 ||
-      data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 2 ||
+      data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 0 ||
       data.solids.filter(row => row.role === 'derived_cut_header' &&
         row.name === 'base_header/derived_outer_header_cut' && row.mesh?.triangles?.length).length !== 1 ||
       data.outer_header_cut_diagnostics?.source_member !== 'base_header' ||
@@ -74,6 +74,8 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.outer_header_cut_diagnostics.displayed_visual_header_includes_retained_cuts !== true ||
       data.visual_wood_replacement?.replacement_timber_members !== 16 ||
       data.visual_wood_replacement?.excluded_legacy_sds_axes !== 144 ||
+      data.visual_wood_replacement?.fixed_panel_receiver_cuts_in_replacements !== 66 ||
+      data.visual_wood_replacement?.fixed_panel_axes_landing_on_separate_backers !== 0 ||
       data.visual_wood_replacement?.release !== false ||
       data.rim_first_sequence?.temporary_fixed_fastener_removal_required !== true ||
       data.rim_first_sequence?.per_rim_release?.panel_screws !== 8 ||
@@ -98,7 +100,7 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.outer_header_recess_trial?.structural_capacity_verified !== false) {
     throw new Error('Barrel viewer does not cover all 24 duties and fixed sources');
   }
-  if (data.solids.some(row => !['moved_center_post', 'barrel_replacement_timber', 'kicker_screw_backer', 'derived_cut_header'].includes(row.role)) ||
+  if (data.solids.some(row => !['integrated_center_post', 'barrel_replacement_timber', 'derived_cut_header'].includes(row.role)) ||
       Object.hasOwn(inventory, 'mixed_compact_block_duties')) {
     throw new Error('Barrel-only scene contains a corner-block artifact');
   }
@@ -173,10 +175,8 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
     const disposition = data.station_dispositions[row.source_station] || 'LAYOUT_TRIAL';
     const revise = /REVISE|CLASH|BLOCKED|NO_FIT/.test(disposition) ||
       clashStations.has(row.source_station);
-    const replacementTimber = row.role === 'barrel_replacement_timber';
-    const color = derivedHeader ? 0xb68152 : row.role === 'moved_center_post' ? 0x38bdf8 :
-      row.role === 'kicker_screw_backer' ? 0x4ade80 :
-      replacementTimber ? 0x9d5a24 :
+    const replacementTimber = row.role === 'barrel_replacement_timber' || row.role === 'integrated_center_post';
+    const color = derivedHeader ? 0xb68152 : replacementTimber ? 0x9d5a24 :
       revise ? 0xf87171 : 0xa78bfa;
     const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
       color, transparent: !(derivedHeader || replacementTimber),
@@ -204,20 +204,11 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
       group.add(mesh);
     }
   }
-  for (const row of data.backer_diagnostic_bolt_axes) {
-    for (const mesh of [cylinder(THREE, row, 0xb7d3e2, axialDescription(row)),
-                        boltTip(THREE, row, 0xb7d3e2, axialDescription(row))]) {
-      meshes.push(mesh);
-      group.add(mesh);
-    }
-  }
   for (const row of [...data.rail_head_washer_envelopes, ...data.other_head_washer_envelopes,
-                     ...data.backer_head_washer_envelopes,
-                     ...data.backer_barrel_nut_envelopes]) {
-    const barrel = row.role === 'backer_barrel';
+                     ...data.backer_head_washer_envelopes]) {
     const washer = row.role.endsWith('washer');
     const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
-      color: barrel ? 0xf87171 : washer ? 0xffd166 : 0xff8c42,
+      color: washer ? 0xffd166 : 0xff8c42,
       transparent: true, opacity: .88, depthWrite: false, depthTest: false,
     }));
     mesh.userData.part = {

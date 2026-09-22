@@ -34,6 +34,43 @@ def build_viewer_assembly():
     return assembly
 
 
+def build_integrated_viewer_assembly():
+    """Compose the seam-side post trial without carrying the old backer duties."""
+    from scripts import owner_barrel_center_post_joint_replan as integrated
+
+    def center_six(wood):
+        _, former_wood, _ = center._wood()
+        former = center.build_revised_layout(former_wood)
+        revised = integrated.build_layout(wood)
+        bottom = {
+            station: row
+            for station, row in former["stations"].items()
+            if station.startswith("clip_horizontal_bottom_")
+        }
+        if len(bottom) != 2 or len(revised["stations"]) != 4:
+            raise ValueError("Integrated six-duty center inventory changed")
+        return {
+            "stations": {**bottom, **revised["stations"]},
+            "diagnostics": {
+                "source_id": "integrated-4x6-center-six-viewer-trial",
+                "unchanged_bottom": former["diagnostics"],
+                "revised_center": revised["diagnostics"],
+            },
+        }
+
+    assembly = build_assembly(
+        producers={
+            "rail10": rail.build_revised_layout,
+            "center6": center_six,
+            "outer_top8": outer.build_recessed_viewer_layout,
+        },
+        post_placement="integrated",
+    )
+    if any(name.startswith("inner_kicker_backer_") for name in assembly["wood"]):
+        raise ValueError("Integrated scene unexpectedly retains a separate backer")
+    return assembly
+
+
 def _mesh(shape):
     vertices, triangles = shape.tessellate(0.5)
     return {
@@ -180,9 +217,7 @@ def _rim_first_sequence():
 @lru_cache(maxsize=1)
 def build_scene():
     """Preserve every source duty and release flag in one detached viewer export."""
-    assembly = build_viewer_assembly()
-    backer_attachment = assembly["backer_attachment"]
-    backer_stations = backer_attachment["stations"]
+    assembly = build_integrated_viewer_assembly()
     duties = selected_duties()
     baseline = json.loads(BASELINE.read_text())
     baseline_parts = baseline["parts"]
@@ -195,8 +230,9 @@ def build_scene():
         or len(assembly["panel_connections"]) != 66
         or len(assembly["frame_connections"]) != 12
         or not set(MOVED_POSTS).issubset(baseline_names)
-        or not (set(MOVED_POSTS) | set(BACKERS)).issubset(assembly["wood"])
-        or assembly["post_placement"] != "outward"
+        or not set(MOVED_POSTS).issubset(assembly["wood"])
+        or set(BACKERS) & set(assembly["wood"])
+        or assembly["post_placement"] != "integrated"
         or set(assembly["barrel_station"]) != set(assembly["barrels"])
         or set(assembly["bolt_station"]) != set(assembly["bolts"])
         or set(assembly["barrel_station"].values()) != set(duties)
@@ -205,10 +241,6 @@ def build_scene():
             for stack in assembly["stacks"].values()
         )
         or any(assembly["release_flags"].values())
-        or set(backer_stations) != {"backer_attachment_left", "backer_attachment_right"}
-        or any(backer_attachment["release_flags"].values())
-        or sum(len(row["bolts"]) for row in backer_stations.values()) != 4
-        or sum(len(row["barrels"]) for row in backer_stations.values()) != 4
     ):
         raise ValueError(
             "Owner barrel assembly is incomplete or release boundary changed"
@@ -248,14 +280,12 @@ def build_scene():
     ):
         raise ValueError("Current viewer nominal axial audit changed")
     solids = [
-        _solid(name, "moved_center_post", visual["wood"][name]) for name in MOVED_POSTS
+        _solid(name, "integrated_center_post", visual["wood"][name])
+        for name in MOVED_POSTS
     ]
     solids.extend(
         _solid(name, "barrel_replacement_timber", visual["wood"][name])
         for name in sorted(EXPECTED_TIMBERS - set(MOVED_POSTS) - {"base_header"})
-    )
-    solids.extend(
-        _solid(name, "kicker_screw_backer", assembly["wood"][name]) for name in BACKERS
     )
     visual_header = visual["wood"]["base_header"]
     if visual_header.Volume() > cut_header.Volume() + 0.1:
@@ -309,46 +339,6 @@ def build_scene():
         for role, shape in stack.items()
         if role in ("washer", "head")
     ]
-    backer_barrels = [
-        _solid(name, "backer_barrel", shape, station)
-        for station, row in backer_stations.items()
-        for name, shape in row["barrels"].items()
-    ]
-    backer_bolts = []
-    for station, row in backer_stations.items():
-        side = station.removeprefix("backer_attachment_")
-        for name, bolt in row["bolts"].items():
-            label = name.removeprefix(f"{station}_").removesuffix("_bolt")
-            candidate = backer_attachment["collision_screen"]["candidates"][
-                f"inner_kicker_backer_{side}/{label}"
-            ]
-            past_axis = candidate["nominal_shaft_reach_past_axis_mm"]
-            barrel_od = row["barrels"][name.removesuffix("_bolt")].BoundingBox().xlen
-            backer_bolts.append(
-                _axis(
-                    name,
-                    bolt,
-                    station,
-                    {
-                        "tip_past_assumed_axis_mm": past_axis,
-                        "maximum_body_overlap_if_fully_threaded_mm": round(
-                            past_axis + barrel_od / 2, 4
-                        ),
-                        "tip_to_modeled_bore_cap_mm": candidate[
-                            "modeled_bore_depth_past_nominal_tip_mm"
-                        ],
-                        "flags": ["AXIS_REACHED_WITHIN_MODELED_BORE"],
-                        "thread_engagement": "UNKNOWN",
-                    },
-                )
-            )
-    backer_stacks = [
-        _solid(f"{name}/{role}", f"backer_{role}", shape, station)
-        for station, row in backer_stations.items()
-        for name, stack in row["stacks"].items()
-        for role, shape in stack.items()
-        if role in ("washer", "head")
-    ]
     recessed = [
         _solid(
             f"{name}/{role}", f"recess_{role}", shape, assembly["bolt_station"][name]
@@ -374,20 +364,11 @@ def build_scene():
         or len(recessed) != 12
         or len(rail_stacks) != 40
         or len(other_stacks) != 48
-        or len(backer_barrels) != 4
-        or len(backer_bolts) != 4
-        or len(backer_stacks) != 8
         or {row["role"] for row in recessed}
         != {"recess_head", "recess_washer", "recess_counterbore"}
         or not all(
             row["mesh"]["triangles"]
-            for row in solids
-            + barrels
-            + recessed
-            + rail_stacks
-            + other_stacks
-            + backer_barrels
-            + backer_stacks
+            for row in solids + barrels + recessed + rail_stacks + other_stacks
         )
     ):
         raise ValueError("Barrel viewer has empty geometry")
@@ -414,23 +395,13 @@ def build_scene():
         "diagnostic_bolt_axes": bolts,
         "rail_head_washer_envelopes": rail_stacks,
         "other_head_washer_envelopes": other_stacks,
-        "backer_barrel_nut_envelopes": backer_barrels,
-        "backer_diagnostic_bolt_axes": backer_bolts,
-        "backer_head_washer_envelopes": backer_stacks,
-        "backer_attachment": {
-            "source_id": backer_attachment["source_id"],
-            "station_dispositions": {
-                name: row["disposition"] for name, row in backer_stations.items()
-            },
-            "finite_clearance_screen_passed": backer_attachment["collision_screen"][
-                "finite_clearance_screen_passed"
-            ],
-            "thread_engagement_verified": backer_attachment[
-                "thread_engagement_verified"
-            ],
-            "capacity_verified": backer_attachment["capacity_verified"],
-            "release_flags": backer_attachment["release_flags"],
-        },
+        "backer_barrel_nut_envelopes": [],
+        "backer_diagnostic_bolt_axes": [],
+        "backer_head_washer_envelopes": [],
+        "backer_attachment": {"status": "not_applicable_integrated_center_posts"},
+        "integrated_center_joint_trial": assembly["diagnostics"][
+            "producer_diagnostics"
+        ]["center6"]["revised_center"],
         "conditional_outer_header_recess_envelopes": recessed,
         "outer_header_cut_diagnostics": cut_diagnostics,
         "visual_wood_replacement": visual["report"],
@@ -455,18 +426,18 @@ def build_scene():
             "direct_joint_duties": sum(
                 mode == "direct" for mode in assembly["station_modes"].values()
             ),
-            "moved_center_posts": len(MOVED_POSTS),
+            "integrated_center_posts": len(MOVED_POSTS),
             "barrel_replacement_timbers": len(visual["wood"]),
-            "kicker_screw_backers": len(BACKERS),
+            "kicker_screw_backers": 0,
             "derived_cut_headers": 1,
             "barrel_nut_envelopes": len(barrels),
             "new_diagnostic_bolt_axes": len(bolts),
             "rail_head_washer_envelopes": len(rail_stacks),
             "other_head_washer_envelopes": len(other_stacks),
-            "backer_attachment_duties": len(backer_stations),
-            "backer_barrel_nut_envelopes": len(backer_barrels),
-            "backer_diagnostic_bolt_axes": len(backer_bolts),
-            "backer_head_washer_envelopes": len(backer_stacks),
+            "backer_attachment_duties": 0,
+            "backer_barrel_nut_envelopes": 0,
+            "backer_diagnostic_bolt_axes": 0,
+            "backer_head_washer_envelopes": 0,
             "conditional_outer_header_recess_envelopes": len(recessed),
             "fixed_panel_kicker_screw_axes": len(assembly["panel_connections"]),
             "retained_frame_bolt_axes": len(assembly["frame_connections"]),
@@ -476,7 +447,7 @@ def build_scene():
             "purchase, or structural release. Retail barrel identity is provisional; "
             "outer-header rim-first removal, delivered recessed hardware, "
             "counterbore wood capacity, thread-axis location, engagement, strength, access, service conflicts, "
-            "backer attachment strength, tolerances and whole-frame load path remain open."
+            "integrated center-joint nominal clashes, tolerances and whole-frame load path remain open."
         ),
         "layout_clearance_approved": False,
         "drilling_released": False,

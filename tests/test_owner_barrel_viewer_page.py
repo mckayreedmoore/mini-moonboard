@@ -12,12 +12,12 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "renderOwnerBarrelScene" in page
     assert "['owner-corner-layout', 'owner-barrel-layout'].includes(model)" in page
     assert "No drilling or fabrication release." in page
-    assert "Transitional barrel development scene" in page
-    assert "base-center posts replace those backers" in page
-    assert "4 mm nominal tip clearance" in page
+    assert "Integrated barrel development scene" in page
+    assert "center posts replace the separate green backers" in page
+    assert "old 144 angle/SDS visuals and their holes" in page
     assert "actual thread engagement remains UNKNOWN" in page
     assert "cut-derived header" in page
-    assert "green wood pieces are kicker-screw backers" in page
+    assert "no separate green backers remain" in page
     barrel_documents = page.split("const ownerBarrelDocuments = [", 1)[1].split(
         "];", 1
     )[0]
@@ -29,9 +29,9 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "no purchase release" in barrel_documents
     assert "owner-barrel-rim-withdrawal-hardware-probe.md" in barrel_documents
     assert "owner-barrel-native-connector-inventory.md" in barrel_documents
-    assert "Six outer-rail joints show nominal 6 in bolts" in page
     assert "owner-barrel-outer-rail-setback-probe.md" in barrel_documents
-    assert "owner-barrel-backer-layout.md" in barrel_documents
+    assert "owner-barrel-center-post-retail.md" in barrel_documents
+    assert "owner-barrel-backer-layout.md" not in barrel_documents
     assert "owner-corner-viewer.md" not in barrel_documents
     overlay = (
         Path(__file__).resolve().parents[1] / "site/owner-barrel-overlay.mjs"
