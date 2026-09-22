@@ -120,6 +120,8 @@ def _center(assembly, face):
         "candidate_F1_G1_passage_diameter_mm": report["candidate_service_diameter_mm"],
         "gross_contact_geometry": {
             "area_mm2": face["gross_contact_area_mm2"],
+            "trial_cut_area_mm2": face["trial_cut_contact_area_mm2"],
+            "trial_cut_face_capacity_qualified": False,
             "cell_count": len(face["contact_cells"]),
             "bolt_rearward_of_centroid_mm": round(
                 face["gross_contact_centroid_xyz_mm"][1] - crossing["point_xyz_mm"][1],
@@ -180,10 +182,13 @@ def report(assembly=None):
     rail["gross_face_contact_area_mm2"] = faces["stations"][RAIL][
         "gross_contact_area_mm2"
     ]
+    rail["trial_cut_face_area_mm2"] = faces["stations"][RAIL][
+        "trial_cut_contact_area_mm2"
+    ]
     rail["actual_new_topology_demand_n"] = None
     rail["complete_joint_stiffness_n_per_mm"] = None
     return {
-        "schema": "owner_barrel_integrated_preliminary/v2",
+        "schema": "owner_barrel_integrated_preliminary/v3",
         "geometry_source": "integrated_viewer_assembly",
         "material_source": "docs/bolted-candidate-material-basis.json",
         "edition": material["source"]["edition"],

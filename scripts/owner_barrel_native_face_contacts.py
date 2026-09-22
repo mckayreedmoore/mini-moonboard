@@ -11,7 +11,7 @@ import cadquery as cq
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
-SCHEMA = "owner_barrel_native_face_contacts/v2"
+SCHEMA = "owner_barrel_native_face_contacts/v3"
 TOL_MM = 1e-3
 TOL_AREA_MM2 = 1e-2
 
@@ -124,11 +124,36 @@ def build_report(assembly=None):
         or any(name.startswith("inner_kicker_backer_") for name in assembly["wood"])
     ):
         raise ValueError("Require the current integrated 46-pair barrel frame")
+    # Reuse the same complete, unreleased cutter replay as the public viewer.
+    from scripts.owner_barrel_visual_wood import build_visual_wood
+
+    trial = build_visual_wood(
+        assembly=assembly,
+        candidate_service=True,
+        candidate_center_cuts=True,
+        candidate_all_cuts=True,
+    )
+    if (
+        trial["report"]["candidate_barrel_pairs_with_cut_wood"] != 46
+        or trial["report"]["barrel_drilling_paths_without_cut_wood"]
+        or trial["report"]["barrel_path_host_anomalies"]
+        or trial["report"]["release"]
+    ):
+        raise ValueError("Current viewer trial-cut inventory changed")
     stations = {}
     for station, duty in duties.items():
         first_name, second_name = duty["timber"]
         first, second = assembly["wood"][first_name], assembly["wood"][second_name]
         face, patch = _touching_face(first, second, station)
+        cut_patch = patch.intersect(trial["wood"][first_name]).intersect(
+            trial["wood"][second_name]
+        )
+        if (
+            cut_patch.Area() <= 0
+            or cut_patch.Area() > patch.Area() + TOL_AREA_MM2
+            or len(cut_patch.Faces()) != 1
+        ):
+            raise ValueError(f"{station}: trial-cut contact face is invalid")
         opposite, reverse_patch = _touching_face(second, first, station)
         normal = face.normalAt().normalized()
         if (
@@ -160,6 +185,9 @@ def build_report(assembly=None):
             "first_part": first_name,
             "second_part": second_name,
             "gross_contact_area_mm2": round(patch.Area(), 6),
+            "trial_cut_contact_area_mm2": round(cut_patch.Area(), 6),
+            "trial_cut_face_continuous": True,
+            "trial_cut_face_capacity_qualified": False,
             "gross_contact_centroid_xyz_mm": _xyz(patch.Center()),
             "normal_outward_from_first_xyz": _xyz(normal),
             "contact_cells": cells,
@@ -174,6 +202,7 @@ def build_report(assembly=None):
         "contact_cell_count": sum(
             len(row["contact_cells"]) for row in stations.values()
         ),
+        "trial_cut_face_count": len(stations),
         "bolt_interface_count": sum(
             len(row["bolt_face_crossings"]) for row in stations.values()
         ),
@@ -181,9 +210,11 @@ def build_report(assembly=None):
         "retained_frame_bolt_count": len(assembly["frame_connections"]),
         "stations": stations,
         "limits": (
-            "Gross uncut wood-to-wood faces only. Bolt paths and cells do not "
-            "include actual drilled cutout, gaps, preload, tolerances, moisture, "
-            "partial opening, slip, stiffness, or resistance. The two single-"
+            "Gross cells are not yet redistributed over the reported trial-cut "
+            "faces. Current visual cutters include unresolved bore/service "
+            "collisions; neither gross nor cut face establishes delivered "
+            "contact, gaps, preload, tolerances, moisture, partial opening, "
+            "slip, stiffness, or resistance. The two single-"
             "bolt principal/header faces use 2x8 cells to resolve their narrow "
             "rear strips; all other gross faces use 2x2 cells."
         ),

@@ -16,6 +16,7 @@ def test_all_integrated_joint_faces_and_bolt_crossings_are_source_bound(report):
     assert report["station_count"] == 24
     assert report["contact_cell_count"] == 120
     assert report["bolt_interface_count"] == 46
+    assert report["trial_cut_face_count"] == 24
     assert report["fixed_panel_kicker_screw_count"] == 66
     assert report["retained_frame_bolt_count"] == 12
     assert report["contact_law_qualified"] is False
@@ -35,6 +36,20 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
     assert rows["clip_split_base_center_left"][
         "gross_contact_area_mm2"
     ] == pytest.approx(5113.122, abs=0.01)
+    assert rows["clip_horizontal_lower_right_2"]["trial_cut_contact_area_mm2"] == (
+        pytest.approx(5234.213, abs=0.01)
+    )
+    assert rows["clip_split_base_center_right"]["trial_cut_contact_area_mm2"] == (
+        pytest.approx(5055.451, abs=0.01)
+    )
+    assert rows["clip_angle_base_right"]["trial_cut_contact_area_mm2"] == (
+        pytest.approx(10828.845, abs=0.01)
+    )
+    assert all(
+        0 < row["trial_cut_contact_area_mm2"] < row["gross_contact_area_mm2"]
+        and row["trial_cut_face_continuous"]
+        for row in rows.values()
+    )
     assert all(
         len(row["contact_cells"]) == (16 if row["family"] == "base_center" else 4)
         for row in rows.values()

@@ -58,11 +58,15 @@ finer front-to-rear resolution near the bolt. All **46** trial bolt
 axes cross their own patch within its boundary. Representative gross areas
 are 5,322.57 mm² at a top-outer rail, 12,419.33 mm² at a center-post/header
 joint, and 5,113.122 mm² at a center-principal/header joint. These are
-**uncut** CAD faces: actual bores, edge loss, gaps, partial opening, grain
-direction, and delivered contact have not been accounted for. These cells
-define locations and tributary gross area, not a verified stiffness or
-compression law. In particular, one principal/header bolt plus this face
-inventory does not by itself establish a signed moment or twist path.
+gross **uncut** CAD faces. The same input also intersects all 24 patches with
+the viewer's complete trial-cut timber. The rail example retains
+5,234.213 mm², the principal/header face 5,055.451 mm², and the outer-base
+header face 10,828.845 of 11,930.617 gross mm² after its trial cuts. All
+24 remaining patches are one connected CAD face. The cell tributary areas
+still represent **gross** faces; they have not been redistributed over cut
+wood. The current cut scene also contains known bore/service collisions, and
+neither nominal cut area nor face continuity proves usable contact pressure,
+edge stock, wood strength, or a signed moment/twist path.
 
 `missing_native_inputs` records the contact and connector laws still needed:
 compression-only butt-face law and stiffness; reconciliation of existing
