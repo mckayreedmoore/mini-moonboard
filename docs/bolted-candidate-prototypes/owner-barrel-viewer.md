@@ -53,6 +53,11 @@ finds the header and outer posts remain single solids after the modeled
 recess/bores, but only 2.706 mm separates a post cut from a fixed kicker
 screw envelope. That small nominal gap is a `REVISE` finding, not clearance
 or wood-strength approval.
+The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)
+screens three more rearward poses without changing this published scene.
+The Y = −85 mm trial increases the modeled gap to 12.706 mm while leaving
+24.6 mm between counterbores, but it remains `REVISE` and needs a separate
+viewer update and full recheck before being shown as the current pose.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
