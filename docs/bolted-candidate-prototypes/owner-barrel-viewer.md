@@ -73,6 +73,11 @@ The detached [6/7 in length screen](owner-barrel-outer-rail-bolt-length-probe.md
 finds 6 in still short and a 7 in nominal tip 12.2452 mm past the modeled
 barrel's far wall. Neither is selected hardware; a longer bore and tip
 clearance would need separate verification.
+A separate [60 mm setback screen](owner-barrel-outer-rail-setback-probe.md)
+tests moving only these six rail barrels 10 mm toward their butt faces and
+using nominal 6 in bolts. It clears the bounded collision screen but remains
+detached from this viewer pending thread, tolerance, service, and capacity
+checks.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
