@@ -460,7 +460,8 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             horizontal_force=(0., 300.), dynamic_factor=2., equipment_kg=25.,
             frame_size=150., panel_size=120., patch_size=40.,
             leg_bolt_scale=1., leg_floor_grid=None, expected_candidate='no-shoes-development',
-            clearance_monitors=(), tab_geometry=False, member_contacts=()):
+            clearance_monitors=(), tab_geometry=False, member_contacts=(),
+            implicit_header_bearings=True):
     """Build the current independent-panel, gross-member contact diagnostic."""
     mode = 'coupled'
     load_kind = 'full'
@@ -512,7 +513,14 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     angles={};bolts=[];panel_points={};bearings=[];gravity_points={}
     ownership = {}
     for c in connections:
-        if c.name.startswith('clip_'):
+        if c.kind=='bolt':
+            if len(c.members)!=2:raise ValueError('Expected two-member current bolt')
+            interface = getattr(module, 'bolt_interface_point', None)
+            point=np.asarray((interface(c) if interface is not None else c.start+c.direction*(2.032+38.1)).toTuple())
+            bolts.append((c.name,*c.members,point))
+            for name in c.members:planned[name].append(point)
+            ownership[c.name] = {'first': c.members[0], 'second': c.members[1], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
+        elif c.name.startswith('clip_'):
             point=np.asarray((c.start+c.direction*module.hardware.ML['thickness']).toTuple())
             angles.setdefault(c.members[0],[]).append((c.name,c.members[1],point))
             planned[c.members[1]].append(point)
@@ -522,17 +530,12 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
             panel_points.setdefault(c.members[0],[]).append((c.name,c.members[1],point))
             planned[c.members[1]].append(point)
             ownership[c.name] = {'first': c.members[1], 'second': c.members[0], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
-        elif c.kind=='bolt':
-            if len(c.members)!=2:raise ValueError('Expected two-member current bolt')
-            interface = getattr(module, 'bolt_interface_point', None)
-            point=np.asarray((interface(c) if interface is not None else c.start+c.direction*(2.032+38.1)).toTuple())
-            bolts.append((c.name,*c.members,point))
-            for name in c.members:planned[name].append(point)
-            ownership[c.name] = {'first': c.members[0], 'second': c.members[1], 'point': point.tolist(), 'axis': list(c.direction.toTuple())}
         else:raise ValueError('Unrepresented current mechanical connection')
     for r in records:
         name=r['name'];centre=body_mass[name]['centre_xyz_mm']
         gravity_points[name]=centre;planned[name].append(centre)
+        if not implicit_header_bearings:
+            continue
         if name.startswith(('base_principal_', 'base_side_')):
             points=header_bearing_points(level_face_points(raw[name].shape, bottom=True), raw['base_header'].shape)
             for point in points:
@@ -706,7 +709,7 @@ def prepare(module, *, materials, stiffnesses, hold='F10', pounds=150.,
     metadata={'candidate':module.KEY,'leg_bolt_scale':leg_bolt_scale,
               'tab_geometry':tab_geometry,
               'leg_floor_grid':leg_floor_grid,
-              'header_bearing_assumption':'Normal springs at corners of actual rectangular overlap with gross header top; local holes and crushing require separate checks',
+              'header_bearing_assumption':('Normal springs at corners of actual rectangular overlap with gross header top; local holes and crushing require separate checks' if implicit_header_bearings else 'No implicit header bearing springs; any explicit contacts remain independent'),
               'leg_floor_pressure_assumption':('Four corner normal springs' if leg_floor_grid is None else f'{leg_floor_grid}x{leg_floor_grid} midpoint tributary-area normal springs; unchanged total stiffness'),
               'leg_joint_assumption':'Finite elastic bolt springs; leg stiffness scaled independently; no installed hinge or resistance qualification','mode':mode,'hold':hold,'pounds':pounds,'load_kind':load_kind,
               'force_xyz_n':force.tolist(),'moment_at_panel_midplane_nmm':moment.tolist(),

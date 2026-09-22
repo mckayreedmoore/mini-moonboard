@@ -83,3 +83,16 @@ The inventory always reports
 `release_claimed: false`. It supplies names and geometry for a future native
 adapter, not force demands, capacities, drilling dimensions, or fabrication
 approval.
+
+The [source-bound preparation module](../../scripts/owner_barrel_native_preparation.py)
+now exposes the current 26 wood solids, 66 fixed panel screws, 12 retained
+frame bolts, 46 barrel bolt stacks, and 120 compression-cell inputs without
+importing any legacy angle/SDS connector. The response preparer can suppress
+its baseline implicit header-bearing springs and classify a `clip_`-named
+barrel as a bolt. These are topology and preparer capabilities, not a completed
+integrated load case. A trial of the full unsolved preparation stopped first
+because a center-principal barrel interface projected about 17.24 mm before
+the existing centroid-based inclined-beam endpoint. An analysis-only beam-end
+extension passed that point but subsequently stopped at a floor-leg taper-mesh
+attachment. Neither issue was bypassed in the maintained adapter. No signed
+integrated response, joint demand, rating, or drilling release follows.
