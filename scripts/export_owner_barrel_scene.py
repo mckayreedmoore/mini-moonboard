@@ -15,6 +15,9 @@ BASELINE = ROOT / "site/hybrid/compact-floor-flush-kerf-right/parts.json"
 OUTPUT = ROOT / "site/owner-barrel-layout-scene.json"
 MOVED_POSTS = ("base_post_center_left", "base_post_center_right")
 BACKERS = ("inner_kicker_backer_left", "inner_kicker_backer_right")
+OUTER_HEADER_STATIONS = frozenset(
+    {"clip_timber_header_outer_left", "clip_timber_header_outer_right"}
+)
 
 
 def build_viewer_assembly():
@@ -23,7 +26,7 @@ def build_viewer_assembly():
         producers={
             "rail10": rail.build_revised_layout,
             "center6": center.build_revised_layout,
-            "outer_top8": outer.build_revised_layout,
+            "outer_top8": outer.build_recessed_viewer_layout,
         }
     )
 
@@ -110,10 +113,32 @@ def build_scene():
         _axis(name, bolt, assembly["bolt_station"][name])
         for name, bolt in assembly["bolts"].items()
     ]
+    recessed = [
+        _solid(
+            f"{name}/{role}", f"recess_{role}", shape, assembly["bolt_station"][name]
+        )
+        for name, stack in assembly["stacks"].items()
+        for role, shape in stack.items()
+        if role in ("washer", "head")
+        and assembly["bolt_station"][name] in OUTER_HEADER_STATIONS
+    ]
+    recessed.extend(
+        _solid(
+            name,
+            "recess_counterbore",
+            shape,
+            assembly["bolt_station"][name.split("/")[0] + "_bolt"],
+        )
+        for name, shape in assembly["drilling_paths"].items()
+        if name.endswith("/counterbore")
+    )
     if (
         not barrels
         or not bolts
-        or not all(row["mesh"]["triangles"] for row in solids + barrels)
+        or len(recessed) != 12
+        or {row["role"] for row in recessed}
+        != {"recess_head", "recess_washer", "recess_counterbore"}
+        or not all(row["mesh"]["triangles"] for row in solids + barrels + recessed)
     ):
         raise ValueError("Barrel viewer has empty geometry")
     clash_stations = set()
@@ -137,6 +162,18 @@ def build_scene():
         "solids": solids,
         "barrel_nut_envelopes": barrels,
         "diagnostic_bolt_axes": bolts,
+        "conditional_outer_header_recess_envelopes": recessed,
+        "outer_header_recess_trial": {
+            "counterbore_depth_mm": outer.VIEWER_HEADER_RECESS_MM,
+            "washer_od_mm": outer.VIEWER_HEADER_WASHER_OD_MM,
+            "head_od_mm": outer.VIEWER_HEADER_HEAD_OD_MM,
+            "head_height_mm": outer.VIEWER_HEADER_HEAD_HEIGHT_MM,
+            "nominal_head_below_header_top_mm": outer.VIEWER_HEADER_HEAD_COVER_MM,
+            "side_rim_removal_required_for_driver": True,
+            "actual_rim_removal_verified": False,
+            "delivered_hardware_verified": False,
+            "structural_capacity_verified": False,
+        },
         "hardware_basis": assembly["hardware_basis"],
         "assembly_diagnostics": assembly["diagnostics"],
         "inventory": {
@@ -149,13 +186,15 @@ def build_scene():
             "kicker_screw_backers": len(BACKERS),
             "barrel_nut_envelopes": len(barrels),
             "new_diagnostic_bolt_axes": len(bolts),
+            "conditional_outer_header_recess_envelopes": len(recessed),
             "fixed_panel_kicker_screw_axes": len(assembly["panel_connections"]),
             "retained_frame_bolt_axes": len(assembly["frame_connections"]),
         },
         "limits": (
             "A barrel-only comparison layout, including red REVISE stations, not a cut, drill, "
             "purchase, or structural release. Retail barrel identity is provisional; "
-            "thread-axis location, engagement, strength, access, service conflicts, "
+            "outer-header rim-first removal, delivered recessed hardware, "
+            "counterbore wood capacity, thread-axis location, engagement, strength, access, service conflicts, "
             "backer attachment, tolerances and whole-frame load path remain open."
         ),
         "layout_clearance_approved": False,

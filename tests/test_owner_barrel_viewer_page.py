@@ -12,6 +12,13 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "renderOwnerBarrelScene" in page
     assert "['owner-corner-layout', 'owner-barrel-layout'].includes(model)" in page
     assert "No drilling or fabrication release." in page
+    assert "rim-first removal is required but not physically verified" in page
+    assert "orange heads, gold washers and magenta wireframe recesses" in page
+    overlay = (
+        Path(__file__).resolve().parents[1] / "site/owner-barrel-overlay.mjs"
+    ).read_text()
+    assert "wireframe: counterbore" in overlay
+    assert "conditional_outer_header_recess_envelopes" in overlay
     assert (
         "part.fabrication.owner_corner_overlay || part.fabrication.owner_barrel_overlay"
         in page

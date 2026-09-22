@@ -22,18 +22,31 @@ of the corner-block assembly; both views share only the original frame and
 owner-approved center-post/backer placement.
 
 The integrated assembly shows 24 direct-bore *trials*, not 24 accepted joints.
-This scene now illustrates three bounded geometry revisions: the two
+This scene now illustrates four bounded geometry revisions: the two
 right-center rail stations use a 50/92.25 mm row pair found in the
 [rail-position probe](owner-barrel-rail-clearance-probe.md); both
 center-principal/header stations use the [4 in nominal bolt and 22 mm
 trial washer](owner-barrel-center-viewer-revision.md); and the two outer-base
 stations move their bolt axes [10 mm inward](owner-barrel-outer-base-clearance-probe.md).
+The four outer-header bolts use the
+[conditional recessed-head trial](owner-barrel-outer-header-recess-probe.md):
+their shaft starts are 6.651 mm lower, with provisional head and washer
+envelopes inside a magenta wireframe counterbore. The counterbore is an
+overlay, **not cut wood**. Its 25.4 mm diameter and 6.651 mm depth are not
+drilling dimensions. The installed side rim no longer overlaps the modeled
+stack, but still blocks the modeled driver. The
+[rim-first sequence probe](owner-barrel-outer-header-sequence-probe.md)
+finds a possible dependency order, not a verified physical removal route.
+Actual delivered hardware, repeatable access and header net-section capacity
+remain open. The head, washer and recess colors distinguish diagnostic parts,
+not approved hardware.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
 
-The two outer-header/post duties still have installed-shaft and straight
-access clashes with the side rims at the drawn pose. A separate
+The two outer-header/post duties had installed-shaft and straight
+access clashes with the side rims at the unrecessed pose. The recessed trial
+addresses only the installed-shaft clash conditionally. A separate
 [outer-header search](owner-barrel-outer-header-clearance-probe.md) found
 no clear pose among 24 bounded top, angled, and reverse-entry trials. A
 separate [post-shift screen](owner-barrel-outer-header-post-shift-probe.md)
@@ -43,7 +56,7 @@ A [whole-post section screen](owner-barrel-outer-header-wide-post-probe.md)
 likewise found no clear pose among 12 ordinary-lumber trials: a rotated
 2×6 loses Y row/receiver support, a 4×6 lacks the modeled tool corridor,
 and a 6×6 hits protected kicker hardware.
-A different modeled joint topology or access sequence is required. An
+A physically verified access sequence is still required. An
 [exact-frame outer/top screen](owner-barrel-outer-top-protected-probe.md)
 and individual producer notes remain relevant to the original poses; do
 not transfer their negative collision results to revised geometry without

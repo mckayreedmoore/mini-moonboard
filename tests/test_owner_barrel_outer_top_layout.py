@@ -1,5 +1,7 @@
 """Focused geometry-only contract for the remaining eight owner duties."""
 
+import pytest
+
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import owner_barrel_outer_top_layout as layout
 
@@ -45,3 +47,28 @@ def test_viewer_adapter_has_real_hardware_and_paths_for_eight_duties():
         assert set(row["stacks"]) == set(row["bolts"])
         assert len(row["drilling_paths"]) == len(row["access_paths"]) == 4
         assert all(shape.Volume() > 0 for shape in row["barrels"].values())
+
+
+def test_conditional_recess_only_changes_four_outer_header_viewer_rows():
+    wood = {part.name: part.shape for part in variant(KERF_RIGHT).uncut_wood_parts()}
+    original = layout.build_layout(wood)
+    previous_viewer = layout.build_revised_layout(wood)
+    recessed = layout.build_recessed_viewer_layout(wood)
+    assert set(recessed["stations"]) == set(original["stations"])
+    for station, row in recessed["stations"].items():
+        before = previous_viewer["stations"][station]
+        if not station.startswith("clip_timber_header_outer_"):
+            assert [b.start.toTuple() for b in row["bolts"].values()] == [
+                b.start.toTuple() for b in before["bolts"].values()
+            ]
+            assert all(set(stack) == {"shaft"} for stack in row["stacks"].values())
+            continue
+        for name, bolt in row["bolts"].items():
+            assert bolt.start.z == pytest.approx(before["bolts"][name].start.z - 6.651)
+            assert set(row["stacks"][name]) == {"shaft", "washer", "head"}
+            assert row["stacks"][name]["head"].BoundingBox().zmax == pytest.approx(
+                wood["base_header"].BoundingBox().zmax - 1.0
+            )
+        assert sum("counterbore" in name for name in row["drilling_paths"]) == 2
+        assert row["disposition"] == "REVISE"
+    assert recessed["diagnostics"]["conditional_rim_removal_required"] is True

@@ -29,7 +29,22 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
         !data.solids.some(row => row.source_station === station) &&
         !data.barrel_nut_envelopes.some(row => row.source_station === station)) ||
       data.solids.filter(row => row.role === 'moved_center_post').length !== 2 ||
-      data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 2) {
+      data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 2 ||
+      inventory.conditional_outer_header_recess_envelopes !== 12 ||
+      data.conditional_outer_header_recess_envelopes?.length !== 12 ||
+      ['recess_head', 'recess_washer', 'recess_counterbore'].some(role =>
+        data.conditional_outer_header_recess_envelopes.filter(row => row.role === role).length !== 4) ||
+      data.conditional_outer_header_recess_envelopes.some(row =>
+        !['clip_timber_header_outer_left', 'clip_timber_header_outer_right'].includes(row.source_station)) ||
+      ['clip_timber_header_outer_left', 'clip_timber_header_outer_right'].some(station =>
+        ['recess_head', 'recess_washer', 'recess_counterbore'].some(role =>
+          data.conditional_outer_header_recess_envelopes.filter(row =>
+            row.source_station === station && row.role === role).length !== 2)) ||
+      data.outer_header_recess_trial?.counterbore_depth_mm !== 6.651 ||
+      data.outer_header_recess_trial?.side_rim_removal_required_for_driver !== true ||
+      data.outer_header_recess_trial?.actual_rim_removal_verified !== false ||
+      data.outer_header_recess_trial?.delivered_hardware_verified !== false ||
+      data.outer_header_recess_trial?.structural_capacity_verified !== false) {
     throw new Error('Barrel viewer does not cover all 24 duties and fixed sources');
   }
   if (data.solids.some(row => !['moved_center_post', 'kicker_screw_backer'].includes(row.role)) ||
@@ -104,6 +119,25 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
     meshes.push(mesh);
     group.add(mesh);
   }
+  for (const row of data.conditional_outer_header_recess_envelopes) {
+    const counterbore = row.role === 'recess_counterbore';
+    const color = counterbore ? 0xff5dc8 : row.role === 'recess_washer' ? 0xffd166 : 0xff8c42;
+    const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
+      color, transparent: true, opacity: counterbore ? .38 : .95,
+      depthWrite: false, depthTest: false, wireframe: counterbore,
+    }));
+    mesh.userData.part = {
+      name: row.name,
+      fabrication: {
+        owner_barrel_overlay: true, kind: 'bolt', category: 'bolts',
+        description: `${row.role.replaceAll('_', ' ')}; conditional outer-header trial only. Rim must be removed for driver access; removal sequence, actual hardware, wood capacity and drilling are unverified`,
+      },
+    };
+    mesh.userData.baseEmissive = 0;
+    mesh.renderOrder = 11;
+    meshes.push(mesh);
+    group.add(mesh);
+  }
   for (const row of data.barrel_nut_envelopes) {
     const disposition = data.station_dispositions[row.source_station];
     const revise = /REVISE|CLASH|BLOCKED|NO_FIT/.test(disposition) ||
@@ -128,5 +162,6 @@ export function renderOwnerBarrelScene(THREE, data, group, meshes) {
     woodSolids: data.solids.length,
     boltAxes: data.diagnostic_bolt_axes.length,
     barrelNutEnvelopes: data.barrel_nut_envelopes.length,
+    conditionalRecessEnvelopes: data.conditional_outer_header_recess_envelopes.length,
   };
 }

@@ -22,6 +22,16 @@ MACHINE_BORE_D_MM = 7.5  # Provisional pilot/access screen, not drill release.
 BARREL_BORE_D_MM = hardware.BARREL_OD_MM
 TOL_MM3 = 1.0
 VIEWER_OUTER_BASE_INWARD_MM = 10.0
+# The recessed-header envelope is a conditional viewer trial, not a drill size.
+VIEWER_HEADER_WASHER_OD_MM = 25.4
+VIEWER_HEADER_HEAD_OD_MM = 11.0
+VIEWER_HEADER_HEAD_HEIGHT_MM = 4.0
+VIEWER_HEADER_HEAD_COVER_MM = 1.0
+VIEWER_HEADER_RECESS_MM = (
+    hardware.WASHER_THICKNESS_SENSITIVITY_MM
+    + VIEWER_HEADER_HEAD_HEIGHT_MM
+    + VIEWER_HEADER_HEAD_COVER_MM
+)
 
 
 def _point(x, t, n):
@@ -129,7 +139,7 @@ def _top_center(side, wood):
     ]
 
 
-def _header_outer(side, wood):
+def _header_outer(side, wood, recess_mm=0.0):
     name = f"base_post_outer_{side}"
     post, header = wood[name], wood["base_header"]
     pb, hb = post.BoundingBox(), header.BoundingBox()
@@ -138,7 +148,7 @@ def _header_outer(side, wood):
     cross_dir = cq.Vector(1 if side == "left" else -1, 0, 0)
     return [
         _row(
-            cq.Vector(xmid, y, hb.zmax),
+            cq.Vector(xmid, y, hb.zmax - recess_mm),
             cq.Vector(0, 0, -1),
             cq.Vector(xmid, y, pb.zmax - 70),
             cq.Vector(entry_x, y, pb.zmax - 70),
@@ -302,12 +312,14 @@ def viewer_solids(result=None):
     return {"hardware": hardware_solids, "bore_cutters": bore_cutters}
 
 
-def build_layout(wood, *, viewer_revision=False):
+def build_layout(wood, *, viewer_revision=False, recessed_header=False):
     """Give the integrated viewer actual nominal geometry; every row is REVISE.
 
     The two outer-base rows are direct-bore *leads*, not approved fit: their
     competing PB09/header tools remain unresolved. There is no fake block.
     """
+    if recessed_header and not viewer_revision:
+        raise ValueError("Recessed header is a viewer-only revision")
     duties = ledger.selected_duties()
     builders = {
         "top_outer": _top_outer,
@@ -322,11 +334,12 @@ def build_layout(wood, *, viewer_revision=False):
         for member in duty["timber"]:
             if member not in wood:
                 raise ValueError(f"{station}: missing selected source timber {member}")
-        rows = (
-            _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
-            if viewer_revision and duty["family"] == "base_outer_side"
-            else builders[duty["family"]](duty["side"], wood)
-        )
+        if recessed_header and duty["family"] == "header_outer_post":
+            rows = _header_outer(duty["side"], wood, VIEWER_HEADER_RECESS_MM)
+        elif viewer_revision and duty["family"] == "base_outer_side":
+            rows = _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
+        else:
+            rows = builders[duty["family"]](duty["side"], wood)
         bolts, barrels, stacks, drilling, access = {}, {}, {}, {}, {}
         for index, row in enumerate(rows, 1):
             if (
@@ -369,6 +382,17 @@ def build_layout(wood, *, viewer_revision=False):
                     hardware.THREAD_MAJOR_MM,
                 )
             }
+            if recessed_header and duty["family"] == "header_outer_post":
+                washer_t = hardware.WASHER_THICKNESS_SENSITIVITY_MM
+                stacks[bolt_name]["washer"] = _cylinder(
+                    start, -bolt_dir, washer_t, VIEWER_HEADER_WASHER_OD_MM
+                )
+                stacks[bolt_name]["head"] = _cylinder(
+                    shaft_start,
+                    -bolt_dir,
+                    VIEWER_HEADER_HEAD_HEIGHT_MM,
+                    VIEWER_HEADER_HEAD_OD_MM,
+                )
             drilling[f"{name}/machine_bore"] = _cylinder(
                 start,
                 bolt_dir,
@@ -381,8 +405,17 @@ def build_layout(wood, *, viewer_revision=False):
                 row["barrel_cross_bore_depth_mm"],
                 BARREL_BORE_D_MM,
             )
+            if recessed_header and duty["family"] == "header_outer_post":
+                drilling[f"{name}/counterbore"] = _cylinder(
+                    cq.Vector(start.x, start.y, wood["base_header"].BoundingBox().zmax),
+                    bolt_dir,
+                    VIEWER_HEADER_RECESS_MM,
+                    VIEWER_HEADER_WASHER_OD_MM,
+                )
             access[f"{name}/bolt_access"] = _cylinder(
-                start,
+                shaft_start - bolt_dir * VIEWER_HEADER_HEAD_HEIGHT_MM
+                if recessed_header and duty["family"] == "header_outer_post"
+                else start,
                 -bolt_dir,
                 40.0,
                 20.0,
@@ -409,11 +442,17 @@ def build_layout(wood, *, viewer_revision=False):
     return {
         "stations": stations,
         "diagnostics": {
-            "source_id": SOURCE_ID + ("-viewer-revision-v1" if viewer_revision else ""),
+            "source_id": SOURCE_ID
+            + ("-viewer-revision-v1" if viewer_revision else "")
+            + ("-recessed-header" if recessed_header else ""),
             "disposition": "REVISE",
             "viewer_trial_outer_base_inward_mm": VIEWER_OUTER_BASE_INWARD_MM
             if viewer_revision
             else None,
+            "viewer_trial_outer_header_recess_mm": VIEWER_HEADER_RECESS_MM
+            if recessed_header
+            else None,
+            "conditional_rim_removal_required": recessed_header,
             "limits": (
                 "All eight have diagnostic nominal direct-bore shapes. Outer-base "
                 + (
@@ -421,8 +460,13 @@ def build_layout(wood, *, viewer_revision=False):
                     if viewer_revision
                     else "pair is a held exception pending PB09/header clearance. "
                 )
-                + "Shaft-only stacks; washer/head, thread, tools, protected solids "
-                "and strength open."
+                + (
+                    "Outer-header provisional recessed head/washer/counterbore "
+                    "require rim-first service; actual removal unverified. "
+                    if recessed_header
+                    else "Shaft-only stacks; washer/head open. "
+                )
+                + "Thread, tools, protected solids and strength open."
             ),
         },
     }
@@ -431,6 +475,11 @@ def build_layout(wood, *, viewer_revision=False):
 def build_revised_layout(wood):
     """Show screened outer-base alternatives without changing default trials."""
     return build_layout(wood, viewer_revision=True)
+
+
+def build_recessed_viewer_layout(wood):
+    """Add the conditional outer-header seat only in the standalone viewer."""
+    return build_layout(wood, viewer_revision=True, recessed_header=True)
 
 
 if __name__ == "__main__":

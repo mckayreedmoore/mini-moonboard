@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 
+from scripts import owner_barrel_outer_header_recess_probe as independent
+from scripts import owner_barrel_outer_top_layout as outer
 from scripts.simple_owner_duty_ledger import selected_duties
 
 
@@ -26,6 +28,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert len(scene["solids"]) == 4
     assert inventory["barrel_nut_envelopes"] == 48
     assert inventory["new_diagnostic_bolt_axes"] == 48
+    assert inventory["conditional_outer_header_recess_envelopes"] == 12
     assert inventory["fixed_panel_kicker_screw_axes"] == 66
     assert inventory["retained_frame_bolt_axes"] == 12
     assert len(scene["hidden_baseline_visual_names"]) == 170
@@ -33,6 +36,37 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert {row["source_station"] for row in scene["diagnostic_bolt_axes"]} == duties
     assert all(row["mesh"]["triangles"] for row in scene["barrel_nut_envelopes"])
     assert scene["cross_family_physical_clash_stations"] == []
+    trial = scene["outer_header_recess_trial"]
+    assert trial["counterbore_depth_mm"] == (
+        independent.hardware.WASHER_THICKNESS_SENSITIVITY_MM
+        + independent.HEAD_HEIGHT_MM
+        + independent.HEAD_BELOW_TOP_MM
+    )
+    assert trial["counterbore_depth_mm"] == outer.VIEWER_HEADER_RECESS_MM
+    assert trial["washer_od_mm"] == independent.WASHER_OD_MM
+    assert trial["head_od_mm"] == independent.HEAD_OD_MM
+    assert trial["head_height_mm"] == independent.HEAD_HEIGHT_MM
+    assert trial["nominal_head_below_header_top_mm"] == independent.HEAD_BELOW_TOP_MM
+    assert trial["side_rim_removal_required_for_driver"] is True
+    assert trial["actual_rim_removal_verified"] is False
+    assert trial["delivered_hardware_verified"] is False
+    assert trial["structural_capacity_verified"] is False
+    recesses = scene["conditional_outer_header_recess_envelopes"]
+    for role in ("recess_head", "recess_washer", "recess_counterbore"):
+        assert sum(row["role"] == role for row in recesses) == 4
+    counterbores = [row for row in recesses if row["role"] == "recess_counterbore"]
+    assert {row["source_station"] for row in counterbores} == {
+        "clip_timber_header_outer_left",
+        "clip_timber_header_outer_right",
+    }
+    assert all(
+        sum(row["source_station"] == station for row in counterbores) == 2
+        for station in (
+            "clip_timber_header_outer_left",
+            "clip_timber_header_outer_right",
+        )
+    )
+    assert all(row["mesh"]["triangles"] for row in recesses)
     assert all(
         scene[key] is False
         for key in (
