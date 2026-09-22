@@ -41,6 +41,7 @@ def report(assembly):
     seam = assembly["wood"]["kicker_left"].BoundingBox().xmax
     if abs(seam - assembly["wood"]["kicker_right"].BoundingBox().xmin) > TOL_MM:
         raise ValueError("The fixed kicker seam changed")
+    header_face_z = assembly["wood"]["base_header"].BoundingBox().zmin
 
     posts = {}
     for side in SIDES:
@@ -66,7 +67,20 @@ def report(assembly):
             raise ValueError(
                 f"{station}: transferred backing lacks its post/header pair"
             )
+        pair = [assembly["bolts"][name] for name in bolts]
+        pair_pitch = abs(pair[1].start.y - pair[0].start.y)
+        if (
+            abs(bounds.zmax - header_face_z) > TOL_MM
+            or pair_pitch <= TOL_MM
+            or abs(pair[1].start.x - pair[0].start.x) > TOL_MM
+            or any(
+                (bolt.direction.normalized() - cq.Vector(0, 0, -1)).Length > TOL_MM
+                for bolt in pair
+            )
+        ):
+            raise ValueError(f"{station}: post/header axial-row geometry changed")
         rows = []
+        unit_row_actions = {}
         for name in sorted(screws):
             if f"round_kicker_{side}_center_" not in name:
                 continue
@@ -100,6 +114,10 @@ def report(assembly):
             full = abs(embedded.intersect(post).Volume() - embedded.Volume()) < 1e-4
             if not full:
                 raise ValueError(f"{name}: purchased shaft exits receiver")
+            lever = header_face_z - start[2]
+            if lever <= 0:
+                raise ValueError(f"{name}: screw load is not below header face")
+            unit_row_actions[name] = round(lever / pair_pitch, 4)
             rows.append(
                 {
                     "name": name,
@@ -118,6 +136,20 @@ def report(assembly):
             "post_header_station": station,
             "post_header_bolts": bolts,
             "continuous_to_kicker_seam_in_model": True,
+            "unit_y_screw_force_sensitivity": {
+                "post_header_face_z_mm": round(header_face_z, 4),
+                "barrel_pair_y_pitch_mm": round(pair_pitch, 4),
+                "per_screw_1n_axial_row_couple_n": unit_row_actions,
+                "equal_two_screw_total_1n_axial_row_couple_n": round(
+                    sum(unit_row_actions.values()) / 2, 4
+                ),
+                "basis": (
+                    "Global Y force at fixed screw axis; opposing axial forces "
+                    "in the two Z-axis barrel bolts alone balance its X moment. "
+                    "Contact, other framing, slip and actual force sharing omitted."
+                ),
+                "complete_load_sharing_verified": False,
+            },
         }
     return {
         "schema": "owner_barrel_integrated_backing/v1",
