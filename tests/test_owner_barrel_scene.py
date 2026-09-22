@@ -84,6 +84,17 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert all(row["nominal_axial"]["tip_past_assumed_axis_mm"] > 0 for row in all_axes)
     assert (
         sum(
+            row["nominal_axial"]["partial_thread_comparator_body_overlap_mm"] == 0
+            for row in all_axes
+        )
+        == 2
+    )
+    assert all(
+        row["nominal_axial"]["partial_thread_comparator_end_length_mm"] == 19.05
+        for row in all_axes
+    )
+    assert (
+        sum(
             "BEYOND_MODELED_MACHINE_BORE" in row["nominal_axial"]["flags"]
             for row in all_axes
         )

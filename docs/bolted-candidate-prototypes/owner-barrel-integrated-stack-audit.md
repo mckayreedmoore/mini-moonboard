@@ -42,6 +42,41 @@ access remain unverified. The deep blind bores also need an insertion,
 alignment, extraction and rim-withdrawal rehearsal against this **46-pair**
 assembly; earlier service probes used the 48-pair composition.
 
+### Partial-thread comparator: nominal shaft reach can conceal no engagement
+
+An [Aspen Grade 5 1/4-20 × 4 in listing][aspen4],
+[5 in listing][aspen5], and [6 in drawing][aspen6] each document a **0.750 in
+(19.05 mm) nominal threaded end**. These are an illustrative bolt family,
+**not** controlled dimensions of the Home Depot Everbilt 4/5/6-in bolts in the
+cost basket. The [source-bound audit](../../scripts/owner_barrel_installed_stack_audit.py)
+intersects a 19.05 mm end-thread interval with each *modeled barrel body's*
+axial interval. It optimistically assumes the barrel is female-threaded
+throughout and ignores the male point chamfer, thread runout, tolerances and
+actual Hillman internal-thread location. It is a geometry comparator, **not
+qualified engagement**.
+
+| Current family | Bolts | Maximum nominal male-thread/body overlap under 19.05 mm example |
+| --- | ---: | ---: |
+| Base center | 2 | **0 mm** |
+| Outer header/post | 4 | **0.154 mm** |
+| Center header/post | 4 | **1.105 mm** |
+| Base outer; bottom/lower/upper center; top center | 20 | 6.805 mm |
+| Bottom/lower/upper outer rail | 12 | 6.853 mm |
+| Top outer | 4 | 10.008 mm |
+
+For **30 of 46 bolts**, even the *near wall* of the assumed barrel body lies
+past the example bolt's thread start. That does not mean all 30 have no
+possible engagement: some thread may meet a farther part of a genuinely
+through-threaded barrel. But the two base-center bolts have **zero** overlap
+with the entire body in this nominal comparator, and four outer-header bolts
+have less than 0.2 mm. A 5-in bolt tip reaching far past the barrel therefore
+does **not** close the connection. The actual retailer bolt thread lengths,
+barrel female-thread interval and minimum necessary effective engagement
+must be resolved by a compatible selected product and delivered fit before
+choosing bolt lengths. A shorter bolt, longer-thread or full-thread product
+could change this result, but each requires its own bore, head/washer, steel,
+wood and service checks. No substitution is selected here.
+
 ## Connection-family bolt-length sensitivity
 
 The source-bound audit now derives a **centerline-only** nominal interval for
@@ -100,3 +135,7 @@ Separately, two left center-rail machine bores cross existing service voids
 in the current cut scene. This reach screen does not clear those crossings.
 No installed-fit pass, drilling, fabrication, load-test or climbing release
 follows from these nominal numbers.
+
+[aspen4]: https://www.aspenfasteners.com/1-4-20-x-4-hex-head-cap-screws-bolts-coarse-thread-grade-5-steel-yellow-cadmium-plating-ms90725-dfars/
+[aspen5]: https://www.aspenfasteners.com/1-4-20-x-5-hex-head-cap-screws-bolts-unc-coarse-thread-grade-5-steel-zinc-made-in-u-s-a/
+[aspen6]: https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X6.PDF

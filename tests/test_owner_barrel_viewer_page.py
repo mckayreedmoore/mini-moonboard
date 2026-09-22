@@ -25,6 +25,10 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "provisional 25.4 mm F1–G1 LED passage" in page
     assert "single-bolt moment transfer" in page
     assert "actual thread engagement remains UNKNOWN" in page
+    loaded_status = page.split(
+        "renderOwnerBarrelScene(THREE, data, climberView, meshes);", 1
+    )[1].split("}).catch(error =>", 1)[0]
+    assert "no nominal thread/body overlap at two base-center bolts" in loaded_status
     assert "all 46 pairs have visible timber trial cuts" in page
     assert "Two left rail machine bores intersect existing service bores" in page
     assert "All 98 trial drilling paths for 46 barrel pairs" in page

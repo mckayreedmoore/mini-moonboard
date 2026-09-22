@@ -27,6 +27,8 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       (data.diagnostic_bolt_axes || [])
         .some(row => !Number.isFinite(row.nominal_axial?.tip_past_assumed_axis_mm) ||
           !Number.isFinite(row.nominal_axial?.maximum_body_overlap_if_fully_threaded_mm) ||
+          !Number.isFinite(row.nominal_axial?.partial_thread_comparator_body_overlap_mm) ||
+          row.nominal_axial?.partial_thread_comparator_end_length_mm !== 19.05 ||
           !Number.isFinite(row.nominal_axial?.tip_to_modeled_bore_cap_mm) ||
           row.nominal_axial?.thread_engagement !== 'UNKNOWN' ||
           !Array.isArray(row.nominal_axial?.flags)) ||
@@ -196,7 +198,10 @@ function axialDescription(row) {
     ` Modeled bore-tip clearance is ${bore.toFixed(2)} mm.`;
   return `${row.name}: nominal tip ${axial.tip_past_assumed_axis_mm.toFixed(2)} mm past the assumed barrel center; ` +
     `at most ${axial.maximum_body_overlap_if_fully_threaded_mm.toFixed(2)} mm of barrel-body overlap ` +
-    `if the shaft end is fully threaded.${boreWarning} Real thread engagement and fit are UNKNOWN; no drilling release.`;
+    `if the shaft end is fully threaded. With an example 19.05 mm end thread, ` +
+    `nominal male-thread/body overlap is at most ${axial.partial_thread_comparator_body_overlap_mm.toFixed(2)} mm; ` +
+    `this is not a specification for the selected retailer bolt.${boreWarning} ` +
+    `Real thread engagement and fit are UNKNOWN; no drilling release.`;
 }
 
 export function renderOwnerBarrelScene(THREE, data, group, meshes) {

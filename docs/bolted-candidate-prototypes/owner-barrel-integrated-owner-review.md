@@ -55,7 +55,12 @@ marks a problem or unqualified fit, not a structural rating.
    axis reach but worsens the smaller axis/far-wall margin. A
    [7-in off-the-shelf hex-bolt listing][seven-bolt] alone does not prove
    enough threaded tip length and requires a deeper bore. Neither change is
-   selected. Obtain actual bolt tip/thread-runout, washer OD/ID/thickness,
+   selected. A [documented 3/4-in partial-thread comparator](owner-barrel-integrated-stack-audit.md)
+   leaves **zero nominal male-thread/body overlap at both base-center bolts**
+   and under 0.2 mm at four outer-header bolts, despite all modeled tips
+   passing their assumed barrel axes. This is **not** the actual Everbilt
+   thread specification or a selected replacement. Obtain actual bolt
+   tip/thread-runout, washer OD/ID/thickness,
    barrel axis, through-thread/usable depth, and a positive tip-clearance
    allowance before a drilling plan. The
    [reach audit](owner-barrel-integrated-stack-audit.md)

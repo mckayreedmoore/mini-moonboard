@@ -32,8 +32,13 @@ browser render on 22 September 2026; this is a display check, not a physical
 fit check. Barrel and bolt paths are diagnostic X-ray overlays;
 red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
-selects an internal joint for its warning. This scene is generated independently
-of the corner-block assembly.
+selects an internal joint for its warning. Each bolt warning shows both the
+fully-threaded geometric ceiling and a separate **19.05 mm nominal end-thread
+comparator**; the latter comes from a documented Grade 5 bolt family, not
+from the unverified retailer bolts in the price basket. In that comparator,
+the two base-center bolts have no male thread inside the modeled barrel
+body. It is a purchase/fit alert, not a delivered-hardware verdict. This
+scene is generated independently of the corner-block assembly.
 The viewer now replaces all 16 timber meshes that contained old angle/SDS
 holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
 66 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,

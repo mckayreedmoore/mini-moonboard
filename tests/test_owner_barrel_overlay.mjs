@@ -10,6 +10,8 @@ const recessEnvelopes = headerStations.flatMap(source_station =>
 const nominalAxial = {
   tip_past_assumed_axis_mm: 2.2,
   maximum_body_overlap_if_fully_threaded_mm: 7.2038,
+  partial_thread_comparator_body_overlap_mm: 3.0,
+  partial_thread_comparator_end_length_mm: 19.05,
   tip_to_modeled_bore_cap_mm: 4,
   flags: ['AXIS_REACHED_WITHIN_MODELED_BORE'],
   thread_engagement: 'UNKNOWN',
@@ -132,6 +134,13 @@ const scene = {
 };
 
 assert.equal(validateOwnerBarrelScene(scene, hidden), scene);
+assert.throws(() => validateOwnerBarrelScene({
+  ...scene,
+  diagnostic_bolt_axes: scene.diagnostic_bolt_axes.map((row, index) => index ? row : {
+    ...row,
+    nominal_axial: {...row.nominal_axial, partial_thread_comparator_body_overlap_mm: null},
+  }),
+}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, integrated_kicker_backing: {...scene.integrated_kicker_backing, complete_backing_load_path_verified: true}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, structural_released: true}, hidden), /release boundary/);
 assert.throws(() => validateOwnerBarrelScene({...scene, solids: [...scene.solids, {role: 'joint_wood'}]}, hidden), /Barrel-only/);

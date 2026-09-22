@@ -5,7 +5,7 @@ retail thread drawings. A centered thread axis is only a CAD assumption.
 """
 
 import json
-from math import isclose, pi
+from math import isclose, isfinite, pi
 
 import cadquery as cq
 from OCP.BRepAdaptor import BRepAdaptor_Surface
@@ -13,10 +13,11 @@ from OCP.BRepAdaptor import BRepAdaptor_Surface
 from scripts import simple_owner_duty_ledger as ledger
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 
-SCHEMA = "owner_barrel_installed_stack_audit/v2"
+SCHEMA = "owner_barrel_installed_stack_audit/v3"
 MM_TOL = 1e-4
 OUTER_RAIL_FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
 TRIAL_BORE_TIP_CLEARANCE_MM = 2.0
+PARTIAL_THREAD_COMPARATOR_MM = 19.05  # 3/4 in nominal male end thread
 
 
 def _rounded(value):
@@ -71,6 +72,19 @@ def _classify(reach_axis_mm, tip_mm, bore_cap_mm):
     if not flags:
         flags.append("AXIS_REACHED_WITHIN_MODELED_BORE")
     return flags
+
+
+def _thread_body_overlap(near_wall, far_wall, tip, end_thread_length):
+    """Optimistic axial common length of male end thread and barrel body."""
+    if (
+        not all(
+            isfinite(value) for value in (near_wall, far_wall, tip, end_thread_length)
+        )
+        or far_wall <= near_wall
+        or end_thread_length < 0
+    ):
+        raise ValueError("Require a finite barrel interval and nonnegative thread span")
+    return max(0.0, min(tip, far_wall) - max(tip - end_thread_length, near_wall))
 
 
 def _row(assembly, bolt_name):
@@ -164,6 +178,11 @@ def _row(assembly, bolt_name):
         ),
         "bolt_end_thread_length_needed_to_reach_near_wall_mm": _rounded(
             threaded_end_length_to_near_wall
+        ),
+        "partial_thread_comparator_body_overlap_mm": _rounded(
+            _thread_body_overlap(
+                near_wall, far_wall, shaft_tip, PARTIAL_THREAD_COMPARATOR_MM
+            )
         ),
         "tip_past_assumed_axis_mm": _rounded(shaft_tip - reach_axis),
         "tip_past_barrel_far_wall_mm": _rounded(shaft_tip - reach_axis - barrel_radius),
@@ -272,6 +291,42 @@ def build_report(assembly=None):
     absent_washer = [
         row["bolt_name"] for row in rows if not row["washer_present_in_assembly"]
     ]
+    thread_comparator = {
+        "source": (
+            "Aspen Grade 5 1/4-20 hex-cap specifications for 4, 5 and 6 in; "
+            "not the selected Everbilt product specification"
+        ),
+        "source_urls": {
+            "4_in": "https://www.aspenfasteners.com/1-4-20-x-4-hex-head-cap-screws-bolts-coarse-thread-grade-5-steel-yellow-cadmium-plating-ms90725-dfars/",
+            "5_in": "https://www.aspenfasteners.com/1-4-20-x-5-hex-head-cap-screws-bolts-unc-coarse-thread-grade-5-steel-zinc-made-in-u-s-a/",
+            "6_in": "https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X6.PDF",
+        },
+        "nominal_end_thread_length_mm": PARTIAL_THREAD_COMPARATOR_MM,
+        "near_wall_not_reached_bolts": [
+            row["bolt_name"]
+            for row in rows
+            if row["bolt_end_thread_length_needed_to_reach_near_wall_mm"]
+            > PARTIAL_THREAD_COMPARATOR_MM + MM_TOL
+        ],
+        "zero_nominal_body_thread_overlap_bolts": [
+            row["bolt_name"]
+            for row in rows
+            if row["partial_thread_comparator_body_overlap_mm"] <= MM_TOL
+        ],
+        "less_than_1mm_nominal_body_thread_overlap_bolts": [
+            row["bolt_name"]
+            for row in rows
+            if row["partial_thread_comparator_body_overlap_mm"] < 1.0 - MM_TOL
+        ],
+        "thread_engagement_qualified": False,
+        "limits": (
+            "Optimistic axial body overlap assumes a full-form male thread to "
+            "the nominal thread start and female thread throughout the barrel "
+            "body. It ignores bolt-tip chamfer, thread runout, internal thread "
+            "location, fit tolerances, strength and actual Everbilt thread span. "
+            "Zero overlap in this comparator is not a measured product verdict."
+        ),
+    }
     return {
         "schema": SCHEMA,
         "source": (
@@ -283,6 +338,7 @@ def build_report(assembly=None):
         "row_count": len(rows),
         "rows": rows,
         "family_axial_windows": _family_axial_windows(rows),
+        "partial_thread_comparator": thread_comparator,
         "counts": {
             "short_of_assumed_barrel_axis": len(short),
             "beyond_modeled_machine_bore": len(overrun),

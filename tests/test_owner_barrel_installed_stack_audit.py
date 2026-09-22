@@ -194,3 +194,33 @@ def test_integrated_single_center_proposal_has_46_unqualified_stacks():
         == 12
     )
     assert integrated["fit_qualified"] is False
+
+
+def test_integrated_partial_thread_comparator_exposes_possible_no_thread_joints(
+    integrated_report,
+):
+    comparator = integrated_report["partial_thread_comparator"]
+    assert comparator["nominal_end_thread_length_mm"] == 19.05
+    assert comparator["thread_engagement_qualified"] is False
+    assert len(comparator["near_wall_not_reached_bolts"]) == 30
+    assert len(comparator["zero_nominal_body_thread_overlap_bolts"]) == 2
+    assert all(
+        "clip_split_base_center_" in name
+        for name in comparator["zero_nominal_body_thread_overlap_bolts"]
+    )
+    assert len(comparator["less_than_1mm_nominal_body_thread_overlap_bolts"]) == 6
+    base_center = [
+        row
+        for row in integrated_report["rows"]
+        if "clip_split_base_center_" in row["bolt_name"]
+    ]
+    assert len(base_center) == 2
+    assert all(
+        row["partial_thread_comparator_body_overlap_mm"] == 0 for row in base_center
+    )
+
+
+def test_nominal_thread_overlap_clips_thread_segment_to_barrel_body():
+    assert audit._thread_body_overlap(10, 20, 30, 10) == 0
+    assert audit._thread_body_overlap(10, 20, 25, 19) == 10
+    assert audit._thread_body_overlap(10, 20, 22, 5) == 3

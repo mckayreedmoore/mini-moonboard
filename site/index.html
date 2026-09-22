@@ -50,7 +50,7 @@
       import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
       import { createHoldMesh } from './hold-geometry.js';
       import {validateOwnerCornerScene, renderOwnerCornerScene} from './owner-corner-overlay.mjs';
-      import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs';
+      import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs?v=partial-thread-comparator';
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -293,6 +293,7 @@
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
       if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths and all 46 pairs have visible timber trial cuts. Two left rail machine bores intersect existing service bores; this is REVISE, not clearance. Current rim removal clears 33 nominal sampled positions per side with modeled hardware, but continuous motion, real tools and barrel extraction are unverified. The centered one-barrel joint and smaller F1–G1 passage fit the limited nominal CAD screen, but strand feeding, moment transfer, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent += ' A separate ¾-in partial-thread example gives no nominal thread/body overlap at two base-center bolts; the actual retailer bolt threads are not verified.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -784,18 +785,19 @@
         });
       }
       if (model === 'owner-barrel-layout') {
-        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json?v=integrated-service-screen')).then(async response => {
+        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json?v=partial-thread-comparator')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '296a5efbeb90776822b4ef7c8a4625fdb50d3d76dcb68635a3486f18f4955ffe') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== 'a800f61fa07f91da97cc29c2281caa04bf621408496914ab7f0af82ff1109e99') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
             'Integrated barrel development scene — not build-ready. The wood-colored seam-side center posts replace the old outward center posts and separate green backers, and receive all four fixed center kicker screws. The true outer corner posts remain by design. The old 144 angle/SDS visuals and their holes in 16 affected timbers are hidden. All 98 trial drilling paths for 46 barrel pairs are cut into the displayed wood; two left rail cuts intersect existing service bores and remain REVISE. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. Each center principal/header junction shows one centered barrel bolt. Its provisional 25.4 mm F1–G1 LED passage removes the previously modeled bolt-hole collision, but actual strand feeding, single-bolt moment transfer, wood resistance, recessed barrel insertion and usable threads are unverified. Alt-click a bolt for its nominal reach; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
+          document.querySelector('#model-status').textContent += ' A separate ¾-in partial-thread example shows no nominal thread/body overlap at two base-center bolts. The actual retailer bolt threads remain unverified.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

@@ -362,6 +362,12 @@ def build_scene():
                 "maximum_body_overlap_if_fully_threaded_mm": reach_by_bolt[name][
                     "maximum_body_overlap_with_fully_threaded_shaft_mm"
                 ],
+                "partial_thread_comparator_body_overlap_mm": reach_by_bolt[name][
+                    "partial_thread_comparator_body_overlap_mm"
+                ],
+                "partial_thread_comparator_end_length_mm": reach[
+                    "partial_thread_comparator"
+                ]["nominal_end_thread_length_mm"],
                 "tip_to_modeled_bore_cap_mm": reach_by_bolt[name][
                     "tip_to_bore_far_cap_clearance_mm"
                 ],
