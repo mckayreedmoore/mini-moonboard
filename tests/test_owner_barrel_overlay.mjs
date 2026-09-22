@@ -98,6 +98,8 @@ const scene = {
     rim_sample_count_per_side: 33,
     outer_top_nominal_straight_paths_clear: true,
     both_rims_sampled_clear_with_retained_modeled_hardware: true,
+    both_rims_continuous_swept_aabb_clear_of_retained_hardware: true,
+    both_rims_continuous_swept_aabb_clear_of_other_wood: false,
     all_retained_trial_stacks_include_heads_and_washers: true,
     continuous_withdrawal_verified: false,
     delivered_hardware_or_tool_verified: false,

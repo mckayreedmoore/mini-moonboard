@@ -169,6 +169,8 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert service["rim_sample_count_per_side"] == 33
     assert service["outer_top_nominal_straight_paths_clear"] is True
     assert service["both_rims_sampled_clear_with_retained_modeled_hardware"] is True
+    assert service["both_rims_continuous_swept_aabb_clear_of_retained_hardware"] is True
+    assert service["both_rims_continuous_swept_aabb_clear_of_other_wood"] is False
     assert service["all_retained_trial_stacks_include_heads_and_washers"] is True
     assert service["continuous_withdrawal_verified"] is False
     assert service["delivered_hardware_or_tool_verified"] is False

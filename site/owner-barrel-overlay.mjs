@@ -110,6 +110,8 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.integrated_service_geometry?.source_pair_count !== 46 ||
       data.integrated_service_geometry?.outer_top_station_count !== 4 ||
       data.integrated_service_geometry?.rim_sample_count_per_side !== 33 ||
+      data.integrated_service_geometry?.both_rims_continuous_swept_aabb_clear_of_retained_hardware !== true ||
+      data.integrated_service_geometry?.both_rims_continuous_swept_aabb_clear_of_other_wood !== false ||
       data.integrated_service_geometry?.continuous_withdrawal_verified !== false ||
       data.integrated_service_geometry?.delivered_hardware_or_tool_verified !== false ||
       data.integrated_service_geometry?.barrel_insertion_alignment_extraction_verified !== false ||

@@ -5,6 +5,8 @@ empty sampled result cannot qualify a continuous or real service operation.
 """
 
 import json
+import math
+from itertools import pairwise
 
 import cadquery as cq
 
@@ -80,15 +82,77 @@ def _bounds_overlap(a, b):
     )
 
 
+def _swept_aabb_certificate(rim, direction, path_end_mm, targets):
+    """Conservatively enclose every translated rim pose on one straight path."""
+    if (
+        tuple(targets) != CATEGORIES
+        or not math.isfinite(path_end_mm)
+        or path_end_mm <= 0
+        or not math.isclose(direction.Length, 1.0, abs_tol=1e-9)
+    ):
+        raise ValueError("Require current targets and a finite unit-direction path")
+    start = rim.BoundingBox()
+    end = rim.translate(direction * path_end_mm).BoundingBox()
+    swept = {
+        axis: (
+            min(getattr(start, f"{axis}min"), getattr(end, f"{axis}min")),
+            max(getattr(start, f"{axis}max"), getattr(end, f"{axis}max")),
+        )
+        for axis in "xyz"
+    }
+    uncertified = {}
+    minimum_gaps = {}
+    for family, rows in targets.items():
+        uncertified[family] = []
+        certified_gaps = []
+        for name, shape in rows.items():
+            box = shape.BoundingBox()
+            # A strictly positive gap on any one world axis proves the
+            # target misses the entire swept rim, not just sampled poses.
+            gap = max(
+                max(
+                    swept[axis][0] - getattr(box, f"{axis}max"),
+                    getattr(box, f"{axis}min") - swept[axis][1],
+                )
+                for axis in "xyz"
+            )
+            if gap <= 1e-6:
+                uncertified[family].append(name)
+            else:
+                certified_gaps.append(gap)
+        minimum_gaps[family] = round(min(certified_gaps), 6) if certified_gaps else None
+    hardware_families = CATEGORIES[1:]
+    return {
+        "path_end_mm": path_end_mm,
+        "direction_xyz": list(direction.toTuple()),
+        "target_counts": {family: len(rows) for family, rows in targets.items()},
+        "uncertified_targets": uncertified,
+        "minimum_certified_axis_gap_mm": minimum_gaps,
+        "retained_hardware_and_protected_clear": all(
+            not uncertified[family] for family in hardware_families
+        ),
+        "other_wood_clear": not uncertified["other_uncut_wood"],
+        "scope": "Nominal straight-line CAD bounding-box exclusion only",
+    }
+
+
 def _sample_withdrawal(rim, samples_mm, targets):
     """Test isolated rim poses; no interpolation or swept volume is implied."""
     if tuple(targets) != CATEGORIES:
         raise ValueError("Withdrawal target categories changed")
+    if (
+        not samples_mm
+        or samples_mm[0] != 0
+        or any(not math.isfinite(value) for value in samples_mm)
+        or any(next_value <= value for value, next_value in pairwise(samples_mm))
+    ):
+        raise ValueError("Withdrawal samples must start at zero and increase")
     target_boxes = {
         family: {name: shape.BoundingBox() for name, shape in rows.items()}
         for family, rows in targets.items()
     }
     direction = cq.Vector(0, *coordinates.N)
+    swept = _swept_aabb_certificate(rim, direction, samples_mm[-1], targets)
     n0, n1 = coordinates.local_bounds(rim)["n"]
     rows = []
     for distance in samples_mm:
@@ -109,6 +173,7 @@ def _sample_withdrawal(rim, samples_mm, targets):
         "rim_normal_depth_mm": round(n1 - n0, 6),
         "last_sample_exceeds_rim_normal_depth": samples_mm[-1] > n1 - n0,
         "positive_volume_threshold_mm3": HIT_TOL_MM3,
+        "continuous_swept_aabb": swept,
         "samples": rows,
         "sampled_clear": not any(
             hits for row in rows for hits in row["positive_volume_hits_mm3"].values()
@@ -296,8 +361,10 @@ def probe(*, assembly=None):
         "fabrication_released": False,
         "structural_released": False,
         "limits": (
-            "Isolated 0..160 mm positions at 5 mm spacing, not a continuous swept "
-            "volume or tolerance proof. Represented barrel/stack solids are provisional; "
+            "Wood is checked only at isolated 0..160 mm positions at 5 mm spacing. "
+            "A conservative full-path swept AABB excludes retained nominal hardware "
+            "and protected envelopes, but not all other timber boxes or tolerances. "
+            "Represented barrel/stack solids are provisional; "
             "all modeled heads/washers are provisional envelopes, not delivered parts. "
             "protected holds, T-nuts and electrical shapes are modeled envelopes, "
             "including a trial hold-bolt projection. Actual delivered hardware, "

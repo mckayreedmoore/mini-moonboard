@@ -110,9 +110,15 @@ used the outward-post composition. The **integrated 46-pair rerun** finds no
 intersection at 33 isolated positions on either side after the specified
 temporary fastener removals. Its retained inventory includes 36 barrels and
 108 bolt-stack solids per side, including all modeled heads and washers.
-The current viewer records this as `sampled_nominal_only`, not an operational
-pass. It does not verify a continuous sweep, delivered hardware, tools,
-barrel extraction, safe support, or repeated service.
+The [current swept-box certificate](../../scripts/owner_barrel_rim_withdrawal_hardware_probe.py)
+also bounds **every intermediate straight-line pose** from 0 to 160 mm.
+On both sides, that conservative box is disjoint from all retained barrels,
+bolt stacks, and protected fixed envelopes after the specified removals.
+It overlaps other timber bounding boxes, so it cannot certify continuous
+wood-to-wood clearance; the 33-position wood intersection test remains only
+sampled evidence. The viewer therefore still records `sampled_nominal_only`,
+not an operational pass. Delivered hardware, tools, barrel extraction, safe
+support, wood sweep and repeated service remain unverified.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.

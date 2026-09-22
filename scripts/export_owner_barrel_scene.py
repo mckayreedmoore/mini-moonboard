@@ -235,6 +235,16 @@ def _integrated_service_geometry(assembly):
         "both_rims_sampled_clear_with_retained_modeled_hardware": all(
             row["withdrawal"]["sampled_clear"] for row in rim["sides"].values()
         ),
+        "both_rims_continuous_swept_aabb_clear_of_retained_hardware": all(
+            row["withdrawal"]["continuous_swept_aabb"][
+                "retained_hardware_and_protected_clear"
+            ]
+            for row in rim["sides"].values()
+        ),
+        "both_rims_continuous_swept_aabb_clear_of_other_wood": all(
+            row["withdrawal"]["continuous_swept_aabb"]["other_wood_clear"]
+            for row in rim["sides"].values()
+        ),
         "all_retained_trial_stacks_include_heads_and_washers": all(
             not row["viewer_supplemental_heads_washers_absent_for"]
             for row in rim["sides"].values()

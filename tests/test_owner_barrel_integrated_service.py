@@ -1,5 +1,6 @@
 """Keep current integrated service evidence separate from historical screens."""
 
+import cadquery as cq
 import pytest
 
 from scripts import owner_barrel_rim_outer_top_service_probe as outer_top
@@ -45,8 +46,39 @@ def test_integrated_rim_withdrawal_is_sampled_only(assembly):
         assert row["retained_inventory"]["bolt_stack_solids"] == 108
         assert len(row["withdrawal"]["samples"]) == 33
         assert row["withdrawal"]["sampled_clear"] is True
+        swept = row["withdrawal"]["continuous_swept_aabb"]
+        assert swept["path_end_mm"] == 160
+        assert swept["retained_hardware_and_protected_clear"] is True
+        assert swept["other_wood_clear"] is False
+        assert swept["uncertified_targets"]["retained_barrels"] == []
+        assert swept["uncertified_targets"]["retained_bolt_stacks"] == []
+        assert swept["uncertified_targets"]["protected_envelopes"] == []
+        assert all(
+            swept["minimum_certified_axis_gap_mm"][family] > 0
+            for family in (
+                "retained_barrels",
+                "retained_bolt_stacks",
+                "protected_envelopes",
+            )
+        )
         assert row["withdrawal"]["continuous_sweep_verified"] is False
         assert row["withdrawal"]["real_hardware_and_service_verified"] is False
     assert report["drilling_released"] is False
     assert report["fabrication_released"] is False
     assert report["structural_released"] is False
+
+
+def test_swept_box_flags_an_obstacle_between_sampled_positions():
+    rim = cq.Workplane("XY").box(1, 1, 1).val()
+    hidden_obstacle = cq.Workplane("XY").box(1, 0.1, 1).translate((0, 5, 0)).val()
+    clear_obstacle = cq.Workplane("XY").box(1, 0.1, 1).translate((4, 5, 0)).val()
+    targets = {
+        "other_uncut_wood": {},
+        "retained_barrels": {"between_samples": hidden_obstacle},
+        "retained_bolt_stacks": {"outside_sweep": clear_obstacle},
+        "protected_envelopes": {},
+    }
+    report = withdrawal._swept_aabb_certificate(rim, cq.Vector(0, 1, 0), 10, targets)
+    assert report["retained_hardware_and_protected_clear"] is False
+    assert report["uncertified_targets"]["retained_barrels"] == ["between_samples"]
+    assert report["uncertified_targets"]["retained_bolt_stacks"] == []

@@ -33,6 +33,11 @@ not rate screw withdrawal, the post/header joints, or the panel load path.
 The [complete visual cut inventory](owner-barrel-viewer.md) includes the
 46 trial joint pairs, their cuts, heads, washers, and barrels. Red `REVISE`
 marks a problem or unqualified fit, not a structural rating.
+For rim removal, the modeled full 160 mm straight-line swept bounding box
+misses every retained barrel, bolt stack and protected fixed envelope on
+both sides after temporary rim-fastener removal. It does **not** clear the
+other timber bounding boxes, so continuous wood motion, real tool access
+and repeated demounting are not established.
 
 ## Decisions before the candidate can be frozen
 
