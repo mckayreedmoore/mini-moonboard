@@ -69,6 +69,10 @@ stations stop about 33.551 mm before their provisional barrel-thread axis
 points. Those rows are not connected as drawn. A longer ordinary bolt is a
 research lead only; delivered thread span, bore depth, clearance, and complete
 joint resistance are still open.
+The detached [6/7 in length screen](owner-barrel-outer-rail-bolt-length-probe.md)
+finds 6 in still short and a 7 in nominal tip 12.2452 mm past the modeled
+barrel's far wall. Neither is selected hardware; a longer bore and tip
+clearance would need separate verification.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.
