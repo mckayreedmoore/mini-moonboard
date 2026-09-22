@@ -1,5 +1,10 @@
 # Owner-review barrel-nut viewer — integrated center-post trial
 
+The [integrated owner decision sheet](owner-barrel-integrated-owner-review.md)
+summarizes all 24 modeled connections, the partial cost scale, and the next
+physical-layout approval. This longer note preserves the supporting scene
+history and geometry limits.
+
 The [interactive rear view][scene] is a kerf-right *comparison concept*, not a
 cut, drilling, purchased-hardware, fabrication, or structural release. Two
 seam-side 88.9 × 139.7 mm modeled base-center posts replace the former X =
@@ -69,12 +74,11 @@ The four outer-header bolts use the
 the rear row remains at Y = −135 mm and the forward row is provisionally at
 Y = −85 mm in this viewer. The default producer still uses Y = −75 mm.
 Their shaft starts are 6.651 mm lower, with provisional head and washer
-envelopes inside magenta wireframe counterbores. In this viewer only, the
-baseline `base_header` visual is replaced by a cut-derived copy of that same
-header. Four counterbores and their machine bores are subtracted from the copy,
-so the visible wood shows the intended trial removal. The source timber and
-fixed axes are unchanged. The 25.4 mm diameter and 6.651 mm depth are not
-drilling dimensions. The installed side rim no longer overlaps the modeled
+envelopes inside magenta wireframe counterbores. The candidate visual timber
+for `base_header` and both outer posts is cut-derived; its trial bores and
+header counterbores are subtracted. The source baseline timber and fixed axes
+are unchanged. The 25.4 mm diameter and 6.651 mm depth are not drilling
+dimensions. The installed side rim no longer overlaps the modeled
 stack, but still blocks the modeled driver. The
 [rim-first sequence probe](owner-barrel-outer-header-sequence-probe.md)
 finds a possible dependency order, not a verified physical removal route.
@@ -112,7 +116,7 @@ recess/bores. The viewer exports the header's finite continuity and nominal
 edge/floor stock diagnostics beside its cut-derived mesh: one valid connected
 solid, 6.35 mm minimum radial edge stock and 31.449 mm counterbore floor.
 These are geometry measures, not net-section resistance or cut approval. The
-outer-post bores remain diagnostic and are not shown as cut wood in this viewer.
+outer-post bores are also visible in the candidate cut-derived timber.
 The current Y = −85 mm forward row leaves a measured 12.706 mm
 between each post cut and the nearest fixed kicker screw envelope. This
 nominal gap is a `REVISE` finding, not clearance or wood-strength approval.
