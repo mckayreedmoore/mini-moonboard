@@ -38,17 +38,23 @@ now models four direct, same-side duties in that pose with complete nominal
 bores and no modeled protected-solid hits. Several nominal reserves are below
 1 mm, so this is neither a tolerance approval nor a drilling release.
 
-The [duty catalog](../scripts/owner_corner_layout_catalog.py) assigns all 24
-selected bracket duties to six proposed geometry families. The
-[viewer inventory check](../scripts/simple_owner_duty_ledger.py) identifies
-the 24 old angles and 144 SDS visuals that a complete corner-block scene
-must replace while preserving the 66 panel/kicker screws and twelve frame
-bolts. This is coverage bookkeeping, not a completed assembly. Compact rail,
-bottom-center, and outer-base trial revisions are still being screened; the
-live V4 viewer still shows historical partial development geometry. Do not
-interpret it as the new all-block proposal.
+The [duty catalog](../scripts/owner_corner_layout_catalog.py) and
+[inventory check](../scripts/simple_owner_duty_ledger.py) bind the 24 old
+angles and 144 SDS visuals to both full-inventory owner-review scenes. The
+[corner-block viewer](bolted-candidate-prototypes/owner-corner-viewer.md)
+shows 24 proposed blocks and 92 diagnostic bolt paths; it remains `REVISE`
+for protected-service and neighboring-block/stack conflicts. The
+[barrel-nut viewer](bolted-candidate-prototypes/owner-barrel-viewer.md)
+shows 20 direct-bore trials, four **unfastened** compact block placeholders,
+and 48 provisional bolt/barrel pairs; it also remains `REVISE`. Both use
+the approved X = ±180 mm center posts, two separate kicker backers, all 66
+fixed panel/kicker screws, and 12 retained frame-bolt visuals. The
+[comparison](bolted-candidate-prototypes/owner-two-concept-comparison.md)
+is ready for the owner's choice of *development direction only*. Neither
+viewer is a joint design, hardware purchase list, drilling plan, or
+structural/climbing release. The old V4 viewer remains partial history.
 
-Status at `96f6892f`: **PB-02 ADVANCE for development only; PB06 has ten
+Historical status at `96f6892f`: **PB-02 ADVANCE for development only; PB06 has ten
 geometrically modeled stations but twelve legacy angle/SDS duties remain.
 G1 remains open; no cutting, drilling, fabrication, or structural release.** This plan
 implements the owner's V4
