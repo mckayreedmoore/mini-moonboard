@@ -44,6 +44,16 @@ changed-topology load cases remain unverified. A nominal bore intersection
 does not imply a usable or load-bearing joint. Do not drill or buy
 construction hardware from this scene.
 
+A bounded public-source check found [Hillman's answer on Lowe's listing][hillman-answer]
+for the nominal OD, length and 1/4-20 thread, but no controlled end-to-thread-
+axis dimension, tolerance, material minimum, or part-specific load test.
+Home Depot calls this SKU [“Not Graded”][depot]. Other ordinary retail
+lengths and cross-dowels did not supply the missing controlled geometry *and*
+joint-relevant resistance together. This is a limit of the public material
+checked, not proof that no unpublished drawing or test exists; no manufacturer
+was contacted. A different product's drawing or tensile value cannot be
+transferred to this wood joint.
+
 The [two-concept comparison](owner-two-concept-comparison.md) is for choosing
 which *development direction* to study next, after viewing both scenes. A
 choice would not authorize fabrication or climbing.
@@ -51,3 +61,4 @@ choice would not authorize fabrication or climbing.
 [scene]: https://mckayreedmoore.github.io/mini-moonboard/?model=owner-barrel-layout&view=rear
 [lowes]: https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559
 [depot]: https://www.homedepot.com/p/202242356
+[hillman-answer]: https://www.lowes.com/questions/hillman-880543-specialty-nuts/3012559/0d07d7d4-94c9-59c7-b300-30a2fd0be7bd
