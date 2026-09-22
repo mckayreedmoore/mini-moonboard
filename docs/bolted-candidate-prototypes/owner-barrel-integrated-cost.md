@@ -1,4 +1,4 @@
-# Integrated barrel frame: complete-cost ledger, incomplete prices
+# Integrated barrel frame: complete-cost ledger and comparison basket
 
 Checked 22 September 2026 (USD, public US retailer pages, no store selected).
 This ledger covers the **46-pair kerf-right integrated-center-post candidate**,
@@ -97,6 +97,56 @@ would not fix it. The listing also gives inconsistent minimum dimensions;
 it is not a measurement of the owner's sheets. Preserve fixed panel geometry
 and verify measured sheets and an actual profile layout.
 
+## Full frame-and-face replacement-price comparison
+
+The table prices **every counted frame stick, two face sheets, 46 new barrel
+stacks, 12 retained through-bolt stacks and 66 panel screws** as if purchased
+afresh. It gives a scale for budgeting, **not a buildable bill of materials,
+lower bound, upper bound, or an estimate of the owner's additional cash**.
+The publicly priced wood and plywood are different products from the specified
+dry DF-L frame and Roseburg AC DF face. Some priced fasteners lack the required
+grade or fit evidence. No store or delivered lot was selected.
+
+| Price-only comparison basket | Package/count arithmetic | Public price |
+| --- | ---: | ---: |
+| 4×6 pressure-treated Southern pine: [10-ft](https://www.homedepot.com/p/4-in-x-6-in-x-10-ft-2-Ground-Contact-Pressure-Treated-Timber-288746/301895532) and [8-ft](https://www.homedepot.com/p/4-in-x-6-in-x-8-ft-2-Ground-Contact-Pressure-Treated-Timber-259270/100026579) | 2 × $26.28 + 2 × $21.48 | $95.52 |
+| 2×6 pressure-treated Southern pine: [10-ft](https://www.homedepot.com/p/WeatherShield-2-in-x-6-in-x-10-ft-2-Prime-Ground-Contact-Pressure-Treated-Southern-Yellow-Pine-Lumber-253921/206967800) and [8-ft](https://www.homedepot.com/p/WeatherShield-2-in-x-6-in-x-8-ft-No-2-Prime-Pressure-Treated-Ground-Contact-Southern-Pine-Lumber-2311255/206889247) | 3 × $12.18 + 6 × $9.58 | $94.02 |
+| [23/32-in Plytanium SYP RTD sheathing](https://www.homedepot.com/p/Plytanium-23-32-in-x-4-ft-x-8-ft-RTD-Sheathing-Syp-157946/100041308) | 2 × $41.99 | $83.98 |
+| New barrel, bolt and washer size-only comparison above | $97.28 + one $7.97 washer pack | $105.25 |
+| Twelve retained through-bolt stacks, size-only comparison below | 12 bolts + 12 nuts + 24 washers in listed packs | $39.19 |
+| [66 panel screws](https://www.lowes.com/pd/Hillman-10-x-2-1-2-in-Ceramic-Deck-Screws-50-Count/999995042) | 2 × 50-count boxes at $7.98 | $15.96 |
+| **Illustrative replacement-price subtotal** | **$95.52 + $94.02 + $83.98 + $105.25 + $39.19 + $15.96** | **$433.92** |
+
+The retained-stack $39.19 is independently traceable: four
+[1/2-13 × 8 in bolts](https://www.lowes.com/pd/Hillman-1-2-in-x-8-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/3828457)
+at $2.45 ($9.80), four
+[3/8-16 × 4 in bolts](https://www.lowes.com/pd/Hillman-3-8-in-x-4-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/3012108)
+at $1.78 ($7.12), and four
+[3/8-16 × 4½ in bolts](https://www.lowes.com/pd/Hillman-3-8-in-x-4-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000897804)
+at $1.18 ($4.72); two
+[1/2-in Grade 5 nut two-packs](https://www.lowes.com/pd/Hillman-1-2-in-x-13-Zinc-Plated-Steel-Hex-Nut-2-Count/3012032)
+at $1.78 ($3.56), two
+[3/8-in Grade 5 nut five-packs](https://www.lowes.com/pd/Hillman-3-8-in-x-16-Zinc-Plated-Steel-Hex-Nut-5-Count/3012087)
+at $1.78 ($3.56), one
+[1/2-in USS washer 25-pack](https://www.homedepot.com/p/204276390)
+at $6.46, and one
+[3/8-in USS washer 25-pack](https://www.homedepot.com/p/204276362)
+at $3.97. These prices total $39.19, with pack surplus. The listed 1/2 × 8
+bolt does **not** establish Grade 5; the listed 3/8 × 4½ bolt is Grade 1,
+**not** the specified Grade 5. Washer hardness and changed-joint fit are also
+unverified. The full subtotal must not be turned into a procurement list by
+simply ordering these URLs.
+
+If both measured face sheets prove usable, removing the *comparison* plywood
+line leaves $349.94. If all 13 frame sticks also prove usable, the remaining
+comparison is $160.40. If the 12 retained stacks and all panel screws are also
+on hand and fit, it reduces arithmetically to $105.25 for the new barrel stacks.
+Those are **conditional subtractions from a mismatched-price scenario**, not
+claims about what the owner owns or will actually spend. They exclude tax,
+shipping, tooling, consumables, hold/T-nut/LED/pad shortfalls and any extra
+sheet or stick needed after real yield checks. Correct material and fastener
+quotes can be higher or lower; the $433.92 figure is not a cost cap or floor.
+
 ## Cost result and closure rule
 
 **Known public-price subset: $97.28 bolts/barrels.** One unqualified washer
@@ -105,6 +155,11 @@ boxes. The Everbilt-barrel/Lowe's-washer comparison is $112.92 before any
 panel-screw replacement. None is a complete project total, compatible-order
 floor, or cost ceiling; the Hillman 46-piece supply and every trial stack
 remain unverified.
+
+The **$433.92 full frame-and-face comparison subtotal** above covers more of
+the assembly, but its substitute materials and unqualified fasteners make it
+equally unsuitable as a build price. Exact owner new cash still requires
+physical inventory and qualified local quotes.
 
 For a later *additional-cash* total, use: qualified 46-pair bolt/barrel/washer
 checkout **+** shortages in the 12 retained bolt/nut/washer stacks **+** any
