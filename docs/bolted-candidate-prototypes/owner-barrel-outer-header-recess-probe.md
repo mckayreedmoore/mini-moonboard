@@ -33,3 +33,6 @@ head/washer size, engagement, and an executable repeated assembly sequence
 remain open. The current 12 frame bolts and all 66 panel screw axes are
 preserved in the model. All four rows remain **REVISE**; no fabrication or
 structural release follows from this screen.
+
+The [rim-first dependency probe](owner-barrel-outer-header-sequence-probe.md)
+finds a possible connection order but has not verified real hardware removal.
