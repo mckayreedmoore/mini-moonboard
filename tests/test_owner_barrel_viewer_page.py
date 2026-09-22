@@ -14,6 +14,11 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "No drilling or fabrication release." in page
     assert "rim-first removal is required but not physically verified" in page
     assert "orange heads, gold washers and magenta wireframe recesses" in page
+    barrel_documents = page.split("const ownerBarrelDocuments = [", 1)[1].split(
+        "];", 1
+    )[0]
+    assert "owner-barrel-outer-header-cut-integrity.md" in barrel_documents
+    assert "owner-corner-viewer.md" not in barrel_documents
     overlay = (
         Path(__file__).resolve().parents[1] / "site/owner-barrel-overlay.mjs"
     ).read_text()
