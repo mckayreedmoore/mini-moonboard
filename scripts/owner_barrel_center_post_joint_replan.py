@@ -9,6 +9,12 @@ from itertools import combinations
 import cadquery as cq
 
 from mini_moonboard.box_frame import Connection
+from mini_moonboard.floor_flush_width import (
+    KERF_RIGHT,
+    KERF_RIGHT_MM,
+    TRANSLATE_NAMES,
+    variant,
+)
 from scripts import owner_barrel_center_layout as center
 from scripts import owner_barrel_center_post_replacement as replacement
 from scripts import owner_layout_protected as protected
@@ -208,6 +214,15 @@ def build(*, assembly=None, wood=None):
     fixed = protected.inventory()
     if fixed["counts"]["panel_screws"] != 66 or fixed["counts"]["frame_bolts"] != 12:
         raise ValueError("Fixed axes changed")
+    service_voids = {}
+    for member, cutter_name, cutter in variant(KERF_RIGHT).service_cutters():
+        if member not in wood:
+            continue
+        if member in TRANSLATE_NAMES:
+            cutter = cutter.translate(cq.Vector(-KERF_RIGHT_MM, 0, 0))
+        void = cutter.intersect(wood[member])
+        if void.Volume() > TOL:
+            service_voids[f"{member}/{cutter_name}"] = void
     installed, checks, reports, host_map = {}, {}, {}, {}
     for side in SIDES:
         post_name = f"base_post_center_{side}"
@@ -296,6 +311,7 @@ def build(*, assembly=None, wood=None):
     )
     candidate_to_retained = {}
     post_hits, pair_hits, access_hits, tool_pair_hits = {}, {}, {}, {}
+    service_hits, driver_pocket_hits = {}, {}
     for name, roles in checks.items():
         station = next(s for s in STATIONS if name.startswith(f"barrel_center_{s}_"))
         row = reports[station]["bolts"][name]
@@ -309,6 +325,15 @@ def build(*, assembly=None, wood=None):
             for role, shape in roles.items()
             if (hits := _hits(shape, unrelated))
         }
+        for role in ("barrel", "barrel_cross_bore", "bolt_bore", "shaft"):
+            if hits := _hits(roles[role], service_voids):
+                service_hits[f"{name}/{role}"] = hits
+        if "head_pocket" in roles:
+            residual_header = header.cut(roles["head_pocket"])
+            if hits := _hits(
+                roles["bolt_tool"], {"header_after_head_pocket": residual_header}
+            ):
+                driver_pocket_hits[f"{name}/bolt_tool"] = hits
         seat, axis = row["bolt_seat_xyz_mm"], row["bolt_axis_xyz"]
         tip_extension = _cylinder(
             _add(seat, axis, row["bolt_length_mm"] - WASHER_T),
@@ -371,7 +396,13 @@ def build(*, assembly=None, wood=None):
         if (volume := protected._volume(shape_a, shape_b)) > TOL:
             tool_pair_hits[f"{name_a}|{name_b}"] = round(volume, 6)
     all_clashes = bool(
-        post_hits or pair_hits or access_hits or tool_pair_hits or candidate_to_retained
+        post_hits
+        or pair_hits
+        or access_hits
+        or tool_pair_hits
+        or candidate_to_retained
+        or service_hits
+        or driver_pocket_hits
     )
     all_clashes |= any(
         bolt["protected_hits_mm3"]
@@ -390,6 +421,7 @@ def build(*, assembly=None, wood=None):
     )
     return {
         "wood": wood,
+        "service_voids": service_voids,
         "solids": checks,
         "report": {
             "schema": "owner_barrel_center_post_joint_replan/v1",
@@ -404,6 +436,8 @@ def build(*, assembly=None, wood=None):
             "tool_to_other_hardware_hits_mm3": access_hits,
             "tool_pair_hits_mm3": tool_pair_hits,
             "candidate_to_retained_hardware_hits_mm3": candidate_to_retained,
+            "candidate_to_inherited_service_void_hits_mm3": service_hits,
+            "driver_to_header_after_pocket_hits_mm3": driver_pocket_hits,
             "nominal_geometry_disposition": "CLASH"
             if all_clashes
             else "CLEAR_OCCUPANCY",

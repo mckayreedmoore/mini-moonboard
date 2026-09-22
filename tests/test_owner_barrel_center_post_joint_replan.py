@@ -75,7 +75,15 @@ def test_complete_geometry_reports_all_clashes_without_claiming_release(trial):
     assert not report["candidate_to_retained_hardware_hits_mm3"]
     assert not report["tool_to_other_hardware_hits_mm3"]
     assert not report["tool_pair_hits_mm3"]
-    assert report["nominal_geometry_disposition"] == "CLEAR_OCCUPANCY"
+    assert report["nominal_geometry_disposition"] == "CLASH"
+    service = report["candidate_to_inherited_service_void_hits_mm3"]
+    assert any(
+        "bore_base_principal_center_right_072" in cutter
+        for hits in service.values()
+        for cutter in hits
+    )
+    assert any(name.endswith("/barrel") for name in service)
+    assert report["driver_to_header_after_pocket_hits_mm3"]
     assert report["native_solve"] is False
     assert report["structural_capacity_verified"] is False
 

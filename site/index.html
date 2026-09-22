@@ -782,18 +782,18 @@
         });
       }
       if (model === 'owner-barrel-layout') {
-        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json?v=integrated-posts')).then(async response => {
+        ownerConceptBaselineLoaded.then(() => fetch('owner-barrel-layout-scene.json?v=service-bore-check')).then(async response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== 'bcaabe55fe90d2d9636dedd79f66e4b9b352378b162a9072851699b46fec0699') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== '4a43a260061d4b6a3f940201041f2991263fb7c525598a17b1601a3a4413fef5') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Integrated barrel development scene — not build-ready. The wood-colored seam-side center posts replace the old outward center posts and separate green backers, and receive all four fixed center kicker screws. The true outer corner posts remain by design. The old 144 angle/SDS visuals and their holes in 16 affected timbers are hidden. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. The revised center joints clear the nominal CAD occupancy screen, but their small recess/tool margins, delivered hardware fit, tolerances and strength remain unverified. Alt-click a bolt for its nominal reach; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
+            'Integrated barrel development scene — not build-ready. The wood-colored seam-side center posts replace the old outward center posts and separate green backers, and receive all four fixed center kicker screws. The true outer corner posts remain by design. The old 144 angle/SDS visuals and their holes in 16 affected timbers are hidden. Steel-colored cylinders are nominal bolt shafts; bright dots mark their tips, not verified threads. The center principal/header trial has a red CLASH: an inherited service hole overlaps a barrel, and its modeled driver does not fit the recessed pocket. Delivered hardware fit, tolerances and strength also remain unverified. Alt-click a bolt for its nominal reach; actual thread engagement remains UNKNOWN. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling, fabrication, or climbing release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

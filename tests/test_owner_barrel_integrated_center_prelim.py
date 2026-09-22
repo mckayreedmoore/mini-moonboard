@@ -13,6 +13,11 @@ def result():
 def test_actual_joint_geometry_and_2024_material_basis(result):
     assert result["edition"] == "2024 NDS / 2024 NDS Supplement"
     assert result["source_station"] == "clip_split_base_center_right"
+    assert result["nominal_geometry_disposition"] == "CLASH"
+    assert any(
+        name.endswith("bore_base_principal_center_right_072")
+        for name in result["inherited_service_void_names_in_section"]
+    )
     geometry = result["geometry"]
     assert geometry["principal_section_x_n_mm"] == pytest.approx([38.1, 139.7])
     assert geometry["row_axis_pitch_mm"] == pytest.approx(20.706, abs=0.01)
@@ -35,11 +40,11 @@ def test_separate_component_scales_and_unknown_complete_resistance(result):
     }
     section = wood["sampled_principal_net_section"]
     assert section["gross_area_mm2"] == pytest.approx(5322.57, abs=0.01)
-    assert 5000 < section["minimum_sampled_net_area_mm2"] < 5100
+    assert 4100 < section["minimum_sampled_net_area_mm2"] < 4200
     assert section["minimum_sampled_net_area_mm2"] < section["gross_area_mm2"]
-    assert section["minimum_sampled_net_area_mm2"] == pytest.approx(5034.615, abs=0.1)
+    assert section["minimum_sampled_net_area_mm2"] == pytest.approx(4135.654, abs=0.1)
     assert section["unadjusted_Ft_times_sampled_area_n"] == pytest.approx(
-        19959.659, abs=0.5
+        16395.739, abs=0.5
     )
     assert wood["two_full_slot_parallel_tension_sensitivity_n"] == pytest.approx(
         18078.017, abs=0.1

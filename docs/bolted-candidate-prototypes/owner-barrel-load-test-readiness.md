@@ -14,10 +14,12 @@ received by those posts, 66 unchanged panel/kicker screw axes, 12 retained
 frame-bolt axes, and 48 provisional bolt/barrel pairs at 24 former-angle
 stations. There are no separate kicker backers. The
 [center-joint replan](../../scripts/owner_barrel_center_post_joint_replan.py)
-reports nominal `CLEAR_OCCUPANCY` for its four revised stations: modeled bore
-cores meet,
-and its checked protected, other-wood, and represented hardware intersections
-are empty. It explicitly reports no native solve or structural capacity.
+now reports `CLASH`: its initial protected and new-hardware checks missed an
+inherited service bore in the right principal and a driver wider than the
+modeled header pocket. The 4×6 post screw backing remains modeled, but these
+two center-joint conflicts must be redesigned before the layout is a viable
+physical test specimen. It explicitly reports no native solve or structural
+capacity.
 
 The nominal [installed-stack audit](../../scripts/owner_barrel_installed_stack_audit.py)
 can be run with the **integrated** assembly supplied to it; the viewer does so
@@ -44,7 +46,10 @@ These remain **exact current blockers**:
   a blind internal thread would invalidate the pose.
   Retail grade filters and bolt grade do not rate the buried barrel or wood.
 - The [center replan](../../scripts/owner_barrel_center_post_joint_replan.py)
-  uses a 19.05 mm trial washer, angled header-rear pockets and an approximately
+  uses a 19.05 mm trial washer and pocket, but its driver envelope is 20 mm:
+  the tool still intersects header wood after that pocket is cut. The right
+  principal's inherited `bore_base_principal_center_right_072` overlaps the
+  second new barrel. The same replan has an approximately
   1.049 mm barrel recess in each principal receiver. The
   [viewer note](owner-barrel-viewer.md) reports approximately 0.71 mm between
   the closest modeled tool paths. Delivered heads, washers, drivers, bore
@@ -174,7 +179,8 @@ fabrication/structural/climbing release.
 
 ## Shortest path from this revision
 
-Freeze the integrated source and per-station stack list; obtain and measure
+Resolve the inherited service-hole/barrel and driver/pocket conflicts first.
+Then freeze the integrated source and per-station stack list; obtain and measure
 one coherent hardware/wood lot; close its tolerance and service sequence;
 write a guarded, sacrificial two-row center-joint coupon plan and run
 exploratory tests. In parallel, calculate signed actions for the **new**

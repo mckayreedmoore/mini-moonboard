@@ -41,6 +41,9 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.backer_head_washer_envelopes?.length !== 0 ||
       data.backer_attachment?.status !== 'not_applicable_integrated_center_posts' ||
       data.integrated_center_joint_trial?.structural_capacity_verified !== false ||
+      data.integrated_center_joint_trial?.nominal_geometry_disposition !== 'CLASH' ||
+      !Object.keys(data.integrated_center_joint_trial?.candidate_to_inherited_service_void_hits_mm3 || {}).length ||
+      !Object.keys(data.integrated_center_joint_trial?.driver_to_header_after_pocket_hits_mm3 || {}).length ||
       Object.values(data.integrated_center_joint_trial?.release_flags || {}).some(Boolean) ||
       Object.keys(data.integrated_center_joint_trial?.stations || {}).length !== 4 ||
       Object.keys(data.station_dispositions || {}).length !== 24 ||

@@ -114,7 +114,7 @@ def _sampled_section(principal, cutters, centers_t):
         samples.append((t, gross, net))
     t, gross, net = min(samples, key=lambda row: row[2])
     return {
-        "scope": "principal barrel zone, current two blind cross-bores and two machine bores",
+        "scope": "principal barrel zone, two barrel cross-bores, two machine bores, and inherited service voids",
         "sample_pitch_t_mm": thickness,
         "sample_count": len(samples),
         "critical_sample_t_mm": round(t, 3),
@@ -132,8 +132,11 @@ def report(trial=None):
     """Build the right principal/header component ledger from the current CAD."""
     _material()
     trial = replan.build() if trial is None else trial
-    if trial["report"]["nominal_geometry_disposition"] != "CLEAR_OCCUPANCY":
-        raise ValueError("Integrated center nominal geometry is not clear")
+    if trial["report"]["nominal_geometry_disposition"] not in (
+        "CLEAR_OCCUPANCY",
+        "CLASH",
+    ):
+        raise ValueError("Integrated center nominal geometry disposition changed")
     wood = trial["wood"]
     header, principal = wood["base_header"], wood["base_principal_center_right"]
     header_top = header.BoundingBox().zmax
@@ -211,6 +214,12 @@ def report(trial=None):
                 },
             }
         )
+    service_voids = {
+        name: shape
+        for name, shape in trial["service_voids"].items()
+        if name.startswith("base_principal_center_right/")
+    }
+    cutters.extend(service_voids.values())
     seat_a, axis, _ = axes[0]
     seat_b = axes[1][0]
     delta = tuple(b - a for a, b in zip(seat_a, seat_b, strict=True))
@@ -238,6 +247,8 @@ def report(trial=None):
         "schema": "owner_barrel_integrated_center_prelim/v1",
         "edition": "2024 NDS / 2024 NDS Supplement",
         "source_station": STATION,
+        "nominal_geometry_disposition": trial["report"]["nominal_geometry_disposition"],
+        "inherited_service_void_names_in_section": sorted(service_voids),
         "geometry": {
             "principal_section_x_n_mm": [
                 round(bounds["x"][1] - bounds["x"][0], 3),
@@ -321,6 +332,7 @@ def report(trial=None):
             "identified barrel steel, thread engagement/strip, wall strength and bearing test",
             "delivered barrel through-thread/open exit and usable far-side bolt travel",
             "actual lumber grade, moisture, cuts, grain, splitting and barrel breakout",
+            "redesign of inherited service-hole and driver-pocket clashes",
             "washer product compliance, bending and local seat contact",
             "net-section/eccentric member action and classified edge/end/group factors",
             "measured slip, seating, preload, tolerances and assembly-cycle stiffness",

@@ -56,6 +56,9 @@ const scene = {
   backer_attachment: {status: 'not_applicable_integrated_center_posts'},
   integrated_center_joint_trial: {
     stations: Object.fromEntries(stations.slice(0, 4).map(name => [name, {}])),
+    nominal_geometry_disposition: 'CLASH',
+    candidate_to_inherited_service_void_hits_mm3: {barrel: {service: 1}},
+    driver_to_header_after_pocket_hits_mm3: {driver: {header: 1}},
     structural_capacity_verified: false,
     release_flags: {drilling_released: false, fabrication_released: false},
   },

@@ -120,10 +120,11 @@ led to the depicted six-rail provisional revision: twelve 6 in shaft paths
 reach their assumed axes by 1.849 mm, with head/washer envelopes now shown.
 Thread, tolerance, service, and capacity checks are still open.
 The older 5 in center bolt broke out of receiving wood; its 22 mm washer
-trial is superseded. The integrated center replan reports nominal clear
-occupancy and complete modeled bore cores, but its tightest barrel recess is
-about 1.05 mm and its closest tool paths are about 0.71 mm apart. Those
-small margins need tolerance and real-tool checks. The revised drawings
+trial is superseded. The integrated center replan now reports `CLASH`:
+the right principal's inherited service bore intersects its second barrel,
+and a 20 mm driver does not fit the 19.05 mm header pocket. The tightest
+barrel recess is about 1.05 mm and the closest tool paths are about 0.71 mm
+apart. Those small margins also need tolerance and real-tool checks. The revised drawings
 are not complete joints or a drilling plan.
 
 The two outer-header/post duties had installed-shaft and straight

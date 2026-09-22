@@ -1,13 +1,16 @@
 # Integrated center principal/header: preliminary components
 
-**Conditional numerical screen only.** The
+**Conditional numerical screen of a clashing trial only.** The
 [calculation](../../scripts/owner_barrel_integrated_center_prelim.py)
 reads the [revised CAD joint](../../scripts/owner_barrel_center_post_joint_replan.py),
 not a native force solve. It uses the repository's dry DF-L No. 2 inputs from
 the [2024 NDS](https://awc.org/resources/2024-nds/) and matching
 [2024 Supplement](https://awc.org/resources/2024-nds-supplement/), with the
 [2024 errata](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf).
-Actual stock and purchased hardware are unverified. None of these values is a joint rating.
+Actual stock and purchased hardware are unverified. An inherited service hole
+overlaps the right principal's second barrel; the header driver also fails to
+fit the modeled pocket. None of these values is a joint rating or evidence
+that this connection is geometrically acceptable.
 
 The right principal/header station represents the mirrored pair. Two bolts enter
 recesses in the header's rear face and reach barrels in the 38.1 × 139.7 mm
@@ -40,8 +43,9 @@ are unknown; the 4 mm wood-bore clearance does not prove this fit.
 - **Barrel body/thread:** the 3.998 mm bore-cap gap is geometry only. Barrel
   bending, thread strip, wall bearing, principal breakout and metal rating
   remain unknown.
-- **Principal net section:** 5,034.615 mm² smallest sampled cut area versus
-  5,322.570 mm² gross. The 19.960 kN `Ft × sampled area` scale is unadjusted
+- **Principal net section:** 4,135.654 mm² smallest sampled cut area versus
+  5,322.570 mm² gross after including the inherited service bore. The 16.396
+  kN `Ft × sampled area` scale is unadjusted
   parallel tension, not local breakout or joint resistance. A hypothetical
   two-full-slot Appendix E helper gives 18.078 kN; it is not the blind-cut
   section.
@@ -56,14 +60,16 @@ are unknown; the 4 mm wood-bore clearance does not prove this fit.
 - **Group action:** 20.706 mm perpendicular-axis pitch. No two-bolt sum,
   load-share factor, moment distribution or classified placement verdict.
 
-The net-area sample cuts both principal machine bores and both blind barrel
-bores, then samples X–N sections every 0.5 mm near the barrels. It is not a
-global section search or a splitting/tear-out model. The apparent 19.960 kN
+The net-area sample cuts both principal machine bores, both blind barrel
+bores, and inherited principal service voids, then samples X–N sections every
+0.5 mm near the barrels. It is not a global section search or a
+splitting/tear-out model. The apparent 16.396 kN
 scale cannot be compared with the surrogate yield numbers as a controlling
 joint capacity. The NDS ordinary wood/wood yield modes require their own
 applicability conditions; see the [barrel applicability note](owner-barrel-nds-applicability.md).
 
-Still needed: signed new-topology forces and moments with contact and unequal
+First resolve the service-hole/barrel overlap and driver/pocket mismatch.
+Then still needed: signed new-topology forces and moments with contact and unequal
 bolt sharing; controlled bolt root, thread length and steel properties;
 identified barrel material, thread engagement and resistance; inspected wood
 and actual cuts; washer product and seating; local splitting, breakout,

@@ -76,6 +76,16 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     )
     assert len(scene["integrated_center_joint_trial"]["stations"]) == 4
     assert (
+        scene["integrated_center_joint_trial"]["nominal_geometry_disposition"]
+        == "CLASH"
+    )
+    assert scene["integrated_center_joint_trial"][
+        "candidate_to_inherited_service_void_hits_mm3"
+    ]
+    assert scene["integrated_center_joint_trial"][
+        "driver_to_header_after_pocket_hits_mm3"
+    ]
+    assert (
         scene["integrated_center_joint_trial"]["structural_capacity_verified"] is False
     )
     assert inventory["conditional_outer_header_recess_envelopes"] == 12
