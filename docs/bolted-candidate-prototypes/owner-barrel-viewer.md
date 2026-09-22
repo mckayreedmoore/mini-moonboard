@@ -70,6 +70,14 @@ cleared by this whole-frame test. Individual producer notes record their
 own identified conflicts: [rail ten](owner-barrel-rail-layout.md),
 [center six](owner-barrel-center-layout.md), and
 [outer/top eight](owner-barrel-outer-top-layout.md).
+The newer [revised outer/top finite screen](owner-barrel-revised-outer-top-probe.md)
+includes provisional heads/washers and the current recessed-header viewer
+pose. Its only reported unrelated-wood intersections are the four installed
+side-rim/driver paths; absence of other nominal hits is not a delivered-fit
+or service release. The [2024 NDS applicability review](owner-barrel-nds-applicability.md)
+separates usable wood/lateral-bolt subchecks from the unqualified barrel,
+thread, axial and complete-joint paths. A [historical-load ranking](owner-barrel-legacy-demand-priority.md)
+prioritizes new analysis without adopting old bracket forces for this frame.
 
 The SKU appears at [Lowe's][lowes] and [Home Depot][depot], but the
 16.002 mm length, 10.0076 mm OD, and **assumed** 8.001 mm end-to-thread-axis
