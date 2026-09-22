@@ -31,6 +31,12 @@ found no nominal hits against fixed protected solids, but the outer-header
 shafts and access paths intersect the side rims, while the outer-base access
 paths intersect the outer posts. Those are unresolved, not cleared by the
 isolated bore check.
+An [outer-base axis trial](owner-barrel-outer-base-clearance-probe.md)
+found a nominally clear pose after moving both bolt axes 10 mm inward,
+but it is not in this scene. A separate
+[outer-header search](owner-barrel-outer-header-clearance-probe.md) found
+no clear pose among 24 bounded top, angled, and reverse-entry trials;
+those duties still require a different modeled solution.
 Detached [rail-position trials](owner-barrel-rail-clearance-probe.md) found
 four nominally clear alternatives for the two right-center rail duties.
 A separate [center washer and bolt-length study](owner-barrel-center-margin-probe.md)
