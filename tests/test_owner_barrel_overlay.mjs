@@ -3,7 +3,7 @@ import {validateOwnerBarrelScene} from '../site/owner-barrel-overlay.mjs';
 
 const headerStations = ['clip_timber_header_outer_left', 'clip_timber_header_outer_right'];
 const stations = [...headerStations, ...Array.from({length: 22}, (_, index) => `station_${index}`)];
-const hidden = Array.from({length: 170}, (_, index) => `part_${index}`);
+const hidden = ['base_header', ...Array.from({length: 170}, (_, index) => `part_${index}`)];
 const recessEnvelopes = headerStations.flatMap(source_station =>
   [1, 2].flatMap(index => ['recess_head', 'recess_washer', 'recess_counterbore']
     .map(role => ({name: `${source_station}_${index}_${role}`, role, source_station}))));
@@ -20,6 +20,7 @@ const scene = {
     removed_structural_sds: 144,
     moved_center_posts: 2,
     kicker_screw_backers: 2,
+    derived_cut_headers: 1,
     fixed_panel_kicker_screw_axes: 66,
     retained_frame_bolt_axes: 12,
     barrel_nut_envelopes: 24,
@@ -36,7 +37,8 @@ const scene = {
   station_dispositions: Object.fromEntries(stations.map(name => [name, 'LAYOUT_TRIAL'])),
   cross_family_physical_clash_stations: [],
   solids: [{role: 'moved_center_post'}, {role: 'moved_center_post'},
-    {role: 'kicker_screw_backer'}, {role: 'kicker_screw_backer'}],
+    {role: 'kicker_screw_backer'}, {role: 'kicker_screw_backer'},
+    {role: 'derived_cut_header', name: 'base_header/derived_outer_header_cut', mesh: {triangles: [[0, 1, 2]]}}],
   diagnostic_bolt_axes: [],
   rail_head_washer_envelopes: Array(40).fill({role: 'rail_washer'}),
   other_head_washer_envelopes: Array(48).fill({role: 'joint_washer'}),
@@ -51,6 +53,18 @@ const scene = {
   },
   barrel_nut_envelopes: stations.map(source_station => ({source_station})),
   conditional_outer_header_recess_envelopes: recessEnvelopes,
+  outer_header_cut_diagnostics: {
+    source_member: 'base_header', counterbore_count: 4, machine_bore_count: 4,
+    connected_solid_count: 1, cut_is_valid: true, uncut_volume_mm3: 100,
+    cut_volume_mm3: 90, minimum_modeled_radial_edge_residual_mm: 6.35,
+    counterbore_floor_residual_mm: 31.449, net_section_capacity_verified: false,
+    disposition: 'REVISE', clearance_approved: false,
+  },
+  rim_first_sequence: {
+    temporary_fixed_fastener_removal_required: true,
+    per_rim_release: {panel_screws: 8, frame_bolts: 2, trial_rim_joint_bolts: 10},
+    operational_result: 'conditional_unverified',
+  },
   outer_header_recess_trial: {
     forward_row_y_mm: -85,
     counterbore_depth_mm: 6.651,
@@ -68,6 +82,9 @@ assert.throws(() => validateOwnerBarrelScene({...scene, solids: [...scene.solids
 assert.throws(() => validateOwnerBarrelScene({...scene, station_dispositions: {}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, barrel_nut_envelopes: []}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, conditional_outer_header_recess_envelopes: []}, hidden), /24 duties/);
+assert.throws(() => validateOwnerBarrelScene({...scene, solids: scene.solids.slice(0, 4)}, hidden), /24 duties/);
+assert.throws(() => validateOwnerBarrelScene({...scene, outer_header_cut_diagnostics: {...scene.outer_header_cut_diagnostics, connected_solid_count: 2}}, hidden), /24 duties/);
+assert.throws(() => validateOwnerBarrelScene({...scene, rim_first_sequence: {...scene.rim_first_sequence, operational_result: 'verified'}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, outer_header_recess_trial: {...scene.outer_header_recess_trial, structural_capacity_verified: true}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({...scene, cross_family_physical_clash_stations: ['unknown']}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene(scene, hidden.slice(1)), /baseline inventory/);

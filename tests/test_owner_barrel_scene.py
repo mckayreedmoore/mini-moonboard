@@ -24,8 +24,9 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert {row["role"] for row in scene["solids"]} == {
         "moved_center_post",
         "kicker_screw_backer",
+        "derived_cut_header",
     }
-    assert len(scene["solids"]) == 4
+    assert len(scene["solids"]) == 5
     assert inventory["barrel_nut_envelopes"] == 48
     assert inventory["new_diagnostic_bolt_axes"] == 48
     assert inventory["rail_head_washer_envelopes"] == 40
@@ -54,7 +55,27 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert inventory["conditional_outer_header_recess_envelopes"] == 12
     assert inventory["fixed_panel_kicker_screw_axes"] == 66
     assert inventory["retained_frame_bolt_axes"] == 12
-    assert len(scene["hidden_baseline_visual_names"]) == 170
+    assert len(scene["hidden_baseline_visual_names"]) == 171
+    assert "base_header" in scene["hidden_baseline_visual_names"]
+    header = next(row for row in scene["solids"] if row["role"] == "derived_cut_header")
+    assert header["name"] == "base_header/derived_outer_header_cut"
+    assert header["mesh"]["triangles"]
+    cut = scene["outer_header_cut_diagnostics"]
+    assert cut["source_member"] == "base_header"
+    assert cut["counterbore_count"] == 4
+    assert cut["machine_bore_count"] == 4
+    assert cut["connected_solid_count"] == 1
+    assert cut["cut_is_valid"] is True
+    assert 0 < cut["cut_volume_mm3"] < cut["uncut_volume_mm3"]
+    assert cut["minimum_modeled_radial_edge_residual_mm"] > 0
+    assert cut["counterbore_floor_residual_mm"] > 0
+    assert cut["net_section_capacity_verified"] is False
+    assert cut["disposition"] == "REVISE"
+    assert cut["clearance_approved"] is False
+    assert scene["rim_first_sequence"]["operational_result"] == "conditional_unverified"
+    assert (
+        scene["rim_first_sequence"]["temporary_fixed_fastener_removal_required"] is True
+    )
     assert {row["source_station"] for row in scene["barrel_nut_envelopes"]} == duties
     assert {row["source_station"] for row in scene["diagnostic_bolt_axes"]} == duties
     assert all(row["mesh"]["triangles"] for row in scene["barrel_nut_envelopes"])

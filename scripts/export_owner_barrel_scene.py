@@ -73,6 +73,109 @@ def _axis(name, bolt, station):
     }
 
 
+def _cut_header_trial(assembly):
+    """Cut a detached header copy with the four selected seats and machine bores."""
+    from scripts import owner_barrel_outer_header_cut_integrity as integrity
+
+    report = integrity.probe(assembly=assembly)
+    measured = report["members"]["base_header"]
+    paths = measured["intended_paths"]
+    if (
+        len(paths) != 8
+        or sum(row["role"] == "counterbore" for row in paths) != 4
+        or sum(row["role"] == "machine_bore" for row in paths) != 4
+        or report["inventory"]["fixed_panel_screws"] != 66
+        or report["inventory"]["retained_frame_bolts"] != 12
+        or report["clearance_approved"]
+        or any(report["release_flags"].values())
+    ):
+        raise ValueError("Outer-header cut trial changed")
+    uncut = assembly["wood"]["base_header"]
+    cut = uncut
+    for row in paths:
+        cut = cut.cut(assembly["drilling_paths"][row["path"]].intersect(uncut))
+    if (
+        not cut.isValid()
+        or len(cut.Solids()) != 1
+        or abs(cut.Volume() - measured["cut_volume_mm3"]) > 0.1
+        or abs(uncut.Volume() - measured["uncut_volume_mm3"]) > 0.1
+        or measured["minimum_modeled_radial_edge_residual_mm"] <= 0
+        or measured["counterbore_floor_residual_mm"] <= 0
+    ):
+        raise ValueError("Derived outer-header cut fails finite integrity screen")
+    diagnostics = {
+        "source_member": "base_header",
+        "counterbore_count": 4,
+        "machine_bore_count": 4,
+        "uncut_volume_mm3": measured["uncut_volume_mm3"],
+        "cut_volume_mm3": measured["cut_volume_mm3"],
+        "removed_volume_mm3": measured["removed_volume_mm3"],
+        "connected_solid_count": len(cut.Solids()),
+        "cut_is_valid": cut.isValid(),
+        "minimum_modeled_radial_edge_residual_mm": measured[
+            "minimum_modeled_radial_edge_residual_mm"
+        ],
+        "counterbore_floor_residual_mm": measured["counterbore_floor_residual_mm"],
+        "fixed_axis_proximity": measured["fixed_axis_proximity"],
+        "net_section_capacity_verified": False,
+        "disposition": report["disposition"],
+        "clearance_approved": report["clearance_approved"],
+    }
+    return cut, diagnostics
+
+
+def _rim_first_sequence():
+    """Summarize the existing rim dependency probe without granting service approval."""
+    from scripts import owner_barrel_outer_header_sequence_probe as sequence
+
+    report = sequence.probe()
+    if (
+        report["fixed_axis_inventory"] != {"panel_kicker_screws": 66, "frame_bolts": 12}
+        or report["fixed_axis_coordinates_changed"]
+        or not report["temporary_fixed_fastener_removal_required"]
+        or any(
+            report[key]
+            for key in (
+                "drilling_released",
+                "fabrication_released",
+                "structural_released",
+            )
+        )
+        or any(
+            len(row["release_before_rim_withdrawal"]["fixed_panel_screws"]) != 8
+            or len(row["release_before_rim_withdrawal"]["fixed_frame_bolts"]) != 2
+            or len(row["release_before_rim_withdrawal"]["candidate_barrel_stations"])
+            != 5
+            or row["operational_result"] != "conditional_unverified"
+            or not row["nominal_wood_withdrawal"]["sampled_wood_clear"]
+            for row in report["sides"].values()
+        )
+    ):
+        raise ValueError("Rim-first dependency inventory changed")
+    return {
+        "temporary_fixed_fastener_removal_required": True,
+        "per_rim_release": {
+            "panel_screws": 8,
+            "frame_bolts": 2,
+            "trial_rim_joint_bolts": 10,
+        },
+        "removal_order": (
+            "Unload and independently support board and panels; temporarily remove each rim's "
+            "eight panel screws, two leg/rim bolts, and ten trial rim-joint bolts; withdraw "
+            "the rim; then operate the recessed header/post bolts."
+        ),
+        "installation_order": (
+            "With each rim absent and the board supported, operate the header/post bolts; "
+            "then fit the rim and reconnect its trial joints, leg/rim bolts, and panel screws "
+            "on the unchanged axes."
+        ),
+        "sampled_wood_withdrawal_clear": True,
+        "continuous_sweep_verified": False,
+        "retained_hardware_clearance_verified": False,
+        "operational_result": "conditional_unverified",
+    }
+
+
 @lru_cache(maxsize=1)
 def build_scene():
     """Preserve every source duty and release flag in one detached viewer export."""
@@ -109,15 +212,24 @@ def build_scene():
         raise ValueError(
             "Owner barrel assembly is incomplete or release boundary changed"
         )
-    hidden = sorted(set(legacy_visual_names(duties, baseline_parts)) | set(MOVED_POSTS))
-    if len(hidden) != 170:
+    hidden = sorted(
+        set(legacy_visual_names(duties, baseline_parts))
+        | set(MOVED_POSTS)
+        | {"base_header"}
+    )
+    if len(hidden) != 171:
         raise ValueError("Owner barrel legacy visual inventory changed")
+    cut_header, cut_diagnostics = _cut_header_trial(assembly)
+    rim_sequence = _rim_first_sequence()
     solids = [
         _solid(name, "moved_center_post", assembly["wood"][name])
         for name in MOVED_POSTS
     ]
     solids.extend(
         _solid(name, "kicker_screw_backer", assembly["wood"][name]) for name in BACKERS
+    )
+    solids.append(
+        _solid("base_header/derived_outer_header_cut", "derived_cut_header", cut_header)
     )
     barrels = [
         _solid(name, "barrel_nut_envelope", shape, assembly["barrel_station"][name])
@@ -244,6 +356,8 @@ def build_scene():
             "release_flags": backer_attachment["release_flags"],
         },
         "conditional_outer_header_recess_envelopes": recessed,
+        "outer_header_cut_diagnostics": cut_diagnostics,
+        "rim_first_sequence": rim_sequence,
         "outer_header_recess_trial": {
             "forward_row_y_mm": outer.VIEWER_HEADER_FORWARD_Y_MM,
             "counterbore_depth_mm": outer.VIEWER_HEADER_RECESS_MM,
@@ -266,6 +380,7 @@ def build_scene():
             ),
             "moved_center_posts": len(MOVED_POSTS),
             "kicker_screw_backers": len(BACKERS),
+            "derived_cut_headers": 1,
             "barrel_nut_envelopes": len(barrels),
             "new_diagnostic_bolt_axes": len(bolts),
             "rail_head_washer_envelopes": len(rail_stacks),

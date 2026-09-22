@@ -39,8 +39,11 @@ The four outer-header bolts use the
 the rear row remains at Y = −135 mm and the forward row is provisionally at
 Y = −85 mm in this viewer. The default producer still uses Y = −75 mm.
 Their shaft starts are 6.651 mm lower, with provisional head and washer
-envelopes inside a magenta wireframe counterbore. The counterbore is an
-overlay, **not cut wood**. Its 25.4 mm diameter and 6.651 mm depth are not
+envelopes inside magenta wireframe counterbores. In this viewer only, the
+baseline `base_header` visual is replaced by a cut-derived copy of that same
+header. Four counterbores and their machine bores are subtracted from the copy,
+so the visible wood shows the intended trial removal. The source timber and
+fixed axes are unchanged. The 25.4 mm diameter and 6.651 mm depth are not
 drilling dimensions. The installed side rim no longer overlaps the modeled
 stack, but still blocks the modeled driver. The
 [rim-first sequence probe](owner-barrel-outer-header-sequence-probe.md)
@@ -53,7 +56,13 @@ The separate [top/outer-base service screen](owner-barrel-rim-outer-top-service-
 finds no nominal straight-path obstacle at the remaining four rim-attached
 stations, but its outer-base barrels have deep entry recesses and still need
 a verified alignment, retention and removal method.
-The [retained-hardware rim-withdrawal screen](owner-barrel-rim-withdrawal-hardware-probe.md)
+For conditional removal, unload and independently support the board and panels.
+Per rim, temporarily undo eight rim-receiver panel screws, two original leg/rim
+frame bolts, and ten trial bolts at the five rim-touching stations. Withdraw
+the rim, then operate the recessed header/post bolts. Conditional installation
+reverses this order: operate the header/post bolts with the rim absent, fit the
+rim, then reconnect on the original fixed axes. The
+[retained-hardware rim-withdrawal screen](owner-barrel-rim-withdrawal-hardware-probe.md)
 finds no intersection at 33 isolated positions on either side after the
 specified temporary fastener removals. It does not verify a continuous
 sweep, delivered heads/washers, tools, safe support, or repeated service.
@@ -62,7 +71,12 @@ remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
 The [detached nominal cut-solid screen](owner-barrel-outer-header-cut-integrity.md)
 finds the header and outer posts remain single solids after the modeled
-recess/bores. The current Y = −85 mm forward row leaves a measured 12.706 mm
+recess/bores. The viewer exports the header's finite continuity and nominal
+edge/floor stock diagnostics beside its cut-derived mesh: one valid connected
+solid, 6.35 mm minimum radial edge stock and 31.449 mm counterbore floor.
+These are geometry measures, not net-section resistance or cut approval. The
+outer-post bores remain diagnostic and are not shown as cut wood in this viewer.
+The current Y = −85 mm forward row leaves a measured 12.706 mm
 between each post cut and the nearest fixed kicker screw envelope. This
 nominal gap is a `REVISE` finding, not clearance or wood-strength approval.
 The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)

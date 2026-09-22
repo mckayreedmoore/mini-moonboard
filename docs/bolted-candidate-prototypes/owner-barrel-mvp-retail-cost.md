@@ -69,8 +69,9 @@ old 48 × 5-in shortcut or treat these nominal SKUs as a selected assembly.
 ## Washers: counted, not selected
 
 The viewer depicts **one head-side washer per new bolt: 48 + 4 = 52**.
-The two center-principal/header duties (four bolts) model a **22 mm trial
-washer**; some other seats and recessed heads also remain unqualified. A
+The two center-principal/header duties (four bolts) and four backer bolts
+model **eight 22 mm trial washers** in all; other seats and recessed heads
+also remain unqualified. A
 small common 1/4-in washer cannot be assigned to every station by thread size.
 These public listing prices are useful only as a catalog cost scale:
 

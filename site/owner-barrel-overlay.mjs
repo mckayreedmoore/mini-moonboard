@@ -15,6 +15,7 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.removed_structural_sds !== 144 ||
       inventory.moved_center_posts !== 2 ||
       inventory.kicker_screw_backers !== 2 ||
+      inventory.derived_cut_headers !== 1 ||
       inventory.fixed_panel_kicker_screw_axes !== 66 ||
       inventory.retained_frame_bolt_axes !== 12 ||
       inventory.direct_joint_duties !== 24 ||
@@ -45,6 +46,27 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
         !data.barrel_nut_envelopes.some(row => row.source_station === station)) ||
       data.solids.filter(row => row.role === 'moved_center_post').length !== 2 ||
       data.solids.filter(row => row.role === 'kicker_screw_backer').length !== 2 ||
+      data.solids.filter(row => row.role === 'derived_cut_header' &&
+        row.name === 'base_header/derived_outer_header_cut' && row.mesh?.triangles?.length).length !== 1 ||
+      data.outer_header_cut_diagnostics?.source_member !== 'base_header' ||
+      data.outer_header_cut_diagnostics?.counterbore_count !== 4 ||
+      data.outer_header_cut_diagnostics?.machine_bore_count !== 4 ||
+      data.outer_header_cut_diagnostics?.connected_solid_count !== 1 ||
+      data.outer_header_cut_diagnostics?.cut_is_valid !== true ||
+      !(data.outer_header_cut_diagnostics?.cut_volume_mm3 > 0) ||
+      !(data.outer_header_cut_diagnostics.cut_volume_mm3 < data.outer_header_cut_diagnostics.uncut_volume_mm3) ||
+      !Number.isFinite(data.outer_header_cut_diagnostics?.minimum_modeled_radial_edge_residual_mm) ||
+      !(data.outer_header_cut_diagnostics.minimum_modeled_radial_edge_residual_mm > 0) ||
+      !Number.isFinite(data.outer_header_cut_diagnostics?.counterbore_floor_residual_mm) ||
+      !(data.outer_header_cut_diagnostics.counterbore_floor_residual_mm > 0) ||
+      data.outer_header_cut_diagnostics?.net_section_capacity_verified !== false ||
+      data.outer_header_cut_diagnostics?.disposition !== 'REVISE' ||
+      data.outer_header_cut_diagnostics?.clearance_approved !== false ||
+      data.rim_first_sequence?.temporary_fixed_fastener_removal_required !== true ||
+      data.rim_first_sequence?.per_rim_release?.panel_screws !== 8 ||
+      data.rim_first_sequence?.per_rim_release?.frame_bolts !== 2 ||
+      data.rim_first_sequence?.per_rim_release?.trial_rim_joint_bolts !== 10 ||
+      data.rim_first_sequence?.operational_result !== 'conditional_unverified' ||
       inventory.conditional_outer_header_recess_envelopes !== 12 ||
       data.conditional_outer_header_recess_envelopes?.length !== 12 ||
       ['recess_head', 'recess_washer', 'recess_counterbore'].some(role =>
@@ -63,12 +85,13 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.outer_header_recess_trial?.structural_capacity_verified !== false) {
     throw new Error('Barrel viewer does not cover all 24 duties and fixed sources');
   }
-  if (data.solids.some(row => !['moved_center_post', 'kicker_screw_backer'].includes(row.role)) ||
+  if (data.solids.some(row => !['moved_center_post', 'kicker_screw_backer', 'derived_cut_header'].includes(row.role)) ||
       Object.hasOwn(inventory, 'mixed_compact_block_duties')) {
     throw new Error('Barrel-only scene contains a corner-block artifact');
   }
-  if (data.hidden_baseline_visual_names?.length !== 170 ||
-      hiddenNames?.length !== 170 ||
+  if (data.hidden_baseline_visual_names?.length !== 171 ||
+      hiddenNames?.length !== 171 ||
+      !hiddenNames.includes('base_header') ||
       data.hidden_baseline_visual_names.some((name, index) => name !== hiddenNames[index])) {
     throw new Error('Barrel viewer baseline inventory changed');
   }
@@ -109,20 +132,24 @@ function cylinder(THREE, row, color, description) {
 export function renderOwnerBarrelScene(THREE, data, group, meshes) {
   const clashStations = new Set(data.cross_family_physical_clash_stations);
   for (const row of data.solids) {
+    const derivedHeader = row.role === 'derived_cut_header';
     const disposition = data.station_dispositions[row.source_station] || 'LAYOUT_TRIAL';
     const revise = /REVISE|CLASH|BLOCKED|NO_FIT/.test(disposition) ||
       clashStations.has(row.source_station);
-    const color = row.role === 'moved_center_post' ? 0x38bdf8 :
+    const color = derivedHeader ? 0xb68152 : row.role === 'moved_center_post' ? 0x38bdf8 :
       row.role === 'kicker_screw_backer' ? 0x4ade80 :
       revise ? 0xf87171 : 0xa78bfa;
     const mesh = new THREE.Mesh(meshGeometry(THREE, row.mesh), new THREE.MeshStandardMaterial({
-      color, transparent: true, opacity: .82, depthWrite: false, roughness: .7,
+      color, transparent: !derivedHeader, opacity: derivedHeader ? 1 : .82,
+      depthWrite: derivedHeader, roughness: .7,
     }));
     mesh.userData.part = {
       name: row.name,
       fabrication: {
         owner_barrel_overlay: true, kind: 'timber', category: 'timber',
-        description: `${row.role.replaceAll('_', ' ')}; ${disposition}; not a cut or structural release`,
+        description: derivedHeader ?
+          'Derived outer-header trial cut: four shallow counterbores and machine bores shown in wood. Single connected nominal solid; net-section capacity and drilling unverified.' :
+          `${row.role.replaceAll('_', ' ')}; ${disposition}; not a cut or structural release`,
       },
     };
     mesh.userData.baseEmissive = 0;
