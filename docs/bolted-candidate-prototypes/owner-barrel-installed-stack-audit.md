@@ -8,11 +8,14 @@ geometry. The script checks every one of the historical 48 bolt/barrel pairs
 and leaves
 the producer and exporter unchanged.
 
-Run `.venv/bin/python -m scripts.owner_barrel_installed_stack_audit` for the
-48 named records and their shaft start/length, barrel-body center/OD,
-near/assumed-axis/far-wall reach, modeled machine-bore far cap, signed tip
-clearance, and head/washer presence. `tests/test_owner_barrel_installed_stack_audit.py`
-guards the counts and exact exception names.
+The audit's command-line default now reports the selected **46-pair integrated**
+scene. Reproduce these historical 48 records by passing
+`build_viewer_assembly()` explicitly to
+`owner_barrel_installed_stack_audit.build_report(assembly)`. The records give
+shaft start/length, barrel-body center/OD, near/assumed-axis/far-wall reach,
+modeled machine-bore far cap, signed tip clearance, and head/washer presence.
+`tests/test_owner_barrel_installed_stack_audit.py` guards the counts and exact
+exception names.
 
 | Nominal CAD observation | Count | Status |
 | --- | ---: | --- |

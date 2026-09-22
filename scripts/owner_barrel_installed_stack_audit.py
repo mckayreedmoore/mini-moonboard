@@ -11,11 +11,12 @@ import cadquery as cq
 from OCP.BRepAdaptor import BRepAdaptor_Surface
 
 from scripts import simple_owner_duty_ledger as ledger
-from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 
-SCHEMA = "owner_barrel_installed_stack_audit/v1"
+SCHEMA = "owner_barrel_installed_stack_audit/v2"
 MM_TOL = 1e-4
 OUTER_RAIL_FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
+TRIAL_BORE_TIP_CLEARANCE_MM = 2.0
 
 
 def _rounded(value):
@@ -180,9 +181,59 @@ def _row(assembly, bolt_name):
     }
 
 
+def _family_axial_windows(rows):
+    """Group necessary centerline reach and conservative no-overrun sensitivities."""
+    grouped = {}
+    duties = ledger.selected_duties()
+    for row in rows:
+        family = duties[row["station"]]["family"]
+        grouped.setdefault(family, []).append(row)
+    result = {}
+    for family, members in sorted(grouped.items()):
+        minimum = max(row["assumed_thread_axis_reach_mm"] for row in members)
+        far_wall = min(row["reach_to_barrel_far_wall_mm"] for row in members)
+        bore_cap = min(
+            row["machine_bore_far_cap_from_shaft_start_mm"]
+            - TRIAL_BORE_TIP_CLEARANCE_MM
+            for row in members
+        )
+        maximum = min(far_wall, bore_cap)
+        lengths = sorted({row["shaft_length_mm"] for row in members})
+        result[family] = {
+            "pair_count": len(members),
+            "current_nominal_lengths_mm": lengths,
+            "minimum_length_to_assumed_axis_mm": _rounded(minimum),
+            "maximum_length_without_far_wall_overrun_mm": _rounded(far_wall),
+            "maximum_length_with_existing_bore_and_trial_clearance_mm": (
+                _rounded(bore_cap)
+            ),
+            "trial_bore_tip_clearance_mm": TRIAL_BORE_TIP_CLEARANCE_MM,
+            "limiting_nominal_length_mm": _rounded(maximum),
+            "nominal_window_exists": minimum <= maximum + MM_TOL,
+            "current_lengths_within_nominal_window": all(
+                minimum - MM_TOL <= length <= maximum + MM_TOL for length in lengths
+            ),
+            "minimum_additional_bore_depth_for_current_trial_mm": _rounded(
+                max(
+                    0.0,
+                    *(
+                        TRIAL_BORE_TIP_CLEARANCE_MM
+                        - row["tip_to_bore_far_cap_clearance_mm"]
+                        for row in members
+                    ),
+                )
+            ),
+            "maximum_current_far_wall_overrun_mm": _rounded(
+                max(0.0, *(row["tip_past_barrel_far_wall_mm"] for row in members))
+            ),
+            "thread_engagement_qualified": False,
+        }
+    return result
+
+
 def build_report(assembly=None):
-    """Audit either viewer composition; never infer an installed-stack pass."""
-    assembly = build_viewer_assembly() if assembly is None else assembly
+    """Audit the integrated scene by default; outward-post history is explicit."""
+    assembly = build_integrated_viewer_assembly() if assembly is None else assembly
     bolts, barrels = assembly["bolts"], assembly["barrels"]
     expected_barrels = {name.removesuffix("_bolt") for name in bolts}
     placement = assembly.get("post_placement")
@@ -231,6 +282,7 @@ def build_report(assembly=None):
         "source_basis": "Live producer composition, not exported JSON",
         "row_count": len(rows),
         "rows": rows,
+        "family_axial_windows": _family_axial_windows(rows),
         "counts": {
             "short_of_assumed_barrel_axis": len(short),
             "beyond_modeled_machine_bore": len(overrun),
@@ -255,7 +307,10 @@ def build_report(assembly=None):
             "thread-axis proxy; delivered barrel thread location, bolt thread span, "
             "engagement, head/washer dimensions, tolerances, tools, reassembly, "
             "joint resistance and whole-frame strength remain unverified. "
-            "A positive tip-to-bore clearance is not an installed-fit PASS."
+            "A positive tip-to-bore clearance is not an installed-fit PASS. "
+            "The family windows use an illustrative 2 mm bore-tip allowance "
+            "and no far-wall overrun; neither is a product requirement or "
+            "a claim that an off-the-shelf length exists."
         ),
     }
 

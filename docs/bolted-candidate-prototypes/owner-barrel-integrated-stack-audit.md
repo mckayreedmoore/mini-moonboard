@@ -2,7 +2,8 @@
 
 This screen reads the 46-pair **integrated** assembly with
 `build_integrated_viewer_assembly()` and passes it to
-`owner_barrel_installed_stack_audit.build_report(assembly)`. It is distinct from
+`owner_barrel_installed_stack_audit.build_report(assembly)` (also the audit's
+command-line default). It is distinct from
 the [historical 48-pair outward-post audit](owner-barrel-installed-stack-audit.md).
 The table groups all 46 rows by original connection-duty family and nominal
 bolt length. Values are millimeters and apply to each row in that group.
@@ -40,6 +41,37 @@ tolerances, adequate engagement, wood and hardware resistance, and assembly
 access remain unverified. The deep blind bores also need an insertion,
 alignment, extraction and rim-withdrawal rehearsal against this **46-pair**
 assembly; earlier service probes used the 48-pair composition.
+
+## Connection-family bolt-length sensitivity
+
+The source-bound audit now derives a **centerline-only** nominal interval for
+one bolt length per original duty family. Its lower end just reaches the
+*assumed* barrel axis. Its upper end is the lesser of the modeled barrel far
+wall and the **existing** machine-bore cap minus an illustrative 2 mm tip
+allowance. The far-wall cap is a conservative no-overrun sensitivity, not a
+claim that a through-threaded barrel cannot accept a longer bolt. These are
+axial dimensions from the modeled shaft start at the **outer washer face**,
+**not** verified purchase lengths or thread-engagement specifications.
+
+| Families sharing nominal interval | Pairs | Axis-to-limiting length (mm) | Current length (mm) |
+| --- | ---: | ---: | ---: |
+| Base center | 2 | 101.651–106.655 | 127.0 |
+| Base outer side; bottom/lower/upper center; top center | 20 | 109.751–114.755 | 127.0 |
+| Bottom/lower/upper outer rail | 12 | 150.551–155.555 | 152.4 |
+| Header center | 4 | 78.651–83.655 | 101.6 |
+| Header outer post | 4 | 103.100–108.104 | 127.0 |
+| Top outer | 4 | 120.551–125.000 | 127.0 |
+
+Thus only the 12 outer-rail current tips fall inside this particular
+no-overrun/2-mm-bore window. The other **34** tips pass the modeled barrel far
+wall; 16 of those also end exactly at the bore cap and need at least 2 mm
+additional modeled bore depth to meet the *illustrative* allowance without
+shortening the bolt. Neither observation alone proves a physical clash:
+internal barrel threads and exit geometry are unknown, and every shorter
+candidate must still place usable bolt threads inside a real barrel. The
+report retains the per-family bore-depth shortfall and far-wall overrun, so
+lengths can be chosen **by connection family** once controlled hardware
+dimensions are available. No family length or deeper drilling is selected.
 
 The corrected 6-in
 [outer-rail setback probe](../../scripts/owner_barrel_outer_rail_setback_probe.py)
