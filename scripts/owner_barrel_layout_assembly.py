@@ -303,7 +303,9 @@ def build_assembly(producers=None, *, source=None, placement=None):
             "thread_major_mm": hardware.THREAD_MAJOR_MM,
             "axis_offset_mm_provisional": provisional_offset,
             "axis_offset_sensitivity_mm": hardware.AXIS_OFFSET_SENSITIVITY_MM,
-            "bolt_length_mm_nominal": hardware.BOLT_LENGTH_MM,
+            "bolt_lengths_mm_nominal_trials": sorted(
+                {round(float(bolt.length), 6) for bolt in bolts.values()}
+            ),
             "washer_thickness_mm_unverified": hardware.WASHER_THICKNESS_SENSITIVITY_MM,
         },
         "diagnostics": diagnostics,

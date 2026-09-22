@@ -4,6 +4,9 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
+from scripts import owner_barrel_center_layout as center
+from scripts import owner_barrel_outer_top_layout as outer
+from scripts import owner_barrel_rail_layout as rail
 from scripts.owner_barrel_layout_assembly import build_assembly
 from scripts.simple_owner_duty_ledger import legacy_visual_names, selected_duties
 
@@ -12,6 +15,17 @@ BASELINE = ROOT / "site/hybrid/compact-floor-flush-kerf-right/parts.json"
 OUTPUT = ROOT / "site/owner-barrel-layout-scene.json"
 MOVED_POSTS = ("base_post_center_left", "base_post_center_right")
 BACKERS = ("inner_kicker_backer_left", "inner_kicker_backer_right")
+
+
+def build_viewer_assembly():
+    """Compose reviewed geometry-only revisions; preserve producer defaults."""
+    return build_assembly(
+        producers={
+            "rail10": rail.build_revised_layout,
+            "center6": center.build_revised_layout,
+            "outer_top8": outer.build_revised_layout,
+        }
+    )
 
 
 def _mesh(shape):
@@ -56,7 +70,7 @@ def _axis(name, bolt, station):
 @lru_cache(maxsize=1)
 def build_scene():
     """Preserve every source duty and release flag in one detached viewer export."""
-    assembly = build_assembly()
+    assembly = build_viewer_assembly()
     duties = selected_duties()
     baseline = json.loads(BASELINE.read_text())
     baseline_parts = baseline["parts"]

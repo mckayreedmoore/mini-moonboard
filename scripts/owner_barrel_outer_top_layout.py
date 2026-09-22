@@ -21,6 +21,7 @@ FAMILIES = ("top_outer", "top_center", "header_outer_post", "base_outer_side")
 MACHINE_BORE_D_MM = 7.5  # Provisional pilot/access screen, not drill release.
 BARREL_BORE_D_MM = hardware.BARREL_OD_MM
 TOL_MM3 = 1.0
+VIEWER_OUTER_BASE_INWARD_MM = 10.0
 
 
 def _point(x, t, n):
@@ -148,11 +149,13 @@ def _header_outer(side, wood):
     ]
 
 
-def _base_outer(side, wood):
+def _base_outer(side, wood, inward_mm=0.0):
     name = f"base_side_{side}"
     rim, header = wood[name], wood["base_header"]
     rb, hb = rim.BoundingBox(), header.BoundingBox()
-    xmid = (rb.xmin + rb.xmax) / 2
+    if inward_mm < 0 or inward_mm >= rb.xlen / 2:
+        raise ValueError("Outer-base inward trial must stay within side rim")
+    xmid = (rb.xmin + rb.xmax) / 2 + (1 if side == "left" else -1) * inward_mm
     entry_x = rb.xmin if side == "left" else rb.xmax
     cross_dir = cq.Vector(1 if side == "left" else -1, 0, 0)
     return [
@@ -299,7 +302,7 @@ def viewer_solids(result=None):
     return {"hardware": hardware_solids, "bore_cutters": bore_cutters}
 
 
-def build_layout(wood):
+def build_layout(wood, *, viewer_revision=False):
     """Give the integrated viewer actual nominal geometry; every row is REVISE.
 
     The two outer-base rows are direct-bore *leads*, not approved fit: their
@@ -319,7 +322,11 @@ def build_layout(wood):
         for member in duty["timber"]:
             if member not in wood:
                 raise ValueError(f"{station}: missing selected source timber {member}")
-        rows = builders[duty["family"]](duty["side"], wood)
+        rows = (
+            _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
+            if viewer_revision and duty["family"] == "base_outer_side"
+            else builders[duty["family"]](duty["side"], wood)
+        )
         bolts, barrels, stacks, drilling, access = {}, {}, {}, {}, {}
         for index, row in enumerate(rows, 1):
             if (
@@ -402,15 +409,28 @@ def build_layout(wood):
     return {
         "stations": stations,
         "diagnostics": {
-            "source_id": SOURCE_ID,
+            "source_id": SOURCE_ID + ("-viewer-revision-v1" if viewer_revision else ""),
             "disposition": "REVISE",
+            "viewer_trial_outer_base_inward_mm": VIEWER_OUTER_BASE_INWARD_MM
+            if viewer_revision
+            else None,
             "limits": (
                 "All eight have diagnostic nominal direct-bore shapes. Outer-base "
-                "pair is a held exception pending PB09/header clearance. Shaft-only "
-                "stacks; washer/head, thread, tools, protected solids and strength open."
+                + (
+                    "axes move 10 mm inward in a geometry-only trial. "
+                    if viewer_revision
+                    else "pair is a held exception pending PB09/header clearance. "
+                )
+                + "Shaft-only stacks; washer/head, thread, tools, protected solids "
+                "and strength open."
             ),
         },
     }
+
+
+def build_revised_layout(wood):
+    """Show screened outer-base alternatives without changing default trials."""
+    return build_layout(wood, viewer_revision=True)
 
 
 if __name__ == "__main__":

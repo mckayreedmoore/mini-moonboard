@@ -41,6 +41,11 @@ SPECS = {
 }
 ROW_N_FROM_FRONT_MM = (60.0, 92.25)
 BARREL_X_FROM_BUTT_MM = 70.0
+VIEWER_REVISED_STATIONS = (
+    "clip_horizontal_lower_right_1",
+    "clip_horizontal_upper_right_1",
+)
+VIEWER_REVISED_ROWS_N_MM = (50.0, 92.25)
 BARREL_AXIS_OFFSET_MM = continuation.BARREL_LENGTH_MM / 2
 BARREL_RECESS_MM = (continuation.SECTION_MM[0] - continuation.BARREL_LENGTH_MM) / 2
 MACHINE_BORE_DIAMETER_MM = 7.5
@@ -347,9 +352,18 @@ def _connection(row, spec):
     )
 
 
-def build_layout(wood):
+def build_layout(wood, *, viewer_revision=False):
     """Assembly adapter: use its exact wood pose and retain REVISE dispositions."""
     built = build_geometry(wood=wood)
+    if viewer_revision:
+        trial = build_geometry(
+            wood=wood,
+            row_n_mm=VIEWER_REVISED_ROWS_N_MM,
+            barrel_setback_mm=BARREL_X_FROM_BUTT_MM,
+            stations=VIEWER_REVISED_STATIONS,
+            cut_wood=False,
+        )
+        built["stations"].update(trial["stations"])
     report = screen(built)
     stations = {}
     for name, pose in built["stations"].items():
@@ -362,7 +376,9 @@ def build_layout(wood):
             "mode": "direct",
             "axis_offset_mm": BARREL_AXIS_OFFSET_MM,
             "disposition": (
-                "REVISE" if blocked else report["stations"][name]["geometry_status"]
+                "REVISE"
+                if blocked or viewer_revision
+                else report["stations"][name]["geometry_status"]
             ),
             "bolts": bolts,
             "barrels": {row["name"]: row["barrel"] for row in pose["rows"]},
@@ -383,12 +399,20 @@ def build_layout(wood):
     return {
         "stations": stations,
         "diagnostics": {
-            "source_id": SOURCE_ID,
+            "source_id": SOURCE_ID + ("-viewer-revision-v1" if viewer_revision else ""),
             "disposition": report["disposition"],
             "station_screens": report["stations"],
+            "viewer_trial_front_n_mm": VIEWER_REVISED_ROWS_N_MM[0]
+            if viewer_revision
+            else None,
             "limits": (
                 "Shaft-only generic stacks; heads, washer seats, delivered thread "
                 "fit, drilling sizes and tool insertion remain unverified"
             ),
         },
     }
+
+
+def build_revised_layout(wood):
+    """Show screened right-center rail alternatives without changing defaults."""
+    return build_layout(wood, viewer_revision=True)

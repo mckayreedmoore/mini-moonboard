@@ -37,6 +37,10 @@ HEAD_DIAMETER_MM = 11.0
 TOOL_DIAMETER_MM = 20.0
 TOOL_LENGTH_MM = 40.0
 VOLUME_TOL_MM3 = 1.0
+REVISED_SOURCE_ID = "owner-barrel-center-principal-viewer-revision-v1"
+REVISED_PRINCIPAL_ROWS_Y_MM = (-162.433333, -138.166667)
+REVISED_PRINCIPAL_WASHER_OD_MM = 22.0  # Trial envelope, not a selected product.
+REVISED_PRINCIPAL_BOLT_LENGTH_MM = 4.0 * 25.4  # Nominal full-thread candidate.
 
 
 def _cylinder(point, axis, length, diameter):
@@ -195,7 +199,14 @@ def _station_spec(station, wood):
     return family, specs, y_margin
 
 
-def _hardware(station, index, spec):
+def _hardware(
+    station,
+    index,
+    spec,
+    *,
+    bolt_length_mm=BOLT_LENGTH_MM,
+    washer_diameter_mm=WASHER_DIAMETER_MM,
+):
     name = f"barrel_center_{station}_{index}"
     seat = spec["bolt_seat"]
     bolt_axis = spec["bolt_axis"]
@@ -211,11 +222,11 @@ def _hardware(station, index, spec):
     body = _cylinder(body_start, barrel_axis, BARREL_LENGTH_MM, BARREL_OD_MM)
     cross_bore = _cylinder(entry, barrel_axis, cross_depth, BARREL_OD_MM)
     bolt_start = _add(seat, bolt_axis, -WASHER_THICKNESS_MM)
-    shaft = _cylinder(bolt_start, bolt_axis, BOLT_LENGTH_MM, hardware.THREAD_MAJOR_MM)
+    shaft = _cylinder(bolt_start, bolt_axis, bolt_length_mm, hardware.THREAD_MAJOR_MM)
     bolt_bore = _cylinder(
-        seat, bolt_axis, BOLT_LENGTH_MM - WASHER_THICKNESS_MM, BORE_DIAMETER_MM
+        seat, bolt_axis, bolt_length_mm - WASHER_THICKNESS_MM, BORE_DIAMETER_MM
     )
-    washer = _cylinder(bolt_start, bolt_axis, WASHER_THICKNESS_MM, WASHER_DIAMETER_MM)
+    washer = _cylinder(bolt_start, bolt_axis, WASHER_THICKNESS_MM, washer_diameter_mm)
     head_start = _add(bolt_start, bolt_axis, -4.0)
     head = _cylinder(head_start, bolt_axis, 4.0, HEAD_DIAMETER_MM)
     bolt_tool = _cylinder(
@@ -246,7 +257,7 @@ def _hardware(station, index, spec):
             "thread_axis_offset_assumed_mm": THREAD_AXIS_OFFSET_MM,
             "bolt_seat_to_thread_axis_mm": round(seat_to_axis, 6),
             "nominal_tip_beyond_thread_axis_mm": round(
-                BOLT_LENGTH_MM - WASHER_THICKNESS_MM - seat_to_axis, 6
+                bolt_length_mm - WASHER_THICKNESS_MM - seat_to_axis, 6
             ),
             "bolt_barrel_intersection_mm3": round(
                 protected._volume(bolt_bore, cross_bore), 6
@@ -484,6 +495,133 @@ def build_layout(wood):
         "stations": stations,
         "diagnostics": report,
     }
+
+
+def build_revised_layout(wood):
+    """Expose the two revised center-principal poses without changing the default.
+
+    The 22 mm washer and 4 in full-thread bolt are nominal drawing envelopes;
+    neither is an identified, measured, strength-qualified purchased part.
+    """
+    # Import here so the unchanged default producer does not depend on its probe.
+    from scripts import owner_barrel_center_margin_probe as margin
+
+    original = build_layout(wood)
+    trial = margin.screen_pose(
+        wood,
+        protected.inventory(),
+        REVISED_PRINCIPAL_WASHER_OD_MM,
+        REVISED_PRINCIPAL_ROWS_Y_MM,
+        bolt_length_mm=REVISED_PRINCIPAL_BOLT_LENGTH_MM,
+    )
+    stations = dict(original["stations"])
+    diagnostics = dict(original["diagnostics"])
+    station_reports = dict(diagnostics["stations"])
+    for side in ("left", "right"):
+        station = f"clip_split_base_center_{side}"
+        family, original_specs, _ = _station_spec(station, wood)
+        if family != "principal_header" or len(original_specs) != 2:
+            raise ValueError(f"{station}: principal/header duty changed")
+        bolts, barrels, stacks, drilling, access, bolt_reports = {}, {}, {}, {}, {}, {}
+        for index, (source, y) in enumerate(
+            zip(original_specs, REVISED_PRINCIPAL_ROWS_Y_MM, strict=True), 1
+        ):
+            spec = dict(source)
+            spec["bolt_seat"] = (source["bolt_seat"][0], y, source["bolt_seat"][2])
+            spec["barrel_entry"] = (
+                source["barrel_entry"][0],
+                y,
+                source["barrel_entry"][2],
+            )
+            name, solids, datum = _hardware(
+                station,
+                index,
+                spec,
+                bolt_length_mm=REVISED_PRINCIPAL_BOLT_LENGTH_MM,
+                washer_diameter_mm=REVISED_PRINCIPAL_WASHER_OD_MM,
+            )
+            if name not in trial["bolts"]:
+                raise ValueError(f"{station}: probe/revision bolt identity changed")
+            bolt_name = f"{name}_bolt"
+            seat, axis = spec["bolt_seat"], spec["bolt_axis"]
+            bolts[bolt_name] = Connection(
+                bolt_name,
+                cq.Vector(*_add(seat, axis, -WASHER_THICKNESS_MM)),
+                cq.Vector(*axis),
+                REVISED_PRINCIPAL_BOLT_LENGTH_MM,
+                hardware.THREAD_MAJOR_MM,
+                spec["bolt_hosts"],
+                "bolt",
+            )
+            barrels[name] = solids[f"{name}/barrel_body"]
+            stacks[bolt_name] = {
+                "shaft": solids[f"{name}/bolt_shaft_full_nominal"],
+                "washer": solids[f"{name}/washer"],
+                "head": solids[f"{name}/head"],
+            }
+            drilling[f"{name}/bolt_bore"] = solids[f"{name}/bolt_bore_full_nominal"]
+            drilling[f"{name}/barrel_cross_bore"] = solids[f"{name}/barrel_cross_bore"]
+            access[f"{name}/bolt_tool"] = solids[f"{name}/bolt_tool"]
+            access[f"{name}/barrel_tool"] = solids[f"{name}/barrel_tool"]
+            bolt_reports[name] = {**datum, **trial["bolts"][name]}
+        stations[station] = {
+            "mode": "direct",
+            "axis_offset_mm": THREAD_AXIS_OFFSET_MM,
+            "disposition": "REVISE",
+            "bolts": bolts,
+            "barrels": barrels,
+            "stacks": stacks,
+            "drilling_paths": drilling,
+            "access_paths": access,
+        }
+        station_reports[station] = {
+            **station_reports[station],
+            "bolts": bolt_reports,
+            "nominal_washer_to_edge_or_backer_margin_mm": min(
+                trial["reserves_mm"].values()
+            ),
+            "revise_reasons": [
+                "nominal 22 mm washer and 4 in full-thread bolt not product-qualified",
+                "complete barrel thread/wood/assembly resistance unverified",
+            ],
+            "revise_required": True,
+        }
+    for station in STATIONS:
+        stations[station] = {**stations[station], "disposition": "REVISE"}
+        if station not in (
+            "clip_split_base_center_left",
+            "clip_split_base_center_right",
+        ):
+            station_reports[station] = {
+                **station_reports[station],
+                "revise_reasons": [
+                    *station_reports[station]["revise_reasons"],
+                    "complete hardware/wood/assembly verification unverified",
+                ],
+                "revise_required": True,
+            }
+    diagnostics.update(
+        {
+            "source_id": REVISED_SOURCE_ID,
+            "stations": station_reports,
+            "principal_header_geometry_trial": trial,
+            "principal_header_trial_washer_od_mm": REVISED_PRINCIPAL_WASHER_OD_MM,
+            "principal_header_trial_bolt_length_mm": (REVISED_PRINCIPAL_BOLT_LENGTH_MM),
+            "principal_header_trial_full_thread_assumed": True,
+            "washer_product_selected": False,
+            "bolt_product_selected": False,
+            "provisional_hardware": {
+                **diagnostics["provisional_hardware"],
+                "bolt_under_head_length_mm": None,
+                "washer_od_mm": None,
+                "mixed_center_principal_trial_envelopes": True,
+            },
+            "decision": "REVISE_VIEWER_ONLY",
+            "drilling_released": False,
+            "structural_released": False,
+        }
+    )
+    return {"stations": stations, "diagnostics": diagnostics}
 
 
 if __name__ == "__main__":

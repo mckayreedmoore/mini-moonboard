@@ -12,41 +12,41 @@ separate kicker screw backers. The backers are not structurally attached by
 this concept. The historical angle assembly remains the selected baseline.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
-reviewed snapshot. A browser smoke check loaded it with all 24 duties and
-the no-release warning. Yellow barrels and cyan bolt paths are diagnostic
-X-ray overlays; red indicates a recorded station revision. Hide panels in
+reviewed snapshot. Its published JSON is checked against the source-built
+scene and page digest; the current revision has not yet passed a fresh visual
+browser smoke check. Barrel and bolt paths are diagnostic X-ray overlays;
+red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. This scene is generated independently
 of the corner-block assembly; both views share only the original frame and
 owner-approved center-post/backer placement.
 
 The integrated assembly shows 24 direct-bore *trials*, not 24 accepted joints.
-Four previously illustrated fallback positions remain unresolved: two
-right-center rail stations intersect protected geometry, and both
-center-principal/header stations have zero nominal washer-to-edge/backer
-tolerance. Their diagnostic barrel/bolt paths remain visible and flagged for
-revision; no wood-block fallback is implied. The outer/top eight are all marked
-`REVISE`. An [exact-frame outer/top screen](owner-barrel-outer-top-protected-probe.md)
-found no nominal hits against fixed protected solids, but the outer-header
-shafts and access paths intersect the side rims, while the outer-base access
-paths intersect the outer posts. Those are unresolved, not cleared by the
-isolated bore check.
-An [outer-base axis trial](owner-barrel-outer-base-clearance-probe.md)
-found a nominally clear pose after moving both bolt axes 10 mm inward,
-but it is not in this scene. A separate
+This scene now illustrates three bounded geometry revisions: the two
+right-center rail stations use a 50/92.25 mm row pair found in the
+[rail-position probe](owner-barrel-rail-clearance-probe.md); both
+center-principal/header stations use the [4 in nominal bolt and 22 mm
+trial washer](owner-barrel-center-viewer-revision.md); and the two outer-base
+stations move their bolt axes [10 mm inward](owner-barrel-outer-base-clearance-probe.md).
+The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
+is **not a selected retail product**. Every station remains `REVISE`; the
+changed drawings are not complete joints or a drilling plan.
+
+The two outer-header/post duties still have installed-shaft and straight
+access clashes with the side rims at the drawn pose. A separate
 [outer-header search](owner-barrel-outer-header-clearance-probe.md) found
-no clear pose among 24 bounded top, angled, and reverse-entry trials;
-those duties still require a different modeled solution.
-Detached [rail-position trials](owner-barrel-rail-clearance-probe.md) found
-four nominally clear alternatives for the two right-center rail duties.
-A separate [center washer and bolt-length study](owner-barrel-center-margin-probe.md)
-found a geometrically plausible 4 in nominal bolt at one trial washer seat;
-the inherited 5 in bolt breaks out of receiving wood. These are research
-results, **not revisions to this viewer** or accepted joints. The delivered
-hardware, complete joint resistance, and assembly access remain open.
-The integrated cross-family screen found no positive-volume **physical**
-or drill/access intersections among its supplied finite solids. That is
-strictly a limited negative screen: same-family contacts, protected
+no clear pose among 24 bounded top, angled, and reverse-entry trials. A
+separate [post-shift screen](owner-barrel-outer-header-post-shift-probe.md)
+found that the shift needed to clear the rim abandons fixed kicker-screw
+and rail-front-bolt receivers, so moving only the posts is not a solution.
+A different modeled joint topology or access sequence is required. An
+[exact-frame outer/top screen](owner-barrel-outer-top-protected-probe.md)
+and individual producer notes remain relevant to the original poses; do
+not transfer their negative collision results to revised geometry without
+the revised whole-frame screen.
+The revised integrated cross-family screen found no positive-volume **physical**
+or drill/access intersections among its supplied finite solids. It is a
+limited screen: same-family contacts, protected
 hold/T-nut/LED/wire features, the 66 screws and 12 original frame bolts,
 full hardware heads/washers at every duty, and actual driver sweeps are not
 cleared by this whole-frame test. Individual producer notes record their

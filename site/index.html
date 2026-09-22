@@ -268,7 +268,7 @@
       squareModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
       modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB04 center + PB05 outer scene', 'bolted-v4-development'));
       modelSelect.add(new Option('Corner-block layout · complete concept · NOT build-ready', 'owner-corner-layout'));
-      modelSelect.add(new Option('Barrel-nut layout · complete concept · NOT build-ready', 'owner-barrel-layout'));
+      modelSelect.add(new Option('Barrel-nut trial · 24 joints · NOT build-ready', 'owner-barrel-layout'));
       // Keep the active candidate separate from preserved history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
       const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
@@ -292,7 +292,7 @@
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
-      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. All 24 angle duties have provisional barrel/bolt trials, including four unresolved joint positions; no corner blocks are included. The 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. All 24 angle duties have provisional barrel/bolt trials. Revised center, rail and outer-base positions are geometry-only; the outer-header joint remains unresolved. No corner blocks are included. The 66 panel/kicker screws and 12 frame bolts remain. No drilling or fabrication release.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
@@ -597,7 +597,7 @@
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
-          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner blocks. Yellow barrels and cyan bolt paths are diagnostic X-ray overlays; red means revise. Alt-click to inspect an internal joint; no drilling release.' :
+          model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. No corner blocks. The revised geometry is still only a trial. Red means revise; all joints remain unqualified. Alt-click to inspect an internal joint; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
@@ -761,7 +761,7 @@
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '94f0f75e34314ddc4a2a1cbf23b442953160f6fe942f80a4d503a40defd6ce5c') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== '82aaea116576183f7245b22c4254fe68f82e4bb031cabfe70f451f7f0812394a') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
