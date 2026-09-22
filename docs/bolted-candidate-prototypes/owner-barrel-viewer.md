@@ -30,7 +30,9 @@ trial washer](owner-barrel-center-viewer-revision.md); and the two outer-base
 stations move their bolt axes [10 mm inward](owner-barrel-outer-base-clearance-probe.md).
 The four outer-header bolts use the
 [conditional recessed-head trial](owner-barrel-outer-header-recess-probe.md):
-their shaft starts are 6.651 mm lower, with provisional head and washer
+the rear row remains at Y = −135 mm and the forward row is provisionally at
+Y = −85 mm in this viewer. The default producer still uses Y = −75 mm.
+Their shaft starts are 6.651 mm lower, with provisional head and washer
 envelopes inside a magenta wireframe counterbore. The counterbore is an
 overlay, **not cut wood**. Its 25.4 mm diameter and 6.651 mm depth are not
 drilling dimensions. The installed side rim no longer overlaps the modeled
@@ -50,14 +52,13 @@ remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
 The [detached nominal cut-solid screen](owner-barrel-outer-header-cut-integrity.md)
 finds the header and outer posts remain single solids after the modeled
-recess/bores, but only 2.706 mm separates a post cut from a fixed kicker
-screw envelope. That small nominal gap is a `REVISE` finding, not clearance
-or wood-strength approval.
+recess/bores. The current Y = −85 mm forward row leaves a measured 12.706 mm
+between each post cut and the nearest fixed kicker screw envelope. This
+nominal gap is a `REVISE` finding, not clearance or wood-strength approval.
 The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)
-screens three more rearward poses without changing this published scene.
-The Y = −85 mm trial increases the modeled gap to 12.706 mm while leaving
-24.6 mm between counterbores, but it remains `REVISE` and needs a separate
-viewer update and full recheck before being shown as the current pose.
+uses the current Y = −85 mm viewer as its source and compares Y = −75,
+−80, and −90 mm alternatives. The current pose has 24.600 mm between
+counterbores; it remains provisional and `REVISE`.
 The previous 5 in center bolt broke out of receiving wood. The 22 mm washer
 is **not a selected retail product**. Every station remains `REVISE`; the
 changed drawings are not complete joints or a drilling plan.

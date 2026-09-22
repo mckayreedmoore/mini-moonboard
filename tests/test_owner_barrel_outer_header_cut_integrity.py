@@ -14,6 +14,16 @@ def _report():
 
 def test_exact_current_viewer_scope_and_no_release():
     report = _report()
+    from scripts.export_owner_barrel_scene import build_viewer_assembly
+
+    assembly = build_viewer_assembly()
+    for side in ("left", "right"):
+        station = f"clip_timber_header_outer_{side}"
+        assert sorted(
+            bolt.start.y
+            for name, bolt in assembly["bolts"].items()
+            if assembly["bolt_station"][name] == station
+        ) == [-135.0, -85.0]
     assert (
         report["source_assembly"] == "export_owner_barrel_scene.build_viewer_assembly"
     )
@@ -81,7 +91,7 @@ def test_nominal_residuals_and_fixed_axes_are_reported_not_accepted():
         post = report["members"][f"base_post_outer_{side}"]
         assert post["fixed_axis_proximity"]["panel_screws"]["nearest"][
             "distance_mm"
-        ] == pytest.approx(2.70625, abs=0.05)
+        ] == pytest.approx(12.70625, abs=0.05)
     assert report["limits"].lower().find("strength") >= 0
 
 

@@ -17,6 +17,7 @@ def test_exact_scope_and_no_release():
     assert report["inventory"]["outer_header_rows"] == 4
     assert report["inventory"]["fixed_panel_screws"] == 66
     assert report["inventory"]["retained_frame_bolts"] == 12
+    assert report["source_forward_y_mm"] == -85.0
     assert set(report["options"]) == {"-75", "-80", "-85", "-90"}
     assert all(not flag for flag in report["release_flags"].values())
     assert not any(
@@ -95,4 +96,15 @@ def test_changed_fixed_axis_is_rejected():
     assembly = build_viewer_assembly()
     assembly["panel_connections"] = assembly["panel_connections"][:-1]
     with pytest.raises(ValueError, match="Fixed source axes changed"):
+        screen.probe(assembly=assembly)
+
+
+def test_changed_viewer_forward_row_is_rejected():
+    from scripts.export_owner_barrel_scene import build_viewer_assembly
+
+    assembly = build_viewer_assembly()
+    assembly["diagnostics"]["producer_diagnostics"]["outer_top8"][
+        "viewer_trial_outer_header_forward_y_mm"
+    ] = -75.0
+    with pytest.raises(ValueError, match="Viewer outer-header forward row changed"):
         screen.probe(assembly=assembly)

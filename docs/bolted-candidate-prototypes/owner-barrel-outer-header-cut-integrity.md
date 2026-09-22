@@ -6,12 +6,15 @@ It subtracts only four provisional counterbores and their machine bores from
 `base_header`. For each outer post, it subtracts only that side's two barrel
 cross-bores and machine bores. A path is clipped to its intended host before
 the Boolean cut; no side rim, panel, other post, or other wood is cut.
+The current recessed viewer places the rear row at Y = −135 mm and the
+forward row at Y = −85 mm on both sides. The producer default remains
+Y = −75 mm; this viewer change is provisional.
 
 | Current kerf-right viewer member | Uncut mm³ | Cut mm³ | Cut solids |
 | --- | ---: | ---: | ---: |
 | Base header | 12,961,655.528 | 12,942,617.585 | 1, valid |
-| Left outer post | 1,271,561.973 | 1,259,826.352 | 1, valid |
-| Right outer post | 1,271,561.973 | 1,259,826.328 | 1, valid |
+| Left outer post | 1,271,561.973 | 1,259,826.349 | 1, valid |
+| Right outer post | 1,271,561.973 | 1,259,826.324 | 1, valid |
 
 The header's smallest modeled radial side-edge stock is 6.35 mm beside a
 counterbore; its modeled floor below each 6.651 mm recess is 31.449 mm.
@@ -23,11 +26,11 @@ independent removed-solid calculation by less than 0.1 mm³ because of CAD
 precision; the output reports both cut and removed volumes.
 
 For the removed material, the nearest finite fixed panel-screw envelope is
-44.912 mm from the header cut and 2.706 mm from each post cut. The nearest
-retained frame-bolt envelope is 136.035 mm from the header cut and 42.135 mm
+46.596 mm from the header cut and 12.706 mm from each post cut. The nearest
+retained frame-bolt envelope is 136.082 mm from the header cut and 42.277 mm
 from each post cut. No fixed panel-screw or frame-bolt envelope intersects
 the modeled removed material above the 1 mm³ reporting threshold. The
-2.706 mm nominal post/screw gap and 6.35 mm header side residual are both
+12.706 mm nominal post/screw gap and 6.35 mm header side residual are both
 decision-relevant **REVISE** findings, not clearance approval. Delivered parts,
 hole placement, and tolerances could consume those margins. The fixed
 66 panel/kicker screw axes and 12 frame-bolt axes are checked unchanged.

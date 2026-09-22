@@ -164,6 +164,7 @@ def build_scene():
         "diagnostic_bolt_axes": bolts,
         "conditional_outer_header_recess_envelopes": recessed,
         "outer_header_recess_trial": {
+            "forward_row_y_mm": outer.VIEWER_HEADER_FORWARD_Y_MM,
             "counterbore_depth_mm": outer.VIEWER_HEADER_RECESS_MM,
             "washer_od_mm": outer.VIEWER_HEADER_WASHER_OD_MM,
             "head_od_mm": outer.VIEWER_HEADER_HEAD_OD_MM,

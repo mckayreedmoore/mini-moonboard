@@ -27,6 +27,7 @@ VIEWER_HEADER_WASHER_OD_MM = 25.4
 VIEWER_HEADER_HEAD_OD_MM = 11.0
 VIEWER_HEADER_HEAD_HEIGHT_MM = 4.0
 VIEWER_HEADER_HEAD_COVER_MM = 1.0
+VIEWER_HEADER_FORWARD_Y_MM = -85.0
 VIEWER_HEADER_RECESS_MM = (
     hardware.WASHER_THICKNESS_SENSITIVITY_MM
     + VIEWER_HEADER_HEAD_HEIGHT_MM
@@ -139,7 +140,7 @@ def _top_center(side, wood):
     ]
 
 
-def _header_outer(side, wood, recess_mm=0.0):
+def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0):
     name = f"base_post_outer_{side}"
     post, header = wood[name], wood["base_header"]
     pb, hb = post.BoundingBox(), header.BoundingBox()
@@ -155,7 +156,7 @@ def _header_outer(side, wood, recess_mm=0.0):
             cross_dir,
             {"base_header": header, name: post},
         )
-        for y in (-135.0, -75.0)
+        for y in (-135.0, forward_y_mm)
     ]
 
 
@@ -335,7 +336,12 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
             if member not in wood:
                 raise ValueError(f"{station}: missing selected source timber {member}")
         if recessed_header and duty["family"] == "header_outer_post":
-            rows = _header_outer(duty["side"], wood, VIEWER_HEADER_RECESS_MM)
+            rows = _header_outer(
+                duty["side"],
+                wood,
+                VIEWER_HEADER_RECESS_MM,
+                VIEWER_HEADER_FORWARD_Y_MM,
+            )
         elif viewer_revision and duty["family"] == "base_outer_side":
             rows = _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
         else:
@@ -450,6 +456,9 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
             if viewer_revision
             else None,
             "viewer_trial_outer_header_recess_mm": VIEWER_HEADER_RECESS_MM
+            if recessed_header
+            else None,
+            "viewer_trial_outer_header_forward_y_mm": VIEWER_HEADER_FORWARD_Y_MM
             if recessed_header
             else None,
             "conditional_rim_removal_required": recessed_header,

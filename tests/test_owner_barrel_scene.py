@@ -37,6 +37,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert all(row["mesh"]["triangles"] for row in scene["barrel_nut_envelopes"])
     assert scene["cross_family_physical_clash_stations"] == []
     trial = scene["outer_header_recess_trial"]
+    assert trial["forward_row_y_mm"] == outer.VIEWER_HEADER_FORWARD_Y_MM == -85.0
     assert trial["counterbore_depth_mm"] == (
         independent.hardware.WASHER_THICKNESS_SENSITIVITY_MM
         + independent.HEAD_HEIGHT_MM

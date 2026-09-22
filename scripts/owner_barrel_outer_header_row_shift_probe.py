@@ -15,6 +15,7 @@ from scripts import owner_layout_protected as protected
 
 SCHEMA = "owner_barrel_outer_header_row_shift_probe/v1"
 OPTIONS_MM = (-75.0, -80.0, -85.0, -90.0)
+SOURCE_FORWARD_Y_MM = -85.0
 REAR_Y_MM = -135.0
 HIT_TOL_MM3 = 1.0
 ROLES = ("counterbore", "machine_bore", "barrel_bore")
@@ -79,10 +80,15 @@ def _fixed_axes_unchanged(assembly):
 
 
 def _source_rows(assembly):
+    source_forward_y = assembly["diagnostics"]["producer_diagnostics"]["outer_top8"][
+        "viewer_trial_outer_header_forward_y_mm"
+    ]
+    if abs(source_forward_y - SOURCE_FORWARD_Y_MM) > 1e-6:
+        raise ValueError("Viewer outer-header forward row changed")
     rows = {}
     for side in ("left", "right"):
         station = f"clip_timber_header_outer_{side}"
-        for index, source_y in ((1, REAR_Y_MM), (2, OPTIONS_MM[0])):
+        for index, source_y in ((1, REAR_Y_MM), (2, source_forward_y)):
             prefix = f"barrel_trial_{station}_{index}"
             bolt = f"{prefix}_bolt"
             paths = {
@@ -121,7 +127,7 @@ def _source_rows(assembly):
             }
     if len(rows) != 4:
         raise ValueError("Expected four recessed outer-header rows")
-    return rows
+    return rows, source_forward_y
 
 
 def _shift_rows(rows, forward_y):
@@ -364,7 +370,7 @@ def probe(*, assembly=None, fixed=None):
     _fixed_axes_unchanged(assembly)
     if any(assembly["release_flags"].values()):
         raise ValueError("Source viewer unexpectedly carries release approval")
-    rows = _source_rows(assembly)
+    rows, source_forward_y = _source_rows(assembly)
     fixed = protected.inventory() if fixed is None else fixed
     other_physical, other_paths = _other_inventory(assembly, set(rows))
     options = {}
@@ -390,6 +396,7 @@ def probe(*, assembly=None, fixed=None):
         "schema": SCHEMA,
         "baseline": KERF_RIGHT,
         "source_assembly": "export_owner_barrel_scene.build_viewer_assembly",
+        "source_forward_y_mm": source_forward_y,
         "inventory": {
             "outer_header_rows": len(rows),
             "fixed_panel_screws": len(assembly["panel_connections"]),

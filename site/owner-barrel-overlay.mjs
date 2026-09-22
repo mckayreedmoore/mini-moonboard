@@ -41,6 +41,7 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
           data.conditional_outer_header_recess_envelopes.filter(row =>
             row.source_station === station && row.role === role).length !== 2)) ||
       data.outer_header_recess_trial?.counterbore_depth_mm !== 6.651 ||
+      data.outer_header_recess_trial?.forward_row_y_mm !== -85 ||
       data.outer_header_recess_trial?.side_rim_removal_required_for_driver !== true ||
       data.outer_header_recess_trial?.actual_rim_removal_verified !== false ||
       data.outer_header_recess_trial?.delivered_hardware_verified !== false ||

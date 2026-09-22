@@ -1,7 +1,9 @@
 # Outer-header barrel bolt: recessed-head trial
 
 The [finite probe](../../scripts/owner_barrel_outer_header_recess_probe.py) tests
-all four outer-post/header bolts in the full kerf-right barrel-only assembly.
+all four outer-post/header bolts in the original Y = −75 mm forward-row
+kerf-right barrel-only trial. The current viewer's forward row is at
+Y = −85 mm; this archived screen does not establish its updated clearance.
 It changes no panel, side rim, post, frame-bolt, or fixed screw position. This
 is a *conditional* geometry alternative, not a cut or drilling instruction.
 

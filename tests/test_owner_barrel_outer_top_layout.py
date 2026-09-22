@@ -55,6 +55,7 @@ def test_conditional_recess_only_changes_four_outer_header_viewer_rows():
     previous_viewer = layout.build_revised_layout(wood)
     recessed = layout.build_recessed_viewer_layout(wood)
     assert set(recessed["stations"]) == set(original["stations"])
+    assert recessed["diagnostics"]["viewer_trial_outer_header_forward_y_mm"] == -85.0
     for station, row in recessed["stations"].items():
         before = previous_viewer["stations"][station]
         if not station.startswith("clip_timber_header_outer_"):
@@ -63,6 +64,20 @@ def test_conditional_recess_only_changes_four_outer_header_viewer_rows():
             ]
             assert all(set(stack) == {"shaft"} for stack in row["stacks"].values())
             continue
+        assert sorted(
+            bolt.start.y for bolt in original["stations"][station]["bolts"].values()
+        ) == [
+            -135.0,
+            -75.0,
+        ]
+        assert sorted(bolt.start.y for bolt in before["bolts"].values()) == [
+            -135.0,
+            -75.0,
+        ]
+        assert sorted(bolt.start.y for bolt in row["bolts"].values()) == [
+            -135.0,
+            -85.0,
+        ]
         for name, bolt in row["bolts"].items():
             assert bolt.start.z == pytest.approx(before["bolts"][name].start.z - 6.651)
             assert set(row["stacks"][name]) == {"shaft", "washer", "head"}

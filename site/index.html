@@ -763,13 +763,13 @@
           const raw = await response.text();
           const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))))
             .map(byte => byte.toString(16).padStart(2, '0')).join('');
-          if (digest !== '769111a76c383cb2ce6968c7c848f04ea5c3172eb24c6c86849b4535a031be0a') throw new Error('Owner barrel scene bytes differ from reviewed export');
+          if (digest !== '69e7e422f6406ee9be76d31c5dbab2857d5c339af5029c78e66debaeec72efa4') throw new Error('Owner barrel scene bytes differ from reviewed export');
           return validateOwnerBarrelScene(JSON.parse(raw), ownerConceptHiddenNames);
         }).then(data => {
           renderOwnerBarrelScene(THREE, data, climberView, meshes);
           updateBoltVisibility();
           document.querySelector('#model-status').textContent =
-            'Barrel-only development concept — not structurally qualified or build-ready. No corner-joint blocks; green wood pieces are kicker-screw backers, not joint blocks. Red barrels and cyan bolt paths are diagnostic; orange heads, gold washers and magenta wireframe recesses show a conditional outer-header trial. Its driver remains blocked by each installed side rim: rim-first removal is required but not physically verified. Hardware fit, counterbore wood capacity and all 24 joints remain REVISE. Alt-click to inspect. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling or fabrication release.';
+            'Barrel-only development concept — not structurally qualified or build-ready. No corner-joint blocks; green wood pieces are kicker-screw backers, not joint blocks. Red barrels and cyan bolt paths are diagnostic; orange heads, gold washers and magenta wireframe recesses show a conditional outer-header trial with its forward row at Y = −85 mm. Its driver remains blocked by each installed side rim: rim-first removal is required but not physically verified. Hardware fit, counterbore wood capacity and all 24 joints remain REVISE. Alt-click to inspect. All 66 panel/kicker screws and 12 frame bolts retain their axes. No drilling or fabrication release.';
         }).catch(error => {
           document.querySelector('#model-status').textContent =
             `Owner barrel overlay unavailable (${error.message}). This is incomplete baseline context with old joints hidden; select the kerf-right model for intact history. No fabrication release.`;

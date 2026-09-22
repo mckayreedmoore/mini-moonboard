@@ -31,9 +31,21 @@ def test_revised_viewer_assembly_keeps_complete_no_release_inventory():
         ]
         assert len(bolts) == 2
         assert all(abs(bolt.length - 101.6) < 1e-6 for bolt in bolts)
+    for side in ("left", "right"):
+        station = f"clip_timber_header_outer_{side}"
+        rows = [
+            bolt.start.y
+            for name, bolt in assembly["bolts"].items()
+            if assembly["bolt_station"][name] == station
+        ]
+        assert sorted(rows) == [-135.0, -85.0]
 
 
 def test_published_scene_is_the_exact_current_source_export():
     published = OUTPUT.read_bytes()
     generated = (json.dumps(build_scene(), separators=(",", ":")) + "\n").encode()
     assert published == generated
+    scene = json.loads(published)
+    assert scene["outer_header_recess_trial"]["forward_row_y_mm"] == -85.0
+    assert not scene["layout_clearance_approved"]
+    assert not scene["drilling_released"]

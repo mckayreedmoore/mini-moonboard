@@ -35,6 +35,7 @@ const scene = {
   barrel_nut_envelopes: stations.map(source_station => ({source_station})),
   conditional_outer_header_recess_envelopes: recessEnvelopes,
   outer_header_recess_trial: {
+    forward_row_y_mm: -85,
     counterbore_depth_mm: 6.651,
     side_rim_removal_required_for_driver: true,
     actual_rim_removal_verified: false,

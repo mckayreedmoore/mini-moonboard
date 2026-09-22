@@ -1,10 +1,11 @@
 # Recessed outer-header forward-row sensitivity
 
 The [detached CAD probe](../../scripts/owner_barrel_outer_header_row_shift_probe.py)
-compares the current recessed outer-header/post barrel layout with three
-forward-row offsets. It reads the kerf-right owner barrel viewer assembly but
-does not edit its producer, scene, wood, panels, 66 panel/kicker screw axes,
-12 retained frame-bolt axes, or any other joint. The rear row stays at
+compares the current recessed outer-header/post barrel layout at forward-row
+Y = −85 mm with three detached forward-row alternatives. It reads the kerf-right
+owner barrel viewer assembly but does not edit its producer, scene, wood,
+panels, 66 panel/kicker screw axes, 12 retained frame-bolt axes, or any other
+joint. The rear row stays at
 Y = −135 mm on both sides. Each option translates the **actual viewer**
 forward-row barrel, pilot, cross-bore, 25.4 mm counterbore, shaft, washer,
 head, and straight tool envelopes together; it cuts copies of only the
@@ -12,9 +13,9 @@ header and two outer posts.
 
 | Forward row Y | Nearest removed-wood to fixed screw | Same-side counterbore gap |
 | ---: | ---: | ---: |
-| −75 mm (viewer) | 2.706 mm | 34.600 mm |
+| −75 mm | 2.706 mm | 34.600 mm |
 | −80 mm | 7.706 mm | 29.600 mm |
-| −85 mm | 12.706 mm | 24.600 mm |
+| −85 mm (viewer) | 12.706 mm | 24.600 mm |
 | −90 mm | 17.706 mm | 19.600 mm |
 
 The limiting axis in each pose is `round_kicker_left_rim_2` at the left
