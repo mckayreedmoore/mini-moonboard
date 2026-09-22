@@ -1,8 +1,9 @@
-# Outward-post barrel/backer MVP: retail cost screen
+# Historical outward-post barrel/backer retail cost screen
 
 Checked **21 September 2026 (America/Denver)**. USD, public US Lowe's and Home
 Depot listings only. No seller contact, cart, or purchase. This prices the
-**active kerf-right outward-post viewer**, not the selected floor-flush build.
+**superseded kerf-right outward-post viewer**, not the current seam-side-post
+barrel scene or the selected floor-flush build.
 It is a material inventory and partial retail cost, **not a complete dollar
 quote**: several required items have no verifiable price or selected retail
 part. No joint, drilling, fabrication, or climbing release follows from it.

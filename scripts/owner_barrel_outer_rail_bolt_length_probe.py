@@ -9,9 +9,9 @@ import math
 
 import cadquery as cq
 
-from scripts import owner_barrel_rail_layout as rail
 from scripts import owner_barrel_center_layout as center
 from scripts import owner_barrel_outer_top_layout as outer
+from scripts import owner_barrel_rail_layout as rail
 from scripts import owner_layout_protected as protected
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
 from scripts.owner_barrel_layout_assembly import build_assembly

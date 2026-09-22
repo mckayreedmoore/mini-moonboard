@@ -23,7 +23,9 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     )[0]
     assert "owner-barrel-outer-header-cut-integrity.md" in barrel_documents
     assert "owner-barrel-mvp-preliminary.md" in barrel_documents
-    assert "owner-barrel-mvp-retail-cost.md" in barrel_documents
+    assert "owner-barrel-integrated-cost.md" in barrel_documents
+    assert "owner-barrel-integrated-center-hardware.md" in barrel_documents
+    assert "owner-barrel-load-test-readiness.md" in barrel_documents
     assert "owner-barrel-retail-thread-evidence.md" in barrel_documents
     assert "no structural release" in barrel_documents
     assert "no purchase release" in barrel_documents

@@ -1,8 +1,11 @@
-# Preliminary numerical screen: two active barrel joints
+# Historical preliminary numerical screen: prior outward-post barrel joints
 
-**Research screen only; no pass, load rating, drilling, fabrication, or climbing release.**
+**Historical research screen only; no pass, load rating, drilling, fabrication,
+or climbing release.** This does not analyze the now-published seam-side
+center posts or their revised principal/header joint. Its rail and outer-header
+figures are conditional constituent references, not a whole-frame assessment.
 Run `.venv/bin/python -m scripts.owner_barrel_mvp_preliminary` for the live,
-source-built numbers. The script reads the current outward-post
+source-built numbers. The script reads the earlier outward-post
 `export_owner_barrel_scene.build_viewer_assembly()` with its revised 6 in /
 60 mm outer-rail pose and recessed outer-header pose. It does not read the
 published scene JSON or change any producer. The 66 panel/kicker and 12 frame
