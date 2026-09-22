@@ -32,6 +32,7 @@ def test_six_in_nominal_tip_inside_barrel_and_bore(report):
     assert report["peer_hardware_hits_mm3"] == {}
     for station in report["stations"].values():
         assert station["source_status"] == "DIRECT_TRIAL_GEOMETRY_ONLY"
+        assert station["source_bolt_lengths_mm"] == pytest.approx([152.4, 152.4])
         assert station["direct_butt_available"]
         assert station["barrels_contained_in_rail"]
         assert station["machine_bore_meets_barrel_bore"]
@@ -59,6 +60,18 @@ def test_geometry_is_not_hardware_or_drilling_release(report):
     assert report["capacity_verified"] is False
     assert report["drilling_released"] is False
     assert report["fabrication_released"] is False
+
+
+def test_six_in_screen_reads_current_integrated_assembly():
+    from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
+
+    current = probe(assembly=build_integrated_viewer_assembly())
+    assert current["trial_bolt_count"] == 12
+    assert current["nominal_geometry_clear"] is True
+    assert current["peer_hardware_hits_mm3"] == {}
+    for station in current["stations"].values():
+        assert station["source_bolt_lengths_mm"] == pytest.approx([152.4, 152.4])
+        assert station["source_status"] == "DIRECT_TRIAL_GEOMETRY_ONLY"
 
 
 def test_rejects_changed_viewer_station_inventory():

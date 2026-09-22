@@ -41,6 +41,29 @@ access remain unverified. The deep blind bores also need an insertion,
 alignment, extraction and rim-withdrawal rehearsal against this **46-pair**
 assembly; earlier service probes used the 48-pair composition.
 
+The corrected 6-in
+[outer-rail setback probe](../../scripts/owner_barrel_outer_rail_setback_probe.py)
+also accepts the current 46-pair assembly as input. Its six-station, 12-bolt
+nominal screen found no protected-feature, unrelated-wood or peer-hardware
+hits at the current 60 mm setback or read-only 58 and 56 mm setbacks. These
+numbers use the same provisional centered barrel thread axis and dimensions:
+
+| Barrel setback from rail butt | Tip past assumed axis | Tip before barrel far wall | Smallest axis/far-wall margin | Probe gate |
+| ---: | ---: | ---: | ---: | --- |
+| 60 mm (maintained) | 1.849 mm | 3.155 mm | 1.849 mm | Nominal geometry only |
+| 58 mm (read-only) | 3.849 mm | 1.155 mm | 1.155 mm | Nominal geometry only |
+| 56 mm (read-only) | 5.849 mm | −0.845 mm | −0.845 mm | Far-wall gate fails |
+
+Moving to 58 mm improves axis reach but **reduces** the smallest longitudinal
+margin and leaves less wood ahead of each barrel. At 56 mm the bolt tip passes
+the modeled barrel far wall; the
+[Lowe's Hillman 880543 description](https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559)
+says its threaded portion passes through the sides, but does not establish the
+usable thread depth, exit geometry, or an installed tip-clearance allowance.
+Neither read-only pose is selected or a reach/wood-strength solution. The
+60 mm assembly and public viewer remain unchanged pending a qualified hardware
+stack and an owner-approved physical revision.
+
 Separately, two left center-rail machine bores cross existing service voids
 in the current cut scene. This reach screen does not clear those crossings.
 No installed-fit pass, drilling, fabrication, load-test or climbing release

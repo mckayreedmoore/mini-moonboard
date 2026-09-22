@@ -106,6 +106,7 @@ def probe(assembly=None):
         wood=assembly["wood"],
         stations=stations,
         barrel_setback_mm=TRIAL_SETBACK_MM,
+        bolt_length_mm=TRIAL_BOLT_LENGTH_MM,
         cut_wood=False,
     )
     base_screen = rail.screen(built)
@@ -118,6 +119,7 @@ def probe(assembly=None):
             raise ValueError(f"{station}: expected two distinct barrel rows")
         records[station] = {
             "source_status": screen["geometry_status"],
+            "source_bolt_lengths_mm": screen["nominal_bolt_lengths_mm"],
             "direct_butt_available": screen["direct_butt_available"],
             "barrels_contained_in_rail": screen["barrels_contained_in_rail"],
             "machine_bore_meets_barrel_bore": screen["machine_bore_meets_barrel_bore"],
