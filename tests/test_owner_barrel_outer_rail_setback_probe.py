@@ -44,6 +44,12 @@ def test_six_in_nominal_tip_inside_barrel_and_bore(report):
                 3.1548, abs=0.01
             )
             assert bolt["nominal_tip_to_machine_bore_end_mm"] > 0
+            assert bolt[
+                "nominal_length_window_for_axis_to_far_wall_mm"
+            ] == pytest.approx([150.551, 155.5548], abs=0.01)
+            assert bolt["smallest_nominal_longitudinal_margin_mm"] == pytest.approx(
+                1.849, abs=0.01
+            )
 
 
 def test_geometry_is_not_hardware_or_drilling_release(report):

@@ -60,12 +60,23 @@ def _row_record(row):
             "axis_from_bolt_start_mm": round(axis, 6),
             "barrel_far_wall_from_bolt_start_mm": round(barrel_far_wall, 6),
             "machine_bore_end_from_bolt_start_mm": round(bore_end, 6),
+            "nominal_length_window_for_axis_to_far_wall_mm": [
+                round(axis, 6),
+                round(barrel_far_wall, 6),
+            ],
             "nominal_tip_past_axis_mm": round(TRIAL_BOLT_LENGTH_MM - axis, 6),
             "nominal_tip_to_barrel_far_wall_mm": round(
                 barrel_far_wall - TRIAL_BOLT_LENGTH_MM, 6
             ),
             "nominal_tip_to_machine_bore_end_mm": round(
                 bore_end - TRIAL_BOLT_LENGTH_MM, 6
+            ),
+            "smallest_nominal_longitudinal_margin_mm": round(
+                min(
+                    TRIAL_BOLT_LENGTH_MM - axis,
+                    barrel_far_wall - TRIAL_BOLT_LENGTH_MM,
+                ),
+                6,
             ),
             "tip_xyz_mm": [round(value, 6) for value in tip.toTuple()],
             "barrel_setback_from_butt_mm": TRIAL_SETBACK_MM,

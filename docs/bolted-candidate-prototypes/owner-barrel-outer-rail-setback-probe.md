@@ -18,6 +18,14 @@ verified engagement or tolerance allowance. The potential axial overlap
 from the near barrel wall to the tip is 6.8528 mm; it is *not* a count of
 effective threads, because the delivered internal thread geometry and axis
 are not controlled by this model.
+The nominal tip window from assumed thread axis to far barrel wall is
+150.551–155.5548 mm measured from the modeled bolt start. A 152.4 mm bolt
+has only **1.849 mm** of favorable margin on the axis side. Washer stack,
+delivered length and axial thread geometry could consume that margin.
+The existing 6–10 mm barrel-axis-offset sensitivity is **transverse** to
+these X-directed bolts: an actual offset differing from the modeled centered
+pose could misalign the threads even if this longitudinal tip window holds.
+The 1.849 mm tip figure must not be used to infer that offset tolerance.
 
 The exact current assembly's source screen reports direct butt geometry,
 both barrels contained in receiving wood, machine-bore/cross-bore
