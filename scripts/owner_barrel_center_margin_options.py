@@ -65,6 +65,9 @@ def _pose(
     barrel_face,
     seat_depth,
     thread_depth,
+    bolt_angle_deg=BOLT_ANGLE_DEG,
+    pocket_lead_mm=HEAD_POCKET_LEAD_MM,
+    mouth_relief=True,
 ):
     """Cross a YZ bolt with a barrel entering a principal broad N face."""
     header = wood["base_header"]
@@ -72,7 +75,7 @@ def _pose(
     bounds = coordinates.local_bounds(principal)
     center_x = sum(bounds["x"]) / 2
     x = center_x + x_offset
-    angle = math.radians(BOLT_ANGLE_DEG)
+    angle = math.radians(bolt_angle_deg)
     bolt_axis = (0.0, math.cos(angle), math.sin(angle))
     if barrel_face not in ("rear", "front"):
         raise ValueError("Unsupported principal barrel entry face")
@@ -117,9 +120,9 @@ def _pose(
         "washer": cylinder(shaft_start, bolt_axis, current.WASHER_T, 19.05),
         "head": cylinder(add(shaft_start, bolt_axis, -4), bolt_axis, 4, 11.0),
         "head_pocket": cylinder(
-            add(header_face, bolt_axis, -HEAD_POCKET_LEAD_MM),
+            add(header_face, bolt_axis, -pocket_lead_mm),
             bolt_axis,
-            seat_depth + HEAD_POCKET_LEAD_MM,
+            seat_depth + pocket_lead_mm,
             HEAD_POCKET_DIAMETER_MM,
         ),
         "bolt_tool": cylinder(
@@ -134,13 +137,14 @@ def _pose(
             center.TOOL_LENGTH_MM,
             center.TOOL_DIAMETER_MM,
         ),
-        "barrel_mouth_relief": cylinder(
+    }
+    if mouth_relief:
+        roles["barrel_mouth_relief"] = cylinder(
             add(entry, outward, outward_sign * 1.5),
             barrel_axis,
             3.0,
             BARREL_MOUTH_RELIEF_DIAMETER_MM,
-        ),
-    }
+        )
     inner_bore = cylinder(
         add(entry, barrel_axis, 1.0),
         barrel_axis,
@@ -162,9 +166,10 @@ def _pose(
         "name": name,
         "entry_face": f"principal_{barrel_face}_broad_face",
         "bolt_entry_face": "header_rear_recess",
+        "header_entry_xyz_mm": [_rounded(v) for v in header_face],
         "bolt_seat_xyz_mm": [_rounded(v) for v in seat],
         "bolt_axis_xyz": list(bolt_axis),
-        "bolt_axis_angle_from_y_deg": BOLT_ANGLE_DEG,
+        "bolt_axis_angle_from_y_deg": bolt_angle_deg,
         "barrel_entry_xyz_mm": [_rounded(v) for v in entry],
         "barrel_axis_xyz": list(barrel_axis),
         "thread_axis_xyz_mm": [_rounded(v) for v in thread],
@@ -206,20 +211,34 @@ def _pose(
         "barrel_radial_x_edge_ligament_mm": _rounded(
             min(x - bounds["x"][0], bounds["x"][1] - x) - current.OD / 2
         ),
-        "barrel_mouth_relief_x_side_breakout_mm": _rounded(
-            BARREL_MOUTH_RELIEF_DIAMETER_MM / 2
-            - min(x - bounds["x"][0], bounds["x"][1] - x)
+        "barrel_mouth_relief_x_side_breakout_mm": (
+            _rounded(
+                BARREL_MOUTH_RELIEF_DIAMETER_MM / 2
+                - min(x - bounds["x"][0], bounds["x"][1] - x)
+            )
+            if mouth_relief
+            else 0.0
         ),
-        "unrelieved_barrel_tool_host_intrusion_mm3": _rounded(
+        "unrelieved_external_barrel_tool_mouth_intrusion_mm3": _rounded(
             protected._volume(roles["barrel_tool"], principal)
         ),
-        "barrel_tool_residual_host_mm3": _rounded(
+        "external_barrel_tool_mouth_residual_host_mm3": _rounded(
             protected._volume(
-                roles["barrel_tool"], principal.cut(roles["barrel_mouth_relief"])
+                roles["barrel_tool"],
+                principal.cut(roles["barrel_mouth_relief"])
+                if mouth_relief
+                else principal,
             )
         ),
-        "barrel_mouth_relief_in_host_fraction": _shape_fraction(
-            roles["barrel_mouth_relief"], principal
+        "barrel_tool_modeled_axis_span_from_entry_mm": [
+            -center.TOOL_LENGTH_MM,
+            0.0,
+        ],
+        "barrel_insertion_orientation_access_verified": False,
+        "barrel_mouth_relief_in_host_fraction": (
+            _shape_fraction(roles["barrel_mouth_relief"], principal)
+            if mouth_relief
+            else None
         ),
         "screened_roles": sorted(roles),
         "complete_thread_engagement_verified": False,
@@ -250,12 +269,16 @@ def _screen(
     entry_zs,
     seat_depth,
     thread_depth,
+    x_offsets=X_OFFSETS_MM,
+    bolt_angle_deg=BOLT_ANGLE_DEG,
+    pocket_lead_mm=HEAD_POCKET_LEAD_MM,
+    mouth_relief=True,
 ):
     fixed = protected.inventory()
     rows, solids, extensions = {}, {}, {}
     for side in current.SIDES:
         for index, (offset, z, length) in enumerate(
-            zip(X_OFFSETS_MM, entry_zs, bolt_lengths, strict=True), 1
+            zip(x_offsets, entry_zs, bolt_lengths, strict=True), 1
         ):
             name, roles, row, tip = _pose(
                 wood,
@@ -267,6 +290,9 @@ def _screen(
                 barrel_face=barrel_faces[side][index - 1],
                 seat_depth=seat_depth,
                 thread_depth=thread_depth,
+                bolt_angle_deg=bolt_angle_deg,
+                pocket_lead_mm=pocket_lead_mm,
+                mouth_relief=mouth_relief,
             )
             rows[name], solids[name], extensions[name] = row, roles, tip
 
@@ -394,7 +420,7 @@ def _screen(
             and row["nominal_tip_beyond_thread_axis_mm"] > 0
             and min(row["head_washer_inside_header_fraction"].values()) >= 0.99999
             and row["driver_residual_header_mm3"] <= VOLUME_TOL_MM3
-            and row["barrel_tool_residual_host_mm3"] <= VOLUME_TOL_MM3
+            and row["external_barrel_tool_mouth_residual_host_mm3"] <= VOLUME_TOL_MM3
             and row["head_pocket_in_principal_mm3"] <= VOLUME_TOL_MM3
             and not row["protected_hits_mm3"]
             and not row["unrelated_wood_hits_mm3"]
@@ -430,6 +456,10 @@ def _screen(
         "rows": rows,
         "barrel_faces": barrel_faces,
         "entry_zs_mm": entry_zs,
+        "x_offsets_mm": x_offsets,
+        "bolt_angle_deg": bolt_angle_deg,
+        "head_pocket_lead_mm": pocket_lead_mm,
+        "barrel_mouth_relief_modeled": mouth_relief,
         "header_seat_depth_mm": seat_depth,
         "thread_depth_from_seat_mm": thread_depth,
         "solids": solids,
@@ -441,7 +471,12 @@ def _screen(
         ),
         "maximum_barrel_mouth_x_side_breakout_mm": maximum_mouth_breakout,
         "net_section_unqualified": net_section_unqualified,
+        "barrel_insertion_orientation_access_verified": False,
         "minimum_tool_path_gap_mm": min_gap,
+        "tool_path_scope": (
+            "External driver and barrel-mouth approach envelopes only; "
+            "barrel insertion/orientation down the recess is unmodeled"
+        ),
         "minimum_principal_pair_tool_gap_mm": min(
             gap
             for key, gap in tool_gaps.items()
@@ -463,9 +498,9 @@ def _screen(
         "nominal_geometry_disposition": (
             "CLASH"
             if not clear
-            else "NOMINAL_TARGETS_ONLY_NET_SECTION_UNQUALIFIED"
+            else "NOMINAL_TARGETS_ONLY_NET_AND_INSERTION_UNVERIFIED"
             if net_section_unqualified
-            else "CLEAR_OCCUPANCY"
+            else "NOMINAL_MOUTH_ONLY_INSERTION_UNVERIFIED"
         ),
     }
 
@@ -586,6 +621,26 @@ def build():
         seat_depth=SHALLOW_HEAD_SEAT_DEPTH_MM,
         thread_depth=SHALLOW_THREAD_DEPTH_MM,
     )
+    fifty = _screen(
+        wood,
+        assembly,
+        baseline["solids"],
+        service,
+        bolt_lengths=NOMINAL_BOLT_LENGTHS_MM,
+        barrel_faces=faces,
+        entry_zs=(257.7, 258.1),
+        seat_depth=13.1,
+        thread_depth=100.0,
+        x_offsets=(-11.25, 11.25),
+        bolt_angle_deg=50.0,
+        pocket_lead_mm=13.0,
+        mouth_relief=False,
+    )
+    wire_record = next(
+        record
+        for record in variant(KERF_RIGHT).bore_records()
+        if record["name"] == "bore_base_principal_center_right_072"
+    )
     return {
         "schema": "owner_barrel_center_margin_options/v1",
         "source": "kerf-right model; integrated 4x6 post proof; maintained barrel assembly",
@@ -600,7 +655,22 @@ def build():
         "common_5_in_second_row": five_in,
         "shallow_seat_option": shallow,
         "shallow_common_5_in": shallow_five_in,
+        "fifty_degree_option": fifty,
+        "wire_service_context": {
+            "bore_name": wire_record["name"],
+            "member": wire_record["member"],
+            "datums": wire_record["datums"],
+            "diameter_mm": wire_record["diameter_mm"],
+            "axis_local": wire_record["axis_local"],
+            "start_xyz_mm": wire_record["start_mm"],
+            "direction_xyz": wire_record["direction"],
+            "length_mm": wire_record["length_mm"],
+            "modeled_lights": protected.inventory()["counts"]["lights"],
+            "modeled_wires": protected.inventory()["counts"]["wires"],
+            "reroute_and_feeding_verified": False,
+            "led_service_continuity_verified_after_reroute": False,
+        },
         "native_solve": False,
         "release_flags": dict(current.RELEASE_FLAGS),
-        "limits": "Nominal CAD only; barrel/thread rating, thread engagement, machining tolerances, tool withdrawal, and structural capacity unverified.",
+        "limits": "Nominal CAD only; barrel_tool models exterior mouth approach, not insertion/orientation through the recessed cross-bore. Barrel/thread rating, thread engagement, machining tolerances, tool withdrawal, and structural capacity unverified.",
     }

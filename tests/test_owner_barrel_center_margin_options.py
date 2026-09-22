@@ -39,7 +39,7 @@ def test_candidate_meets_finite_envelope_targets_without_reported_clashes(trial)
     assert option["net_section_unqualified"] is True
     assert (
         option["nominal_geometry_disposition"]
-        == "NOMINAL_TARGETS_ONLY_NET_SECTION_UNQUALIFIED"
+        == "NOMINAL_TARGETS_ONLY_NET_AND_INSERTION_UNVERIFIED"
     )
     assert not option["installed_hardware_pair_hits_mm3"]
     assert not option["tool_to_other_hardware_hits_mm3"]
@@ -53,8 +53,10 @@ def test_candidate_meets_finite_envelope_targets_without_reported_clashes(trial)
         assert row["barrel_cross_bore_in_host_fraction"] > 0.997
         assert row["barrel_cross_bore_past_entry_1mm_in_host_fraction"] > 0.999
         assert row["barrel_radial_x_edge_ligament_mm"] > 0
-        assert row["unrelieved_barrel_tool_host_intrusion_mm3"] > 50
-        assert row["barrel_tool_residual_host_mm3"] == 0
+        assert row["unrelieved_external_barrel_tool_mouth_intrusion_mm3"] > 50
+        assert row["external_barrel_tool_mouth_residual_host_mm3"] == 0
+        assert row["barrel_tool_modeled_axis_span_from_entry_mm"] == [-40, 0]
+        assert row["barrel_insertion_orientation_access_verified"] is False
         assert row["bolt_barrel_intersection_mm3"] > 0
         assert not row["protected_hits_mm3"]
         assert not row["unrelated_wood_hits_mm3"]
@@ -78,7 +80,7 @@ def test_common_five_in_second_bolt_is_reported_conditionally(trial):
     assert all(row["bolt_length_mm"] == 127 for row in option["rows"].values())
     assert (
         option["nominal_geometry_disposition"]
-        == "NOMINAL_TARGETS_ONLY_NET_SECTION_UNQUALIFIED"
+        == "NOMINAL_TARGETS_ONLY_NET_AND_INSERTION_UNVERIFIED"
     )
     assert all(
         row["modeled_bore_depth_past_nominal_tip_mm"] == 4
@@ -110,7 +112,8 @@ def test_shallow_seat_recovers_header_edge_but_fails_full_head_washer_support(tr
                 "washer": pytest.approx(0.799113),
             }
             assert row["driver_residual_header_mm3"] == 0
-            assert row["barrel_tool_residual_host_mm3"] == 0
+            assert row["external_barrel_tool_mouth_residual_host_mm3"] == 0
+            assert row["barrel_insertion_orientation_access_verified"] is False
             assert row["tip_extension_in_receiver_fraction"] == 1
             assert row["joined_wood_bore_core_fraction"] == 1
             assert not row["inherited_service_cutter_hits_mm3"]
@@ -136,3 +139,70 @@ def test_bounded_offset_sensitivity_is_not_misreported_as_collision_screen(trial
     assert offsets["11.0"]["full_collision_rescreened"] is False
     assert offsets["12.0"]["full_collision_rescreened"] is True
     assert offsets["13.0"]["full_collision_rescreened"] is False
+
+
+def test_fifty_degree_trial_is_only_blocked_by_inherited_wire_bore(trial):
+    option = trial["fifty_degree_option"]
+    assert option["x_offsets_mm"] == (-11.25, 11.25)
+    assert option["entry_zs_mm"] == (257.7, 258.1)
+    assert option["bolt_angle_deg"] == 50.0
+    assert option["header_seat_depth_mm"] == 13.1
+    assert option["thread_depth_from_seat_mm"] == 100.0
+    assert option["head_pocket_lead_mm"] == 13.0
+    assert option["barrel_mouth_relief_modeled"] is False
+    assert option["barrel_insertion_orientation_access_verified"] is False
+    assert "External driver and barrel-mouth approach" in option["tool_path_scope"]
+    assert option["minimum_barrel_recess_mm"] == pytest.approx(41.042477)
+    assert option["minimum_tool_path_gap_mm"] == pytest.approx(2.501469)
+    assert option["minimum_head_pocket_header_edge_mm"] == pytest.approx(2.092152)
+    assert option["minimum_barrel_radial_x_ligament_mm"] == pytest.approx(2.7962)
+    assert option["nominal_geometry_disposition"] == "CLASH"
+    assert not option["installed_hardware_pair_hits_mm3"]
+    assert not option["tool_to_other_hardware_hits_mm3"]
+    assert not option["tool_pair_hits_mm3"]
+    assert not option["shape_failures"]
+    for row in option["rows"].values():
+        assert row["head_washer_inside_header_fraction"] == {
+            "head": 1.0,
+            "washer": 1.0,
+        }
+        assert row["unrelieved_external_barrel_tool_mouth_intrusion_mm3"] == 0
+        assert row["external_barrel_tool_mouth_residual_host_mm3"] == 0
+        assert row["barrel_tool_modeled_axis_span_from_entry_mm"] == [-40, 0]
+        assert row["barrel_insertion_orientation_access_verified"] is False
+        assert row["driver_residual_header_mm3"] == 0
+        assert row["modeled_bore_depth_past_nominal_tip_mm"] == 4.0
+        assert row["tip_extension_in_receiver_fraction"] == 1.0
+        assert not row["protected_hits_mm3"]
+        assert not row["unrelated_wood_hits_mm3"]
+        assert not row["retained_hardware_hits_mm3"]
+    first = option["rows"]["barrel_center_clip_split_base_center_right_1"]
+    second = option["rows"]["barrel_center_clip_split_base_center_right_2"]
+    assert first["header_entry_xyz_mm"] == pytest.approx([58.75, -175.7, 257.7])
+    assert first["bolt_seat_xyz_mm"] == pytest.approx([58.75, -167.279482, 267.735182])
+    assert first["thread_axis_xyz_mm"] == pytest.approx(
+        [58.75, -103.000721, 344.339627]
+    )
+    bore = "bore_base_principal_center_right_072"
+    assert first["inherited_service_cutter_hits_mm3"] == {
+        "bolt_bore": {bore: pytest.approx(119.637598)},
+        "shaft": {bore: pytest.approx(50.821424)},
+    }
+    assert second["inherited_service_cutter_hits_mm3"] == {
+        "bolt_bore": {bore: pytest.approx(6.927263)}
+    }
+    assert all(
+        not row["inherited_service_cutter_hits_mm3"]
+        for name, row in option["rows"].items()
+        if "center_left" in name
+    )
+    context = trial["wire_service_context"]
+    assert context["bore_name"] == bore
+    assert context["datums"] == ["F1", "G1"]
+    assert context["axis_local"] == "X"
+    assert context["diameter_mm"] == 38.1
+    assert context["length_mm"] == pytest.approx(40.1)
+    assert context["modeled_lights"] == 132
+    assert context["modeled_wires"] == 131
+    assert context["reroute_and_feeding_verified"] is False
+    assert context["led_service_continuity_verified_after_reroute"] is False
