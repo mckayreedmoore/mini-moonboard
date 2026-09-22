@@ -61,6 +61,11 @@ def test_integrated_rim_withdrawal_is_sampled_only(assembly):
                 "protected_envelopes",
             )
         )
+        wood_sweep = row["withdrawal"]["continuous_wood_sweep"]
+        assert wood_sweep["convex_polyhedral_rim_verified"] is True
+        assert wood_sweep["continuous_nominal_wood_clear"] is True
+        assert wood_sweep["positive_volume_hits_mm3"] == {}
+        assert row["withdrawal"]["continuous_nominal_model_sweep_clear"] is True
         assert row["withdrawal"]["continuous_sweep_verified"] is False
         assert row["withdrawal"]["real_hardware_and_service_verified"] is False
     assert report["drilling_released"] is False
@@ -82,3 +87,22 @@ def test_swept_box_flags_an_obstacle_between_sampled_positions():
     assert report["retained_hardware_and_protected_clear"] is False
     assert report["uncertified_targets"]["retained_barrels"] == ["between_samples"]
     assert report["uncertified_targets"]["retained_bolt_stacks"] == []
+
+
+def test_convex_wood_sweep_finds_obstacle_between_sampled_poses():
+    rim = cq.Workplane("XY").box(1, 1, 1).val()
+    hidden_obstacle = cq.Workplane("XY").box(1, 0.1, 1).translate((0, 5, 0)).val()
+    report = withdrawal._continuous_wood_sweep(
+        rim, cq.Vector(0, 1, 0), 10, {"between_samples": hidden_obstacle}
+    )
+    assert report["convex_polyhedral_rim_verified"] is True
+    assert report["continuous_nominal_wood_clear"] is False
+    assert report["positive_volume_hits_mm3"]["between_samples"] > 0
+
+
+def test_wood_sweep_refuses_to_treat_a_concave_rim_as_its_convex_hull():
+    arm_x = cq.Workplane("XY").box(2, 1, 1, centered=False)
+    arm_y = cq.Workplane("XY").box(1, 2, 1, centered=False)
+    concave_rim = arm_x.union(arm_y).val()
+    with pytest.raises(ValueError, match="not a convex polyhedral solid"):
+        withdrawal._continuous_wood_sweep(concave_rim, cq.Vector(0, 1, 0), 10, {})

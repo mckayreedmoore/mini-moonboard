@@ -114,11 +114,14 @@ The [current swept-box certificate](../../scripts/owner_barrel_rim_withdrawal_ha
 also bounds **every intermediate straight-line pose** from 0 to 160 mm.
 On both sides, that conservative box is disjoint from all retained barrels,
 bolt stacks, and protected fixed envelopes after the specified removals.
-It overlaps other timber bounding boxes, so it cannot certify continuous
-wood-to-wood clearance; the 33-position wood intersection test remains only
-sampled evidence. The viewer therefore still records `sampled_nominal_only`,
-not an operational pass. Delivered hardware, tools, barrel extraction, safe
-support, wood sweep and repeated service remain unverified.
+Although that box overlaps other timber boxes, the same source now builds an
+exact convex-hull sweep of each **uncut, verified-convex** rim. Its 0–160 mm
+continuous straight-path solid has no positive-volume intersection above
+1e-6 mm³ with any other modeled timber on either side. This supersedes the
+33-position wood sampling for nominal collision geometry. The viewer records
+`continuous_nominal_geometry_only`, **not** an operational pass. Delivered
+wood dimensions and hardware, tools, barrel extraction, safe support,
+tolerances and repeated service remain unverified.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.

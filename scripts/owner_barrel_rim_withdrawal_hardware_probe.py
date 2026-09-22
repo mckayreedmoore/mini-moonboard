@@ -9,6 +9,8 @@ import math
 from itertools import pairwise
 
 import cadquery as cq
+import numpy as np
+from scipy.spatial import ConvexHull
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import export_owner_barrel_scene as viewer
@@ -20,6 +22,7 @@ from scripts import simple_owner_duty_ledger as ledger
 SCHEMA = "owner_barrel_rim_withdrawal_hardware_probe/v1"
 SOURCE_FORWARD_Y_MM = -85.0
 HIT_TOL_MM3 = 1.0
+WOOD_SWEEP_HIT_TOL_MM3 = 1e-6
 SAMPLES_MM = tuple(range(0, 161, 5))
 CATEGORIES = (
     "other_uncut_wood",
@@ -136,8 +139,68 @@ def _swept_aabb_certificate(rim, direction, path_end_mm, targets):
     }
 
 
+def _continuous_wood_sweep(rim, direction, path_end_mm, other_wood):
+    """Intersect the exact translation sweep of this convex polyhedral rim."""
+    if (
+        not math.isfinite(path_end_mm)
+        or path_end_mm <= 0
+        or not math.isclose(direction.Length, 1.0, abs_tol=1e-9)
+        or not rim.isValid()
+        or any(face.geomType() != "PLANE" for face in rim.Faces())
+    ):
+        raise ValueError("Require a valid planar rim and finite unit translation")
+    vertices = np.asarray([vertex.Center().toTuple() for vertex in rim.Vertices()])
+    start_hull = ConvexHull(vertices)
+    if not math.isclose(start_hull.volume, rim.Volume(), rel_tol=1e-8, abs_tol=1e-5):
+        raise ValueError("Rim is not a convex polyhedral solid")
+    translation = np.asarray(direction.toTuple()) * path_end_mm
+    points = np.vstack((vertices, vertices + translation))
+    hull = ConvexHull(points)
+    faces = []
+    for triangle, plane in zip(hull.simplices, hull.equations, strict=True):
+        corners = points[triangle]
+        if (
+            np.dot(
+                np.cross(corners[1] - corners[0], corners[2] - corners[0]), plane[:3]
+            )
+            < 0
+        ):
+            corners = corners[[0, 2, 1]]
+        wire = cq.Wire.makePolygon(
+            [cq.Vector(*corner) for corner in corners] + [cq.Vector(*corners[0])]
+        )
+        faces.append(cq.Face.makeFromWires(wire))
+    swept = cq.Solid.makeSolid(cq.Shell.makeShell(faces))
+    if not swept.isValid() or not math.isclose(
+        swept.Volume(), hull.volume, rel_tol=1e-8, abs_tol=1e-5
+    ):
+        raise ValueError("Convex translation sweep did not form a valid solid")
+    candidates = {
+        name: shape
+        for name, shape in other_wood.items()
+        if _bounds_overlap(swept.BoundingBox(), shape.BoundingBox())
+    }
+    hits = {
+        name: round(volume, 9)
+        for name, shape in candidates.items()
+        if (volume := swept.intersect(shape).Volume()) > WOOD_SWEEP_HIT_TOL_MM3
+    }
+    return {
+        "method": "convex_hull_of_uncut_rim_start_and_end",
+        "convex_polyhedral_rim_verified": True,
+        "path_end_mm": path_end_mm,
+        "other_wood_target_count": len(other_wood),
+        "broadphase_candidate_count": len(candidates),
+        "swept_volume_mm3": round(swept.Volume(), 6),
+        "positive_volume_threshold_mm3": WOOD_SWEEP_HIT_TOL_MM3,
+        "positive_volume_hits_mm3": hits,
+        "continuous_nominal_wood_clear": not hits,
+        "real_wood_and_service_verified": False,
+    }
+
+
 def _sample_withdrawal(rim, samples_mm, targets):
-    """Test isolated rim poses; no interpolation or swept volume is implied."""
+    """Test sample poses and conservatively screen the complete nominal path."""
     if tuple(targets) != CATEGORIES:
         raise ValueError("Withdrawal target categories changed")
     if (
@@ -153,6 +216,9 @@ def _sample_withdrawal(rim, samples_mm, targets):
     }
     direction = cq.Vector(0, *coordinates.N)
     swept = _swept_aabb_certificate(rim, direction, samples_mm[-1], targets)
+    wood_sweep = _continuous_wood_sweep(
+        rim, direction, samples_mm[-1], targets["other_uncut_wood"]
+    )
     n0, n1 = coordinates.local_bounds(rim)["n"]
     rows = []
     for distance in samples_mm:
@@ -174,6 +240,11 @@ def _sample_withdrawal(rim, samples_mm, targets):
         "last_sample_exceeds_rim_normal_depth": samples_mm[-1] > n1 - n0,
         "positive_volume_threshold_mm3": HIT_TOL_MM3,
         "continuous_swept_aabb": swept,
+        "continuous_wood_sweep": wood_sweep,
+        "continuous_nominal_model_sweep_clear": (
+            swept["retained_hardware_and_protected_clear"]
+            and wood_sweep["continuous_nominal_wood_clear"]
+        ),
         "samples": rows,
         "sampled_clear": not any(
             hits for row in rows for hits in row["positive_volume_hits_mm3"].values()
@@ -361,9 +432,10 @@ def probe(*, assembly=None):
         "fabrication_released": False,
         "structural_released": False,
         "limits": (
-            "Wood is checked only at isolated 0..160 mm positions at 5 mm spacing. "
-            "A conservative full-path swept AABB excludes retained nominal hardware "
-            "and protected envelopes, but not all other timber boxes or tolerances. "
+            "An exact convex-hull sweep of the uncut rim checks continuous nominal "
+            "wood penetration, and a conservative full-path swept AABB excludes "
+            "retained nominal hardware and protected envelopes. These do not verify "
+            "manufacturing tolerances, tool access or physical service. "
             "Represented barrel/stack solids are provisional; "
             "all modeled heads/washers are provisional envelopes, not delivered parts. "
             "protected holds, T-nuts and electrical shapes are modeled envelopes, "

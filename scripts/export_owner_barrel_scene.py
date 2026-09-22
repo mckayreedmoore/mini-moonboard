@@ -245,6 +245,10 @@ def _integrated_service_geometry(assembly):
             row["withdrawal"]["continuous_swept_aabb"]["other_wood_clear"]
             for row in rim["sides"].values()
         ),
+        "both_rims_continuous_nominal_model_sweep_clear": all(
+            row["withdrawal"]["continuous_nominal_model_sweep_clear"]
+            for row in rim["sides"].values()
+        ),
         "all_retained_trial_stacks_include_heads_and_washers": all(
             not row["viewer_supplemental_heads_washers_absent_for"]
             for row in rim["sides"].values()
@@ -253,7 +257,7 @@ def _integrated_service_geometry(assembly):
         "delivered_hardware_or_tool_verified": False,
         "barrel_insertion_alignment_extraction_verified": False,
         "safe_supported_panel_removal_verified": False,
-        "operational_result": "sampled_nominal_only",
+        "operational_result": "continuous_nominal_geometry_only",
     }
 
 

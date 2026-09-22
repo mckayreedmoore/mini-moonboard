@@ -35,9 +35,10 @@ The [complete visual cut inventory](owner-barrel-viewer.md) includes the
 marks a problem or unqualified fit, not a structural rating.
 For rim removal, the modeled full 160 mm straight-line swept bounding box
 misses every retained barrel, bolt stack and protected fixed envelope on
-both sides after temporary rim-fastener removal. It does **not** clear the
-other timber bounding boxes, so continuous wood motion, real tool access
-and repeated demounting are not established.
+both sides after temporary rim-fastener removal. The separate exact convex
+sweep of each uncut rim has no modeled timber penetration above 1e-6 mm³.
+This clears the **nominal straight-line geometry**, not real tool access,
+delivered-part tolerances, safe support or repeated demounting.
 
 ## Decisions before the candidate can be frozen
 

@@ -112,11 +112,12 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.integrated_service_geometry?.rim_sample_count_per_side !== 33 ||
       data.integrated_service_geometry?.both_rims_continuous_swept_aabb_clear_of_retained_hardware !== true ||
       data.integrated_service_geometry?.both_rims_continuous_swept_aabb_clear_of_other_wood !== false ||
+      data.integrated_service_geometry?.both_rims_continuous_nominal_model_sweep_clear !== true ||
       data.integrated_service_geometry?.continuous_withdrawal_verified !== false ||
       data.integrated_service_geometry?.delivered_hardware_or_tool_verified !== false ||
       data.integrated_service_geometry?.barrel_insertion_alignment_extraction_verified !== false ||
       data.integrated_service_geometry?.safe_supported_panel_removal_verified !== false ||
-      data.integrated_service_geometry?.operational_result !== 'sampled_nominal_only' ||
+      data.integrated_service_geometry?.operational_result !== 'continuous_nominal_geometry_only' ||
       inventory.conditional_outer_header_recess_envelopes !== 12 ||
       data.conditional_outer_header_recess_envelopes?.length !== 12 ||
       ['recess_head', 'recess_washer', 'recess_counterbore'].some(role =>
