@@ -26,7 +26,11 @@ right-center rail stations intersect protected geometry, and both
 center-principal/header stations have zero nominal washer-to-edge/backer
 tolerance. Their diagnostic barrel/bolt paths remain visible and flagged for
 revision; no wood-block fallback is implied. The outer/top eight are all marked
-`REVISE`, including the outer-base pair's unscreened neighboring access.
+`REVISE`. An [exact-frame outer/top screen](owner-barrel-outer-top-protected-probe.md)
+found no nominal hits against fixed protected solids, but the outer-header
+shafts and access paths intersect the side rims, while the outer-base access
+paths intersect the outer posts. Those are unresolved, not cleared by the
+isolated bore check.
 The integrated cross-family screen found no positive-volume **physical**
 or drill/access intersections among its supplied finite solids. That is
 strictly a limited negative screen: same-family contacts, protected
