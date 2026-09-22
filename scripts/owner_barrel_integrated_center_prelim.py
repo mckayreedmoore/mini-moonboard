@@ -182,6 +182,9 @@ def report(trial=None):
                 "nominal_tip_past_barrel_axis_mm": datum[
                     "nominal_tip_beyond_thread_axis_mm"
                 ],
+                "nominal_tip_past_barrel_far_wall_mm": round(
+                    datum["nominal_tip_beyond_thread_axis_mm"] - replan.OD / 2, 3
+                ),
                 "bore_past_nominal_tip_mm": datum[
                     "modeled_bore_depth_past_nominal_tip_mm"
                 ],
@@ -282,6 +285,7 @@ def report(trial=None):
         },
         "barrel_thread": {
             "assumed_thread_axis_offset_mm": replan.OFFSET,
+            "delivered_thread_open_exit_verified": False,
             "verified_thread_strip_n": None,
             "verified_barrel_wall_flexure_n": None,
             "verified_resistance_n": None,
@@ -315,6 +319,7 @@ def report(trial=None):
             "signed new-topology joint forces and moments with contact/load sharing",
             "delivered bolt root, thread length, steel yield/tension/shear and combined stress",
             "identified barrel steel, thread engagement/strip, wall strength and bearing test",
+            "delivered barrel through-thread/open exit and usable far-side bolt travel",
             "actual lumber grade, moisture, cuts, grain, splitting and barrel breakout",
             "washer product compliance, bending and local seat contact",
             "net-section/eccentric member action and classified edge/end/group factors",

@@ -13,7 +13,8 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "['owner-corner-layout', 'owner-barrel-layout'].includes(model)" in page
     assert "No drilling or fabrication release." in page
     assert "Integrated barrel development scene" in page
-    assert "center posts replace the separate green backers" in page
+    assert "center posts replace the old outward center posts and separate green backers" in page
+    assert "true outer corner posts remain by design" in page
     assert "old 144 angle/SDS visuals and their holes" in page
     assert "actual thread engagement remains UNKNOWN" in page
     assert "cut-derived header" in page

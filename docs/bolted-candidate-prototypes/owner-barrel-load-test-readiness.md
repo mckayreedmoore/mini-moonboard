@@ -39,6 +39,9 @@ These remain **exact current blockers**:
   or part-specific resistance. The [retail evidence](owner-barrel-retail-thread-evidence.md)
   concerns the older stack; the revised 4 in post/header and 5 in / 4½ in
   principal/header entries need a new exact-SKU and delivered-stack record.
+  The latter nominal tips extend about 20.345 and 7.645 mm beyond the modeled
+  barrel's far wall, so the delivered cross-thread must permit that passage;
+  a blind internal thread would invalidate the pose.
   Retail grade filters and bolt grade do not rate the buried barrel or wood.
 - The [center replan](../../scripts/owner_barrel_center_post_joint_replan.py)
   uses a 19.05 mm trial washer, angled header-rear pockets and an approximately

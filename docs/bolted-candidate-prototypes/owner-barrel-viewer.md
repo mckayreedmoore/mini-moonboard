@@ -17,8 +17,9 @@ cuttable offcuts and finished dimensions remain unconfirmed.
 
 The [source-bound scene](../../scripts/export_owner_barrel_scene.py) is a
 reviewed snapshot. Its published JSON is checked against the source-built
-scene and page digest; the current revision has not yet passed a fresh visual
-browser smoke check. Barrel and bolt paths are diagnostic X-ray overlays;
+scene and page digest. The integrated revision also passed a local headless
+browser render on 22 September 2026; this is a display check, not a physical
+fit check. Barrel and bolt paths are diagnostic X-ray overlays;
 red means `REVISE`, not a strength rating. Hide panels in
 the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. This scene is generated independently

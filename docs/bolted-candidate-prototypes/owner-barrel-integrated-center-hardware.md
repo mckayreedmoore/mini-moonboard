@@ -17,6 +17,11 @@ The 4 in post/header bolts are outside this bounded search.
 
 The replan places the nominal tips **25.349 mm** (5 in) and **12.649 mm**
 (4½ in) beyond its *assumed* barrel thread axis, with a 1.651 mm trial washer.
+At the modeled 10.0076 mm barrel OD, these tips are about **20.345 mm** and
+**7.645 mm beyond the barrel's far wall**, respectively. The wood bore extends
+another nominal 4 mm beyond each tip, but this geometry only works if the
+delivered barrel's radial thread is open/through at the far side and its
+thread/runout permits passage. Neither property is verified by the listing.
 That is shaft reach, not engaged thread; even “fully threaded” is not a
 controlled tip/runout or barrel-thread tolerance. The separate
 [retail thread note](owner-barrel-retail-thread-evidence.md) does not qualify
@@ -55,3 +60,20 @@ bore, axis, tolerance and resistance study. If neither washer fits, revise and
 recheck the seat/bearing geometry. If dry 4×6 is unavailable, leave the wood
 qualification open rather than treating green or pre-treatment-dried stock as
 dry. No purchase, drilling or structural release follows from these leads.
+
+## 800666 thread follow-up (22 September 2026)
+
+- The [exact 800666 page](https://www.homedepot.com/p/204633306) confirms identity,
+  nominal size and zinc finish, but published text and the linked product image
+  do **not** establish full-thread status, usable thread length, tip runout,
+  grade, or controlled head dimensions. No exact-part spec sheet or legible
+  packaging measurement was found. The [shared Q&A](https://www.homedepot.com/p/questions/Everbilt-1-4-in-20-x-4-1-2-in-Zinc-Plated-Hex-Bolt-800666/204633306/1)
+  includes A307 answers explicitly about *other sizes* and an AI answer about
+  unspecified variants; neither assigns a grade or thread reach to 800666.
+- A full-thread **4½ in** retail lead exists outside those two chains:
+  [Sutherlands Hillman 221009](https://sutherlands.com/products/item/6276026/hillman-1-4-x-4-1-2-inch-fully-threaded-hex-tap-bolt-100-pack)
+  lists a 1/4-20 zinc steel hex tap bolt, **full thread**, Grade 2, in a
+  **100-pack**. Price and selected-store stock are not public without store
+  selection; no usable tip/runout tolerance or controlled head envelope is
+  supplied. No *single-piece* fully threaded 4½ in substitute was verified at
+  Lowe's or Home Depot. This is an identity fallback, not joint qualification.

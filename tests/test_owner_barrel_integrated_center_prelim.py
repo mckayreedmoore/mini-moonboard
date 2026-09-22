@@ -20,6 +20,9 @@ def test_actual_joint_geometry_and_2024_material_basis(result):
     assert [row["nominal_bolt_length_mm"] for row in geometry["rows"]] == pytest.approx(
         [127.0, 114.3]
     )
+    assert [
+        row["nominal_tip_past_barrel_far_wall_mm"] for row in geometry["rows"]
+    ] == pytest.approx([20.345, 7.645], abs=0.002)
     assert all(row["bore_past_nominal_tip_mm"] == 4.0 for row in geometry["rows"])
 
 
@@ -57,6 +60,7 @@ def test_separate_component_scales_and_unknown_complete_resistance(result):
     assert result["lateral_yield_surrogate"]["actual_barrel_joint_rating_n"] is None
     assert result["bolt_shaft"]["actual_axial_resistance_n"] is None
     assert result["barrel_thread"]["verified_resistance_n"] is None
+    assert result["barrel_thread"]["delivered_thread_open_exit_verified"] is False
     assert result["axial_withdrawal"]["complete_path_resistance_n"] is None
     assert result["stiffness"]["complete_joint_n_per_mm"] is None
     assert result["stiffness"]["steel_only_nominal_shank_n_per_mm"] == pytest.approx(

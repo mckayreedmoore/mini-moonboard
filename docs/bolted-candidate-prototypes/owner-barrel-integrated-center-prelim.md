@@ -17,6 +17,9 @@ thread axes. Each bore ends 4.0 mm beyond its nominal tip. The axes are
 20.706 mm apart perpendicular to the bolts. The opposing 17.051 mm blind
 barrel bores leave a nominal 3.998 mm X gap between their caps; each barrel
 has just 1.049 mm of entry recess. Fit and tolerance remain open.
+The nominal tips are 20.345 and 7.645 mm beyond the modeled barrel far wall.
+The delivered barrel's through-thread/open far exit and usable bolt passage
+are unknown; the 4 mm wood-bore clearance does not prove this fit.
 
 - **Bolt shaft:** 31.669 mm² nominal 6.35 mm shank area; 18.100 mm² at the
   *typical* 0.189 in root. Axial force sensitivity is `A_t × verified stress`.
