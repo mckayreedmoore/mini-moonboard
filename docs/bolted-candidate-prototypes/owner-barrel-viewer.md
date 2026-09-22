@@ -39,6 +39,10 @@ no clear pose among 24 bounded top, angled, and reverse-entry trials. A
 separate [post-shift screen](owner-barrel-outer-header-post-shift-probe.md)
 found that the shift needed to clear the rim abandons fixed kicker-screw
 and rail-front-bolt receivers, so moving only the posts is not a solution.
+A [whole-post section screen](owner-barrel-outer-header-wide-post-probe.md)
+likewise found no clear pose among 12 ordinary-lumber trials: a rotated
+2×6 loses Y row/receiver support, a 4×6 lacks the modeled tool corridor,
+and a 6×6 hits protected kicker hardware.
 A different modeled joint topology or access sequence is required. An
 [exact-frame outer/top screen](owner-barrel-outer-top-protected-probe.md)
 and individual producer notes remain relevant to the original poses; do
