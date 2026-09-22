@@ -248,7 +248,10 @@ def build_scene():
     from scripts.owner_barrel_visual_wood import EXPECTED_TIMBERS, build_visual_wood
 
     visual = build_visual_wood(
-        assembly=assembly, candidate_service=True, candidate_center_cuts=True
+        assembly=assembly,
+        candidate_service=True,
+        candidate_center_cuts=True,
+        candidate_all_cuts=True,
     )
     if (
         set(visual["wood"]) != EXPECTED_TIMBERS
@@ -257,6 +260,10 @@ def build_scene():
         or visual["report"]["center_trial_cuts"] != 20
         or visual["report"]["outer_header_barrel_body_cuts"] != 4
         or visual["report"]["center_barrel_body_cuts"] != 6
+        or visual["report"]["candidate_barrel_pairs_with_cut_wood"] != 46
+        or visual["report"]["barrel_drilling_paths_without_cut_wood"]
+        or visual["report"]["barrel_path_host_anomalies"]
+        or visual["report"]["unrelated_remaining_pair_cut_intersections"]
         or visual["report"]["candidate_service_diameter_mm"] != 25.4
         or visual["report"]["release"]
     ):

@@ -92,6 +92,13 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.visual_wood_replacement?.center_trial_cuts !== 20 ||
       data.visual_wood_replacement?.outer_header_barrel_body_cuts !== 4 ||
       data.visual_wood_replacement?.center_barrel_body_cuts !== 6 ||
+      data.visual_wood_replacement?.remaining_trial_cuts !== 108 ||
+      data.visual_wood_replacement?.candidate_barrel_pairs_with_cut_wood !== 46 ||
+      data.visual_wood_replacement?.barrel_drilling_paths_without_cut_wood?.length !== 0 ||
+      data.visual_wood_replacement?.barrel_path_host_anomalies?.length !== 0 ||
+      data.visual_wood_replacement?.unrelated_remaining_pair_cut_intersections?.length !== 0 ||
+      data.visual_wood_replacement?.remaining_pair_cut_intersections?.length !== 36 ||
+      data.visual_wood_replacement?.remaining_to_protected_cut_intersections?.length !== 2 ||
       data.visual_wood_replacement?.release !== false ||
       data.rim_first_sequence?.temporary_fixed_fastener_removal_required !== true ||
       data.rim_first_sequence?.per_rim_release?.panel_screws !== 8 ||

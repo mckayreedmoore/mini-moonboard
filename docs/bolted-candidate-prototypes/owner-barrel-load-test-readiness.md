@@ -37,6 +37,11 @@ The [current two-joint preliminary screen](owner-barrel-integrated-preliminary.m
 now gives conditional washer/wood, net-slot and steel-only stiffness scales
 for the integrated rail and single-bolt principal/header joints. It is not a
 complete capacity or demand result.
+The current viewer now cuts all 46 barrel pairs into visual timber; it
+reveals two left rail machine-bore intersections with inherited service
+bores. The preliminary screen's right rail does not cover those left-side
+net sections. Neither the newly cut mesh nor a nonintersection elsewhere
+establishes wood resistance.
 
 These remain **exact current blockers**:
 

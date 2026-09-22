@@ -33,11 +33,21 @@ The viewer now replaces all 16 timber meshes that contained old angle/SDS
 holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
 66 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,
 and inherited service cuts are replayed where they affect those timbers.
-The outer-header trial cuts and 20 center-joint cutter-to-member applications
-are cut into the replacement wood. The F1–G1 passage shown in the right
+All 98 modeled barrel drilling paths are now represented by trial cuts in
+the replacement timber, including the outer-header and center joints. A
+path may cut more than one member; the source report records each host and
+checks that it matches its intended entry/receiver members. The F1–G1
+passage shown in the right
 principal is provisionally 25.4 mm at the inherited axis, not the selected
-baseline's 38.1 mm. Other candidate barrel paths remain overlays. These
+baseline's 38.1 mm. Bolt and barrel hardware remains an X-ray overlay. These
 display solids are not a shop machining model or wood-strength approval.
+The complete cut inventory exposes two additional `REVISE` intersections:
+the lower-left and upper-left *center* rail-station machine bores intersect
+inherited service bores `..._054` and `..._055` in their respective left
+rails, about 320.5 mm³ each in the nominal solids. These are actual
+candidate-cut/service-void overlaps, not a claim of electrical fit or a
+complete wood-section failure. The affected rail joints need a revised path
+or a justified wood/service treatment before any drilling schedule.
 
 The integrated assembly shows 24 former-angle direct-bore *trials*, not 24
 accepted joints. Provisional head and washer solids accompany all 46 bolts.

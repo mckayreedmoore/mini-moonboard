@@ -43,6 +43,27 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert scene["visual_wood_replacement"]["center_trial_cuts"] == 20
     assert scene["visual_wood_replacement"]["outer_header_barrel_body_cuts"] == 4
     assert scene["visual_wood_replacement"]["center_barrel_body_cuts"] == 6
+    assert scene["visual_wood_replacement"]["remaining_trial_cuts"] == 108
+    assert (
+        scene["visual_wood_replacement"]["candidate_barrel_pairs_with_cut_wood"] == 46
+    )
+    assert (
+        scene["visual_wood_replacement"]["barrel_drilling_paths_without_cut_wood"] == []
+    )
+    assert scene["visual_wood_replacement"]["barrel_path_host_anomalies"] == []
+    assert (
+        scene["visual_wood_replacement"]["unrelated_remaining_pair_cut_intersections"]
+        == []
+    )
+    assert (
+        len(scene["visual_wood_replacement"]["remaining_pair_cut_intersections"]) == 36
+    )
+    assert (
+        len(
+            scene["visual_wood_replacement"]["remaining_to_protected_cut_intersections"]
+        )
+        == 2
+    )
     assert inventory["barrel_nut_envelopes"] == 46
     assert inventory["new_diagnostic_bolt_axes"] == 46
     assert inventory["rail_head_washer_envelopes"] == 40

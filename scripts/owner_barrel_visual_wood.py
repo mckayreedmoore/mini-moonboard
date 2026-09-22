@@ -1,8 +1,6 @@
-"""Rebuild the 16 former-angle timbers for a visual-only barrel scene.
+"""Rebuild former-angle timbers with source and optional candidate trial cuts.
 
-The active assembly supplies uncut kerf-right solids. Only source-recorded
-non-angle machining is replayed. No candidate barrel bore or structural
-resistance is established here; callers may replace the old timber visuals.
+This is visual geometry, not a drilling plan or wood-resistance assessment.
 """
 
 from collections import defaultdict
@@ -111,8 +109,9 @@ def build_visual_wood(
     placement=None,
     candidate_service=False,
     candidate_center_cuts=False,
+    candidate_all_cuts=False,
 ):
-    """Return detached replacement solids and a closed visual-only inventory."""
+    """Return cut-derived visual solids and an unreleased cutter inventory."""
     assembly = build_viewer_assembly() if assembly is None else assembly
     placement = post_layout() if placement is None else placement
     source = variant(KERF_RIGHT)
@@ -125,6 +124,8 @@ def build_visual_wood(
     pose = assembly["post_placement"]
     if candidate_center_cuts and (pose != "integrated" or not candidate_service):
         raise ValueError("Center candidate cuts require integrated posts and service")
+    if candidate_all_cuts and not candidate_center_cuts:
+        raise ValueError("Whole-barrel cuts require the integrated center cuts")
     receiver_map = dict(placement["panel_receiver_map"])
     if pose == "integrated":
         for row in fixed_panels.values():
@@ -304,6 +305,79 @@ def build_visual_wood(
                 center_trial[member].append(("center_barrel_trial", path_name, cutter))
         if sum(map(len, center_trial.values())) != 20:
             raise ValueError("Integrated center drilling-cut inventory changed")
+    represented_paths = defaultdict(set)
+    for member, rows in (*trial.items(), *center_trial.items()):
+        for _, path_name, _ in rows:
+            represented_paths[path_name].add(member)
+    remaining_trial = defaultdict(list)
+    path_host_anomalies = []
+    if candidate_all_cuts:
+        if len(assembly["barrels"]) != 46 or len(assembly["drilling_paths"]) != 98:
+            raise ValueError("Integrated barrel drilling inventory changed")
+        for path_name, cutter in assembly["drilling_paths"].items():
+            if path_name in represented_paths:
+                continue
+            barrel_name, role = path_name.rsplit("/", 1)
+            if barrel_name not in assembly["barrels"] or role not in (
+                "machine_bore",
+                "barrel_bore",
+                "bolt_bore",
+                "barrel_cross_bore",
+            ):
+                raise ValueError(f"{path_name}: unexpected remaining drill path")
+            hit_members = [
+                member
+                for member in sorted(targets)
+                if _boxes_overlap(cutter, assembly["wood"][member])
+                and cutter.intersect(assembly["wood"][member]).Volume() > 1.0
+            ]
+            if not hit_members:
+                raise ValueError(f"{path_name}: drill path misses replacement wood")
+            for member in hit_members:
+                add(member, "remaining_barrel_trial", path_name, cutter)
+                remaining_trial[member].append(
+                    ("remaining_barrel_trial", path_name, cutter)
+                )
+                represented_paths[path_name].add(member)
+        missing_paths = sorted(set(assembly["drilling_paths"]) - set(represented_paths))
+        if missing_paths:
+            raise ValueError(
+                f"Barrel drill paths omitted from visual wood: {missing_paths}"
+            )
+        for path_name in sorted(assembly["drilling_paths"]):
+            barrel_name, role = path_name.rsplit("/", 1)
+            bolt_name = f"{barrel_name}_bolt"
+            hosts = set(assembly["bolts"][bolt_name].members)
+            body = assembly["barrels"][barrel_name]
+            receivers = {
+                member
+                for member in hosts
+                if abs(
+                    body.intersect(assembly["wood"][member]).Volume() - body.Volume()
+                )
+                < 1e-3
+            }
+            if len(hosts) != 2 or len(receivers) != 1:
+                raise ValueError(f"{barrel_name}: receiving wood is ambiguous")
+            expected = (
+                hosts
+                if role in ("machine_bore", "bolt_bore")
+                else receivers
+                if role in ("barrel_bore", "barrel_cross_bore")
+                else hosts - receivers
+                if role in ("counterbore", "head_pocket")
+                else set()
+            )
+            actual = represented_paths[path_name]
+            if expected != actual:
+                path_host_anomalies.append(
+                    {
+                        "path": path_name,
+                        "role": role,
+                        "expected_members": sorted(expected),
+                        "cut_members": sorted(actual),
+                    }
+                )
     protected_intersections = _cut_intersections(assembly["wood"], trial, protected)
     trial_intersections = _cut_intersections(
         assembly["wood"], trial, trial, same_category=True
@@ -314,6 +388,23 @@ def build_visual_wood(
     center_outer_intersections = _cut_intersections(
         assembly["wood"], center_trial, trial
     )
+    remaining_protected_intersections = _cut_intersections(
+        assembly["wood"], remaining_trial, protected
+    )
+    remaining_center_intersections = _cut_intersections(
+        assembly["wood"], remaining_trial, center_trial
+    )
+    remaining_outer_intersections = _cut_intersections(
+        assembly["wood"], remaining_trial, trial
+    )
+    remaining_pair_intersections = _cut_intersections(
+        assembly["wood"], remaining_trial, remaining_trial, same_category=True
+    )
+    unrelated_remaining_pair_intersections = [
+        row
+        for row in remaining_pair_intersections
+        if row["trial_path"].rsplit("/", 1)[0] != row["other_path"].rsplit("/", 1)[0]
+    ]
     visual = {}
     for name in sorted(targets):
         raw = assembly["wood"][name]
@@ -339,6 +430,7 @@ def build_visual_wood(
                 "retained_frame",
                 "outer_header_trial",
                 "center_barrel_trial",
+                "remaining_barrel_trial",
             )
         }
         per_member[name] = {
@@ -370,6 +462,25 @@ def build_visual_wood(
             "inherited_additional_cuts_in_replacements": additional_count,
             "outer_header_trial_cuts": 16,
             "center_trial_cuts": sum(map(len, center_trial.values())),
+            "remaining_trial_cuts": sum(map(len, remaining_trial.values())),
+            "candidate_barrel_pairs_with_cut_wood": sum(
+                all(
+                    path in represented_paths
+                    for path in assembly["drilling_paths"]
+                    if path.startswith(name + "/")
+                )
+                for name in assembly["barrels"]
+                if any(
+                    path.startswith(name + "/") for path in assembly["drilling_paths"]
+                )
+            ),
+            "barrel_drilling_paths_without_cut_wood": sorted(
+                set(assembly["drilling_paths"]) - set(represented_paths)
+            ),
+            "barrel_path_hosts": {
+                name: sorted(hosts) for name, hosts in sorted(represented_paths.items())
+            },
+            "barrel_path_host_anomalies": path_host_anomalies,
             "outer_header_barrel_body_cuts": sum(
                 row_name.endswith("/barrel_bore")
                 for rows in trial.values()
@@ -385,13 +496,22 @@ def build_visual_wood(
             "trial_to_trial_intersections": trial_intersections,
             "center_to_protected_cut_intersections": center_protected_intersections,
             "center_to_outer_header_cut_intersections": center_outer_intersections,
+            "remaining_to_protected_cut_intersections": remaining_protected_intersections,
+            "remaining_to_center_cut_intersections": remaining_center_intersections,
+            "remaining_to_outer_header_cut_intersections": remaining_outer_intersections,
+            "remaining_pair_cut_intersections": remaining_pair_intersections,
+            "unrelated_remaining_pair_cut_intersections": unrelated_remaining_pair_intersections,
             "release": False,
             "limits": (
                 "Visual timber only. The four center kicker screw landings are on "
                 + landing_note
                 + ("Center trial paths are also cut. " if candidate_center_cuts else "")
-                + "Only the 16 source-defined outer-header paths and selected center trial paths "
-                "are shown; remaining candidate cuts are omitted. Delivered hardware, "
+                + (
+                    "All 46 candidate barrel pairs have visual trial cuts. "
+                    if candidate_all_cuts
+                    else "Only the outer-header and selected center trial paths are shown; remaining candidate cuts are omitted. "
+                )
+                + "Delivered hardware, "
                 "clearance, wood strength, load path, drilling and fabrication remain open."
             ),
         },
