@@ -12,8 +12,9 @@ def report():
     return audit.build_report()
 
 
-def test_current_assembly_accounts_for_all_48_rows_without_release(report):
+def test_historical_outward_assembly_accounts_for_48_rows_without_release(report):
     assert report["schema"] == audit.SCHEMA
+    assert report["source"] == "scripts.export_owner_barrel_scene.build_viewer_assembly()"
     assert report["row_count"] == 48
     assert len({row["bolt_name"] for row in report["rows"]}) == 48
     assert len({row["station"] for row in report["rows"]}) == 24
@@ -69,7 +70,7 @@ def test_independent_short_and_overrun_flags_can_coexist():
     assert audit._classify(100, 105, 110) == ["AXIS_REACHED_WITHIN_MODELED_BORE"]
 
 
-def test_six_inch_60_mm_outer_rail_revision_is_in_the_current_viewer(report):
+def test_six_inch_60_mm_outer_rail_revision_is_in_the_outward_viewer(report):
     assert rail.VIEWER_OUTER_SETBACK_MM == 60.0
     assert len(rail.VIEWER_OUTER_STATIONS) == 6
     outer = [
@@ -135,8 +136,20 @@ def test_all_48_assembled_rows_have_provisional_heads_and_washers(report):
 
 def test_integrated_single_center_proposal_has_46_unqualified_stacks():
     integrated = audit.build_report(build_integrated_viewer_assembly())
+    assert integrated["source"] == (
+        "scripts.export_owner_barrel_scene.build_integrated_viewer_assembly()"
+    )
     assert integrated["row_count"] == 46
     assert integrated["counts"]["thread_engagement_unknown"] == 46
     assert integrated["counts"]["short_of_assumed_barrel_axis"] == 0
     assert integrated["counts"]["beyond_modeled_machine_bore"] == 0
+    assert sum(
+        row["tip_to_bore_far_cap_clearance_mm"] == 0
+        for row in integrated["rows"]
+    ) == 16
+    assert sum(
+        row["shaft_length_mm"] == 152.4
+        and row["maximum_body_overlap_with_fully_threaded_shaft_mm"] == 6.8528
+        for row in integrated["rows"]
+    ) == 12
     assert integrated["fit_qualified"] is False

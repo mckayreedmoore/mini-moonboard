@@ -37,6 +37,7 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     assert "owner-barrel-mvp-preliminary.md" in barrel_documents
     assert "owner-barrel-integrated-center-prelim.md" in barrel_documents
     assert "owner-barrel-integrated-preliminary.md" in barrel_documents
+    assert "owner-barrel-integrated-stack-audit.md" in barrel_documents
     assert "owner-barrel-integrated-cost.md" in barrel_documents
     assert "owner-barrel-integrated-center-hardware.md" in barrel_documents
     assert "owner-barrel-load-test-readiness.md" in barrel_documents

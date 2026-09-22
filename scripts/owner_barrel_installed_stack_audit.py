@@ -181,7 +181,7 @@ def _row(assembly, bolt_name):
 
 
 def build_report(assembly=None):
-    """Audit current viewer state; never infer a complete installed-stack pass."""
+    """Audit either viewer composition; never infer an installed-stack pass."""
     assembly = build_viewer_assembly() if assembly is None else assembly
     bolts, barrels = assembly["bolts"], assembly["barrels"]
     expected_barrels = {name.removesuffix("_bolt") for name in bolts}
@@ -223,8 +223,12 @@ def build_report(assembly=None):
     ]
     return {
         "schema": SCHEMA,
-        "source": "scripts.export_owner_barrel_scene.build_viewer_assembly()",
-        "source_basis": "CURRENT working-tree producer composition, not exported JSON",
+        "source": (
+            "scripts.export_owner_barrel_scene.build_integrated_viewer_assembly()"
+            if placement == "integrated"
+            else "scripts.export_owner_barrel_scene.build_viewer_assembly()"
+        ),
+        "source_basis": "Live producer composition, not exported JSON",
         "row_count": len(rows),
         "rows": rows,
         "counts": {

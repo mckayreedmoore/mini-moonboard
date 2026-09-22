@@ -122,6 +122,10 @@ center-rail bores now have 4 mm nominal tip clearance after an owner-approved
 depth revision, as do the four recessed outer-header bores. All 46 have provisional
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
+The [current 46-pair reach table](owner-barrel-integrated-stack-audit.md)
+separates nominal reach from physical fit: 16 tips end at their modeled bore
+caps with zero nominal clearance; 12 outer-rail tips pass the assumed axis
+by only 1.849 mm. Earlier service probes also used the older 48-pair pose.
 The earlier two-row center [conditional numerical screen](owner-barrel-integrated-center-prelim.md)
 is historical component sensitivity, not a rating for the single-row joint.
 The [current integrated two-joint screen](owner-barrel-integrated-preliminary.md)

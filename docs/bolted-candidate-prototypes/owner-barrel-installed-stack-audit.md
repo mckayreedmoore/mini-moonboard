@@ -1,10 +1,11 @@
-# Current barrel viewer: nominal installed-stack axial audit
+# Historical outward-post barrel viewer: nominal installed-stack axial audit
 
-This is an independent read of the **current**
+This is an independent read of the **historical outward-post**
 `export_owner_barrel_scene.build_viewer_assembly()` composition. It does not
 read an older exported scene or rebuild the three families from their producer
-defaults. The assembled outer-rail trial is the new **6 in / 60 mm setback**
-geometry. The script checks every one of the 48 bolt/barrel pairs and leaves
+defaults. The assembled outer-rail trial uses **6 in / 60 mm setback**
+geometry. The script checks every one of the historical 48 bolt/barrel pairs
+and leaves
 the producer and exporter unchanged.
 
 Run `.venv/bin/python -m scripts.owner_barrel_installed_stack_audit` for the
