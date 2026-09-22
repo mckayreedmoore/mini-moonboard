@@ -96,5 +96,15 @@ retain LED service duty; no replacement route, feed access, bend radius,
 length/slack, or electrical continuity was verified. Active wiring stays
 unchanged.
 
+The source's earlier 25.4 mm passage size, applied **only to this one bore at
+the same axis** in a detached screen, removes the 50° trial's modeled
+bolt/service-void collision; the nearest bolt-bore-to-passage gap is over
+4.0 mm. The selected source still has its 38.1 mm passage. The smaller
+passage does not prove a prewired 132-light strand and any connectors can
+be fed through it. The source records a maximum harness outside diameter of
+12.7 mm, but bend, connector, pulling, and assembly access remain unverified.
+Its wood section and electrical service duty also need rechecking before
+the passage becomes part of the maintained candidate.
+
 All three poses remain detached findings, not approved for integration,
 drilling, fabrication, structural use, or release.

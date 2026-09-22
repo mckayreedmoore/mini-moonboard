@@ -35,39 +35,27 @@ def build_viewer_assembly():
 
 
 def build_integrated_viewer_assembly():
-    """Compose the seam-side post trial without carrying the old backer duties."""
-    from scripts import owner_barrel_center_post_joint_replan as integrated
-
-    def center_six(wood):
-        _, former_wood, _ = center._wood()
-        former = center.build_revised_layout(former_wood)
-        revised = integrated.build_layout(wood)
-        bottom = {
-            station: row
-            for station, row in former["stations"].items()
-            if station.startswith("clip_horizontal_bottom_")
-        }
-        if len(bottom) != 2 or len(revised["stations"]) != 4:
-            raise ValueError("Integrated six-duty center inventory changed")
-        return {
-            "stations": {**bottom, **revised["stations"]},
-            "diagnostics": {
-                "source_id": "integrated-4x6-center-six-viewer-trial",
-                "unchanged_bottom": former["diagnostics"],
-                "revised_center": revised["diagnostics"],
-            },
-        }
+    """Compose seam-side posts and the single-barrel center proposal."""
+    from scripts import owner_barrel_center_single_layout as integrated
 
     assembly = build_assembly(
         producers={
             "rail10": rail.build_revised_layout,
-            "center6": center_six,
+            "center6": integrated.build_six_layout,
             "outer_top8": outer.build_recessed_viewer_layout,
         },
         post_placement="integrated",
     )
     if any(name.startswith("inner_kicker_backer_") for name in assembly["wood"]):
         raise ValueError("Integrated scene unexpectedly retains a separate backer")
+    if (
+        assembly["diagnostics"]["producer_diagnostics"]["center6"]["revised_center"][
+            "candidate_service_diameter_mm"
+        ]
+        != 25.4
+    ):
+        raise ValueError("Integrated center service passage option changed")
+    assembly["service_passage_option"] = "F1_G1_same_axis_25.4_mm_unqualified"
     return assembly
 
 
@@ -233,6 +221,8 @@ def build_scene():
         or not set(MOVED_POSTS).issubset(assembly["wood"])
         or set(BACKERS) & set(assembly["wood"])
         or assembly["post_placement"] != "integrated"
+        or assembly.get("service_passage_option")
+        != "F1_G1_same_axis_25.4_mm_unqualified"
         or set(assembly["barrel_station"]) != set(assembly["barrels"])
         or set(assembly["bolt_station"]) != set(assembly["bolts"])
         or set(assembly["barrel_station"].values()) != set(duties)
@@ -256,11 +246,17 @@ def build_scene():
     rim_sequence = _rim_first_sequence()
     from scripts.owner_barrel_visual_wood import EXPECTED_TIMBERS, build_visual_wood
 
-    visual = build_visual_wood(assembly=assembly)
+    visual = build_visual_wood(
+        assembly=assembly, candidate_service=True, candidate_center_cuts=True
+    )
     if (
         set(visual["wood"]) != EXPECTED_TIMBERS
         or visual["report"]["excluded_legacy_sds_axes"] != 144
         or visual["report"]["replacement_timber_members"] != 16
+        or visual["report"]["center_trial_cuts"] != 20
+        or visual["report"]["outer_header_barrel_body_cuts"] != 4
+        or visual["report"]["center_barrel_body_cuts"] != 6
+        or visual["report"]["candidate_service_diameter_mm"] != 25.4
         or visual["report"]["release"]
     ):
         raise ValueError("Barrel visual timber replacement changed")
@@ -363,7 +359,7 @@ def build_scene():
         or not bolts
         or len(recessed) != 12
         or len(rail_stacks) != 40
-        or len(other_stacks) != 48
+        or len(other_stacks) != 44
         or {row["role"] for row in recessed}
         != {"recess_head", "recess_washer", "recess_counterbore"}
         or not all(
@@ -447,7 +443,8 @@ def build_scene():
             "purchase, or structural release. Retail barrel identity is provisional; "
             "outer-header rim-first removal, delivered recessed hardware, "
             "counterbore wood capacity, thread-axis location, engagement, strength, access, service conflicts, "
-            "integrated center-joint nominal clashes, tolerances and whole-frame load path remain open."
+            "candidate F1-G1 strand feeding, single-center-joint moment transfer, barrel insertion, "
+            "tolerances and whole-frame load path remain open."
         ),
         "layout_clearance_approved": False,
         "drilling_released": False,

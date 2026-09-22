@@ -40,15 +40,18 @@ def test_published_barrel_scene_inventory_and_release_boundary():
         == 0
     )
     assert scene["visual_wood_replacement"]["release"] is False
-    assert inventory["barrel_nut_envelopes"] == 48
-    assert inventory["new_diagnostic_bolt_axes"] == 48
+    assert scene["visual_wood_replacement"]["center_trial_cuts"] == 20
+    assert scene["visual_wood_replacement"]["outer_header_barrel_body_cuts"] == 4
+    assert scene["visual_wood_replacement"]["center_barrel_body_cuts"] == 6
+    assert inventory["barrel_nut_envelopes"] == 46
+    assert inventory["new_diagnostic_bolt_axes"] == 46
     assert inventory["rail_head_washer_envelopes"] == 40
-    assert inventory["other_head_washer_envelopes"] == 48
+    assert inventory["other_head_washer_envelopes"] == 44
     assert inventory["backer_attachment_duties"] == 0
     assert inventory["backer_barrel_nut_envelopes"] == 0
     assert inventory["backer_diagnostic_bolt_axes"] == 0
     all_axes = scene["diagnostic_bolt_axes"] + scene["backer_diagnostic_bolt_axes"]
-    assert len(all_axes) == 48
+    assert len(all_axes) == 46
     assert all(
         row["nominal_axial"]["thread_engagement"] == "UNKNOWN" for row in all_axes
     )
@@ -77,14 +80,25 @@ def test_published_barrel_scene_inventory_and_release_boundary():
     assert len(scene["integrated_center_joint_trial"]["stations"]) == 4
     assert (
         scene["integrated_center_joint_trial"]["nominal_geometry_disposition"]
-        == "CLASH"
+        == "CANDIDATE_ONLY_UNVERIFIED"
     )
-    assert scene["integrated_center_joint_trial"][
-        "candidate_to_inherited_service_void_hits_mm3"
+    assert (
+        scene["integrated_center_joint_trial"]["candidate_service_diameter_mm"] == 25.4
+    )
+    assert scene["visual_wood_replacement"]["candidate_service_diameter_mm"] == 25.4
+    assert scene["integrated_center_joint_trial"]["unverified"][
+        "single_connector_moment_transfer_and_stiffness"
     ]
-    assert scene["integrated_center_joint_trial"][
-        "driver_to_header_after_pocket_hits_mm3"
+    assert scene["integrated_center_joint_trial"]["unverified"][
+        "service_feed_and_strength"
     ]
+    for station, row in scene["integrated_center_joint_trial"]["stations"].items():
+        expected = 1 if "clip_split_base_center_" in station else 2
+        assert len(row["bolts"]) == expected
+        assert all(
+            not bolt["candidate_service_void_hits_mm3"]
+            for bolt in row["bolts"].values()
+        )
     assert (
         scene["integrated_center_joint_trial"]["structural_capacity_verified"] is False
     )

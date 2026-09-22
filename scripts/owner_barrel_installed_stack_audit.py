@@ -1,4 +1,4 @@
-"""Audit the current viewer's 48 nominal barrel-bolt axial stacks.
+"""Audit the barrel viewer's nominal barrel-bolt axial stacks.
 
 This reads assembled solids and diagnostic bolt axes, not producer defaults or
 retail thread drawings. A centered thread axis is only a CAD assumption.
@@ -185,9 +185,12 @@ def build_report(assembly=None):
     assembly = build_viewer_assembly() if assembly is None else assembly
     bolts, barrels = assembly["bolts"], assembly["barrels"]
     expected_barrels = {name.removesuffix("_bolt") for name in bolts}
+    placement = assembly.get("post_placement")
+    expected_count = 46 if placement == "integrated" else 48
     if (
-        len(bolts) != 48
-        or len(barrels) != 48
+        placement not in ("integrated", "outward")
+        or len(bolts) != expected_count
+        or len(barrels) != expected_count
         or expected_barrels != set(barrels)
         or set(assembly["stacks"]) != set(bolts)
         or set(assembly["bolt_station"].values())
@@ -195,7 +198,7 @@ def build_report(assembly=None):
         or len(assembly["panel_connections"]) != 66
         or len(assembly["frame_connections"]) != 12
     ):
-        raise ValueError("Current 48-bolt viewer inventory changed")
+        raise ValueError("Current barrel viewer inventory changed")
     rows = [_row(assembly, name) for name in sorted(bolts)]
     short = [
         row["bolt_name"]

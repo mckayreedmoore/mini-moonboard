@@ -19,6 +19,10 @@ from mini_moonboard.floor_flush_width import (
 from scripts import owner_barrel_outer_header_cut_integrity as outer_header
 from scripts.center_posts_outward_owner_layout import build_layout as post_layout
 from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.owner_barrel_candidate_service import (
+    F1_G1_DIAMETER_MM,
+    candidate_service_cutters,
+)
 from scripts.simple_owner_duty_ledger import selected_duties
 
 EXPECTED_TIMBERS = frozenset(
@@ -83,7 +87,10 @@ def _cut_intersections(raw, trial, others, *, same_category=False):
         for (_, trial_name, first), (_, other_name, second) in pairs:
             if not _boxes_overlap(first, second):
                 continue
-            volume = first.intersect(second).intersect(raw[member]).Volume()
+            common = first.intersect(second)
+            if common.Volume() <= 1e-4:
+                continue
+            volume = common.intersect(raw[member]).Volume()
             if volume > 1e-4:
                 hits.append(
                     {
@@ -98,7 +105,13 @@ def _cut_intersections(raw, trial, others, *, same_category=False):
     )
 
 
-def build_visual_wood(*, assembly=None, placement=None):
+def build_visual_wood(
+    *,
+    assembly=None,
+    placement=None,
+    candidate_service=False,
+    candidate_center_cuts=False,
+):
     """Return detached replacement solids and a closed visual-only inventory."""
     assembly = build_viewer_assembly() if assembly is None else assembly
     placement = post_layout() if placement is None else placement
@@ -110,6 +123,8 @@ def build_visual_wood(*, assembly=None, placement=None):
     fixed_panels = {row.name: row for row in assembly["panel_connections"]}
     fixed_frame = {row.name: row for row in assembly["frame_connections"]}
     pose = assembly["post_placement"]
+    if candidate_center_cuts and (pose != "integrated" or not candidate_service):
+        raise ValueError("Center candidate cuts require integrated posts and service")
     receiver_map = dict(placement["panel_receiver_map"])
     if pose == "integrated":
         for row in fixed_panels.values():
@@ -161,14 +176,21 @@ def build_visual_wood(*, assembly=None, placement=None):
             cutters[member].append((category, name, cutter))
 
     service_count = 0
-    for member, name, cutter in source.service_cutters():
+    service_rows = (
+        candidate_service_cutters(source, assembly["wood"])
+        if candidate_service
+        else source.service_cutters()
+    )
+    for member, name, cutter in service_rows:
         if member in targets:
             service_count += 1
             add(
                 member,
                 "inherited_service",
                 name,
-                _source_cutter_pose(cutter, member, placement),
+                cutter
+                if candidate_service
+                else _source_cutter_pose(cutter, member, placement),
             )
     additional_count = 0
     for member, name, _, cutter in source.additional_machining_cutters():
@@ -252,9 +274,45 @@ def build_visual_wood(*, assembly=None, placement=None):
                 trial[member].append(("outer_header_trial", name, cutter))
     if sum(map(len, trial.values())) != 16 or len(trial["base_header"]) != 8:
         raise ValueError("Outer-header trial bore inventory changed")
+    center_trial = defaultdict(list)
+    if candidate_center_cuts:
+        for path_name, cutter in assembly["drilling_paths"].items():
+            if not path_name.startswith("barrel_center_clip_split_"):
+                continue
+            barrel_name, role = path_name.rsplit("/", 1)
+            station = assembly["barrel_station"].get(barrel_name)
+            if station is None:
+                raise ValueError(f"{path_name}: center barrel has no station")
+            side = station.rsplit("_", 1)[1]
+            receiver = (
+                f"base_post_center_{side}"
+                if "header_center" in station
+                else f"base_principal_center_{side}"
+            )
+            if role == "bolt_bore":
+                hosts = ("base_header", receiver)
+            elif role == "barrel_cross_bore":
+                hosts = (receiver,)
+            elif role == "head_pocket" and "base_center" in station:
+                hosts = ("base_header",)
+            else:
+                raise ValueError(f"{path_name}: unexpected center drilling role")
+            for member in hosts:
+                if cutter.intersect(assembly["wood"][member]).Volume() <= 1.0:
+                    raise ValueError(f"{path_name}: center path misses {member}")
+                add(member, "center_barrel_trial", path_name, cutter)
+                center_trial[member].append(("center_barrel_trial", path_name, cutter))
+        if sum(map(len, center_trial.values())) != 20:
+            raise ValueError("Integrated center drilling-cut inventory changed")
     protected_intersections = _cut_intersections(assembly["wood"], trial, protected)
     trial_intersections = _cut_intersections(
         assembly["wood"], trial, trial, same_category=True
+    )
+    center_protected_intersections = _cut_intersections(
+        assembly["wood"], center_trial, protected
+    )
+    center_outer_intersections = _cut_intersections(
+        assembly["wood"], center_trial, trial
     )
     visual = {}
     for name in sorted(targets):
@@ -280,6 +338,7 @@ def build_visual_wood(*, assembly=None, placement=None):
                 "fixed_panel",
                 "retained_frame",
                 "outer_header_trial",
+                "center_barrel_trial",
             )
         }
         per_member[name] = {
@@ -296,6 +355,9 @@ def build_visual_wood(*, assembly=None, placement=None):
         "wood": visual,
         "report": {
             "status": "VISUAL_ONLY_UNRELEASED",
+            "candidate_service_diameter_mm": (
+                F1_G1_DIAMETER_MM if candidate_service else None
+            ),
             "former_angle_stations": len(duties),
             "replacement_timber_members": len(visual),
             "excluded_legacy_sds_axes": len(legacy),
@@ -307,17 +369,29 @@ def build_visual_wood(*, assembly=None, placement=None):
             "inherited_service_cuts_in_replacements": service_count,
             "inherited_additional_cuts_in_replacements": additional_count,
             "outer_header_trial_cuts": 16,
-            "candidate_barrel_body_cuts": 4,
+            "center_trial_cuts": sum(map(len, center_trial.values())),
+            "outer_header_barrel_body_cuts": sum(
+                row_name.endswith("/barrel_bore")
+                for rows in trial.values()
+                for _, row_name, _ in rows
+            ),
+            "center_barrel_body_cuts": sum(
+                row_name.endswith("/barrel_cross_bore")
+                for rows in center_trial.values()
+                for _, row_name, _ in rows
+            ),
             "per_member": per_member,
             "trial_to_protected_cut_intersections": protected_intersections,
             "trial_to_trial_intersections": trial_intersections,
+            "center_to_protected_cut_intersections": center_protected_intersections,
+            "center_to_outer_header_cut_intersections": center_outer_intersections,
             "release": False,
             "limits": (
-                "Detached visual wood only. The four center kicker screw landings are on "
+                "Visual timber only. The four center kicker screw landings are on "
                 + landing_note
-                + "Only the 16 source-defined "
-                "outer-header trial paths are shown; other candidate barrel, machine-bolt, "
-                "washer-seat and counterbore cuts are omitted. Delivered hardware, "
+                + ("Center trial paths are also cut. " if candidate_center_cuts else "")
+                + "Only the 16 source-defined outer-header paths and selected center trial paths "
+                "are shown; remaining candidate cuts are omitted. Delivered hardware, "
                 "clearance, wood strength, load path, drilling and fabrication remain open."
             ),
         },

@@ -20,6 +20,11 @@ from scripts import owner_barrel_center_post_joint_replan as current
 from scripts import owner_barrel_coordinates as coordinates
 from scripts import owner_layout_protected as protected
 from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.owner_barrel_candidate_service import (
+    F1_G1_BORE,
+    F1_G1_DIAMETER_MM,
+    candidate_service_cutters,
+)
 
 TARGET_RECESS_MM = 3.0
 TARGET_TOOL_GAP_MM = 2.0
@@ -621,20 +626,38 @@ def build():
         seat_depth=SHALLOW_HEAD_SEAT_DEPTH_MM,
         thread_depth=SHALLOW_THREAD_DEPTH_MM,
     )
-    fifty = _screen(
-        wood,
-        assembly,
-        baseline["solids"],
-        service,
-        bolt_lengths=NOMINAL_BOLT_LENGTHS_MM,
-        barrel_faces=faces,
-        entry_zs=(257.7, 258.1),
-        seat_depth=13.1,
-        thread_depth=100.0,
-        x_offsets=(-11.25, 11.25),
-        bolt_angle_deg=50.0,
-        pocket_lead_mm=13.0,
-        mouth_relief=False,
+    fifty_args = {
+        "bolt_lengths": NOMINAL_BOLT_LENGTHS_MM,
+        "barrel_faces": faces,
+        "entry_zs": (257.7, 258.1),
+        "seat_depth": 13.1,
+        "thread_depth": 100.0,
+        "x_offsets": (-11.25, 11.25),
+        "bolt_angle_deg": 50.0,
+        "pocket_lead_mm": 13.0,
+        "mouth_relief": False,
+    }
+    fifty = _screen(wood, assembly, baseline["solids"], service, **fifty_args)
+    one_inch_service = {
+        name: (member, cutter.intersect(wood[member]))
+        for member, name, cutter in candidate_service_cutters(variant(KERF_RIGHT), wood)
+        if member in relevant
+    }
+    fifty_one_inch = _screen(
+        wood, assembly, baseline["solids"], one_inch_service, **fifty_args
+    )
+    reduced_void = one_inch_service[F1_G1_BORE][1]
+    fifty_one_inch.update(
+        {
+            "service_passage_diameter_mm": F1_G1_DIAMETER_MM,
+            "service_passage_changed_only_for_trial": True,
+            "service_passage_feed_qualified": False,
+            "minimum_bolt_bore_to_service_gap_mm": min(
+                _rounded(shapes["bolt_bore"].distance(reduced_void))
+                for name, shapes in fifty_one_inch["solids"].items()
+                if name.startswith("barrel_center_clip_split_base_center_")
+            ),
+        }
     )
     wire_record = next(
         record
@@ -656,6 +679,7 @@ def build():
         "shallow_seat_option": shallow,
         "shallow_common_5_in": shallow_five_in,
         "fifty_degree_option": fifty,
+        "fifty_degree_one_inch_service_option": fifty_one_inch,
         "wire_service_context": {
             "bore_name": wire_record["name"],
             "member": wire_record["member"],

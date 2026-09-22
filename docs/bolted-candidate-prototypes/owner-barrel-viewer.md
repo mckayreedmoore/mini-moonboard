@@ -6,8 +6,8 @@ seam-side 88.9 × 139.7 mm modeled base-center posts replace the former X =
 ±180 mm posts **and** both separate kicker backers. Those two wood-colored
 posts receive the four fixed center kicker screws. The original 66
 panel/kicker screws and 12 frame bolts retain their axes. The scene hides the
-24 historical angles and 144 SDS fasteners and displays 48 diagnostic 1/4-20
-bolt paths with 48 provisional Hillman 880543-shaped barrel envelopes. No
+24 historical angles and 144 SDS fasteners and displays 46 diagnostic 1/4-20
+bolt paths with 46 provisional Hillman 880543-shaped barrel envelopes. No
 corner-block or separate-backer solids remain. The historical angle assembly
 remains the selected baseline, not a release for this candidate.
 The modeled post section is **not** a verified delivered 4×6 size: the
@@ -28,23 +28,26 @@ The viewer now replaces all 16 timber meshes that contained old angle/SDS
 holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
 66 fixed panel-screw receiver cuts, eight retained frame-bolt receiver cuts,
 and inherited service cuts are replayed where they affect those timbers.
-Only the outer-header trial's candidate bores/counterbores are cut into the
-replacement wood; other candidate barrel paths remain overlays. These
+The outer-header trial cuts and 20 center-joint cutter-to-member applications
+are cut into the replacement wood. The F1–G1 passage shown in the right
+principal is provisionally 25.4 mm at the inherited axis, not the selected
+baseline's 38.1 mm. Other candidate barrel paths remain overlays. These
 display solids are not a shop machining model or wood-strength approval.
 
 The integrated assembly shows 24 former-angle direct-bore *trials*, not 24
-accepted joints. Provisional head and washer solids accompany all 48 bolts.
+accepted joints. Provisional head and washer solids accompany all 46 bolts.
 These are modeled envelopes, not
 controlled retail dimensions or verified seats.
 This scene now illustrates four bounded geometry revisions: the two
 right-center rail stations use a 50/92.25 mm row pair found in the
 [rail-position probe](owner-barrel-rail-clearance-probe.md); both
 center-principal/header stations now use the
-[seam-side-post replan](../../scripts/owner_barrel_center_post_joint_replan.py)
-with two 4 in post/header bolts and 5 in and 4½ in principal/header bolts
-per side. The latter use a 19.05 mm trial washer envelope and recessed,
-angled header-rear entries. These are unselected hardware dimensions, not
-drilling instructions. The two outer-base
+[single-centered-barrel candidate](../../scripts/owner_barrel_center_single_layout.py)
+with two 4 in post/header bolts and one centered 5 in principal/header bolt
+per side. The latter uses a 19.05 mm trial washer envelope and recessed,
+50° header-rear entry. A single barrel's moment transfer depends on the
+connected contact/load path and is not yet verified. These are unselected
+hardware dimensions, not drilling instructions. The two outer-base
 stations move their bolt axes [10 mm inward](owner-barrel-outer-base-clearance-probe.md).
 The four outer-header bolts use the
 [conditional recessed-head trial](owner-barrel-outer-header-recess-probe.md):
@@ -98,16 +101,15 @@ counterbores; it remains provisional and `REVISE`.
 The earlier [connector inventory](owner-barrel-native-connector-inventory.md)
 and [standalone installed-stack note](owner-barrel-installed-stack-audit.md)
 default to the superseded outward-post pose. The integrated scene exporter
-passes its own assembly into the same axial-audit helper and finds all 48
+passes its own assembly into the same axial-audit helper and finds all 46
 tips reach an *assumed* barrel center with no modeled bore overruns. The eight formerly overrun 5 in
 center-rail bores now have 4 mm nominal tip clearance after an owner-approved
-depth revision, as do the four recessed outer-header bores. All 48 have provisional
+depth revision, as do the four recessed outer-header bores. All 46 have provisional
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
-For the new center principal/header joint, the
-[integrated conditional numerical screen](owner-barrel-integrated-center-prelim.md)
-reports component sensitivities from actual trial geometry, not a joint
-rating or a force solution. The [current retail hardware leads](owner-barrel-integrated-center-hardware.md),
+The earlier two-row center [conditional numerical screen](owner-barrel-integrated-center-prelim.md)
+is historical component sensitivity, not a rating for the single-row joint.
+The [current retail hardware leads](owner-barrel-integrated-center-hardware.md),
 [partial cost](owner-barrel-integrated-cost.md), and
 [load-test readiness gates](owner-barrel-load-test-readiness.md) are separate:
 none closes the barrel/thread, wood breakout, tolerance, or global-demand gaps.
@@ -120,12 +122,16 @@ led to the depicted six-rail provisional revision: twelve 6 in shaft paths
 reach their assumed axes by 1.849 mm, with head/washer envelopes now shown.
 Thread, tolerance, service, and capacity checks are still open.
 The older 5 in center bolt broke out of receiving wood; its 22 mm washer
-trial is superseded. The integrated center replan now reports `CLASH`:
-the right principal's inherited service bore intersects its second barrel,
-and a 20 mm driver does not fit the 19.05 mm header pocket. The tightest
-barrel recess is about 1.05 mm and the closest tool paths are about 0.71 mm
-apart. Those small margins also need tolerance and real-tool checks. The revised drawings
-are not complete joints or a drilling plan.
+trial is superseded. The subsequent two-row integrated replan reported
+`CLASH`: the inherited 38.1 mm service bore intersected center hardware,
+and a 20 mm driver did not fit its 19.05 mm header pocket. That pose is
+preserved for comparison, not displayed. The current centered single-row
+candidate and provisional 25.4 mm passage remove the modeled collision;
+the principal has 14.046 mm nominal barrel X-edge ligament. The header
+pocket has only 2.092 mm nominal edge stock and the barrel recess exceeds
+41 mm. Actual LED-strand feeding, barrel placement/orientation, full-thread
+engagement, wood strength, moment transfer and reassembly remain open. The
+viewer is not a complete joint verdict or drilling plan.
 
 The two outer-header/post duties had installed-shaft and straight
 access clashes with the side rims at the unrecessed pose. The recessed trial

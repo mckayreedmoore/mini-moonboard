@@ -4,6 +4,7 @@ import pytest
 
 from scripts import owner_barrel_installed_stack_audit as audit
 from scripts import owner_barrel_rail_layout as rail
+from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 
 
 @pytest.fixture(scope="module")
@@ -130,3 +131,12 @@ def test_all_48_assembled_rows_have_provisional_heads_and_washers(report):
         assert report["named_exceptions"][role] == []
     assert all(row["head_present_in_assembly"] for row in report["rows"])
     assert all(row["washer_present_in_assembly"] for row in report["rows"])
+
+
+def test_integrated_single_center_proposal_has_46_unqualified_stacks():
+    integrated = audit.build_report(build_integrated_viewer_assembly())
+    assert integrated["row_count"] == 46
+    assert integrated["counts"]["thread_engagement_unknown"] == 46
+    assert integrated["counts"]["short_of_assumed_barrel_axis"] == 0
+    assert integrated["counts"]["beyond_modeled_machine_bore"] == 0
+    assert integrated["fit_qualified"] is False

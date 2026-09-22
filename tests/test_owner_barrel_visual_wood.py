@@ -5,7 +5,10 @@ import pytest
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from scripts import owner_barrel_outer_header_cut_integrity as outer_header
-from scripts.export_owner_barrel_scene import build_viewer_assembly
+from scripts.export_owner_barrel_scene import (
+    build_integrated_viewer_assembly,
+    build_viewer_assembly,
+)
 from scripts.owner_barrel_visual_wood import build_visual_wood
 
 
@@ -52,7 +55,8 @@ def test_exact_replacement_scope_and_protected_inventories(visual):
         report["per_member"]["base_post_outer_right"]["counts"]["outer_header_trial"]
         == 4
     )
-    assert report["candidate_barrel_body_cuts"] == 4
+    assert report["outer_header_barrel_body_cuts"] == 4
+    assert report["center_barrel_body_cuts"] == 0
     assert report["release"] is False
     assert len(assembly["removed_legacy_sds"]) == 144
     applied = {
@@ -107,6 +111,56 @@ def test_inherited_service_bore_remains_and_moved_post_has_no_old_kicker_bores(v
         assert result["wood"][name].Volume() == pytest.approx(
             assembly["wood"][name].Volume(), abs=1e-4
         )
+
+
+def test_candidate_visual_reduces_only_provisional_f1_g1_service_bore(visual):
+    assembly, historical = visual
+    candidate = build_visual_wood(assembly=assembly, candidate_service=True)
+    member = "base_principal_center_right"
+    assert candidate["report"]["candidate_service_diameter_mm"] == 25.4
+    assert candidate["wood"][member].Volume() > historical["wood"][member].Volume()
+    for name in historical["wood"]:
+        if name != member:
+            assert candidate["wood"][name].Volume() == pytest.approx(
+                historical["wood"][name].Volume(), abs=1e-3
+            )
+
+
+def test_integrated_visual_cuts_all_six_center_barrel_paths():
+    assembly = build_integrated_viewer_assembly()
+    visual = build_visual_wood(
+        assembly=assembly, candidate_service=True, candidate_center_cuts=True
+    )
+    assert visual["report"]["center_trial_cuts"] == 20
+    assert visual["report"]["outer_header_barrel_body_cuts"] == 4
+    assert visual["report"]["center_barrel_body_cuts"] == 6
+    assert visual["report"]["candidate_service_diameter_mm"] == 25.4
+    for station in (
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right",
+    ):
+        side = station.rsplit("_", 1)[1]
+        receiver = (
+            f"base_post_center_{side}"
+            if "header_center" in station
+            else f"base_principal_center_{side}"
+        )
+        for barrel_name, owner in assembly["barrel_station"].items():
+            if owner != station:
+                continue
+            for role, members in (
+                ("bolt_bore", ("base_header", receiver)),
+                ("barrel_cross_bore", (receiver,)),
+                ("head_pocket", ("base_header",)),
+            ):
+                path = f"{barrel_name}/{role}"
+                if path not in assembly["drilling_paths"]:
+                    continue
+                cutter = assembly["drilling_paths"][path]
+                for member in members:
+                    assert visual["wood"][member].intersect(cutter).Volume() < 1e-3
 
 
 def test_outer_header_trial_bores_remain_after_fixed_cuts_with_overlap_report(visual):

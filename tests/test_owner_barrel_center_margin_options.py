@@ -141,6 +141,23 @@ def test_bounded_offset_sensitivity_is_not_misreported_as_collision_screen(trial
     assert offsets["13.0"]["full_collision_rescreened"] is False
 
 
+def test_original_one_inch_wire_passage_clears_fifty_degree_trial_only(trial):
+    source = trial["wire_service_context"]
+    option = trial["fifty_degree_one_inch_service_option"]
+    assert source["diameter_mm"] == 38.1
+    assert option["service_passage_diameter_mm"] == 25.4
+    assert option["service_passage_changed_only_for_trial"] is True
+    assert option["service_passage_feed_qualified"] is False
+    assert option["minimum_bolt_bore_to_service_gap_mm"] > 4.0
+    assert option["nominal_geometry_disposition"] == (
+        "NOMINAL_TARGETS_ONLY_NET_AND_INSERTION_UNVERIFIED"
+    )
+    assert all(
+        not row["inherited_service_cutter_hits_mm3"] for row in option["rows"].values()
+    )
+    assert trial["fifty_degree_option"]["nominal_geometry_disposition"] == "CLASH"
+
+
 def test_fifty_degree_trial_is_only_blocked_by_inherited_wire_bore(trial):
     option = trial["fifty_degree_option"]
     assert option["x_offsets_mm"] == (-11.25, 11.25)

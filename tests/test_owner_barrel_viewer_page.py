@@ -19,7 +19,12 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     )
     assert "true outer corner posts remain by design" in page
     assert "old 144 angle/SDS visuals and their holes" in page
-    assert "red CLASH: an inherited service hole overlaps a barrel" in page
+    assert (
+        "Each center principal/header junction now shows one centered barrel bolt"
+        in page
+    )
+    assert "provisional 25.4 mm F1–G1 LED passage" in page
+    assert "single-bolt moment transfer" in page
     assert "actual thread engagement remains UNKNOWN" in page
     assert "cut-derived header" in page
     assert "no separate green backers remain" in page

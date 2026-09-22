@@ -20,7 +20,9 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       inventory.fixed_panel_kicker_screw_axes !== 66 ||
       inventory.retained_frame_bolt_axes !== 12 ||
       inventory.direct_joint_duties !== 24 ||
+      inventory.barrel_nut_envelopes !== 46 ||
       inventory.barrel_nut_envelopes !== data.barrel_nut_envelopes?.length ||
+      inventory.new_diagnostic_bolt_axes !== 46 ||
       inventory.new_diagnostic_bolt_axes !== data.diagnostic_bolt_axes?.length ||
       (data.diagnostic_bolt_axes || [])
         .some(row => !Number.isFinite(row.nominal_axial?.tip_past_assumed_axis_mm) ||
@@ -30,8 +32,8 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
           !Array.isArray(row.nominal_axial?.flags)) ||
       inventory.rail_head_washer_envelopes !== 40 ||
       data.rail_head_washer_envelopes?.length !== 40 ||
-      inventory.other_head_washer_envelopes !== 48 ||
-      data.other_head_washer_envelopes?.length !== 48 ||
+      inventory.other_head_washer_envelopes !== 44 ||
+      data.other_head_washer_envelopes?.length !== 44 ||
       inventory.backer_attachment_duties !== 0 ||
       inventory.backer_barrel_nut_envelopes !== 0 ||
       data.backer_barrel_nut_envelopes?.length !== 0 ||
@@ -41,9 +43,12 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.backer_head_washer_envelopes?.length !== 0 ||
       data.backer_attachment?.status !== 'not_applicable_integrated_center_posts' ||
       data.integrated_center_joint_trial?.structural_capacity_verified !== false ||
-      data.integrated_center_joint_trial?.nominal_geometry_disposition !== 'CLASH' ||
-      !Object.keys(data.integrated_center_joint_trial?.candidate_to_inherited_service_void_hits_mm3 || {}).length ||
-      !Object.keys(data.integrated_center_joint_trial?.driver_to_header_after_pocket_hits_mm3 || {}).length ||
+      data.integrated_center_joint_trial?.nominal_geometry_disposition !== 'CANDIDATE_ONLY_UNVERIFIED' ||
+      data.integrated_center_joint_trial?.candidate_service_diameter_mm !== 25.4 ||
+      data.integrated_center_joint_trial?.service_feed_qualified !== false ||
+      data.integrated_center_joint_trial?.assembly_moment_transfer_verified !== false ||
+      data.integrated_center_joint_trial?.unverified?.single_connector_moment_transfer_and_stiffness !== true ||
+      data.integrated_center_joint_trial?.unverified?.service_feed_and_strength !== true ||
       Object.values(data.integrated_center_joint_trial?.release_flags || {}).some(Boolean) ||
       Object.keys(data.integrated_center_joint_trial?.stations || {}).length !== 4 ||
       Object.keys(data.station_dispositions || {}).length !== 24 ||
@@ -79,6 +84,10 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.visual_wood_replacement?.excluded_legacy_sds_axes !== 144 ||
       data.visual_wood_replacement?.fixed_panel_receiver_cuts_in_replacements !== 66 ||
       data.visual_wood_replacement?.fixed_panel_axes_landing_on_separate_backers !== 0 ||
+      data.visual_wood_replacement?.candidate_service_diameter_mm !== 25.4 ||
+      data.visual_wood_replacement?.center_trial_cuts !== 20 ||
+      data.visual_wood_replacement?.outer_header_barrel_body_cuts !== 4 ||
+      data.visual_wood_replacement?.center_barrel_body_cuts !== 6 ||
       data.visual_wood_replacement?.release !== false ||
       data.rim_first_sequence?.temporary_fixed_fastener_removal_required !== true ||
       data.rim_first_sequence?.per_rim_release?.panel_screws !== 8 ||
