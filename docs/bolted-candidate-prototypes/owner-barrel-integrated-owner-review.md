@@ -46,9 +46,9 @@ marks a problem or unqualified fit, not a structural rating.
    screen. Both are **candidate-only proposals**, not selected poses. N = 42 mm
    moves the axis toward the rail front edge, so its wood edge/end and
    net-section checks remain open. Owner approval is needed before changing
-   these frame holes. Then rerun the complete integrated cut, protected-feature,
-   peer-hardware, tolerance and timber-section screens; a zero-hit isolated
-   trial would not suffice.
+   these frame holes. The combined whole-cut trial below removes the earlier
+   isolated-screen limitation, but peer-hardware, tolerance and timber-section
+   qualification remain open; repeat the checks after any approved source edit.
 2. **Close one delivered hardware stack by family.** The current 6-in
    outer-rail tips pass only 1.849 mm beyond the *assumed* Hillman 880543
    barrel center. Moving those barrels 2 mm toward the rail ends improves
@@ -73,6 +73,18 @@ marks a problem or unqualified fit, not a structural rating.
    full-thread/A307 *listing*, and the [Hillman 880543 barrel](https://www.homedepot.com/p/202242356)
    is described as threaded through its sides. Neither listing supplies
    controlled usable engagement or barrel resistance.
+
+   A [combined read-only owner trial](../../scripts/owner_barrel_combined_owner_trial.py)
+   now applies **both proposed changes together** to a detached copy of the
+   full 46-pair assembly. The complete visual cut still represents all 46
+   pairs, with no missing drill path, unexpected path host or intersection
+   involving the six changed bore paths and another protected/source cut.
+   The four extra bore-tip segments stay within the modeled top rail and
+   report no protected-feature or unrelated-wood hit above the 1 mm³ screen.
+   Each top-outer shaft would have 2 mm nominal bore-tip clearance. This
+   improves the decision evidence; it does **not** change the maintained
+   viewer, establish net-section strength, thread fit or service tolerances,
+   or replace either owner approval.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
