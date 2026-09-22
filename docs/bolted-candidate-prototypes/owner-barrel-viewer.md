@@ -37,6 +37,10 @@ drilling dimensions. The installed side rim no longer overlaps the modeled
 stack, but still blocks the modeled driver. The
 [rim-first sequence probe](owner-barrel-outer-header-sequence-probe.md)
 finds a possible dependency order, not a verified physical removal route.
+The [rail-to-rim service screen](owner-barrel-rim-rail-service-probe.md)
+finds no nominal straight-path obstacle at the six bottom/lower/upper outer
+stations with rims installed; it does not verify delivered heads, barrel
+extraction or a real tool sweep.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
