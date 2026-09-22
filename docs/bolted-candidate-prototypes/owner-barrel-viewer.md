@@ -94,14 +94,22 @@ The [forward-row sensitivity](owner-barrel-outer-header-row-shift-probe.md)
 uses the current Y = −85 mm viewer as its source and compares Y = −75,
 −80, and −90 mm alternatives. The current pose has 24.600 mm between
 counterbores; it remains provisional and `REVISE`.
-The [source-bound connector inventory](owner-barrel-native-connector-inventory.md)
-now reads the same current viewer revision. The
-[installed-stack audit](owner-barrel-installed-stack-audit.md) finds no bolt
-short of an *assumed* barrel center. The eight formerly overrun 5 in
+The earlier [connector inventory](owner-barrel-native-connector-inventory.md)
+and [standalone installed-stack note](owner-barrel-installed-stack-audit.md)
+default to the superseded outward-post pose. The integrated scene exporter
+passes its own assembly into the same axial-audit helper and finds all 48
+tips reach an *assumed* barrel center with no modeled bore overruns. The eight formerly overrun 5 in
 center-rail bores now have 4 mm nominal tip clearance after an owner-approved
 depth revision, as do the four recessed outer-header bores. All 48 have provisional
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
+For the new center principal/header joint, the
+[integrated conditional numerical screen](owner-barrel-integrated-center-prelim.md)
+reports component sensitivities from actual trial geometry, not a joint
+rating or a force solution. The [current retail hardware leads](owner-barrel-integrated-center-hardware.md),
+[partial cost](owner-barrel-integrated-cost.md), and
+[load-test readiness gates](owner-barrel-load-test-readiness.md) are separate:
+none closes the barrel/thread, wood breakout, tolerance, or global-demand gaps.
 The detached [6/7 in length screen](owner-barrel-outer-rail-bolt-length-probe.md)
 finds 6 in still short and a 7 in nominal tip 12.2452 mm past the modeled
 barrel's far wall. Neither is selected hardware; a longer bore and tip
