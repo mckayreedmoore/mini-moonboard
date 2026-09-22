@@ -85,7 +85,14 @@ def _owner_wood(source):
     return wood
 
 
-def build_geometry(wood=None):
+def build_geometry(
+    wood=None,
+    *,
+    row_n_mm=ROW_N_FROM_FRONT_MM,
+    barrel_setback_mm=BARREL_X_FROM_BUTT_MM,
+    stations=STATIONS,
+    cut_wood=True,
+):
     """Expose cut wood, intersecting bores, trial solids, and access per duty."""
     source = variant(KERF_RIGHT)
     panel = tuple(source.panel_connections())
@@ -94,7 +101,11 @@ def build_geometry(wood=None):
         raise ValueError("Fixed kerf-right axis or rail-duty inventory changed")
     wood = _owner_wood(source) if wood is None else wood
     geometry = {}
-    for station in STATIONS:
+    if len(row_n_mm) != 2 or row_n_mm[0] >= row_n_mm[1] or barrel_setback_mm <= 0:
+        raise ValueError("Expected two ordered rows and positive barrel setback")
+    if not set(stations) <= set(STATIONS):
+        raise ValueError("Unknown rail duty")
+    for station in stations:
         spec = SPECS[station]
         upright, rail = wood[spec.upright_name], wood[spec.rail_name]
         ub, rb = _box_bounds(upright), _box_bounds(rail)
@@ -110,9 +121,9 @@ def build_geometry(wood=None):
             raise ValueError(f"{station}: rail T section changed")
         if abs((n_max - n_min) - continuation.SECTION_MM[1]) > 1e-4:
             raise ValueError(f"{station}: rail rearward N envelope changed")
-        barrel_x = rail_butt_x + sign * BARREL_X_FROM_BUTT_MM
+        barrel_x = rail_butt_x + sign * barrel_setback_mm
         rows = []
-        for index, n_offset in enumerate(ROW_N_FROM_FRONT_MM, 1):
+        for index, n_offset in enumerate(row_n_mm, 1):
             n = n_min + n_offset
             entry_from_minus_t = index == 1
             entry_t = t_min if entry_from_minus_t else t_max
@@ -190,17 +201,18 @@ def build_geometry(wood=None):
         ]
         upright_bores = [row["machine_bore"] for row in rows]
         cut_rail, cut_upright = rail, upright
-        for bore in rail_bores:
-            cut_rail = cut_rail.cut(bore)
-        for bore in upright_bores:
-            cut_upright = cut_upright.cut(bore)
+        if cut_wood:
+            for bore in rail_bores:
+                cut_rail = cut_rail.cut(bore)
+            for bore in upright_bores:
+                cut_upright = cut_upright.cut(bore)
         geometry[station] = {
             "station": station,
             "spec": spec,
             "rail": rail,
             "upright": upright,
-            "cut_rail": cut_rail.clean(),
-            "cut_upright": cut_upright.clean(),
+            "cut_rail": cut_rail.clean() if cut_wood else None,
+            "cut_upright": cut_upright.clean() if cut_wood else None,
             "rows": tuple(rows),
             "rail_n_depth_mm": n_max - n_min,
             "butt_mismatch_mm": butt_mismatch,

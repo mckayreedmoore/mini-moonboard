@@ -31,6 +31,13 @@ found no nominal hits against fixed protected solids, but the outer-header
 shafts and access paths intersect the side rims, while the outer-base access
 paths intersect the outer posts. Those are unresolved, not cleared by the
 isolated bore check.
+Detached [rail-position trials](owner-barrel-rail-clearance-probe.md) found
+four nominally clear alternatives for the two right-center rail duties.
+A separate [center washer and bolt-length study](owner-barrel-center-margin-probe.md)
+found a geometrically plausible 4 in nominal bolt at one trial washer seat;
+the inherited 5 in bolt breaks out of receiving wood. These are research
+results, **not revisions to this viewer** or accepted joints. The delivered
+hardware, complete joint resistance, and assembly access remain open.
 The integrated cross-family screen found no positive-volume **physical**
 or drill/access intersections among its supplied finite solids. That is
 strictly a limited negative screen: same-family contacts, protected
