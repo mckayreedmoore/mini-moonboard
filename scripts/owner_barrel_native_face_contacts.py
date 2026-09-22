@@ -11,7 +11,7 @@ import cadquery as cq
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
-SCHEMA = "owner_barrel_native_face_contacts/v1"
+SCHEMA = "owner_barrel_native_face_contacts/v2"
 TOL_MM = 1e-3
 TOL_AREA_MM2 = 1e-2
 
@@ -34,8 +34,8 @@ def _touching_face(first, second, station):
     return hits[0]
 
 
-def _contact_cells(patch, normal, station):
-    """Four equal-area centroid cells on a verified rectangular gross patch."""
+def _contact_cells(patch, normal, station, *, refine_y=False):
+    """Partition a rectangular face; resolve the center bolt's rear strip."""
     edges = [edge for edge in patch.Edges() if len(edge.Vertices()) == 2]
     if len(edges) != 4 or len(patch.Vertices()) != 4:
         raise ValueError(f"{station}: contact patch is not four-sided")
@@ -54,10 +54,16 @@ def _contact_cells(patch, normal, station):
     area = patch.Area()
     if not isclose((u1 - u0) * (v1 - v0), area, abs_tol=TOL_AREA_MM2):
         raise ValueError(f"{station}: gross contact patch is not rectangular")
+    if refine_y and abs(normal.z) < 1 - 1e-6:
+        raise ValueError(f"{station}: refined center face is no longer horizontal")
+    u_count = 8 if refine_y and abs(tangent_u.y) > abs(tangent_v.y) else 2
+    v_count = 8 if refine_y and u_count == 2 else 2
     plane = patch.Center().dot(normal)
     cells = []
-    for row, u_fraction in enumerate((0.25, 0.75), 1):
-        for column, v_fraction in enumerate((0.25, 0.75), 1):
+    for row in range(1, u_count + 1):
+        u_fraction = (row - 0.5) / u_count
+        for column in range(1, v_count + 1):
+            v_fraction = (column - 0.5) / v_count
             point = (
                 normal * plane
                 + tangent_u * (u0 + u_fraction * (u1 - u0))
@@ -69,7 +75,7 @@ def _contact_cells(patch, normal, station):
                 {
                     "name": f"{station}_contact_{row}_{column}",
                     "point_xyz_mm": _xyz(point),
-                    "tributary_area_mm2": round(area / 4, 6),
+                    "tributary_area_mm2": round(area / (u_count * v_count), 6),
                 }
             )
     return cells
@@ -131,6 +137,24 @@ def build_report(assembly=None):
             or normal.dot(opposite.normalAt().normalized()) > -1 + 1e-6
         ):
             raise ValueError(f"{station}: timber faces do not oppose each other")
+        crossings = _bolt_crossings(assembly, station, patch, normal)
+        center_margin = None
+        if duty["family"] == "base_center":
+            if len(crossings) != 1:
+                raise ValueError(f"{station}: center principal bolt count changed")
+            bolt_y = crossings[0]["point_xyz_mm"][1]
+            bounds = patch.BoundingBox()
+            rear, front = bolt_y - bounds.ymin, bounds.ymax - bolt_y
+            if rear <= 0 or front <= 0:
+                raise ValueError(f"{station}: center bolt left its gross face")
+            center_margin = {"rear": round(rear, 6), "front": round(front, 6)}
+        cells = _contact_cells(
+            patch, normal, station, refine_y=duty["family"] == "base_center"
+        )
+        if center_margin is not None:
+            cell_y = [cell["point_xyz_mm"][1] for cell in cells]
+            if not min(cell_y) < crossings[0]["point_xyz_mm"][1] < max(cell_y):
+                raise ValueError(f"{station}: rear compression strip is unresolved")
         stations[station] = {
             "family": duty["family"],
             "first_part": first_name,
@@ -138,8 +162,9 @@ def build_report(assembly=None):
             "gross_contact_area_mm2": round(patch.Area(), 6),
             "gross_contact_centroid_xyz_mm": _xyz(patch.Center()),
             "normal_outward_from_first_xyz": _xyz(normal),
-            "contact_cells": _contact_cells(patch, normal, station),
-            "bolt_face_crossings": _bolt_crossings(assembly, station, patch, normal),
+            "contact_cells": cells,
+            "bolt_face_crossings": crossings,
+            "gross_face_y_edge_margins_from_bolt_mm": center_margin,
         }
     return {
         "schema": SCHEMA,
@@ -158,7 +183,9 @@ def build_report(assembly=None):
         "limits": (
             "Gross uncut wood-to-wood faces only. Bolt paths and cells do not "
             "include actual drilled cutout, gaps, preload, tolerances, moisture, "
-            "partial opening, slip, stiffness, or resistance."
+            "partial opening, slip, stiffness, or resistance. The two single-"
+            "bolt principal/header faces use 2x8 cells to resolve their narrow "
+            "rear strips; all other gross faces use 2x2 cells."
         ),
         "contact_law_qualified": False,
         "native_solve": False,

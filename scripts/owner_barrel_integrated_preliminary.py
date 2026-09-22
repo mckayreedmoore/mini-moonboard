@@ -16,6 +16,7 @@ from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.owner_barrel_coordinates import local_bounds
 from scripts.owner_barrel_installed_stack_audit import _cylinder, _row
 from scripts.owner_barrel_mvp_preliminary import _joint as historical_two_row_components
+from scripts.owner_barrel_native_face_contacts import build_report as face_report
 from scripts.simple_owner_duty_ledger import selected_duties
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,7 +29,7 @@ STEEL_E_MPA_SENSITIVITY = 205_000.0
 ROOT_DIAMETER_MM_SENSITIVITY = 0.189 * MM_PER_IN
 
 
-def _center(assembly):
+def _center(assembly, face):
     names = [
         name for name, station in assembly["bolt_station"].items() if station == CENTER
     ]
@@ -74,6 +75,23 @@ def _center(assembly):
     steel_k = (
         STEEL_E_MPA_SENSITIVITY * math.pi * ROOT_DIAMETER_MM_SENSITIVITY**2 / 4 / reach
     )
+    crossings = face["bolt_face_crossings"]
+    if len(crossings) != 1 or crossings[0]["name"] != name:
+        raise ValueError("Center principal gross face and bolt ownership changed")
+    crossing = crossings[0]
+    normal_projection = abs(
+        sum(
+            axis * normal
+            for axis, normal in zip(
+                crossing["direction_xyz"],
+                face["normal_outward_from_first_xyz"],
+                strict=True,
+            )
+        )
+    )
+    margins = face["gross_face_y_edge_margins_from_bolt_mm"]
+    if margins is None or normal_projection <= 0:
+        raise ValueError("Center gross face has no resolved compression geometry")
     return {
         "station": CENTER,
         "members": ["base_header", "base_principal_center_right"],
@@ -100,6 +118,18 @@ def _center(assembly):
         ),
         "barrel_recess_mm": datum["barrel_recess_mm"],
         "candidate_F1_G1_passage_diameter_mm": report["candidate_service_diameter_mm"],
+        "gross_contact_geometry": {
+            "area_mm2": face["gross_contact_area_mm2"],
+            "cell_count": len(face["contact_cells"]),
+            "bolt_rearward_of_centroid_mm": round(
+                face["gross_contact_centroid_xyz_mm"][1] - crossing["point_xyz_mm"][1],
+                6,
+            ),
+            "rear_edge_margin_from_bolt_mm": margins["rear"],
+            "front_edge_margin_from_bolt_mm": margins["front"],
+            "bolt_axis_normal_projection_abs": round(normal_projection, 6),
+            "actual_cut_face_or_contact_law_verified": False,
+        },
         "conditional_wood": {
             "ideal_full_contact_washer_fc_perp_n": round(washer_n, 3),
             "one_full_slot_parallel_tension_sensitivity_n": round(slot_n, 3),
@@ -144,10 +174,16 @@ def report(assembly=None):
         raise ValueError("Current barrel assembly or material edition changed")
     rail = historical_two_row_components(assembly, selected_duties(), None, RAIL)
     rail.pop("historical_bracket_two_point_scale_only")
+    faces = face_report(assembly)
+    if faces["station_count"] != 24 or faces["bolt_interface_count"] != 46:
+        raise ValueError("Integrated gross contact geometry changed")
+    rail["gross_face_contact_area_mm2"] = faces["stations"][RAIL][
+        "gross_contact_area_mm2"
+    ]
     rail["actual_new_topology_demand_n"] = None
     rail["complete_joint_stiffness_n_per_mm"] = None
     return {
-        "schema": "owner_barrel_integrated_preliminary/v1",
+        "schema": "owner_barrel_integrated_preliminary/v2",
         "geometry_source": "integrated_viewer_assembly",
         "material_source": "docs/bolted-candidate-material-basis.json",
         "edition": material["source"]["edition"],
@@ -157,7 +193,7 @@ def report(assembly=None):
         "retained_frame_bolts": len(assembly["frame_connections"]),
         "joints": {
             "lower_outer_rail": rail,
-            "center_principal_header": _center(assembly),
+            "center_principal_header": _center(assembly, faces["stations"][CENTER]),
         },
         "missing": [
             "new-topology signed six-case forces and moments with contact/load sharing",

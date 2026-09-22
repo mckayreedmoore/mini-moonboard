@@ -14,7 +14,7 @@ def test_all_integrated_joint_faces_and_bolt_crossings_are_source_bound(report):
     assert report["schema"] == contacts.SCHEMA
     assert report["post_placement"] == "integrated"
     assert report["station_count"] == 24
-    assert report["contact_cell_count"] == 96
+    assert report["contact_cell_count"] == 120
     assert report["bolt_interface_count"] == 46
     assert report["fixed_panel_kicker_screw_count"] == 66
     assert report["retained_frame_bolt_count"] == 12
@@ -35,7 +35,10 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
     assert rows["clip_split_base_center_left"][
         "gross_contact_area_mm2"
     ] == pytest.approx(5113.122, abs=0.01)
-    assert all(len(row["contact_cells"]) == 4 for row in rows.values())
+    assert all(
+        len(row["contact_cells"]) == (16 if row["family"] == "base_center" else 4)
+        for row in rows.values()
+    )
     assert all(
         sum(cell["tributary_area_mm2"] for cell in row["contact_cells"])
         == pytest.approx(row["gross_contact_area_mm2"], abs=0.002)
@@ -48,3 +51,17 @@ def test_actual_face_areas_and_bolt_points_are_consistent(report):
     )
     assert len(rows["clip_split_base_center_left"]["bolt_face_crossings"]) == 1
     assert len(rows["clip_split_base_center_right"]["bolt_face_crossings"]) == 1
+
+
+def test_center_single_bolt_has_numerically_resolved_rear_contact_strip(report):
+    for station in ("clip_split_base_center_left", "clip_split_base_center_right"):
+        row = report["stations"][station]
+        bolt_y = row["bolt_face_crossings"][0]["point_xyz_mm"][1]
+        cell_y = [cell["point_xyz_mm"][1] for cell in row["contact_cells"]]
+        assert min(cell_y) < bolt_y < max(cell_y)
+        assert row["gross_face_y_edge_margins_from_bolt_mm"]["rear"] == pytest.approx(
+            16.194623, abs=0.0002
+        )
+        assert row["gross_face_y_edge_margins_from_bolt_mm"]["front"] == pytest.approx(
+            118.007, abs=0.002
+        )

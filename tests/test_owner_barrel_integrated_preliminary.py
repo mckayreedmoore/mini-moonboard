@@ -21,11 +21,21 @@ class IntegratedPreliminaryTest(unittest.TestCase):
         self.assertEqual(len(center["rows"]), 1)
         self.assertNotIn("historical_bracket_two_point_scale_only", rail)
         self.assertAlmostEqual(rail["row_spacing_mm"], 32.25, places=3)
+        self.assertAlmostEqual(rail["gross_face_contact_area_mm2"], 5322.57, places=2)
         self.assertAlmostEqual(center["rows"][0]["nominal_length_mm"], 127.0)
         self.assertAlmostEqual(
             center["barrel_body_ligament_to_nearest_x_edge_mm"], 14.046, places=2
         )
         self.assertAlmostEqual(center["head_pocket_edge_stock_mm"], 2.092, places=2)
+        face = center["gross_contact_geometry"]
+        self.assertAlmostEqual(face["area_mm2"], 5113.122, places=2)
+        self.assertEqual(face["cell_count"], 16)
+        self.assertAlmostEqual(face["bolt_rearward_of_centroid_mm"], 50.907, places=2)
+        self.assertAlmostEqual(face["rear_edge_margin_from_bolt_mm"], 16.195, places=2)
+        self.assertAlmostEqual(
+            face["front_edge_margin_from_bolt_mm"], 118.008, places=2
+        )
+        self.assertAlmostEqual(face["bolt_axis_normal_projection_abs"], 0.766, places=3)
         self.assertGreater(
             center["conditional_wood"]["ideal_full_contact_washer_fc_perp_n"], 0
         )

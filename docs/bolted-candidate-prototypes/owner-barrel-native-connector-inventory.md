@@ -51,13 +51,15 @@ receivers in either pose; `backers`, `backer_screw_landings`, and
 
 The separate [gross-face contact input](../../scripts/owner_barrel_native_face_contacts.py)
 now reads the same integrated assembly. Each of the **24** former-angle timber
-pairs has exactly one opposing planar gross contact patch, divided into four
-equal-area candidate compression cells (**96** total). All **46** trial bolt
+pairs has exactly one opposing planar gross contact patch. The 22 two-bolt
+faces use four equal-area candidate compression cells each. The two
+single-bolt principal/header faces use 16 cells each (**120** total), with
+finer front-to-rear resolution near the bolt. All **46** trial bolt
 axes cross their own patch within its boundary. Representative gross areas
 are 5,322.57 mm² at a top-outer rail, 12,419.33 mm² at a center-post/header
 joint, and 5,113.122 mm² at a center-principal/header joint. These are
 **uncut** CAD faces: actual bores, edge loss, gaps, partial opening, grain
-direction, and delivered contact have not been accounted for. The four cells
+direction, and delivered contact have not been accounted for. These cells
 define locations and tributary gross area, not a verified stiffness or
 compression law. In particular, one principal/header bolt plus this face
 inventory does not by itself establish a signed moment or twist path.

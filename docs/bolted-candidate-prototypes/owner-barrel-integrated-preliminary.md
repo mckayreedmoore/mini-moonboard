@@ -39,6 +39,20 @@ the actual butt-face compression and the connected frame would have to form
 the couple. Opening or reversed twist can remove that compression, so a
 clearance-free pose does not establish mechanical plausibility in all cases.
 
+The [source-built gross-face input](../../scripts/owner_barrel_native_face_contacts.py)
+adds the actual uncut contact geometry to those conditional components. The
+representative rail face is **5,322.57 mm²**. The center principal/header
+face is **5,113.122 mm²**, and its sole bolt crosses **50.907 mm rearward**
+of the gross-face centroid. Only **16.195 mm** of that face lies behind the
+bolt, versus **118.008 mm** ahead. The bolt's axial direction has an absolute
+**0.766** projection onto the contact normal, so it also has a substantial
+in-plane component. A 2×2 face grid would put every compression-cell center
+ahead of this bolt and miss the narrow rear strip; the current geometry input
+uses 2×8 cells at each single-bolt center duty. These are **geometric
+lever-arm bounds**, not moment resistance or stiffness. Drilled section loss,
+wood orientation, contact opening, barrel breakout, and signed demand must
+still be calculated before a two-way resisting couple can be claimed.
+
 The next numerical step is a **signed six-case integrated response** with
 opening/contact and joint slip represented, followed by the actual cut-wood
 and barrel/thread limit states for all 24 duties. The selected angle frame's
