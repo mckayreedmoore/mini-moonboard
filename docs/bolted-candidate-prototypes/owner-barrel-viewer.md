@@ -47,6 +47,10 @@ The separate [top/outer-base service screen](owner-barrel-rim-outer-top-service-
 finds no nominal straight-path obstacle at the remaining four rim-attached
 stations, but its outer-base barrels have deep entry recesses and still need
 a verified alignment, retention and removal method.
+The [retained-hardware rim-withdrawal screen](owner-barrel-rim-withdrawal-hardware-probe.md)
+finds no intersection at 33 isolated positions on either side after the
+specified temporary fastener removals. It does not verify a continuous
+sweep, delivered heads/washers, tools, safe support, or repeated service.
 Actual delivered hardware, repeatable access and header net-section capacity
 remain open. The head, washer and recess colors distinguish diagnostic parts,
 not approved hardware.
