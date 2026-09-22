@@ -19,7 +19,10 @@ from scripts import owner_layout_protected as protected
 from scripts.export_owner_barrel_scene import build_viewer_assembly
 
 PRINCIPAL_Z_MM = 257.7
-PRINCIPAL_BOLT_LENGTH_MM = 127.0
+PRINCIPAL_BOLT_LENGTH_MM = 4.5 * 25.4
+PRINCIPAL_BORE_LENGTH_MM = 5 * 25.4
+POST_BOLT_LENGTH_MM = 3.5 * 25.4
+BOTTOM_BOLT_LENGTH_MM = 4.5 * 25.4
 ANGLE_DEG = 50.0
 SEAT_DEPTH_MM = 13.1
 THREAD_DEPTH_MM = 100.0
@@ -65,7 +68,9 @@ def _candidate_service_voids(wood):
 def build(*, assembly=None, wood=None):
     """Build two centered principal rows and screen the four center duties."""
     assembly = build_viewer_assembly() if assembly is None else assembly
-    base = integrated.build(assembly=assembly, wood=wood)
+    base = integrated.build(
+        assembly=assembly, wood=wood, post_bolt_length_mm=POST_BOLT_LENGTH_MM
+    )
     wood = base["wood"]
     fixed = protected.inventory()
     if fixed["counts"]["panel_screws"] != 66 or fixed["counts"]["frame_bolts"] != 12:
@@ -99,6 +104,24 @@ def build(*, assembly=None, wood=None):
             bolt_angle_deg=ANGLE_DEG,
             pocket_lead_mm=POCKET_LEAD_MM,
             mouth_relief=False,
+        )
+        # Retain the source bore reach while the nominal shaft is shortened.
+        roles["bolt_bore"] = integrated._cylinder(
+            row["bolt_seat_xyz_mm"],
+            row["bolt_axis_xyz"],
+            PRINCIPAL_BORE_LENGTH_MM
+            - integrated.WASHER_T
+            + margin.BORE_TIP_CLEARANCE_MM,
+            center.BORE_DIAMETER_MM,
+        )
+        row["modeled_bore_depth_past_nominal_tip_mm"] = round(
+            PRINCIPAL_BORE_LENGTH_MM
+            - PRINCIPAL_BOLT_LENGTH_MM
+            + margin.BORE_TIP_CLEARANCE_MM,
+            6,
+        )
+        row["bolt_barrel_intersection_mm3"] = round(
+            protected._volume(roles["bolt_bore"], roles["barrel_cross_bore"]), 6
         )
         solids[name] = roles
         reports[station] = {"family": "principal_header", "bolts": {name: row}}
@@ -328,15 +351,35 @@ def build_layout(wood):
 
 
 def build_six_layout(wood):
-    """Export-wrapper adapter retaining the source's two bottom-center rows."""
+    """Export-wrapper adapter with shorter bottom shafts and unchanged bores."""
     _, former_wood, _ = center._wood()
     former = center.build_revised_layout(former_wood)
     revised = build_layout(wood)
-    bottom = {
-        station: row
-        for station, row in former["stations"].items()
-        if station.startswith("clip_horizontal_bottom_")
-    }
+    bottom = {}
+    for station, row in former["stations"].items():
+        if not station.startswith("clip_horizontal_bottom_"):
+            continue
+        bolts, stacks = {}, {}
+        for name, bolt in row["bolts"].items():
+            bolts[name] = Connection(
+                name,
+                bolt.start,
+                bolt.direction,
+                BOTTOM_BOLT_LENGTH_MM,
+                bolt.diameter,
+                bolt.members,
+                bolt.kind,
+            )
+            stacks[name] = {
+                **row["stacks"][name],
+                "shaft": center._cylinder(
+                    bolt.start.toTuple(),
+                    bolt.direction.toTuple(),
+                    BOTTOM_BOLT_LENGTH_MM,
+                    bolt.diameter,
+                ),
+            }
+        bottom[station] = {**row, "bolts": bolts, "stacks": stacks}
     if len(bottom) != 2 or len(revised["stations"]) != 4:
         raise ValueError("Expected six nonempty center duties")
     return {
@@ -344,6 +387,7 @@ def build_six_layout(wood):
         "diagnostics": {
             "source_id": "integrated-center-single-candidate",
             "unchanged_bottom": former["diagnostics"],
+            "integrated_bottom_bolt_length_mm": BOTTOM_BOLT_LENGTH_MM,
             "revised_center": revised["diagnostics"],
         },
     }

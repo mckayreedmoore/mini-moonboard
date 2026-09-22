@@ -54,6 +54,10 @@ VIEWER_OUTER_STATIONS = tuple(
 )
 VIEWER_OUTER_SETBACK_MM = 60.0
 VIEWER_OUTER_BOLT_LENGTH_MM = 6.0 * continuation.INCH_MM
+INTEGRATED_CENTER_BOLT_LENGTH_MM = 4.5 * continuation.INCH_MM
+INTEGRATED_CENTER_STATIONS = tuple(
+    name for name in STATIONS if name not in VIEWER_OUTER_STATIONS
+)
 VIEWER_CENTER_BORE_CLEARANCE_STATIONS = frozenset(
     {
         "clip_horizontal_lower_left_2",
@@ -439,8 +443,10 @@ def _connection(row, spec):
     )
 
 
-def build_layout(wood, *, viewer_revision=False):
+def build_layout(wood, *, viewer_revision=False, integrated_center_length=False):
     """Assembly adapter: use its exact wood pose and retain REVISE dispositions."""
+    if integrated_center_length and not viewer_revision:
+        raise ValueError("Integrated center length requires the revised viewer pose")
     built = build_geometry(
         wood=wood,
         complete_stack=viewer_revision,
@@ -472,6 +478,29 @@ def build_layout(wood, *, viewer_revision=False):
             complete_stack=True,
         )
         built["stations"].update(outer_trial["stations"])
+    if integrated_center_length:
+        if len(INTEGRATED_CENTER_STATIONS) != 4:
+            raise ValueError("Expected four lower/upper center-rail duties")
+        for name in INTEGRATED_CENTER_STATIONS:
+            pose = built["stations"][name]
+            shortened = []
+            for row in pose["rows"]:
+                shaft_start = row["wood_seat"] - row["bolt_direction"] * (
+                    continuation.WASHER_THICKNESS_SENSITIVITY_MM
+                )
+                shortened.append(
+                    {
+                        **row,
+                        "bolt_length_mm": INTEGRATED_CENTER_BOLT_LENGTH_MM,
+                        "bolt": _cylinder(
+                            shaft_start,
+                            row["bolt_direction"],
+                            INTEGRATED_CENTER_BOLT_LENGTH_MM,
+                            continuation.THREAD_MAJOR_MM,
+                        ),
+                    }
+                )
+            pose["rows"] = tuple(shortened)
     report = screen(built)
     stations = {}
     for name, pose in built["stations"].items():
@@ -515,7 +544,14 @@ def build_layout(wood, *, viewer_revision=False):
     return {
         "stations": stations,
         "diagnostics": {
-            "source_id": SOURCE_ID + ("-viewer-revision-v1" if viewer_revision else ""),
+            "source_id": SOURCE_ID
+            + (
+                "-integrated-length-v1"
+                if integrated_center_length
+                else "-viewer-revision-v1"
+                if viewer_revision
+                else ""
+            ),
             "disposition": report["disposition"],
             "station_screens": report["stations"],
             "viewer_trial_front_n_mm": VIEWER_REVISED_ROWS_N_MM[0]
@@ -529,6 +565,15 @@ def build_layout(wood, *, viewer_revision=False):
             ),
             "viewer_center_rail_bore_tip_clearance_mm": (
                 VIEWER_BORE_TIP_CLEARANCE_MM if viewer_revision else None
+            ),
+            **(
+                {
+                    "integrated_center_rail_bolt_length_mm": (
+                        INTEGRATED_CENTER_BOLT_LENGTH_MM
+                    )
+                }
+                if integrated_center_length
+                else {}
             ),
             "limits": (
                 "Provisional heads/washers in the viewer only; delivered thread "
@@ -544,3 +589,8 @@ def build_layout(wood, *, viewer_revision=False):
 def build_revised_layout(wood):
     """Show screened right-center rail alternatives without changing defaults."""
     return build_layout(wood, viewer_revision=True)
+
+
+def build_integrated_layout(wood):
+    """Trial 4.5 in lower/upper center shafts; retain revised bores and outer rails."""
+    return build_layout(wood, viewer_revision=True, integrated_center_length=True)

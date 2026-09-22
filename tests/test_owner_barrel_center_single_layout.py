@@ -25,10 +25,10 @@ def test_one_centered_principal_row_and_two_retained_post_rows(trial):
         row = next(iter(principal["bolts"].values()))
         assert row["bolt_seat_xyz_mm"][0] == pytest.approx(x)
         assert row["bolt_axis_angle_from_y_deg"] == 50
-        assert row["bolt_length_mm"] == 127
+        assert row["bolt_length_mm"] == pytest.approx(114.3)
         assert row["barrel_radial_x_edge_ligament_mm"] == pytest.approx(14.0462)
         assert row["barrel_recess_mm"] > 41
-        assert row["modeled_bore_depth_past_nominal_tip_mm"] == 4
+        assert row["modeled_bore_depth_past_nominal_tip_mm"] == pytest.approx(16.7)
         assert row["tip_extension_in_receiver_fraction"] == 1
         assert row["joined_wood_bore_core_fraction"] == 1
         assert row["head_washer_inside_header_fraction"] == {
@@ -69,14 +69,14 @@ def test_full_screen_and_conditional_service_are_never_reported_as_release(trial
     )
     assert right["barrel_insertion_orientation_access_verified"] is False
     assert right["barrel_tool_modeled_axis_span_from_entry_mm"] == [-40, 0]
-    assert right["nominal_tip_beyond_barrel_far_wall_mm"] == pytest.approx(20.3452)
+    assert right["nominal_tip_beyond_barrel_far_wall_mm"] == pytest.approx(7.6452)
     assert right["head_pocket_header_bottom_margin_mm"] == pytest.approx(2.092152)
     bore = "base_principal_center_right/bore_base_principal_center_right_072"
     assert bore in trial["service_voids"]
     assert not right["candidate_service_void_hits_mm3"]
 
 
-def test_four_row_adapter_and_unchanged_bottom_wrapper(trial, monkeypatch):
+def test_four_row_adapter_and_shortened_bottom_wrapper(trial, monkeypatch):
     monkeypatch.setattr(single, "build", lambda *, wood: trial)
     adapted = single.build_layout(trial["wood"])
     assert set(adapted["stations"]) == set(single.integrated.STATIONS)
@@ -88,16 +88,6 @@ def test_four_row_adapter_and_unchanged_bottom_wrapper(trial, monkeypatch):
         assert len(row["drilling_paths"]) == (2 if count == 2 else 3) * count
         assert row["disposition"] == "VIEWER_ONLY_UNVERIFIED"
 
-    bottom = {
-        "clip_horizontal_bottom_left_2": {"bolts": {"a": object()}},
-        "clip_horizontal_bottom_right_1": {"bolts": {"b": object()}},
-    }
-    monkeypatch.setattr(single.center, "_wood", lambda: (None, {}, None))
-    monkeypatch.setattr(
-        single.center,
-        "build_revised_layout",
-        lambda wood: {"stations": bottom, "diagnostics": {"source": "unchanged"}},
-    )
     combined = single.build_six_layout(trial["wood"])
     assert len(combined["stations"]) == 6
     assert all(row["bolts"] for row in combined["stations"].values())
@@ -105,7 +95,11 @@ def test_four_row_adapter_and_unchanged_bottom_wrapper(trial, monkeypatch):
         combined["diagnostics"]["revised_center"]["assembly_moment_transfer_verified"]
         is False
     )
-    assert (
-        combined["stations"]["clip_horizontal_bottom_left_2"]
-        is bottom["clip_horizontal_bottom_left_2"]
-    )
+    for station in (
+        "clip_horizontal_bottom_left_2",
+        "clip_horizontal_bottom_right_1",
+    ):
+        assert all(
+            bolt.length == pytest.approx(114.3)
+            for bolt in combined["stations"][station]["bolts"].values()
+        )

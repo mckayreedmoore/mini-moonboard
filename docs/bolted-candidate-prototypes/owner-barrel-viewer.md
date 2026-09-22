@@ -35,9 +35,10 @@ the visibility controls and zoom in to inspect crowded joints. Alt-click
 selects an internal joint for its warning. Each bolt warning shows both the
 fully-threaded geometric ceiling and a separate **19.05 mm nominal end-thread
 comparator**; the latter comes from a documented Grade 5 bolt family, not
-from the unverified retailer bolts in the price basket. In that comparator,
-the two base-center bolts have no male thread inside the modeled barrel
-body. It is a purchase/fit alert, not a delivered-hardware verdict. This
+from the unverified retailer bolts in the price basket. The family-specific
+trial lengths give positive nominal body overlap at all 46 pairs in that
+comparator, but not verified usable engagement. It is a purchase/fit alert,
+not a delivered-hardware verdict. This
 scene is generated independently of the corner-block assembly.
 The viewer now replaces all 16 timber meshes that contained old angle/SDS
 holes with source-built visual timber. The 144 old SDS bore cuts are excluded;
@@ -68,7 +69,7 @@ right-center rail stations use a 50/92.25 mm row pair found in the
 [rail-position probe](owner-barrel-rail-clearance-probe.md); both
 center-principal/header stations now use the
 [single-centered-barrel candidate](../../scripts/owner_barrel_center_single_layout.py)
-with two 4 in post/header bolts and one centered 5 in principal/header bolt
+with two 3½ in post/header bolts and one centered 4½ in principal/header bolt
 per side. The latter uses a 19.05 mm trial washer envelope and recessed,
 50° header-rear entry. A single barrel's moment transfer depends on the
 connected contact/load path and is not yet verified. These are unselected
@@ -134,13 +135,13 @@ now defaults to this integrated 46-pair pose; the
 [standalone installed-stack note](owner-barrel-installed-stack-audit.md)
 still defaults to the superseded outward-post pose. The integrated scene exporter
 passes its own assembly into the same axial-audit helper and finds all 46
-tips reach an *assumed* barrel center with no modeled bore overruns. The eight formerly overrun 5 in
-center-rail bores now have 4 mm nominal tip clearance after an owner-approved
-depth revision, as do the four recessed outer-header bores. All 46 have provisional
+tips reach an *assumed* barrel center with no modeled bore overruns. The eight formerly overrun
+center-rail bores now have 16.7 mm nominal tip clearance after an owner-approved
+depth revision and a shorter trial shaft, as do the four recessed outer-header bores. All 46 have provisional
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
 The [current 46-pair reach table](owner-barrel-integrated-stack-audit.md)
-separates nominal reach from physical fit: 16 tips end at their modeled bore
+separates nominal reach from physical fit: four top-outer tips end at their modeled bore
 caps with zero nominal clearance; 12 outer-rail tips pass the assumed axis
 by only 1.849 mm. Earlier service probes also used the older 48-pair pose.
 The earlier two-row center [conditional numerical screen](owner-barrel-integrated-center-prelim.md)

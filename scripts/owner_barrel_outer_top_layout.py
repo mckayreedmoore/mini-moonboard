@@ -35,6 +35,12 @@ VIEWER_HEADER_RECESS_MM = (
     + VIEWER_HEADER_HEAD_HEIGHT_MM
     + VIEWER_HEADER_HEAD_COVER_MM
 )
+INTEGRATED_LENGTHS_MM = {
+    "base_outer_side": 4.5 * hardware.INCH_MM,
+    "header_outer_post": 4.5 * hardware.INCH_MM,
+    "top_center": 4.5 * hardware.INCH_MM,
+    "top_outer": hardware.BOLT_LENGTH_MM,
+}
 
 
 def _point(x, t, n):
@@ -59,6 +65,7 @@ def _row(
     hosts,
     *,
     tip_clearance_mm=0.0,
+    bolt_length_mm=hardware.BOLT_LENGTH_MM,
 ):
     """A solid machine path must reach an actual intersecting barrel cross-bore."""
     if tip_clearance_mm < 0:
@@ -67,8 +74,14 @@ def _row(
     from_entry = (axis - barrel_entry).dot(barrel_direction)
     recess = from_entry - axis_offset
     length = (axis - machine_start).dot(machine_direction)
-    installed_reach = hardware.BOLT_LENGTH_MM - hardware.WASHER_THICKNESS_SENSITIVITY_MM
-    machine_depth = installed_reach + tip_clearance_mm
+    installed_reach = bolt_length_mm - hardware.WASHER_THICKNESS_SENSITIVITY_MM
+    # Keep the historical viewer's machine bore envelope when only the
+    # integrated trial bolt is shortened; no new wood cut is selected here.
+    machine_depth = (
+        hardware.BOLT_LENGTH_MM
+        - hardware.WASHER_THICKNESS_SENSITIVITY_MM
+        + tip_clearance_mm
+    )
     machine = _cylinder(
         machine_start, machine_direction, machine_depth, MACHINE_BORE_D_MM
     )
@@ -97,8 +110,9 @@ def _row(
         "machine_path_to_axis_mm": round(length, 4),
         "nominal_full_machine_bore_depth_mm": round(machine_depth, 4),
         "nominal_shaft_installed_reach_mm": round(installed_reach, 4),
-        "nominal_bore_tip_clearance_mm": round(tip_clearance_mm, 4),
+        "nominal_bore_tip_clearance_mm": round(machine_depth - installed_reach, 4),
         "nominal_tip_beyond_axis_mm": round(installed_reach - length, 4),
+        "bolt_length_mm": bolt_length_mm,
         "barrel_recess_mm": round(recess, 4),
         "barrel_cross_bore_depth_mm": round(recess + hardware.BARREL_LENGTH_MM, 4),
         "axis_xyz_mm": [round(v, 4) for v in axis.toTuple()],
@@ -107,7 +121,7 @@ def _row(
     }
 
 
-def _top_outer(side, wood):
+def _top_outer(side, wood, *, bolt_length_mm=hardware.BOLT_LENGTH_MM):
     left = side == "left"
     side_name = f"base_side_{side}"
     rail = wood["base_rail_top"]
@@ -129,12 +143,13 @@ def _top_outer(side, wood):
             _point(x, t0, n),
             cq.Vector(0, *T),
             {side_name: upright, "base_rail_top": rail},
+            bolt_length_mm=bolt_length_mm,
         )
         for n in (265.0, 310.0)
     ]
 
 
-def _top_center(side, wood):
+def _top_center(side, wood, *, bolt_length_mm=hardware.BOLT_LENGTH_MM):
     name = f"base_principal_center_{side}"
     principal, rail = wood[name], wood["base_rail_top"]
     pb = principal.BoundingBox()
@@ -151,12 +166,21 @@ def _top_center(side, wood):
             _point(entry_x, t_axis, n),
             cross_dir,
             {"base_rail_top": rail, name: principal},
+            bolt_length_mm=bolt_length_mm,
         )
         for n in (265.0, 310.0)
     ]
 
 
-def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0, tip_clearance_mm=0.0):
+def _header_outer(
+    side,
+    wood,
+    recess_mm=0.0,
+    forward_y_mm=-75.0,
+    tip_clearance_mm=0.0,
+    *,
+    bolt_length_mm=hardware.BOLT_LENGTH_MM,
+):
     name = f"base_post_outer_{side}"
     post, header = wood[name], wood["base_header"]
     pb, hb = post.BoundingBox(), header.BoundingBox()
@@ -172,12 +196,13 @@ def _header_outer(side, wood, recess_mm=0.0, forward_y_mm=-75.0, tip_clearance_m
             cross_dir,
             {"base_header": header, name: post},
             tip_clearance_mm=tip_clearance_mm,
+            bolt_length_mm=bolt_length_mm,
         )
         for y in (-135.0, forward_y_mm)
     ]
 
 
-def _base_outer(side, wood, inward_mm=0.0):
+def _base_outer(side, wood, inward_mm=0.0, *, bolt_length_mm=hardware.BOLT_LENGTH_MM):
     name = f"base_side_{side}"
     rim, header = wood[name], wood["base_header"]
     rb, hb = rim.BoundingBox(), header.BoundingBox()
@@ -194,6 +219,7 @@ def _base_outer(side, wood, inward_mm=0.0):
             cq.Vector(entry_x, y, rb.zmin + 70),
             cross_dir,
             {"base_header": header, name: rim},
+            bolt_length_mm=bolt_length_mm,
         )
         for y in (-135.0, -75.0)
     ]
@@ -346,7 +372,13 @@ def viewer_solids(result=None):
     return {"hardware": hardware_solids, "bore_cutters": bore_cutters}
 
 
-def build_layout(wood, *, viewer_revision=False, recessed_header=False):
+def build_layout(
+    wood,
+    *,
+    viewer_revision=False,
+    recessed_header=False,
+    integrated_lengths=False,
+):
     """Give the integrated viewer actual nominal geometry; every row is REVISE.
 
     The two outer-base rows are direct-bore *leads*, not approved fit: their
@@ -354,6 +386,8 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
     """
     if recessed_header and not viewer_revision:
         raise ValueError("Recessed header is a viewer-only revision")
+    if integrated_lengths and not (recessed_header and viewer_revision):
+        raise ValueError("Integrated lengths require the complete recessed viewer")
     duties = ledger.selected_duties()
     builders = {
         "top_outer": _top_outer,
@@ -371,6 +405,11 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
         for member in duty["timber"]:
             if member not in wood:
                 raise ValueError(f"{station}: missing selected source timber {member}")
+        bolt_length = (
+            INTEGRATED_LENGTHS_MM[duty["family"]]
+            if integrated_lengths
+            else hardware.BOLT_LENGTH_MM
+        )
         if recessed_header and duty["family"] == "header_outer_post":
             rows = _header_outer(
                 duty["side"],
@@ -378,11 +417,19 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                 VIEWER_HEADER_RECESS_MM,
                 VIEWER_HEADER_FORWARD_Y_MM,
                 VIEWER_HEADER_BORE_TIP_CLEARANCE_MM,
+                bolt_length_mm=bolt_length,
             )
         elif viewer_revision and duty["family"] == "base_outer_side":
-            rows = _base_outer(duty["side"], wood, VIEWER_OUTER_BASE_INWARD_MM)
+            rows = _base_outer(
+                duty["side"],
+                wood,
+                VIEWER_OUTER_BASE_INWARD_MM,
+                bolt_length_mm=bolt_length,
+            )
         else:
-            rows = builders[duty["family"]](duty["side"], wood)
+            rows = builders[duty["family"]](
+                duty["side"], wood, bolt_length_mm=bolt_length
+            )
         bolts, barrels, stacks, drilling, access = {}, {}, {}, {}, {}
         for index, row in enumerate(rows, 1):
             if (
@@ -406,7 +453,7 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                 bolt_name,
                 shaft_start,
                 bolt_dir,
-                hardware.BOLT_LENGTH_MM,
+                row["bolt_length_mm"],
                 hardware.THREAD_MAJOR_MM,
                 duty["timber"],
                 "bolt",
@@ -421,7 +468,7 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
                 "shaft": _cylinder(
                     shaft_start,
                     bolt_dir,
-                    hardware.BOLT_LENGTH_MM,
+                    row["bolt_length_mm"],
                     hardware.THREAD_MAJOR_MM,
                 )
             }
@@ -495,8 +542,12 @@ def build_layout(wood, *, viewer_revision=False, recessed_header=False):
         "diagnostics": {
             "source_id": SOURCE_ID
             + ("-viewer-revision-v1" if viewer_revision else "")
-            + ("-recessed-header" if recessed_header else ""),
+            + ("-recessed-header" if recessed_header else "")
+            + ("-integrated-lengths" if integrated_lengths else ""),
             "disposition": "REVISE",
+            "integrated_length_revision": (
+                dict(INTEGRATED_LENGTHS_MM) if integrated_lengths else None
+            ),
             "viewer_trial_outer_base_inward_mm": VIEWER_OUTER_BASE_INWARD_MM
             if viewer_revision
             else None,
@@ -545,6 +596,16 @@ def build_revised_layout(wood):
 def build_recessed_viewer_layout(wood):
     """Complete provisional stacks and recess only the outer-header seats."""
     return build_layout(wood, viewer_revision=True, recessed_header=True)
+
+
+def build_integrated_recessed_layout(wood):
+    """Integrated-only family lengths; preserve the historical viewer pose."""
+    return build_layout(
+        wood,
+        viewer_revision=True,
+        recessed_header=True,
+        integrated_lengths=True,
+    )
 
 
 if __name__ == "__main__":

@@ -56,15 +56,14 @@ marks a problem or unqualified fit, not a structural rating.
    [7-in off-the-shelf hex-bolt listing][seven-bolt] alone does not prove
    enough threaded tip length and requires a deeper bore. Neither change is
    selected. A [documented 3/4-in partial-thread comparator](owner-barrel-integrated-stack-audit.md)
-   leaves **zero nominal male-thread/body overlap at both base-center bolts**
-   and under 0.2 mm at four outer-header bolts, despite all modeled tips
-   passing their assumed barrel axes. This is **not** the actual Everbilt
-   thread specification or a selected replacement. Obtain actual bolt
+   now gives positive nominal male-thread/body overlap at all 46 trial
+   lengths, but does **not** establish usable engagement. This is **not**
+   the actual retailer-bolt thread specification or a selected order. Obtain actual bolt
    tip/thread-runout, washer OD/ID/thickness,
    barrel axis, through-thread/usable depth, and a positive tip-clearance
    allowance before a drilling plan. The
    [reach audit](owner-barrel-integrated-stack-audit.md)
-   also flags 16 present tips exactly at their modeled bore caps.
+   also flags four top-outer tips exactly at their modeled bore caps.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
@@ -105,13 +104,14 @@ exploratory coupons from proof testing.
 
 ## Cost scale, not a checkout total
 
-The current length mix is **4 × 4 in, 30 × 5 in, 12 × 6 in** bolts, plus 46
+The current trial length mix is **4 × 3½ in, 26 × 4½ in, 4 × 5 in,
+12 × 6 in** bolts, plus 46
 barrels and 46 head-side washers. Public Lowe's/Home Depot catalog arithmetic
-for just the nominal bolts and Hillman-shaped barrels was **$97.28** on
+for just the nominal bolts and Hillman-shaped barrels was **$98.50** on
 22 September 2026. Adding one unqualified washer-pack comparator makes
-**$105.25**; a different size-only barrel/washer comparator is **$112.92**.
+**$106.47**; a different size-only barrel/washer comparator is **$114.14**.
 These are neither a compatible 46-pair order nor a complete low/high range.
-The [cost record](owner-barrel-integrated-cost.md) now also prices a **$433.92
+The [cost record](owner-barrel-integrated-cost.md) now also prices a **$435.14
 full frame-and-face comparison basket**, including all counted frame sticks,
 two face sheets, 12 retained bolt stacks and 66 panel screws. That basket
 substitutes treated Southern pine and sheathing for the specified DF-L and

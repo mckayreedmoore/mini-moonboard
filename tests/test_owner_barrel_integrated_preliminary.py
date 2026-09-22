@@ -16,8 +16,7 @@ class IntegratedPreliminaryTest(unittest.TestCase):
         rail = result["joints"]["lower_outer_rail"]
         center = result["joints"]["center_principal_header"]
         outer_headers = [
-            result["joints"][f"outer_header_{side}"]
-            for side in ("left", "right")
+            result["joints"][f"outer_header_{side}"] for side in ("left", "right")
         ]
         self.assertEqual(rail["station"], "clip_horizontal_lower_right_2")
         self.assertEqual(center["station"], "clip_split_base_center_right")
@@ -35,7 +34,10 @@ class IntegratedPreliminaryTest(unittest.TestCase):
             self.assertAlmostEqual(
                 joint["counterbore_min_radial_edge_stock_mm"], 6.35, places=2
             )
-            self.assertIn("Mx/row_spacing_mm", joint["ideal_equal_stiffness_pair_axial_row_action"])
+            self.assertIn(
+                "Mx/row_spacing_mm",
+                joint["ideal_equal_stiffness_pair_axial_row_action"],
+            )
             self.assertNotIn("historical_bracket_two_point_scale_only", joint)
             self.assertIsNone(joint["actual_barrel_joint_demand_n"])
             self.assertFalse(joint["rim_first_assembly_sequence_verified"])
@@ -46,7 +48,7 @@ class IntegratedPreliminaryTest(unittest.TestCase):
         self.assertAlmostEqual(rail["row_spacing_mm"], 32.25, places=3)
         self.assertAlmostEqual(rail["gross_face_contact_area_mm2"], 5322.57, places=2)
         self.assertAlmostEqual(rail["trial_cut_face_area_mm2"], 5234.213, places=2)
-        self.assertAlmostEqual(center["rows"][0]["nominal_length_mm"], 127.0)
+        self.assertAlmostEqual(center["rows"][0]["nominal_length_mm"], 114.3)
         self.assertAlmostEqual(
             center["barrel_body_ligament_to_nearest_x_edge_mm"], 14.046, places=2
         )

@@ -49,9 +49,9 @@ These remain **exact current blockers**:
 - No delivered, traceable bolt/barrel/washer set or controlled Hillman 880543
   barrel thread-axis tolerance, usable internal thread span, material minimum,
   or part-specific resistance. The [retail evidence](owner-barrel-retail-thread-evidence.md)
-  concerns the older stack; the revised 4 in post/header and single 5 in
+  concerns the older stack; the revised 3½ in post/header and single 4½ in
   principal/header entries need an exact-SKU and delivered-stack record.
-  The principal/header nominal tip extends about 20.345 mm beyond the modeled
+  The principal/header nominal tip extends about 7.645 mm beyond the modeled
   barrel's far wall, so the delivered cross-thread must permit that passage;
   a blind internal thread would invalidate the pose.
   Retail grade filters and bolt grade do not rate the buried barrel or wood.

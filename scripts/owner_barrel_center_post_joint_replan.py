@@ -72,6 +72,7 @@ def _pose(
     thread_depth,
     bolt_length,
     entry_face,
+    bore_length=None,
     pocket=False,
     washer_od=center.WASHER_DIAMETER_MM,
 ):
@@ -88,6 +89,7 @@ def _pose(
     barrel = _cylinder(_add(entry, barrel_axis, recess), barrel_axis, LENGTH, OD)
     cross_bore = _cylinder(entry, barrel_axis, recess + LENGTH, OD)
     shaft_start = _add(seat, axis, -WASHER_T)
+    bore_length = bolt_length if bore_length is None else bore_length
     tip_extension = _cylinder(
         _add(seat, axis, bolt_length - WASHER_T),
         axis,
@@ -98,7 +100,7 @@ def _pose(
         "bolt_bore": _cylinder(
             seat,
             axis,
-            bolt_length - WASHER_T + BORE_TIP_CLEARANCE_MM,
+            bore_length - WASHER_T + BORE_TIP_CLEARANCE_MM,
             center.BORE_DIAMETER_MM,
         ),
         "barrel_cross_bore": cross_bore,
@@ -155,7 +157,9 @@ def _pose(
             "nominal_tip_beyond_thread_axis_mm": round(
                 bolt_length - WASHER_T - thread_depth, 6
             ),
-            "modeled_bore_depth_past_nominal_tip_mm": BORE_TIP_CLEARANCE_MM,
+            "modeled_bore_depth_past_nominal_tip_mm": round(
+                bore_length - bolt_length + BORE_TIP_CLEARANCE_MM, 6
+            ),
             "tip_extension_in_receiver_fraction": round(
                 protected._volume(tip_extension, second) / tip_extension.Volume(), 7
             ),
@@ -190,7 +194,7 @@ def _pose(
     )
 
 
-def build(*, assembly=None, wood=None):
+def build(*, assembly=None, wood=None, post_bolt_length_mm=4 * 25.4):
     """Source-build four revised stations and report every detected nominal clash."""
     assembly = build_viewer_assembly() if assembly is None else assembly
     proof = replacement.build_model(assembly=assembly)
@@ -254,8 +258,9 @@ def build(*, assembly=None, wood=None):
                 barrel_host=post,
                 first_depth=hb.zlen,
                 thread_depth=hb.zmax - 200.0,
-                bolt_length=4 * 25.4,
+                bolt_length=post_bolt_length_mm,
                 entry_face="post_outer_side",
+                bore_length=4 * 25.4,
             )
             reports[post_station]["bolts"][name] = row
             checks[name] = solids

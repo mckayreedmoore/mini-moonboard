@@ -9,23 +9,26 @@ and [published scene](../../site/owner-barrel-layout-scene.json) show 24 former
 angle duties, 46 new bolt/barrel pairs, 46 head-side washer positions, two
 88.9 × 139.7 × 238.9 mm center posts, **no separate kicker backers**, 66 fixed
 panel/kicker screw axes, and 12 retained frame-bolt axes. The nominal bolt mix
-is **4 × 4 in, 30 × 5 in, 12 × 6 in**. This is a material/cash ledger, not a
+is **4 × 3½ in, 26 × 4½ in, 4 × 5 in, 12 × 6 in**. This is a material/cash ledger, not a
 compatible order, joint rating, or drilling release.
 
 ## New barrel hardware: observable catalog arithmetic
 
 | Trial item | Needed | Exact public listing and displayed price | Extended |
 | --- | ---: | --- | ---: |
-| 1/4-20 × 4 in bolt | 4 | [Home Depot Everbilt 800656](https://www.homedepot.com/p/204633305), $0.52 each | $2.08 |
-| 1/4-20 × 5 in bolt | 30 | [Home Depot Everbilt 800676](https://www.homedepot.com/p/204633308), $0.62 each | $18.60 |
+| 1/4-20 × 3½ in bolt | 4 | [Lowe's Hillman 880010](https://www.lowes.com/pd/Hillman-1-4-in-x-3-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt-2-Count/3012031), two 2-packs at $1.78 | $3.56 |
+| 1/4-20 × 4½ in bolt | 26 | [Lowe's Hillman 190055](https://www.lowes.com/pd/Hillman-1-4-in-x-4-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000897796), $0.61 each | $15.86 |
+| 1/4-20 × 5 in bolt | 4 | [Home Depot Everbilt 800676](https://www.homedepot.com/p/204633308), $0.62 each | $2.48 |
 | 1/4-20 × 6 in bolt | 12 | [Home Depot Everbilt 800686](https://www.homedepot.com/p/204633312), $0.71 each | $8.52 |
 | Provisional 1/4-20 barrel | 46 | [Lowe's Hillman 880543](https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559), $1.48 each | $68.08 |
-| **Bolts + barrels only** | **46 pairs** | **4×0.52 + 30×0.62 + 12×0.71 + 46×1.48** | **$97.28** |
+| **Bolts + barrels only** | **46 pairs** | **2×1.78 + 26×0.61 + 4×0.62 + 12×0.71 + 46×1.48** | **$98.50** |
 
-The $97.28 is a **size-only catalog subset**, not a fillable or qualified
-46-pair order. The Hillman page showed 36 available for shipping and 21 for
-delivery in its default context, with pickup unavailable; those channel
-quantities cannot be added. Its title says “plain steel” while its overview
+The $98.50 is a **size-only catalog subset**, not a fillable or qualified
+46-pair order. The Hillman 3½-in page lists Grade 5 but does not publish its
+usable thread length; the 4½-in page calls its grade "all-purpose," not Grade 5.
+The barrel page showed 36 available for shipping and 21 for delivery in its
+default context, with pickup unavailable; those channel quantities cannot be
+added. Its title says “plain steel” while its overview
 says zinc-plated, so even the finish should be checked on the delivered part.
 The [Home Depot Everbilt 801914 four-pack](https://www.homedepot.com/p/204276112)
 is $5.98: 12 packs supply 48 barrels for $71.76, **$3.68 more** than 46
@@ -35,8 +38,9 @@ body. No price here proves bolt thread engagement, tip clearance, barrel
 strength, wood bearing, or a complete structural joint. The
 [installed-stack audit](owner-barrel-integrated-stack-audit.md) and
 [owner review](owner-barrel-integrated-owner-review.md) identify unresolved
-reach, service, and load-path conditions. The earlier two 4½ in trial bolts
-and their barrels/washers are **absent** from this 46-pair scene.
+reach, service, and load-path conditions. The earlier *second center-principal
+row* and its two barrel/washer pairs are **absent** from this 46-pair scene;
+the current 4½-in bolts serve different single-row and other joint duties.
 
 All **46 head-side washers** are required but a compatible SKU is unselected.
 Two center seats model a 19.05 mm (3/4 in) OD envelope; this is a nominal
@@ -45,8 +49,8 @@ comparisons are:
 
 | Unqualified comparison | Package arithmetic | Catalog hardware total | Limitation |
 | --- | ---: | ---: | --- |
-| [Home Depot Everbilt 800452 1/4-in washer, 100-pack](https://www.homedepot.com/p/204276405), $7.97 | One pack; 54 surplus | **$105.25** | Listing does not establish controlled OD, thickness, bore tolerance, seat or bearing at all 46 heads. |
-| [Lowe's Hillman 811070 1/4-in washer](https://www.lowes.com/pd/Hillman-1-4-in-Hot-Dipped-Galvanized-Standard-SAE-Flat-Washer/3037537), $0.26 each, with Everbilt barrel packs | 46 washers = $11.96; 12 barrel packs = $71.76; bolts = $29.20 | **$112.92** | Listed 3/4-in OD and 1/16-in thickness only nominally match the two center OD envelopes; tolerance, bearing, other seats, and hot-dip/zinc finish pairing remain open. |
+| [Home Depot Everbilt 800452 1/4-in washer, 100-pack](https://www.homedepot.com/p/204276405), $7.97 | One pack; 54 surplus | **$106.47** | Listing does not establish controlled OD, thickness, bore tolerance, seat or bearing at all 46 heads. |
+| [Lowe's Hillman 811070 1/4-in washer](https://www.lowes.com/pd/Hillman-1-4-in-Hot-Dipped-Galvanized-Standard-SAE-Flat-Washer/3037537), $0.26 each, with Everbilt barrel packs | 46 washers = $11.96; 12 barrel packs = $71.76; bolts = $30.42 | **$114.14** | Listed 3/4-in OD and 1/16-in thickness only nominally match the two center OD envelopes; tolerance, bearing, other seats, and hot-dip/zinc finish pairing remain open. |
 
 These are **alternative shopping illustrations**, not lower/upper bounds for
 compatible hardware or project cost. A cross-dowel uses its internal thread:
@@ -112,10 +116,10 @@ grade or fit evidence. No store or delivered lot was selected.
 | 4×6 pressure-treated Southern pine: [10-ft](https://www.homedepot.com/p/4-in-x-6-in-x-10-ft-2-Ground-Contact-Pressure-Treated-Timber-288746/301895532) and [8-ft](https://www.homedepot.com/p/4-in-x-6-in-x-8-ft-2-Ground-Contact-Pressure-Treated-Timber-259270/100026579) | 2 × $26.28 + 2 × $21.48 | $95.52 |
 | 2×6 pressure-treated Southern pine: [10-ft](https://www.homedepot.com/p/WeatherShield-2-in-x-6-in-x-10-ft-2-Prime-Ground-Contact-Pressure-Treated-Southern-Yellow-Pine-Lumber-253921/206967800) and [8-ft](https://www.homedepot.com/p/WeatherShield-2-in-x-6-in-x-8-ft-No-2-Prime-Pressure-Treated-Ground-Contact-Southern-Pine-Lumber-2311255/206889247) | 3 × $12.18 + 6 × $9.58 | $94.02 |
 | [23/32-in Plytanium SYP RTD sheathing](https://www.homedepot.com/p/Plytanium-23-32-in-x-4-ft-x-8-ft-RTD-Sheathing-Syp-157946/100041308) | 2 × $41.99 | $83.98 |
-| New barrel, bolt and washer size-only comparison above | $97.28 + one $7.97 washer pack | $105.25 |
+| New barrel, bolt and washer size-only comparison above | $98.50 + one $7.97 washer pack | $106.47 |
 | Twelve retained through-bolt stacks, size-only comparison below | 12 bolts + 12 nuts + 24 washers in listed packs | $39.19 |
 | [66 panel screws](https://www.lowes.com/pd/Hillman-10-x-2-1-2-in-Ceramic-Deck-Screws-50-Count/999995042) | 2 × 50-count boxes at $7.98 | $15.96 |
-| **Illustrative replacement-price subtotal** | **$95.52 + $94.02 + $83.98 + $105.25 + $39.19 + $15.96** | **$433.92** |
+| **Illustrative replacement-price subtotal** | **$95.52 + $94.02 + $83.98 + $106.47 + $39.19 + $15.96** | **$435.14** |
 
 The retained-stack $39.19 is independently traceable: four
 [1/2-13 × 8 in bolts](https://www.lowes.com/pd/Hillman-1-2-in-x-8-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/3828457)
@@ -138,25 +142,25 @@ unverified. The full subtotal must not be turned into a procurement list by
 simply ordering these URLs.
 
 If both measured face sheets prove usable, removing the *comparison* plywood
-line leaves $349.94. If all 13 frame sticks also prove usable, the remaining
-comparison is $160.40. If the 12 retained stacks and all panel screws are also
-on hand and fit, it reduces arithmetically to $105.25 for the new barrel stacks.
+line leaves $351.16. If all 13 frame sticks also prove usable, the remaining
+comparison is $161.62. If the 12 retained stacks and all panel screws are also
+on hand and fit, it reduces arithmetically to $106.47 for the new barrel stacks.
 Those are **conditional subtractions from a mismatched-price scenario**, not
 claims about what the owner owns or will actually spend. They exclude tax,
 shipping, tooling, consumables, hold/T-nut/LED/pad shortfalls and any extra
 sheet or stick needed after real yield checks. Correct material and fastener
-quotes can be higher or lower; the $433.92 figure is not a cost cap or floor.
+quotes can be higher or lower; the $435.14 figure is not a cost cap or floor.
 
 ## Cost result and closure rule
 
-**Known public-price subset: $97.28 bolts/barrels.** One unqualified washer
-comparison makes $105.25, or $121.21 if all 66 panel screws also need two new
-boxes. The Everbilt-barrel/Lowe's-washer comparison is $112.92 before any
+**Known public-price subset: $98.50 bolts/barrels.** One unqualified washer
+comparison makes $106.47, or $122.43 if all 66 panel screws also need two new
+boxes. The Everbilt-barrel/Lowe's-washer comparison is $114.14 before any
 panel-screw replacement. None is a complete project total, compatible-order
 floor, or cost ceiling; the Hillman 46-piece supply and every trial stack
 remain unverified.
 
-The **$433.92 full frame-and-face comparison subtotal** above covers more of
+The **$435.14 full frame-and-face comparison subtotal** above covers more of
 the assembly, but its substitute materials and unqualified fasteners make it
 equally unsuitable as a build price. Exact owner new cash still requires
 physical inventory and qualified local quotes.

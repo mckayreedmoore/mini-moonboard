@@ -87,7 +87,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
             row["nominal_axial"]["partial_thread_comparator_body_overlap_mm"] == 0
             for row in all_axes
         )
-        == 2
+        == 0
     )
     assert all(
         row["nominal_axial"]["partial_thread_comparator_end_length_mm"] == 19.05

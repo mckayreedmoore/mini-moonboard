@@ -293,11 +293,12 @@ def build_report(assembly=None):
     ]
     thread_comparator = {
         "source": (
-            "Aspen Grade 5 1/4-20 hex-cap specifications for 4, 5 and 6 in; "
-            "not the selected Everbilt product specification"
+            "Aspen Grade 5 1/4-20 hex-cap specifications for 3.5, 4.5, 5 "
+            "and 6 in; not the selected retail bolt specification"
         ),
         "source_urls": {
-            "4_in": "https://www.aspenfasteners.com/1-4-20-x-4-hex-head-cap-screws-bolts-coarse-thread-grade-5-steel-yellow-cadmium-plating-ms90725-dfars/",
+            "3_5_in": "https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X312.PDF",
+            "4_5_in": "https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X412.PDF",
             "5_in": "https://www.aspenfasteners.com/1-4-20-x-5-hex-head-cap-screws-bolts-unc-coarse-thread-grade-5-steel-zinc-made-in-u-s-a/",
             "6_in": "https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X6.PDF",
         },

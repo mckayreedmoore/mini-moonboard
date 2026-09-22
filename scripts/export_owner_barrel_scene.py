@@ -41,9 +41,9 @@ def build_integrated_viewer_assembly():
 
     assembly = build_assembly(
         producers={
-            "rail10": rail.build_revised_layout,
+            "rail10": rail.build_integrated_layout,
             "center6": integrated.build_six_layout,
-            "outer_top8": outer.build_recessed_viewer_layout,
+            "outer_top8": outer.build_integrated_recessed_layout,
         },
         post_placement="integrated",
     )

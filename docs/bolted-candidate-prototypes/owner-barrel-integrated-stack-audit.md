@@ -10,31 +10,32 @@ bolt length. Values are millimeters and apply to each row in that group.
 
 | Duty family | Rows | Bolt length | Tip past assumed barrel axis | Fully threaded tip length needed just to reach near wall | Maximum possible body overlap | Tip-to-bore-cap clearance |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Base center | 2 | 127.0 | 25.349 | 30.353 | 10.008 | 4.000 |
-| Base outer side | 4 | 127.0 | 17.249 | 22.253 | 10.008 | **0** |
-| Bottom center | 4 | 127.0 | 17.249 | 22.253 | 10.008 | **0** |
+| Base center | 2 | 114.3 | 12.649 | 17.653 | 10.008 | 16.700 |
+| Base outer side | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 12.700 |
+| Bottom center | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 12.700 |
 | Bottom outer rail | 4 | 152.4 | 1.849 | 6.853 | **6.853** | 5.155 |
-| Header center | 4 | 101.6 | 22.949 | 27.953 | 10.008 | 4.000 |
-| Header outer post | 4 | 127.0 | 23.900 | 28.904 | 10.008 | 4.000 |
-| Lower center rail | 4 | 127.0 | 17.249 | 22.253 | 10.008 | 4.000 |
+| Header center | 4 | 88.9 | 10.249 | 15.253 | 10.008 | 16.700 |
+| Header outer post | 4 | 114.3 | 11.200 | 16.204 | 10.008 | 16.700 |
+| Lower center rail | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 16.700 |
 | Lower outer rail | 4 | 152.4 | 1.849 | 6.853 | **6.853** | 5.155 |
-| Top center | 4 | 127.0 | 17.249 | 22.253 | 10.008 | **0** |
+| Top center | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 12.700 |
 | Top outer | 4 | 127.0 | 6.449 | 11.453 | 10.008 | **0** |
-| Upper center rail | 4 | 127.0 | 17.249 | 22.253 | 10.008 | 4.000 |
+| Upper center rail | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 16.700 |
 | Upper outer rail | 4 | 152.4 | 1.849 | 6.853 | **6.853** | 5.155 |
 
-The count is 4 × 4 in, 30 × 5 in and 12 × 6 in bolts, across 24 original
+The trial count is 4 × 3½ in, 26 × 4½ in, 4 × 5 in and 12 × 6 in bolts, across 24 original
 connection duties. All 46 modeled shafts reach the *assumed* barrel-body
 center; none exceeds its modeled machine-bore cap. All have provisional head
-and washer envelopes. Yet **16 modeled tips end exactly at their bore cap**:
+and washer envelopes. Yet **four top-outer tips end exactly at their bore cap**:
 the nominal classification “within bore” does not supply positive tip
-clearance. Eighteen rows have 4 mm clearance and twelve have about 5.155 mm.
+clearance. The shorter shafts retain their former bore depths; bore depth
+has not been redesigned or approved.
 
 The **12 outer-rail rows** have the least nominal axial reach: their tips pass
 the assumed barrel axis by only 1.849 mm and stop 3.155 mm before the far wall.
 Even with a fully threaded shaft, no more than 6.853 mm of the modeled barrel
-body can overlap. The **two base-center rows** require the longest threaded
-tip span merely to reach the near wall, about 30.353 mm. Neither measure is
+body can overlap. The **two base-center rows** now require the longest threaded
+tip span merely to reach the near wall, about 17.653 mm. Neither measure is
 actual usable thread engagement. Delivered bolt thread start/runout, barrel
 internal thread location/depth, compatible thread form, head/washer dimensions,
 tolerances, adequate engagement, wood and hardware resistance, and assembly
@@ -44,10 +45,11 @@ assembly; earlier service probes used the 48-pair composition.
 
 ### Partial-thread comparator: nominal shaft reach can conceal no engagement
 
-An [Aspen Grade 5 1/4-20 × 4 in listing][aspen4],
-[5 in listing][aspen5], and [6 in drawing][aspen6] each document a **0.750 in
+An [Aspen Grade 5 1/4-20 × 3½ in drawing][aspen35],
+[4½ in listing][aspen45], [5 in listing][aspen5], and [6 in drawing][aspen6]
+each document a **0.750 in
 (19.05 mm) nominal threaded end**. These are an illustrative bolt family,
-**not** controlled dimensions of the Home Depot Everbilt 4/5/6-in bolts in the
+**not** controlled dimensions of the Lowe's/Home Depot bolts in the
 cost basket. The [source-bound audit](../../scripts/owner_barrel_installed_stack_audit.py)
 intersects a 19.05 mm end-thread interval with each *modeled barrel body's*
 axial interval. It optimistically assumes the barrel is female-threaded
@@ -57,25 +59,23 @@ qualified engagement**.
 
 | Current family | Bolts | Maximum nominal male-thread/body overlap under 19.05 mm example |
 | --- | ---: | ---: |
-| Base center | 2 | **0 mm** |
-| Outer header/post | 4 | **0.154 mm** |
-| Center header/post | 4 | **1.105 mm** |
-| Base outer; bottom/lower/upper center; top center | 20 | 6.805 mm |
+| Base center | 2 | 10.008 mm |
+| Outer header/post | 4 | 10.008 mm |
+| Center header/post | 4 | 10.008 mm |
+| Base outer; bottom/lower/upper center; top center | 20 | 9.553 mm |
 | Bottom/lower/upper outer rail | 12 | 6.853 mm |
 | Top outer | 4 | 10.008 mm |
 
-For **30 of 46 bolts**, even the *near wall* of the assumed barrel body lies
-past the example bolt's thread start. That does not mean all 30 have no
-possible engagement: some thread may meet a farther part of a genuinely
-through-threaded barrel. But the two base-center bolts have **zero** overlap
-with the entire body in this nominal comparator, and four outer-header bolts
-have less than 0.2 mm. A 5-in bolt tip reaching far past the barrel therefore
-does **not** close the connection. The actual retailer bolt thread lengths,
+All **46 of 46 bolts** now have positive *nominal* male-thread/body overlap in
+this optimistic 19.05 mm comparator. That is not measured, effective thread
+engagement, and it does not establish that a usable female thread exists in
+the overlapping span. The actual retailer bolt thread lengths,
 barrel female-thread interval and minimum necessary effective engagement
 must be resolved by a compatible selected product and delivered fit before
 choosing bolt lengths. A shorter bolt, longer-thread or full-thread product
 could change this result, but each requires its own bore, head/washer, steel,
-wood and service checks. No substitution is selected here.
+wood and service checks. The family-specific lengths are a CAD trial, not a
+selected hardware order.
 
 ## Connection-family bolt-length sensitivity
 
@@ -90,23 +90,24 @@ axial dimensions from the modeled shaft start at the **outer washer face**,
 
 | Families sharing nominal interval | Pairs | Axis-to-limiting length (mm) | Current length (mm) |
 | --- | ---: | ---: | ---: |
-| Base center | 2 | 101.651–106.655 | 127.0 |
-| Base outer side; bottom/lower/upper center; top center | 20 | 109.751–114.755 | 127.0 |
+| Base center | 2 | 101.651–106.655 | 114.3 |
+| Base outer side; bottom/lower/upper center; top center | 20 | 109.751–114.755 | 114.3 |
 | Bottom/lower/upper outer rail | 12 | 150.551–155.555 | 152.4 |
-| Header center | 4 | 78.651–83.655 | 101.6 |
-| Header outer post | 4 | 103.100–108.104 | 127.0 |
+| Header center | 4 | 78.651–83.655 | 88.9 |
+| Header outer post | 4 | 103.100–108.104 | 114.3 |
 | Top outer | 4 | 120.551–125.000 | 127.0 |
 
-Thus only the 12 outer-rail current tips fall inside this particular
-no-overrun/2-mm-bore window. The other **34** tips pass the modeled barrel far
-wall; 16 of those also end exactly at the bore cap and need at least 2 mm
+Thus the 12 outer-rail and 20 base/center-rail current tips fall inside this
+particular no-overrun/2-mm-bore window. The other **14** tips pass the modeled
+barrel far wall; four top-outer tips also end exactly at the bore cap and need at least 2 mm
 additional modeled bore depth to meet the *illustrative* allowance without
 shortening the bolt. Neither observation alone proves a physical clash:
 internal barrel threads and exit geometry are unknown, and every shorter
 candidate must still place usable bolt threads inside a real barrel. The
 report retains the per-family bore-depth shortfall and far-wall overrun, so
 lengths can be chosen **by connection family** once controlled hardware
-dimensions are available. No family length or deeper drilling is selected.
+dimensions are available. The viewer's trial length mix does not select
+delivered hardware or deeper drilling.
 
 The corrected 6-in
 [outer-rail setback probe](../../scripts/owner_barrel_outer_rail_setback_probe.py)
@@ -128,7 +129,7 @@ the modeled barrel far wall; the
 says its threaded portion passes through the sides, but does not establish the
 usable thread depth, exit geometry, or an installed tip-clearance allowance.
 Neither read-only pose is selected or a reach/wood-strength solution. The
-60 mm assembly and public viewer remain unchanged pending a qualified hardware
+60 mm outer-rail setback remains unchanged pending a qualified hardware
 stack and an owner-approved physical revision.
 
 Separately, two left center-rail machine bores cross existing service voids
@@ -136,6 +137,7 @@ in the current cut scene. This reach screen does not clear those crossings.
 No installed-fit pass, drilling, fabrication, load-test or climbing release
 follows from these nominal numbers.
 
-[aspen4]: https://www.aspenfasteners.com/1-4-20-x-4-hex-head-cap-screws-bolts-coarse-thread-grade-5-steel-yellow-cadmium-plating-ms90725-dfars/
+[aspen35]: https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X312.PDF
+[aspen45]: https://www.aspenfasteners.com/1-4-20-x-4-1-2-hex-head-cap-screws-bolts-unc-coarse-thread-grade-5-steel-zinc-made-in-u-s-a/
 [aspen5]: https://www.aspenfasteners.com/1-4-20-x-5-hex-head-cap-screws-bolts-unc-coarse-thread-grade-5-steel-zinc-made-in-u-s-a/
 [aspen6]: https://www.aspenfasteners.com/content/2D_PDF/product80/BO016-1420X6.PDF

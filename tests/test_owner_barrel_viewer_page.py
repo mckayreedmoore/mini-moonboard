@@ -28,7 +28,10 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
     loaded_status = page.split(
         "renderOwnerBarrelScene(THREE, data, climberView, meshes);", 1
     )[1].split("}).catch(error =>", 1)[0]
-    assert "no nominal thread/body overlap at two base-center bolts" in loaded_status
+    assert (
+        "Family-specific trial bolt lengths show positive nominal overlap"
+        in loaded_status
+    )
     assert "all 46 pairs have visible timber trial cuts" in page
     assert "Two left rail machine bores intersect existing service bores" in page
     assert "All 98 trial drilling paths for 46 barrel pairs" in page

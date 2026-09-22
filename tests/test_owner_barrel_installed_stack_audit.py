@@ -41,7 +41,7 @@ def test_integrated_axial_windows_are_grouped_by_connection_family(integrated_re
         pytest.approx(155.5548, abs=0.0002)
     )
     assert families["bottom_outer"]["nominal_window_exists"] is True
-    assert families["base_center"]["current_nominal_lengths_mm"] == [127.0]
+    assert families["base_center"]["current_nominal_lengths_mm"] == [114.3]
     assert families["base_center"]["current_lengths_within_nominal_window"] is False
     assert families["base_center"]["nominal_window_exists"] is True
     assert families["top_outer"]["current_lengths_within_nominal_window"] is False
@@ -183,7 +183,7 @@ def test_integrated_single_center_proposal_has_46_unqualified_stacks():
     assert integrated["counts"]["beyond_modeled_machine_bore"] == 0
     assert (
         sum(row["tip_to_bore_far_cap_clearance_mm"] == 0 for row in integrated["rows"])
-        == 16
+        == 4
     )
     assert (
         sum(
@@ -196,19 +196,15 @@ def test_integrated_single_center_proposal_has_46_unqualified_stacks():
     assert integrated["fit_qualified"] is False
 
 
-def test_integrated_partial_thread_comparator_exposes_possible_no_thread_joints(
+def test_integrated_partial_thread_comparator_tracks_trial_overlap_without_qualification(
     integrated_report,
 ):
     comparator = integrated_report["partial_thread_comparator"]
     assert comparator["nominal_end_thread_length_mm"] == 19.05
     assert comparator["thread_engagement_qualified"] is False
-    assert len(comparator["near_wall_not_reached_bolts"]) == 30
-    assert len(comparator["zero_nominal_body_thread_overlap_bolts"]) == 2
-    assert all(
-        "clip_split_base_center_" in name
-        for name in comparator["zero_nominal_body_thread_overlap_bolts"]
-    )
-    assert len(comparator["less_than_1mm_nominal_body_thread_overlap_bolts"]) == 6
+    assert comparator["near_wall_not_reached_bolts"] == []
+    assert comparator["zero_nominal_body_thread_overlap_bolts"] == []
+    assert comparator["less_than_1mm_nominal_body_thread_overlap_bolts"] == []
     base_center = [
         row
         for row in integrated_report["rows"]
@@ -216,7 +212,7 @@ def test_integrated_partial_thread_comparator_exposes_possible_no_thread_joints(
     ]
     assert len(base_center) == 2
     assert all(
-        row["partial_thread_comparator_body_overlap_mm"] == 0 for row in base_center
+        row["partial_thread_comparator_body_overlap_mm"] > 0 for row in base_center
     )
 
 
