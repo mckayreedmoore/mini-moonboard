@@ -52,7 +52,10 @@ Keep solid 4×6 legs/rims, compact single 2×6 base members, two outboard 2×6
 runners, whole kickers, the 1:12 rear recess, twelve outward-facing bolt
 stacks, 24 ML24Z angles and 66 panel/kicker axes. Do not double-stack vertical
 2×6s or introduce built-up vertical substitutes. No custom fabricated steel
-shoes. Inserts are not installed, qualified or build-ready.
+shoes. Inserts are not installed, qualified or build-ready. Later conversion
+of the 66 Hillman and 144 SDS axes is a geometric option on the current
+stations ([screw-repair-inserts](docs/screw-repair-inserts.md)); do not drill
+insert pilots at build. The twelve frame bolts stay bolts.
 
 Preserve older candidates and their evidence as history. Occupied CAD
 diameters and `connection-axes.csv` modeled lengths are analysis envelopes,

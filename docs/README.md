@@ -25,7 +25,8 @@ Details: [Which plywood packet](floor-flush-width-option.md).
 
 Also useful while building: [orientation](orientation.md) (left is A, right is K),
 [hold hardware](moonboard-hold-hardware.md), [LED routing](led-wiring-reference.md),
-[panel screws](current-panel-screw-purchase.md), [pads](current-crash-pad-construction.md).
+[panel screws](current-panel-screw-purchase.md), [pads](current-crash-pad-construction.md),
+[later insert option](screw-repair-inserts.md).
 
 ## 3. If you want the numbers
 

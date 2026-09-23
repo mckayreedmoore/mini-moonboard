@@ -250,3 +250,7 @@ Hole sizes, bolt shanks, and washer seats are in the
 [shop checklist](floor-flush-shop-checklist.md) and the
 [fabrication review](floor-flush-fabrication-review.md). Record what you
 actually see; do not silently change a joint.
+
+If you later want inserts in the wood-screw holes (panels off often, or a
+worn screw), see [later insert option](screw-repair-inserts.md). Do not drill
+insert holes at build time. The twelve bolts already come apart.

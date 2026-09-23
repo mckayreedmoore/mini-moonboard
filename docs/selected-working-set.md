@@ -9,7 +9,7 @@ It does not rewrite git history or move archives to git-lfs.
 | --- | --- |
 | Machine authority | [`current-candidate.json`](../current-candidate.json) |
 | Human constraints | [`AGENTS.md`](../AGENTS.md) |
-| Shop packet | [`floor-flush-shop-checklist.md`](floor-flush-shop-checklist.md), [`floor-flush-assembly-guide.md`](floor-flush-assembly-guide.md), [`floor-flush-construction/`](floor-flush-construction/), [`floor-flush-width-option.md`](floor-flush-width-option.md); kerf-right sheets in [`floor-flush-construction-kerf-right/`](floor-flush-construction-kerf-right/) |
+| Shop packet | [`floor-flush-shop-checklist.md`](floor-flush-shop-checklist.md), [`floor-flush-assembly-guide.md`](floor-flush-assembly-guide.md), [`floor-flush-construction/`](floor-flush-construction/), [`floor-flush-width-option.md`](floor-flush-width-option.md); kerf-right sheets in [`floor-flush-construction-kerf-right/`](floor-flush-construction-kerf-right/); later insert option [`screw-repair-inserts.md`](screw-repair-inserts.md) |
 | Evidence | [`floor-runner-mvp-master-plan.md`](floor-runner-mvp-master-plan.md), [`floor-runner-mvp-criteria.md`](floor-runner-mvp-criteria.md), [`floor-runner-mvp-evidence.json`](floor-runner-mvp-evidence.json) |
 | Frame | `mini_moonboard/compact_floor_flush_frame.py` (wrapper over preserved taper/recess modules; do not unroll unless geometry changes) |
 | Viewer | `site/hybrid/compact-floor-flush-development/` |
