@@ -13,10 +13,13 @@ import math
 from pathlib import Path
 
 import cadquery as cq
+import numpy as np
+from scipy.spatial import ConvexHull
 
 from mini_moonboard.bolted_timber_checks import dfl_dowel_bearing_psi
 from scripts import owner_barrel_candidate_service as service
 from scripts import owner_barrel_vertical_center_probe as probe
+from scripts import owner_layout_protected as protected
 from scripts.owner_barrel_coordinates import T, local_bounds
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,6 +75,20 @@ def _load_inputs():
         material["species_grade"] != "US Douglas Fir-Larch No. 2 dimension lumber"
         or values["G"]["value"] != 0.5
         or values["Fc_perpendicular"]["value"] != 625
+        or values["Ft_parallel"]
+        != {
+            "value": 575,
+            "unit": "psi",
+            "adjusted": False,
+            "meaning": "tension parallel to grain only",
+        }
+        or values["Fv_parallel"]
+        != {
+            "value": 180,
+            "unit": "psi",
+            "adjusted": False,
+            "meaning": "member shear parallel to grain",
+        }
         or barrel["product"] != "JCD14201606NL ZN"
         or washer["product"] != "33857"
         or bolt["minimum_proof_psi"] != 85_000
@@ -172,6 +189,9 @@ def _principal_combined_cut_sections(barrel, washer, bolt):
     post_geometry = probe._post_and_backer_geometry(wood, seam)
     joint = probe._joint_geometry(wood, post_geometry, barrel, washer, bolt)
     inherited = service.candidate_service_cutters(source, wood)
+    additional = tuple(source.additional_machining_cutters())
+    inventory = protected.inventory()["solids"]
+    connections = {row.name: row for row in source.connections()}
     sample_thickness_mm = 0.5
     rows = []
     for side in probe.SIDES:
@@ -181,7 +201,21 @@ def _principal_combined_cut_sections(barrel, washer, bolt):
         inherited_cutters = [
             shape for host, _name, shape in inherited if host == member
         ]
-        for cutter in (*inherited_cutters, *joint["cuts"][member]):
+        additional_cutters = [row[-1] for row in additional if row[0] == member]
+        maintained_cutters = []
+        for family in ("panel_screws", "frame_bolts"):
+            for name, cutter in inventory[family].items():
+                if (
+                    member in connections[name].members
+                    and cutter.intersect(principal).Volume() > 1e-6
+                ):
+                    maintained_cutters.append(cutter)
+        for cutter in (
+            *inherited_cutters,
+            *additional_cutters,
+            *maintained_cutters,
+            *joint["cuts"][member],
+        ):
             cut = cut.cut(cutter)
         bounds = local_bounds(principal)
         records = [row for row in joint["records"] if row["hosts"][1] == member]
@@ -209,6 +243,8 @@ def _principal_combined_cut_sections(barrel, washer, bolt):
                     "sample_center_t_mm": _round(center_t),
                     "sample_thickness_mm": sample_thickness_mm,
                     "inherited_cut_count": len(inherited_cutters),
+                    "additional_machining_cut_count": len(additional_cutters),
+                    "maintained_connection_cut_count": len(maintained_cutters),
                     "candidate_cut_count": len(joint["cuts"][member]),
                     "gross_area_mm2": _round(
                         principal.intersect(slab).Volume() / sample_thickness_mm
@@ -223,7 +259,59 @@ def _principal_combined_cut_sections(barrel, washer, bolt):
     return rows
 
 
-def _resistance_screen(barrel, washer, bolt, geometry, demand_n):
+def _principal_raw_ray_distances(barrel, washer, bolt):
+    """Query signed grain/cross-grain rays to actual raw principal faces."""
+    _source, wood, seam = probe._source_geometry()
+    post_geometry = probe._post_and_backer_geometry(wood, seam)
+    joint = probe._joint_geometry(wood, post_geometry, barrel, washer, bolt)
+    rows = []
+    directions = {
+        "grain_positive_mm": np.asarray((1.0, 0.0)),
+        "grain_negative_mm": np.asarray((-1.0, 0.0)),
+        "cross_grain_positive_mm": np.asarray((0.0, 1.0)),
+        "cross_grain_negative_mm": np.asarray((0.0, -1.0)),
+    }
+    for side in probe.SIDES:
+        member = f"base_principal_center_{side}"
+        principal = wood[member]
+        polygon = np.asarray(
+            [
+                [
+                    vertex.Y * T[0] + vertex.Z * T[1],
+                    -vertex.Y * T[1] + vertex.Z * T[0],
+                ]
+                for vertex in principal.Vertices()
+            ]
+        )
+        hull = ConvexHull(polygon)
+        records = [row for row in joint["records"] if row["hosts"][1] == member]
+        for record in records:
+            _x, y, z = record["thread_axis_xyz_mm"]
+            center = np.asarray((y * T[0] + z * T[1], -y * T[1] + z * T[0]))
+            result = {"member": member, "bolt": record["name"]}
+            if (
+                max(a * center[0] + b * center[1] + c for a, b, c in hull.equations)
+                > 1e-7
+            ):
+                raise ValueError(
+                    f"{record['name']}: barrel center outside raw principal"
+                )
+            for label, direction in directions.items():
+                candidates = []
+                for a, b, c in hull.equations:
+                    rate = a * direction[0] + b * direction[1]
+                    if rate > 1e-9:
+                        candidates.append(-(a * center[0] + b * center[1] + c) / rate)
+                result[label] = _round(min(candidates))
+            rows.append(result)
+    if len(rows) != 4 or any(row[label] <= 0 for row in rows for label in directions):
+        raise ValueError("Principal raw-face ray query failed")
+    return rows
+
+
+def _resistance_screen(barrel, washer, bolt, geometry, demand_n, material=None):
+    material = _load_inputs()[0] if material is None else material
+    ft_parallel_psi = material["reference_values"]["Ft_parallel"]["value"]
     diameter_mm = barrel["nominal_body_od_mm"]
     length_mm = barrel["nominal_body_length_mm"]
     cross_hole_mm = probe.BOLT_BORE_DIAMETER_MM
@@ -236,13 +324,24 @@ def _resistance_screen(barrel, washer, bolt, geometry, demand_n):
     fpl_rectangular_reference_n = fe_mpa * rectangular_area / 4
 
     records = geometry["principal_header_joint"]["records"]
+    ray_records = _principal_raw_ray_distances(barrel, washer, bolt)
+    rays_by_bolt = {row["bolt"]: row for row in ray_records}
     local_centers = {}
     for row in records:
         row_name = "rear" if row["bolt_seat_xyz_mm"][1] == -146.0 else "forward"
+        rays = rays_by_bolt[row["name"]]
         local_centers.setdefault(row_name, []).append(
             {
-                "end_center_mm": 45.03955 if row_name == "rear" else 96.462558,
-                "edge_center_mm": 41.648258 if row_name == "rear" else 36.768186,
+                "end_center_mm": min(
+                    rays["grain_negative_mm"], rays["grain_positive_mm"]
+                ),
+                "edge_center_mm": min(
+                    rays["cross_grain_negative_mm"],
+                    rays["cross_grain_positive_mm"],
+                ),
+                "signed_raw_face_rays_mm": {
+                    name: value for name, value in rays.items() if name.endswith("_mm")
+                },
             }
         )
     if any(len(rows) != 2 for rows in local_centers.values()):
@@ -330,27 +429,30 @@ def _resistance_screen(barrel, washer, bolt, geometry, demand_n):
             "status": "REFERENCE_ONLY",
             "source_built_nominal_sections": section_rows,
             "minimum_nominal_combined_cut_area_mm2": minimum_section,
-            "ft_parallel_psi": 575,
-            "unadjusted_reference_n": _round(minimum_section * 575 * MPA_PER_PSI),
+            "ft_parallel_psi": ft_parallel_psi,
+            "unadjusted_reference_n": _round(
+                minimum_section * ft_parallel_psi * MPA_PER_PSI
+            ),
             "limit": (
                 "Nominal CAD section at the rear barrel station; load is oblique, "
                 "tension perpendicular to grain is not assigned, and tolerances "
                 "are absent."
             ),
         },
+        "principal_raw_face_rays": ray_records,
         "unsupported": {
             "barrel_metal_thread_wall_and_flexure": "UNRESOLVED_NO_CONTROLLED_STAFAST_STRENGTH_OR_THREAD_DATA",
-            "signed_two_plane_shear_blocks": "UNRESOLVED_NOT_MAPPED_ON_COMBINED_CUT_SOLID",
-            "splitting_and_tension_perpendicular_to_grain": "UNRESOLVED",
+            "signed_two_plane_shear_blocks": "NOMINAL_GEOMETRY_MAPPED_SEPARATELY_RESISTANCE_UNRESOLVED",
+            "splitting_and_tension_perpendicular_to_grain": "NOMINAL_PLANE_MAPPED_SEPARATELY_RESISTANCE_UNSUPPORTED",
             "complete_lateral_yield_and_combined_action": "UNRESOLVED",
             "joint_stiffness_and_load_sharing": "UNRESOLVED",
-            "my_twist_path": "UNRESOLVED_NONLINEAR_FACE_CONTACT_OR_OTHER_RESTRAINT",
+            "my_twist_path": "STATIC_PROXY_TOPOLOGY_MAPPED_SEPARATELY_STIFFNESS_UNRESOLVED",
         },
     }
 
 
 def build_report():
-    _material, _hardware, proxy, barrel, washer, bolt = _load_inputs()
+    material, _hardware, proxy, barrel, washer, bolt = _load_inputs()
     geometry = probe.build_report()
     screws = geometry["panel_screws"]
     if (
@@ -367,6 +469,7 @@ def build_report():
         bolt,
         geometry,
         demands["maximum_bolt_tension_row_n"],
+        material,
     )
     below_proxy = [
         name
@@ -415,10 +518,11 @@ def build_report():
             "missing_case": "a12-forward",
             "qualified_demand": False,
             "row_resolution": (
-                "All Fz/Mx and Fx/Mz assigned to two rows; Fy split equally; My "
-                "left unresolved. Positive axial is face compression; negative "
-                "axial is bolt tension, as confirmed by the proxy's separately "
-                "reported direct-contact component."
+                "This preliminary row split assigns Fz/Mx and Fx/Mz to two rows "
+                "and splits Fy equally. It leaves My unresolved locally; the "
+                "separate signed face-contact screen supplies a static topology "
+                "witness. Positive axial is face compression and negative axial "
+                "is bolt tension."
             ),
             **demands,
         },
@@ -437,13 +541,13 @@ def build_report():
                 "Nominal/adapted barrel-bearing, washer-bearing, raw bolt-proof, "
                 "and parallel-net-section references exceed the proxy bolt-tension "
                 "action. They are not adopted capacities. Actual barrel metal/thread, "
-                "signed splitting and shear paths, My twist restraint, and fresh "
-                "six-case demands remain open."
+                "splitting resistance, adverse-tolerance shear paths, compatible "
+                "My stiffness, and fresh six-case demands remain open."
             ),
             "next_design_action": (
-                "Map signed combined-cut breakout paths and the My contact path, "
-                "then obtain controlled STAFAST geometry, thread, material, and "
-                "proof evidence before building a bounded stiffness model."
+                "Extend nominal breakout and contact maps to adverse tolerances, "
+                "obtain controlled STAFAST geometry, thread, material, and proof "
+                "evidence, then build a bounded stiffness model."
             ),
             "diy_ready": False,
             "drilling_released": False,

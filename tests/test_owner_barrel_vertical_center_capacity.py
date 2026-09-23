@@ -46,9 +46,12 @@ def test_published_method_adaptations_are_numerically_pinned(report):
     assert bearing["nds_fabbri_nominal_reference_n"] == pytest.approx(813.354158)
     assert bearing["fpl_rectangular_area_mm2"] == pytest.approx(85.084615)
     assert bearing["fpl_divide_by_four_reference_n"] == pytest.approx(663.084531)
-    assert bearing["worst_provisional_distance_factor"] == pytest.approx(0.642934)
+    assert bearing["worst_provisional_distance_factor"] == pytest.approx(0.521766)
     assert bearing["distance_reduced_nds_fabbri_reference_n"] == pytest.approx(
-        522.933, abs=0.01
+        424.381, abs=0.01
+    )
+    assert bearing["distance_reduced_fpl_reference_n"] == pytest.approx(
+        345.975, abs=0.01
     )
     assert bearing["comparison"]["proxy_bolt_tension_demand_n"] == pytest.approx(
         report["demands"]["maximum_bolt_tension_row_n"]
@@ -69,6 +72,19 @@ def test_washer_and_bolt_are_kept_as_separate_constituents(report):
     assert resistance["unsupported"]["barrel_metal_thread_wall_and_flexure"].startswith(
         "UNRESOLVED"
     )
+
+
+def test_signed_raw_face_rays_replace_projected_bbox_distances(report):
+    rows = report["resistance"]["principal_raw_face_rays"]
+    assert len(rows) == 4
+    for row in rows:
+        assert row["grain_negative_mm"] == pytest.approx(36.551404)
+    rear = next(row for row in rows if row["bolt"].endswith("_1"))
+    forward = next(row for row in rows if row["bolt"].endswith("_2"))
+    assert rear["cross_grain_positive_mm"] == pytest.approx(41.648258)
+    assert rear["cross_grain_negative_mm"] == pytest.approx(43.560267)
+    assert forward["cross_grain_positive_mm"] == pytest.approx(102.931814)
+    assert forward["cross_grain_negative_mm"] == pytest.approx(36.768186)
 
 
 def test_decision_does_not_turn_proxy_or_screen_into_release(report):

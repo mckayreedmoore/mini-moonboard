@@ -25,16 +25,27 @@ the underside of the full 38.1 mm header.
 Five authenticated, converged kerf-right principal/header interface wrenches
 exist for the former ML24Z/contact topology. A12-forward did not converge. They
 are not barrel-joint demands. As a bounded screening input, the total interface
-wrenches were shifted to the new two-row group centroid and all `Fz/Mx` and
-`Fx/Mz` were assigned to rows 80 mm apart. `Fy` was split equally. The two
-collinear vertical bolts cannot create `My`, so that component remains assigned
-to face contact or another as-yet-unproved restraint.
+wrenches were shifted to the new two-row group centroid. The exact combined-cut
+principal/header face was split into 16 compression-only cells per side; both
+bolts were tension-only. A linear program resolved `Fz`, `Mx`, and `My` without
+friction. A separate equal-`Fy` witness resolved `Fx`, `Fy`, and `Mz` between
+the bolt rows without assigning resistance.
 
 - Default five-case maximum bolt-tension row action: 272.74 N.
 - A1 0.1×/10× stiffness-sensitivity bolt-tension maximum: 301.49 N.
 - A1 stiffness-sensitivity face-compression maximum: 921.80 N.
-- Maximum unclosed `My` in those proxies: 10.589 kN·mm.
+- Proxy `My` range: -5.750 to +10.589 kN·mm.
 - Fresh new-topology cases: zero; A12-forward remains absent.
+
+The exact net face is 5,024.764 mm². Its full reaction matrix has rank six;
+collapsing the contact cells onto the bolt X axis removes the `My` path, and
+collapsing the two bolt rows removes the `Mz` path. All 14 available side/case
+proxy examples have a static equilibrium witness. The governing witness uses
+220.48 N tension in each bolt, 1,054.70 N total face compression, and a 2.746
+MPa maximum piecewise-uniform cell-average pressure. Its maximum adapted
+reference ratio is 0.637. This proves a nominal static load-path topology, not
+compatible force sharing, gap state, elastic peak pressure, stiffness, or
+capacity. Available proxies reverse `My`, but do not reverse `Fz` or `Mx`.
 
 Positive Z action on the principal is face compression: the proxy separately
 reports the matching positive direct-contact component. Negative row action is
@@ -60,18 +71,42 @@ Rd = 4·(1 + 0.25·40/90) = 4.444
 Zref = Fe,40·Aproj/Rd = 813 N per barrel
 ```
 
-The rear row is only 45.04 mm, or 4.50 barrel diameters, from the grain end.
-Applying the simple `e/(7D)` distance sensitivity gives 0.643 and reduces this
-reference to 523 N. The actual angled-load `CΔ` needs the signed shear area on
-the adverse combined-cut solid; 0.643 is a non-adopted scalar sensitivity, not
-an established conservative bound or adopted code factor. The reduced reference
-is 1.73 times the 301 N tension proxy.
+An earlier projected-bounding-box calculation overstated the row distances.
+Source-built polygon rays show that **both** barrel centers are only 36.551 mm
+from the adverse grain end. The rows are staggered by 51.423 mm along grain and
+61.284 mm across grain even though their global Y pitch is 80 mm. Applying the
+simple `e/(7D)` distance sensitivity gives 0.52177 and reduces this reference
+to 424 N. The actual angled-load `CΔ` still needs an accepted signed method;
+0.52177 is a non-adopted scalar sensitivity, not a code factor. The reduced
+reference is 1.41 times the 301 N row proxy and 1.92 times the 220 N governing
+static-witness tension.
 
 The smaller-area FPL-form sensitivity, `d(l-d0)`, with its historical divide-by-
-four design derivation gives 663 N nominal and 426 N after the same distance
-sensitivity, or 1.41 times the tension proxy. It mixes the old parallel-grain
+four design derivation gives 663 N nominal and 346 N after the same distance
+sensitivity, or 1.15 times the 301 N row proxy. It mixes the old parallel-grain
 Appendix C form with current angled `Fe`; neither result is a codified
 cross-dowel rating.
+
+## Signed combined-cut paths
+
+The source-built breakout map subtracts the candidate service passage, all
+eight panel screw axes in each principal, all ten header kicker screw axes, and
+the four candidate cuts per host. Each resulting host is one valid solid.
+Actual-face ray and thin-slab queries give, per principal barrel:
+
+- 2,716.49 mm² extrapolated nominal two-plane path area;
+- 1.686 kN unadjusted 180 psi Appendix E row-tear-out reference;
+- 2,955.65 mm² rear and 5,031.77 mm² forward grain-normal net sections;
+- 1,245.16 mm² mapped center splitting plane; and
+- 31.55 mm minimum raw-face ligament after barrel radius; and
+- 26.03 mm minimum barrel-bore gap to the reduced right-principal service bore.
+
+These are geometry and reference values only. The Appendix E expression is a
+parallel-grain local-stress method, while this barrel action is 40 degrees to
+grain and the receiver is blind and partial-width. No adopted resistance exists
+for the mapped tension-perpendicular splitting plane. Group tear-out and adverse
+tolerances remain unresolved. The executable map is
+[`scripts/owner_barrel_vertical_center_breakout.py`](../../scripts/owner_barrel_vertical_center_breakout.py).
 
 ## Header washer and bolt
 
@@ -110,14 +145,29 @@ STAFAST part. “Cold rolled steel” is not a material grade. Aerospace barrel
 nuts publish strong controlled axial ratings, but their fine threads, larger
 bores, and metal-joint installation geometry are not drop-in timber ratings.
 
+STAFAST's publicly posted 2016 catalog gives a generic ±0.016-inch decimal
+tolerance. It can support a sensitivity only; the catalog directs users to
+request a current print. With that
+provisional envelope and the 301.494 N service-only row proxy, a controlled
+whole-barrel design rating would need to exceed
+`installation preload + gamma × 301.494 N`. NASA's tapped-hole expression gives
+a required female-thread shear strength of only `7.380 × gamma MPa`, while a
+non-validated lobe sensitivity gives `18.579 × gamma MPa` average shear and
+`96.126 × gamma × Kt MPa` yield. These modest numbers show metal feasibility is
+plausible; they do not close unknown preload, stress concentration, slot,
+thread-flank loading, material minimums, or complete-part rating.
+
+The executable sensitivity is
+[`scripts/owner_barrel_metal_threshold.py`](../../scripts/owner_barrel_metal_threshold.py).
+
 ## Remaining gates
 
 Before this joint can receive a conditional analytical GO:
 
-1. Map both signed, two-plane shear/block paths and splitting paths on the
-   actual combined-cut solids, including drill and stock tolerances.
-2. Add a face-contact or other verified path for `My`; the two bolt centers are
-   collinear in Y and cannot resist that axis alone.
+1. Extend the nominal signed map to adverse drill, fit, and stock tolerances;
+   enumerate group tear-out and adopt or reject a splitting resistance route.
+2. Bound face-contact/fastener compatibility and stiffness; current work proves
+   only static `My` topology under available proxy signs.
 3. Obtain controlled STAFAST geometry, material, thread, wall, and proof
    evidence, or select an alternate barrel, then rerun the reference screens.
 4. Control the current washer, seat, flexure, and tolerances; change washer size
@@ -127,5 +177,7 @@ Before this joint can receive a conditional analytical GO:
 
 The executable calculation is
 [`scripts/owner_barrel_vertical_center_capacity.py`](../../scripts/owner_barrel_vertical_center_capacity.py).
-It stays fail-closed and reports every unsupported mode rather than substituting
+The signed contact calculation is
+[`scripts/owner_barrel_vertical_center_contact_screen.py`](../../scripts/owner_barrel_vertical_center_contact_screen.py).
+Both stay fail-closed and report every unsupported mode rather than substituting
 contact area or collision clearance for strength.
