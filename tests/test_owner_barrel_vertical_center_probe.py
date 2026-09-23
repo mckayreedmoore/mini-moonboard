@@ -36,30 +36,42 @@ def test_full_posts_clear_kick_tnuts_under_explicit_provisional_stack(report):
     assert literal["right_selected_max_washer_overlap_mm"] == pytest.approx(0.3623)
 
 
-def test_only_four_center_kicker_screws_move_into_seam_backers(report):
+def test_all_66_screw_axes_stay_exact_and_four_center_axes_gain_backing(report):
     screws = report["panel_screws"]
     assert screws["source_count"] == 66
-    assert screws["unchanged_count"] == 62
-    assert screws["relocated_count"] == 4
-    assert set(screws["relocated_names"]) == probe.CENTER_SCREWS
+    assert screws["unchanged_count"] == 66
+    assert screws["exact_shop_axis_match_count"] == 66
+    assert screws["relocated_count"] == 0
+    assert screws["relocated_names"] == []
+    assert set(screws["newly_backed_original_axes"]) == probe.CENTER_SCREWS
     assert screws["receiver_role"] == "panel and kicker-seam support only"
     assert screws["structural_frame_credit"] is False
     assert all(
         row["embedded_shaft_outside_receiver_mm3"] == 0 for row in screws["rows"]
     )
     assert all(
-        row["nominal_nearest_receiver_edge_mm"] == 19.05 for row in screws["rows"]
+        row["nominal_nearest_receiver_edge_mm"] == pytest.approx(19.05)
+        for row in screws["rows"]
     )
     assert all(
         row["adverse_provisional_receiver_edge_mm"] == pytest.approx(16.55)
         for row in screws["rows"]
     )
-    assert sorted({row["new_start_xyz_mm"][0] for row in screws["rows"]}) == (
-        pytest.approx([-20.6375, 17.4625])
+    assert sorted({row["candidate_start_xyz_mm"][0] for row in screws["rows"]}) == (
+        pytest.approx([-70.0, 70.0])
     )
-    assert {row["new_start_xyz_mm"][2] for row in screws["rows"]} == {60.0, 192.0}
+    assert all(row["axis_unchanged"] for row in screws["rows"])
     assert all(
-        row["new_start_xyz_mm"][1] == pytest.approx(-17.74375) for row in screws["rows"]
+        row["source_start_xyz_mm"] == row["candidate_start_xyz_mm"]
+        for row in screws["rows"]
+    )
+    assert {row["candidate_start_xyz_mm"][2] for row in screws["rows"]} == {
+        60.0,
+        192.0,
+    }
+    assert all(
+        row["candidate_start_xyz_mm"][1] == pytest.approx(-17.74375)
+        for row in screws["rows"]
     )
     assert all(
         row["purchased_length_mm"] == pytest.approx(63.5) for row in screws["rows"]
@@ -71,10 +83,10 @@ def test_shallow_backers_keep_both_kicker_seam_edges_continuously_supported(repo
     layout = report["post_layout"]
     assert layout["seam_backer_bounds_xyz_mm"] == {
         "kicker_seam_backer_left": pytest.approx(
-            [-39.6875, -1.5875, -124.9, -36.0, 0.0, 238.9]
+            [-89.05, -1.5875, -124.9, -36.0, 0.0, 238.9]
         ),
         "kicker_seam_backer_right": pytest.approx(
-            [-1.5875, 36.5125, -124.9, -36.0, 0.0, 238.9]
+            [-1.5875, 89.05, -124.9, -36.0, 0.0, 238.9]
         ),
     }
     assert not report["checks"]["seam_backer_protected_hits_mm3"]
@@ -82,7 +94,12 @@ def test_shallow_backers_keep_both_kicker_seam_edges_continuously_supported(repo
         row = report["checks"]["seam_backing"][side]
         assert row["backer_full_height_samples"]
         assert row["header_continuation_samples"]
-        assert row["nominal_panel_contact_area_mm2"] == pytest.approx(9102.09)
+    assert report["checks"]["seam_backing"]["left"][
+        "nominal_panel_contact_area_mm2"
+    ] == pytest.approx(18920.29125)
+    assert report["checks"]["seam_backing"]["right"][
+        "nominal_panel_contact_area_mm2"
+    ] == pytest.approx(19551.79875)
 
 
 def test_each_principal_gets_two_selected_vertical_barrel_rows(report):
