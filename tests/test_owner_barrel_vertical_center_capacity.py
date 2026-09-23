@@ -16,7 +16,9 @@ def test_fixed_geometry_and_proxy_scope_are_explicit(report):
         "barrel_x_ligament_mm": pytest.approx(14.0462),
         "wood_beyond_blind_barrel_bore_mm": pytest.approx(9.0424),
         "washer_header_edge_reserve_mm": pytest.approx(20.1877),
-        "panel_kicker_axes_preserved": 66,
+        "panel_kicker_screw_count": 66,
+        "panel_kicker_axes_unchanged": 62,
+        "panel_kicker_axes_relocated": 4,
         "old_2p092_mm_header_pocket_applicable": False,
         "old_header_pocket_disposition": (
             "Eliminated by the flat underside seats of the vertical bolts."

@@ -1,9 +1,8 @@
 """Source-CAD screen for owner-directed vertical center-principal barrels.
 
 This detached probe moves two full 4x6 center posts outside KICK5/KICK6,
-keeps all 66 panel/kicker screw axes fixed, adds shallow backing at the four
-orphaned center axes and kicker seam, and places two vertical barrel bolts at
-each principal/header interface.  It does not
+relocates only their four kicker screws, keeps shallow seam backing, and places
+two vertical barrel bolts at each principal/header interface.  It does not
 modify the selected candidate or either maintained barrel viewer.
 
 Nominal clearance plus an explicit provisional tolerance stack is screened.
@@ -15,6 +14,7 @@ from __future__ import annotations
 
 import csv
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import cadquery as cq
@@ -44,10 +44,8 @@ TNUT_CENTER_PLACEMENT_TOL_MM = 1.0
 TNUT_RADIUS_GROWTH_TOL_MM = 0.5
 SCREW_AXIS_PLACEMENT_TOL_MM = 1.0
 BACKER_EDGE_PLACEMENT_TOL_MM = 1.5
-SCREW_EDGE_OFFSET_MM = 19.05
 SEAM_BACKER_DEPTH_MM = 88.9
-SEAM_BACKER_TOP_WIDTH_MM = 38.1
-CENTER_SCREW_X_MM = {"left": -70.0, "right": 70.0}
+SEAM_BACKER_WIDTH_MM = 38.1
 
 BOLT_BORE_DIAMETER_MM = 7.5
 HEAD_DIAMETER_MM = 11.0
@@ -190,27 +188,20 @@ def _post_and_backer_geometry(wood, seam):
         )
 
     backer_y0 = wood["base_header"].BoundingBox().ymax - SEAM_BACKER_DEPTH_MM
-    backer_x_bounds = {
-        "left": (CENTER_SCREW_X_MM["left"] - SCREW_EDGE_OFFSET_MM, seam),
-        "right": (seam, CENTER_SCREW_X_MM["right"] + SCREW_EDGE_OFFSET_MM),
+    backers = {
+        "kicker_seam_backer_left": cq.Solid.makeBox(
+            SEAM_BACKER_WIDTH_MM,
+            SEAM_BACKER_DEPTH_MM,
+            238.9,
+            cq.Vector(seam - SEAM_BACKER_WIDTH_MM, backer_y0, 0),
+        ),
+        "kicker_seam_backer_right": cq.Solid.makeBox(
+            SEAM_BACKER_WIDTH_MM,
+            SEAM_BACKER_DEPTH_MM,
+            238.9,
+            cq.Vector(seam, backer_y0, 0),
+        ),
     }
-    tool_clearance_z = wood["base_header"].BoundingBox().zmin - TOOL_LENGTH_MM
-    backers = {}
-    for side, (x0, x1) in backer_x_bounds.items():
-        lower = cq.Solid.makeBox(
-            x1 - x0,
-            SEAM_BACKER_DEPTH_MM,
-            tool_clearance_z,
-            cq.Vector(x0, backer_y0, 0),
-        )
-        upper_x0 = seam - SEAM_BACKER_TOP_WIDTH_MM if side == "left" else seam
-        upper = cq.Solid.makeBox(
-            SEAM_BACKER_TOP_WIDTH_MM,
-            SEAM_BACKER_DEPTH_MM,
-            238.9 - tool_clearance_z,
-            cq.Vector(upper_x0, backer_y0, tool_clearance_z),
-        )
-        backers[f"kicker_seam_backer_{side}"] = lower.fuse(upper)
     tolerance_consumption = (
         POST_CENTER_PLACEMENT_TOL_MM
         + POST_HALF_WIDTH_GROWTH_TOL_MM
@@ -238,47 +229,18 @@ def _shop_center_screws(source, post_geometry):
         shop = {
             row["name"]: row
             for row in csv.DictReader(stream)
-            if row["name"] in model_rows
+            if row["name"] in CENTER_SCREWS
         }
-    if set(shop) != set(model_rows):
-        raise ValueError("Shop/model panel screw inventory differs from exact 66 axes")
+    if set(shop) != set(CENTER_SCREWS):
+        raise ValueError("Four center kicker shop rows changed")
 
-    for name, model in model_rows.items():
-        source_row = shop[name]
-        shop_start = tuple(
-            float(source_row[field])
-            for field in ("start_x_mm", "start_y_mm", "start_z_mm")
-        )
-        shop_direction = tuple(
-            float(source_row[field])
-            for field in ("direction_x", "direction_y", "direction_z")
-        )
-        if (
-            max(
-                abs(a - b)
-                for a, b in zip(model.start.toTuple(), shop_start, strict=True)
-            )
-            > 1e-9
-            or max(
-                abs(a - b)
-                for a, b in zip(
-                    model.direction.normalized().toTuple(),
-                    shop_direction,
-                    strict=True,
-                )
-            )
-            > 1e-9
-            or abs(model.diameter - float(source_row["modeled_diameter_mm"])) > 1e-9
-        ):
-            raise ValueError(f"{name}: shop/model screw axis differs")
-
-    preserved = {}
+    relocated = {}
     rows = []
     for side in SIDES:
         receiver_name = f"kicker_seam_backer_{side}"
         receiver_shape = post_geometry["backers"][receiver_name]
         receiver = receiver_shape.BoundingBox()
-        x = CENTER_SCREW_X_MM[side]
+        x = (receiver.xmin + receiver.xmax) / 2
         for index in (1, 2):
             name = f"round_kicker_{side}_center_{index}"
             old = model_rows[name]
@@ -290,20 +252,21 @@ def _shop_center_screws(source, post_geometry):
                 or abs(old.start.z - (60.0 if index == 1 else 192.0)) > 1e-6
             ):
                 raise ValueError(f"{name}: source screw changed")
+            moved = replace(old, start=cq.Vector(x, old.start.y, old.start.z))
             solid = _cylinder(
-                old.start.toTuple(),
-                old.direction.normalized().toTuple(),
+                moved.start.toTuple(),
+                moved.direction.normalized().toTuple(),
                 purchased,
-                old.diameter,
+                moved.diameter,
             )
             outside = _outside_volume(solid, (receiver_shape,))
             # Shaft begins in plywood; only the part behind its rear face is in wood.
             panel_back_y = -36.0
             embedded = _cylinder(
-                (x, panel_back_y, old.start.z),
+                (x, panel_back_y, moved.start.z),
                 (0.0, -1.0, 0.0),
-                panel_back_y - (old.start.y - purchased),
-                old.diameter,
+                panel_back_y - (moved.start.y - purchased),
+                moved.diameter,
             )
             embedded_outside = _outside_volume(embedded, (receiver_shape,))
             tnut_x = post_geometry["tnut_centers"][side]
@@ -312,9 +275,8 @@ def _shop_center_screws(source, post_geometry):
                 {
                     "name": name,
                     "receiver": receiver_name,
-                    "source_start_xyz_mm": list(old.start.toTuple()),
-                    "candidate_start_xyz_mm": list(old.start.toTuple()),
-                    "axis_unchanged": True,
+                    "old_start_xyz_mm": list(old.start.toTuple()),
+                    "new_start_xyz_mm": list(moved.start.toTuple()),
                     "purchased_length_mm": purchased,
                     "nominal_nearest_receiver_edge_mm": _round(edge_margin),
                     "adverse_provisional_receiver_edge_mm": _round(
@@ -328,8 +290,25 @@ def _shop_center_screws(source, post_geometry):
                     "structural_frame_credit": False,
                 }
             )
-            preserved[name] = {"connection": old, "solid": solid}
-    return model_rows, preserved, rows
+            relocated[name] = {"connection": moved, "solid": solid}
+    return model_rows, relocated, rows
+
+
+def _modified_inventory(base, relocated):
+    solids = {family: dict(rows) for family, rows in base["solids"].items()}
+    panel = solids["panel_screws"]
+    for name, row in relocated.items():
+        panel[name] = row["solid"]
+    if len(panel) != 66 or set(relocated) != set(CENTER_SCREWS):
+        raise ValueError("Relocated screw inventory is not exactly four of 66")
+    return {
+        **base,
+        "solids": solids,
+        "bounds": {
+            family: {name: shape.BoundingBox() for name, shape in rows.items()}
+            for family, rows in solids.items()
+        },
+    }
 
 
 def _joint_geometry(wood, post_geometry, barrel, washer, bolt):
@@ -493,7 +472,7 @@ def _joint_geometry(wood, post_geometry, barrel, washer, bolt):
     }
 
 
-def _geometry_checks(wood, post_geometry, joint, inventory, center_screws):
+def _geometry_checks(wood, post_geometry, joint, inventory, relocated):
     candidate_wood = {
         **wood,
         **post_geometry["posts"],
@@ -577,7 +556,7 @@ def _geometry_checks(wood, post_geometry, joint, inventory, center_screws):
     for name, backer in post_geometry["backers"].items():
         side = name.rsplit("_", 1)[1]
         own_screws = frozenset(
-            screw for screw in center_screws if f"_{side}_center_" in screw
+            screw for screw in relocated if f"_{side}_center_" in screw
         )
         families = {}
         for family, shapes in inventory["solids"].items():
@@ -662,10 +641,7 @@ def _geometry_checks(wood, post_geometry, joint, inventory, center_screws):
                 header.isInside(cq.Vector(x, -36.1, z), 1e-5)
                 for z in (239.4, 257.95, 276.5)
             ),
-            "nominal_panel_contact_area_mm2": _round(
-                backer.BoundingBox().xlen * (238.9 - TOOL_LENGTH_MM)
-                + SEAM_BACKER_TOP_WIDTH_MM * TOOL_LENGTH_MM
-            ),
+            "nominal_panel_contact_area_mm2": _round(SEAM_BACKER_WIDTH_MM * 238.9),
         }
 
     geometry_clear = not any(
@@ -698,13 +674,14 @@ def build_report():
     _, barrel, washer, bolt = _hardware()
     source, wood, seam = _source_geometry()
     post_geometry = _post_and_backer_geometry(wood, seam)
-    model_screws, center_screws, screw_rows = _shop_center_screws(source, post_geometry)
-    inventory = protected.inventory()
+    model_screws, relocated, screw_rows = _shop_center_screws(source, post_geometry)
+    base_inventory = protected.inventory()
+    inventory = _modified_inventory(base_inventory, relocated)
     joint = _joint_geometry(wood, post_geometry, barrel, washer, bolt)
-    checks = _geometry_checks(wood, post_geometry, joint, inventory, center_screws)
+    checks = _geometry_checks(wood, post_geometry, joint, inventory, relocated)
     if post_geometry["adverse_provisional_clearance_mm"] <= 0:
         raise ValueError("Provisional post/T-nut tolerance stack has no clearance")
-    if len(model_screws) != 66 or len(center_screws) != 4:
+    if len(model_screws) != 66 or len(relocated) != 4:
         raise ValueError("Panel screw preservation count changed")
 
     geometry_candidate = bool(
@@ -772,11 +749,9 @@ def build_report():
         },
         "panel_screws": {
             "source_count": len(model_screws),
-            "unchanged_count": len(model_screws),
-            "exact_shop_axis_match_count": len(model_screws),
-            "relocated_count": 0,
-            "relocated_names": [],
-            "newly_backed_original_axes": sorted(center_screws),
+            "unchanged_count": len(model_screws) - len(relocated),
+            "relocated_count": len(relocated),
+            "relocated_names": sorted(relocated),
             "rows": screw_rows,
             "receiver_role": "panel and kicker-seam support only",
             "structural_frame_credit": False,

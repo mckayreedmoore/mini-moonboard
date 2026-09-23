@@ -357,10 +357,9 @@ def build_report():
         geometry["decision"]["nominal_and_provisional_tolerance_geometry"]
         != "CANDIDATE"
         or screws["source_count"] != 66
-        or screws["unchanged_count"] != 66
-        or screws["relocated_count"] != 0
+        or screws["unchanged_count"] + screws["relocated_count"] != 66
     ):
-        raise ValueError("Fixed-axis vertical-center geometry is not a candidate")
+        raise ValueError("66-screw vertical-center geometry is not a candidate")
     demands = _proxy_demands(proxy)
     resistance = _resistance_screen(
         barrel,
@@ -399,7 +398,9 @@ def build_report():
             "washer_header_edge_reserve_mm": geometry["principal_header_joint"][
                 "minimum_max_washer_header_edge_reserve_mm"
             ],
-            "panel_kicker_axes_preserved": screws["unchanged_count"],
+            "panel_kicker_screw_count": screws["source_count"],
+            "panel_kicker_axes_unchanged": screws["unchanged_count"],
+            "panel_kicker_axes_relocated": screws["relocated_count"],
             "old_2p092_mm_header_pocket_applicable": False,
             "old_header_pocket_disposition": (
                 "Eliminated by the flat underside seats of the vertical bolts."

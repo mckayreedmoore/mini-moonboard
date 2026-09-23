@@ -9,8 +9,14 @@ demand is an old-topology proxy, not a fresh response for the new joint, and
 several complete-joint modes remain unsupported. The finite disposition is
 **EVIDENCE-BLOCKED** and no drilling or fabrication is released.
 
-All 66 panel/kicker screw axes remain at their kerf-right coordinates. The four
-center kicker axes receive new stepped backing; none move. The former 2.092 mm
+The design retains 66 purchased Hillman panel/kicker screws. Sixty-two axes stay
+at their kerf-right coordinates. Four center kicker axes move from `X = -70/+70`
+mm to `X = -20.6375/+17.4625` mm, keeping their `Y = -17.74375` mm and
+`Z = 60/192` mm coordinates. They enter dedicated 38.1 × 88.9 mm shallow seam
+backers with 19.05 mm nominal edge distance and 16.55 mm after the provisional
+placement stack. The backers provide 9,102.09 mm² nominal panel contact each,
+continue support along both kicker seam edges, and receive the full embedded
+screw shafts; they receive no structural-frame credit. The former 2.092 mm
 angled head pocket is absent: the new vertical bolts seat flat washers against
 the underside of the full 38.1 mm header.
 
