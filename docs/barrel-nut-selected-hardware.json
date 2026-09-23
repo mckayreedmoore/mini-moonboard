@@ -1,0 +1,179 @@
+{
+  "schema": "owner_barrel_selected_hardware/v1",
+  "candidate": "compact-floor-flush-bolted-development",
+  "selection_scope": "qualification articles only; not a purchase list or fabrication release",
+  "barrel": {
+    "manufacturer": "STAFAST",
+    "product": "JCD14201606NL ZN",
+    "quantity": 46,
+    "thread": "1/4-20",
+    "nominal_body_od_mm": 10.0076,
+    "nominal_body_length_mm": 16.002,
+    "nominal_thread_axis_from_slotted_end_mm": 5.9944,
+    "current_cad_axis_from_end_mm": 8.001,
+    "required_body_shift_to_preserve_bolt_axis_mm": 2.0066,
+    "source": "https://shop.stafast.com/cross-dowels/cross-dowels-with-1-hole/jcd14201606",
+    "status": "SELECTED_TEST_ARTICLE_NOT_STRUCTURALLY_QUALIFIED",
+    "controlled_strength_n": null,
+    "missing_controlled_fields": [
+      "body and thread-axis tolerances",
+      "internal thread class and complete female-thread interval",
+      "minimum material properties and hardness",
+      "proof, stripping, wall and bending resistance",
+      "lot certificate and change control"
+    ]
+  },
+  "bolts": [
+    {
+      "manufacturer": "CDE Fasteners",
+      "product": "1456BHT5",
+      "quantity": 4,
+      "size": "1/4-20 x 3.5 in",
+      "nominal_length_mm": 88.9,
+      "standard": "SAE J429 Grade 5; ASME B18.2.1; IFI-199 (2014); fully threaded",
+      "minimum_proof_psi": 85000,
+      "minimum_yield_psi": 92000,
+      "minimum_tensile_psi": 120000,
+      "length_tolerance_mm": [-1.524, 1.016],
+      "status": "SELECTED_PENDING_LOT_CERTIFICATE_AND_CLASS_2A_CONFIRMATION"
+    },
+    {
+      "manufacturer": "CDE Fasteners",
+      "product": "1472BHT5",
+      "quantity": 26,
+      "size": "1/4-20 x 4.5 in",
+      "nominal_length_mm": 114.3,
+      "standard": "SAE J429 Grade 5; ASME B18.2.1; IFI-199 (2014); fully threaded",
+      "minimum_proof_psi": 85000,
+      "minimum_yield_psi": 92000,
+      "minimum_tensile_psi": 120000,
+      "length_tolerance_mm": [-2.54, 1.524],
+      "status": "SELECTED_PENDING_LOT_CERTIFICATE_AND_CLASS_2A_CONFIRMATION"
+    },
+    {
+      "manufacturer": "CDE Fasteners",
+      "product": "1480BHT5",
+      "quantity": 4,
+      "size": "1/4-20 x 5 in",
+      "nominal_length_mm": 127.0,
+      "standard": "SAE J429 Grade 5; ASME B18.2.1; IFI-199 (2014); fully threaded",
+      "minimum_proof_psi": 85000,
+      "minimum_yield_psi": 92000,
+      "minimum_tensile_psi": 120000,
+      "length_tolerance_mm": [-2.54, 1.524],
+      "status": "SELECTED_PENDING_LOT_CERTIFICATE_AND_CLASS_2A_CONFIRMATION"
+    },
+    {
+      "manufacturer": "CDE Fasteners",
+      "product": "14104BHT5",
+      "quantity": 12,
+      "size": "1/4-20 x 6.5 in",
+      "nominal_length_mm": 165.1,
+      "standard": "SAE J429 Grade 5; ASME B18.2.1; IFI-199 (2014); fully threaded",
+      "minimum_proof_psi": 85000,
+      "minimum_yield_psi": 92000,
+      "minimum_tensile_psi": 120000,
+      "length_tolerance_mm": [-4.572, 2.54],
+      "status": "SELECTED_PENDING_LOT_CERTIFICATE_AND_CLASS_2A_CONFIRMATION",
+      "source": "https://cdefasteners.com/order-online/hex-tap-bolt-grade-5-fully-threaded-zinc/161251"
+    }
+  ],
+  "rejected_bolt": {
+    "product": "CDE 1496BHT5 controlled comparator for the prior 6 in geometry",
+    "size": "1/4-20 x 6 in",
+    "reason": "adverse short bolt and selected maximum-thickness washer leave the physical tip 1.072 mm and a two-pitch chamfer-adjusted complete-thread endpoint 3.612 mm short of the modeled barrel axis",
+    "disposition": "REJECT_FOR_SELECTION; NOT A PROVED PHYSICAL FAILURE"
+  },
+  "washers": [
+    {
+      "manufacturer": "Fastenal approved vendor",
+      "product": "33857",
+      "quantity": 46,
+      "type": "1/4 in hardened USS/Type A wide washer",
+      "standard": "ASME B18.21.1; ASTM F436/F436M",
+      "id_min_mm": 7.7978,
+      "id_max_mm": 8.3058,
+      "od_min_mm": 18.4658,
+      "od_max_mm": 19.0246,
+      "thickness_min_mm": 1.2954,
+      "thickness_max_mm": 2.032,
+      "hardness_hrc": [38, 45],
+      "status": "SELECTED_PENDING_LOT_MTR",
+      "source": "https://www.fastenal.com/content/product_specifications/FW.HRD.USS.A.Z.02.pdf"
+    }
+  ],
+  "standard_strength_calculation": {
+    "quarter_twenty_tensile_stress_area_in2": 0.0318,
+    "minimum_proof_load_lbf": 2703.0,
+    "minimum_yield_load_lbf": 2925.6,
+    "minimum_tensile_load_lbf": 3816.0,
+    "limit": "constituent bolt values only; they are not a complete-joint allowable"
+  },
+  "stack_screen": {
+    "selected_geometry_probe_source": "scripts/owner_barrel_selected_geometry_probe.py",
+    "calculation_inputs": {
+      "modeled_washer_thickness_mm": 1.651,
+      "modeled_outer_rail_axis_reach_from_head_mm": 150.551,
+      "modeled_outer_rail_bore_cap_from_head_mm": 157.5548,
+      "modeled_five_in_tip_clearance_mm": 2.0,
+      "two_pitch_tip_allowance_mm": 2.54,
+      "rejected_six_in_nominal_length_mm": 152.4,
+      "rejected_six_in_length_tolerance_mm": [-2.54, 1.524]
+    },
+    "stafast_axis_preserving_shift_nominal_cad": "PASS_GEOMETRY_ONLY",
+    "stafast_shifted_bodies_checked": 46,
+    "stafast_shifted_body_unrelated_collisions": 0,
+    "stafast_shifted_body_protected_hardware_collisions": 0,
+    "stafast_shifted_body_or_bore_tail_peer_hits": 0,
+    "stafast_shifted_insertion_depth_range_mm": [29.058, 70.508],
+    "rejected_six_in_minimum_physical_tip_past_axis_mm": -1.072,
+    "rejected_six_in_minimum_complete_thread_past_axis_mm": -3.612,
+    "three_and_half_in": "GEOMETRY_CANDIDATE",
+    "four_and_half_in": "GEOMETRY_CANDIDATE",
+    "five_in": "REQUIRES_DEEPER_BLIND_BORE",
+    "six_in": "REJECTED",
+    "six_and_half_in": "GEOMETRY_CANDIDATE_REQUIRES_BORE_EXTENSION",
+    "six_and_half_minimum_physical_tip_past_axis_mm": 9.596,
+    "six_and_half_minimum_complete_thread_past_axis_mm": 7.056,
+    "six_and_half_minimum_added_bore_depth_to_zero_clearance_mm": 10.4408,
+    "six_and_half_required_tip_clearance_mm": null,
+    "six_and_half_provisional_2mm_clearance_added_bore_depth_mm": 12.4408,
+    "six_and_half_corrected_cad_probe_extension_mm": 12.4408,
+    "six_and_half_corrected_cad_probe_pair_count": 12,
+    "six_and_half_corrected_cad_probe_outside_receiver_volume_mm3": 0.0,
+    "six_and_half_corrected_cad_probe_unrelated_or_protected_hits": 0,
+    "six_and_half_corrected_cad_probe_peer_barrel_path_or_stack_hits": 0,
+    "six_and_half_corrected_cad_probe_max_washer_hits": 0,
+    "six_and_half_prior_cad_probe_extension_mm": 11.069,
+    "six_and_half_prior_cad_probe_result": "contained and collision-free but superseded because it used the wrong bolt-length tolerance band and did not bind selected washer thickness; it leaves only about 0.628 mm adverse clearance",
+    "five_in_minimum_adverse_clearance_before_machining_error_mm": 0.1204,
+    "five_in_provisional_2mm_clearance_added_bore_depth_mm": 1.8796,
+    "five_in_corrected_cad_probe_pair_count": 4,
+    "five_in_corrected_cad_probe_outside_receiver_volume_mm3": 0.0,
+    "five_in_corrected_cad_probe_unrelated_or_protected_hits": 0,
+    "five_in_corrected_cad_probe_peer_barrel_path_or_stack_hits": 0,
+    "five_in_corrected_cad_probe_max_washer_hits": 0
+  },
+  "decision": {
+    "current_as_drawn_six_inch_stack": "FAIL_CLOSED_NOT_QUALIFIED",
+    "corrected_hardware_geometry": "EVIDENCE_BLOCKED",
+    "complete_direct_cross_dowel_design": "EVIDENCE_BLOCKED",
+    "diy_ready": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "blocking_gates": [
+      "controlled or lot-tested barrel proof and usable female-thread interval",
+      "finished barrel-bore fit and adverse-tolerance combined-cut wood",
+      "principal/header pocket resistance and reversed signed twist path",
+      "complete-joint stiffness and strength qualification",
+      "delivered tool, insertion, service and disassembly access",
+      "measured qualifying plywood and kicker material"
+    ]
+  },
+  "sources": {
+    "cde_product_family": "https://cdefasteners.com/order-online/hex-tap-bolt-grade-5-fully-threaded-zinc/161251",
+    "cde_dimensional_standard": "https://cdefasteners.com/sites/default/files/product-specs/capscrewtapbolts.pdf",
+    "complete_joint_plan": "docs/barrel-nut-complete-joint-qualification-plan.md",
+    "go_no_go_packet": "docs/barrel-nut-go-no-go-packet.md"
+  }
+}
