@@ -33,6 +33,24 @@ ultimate tension. These values qualify neither the barrel nor the timber
 joint. The selected washer's adverse annular steel area is 213.63 mm² before
 seat eccentricity or loss of sound wood support.
 
+## Public online evidence audit
+
+Checked 22 September 2026. Public manufacturer evidence closes only part of
+the hardware-input gate:
+
+| Item | Public evidence found | What remains unavailable online | Result |
+| --- | --- | --- | --- |
+| STAFAST `JCD14201606NL ZN` | The [manufacturer product page](https://shop.stafast.com/cross-dowels/cross-dowels-with-1-hole/jcd14201606) gives 1/4-20, `d1 = 0.394 in`, `L = 0.630 in`, `L1 = 0.236 in`, and steel. | Controlled tolerances, thread class, complete usable female-thread interval, material minimums, proof/strip/wall resistance, and lot conformity. The page has no downloadable print. | **Not available publicly; exact manufacturer print plus lot evidence or complete-joint lot testing is required.** |
+| CDE Grade 5 tap bolts | The [manufacturer dimensional sheet](https://cdefasteners.com/sites/default/files/product-specs/capscrewtapbolts.pdf) and product family identify fully threaded Grade 5 bolts governed by SAE J429, ASME B18.2.1, and IFI-199. CDE states that manufacturer certificates are available. | Certificate and Class 2A confirmation tied to the delivered `1456BHT5`, `1472BHT5`, `1480BHT5`, and `14104BHT5` lots. | **Public standard basis available; delivered-lot evidence must be obtained with the order.** |
+| Fastenal `33857` washer | Fastenal's [controlled product standard](https://www.fastenal.com/content/product_specifications/FW.HRD.USS.A.Z.02.pdf) gives the 1/4-inch ID, OD, and thickness limits and invokes ASME B18.21.1, ASTM F436/F436M, and lot-traceable MTR requirements. | MTR and dimensions for the delivered lot; finished-seat and tool fit. | **Controlled product standard available; delivered-lot and installed-fit evidence remains required.** |
+| Controlled structural barrel comparator | Howmet publishes an [F1800-4 product record](https://catalog.howmetfasteners.com/item/other-products/f1800-barrel-nut-floating/f1800-4) and [controlled drawing](https://catalog.howmetfasteners.com/Asset/s_F1800-%28%29_C.PDF) with material, tolerances, and a 7,200 lbf minimum axial tensile value. | Applicability to this joint. It is a floating 1/4-28 aerospace nut requiring a 13.487–13.589 mm installation bore, not the selected direct 1/4-20 cross dowel; its metal rating does not qualify wood. | **Data available, but only for an incompatible redesign comparator.** |
+| Complete DF-L cross-dowel joint | Public timber literature establishes that crossed-bore failures and stiffness depend on wood, bore fit, geometry, loading, and confinement. | No source covers this 10 × 16 mm barrel, current crossed cuts, two-row principal/header geometry, reversed signed twist, delivered DF-L, or complete retained panel/bolt load path. | **Not available; representative adverse-specimen testing remains required.** |
+
+Therefore online research cannot turn this selection into a structural pass.
+It can freeze bolt and washer procurement requirements and show what controlled
+barrel evidence would look like. It cannot supply the selected barrel's
+missing resistance or the complete timber joint's strength and stiffness.
+
 ## Why this barrel was selected
 
 [STAFAST `JCD14201606NL ZN`](https://shop.stafast.com/cross-dowels/cross-dowels-with-1-hole/jcd14201606)
