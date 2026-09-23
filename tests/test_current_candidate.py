@@ -151,6 +151,16 @@ def test_consistency_authenticates_six_case_aggregate(configuration):
     }
 
 
+def test_consistency_accepts_selected_candidate_in_grouped_current_designs(configuration):
+    root, selection = configuration
+    html = root / 'site/index.html'
+    html.write_text(html.read_text().replace(
+        f"option.value === '{selection['candidate']}'",
+        f"['{selection['candidate']}', 'fixture-width-option'].includes(option.value)",
+    ))
+    assert check(root)['configuration_consistent'] is True
+
+
 def test_pending_authority_does_not_promote_historical_evidence(configuration):
     root, selection = configuration
     selection['aggregate_evidence'] = None

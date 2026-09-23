@@ -273,9 +273,17 @@ def check(root=ROOT):
     fallback = re.search(r'\? requestedModel : [\'\"]([^\'\"]+)[\'\"]', html)
     require(fallback is not None and fallback[1] == key,
             'Viewer default differs from candidate authority')
-    current_group = re.search(
-        r'option\.value === [\'\"]([^\'\"]+)[\'\"] \? currentDesigns', html)
-    require(current_group is not None and current_group[1] == key,
+    current_keys = set(re.findall(
+        r'option\.value\s*===\s*[\'\"]([^\'\"]+)[\'\"]\s*\?\s*currentDesigns', html))
+    for group in re.findall(
+            r'(\[[^\]\n]*\])\.includes\(option\.value\)\s*\?\s*currentDesigns', html):
+        try:
+            values = ast.literal_eval(group)
+        except (SyntaxError, ValueError):
+            continue
+        if isinstance(values, list) and all(isinstance(value, str) for value in values):
+            current_keys.update(values)
+    require(key in current_keys,
             'Viewer current-design group differs from candidate authority')
     documents = selection.get('viewer_documents')
     if documents:
