@@ -1,0 +1,990 @@
+{
+  "artifact": {
+    "id": "BN-1-hardware-evidence",
+    "title": "Integrated barrel-nut candidate hardware and material evidence ledger",
+    "prepared_date": "2026-09-22",
+    "repository_revision_reviewed": "ca203ae94a10f9470c3b6fd567fe199db7e824ae",
+    "maintained_candidate_revision": "Includes the owner-approved N=42 mm first rows at the two left center-rail service stations and 2 mm machine-bore extensions at the four top-outer rows.",
+    "maintained_source_sha256": {
+      "scripts/owner_barrel_rail_layout.py": "6b8f65c795705ae539c3189692c7b340413fce6cdce19a5e2aa262bf3e37334a",
+      "scripts/owner_barrel_outer_top_layout.py": "8b81123668da57db4688fe0bc8f50f6e00169aa529319ccb31a513425feecbe1",
+      "scripts/export_owner_barrel_scene.py": "f430ae6e7a59ce1c91853bb67ba7d078a8ef2451c1dd32d28b3a4ee0e9513b92",
+      "docs/bolted-candidate-prototypes/owner-barrel-integrated-stack-audit.md": "0a6077084db72c518032f6aab5a8aced959f5fa28cdd4c4f7242a807484da6f5"
+    },
+    "candidate": "compact-floor-flush-bolted-development",
+    "configuration": "integrated kerf-right barrel-nut frame",
+    "disposition": "evidence_incomplete_not_build_ready",
+    "documentary_scope_only": true,
+    "supplier_contact_performed": false,
+    "purchase_performed": false,
+    "delivered_parts_inspected": false,
+    "fabrication_release": false
+  },
+  "status_schema": {
+    "documented_controlled": "An identified manufacturer, standard, or catalog source controls the stated field for the exact referenced product.",
+    "documented_retail": "An exact retail listing states the field, but no controlled drawing, certificate, tolerance, or lot evidence closes it.",
+    "documented_repository": "A repository authority fixes the requirement or inventory; this does not prove delivered-part conformity.",
+    "derived_model": "A reproducible repository audit derives the value from provisional candidate geometry; it is not a shop dimension or measured part value.",
+    "comparison_only": "The evidence belongs to another product, generic pattern, or sensitivity and cannot be assigned to the candidate part.",
+    "conflicted": "Sources or fields disagree, so the field cannot support selection without resolution.",
+    "missing": "No qualifying value or evidence is present in the reviewed sources.",
+    "inspection_pending": "The requirement is known, but actual owned or delivered material has not been observed.",
+    "recheck_required": "Earlier evidence exists, but changed candidate geometry or loading requires a candidate-specific check before acceptance."
+  },
+  "scope": {
+    "new_barrel_stack_count": 46,
+    "new_barrel_stack_family_count": 12,
+    "former_angle_duty_count": 24,
+    "new_stack_components_per_pair": [
+      "one 1/4-20 machine bolt",
+      "one head-side washer",
+      "one 1/4-20 transverse barrel nut"
+    ],
+    "new_stack_nuts_in_addition_to_barrel": 0,
+    "retained_through_bolt_stack_count": 12,
+    "retained_through_bolt_family_count": 3,
+    "tip_relative_to_modeled_far_wall_mm_sign_convention": "Positive means the nominal tip passes the modeled barrel far wall; negative means it stops before that wall.",
+    "retained_stack_components_per_pair": [
+      "one partially threaded Grade 5 bolt",
+      "one matching Grade 5 nut",
+      "two matching Grade 5 USS washers"
+    ],
+    "panel_kicker_screw_axes_unchanged": 66,
+    "excluded_from_this_ledger": [
+      "panel and kicker screw qualification",
+      "hold and T-nut hardware",
+      "LED hardware",
+      "joint resistance calculations",
+      "native response solves",
+      "purchase quantities beyond the stated stack inventory"
+    ]
+  },
+  "source_register": [
+    {
+      "id": "SRC-PLAN",
+      "kind": "repository",
+      "path": "docs/barrel-nut-validation-plan.md",
+      "scope": "BN-1 required evidence fields and completion boundary"
+    },
+    {
+      "id": "SRC-OWNER-REVIEW",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-integrated-owner-review.md",
+      "scope": "current 46-pair configuration and blockers"
+    },
+    {
+      "id": "SRC-STACK-AUDIT",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-integrated-stack-audit.md",
+      "scope": "source-derived reach, body-overlap, bore-cap, and insertion-bore findings"
+    },
+    {
+      "id": "SRC-THREAD-EVIDENCE",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-retail-thread-evidence.md",
+      "scope": "retail bolt, barrel, and washer evidence limits"
+    },
+    {
+      "id": "SRC-RETAIL-UPDATE",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-retail-qualified-update.md",
+      "scope": "bounded alternative retail search and unresolved qualification gate"
+    },
+    {
+      "id": "SRC-COST",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-integrated-cost.md",
+      "scope": "exact retail identities, quantities, retained-stack references, and catalog conflicts"
+    },
+    {
+      "id": "SRC-NDS-MAP",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-prototypes/owner-barrel-nds-applicability.md",
+      "scope": "complete-joint evidence boundary"
+    },
+    {
+      "id": "SRC-MATERIAL",
+      "kind": "repository",
+      "path": "docs/bolted-candidate-material-basis.json",
+      "scope": "candidate wood species, grade, condition, and inspection state"
+    },
+    {
+      "id": "SRC-RETAINED-SCHEDULE",
+      "kind": "repository",
+      "path": "docs/floor-flush-assembly-guide.md",
+      "scope": "retained stack sizes, grades, counts, and installation orientation"
+    },
+    {
+      "id": "SRC-HALF-INCH",
+      "kind": "repository",
+      "path": "docs/compact-half-inch-hardware.md",
+      "scope": "controlled 1/2-inch bolt, nut, washer, and baseline fit inputs"
+    },
+    {
+      "id": "SRC-RUNNER",
+      "kind": "repository",
+      "path": "docs/floor-runner-recess-hardware.md",
+      "scope": "controlled 3/8-inch stack references and baseline fit inputs"
+    },
+    {
+      "id": "URL-BARREL-LOWES",
+      "kind": "retail_url",
+      "url": "https://www.lowes.com/pd/Hillman-20-x-5-8-in-Slotted-Drive-Zinc-plated-Barrel-Nut/3012559",
+      "exact_identity": "Hillman 880543"
+    },
+    {
+      "id": "URL-BARREL-HD",
+      "kind": "retail_url",
+      "url": "https://www.homedepot.com/p/202242356",
+      "exact_identity": "Hillman 880543"
+    },
+    {
+      "id": "URL-BARREL-QA",
+      "kind": "manufacturer_answer_on_retailer_url",
+      "url": "https://www.lowes.com/questions/hillman-880543-specialty-nuts/3012559/0d07d7d4-94c9-59c7-b300-30a2fd0be7bd",
+      "exact_identity": "Hillman 880543"
+    },
+    {
+      "id": "URL-BOLT-3P5",
+      "kind": "retail_url",
+      "url": "https://www.lowes.com/pd/Hillman-1-4-in-x-3-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt-2-Count/3012031",
+      "exact_identity": "Hillman 880010"
+    },
+    {
+      "id": "URL-BOLT-4P5",
+      "kind": "retail_url",
+      "url": "https://www.lowes.com/pd/Hillman-1-4-in-x-4-1-2-in-Zinc-Plated-Coarse-Thread-Hex-Bolt/1000897796",
+      "exact_identity": "Hillman 190055"
+    },
+    {
+      "id": "URL-BOLT-5",
+      "kind": "retail_url",
+      "url": "https://www.homedepot.com/p/204633308",
+      "exact_identity": "Everbilt 800676"
+    },
+    {
+      "id": "URL-BOLT-6",
+      "kind": "retail_url",
+      "url": "https://www.homedepot.com/p/204633312",
+      "exact_identity": "Everbilt 800686"
+    },
+    {
+      "id": "URL-WASHER-COMPARATOR-HD",
+      "kind": "retail_url",
+      "url": "https://www.homedepot.com/p/204276405",
+      "exact_identity": "Everbilt 800452"
+    },
+    {
+      "id": "URL-WASHER-COMPARATOR-LOWES",
+      "kind": "retail_url",
+      "url": "https://www.lowes.com/pd/Hillman-1-4-in-Hot-Dipped-Galvanized-Standard-SAE-Flat-Washer/3037537",
+      "exact_identity": "Hillman 811070"
+    },
+    {
+      "id": "URL-RETAINED-BOLT-1P2",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=407",
+      "exact_identity": "Bolt Depot 407"
+    },
+    {
+      "id": "URL-RETAINED-NUT-1P2",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=2573",
+      "exact_identity": "Bolt Depot 2573"
+    },
+    {
+      "id": "URL-RETAINED-WASHER-1P2",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=15025",
+      "exact_identity": "Bolt Depot 15025"
+    },
+    {
+      "id": "URL-RETAINED-BOLT-3P8-4",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=367",
+      "exact_identity": "Bolt Depot 367"
+    },
+    {
+      "id": "URL-RETAINED-BOLT-3P8-4P5",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=368",
+      "exact_identity": "Bolt Depot 368"
+    },
+    {
+      "id": "URL-RETAINED-NUT-3P8",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=2571",
+      "exact_identity": "Bolt Depot 2571"
+    },
+    {
+      "id": "URL-RETAINED-WASHER-3P8",
+      "kind": "controlled_catalog_url",
+      "url": "https://boltdepot.com/Product-Details?product=15023",
+      "exact_identity": "Bolt Depot 15023"
+    }
+  ],
+  "common_new_stack_components": {
+    "barrel": {
+      "trial_product": "Hillman 880543",
+      "required_quantity": 46,
+      "selection_status": "provisional_shape_and_retail_identity_only",
+      "evidence": {
+        "nominal_thread": {
+          "value": "1/4-20 UNC",
+          "status": "documented_retail",
+          "sources": ["URL-BARREL-LOWES", "URL-BARREL-HD"]
+        },
+        "nominal_outer_diameter_in": {
+          "value": 0.394,
+          "status": "documented_retail",
+          "sources": ["URL-BARREL-QA"]
+        },
+        "nominal_length_in": {
+          "value": 0.63,
+          "status": "documented_retail",
+          "sources": ["URL-BARREL-QA"]
+        },
+        "nominal_outer_diameter_mm_used_by_model": {
+          "value": 10.0076,
+          "status": "derived_model",
+          "sources": ["SRC-STACK-AUDIT"]
+        },
+        "nominal_length_mm_used_by_model": {
+          "value": 16.002,
+          "status": "derived_model",
+          "sources": ["SRC-STACK-AUDIT"]
+        },
+        "material_description": {
+          "value": "steel",
+          "status": "documented_retail",
+          "sources": ["URL-BARREL-LOWES"]
+        },
+        "installation_orientation_method": {
+          "value": "Align the threaded opening in a predrilled hole with a flat-head screwdriver.",
+          "status": "documented_retail",
+          "sources": ["URL-BARREL-LOWES"]
+        }
+      },
+      "missing": [
+        "manufacturer-controlled drawing tied to Hillman 880543",
+        "outer-diameter tolerance",
+        "overall-length tolerance",
+        "controlled end-to-thread-axis offset from the marked insertion end",
+        "cross-hole and lead-in geometry",
+        "complete female-thread interval and usable depth",
+        "thread-form and tolerance evidence beyond the retail nominal designation",
+        "minimum steel grade, yield strength, and ultimate strength",
+        "thread stripping or proof resistance",
+        "barrel wall and bending resistance",
+        "part-specific or complete-joint test evidence"
+      ],
+      "conflicts": [
+        {
+          "field": "finish",
+          "status": "conflicted",
+          "finding": "The reviewed retail title says plain steel while the overview says zinc-plated; delivered finish is unresolved.",
+          "sources": ["SRC-COST", "URL-BARREL-LOWES"]
+        },
+        {
+          "field": "nominal_outer_diameter_label",
+          "status": "conflicted",
+          "finding": "Home Depot labels the product 3/8 inch while Hillman's hosted answer reports 0.394 inch; neither is a controlled tolerance.",
+          "sources": ["SRC-THREAD-EVIDENCE", "URL-BARREL-HD", "URL-BARREL-QA"]
+        }
+      ],
+      "derived_blockers": ["BLK-BARREL-DRAWING", "BLK-BARREL-STRENGTH"]
+    },
+    "head_side_washer": {
+      "required_quantity": 46,
+      "selected_product": null,
+      "selection_status": "missing",
+      "known_model_condition": {
+        "value": "Two center seats use a 19.05 mm nominal OD envelope; other modeled seats also remain unqualified.",
+        "status": "derived_model",
+        "sources": ["SRC-COST", "SRC-OWNER-REVIEW"]
+      },
+      "comparison_products": [
+        {
+          "product": "Everbilt 800452",
+          "status": "comparison_only",
+          "sources": ["URL-WASHER-COMPARATOR-HD"],
+          "limitation": "Listing does not establish controlled OD, thickness, bore tolerance, washer material or bearing suitability at all 46 seats."
+        },
+        {
+          "product": "Hillman 811070",
+          "status": "conflicted",
+          "sources": ["URL-WASHER-COMPARATOR-LOWES", "SRC-THREAD-EVIDENCE"],
+          "limitation": "Retail table says 3/4-inch OD, while a Hillman answer reports 0.868-0.905 inch OD; exact-seat fit and bearing are unresolved."
+        }
+      ],
+      "missing": [
+        "one selected washer SKU compatible with every assigned seat or a family-specific washer schedule",
+        "controlled OD, ID, thickness and tolerances",
+        "minimum material properties and washer bending basis",
+        "head seating and recess fit",
+        "wood bearing and pull-through resistance"
+      ],
+      "conflicts": [
+        "Hillman 811070 published OD descriptions disagree."
+      ]
+    },
+    "bolt_product_families": [
+      {
+        "id": "BOLT-3P5",
+        "trial_product": "Hillman 880010",
+        "required_quantity": 4,
+        "nominal_thread": "1/4-20 UNC",
+        "nominal_length_in": 3.5,
+        "nominal_length_mm": 88.9,
+        "status": "documented_retail",
+        "sources": ["URL-BOLT-3P5", "SRC-COST", "SRC-OWNER-REVIEW"],
+        "known": [
+          "Exact retail listing identifies nominal size, zinc-plated hex-bolt form and Grade 5 retail description."
+        ],
+        "missing": [
+          "controlled actual-length tolerance",
+          "controlled complete-thread start and tip endpoint",
+          "runout and tip-chamfer limits",
+          "controlled head bearing geometry",
+          "lot conformity evidence",
+          "required engagement based on a supported thread-resistance method"
+        ],
+        "conflicts": []
+      },
+      {
+        "id": "BOLT-4P5",
+        "trial_product": "Hillman 190055",
+        "required_quantity": 26,
+        "nominal_thread": "1/4-20 UNC",
+        "nominal_length_in": 4.5,
+        "nominal_length_mm": 114.3,
+        "status": "documented_retail",
+        "sources": ["URL-BOLT-4P5", "SRC-COST", "SRC-THREAD-EVIDENCE"],
+        "known": [
+          "Exact retail listing identifies nominal size, zinc-plated steel and partial-thread form.",
+          "Retail grade field says All-Purpose, which is not a structural material minimum."
+        ],
+        "missing": [
+          "controlled actual-length tolerance",
+          "partial-thread length and first complete thread",
+          "runout and tip-chamfer limits",
+          "recognized bolt grade or minimum mechanical properties",
+          "controlled head bearing geometry",
+          "lot conformity evidence",
+          "required engagement based on a supported thread-resistance method"
+        ],
+        "conflicts": []
+      },
+      {
+        "id": "BOLT-5",
+        "trial_product": "Everbilt 800676",
+        "required_quantity": 4,
+        "nominal_thread": "1/4-20 UNC",
+        "nominal_length_in": 5,
+        "nominal_length_mm": 127.0,
+        "status": "documented_retail",
+        "sources": ["URL-BOLT-5", "SRC-COST", "SRC-THREAD-EVIDENCE"],
+        "known": [
+          "Exact retail listing describes the bolt as fully threaded, zinc-plated steel and A307, with a 7/16-inch drive."
+        ],
+        "missing": [
+          "controlled actual-length tolerance",
+          "controlled first and last complete threads",
+          "runout and tip-chamfer limits",
+          "controlled head bearing geometry",
+          "lot conformity evidence",
+          "required engagement based on a supported thread-resistance method"
+        ],
+        "conflicts": []
+      },
+      {
+        "id": "BOLT-6",
+        "trial_product": "Everbilt 800686",
+        "required_quantity": 12,
+        "nominal_thread": "1/4-20 UNC",
+        "nominal_length_in": 6,
+        "nominal_length_mm": 152.4,
+        "status": "documented_retail",
+        "sources": ["URL-BOLT-6", "SRC-COST", "SRC-THREAD-EVIDENCE"],
+        "known": [
+          "Exact retail listing fixes nominal thread and length.",
+          "An A307-filtered retailer result includes this identity, but the exact page does not supply a controlled grade document."
+        ],
+        "missing": [
+          "controlled actual-length tolerance",
+          "controlled thread length and complete-thread endpoints",
+          "runout and tip-chamfer limits",
+          "traceable grade or minimum mechanical properties",
+          "controlled head bearing geometry",
+          "lot conformity evidence",
+          "required engagement based on a supported thread-resistance method"
+        ],
+        "conflicts": []
+      }
+    ]
+  },
+  "new_barrel_stack_families": [
+    {
+      "id": "BN-BASE-CENTER",
+      "duty_family": "base center",
+      "count": 2,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 12.649,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 17.653,
+        "maximum_possible_body_overlap_mm": 10.008,
+        "tip_relative_to_modeled_far_wall_mm": 7.6452,
+        "tip_to_machine_bore_cap_mm": 16.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-FAR-WALL-EXIT", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-BASE-OUTER-SIDE",
+      "duty_family": "outer base to side members",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 4.549,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 9.553,
+        "maximum_possible_body_overlap_mm": 9.553,
+        "tip_relative_to_modeled_far_wall_mm": -0.4548,
+        "tip_to_machine_bore_cap_mm": 12.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-BOTTOM-CENTER",
+      "duty_family": "bottom center rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 4.549,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 9.553,
+        "maximum_possible_body_overlap_mm": 9.553,
+        "tip_relative_to_modeled_far_wall_mm": -0.4548,
+        "tip_to_machine_bore_cap_mm": 12.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-BOTTOM-OUTER-RAIL",
+      "duty_family": "bottom outer rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-6",
+      "nominal_bolt_length_mm": 152.4,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 1.849,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 6.853,
+        "maximum_possible_body_overlap_mm": 6.853,
+        "tip_relative_to_modeled_far_wall_mm": -3.1548,
+        "tip_to_machine_bore_cap_mm": 5.155
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-SHORT-RAIL-REACH", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-HEADER-CENTER",
+      "duty_family": "center posts to header",
+      "count": 4,
+      "bolt_product_family": "BOLT-3P5",
+      "nominal_bolt_length_mm": 88.9,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 10.249,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 15.253,
+        "maximum_possible_body_overlap_mm": 10.008,
+        "tip_relative_to_modeled_far_wall_mm": 5.2452,
+        "tip_to_machine_bore_cap_mm": 16.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-FAR-WALL-EXIT", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-HEADER-OUTER-POST",
+      "duty_family": "outer header to outer posts",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 11.2,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 16.204,
+        "maximum_possible_body_overlap_mm": 10.008,
+        "tip_relative_to_modeled_far_wall_mm": 6.1962,
+        "tip_to_machine_bore_cap_mm": 16.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance", "recessed-head washer and service fit"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-FAR-WALL-EXIT", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER", "BLK-OUTER-HEADER-SERVICE"]
+    },
+    {
+      "id": "BN-LOWER-CENTER-RAIL",
+      "duty_family": "lower center rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 4.549,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 9.553,
+        "maximum_possible_body_overlap_mm": 9.553,
+        "tip_relative_to_modeled_far_wall_mm": -0.4548,
+        "tip_to_machine_bore_cap_mm": 16.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance", "wood-section, edge, tolerance and drilling-access qualification for the integrated N=42 mm left first row"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER", "BLK-CHANGED-CUT-QUALIFICATION"]
+    },
+    {
+      "id": "BN-LOWER-OUTER-RAIL",
+      "duty_family": "lower outer rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-6",
+      "nominal_bolt_length_mm": 152.4,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 1.849,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 6.853,
+        "maximum_possible_body_overlap_mm": 6.853,
+        "tip_relative_to_modeled_far_wall_mm": -3.1548,
+        "tip_to_machine_bore_cap_mm": 5.155
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-SHORT-RAIL-REACH", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-TOP-CENTER",
+      "duty_family": "top rail to center posts",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 4.549,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 9.553,
+        "maximum_possible_body_overlap_mm": 9.553,
+        "tip_relative_to_modeled_far_wall_mm": -0.4548,
+        "tip_to_machine_bore_cap_mm": 12.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-TOP-OUTER",
+      "duty_family": "top rail to outer posts",
+      "count": 4,
+      "bolt_product_family": "BOLT-5",
+      "nominal_bolt_length_mm": 127.0,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 6.449,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 11.453,
+        "maximum_possible_body_overlap_mm": 10.008,
+        "tip_relative_to_modeled_far_wall_mm": 1.4452,
+        "tip_to_machine_bore_cap_mm": 2.0
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["positive worst-case bore-tip clearance after delivered-part and drilling tolerances", "actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance", "wood-section qualification for the integrated 2 mm bore extension"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-FAR-WALL-EXIT", "BLK-TIP-CLEARANCE-TOLERANCE", "BLK-CHANGED-CUT-QUALIFICATION", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    },
+    {
+      "id": "BN-UPPER-CENTER-RAIL",
+      "duty_family": "upper center rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-4P5",
+      "nominal_bolt_length_mm": 114.3,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 4.549,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 9.553,
+        "maximum_possible_body_overlap_mm": 9.553,
+        "tip_relative_to_modeled_far_wall_mm": -0.4548,
+        "tip_to_machine_bore_cap_mm": 16.7
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance", "wood-section, edge, tolerance and drilling-access qualification for the integrated N=42 mm left first row"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER", "BLK-CHANGED-CUT-QUALIFICATION"]
+    },
+    {
+      "id": "BN-UPPER-OUTER-RAIL",
+      "duty_family": "upper outer rail",
+      "count": 4,
+      "bolt_product_family": "BOLT-6",
+      "nominal_bolt_length_mm": 152.4,
+      "modeled_stack": {
+        "tip_past_assumed_barrel_axis_mm": 1.849,
+        "fully_threaded_tip_length_to_modeled_near_wall_mm": 6.853,
+        "maximum_possible_body_overlap_mm": 6.853,
+        "tip_relative_to_modeled_far_wall_mm": -3.1548,
+        "tip_to_machine_bore_cap_mm": 5.155
+      },
+      "modeled_stack_status": "derived_model",
+      "sources": ["SRC-STACK-AUDIT"],
+      "evidence_status": "missing",
+      "missing": ["actual male/female complete-thread overlap", "required engagement", "tolerance-stack minimum", "complete joint resistance"],
+      "conflicts": [],
+      "derived_blockers": ["BLK-SHORT-RAIL-REACH", "BLK-THREAD-OVERLAP", "BLK-BARREL-STRENGTH", "BLK-WASHER"]
+    }
+  ],
+  "barrel_insertion_bore_evidence": {
+    "count": 46,
+    "modeled_barrel_outer_diameter_mm": 10.0076,
+    "modeled_insertion_bore_diameter_mm": 10.0076,
+    "nominal_diametral_allowance_mm": 0.0,
+    "deepest_modeled_insertion_path_mm": 68.501,
+    "status": "derived_model",
+    "sources": ["SRC-STACK-AUDIT"],
+    "missing": [
+      "selected drill or finished-hole diameter",
+      "drilling tolerance",
+      "delivered barrel OD distribution",
+      "wood-condition allowance",
+      "barrel retention and orientation tolerance",
+      "cut-section recheck at the selected finished-hole diameter"
+    ],
+    "derived_blockers": ["BLK-INSERTION-FIT"]
+  },
+  "installation_and_replaceability_evidence": {
+    "affected_new_stack_count": 46,
+    "retail_orientation_instruction_present": true,
+    "nominal_continuous_rim_withdrawal_sweep_present": true,
+    "physical_insertion_rehearsal_complete": false,
+    "physical_thread_alignment_rehearsal_complete": false,
+    "physical_extraction_rehearsal_complete": false,
+    "physical_rim_withdrawal_rehearsal_complete": false,
+    "repeatable_reassembly_demonstrated": false,
+    "stuck_fastener_recovery_route_defined": false,
+    "status": "missing",
+    "sources": ["SRC-OWNER-REVIEW", "SRC-STACK-AUDIT", "URL-BARREL-LOWES"],
+    "missing": [
+      "drilling-jig accuracy and intersecting-axis tolerance",
+      "tool-to-slot and tool-to-bore fit",
+      "placement and alignment at the deepest 68.501 mm blind path",
+      "chip clearing and barrel retention during assembly",
+      "recessed-barrel extraction",
+      "safe support and physical rim withdrawal with installed panels",
+      "repeatable removal and reassembly",
+      "stuck or damaged fastener recovery"
+    ],
+    "conflicts": [],
+    "derived_blockers": ["BLK-INSTALL-SERVICE"]
+  },
+  "retained_stack_families": [
+    {
+      "id": "RB-UPPER-RIM-LEG",
+      "location": "upper rim/leg joints",
+      "count": 4,
+      "bolt": {
+        "product": "Bolt Depot 407",
+        "nominal": "1/2-13 x 8 inch, partially threaded, SAE J429 Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-BOLT-1P2", "SRC-HALF-INCH", "SRC-RETAINED-SCHEDULE"]
+      },
+      "nut": {
+        "product": "Bolt Depot 2573",
+        "nominal": "1/2-13 SAE J995 Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-NUT-1P2", "SRC-HALF-INCH"]
+      },
+      "washer": {
+        "product": "Bolt Depot 15025",
+        "quantity_per_stack": 2,
+        "nominal": "1/2-inch Grade 5 USS",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-WASHER-1P2", "SRC-HALF-INCH"]
+      },
+      "baseline_fit_requirements": {
+        "minimum_full_smooth_body_to_first_transition_mm": 158.928,
+        "extra_thread_and_runout_budget_mm": 1.6,
+        "shortest_stack_tip_beyond_nut_mm": 2.743,
+        "status": "documented_repository",
+        "sources": ["SRC-HALF-INCH", "SRC-RETAINED-SCHEDULE"]
+      },
+      "candidate_status": "recheck_required",
+      "missing": [
+        "candidate-specific actual wood grip after hidden-frame changes",
+        "candidate-specific member and connection resistance",
+        "verified usable on-hand quantity",
+        "delivered shank, runout, washer, nut and tip measurements",
+        "delivered material conformity"
+      ],
+      "conflicts": [
+        "The Lowe's size-only replacement-price comparator in SRC-COST does not establish Grade 5 and cannot replace Bolt Depot 407."
+      ],
+      "derived_blockers": ["BLK-RETAINED-RECHECK", "BLK-RECEIVING-INSPECTION"]
+    },
+    {
+      "id": "RB-FRONT-RUNNER-POST",
+      "location": "front runner/post joints",
+      "count": 4,
+      "bolt": {
+        "product": "Bolt Depot 367",
+        "nominal": "3/8-16 x 4 inch, partially threaded, Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-BOLT-3P8-4", "SRC-RUNNER", "SRC-RETAINED-SCHEDULE"]
+      },
+      "nut": {
+        "product": "Bolt Depot 2571",
+        "nominal": "3/8-16 Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-NUT-3P8", "SRC-RUNNER"]
+      },
+      "washer": {
+        "product": "Bolt Depot 15023",
+        "quantity_per_stack": 2,
+        "nominal": "3/8-inch Grade 5 USS",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-WASHER-3P8", "SRC-RUNNER"]
+      },
+      "baseline_fit_requirements": {
+        "minimum_full_smooth_body_to_first_transition_mm": 69.317,
+        "extra_thread_and_runout_budget_mm": 5.359,
+        "shortest_stack_tip_beyond_nut_mm": 10.033,
+        "status": "documented_repository",
+        "sources": ["SRC-RUNNER", "SRC-RETAINED-SCHEDULE"]
+      },
+      "candidate_status": "recheck_required",
+      "missing": [
+        "candidate-specific actual wood grip after hidden-frame changes",
+        "candidate-specific member and connection resistance",
+        "verified usable on-hand quantity",
+        "delivered shank, runout, washer, nut and tip measurements",
+        "delivered material conformity"
+      ],
+      "conflicts": [],
+      "derived_blockers": ["BLK-RETAINED-RECHECK", "BLK-RECEIVING-INSPECTION"]
+    },
+    {
+      "id": "RB-REAR-RUNNER-LEG",
+      "location": "rear runner/leg joints",
+      "count": 4,
+      "bolt": {
+        "product": "Bolt Depot 368",
+        "nominal": "3/8-16 x 4.5 inch, partially threaded, SAE J429 Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-BOLT-3P8-4P5", "SRC-RUNNER", "SRC-RETAINED-SCHEDULE"]
+      },
+      "nut": {
+        "product": "Bolt Depot 2571",
+        "nominal": "3/8-16 Grade 5",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-NUT-3P8", "SRC-RUNNER"]
+      },
+      "washer": {
+        "product": "Bolt Depot 15023",
+        "quantity_per_stack": 2,
+        "nominal": "3/8-inch Grade 5 USS",
+        "status": "documented_controlled",
+        "sources": ["URL-RETAINED-WASHER-3P8", "SRC-RUNNER"]
+      },
+      "baseline_fit_requirements": {
+        "minimum_full_smooth_body_to_first_transition_mm": 78.842,
+        "extra_thread_and_runout_budget_mm": 7.518,
+        "shortest_stack_tip_beyond_nut_mm": 9.017,
+        "status": "documented_repository",
+        "sources": ["SRC-RUNNER", "SRC-RETAINED-SCHEDULE"]
+      },
+      "candidate_status": "recheck_required",
+      "missing": [
+        "candidate-specific actual wood grip after hidden-frame changes",
+        "candidate-specific member and connection resistance",
+        "verified usable on-hand quantity",
+        "delivered shank, runout, washer, nut and tip measurements",
+        "delivered material conformity"
+      ],
+      "conflicts": [
+        "The Lowe's 3/8-16 x 4.5 inch size-only replacement-price comparator in SRC-COST is Grade 1, not the specified Grade 5, and cannot replace Bolt Depot 368."
+      ],
+      "derived_blockers": ["BLK-RETAINED-RECHECK", "BLK-RECEIVING-INSPECTION"]
+    }
+  ],
+  "material_basis": {
+    "specified_species_grade": {
+      "value": "US Douglas Fir-Larch No. 2 dimension lumber",
+      "status": "documented_repository",
+      "sources": ["SRC-MATERIAL"]
+    },
+    "reference_condition": {
+      "service": "dry",
+      "incised": false,
+      "load_duration": "normal",
+      "status": "documented_repository",
+      "sources": ["SRC-MATERIAL"]
+    },
+    "actual_stock": {
+      "owner_reported_uncut_undrilled": true,
+      "grade_stamp_verified": false,
+      "species_group_verified": false,
+      "grading_agency_verified": false,
+      "moisture_verified": false,
+      "treatment_and_incising_verified": false,
+      "actual_member_dimensions_verified": false,
+      "connection_zone_condition_verified": false,
+      "status": "inspection_pending",
+      "sources": ["SRC-MATERIAL"]
+    },
+    "missing": [
+      "actual grade and species-group identification",
+      "actual moisture/service condition",
+      "actual treatment and incising state",
+      "actual member sections and connection-zone condition",
+      "actual grain direction at each connection",
+      "candidate-specific adjustments and resistance calculations"
+    ],
+    "conflicts": [
+      "Public 4x6 retail comparisons reviewed elsewhere are green or treated substitute species and do not establish the specified dry DF-L basis."
+    ],
+    "derived_blockers": ["BLK-MATERIAL-INSPECTION"]
+  },
+  "derived_blockers": [
+    {
+      "id": "BLK-BARREL-DRAWING",
+      "severity": "stops_stack_selection",
+      "finding": "Hillman 880543 lacks controlled dimensions and tolerances for its axis, body, cross-hole, lead-in and complete female-thread interval.",
+      "affected_count": 46,
+      "closure": "Obtain public SKU-linked controlled evidence or establish measured-lot limits under a predeclared qualification route."
+    },
+    {
+      "id": "BLK-BARREL-STRENGTH",
+      "severity": "stops_strength_conclusion",
+      "finding": "No traceable barrel material minimum, thread stripping/proof resistance, barrel wall resistance, or part-specific test applies to Hillman 880543.",
+      "affected_count": 46,
+      "closure": "Supply exact-part controlled properties and applicable calculations, or qualify complete joint families with predeclared tests."
+    },
+    {
+      "id": "BLK-THREAD-OVERLAP",
+      "severity": "stops_stack_selection",
+      "finding": "No length family has a worst-case overlap of complete male and female threads or a supported minimum required engagement.",
+      "affected_count": 46,
+      "closure": "Control or measure complete-thread intervals, length/runout/chamfer limits and barrel axis, then calculate minimum overlap and required engagement by family."
+    },
+    {
+      "id": "BLK-SHORT-RAIL-REACH",
+      "severity": "critical_tolerance_case",
+      "finding": "Twelve 6-inch outer-rail tips pass only 1.849 mm beyond the assumed barrel axis and have at most 6.853 mm modeled body overlap before tolerances.",
+      "affected_count": 12,
+      "closure": "Resolve the exact delivered thread/axis stack and resistance without borrowing dimensions from a comparator product."
+    },
+    {
+      "id": "BLK-TIP-CLEARANCE-TOLERANCE",
+      "severity": "stops_drilling_plan",
+      "finding": "Four top-outer 5-inch tips have 2 mm nominal clearance after the approved machine-bore extensions, but delivered-part and drilling tolerances are not controlled.",
+      "affected_count": 4,
+      "closure": "Prove a positive worst-case tip gap from controlled or measured hardware and drilling inputs, and recheck the changed bore and wood section."
+    },
+    {
+      "id": "BLK-INSERTION-FIT",
+      "severity": "stops_drilling_plan",
+      "finding": "All 46 modeled barrel insertion bores equal the modeled barrel OD and therefore provide zero nominal diametral allowance.",
+      "affected_count": 46,
+      "closure": "Select a justified finished-hole fit and drilling tolerance from controlled or measured part dimensions, then recheck retention, alignment and removed wood."
+    },
+    {
+      "id": "BLK-WASHER",
+      "severity": "stops_stack_selection_and_resistance",
+      "finding": "No compatible head-side washer or family schedule is selected; exact dimensions, material, bending, seating and timber-bearing evidence remain open.",
+      "affected_count": 46,
+      "closure": "Select exact controlled washer products by seat family and close geometry plus resistance checks."
+    },
+    {
+      "id": "BLK-FAR-WALL-EXIT",
+      "severity": "stops_stack_selection",
+      "finding": "Fourteen tips pass the modeled barrel far wall: two base-center by 7.6452 mm, four center-post/header by 5.2452 mm, four outer-header/post by 6.1962 mm, and four top-outer by 1.4452 mm. Through-thread exit geometry, bottoming, usable threads and surrounding bore clearance are not controlled.",
+      "affected_count": 14,
+      "closure": "Control the exact barrel through-thread and exit geometry plus bolt complete-thread/tip limits, then prove non-bottoming fit and usable engagement by family."
+    },
+    {
+      "id": "BLK-CHANGED-CUT-QUALIFICATION",
+      "severity": "requires_recalculation",
+      "finding": "The approved N=42 mm left center-rail rows and 2 mm top-outer bore extensions are integrated and nominally clear, but their edge, net-section, tolerance and drilling checks remain open.",
+      "affected_count": 6,
+      "closure": "Use the maintained source-built pose and complete the changed-cut wood, tolerance and drilling checks."
+    },
+    {
+      "id": "BLK-INSTALL-SERVICE",
+      "severity": "stops_diy_sequence",
+      "finding": "Retail instructions explain nominal barrel orientation, and a modeled rim sweep exists, but physical insertion, alignment, extraction, safe withdrawal, repeatable reassembly and recovery have not been demonstrated.",
+      "affected_count": 46,
+      "closure": "Run controlled offcut and assembly rehearsals with the selected delivered stack and record jig, tool, retention, extraction, support and recovery limits."
+    },
+    {
+      "id": "BLK-OUTER-HEADER-SERVICE",
+      "severity": "stops_diy_sequence",
+      "finding": "Outer-header recessed-head and washer fit, rim-first access, and later service remain unqualified.",
+      "affected_count": 4,
+      "closure": "Close tolerance-aware tool, seating, assembly, removal and wood-resistance checks for the final exact stack."
+    },
+    {
+      "id": "BLK-RETAINED-RECHECK",
+      "severity": "stops_candidate_acceptance",
+      "finding": "The twelve retained axes and controlled catalog families exist, but hidden-frame changes prevent automatic transfer of fit and resistance acceptance.",
+      "affected_count": 12,
+      "closure": "Recompute actual grip, shank/thread position, hole geometry, member checks and same-case demands for the frozen barrel candidate."
+    },
+    {
+      "id": "BLK-RECEIVING-INSPECTION",
+      "severity": "receiving_gate",
+      "finding": "Usable on-hand retained hardware quantities and delivered dimensions/material conformity have not been observed.",
+      "affected_count": 12,
+      "closure": "Keep checklist actual/disposition fields blank until owner inspection records count, identity, dimensions and conformity."
+    },
+    {
+      "id": "BLK-MATERIAL-INSPECTION",
+      "severity": "receiving_and_strength_gate",
+      "finding": "Actual wood grade, species, moisture, treatment, dimensions, grain and connection-zone condition remain unverified.",
+      "affected_count": null,
+      "closure": "Inspect delivered stock and apply candidate-specific material adjustments and section checks without substituting retail comparison lumber."
+    }
+  ],
+  "bn1_exit_assessment": {
+    "status": "blocked_by_exact_evidence",
+    "new_barrel_stack_selection_complete": false,
+    "retained_stack_documentary_basis_present": true,
+    "retained_stack_candidate_recheck_complete": false,
+    "material_input_closure_complete": false,
+    "calculable_minimum_thread_overlap_available": false,
+    "drill_sizes_selected": false,
+    "purchase_schedule_authorized": false,
+    "next_documentary_action": "Resolve exact Hillman 880543 controlled geometry and resistance evidence, or define a predeclared measured-lot and complete-joint qualification route; then rerun every affected family tolerance stack.",
+    "claim_boundary": "This ledger records evidence and blockers. It does not rate a barrel joint, approve a product, select drill sizes, authorize purchasing, or release fabrication or climbing."
+  }
+}
