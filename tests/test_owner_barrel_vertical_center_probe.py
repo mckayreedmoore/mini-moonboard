@@ -36,21 +36,35 @@ def test_full_posts_clear_kick_tnuts_under_explicit_provisional_stack(report):
     assert literal["right_selected_max_washer_overlap_mm"] == pytest.approx(0.3623)
 
 
-def test_only_four_center_kicker_screws_move_and_enter_new_posts(report):
+def test_only_four_center_kicker_screws_move_into_seam_backers(report):
     screws = report["panel_screws"]
     assert screws["source_count"] == 66
     assert screws["unchanged_count"] == 62
     assert screws["relocated_count"] == 4
     assert set(screws["relocated_names"]) == probe.CENTER_SCREWS
-    assert all(row["embedded_shaft_outside_post_mm3"] == 0 for row in screws["rows"])
-    assert all(row["nominal_nearest_post_edge_mm"] == 19.05 for row in screws["rows"])
+    assert screws["receiver_role"] == "panel and kicker-seam support only"
+    assert screws["structural_frame_credit"] is False
     assert all(
-        row["adverse_provisional_post_edge_mm"] == pytest.approx(14.55)
+        row["embedded_shaft_outside_receiver_mm3"] == 0 for row in screws["rows"]
+    )
+    assert all(
+        row["nominal_nearest_receiver_edge_mm"] == 19.05 for row in screws["rows"]
+    )
+    assert all(
+        row["adverse_provisional_receiver_edge_mm"] == pytest.approx(16.55)
         for row in screws["rows"]
     )
     assert sorted({row["new_start_xyz_mm"][0] for row in screws["rows"]}) == (
-        pytest.approx([-169.41, 168.05])
+        pytest.approx([-20.6375, 17.4625])
     )
+    assert {row["new_start_xyz_mm"][2] for row in screws["rows"]} == {60.0, 192.0}
+    assert all(
+        row["new_start_xyz_mm"][1] == pytest.approx(-17.74375) for row in screws["rows"]
+    )
+    assert all(
+        row["purchased_length_mm"] == pytest.approx(63.5) for row in screws["rows"]
+    )
+    assert all(row["structural_frame_credit"] is False for row in screws["rows"])
 
 
 def test_shallow_backers_keep_both_kicker_seam_edges_continuously_supported(report):
@@ -86,11 +100,12 @@ def test_each_principal_gets_two_selected_vertical_barrel_rows(report):
         "washer_max_thickness_mm": pytest.approx(2.032),
     }
     assert len(joint["records"]) == 4
-    assert joint["barrel_pair_axis_pitch_mm"] > 23
-    assert joint["barrel_pair_clear_wood_between_bores_mm"] > 13
-    assert joint["header_clear_wood_between_bolt_bores_mm"] > 15
-    assert joint["balanced_max_washer_reserve_mm"] > 4
-    assert joint["driver_edge_reserve_mm"] > 3
+    assert joint["rows_y_mm"] == [-146.0, -66.0]
+    assert joint["barrel_pair_axis_pitch_mm"] == pytest.approx(80.0)
+    assert joint["barrel_pair_clear_wood_between_bores_mm"] == pytest.approx(69.9924)
+    assert joint["header_clear_wood_between_bolt_bores_mm"] == pytest.approx(72.5)
+    assert joint["minimum_max_washer_header_edge_reserve_mm"] == pytest.approx(20.1877)
+    assert joint["driver_edge_reserve_mm"] == pytest.approx(19.7)
     for row in joint["records"]:
         assert row["bolt_axis_xyz"] == [0.0, 0.0, 1.0]
         assert row["bolt_seat_xyz_mm"][2] == pytest.approx(238.9)

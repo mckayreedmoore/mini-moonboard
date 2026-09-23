@@ -43,6 +43,7 @@ POST_HALF_WIDTH_GROWTH_TOL_MM = 1.5
 TNUT_CENTER_PLACEMENT_TOL_MM = 1.0
 TNUT_RADIUS_GROWTH_TOL_MM = 0.5
 SCREW_AXIS_PLACEMENT_TOL_MM = 1.0
+BACKER_EDGE_PLACEMENT_TOL_MM = 1.5
 SCREW_EDGE_OFFSET_MM = 19.05
 SEAM_BACKER_WIDTH_MM = 38.1
 SEAM_BACKER_DEPTH_MM = 88.9
@@ -54,6 +55,7 @@ TOOL_DIAMETER_MM = 20.0
 TOOL_LENGTH_MM = 40.0
 BARREL_AXIS_DEPTH_MM = 19.05
 BARREL_THREAD_Z_MM = 305.0
+PRINCIPAL_ROWS_Y_MM = (-146.0, -66.0)
 BORE_TIP_CLEARANCE_MM = 2.0
 COMPLETE_THREAD_END_ALLOWANCE_MM = 2.54  # two 1/4-20 pitches; conservative screen
 HIT_TOL_MM3 = 1.0
@@ -236,13 +238,10 @@ def _shop_center_screws(source, post_geometry):
     relocated = {}
     rows = []
     for side in SIDES:
-        post_name = f"base_post_center_{side}"
-        post = post_geometry["posts"][post_name].BoundingBox()
-        x = (
-            post.xmax - SCREW_EDGE_OFFSET_MM
-            if side == "left"
-            else post.xmin + SCREW_EDGE_OFFSET_MM
-        )
+        receiver_name = f"kicker_seam_backer_{side}"
+        receiver_shape = post_geometry["backers"][receiver_name]
+        receiver = receiver_shape.BoundingBox()
+        x = (receiver.xmin + receiver.xmax) / 2
         for index in (1, 2):
             name = f"round_kicker_{side}_center_{index}"
             old = model_rows[name]
@@ -261,7 +260,7 @@ def _shop_center_screws(source, post_geometry):
                 purchased,
                 moved.diameter,
             )
-            outside = _outside_volume(solid, (post_geometry["posts"][post_name],))
+            outside = _outside_volume(solid, (receiver_shape,))
             # Shaft begins in plywood; only the part behind its rear face is in wood.
             panel_back_y = -36.0
             embedded = _cylinder(
@@ -270,28 +269,26 @@ def _shop_center_screws(source, post_geometry):
                 panel_back_y - (moved.start.y - purchased),
                 moved.diameter,
             )
-            embedded_outside = _outside_volume(
-                embedded, (post_geometry["posts"][post_name],)
-            )
+            embedded_outside = _outside_volume(embedded, (receiver_shape,))
             tnut_x = post_geometry["tnut_centers"][side]
-            edge_margin = min(x - post.xmin, post.xmax - x)
+            edge_margin = min(x - receiver.xmin, receiver.xmax - x)
             rows.append(
                 {
                     "name": name,
-                    "receiver": post_name,
+                    "receiver": receiver_name,
                     "old_start_xyz_mm": list(old.start.toTuple()),
                     "new_start_xyz_mm": list(moved.start.toTuple()),
                     "purchased_length_mm": purchased,
-                    "nominal_nearest_post_edge_mm": _round(edge_margin),
-                    "adverse_provisional_post_edge_mm": _round(
+                    "nominal_nearest_receiver_edge_mm": _round(edge_margin),
+                    "adverse_provisional_receiver_edge_mm": _round(
                         edge_margin
-                        - POST_CENTER_PLACEMENT_TOL_MM
-                        - POST_HALF_WIDTH_GROWTH_TOL_MM
+                        - BACKER_EDGE_PLACEMENT_TOL_MM
                         - SCREW_AXIS_PLACEMENT_TOL_MM
                     ),
                     "axis_x_distance_from_kick_tnut_mm": _round(abs(x - tnut_x)),
-                    "embedded_shaft_outside_post_mm3": _round(embedded_outside),
-                    "whole_shaft_outside_post_mm3": _round(outside),
+                    "embedded_shaft_outside_receiver_mm3": _round(embedded_outside),
+                    "whole_shaft_outside_receiver_mm3": _round(outside),
+                    "structural_frame_credit": False,
                 }
             )
             relocated[name] = {"connection": moved, "solid": solid}
@@ -315,22 +312,15 @@ def _modified_inventory(base, relocated):
     }
 
 
-def _balanced_rows(washer_od):
-    rear_edge = -175.7
-    forward_edge = -36.0 - SEAM_BACKER_DEPTH_MM
-    slack = forward_edge - rear_edge - 2 * washer_od
-    if slack <= 0:
-        raise ValueError("Selected washers do not fit between header/backer edges")
-    reserve = slack / 3
-    rear = rear_edge + washer_od / 2 + reserve
-    forward = rear + washer_od + reserve
-    return (rear, forward), reserve, forward_edge
-
-
 def _joint_geometry(wood, post_geometry, barrel, washer, bolt):
-    rows_y, balanced_reserve, backer_rear = _balanced_rows(washer["od_max_mm"])
+    rows_y = PRINCIPAL_ROWS_Y_MM
     header = wood["base_header"]
     hb = header.BoundingBox()
+    max_washer_radius = washer["od_max_mm"] / 2
+    washer_edge_reserve = min(
+        rows_y[0] - max_washer_radius - hb.ymin,
+        hb.ymax - rows_y[1] - max_washer_radius,
+    )
     body_recess = (
         BARREL_AXIS_DEPTH_MM - barrel["nominal_thread_axis_from_slotted_end_mm"]
     )
@@ -453,11 +443,10 @@ def _joint_geometry(wood, post_geometry, barrel, washer, bolt):
     pair_pitch = rows_y[1] - rows_y[0]
     return {
         "rows_y_mm": list(rows_y),
-        "backer_rear_y_mm": backer_rear,
-        "balanced_max_washer_reserve_mm": balanced_reserve,
+        "minimum_max_washer_header_edge_reserve_mm": washer_edge_reserve,
         "driver_edge_reserve_mm": min(
             rows_y[0] - TOOL_DIAMETER_MM / 2 - hb.ymin,
-            backer_rear - rows_y[1] - TOOL_DIAMETER_MM / 2,
+            hb.ymax - rows_y[1] - TOOL_DIAMETER_MM / 2,
         ),
         "barrel_pair_axis_pitch_mm": pair_pitch,
         "barrel_pair_clear_wood_between_bores_mm": (
@@ -556,13 +545,9 @@ def _geometry_checks(wood, post_geometry, joint, inventory, relocated):
 
     post_protected_hits = {}
     for post_name, post in post_geometry["posts"].items():
-        side = post_name.rsplit("_", 1)[1]
-        own_screws = frozenset(name for name in relocated if f"_{side}_center_" in name)
         families = {}
         for family, shapes in inventory["solids"].items():
-            hits = _hits(
-                post, shapes, own_screws if family == "panel_screws" else frozenset()
-            )
+            hits = _hits(post, shapes)
             if hits:
                 families[family] = hits
         if families:
@@ -570,11 +555,19 @@ def _geometry_checks(wood, post_geometry, joint, inventory, relocated):
 
     backer_protected_hits = {}
     for name, backer in post_geometry["backers"].items():
-        families = {
-            family: hits
-            for family, shapes in inventory["solids"].items()
-            if (hits := _hits(backer, shapes))
-        }
+        side = name.rsplit("_", 1)[1]
+        own_screws = frozenset(
+            screw for screw in relocated if f"_{side}_center_" in screw
+        )
+        families = {}
+        for family, shapes in inventory["solids"].items():
+            hits = _hits(
+                backer,
+                shapes,
+                own_screws if family == "panel_screws" else frozenset(),
+            )
+            if hits:
+                families[family] = hits
         if families:
             backer_protected_hits[name] = families
 
@@ -761,6 +754,8 @@ def build_report():
             "relocated_count": len(relocated),
             "relocated_names": sorted(relocated),
             "rows": screw_rows,
+            "receiver_role": "panel and kicker-seam support only",
+            "structural_frame_credit": False,
         },
         "principal_header_joint": {
             key: value for key, value in joint.items() if key not in ("roles", "cuts")
