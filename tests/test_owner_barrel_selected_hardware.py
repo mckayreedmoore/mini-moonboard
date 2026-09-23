@@ -9,8 +9,8 @@ from scripts import owner_barrel_selected_hardware as selected
 
 def test_selected_stack_covers_all_barrel_pairs_and_records_strength():
     result = selected.report()
-    assert result["selected_bolt_count"] == 46
-    assert result["selected_washer_count"] == 46
+    assert result["selected_bolt_count"] == 48
+    assert result["selected_washer_count"] == 48
     assert result["bolt_minimum_proof_load_lbf"] == pytest.approx(2703.0)
     assert result["bolt_minimum_tensile_load_lbf"] == pytest.approx(3816.0)
     assert result["washer_minimum_annular_area_mm2"] == pytest.approx(213.63, 0.01)
@@ -30,15 +30,19 @@ def test_current_six_inch_stack_is_rejected_and_design_stays_blocked():
         "six_and_half_provisional_2mm_clearance_added_bore_depth_mm"
     ] == pytest.approx(12.4408)
     assert data["stack_screen"]["six_and_half_corrected_cad_probe_pair_count"] == 12
-    assert data["stack_screen"][
-        "six_and_half_corrected_cad_probe_unrelated_or_protected_hits"
-    ] == 0
+    assert (
+        data["stack_screen"][
+            "six_and_half_corrected_cad_probe_unrelated_or_protected_hits"
+        ]
+        == 0
+    )
     assert data["stack_screen"][
         "five_in_minimum_adverse_clearance_before_machining_error_mm"
     ] == pytest.approx(0.1204)
-    assert "complete-joint stiffness and strength qualification" in result[
-        "blocking_gates"
-    ]
+    assert (
+        "complete-joint stiffness and strength qualification"
+        in result["blocking_gates"]
+    )
 
 
 def test_missing_barrel_strength_cannot_be_silently_filled():
@@ -58,7 +62,7 @@ def test_release_and_inventory_drift_fail_closed():
 
     changed = copy.deepcopy(data)
     changed["bolts"][0]["quantity"] -= 1
-    with pytest.raises(ValueError, match="46 barrel pairs"):
+    with pytest.raises(ValueError, match="48 barrel pairs"):
         selected.validate_selection(changed)
 
 
@@ -101,11 +105,14 @@ def test_measurement_template_binds_all_selected_products():
             products.get(row["selected_bolt_product"], 0) + 1
         )
     assert products == {
-        "1456BHT5": 4,
-        "1472BHT5": 26,
+        "1456BHT5": 8,
+        "1472BHT5": 24,
         "1480BHT5": 4,
         "14104BHT5": 12,
     }
+    pair_ids = {row["pair_id"] for row in payload["pairs"]}
+    assert not selected.REPLACED_PRINCIPAL_PAIRS & pair_ids
+    assert {row["pair_id"] for row in selected.VERTICAL_PRINCIPAL_PAIRS} <= pair_ids
     result = selected.evaluate_measurements(payload)
     assert result["status"] == "EVIDENCE_BLOCKED"
     assert all(row["missing"] for row in result["results"])
@@ -124,9 +131,7 @@ def test_any_measured_fit_failure_forces_no_go():
     payload["pairs"][0]["actual"]["axis_offset_mm"] = 0.3
     result = selected.evaluate_measurements(payload)
     assert result["status"] == "NO_GO_MEASURED_FIT"
-    assert result["results"][0]["failures"] == [
-        "AXIS_MISALIGNMENT_EXCEEDS_LIMIT"
-    ]
+    assert result["results"][0]["failures"] == ["AXIS_MISALIGNMENT_EXCEEDS_LIMIT"]
 
 
 def test_impossible_measurement_is_rejected():

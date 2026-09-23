@@ -20,12 +20,12 @@ The selected qualification stack is:
 
 | Use | Selected article | Quantity | Controlled basis | Disposition |
 | --- | --- | ---: | --- | --- |
-| Cross-dowel barrel | STAFAST `JCD14201606NL ZN`, 1/4-20, nominal 0.394 × 0.630 inch | 46 | Manufacturer nominal geometry only | Test article; not structurally qualified |
-| 3.5-inch bolt | CDE `1456BHT5`, fully threaded Grade 5 | 4 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate and Class 2A confirmation |
-| 4.5-inch bolt | CDE `1472BHT5`, fully threaded Grade 5 | 26 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate and Class 2A confirmation |
+| Cross-dowel barrel | STAFAST `JCD14201606NL ZN`, 1/4-20, nominal 0.394 × 0.630 inch | 48 | Manufacturer nominal geometry only | Test article; not structurally qualified |
+| 3.5-inch bolt | CDE `1456BHT5`, fully threaded Grade 5 | 8 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate and Class 2A confirmation |
+| 4.5-inch bolt | CDE `1472BHT5`, fully threaded Grade 5 | 24 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate and Class 2A confirmation |
 | 5-inch bolt | CDE `1480BHT5`, fully threaded Grade 5 | 4 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate, Class 2A confirmation, and deeper blind bore |
 | Outer-rail bolt | CDE `14104BHT5`, fully threaded Grade 5, 6.5 inch | 12 | SAE J429 / ASME B18.2.1 / IFI-199 | Pending manufacturer certificate and Class 2A confirmation |
-| Washer | Fastenal `33857`, hardened 1/4-inch USS/Type A wide | 46 | ASTM F436/F436M / ASME B18.21.1 | Pending lot MTR and finished-seat fit |
+| Washer | Fastenal `33857`, hardened 1/4-inch USS/Type A wide | 48 | ASTM F436/F436M / ASME B18.21.1 | Pending lot MTR and finished-seat fit |
 
 For a 1/4-20 tensile stress area of 0.0318 in², the selected Grade 5 bolt basis
 gives constituent minima of 2,703 lbf proof, 2,926 lbf yield, and 3,816 lbf
@@ -40,7 +40,7 @@ the hardware-input gate:
 
 | Item | Public evidence found | What remains unavailable online | Result |
 | --- | --- | --- | --- |
-| STAFAST `JCD14201606NL ZN` | The [manufacturer product page](https://shop.stafast.com/cross-dowels/cross-dowels-with-1-hole/jcd14201606) gives 1/4-20, `d1 = 0.394 in`, `L = 0.630 in`, `L1 = 0.236 in`, and steel. | Controlled tolerances, thread class, complete usable female-thread interval, material minimums, proof/strip/wall resistance, and lot conformity. The page has no downloadable print. | **Not available publicly; exact manufacturer print plus lot evidence or complete-joint lot testing is required.** |
+| STAFAST `JCD14201606NL ZN` | The [manufacturer product page](https://shop.stafast.com/jcd14201606) gives 1/4-20, `d1 = 0.394 in`, `L = 0.630 in`, `L1 = 0.236 in`, and steel. The [manufacturer catalog](https://shop.stafast.com/catalogdownloads/downloads.aspx) gives a generic ±0.016-inch decimal tolerance and “quality cold rolled steel.” | Current controlled print, thread class, complete usable female-thread interval, material minimums, proof/strip/wall resistance, and lot conformity. The catalog says functional specifications can change and directs users to request a current print. | **Public catalog data supports sensitivity only; exact manufacturer print plus lot evidence or complete-joint lot testing is required.** |
 | CDE Grade 5 tap bolts | The [manufacturer dimensional sheet](https://cdefasteners.com/sites/default/files/product-specs/capscrewtapbolts.pdf) and product family identify fully threaded Grade 5 bolts governed by SAE J429, ASME B18.2.1, and IFI-199. CDE states that manufacturer certificates are available. | Certificate and Class 2A confirmation tied to the delivered `1456BHT5`, `1472BHT5`, `1480BHT5`, and `14104BHT5` lots. | **Public standard basis available; delivered-lot evidence must be obtained with the order.** |
 | Fastenal `33857` washer | Fastenal's [controlled product standard](https://www.fastenal.com/content/product_specifications/FW.HRD.USS.A.Z.02.pdf) gives the 1/4-inch ID, OD, and thickness limits and invokes ASME B18.21.1, ASTM F436/F436M, and lot-traceable MTR requirements. | MTR and dimensions for the delivered lot; finished-seat and tool fit. | **Controlled product standard available; delivered-lot and installed-fit evidence remains required.** |
 | Controlled structural barrel comparator | Howmet publishes an [F1800-4 product record](https://catalog.howmetfasteners.com/item/other-products/f1800-barrel-nut-floating/f1800-4) and [controlled drawing](https://catalog.howmetfasteners.com/Asset/s_F1800-%28%29_C.PDF) with material, tolerances, and a 7,200 lbf minimum axial tensile value. | Applicability to this joint. It is a floating 1/4-28 aerospace nut requiring a 13.487–13.589 mm installation bore, not the selected direct 1/4-20 cross dowel; its metal rating does not qualify wood. | **Data available, but only for an incompatible redesign comparator.** |
@@ -53,21 +53,23 @@ missing resistance or the complete timber joint's strength and stiffness.
 
 ## Why this barrel was selected
 
-[STAFAST `JCD14201606NL ZN`](https://shop.stafast.com/cross-dowels/cross-dowels-with-1-hole/jcd14201606)
+[STAFAST `JCD14201606NL ZN`](https://shop.stafast.com/jcd14201606)
 is the closest manufacturer-identified article to the existing 10.0076 ×
 16.002 mm CAD body and retains 1/4-20 bolts. Its thread axis is 5.9944 mm from
 the slotted end, not the modeled centered 8.001 mm. Preserving the bolt axis
 therefore requires a declared insertion orientation and a 2.0066 mm barrel-body
 shift, followed by the recorded combined-cut and access checks.
 
-A source-built nominal check has now applied that shift to all 46 bodies in
-the full 20-timber/268-cutter assembly. Every shifted body and added 2.0066 mm
+A source-built nominal check applied that shift to all 46 bodies in the prior
+topology's full 20-timber/268-cutter assembly. The vertical-center proposal
+inherits 44 unchanged pairs, removes two angled principal pairs, and separately
+checks four new vertical pairs, for 48 proposed pairs. Every shifted body and added 2.0066 mm
 bore tail stayed inside its intended receiver; none intersected unrelated
 wood, another cutter, or protected hardware. Shifted insertion depths range
 from 29.058 to 70.508 mm. This closes nominal placement only. Unpublished part
 and finished-bore tolerances still prevent a fit or remaining-wood pass.
 
-No public controlled STAFAST evidence fixes its tolerances, thread class,
+No public controlled STAFAST evidence fixes its current tolerances, thread class,
 complete female-thread interval, material minimum, proof/strip load, barrel
 wall resistance, or lot conformity. It is selected only because it is the
 shortest geometry-compatible article for a lot-specific hardware and complete
@@ -114,23 +116,48 @@ current 19.05 mm nominal seats provide essentially no diametral machining
 allowance, and the current CAD under-models the maximum head-plus-washer stack
 by 0.807 mm. Finished seats and tools must be screened with delivered parts.
 
+## Current metal threshold screen
+
+Using the conservative 301.494 N old-topology service proxy rather than the
+220.476 N redistributed contact witness, a controlled whole-barrel design
+rating must exceed:
+
+```text
+installation preload + gamma × 301.494 N
+```
+
+With the publicly posted 2016 catalog's provisional adverse 0.378-inch body
+diameter and a two-pitch complete-thread deduction, NASA RP-1228's tapped-hole
+expression
+requires female-thread shear strength of `7.380 × gamma MPa`. A provisional
+barrel-lobe sensitivity requires `18.579 × gamma MPa` average shear and
+`96.126 × gamma × Kt MPa` yield. These are requirement thresholds, not
+STAFAST properties or accepted wall/flexure methods. `gamma`, installation
+preload, `Kt`, slot geometry, thread-flank distribution, and controlled
+material minima remain unfrozen. A supplier-controlled whole-component design
+allowable is the shortest no-test evidence route.
+
+The executable sensitivity is
+[`scripts/owner_barrel_metal_threshold.py`](../scripts/owner_barrel_metal_threshold.py).
+
 ## Why there is no positive design verdict yet
 
 A standard-controlled bolt and washer close only constituent steel inputs.
 No accepted calculation found in the current evidence maps the direct axial
-bolt load, orthogonal barrel thread, crossed wood bore, small pocket ligament,
+bolt load, orthogonal barrel thread, crossed wood bore, remaining ligaments,
 and reversed twist into a complete timber-joint resistance. The NDS ordinary
 lateral-dowel equations do not represent that load path. NASA-STD-5020B also
 requires controlled nut/insert allowables or dedicated testing and treats
 pullout from nonmetallic parent material as test-derived.
 
-The governing principal/header joint still has one bolt and a face-normal
-free rotation when isolated. Its 21 mm head pocket leaves only 2.092152 mm of
-nominal header stock. A smaller pocket screen raises nominal stock—to
-2.734940 mm at 19 mm, 3.056334 mm at 18 mm, or 3.217031 mm at 17.5 mm—but no
-smaller pocket is selected until a matching washer/tool stack and adverse
-machining tolerance pass together. Even positive stock would not prove the
-reversed twist path or crossed-bore splitting resistance.
+The revised principal/header proposal has two vertical bolts per principal and
+flat underside header seats, so the former one-bolt free rotation and 2.092 mm
+angled head-pocket stock no longer apply. Exact face cells now provide a static
+`My` equilibrium witness for both proxy signs. Corrected actual-face rays also
+show both barrel centers only 36.551 mm from the adverse grain end, reducing the
+smaller adapted bearing reference to 346 N. Nominal two-plane and splitting
+surfaces are mapped, but adverse tolerances, group tear-out, adopted splitting
+resistance, compatible stiffness, and fresh candidate demands remain open.
 
 ## Exact closure sequence
 
@@ -147,9 +174,9 @@ reversed twist path or crossed-bore splitting resistance.
 4. Run the existing exploratory response stage on actual minimum-section
    joints to bound clearance, seating, stiffness, opening, twist, reversal,
    residual set, and reassembly. It supplies no strength credit.
-5. Run the six fresh signed cases only after those stiffness bounds exist. If
-   either principal/header joint needs moment about its unsupported bolt axis,
-   the one-bolt pose is `NO_GO` and needs a non-collinear hidden restraint.
+5. Run the six fresh signed cases only after those stiffness bounds exist. The
+   two-bolt/contact topology can close all six equilibrium components in the
+   old proxies, but fresh demand and compatible force sharing must still pass.
 6. Freeze demand-derived acceptance loads and execute the prospective
    complete-joint qualification plan. Include actual barrel lot, adverse bore
    fit, minimum wood sections, pocket/service cuts, both signs, retained bolts,
@@ -163,7 +190,7 @@ existing angle-frame packet remains the selected conditional DIY documentation.
 
 ## Measurement evaluator
 
-Generate the exact 46-pair input template with:
+Generate the exact 48-pair vertical-center input template with:
 
 ```bash
 .venv/bin/python scripts/owner_barrel_selected_hardware.py --measurement-template
@@ -174,5 +201,5 @@ After filling it from the receiving checklist, evaluate it with
 tip-to-bore-cap clearance, minimum and maximum insertion clearance, and
 measured axis-offset margin. Missing actual values or acceptance limits return
 `EVIDENCE_BLOCKED`; a violated supplied limit returns `NO_GO_MEASURED_FIT`.
-Even all 46 passing returns only `PASS_GEOMETRY_ONLY`, never structural or DIY
+Even all 48 passing returns only `PASS_GEOMETRY_ONLY`, never structural or DIY
 release.

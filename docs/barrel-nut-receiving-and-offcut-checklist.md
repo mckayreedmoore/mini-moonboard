@@ -1,5 +1,12 @@
 # Barrel-nut candidate receiving and offcut checklist
 
+> **Topology notice:** item labels and counts below bind the earlier 46-pair
+> integrated pose. Revised two-vertical-bolt principal geometry has 48 pairs and
+> must use the generated 48-pair template from
+> `scripts/owner_barrel_selected_hardware.py --measurement-template` until this
+> checklist is regenerated. Do not use 46-item labels to receive the revised
+> candidate.
+
 This checklist records the physical BN-1 and BN-2 inputs that cannot be
 established from CAD or retail pages. It applies only to
 `compact-floor-flush-bolted-development`, using the integrated kerf-right

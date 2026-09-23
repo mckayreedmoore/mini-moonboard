@@ -10,7 +10,23 @@ SELECTION = ROOT / "docs/barrel-nut-selected-hardware.json"
 STATIONS = ROOT / "docs/barrel-nut-stations.json"
 SCHEMA = "owner_barrel_selected_hardware/v1"
 MEASUREMENT_SCHEMA = "owner_barrel_selected_hardware_measurements/v1"
-EXPECTED_BOLT_QUANTITIES = {88.9: 4, 114.3: 26, 127.0: 4, 165.1: 12}
+EXPECTED_BOLT_QUANTITIES = {88.9: 8, 114.3: 24, 127.0: 4, 165.1: 12}
+REPLACED_PRINCIPAL_PAIRS = {
+    "barrel_center_clip_split_base_center_left_1_bolt",
+    "barrel_center_clip_split_base_center_right_1_bolt",
+}
+VERTICAL_PRINCIPAL_PAIRS = tuple(
+    {
+        "pair_id": f"vertical_principal_{side}_{index}",
+        "station": f"vertical_principal_header_{side}",
+        "selected_bolt_product": "1456BHT5",
+        "selected_bolt_nominal_length_mm": 88.9,
+        "selected_barrel_product": "JCD14201606NL ZN",
+        "selected_washer_product": "33857",
+    }
+    for side in ("left", "right")
+    for index in (1, 2)
+)
 SELECTED_BOLT_BY_MODELED_LENGTH = {
     88.9: ("1456BHT5", 88.9),
     114.3: ("1472BHT5", 114.3),
@@ -56,6 +72,8 @@ def measurement_template(stations_path=STATIONS):
     rows = []
     for station, record in sorted(stations.items()):
         for pair_id, bolt in sorted(record["bolts"].items()):
+            if pair_id in REPLACED_PRINCIPAL_PAIRS:
+                continue
             modeled_length = round(float(bolt["length_mm"]), 1)
             try:
                 product, selected_length = SELECTED_BOLT_BY_MODELED_LENGTH[
@@ -77,8 +95,16 @@ def measurement_template(stations_path=STATIONS):
                     "acceptance": {field: None for field in ACCEPTANCE_FIELDS},
                 }
             )
-    if len(rows) != 46 or len({row["pair_id"] for row in rows}) != 46:
-        raise ValueError("station register does not contain 46 unique barrel pairs")
+    rows.extend(
+        {
+            **row,
+            "actual": {field: None for field in ACTUAL_FIELDS},
+            "acceptance": {field: None for field in ACCEPTANCE_FIELDS},
+        }
+        for row in VERTICAL_PRINCIPAL_PAIRS
+    )
+    if len(rows) != 48 or len({row["pair_id"] for row in rows}) != 48:
+        raise ValueError("vertical-center candidate does not contain 48 unique pairs")
     counts = {}
     for row in rows:
         length = row["selected_bolt_nominal_length_mm"]
@@ -171,12 +197,8 @@ def evaluate_pair(row):
         - max(actual["male_complete_start_mm"], female_start),
     )
     tip_clearance = actual["bore_cap_from_head_mm"] - actual["bolt_length_mm"]
-    minimum_fit_clearance = (
-        actual["finished_bore_min_mm"] - actual["barrel_od_max_mm"]
-    )
-    maximum_fit_clearance = (
-        actual["finished_bore_max_mm"] - actual["barrel_od_min_mm"]
-    )
+    minimum_fit_clearance = actual["finished_bore_min_mm"] - actual["barrel_od_max_mm"]
+    maximum_fit_clearance = actual["finished_bore_max_mm"] - actual["barrel_od_min_mm"]
     axis_margin = acceptance["maximum_axis_offset_mm"] - actual["axis_offset_mm"]
     result["metrics"] = {
         "usable_complete_thread_overlap_mm": overlap,
@@ -195,13 +217,11 @@ def evaluate_pair(row):
             "INSUFFICIENT_TIP_CLEARANCE",
         ),
         (
-            minimum_fit_clearance
-            >= acceptance["minimum_insertion_clearance_mm"],
+            minimum_fit_clearance >= acceptance["minimum_insertion_clearance_mm"],
             "INSERTION_FIT_TOO_TIGHT",
         ),
         (
-            maximum_fit_clearance
-            <= acceptance["maximum_insertion_clearance_mm"],
+            maximum_fit_clearance <= acceptance["maximum_insertion_clearance_mm"],
             "INSERTION_FIT_TOO_LOOSE",
         ),
         (axis_margin >= 0, "AXIS_MISALIGNMENT_EXCEEDS_LIMIT"),
@@ -220,8 +240,8 @@ def evaluate_measurements(payload):
     expected_by_id = {row["pair_id"]: row for row in expected}
     supplied = payload.get("pairs", [])
     supplied_ids = [row.get("pair_id") for row in supplied]
-    if len(supplied_ids) != 46 or len(set(supplied_ids)) != 46:
-        raise ValueError("measurements must contain 46 unique pair IDs")
+    if len(supplied_ids) != 48 or len(set(supplied_ids)) != 48:
+        raise ValueError("measurements must contain 48 unique pair IDs")
     if set(supplied_ids) != set(expected_by_id):
         raise ValueError("measurement pair IDs do not match the station register")
     for row in supplied:
@@ -260,15 +280,13 @@ def evaluate_measurements(payload):
 def validate_selection(data):
     if data["schema"] != SCHEMA:
         raise ValueError("selected-hardware schema changed")
-    quantities = {
-        row["nominal_length_mm"]: row["quantity"] for row in data["bolts"]
-    }
-    if quantities != EXPECTED_BOLT_QUANTITIES or sum(quantities.values()) != 46:
-        raise ValueError("selected bolt inventory does not cover 46 barrel pairs")
-    if data["barrel"]["quantity"] != 46:
-        raise ValueError("selected barrel inventory does not cover 46 barrel pairs")
-    if sum(row["quantity"] for row in data["washers"]) != 46:
-        raise ValueError("selected washer inventory does not cover 46 barrel pairs")
+    quantities = {row["nominal_length_mm"]: row["quantity"] for row in data["bolts"]}
+    if quantities != EXPECTED_BOLT_QUANTITIES or sum(quantities.values()) != 48:
+        raise ValueError("selected bolt inventory does not cover 48 barrel pairs")
+    if data["barrel"]["quantity"] != 48:
+        raise ValueError("selected barrel inventory does not cover 48 barrel pairs")
+    if sum(row["quantity"] for row in data["washers"]) != 48:
+        raise ValueError("selected washer inventory does not cover 48 barrel pairs")
     if any(row["minimum_tensile_psi"] < 120000 for row in data["bolts"]):
         raise ValueError("selected bolt strength fell below SAE J429 Grade 5")
     decision = data["decision"]
@@ -315,9 +333,7 @@ def selected_stack_arithmetic(data):
     selected_min = selected["nominal_length_mm"] + selected["length_tolerance_mm"][0]
     selected_max = selected["nominal_length_mm"] + selected["length_tolerance_mm"][1]
     selected_tip = selected_min - (wood_to_axis + washer["thickness_max_mm"])
-    bore_extension = selected_max - (
-        wood_to_bore_cap + washer["thickness_min_mm"]
-    )
+    bore_extension = selected_max - (wood_to_bore_cap + washer["thickness_min_mm"])
     five = bolts[127.0]
     five_clearance = (
         inputs["modeled_five_in_tip_clearance_mm"]
@@ -335,15 +351,11 @@ def selected_stack_arithmetic(data):
         "six_and_half_minimum_complete_thread_past_axis_mm": (
             selected_tip - tip_allowance
         ),
-        "six_and_half_minimum_added_bore_depth_to_zero_clearance_mm": (
-            bore_extension
-        ),
+        "six_and_half_minimum_added_bore_depth_to_zero_clearance_mm": (bore_extension),
         "six_and_half_provisional_2mm_clearance_added_bore_depth_mm": (
             bore_extension + 2.0
         ),
-        "five_in_minimum_adverse_clearance_before_machining_error_mm": (
-            five_clearance
-        ),
+        "five_in_minimum_adverse_clearance_before_machining_error_mm": (five_clearance),
     }
 
 
@@ -364,9 +376,7 @@ def report(data=None):
     ):
         raise ValueError("recorded bolt strength calculation drifted")
     washer = data["washers"][0]
-    minimum_washer_area = annular_area_mm2(
-        washer["od_min_mm"], washer["id_max_mm"]
-    )
+    minimum_washer_area = annular_area_mm2(washer["od_min_mm"], washer["id_max_mm"])
     return {
         "schema": SCHEMA,
         "selected_barrel": data["barrel"]["product"],
@@ -376,9 +386,7 @@ def report(data=None):
         "bolt_minimum_yield_load_lbf": yield_load,
         "bolt_minimum_tensile_load_lbf": tensile,
         "washer_minimum_annular_area_mm2": minimum_washer_area,
-        "as_drawn_six_inch_stack": data["decision"][
-            "current_as_drawn_six_inch_stack"
-        ],
+        "as_drawn_six_inch_stack": data["decision"]["current_as_drawn_six_inch_stack"],
         "complete_design": data["decision"]["complete_direct_cross_dowel_design"],
         "blocking_gates": data["decision"]["blocking_gates"],
     }
