@@ -139,5 +139,6 @@ def test_infeasible_contact_case_fails_closed_without_report_crash():
     assert not blocked["summary"]["all_equilibrium_residuals_pass"]
     assert blocked["summary"]["maximum_adapted_reference_utilization"] is None
     assert blocked["summary"]["maximum_case"] is None
+    assert blocked["summary"]["my_path"] == "NO_PATH_IN_SCREEN"
     assert blocked["decision"]["my_topology_screen"] == "NO_PATH_IN_SCREEN"
     assert blocked["decision"]["finite_decision"] == "EVIDENCE_BLOCKED"

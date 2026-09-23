@@ -433,7 +433,11 @@ def build_report():
             ),
             "maximum_lateral_row_resultant_n": maximum_lateral,
             "available_proxy_action_ranges": proxy_ranges,
-            "my_path": "EXISTS_IN_SIGNED_PROXY_EQUILIBRIUM",
+            "my_path": (
+                "EXISTS_IN_SIGNED_PROXY_EQUILIBRIUM"
+                if feasible and residuals_pass
+                else "NO_PATH_IN_SCREEN"
+            ),
             "fresh_barrel_case_count": 0,
             "missing_case": "a12-forward",
         },
