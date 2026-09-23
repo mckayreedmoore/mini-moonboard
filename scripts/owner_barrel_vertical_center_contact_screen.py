@@ -35,7 +35,7 @@ def _cross(first, second):
     return np.cross(np.asarray(first, dtype=float), np.asarray(second, dtype=float))
 
 
-def _source_geometry():
+def _source_geometry(*, grid_counts=None):
     """Return exact net horizontal contact cells and current barrel records."""
     combined, wood, joint, _barrel = breakout._combined_solids()
     result = {}
@@ -64,13 +64,14 @@ def _source_geometry():
             outward,
             station,
             refine_y=True,
+            grid_counts=grid_counts,
         )
         bolts = sorted(
             (row for row in joint["records"] if row["hosts"][1] == principal_name),
             key=lambda row: row["bolt_seat_xyz_mm"][1],
         )
-        if len(cells) != 16 or len(bolts) != 2:
-            raise ValueError(f"{station}: expected 16 cells and two bolts")
+        if (grid_counts is None and len(cells) != 16) or len(bolts) != 2:
+            raise ValueError(f"{station}: unexpected contact cells or bolt count")
         result[side] = {
             "gross_area_mm2": gross_patch.Area(),
             "net_area_mm2": cut_patch.Area(),

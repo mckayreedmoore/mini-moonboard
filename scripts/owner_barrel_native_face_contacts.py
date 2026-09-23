@@ -38,7 +38,9 @@ def _touching_face(first, second, station):
     return hits[0]
 
 
-def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
+def _contact_cells(
+    patch, cut_patch, normal, station, *, refine_y=False, grid_counts=None
+):
     """Partition one true trial-cut face into exact positive-area cells."""
     edges = [edge for edge in patch.Edges() if len(edge.Vertices()) == 2]
     if len(edges) != 4 or len(patch.Vertices()) != 4:
@@ -72,8 +74,18 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
         abs_tol=TOL_PARTITION_AREA_MM2,
     ):
         raise ValueError(f"{station}: trial-cut face wires do not close")
-    u_count = 8 if refine_y and abs(tangent_u.y) > abs(tangent_v.y) else 2
-    v_count = 8 if refine_y and u_count == 2 else 2
+    if grid_counts is not None:
+        u_count, v_count = grid_counts
+        if (
+            not isinstance(u_count, int)
+            or not isinstance(v_count, int)
+            or u_count < 2
+            or v_count < 2
+        ):
+            raise ValueError(f"{station}: contact grid counts must be integers >= 2")
+    else:
+        u_count = 8 if refine_y and abs(tangent_u.y) > abs(tangent_v.y) else 2
+        v_count = 8 if refine_y and u_count == 2 else 2
     plane = patch.Center().dot(normal)
 
     def point_at(u, v):
@@ -160,7 +172,7 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
                 "point_xyz_mm": _xyz(cell_point),
                 "gross_cell_center_xyz_mm": _xyz(gross_point),
                 "_gross_cell_area_mm2": (u_max - u_min) * (v_max - v_min),
-                "tributary_area_mm2": round(cell_area, 6),
+                "tributary_area_mm2": round(cell_area, 9 if grid_counts else 6),
                 "point_adjusted_from_gross_center": (
                     (cell_point - gross_point).Length > TOL_MM
                 ),
