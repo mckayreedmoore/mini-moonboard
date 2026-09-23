@@ -182,7 +182,10 @@ def test_integrated_single_center_proposal_has_46_unqualified_stacks():
     assert integrated["counts"]["short_of_assumed_barrel_axis"] == 0
     assert integrated["counts"]["beyond_modeled_machine_bore"] == 0
     assert (
-        sum(row["tip_to_bore_far_cap_clearance_mm"] == 0 for row in integrated["rows"])
+        sum(
+            row["tip_to_bore_far_cap_clearance_mm"] == 2.0
+            for row in integrated["rows"]
+        )
         == 4
     )
     assert (

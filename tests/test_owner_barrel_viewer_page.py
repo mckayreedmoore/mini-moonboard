@@ -33,7 +33,8 @@ def test_barrel_viewer_is_selectable_and_keeps_baseline_parts():
         in loaded_status
     )
     assert "all 46 pairs have visible timber trial cuts" in page
-    assert "Two left rail machine bores intersect existing service bores" in page
+    assert "approved left first-row shift clears two previously modeled service-bore intersections" in page
+    assert "four top-outer bores have 2 mm nominal tip clearance" in page
     assert "All 98 trial drilling paths for 46 barrel pairs" in page
     assert "cut-derived header" in page
     assert "no separate backers remain" in page

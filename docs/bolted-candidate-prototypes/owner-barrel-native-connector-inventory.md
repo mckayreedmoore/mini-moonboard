@@ -51,9 +51,10 @@ receivers in either pose; `backers`, `backer_screw_landings`, and
 
 The separate [contact-face input](../../scripts/owner_barrel_native_face_contacts.py)
 now reads the same integrated assembly. Each of the **24** former-angle timber
-pairs has exactly one opposing planar gross contact patch. The 22 two-bolt
-faces use four equal-area candidate compression cells each. The two
-single-bolt principal/header faces use 16 cells each (**120** total), with
+pairs has exactly one opposing planar gross contact patch. Twenty faces use
+four candidate compression cells each. The two outer-base faces refine cells
+whose centroids otherwise fall in bore voids to ten cells each. The two
+single-bolt principal/header faces use 16 cells each (**132** total), with
 finer front-to-rear resolution near the bolt. All **46** trial bolt
 axes cross their own patch within its boundary. Representative gross areas
 are 5,322.57 mm² at a top-outer rail, 12,419.33 mm² at a center-post/header
@@ -62,18 +63,16 @@ gross **uncut** CAD faces. The same input also intersects all 24 patches with
 the viewer's complete trial-cut timber. The rail example retains
 5,234.213 mm², the principal/header face 5,055.451 mm², and the outer-base
 header face 10,828.845 of 11,930.617 gross mm² after its trial cuts. All
-24 remaining patches are one connected CAD face. Only the two horizontal
-single-bolt principal/header faces have exact **trial-cut cell** areas: the
+24 remaining patches are one connected CAD face. All 24 faces have exact
+**trial-cut cell** areas and first moments. The
 modeled contact strip behind each bolt line retains **588.180 mm²**, or
-11.63% of its 5,055.451 mm² cut face. The other 22 faces now distribute
-their measured total trial-cut area proportionally among the four gross cells;
-**their individual cut-cell areas are not exact** because the general
-cutout-clipping method did not close reliably on inclined faces. A gross-grid
-cell center falling in a bore is moved to a sampled point on surviving wood
-within that cell; this is a provisional spring location, not a contact law.
-The current cut scene also contains known bore/service collisions, and
-neither nominal cut area nor face continuity proves usable contact pressure,
-edge stock, wood strength, or a signed moment/twist path.
+11.63% of its 5,055.451 mm² cut face. A cell whose exact net centroid falls in
+a bore is recursively split until every emitted point lies on surviving wood;
+this exact quadrature is still a provisional spring layout, not a contact law.
+The approved N = 42 mm left first rows remove the two previously modeled
+bore/service collisions. Neither that nominal clearance, cut area nor face
+continuity proves usable contact pressure, tolerance, edge stock, wood strength,
+or a signed moment/twist path.
 
 `missing_native_inputs` records the contact and connector laws still needed:
 compression-only butt-face law and stiffness; reconciliation of existing
@@ -88,7 +87,7 @@ approval.
 
 The [source-bound preparation module](../../scripts/owner_barrel_native_preparation.py)
 now exposes the current 26 uncut wood solids, 66 fixed panel screws, 12 retained
-frame bolts, 46 barrel bolt stacks, and 120 barrel-face compression cells
+frame bolts, 46 barrel bolt stacks, and 132 barrel-face compression cells
 without importing any legacy angle/SDS connector. It also carries 72
 retained-bolt face-contact cells. For response mass and floor placement it uses
 the maintained viewer's 16 trial-cut former-angle timbers and the selected
@@ -106,13 +105,12 @@ not a moved hole, delivered-fit check or retained-bolt resistance verdict.
 
 All six unchanged signed cases prepared **without a native solve** on 22
 September 2026: `a12-rear`, `a12-forward`, `a12-left`, `k12-right`, `k12-rear`,
-and `a1-rear`. Each had 46 barrel pairs, 120 barrel-face cells and 72
+and `a1-rear`. Each had 46 barrel pairs, 132 barrel-face cells and 72
 retained-bolt face cells. The four inclined principal/side members use an
-explicit **analysis-only** beam-start extension to span the actual horizontal
-cut face; the original center-principal barrel face point lay about 17.24 mm
-before the old centroid-based beam start. This extension is a gross-section
-interpolation, not real extra wood or a local-bearing check. Barrel spring
-stiffnesses and face laws are conditional, not product data. Preparation gives
-no signed interface force, joint demand, rating, accepted case, or drilling
-release. Current trial bores and service/wood clashes remain separate design
-findings.
+exact constant-X CAD-prism mesh with panel attachments mapped to the actual
+faces; this global response geometry does not qualify local bearing or cut
+sections. Barrel spring stiffnesses and face laws are conditional, not product
+data. Preparation gives no signed interface force, joint demand, rating,
+accepted case, or drilling release. The maintained pose reports zero modeled
+protected/service intersections, while delivered fit, tolerances, access and
+resistance remain unqualified.

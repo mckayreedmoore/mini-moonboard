@@ -100,7 +100,7 @@ export function validateOwnerBarrelScene(data, hiddenNames) {
       data.visual_wood_replacement?.barrel_path_host_anomalies?.length !== 0 ||
       data.visual_wood_replacement?.unrelated_remaining_pair_cut_intersections?.length !== 0 ||
       data.visual_wood_replacement?.remaining_pair_cut_intersections?.length !== 36 ||
-      data.visual_wood_replacement?.remaining_to_protected_cut_intersections?.length !== 2 ||
+      data.visual_wood_replacement?.remaining_to_protected_cut_intersections?.length !== 0 ||
       data.visual_wood_replacement?.release !== false ||
       data.rim_first_sequence?.temporary_fixed_fastener_removal_required !== true ||
       data.rim_first_sequence?.per_rim_release?.panel_screws !== 8 ||

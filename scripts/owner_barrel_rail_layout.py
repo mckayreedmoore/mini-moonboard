@@ -46,6 +46,11 @@ VIEWER_REVISED_STATIONS = (
     "clip_horizontal_upper_right_1",
 )
 VIEWER_REVISED_ROWS_N_MM = (50.0, 92.25)
+INTEGRATED_LEFT_SERVICE_STATIONS = (
+    "clip_horizontal_lower_left_2",
+    "clip_horizontal_upper_left_2",
+)
+INTEGRATED_LEFT_SERVICE_ROWS_N_MM = (42.0, 92.25)
 VIEWER_OUTER_FAMILIES = frozenset({"bottom_outer", "lower_outer", "upper_outer"})
 VIEWER_OUTER_STATIONS = tuple(
     name
@@ -479,6 +484,18 @@ def build_layout(wood, *, viewer_revision=False, integrated_center_length=False)
         )
         built["stations"].update(outer_trial["stations"])
     if integrated_center_length:
+        left_service = build_geometry(
+            wood=wood,
+            row_n_mm=INTEGRATED_LEFT_SERVICE_ROWS_N_MM,
+            barrel_setback_mm=BARREL_X_FROM_BUTT_MM,
+            stations=INTEGRATED_LEFT_SERVICE_STATIONS,
+            cut_wood=False,
+            complete_stack=True,
+            bore_clearance_stations=VIEWER_CENTER_BORE_CLEARANCE_STATIONS.intersection(
+                INTEGRATED_LEFT_SERVICE_STATIONS
+            ),
+        )
+        built["stations"].update(left_service["stations"])
         if len(INTEGRATED_CENTER_STATIONS) != 4:
             raise ValueError("Expected four lower/upper center-rail duties")
         for name in INTEGRATED_CENTER_STATIONS:
@@ -570,7 +587,10 @@ def build_layout(wood, *, viewer_revision=False, integrated_center_length=False)
                 {
                     "integrated_center_rail_bolt_length_mm": (
                         INTEGRATED_CENTER_BOLT_LENGTH_MM
-                    )
+                    ),
+                    "integrated_left_service_front_n_mm": (
+                        INTEGRATED_LEFT_SERVICE_ROWS_N_MM[0]
+                    ),
                 }
                 if integrated_center_length
                 else {}
@@ -592,5 +612,5 @@ def build_revised_layout(wood):
 
 
 def build_integrated_layout(wood):
-    """Trial 4.5 in lower/upper center shafts; retain revised bores and outer rails."""
+    """Show integrated center lengths and approved left service-row pose."""
     return build_layout(wood, viewer_revision=True, integrated_center_length=True)

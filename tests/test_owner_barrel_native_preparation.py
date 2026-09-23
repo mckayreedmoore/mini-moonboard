@@ -1,5 +1,6 @@
 """Source-bound preparation of the integrated 46-pair barrel frame."""
 
+import cadquery as cq
 import pytest
 
 from scripts import owner_barrel_native_preparation as native
@@ -26,6 +27,25 @@ def test_integrated_module_has_only_current_connection_topology(module):
     assert not names & {row.name for row in module.assembly["removed_legacy_sds"]}
     assert not any(name.startswith("inner_kicker_backer_") for name in module.assembly["wood"])
     assert module.KEY == native.SOURCE_ID
+    assert module.stations() == ()
+
+
+def test_barrel_members_follow_installation_axis_from_entry_to_receiver(module):
+    barrels = {
+        row.name: row
+        for row in module.connections()
+        if row.name in module.barrel_bolt_names
+    }
+    assert len(barrels) == 46
+    for name, connection in barrels.items():
+        record = module.connector_inventory["bolts"][name]
+        assert connection.members == (
+            record["entry_member"],
+            record["receiving_member"],
+        )
+        axis = connection.direction.normalized()
+        thread_axis = cq.Vector(*record["provisional_thread_axis_point_mm"])
+        assert (thread_axis - connection.start).dot(axis) > 0
 
 
 def test_barrel_mass_envelopes_and_contact_normals_are_not_legacy_angles(module):
@@ -34,7 +54,7 @@ def test_barrel_mass_envelopes_and_contact_normals_are_not_legacy_angles(module)
     assert all(row.kind == "bolt" for row in barrels)
     assert not any(part.name.startswith("clip_") for part in module.parts())
     contacts = native.member_contacts(module, stiffness_per_area=100.0)
-    assert len(contacts) == 120
+    assert len(contacts) == module.faces["contact_cell_count"] == 132
     assert all(row["stiffness_n_per_mm"] > 0 for row in contacts)
     assert sum(row["name"].startswith("clip_split_base_center_") for row in contacts) == 32
     assert all(row["conditional_only"] for row in contacts)
@@ -73,21 +93,33 @@ def test_one_signed_case_prepares_without_legacy_connectors(module):
     names = {row["name"] for row in structure.springs}
     assert summary["case"] == "a12-rear"
     assert summary["barrel_pairs"] == 46
-    assert summary["face_contact_cells"] == 120
+    assert summary["face_contact_cells"] == module.faces["contact_cell_count"] == 132
     assert summary["retained_face_contact_cells"] == 72
     assert summary["implicit_header_bearings"] is False
-    assert len(summary["analysis_only_full_bevel_members"]) == 4
+    assert "analysis_only_full_bevel_members" not in summary
+    assert summary["actual_mapped_bevel_members"] == list(native.ACTUAL_BEVEL_MEMBERS)
     assert summary["native_solve"] is False
     assert summary["structural_released"] is False
     assert metadata["diagnostic_only"] is True
+    assert metadata["angle_stations"] == []
     assert metadata["bolted_joint_demands"] is False
     assert metadata["acceptance"] is False
     assert metadata["header_bearing_assumption"].startswith("No implicit")
     assert not names & {row.name for row in module.assembly["removed_legacy_sds"]}
     assert not any(name.startswith("bearing_") for name in names)
     for bolt in module.barrel_bolt_names:
-        springs = [spring for spring in structure.springs if spring["name"] == bolt]
-        assert len(springs) == 3
-        axial = next(spring for spring in springs if spring["dof"] == 1)
+        axial_rows = [spring for spring in structure.springs if spring["name"] == bolt]
+        radial_name = f"{bolt}__radial_clearance"
+        radial_rows = [
+            spring for spring in structure.springs if spring["name"] == radial_name
+        ]
+        assert len(axial_rows) == 1
+        assert len(radial_rows) == 2
+        assert {spring["dof"] for spring in radial_rows} == {2, 3}
+        assert all(spring["radial_clearance_mm"] == 0.575 for spring in radial_rows)
+        assert all(spring["radial_clearance_assumption"] for spring in radial_rows)
+        axial = axial_rows[0]
+        assert axial["dof"] == 1
         assert axial["tension_only_assumption"] is True
+        assert radial_name in metadata["radial_clearance_ownership"]
     assert metadata["connection_ownership"]

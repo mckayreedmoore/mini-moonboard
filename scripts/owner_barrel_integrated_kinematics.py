@@ -151,7 +151,17 @@ def _connected_frame(assembly, faces):
         face_rows.extend(rows)
         if station in {"clip_split_base_center_left", "clip_split_base_center_right"}:
             center_face_rows.extend(rows)
-    if len(face_rows) != 120 or len(center_face_rows) != 32:
+    expected_center_rows = sum(
+        len(faces["stations"][station]["contact_cells"])
+        for station in (
+            "clip_split_base_center_left",
+            "clip_split_base_center_right",
+        )
+    )
+    if (
+        len(face_rows) != faces["contact_cell_count"]
+        or len(center_face_rows) != expected_center_rows
+    ):
         raise ValueError("Connected frame contact point inventory changed")
     retained_contacts = retained_contact_rows(
         assembly, baseline, stiffness_per_area=1.0
@@ -227,7 +237,7 @@ def build_report(assembly=None):
         or len(assembly["bolts"]) != 46
         or faces["station_count"] != 24
         or faces["bolt_interface_count"] != 46
-        or faces["contact_cell_count"] != 120
+        or faces["trial_cut_cell_face_count"] != faces["trial_cut_face_count"]
         or any(assembly["release_flags"].values())
     ):
         raise ValueError("Require the current unreleased integrated barrel assembly")

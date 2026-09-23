@@ -19,17 +19,16 @@ bolt length. Values are millimeters and apply to each row in that group.
 | Lower center rail | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 16.700 |
 | Lower outer rail | 4 | 152.4 | 1.849 | 6.853 | **6.853** | 5.155 |
 | Top center | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 12.700 |
-| Top outer | 4 | 127.0 | 6.449 | 11.453 | 10.008 | **0** |
+| Top outer | 4 | 127.0 | 6.449 | 11.453 | 10.008 | **2.000** |
 | Upper center rail | 4 | 114.3 | 4.549 | 9.553 | 9.553 | 16.700 |
 | Upper outer rail | 4 | 152.4 | 1.849 | 6.853 | **6.853** | 5.155 |
 
 The trial count is 4 × 3½ in, 26 × 4½ in, 4 × 5 in and 12 × 6 in bolts, across 24 original
 connection duties. All 46 modeled shafts reach the *assumed* barrel-body
 center; none exceeds its modeled machine-bore cap. All have provisional head
-and washer envelopes. Yet **four top-outer tips end exactly at their bore cap**:
-the nominal classification “within bore” does not supply positive tip
-clearance. The shorter shafts retain their former bore depths; bore depth
-has not been redesigned or approved.
+and washer envelopes. The owner-approved integrated geometry gives the four
+top-outer tips **2 mm nominal clearance** at their bore caps. That is not
+measured delivered-hardware clearance or a drill-depth instruction.
 
 ### Barrel insertion holes are not yet drill sizes
 
@@ -54,15 +53,16 @@ can worsen the already thin center and outer-header wood margins. Do not
 drill from the CAD diameter or add this tool price to a qualified build bill.
 
 The four top-outer bolts belong to `clip_single_top_left_1` and
-`clip_single_top_right_2`, two per station. A **read-only**, source-solid
-2 mm extension of each existing 125.349 mm machine bore would give 127.349 mm
-depth from its wood entry face and 2 mm nominal tip clearance; a 4 mm trial
-would give 129.349 mm depth and 4 mm clearance. Both tested extensions stayed
+`clip_single_top_right_2`, two per station. The owner-approved integrated
+geometry extends each previous 125.349 mm machine bore by **2 mm**, giving
+127.349 mm modeled depth from its wood entry face and 2 mm nominal tip
+clearance. The earlier read-only 4 mm trial would give 129.349 mm depth and
+4 mm clearance. Both screened extensions stayed
 inside `base_rail_top` and reported no modeled protected-feature, service,
 retained-hardware, unrelated-wood, peer-hardware, or other-barrel-path hit
 above the 1 mm³ screening threshold. This is not an installed tolerance or
-wood-resistance check. The maintained scene retains **zero** top-outer tip
-clearance until the owner approves a bore-depth revision.
+wood-resistance check. The maintained scene now uses the 2 mm extension;
+delivered hardware, tolerance and wood checks remain open.
 
 The **12 outer-rail rows** have the least nominal axial reach: their tips pass
 the assumed barrel axis by only 1.849 mm and stop 3.155 mm before the far wall.
@@ -132,9 +132,9 @@ axial dimensions from the modeled shaft start at the **outer washer face**,
 
 Thus the 12 outer-rail and 20 base/center-rail current tips fall inside this
 particular no-overrun/2-mm-bore window. The other **14** tips pass the modeled
-barrel far wall; four top-outer tips also end exactly at the bore cap and need at least 2 mm
-additional modeled bore depth to meet the *illustrative* allowance without
-shortening the bolt. Neither observation alone proves a physical clash:
+barrel far wall; the four top-outer tips now have 2 mm nominal bore-cap
+clearance after the owner-approved extension. Neither observation alone
+proves a physical fit:
 internal barrel threads and exit geometry are unknown, and every shorter
 candidate must still place usable bolt threads inside a real barrel. The
 report retains the per-family bore-depth shortfall and far-wall overrun, so
@@ -165,8 +165,9 @@ Neither read-only pose is selected or a reach/wood-strength solution. The
 60 mm outer-rail setback remains unchanged pending a qualified hardware
 stack and an owner-approved physical revision.
 
-Separately, two left center-rail machine bores cross existing service voids
-in the current cut scene. This reach screen does not clear those crossings.
+Separately, the two owner-approved left center-rail first-row moves to
+N = 42 mm remove their nominal service-void intersections in the current
+cut scene. Timber section and physical service fit still require checks.
 No installed-fit pass, drilling, fabrication, load-test or climbing release
 follows from these nominal numbers.
 

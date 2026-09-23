@@ -24,25 +24,25 @@ pose. No native solve or structural capacity follows from either layout.
 The nominal [installed-stack audit](../../scripts/owner_barrel_installed_stack_audit.py)
 can be run with the **integrated** assembly supplied to it; the viewer does so
 for 46 pairs. Passing an assumed barrel midpoint and modeled bore cap is only
-geometry. The separate [published audit note](owner-barrel-installed-stack-audit.md),
-[native connector inventory](owner-barrel-native-connector-inventory.md), and
-[two-joint preliminary calculation](owner-barrel-mvp-preliminary.md) describe
-the earlier outward-post/backer pose. Their counts, station assignments,
-historical force scales, and constituent numbers must not be treated as an
-integrated-layout demand or resistance result. New calculations may now
-inventory the integrated 24 stations, check exact bore/wood sections and
-conditional 2024 material inputs, and plan signed force cases. A positive
-CAD gap, constituent estimate, or old ML24Z force is not a proof load.
+geometry. The [native connector inventory](owner-barrel-native-connector-inventory.md)
+now defaults to the integrated pose and provides its 24-station ownership and
+contact input. All six signed cases prepare from that pose without solving.
+The separate [published stack-audit note](owner-barrel-installed-stack-audit.md)
+and [two-joint preliminary calculation](owner-barrel-mvp-preliminary.md) still
+describe the earlier outward-post/backer pose. Their counts, historical force
+scales, and constituent numbers must not be treated as integrated-layout
+demand or resistance. Preparation establishes no signed response or capacity.
+A positive CAD gap, constituent estimate, or old ML24Z force is not a proof load.
 The [current six-duty preliminary screen](owner-barrel-integrated-preliminary.md)
 now gives conditional washer/wood, net-slot and steel-only stiffness scales
 for the integrated rail, single-bolt principal/header, both center
 post/header duties, and both recessed outer-header/post joints. It is not a
 complete capacity or demand result.
-The current viewer now cuts all 46 barrel pairs into visual timber; it
-reveals two left rail machine-bore intersections with inherited service
-bores. The preliminary screen's right rail does not cover those left-side
-net sections. Neither the newly cut mesh nor a nonintersection elsewhere
-establishes wood resistance.
+The current viewer cuts all 46 barrel pairs into visual timber. The
+owner-approved N = 42 mm left first-row pose removes two previously modeled
+machine-bore/service-bore intersections, but the preliminary screen's right
+rail does not cover those revised left-side net sections. Neither the newly
+cut mesh nor a nonintersection establishes wood resistance.
 
 These remain **exact current blockers**:
 
@@ -76,11 +76,12 @@ These remain **exact current blockers**:
   only modeled residuals; its installed rim blocks the driver. The
   [rim-first sequence](owner-barrel-outer-header-sequence-probe.md) is
   conditional. The current integrated
-  [46-pair viewer](owner-barrel-viewer.md) reports 33 nominal sampled rim
-  positions clear on each side with modeled heads/washers, but not a
-  continuous, delivered-tool or supported-panel service demonstration. The
-  older [outward-post samples](owner-barrel-rim-withdrawal-hardware-probe.md)
-  are historical. The [cut screen](owner-barrel-outer-header-cut-integrity.md)
+  [46-pair viewer](owner-barrel-viewer.md) records 33 clear sampled positions
+  per side, a continuous swept-box clearance from retained hardware, and an
+  exact continuous straight-line sweep of each nominal uncut rim clear of
+  modeled timber. This remains nominal geometry, not a delivered-tool,
+  barrel-extraction or supported-panel service demonstration. The older
+  outward-post composition is historical. The [cut screen](owner-barrel-outer-header-cut-integrity.md)
   reports 6.35 mm header side stock and a 12.706 mm outer-post-cut to fixed
   screw gap, both `REVISE` findings, not strength or tolerance approval.
 - No signed, same-case interface forces/moments, load sharing, joint

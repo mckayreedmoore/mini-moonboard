@@ -24,6 +24,12 @@ OUT = ROOT / 'docs/floor-flush-construction'
 KERF_OUT = ROOT / 'docs/floor-flush-construction-kerf-right'
 STATUS = ('DRAFT coordinates — six no-slip cases pass frozen criteria; delivered '
           'hardware and fabrication inspection remain; not a fabrication release')
+KERF_STATUS = (
+    'DRAFT kerf-right coordinates — same selected candidate and shop packet; '
+    'six accepted cases use the official 4×4 analytical width; no second native '
+    'load study; delivered hardware and fabrication inspection remain; not a '
+    'fabrication release'
+)
 HILLMAN_LENGTH_MM = 63.5
 SDS_LENGTH_MM = 38.1
 INCH_MM = 25.4
@@ -94,8 +100,8 @@ class SheetModel:
 
 
 @contextmanager
-def sheet_context(output, source=model):
-    values = {'OUT': output, 'model': SheetModel(source), 'PACKET_STATUS': STATUS,
+def sheet_context(output, source=model, *, status=STATUS):
+    values = {'OUT': output, 'model': SheetModel(source), 'PACKET_STATUS': status,
                   'PACKAGE': exporter.PACKAGE, 'HARDWARE': 'bolt-hardware.csv'}
     old = {key: getattr(shared, key) for key in values}
     try:
@@ -107,7 +113,7 @@ def sheet_context(output, source=model):
             setattr(shared, key, value)
 
 
-def profile_corner_rows(datums):
+def profile_corner_rows(datums, *, status=STATUS):
     """Dimension each actual side-profile corner from the drilling datum."""
     raw = {part.name: part for part in shared.model.uncut_wood_parts()}
     rows = []
@@ -127,13 +133,14 @@ def profile_corner_rows(datums):
                 'along_from_corner_mm': offset.dot(along), 'signed_cross_from_corner_mm': offset.dot(cross),
                 'world_x_mm': xyz[0], 'world_y_mm': xyz[1], 'world_z_mm': xyz[2],
                 'detail': 'Actual trimmed raw side-profile corner; use outline for perimeter order. Taper removal is separate.',
-                'assessment_status': STATUS})
+                'assessment_status': status})
     return rows
 
 
 def generate(output=OUT, *, width_option=width.OFFICIAL):
     output = Path(output)
     frame = width.variant(width_option)
+    status = KERF_STATUS if width_option == width.KERF_RIGHT else STATUS
     inventory_path = ROOT / 'site/hybrid' / frame.KEY / 'parts.json'
     manifest_path = inventory_path.with_name('manifest.json')
     export_manifest = json.loads(manifest_path.read_text())
@@ -151,7 +158,7 @@ def generate(output=OUT, *, width_option=width.OFFICIAL):
     if inventory['design'].get('width_option', width.OFFICIAL) != width_option:
         raise ValueError('Construction width option does not match viewer inventory')
     output.mkdir(parents=True, exist_ok=True)
-    with sheet_context(output, frame):
+    with sheet_context(output, frame, status=status):
         write = shared.write_csv
         stock = []
         for part in inventory['parts']:
@@ -161,7 +168,7 @@ def generate(output=OUT, *, width_option=width.OFFICIAL):
             stock.append({'member': part['name'], 'blank_length_or_panel_width_mm': dimensions[0],
                 'blank_depth_or_panel_height_mm': dimensions[1], 'thickness_mm': dimensions[2], 'quantity': 1,
                 'detail': 'Stock blank allowance, not finished cut length; actual trimmed corners in stock-profiles.json and profile-corner-datums.csv.',
-                'assessment_status': STATUS})
+                'assessment_status': status})
         write('stock.csv', stock)
         connections = frame.connections()
         axes = []
@@ -176,16 +183,16 @@ def generate(output=OUT, *, width_option=width.OFFICIAL):
                 'modeled_length_mm': connection.length, 'modeled_diameter_mm': connection.diameter,
                 **shop,
                 'operation': shop['shop_instruction'],
-                'assessment_status': STATUS})
+                'assessment_status': status})
         write('connection-axes.csv', axes)
         bolts = [c for c in connections if c.kind == 'bolt']
         write('bolt-hardware.csv', [dict(name=c.name, first_member=c.members[0], second_member=c.members[1],
-            **model.bolt_dimensions(c), **shop_axis_fields(c), assessment_status=STATUS) for c in bolts])
+            **model.bolt_dimensions(c), **shop_axis_fields(c), assessment_status=status) for c in bolts])
         datums = shared.bolt_member_datums(connections)
         for row in datums:
             row['instruction'] = 'Draft axis normal to side face; physical corner and signed directions govern. Not a drilling release.'
         write('bolt-member-datums.csv', datums)
-        write('profile-corner-datums.csv', profile_corner_rows(datums))
+        write('profile-corner-datums.csv', profile_corner_rows(datums, status=status))
         shared.joined_member_sheets(datums)
         shared.leg_taper_sheets()
         shared.end_trim_diagram()
@@ -272,9 +279,14 @@ All timber profiles assume fresh stock; previous holes are not repair instructio
         raise ValueError('Sources changed during construction generation')
     artifacts = {p.name: exporter.shared.digest(p) for p in sorted(output.iterdir()) if p.name != 'manifest.json'}
     (output/'manifest.json').write_text(json.dumps({'candidate': model.KEY, 'width_option': width_option,
-        'assessment_status': STATUS,
+        'assessment_status': status,
         'source_sha256': dict(sorted(sources.items())), 'artifact_sha256': artifacts,
-        'scope': 'Draft current geometry coordinates only; no transferred historical acceptance.'}, indent=2)+'\n')
+        'scope': (
+            'Draft current geometry coordinates only; same selected candidate and '
+            'shop packet; kerf-right adds no independent structural result.'
+            if width_option == width.KERF_RIGHT
+            else 'Draft current geometry coordinates only; no transferred historical acceptance.'
+        )}, indent=2)+'\n')
     return output
 
 

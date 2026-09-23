@@ -1,7 +1,7 @@
 """Finite integrated collision screen of the revised barrel viewer's outer/top eight.
 
 Uncut wood, nominal cutters and finite hardware envelopes are diagnostic only.
-Missing viewer heads/washers are supplemented as explicitly provisional solids;
+The current viewer contains provisional head/washer envelopes on all 16 rows;
 no delivered fastener, bit, driver or assembly sequence is qualified here.
 """
 
@@ -215,7 +215,7 @@ def probe():
             ),
             "disposition": "REVISE",
         }
-    if viewer_stacks != 4 or supplemental_stacks != 12:
+    if viewer_stacks != 16 or supplemental_stacks != 0:
         raise ValueError("Revised outer/top head/washer coverage changed")
     return {
         "source_id": SOURCE_ID,

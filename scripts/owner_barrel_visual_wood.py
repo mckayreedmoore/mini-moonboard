@@ -43,6 +43,15 @@ EXPECTED_TIMBERS = frozenset(
         "base_side_right",
     }
 )
+RETAINED_ONLY_TIMBERS = frozenset(
+    {
+        "base_floor_left",
+        "base_floor_right",
+        "lumber_leg_left",
+        "lumber_leg_right",
+    }
+)
+ALL_FRAME_TIMBERS = EXPECTED_TIMBERS | RETAINED_ONLY_TIMBERS
 
 
 def _source_cutter_pose(cutter, member, placement):
@@ -110,13 +119,21 @@ def build_visual_wood(
     candidate_service=False,
     candidate_center_cuts=False,
     candidate_all_cuts=False,
+    complete_frame_hosts=False,
 ):
     """Return cut-derived visual solids and an unreleased cutter inventory."""
     assembly = build_viewer_assembly() if assembly is None else assembly
     placement = post_layout() if placement is None else placement
     source = variant(KERF_RIGHT)
     duties = selected_duties()
-    targets = {member for row in duties.values() for member in row["timber"]}
+    replacement_targets = {
+        member for row in duties.values() for member in row["timber"]
+    }
+    targets = (
+        set(ALL_FRAME_TIMBERS)
+        if complete_frame_hosts
+        else replacement_targets
+    )
     legacy = {name for row in duties.values() for name in row["sds_axes"]}
     source_raw = {part.name: part.shape for part in source.uncut_wood_parts()}
     fixed_panels = {row.name: row for row in assembly["panel_connections"]}
@@ -132,7 +149,9 @@ def build_visual_wood(
             if row.name.startswith("round_kicker_") and "_center_" in row.name:
                 receiver_map[row.name] = row.members[1]
     if (
-        targets != EXPECTED_TIMBERS
+        replacement_targets != EXPECTED_TIMBERS
+        or targets
+        != (set(ALL_FRAME_TIMBERS) if complete_frame_hosts else set(EXPECTED_TIMBERS))
         or len(duties) != 24
         or len(legacy) != 144
         or {row.name for row in assembly["removed_legacy_sds"]} != legacy
@@ -252,10 +271,10 @@ def build_visual_wood(
     expected_backer_landings = 0 if pose == "integrated" else 4
     if (service_count, additional_count, panel_cuts, backer_landings, frame_cuts) != (
         32,
-        0,
+        2 if complete_frame_hosts else 0,
         expected_panel_cuts,
         expected_backer_landings,
-        8,
+        24 if complete_frame_hosts else 8,
     ):
         raise ValueError("Current inherited cut inventory changed")
     protected = {name: tuple(cutters[name]) for name in targets}
@@ -416,6 +435,15 @@ def build_visual_wood(
             or shape.Volume() > raw.Volume() + 1e-4
         ):
             raise ValueError(f"{name}: invalid visual-only replacement solid")
+        for category, cutter_name, cutter in cutters[name]:
+            if cutter.intersect(raw).Volume() <= 1e-4:
+                raise ValueError(
+                    f"{name}/{category}/{cutter_name}: cutter misses raw host"
+                )
+            if cutter.intersect(shape).Volume() > 1e-3:
+                raise ValueError(
+                    f"{name}/{category}/{cutter_name}: cutter remains in cut solid"
+                )
         visual[name] = shape
     per_member = {}
     for name in sorted(targets):
@@ -445,6 +473,11 @@ def build_visual_wood(
     )
     return {
         "wood": visual,
+        # Keep the exact cutter solids available to source-bound diagnostic
+        # consumers.  These are nominal CAD envelopes, not shop instructions.
+        "cutters": {
+            name: tuple(cutters[name]) for name in sorted(targets)
+        },
         "report": {
             "status": "VISUAL_ONLY_UNRELEASED",
             "candidate_service_diameter_mm": (
@@ -452,6 +485,10 @@ def build_visual_wood(
             ),
             "former_angle_stations": len(duties),
             "replacement_timber_members": len(visual),
+            "complete_frame_hosts_requested": complete_frame_hosts,
+            "all_twenty_frame_timber_hosts_represented": (
+                complete_frame_hosts and set(visual) == set(ALL_FRAME_TIMBERS)
+            ),
             "excluded_legacy_sds_axes": len(legacy),
             "fixed_panel_kicker_axes": len(fixed_panels),
             "fixed_panel_receiver_cuts_in_replacements": panel_cuts,
@@ -460,6 +497,9 @@ def build_visual_wood(
             "retained_frame_bolt_cuts_in_replacements": frame_cuts,
             "inherited_service_cuts_in_replacements": service_count,
             "inherited_additional_cuts_in_replacements": additional_count,
+            "total_host_cutter_records": sum(map(len, cutters.values())),
+            "all_host_cutters_intersect_raw_wood": True,
+            "all_host_cutters_removed_from_cut_solids": True,
             "outer_header_trial_cuts": 16,
             "center_trial_cuts": sum(map(len, center_trial.values())),
             "remaining_trial_cuts": sum(map(len, remaining_trial.values())),

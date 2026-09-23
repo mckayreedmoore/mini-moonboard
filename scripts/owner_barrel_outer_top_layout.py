@@ -41,6 +41,7 @@ INTEGRATED_LENGTHS_MM = {
     "top_center": 4.5 * hardware.INCH_MM,
     "top_outer": hardware.BOLT_LENGTH_MM,
 }
+INTEGRATED_TOP_OUTER_TIP_CLEARANCE_MM = 2.0
 
 
 def _point(x, t, n):
@@ -121,7 +122,13 @@ def _row(
     }
 
 
-def _top_outer(side, wood, *, bolt_length_mm=hardware.BOLT_LENGTH_MM):
+def _top_outer(
+    side,
+    wood,
+    *,
+    bolt_length_mm=hardware.BOLT_LENGTH_MM,
+    tip_clearance_mm=0.0,
+):
     left = side == "left"
     side_name = f"base_side_{side}"
     rail = wood["base_rail_top"]
@@ -143,6 +150,7 @@ def _top_outer(side, wood, *, bolt_length_mm=hardware.BOLT_LENGTH_MM):
             _point(x, t0, n),
             cq.Vector(0, *T),
             {side_name: upright, "base_rail_top": rail},
+            tip_clearance_mm=tip_clearance_mm,
             bolt_length_mm=bolt_length_mm,
         )
         for n in (265.0, 310.0)
@@ -425,6 +433,13 @@ def build_layout(
                 wood,
                 VIEWER_OUTER_BASE_INWARD_MM,
                 bolt_length_mm=bolt_length,
+            )
+        elif integrated_lengths and duty["family"] == "top_outer":
+            rows = _top_outer(
+                duty["side"],
+                wood,
+                bolt_length_mm=bolt_length,
+                tip_clearance_mm=INTEGRATED_TOP_OUTER_TIP_CLEARANCE_MM,
             )
         else:
             rows = builders[duty["family"]](

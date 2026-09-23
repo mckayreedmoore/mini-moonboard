@@ -1,4 +1,4 @@
-"""The two pending frame-hole revisions can be screened without selecting them."""
+"""The two owner-approved frame-hole revisions remain nominally clash-free."""
 
 import pytest
 
@@ -10,7 +10,7 @@ def trial_report():
     return report()
 
 
-def test_trial_is_detached_from_selected_assembly():
+def test_screen_is_detached_from_maintained_assembly():
     source, trial, moved, extended, tips = build_trial()
     assert len(moved) == 2
     assert len(extended) == len(tips) == 4
@@ -19,9 +19,9 @@ def test_trial_is_detached_from_selected_assembly():
     assert trial["frame_connections"] is source["frame_connections"]
     assert trial["bolts"] is not source["bolts"]
     assert trial["drilling_paths"] is not source["drilling_paths"]
-    assert all(trial["bolts"][name] != source["bolts"][name] for name in moved)
+    assert all(trial["bolts"][name] == source["bolts"][name] for name in moved)
     assert all(
-        trial["drilling_paths"][name] != source["drilling_paths"][name]
+        trial["drilling_paths"][name] == source["drilling_paths"][name]
         for name in extended
     )
     assert not any(trial["release_flags"].values())
@@ -60,8 +60,8 @@ def test_candidate_clearances_are_not_a_release(trial_report):
         fraction == 1.0
         for fraction in trial_report["incremental_top_tip_receiver_coverage"].values()
     )
-    assert trial_report["maintained_scene_changed"] is False
-    assert trial_report["owner_approval_pending"] is True
+    assert trial_report["maintained_scene_changed"] is True
+    assert trial_report["owner_approval_pending"] is False
     assert trial_report["structural_released"] is False
     assert trial_report["drilling_released"] is False
     assert trial_report["fabrication_released"] is False

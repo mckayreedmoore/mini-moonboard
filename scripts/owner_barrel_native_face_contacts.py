@@ -11,9 +11,13 @@ import cadquery as cq
 from scripts.export_owner_barrel_scene import build_integrated_viewer_assembly
 from scripts.simple_owner_duty_ledger import selected_duties
 
-SCHEMA = "owner_barrel_native_face_contacts/v5"
+SCHEMA = "owner_barrel_native_face_contacts/v6"
 TOL_MM = 1e-3
 TOL_AREA_MM2 = 1e-2
+TOL_PARTITION_AREA_MM2 = 1e-5
+TOL_FIRST_MOMENT_MM3 = 5e-2
+MIN_CELL_AREA_MM2 = 1e-8
+MAX_CELL_SPLIT_DEPTH = 6
 
 
 def _xyz(vector):
@@ -35,7 +39,7 @@ def _touching_face(first, second, station):
 
 
 def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
-    """Conserve cut-face area; resolve only the center rear strip exactly."""
+    """Partition one true trial-cut face into exact positive-area cells."""
     edges = [edge for edge in patch.Edges() if len(edge.Vertices()) == 2]
     if len(edges) != 4 or len(patch.Vertices()) != 4:
         raise ValueError(f"{station}: contact patch is not four-sided")
@@ -56,6 +60,18 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
         raise ValueError(f"{station}: gross contact patch is not rectangular")
     if refine_y and abs(normal.z) < 1 - 1e-6:
         raise ValueError(f"{station}: refined center face is no longer horizontal")
+    cut_faces = cut_patch.Faces()
+    if len(cut_faces) != 1:
+        raise ValueError(f"{station}: trial-cut contact must be one connected face")
+    cut_face = cut_faces[0]
+    outer_face = cq.Face.makeFromWires(cut_face.outerWire())
+    hole_faces = [cq.Face.makeFromWires(wire) for wire in cut_face.innerWires()]
+    if not isclose(
+        outer_face.Area() - sum(face.Area() for face in hole_faces),
+        cut_face.Area(),
+        abs_tol=TOL_PARTITION_AREA_MM2,
+    ):
+        raise ValueError(f"{station}: trial-cut face wires do not close")
     u_count = 8 if refine_y and abs(tangent_u.y) > abs(tangent_v.y) else 2
     v_count = 8 if refine_y and u_count == 2 else 2
     plane = patch.Center().dot(normal)
@@ -63,8 +79,94 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
     def point_at(u, v):
         return normal * plane + tangent_u * u + tangent_v * v
 
+    def face_properties(shape):
+        faces = [face for face in shape.Faces() if face.Area() > MIN_CELL_AREA_MM2]
+        return (
+            sum(face.Area() for face in faces),
+            [
+                sum(face.Area() * face.Center().toTuple()[axis] for face in faces)
+                for axis in range(3)
+            ],
+        )
+
+    def clipped_properties(corners):
+        cell_face = cq.Face.makeFromWires(cq.Wire.makePolygon(corners, close=True))
+        outer_area, outer_moment = face_properties(outer_face.intersect(cell_face))
+        hole_area = 0.0
+        hole_moment = [0.0, 0.0, 0.0]
+        for hole_face in hole_faces:
+            area, moment = face_properties(hole_face.intersect(cell_face))
+            hole_area += area
+            hole_moment = [
+                total + deduction for total, deduction in zip(hole_moment, moment)
+            ]
+        net_area = outer_area - hole_area
+        net_moment = [
+            total - deduction
+            for total, deduction in zip(outer_moment, hole_moment)
+        ]
+        if net_area < -TOL_PARTITION_AREA_MM2:
+            raise ValueError(f"{station}: cut-cell hole area exceeds its outer area")
+        if net_area <= MIN_CELL_AREA_MM2:
+            return None
+        point = cq.Vector(*(value / net_area for value in net_moment))
+        if abs(point.dot(normal) - plane) > TOL_MM:
+            raise ValueError(f"{station}: cut-cell centroid left interface plane")
+        return net_area, net_moment, point
+
     cells = []
-    total_area = 0.0
+
+    def append_cell(u_min, u_max, v_min, v_max, row, column, path=(), depth=0):
+        gross_point = point_at((u_min + u_max) / 2, (v_min + v_max) / 2)
+        corners = [
+            point_at(u_min, v_min),
+            point_at(u_max, v_min),
+            point_at(u_max, v_max),
+            point_at(u_min, v_max),
+        ]
+        clipped = clipped_properties(corners)
+        if clipped is None:
+            return
+        cell_area, _, cell_point = clipped
+        point_gap = cut_patch.distance(cq.Vertex.makeVertex(*cell_point.toTuple()))
+        if point_gap > TOL_MM:
+            if depth >= MAX_CELL_SPLIT_DEPTH:
+                raise ValueError(
+                    f"{station}: cut-cell centroid remains outside surviving timber"
+                )
+            u_mid = (u_min + u_max) / 2
+            v_mid = (v_min + v_max) / 2
+            for subrow, (sub_u_min, sub_u_max) in enumerate(
+                ((u_min, u_mid), (u_mid, u_max)), 1
+            ):
+                for subcolumn, (sub_v_min, sub_v_max) in enumerate(
+                    ((v_min, v_mid), (v_mid, v_max)), 1
+                ):
+                    append_cell(
+                        sub_u_min,
+                        sub_u_max,
+                        sub_v_min,
+                        sub_v_max,
+                        row,
+                        column,
+                        (*path, 2 * (subrow - 1) + subcolumn),
+                        depth + 1,
+                    )
+            return
+        suffix = "" if not path else "_split_" + "_".join(map(str, path))
+        cells.append(
+            {
+                "name": f"{station}_contact_{row}_{column}{suffix}",
+                "point_xyz_mm": _xyz(cell_point),
+                "gross_cell_center_xyz_mm": _xyz(gross_point),
+                "_gross_cell_area_mm2": (u_max - u_min) * (v_max - v_min),
+                "tributary_area_mm2": round(cell_area, 6),
+                "point_adjusted_from_gross_center": (
+                    (cell_point - gross_point).Length > TOL_MM
+                ),
+            }
+        )
+
     for row in range(1, u_count + 1):
         u_min = u0 + (row - 1) * (u1 - u0) / u_count
         u_max = u0 + row * (u1 - u0) / u_count
@@ -72,75 +174,43 @@ def _contact_cells(patch, cut_patch, normal, station, *, refine_y=False):
             v_min = v0 + (column - 1) * (v1 - v0) / v_count
             v_max = v0 + column * (v1 - v0) / v_count
             gross_point = point_at((u_min + u_max) / 2, (v_min + v_max) / 2)
-            corners = [
-                point_at(u_min, v_min),
-                point_at(u_max, v_min),
-                point_at(u_max, v_max),
-                point_at(u_min, v_max),
-            ]
             if patch.distance(cq.Vertex.makeVertex(*gross_point.toTuple())) > TOL_MM:
                 raise ValueError(f"{station}: gross cell left timber face")
-            gross_cell_area = area / (u_count * v_count)
-            cell_area = gross_cell_area * cut_patch.Area() / area
-            cell_point = gross_point
-            adjusted = False
-            if not refine_y:
-                # A gross-grid center can fall inside a bore. Keep the
-                # provisional spring on surviving wood within its own cell.
-                offsets = (0, -0.125, 0.125, -0.25, 0.25, -0.375, 0.375)
-                candidates = sorted(
-                    ((du, dv) for du in offsets for dv in offsets),
-                    key=lambda pair: pair[0] ** 2 + pair[1] ** 2,
-                )
-                for du, dv in candidates:
-                    point = point_at(
-                        (u_min + u_max) / 2 + du * (u_max - u_min),
-                        (v_min + v_max) / 2 + dv * (v_max - v_min),
-                    )
-                    if cut_patch.distance(
-                        cq.Vertex.makeVertex(*point.toTuple())
-                    ) <= TOL_MM:
-                        cell_point = point
-                        adjusted = du != 0 or dv != 0
-                        break
-                else:
-                    raise ValueError(
-                        f"{station}: no surviving contact point in cell {row},{column}"
-                    )
-            if refine_y:
-                # Coplanar clipping closes on the two horizontal center
-                # interfaces. It does not close reliably on inclined faces.
-                cell_face = cq.Face.makeFromWires(
-                    cq.Wire.makePolygon(corners, close=True)
-                )
-                cut_cell = cut_patch.intersect(cell_face)
-                cell_area = cut_cell.Area()
-                cell_point = cut_cell.Center()
-                adjusted = (cell_point - gross_point).Length > TOL_MM
-                if (
-                    cell_area <= 0
-                    or cell_area > gross_cell_area + TOL_AREA_MM2
-                    or cut_patch.distance(cq.Vertex.makeVertex(*cell_point.toTuple()))
-                    > TOL_MM
-                ):
-                    raise ValueError(f"{station}: invalid cut center cell")
-            total_area += cell_area
-            cells.append(
-                {
-                    "name": f"{station}_contact_{row}_{column}",
-                    "point_xyz_mm": _xyz(cell_point),
-                    "gross_cell_center_xyz_mm": _xyz(gross_point),
-                    "gross_tributary_area_mm2": round(area / (u_count * v_count), 6),
-                    "tributary_area_mm2": round(cell_area, 6),
-                    "point_adjusted_from_gross_center": adjusted,
-                }
+            append_cell(u_min, u_max, v_min, v_max, row, column)
+    if not cells:
+        raise ValueError(f"{station}: cut-face partition has no positive cells")
+    raw_gross_areas = [cell.pop("_gross_cell_area_mm2") for cell in cells]
+    raw_gross_area = sum(raw_gross_areas)
+    for cell, gross_area in zip(cells, raw_gross_areas):
+        cell["gross_tributary_area_mm2"] = round(gross_area, 6)
+    # Empty refined subcells are bore voids. Allocate their gross tributary
+    # area over surviving child cells without changing exact cut areas.
+    if not isclose(raw_gross_area, area, abs_tol=TOL_PARTITION_AREA_MM2):
+        gross_scale = area / raw_gross_area
+        for cell in cells:
+            cell["gross_tributary_area_mm2"] = round(
+                cell["gross_tributary_area_mm2"] * gross_scale, 6
             )
+    total_area = sum(cell["tributary_area_mm2"] for cell in cells)
     target_area = cut_patch.Area()
-    if not isclose(total_area, target_area, abs_tol=TOL_AREA_MM2):
+    if not isclose(total_area, target_area, abs_tol=TOL_PARTITION_AREA_MM2):
         raise ValueError(
             f"{station}: contact-cell areas do not close "
             f"({total_area:.6f} versus {target_area:.6f} mm2)"
         )
+    target_moment = [target_area * value for value in cut_patch.Center().toTuple()]
+    cell_moment = [
+        sum(
+            cell["tributary_area_mm2"] * cell["point_xyz_mm"][axis]
+            for cell in cells
+        )
+        for axis in range(3)
+    ]
+    if any(
+        not isclose(actual, expected, abs_tol=TOL_FIRST_MOMENT_MM3)
+        for actual, expected in zip(cell_moment, target_moment)
+    ):
+        raise ValueError(f"{station}: contact cells do not preserve first moments")
     return cells
 
 
@@ -273,16 +343,13 @@ def build_report(assembly=None):
             "second_part": second_name,
             "gross_contact_area_mm2": round(patch.Area(), 6),
             "trial_cut_contact_area_mm2": round(cut_patch.Area(), 6),
+            "trial_cut_contact_centroid_xyz_mm": _xyz(cut_patch.Center()),
             "trial_cut_face_continuous": True,
             "trial_cut_face_capacity_qualified": False,
             "gross_contact_centroid_xyz_mm": _xyz(patch.Center()),
             "normal_outward_from_first_xyz": _xyz(normal),
             "contact_cells": cells,
-            "contact_cell_area_basis": (
-                "exact_trial_cut_face"
-                if duty["family"] == "base_center"
-                else "proportional_trial_cut_face"
-            ),
+            "contact_cell_area_basis": "exact_trial_cut_face",
             "bolt_face_crossings": crossings,
             "gross_face_y_edge_margins_from_bolt_mm": center_margin,
         }
@@ -311,17 +378,17 @@ def build_report(assembly=None):
         "retained_frame_bolt_count": len(assembly["frame_connections"]),
         "stations": stations,
         "limits": (
-            "All 24 faces conserve their total trial-cut area. Only the two "
-            "horizontal principal/header faces have exact cut-cell areas; "
-            "other cells distribute the cut area proportionally across gross "
-            "cells, not according to local holes. This is not a certified "
-            "contact law. Current visual cutters include "
-            "unresolved bore/service "
-            "collisions; neither gross nor cut face establishes delivered "
+            "All 24 faces use exact trial-cut cell areas and preserve each "
+            "face's first moments. Cells whose net centroid falls in a bore "
+            "are split until every emitted contact point lies on surviving "
+            "timber. This is not a certified contact law. Current visual "
+            "cutters report zero protected/service intersections in the "
+            "maintained pose; neither gross nor cut face establishes delivered "
             "contact, gaps, preload, tolerances, moisture, partial opening, "
             "slip, stiffness, or resistance. The two single-"
             "bolt principal/header faces use 2x8 cells to resolve their narrow "
-            "rear strips; all other faces use 2x2 cells."
+            "rear strips; all other faces start with 2x2 cells and refine "
+            "only around bore voids."
         ),
         "contact_law_qualified": False,
         "native_solve": False,

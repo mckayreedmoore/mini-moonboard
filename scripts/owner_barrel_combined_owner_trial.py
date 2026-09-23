@@ -1,12 +1,10 @@
-"""Read-only full-assembly screen of two unapproved owner decisions.
+"""Full-assembly regression for the two owner-approved bore changes.
 
-This composes the maintained 46-pair scene, then moves only two first
-left-center rail rows to N=42 mm and extends only four top-outer machine
-bores by 2 mm. It does not change the maintained producer or viewer.
+The detached pre-approval experiment became the maintained 46-pair pose.
+This module now screens its eight changed paths without moving them again.
 """
 
 import json
-from dataclasses import replace
 
 import cadquery as cq
 
@@ -29,7 +27,6 @@ LEFT_STATIONS = frozenset(
     }
 )
 TOP_STATIONS = frozenset({"clip_single_top_left_1", "clip_single_top_right_2"})
-FRONT_ROW_SHIFT_MM = -18.0
 TOP_BORE_EXTENSION_MM = 2.0
 
 
@@ -41,17 +38,15 @@ def _copy_assembly(source):
     result["replacement_solids"] = dict(source["replacement_solids"])
     result["diagnostic_bolt_axes"] = result["bolts"]
     result["barrel_solids"] = result["barrels"]
-    # The maintained producer's collision diagnostics do not cover this trial.
-    result["diagnostics"] = {"status": "UNAPPROVED_COMBINED_TRIAL_RESCREEN_REQUIRED"}
+    # Recompute changed-path diagnostics below instead of copying unrelated ones.
+    result["diagnostics"] = {"status": "APPROVED_BORE_POSE_REGRESSION_PENDING"}
     return result
 
 
-def _move_first_rows(source, trial):
-    delta = cq.Vector(
-        0,
-        coordinates.N[0] * FRONT_ROW_SHIFT_MM,
-        coordinates.N[1] * FRONT_ROW_SHIFT_MM,
-    )
+def _current_first_rows(source):
+    rail_diagnostics = source["diagnostics"]["producer_diagnostics"]["rail10"]
+    if rail_diagnostics.get("integrated_left_service_front_n_mm") != 42.0:
+        raise ValueError("Owner-approved left service row is not integrated")
     changed = []
     for station in sorted(LEFT_STATIONS):
         bolts = sorted(
@@ -60,24 +55,17 @@ def _move_first_rows(source, trial):
         if len(bolts) != 2 or not bolts[0].endswith("_1_bolt"):
             raise ValueError(f"{station}: first-row identity changed")
         name = bolts[0]
-        barrel = name.removesuffix("_bolt")
-        trial["bolts"][name] = replace(
-            source["bolts"][name], start=source["bolts"][name].start + delta
-        )
-        trial["barrels"][barrel] = source["barrels"][barrel].translate(delta)
-        trial["stacks"][name] = {
-            role: shape.translate(delta)
-            for role, shape in source["stacks"][name].items()
-        }
-        for key in ("drilling_paths", "access_paths"):
-            for path, shape in source[key].items():
-                if path.startswith(barrel + "/"):
-                    trial[key][path] = shape.translate(delta)
+        first, second = (source["bolts"][bolt].start for bolt in bolts)
+        row_pitch = (second.y - first.y) * coordinates.N[0] + (
+            second.z - first.z
+        ) * coordinates.N[1]
+        if abs(row_pitch - 50.25) > 0.001:
+            raise ValueError(f"{station}: expected integrated 42/92.25 mm row pitch")
         changed.append(name)
     return changed
 
 
-def _extend_top_bores(source, trial):
+def _current_top_bores(source):
     changed = []
     extensions = {}
     for station in sorted(TOP_STATIONS):
@@ -94,14 +82,16 @@ def _extend_top_bores(source, trial):
             axis = bolt.direction.normalized()
             _, length, diameter, vertices = _cylinder(bore, path)
             near, far = _axial_caps(vertices, bolt.start, axis)
-            start = bolt.start + axis * near
-            enlarged = cq.Solid.makeCylinder(
-                diameter / 2, length + TOP_BORE_EXTENSION_MM, start, axis
-            )
             if abs(far - near - length) > 1e-4:
                 raise ValueError(f"{path}: machine bore cap changed")
-            trial["drilling_paths"][path] = enlarged
-            extensions[path] = enlarged.cut(bore)
+            if abs(far - bolt.length - TOP_BORE_EXTENSION_MM) > 1e-4:
+                raise ValueError(f"{path}: expected integrated 2 mm tip clearance")
+            extensions[path] = cq.Solid.makeCylinder(
+                diameter / 2,
+                TOP_BORE_EXTENSION_MM,
+                bolt.start + axis * (far - TOP_BORE_EXTENSION_MM),
+                axis,
+            )
             changed.append(path)
     return changed, extensions
 
@@ -123,7 +113,7 @@ def _refresh_replacements(trial, stations):
 
 
 def build_trial(source=None):
-    """Return a detached trial assembly and the four incremental bore tips."""
+    """Return a detached copy of the integrated pose and its four new bore tips."""
     source = build_integrated_viewer_assembly() if source is None else source
     if (
         source["post_placement"] != "integrated"
@@ -134,14 +124,14 @@ def build_trial(source=None):
     ):
         raise ValueError("Maintained integrated assembly identity changed")
     trial = _copy_assembly(source)
-    moved = _move_first_rows(source, trial)
-    extended, tips = _extend_top_bores(source, trial)
+    moved = _current_first_rows(source)
+    extended, tips = _current_top_bores(source)
     _refresh_replacements(trial, LEFT_STATIONS)
     return source, trial, moved, extended, tips
 
 
 def report(source=None):
-    """Check whole trial-cut inventory, source invariants and changed margins."""
+    """Check whole current-cut inventory, source invariants and changed margins."""
     source, trial, moved, extended, tips = build_trial(source)
     visual = build_visual_wood(
         assembly=trial,
@@ -204,7 +194,7 @@ def report(source=None):
     )
     return {
         "schema": "owner_barrel_combined_owner_trial/v1",
-        "maintained_scene_changed": False,
+        "maintained_scene_changed": True,
         "source_wood_panel_frame_release_unchanged": unchanged,
         "moved_first_row_bolts": moved,
         "moved_first_row_drilling_paths": sorted(moved_paths),
@@ -227,9 +217,9 @@ def report(source=None):
         "structural_released": False,
         "drilling_released": False,
         "fabrication_released": False,
-        "owner_approval_pending": True,
+        "owner_approval_pending": False,
         "limits": (
-            "Read-only nominal assembly trial. Protected hits use >1 mm3 overlap; "
+            "Owner-approved nominal assembly pose. Protected hits use >1 mm3 overlap; "
             "no measured hardware, local net-section, actual thread, signed loads, "
             "tolerances or fabrication acceptance is established."
         ),

@@ -14,7 +14,7 @@ def report():
 def test_all_current_joint_faces_and_bolts_have_conditional_rank_records(report):
     assert report["station_count"] == 24
     assert report["bolt_interface_count"] == 46
-    assert report["contact_cell_count"] == 120
+    assert report["contact_cell_count"] == 132
     assert report["native_solve"] is False
     assert report["structural_released"] is False
     assert report["drilling_released"] is False
@@ -66,9 +66,9 @@ def test_connected_framing_sensitivity_uses_all_current_frame_links(report):
     assert frame["timber_count"] == 20
     assert frame["barrel_bolt_count"] == 46
     assert frame["retained_bolt_count"] == 12
-    assert frame["barrel_contact_cell_count"] == 120
+    assert frame["barrel_contact_cell_count"] == 132
     assert frame["retained_contact_cell_count"] == 72
-    assert frame["contact_cell_count"] == 192
+    assert frame["contact_cell_count"] == 204
     assert frame["graph_component_count"] == 1
     assert frame["relative_dof_count"] == 114
     assert frame["panel_screw_structural_credit"] is False

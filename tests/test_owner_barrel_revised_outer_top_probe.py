@@ -13,8 +13,8 @@ def test_revised_viewer_inventory_and_provisional_stack_are_explicit():
     assert result["inventory"]["rows"] == 16
     assert result["inventory"]["fixed_panel_screws"] == 66
     assert result["inventory"]["retained_frame_bolts"] == 12
-    assert result["inventory"]["viewer_head_washer_rows"] == 4
-    assert result["inventory"]["supplemental_provisional_head_washer_rows"] == 12
+    assert result["inventory"]["viewer_head_washer_rows"] == 16
+    assert result["inventory"]["supplemental_provisional_head_washer_rows"] == 0
     assert result["trial_basis"]["hold_rear_projection_is_provisional"]
     assert result["trial_basis"]["delivered_hardware_verified"] is False
     for station in result["stations"].values():

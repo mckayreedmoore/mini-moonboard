@@ -69,17 +69,41 @@ def sources():
 def metadata_for(width_option):
     documents = selected_authority()['viewer_documents']
     trim = width.trim_mm(width_option)
-    note = ('Twelve complete bolt stacks; nuts and tips outward. All flush cuts require shop inspection.'
-            if width_option == width.OFFICIAL else
-            f'4×8 shared-kerf presentation: equal 1/16 in panels, 1/8 in ({trim:g} mm) off the K / right edge. '
-            'Official Mini 4×4 six-case evidence is not transferred. Not a fabrication release.')
+    if width_option == width.OFFICIAL:
+        status = STATUS
+        scope = (
+            'Six fresh no-slip cases pass 36 frozen checks; unlisted ML24Z '
+            'separation and parallel couple remain disclosed, not rated. '
+            'Historical finite-friction and taper cases do not transfer.'
+        )
+        note = (
+            'Twelve complete bolt stacks; nuts and tips outward. All flush cuts '
+            'require shop inspection.'
+        )
+    else:
+        status = (
+            'Selected floor-runner development · kerf-right shop-width option · '
+            'official-width six-case evidence'
+        )
+        scope = (
+            'Same selected candidate and conditional DIY packet. The six accepted '
+            'no-slip cases use the official 4×4 analytical width; kerf-right is the '
+            'source-built 4×8 fabrication presentation and was not a second native '
+            'load study. Unlisted ML24Z separation and parallel couple remain disclosed.'
+        )
+        note = (
+            f'4×8 shared-kerf presentation: equal 1/16 in panels, 1/8 in '
+            f'({trim:g} mm) off the K / right edge. Nominal width-adapter geometry '
+            'passes its screen; this is not an independent structural result or a '
+            'fabrication release.'
+        )
+
     def metadata(parts, connections):
         return {**shared.design_metadata(parts, connections),
             'key': model.KEY, 'viewer_key': width.variant(width_option).KEY,
             'width_option': width_option, 'kerf_right_mm': trim,
-            'status': STATUS, 'description': STATUS,
-            'build_package': PACKAGE, 'assessment_scope':
-            'Six fresh no-slip cases pass 36 frozen checks; unlisted ML24Z separation and parallel couple remain disclosed, not rated. Historical finite-friction and taper cases do not transfer.',
+            'status': status, 'description': status,
+            'build_package': PACKAGE, 'assessment_scope': scope,
             'leg_stock': '4x6', 'outer_rim_stock': '4x6',
             'total_bolt_count': sum(c.kind == 'bolt' for c in connections),
             'leg_bolt_count': 4, 'bolts_per_leg': 2, 'knee_piece_count': 0,

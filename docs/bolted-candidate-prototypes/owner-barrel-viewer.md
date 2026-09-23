@@ -52,13 +52,13 @@ passage shown in the right
 principal is provisionally 25.4 mm at the inherited axis, not the selected
 baseline's 38.1 mm. Bolt and barrel hardware remains an X-ray overlay. These
 display solids are not a shop machining model or wood-strength approval.
-The complete cut inventory exposes two additional `REVISE` intersections:
-the lower-left and upper-left *center* rail-station machine bores intersect
-inherited service bores `..._054` and `..._055` in their respective left
-rails, about 320.5 mm³ each in the nominal solids. These are actual
-candidate-cut/service-void overlaps, not a claim of electrical fit or a
-complete wood-section failure. The affected rail joints need a revised path
-or a justified wood/service treatment before any drilling schedule.
+The earlier complete-cut inventory exposed two `REVISE` intersections:
+the lower-left and upper-left *center* rail-station first machine bores
+intersected inherited service bores `..._054` and `..._055`, about
+320.5 mm³ each. The owner approved moving only these first rows from
+N = 60 to 42 mm in the integrated candidate. The current nominal cut
+screen clears both intersections, but rail edge/end and net-section
+strength, tolerances and electrical service fit remain unverified.
 
 The integrated assembly shows 24 former-angle direct-bore *trials*, not 24
 accepted joints. Provisional head and washer solids accompany all 46 bolts.
@@ -150,8 +150,8 @@ depth revision and a shorter trial shaft, as do the four recessed outer-header b
 heads and washers; delivered thread span, usable engagement, bore-tip
 clearance, and complete joint resistance remain open.
 The [current 46-pair reach table](owner-barrel-integrated-stack-audit.md)
-separates nominal reach from physical fit: four top-outer tips end at their modeled bore
-caps with zero nominal clearance; 12 outer-rail tips pass the assumed axis
+separates nominal reach from physical fit: four top-outer tips now have
+2 mm modeled bore-cap clearance; 12 outer-rail tips pass the assumed axis
 by only 1.849 mm. Earlier service probes also used the older 48-pair pose.
 The earlier two-row center [conditional numerical screen](owner-barrel-integrated-center-prelim.md)
 is historical component sensitivity, not a rating for the single-row joint.

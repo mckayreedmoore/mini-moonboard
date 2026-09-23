@@ -19,7 +19,7 @@ the old bracket's moment path has been replaced.
 | Physical connection | Former duties | Trial bolt/barrel pairs | Present disposition |
 | --- | ---: | ---: | --- |
 | Bottom/lower/upper outer rails to side framing | 6 | 12 | `REVISE`; 6-in reach and service unqualified |
-| Bottom/lower/upper center rails to center framing | 6 | 12 | `REVISE`; two left service-bore crossings |
+| Bottom/lower/upper center rails to center framing | 6 | 12 | `REVISE`; shifted left rows need wood and tolerance checks |
 | Top rail to outer and center posts | 4 | 8 | `REVISE`; joint resistance unqualified |
 | Outer base to side members | 2 | 4 | `REVISE`; 10-mm inward trial axes |
 | Outer header to outer posts | 2 | 4 | `REVISE`; recessed heads and rim-first service |
@@ -40,21 +40,17 @@ sweep of each uncut rim has no modeled timber penetration above 1e-6 mm³.
 This clears the **nominal straight-line geometry**, not real tool access,
 delivered-part tolerances, safe support or repeated demounting.
 
-## Decisions before the candidate can be frozen
+## Checks before the candidate can be frozen
 
-1. **Clear the two actual left center-rail bore/service crossings.** The
-   lower-left and upper-left center-rail first machine bores intersect
-   inherited service voids `_054` and `_055`, about 320.5 mm³ each in the
-   current cut scene. Read-only trials of the unchanged source-built assembly
-   move only these first rows: N = 48 mm removes the nominal overlap but
-   leaves just **1.120 mm** minimum modeled bore-to-service gap; N = 42 mm
-   leaves **6.641 mm** at each station and passes the isolated direct-geometry
-   screen. Both are **candidate-only proposals**, not selected poses. N = 42 mm
-   moves the axis toward the rail front edge, so its wood edge/end and
-   net-section checks remain open. Owner approval is needed before changing
-   these frame holes. The combined whole-cut trial below removes the earlier
-   isolated-screen limitation, but peer-hardware, tolerance and timber-section
-   qualification remain open; repeat the checks after any approved source edit.
+1. **Qualify the revised left center-rail paths.** The owner approved moving
+   only the lower-left and upper-left center-rail first bore/bolt rows from
+   N = 60 to **42 mm**. The maintained integrated scene now includes that pose.
+   Before this change, those machine bores intersected inherited service
+   voids `_054` and `_055`, about 320.5 mm³ each. The nominal revised screen
+   gives **6.641 mm** bore-to-service gap at each station, and the whole-cut
+   check below finds no overlap at the eight changed paths. Moving toward the
+   rail front edge still requires wood edge/end, net-section, tolerance and
+   drilling-access checks; nominal clearance alone does not qualify a joint.
 2. **Close one delivered hardware stack by family.** The current 6-in
    outer-rail tips pass only 1.849 mm beyond the *assumed* Hillman 880543
    barrel center. Moving those barrels 2 mm toward the rail ends improves
@@ -69,12 +65,12 @@ delivered-part tolerances, safe support or repeated demounting.
    barrel axis, through-thread/usable depth, and a positive tip-clearance
    allowance before a drilling plan. The
    [reach audit](owner-barrel-integrated-stack-audit.md)
-   also flags four top-outer tips exactly at their modeled bore caps. A
-   read-only 2 mm depth-extension trial kept all four bore cylinders inside
+   previously flagged four top-outer tips exactly at their modeled bore caps.
+   The owner approved a **2 mm** machine-bore extension for those four rows,
+   now in the maintained integrated scene. The nominal extension remains in
    `base_rail_top` without a modeled protected-feature, service, retained-
-   hardware, other-wood or peer-path intersection. This is a proposed frame
-   bore change, not the maintained scene; owner approval and actual hardware
-   dimensions are still required. The [Home Depot Everbilt 800646 3½-in
+   hardware, other-wood or peer-path intersection; physical tolerances and
+   actual hardware dimensions are still required. The [Home Depot Everbilt 800646 3½-in
    single](https://www.homedepot.com/p/204633291) is an ordinary-store
    full-thread/A307 *listing*, and the [Hillman 880543 barrel](https://www.homedepot.com/p/202242356)
    is described as threaded through its sides. Neither listing supplies
@@ -83,18 +79,17 @@ delivered-part tolerances, safe support or repeated demounting.
    also finds zero nominal barrel-to-bore diameter allowance in all 46 CAD
    rows. No actual drill size or barrel fit is selected.
 
-   A [combined read-only owner trial](../../scripts/owner_barrel_combined_owner_trial.py)
-   now applies **both proposed changes together** to a detached copy of the
-   full 46-pair assembly. The complete visual cut still represents all 46
+   The [combined current-pose regression](../../scripts/owner_barrel_combined_owner_trial.py)
+   screens **both approved changes together** in a detached copy of the
+   maintained 46-pair assembly. The complete visual cut represents all 46
    pairs, with no missing drill path, unexpected path host or intersection
    involving all eight changed drill paths (including both shifted barrel
    entry bores) and another protected/source cut.
    The four extra bore-tip segments stay within the modeled top rail and
    report no protected-feature or unrelated-wood hit above the 1 mm³ screen.
-   Each top-outer shaft would have 2 mm nominal bore-tip clearance. This
-   improves the decision evidence; it does **not** change the maintained
-   viewer, establish net-section strength, thread fit or service tolerances,
-   or replace either owner approval.
+   Each top-outer shaft has 2 mm **nominal** bore-tip clearance. This does
+   **not** establish net-section strength, thread fit, service tolerances,
+   or any fabrication approval.
 3. **Resolve the demanding center and outer-header load paths.** The single
    principal/header fastener cannot transmit a free couple by itself;
    compression/contact and the connected frame must carry signed opening
@@ -179,13 +174,12 @@ bill, actual owner cash need, floor or ceiling. Hold/LED/pad shortfalls,
 tools, delivery and tax remain outside it. No construction-hardware purchase
 follows from either catalog subtotal.
 
-**Immediate owner decisions requested:** (1) may the candidate shift only
-the first bore/bolt row at each of the two left center-rail stations from
-N = 60 to **42 mm**, subject to a fresh integrated clearance and cut-section
-check? (2) may the four top-outer 5-in bolt machine bores be modeled **2 mm
-deeper** to provide a nominal 2 mm bore-tip gap, subject to the same complete
-checks? Neither trial moves a panel, panel screw, retained frame bolt, or
-center post. Neither authorizes drilling, fabrication, or climbing.
+**Owner decision recorded:** both bounded frame-hole changes above are
+approved for modeling and integrated. Neither moves a panel, panel screw,
+retained frame bolt, or center post. Neither authorizes drilling, fabrication,
+load testing, or climbing. The next design decision is how to provide and
+verify the center principal/header moment path without unacceptable thin
+wood margins; delivered barrel and bolt thread evidence is also required.
 
 [viewer]: https://mckayreedmoore.github.io/mini-moonboard/?model=owner-barrel-layout&view=rear
 [plywood]: https://www.lowes.com/pd/Roseburg-23-32-CAT-PS1-09-Square-Structural-Plywood-Douglas-Fir-Application-as-4-x-8/1000015973

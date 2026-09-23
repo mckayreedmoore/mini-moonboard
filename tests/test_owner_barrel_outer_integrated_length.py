@@ -39,3 +39,35 @@ def test_integrated_outer_top_lengths_are_family_specific(wood):
                 == historical["stations"][station]["drilling_paths"].keys()
             )
     assert integrated["diagnostics"]["integrated_length_revision"] == revised
+
+
+def test_integrated_top_outer_bores_alone_gain_two_mm_tip_clearance(wood):
+    integrated = outer.build_integrated_recessed_layout(wood)
+    historical = outer.build_recessed_viewer_layout(wood)
+    duties = ledger.selected_duties()
+    changed = []
+    for station, data in integrated["stations"].items():
+        family = duties[station]["family"]
+        for bolt_name, bolt in data["bolts"].items():
+            bore_name = bolt_name.removesuffix("_bolt") + "/machine_bore"
+            bore = data["drilling_paths"][bore_name]
+            old_bore = historical["stations"][station]["drilling_paths"][bore_name]
+            if family != "top_outer":
+                assert bore.Volume() == pytest.approx(old_bore.Volume())
+                bounds = bore.BoundingBox()
+                old_bounds = old_bore.BoundingBox()
+                for coordinate in ("xmin", "xmax", "ymin", "ymax", "zmin", "zmax"):
+                    assert getattr(bounds, coordinate) == pytest.approx(
+                        getattr(old_bounds, coordinate)
+                    )
+                continue
+            axis = bolt.direction.normalized()
+            bore_end = max(vertex.Center().dot(axis) for vertex in bore.Vertices())
+            bolt_tip = (bolt.start + axis * bolt.length).dot(axis)
+            assert bore_end - bolt_tip == pytest.approx(2.0)
+            assert bore.Volume() - old_bore.Volume() == pytest.approx(
+                3.141592653589793 * (outer.MACHINE_BORE_D_MM / 2) ** 2 * 2.0,
+                rel=1e-5,
+            )
+            changed.append(bore_name)
+    assert len(changed) == 4

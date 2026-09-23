@@ -62,7 +62,7 @@ def test_published_barrel_scene_inventory_and_release_boundary():
         len(
             scene["visual_wood_replacement"]["remaining_to_protected_cut_intersections"]
         )
-        == 2
+        == 0
     )
     assert inventory["barrel_nut_envelopes"] == 46
     assert inventory["new_diagnostic_bolt_axes"] == 46
