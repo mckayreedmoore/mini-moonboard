@@ -79,10 +79,16 @@ development lane. It may replace the 144 structural SDS attachments at 24
 ML24Z stations only after its own geometry, mechanics, and evidence gates
 pass. Preserve `compact-floor-flush-development`, its evidence, its twelve
 existing frame-bolt arrangements as the starting layout, and its 66
-panel/kicker screw axes. On 2026-09-20 the owner approved changes to hidden
+Hillman panel/kicker screws. For the owner-directed two-vertical-bolt
+principal/header layout, panel/kicker screw axes may move where necessary to
+keep supported receivers after hidden-frame changes. Record every moved axis,
+retain the 66-screw count and purchased screw policy, and recheck backing,
+edge support, installation, and load transfer. This relaxation applies only
+to the separate bolted candidate; the selected angle-frame axes stay fixed.
+On 2026-09-20 the owner approved changes to hidden
 frame members in this separate lane;
 the earlier center-support-only limit no longer governs it. Preserve the
-climbing surface, panel outlines, and panel/kicker screw layout, and verify
+climbing surface, panel outlines, and panel/kicker screw count, and verify
 kerf-right kicker edge support. Changed frame bolts must be rechecked, not
 silently assumed preserved. Panel through-bolts, inserts, new panel fasteners,
 and custom steel remain outside this lane. The owner's earlier
@@ -100,6 +106,6 @@ connections as the current development approach; the
 [simple-joints V4 plan](docs/bolted-candidate-simple-joints-v4.md) and
 rated-hardware focus are retained as history.
 The selected-candidate stock/geometry constraints above remain binding only
-for selected-baseline changes. The bolted candidate must keep the fixed
-panel/screw policy and prove any new receiver/backer connections rather
+for selected-baseline changes. The bolted candidate must keep the panel/screw
+hardware policy and prove any new receiver/backer connections rather
 than inheriting the old member identities or case passes.

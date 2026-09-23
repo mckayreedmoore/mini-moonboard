@@ -13,6 +13,13 @@ frame bolts, and 66 unchanged panel/kicker screw axes. The six required load
 cases are A12 left, A12 rear, A12 forward, K12 right, K12 rear, and A1 rear
 under the recorded no-slip floor assumption.
 
+This contract describes the earlier 46-pair integrated pose. The later
+owner-directed two-vertical-bolt principal/header pose may relocate necessary
+panel/kicker screw axes while retaining all 66 purchased screws and fixed
+panel outlines. Its proposed 48-pair inventory, changed screw receivers,
+load paths, and CAD identity need a revised source-bound contract; the
+`PASS` entries for the earlier pose do not transfer.
+
 ## Result rules
 
 Each identifier below must produce one of four results:
@@ -53,7 +60,7 @@ unexpected criterion identifiers.
 | `bn_acceptance_contract_complete` | Criteria/provenance | Every adopted identifier has frozen method, applicability, source, factors, limit, and failure-disposition fields, and the expected-set authority rejects missing or unexpected identifiers. | `UNRESOLVED`: the station and resistance registers fail closed on their finite inventories, but method-specific metadata and several numerical acceptance limits remain unresolved. |
 | `bn_load_case_identity` | Provenance | All six case names, signed vectors, application points, gravity/equipment, dynamic assumptions, and stand-off values match the maintained producer and are recorded in the frozen candidate contract. | `PASS`: [`barrel-nut-stations.json`](barrel-nut-stations.json) records and authenticates those complete fields for all six prepared cases. This is load-input identity only; no case has been solved or accepted. |
 | `bn_connector_inventory` | Inventory | Exactly 24 barrel-joint duties, 46 bolt/barrel pairs, twelve retained frame bolts, and 66 panel/kicker screws are present; no ML24Z or structural SDS connector is active. Every connector has one station and the intended host members. | `PASS`: the source-bound station register enforces the exact counts, hosts, paths, and exclusion of 144 legacy structural SDS axes. This is not a resistance pass. |
-| `bn_fixed_surface_policy` | CAD identity | Climbing surface, panel outlines, hold layout, and all 66 panel/kicker screw axes match the fixed policy; kerf-right kicker edge support is explicit. | `PASS`: the station register binds six panels, all 66 fixed axes, and the four center kicker-screw receiver traces. Strength and delivered fit remain separate. |
+| `bn_fixed_surface_policy` | CAD identity | Climbing surface, panel outlines, and hold layout stay fixed; all 66 purchased panel/kicker screws have source-bound axes and supported receivers. Necessary axis moves in the revised two-vertical-bolt pose receive backing, edge-support, installation, and load-transfer checks. | `PASS` for the earlier 46-pair pose only: its station register binds six panels, all 66 original axes, and four center kicker-screw receiver traces. The revised pose is `UNRESOLVED` until its changed axes and receivers have a new source-bound contract and checks. |
 | `bn_controlled_material_inputs` | Controlled input | The design specification fixes species, grade, moisture/service condition, treatment/incising status, minimum sections, grain directions, and all 2024 NDS values and adjustments for every structural member. | `UNRESOLVED`: a conditional dry, unincised DF-L No. 2 reference exists, but member-specific minimum sections and complete adjustments are not frozen. Delivered conformance remains a separate observation. |
 | `bn_controlled_hardware_inputs` | Controlled input | Every bolt-length family, barrel, and washer has a traceable standard or exact product specification covering material minimums, dimensions and tolerances, thread start/runout, usable male and female threads, barrel axis and opening, and relevant resistance inputs. | `UNRESOLVED`: the [selected qualification stack](barrel-nut-selected-hardware.md) fixes STAFAST `JCD14201606NL ZN` barrels, CDE `1456BHT5` / `1472BHT5` / `1480BHT5` / `14104BHT5` fully threaded Grade 5 bolts, and Fastenal `33857` hardened washers. The CDE IFI-199 dimensional table and the bolt/washer standards provide controlled constituent inputs, but the CDE manufacturer certificates and Class 2A confirmations, the Fastenal washer MTR, and delivered dimensions remain absent. STAFAST publishes nominal body geometry only; controlled barrel tolerances, internal thread class and complete female interval, material minimums, resistance, and lot conformity remain absent. |
 

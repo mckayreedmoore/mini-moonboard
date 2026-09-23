@@ -35,7 +35,11 @@ substantive v2 safety, six-case, shop, and independent-review gates remain.
   stations with a separately evidenced structural connection system.
 - Retain the twelve existing frame-bolt arrangements as the starting layout;
   recheck their changed stacks, loads, and interference later.
-- Preserve all 48 main-panel and 18 kicker screws. Panel removal is permitted;
+- Preserve all 48 main-panel and 18 kicker screws. For the owner-directed
+  two-vertical-bolt principal/header layout, axes may move where necessary to
+  provide supported receivers after hidden-frame changes. Record every move
+  and recheck backing, edge support, installation, and load transfer. The
+  selected angle-frame axes remain unchanged. Panel removal is permitted;
   panel inserts, panel through-bolts, and new panel hardware are excluded.
 - Target zero routine structural wood-thread removals per move. This is not a
   whole-board zero and does not remove the 66 panel screw operations.

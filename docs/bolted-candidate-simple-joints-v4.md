@@ -6,6 +6,12 @@ and its linked current calculations supersede this page's outward-post,
 separate-backer and 48-pair progress notes. This V4 plan remains historical
 evidence; it is not a cut or structural release.
 
+The later owner-directed two-vertical-bolt principal/header development
+relaxes this page's fixed 66-axis rule for the separate bolted candidate.
+The 66 purchased panel/kicker screws remain, and each changed axis requires
+an explicit receiver, edge-support, installation, and load-transfer check.
+The fixed-axis statements below describe earlier layouts and their evidence.
+
 ## Owner-directed layout reset (2026-09-21)
 
 The immediate milestone is one owner-reviewable kerf-right frame layout with all 24

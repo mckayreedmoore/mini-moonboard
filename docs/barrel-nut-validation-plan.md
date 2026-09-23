@@ -9,6 +9,13 @@ shown adequate**. Otherwise, the endpoint is an exact failed or unresolved
 criterion and the smallest concrete next action. More viewer polish, another
 nominal-fit probe, or passing software tests alone does not finish this work.
 
+Later owner direction permits necessary panel/kicker screw-axis relocation for
+the two-vertical-bolt principal/header layout while retaining the 66 purchased
+screws, fixed panel outlines, and screw hardware policy. The unchanged-axis
+descriptions below identify the earlier 46-pair integrated pose, not a binding
+rule for the revised pose. Rebuild its station register, load paths, checks,
+and shop packet for every changed axis and receiver before claiming acceptance.
+
 ## 1. Correct scope and starting point
 
 The subject is the **integrated kerf-right barrel-nut frame** built by
@@ -38,7 +45,7 @@ The selected authority in `current-candidate.json` remains
 `compact-floor-flush-development`. Its six-case pass belongs to the angle
 frame. Neither that pass nor its listed ML24Z resistance transfers here.
 Hidden-frame changes are permitted in the separate development lane by
-`AGENTS.md`; panel fastener changes, custom steel, half-laps, housed/interlocking
+`AGENTS.md`; panel fastener type/count changes, custom steel, half-laps, housed/interlocking
 joinery, and routine structural wood-thread removal remain outside scope.
 
 Start with these current sources:
@@ -151,7 +158,7 @@ Run this alongside BN-1; stop expensive downstream work on infeasible details.
    is not a ready fix: its 2.796 mm side wood and 1.501 mm inter-pocket stock
    also need justification. Avoid an unbounded alternative-design search.
 3. Resolve outer-header pockets and both center post/header connections,
-   including transfer from the four unchanged kicker screws into the new posts.
+   including transfer from the four kicker screws into their mapped receivers.
    Preserve the actual limitations of Hillman panel-screw strength data.
 4. Integrate the authorized left-row/top-bore changes, or use their landed
    equivalent. Check all 46 pairs against service cuts, other drill paths,
@@ -397,8 +404,10 @@ authority needed to avoid stopping later at the existing native-solve rule.
 > package if its complete joints and frame checks can be shown adequate.
 > Start from latest master and reconcile existing worktree changes and recorded
 > approvals. Preserve the selected angle-frame package and historical evidence.
-> Keep the climbing surface, panel outlines, 66 panel/kicker screw axes and
-> individual-member transport requirement fixed. Use the existing hidden-frame
+> Keep the climbing surface, panel outlines, 66 purchased panel/kicker screws,
+> and individual-member transport requirement fixed. Necessary screw-axis moves
+> for the two-vertical-bolt principal/header layout require mapped receivers
+> and new backing, edge-support, installation, and load-transfer checks. Use the existing hidden-frame
 > design authority; do not introduce custom steel, inserts, half-laps or
 > housed/interlocking joinery. I authorize the candidate's two N = 42 mm
 > left-center first-row changes and four 2 mm top-outer bore extensions if not

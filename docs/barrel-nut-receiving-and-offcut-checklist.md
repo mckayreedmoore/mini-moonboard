@@ -208,8 +208,11 @@ material basis.
 
 ## 4. Owned plywood and fixed panel yield
 
-The candidate preserves kerf-right panel outlines and all 66 panel/kicker
-screw axes. Current rectangular blank envelopes are 1217.6125 × 1219.2 mm for
+The earlier integrated candidate preserves kerf-right panel outlines and all
+66 panel/kicker screw axes. The owner-directed two-vertical-bolt development
+may move necessary screw axes while retaining the 66 purchased screws and
+panel outlines; its eventual shop packet must show the revised axes and their
+receivers. Current rectangular blank envelopes are 1217.6125 × 1219.2 mm for
 each of four main panels and 1217.6125 × 277 mm for each of two kickers, with
 modeled thickness 18.25625 mm. These envelopes are not proof that two owned
 sheets yield the parts. Two main blanks plus the modeled 3.175 mm shared kerf
@@ -230,7 +233,8 @@ separately verified matching offcut or additional sheet.
 
 Stop before cutting if the four main faces and two whole kickers do not fit the
 measured sheets. Adding a sheet may fix stock quantity, but does not authorize
-resizing a fixed panel or moving a screw axis.
+resizing a fixed panel. Any approved screw-axis relocation belongs in the
+revised candidate drill sheets, not in an improvised plywood nesting change.
 
 ## 5. Sacrificial bore and installed-stack trials
 
