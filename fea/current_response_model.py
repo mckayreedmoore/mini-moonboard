@@ -70,8 +70,12 @@ def directional_connector(structure, first, second, properties, name, owner):
         for i,direction in enumerate(basis):
             structure.equations.append([(node,i+1,1.)]+[(source,j+1,-float(value))
                 for j,value in enumerate(direction) if abs(value)>1.e-13])
+    first_spring = len(structure.springs)
     for i,stiffness in enumerate((properties['axial_n_per_mm'],properties['lateral_n_per_mm'],properties['lateral_n_per_mm'])):
         structure.spring(*auxiliary,stiffness,name,dofs=(i+1,))
+    for row in structure.springs[first_spring:]:
+        row['connector_name'] = name
+        row['connector_local_dof'] = row['dof']
     structure.rotation_masters.update(auxiliary)
     owner['force_basis']=basis.tolist()
 

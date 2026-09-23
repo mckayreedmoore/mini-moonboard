@@ -55,15 +55,28 @@ def physical_forces(record, result, precision=None):
     """Rotate connector-local spring forces into the physical global frame."""
     rows = {}
     radii = {}
+    clearance_offsets = {}
     if precision is not None:
         for spring in record['springs']:
             first, second = spring['nodes']
             d = spring['dof']-1
-            radii.setdefault(spring['name'], np.zeros(3))[d] = (
+            radii.setdefault(spring['name'], np.zeros(3))[d] += (
                 spring['stiffness_n_per_mm']*(precision[first][d]+precision[second][d])
                 if spring.get('active', True) else 0.)
-    for name, owner in record['connection_ownership'].items():
-        force = np.array(result['connector_forces'][name]['force_on_first_xyz_n'])
+    for spring in record.get('springs', []):
+        if not spring.get('radial_clearance_assumption') or not spring.get('active', True):
+            continue
+        normal = spring.get('clearance_contact_normal')
+        if normal is None or spring['dof'] not in (2, 3):
+            raise ValueError('Active radial-clearance spring requires a two-dimensional contact normal')
+        clearance_offsets.setdefault(spring['name'], np.zeros(3))[spring['dof']-1] += (
+            spring['stiffness_n_per_mm'] * spring['radial_clearance_mm']
+            * normal[spring['dof']-2]
+        )
+    owners = {**record['connection_ownership'], **record.get('radial_clearance_ownership', {})}
+    for name, owner in owners.items():
+        force = (np.array(result['connector_forces'][name]['force_on_first_xyz_n'])
+                 - clearance_offsets.get(name, np.zeros(3)))
         radius = radii.get(name, np.zeros(3))
         if 'force_basis' in owner:
             radius = np.abs(np.asarray(owner['force_basis']).T) @ radius
@@ -71,15 +84,29 @@ def physical_forces(record, result, precision=None):
         elif 'scalar_normal' in owner:
             radius = radius[0]*np.abs(owner['scalar_normal'])
             force = force[0]*np.asarray(owner['scalar_normal'])
-        row = {**owner, 'force_on_first_xyz_n': force.tolist(),
-            'force_on_second_xyz_n': (-force).tolist(),
-            'force_rounding_radius_xyz_n': radius.tolist()}
-        if 'axis' in owner:
-            axis = np.asarray(owner['axis'])
+        public_name = owner.get('connector_name', name)
+        clean_owner = {key: value for key, value in owner.items()
+                       if key not in ('connector_name', 'radial_clearance_assumption')}
+        if public_name not in rows:
+            rows[public_name] = {**clean_owner,
+                'force_on_first_xyz_n': np.zeros(3),
+                'force_rounding_radius_xyz_n': np.zeros(3)}
+        row = rows[public_name]
+        if any(row.get(key) != clean_owner.get(key)
+               for key in ('first', 'second', 'point', 'axis')):
+            raise ValueError('Connector force components do not share physical ownership')
+        row['force_on_first_xyz_n'] += force
+        row['force_rounding_radius_xyz_n'] += radius
+    for row in rows.values():
+        force = row['force_on_first_xyz_n']
+        row['force_on_first_xyz_n'] = force.tolist()
+        row['force_on_second_xyz_n'] = (-force).tolist()
+        row['force_rounding_radius_xyz_n'] = row['force_rounding_radius_xyz_n'].tolist()
+        if 'axis' in row:
+            axis = np.asarray(row['axis'])
             axial = float(force @ axis)
             row.update(axial_along_installation_direction_n=axial,
                 transverse_shear_n=float(np.linalg.norm(force-axial*axis)))
-        rows[name] = row
     return rows
 
 
@@ -87,7 +114,8 @@ def assess(record, data, frd, expansion, *, expected_candidate='no-shoes-develop
     if record.get('candidate') != expected_candidate or any(e[0] == 'S8' for e in record['elements'].values()):
         raise ValueError('Require the current candidate with physical layered panel solids')
     ordinary = {**record, 'springs': [dict(s, bearing_closed_assumption=False)
-        if s['name'].endswith('_friction') or s.get('tension_only_assumption')
+        if (s['name'].endswith('_friction') or s.get('tension_only_assumption')
+            or s.get('radial_clearance_assumption'))
         else s for s in record['springs']]}
     result = frame.assess(ordinary, data)
     physical = physical_forces(record, result, frame.displacement_roundoff(data))
@@ -209,6 +237,137 @@ def next_axial_tension_names(rows, tolerance=1.e-7):
             (not row['active'] and row['extension_mm'] > tolerance)}
 
 
+def radial_clearance_inventory(springs):
+    """Validate coupled two-direction clearance groups and return their rows."""
+    groups = {}
+    for spring in springs:
+        if spring.get('radial_clearance_assumption'):
+            groups.setdefault(spring['name'], []).append(spring)
+    for name, rows in groups.items():
+        if (len(rows) != 2 or {row['dof'] for row in rows} != {2, 3}
+                or len({tuple(row['nodes']) for row in rows}) != 1
+                or len({row['stiffness_n_per_mm'] for row in rows}) != 1
+                or len({row.get('radial_clearance_mm') for row in rows}) != 1):
+            raise ValueError(name+': radial clearance requires two equal lateral springs')
+        clearance = rows[0].get('radial_clearance_mm')
+        if not np.isfinite(clearance) or clearance <= 0:
+            raise ValueError(name+': radial clearance must be positive and finite')
+    return groups
+
+
+def configure_radial_clearance(structure, states, base_loads):
+    """Apply balanced reference loads for one linearized radial-contact trial."""
+    groups = radial_clearance_inventory(structure.springs)
+    if set(states) != set(groups):
+        raise ValueError('Radial-clearance state inventory changed')
+    structure.loads = {node: np.asarray(force, dtype=float).copy()
+                       for node, force in base_loads.items()}
+    corrections = []
+    for name, rows in groups.items():
+        normal = states[name]
+        for row in rows:
+            row.pop('clearance_contact_normal', None)
+        if normal is None:
+            continue
+        normal = np.asarray(normal, dtype=float)
+        if normal.shape != (2,) or not np.isfinite(normal).all() or not np.isclose(
+                np.linalg.norm(normal), 1., atol=1.e-9):
+            raise ValueError(name+': engaged radial state requires a unit contact normal')
+        first, second = rows[0]['nodes']
+        correction = np.zeros(3)
+        for row in rows:
+            row['clearance_contact_normal'] = normal.tolist()
+            correction[row['dof']-1] = (row['stiffness_n_per_mm']
+                * row['radial_clearance_mm'] * normal[row['dof']-2])
+        for node, force in ((first, -correction), (second, correction)):
+            structure.loads[node] = structure.loads.get(node, np.zeros(3)) + force
+        corrections.append({'name': name, 'nodes': [first, second],
+            'contact_normal': normal.tolist(),
+            'force_on_first_local_n': (-correction).tolist(),
+            'force_on_second_local_n': correction.tolist()})
+    return corrections
+
+
+def radial_clearance_state(record, displacements, tolerance=1.e-7,
+                           direction_force_tolerance=0.1):
+    """Evaluate circular lateral gaps after one linearized native solve."""
+    groups = radial_clearance_inventory(record['springs'])
+    rows = []
+    for name, springs in groups.items():
+        active_values = {spring['active'] for spring in springs}
+        normals = {tuple(spring.get('clearance_contact_normal', ())) for spring in springs}
+        if len(active_values) != 1:
+            raise ValueError(name+': lateral clearance directions must switch together')
+        active = active_values.pop()
+        if (active and (len(normals) != 1 or not next(iter(normals)))
+                or not active and normals != {()}):
+            raise ValueError(name+': clearance normal does not match active state')
+        spring = springs[0]
+        first, second = spring['nodes']
+        relative = np.array([
+            float(displacements[second][dof-1] - displacements[first][dof-1])
+            for dof in (2, 3)
+        ])
+        radius = float(np.linalg.norm(relative))
+        clearance = spring['radial_clearance_mm']
+        current = list(next(iter(normals))) if active else None
+        normal_displacement = (float(relative @ np.asarray(current))
+                               if active else None)
+        # An engaged bore side cannot jump directly to another side.  Loss of
+        # compression releases it; only a following open trial may engage the
+        # new radial direction.
+        if active and normal_displacement <= clearance+tolerance:
+            proposed = None
+        else:
+            proposed = (relative/radius).tolist() if radius > clearance+tolerance else None
+        direction_error_force = (spring['stiffness_n_per_mm']*clearance
+            * float(np.linalg.norm(np.asarray(current)-np.asarray(proposed)))
+            if active and proposed is not None else None)
+        satisfied = bool((not active and proposed is None) or
+            (active and proposed is not None
+             and direction_error_force <= direction_force_tolerance))
+        raw_force = (spring['stiffness_n_per_mm']*relative
+                     if active else np.zeros(2))
+        correction = (spring['stiffness_n_per_mm']*clearance*np.asarray(current)
+                      if active else np.zeros(2))
+        physical = raw_force-correction
+        rows.append({'name': name, 'connector_name': spring.get('connector_name'),
+            'active': active, 'relative_lateral_displacement_mm': relative.tolist(),
+            'radius_mm': radius, 'clearance_mm': clearance,
+            'radial_overtravel_mm': radius-clearance,
+            'displacement_along_stored_normal_mm': normal_displacement,
+            'contact_normal': current, 'proposed_contact_normal': proposed,
+            'raw_spring_force_local_n': raw_force.tolist(),
+            'clearance_correction_local_n': correction.tolist(),
+            'physical_force_local_n': physical.tolist(),
+            'direction_error_force_n': direction_error_force,
+            'radial_clearance_assumption_satisfied': satisfied})
+    return rows
+
+
+def next_radial_clearance_states(rows):
+    return {row['name']: row['proposed_contact_normal'] for row in rows}
+
+
+def initial_radial_clearance_state(radial_groups, supplied=None):
+    """Validate a complete same-model checkpoint or start every gap open."""
+    if supplied is None:
+        return {name: None for name in radial_groups}
+    if not isinstance(supplied, dict) or set(supplied) != set(radial_groups):
+        raise ValueError('Initial radial-clearance checkpoint must match exact inventory')
+    result = {}
+    for name, normal in supplied.items():
+        if normal is None:
+            result[name] = None
+            continue
+        vector = np.asarray(normal, dtype=float)
+        if vector.shape != (2,) or not np.isfinite(vector).all() or not np.isclose(
+                np.linalg.norm(vector), 1., atol=1.e-9):
+            raise ValueError(name+': initial radial-clearance normal must be a finite unit vector')
+        result[name] = vector.tolist()
+    return result
+
+
 def initial_active_set(structure, metadata, initial_contact_names=None,
         initial_axial_tension_names=None):
     """Build a checkpoint active set without importing friction rows directly."""
@@ -221,6 +380,7 @@ def initial_active_set(structure, metadata, initial_contact_names=None,
     normal_names = {spring['name'] for spring in structure.springs
                     if spring['bearing_closed_assumption']
                     and not spring.get('tension_only_assumption')
+                    and not spring.get('radial_clearance_assumption')
                     and not spring['name'].endswith('_friction')}
     if initial_contact_names is not None:
         selected_normals = set(initial_contact_names)
@@ -236,7 +396,8 @@ def initial_active_set(structure, metadata, initial_contact_names=None,
         selected_axials = axial_names
     if initial_contact_names is None and initial_axial_tension_names is None:
         active = {spring['name'] for spring in structure.springs
-                  if spring['bearing_closed_assumption']}
+                  if (spring['bearing_closed_assumption']
+                      and not spring.get('radial_clearance_assumption'))}
     else:
         active = active_with_friction(selected_normals, spring_names,
                                       metadata['connection_ownership']) | selected_axials
@@ -246,7 +407,8 @@ def initial_active_set(structure, metadata, initial_contact_names=None,
 def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_factor=1.,
         module=None, expected_candidate='no-shoes-development', bolt_stiffness=None,
         contact_update_strategy='all', initial_contact_names=None,
-        initial_axial_tension_names=None, prepare_factory=None,
+        initial_axial_tension_names=None, initial_radial_clearance_states=None,
+        prepare_factory=None,
         extra_source_paths=(),
         **parameters):
     next_contact_names([], contact_update_strategy)
@@ -298,11 +460,22 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         pickle.dump({'model': (structure,metadata), 'source_sha256': before}, target)
     active, axial_names = initial_active_set(structure, metadata, initial_contact_names,
         initial_axial_tension_names)
+    radial_groups = radial_clearance_inventory(structure.springs)
+    radial_states = initial_radial_clearance_state(
+        radial_groups, initial_radial_clearance_states)
+    initial_radial_states = {name: None if normal is None else list(normal)
+                             for name, normal in radial_states.items()}
+    active |= {name for name, normal in radial_states.items() if normal is not None}
+    base_loads = {node: np.asarray(force, dtype=float).copy()
+                  for node, force in getattr(structure, 'loads', {}).items()}
     spring_names = {s['name'] for s in structure.springs}
     seen, history = set(), []
     report = {'contact_active_set_converged': False}
     for iteration in range(max_cycles):
-        signature = tuple(sorted(active))
+        corrections = configure_radial_clearance(structure, radial_states, base_loads)
+        signature = (tuple(sorted(active)), tuple(
+            (name, None if normal is None else tuple(round(value, 12) for value in normal))
+            for name, normal in sorted(radial_states.items())))
         if signature in seen:
             report['termination'] = 'Contact active set repeated without convergence'
             break
@@ -310,6 +483,7 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         job = directory/f'cycle-{iteration:02d}'
         job.mkdir()
         record = frame.record_structure(structure,metadata,active)
+        record['radial_clearance_reference_loads'] = corrections
         (job/'input.json').write_text(json.dumps(record, indent=2)+'\n')
         (job/'frame.inp').write_text(structure.deck(active_bearings=active,stress=False).replace(
             '*END STEP','*NODE FILE,OUTPUT=3D\nU\n*END STEP'))
@@ -323,28 +497,44 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         if native.returncode or '*ERROR' in log.upper():
             raise ValueError('Native current-frame solve failed; inspect '+str(job/'frame.log'))
         report = assess(record,(job/'frame.dat').read_text(),(job/'frame.frd').read_text(),(job/'frame.12d').read_text(), expected_candidate=expected_candidate)
+        displacements = frame.panel_kernel.read_blocks(
+            (job/'frame.dat').read_text())['displacements']
         if axial_names:
             report['axial_tension'] = axial_tension_state(
-                record, frame.panel_kernel.read_blocks((job/'frame.dat').read_text())['displacements'])
+                record, displacements)
             report['axial_tension_assumption_passed'] = all(
                 row['tension_only_assumption_satisfied'] for row in report['axial_tension'])
+        if radial_groups:
+            report['radial_clearance'] = radial_clearance_state(record, displacements)
+            report['radial_clearance_assumption_passed'] = all(
+                row['radial_clearance_assumption_satisfied']
+                for row in report['radial_clearance'])
         (job/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
         history.append({'directory':job.name,'active_count':len(active),
             'contact_passed':report['closed_bearing_assumption_passed'],
             'axial_tension_active_names': sorted(active & axial_names),
-            'axial_tension_passed': report.get('axial_tension_assumption_passed')})
+            'axial_tension_passed': report.get('axial_tension_assumption_passed'),
+            'radial_clearance_active_names': sorted(
+                name for name, normal in radial_states.items() if normal is not None),
+            'radial_clearance_states': {name: normal for name, normal
+                                        in sorted(radial_states.items())},
+            'radial_clearance_passed': report.get('radial_clearance_assumption_passed')})
         print(json.dumps({'cycle':iteration,'equilibrium':report['global_equilibrium_passed'],
             'member_equilibrium':report['member_equilibrium_passed'],
             'contacts':report['closed_bearing_assumption_passed'],
             'panel_displacement_mm':report['maximum_panel_displacement_mm']}),flush=True)
-        if report['closed_bearing_assumption_passed'] and report.get('axial_tension_assumption_passed', True):
+        if (report['closed_bearing_assumption_passed']
+                and report.get('axial_tension_assumption_passed', True)
+                and report.get('radial_clearance_assumption_passed', True)):
             report['contact_active_set_converged'] = True
-            report['termination'] = ('Contact and PB01 axial active sets converged'
-                                     if axial_names else 'Normal contact active set converged')
+            report['termination'] = 'Normal, axial, and radial active sets converged'
             break
         active = active_with_friction(next_contact_names(report['bearings'], contact_update_strategy),spring_names,metadata['connection_ownership'])
         if axial_names:
             active |= next_axial_tension_names(report['axial_tension'])
+        if radial_groups:
+            radial_states = next_radial_clearance_states(report['radial_clearance'])
+            active |= {name for name, normal in radial_states.items() if normal is not None}
     report.setdefault('contact_active_set_converged',False)
     report['contact_update_strategy'] = contact_update_strategy
     report['axial_tension_active_set_converged'] = bool(
@@ -352,6 +542,14 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         report.get('axial_tension_assumption_passed', False))
     report['axial_tension_names'] = sorted(axial_names)
     report['pb01_axial_law'] = metadata.get('pb01_axial_law')
+    report['radial_clearance_active_set_converged'] = bool(
+        radial_groups and report['contact_active_set_converged']
+        and report.get('radial_clearance_assumption_passed', False))
+    report['radial_clearance_names'] = sorted(radial_groups)
+    report['barrel_radial_clearance_law'] = metadata.get('barrel_radial_clearance_law')
+    report['initial_radial_clearance_states'] = initial_radial_states
+    report['radial_clearance_states'] = {name: normal for name, normal
+                                         in sorted(radial_states.items())}
     report['initial_contact_names'] = sorted(initial_contact_names) if initial_contact_names is not None else None
     report['initial_axial_tension_names'] = (sorted(initial_axial_tension_names)
         if initial_axial_tension_names is not None else None)
@@ -361,6 +559,8 @@ def run(output, *, cache=None, max_cycles=30, connection_scale=1., panel_group_f
         'contact_active_set_converged','global_equilibrium_passed','member_equilibrium_passed','mpc_check_passed'))
     if axial_names:
         report['numerically_accepted'] &= report['axial_tension_active_set_converged']
+    if radial_groups:
+        report['numerically_accepted'] &= report['radial_clearance_active_set_converged']
     report['artifact_sha256'] = {str(p.relative_to(directory)):hashlib.sha256(p.read_bytes()).hexdigest()
         for p in directory.rglob('*') if p.is_file()}
     (directory/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')

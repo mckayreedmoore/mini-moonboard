@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "owner-barrel-signed-demands.schema.json",
+  "title": "Owner barrel candidate simultaneous signed demands",
+  "description": "Authenticated conditional solver actions. Each demand row is from one case; componentwise mixed-case envelopes are forbidden.",
+  "type": "object",
+  "required": [
+    "schema",
+    "candidate",
+    "solver_candidate",
+    "status",
+    "case_order",
+    "conditional_stiffnesses",
+    "counts",
+    "source_reports",
+    "case_equilibrium",
+    "station_case_demands",
+    "barrel_fastener_case_demands",
+    "retained_fastener_case_demands",
+    "retained_joint_case_demands",
+    "aggregation_policy",
+    "qualified_for_design",
+    "joint_resistance_assessed",
+    "structural_adequacy_claimed",
+    "drilling_released",
+    "fabrication_released",
+    "diy_released"
+  ],
+  "properties": {
+    "schema": { "const": "owner_barrel_signed_demands/v1" },
+    "candidate": { "const": "compact-floor-flush-bolted-development" },
+    "solver_candidate": { "const": "owner-barrel-integrated-native-preparation-v3" },
+    "status": { "const": "authenticated_conditional_demands_not_resistance" },
+    "case_order": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "conditional_stiffnesses": {
+      "type": "object",
+      "required": [
+        "barrel_axial_n_per_mm",
+        "barrel_lateral_n_per_mm",
+        "contact_n_per_mm3"
+      ],
+      "properties": {
+        "barrel_axial_n_per_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "barrel_lateral_n_per_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "contact_n_per_mm3": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "cases",
+        "station_case_records",
+        "barrel_fastener_case_records",
+        "retained_fastener_case_records",
+        "retained_joint_case_records",
+        "barrel_contact_cells",
+        "retained_contact_cells",
+        "combined_contact_cells",
+        "barrel_contact_cell_case_records",
+        "retained_contact_cell_case_records",
+        "combined_contact_cell_case_records"
+      ],
+      "properties": {
+        "cases": { "const": 6 },
+        "station_case_records": { "const": 144 },
+        "barrel_fastener_case_records": { "const": 276 },
+        "retained_fastener_case_records": { "const": 72 },
+        "retained_joint_case_records": { "const": 36 },
+        "barrel_contact_cells": { "const": 132 },
+        "retained_contact_cells": { "const": 72 },
+        "combined_contact_cells": { "const": 204 },
+        "barrel_contact_cell_case_records": { "const": 792 },
+        "retained_contact_cell_case_records": { "const": 432 },
+        "combined_contact_cell_case_records": { "const": 1224 }
+      },
+      "additionalProperties": false
+    },
+    "source_reports": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "case_equilibrium": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/equilibrium" }
+    },
+    "station_case_demands": {
+      "type": "array",
+      "minItems": 144,
+      "maxItems": 144,
+      "items": { "$ref": "#/$defs/stationDemand" }
+    },
+    "barrel_fastener_case_demands": {
+      "type": "array",
+      "minItems": 276,
+      "maxItems": 276,
+      "items": { "$ref": "#/$defs/fastenerDemand" }
+    },
+    "retained_fastener_case_demands": {
+      "type": "array",
+      "minItems": 72,
+      "maxItems": 72,
+      "items": { "$ref": "#/$defs/fastenerDemand" }
+    },
+    "retained_joint_case_demands": {
+      "type": "array",
+      "minItems": 36,
+      "maxItems": 36,
+      "items": { "$ref": "#/$defs/retainedJointDemand" }
+    },
+    "aggregation_policy": {
+      "type": "object",
+      "required": [
+        "simultaneous_case_records_only",
+        "componentwise_extrema_generated",
+        "mixed_case_force_moment_contact_prohibited"
+      ],
+      "properties": {
+        "simultaneous_case_records_only": { "const": true },
+        "componentwise_extrema_generated": { "const": false },
+        "mixed_case_force_moment_contact_prohibited": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "qualified_for_design": { "const": false },
+    "joint_resistance_assessed": { "const": false },
+    "structural_adequacy_claimed": { "const": false },
+    "drilling_released": { "const": false },
+    "fabrication_released": { "const": false },
+    "diy_released": { "const": false }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "vector3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number" }
+    },
+    "wrench": {
+      "type": "object",
+      "required": ["force_xyz_n", "moment_xyz_nmm"],
+      "properties": {
+        "force_xyz_n": { "$ref": "#/$defs/vector3" },
+        "moment_xyz_nmm": { "$ref": "#/$defs/vector3" }
+      },
+      "additionalProperties": false
+    },
+    "interfaceResultants": {
+      "type": "object",
+      "required": ["on_first_member", "on_second_member", "action_reaction_residual"],
+      "properties": {
+        "on_first_member": { "$ref": "#/$defs/wrench" },
+        "on_second_member": { "$ref": "#/$defs/wrench" },
+        "action_reaction_residual": {
+          "type": "object",
+          "required": ["force_xyz_n", "moment_xyz_nmm", "passed"],
+          "properties": {
+            "force_xyz_n": { "$ref": "#/$defs/vector3" },
+            "moment_xyz_nmm": { "$ref": "#/$defs/vector3" },
+            "passed": { "const": true }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "contactCell": {
+      "type": "object",
+      "required": [
+        "case",
+        "name",
+        "first_member",
+        "second_member",
+        "point_xyz_mm",
+        "normal_into_first_xyz",
+        "active",
+        "force_on_first_xyz_n",
+        "compression_n",
+        "tributary_area_mm2",
+        "average_cell_pressure_n_per_mm2"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "name": { "type": "string" },
+        "first_member": { "type": "string" },
+        "second_member": { "type": "string" },
+        "point_xyz_mm": { "$ref": "#/$defs/vector3" },
+        "normal_into_first_xyz": { "$ref": "#/$defs/vector3" },
+        "active": { "type": "boolean" },
+        "force_on_first_xyz_n": { "$ref": "#/$defs/vector3" },
+        "compression_n": { "type": "number", "minimum": 0 },
+        "tributary_area_mm2": { "type": "number", "exclusiveMinimum": 0 },
+        "average_cell_pressure_n_per_mm2": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "contactSummary": {
+      "type": "object",
+      "required": [
+        "total_n",
+        "active_cell_count",
+        "active_tributary_area_mm2",
+        "peak_average_cell_pressure_n_per_mm2"
+      ],
+      "properties": {
+        "total_n": { "type": "number", "minimum": 0 },
+        "active_cell_count": { "type": "integer", "minimum": 0 },
+        "active_tributary_area_mm2": { "type": "number", "minimum": 0 },
+        "peak_average_cell_pressure_n_per_mm2": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "fastenerDemand": {
+      "type": "object",
+      "required": [
+        "case",
+        "name",
+        "kind",
+        "station_or_joint",
+        "first_member",
+        "second_member",
+        "point_xyz_mm",
+        "axis_xyz",
+        "force_on_first_xyz_n",
+        "force_on_second_xyz_n",
+        "axial_along_installation_direction_n",
+        "transverse_shear_xyz_n",
+        "transverse_shear_n",
+        "moment_about_station_or_joint_origin_nmm",
+        "same_case_only"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "name": { "type": "string" },
+        "kind": { "enum": ["barrel_bolt", "retained_frame_bolt"] },
+        "station_or_joint": { "type": "string" },
+        "first_member": { "type": "string" },
+        "second_member": { "type": "string" },
+        "point_xyz_mm": { "$ref": "#/$defs/vector3" },
+        "axis_xyz": { "$ref": "#/$defs/vector3" },
+        "force_on_first_xyz_n": { "$ref": "#/$defs/vector3" },
+        "force_on_second_xyz_n": { "$ref": "#/$defs/vector3" },
+        "axial_along_installation_direction_n": { "type": "number" },
+        "transverse_shear_xyz_n": { "$ref": "#/$defs/vector3" },
+        "transverse_shear_n": { "type": "number", "minimum": 0 },
+        "moment_about_station_or_joint_origin_nmm": { "$ref": "#/$defs/vector3" },
+        "same_case_only": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "stationDemand": {
+      "type": "object",
+      "required": [
+        "case",
+        "station",
+        "first_member",
+        "second_member",
+        "reference_origin_xyz_mm",
+        "barrel_fastener_names",
+        "contact_cells",
+        "barrel_fastener_resultants",
+        "contact_resultants",
+        "complete_interface_resultants",
+        "contact_compression",
+        "same_case_force_moment_and_contact"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "station": { "type": "string" },
+        "first_member": { "type": "string" },
+        "second_member": { "type": "string" },
+        "reference_origin_xyz_mm": { "$ref": "#/$defs/vector3" },
+        "barrel_fastener_names": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "contact_cells": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/contactCell" } },
+        "barrel_fastener_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "contact_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "complete_interface_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "contact_compression": { "$ref": "#/$defs/contactSummary" },
+        "same_case_force_moment_and_contact": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "retainedJointDemand": {
+      "type": "object",
+      "required": [
+        "case",
+        "joint",
+        "first_member",
+        "second_member",
+        "reference_origin_xyz_mm",
+        "retained_fastener_names",
+        "contact_cells",
+        "fastener_resultants",
+        "contact_resultants",
+        "complete_interface_resultants",
+        "contact_compression",
+        "same_case_force_moment_and_contact"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "joint": { "type": "string" },
+        "first_member": { "type": "string" },
+        "second_member": { "type": "string" },
+        "reference_origin_xyz_mm": { "$ref": "#/$defs/vector3" },
+        "retained_fastener_names": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "contact_cells": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/contactCell" }
+        },
+        "fastener_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "contact_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "complete_interface_resultants": { "$ref": "#/$defs/interfaceResultants" },
+        "contact_compression": { "$ref": "#/$defs/contactSummary" },
+        "same_case_force_moment_and_contact": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "case",
+        "report_path",
+        "report_sha256",
+        "final_cycle",
+        "final_input_sha256",
+        "final_cycle_report_sha256",
+        "diagnostic_scope_sha256",
+        "producer_source_sha256"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "report_path": { "type": "string" },
+        "report_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "final_cycle": { "type": "string" },
+        "final_input_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "final_cycle_report_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "diagnostic_scope_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "producer_source_sha256": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "equilibrium": {
+      "type": "object",
+      "required": [
+        "case",
+        "global",
+        "members",
+        "mpc",
+        "contact_active_set_converged",
+        "barrel_axial_active_set_converged",
+        "barrel_radial_clearance_active_set_converged"
+      ],
+      "properties": {
+        "case": { "type": "string" },
+        "global": {
+          "type": "object",
+          "required": ["force_residual_xyz_n", "moment_residual_xyz_nmm", "passed"],
+          "properties": {
+            "force_residual_xyz_n": { "$ref": "#/$defs/vector3" },
+            "moment_residual_xyz_nmm": { "$ref": "#/$defs/vector3" },
+            "passed": { "const": true }
+          }
+        },
+        "members": { "type": "object" },
+        "mpc": { "type": "object" },
+        "contact_active_set_converged": { "const": true },
+        "barrel_axial_active_set_converged": { "const": true },
+        "barrel_radial_clearance_active_set_converged": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  }
+}
