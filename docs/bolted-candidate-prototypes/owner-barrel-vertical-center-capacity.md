@@ -181,5 +181,7 @@ The signed contact calculation is
 [`scripts/owner_barrel_vertical_center_contact_screen.py`](../../scripts/owner_barrel_vertical_center_contact_screen.py).
 The follow-on compatibility fixture and finite decision are
 [`owner-barrel-vertical-center-joint-fixture.md`](owner-barrel-vertical-center-joint-fixture.md).
+The ordinary-retail ABN trial and updated governing screen are
+[`owner-barrel-abn-governing-screen.md`](owner-barrel-abn-governing-screen.md).
 All three stay fail-closed and report every unsupported mode rather than
 substituting contact area or collision clearance for strength.
