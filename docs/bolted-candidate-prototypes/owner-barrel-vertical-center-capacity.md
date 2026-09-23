@@ -179,5 +179,7 @@ The executable calculation is
 [`scripts/owner_barrel_vertical_center_capacity.py`](../../scripts/owner_barrel_vertical_center_capacity.py).
 The signed contact calculation is
 [`scripts/owner_barrel_vertical_center_contact_screen.py`](../../scripts/owner_barrel_vertical_center_contact_screen.py).
-Both stay fail-closed and report every unsupported mode rather than substituting
-contact area or collision clearance for strength.
+The follow-on compatibility fixture and finite decision are
+[`owner-barrel-vertical-center-joint-fixture.md`](owner-barrel-vertical-center-joint-fixture.md).
+All three stay fail-closed and report every unsupported mode rather than
+substituting contact area or collision clearance for strength.
