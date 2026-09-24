@@ -39,6 +39,48 @@ Do not change selected authority to make this development lane appear complete.
 This checkpoint is source and geometry work only. Component tests and nominal
 clearance do not close a stage gate.
 
+### Latest follow-up and next actions
+
+The active WJ-04 configuration remains
+`narrow_x95p25_ordinary_bolt_candidate`; deployed viewer remains at `40b97ecf`.
+The newer geometry below remains isolated diagnostic work until parent review
+and integration. The [part-count review](hypotheses/part-count-and-merge-review.md)
+projects 28 connector pieces and 104 candidate bolt positions against the
+original 10–14-piece aim. No simple documented merge meets that aim under
+current constraints. Review complexity before copying the remaining twelve
+duties; this is a planning decision, not a new acceptance gate.
+
+Immediate sequence: resolve the right four-duty adapter source check and rerun
+its combined report. First attempt materialized family geometry for 66.77 s,
+then stopped assembling the combined report on missing
+`wj04_base._source_inventory`. After loader repair, the second stopped at a
+source-reconstruction mismatch of 1,260.109751 mm³ for
+`base_principal_center_right`; eight extra candidate purchased-length cuts
+explain the principal delta. The separate rail-hole mismatch is also traced:
+each rail's three outer-duty SDS axes shift by −3.175 mm through
+`WidthAdapter.connections`, while finished-rail trim retains the original
+holes. Official native cuts reconstruct 0/0; the per-host translated side
+requires shifted cuts. The owner is separating per-host native cuts from
+candidate purchase cuts. No combined report or geometry verdict exists; no
+tolerance is waived.
+Static review of shared-host machining and the 6.604 mm WJ-06 side-shaft
+occupancy sensitivity is complete; nominal shaft diameter remains 6.35 mm,
+and sensitivity adds no strength claim. The [exact WJ-03 coaxial-cylinder
+supplement](hypotheses/wj03-head-withdrawal-exact-shaft.md) has run: all 20
+shafts clear fixed obstacles and all four separately sampled counterhold
+headings, the 80 coarse self-bore/washer hit pairs disappear, and there are no
+exact-only hits. Full operation-route summary remains pending; this sampled
+shaft result alone does not establish physical access.
+After local geometry reports, compose the existing twelve-duty hypotheses into
+one coherent diagnostic model before updating the viewer. Mechanical review
+found no categorical topology incompatibility. Then run bounded,
+capacity-independent checks for net sections (bevels, G7 crosscut, center
+relief, backer counterbores), backer-to-header resistance, and signed wrench
+closure/contact/bolt-demand triage. Use historical actions as diagnostics;
+these results inform the parent’s broader-replication choice, not a new gate.
+No native solve is authorized. Keep the deployed viewer and active registry
+unchanged until parent review.
+
 - **WJ-03:** the current `wj03-sequence-diagnostic.json` includes the WJ-05
   diagnostic backers, shifted posts, bolts, stacks, and four center receiver
   IDs. All 42 nominal screw/tool and withdrawal screens, both 250 mm lower
@@ -135,16 +177,45 @@ viewer. None is integrated, promoted, or accepted.
   while holding the nut stationary, then removing the nut and washer. These
   operation screens do not establish actual tool fit, continuous motion,
   physical floor clearance, or acceptance; this hypothesis is not integrated.
-  A separate outer head-withdrawal study is in progress; no result is available.
+  The [head-withdrawal report](hypotheses/wj03-head-withdrawal.md) now screens
+  20 stacks: seated socket envelopes clear all 20; broad shaft boxes hit the
+  same stacks' own receiver bores and washer rings all 20, a conservative-box
+  artifact rather than demonstrated blockage. Ratchet and washer-exit proxy
+  hits remain as reported. The [exact coaxial-cylinder supplement](hypotheses/wj03-head-withdrawal-exact-shaft.md)
+  clears all 20 nominal shafts against fixed geometry and all four separately
+  sampled counterhold headings (20/20 each). It removes 80 coarse self-bore/
+  washer pairs and reports no exact-only hits. Minimum Z is 126.251 mm above
+  the analytical floor. This nominal proxy result does not establish physical
+  tool fit or a complete removal route; summarize that route separately.
 - **WJ-04 upper G7 crosscut** (`5555c646`, [archived probe](hypotheses/wj04-upper-g7-crosscut.md)) crosscuts the upper cleat and reverses its upper-rail bolt stack. Bodies, stacks, and all 16 washer seats clear, but all four rail-bolt insertion paths are blocked with neighboring parts retained. The duty-registry workstream is planning rail-plus-cleat subassemblies outside the frame.
 - **WJ-04 local +N access** ([refined sampled screen](hypotheses/wj04-pair-access-local-n.md)) tests lower and upper right rail/cleat moves with far-end duties retained. Each move has eight distinct obstacle pairs with sampled exact intersections: three retained outer-duty SDS beams and five service wires. The report remains an unaccepted discrete screen; it proves neither continuous blockage nor a physical route.
 - **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. This generic proxy-to-wood screen establishes neither actual wrench access nor a complete operation path; see the catalog-sized comparison below for current tool-envelope evidence.
-- **WJ-05 center tool screen** ([catalog-envelope comparison](hypotheses/wj05-center-tools/README.md)) now records overlaps for socket/extension, counterhold, and ratchet proxies at both upper-header row-2 stations. Opposite ratchet strokes still hit lower-post washer/timber. These are external envelopes, not proof of tool fit or impossibility. A separate 10 mm outward post/lower-cleat/axis variant is in progress.
-- **WJ-06 right outer paired rails** ([installed-geometry archive](hypotheses/wj06-outer-pair.md), `b69ca5fa`) materializes two far-end right rail-pair geometries and eight provisional bolt stacks. It is static installed geometry only; whether +N insertion needs side release is untested. The next screen tests the rail and two cleats moving +N with principal/side members retained and X bolts absent. Assembly sequence, wrench access, and capacity remain untested. Right four-duty integration is in progress; no replacement is accepted.
+- **WJ-05 center tool screen** ([catalog-envelope comparison](hypotheses/wj05-center-tools/README.md)) records overlaps for socket/extension, counterhold, and ratchet proxies at both upper-header row-2 stations. Opposite ratchet strokes still hit lower-post washer/timber. These are external envelopes, not proof of tool fit or impossibility; the separate ±190 mm trial below screens a preferred modeled route.
+- **WJ-05 ±190 mm center-post variant** ([corrected geometry archive](hypotheses/wj05-center-post-x190/README.md)) moves both posts, lower cleats, and eight lower axes outward 10 mm. The corrected report is `nominal_geometry_clear_diagnostic`: body, bore, installed hardware, receiver, washer-seat, contact-face, wire, and preferred modeled tool-route checks pass. Rejected ratchet sectors retain diagnostic hits. This variant widens post and lower-bolt-group spacing while reducing upper-cleat/post overlap; fresh mechanics, physical access, and complete-joint evidence remain open.
+- **WJ-06 right outer paired rails** ([installed-geometry archive](hypotheses/wj06-outer-pair.md), `b69ca5fa`) materializes two far-end right rail-pair geometries and eight provisional bolt stacks. It is static installed geometry only; whether +N insertion needs side release is untested. The next screen tests the rail and two cleats moving +N with principal/side members retained and X bolts absent. Assembly sequence, wrench access, and capacity remain untested. Right four-duty integration has no combined report. Eight extra candidate purchased-length cuts explain the principal source delta. Each rail's three outer-duty SDS axes shift by −3.175 mm through `WidthAdapter.connections`, but finished-rail trim retains original holes; native cuts reconstruct 0/0, while the per-host translated side requires shifted cuts. The owner is separating per-host native cuts from candidate purchase cuts. No replacement is accepted.
+
+The right shared-host adapter's first run materialized family geometry for
+66.77 s, then failed while assembling the combined report with
+`AttributeError: wj04_base._source_inventory`. Its second run passed that loader
+point but failed source reconstruction at `base_principal_center_right` by
+1,260.109751 mm³. Eight extra candidate purchased-length cuts explain the
+principal delta. The separate rail-hole mismatch is traced to each rail's
+three outer-duty SDS axes shifting −3.175 mm through
+`WidthAdapter.connections` while finished-rail trim retains the original
+holes. Official native cuts reconstruct 0/0; the per-host translated side
+requires shifted cuts. Owner is splitting per-host native cuts from candidate
+purchase cuts. No combined report or geometry verdict exists, and no
+tolerance is waived.
+Static review of shared-host machining and the 6.604 mm ordinary-body
+occupancy sensitivity is complete. That sensitivity applies only to four
+WJ-06 side-bolt shafts; modeled steel diameter stays 6.35 mm. No combined
+report or acceptance exists.
 
 Keep these as separate hypotheses. Continue tool, withdrawal, and staged-motion
 work against retained obstacles; integrate only after parent review of
-source-bound results.
+source-bound results. Parent is deciding whether to proceed with or revise
+replication of the remaining twelve duties after the count review; this is a
+planning choice, not a new acceptance gate.
 
 No joint has accepted resistance or capacity. MVP-L, fresh six-case evidence,
 and MVP-E remain gated by the work below.
