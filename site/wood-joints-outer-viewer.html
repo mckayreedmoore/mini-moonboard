@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wood-joint development overlay</title>
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #121619; color: #f5f0e6; font: 14px system-ui, sans-serif; }
+    header { position: fixed; z-index: 2; left: 1rem; top: 1rem; width: min(36rem, calc(100vw - 4rem)); max-height: calc(100vh - 4rem); overflow: auto; padding: .8rem 1rem; border-radius: .4rem; background: #121619e8; }
+    h1 { margin: 0 0 .35rem; font-size: 1.15rem; }
+    p { margin: .35rem 0; line-height: 1.35; }
+    ul { margin: .25rem 0; padding-left: 1.25rem; }
+    details { margin-top: .35rem; }
+    button { margin: .45rem .35rem 0 0; padding: .35rem .6rem; color: inherit; background: #273038; border: 1px solid #71808a; border-radius: .25rem; }
+    fieldset { display: flex; flex-wrap: wrap; gap: .35rem .8rem; margin: .55rem 0; padding: .4rem .6rem; border: 1px solid #56636b; border-radius: .3rem; }
+    legend { padding: 0 .25rem; color: #d7e1e6; }
+    label { white-space: nowrap; }
+    .trial-card { margin-top: .5rem; padding: .5rem .6rem; border-left: 3px solid #7b8a92; background: #1c2226; }
+    .trial-card h2 { margin: 0 0 .25rem; font-size: .95rem; }
+    .trial-card p { margin: .2rem 0; }
+    .local { color: #d7e1e6; }
+    .open { color: #ffd27f; font-weight: 600; }
+    .facts { margin: .2rem 0 .2rem 1rem; padding-left: .4rem; }
+    code { overflow-wrap: anywhere; }
+    canvas { display: block; }
+  </style>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.161.0/build/three.module.js"}}</script>
+</head>
+<body>
+  <header>
+    <h1>Wood-joint development</h1>
+    <p class="open"><strong>Development trial — not build-ready.</strong></p>
+    <p id="scope">Loading scene scope…</p>
+    <p id="integration" class="open">Loading integration status…</p>
+    <p id="status">Loading selected-baseline context…</p>
+    <p>Muted meshes show the selected kerf-right baseline context. Each trial family can be shown separately; steel blue marks modeled hardware. The trial layouts are diagnostic and are not integrated or released.</p>
+    <fieldset id="families">
+      <legend>Overlay families</legend>
+      <label><input type="checkbox" data-family="wj03" checked /> WJ-03</label>
+      <label><input type="checkbox" data-family="wj04" checked /> WJ-04</label>
+      <label><input type="checkbox" data-family="wj05" checked /> WJ-05</label>
+      <label><input type="checkbox" data-family="shared" checked /> Shared hosts</label>
+    </fieldset>
+    <div id="trial-results" aria-live="polite"></div>
+    <details>
+      <summary>Recorded source limits and report data</summary>
+      <p id="source"></p>
+      <p id="release-boundary"></p>
+      <div id="trial-details"></div>
+      <ul id="limits"></ul>
+    </details>
+    <button id="left" type="button">Left end</button>
+    <button id="right" type="button">Right end</button>
+    <button id="both" type="button">Full frame</button>
+  </header>
+  <script type="module">
+    import * as THREE from 'three';
+    import {OrbitControls} from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
+    import {STLLoader} from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
+
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x121619);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x25282a, 2.5));
+    const key = new THREE.DirectionalLight(0xffffff, 3); key.position.set(1200, -1800, 2200); scene.add(key);
+    const grid = new THREE.GridHelper(3600, 18, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
+    const camera = new THREE.PerspectiveCamera(40, 1, 1, 10000); camera.up.set(0, 0, 1);
+    const controls = new OrbitControls(camera, renderer.domElement); controls.enableDamping = true;
+    const loader = new STLLoader();
+    const status = document.querySelector('#status');
+    const scope = document.querySelector('#scope');
+    const integration = document.querySelector('#integration');
+    const source = document.querySelector('#source');
+    const releaseBoundary = document.querySelector('#release-boundary');
+    const limits = document.querySelector('#limits');
+    const trialResults = document.querySelector('#trial-results');
+    const trialDetails = document.querySelector('#trial-details');
+    const familyNames = ['wj03', 'wj04', 'wj05', 'shared'];
+    const familyInputs = new Map([...document.querySelectorAll('[data-family]')]
+      .map(input => [input.dataset.family, input]));
+    const familyGroups = new Map(familyNames.map(family => {
+      const group = new THREE.Group();
+      group.name = `trial-family-${family}`;
+      scene.add(group);
+      return [family, group];
+    }));
+    document.querySelectorAll('[data-family]').forEach(input => {
+      input.addEventListener('change', () => {
+        familyGroups.get(input.dataset.family).visible = input.checked;
+      });
+    });
+
+    function meshGeometry(source) {
+      const positions = [];
+      for (const triangle of source.triangles) for (const index of triangle) positions.push(...source.vertices_mm[index]);
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      geometry.computeVertexNormals();
+      return geometry;
+    }
+    function view(side) {
+      const x = side === 'left' ? -1190 : side === 'right' ? 1190 : 0;
+      controls.target.set(x, -170, 270);
+      camera.position.set(x + (side === 'left' ? -700 : side === 'right' ? 700 : 2600), -1500, side ? 800 : 1200);
+      controls.update();
+    }
+    document.querySelector('#left').onclick = () => view('left');
+    document.querySelector('#right').onclick = () => view('right');
+    document.querySelector('#both').onclick = () => view('');
+
+    async function sha256Bytes(value) {
+      const bytes = await crypto.subtle.digest('SHA-256', value);
+      return [...new Uint8Array(bytes)].map(value => value.toString(16).padStart(2, '0')).join('');
+    }
+    const sha256 = text => sha256Bytes(new TextEncoder().encode(text));
+    const releaseFlags = [
+      'layout_accepted', 'geometry_accepted', 'drilling_released',
+      'fabrication_released', 'structural_released', 'climbing_released',
+    ];
+    const requiredFamilies = ['wj03', 'wj04', 'wj05'];
+
+    function human(value) {
+      return String(value ?? 'not recorded').replaceAll('_', ' ');
+    }
+    function jsonDetails(parent, label, value) {
+      if (value === undefined || value === null) return;
+      const details = document.createElement('details');
+      const summary = document.createElement('summary');
+      summary.textContent = label;
+      const pre = document.createElement('pre');
+      pre.textContent = JSON.stringify(value, null, 2);
+      details.append(summary, pre);
+      parent.append(details);
+    }
+    function addFact(parent, text, className = '') {
+      const line = document.createElement('p');
+      if (className) line.className = className;
+      line.textContent = text;
+      parent.append(line);
+    }
+    function recordCount(value) {
+      if (Array.isArray(value)) return value.length;
+      if (Number.isInteger(value)) return value;
+      if (value && typeof value === 'object') return Object.keys(value).length;
+      return 'unreported';
+    }
+    function renderTrialCard(family, trial, solids) {
+      const card = document.createElement('section');
+      card.className = 'trial-card';
+      const title = document.createElement('h2');
+      title.textContent = trial.label || family.toUpperCase();
+      card.append(title);
+      addFact(card, `${solids.length} scene solids · ${trial.legacy_duty_ids.length} legacy duties mapped`, 'local');
+
+      if (family === 'wj03') {
+        const local = trial.local_clearance || {};
+        const namedRevisions = Array.isArray(local.named_constraint_revisions)
+          ? local.named_constraint_revisions.length
+          : 0;
+        addFact(card, local.replacement_nominal_interference_free === true
+          ? namedRevisions
+            ? `Nominal panel-off interference screen is clear; ${namedRevisions} projection constraints remain open.`
+            : 'Local panel-off nominal geometry screen is clear.'
+          : 'Local panel-off geometry has unresolved constraints.', namedRevisions ? 'open' : 'local');
+        addFact(card, 'Tool removal and combined assembly clearance remain unverified.');
+      } else if (family === 'wj04') {
+        const local = trial.local_screen || {};
+        const hits = local.cleat_hits;
+        const hitCount = hits && typeof hits === 'object' && !Array.isArray(hits)
+          ? Object.values(hits).reduce((sum, group) => sum + recordCount(group), 0)
+          : recordCount(hits);
+        addFact(card, `Reported local cleat hits: ${hitCount}; full-candidate clearance: ${human(local.full_candidate_clearance)}.`, 'local');
+        addFact(card, 'Bolt-stack dimensions are a catalog candidate; this is not a joint-strength result.');
+      } else if (family === 'wj05') {
+        const mapped = trial.legacy_duty_ids.length;
+        addFact(card, trial.geometry_clear_for_this_probe === true
+          ? 'Local probe geometry is clear.'
+          : 'Local probe geometry is not clear.', 'local');
+        const receiver = trial.receiver_status === 'blocked_center_receiver_path'
+          ? 'Center receiver path is blocked.'
+          : `Center receiver status: ${human(trial.receiver_status)}.`;
+        addFact(card, `${receiver} Structural duties mapped: ${mapped}.`, 'open');
+      }
+      addFact(card, `Report inputs: ${trial.report_freshness.fresh ? 'current' : 'stale or unresolved'}.`);
+      return card;
+    }
+
+    try {
+      const [manifestResponse, overlayResponse] = await Promise.all([
+        fetch('hybrid/compact-floor-flush-kerf-right/parts.json'),
+        fetch('owner-wood-joints-layout-scene.json'),
+      ]);
+      if (!manifestResponse.ok || !overlayResponse.ok) throw new Error('scene files unavailable');
+      const [manifestText, overlay] = await Promise.all([manifestResponse.text(), overlayResponse.json()]);
+      const {parts} = JSON.parse(manifestText);
+      const sourceCommit = overlay.source_binding?.source_commit;
+      const trials = overlay.trials || {};
+      const trialRecordsValid = requiredFamilies.every(family => {
+        const trial = trials[family];
+        return trial && typeof trial.label === 'string' && typeof trial.status === 'string' &&
+          typeof trial.trial_id === 'string' && Array.isArray(trial.legacy_duty_ids) &&
+          Number.isInteger(trial.geometry_solid_count) && trial.geometry_solid_count >= 0 &&
+          typeof trial.report_freshness?.fresh === 'boolean' &&
+          Array.isArray(trial.report_freshness?.stale_paths) &&
+          trial.gates && typeof trial.gates === 'object';
+      });
+      const familyRowsValid = Array.isArray(overlay.solids) && overlay.solids.every(row =>
+        familyGroups.has(row.family) && typeof row.trial_id === 'string' &&
+        typeof row.role === 'string' && row.mesh &&
+        Array.isArray(row.mesh.vertices_mm) && Array.isArray(row.mesh.triangles));
+      const dutySummary = overlay.legacy_duty_summary;
+      if (overlay.schema !== 'owner_wood_joints_layout_scene/v2' ||
+          overlay.candidate !== 'compact-floor-flush-wood-joints-development' ||
+          overlay.baseline !== 'compact-floor-flush-kerf-right' ||
+          typeof overlay.status !== 'string' || typeof overlay.scope !== 'string' ||
+          !/^[0-9a-f]{40}$/i.test(sourceCommit || '') ||
+          releaseFlags.some(flag => overlay[flag] !== false) ||
+          !trialRecordsValid || !familyRowsValid ||
+          typeof overlay.integrated_clearance?.status !== 'string' ||
+          overlay.integrated_clearance.status !== 'not_run' ||
+          !Number.isInteger(dutySummary?.total) ||
+          !Number.isInteger(dutySummary?.trial_geometry_duties) ||
+          !Number.isInteger(dutySummary?.remaining_legacy_duties) ||
+          !Array.isArray(parts) ||
+          parts.some(part => typeof overlay.baseline_asset_sha256?.[part.path] !== 'string') ||
+          !Array.isArray(overlay.hidden_baseline_visual_names) ||
+          !Array.isArray(overlay.limits) ||
+          await sha256(manifestText) !== overlay.baseline_manifest_sha256) {
+        throw new Error('scene identity, source binding, or release boundary is invalid');
+      }
+      const hidden = new Set(overlay.hidden_baseline_visual_names);
+      await Promise.all(parts.filter(part => !hidden.has(part.name)).map(async part => {
+          const response = await fetch(part.path);
+          if (!response.ok) throw new Error(`baseline asset unavailable: ${part.path}`);
+          const bytes = await response.arrayBuffer();
+          if (await sha256Bytes(bytes) !== overlay.baseline_asset_sha256[part.path]) {
+            throw new Error(`baseline asset hash changed: ${part.path}`);
+          }
+          const geometry = loader.parse(bytes);
+          geometry.computeVertexNormals();
+          const kind = part.fabrication?.kind;
+          const color = kind === 'part' ? 0x343a40 : kind === 'timber' ? 0x80502f : 0x68737b;
+          const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({color, roughness: .78, transparent: true, opacity: .42, depthWrite: false}));
+          if (part.translation_mm) mesh.position.fromArray(part.translation_mm);
+          scene.add(mesh);
+      }));
+      const familyColors = {wj03: 0xe0a34b, wj04: 0x69c3a1, wj05: 0xb39ae0, shared: 0x87949b};
+      const hardwareRole = /bolt|washer|nut|fastener|hardware|tool|socket|steel/i;
+      const familySolids = Object.fromEntries(familyGroups.keys().map(family => [
+        family,
+        overlay.solids.filter(row => row.family === family),
+      ]));
+      for (const [family, rows] of Object.entries(familySolids)) {
+        const label = familyInputs.get(family).parentElement;
+        label.lastChild.textContent = ` ${family === 'shared' ? 'Shared hosts' : family.toUpperCase()} (${rows.length})`;
+      }
+      if (requiredFamilies.some(family => familySolids[family].length !== trials[family].geometry_solid_count)) {
+        throw new Error('trial solid counts do not match the scene inventory');
+      }
+      for (const row of overlay.solids) {
+        const hardware = hardwareRole.test(row.role);
+        const mesh = new THREE.Mesh(meshGeometry(row.mesh), new THREE.MeshStandardMaterial({
+          color: hardware ? 0x9fc4d6 : familyColors[row.family],
+          metalness: hardware ? .55 : 0,
+          roughness: hardware ? .3 : .75,
+        }));
+        familyGroups.get(row.family).add(mesh);
+      }
+      const summary = overlay.legacy_duty_summary;
+      scope.textContent = `${summary.trial_geometry_duties} of ${summary.total} legacy duties have partial trial geometry; ${summary.remaining_legacy_duties} remain unreplaced.`;
+      integration.textContent = 'Integrated clearance and joint response have not been run. The three trial families are shown together for context; their overlap is not a combined fit or acceptance result.';
+      status.textContent = 'Selected kerf-right baseline remains the muted context geometry.';
+      source.textContent = `Candidate: ${overlay.candidate} · selected baseline: ${overlay.baseline} · source commit: ${sourceCommit} · source inventory SHA-256: ${overlay.source_binding.source_inventory_sha256} · baseline manifest SHA-256: ${overlay.baseline_manifest_sha256}.`;
+      releaseBoundary.textContent = `Release boundary: ${JSON.stringify(Object.fromEntries(releaseFlags.map(flag => [flag, overlay[flag]])))}.`;
+      for (const family of requiredFamilies) {
+        const trial = trials[family];
+        trialResults.append(renderTrialCard(family, trial, familySolids[family]));
+        const detail = document.createElement('section');
+        detail.className = 'trial-card';
+        const title = document.createElement('h2');
+        title.textContent = `${family.toUpperCase()} source record`;
+        detail.append(title);
+        jsonDetails(detail, 'Identity and source binding', {
+          trial_id: trial.trial_id,
+          config_schema: trial.config_schema,
+          config_sha256: trial.config_sha256,
+          source_commit: trial.source_commit,
+          source_inventory_sha256: trial.source_inventory_sha256,
+          last_recorded_report_status: trial.last_recorded_report_status,
+        });
+        jsonDetails(detail, 'Hardware configuration', trial.hardware_configuration);
+        jsonDetails(detail, 'Report freshness and gates', {
+          report_freshness: trial.report_freshness,
+          receiver_report_freshness: trial.receiver_report_freshness,
+          gates: trial.gates,
+        });
+        if (family === 'wj03') jsonDetails(detail, 'Local clearance detail', trial.local_clearance);
+        if (family === 'wj04') jsonDetails(detail, 'Local stack and cleat screen', trial.local_screen);
+        if (family === 'wj05') jsonDetails(detail, 'Receiver geometry detail', {
+          geometry_clear_for_this_probe: trial.geometry_clear_for_this_probe,
+          receiver_status: trial.receiver_status,
+          receiver_axis_ids: trial.receiver_axis_ids,
+          legacy_duty_ids: trial.legacy_duty_ids,
+        });
+        trialDetails.append(detail);
+      }
+      jsonDetails(trialDetails, 'Combined scene inventory and integrated gate', {
+        inventory: overlay.inventory,
+        legacy_duty_summary: overlay.legacy_duty_summary,
+        integrated_clearance: overlay.integrated_clearance,
+        status: overlay.status,
+      });
+      jsonDetails(trialDetails, 'Per-family scene-solid counts', Object.fromEntries(
+        Object.entries(familySolids).map(([family, rows]) => [family, rows.length]),
+      ));
+      for (const limit of overlay.limits) {
+        const item = document.createElement('li');
+        item.textContent = limit;
+        limits.append(item);
+      }
+      view('');
+    } catch (error) {
+      scope.textContent = 'Combined partial-trial scene data is unavailable.';
+      integration.textContent = 'Integration and release status cannot be confirmed from this scene.';
+      status.textContent = `Viewer unavailable: ${error.message}. Serve the site over HTTP and check scene and baseline files.`;
+    }
+
+    function resize() {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    addEventListener('resize', resize); resize();
+    renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+  </script>
+</body>
+</html>
