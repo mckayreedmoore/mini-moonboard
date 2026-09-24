@@ -41,6 +41,11 @@
       <label><input type="checkbox" data-family="wj05" checked /> WJ-05</label>
       <label><input type="checkbox" data-family="shared" checked /> Shared hosts</label>
     </fieldset>
+    <fieldset>
+      <legend>Clearance overlays</legend>
+      <label><input id="tool-clearance-toggle" type="checkbox" /> Temporary socket envelopes</label>
+    </fieldset>
+    <p>Socket envelopes show clearance space only; they are not installed hardware. Below-floor positions flag unresolved floor-level tool access.</p>
     <div id="trial-results" aria-live="polite"></div>
     <details>
       <summary>Recorded source limits and report data</summary>
@@ -86,6 +91,17 @@
       scene.add(group);
       return [family, group];
     }));
+    const toolGroups = new Map([...familyGroups].map(([family, parent]) => {
+      const group = new THREE.Group();
+      group.name = `trial-tool-envelopes-${family}`;
+      group.visible = false;
+      parent.add(group);
+      return [family, group];
+    }));
+    const toolClearanceToggle = document.querySelector('#tool-clearance-toggle');
+    toolClearanceToggle.addEventListener('change', () => {
+      for (const group of toolGroups.values()) group.visible = toolClearanceToggle.checked;
+    });
     document.querySelectorAll('[data-family]').forEach(input => {
       input.addEventListener('change', () => {
         familyGroups.get(input.dataset.family).visible = input.checked;
@@ -261,12 +277,23 @@
       }
       for (const row of overlay.solids) {
         const hardware = hardwareRole.test(row.role);
-        const mesh = new THREE.Mesh(meshGeometry(row.mesh), new THREE.MeshStandardMaterial({
-          color: hardware ? 0x9fc4d6 : familyColors[row.family],
-          metalness: hardware ? .55 : 0,
-          roughness: hardware ? .3 : .75,
-        }));
-        familyGroups.get(row.family).add(mesh);
+        const toolEnvelope = row.role === 'trial_tool_envelope';
+        const material = toolEnvelope
+          ? new THREE.MeshStandardMaterial({
+              color: 0xffad52,
+              metalness: 0,
+              roughness: .55,
+              transparent: true,
+              opacity: .3,
+              depthWrite: false,
+            })
+          : new THREE.MeshStandardMaterial({
+              color: hardware ? 0x9fc4d6 : familyColors[row.family],
+              metalness: hardware ? .55 : 0,
+              roughness: hardware ? .3 : .75,
+            });
+        const mesh = new THREE.Mesh(meshGeometry(row.mesh), material);
+        (toolEnvelope ? toolGroups : familyGroups).get(row.family).add(mesh);
       }
       const summary = overlay.legacy_duty_summary;
       scope.textContent = `${summary.trial_geometry_duties} of ${summary.total} legacy duties have partial trial geometry; ${summary.remaining_legacy_duties} remain unreplaced.`;
