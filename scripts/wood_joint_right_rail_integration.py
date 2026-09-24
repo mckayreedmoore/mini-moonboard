@@ -573,6 +573,23 @@ def _namespace(family: str, trial_id: str, stack_id: str) -> str:
     return f"{family}/{trial_id}/{stack_id}"
 
 
+def _load_pinned_source_inventory(source_binding: Any) -> dict[str, Any]:
+    """Reuse WJ-06's lightweight inventory loader; verify bound inventory SHA."""
+    if source_binding.inventory_sha256 != WJ04_TRIAL.source_inventory_sha256:
+        raise ValueError("source binding differs from canonical inventory pin")
+    inventory = wj06_outer._inventory()
+    if inventory["candidate"] != wj06_outer.CANDIDATE:
+        raise ValueError("right-rail inventory candidate changed")
+    if (
+        len(inventory["legacy_duties"]) != 24
+        or sum(len(row["legacy_sds_axes"]) for row in inventory["legacy_duties"]) != 144
+        or len(inventory["fixed_panel_kicker_screws"]) != 66
+        or len(inventory["starting_frame_bolts"]) != 12
+    ):
+        raise ValueError("right-rail source inventory schema or counts changed")
+    return inventory
+
+
 def _selected_duties(
     inventory: dict[str, Any],
     replaced_axis_ids: frozenset[str],
@@ -672,7 +689,7 @@ def materialize_right_rail_geometry(
     ):
         raise ValueError("right-rail producer source bindings differ")
 
-    inventory = wj04_base._source_inventory()
+    inventory = _load_pinned_source_inventory(binding_before)
     replaced_axis_ids = frozenset(g7.removed_axis_ids | outer.removed_axis_ids)
     duties = _selected_duties(inventory, replaced_axis_ids)
     raw_wood_parts = {part.name: part.shape for part in source.uncut_wood_parts()}

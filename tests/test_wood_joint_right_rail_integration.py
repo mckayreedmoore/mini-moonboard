@@ -124,6 +124,20 @@ def test_ordinary_body_maximum_document_is_pinned_as_an_input():
     assert len(inputs[integration.ORDINARY_BODY_MAXIMUM_SOURCE]) == 64
 
 
+def test_pinned_inventory_adapter_uses_lightweight_validated_loader():
+    binding = SimpleNamespace(
+        inventory_sha256=integration.WJ04_TRIAL.source_inventory_sha256
+    )
+
+    inventory = integration._load_pinned_source_inventory(binding)
+
+    assert inventory["candidate"] == integration.wj06_outer.CANDIDATE
+    assert len(inventory["legacy_duties"]) == 24
+    assert sum(len(row["legacy_sds_axes"]) for row in inventory["legacy_duties"]) == 144
+    assert len(inventory["fixed_panel_kicker_screws"]) == 66
+    assert len(inventory["starting_frame_bolts"]) == 12
+
+
 def test_side_shaft_sensitivity_screens_wood_protected_and_installed_geometry():
     source_stacks = integration.wj06_outer.build_stacks()
     by_id = {spec.stack_id: spec for spec in integration.wj06_outer.STACK_SPECS}
