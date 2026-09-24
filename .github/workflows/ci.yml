@@ -32,7 +32,7 @@ jobs:
           uv python install
           uv sync --locked
       - name: Lint
-        run: uv run ruff check .
+        run: uv run ruff check --no-cache .
       - name: Test
         run: uv run pytest ${{ inputs.include_historical && '--include-historical' || '' }}
       - name: Smoke-test CadQuery
