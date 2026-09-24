@@ -102,6 +102,21 @@ clearance do not close a stage gate.
   WJ-05 has four provisional axes and zero full stacks. Implement and verify
   complete interfaces and stacks before updating any acceptance count.
 
+### Isolated installed-fit hypotheses, 2026-09-24
+
+These follow-up screens do not change the active
+`narrow_x95p25_ordinary_bolt_candidate`, selected source pins, or deployed
+viewer. None is integrated, promoted, or accepted.
+
+- **WJ-03 compact outer bevel** (`c99751db`, [archived probe](hypotheses/wj03-compact-outer-probe.md)) trims the connector rear bevel to N = 137.7 mm, leaving 2 mm nominal reserve to the ordinary envelope. Installed hardware, timber, and protected-geometry screens clear. A separate access producer and tool review remain in progress.
+- **WJ-04 upper G7 crosscut** (`5555c646`, [archived probe](hypotheses/wj04-upper-g7-crosscut.md)) crosscuts the upper cleat and reverses its upper-rail bolt stack. Bodies, stacks, and all 16 washer seats clear, but all four rail-bolt insertion paths are blocked with neighboring parts retained. The duty-registry workstream is planning rail-plus-cleat subassemblies outside the frame.
+- **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. These proxy-to-wood results establish neither actual wrench access nor a complete operation path; the center owner is planning tool and staging checks.
+
+Next, keep these as separate hypotheses while the assigned owners test tool
+access and installation order. Integrate a layout only after those operations
+clear their retained-part obstacles and the parent reviews the source-bound
+results.
+
 No joint has accepted resistance or capacity. MVP-L, fresh six-case evidence,
 and MVP-E remain gated by the work below.
 

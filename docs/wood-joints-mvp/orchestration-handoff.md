@@ -93,6 +93,33 @@ All current outputs remain diagnostics. Do not infer a complete replacement,
 accepted resistance, MVP-L, six-case readiness, shop release, or physical
 acceptance from nominal clearance or component tests.
 
+## Isolated installed-fit hypotheses
+
+These local screens do not change the canonical narrow WJ-04 trial, source
+authority, or deployed viewer. None is integrated or accepted.
+
+- [WJ-03 compact outer bevel](hypotheses/wj03-compact-outer-probe.md),
+  `c99751db`: N = 137.7 mm leaves 2 mm nominal rear-envelope reserve; installed
+  stacks, timber, and protected geometry screens clear. Tool/access review is
+  separate.
+- [WJ-04 upper G7 crosscut](hypotheses/wj04-upper-g7-crosscut.md),
+  `5555c646`: the upper cleat is crosscut and its upper-rail bolt stack
+  reversed. Bodies, stacks, and 16 washer seats clear, but all four rail-bolt
+  insertion paths are blocked with neighbors retained. Duty-registry work is
+  planning rail-plus-cleat subassemblies outside the frame.
+- [WJ-05 center wire-relief](hypotheses/wj05-center-node-relieved.md): the
+  L = 82 mm body geometry clears; right wire gap is 2.303793 mm and the left
+  result is a 9.25 mm bounding-box lower bound. It keeps 48 + 18 fixed axes,
+  with installed fastener components clear. Two properly seated generic
+  head-tool proxies overlap center posts at upper-header row 2 (left and
+  right), 1,481.459916 mm³ each. This is proxy-to-wood evidence only: no wrench
+  sweep or actual tool-access conclusion is established. The center owner is
+  planning tool and staging checks.
+
+The next work is operation-specific: test actual tool access and a viable
+staging/insertion order for each hypothesis, then return source-bound results
+for parent review before any integration decision.
+
 `wood-joints-candidate.json` now identifies the lane as partial diagnostic
 development, links the current WJ-03 through WJ-06 evidence, and retains all
 source pins, fixed-scope invariants, and false release flags. Its document

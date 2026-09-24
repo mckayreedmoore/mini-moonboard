@@ -1,0 +1,2251 @@
+{
+  "assembly_sequence": {
+    "candidate_connector_transport": "two separate removable timber cleats per side; keep each cleat and its bolts removable",
+    "floor_sequence": "Preassemble and torque accessible center connections on stable raised supports before setting the frame at the floor; verify the active backer bottom-seat insertion sweep and real tool swing first. Nominal model does not qualify supports, clearances, or a floor anchor.",
+    "tool_access_basis": "25.4 mm diameter by 50 mm axial cylinder is a clearance proxy, not a wrench swing or selected product"
+  },
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "candidate_connectors": {
+    "mirrored_left_geometry_checked": true,
+    "one_piece_C_saddle": {
+      "reason": "A continuous one-piece rear saddle needs a stock envelope spanning separated principal and moved-post interfaces; the obvious backstrap exceeds ordinary 4x6 width and front-face through-bolts would need a separate panel-plane/tool-access design. No custom or built-up stock is assumed.",
+      "status": "not_modeled_stock_path_not_established"
+    },
+    "right_lower_post_header_cleat": {
+      "bounds_xyz_mm": [
+        199.05,
+        287.95,
+        -175.7,
+        -86.8,
+        110.0,
+        238.9
+      ],
+      "contact_areas_mm2": {
+        "base_header": 7903.21,
+        "moved_right_post": 11459.21
+      },
+      "grain_axis_global": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "interfaces": [
+        "base_post_center_right / center_post_cleat_right",
+        "center_post_cleat_right / base_header"
+      ],
+      "nominal_grain_length_mm": 128.9,
+      "stock_cross_section_mm": [
+        88.9,
+        88.9
+      ]
+    },
+    "right_upper_principal_header_cleat": {
+      "bounds_xyz_mm": [
+        89.05,
+        177.95,
+        -223.86273,
+        -61.12876,
+        277.0,
+        339.81564
+      ],
+      "finished_local_N_interval_mm": [
+        50.8,
+        139.7
+      ],
+      "finished_local_X_N_grain_length_mm": [
+        88.9,
+        88.89999999999999,
+        82.0
+      ],
+      "grain_axis_global": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "header_bolt_minimum_conditional_4D_margin_mm": -1.202205,
+      "header_overlap_y_interval_mm": [
+        -175.7,
+        -107.812022
+      ],
+      "header_top_contact_area_mm2": 6035.241,
+      "horizontal_bottom_seat_z_mm": 277.0,
+      "horizontal_top_seat_z_mm": 339.815644,
+      "interfaces": [
+        "base_principal_center_right / center_principal_cleat_right",
+        "center_principal_cleat_right / base_header"
+      ],
+      "nominal_stock": "ordinary full-section 4x4 solid timber, grain parallel to center principal T",
+      "principal_side_contact_area_mm2": 7237.442,
+      "principal_side_contact_area_removed_by_wire_relief_mm2": 52.358,
+      "stock_blank_local_X_N_T_mm": [
+        88.9,
+        88.89999999999999,
+        156.595957
+      ],
+      "wire_relief": {
+        "local_axes": "T along grain; N cross grain; coordinates relative to upper-cleat origin",
+        "physical_harness_and_install_sweep_status": "not modeled or cleared by display-wire geometry",
+        "removed_volume_mm3": 4654.616713,
+        "rule": "remove only the triangular material with T >= 30 mm; retain material outside this local N interval",
+        "source_wire_clearance_gate_mm": 2.0,
+        "through_global_X_mm": [
+          89.05,
+          177.95
+        ],
+        "triangle_TN_vertices_mm": [
+          [
+            30.0,
+            50.8
+          ],
+          [
+            39.37373873619418,
+            50.8
+          ],
+          [
+            30.0,
+            61.97118681489892
+          ]
+        ]
+      }
+    }
+  },
+  "conclusion": {
+    "capacity_assigned": false,
+    "complete_center_load_path": false,
+    "engineering_or_fabrication_release": false,
+    "geometry_fit_clear": false,
+    "hardware_sku_selected": false,
+    "remaining_gates": [
+      "source-bound fit, receiver, bore, end-stack, service, fixed-axis and tool clearances",
+      "fresh per-fastener actions and contact/bearing model for the complete node",
+      "parallel-grain bolt and perpendicular-to-grain member checks with applicable edge/spacing categories",
+      "bolt SKU, delivered thread transition, washer/nut fit, installation access and procurement",
+      "member-specific cuts and inspected material; no inherited WJ-03/WJ-04 capacity"
+    ],
+    "unimplemented_duties": [
+      "clip_split_header_center_left",
+      "clip_split_header_center_right",
+      "clip_split_base_center_left",
+      "clip_split_base_center_right"
+    ],
+    "wood_grade_and_condition_observed": false
+  },
+  "fixed_panel_kicker_axis_identity": {
+    "all_source_axis_ids_retained": true,
+    "axes_moved": 0,
+    "count": 66,
+    "identity_sha256": "1f511def3ea1907d7d5a33bf6c3bc98d1561f2ec900bf1ea08e089f2bcbd6f8c",
+    "kicker_axes": 18,
+    "panel_axes": 48,
+    "unique_count": 66
+  },
+  "geometry_conflicts": {
+    "candidate_cleats_hit_active_wj05_backer_installed_parts_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "candidate_cleats_hit_active_wj05_backer_tool_envelopes_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "candidate_cleats_hit_fixed_66_axes_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "candidate_cleats_hit_protected_services_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "candidate_cleats_hit_retained_12_bolt_axes_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "candidate_cleats_hit_retained_12_installed_hardware_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "installed_fastener_parts_vs_active_backer_installed_parts_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "installed_fastener_parts_vs_active_backer_tool_envelopes_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "installed_fastener_parts_vs_fixed_66_axes_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "installed_fastener_parts_vs_protected_services_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "installed_fastener_parts_vs_retained_12_axes_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "installed_new_fastener_parts_vs_finished_wood_mm3": {
+      "center_post_header_left_1/head": {},
+      "center_post_header_left_1/head_washer": {},
+      "center_post_header_left_1/nut": {},
+      "center_post_header_left_1/nut_washer": {},
+      "center_post_header_left_1/shaft": {},
+      "center_post_header_left_2/head": {},
+      "center_post_header_left_2/head_washer": {},
+      "center_post_header_left_2/nut": {},
+      "center_post_header_left_2/nut_washer": {},
+      "center_post_header_left_2/shaft": {},
+      "center_post_header_right_1/head": {},
+      "center_post_header_right_1/head_washer": {},
+      "center_post_header_right_1/nut": {},
+      "center_post_header_right_1/nut_washer": {},
+      "center_post_header_right_1/shaft": {},
+      "center_post_header_right_2/head": {},
+      "center_post_header_right_2/head_washer": {},
+      "center_post_header_right_2/nut": {},
+      "center_post_header_right_2/nut_washer": {},
+      "center_post_header_right_2/shaft": {},
+      "center_post_left_1/head": {},
+      "center_post_left_1/head_washer": {},
+      "center_post_left_1/nut": {},
+      "center_post_left_1/nut_washer": {},
+      "center_post_left_1/shaft": {},
+      "center_post_left_2/head": {},
+      "center_post_left_2/head_washer": {},
+      "center_post_left_2/nut": {},
+      "center_post_left_2/nut_washer": {},
+      "center_post_left_2/shaft": {},
+      "center_post_right_1/head": {},
+      "center_post_right_1/head_washer": {},
+      "center_post_right_1/nut": {},
+      "center_post_right_1/nut_washer": {},
+      "center_post_right_1/shaft": {},
+      "center_post_right_2/head": {},
+      "center_post_right_2/head_washer": {},
+      "center_post_right_2/nut": {},
+      "center_post_right_2/nut_washer": {},
+      "center_post_right_2/shaft": {},
+      "center_principal_header_left_1/head": {},
+      "center_principal_header_left_1/head_washer": {},
+      "center_principal_header_left_1/nut": {},
+      "center_principal_header_left_1/nut_washer": {},
+      "center_principal_header_left_1/shaft": {},
+      "center_principal_header_left_2/head": {},
+      "center_principal_header_left_2/head_washer": {},
+      "center_principal_header_left_2/nut": {},
+      "center_principal_header_left_2/nut_washer": {},
+      "center_principal_header_left_2/shaft": {},
+      "center_principal_header_right_1/head": {},
+      "center_principal_header_right_1/head_washer": {},
+      "center_principal_header_right_1/nut": {},
+      "center_principal_header_right_1/nut_washer": {},
+      "center_principal_header_right_1/shaft": {},
+      "center_principal_header_right_2/head": {},
+      "center_principal_header_right_2/head_washer": {},
+      "center_principal_header_right_2/nut": {},
+      "center_principal_header_right_2/nut_washer": {},
+      "center_principal_header_right_2/shaft": {},
+      "center_principal_left_1/head": {},
+      "center_principal_left_1/head_washer": {},
+      "center_principal_left_1/nut": {},
+      "center_principal_left_1/nut_washer": {},
+      "center_principal_left_1/shaft": {},
+      "center_principal_left_2/head": {},
+      "center_principal_left_2/head_washer": {},
+      "center_principal_left_2/nut": {},
+      "center_principal_left_2/nut_washer": {},
+      "center_principal_left_2/shaft": {},
+      "center_principal_right_1/head": {},
+      "center_principal_right_1/head_washer": {},
+      "center_principal_right_1/nut": {},
+      "center_principal_right_1/nut_washer": {},
+      "center_principal_right_1/shaft": {},
+      "center_principal_right_2/head": {},
+      "center_principal_right_2/head_washer": {},
+      "center_principal_right_2/nut": {},
+      "center_principal_right_2/nut_washer": {},
+      "center_principal_right_2/shaft": {}
+    },
+    "left_right_cleat_solid_overlaps_mm3": {},
+    "new_cleat_solid_overlaps_existing_wood_mm3": {
+      "center_post_cleat_left": {},
+      "center_post_cleat_right": {},
+      "center_principal_cleat_left": {},
+      "center_principal_cleat_right": {}
+    },
+    "new_fastener_component_pair_hits_mm3": {},
+    "new_tool_access_vs_active_backer_installed_parts_mm3": {
+      "center_post_header_left_1/head_tool": {},
+      "center_post_header_left_1/nut_tool": {},
+      "center_post_header_left_2/head_tool": {},
+      "center_post_header_left_2/nut_tool": {},
+      "center_post_header_right_1/head_tool": {},
+      "center_post_header_right_1/nut_tool": {},
+      "center_post_header_right_2/head_tool": {},
+      "center_post_header_right_2/nut_tool": {},
+      "center_post_left_1/head_tool": {},
+      "center_post_left_1/nut_tool": {},
+      "center_post_left_2/head_tool": {},
+      "center_post_left_2/nut_tool": {},
+      "center_post_right_1/head_tool": {},
+      "center_post_right_1/nut_tool": {},
+      "center_post_right_2/head_tool": {},
+      "center_post_right_2/nut_tool": {},
+      "center_principal_header_left_1/head_tool": {},
+      "center_principal_header_left_1/nut_tool": {},
+      "center_principal_header_left_2/head_tool": {},
+      "center_principal_header_left_2/nut_tool": {},
+      "center_principal_header_right_1/head_tool": {},
+      "center_principal_header_right_1/nut_tool": {},
+      "center_principal_header_right_2/head_tool": {},
+      "center_principal_header_right_2/nut_tool": {},
+      "center_principal_left_1/head_tool": {},
+      "center_principal_left_1/nut_tool": {},
+      "center_principal_left_2/head_tool": {},
+      "center_principal_left_2/nut_tool": {},
+      "center_principal_right_1/head_tool": {},
+      "center_principal_right_1/nut_tool": {},
+      "center_principal_right_2/head_tool": {},
+      "center_principal_right_2/nut_tool": {}
+    },
+    "new_tool_access_vs_active_backer_tool_envelopes_mm3": {
+      "center_post_header_left_1/head_tool": {},
+      "center_post_header_left_1/nut_tool": {},
+      "center_post_header_left_2/head_tool": {},
+      "center_post_header_left_2/nut_tool": {},
+      "center_post_header_right_1/head_tool": {},
+      "center_post_header_right_1/nut_tool": {},
+      "center_post_header_right_2/head_tool": {},
+      "center_post_header_right_2/nut_tool": {},
+      "center_post_left_1/head_tool": {},
+      "center_post_left_1/nut_tool": {},
+      "center_post_left_2/head_tool": {},
+      "center_post_left_2/nut_tool": {},
+      "center_post_right_1/head_tool": {},
+      "center_post_right_1/nut_tool": {},
+      "center_post_right_2/head_tool": {},
+      "center_post_right_2/nut_tool": {},
+      "center_principal_header_left_1/head_tool": {},
+      "center_principal_header_left_1/nut_tool": {},
+      "center_principal_header_left_2/head_tool": {},
+      "center_principal_header_left_2/nut_tool": {},
+      "center_principal_header_right_1/head_tool": {},
+      "center_principal_header_right_1/nut_tool": {},
+      "center_principal_header_right_2/head_tool": {},
+      "center_principal_header_right_2/nut_tool": {},
+      "center_principal_left_1/head_tool": {},
+      "center_principal_left_1/nut_tool": {},
+      "center_principal_left_2/head_tool": {},
+      "center_principal_left_2/nut_tool": {},
+      "center_principal_right_1/head_tool": {},
+      "center_principal_right_1/nut_tool": {},
+      "center_principal_right_2/head_tool": {},
+      "center_principal_right_2/nut_tool": {}
+    },
+    "new_tool_access_vs_existing_wood_mm3": {
+      "center_principal_header_left_2/head_tool": {
+        "base_post_center_left": 1481.459916
+      },
+      "center_principal_header_right_2/head_tool": {
+        "base_post_center_right": 1481.459916
+      }
+    },
+    "new_tool_access_vs_fixed_66_axes_mm3": {
+      "center_post_header_left_1/head_tool": {},
+      "center_post_header_left_1/nut_tool": {},
+      "center_post_header_left_2/head_tool": {},
+      "center_post_header_left_2/nut_tool": {},
+      "center_post_header_right_1/head_tool": {},
+      "center_post_header_right_1/nut_tool": {},
+      "center_post_header_right_2/head_tool": {},
+      "center_post_header_right_2/nut_tool": {},
+      "center_post_left_1/head_tool": {},
+      "center_post_left_1/nut_tool": {},
+      "center_post_left_2/head_tool": {},
+      "center_post_left_2/nut_tool": {},
+      "center_post_right_1/head_tool": {},
+      "center_post_right_1/nut_tool": {},
+      "center_post_right_2/head_tool": {},
+      "center_post_right_2/nut_tool": {},
+      "center_principal_header_left_1/head_tool": {},
+      "center_principal_header_left_1/nut_tool": {},
+      "center_principal_header_left_2/head_tool": {},
+      "center_principal_header_left_2/nut_tool": {},
+      "center_principal_header_right_1/head_tool": {},
+      "center_principal_header_right_1/nut_tool": {},
+      "center_principal_header_right_2/head_tool": {},
+      "center_principal_header_right_2/nut_tool": {},
+      "center_principal_left_1/head_tool": {},
+      "center_principal_left_1/nut_tool": {},
+      "center_principal_left_2/head_tool": {},
+      "center_principal_left_2/nut_tool": {},
+      "center_principal_right_1/head_tool": {},
+      "center_principal_right_1/nut_tool": {},
+      "center_principal_right_2/head_tool": {},
+      "center_principal_right_2/nut_tool": {}
+    },
+    "new_tool_access_vs_protected_services_mm3": {
+      "center_post_header_left_1/head_tool": {},
+      "center_post_header_left_1/nut_tool": {},
+      "center_post_header_left_2/head_tool": {},
+      "center_post_header_left_2/nut_tool": {},
+      "center_post_header_right_1/head_tool": {},
+      "center_post_header_right_1/nut_tool": {},
+      "center_post_header_right_2/head_tool": {},
+      "center_post_header_right_2/nut_tool": {},
+      "center_post_left_1/head_tool": {},
+      "center_post_left_1/nut_tool": {},
+      "center_post_left_2/head_tool": {},
+      "center_post_left_2/nut_tool": {},
+      "center_post_right_1/head_tool": {},
+      "center_post_right_1/nut_tool": {},
+      "center_post_right_2/head_tool": {},
+      "center_post_right_2/nut_tool": {},
+      "center_principal_header_left_1/head_tool": {},
+      "center_principal_header_left_1/nut_tool": {},
+      "center_principal_header_left_2/head_tool": {},
+      "center_principal_header_left_2/nut_tool": {},
+      "center_principal_header_right_1/head_tool": {},
+      "center_principal_header_right_1/nut_tool": {},
+      "center_principal_header_right_2/head_tool": {},
+      "center_principal_header_right_2/nut_tool": {},
+      "center_principal_left_1/head_tool": {},
+      "center_principal_left_1/nut_tool": {},
+      "center_principal_left_2/head_tool": {},
+      "center_principal_left_2/nut_tool": {},
+      "center_principal_right_1/head_tool": {},
+      "center_principal_right_1/nut_tool": {},
+      "center_principal_right_2/head_tool": {},
+      "center_principal_right_2/nut_tool": {}
+    },
+    "new_tool_access_vs_retained_12_axes_mm3": {
+      "center_post_header_left_1/head_tool": {},
+      "center_post_header_left_1/nut_tool": {},
+      "center_post_header_left_2/head_tool": {},
+      "center_post_header_left_2/nut_tool": {},
+      "center_post_header_right_1/head_tool": {},
+      "center_post_header_right_1/nut_tool": {},
+      "center_post_header_right_2/head_tool": {},
+      "center_post_header_right_2/nut_tool": {},
+      "center_post_left_1/head_tool": {},
+      "center_post_left_1/nut_tool": {},
+      "center_post_left_2/head_tool": {},
+      "center_post_left_2/nut_tool": {},
+      "center_post_right_1/head_tool": {},
+      "center_post_right_1/nut_tool": {},
+      "center_post_right_2/head_tool": {},
+      "center_post_right_2/nut_tool": {},
+      "center_principal_header_left_1/head_tool": {},
+      "center_principal_header_left_1/nut_tool": {},
+      "center_principal_header_left_2/head_tool": {},
+      "center_principal_header_left_2/nut_tool": {},
+      "center_principal_header_right_1/head_tool": {},
+      "center_principal_header_right_1/nut_tool": {},
+      "center_principal_header_right_2/head_tool": {},
+      "center_principal_header_right_2/nut_tool": {},
+      "center_principal_left_1/head_tool": {},
+      "center_principal_left_1/nut_tool": {},
+      "center_principal_left_2/head_tool": {},
+      "center_principal_left_2/nut_tool": {},
+      "center_principal_right_1/head_tool": {},
+      "center_principal_right_1/nut_tool": {},
+      "center_principal_right_2/head_tool": {},
+      "center_principal_right_2/nut_tool": {}
+    },
+    "proposed_bores_vs_active_backer_installed_parts_mm3": {
+      "center_post_header_left_1/bore": {},
+      "center_post_header_left_2/bore": {},
+      "center_post_header_right_1/bore": {},
+      "center_post_header_right_2/bore": {},
+      "center_post_left_1/bore": {},
+      "center_post_left_2/bore": {},
+      "center_post_right_1/bore": {},
+      "center_post_right_2/bore": {},
+      "center_principal_header_left_1/bore": {},
+      "center_principal_header_left_2/bore": {},
+      "center_principal_header_right_1/bore": {},
+      "center_principal_header_right_2/bore": {},
+      "center_principal_left_1/bore": {},
+      "center_principal_left_2/bore": {},
+      "center_principal_right_1/bore": {},
+      "center_principal_right_2/bore": {}
+    },
+    "proposed_bores_vs_active_backer_tool_envelopes_mm3": {
+      "center_post_header_left_1/bore": {},
+      "center_post_header_left_2/bore": {},
+      "center_post_header_right_1/bore": {},
+      "center_post_header_right_2/bore": {},
+      "center_post_left_1/bore": {},
+      "center_post_left_2/bore": {},
+      "center_post_right_1/bore": {},
+      "center_post_right_2/bore": {},
+      "center_principal_header_left_1/bore": {},
+      "center_principal_header_left_2/bore": {},
+      "center_principal_header_right_1/bore": {},
+      "center_principal_header_right_2/bore": {},
+      "center_principal_left_1/bore": {},
+      "center_principal_left_2/bore": {},
+      "center_principal_right_1/bore": {},
+      "center_principal_right_2/bore": {}
+    },
+    "proposed_bores_vs_fixed_66_axes_mm3": {
+      "center_post_header_left_1/bore": {},
+      "center_post_header_left_2/bore": {},
+      "center_post_header_right_1/bore": {},
+      "center_post_header_right_2/bore": {},
+      "center_post_left_1/bore": {},
+      "center_post_left_2/bore": {},
+      "center_post_right_1/bore": {},
+      "center_post_right_2/bore": {},
+      "center_principal_header_left_1/bore": {},
+      "center_principal_header_left_2/bore": {},
+      "center_principal_header_right_1/bore": {},
+      "center_principal_header_right_2/bore": {},
+      "center_principal_left_1/bore": {},
+      "center_principal_left_2/bore": {},
+      "center_principal_right_1/bore": {},
+      "center_principal_right_2/bore": {}
+    },
+    "proposed_bores_vs_retained_12_axes_mm3": {
+      "center_post_header_left_1/bore": {},
+      "center_post_header_left_2/bore": {},
+      "center_post_header_right_1/bore": {},
+      "center_post_header_right_2/bore": {},
+      "center_post_left_1/bore": {},
+      "center_post_left_2/bore": {},
+      "center_post_right_1/bore": {},
+      "center_post_right_2/bore": {},
+      "center_principal_header_left_1/bore": {},
+      "center_principal_header_left_2/bore": {},
+      "center_principal_header_right_1/bore": {},
+      "center_principal_header_right_2/bore": {},
+      "center_principal_left_1/bore": {},
+      "center_principal_left_2/bore": {},
+      "center_principal_right_1/bore": {},
+      "center_principal_right_2/bore": {}
+    },
+    "upper_cleat_source_wire_clearance_below_2mm": {}
+  },
+  "minimum_pair_spacing_by_interface": {
+    "header_to_lower_cleat_left": {
+      "minimum_center_spacing_mm": 35.0,
+      "minimum_center_spacing_multiple_D": 5.511811
+    },
+    "header_to_lower_cleat_right": {
+      "minimum_center_spacing_mm": 35.0,
+      "minimum_center_spacing_multiple_D": 5.511811
+    },
+    "header_to_upper_cleat_left": {
+      "minimum_center_spacing_mm": 35.0,
+      "minimum_center_spacing_multiple_D": 5.511811
+    },
+    "header_to_upper_cleat_right": {
+      "minimum_center_spacing_mm": 35.0,
+      "minimum_center_spacing_multiple_D": 5.511811
+    },
+    "post_to_lower_cleat_left": {
+      "minimum_center_spacing_mm": 50.0,
+      "minimum_center_spacing_multiple_D": 7.874016
+    },
+    "post_to_lower_cleat_right": {
+      "minimum_center_spacing_mm": 50.0,
+      "minimum_center_spacing_multiple_D": 7.874016
+    },
+    "principal_to_upper_cleat_left": {
+      "minimum_center_spacing_mm": 33.0,
+      "minimum_center_spacing_multiple_D": 5.19685
+    },
+    "principal_to_upper_cleat_right": {
+      "minimum_center_spacing_mm": 33.0,
+      "minimum_center_spacing_multiple_D": 5.19685
+    }
+  },
+  "provisional_fastener_axes": [
+    {
+      "axis_id": "center_principal_left_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "principal_to_upper_cleat_left",
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_cross_grain_edge_distances_mm": [
+          44.45,
+          44.44999999999999
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "crossgrain_ray_to_horizontal_seat_geometry_only_mm": 29.197963,
+        "grain_end_distances_mm": [
+          24.5,
+          57.5
+        ],
+        "nearest_grain_end_conditional_3p5D_margin_mm": 2.275,
+        "nearest_grain_end_conditional_7D_margin_mm": -19.95,
+        "note": "Geometry only. The horizontal seat is oblique to grain; NDS edge/end applicability requires signed actions and a supported oblique termination method.",
+        "principal_row_pitch_minus_5D_mm": 1.25,
+        "principal_row_pitch_mm": 33.0,
+        "signed_T_distance_to_relief_plane_mm": -85.42424
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_principal_center_left",
+        "center_principal_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_left",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -50.95,
+        -150.08907908,
+        295.768088856
+      ],
+      "receiver_volume_fraction": {
+        "base_principal_center_left": 0.3,
+        "center_principal_cleat_left": 0.7
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_principal_left_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "principal_to_upper_cleat_left",
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_cross_grain_edge_distances_mm": [
+          44.45,
+          44.44999999999999
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "crossgrain_ray_to_horizontal_seat_geometry_only_mm": 68.525832,
+        "grain_end_distances_mm": [
+          57.5,
+          24.5
+        ],
+        "nearest_grain_end_conditional_3p5D_margin_mm": 2.275,
+        "nearest_grain_end_conditional_7D_margin_mm": -19.95,
+        "note": "Geometry only. The horizontal seat is oblique to grain; NDS edge/end applicability requires signed actions and a supported oblique termination method.",
+        "principal_row_pitch_minus_5D_mm": 1.25,
+        "principal_row_pitch_mm": 33.0,
+        "signed_T_distance_to_relief_plane_mm": -52.42424
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_principal_center_left",
+        "center_principal_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_left",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -50.95,
+        -128.87708796,
+        321.047555479
+      ],
+      "receiver_volume_fraction": {
+        "base_principal_center_left": 0.3,
+        "center_principal_cleat_left": 0.7
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_principal_header_left_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_upper_cleat_left",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_axis_path_min_local_N_edge_distance_mm": 24.197795394644714,
+        "cleat_entry_local_N_edge_distances_mm": [
+          24.197795394644714,
+          64.70220460535528
+        ],
+        "cleat_exit_local_N_edge_distances_mm": [
+          64.57491326814524,
+          24.325086731854753
+        ],
+        "cleat_x_edge_distances_mm": [
+          61.94999999999999,
+          26.950000000000003
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          36.29999999999998,
+          103.4
+        ],
+        "note": "Vertical axis has flat Z end seats; side-edge categories remain conditional on signed actions."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_header",
+        "center_principal_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_left",
+      "nominal_underhead_length_screen_mm": 113.133044,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -116.0,
+        -139.4,
+        238.9
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.37754305,
+        "center_principal_cleat_left": 0.62245695
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 100.915644
+    },
+    {
+      "axis_id": "center_principal_header_left_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_upper_cleat_left",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_axis_path_min_local_N_edge_distance_mm": 24.197795394644714,
+        "cleat_entry_local_N_edge_distances_mm": [
+          24.197795394644714,
+          64.70220460535528
+        ],
+        "cleat_exit_local_N_edge_distances_mm": [
+          64.57491326814524,
+          24.325086731854753
+        ],
+        "cleat_x_edge_distances_mm": [
+          26.94999999999999,
+          61.95
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          36.29999999999998,
+          103.4
+        ],
+        "note": "Vertical axis has flat Z end seats; side-edge categories remain conditional on signed actions."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_header",
+        "center_principal_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_left",
+      "nominal_underhead_length_screen_mm": 113.133044,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -151.0,
+        -139.4,
+        238.9
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.37754305,
+        "center_principal_cleat_left": 0.62245695
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 100.915644
+    },
+    {
+      "axis_id": "center_post_left_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "post_to_lower_cleat_left",
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_z_end_distances_mm": [
+          35.0,
+          93.9
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "note": "Geometry-only screen; governing wood side and loaded edge require signed joint actions.",
+        "post_and_cleat_y_edge_distances_mm": [
+          44.45,
+          95.25
+        ]
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_post_center_left",
+        "center_post_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_left",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -160.95,
+        -131.25,
+        145.0
+      ],
+      "receiver_volume_fraction": {
+        "base_post_center_left": 0.3,
+        "center_post_cleat_left": 0.7
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_post_left_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "post_to_lower_cleat_left",
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_z_end_distances_mm": [
+          85.0,
+          43.900000000000006
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "note": "Geometry-only screen; governing wood side and loaded edge require signed joint actions.",
+        "post_and_cleat_y_edge_distances_mm": [
+          44.45,
+          95.25
+        ]
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_post_center_left",
+        "center_post_cleat_left"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_left",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -160.95,
+        -131.25,
+        195.0
+      ],
+      "receiver_volume_fraction": {
+        "base_post_center_left": 0.3,
+        "center_post_cleat_left": 0.7
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_post_header_left_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_lower_cleat_left",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_x_edge_distances_mm": [
+          43.94999999999999,
+          44.94999999999999
+        ],
+        "cleat_y_edge_distances_mm": [
+          26.94999999999999,
+          61.95
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          26.94999999999999,
+          112.75
+        ],
+        "note": "Vertical header axes are parallel to cleat Z grain; complete parallel-grain bolt-group behavior is unassessed."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "center_post_cleat_left",
+        "base_header"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_left",
+      "nominal_underhead_length_screen_mm": 179.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -244.0,
+        -148.75,
+        110.0
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.228143713,
+        "center_post_cleat_left": 0.771856287
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 167.0
+    },
+    {
+      "axis_id": "center_post_header_left_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_lower_cleat_left",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_x_edge_distances_mm": [
+          43.94999999999999,
+          44.94999999999999
+        ],
+        "cleat_y_edge_distances_mm": [
+          61.94999999999999,
+          26.950000000000003
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          61.94999999999999,
+          77.75
+        ],
+        "note": "Vertical header axes are parallel to cleat Z grain; complete parallel-grain bolt-group behavior is unassessed."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "center_post_cleat_left",
+        "base_header"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_left",
+      "nominal_underhead_length_screen_mm": 179.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        -244.0,
+        -113.75,
+        110.0
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.228143713,
+        "center_post_cleat_left": 0.771856287
+      },
+      "side": "left",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 167.0
+    },
+    {
+      "axis_id": "center_principal_right_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "principal_to_upper_cleat_right",
+      "direction_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_cross_grain_edge_distances_mm": [
+          44.45,
+          44.44999999999999
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "crossgrain_ray_to_horizontal_seat_geometry_only_mm": 29.197963,
+        "grain_end_distances_mm": [
+          24.5,
+          57.5
+        ],
+        "nearest_grain_end_conditional_3p5D_margin_mm": 2.275,
+        "nearest_grain_end_conditional_7D_margin_mm": -19.95,
+        "note": "Geometry only. The horizontal seat is oblique to grain; NDS edge/end applicability requires signed actions and a supported oblique termination method.",
+        "principal_row_pitch_minus_5D_mm": 1.25,
+        "principal_row_pitch_mm": 33.0,
+        "signed_T_distance_to_relief_plane_mm": -85.42424
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_principal_center_right",
+        "center_principal_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_right",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        50.95,
+        -150.08907908,
+        295.768088856
+      ],
+      "receiver_volume_fraction": {
+        "base_principal_center_right": 0.3,
+        "center_principal_cleat_right": 0.7
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_principal_right_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "principal_to_upper_cleat_right",
+      "direction_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_cross_grain_edge_distances_mm": [
+          44.45,
+          44.44999999999999
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "crossgrain_ray_to_horizontal_seat_geometry_only_mm": 68.525832,
+        "grain_end_distances_mm": [
+          57.5,
+          24.5
+        ],
+        "nearest_grain_end_conditional_3p5D_margin_mm": 2.275,
+        "nearest_grain_end_conditional_7D_margin_mm": -19.95,
+        "note": "Geometry only. The horizontal seat is oblique to grain; NDS edge/end applicability requires signed actions and a supported oblique termination method.",
+        "principal_row_pitch_minus_5D_mm": 1.25,
+        "principal_row_pitch_mm": 33.0,
+        "signed_T_distance_to_relief_plane_mm": -52.42424
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_principal_center_right",
+        "center_principal_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_right",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        50.95,
+        -128.87708796,
+        321.047555479
+      ],
+      "receiver_volume_fraction": {
+        "base_principal_center_right": 0.3,
+        "center_principal_cleat_right": 0.7
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_principal_header_right_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_upper_cleat_right",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_axis_path_min_local_N_edge_distance_mm": 24.197795394644714,
+        "cleat_entry_local_N_edge_distances_mm": [
+          24.197795394644714,
+          64.70220460535528
+        ],
+        "cleat_exit_local_N_edge_distances_mm": [
+          64.57491326814524,
+          24.325086731854753
+        ],
+        "cleat_x_edge_distances_mm": [
+          26.950000000000003,
+          61.94999999999999
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          36.29999999999998,
+          103.4
+        ],
+        "note": "Vertical axis has flat Z end seats; side-edge categories remain conditional on signed actions."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_header",
+        "center_principal_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_right",
+      "nominal_underhead_length_screen_mm": 113.133044,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        116.0,
+        -139.4,
+        238.9
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.37754305,
+        "center_principal_cleat_right": 0.62245695
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 100.915644
+    },
+    {
+      "axis_id": "center_principal_header_right_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_upper_cleat_right",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_axis_path_min_local_N_edge_distance_mm": 24.197795394644714,
+        "cleat_entry_local_N_edge_distances_mm": [
+          24.197795394644714,
+          64.70220460535528
+        ],
+        "cleat_exit_local_N_edge_distances_mm": [
+          64.57491326814524,
+          24.325086731854753
+        ],
+        "cleat_x_edge_distances_mm": [
+          61.95,
+          26.94999999999999
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          36.29999999999998,
+          103.4
+        ],
+        "note": "Vertical axis has flat Z end seats; side-edge categories remain conditional on signed actions."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_header",
+        "center_principal_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_base_center_right",
+      "nominal_underhead_length_screen_mm": 113.133044,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        151.0,
+        -139.4,
+        238.9
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.37754305,
+        "center_principal_cleat_right": 0.62245695
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 100.915644
+    },
+    {
+      "axis_id": "center_post_right_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "post_to_lower_cleat_right",
+      "direction_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_z_end_distances_mm": [
+          35.0,
+          93.9
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "note": "Geometry-only screen; governing wood side and loaded edge require signed joint actions.",
+        "post_and_cleat_y_edge_distances_mm": [
+          44.45,
+          95.25
+        ]
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_post_center_right",
+        "center_post_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_right",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        160.95,
+        -131.25,
+        145.0
+      ],
+      "receiver_volume_fraction": {
+        "base_post_center_right": 0.3,
+        "center_post_cleat_right": 0.7
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_post_right_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "post_to_lower_cleat_right",
+      "direction_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "distance_screen": {
+        "cleat_z_end_distances_mm": [
+          85.0,
+          43.900000000000006
+        ],
+        "conditional_screens_mm": {
+          "3.5D_grain_end": 22.224999999999998,
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "note": "Geometry-only screen; governing wood side and loaded edge require signed joint actions.",
+        "post_and_cleat_y_edge_distances_mm": [
+          44.45,
+          95.25
+        ]
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "base_post_center_right",
+        "center_post_cleat_right"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_right",
+      "nominal_underhead_length_screen_mm": 139.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        160.95,
+        -131.25,
+        195.0
+      ],
+      "receiver_volume_fraction": {
+        "base_post_center_right": 0.3,
+        "center_post_cleat_right": 0.7
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 127.0
+    },
+    {
+      "axis_id": "center_post_header_right_1",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_lower_cleat_right",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_x_edge_distances_mm": [
+          44.94999999999999,
+          43.94999999999999
+        ],
+        "cleat_y_edge_distances_mm": [
+          26.94999999999999,
+          61.95
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          26.94999999999999,
+          112.75
+        ],
+        "note": "Vertical header axes are parallel to cleat Z grain; complete parallel-grain bolt-group behavior is unassessed."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "center_post_cleat_right",
+        "base_header"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_right",
+      "nominal_underhead_length_screen_mm": 179.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        244.0,
+        -148.75,
+        110.0
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.228143713,
+        "center_post_cleat_right": 0.771856287
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 167.0
+    },
+    {
+      "axis_id": "center_post_header_right_2",
+      "bolt_body_diameter_mm": 6.35,
+      "candidate_sku": null,
+      "capacity_assigned": false,
+      "clearance_bore_diameter_mm": 7.3,
+      "connection_group": "header_to_lower_cleat_right",
+      "direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance_screen": {
+        "cleat_x_edge_distances_mm": [
+          44.94999999999999,
+          43.94999999999999
+        ],
+        "cleat_y_edge_distances_mm": [
+          61.94999999999999,
+          26.950000000000003
+        ],
+        "conditional_screens_mm": {
+          "4D_edge": 25.4,
+          "5D_pair_spacing": 31.75
+        },
+        "header_y_edge_distances_mm": [
+          61.94999999999999,
+          77.75
+        ],
+        "note": "Vertical header axes are parallel to cleat Z grain; complete parallel-grain bolt-group behavior is unassessed."
+      },
+      "head_washer_support_fraction": 1.0,
+      "intended_receivers": [
+        "center_post_cleat_right",
+        "base_header"
+      ],
+      "intended_receivers_complete": true,
+      "interface_id": "clip_split_header_center_right",
+      "nominal_underhead_length_screen_mm": 179.2174,
+      "nut_washer_support_fraction": 1.0,
+      "origin_global_xyz_mm": [
+        244.0,
+        -113.75,
+        110.0
+      ],
+      "receiver_volume_fraction": {
+        "base_header": 0.228143713,
+        "center_post_cleat_right": 0.771856287
+      },
+      "side": "right",
+      "unintended_wood_axis_intersections_mm3": {},
+      "wood_grip_mm": 167.0
+    }
+  ],
+  "release_flags": {
+    "drilling_released": false,
+    "fabrication_released": false,
+    "rating_claimed": false,
+    "structural_released": false
+  },
+  "retained_starting_frame_bolts": {
+    "axis_ids": [
+      "lumber_leg_bolt_left_1",
+      "lumber_leg_bolt_left_2",
+      "lumber_leg_bolt_right_1",
+      "lumber_leg_bolt_right_2",
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2",
+      "rail_front_bolt_right_1",
+      "rail_front_bolt_right_2",
+      "rail_rear_bolt_left_1",
+      "rail_rear_bolt_left_2",
+      "rail_rear_bolt_right_1",
+      "rail_rear_bolt_right_2"
+    ],
+    "candidate_recheck_status": "required_for_every_retained_bolt",
+    "count": 12,
+    "records": [
+      {
+        "axis_global_xyz": [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        "axis_id": "lumber_leg_bolt_left_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_side_left",
+          "lumber_leg_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1127.125,
+          1125.245692061979,
+          1734.9873155158273
+        ],
+        "source_occupied_diameter_mm": 12.7,
+        "source_occupied_length_mm": 203.2
+      },
+      {
+        "axis_global_xyz": [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        "axis_id": "lumber_leg_bolt_left_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_side_left",
+          "lumber_leg_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1127.125,
+          1143.254307938021,
+          1788.0126844841727
+        ],
+        "source_occupied_diameter_mm": 12.7,
+        "source_occupied_length_mm": 203.2
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          -0.0,
+          -0.0
+        ],
+        "axis_id": "lumber_leg_bolt_right_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_side_right",
+          "lumber_leg_right"
+        ],
+        "origin_global_xyz_mm": [
+          1123.95,
+          1125.245692061979,
+          1734.9873155158273
+        ],
+        "source_occupied_diameter_mm": 12.7,
+        "source_occupied_length_mm": 203.2
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          -0.0,
+          -0.0
+        ],
+        "axis_id": "lumber_leg_bolt_right_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_side_right",
+          "lumber_leg_right"
+        ],
+        "origin_global_xyz_mm": [
+          1123.95,
+          1143.254307938021,
+          1788.0126844841727
+        ],
+        "source_occupied_diameter_mm": 12.7,
+        "source_occupied_length_mm": 203.2
+      },
+      {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_front_bolt_left_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_post_outer_left",
+          "base_floor_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1179.0680000000002,
+          -105.52785892843431,
+          70.17214107156569
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 101.6
+      },
+      {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_front_bolt_left_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_post_outer_left",
+          "base_floor_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1179.0680000000002,
+          -77.59714107156569,
+          98.10285892843432
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 101.6
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_front_bolt_right_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_post_outer_right",
+          "base_floor_right"
+        ],
+        "origin_global_xyz_mm": [
+          1175.8930000000003,
+          -105.52785892843431,
+          70.17214107156569
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 101.6
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_front_bolt_right_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_post_outer_right",
+          "base_floor_right"
+        ],
+        "origin_global_xyz_mm": [
+          1175.8930000000003,
+          -77.59714107156569,
+          98.10285892843432
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 101.6
+      },
+      {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_rear_bolt_left_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_floor_left",
+          "lumber_leg_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1217.1680000000001,
+          1551.0,
+          69.0
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 114.3
+      },
+      {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_rear_bolt_left_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_floor_left",
+          "lumber_leg_left"
+        ],
+        "origin_global_xyz_mm": [
+          -1217.1680000000001,
+          1517.0,
+          97.5
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 114.3
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_rear_bolt_right_1",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_floor_right",
+          "lumber_leg_right"
+        ],
+        "origin_global_xyz_mm": [
+          1213.9930000000002,
+          1551.0,
+          69.0
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 114.3
+      },
+      {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_id": "rail_rear_bolt_right_2",
+        "candidate_recheck_status": "required",
+        "installed_component_count": 5,
+        "members": [
+          "base_floor_right",
+          "lumber_leg_right"
+        ],
+        "origin_global_xyz_mm": [
+          1213.9930000000002,
+          1517.0,
+          97.5
+        ],
+        "source_occupied_diameter_mm": 9.525,
+        "source_occupied_length_mm": 114.3
+      }
+    ]
+  },
+  "schema": "wood_joint_wj05_center_node_probe/v1",
+  "scope": "one-side source-bound center-node geometry fit comparison with mirror checks",
+  "source_fingerprints_sha256": {
+    "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+    "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+    "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joint_wj05_center_node_probe.py": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173",
+    "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+  },
+  "status": "blocked_nominal_geometry_diagnostic",
+  "trial_id": "wj05-center-node-rear-4x4-upper-l82-wire-relief-v2",
+  "upper_relief_installed_hardware_clearances": [
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 91.677588,
+      "axis_id": "center_principal_left_1",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 94.075006,
+        "head_washer": 91.826705,
+        "nut": 85.280071,
+        "nut_washer": 83.549588,
+        "shaft": 88.502588
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 62.09493,
+      "axis_id": "center_principal_left_2",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 68.414645,
+        "head_washer": 66.060877,
+        "nut": 55.705901,
+        "nut_washer": 53.96693,
+        "shaft": 58.91993
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 69.713614,
+      "axis_id": "center_principal_header_left_1",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 119.42367,
+        "head_washer": 117.073967,
+        "nut": 63.321641,
+        "nut_washer": 61.585614,
+        "shaft": 66.538614
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 69.713614,
+      "axis_id": "center_principal_header_left_2",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 119.42367,
+        "head_washer": 117.073967,
+        "nut": 63.321641,
+        "nut_washer": 61.585614,
+        "shaft": 66.538614
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 91.677588,
+      "axis_id": "center_principal_right_1",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 94.075006,
+        "head_washer": 91.826705,
+        "nut": 85.280071,
+        "nut_washer": 83.549588,
+        "shaft": 88.502588
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 62.09493,
+      "axis_id": "center_principal_right_2",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 68.414645,
+        "head_washer": 66.060877,
+        "nut": 55.705901,
+        "nut_washer": 53.96693,
+        "shaft": 58.91993
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 69.713614,
+      "axis_id": "center_principal_header_right_1",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 119.42367,
+        "head_washer": 117.073967,
+        "nut": 63.321641,
+        "nut_washer": 61.585614,
+        "shaft": 66.538614
+      },
+      "tool_envelopes_included": false
+    },
+    {
+      "axis_centerline_min_distance_to_removed_wedge_mm": 69.713614,
+      "axis_id": "center_principal_header_right_2",
+      "installed_component_min_distance_to_removed_wedge_mm": {
+        "head": 119.42367,
+        "head_washer": 117.073967,
+        "nut": 63.321641,
+        "nut_washer": 61.585614,
+        "shaft": 66.538614
+      },
+      "tool_envelopes_included": false
+    }
+  ],
+  "upper_relief_source_wire_clearance": {
+    "center_principal_cleat_left": {
+      "below_required_clearance_mm": {},
+      "distance_gate_passed": true,
+      "far_pairs_bbox_lower_bound_count": 131,
+      "far_pairs_minimum_bbox_lower_bound_mm": 9.25,
+      "minimum_proven_clearance_lower_bound_mm": 9.25,
+      "near_pairs_exact_distance_mm": {},
+      "required_clearance_mm": 2.0
+    },
+    "center_principal_cleat_right": {
+      "below_required_clearance_mm": {},
+      "distance_gate_passed": true,
+      "far_pairs_bbox_lower_bound_count": 129,
+      "far_pairs_minimum_bbox_lower_bound_mm": 80.259992,
+      "minimum_proven_clearance_lower_bound_mm": 2.303793,
+      "near_pairs_exact_distance_mm": {
+        "wire_072_F1_G1": 2.303793,
+        "wire_073_G1_G2": 21.49405
+      },
+      "required_clearance_mm": 2.0
+    }
+  }
+}
