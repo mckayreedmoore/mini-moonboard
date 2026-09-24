@@ -20,6 +20,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
+from mini_moonboard.wood_joint_panel_machining import (
+    RIGHT_PANEL_NAMES,
+    candidate_panel_replacements,
+)
 from mini_moonboard.wood_joint_wj05_socket import (
     KOKEN_3305A_7_16_PRODUCT,
     KOKEN_PRODUCT_URL,
@@ -36,6 +40,15 @@ from scripts import owner_layout_protected as protected
 AXES_CSV = ROOT / "docs/floor-flush-construction-kerf-right/connection-axes.csv"
 OUTPUT_JSON = ROOT / "docs/wood-joints-mvp/wj05-center-backer-transfer.json"
 OUTPUT_MD = ROOT / "docs/wood-joints-mvp/wj05-center-backer-transfer.md"
+PANEL_MACHINING_SOURCE_FILES = (
+    ROOT / "mini_moonboard/wood_joint_panel_machining.py",
+    ROOT / "mini_moonboard/base_frame.py",
+    ROOT / "mini_moonboard/floor_flush_width.py",
+    ROOT / "mini_moonboard/insert_frame.py",
+    ROOT / "mini_moonboard/panel_grid.py",
+    ROOT / "mini_moonboard/panel_grid_v2.py",
+    ROOT / "docs/panel-insert-reference.json",
+)
 
 POST_SHIFT_X_MM = {"left": -110.0, "right": 110.0}
 BACKER_X_MM = {
@@ -96,11 +109,11 @@ SOURCE_FILES = (
     AXES_CSV,
     ROOT / "docs/floor-flush-construction-kerf-right/stock-profiles.json",
     ROOT / "mini_moonboard/compact_floor_flush_frame.py",
-    ROOT / "mini_moonboard/floor_flush_width.py",
     ROOT / "mini_moonboard/round_service_wiring.py",
     ROOT / "mini_moonboard/hold_tnut_reinforcement.py",
     ROOT / "scripts/owner_layout_protected.py",
     ROOT / "mini_moonboard/wood_joint_wj05_socket.py",
+    *PANEL_MACHINING_SOURCE_FILES,
     Path(__file__),
 )
 
@@ -170,13 +183,69 @@ def _fixed_axis_shapes(rows):
     return screws, frame_bolts
 
 
+def _candidate_panel_shapes(model, *, current_parts, uncut_parts):
+    replacements = candidate_panel_replacements(
+        model,
+        current_parts=current_parts,
+        uncut_parts=uncut_parts,
+    )
+    if set(replacements) != RIGHT_PANEL_NAMES:
+        raise ValueError("WJ-05 requires replacements for the three right panels")
+    return {name: part.shape for name, part in replacements.items()}
+
+
+def _candidate_panel_obstacles(source_wood, candidate_wood):
+    missing = RIGHT_PANEL_NAMES - source_wood.keys()
+    missing |= RIGHT_PANEL_NAMES - candidate_wood.keys()
+    if missing:
+        raise ValueError(f"WJ-05 obstacle maps are missing panels: {sorted(missing)}")
+    obstacles = dict(source_wood)
+    obstacles.update({name: candidate_wood[name] for name in RIGHT_PANEL_NAMES})
+    return obstacles
+
+
+def _backer_post_obstacle_screens(backers, moved_posts, source_wood, candidate_wood):
+    candidate_obstacles = _candidate_panel_obstacles(source_wood, candidate_wood)
+    excluded = {
+        "base_header",
+        "base_post_center_left",
+        "base_post_center_right",
+    }
+    source_obstacles = {
+        name: shape
+        for name, shape in candidate_obstacles.items()
+        if name not in excluded
+    }
+    source_obstacles.update(moved_posts)
+    post_obstacles = {
+        name: shape
+        for name, shape in candidate_obstacles.items()
+        if name not in excluded
+    }
+    body_hits = {
+        name: _hits(shape, source_obstacles) for name, shape in backers.items()
+    }
+    moved_post_hits = {
+        name: _hits(shape, post_obstacles) for name, shape in moved_posts.items()
+    }
+    return source_obstacles, body_hits, moved_post_hits
+
+
 def _source_and_candidate():
     model = variant(KERF_RIGHT)
-    source_wood = {part.name: part.shape for part in model.uncut_wood_parts()}
+    uncut_parts = model.uncut_wood_parts()
+    source_wood = {part.name: part.shape for part in uncut_parts}
     if not {"base_header", "base_post_center_left", "base_post_center_right"} <= set(source_wood):
         raise ValueError("Maintained center header/post source members changed")
 
     wood = dict(source_wood)
+    wood.update(
+        _candidate_panel_shapes(
+            model,
+            current_parts=model.parts(),
+            uncut_parts=uncut_parts,
+        )
+    )
     for side, shift in POST_SHIFT_X_MM.items():
         name = f"base_post_center_{side}"
         wood[name] = wood[name].translate(cq.Vector(shift, 0, 0))
@@ -757,27 +826,16 @@ def _build_report():
 
     # Candidate bodies may touch the header at z=238.9; that is the intended
     # bearing face. All other source timber is an unintended-overlap target.
-    body_hits = {}
-    source_obstacles = {
-        name: shape
-        for name, shape in source_wood.items()
-        if name not in {"base_header", "base_post_center_left", "base_post_center_right"}
-    }
     moved_posts = {
         f"base_post_center_{side}": wood[f"base_post_center_{side}"]
         for side in ("left", "right")
     }
-    source_obstacles.update(moved_posts)
-    for name, shape in backers.items():
-        body_hits[name] = _hits(shape, source_obstacles)
-    moved_post_hits = {}
-    post_obstacles = {
-        name: shape
-        for name, shape in source_wood.items()
-        if name not in {"base_header", "base_post_center_left", "base_post_center_right"}
-    }
-    for name, shape in moved_posts.items():
-        moved_post_hits[name] = _hits(shape, post_obstacles)
+    source_obstacles, body_hits, moved_post_hits = _backer_post_obstacle_screens(
+        backers,
+        moved_posts,
+        source_wood,
+        wood,
+    )
     moved_post_panel_axis_hits = {
         name: _hits(shape, screw_axes) for name, shape in moved_posts.items()
     }

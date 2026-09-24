@@ -6979,10 +6979,10 @@
   "input_sha256": {
     "docs/floor-runner-mvp-angle-demands.json": "5446aeacaccafb70c77358635e5fb84c1b9627eb922209411b748e5e34c9e558",
     "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
-    "docs/wood-joints-mvp/wj04-probe.json": "0cd9500371a2239afbfcebc692f389b69774e528c0bb08ddef59e1c2f6576362",
+    "docs/wood-joints-mvp/wj04-probe.json": "19dc75908780b16d84eecdac170976eeb94009e4869c9293bf2867d7098af1ac",
     "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
     "scripts/wood_joint_wj04_early_mechanics.py": "ef2b23a9802e5110c745911fcbcd3de9cfeeced325b308e986459c3610f14357",
-    "scripts/wood_joint_wj04_probe.py": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840"
+    "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94"
   },
   "interface_summary": {
     "principal": {
@@ -7043,7 +7043,7 @@
           "capacity_or_contact_pressure_calculated": false,
           "method_id": "thin_inward_intersection_volume_divided_by_probe_depth",
           "probe_depth_mm": 0.1,
-          "probe_producer_sha256": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840",
+          "probe_producer_sha256": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
           "source_field": "active_probe.contact_area_mm2.principal_to_cleat"
         },
         "finite_probe_contact_area_mm2": 4560.569999,
@@ -7450,7 +7450,7 @@
           "capacity_or_contact_pressure_calculated": false,
           "method_id": "thin_inward_intersection_volume_divided_by_probe_depth",
           "probe_depth_mm": 0.1,
-          "probe_producer_sha256": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840",
+          "probe_producer_sha256": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
           "source_field": "active_probe.contact_area_mm2.rail_to_cleat"
         },
         "finite_probe_contact_area_mm2": 11401.398713,
@@ -8081,9 +8081,39 @@
     },
     "status": "stale_or_unverified_inputs_are_recorded_not_promoted",
     "wj04_probe_producer_and_dependencies": {
+      "docs/panel-insert-reference.json": {
+        "current_sha256": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+        "declared_sha256": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+        "status": "match"
+      },
       "docs/wood-joints-mvp/source-inventory.json": {
         "current_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
         "declared_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+        "status": "match"
+      },
+      "mini_moonboard/base_frame.py": {
+        "current_sha256": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+        "declared_sha256": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+        "status": "match"
+      },
+      "mini_moonboard/floor_flush_width.py": {
+        "current_sha256": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+        "declared_sha256": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+        "status": "match"
+      },
+      "mini_moonboard/insert_frame.py": {
+        "current_sha256": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+        "declared_sha256": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+        "status": "match"
+      },
+      "mini_moonboard/panel_grid.py": {
+        "current_sha256": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+        "declared_sha256": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+        "status": "match"
+      },
+      "mini_moonboard/panel_grid_v2.py": {
+        "current_sha256": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+        "declared_sha256": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
         "status": "match"
       },
       "mini_moonboard/wood_joint_frame.py": {
@@ -8094,6 +8124,11 @@
       "mini_moonboard/wood_joint_geometry.py": {
         "current_sha256": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
         "declared_sha256": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+        "status": "match"
+      },
+      "mini_moonboard/wood_joint_panel_machining.py": {
+        "current_sha256": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+        "declared_sha256": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
         "status": "match"
       },
       "mini_moonboard/wood_joint_wj04_config.py": {
@@ -8107,13 +8142,13 @@
         "status": "match"
       },
       "scripts/wood_joint_clearance.py": {
-        "current_sha256": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
-        "declared_sha256": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
+        "current_sha256": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+        "declared_sha256": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
         "status": "match"
       },
       "scripts/wood_joint_wj04_probe.py": {
-        "current_sha256": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840",
-        "declared_sha256": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840",
+        "current_sha256": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+        "declared_sha256": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
         "status": "match"
       }
     },

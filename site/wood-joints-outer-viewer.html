@@ -39,7 +39,7 @@
       <label><input type="checkbox" data-family="wj03" checked /> WJ-03</label>
       <label><input type="checkbox" data-family="wj04" checked /> WJ-04</label>
       <label><input type="checkbox" data-family="wj05" checked /> WJ-05</label>
-      <label><input type="checkbox" data-family="shared" checked /> Shared hosts</label>
+      <label><input type="checkbox" data-family="shared" checked /> Shared geometry</label>
     </fieldset>
     <fieldset>
       <legend>Clearance overlays</legend>
@@ -270,7 +270,7 @@
       ]));
       for (const [family, rows] of Object.entries(familySolids)) {
         const label = familyInputs.get(family).parentElement;
-        label.lastChild.textContent = ` ${family === 'shared' ? 'Shared hosts' : family.toUpperCase()} (${rows.length})`;
+        label.lastChild.textContent = ` ${family === 'shared' ? 'Shared geometry' : family.toUpperCase()} (${rows.length})`;
       }
       if (requiredFamilies.some(family => familySolids[family].length !== trials[family].geometry_solid_count)) {
         throw new Error('trial solid counts do not match the scene inventory');

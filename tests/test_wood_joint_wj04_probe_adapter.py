@@ -5,10 +5,12 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import cadquery as cq
 import pytest
 
+from mini_moonboard.wood_joint_panel_machining import RIGHT_PANEL_NAMES
 from mini_moonboard.wood_joint_wj04_config import WJ04_TRIAL
 from scripts import wood_joint_wj04_probe
 
@@ -87,6 +89,143 @@ def test_cheap_adapter_records_bind_trial_catalog_and_release_flags():
     )
     assert json.loads(json.dumps(metadata)) == metadata
     assert not any(metadata["release_claims"].values())
+
+
+def test_candidate_panel_overlay_preserves_raw_parts_and_all_fixed_axes(monkeypatch):
+    axis_count = wood_joint_wj04_probe.PANEL_CONNECTION_COUNT
+    panel_axes = tuple(
+        SimpleNamespace(
+            name=f"panel_axis_{index:02d}",
+            members=("main_lower_left", "base_rail_bottom_left"),
+            start=cq.Vector(index, 2.0, 3.0),
+            direction=cq.Vector(0.0, 0.0, 1.0),
+            length=40.0,
+            diameter=6.0,
+            kind="screw",
+        )
+        for index in range(axis_count)
+    )
+
+    class Source:
+        def panel_connections(self):
+            return panel_axes
+
+    source = Source()
+    panel_names = RIGHT_PANEL_NAMES | {
+        "main_lower_left",
+        "main_upper_left",
+        "kicker_left",
+    }
+    source_panels = {
+        name: cq.Solid.makeBox(5.0, 5.0, 5.0).translate((index * 10.0, 0.0, 0.0))
+        for index, name in enumerate(sorted(panel_names))
+    }
+    original_shapes = source_panels.copy()
+    current_parts = tuple(
+        SimpleNamespace(name=name, shape=shape) for name, shape in source_panels.items()
+    )
+    uncut_parts = tuple(
+        SimpleNamespace(name=name, shape=shape) for name, shape in source_panels.items()
+    )
+    replacement_parts = {
+        name: SimpleNamespace(
+            name=name,
+            shape=cq.Solid.makeBox(2.0, 2.0, 2.0).translate((100.0, index, 0.0)),
+        )
+        for index, name in enumerate(sorted(RIGHT_PANEL_NAMES))
+    }
+    helper_calls = []
+
+    def replacements(model, *, current_parts, uncut_parts):
+        helper_calls.append((model, current_parts, uncut_parts))
+        return replacement_parts
+
+    monkeypatch.setattr(
+        wood_joint_wj04_probe, "candidate_panel_replacements", replacements
+    )
+
+    obstacles, metadata = wood_joint_wj04_probe._candidate_panel_obstacles(
+        source, source_panels, current_parts, uncut_parts
+    )
+
+    assert helper_calls == [(source, current_parts, uncut_parts)]
+    assert obstacles is not source_panels
+    assert all(
+        obstacles[name] is replacement_parts[name].shape for name in RIGHT_PANEL_NAMES
+    )
+    assert all(
+        obstacles[name] is original_shapes[name]
+        for name in panel_names - RIGHT_PANEL_NAMES
+    )
+    assert all(source_panels[name] is original_shapes[name] for name in panel_names)
+    assert metadata["replacement_names"] == sorted(RIGHT_PANEL_NAMES)
+    assert metadata["fixed_panel_axis_count"] == 66
+    assert len(metadata["fixed_panel_axis_identity_sha256"]) == 64
+    assert metadata["fixed_panel_axes_preserved"] is True
+    assert metadata["raw_source_panel_shapes_preserved_separately"] is True
+
+
+def test_candidate_panel_overlay_fails_closed_on_missing_axis_or_replacement(
+    monkeypatch,
+):
+    axis = SimpleNamespace(
+        name="single-axis",
+        members=("main_lower_left", "base_rail_bottom_left"),
+        start=cq.Vector(0.0, 0.0, 0.0),
+        direction=cq.Vector(0.0, 0.0, 1.0),
+        length=40.0,
+        diameter=6.0,
+        kind="screw",
+    )
+
+    class Source:
+        def panel_connections(self):
+            return (axis,)
+
+    monkeypatch.setattr(
+        wood_joint_wj04_probe,
+        "candidate_panel_replacements",
+        lambda *args, **kwargs: pytest.fail(
+            "invalid axes must fail before remachining"
+        ),
+    )
+    with pytest.raises(ValueError, match="exact unique source panel axes"):
+        wood_joint_wj04_probe._candidate_panel_obstacles(Source(), {}, (), ())
+
+    axes = tuple(
+        SimpleNamespace(
+            name=f"panel_axis_{index:02d}",
+            members=("main_lower_left", "base_rail_bottom_left"),
+            start=cq.Vector(index, 0.0, 0.0),
+            direction=cq.Vector(0.0, 0.0, 1.0),
+            length=40.0,
+            diameter=6.0,
+            kind="screw",
+        )
+        for index in range(wood_joint_wj04_probe.PANEL_CONNECTION_COUNT)
+    )
+
+    class CompleteSource:
+        def panel_connections(self):
+            return axes
+
+    monkeypatch.setattr(
+        wood_joint_wj04_probe,
+        "candidate_panel_replacements",
+        lambda *args, **kwargs: {
+            "main_lower_right": SimpleNamespace(
+                name="main_lower_right",
+                shape=cq.Solid.makeBox(1.0, 1.0, 1.0),
+            )
+        },
+    )
+    with pytest.raises(ValueError, match="replace exactly the three right panels"):
+        wood_joint_wj04_probe._candidate_panel_obstacles(
+            CompleteSource(),
+            {name: cq.Solid.makeBox(1.0, 1.0, 1.0) for name in RIGHT_PANEL_NAMES},
+            (),
+            (),
+        )
 
 
 def test_pre_adapter_narrow_probe_was_archived_byte_for_byte():

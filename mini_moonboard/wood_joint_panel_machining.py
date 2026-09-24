@@ -1,8 +1,8 @@
 """Candidate-only panel machining for the shared-kerf WJ-03 model.
 
 The source kerf adapter translates right panels and some right receiver axes
-by different amounts. This adapter rebuilds only the right panels from their
-candidate outlines, restores the fixed hold/LED grid, then cuts the exact
+by different amounts. This adapter repairs only the right panels' inherited
+grid openings, restores the fixed hold/LED datums, then cuts the exact
 kerf-right panel-connection axes. It does not change the selected baseline or
 the shared width producer.
 """
@@ -149,12 +149,13 @@ def candidate_panel_replacements(
     current_parts: Iterable,
     uncut_parts: Iterable,
 ) -> dict:
-    """Return replacement solids for the three kerf-right panels.
+    """Return replacement parts for the three kerf-right panels.
 
     The model must be the existing WidthAdapter(KERF_RIGHT). Pass its already
     built parts() and uncut_wood_parts() to avoid rebuilding the candidate.
-    Returned parts retain metadata from current_parts; their shapes come from
-    the exact transformed, uncut candidate outlines.
+    The latter contain inherited grid openings; only displaced crescents are
+    restored, so candidate-only outline material remains untouched. Returned
+    parts retain metadata from current_parts.
     """
     if getattr(model, "option", None) != KERF_RIGHT:
         raise ValueError("Panel remachining requires the kerf-right candidate")
@@ -189,9 +190,11 @@ def candidate_panel_replacements(
             # which can differ from the main-panel frame transform.
             translation = _kicker_panel_translation(model, name)
 
-        # `uncut_wood_parts` already carries grid holes; the width adapter
-        # moved those with the panel. Restore only their displaced crescents,
-        # clipped to the shared uncut panel outline, then cut fixed datums.
+        # The candidate's uncut parts already carry grid holes; the width
+        # adapter moved those with the panel. Restore only their displaced
+        # crescents, clipped to the shared grid-bearing stock outline, then
+        # cut fixed datums. This leaves any candidate-only kicker extension
+        # intact.
         candidate_outline = shifted_panel_outlines[name].translate(translation)
         displaced_plug = displaced_grid_plugs[name].translate(translation)
         displaced_plug = displaced_plug.intersect(candidate_outline).clean()

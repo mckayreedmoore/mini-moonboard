@@ -16,12 +16,18 @@ from pathlib import Path
 import cadquery as cq
 
 from mini_moonboard import hold_tnut_reinforcement as hold_tnuts
+from mini_moonboard.floor_flush_width import KERF_RIGHT
 from mini_moonboard.wood_joint_frame import (
     LEGACY_DUTIES,
     TOOL_DIAMETER_MM,
     TOOL_LENGTH_MM,
     access_shapes,
     build_outer_nodes,
+)
+from mini_moonboard.wood_joint_panel_machining import (
+    PANEL_CONNECTION_COUNT,
+    RIGHT_PANEL_NAMES,
+    candidate_panel_replacements,
 )
 from scripts.owner_layout_protected import inventory as protected_inventory
 from scripts.wood_joints_wj05_center_backer_transfer_probe import (
@@ -34,13 +40,17 @@ OUTPUT = ROOT / "docs/wood-joints-mvp/wj03-sequence-diagnostic.json"
 HIT_MM3 = 1e-4
 SEQUENCE_DEPENDENCIES = (
     "mini_moonboard/connection_geometry.py",
+    "mini_moonboard/base_frame.py",
     "mini_moonboard/floor_flush_width.py",
     "mini_moonboard/hold_tnut_reinforcement.py",
+    "mini_moonboard/insert_frame.py",
+    "docs/panel-insert-reference.json",
     "mini_moonboard/model.py",
     "mini_moonboard/panel_grid.py",
     "mini_moonboard/panel_grid_v2.py",
     "mini_moonboard/wood_joint_frame.py",
     "mini_moonboard/wood_joint_geometry.py",
+    "mini_moonboard/wood_joint_panel_machining.py",
     "scripts/owner_layout_protected.py",
     "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
 )
@@ -341,7 +351,7 @@ def _closest_surface_distance(moving: cq.Shape, obstacles: dict[str, cq.Shape]) 
 
 
 def _host_obstacles(
-    source, nodes, protected, source_inventory, excluded=()
+    source, nodes, protected, source_inventory, excluded=(), panel_replacements=None
 ) -> dict[str, cq.Shape]:
     excluded = set(excluded)
     wood_names = {part.name for part in source.uncut_wood_parts()}
@@ -350,6 +360,13 @@ def _host_obstacles(
         for part in source.parts()
         if part.name in wood_names and part.name not in excluded
     }
+    obstacles.update(
+        {
+            f"wood/{name}": part.shape
+            for name, part in (panel_replacements or {}).items()
+            if name not in excluded
+        }
+    )
     # Use the actual WJ-03 through-bored host solids at the five changed hosts.
     for node in nodes.values():
         for name, part in node.source_host_parts.items():
@@ -445,7 +462,14 @@ def _staged_reverse_route(lower: str, kicker: str) -> list[str]:
 
 
 def _panel_clearance_scenario(
-    source, nodes, protected, inv, tnut_owners, wj05_solids, side: str
+    source,
+    nodes,
+    protected,
+    inv,
+    tnut_owners,
+    wj05_solids,
+    side: str,
+    panel_replacements=None,
 ) -> dict:
     lower = f"main_lower_{side}"
     kicker = f"kicker_{side}"
@@ -453,17 +477,32 @@ def _panel_clearance_scenario(
     source_parts = {
         part.name: part.shape for part in source.parts() if part.name in wood_names
     }
+    source_parts.update(
+        {name: part.shape for name, part in (panel_replacements or {}).items()}
+    )
     wall_panel = source_parts[lower]
     kicker_panel = source_parts[kicker]
     protected_screws = _fixed_screw_records(inv, lower)
     kicker_screws = _fixed_screw_records(inv, kicker)
 
     # Screen each adjacent lower panel screw at its fixed source axis first.
-    screw_obstacles = _host_obstacles(source, nodes, protected, inv, excluded=(lower,))
+    screw_obstacles = _host_obstacles(
+        source,
+        nodes,
+        protected,
+        inv,
+        excluded=(lower,),
+        panel_replacements=panel_replacements,
+    )
     screw_obstacles.update(wj05_solids)
     lower_screw_screen = _screw_screen(protected_screws, screw_obstacles, lower)
     kicker_obstacles = _host_obstacles(
-        source, nodes, protected, inv, excluded=(kicker,)
+        source,
+        nodes,
+        protected,
+        inv,
+        excluded=(kicker,),
+        panel_replacements=panel_replacements,
     )
     kicker_obstacles.update(wj05_solids)
     kicker_screw_screen = _screw_screen(kicker_screws, kicker_obstacles, kicker)
@@ -474,7 +513,14 @@ def _panel_clearance_scenario(
         protected,
         tnut_owners,
     )
-    wall_obstacles = _host_obstacles(source, nodes, protected, inv, excluded=(lower,))
+    wall_obstacles = _host_obstacles(
+        source,
+        nodes,
+        protected,
+        inv,
+        excluded=(lower,),
+        panel_replacements=panel_replacements,
+    )
     wall_obstacles.update(wj05_solids)
     wall_obstacles = {
         name: shape
@@ -494,7 +540,12 @@ def _panel_clearance_scenario(
     # Test +Y with the adjacent lower panel retained, after only the screw axes
     # and service openings are applied from maintained state.
     retained_path_obstacles = _host_obstacles(
-        source, nodes, protected, inv, excluded=(kicker,)
+        source,
+        nodes,
+        protected,
+        inv,
+        excluded=(kicker,),
+        panel_replacements=panel_replacements,
     )
     retained_path_obstacles.update(wj05_solids)
     kicker_members, kicker_tnuts, kicker_lights = _moving_panel_assembly(
@@ -522,7 +573,12 @@ def _panel_clearance_scenario(
 
     # Repeat after staging the one same-side adjacent lower panel away.
     open_wall_obstacles = _host_obstacles(
-        source, nodes, protected, inv, excluded=(kicker, lower)
+        source,
+        nodes,
+        protected,
+        inv,
+        excluded=(kicker, lower),
+        panel_replacements=panel_replacements,
     )
     open_wall_obstacles.update(wj05_solids)
     open_wall_obstacles = _without_moving_panel_tnuts(
@@ -636,7 +692,9 @@ def _panel_clearance_scenario(
     }
 
 
-def _short_nut_route(nodes, source, protected, inv, wj05_solids) -> dict:
+def _short_nut_route(
+    nodes, source, protected, inv, wj05_solids, panel_replacements=None
+) -> dict:
     results = {}
     for node in nodes.values():
         for bolt_id, stack in node.stacks.items():
@@ -682,6 +740,12 @@ def _short_nut_route(nodes, source, protected, inv, wj05_solids) -> dict:
                 for part in source.parts()
                 if part.name in {row.name for row in source.uncut_wood_parts()}
             }
+            obstacles.update(
+                {
+                    f"wood/{name}": part.shape
+                    for name, part in (panel_replacements or {}).items()
+                }
+            )
             for side_node in nodes.values():
                 obstacles.update(
                     {
@@ -749,6 +813,29 @@ def _short_nut_route(nodes, source, protected, inv, wj05_solids) -> dict:
     return results
 
 
+def _validated_right_panel_replacements(source, panel_replacements=None) -> dict:
+    if getattr(source, "option", None) != KERF_RIGHT:
+        raise ValueError("WJ-03 panel replacements require the kerf-right source")
+    if panel_replacements is None:
+        current_parts = source.parts()
+        uncut_parts = source.uncut_wood_parts()
+        panel_replacements = candidate_panel_replacements(
+            source,
+            current_parts=current_parts,
+            uncut_parts=uncut_parts,
+        )
+    if set(panel_replacements) != RIGHT_PANEL_NAMES:
+        raise ValueError(
+            "WJ-03 panel replacement map must contain exactly the three right panels"
+        )
+    for name, part in panel_replacements.items():
+        if getattr(part, "name", None) != name or getattr(part, "shape", None) is None:
+            raise ValueError(f"Invalid WJ-03 panel replacement: {name}")
+    if len(source.panel_connections()) != PANEL_CONNECTION_COUNT:
+        raise ValueError(f"Expected {PANEL_CONNECTION_COUNT} kerf-right panel axes")
+    return panel_replacements
+
+
 def build_report() -> dict:
     inv = json.loads(INPUT.read_text())
     (
@@ -762,6 +849,7 @@ def build_report() -> dict:
         _wj05_tools,
         _wj05_counterbores,
     ) = build_wj05_center_candidate()
+    panel_replacements = _validated_right_panel_replacements(source)
     nodes = build_outer_nodes()
     wj05_solids = _wj05_sequence_solids(
         wj05_candidate_wood,
@@ -779,6 +867,7 @@ def build_report() -> dict:
             tnut_owners,
             wj05_solids,
             side,
+            panel_replacements,
         )
         for side in ("left", "right")
     }
@@ -800,6 +889,11 @@ def build_report() -> dict:
             "fixed_panel_kicker_screws": 66,
             "frame_bolt_arrangements": 12,
             "axes_changed": False,
+            "candidate_panel_machining": {
+                "replacement_panels": sorted(panel_replacements),
+                "panel_connection_axis_count": len(source.panel_connections()),
+                "fixed_service_and_grid_datums": "preserved by candidate-only remachining",
+            },
             "source_inventory_sha256": _sha(INPUT),
             "source_model_binding": nodes["left"].source_binding.inventory_sha256,
             "producer_sha256": _sha(Path(__file__).resolve()),
@@ -840,7 +934,7 @@ def build_report() -> dict:
             "Any panel/service collision requires an explicit service-disconnect and reinstallation operation; this diagnostic does not model one.",
         ],
         "nut_access_and_minimum_physical_extraction": _short_nut_route(
-            nodes, source, protected, inv, wj05_solids
+            nodes, source, protected, inv, wj05_solids, panel_replacements
         ),
         "panel_and_kicker_sequences": sides,
         "recommended_diagnostic_sequence": [

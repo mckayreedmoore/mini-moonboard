@@ -28,6 +28,11 @@ from mini_moonboard.wood_joint_frame import (
     installed_stack_shapes,
 )
 from mini_moonboard.wood_joint_geometry import bolt_stack_report, washer_support_report
+from mini_moonboard.wood_joint_panel_machining import (
+    PANEL_CONNECTION_COUNT,
+    RIGHT_PANEL_NAMES,
+    candidate_panel_replacements,
+)
 from scripts.owner_layout_protected import inventory as protected_inventory
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,8 +75,14 @@ def _canonical_sha256(value: object) -> str:
 def _producer_binding(command: str) -> dict:
     dependencies = (
         "scripts/wood_joint_clearance.py",
+        "docs/panel-insert-reference.json",
+        "mini_moonboard/base_frame.py",
+        "mini_moonboard/floor_flush_width.py",
+        "mini_moonboard/insert_frame.py",
+        "mini_moonboard/panel_grid_v2.py",
         "mini_moonboard/wood_joint_frame.py",
         "mini_moonboard/wood_joint_geometry.py",
+        "mini_moonboard/wood_joint_panel_machining.py",
         "scripts/owner_layout_protected.py",
     )
     return {
@@ -947,10 +958,33 @@ def _screen_node(node, wood, protected) -> dict:
     }
 
 
-def build_clearance_report(nodes=None) -> dict:
+def _validated_panel_replacements(source, panel_replacements=None) -> dict:
+    if getattr(source, "option", None) != KERF_RIGHT:
+        raise ValueError("WJ-03 panel replacements require the kerf-right source")
+    if panel_replacements is None:
+        panel_replacements = candidate_panel_replacements(
+            source,
+            current_parts=source.parts(),
+            uncut_parts=source.uncut_wood_parts(),
+        )
+    if set(panel_replacements) != RIGHT_PANEL_NAMES:
+        raise ValueError(
+            "WJ-03 panel replacement map must contain exactly the three right panels"
+        )
+    for name, part in panel_replacements.items():
+        if getattr(part, "name", None) != name or getattr(part, "shape", None) is None:
+            raise ValueError(f"Invalid WJ-03 panel replacement: {name}")
+    if len(source.panel_connections()) != PANEL_CONNECTION_COUNT:
+        raise ValueError("WJ-03 panel replacement source must retain all panel axes")
+    return panel_replacements
+
+
+def build_clearance_report(nodes=None, *, source=None, panel_replacements=None) -> dict:
     nodes = build_outer_nodes() if nodes is None else nodes
-    source = variant(KERF_RIGHT)
+    source = variant(KERF_RIGHT) if source is None else source
+    panel_replacements = _validated_panel_replacements(source, panel_replacements)
     wood = {part.name: part.shape for part in source.uncut_wood_parts()}
+    wood.update({name: part.shape for name, part in panel_replacements.items()})
     source_hosts = {
         name: part.finished_shape
         for node in nodes.values()

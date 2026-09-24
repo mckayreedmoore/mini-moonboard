@@ -1,6 +1,6 @@
 # Wood-joints MVP orchestration plan
 
-Status: active parent-owned persistent goal, 2026-09-23.
+Status: active parent-owned persistent goal, 2026-09-24.
 
 ## Goal and authority boundary
 
@@ -25,13 +25,22 @@ The integrated diagnostic checkpoint was committed and pushed as `be540ea9`;
 first integrated modeling milestone only, without joint or capacity acceptance.
 Preserved source reference and release flags did not change.
 
+Follow-up master commits are `616a9f4e` (archived isolated full-stock probe),
+`06e401f0` (candidate-only fixed-service-hole machining helper and tests), and
+`0c9de19d` (ordinary-bolt option documentation). The archived 4×4 remains an
+unaccepted separate prototype, not the active WJ-04 trial.
+
 - WJ-03 sequence includes WJ-05 center receivers and diagnostic backers. The
-  right lower-panel return still intersects 35 fixed LEDs at the terminal
-  250 mm pose because kerf-right service bores shift 1.5875 mm while electrical
-  parts retain earlier datums. Both staged poses have zero nominal floor gap;
-  permanent rear projection remains +86.018477 mm beyond the ordinary
-  reference. Return, permanent envelope, support, and tolerance gates remain
-  open. No LED removal or disconnection is prescribed.
+  final report (`b547a604…7e0f4`) clears the 35 right-return LED endpoint hits
+  recorded at earlier checkpoint `0ebf90eb`; candidate-only fixed-service-bore
+  machining corrects the inherited kerf-right datum mismatch. The left return
+  was already clear. Kicker motion
+  with the lower panel retained still overlaps by 1–18 mm; staging the lower
+  panel makes kicker extraction and return pass. No LED disconnection is
+  needed or inferred. Both staged poses have zero nominal floor gap; permanent
+  rear projection remains +86.018477 mm beyond the ordinary reference. The
+  sequence remains diagnostic, with envelope, support, and tolerance gates
+  open.
 - WJ-04 binds the 95.25 × 38.1 × 119.7 mm grain-N trial across probe,
   mechanics, and tool-access artifacts. Mechanics now uses the probe's finite
   contact-area method and lists the canonical rectangle separately. Historical
@@ -49,12 +58,12 @@ Preserved source reference and release flags did not change.
   540 potential WJ-06 corridors, zero materialized/full stacks, and four
   provisional WJ-05 axes with zero complete stacks.
 - Combined viewer v2 contains WJ-03/WJ-04/WJ-05 overlays;
-  `integrated_clearance=not_run`, all release flags false. Snapshot audit and
-  parent-selected audit/manifest checks passed at this checkpoint. The later
-  WJ-04 tool report and WJ-05 receiver audit are now refreshed and pinned with
-  the duty registry and viewer artifacts. Their current scene refresh is local
-  and still awaits publication. All remain diagnostic; no acceptance gate is
-  promoted.
+  `integrated_clearance=not_run`, all release flags false. The WJ-04 tool
+  report, WJ-05 receiver audit, duty registry, and final WJ-03 sequence are
+  refreshed. The current local scene (`df7efcda…a2e721`) has 169 solids: 110
+  WJ-03, 23 WJ-04, 32 WJ-05, and four shared. It awaits parent review; the
+  deployed scene remains the previously verified `f4693633…ffd57f8e`. All
+  reports remain diagnostic; no acceptance gate is promoted.
 
 Viewer commit `f5c40093` was publicly deployed and verified: live HTML and
 scene returned HTTP 200 with exact local SHA-256 matches; the scene was
@@ -67,10 +76,12 @@ Four envelopes extend below floor; all 20 installed WJ-05 hardware objects
 remain visible (minimum Z 0.1928 mm). Browser review passed 687 HTTP 200
 responses, toggle composition, and JavaScript checks; parent checked screenshot.
 This display control does not remove actual bolts or change structural geometry.
-Pages run `35955619614` succeeded. Parent verified the live HTML returned HTTP
-200 with an exact local SHA-256 match; browser review passed and the default-off
-overlay is live. The receiver-bound local scene refresh has a separate hash
-and awaits parent publication; only the earlier scene deployment is verified.
+Pages run `35959025255` succeeded. Parent verified live HTML SHA-256
+`eaf2e593…b4682e6` and scene SHA-256 `f4693633…ffd57f8e`, both HTTP 200. The
+candidate panel machining overlay is wired into WJ-03/WJ-04/WJ-05 and the
+exporter, with the source inventory unchanged. The final 169-solid scene
+export (`df7efcda…a2e721`) is local and awaits parent review; it is separate
+from the verified live scene.
 
 ## Current work allocation
 
@@ -78,8 +89,8 @@ and awaits parent publication; only the earlier scene deployment is verified.
 | --- | --- | --- |
 | Scope, shared decisions, integration, validation, delivery | Parent `/root` | Resolve conflicts, authorize dependent edits, own serialized commit/push and final gates. |
 | WJ-04 tool refinement | `luna_wj04_tool_access` | Refined report is frozen and source/config bound. It uses synthetic 15°/75° headings, 30° stroke, 60° reindex, analytic rotation enclosure, and separately screened nut/washer removal. The washer's same-stack shaft is excluded only during axial slide (7.7978 mm source-bounded minimum ID vs 6.35 mm modeled shaft max); unrelated obstacles remain. `diagnostic_overlap_present` remains; bounds prove neither actual access nor impossibility. Exact FACOM jaw/handle shape and working sweep remain unsupported. Manifest pins refreshed. |
-| WJ-03 service alignment | `luna_outer_path` | Implements candidate-only `mini_moonboard/wood_joint_panel_machining.py` and focused tests using exact kerf-right axes. Preserve `mini_moonboard/floor_flush_width.py` baseline unchanged. Trace identified 35 terminal return/LED overlaps from `WidthAdapter` shifting panel solids −1.5875 mm while lights/wires retain fixed datums. No disconnect or rear-envelope change inferred. |
-| WJ-03 transport narrative | `luna_transport_ops` | Completed current sequence narrative; return remains conditional pending bore/datum alignment and a service-state screen. |
+| WJ-03 service alignment | `luna_outer_path` | Candidate-only `mini_moonboard/wood_joint_panel_machining.py` and tests restore fixed service-bore datums without editing `floor_flush_width.py` or changing source inventory. The final sequence clears the prior 35 right-return LED hits; no disconnection is needed or inferred. |
+| WJ-03 transport narrative | `luna_transport_ops` | Current order clears return after staging the lower panel. Kicker motion with that panel retained still overlaps; sequence remains diagnostic and does not prescribe service disconnection. |
 | WJ-05 center paths | `luna_center_loadpath` | Implements an isolated center-node prototype. Keep it separate from the active candidate and current receiver report; no receiver duty, load path, or capacity is accepted. |
 | WJ-05 socket model and parity | `luna_socket_spec` | Owns socket exterior occupancy/datums, transfer/receiver producers, focused geometry tests, and viewer parity assertion. The receiver audit is regenerated and pinned; its bounds are rounded to 1e-5 mm without changing geometry or collision tolerance. Center receiver path remains blocked. |
 | WJ-04 full-section stock | `luna_duty_registry`; material comparison by `luna_timber_stock` | Isolated probe `scripts/wood_joint_wj04_full_stock_probe.py` is in development for a staggered 88.9 × 88.9 × 119.7 mm 4×4 block with reversed rail-bolt directions and 33 mm pitch. It is a separate diagnostic prototype, not the active WJ-04 trial or an accepted stock/connection; no purchase or fabrication release. |
@@ -97,11 +108,12 @@ that requires serialized CAD, integrated checks, and all Git actions.
 
 ## Next dependency order
 
-1. Review candidate-only `wood_joint_panel_machining.py` and its exact 66-axis
-   kerf-right result. Preserve `floor_flush_width.py` baseline, panel outlines,
-   holds, and screw policy. Parent reviews and regenerates both return
-   directions before any sequence disposition. Keep LED service conditional;
-   do not prescribe disconnection.
+1. Preserve the candidate-only `wood_joint_panel_machining.py` correction.
+   Keep `floor_flush_width.py`, source inventory, panel outlines, holds, and
+   screw policy unchanged. The current right return clears the historical LED
+   endpoint hits; kicker extraction/return still requires the lower panel
+   staged first. Keep the operation diagnostic pending support, tolerance, and
+   permanent-envelope disposition; do not prescribe LED disconnection.
 2. Complete bounded WJ-04 tool and full-section stock comparisons. Keep the
    4×4 prototype separate from the active 95.25 × 38.1 × 119.7 mm trial; do not
    treat it as selected, stock-qualified, or connected. Require source-supported
@@ -126,16 +138,16 @@ shop package, physical observation, or release gates.
 
 ## CI and deployment status
 
-**Latest reported status:** CI run [35956646693](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/35956646693)
-for the current pushed checkpoint is still running; Pages run
-[35956646559](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/35956646559)
-succeeded. Parent verified the deployed UI HTML returned HTTP 200 and matched
-its local SHA-256. The refreshed receiver-bound scene is local and awaits
-publication. A WJ-03 clearance-artifact equality mismatch involving a
-fingerprint and 1e-6 precision is under triage, so broad CI is not green.
-
-Earlier CI runs with test failures are historical and do not establish the
-current run's outcome.
+The published UI and deployed scene passed parent HTTP/hash checks; the UI also
+passed browser review. The last deployed HTML hash was
+`eaf2e593…b4682e6`; the final local HTML changed two shared-family labels to
+“Shared geometry” and has hash
+`3c6549949ca4c3a91a56e84142943f99d8a52a73faa3324f0def515db4d173ad`. Browser
+review passed for that local HTML. The final receiver-bound 169-solid scene
+export is local and awaits parent review and publication. Focused local checks passed for the
+candidate panel machining, WJ-03 sequence, WJ-04 tool access and probe adapter,
+duty registry, and snapshot/bounds updates. Broad CI is not established green
+for this checkpoint; its latest status remains for parent verification.
 
 CI workflow `.github/workflows/ci.yml` runs `uv sync --locked`, Ruff, pytest,
 smoke test, and current-candidate export verification. Local pre-commit and

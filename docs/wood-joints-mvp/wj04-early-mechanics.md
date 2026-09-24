@@ -22,8 +22,8 @@ Input hashes:
 
 - `docs/floor-runner-mvp-angle-demands.json`: `5446aeacaccafb70c77358635e5fb84c1b9627eb922209411b748e5e34c9e558`
 - `docs/wood-joints-mvp/source-inventory.json`: `07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78`
-- `docs/wood-joints-mvp/wj04-probe.json`: `0cd9500371a2239afbfcebc692f389b69774e528c0bb08ddef59e1c2f6576362`
-- `scripts/wood_joint_wj04_probe.py`: `ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840`
+- `docs/wood-joints-mvp/wj04-probe.json`: `19dc75908780b16d84eecdac170976eeb94009e4869c9293bf2867d7098af1ac`
+- `scripts/wood_joint_wj04_probe.py`: `75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94`
 - `mini_moonboard/wood_joint_wj04_config.py`: `4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be`
 - `scripts/wood_joint_wj04_early_mechanics.py`: `ef2b23a9802e5110c745911fcbcd3de9cfeeced325b308e986459c3610f14357`
 
@@ -54,7 +54,7 @@ Currentness of the other bound producers:
 - Old ledger consumer `scripts/floor_flush_angle_ledger.py`: **match**.
 - Old contact-search producers versus current `fea/current_response_run.py`: **stale_or_mismatched**; current hash `2e981f24616afcd441cca911a89942b0f12784f97aa13a59933a4d002ca5f955`.
 - Selected source inventory bindings: 0/7 current hash mismatches.
-- WJ-04 probe producer/dependencies: 0/7 current hash mismatches.
+- WJ-04 probe producer/dependencies: 0/14 current hash mismatches.
 
 ## Candidate interfaces
 

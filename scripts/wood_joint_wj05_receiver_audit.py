@@ -17,6 +17,7 @@ import cadquery as cq
 from mini_moonboard.connection_geometry import material_intervals
 from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from mini_moonboard.wood_joint_frame import build_outer_nodes
+from mini_moonboard.wood_joint_panel_machining import RIGHT_PANEL_NAMES
 from mini_moonboard.wood_joint_wj05_socket import (
     KOKEN_3305A_7_16_PRODUCT,
     KOKEN_PRODUCT_URL,
@@ -57,6 +58,15 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_INVENTORY = ROOT / "docs/wood-joints-mvp/source-inventory.json"
 OUTPUT_JSON = ROOT / "docs/wood-joints-mvp/wj05-receiver-audit.json"
 OUTPUT_MD = ROOT / "docs/wood-joints-mvp/wj05-receiver-audit.md"
+PANEL_MACHINING_SOURCE_FILES = (
+    ROOT / "mini_moonboard/wood_joint_panel_machining.py",
+    ROOT / "mini_moonboard/base_frame.py",
+    ROOT / "mini_moonboard/floor_flush_width.py",
+    ROOT / "mini_moonboard/insert_frame.py",
+    ROOT / "mini_moonboard/panel_grid.py",
+    ROOT / "mini_moonboard/panel_grid_v2.py",
+    ROOT / "docs/panel-insert-reference.json",
+)
 SIDES = ("left", "right")
 SUPPORT_PROBE_RADIAL_WIDTH_MM = 1.0
 SUPPORT_PROBE_END_INSET_MM = 0.05
@@ -72,6 +82,7 @@ SOURCE_FILES = (
     ROOT / "mini_moonboard/wood_joint_frame.py",
     ROOT / "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
     ROOT / "mini_moonboard/wood_joint_wj05_socket.py",
+    *PANEL_MACHINING_SOURCE_FILES,
     Path(__file__),
 )
 
@@ -191,6 +202,15 @@ def _backer_station_shapes(x: float, y: float) -> dict[str, cq.Shape]:
     }
 
 
+def _overlay_candidate_panel_shapes(finished: dict, candidate_wood: dict) -> None:
+    missing = RIGHT_PANEL_NAMES - candidate_wood.keys()
+    if missing:
+        raise ValueError(f"WJ-05 candidate map is missing panels: {sorted(missing)}")
+    if not RIGHT_PANEL_NAMES <= finished.keys():
+        raise ValueError("WJ-05 finished map is missing right-panel members")
+    finished.update({name: candidate_wood[name] for name in RIGHT_PANEL_NAMES})
+
+
 def _candidate_receiver_shapes(rows: list[dict]):
     model = variant(KERF_RIGHT)
     uncut = {part.name: part.shape for part in model.uncut_wood_parts()}
@@ -216,6 +236,9 @@ def _candidate_receiver_shapes(rows: list[dict]):
         _tools,
         _counterbores,
     ) = _source_and_candidate()
+    # Receiver intervals stay tied to the original uncut candidate inventory;
+    # only finished receiver and obstacle maps use remachined candidate panels.
+    _overlay_candidate_panel_shapes(finished, center_wood)
     station_shapes = {}
     for side, coords in ADOPTED_BACKER_BOLT_COORDS.items():
         for index, (x, y) in enumerate(coords, 1):

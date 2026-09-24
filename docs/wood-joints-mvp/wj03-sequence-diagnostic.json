@@ -1,23 +1,36 @@
 {
   "authority": {
     "axes_changed": false,
+    "candidate_panel_machining": {
+      "fixed_service_and_grid_datums": "preserved by candidate-only remachining",
+      "panel_connection_axis_count": 66,
+      "replacement_panels": [
+        "kicker_right",
+        "main_lower_right",
+        "main_upper_right"
+      ]
+    },
     "dependency_sha256": {
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
       "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
       "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
       "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
       "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
       "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
       "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
       "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
       "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
       "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
       "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
       "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53",
-      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "af5c3964f78d60fe8dbefc81503c443baa5cf2ddf67dd16195d402001b26c976"
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
     },
     "fixed_panel_kicker_screws": 66,
     "frame_bolt_arrangements": 12,
-    "producer_sha256": "f0eef36d3252a0f124879827fa5029112a4491eee883cd7b686b75bbe632061f",
+    "producer_sha256": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
     "retained_candidate": "compact-floor-flush-development",
     "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
     "source_model_binding": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
@@ -2743,364 +2756,12 @@
         },
         "return_path_after_kicker_restored": {
           "distance_mm": 250.0,
-          "hits": {
-            "panel -> lights/light_G1": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G2": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G3": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G4": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G5": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G6": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_G7": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H1": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H2": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H3": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H4": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H5": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H6": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_H7": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I1": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I2": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I3": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I4": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I5": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I6": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_I7": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J1": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J2": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J3": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J4": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J5": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J6": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_J7": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K1": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K2": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K3": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K4": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K5": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K6": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            },
-            "panel -> lights/light_K7": {
-              "first_mm": 250.0,
-              "last_mm": 250.0,
-              "max_volume_mm3": 317.86834
-            }
-          },
+          "hits": {},
           "member_results": {
             "panel": {
               "distance_mm": 250.0,
-              "hits": {
-                "lights/light_G1": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G2": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G3": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G4": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G5": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G6": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_G7": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H1": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H2": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H3": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H4": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H5": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H6": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_H7": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I1": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I2": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I3": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I4": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I5": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I6": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_I7": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J1": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J2": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J3": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J4": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J5": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J6": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_J7": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K1": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K2": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K3": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K4": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K5": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K6": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                },
-                "lights/light_K7": {
-                  "first_mm": 250.0,
-                  "last_mm": 250.0,
-                  "max_volume_mm3": 317.86834
-                }
-              },
-              "passes_sampled_nominal_path": false,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
               "positive_volume_hit_tolerance_mm3": 0.0001,
               "sampled_steps": 10,
               "screened_obstacles": 121,
@@ -3411,7 +3072,7 @@
             "tnut/hold_tnut_main_K5",
             "tnut/hold_tnut_main_K6"
           ],
-          "passes_sampled_nominal_path": false,
+          "passes_sampled_nominal_path": true,
           "sample_positions_mm": [
             25.0,
             50.0,

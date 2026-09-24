@@ -1,20 +1,18 @@
 # WJ-03 outer-node result
 
-Status: **Partial — current integrated sequence remains diagnostic; permanent envelope and right-panel return remain open**
+Status: **Partial — corrected sampled return is diagnostic; permanent envelope and staged kicker order remain open**
 
 The current [`wj03-sequence-diagnostic.json`](wj03-sequence-diagnostic.json)
-includes the WJ-05 diagnostic backers, shifted posts, bolts, and stacks, and
-maps all four center receiver IDs. It is a nominal sampled geometry
-diagnostic, not a sequence or layout acceptance. Both staged poses have zero
-nominal gap to base-floor wood. The right lower-panel return's terminal LED
-hits reflect an inherited source-pose mismatch: the kerf-right panel and its
-13 mm service bores shift by `-KERF_EACH_MM` (1.5875 mm), while electrical
-parts remain at their earlier source datums. Outbound samples omit the
-installed zero position, but reverse samples include it. This is not a new
-return-only obstruction or a result of the WJ-05 backers. Resolve the
-candidate's service-bore pose convention and regenerate both paths. No LED
-removal or disconnection is prescribed as a fix; the selected baseline is
-unchanged.
+(`b547a604…7e0f4`) includes the WJ-05 diagnostic backers, shifted posts, bolts,
+and stacks, and maps all four center receiver IDs. It is a nominal sampled
+geometry diagnostic, not a sequence or layout acceptance. Candidate-only
+service-bore machining clears the 35 right-return LED hits reported by the
+earlier pre-helper screen at checkpoint `0ebf90eb`; the left return was already
+clear. With the lower panel retained, the kicker path still overlaps it by
+1–18 mm; when the lower panel is staged, kicker extraction and return pass. No
+LED disconnection is needed or inferred. Both staged poses still have zero
+nominal gap to base-floor wood. Permanent rear projection and tolerance gates
+remain open; the selected baseline is unchanged.
 
 The source-bound left and right `knee_outer_*` assemblies each map
 `clip_timber_header_outer_*` and `clip_angle_base_*`. Each node uses three
@@ -72,19 +70,23 @@ panel identity assigns 36 left and 30 right lower-panel T-nuts, plus five
 T-nuts to each kicker. LED bodies and wires stay fixed as separate services.
 Their handling and reinstallation are not modeled.
 
-The diagnostic uses a `1e-4 mm³` positive-volume threshold and moves each
+### Earlier pre-helper sequence result (historical, checkpoint `0ebf90eb`)
+
+The diagnostic used a `1e-4 mm³` positive-volume threshold and moved each
 adjacent lower panel outward 250 mm in 25 mm steps without a sampled hit.
 Direct +Y kicker translation then hits
 the retained main-lower panel at 1–18 mm, with a maximum sampled overlap of
 33.544427 mm³ per side. After staging that panel, each 100 mm kicker extraction
-and reverse return has no sampled positive-volume hit in 1 mm steps. The lower
-panel reverse return is clear on the left. On the right, its sampled reverse
-path meets fixed LED bodies `G1` through `K7` (35 modeled lights; 317.86834
-mm³ each) at the terminal 250 mm position. This apparent asymmetry comes from
-the inherited source-pose mismatch described above: outbound samples omit the
-installed zero position and reverse samples include it. Correct the
-candidate's service-bore pose convention, then regenerate and review both
-directions; this report does not prescribe removing or disconnecting LEDs.
+and reverse return had no sampled positive-volume hit in 1 mm steps. The lower
+panel reverse return cleared on the left. On the right, its sampled reverse
+path met fixed LED bodies `G1` through `K7` (35 modeled lights; 317.86834
+mm³ each) at the terminal 250 mm position. This came from the inherited
+kerf-right source-pose mismatch: the panel and its service bores shifted
+1.5875 mm inboard while electrical parts remained at fixed source datums, and
+outbound and return sampling treated the installed endpoint differently.
+Candidate-only fixed-service-bore machining corrects that mismatch. The
+current sequence report above clears the right return endpoint; LED removal or
+disconnection is not needed or inferred.
 At the sampled 250 mm lower-panel pose and 25 mm staged-kicker pose, each body
 is tangent to its same-side base-floor member: the measured separation is
 0.0 mm. Positive-volume clearance is therefore not a tolerance margin.
@@ -98,9 +100,10 @@ socket envelopes show no positive-volume hits with the kicker installed.
 There is no selected nut, socket, ratchet, or method to capture and retrieve
 released hardware. This alternate route does not establish node-first
 disassembly. The lower-panel → kicker → node-hardware order remains a
-diagnostic development sequence, subject to resolving the source-pose and
-service-bore convention and verifying support, service handling, and
-continuous motion. Sequence verification remains false.
+diagnostic development sequence. The service-bore endpoint correction is
+reflected in the current sequence report; support, service handling,
+continuous motion, and tolerance verification remain open. Sequence
+verification remains false.
 
 | Named measurement | Left | Right |
 |---|---:|---:|
@@ -148,6 +151,8 @@ uv run python -m scripts.export_wood_joint_scene
 uv run python -m http.server 8000 --directory site
 ```
 
-Open `http://localhost:8000/wood-joints-outer-viewer.html`. The scene is an
-unreleased WJ-03 development view. It verifies the baseline manifest and every
-loaded STL byte against the recorded 725-asset hash set before rendering.
+Open `http://localhost:8000/wood-joints-outer-viewer.html`. The final local
+169-solid scene export (`df7efcda…a2e721`) includes the WJ-03, WJ-04, and
+WJ-05 overlays and verifies the baseline manifest and every loaded STL byte
+against the recorded 725-asset hash set before rendering. It has not yet been
+published; the live site serves the previously verified scene.

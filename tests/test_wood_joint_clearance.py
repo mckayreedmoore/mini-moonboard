@@ -9,7 +9,10 @@ from pathlib import Path
 import cadquery as cq
 import pytest
 
-from scripts.export_wood_joint_scene import build_scene
+from scripts.export_wood_joint_scene import (
+    PANEL_GEOMETRY_DEPENDENCIES,
+    build_scene,
+)
 from scripts.wood_joint_clearance import (
     CLEARANCE_OUTPUT,
     HARDWARE_OUTPUT,
@@ -269,7 +272,31 @@ def test_combined_scene_keeps_trial_boundaries_and_release_boundary(clearance):
         scene["legacy_duty_summary"]["wj05_receiver_trial_maps_structural_duty"]
         is False
     )
-    assert len(scene["hidden_baseline_visual_names"]) == 44
+    assert len(scene["hidden_baseline_visual_names"]) == 47
+    panel_replacements = {
+        "main_lower_right",
+        "main_upper_right",
+        "kicker_right",
+    }
+    assert panel_replacements <= set(scene["hidden_baseline_visual_names"])
+    panel_solids = {
+        row["name"]: row for row in scene["solids"] if row["role"] == "candidate_panel"
+    }
+    assert set(panel_solids) == panel_replacements
+    assert all(row["family"] == "shared" for row in panel_solids.values())
+    assert all(
+        row["trial_id"] == "shared_candidate_kerf_right_panel_machining"
+        for row in panel_solids.values()
+    )
+    assert scene["candidate_panel_overlay"] == {
+        "family": "shared",
+        "trial_id": "shared_candidate_kerf_right_panel_machining",
+        "status": "candidate_geometry_only",
+        "panel_ids": sorted(panel_replacements),
+        "source_commit": scene["source_binding"]["source_commit"],
+        "source_inventory_sha256": scene["source_binding"]["source_inventory_sha256"],
+        "accepted": False,
+    }
 
     inventory = scene["inventory"]
     assert inventory == {
@@ -277,23 +304,29 @@ def test_combined_scene_keeps_trial_boundaries_and_release_boundary(clearance):
         "removed_legacy_sds_visuals": 30,
         "outer_nodes": 2,
         "connector_cut_parts": 7,
+        "candidate_panel_replacements": 3,
         "changed_source_hosts": 9,
         "source_host_bores": 20,
         "provisional_bolts": 28,
         "installed_hardware_component_solids": 140,
         "fixed_panel_kicker_screw_axes": 66,
         "retained_frame_bolt_axes": 12,
-        "trial_geometry_solids": 166,
+        "trial_geometry_solids": 169,
         "baseline_assets": 725,
     }
     assert inventory["trial_geometry_solids"] == len(scene["solids"])
     assert len(scene["baseline_asset_sha256"]) == 725
     assert len(scene["baseline_asset_tree_sha256"]) == 64
     assert all(row["mesh"]["triangles"] for row in scene["solids"])
+    for panel_dependency in PANEL_GEOMETRY_DEPENDENCIES:
+        assert (
+            scene["producer"]["dependency_sha256"][panel_dependency]
+            == hashlib.sha256((ROOT / panel_dependency).read_bytes()).hexdigest()
+        )
 
     solids_by_family = Counter(row["family"] for row in scene["solids"])
     axes_by_family = Counter(row["family"] for row in scene["provisional_bolt_axes"])
-    assert solids_by_family == {"wj03": 110, "wj04": 23, "wj05": 32, "shared": 1}
+    assert solids_by_family == {"wj03": 110, "wj04": 23, "wj05": 32, "shared": 4}
     assert axes_by_family == {"wj03": 20, "wj04": 4, "wj05": 4}
     for family in ("wj03", "wj04", "wj05"):
         trial = scene["trials"][family]

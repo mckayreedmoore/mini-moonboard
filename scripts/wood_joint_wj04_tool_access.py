@@ -31,10 +31,16 @@ REINDEX_DEGREES = 60.0
 FULL_TURN_DEGREES = 360.0
 DEFAULT_PRODUCER_COMMAND = "uv run python -m scripts.wood_joint_wj04_tool_access --write"
 DEPENDENCY_PATHS = (
+    "docs/panel-insert-reference.json",
+    "mini_moonboard/base_frame.py",
     "mini_moonboard/wood_joint_wj04_config.py",
     "mini_moonboard/wood_joint_frame.py",
     "mini_moonboard/wood_joint_geometry.py",
     "mini_moonboard/floor_flush_width.py",
+    "mini_moonboard/insert_frame.py",
+    "mini_moonboard/panel_grid.py",
+    "mini_moonboard/panel_grid_v2.py",
+    "mini_moonboard/wood_joint_panel_machining.py",
     "scripts/wood_joint_wj04_probe.py",
     "scripts/wood_joint_clearance.py",
 )

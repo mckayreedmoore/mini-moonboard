@@ -98,7 +98,11 @@ same-stack installed hardware was removed first; wood remains an obstacle.
 The broad bounds overlap modeled solids in several operations, while other
 proxies clear. Neither verified FACOM jaw geometry nor actual handle or hand
 motion is modeled, so the screen establishes neither access nor physical
-impossibility. Mechanics now consumes each probe finite-contact area and records
+impossibility. This is a partial, operation-by-operation sweep rather than a
+continuous installed-to-removed service path. Each modeled exclusion is
+limited to intended fastener contact or a stated removal precondition; wood,
+washers, and unrelated hardware remain obstacles. Mechanics now consumes each
+probe finite-contact area and records
 its method, probe depth, and source hash. Both consumers use 4,560.569999 mm²
 for the principal contact and 11,401.398713 mm² for the rail contact. The
 canonical bounds rectangle is listed separately as a coordinate audit:

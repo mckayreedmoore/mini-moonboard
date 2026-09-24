@@ -43,20 +43,23 @@ clearance do not close a stage gate.
   diagnostic backers, shifted posts, bolts, stacks, and four center receiver
   IDs. All 42 nominal screw/tool and withdrawal screens, both 250 mm lower
   panel extractions, and both staged 100 mm kicker extraction/reverse paths
-  show no sampled unrelated hits. The left lower-panel return clears; the
-  right return intersects fixed LED bodies G1–K7 at its 250 mm terminal pose.
-  Review traced this to an inherited source-pose mismatch: the kerf-right panel
-  is shifted by `-KERF_EACH_MM` while electrical parts remain fixed, the
-  outbound samples omit installed zero, and the reverse path includes it. This
-  is not caused by WJ-05 backers. Resolve the candidate service-bore pose
-  convention and regenerate both paths; no LED removal or disconnection is
-  prescribed as a fix. Both the staged panel at 250 mm and kicker
+  show no sampled unrelated hits. The earlier pre-helper report at checkpoint
+  `0ebf90eb` recorded 35 right-return LED endpoint hits; the current report
+  clears them after candidate-only fixed-service-bore machining. The earlier
+  mismatch came from the kerf-right panel and its LED bores shifting
+  `-KERF_EACH_MM` while electrical parts remained at their fixed source
+  datums, with different endpoint sampling on outbound and return. The
+  correction is candidate-only; it does not edit the selected baseline or
+  source inventory. The left return was already clear. Kicker motion still
+  overlaps the lower panel by 1–18 mm when it stays installed, while extraction
+  and return pass after the lower panel is staged. No LED disconnection is
+  needed or inferred. Both the staged panel at 250 mm and kicker
   at 25 mm have 0 mm nominal gap to base-floor wood. The last body geometry
   report measured 225.718477 mm permanent rear projection, or 86.018477 mm
   beyond the ordinary 139.7 mm reference. These diagnostics do not close a
-  gate; retain `revise_named_constraint` pending service-bore pose
-  reconciliation, a dimensioned permanent-envelope disposition, and support,
-  continuous-motion, and tolerance evidence.
+  gate; retain `revise_named_constraint` pending a dimensioned
+  permanent-envelope disposition and support, continuous-motion, and tolerance
+  evidence.
 - **WJ-04:** the active config is
   `narrow_x95p25_ordinary_bolt_candidate`: a 95.25 × 38.1 × 119.7 mm cleat,
   grain N, K.L. Jack `25C375HCS5Z` rail and `25C600HCS5Z` principal bolt
@@ -76,7 +79,11 @@ clearance do not close a stage gate.
   current tool-access report is `diagnostic_overlap_present`: broad envelopes
   overlap modeled solids on counterhold, nut stroke/reindex, and removal
   operations. These proxies establish neither physical access nor
-  impossibility. The 100 × 53.34 mm pose remains an unbound
+  impossibility. The principal bolts have 19.05 mm T-edge distance versus a
+  conditional 25.4 mm perpendicular-grain loaded-edge 4D reference. Signed
+  demands remain unresolved; this is not a universal failure claim, but the
+  narrow trial cannot satisfy that criterion if a nonzero ±T lateral component
+  governs. The 100 × 53.34 mm pose remains an unbound
   alternative; it has no matching stock, bolt, tool, or mechanics bundle. The
   cataloged FACOM wrench pair is a tool candidate, not proof of installed
   access or working sweep.
@@ -102,7 +109,7 @@ and MVP-E remain gated by the work below.
 
 | Stage | Work | Gate to advance |
 | --- | --- | --- |
-| **1. Repair outer nodes (finish WJ-03)** | Resolve the inherited right-panel source-pose/service-bore convention that makes the reverse endpoint intersect fixed LEDs; then regenerate and review both directions. Do not prescribe LED removal or disconnection as a fix. Verify lower-panel → kicker → node-hardware removal and the supported return order. Resolve the +86.018477 mm permanent rear projection by a dimensioned geometry revision or named exception; verify the separate temporary bolt-stroke workspace. | Both sides have feasible stock/cuts, complete transfer paths, supported washer seats, a consistent service-bore pose, tolerance-aware installed and removal clearances, and a recorded `advance_layout` result. Keep `revise_named_constraint` until the permanent disposition and local sequence checks pass; do not defer required WJ-03 work to WJ-07. |
+| **1. Repair outer nodes (finish WJ-03)** | Preserve the final candidate-only service-bore correction and lower-panel-first order before kicker extraction/return; kicker motion with the panel installed still overlaps. No LED disconnection is needed or inferred. Resolve the +86.018477 mm permanent rear projection by a dimensioned geometry revision or named exception; verify the separate temporary bolt-stroke workspace. | Both sides have feasible stock/cuts, complete transfer paths, supported washer seats, the required staged removal order, tolerance-aware installed and removal clearances, and a recorded `advance_layout` result. Keep `revise_named_constraint` until the permanent disposition and remaining local sequence checks pass; do not defer required WJ-03 work to WJ-07. |
 | **2. Prove one ordinary joint (WJ-04)** | Keep every consumer bound to `narrow_x95p25_ordinary_bolt_candidate` at `clip_horizontal_lower_right_1`. Probe/mechanics contact areas now share the finite-probe basis; the mechanics report lists the canonical rectangle separately as a coordinate audit. Review the current probe's 0.764 mm generic 50 mm rail-tool gap and 21.872532 mm temporary nut-exit excess; neither is a tolerance pass. Resolve conservative envelope overlaps with a credible tool profile and bounded motion; the current report neither proves access nor physical impossibility. Rebuild mechanics only on fresh candidate actions; the current early screen uses stale angle-demand inputs. Resolve conditional end/edge geometry with signed loads, and use the 2×6 rip only with post-rip grade evidence. | One complete nominal and tolerance-aware joint with a traceable stock/cut route, matched geometry/hardware/tool/mechanics, an evidenced disassembly path, fresh demands, and signed end/edge treatment. List only station families whose geometry can reuse it; screen mirrored and service-different stations independently. |
 | **3. Close center and kicker subsystem (WJ-05)** | Preserve the fresh nominal transfer and receiver reports as diagnostics. Complete the four center principal/header and moved-post/header structural duties, both backer/header attachments, and both inner kicker edge supports. Recheck E1/G1, T-nuts, LEDs, wire, and all twelve retained frame-bolt arrangements. | The 66 axes retain supported finished-wood receivers and required embedment; center and edge-support load paths reach the frame through accepted joints. Each backer attachment and complete joint has evidence; socket outside-envelope clearance is not treated as tool fit. |
 | **4. Finish whole-frame geometry (WJ-06)** | Assign one accountable replacement owner to every former angle duty. Add residual top, rail, inclined, and splice details only where the actual topology needs them. Generate one source-bound finished-part model and viewer, including all new and retained fasteners and all machining. | Exactly 24 duties and 144 removed SDS axes reconcile with physical interfaces; all 66 fixed screw axes and twelve rechecked frame-bolt arrangements appear; no legacy structural SDS path survives; part, assembly, bolt, and move-operation counts are separate. |
@@ -163,18 +170,17 @@ support, service, movement, and tolerance screen before reuse.
 
 ## Next decisions and gates
 
-1. **Review the integrated records.** The WJ-03 report now includes current
-   WJ-05 geometry. Resolve the inherited source-pose/service-bore convention
-   behind the right lower-panel return endpoint and regenerate both paths. Do
-   not prescribe LED removal or disconnection as a fix. Bind
-   WJ-04 probe, stack, tool-access, and mechanics consumers to the canonical
-   config, then check each refreshed artifact against its source fingerprints.
+1. **Preserve the integrated records.** The final WJ-03 report includes current
+   WJ-05 geometry and the candidate-only service-bore correction. The prior
+   right-return endpoint hits are historical; the current return is clear.
+   Keep refreshed artifacts bound to their source fingerprints and preserve
+   the lower-panel-first kicker order.
 2. **Resolve the WJ-03 geometry and sequence gates.** Choose a dimensioned
    geometry revision or a named exception for the 86.018477 mm last-reported
    rear excess against the ordinary 139.7 mm limit. Confirm the separate
    bolt-stroke workspace and positive tolerance margin for both staged poses.
-   Keep `revise_named_constraint` until the endpoint, permanent disposition,
-   support, and local sequence checks are resolved.
+   Keep `revise_named_constraint` until the permanent disposition, support,
+   tolerance, and local sequence checks are resolved.
 3. **Keep WJ-04 on one matched trial.** The active diagnostic config is
    `narrow_x95p25_ordinary_bolt_candidate`; it uses a 95.25 × 38.1 × 119.7 mm
    cleat, grain N, K.L. Jack 3.75-in rail and 6-in principal candidates, and

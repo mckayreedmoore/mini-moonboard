@@ -8,6 +8,8 @@ import pytest
 from mini_moonboard.wood_joint_wj04_config import WJ04_TRIAL
 from scripts.wood_joint_wj04_tool_access import (
     DEFAULT_PRODUCER_COMMAND,
+    DEPENDENCY_PATHS,
+    _file_bindings,
     build_catalog_wrench_envelope,
     collision_report,
     full_nut_removal_envelope,
@@ -23,6 +25,24 @@ from scripts.wood_joint_wj04_tool_access import (
 
 def _tool():
     return WJ04_TRIAL.fasteners.tools[0]
+
+
+def test_tool_report_hashes_candidate_panel_geometry_dependencies():
+    expected = {
+        "docs/panel-insert-reference.json",
+        "mini_moonboard/base_frame.py",
+        "mini_moonboard/floor_flush_width.py",
+        "mini_moonboard/insert_frame.py",
+        "mini_moonboard/panel_grid.py",
+        "mini_moonboard/panel_grid_v2.py",
+        "mini_moonboard/wood_joint_panel_machining.py",
+    }
+
+    bindings = _file_bindings(WJ04_TRIAL)
+
+    assert expected <= set(DEPENDENCY_PATHS)
+    assert set(bindings["dependency_sha256"]) == set(DEPENDENCY_PATHS)
+    assert all(len(digest) == 64 for digest in bindings["dependency_sha256"].values())
 
 
 def test_catalog_wrench_external_envelope_uses_head_width_as_diameter():
@@ -74,7 +94,10 @@ def test_partial_rotation_enclosure_covers_interior_extremum_analytically():
     )
     sweep = rotational_sweep(block, (0, 0, 0), (0, 0, 1), 30)
     midpoint = block.rotate((0, 0, 0), (0, 0, 1), 15)
-    endpoints = (block.BoundingBox(), block.rotate((0, 0, 0), (0, 0, 1), 30).BoundingBox())
+    endpoints = (
+        block.BoundingBox(),
+        block.rotate((0, 0, 0), (0, 0, 1), 30).BoundingBox(),
+    )
 
     assert sweep.BoundingBox().xmax >= midpoint.BoundingBox().xmax
     assert sweep.BoundingBox().xmax > max(bounds.xmax for bounds in endpoints)
@@ -217,7 +240,9 @@ def test_nut_washer_axial_slide_requires_positive_source_bound_clearance():
     shaft_max_diameter = WJ04_TRIAL.fasteners.bolts[0].body_diameter_range_mm[1]
     washer = cq.Solid.makeBox(1, 1, 1, cq.Vector(0, 0, 0))
 
-    with pytest.raises(ValueError, match="minimum ID must exceed modeled shaft maximum"):
+    with pytest.raises(
+        ValueError, match="minimum ID must exceed modeled shaft maximum"
+    ):
         nut_washer_axial_removal_report(
             "stack/nut_washer",
             washer,
@@ -308,8 +333,11 @@ def test_markdown_and_writer_separate_bound_overlap_from_physical_failure(tmp_pa
     json_path, markdown_path = write_report(data, tmp_path / "wj04-tool-access.json")
     markdown = markdown_path.read_text()
 
-    assert json_path.read_text().startswith("{\n  \"candidate\"")
+    assert json_path.read_text().startswith('{\n  "candidate"')
     assert "Overlap in bound" in markdown
     assert "does not prove that an actual open-end wrench cannot pass" in markdown
-    assert "purchase, drilling, fabrication, structural, and physical-access approvals are false" in markdown
+    assert (
+        "purchase, drilling, fabrication, structural, and physical-access approvals are false"
+        in markdown
+    )
     assert "protected/wire (2.5 mm³)" in markdown

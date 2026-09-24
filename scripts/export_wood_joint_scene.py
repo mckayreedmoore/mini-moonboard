@@ -9,11 +9,13 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
+from mini_moonboard.floor_flush_width import KERF_RIGHT, variant
 from mini_moonboard.wood_joint_frame import (
     build_outer_nodes,
     installed_stack_shapes,
     validate_source_binding,
 )
+from mini_moonboard.wood_joint_panel_machining import candidate_panel_replacements
 from mini_moonboard.wood_joint_wj04_config import WJ04_TRIAL
 from scripts import wood_joints_wj05_center_backer_transfer_probe as wj05
 from scripts.simple_owner_duty_ledger import selected_duties
@@ -35,6 +37,24 @@ RELEASE_FLAGS = (
     "fabrication_released",
     "structural_released",
     "climbing_released",
+)
+PANEL_REPLACEMENT_NAMES = frozenset(
+    {"main_lower_right", "main_upper_right", "kicker_right"}
+)
+PANEL_GEOMETRY_DEPENDENCIES = (
+    "mini_moonboard/wood_joint_panel_machining.py",
+    "mini_moonboard/base_frame.py",
+    "mini_moonboard/bearing_frame.py",
+    "mini_moonboard/box_frame.py",
+    "mini_moonboard/compact_floor_flush_frame.py",
+    "mini_moonboard/floor_flush_width.py",
+    "mini_moonboard/insert_frame.py",
+    "mini_moonboard/model.py",
+    "mini_moonboard/panel_grid.py",
+    "mini_moonboard/panel_grid_v2.py",
+    "mini_moonboard/product_frame.py",
+    "mini_moonboard/timber_frame.py",
+    "docs/panel-insert-reference.json",
 )
 
 
@@ -200,7 +220,27 @@ def _append_solid(
 
 def build_scene(nodes=None, clearance=None):
     nodes = build_outer_nodes() if nodes is None else nodes
-    clearance = build_clearance_report(nodes) if clearance is None else clearance
+    source = variant(KERF_RIGHT)
+    source_current_parts = source.parts()
+    source_uncut_parts = source.uncut_wood_parts()
+    panel_replacements = candidate_panel_replacements(
+        source,
+        current_parts=source_current_parts,
+        uncut_parts=source_uncut_parts,
+    )
+    if set(panel_replacements) != PANEL_REPLACEMENT_NAMES:
+        raise ValueError(
+            "Candidate panel overlay must replace exactly three right panels"
+        )
+    clearance = (
+        build_clearance_report(
+            nodes,
+            source=source,
+            panel_replacements=panel_replacements,
+        )
+        if clearance is None
+        else clearance
+    )
     wj04 = materialize_trial_geometry(config=WJ04_TRIAL)
     wj05_result = json.loads(WJ05_REPORT.read_text())
     wj05_receiver = json.loads(WJ05_RECEIVER_AUDIT.read_text())
@@ -239,6 +279,7 @@ def build_scene(nodes=None, clearance=None):
         | set(source_hosts)
         | wj04_host_names
         | set(moved_center_posts)
+        | set(panel_replacements)
     )
 
     solids: list[dict[str, Any]] = []
@@ -254,6 +295,18 @@ def build_scene(nodes=None, clearance=None):
             family="wj03",
             trial_id="wj03_outer_nodes",
             owner="source_host",
+        )
+
+    for name, part in sorted(panel_replacements.items()):
+        _append_solid(
+            solids,
+            name,
+            "candidate_panel",
+            part.shape,
+            family="shared",
+            trial_id="shared_candidate_kerf_right_panel_machining",
+            side="right",
+            owner="candidate_right_panel_machining",
         )
 
     # The shared header shows WJ-03 and WJ-05 bores together. This is a
@@ -652,6 +705,15 @@ def build_scene(nodes=None, clearance=None):
         "source_binding": source_binding,
         "wj04_source_binding": wj04_binding,
         "wj05_source_binding": wj05_binding,
+        "candidate_panel_overlay": {
+            "family": "shared",
+            "trial_id": "shared_candidate_kerf_right_panel_machining",
+            "status": "candidate_geometry_only",
+            "panel_ids": sorted(panel_replacements),
+            "source_commit": source_commit,
+            "source_inventory_sha256": source_inventory_sha,
+            "accepted": False,
+        },
         "baseline_manifest_sha256": _sha(BASELINE_MANIFEST),
         "baseline_asset_sha256": baseline_asset_hashes,
         "baseline_asset_tree_sha256": baseline_asset_tree_hash,
@@ -663,6 +725,7 @@ def build_scene(nodes=None, clearance=None):
                 for name in (
                     "scripts/export_wood_joint_scene.py",
                     "scripts/wood_joint_clearance.py",
+                    *PANEL_GEOMETRY_DEPENDENCIES,
                     "mini_moonboard/wood_joint_frame.py",
                     "mini_moonboard/wood_joint_geometry.py",
                     "mini_moonboard/wood_joint_wj04_config.py",
@@ -684,6 +747,7 @@ def build_scene(nodes=None, clearance=None):
             "outer_nodes": len(nodes),
             "connector_cut_parts": sum(len(node.parts) for node in nodes.values())
             + wj04_candidate_parts,
+            "candidate_panel_replacements": len(panel_replacements),
             "changed_source_hosts": len(source_host_names),
             "source_host_bores": _source_host_cut_count(source_hosts)
             + len(wj04.bores)
@@ -697,6 +761,7 @@ def build_scene(nodes=None, clearance=None):
         },
         "limits": [
             "WJ-03, WJ-04, and WJ-05 are separate diagnostics shown together; their cross-trial fit and complete frame clearance are not checked.",
+            "Three right panels show shared candidate kerf-right grid and screw machining; this display overlay changes no selected-baseline source geometry or release gate.",
             "WJ-04 probe report freshness is shown separately from materialized trial geometry; stale report findings are not current proof.",
             "WJ-05 geometry-clear status applies only to its local transfer probe; the center receiver audit remains blocked and does not map a structural duty.",
             "WJ-05 shifted center posts are uncut trial shapes; retained frame-bolt holes have not been reconciled to the shifted positions.",

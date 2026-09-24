@@ -2,12 +2,18 @@
   "candidate": "compact-floor-flush-wood-joints-development",
   "config_source_sha256": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
   "dependency_sha256": {
+    "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
     "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
     "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
     "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
     "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
-    "scripts/wood_joint_clearance.py": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
-    "scripts/wood_joint_wj04_probe.py": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840"
+    "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+    "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94"
   },
   "envelope_screen_status": "diagnostic_overlap_present",
   "fastener_candidates": {
@@ -358,7 +364,7 @@
         },
         {
           "candidate_shape": "nut_turn_30deg",
-          "intersection_mm3": 74448.889426,
+          "intersection_mm3": 74555.400908,
           "operation": "nut_turn_and_reindex",
           "stack_id": "rail_2"
         },
@@ -1794,7 +1800,7 @@
   },
   "physical_access_established": false,
   "producer_command": "uv run python -m scripts.wood_joint_wj04_tool_access --write",
-  "producer_sha256": "0c7134bf6fdff0592911b88f6c2ffed3ece1cd53d36141006341b8b0e75fbe6b",
+  "producer_sha256": "8e3af4e66153dd3de183604957db969d3bcb1cfcc5e2ce2505eaa8d9bebc129d",
   "real_tool_impossibility_proven": false,
   "release_claims": {
     "drilling_released": false,
@@ -2473,7 +2479,7 @@
                 "installed_hardware/rail_1/shaft": 1063.28924,
                 "installed_hardware/rail_2/nut_washer": 480.581674,
                 "other_wood/base_rail_service_upper_right": 136.057665,
-                "panels/main_lower_right": 74448.889426,
+                "panels/main_lower_right": 74555.400908,
                 "panels/main_upper_right": 32453.489469,
                 "protected/lights/light_G7": 3690.609941,
                 "protected/wires/wire_078_G6_G7": 173.557243,

@@ -56,6 +56,34 @@ def test_retained_obstacles_include_wj03_connectors_and_installed_stacks():
     assert obstacles["wj03_hardware/knee_outer_left_post_1/shaft"] is bolt_shape
 
 
+def test_candidate_panel_replacement_overrides_raw_source_obstacle():
+    raw_panel = SimpleNamespace(name="main_lower_right", shape=_box(0.0, 0.0, 0.0))
+    replacement_shape = _box(40.0, 0.0, 0.0)
+    replacement = SimpleNamespace(name="main_lower_right", shape=replacement_shape)
+    source = SimpleNamespace(
+        uncut_wood_parts=lambda: [raw_panel],
+        parts=lambda: [raw_panel],
+    )
+    protected = {
+        "solids": {
+            "frame_bolts": {},
+            "lights": {},
+            "wires": {},
+            "tnuts": {},
+        },
+    }
+
+    obstacles = sequence._host_obstacles(
+        source,
+        {},
+        protected,
+        {"fixed_panel_kicker_screws": [], "legacy_duties": []},
+        panel_replacements={"main_lower_right": replacement},
+    )
+
+    assert obstacles["wood/main_lower_right"] is replacement_shape
+
+
 def test_wj05_candidate_solids_include_backer_receivers_and_attachment_stacks():
     backer = _box(0.0, 0.0, 0.0)
     center_post = _box(20.0, 0.0, 0.0)
@@ -146,6 +174,8 @@ def test_staged_panel_and_attached_tnut_remain_at_translated_pose():
 def test_reverse_paths_keep_correct_panel_and_tnut_assemblies(monkeypatch):
     lower = _box(0.0, 0.0, 0.0)
     kicker = _box(30.0, 30.0, 30.0)
+    lower_replacement = _box(5.0, 5.0, 5.0)
+    kicker_replacement = _box(40.0, 40.0, 40.0)
     baseline_post = _box(90.0, 90.0, 90.0)
     shifted_post = _box(100.0, 100.0, 100.0)
     lower_tnut = _box(50.0, 50.0, 50.0)
@@ -164,13 +194,15 @@ def test_reverse_paths_keep_correct_panel_and_tnut_assemblies(monkeypatch):
         "kicker_tnut": kicker_tnut,
     }
 
-    def host_obstacles(_source, _nodes, _protected, _inv, excluded=()):
+    def host_obstacles(
+        _source, _nodes, _protected, _inv, excluded=(), panel_replacements=None
+    ):
         excluded = set(excluded)
         obstacles = {
             f"wood/{name}": shape
             for name, shape in (
-                ("main_lower_left", lower),
-                ("kicker_left", kicker),
+                ("main_lower_left", lower_replacement),
+                ("kicker_left", kicker_replacement),
             )
             if name not in excluded
         }
@@ -202,6 +234,14 @@ def test_reverse_paths_keep_correct_panel_and_tnut_assemblies(monkeypatch):
         {"lower_tnut": "main_lower_left", "kicker_tnut": "kicker_left"},
         {"wood/base_post_center_left": shifted_post},
         "left",
+        {
+            "main_lower_left": SimpleNamespace(
+                name="main_lower_left", shape=lower_replacement
+            ),
+            "kicker_left": SimpleNamespace(
+                name="kicker_left", shape=kicker_replacement
+            ),
+        },
     )
 
     assert len(path_calls) == 5
@@ -227,13 +267,16 @@ def test_reverse_paths_keep_correct_panel_and_tnut_assemblies(monkeypatch):
 
     assert [name for name, _ in kicker_return[0]] == ["panel", "tnut/kicker_tnut"]
     assert kicker_return[2].toTuple() == (0.0, -1.0, 0.0)
-    assert (
-        kicker_return[0][0][1].BoundingBox().ymin == kicker.BoundingBox().ymin + 100.0
+    assert kicker_return[0][0][1].BoundingBox().ymin == (
+        kicker_replacement.BoundingBox().ymin + 100.0
     )
     assert "staged/main_lower_left/tnut/lower_tnut" in kicker_return[1]
 
     assert [name for name, _ in lower_return[0]] == ["panel", "tnut/lower_tnut"]
     assert lower_return[2].z > 0.0
+    assert lower_return[0][0][1].BoundingBox().zmin == (
+        lower_replacement.BoundingBox().zmin - lower_return[2].z * 250.0
+    )
     assert lower_return[0][1][1].BoundingBox().zmin != lower_tnut.BoundingBox().zmin
     assert "wood/kicker_left" in lower_return[1]
     assert "tnut/kicker_tnut" in lower_return[1]
@@ -251,7 +294,16 @@ def test_report_builds_shared_wj05_candidate_once(monkeypatch, tmp_path):
         )
     )
     monkeypatch.setattr(sequence, "INPUT", input_path)
-    candidate_model = object()
+    candidate_parts = [
+        SimpleNamespace(name=name, shape=_box(float(index * 20), 0.0, 0.0))
+        for index, name in enumerate(sorted(sequence.RIGHT_PANEL_NAMES))
+    ]
+    source = SimpleNamespace(
+        option=sequence.KERF_RIGHT,
+        parts=lambda: candidate_parts,
+        uncut_wood_parts=lambda: candidate_parts,
+        panel_connections=lambda: [object() for _ in range(66)],
+    )
     candidate_wood = {
         "base_post_center_left": _box(0.0, 0.0, 0.0),
         "base_post_center_right": _box(20.0, 0.0, 0.0),
@@ -259,7 +311,7 @@ def test_report_builds_shared_wj05_candidate_once(monkeypatch, tmp_path):
         "inner_kicker_backer_right": _box(60.0, 0.0, 0.0),
     }
     candidate_result = (
-        candidate_model,
+        source,
         {},
         candidate_wood,
         {},
@@ -276,27 +328,62 @@ def test_report_builds_shared_wj05_candidate_once(monkeypatch, tmp_path):
         "build_wj05_center_candidate",
         lambda: calls.append(True) or candidate_result,
     )
+    replacements = {
+        part.name: SimpleNamespace(name=part.name, shape=_box(200.0, 0.0, 0.0))
+        for part in candidate_parts
+    }
+    replacement_calls = []
+    monkeypatch.setattr(
+        sequence,
+        "candidate_panel_replacements",
+        lambda model, current_parts, uncut_parts: (
+            replacement_calls.append((model, current_parts, uncut_parts))
+            or replacements
+        ),
+    )
     node = SimpleNamespace(
         source_binding=SimpleNamespace(inventory_sha256="source-binding"),
     )
     monkeypatch.setattr(sequence, "build_outer_nodes", lambda: {"left": node})
     monkeypatch.setattr(sequence, "protected_inventory", dict)
     monkeypatch.setattr(sequence.hold_tnuts, "datums", lambda source: [])
-    monkeypatch.setattr(
-        sequence,
-        "_panel_clearance_scenario",
-        lambda source, nodes, protected, inv, owners, solids, side: {"side": side},
-    )
+    scenario_maps = []
+
+    def capture_scenario(source, nodes, protected, inv, owners, solids, side, panels):
+        scenario_maps.append(panels)
+        return {"side": side}
+
+    monkeypatch.setattr(sequence, "_panel_clearance_scenario", capture_scenario)
+    nut_route_maps = []
+
+    def capture_nut_route(nodes, source, protected, inv, solids, panels):
+        nut_route_maps.append(panels)
+        return {}
+
     monkeypatch.setattr(
         sequence,
         "_short_nut_route",
-        lambda nodes, source, protected, inv, solids: {},
+        capture_nut_route,
     )
 
     report = sequence.build_report()
 
     assert calls == [True]
+    assert len(replacement_calls) == 1
+    assert replacement_calls[0][0] is source
+    assert len(replacement_calls[0][1]) == 3
+    assert len(replacement_calls[0][2]) == 3
+    assert len(scenario_maps) == 2
+    assert all(panels is replacements for panels in scenario_maps)
+    assert nut_route_maps == [replacements]
     assert report["authority"]["fixed_panel_kicker_screws"] == 66
+    assert (
+        report["authority"]["candidate_panel_machining"]["panel_connection_axis_count"]
+        == 66
+    )
+    assert report["authority"]["candidate_panel_machining"][
+        "replacement_panels"
+    ] == sorted(sequence.RIGHT_PANEL_NAMES)
     assert report["wj05_retained_geometry"]["members"] == sorted(candidate_wood)
     assert (
         "withdrawal paths are not screened"

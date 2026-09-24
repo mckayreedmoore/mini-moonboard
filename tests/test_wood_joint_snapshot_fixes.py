@@ -24,6 +24,24 @@ from scripts.wood_joints_wj05_center_backer_transfer_probe import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_WJ03_SEQUENCE_DEPENDENCIES = frozenset(
+    {
+        "docs/panel-insert-reference.json",
+        "mini_moonboard/base_frame.py",
+        "mini_moonboard/connection_geometry.py",
+        "mini_moonboard/floor_flush_width.py",
+        "mini_moonboard/hold_tnut_reinforcement.py",
+        "mini_moonboard/insert_frame.py",
+        "mini_moonboard/model.py",
+        "mini_moonboard/panel_grid.py",
+        "mini_moonboard/panel_grid_v2.py",
+        "mini_moonboard/wood_joint_frame.py",
+        "mini_moonboard/wood_joint_geometry.py",
+        "mini_moonboard/wood_joint_panel_machining.py",
+        "scripts/owner_layout_protected.py",
+        "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
+    }
+)
 
 
 def test_wj03_screw_withdrawal_separates_expected_receiver_from_new_blocker():
@@ -285,32 +303,23 @@ def test_wj05_bolt_datum_tip_and_nds_thread_band_use_underhead_face():
     ).hexdigest()
 
 
+def test_wj03_sequence_declares_current_producer_dependencies():
+    assert set(SEQUENCE_DEPENDENCIES) == EXPECTED_WJ03_SEQUENCE_DEPENDENCIES
+
+
 def test_wj03_sequence_snapshot_binds_current_producer_and_inputs():
     report = json.loads(
         (ROOT / "docs/wood-joints-mvp/wj03-sequence-diagnostic.json").read_text()
     )
     binding = report["authority"]
-    expected_sequence_dependencies = {
-        "mini_moonboard/connection_geometry.py",
-        "mini_moonboard/floor_flush_width.py",
-        "mini_moonboard/hold_tnut_reinforcement.py",
-        "mini_moonboard/model.py",
-        "mini_moonboard/panel_grid.py",
-        "mini_moonboard/panel_grid_v2.py",
-        "mini_moonboard/wood_joint_frame.py",
-        "mini_moonboard/wood_joint_geometry.py",
-        "scripts/owner_layout_protected.py",
-        "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
-    }
     source_inventory = json.loads(
         (ROOT / "docs/wood-joints-mvp/source-inventory.json").read_text()
     )
     runtime_dependencies = set(
         source_inventory["source_runtime_module_hashes_sha256"]
     )
-    assert set(SEQUENCE_DEPENDENCIES) == expected_sequence_dependencies
     assert set(binding["dependency_sha256"]) == (
-        expected_sequence_dependencies | runtime_dependencies
+        EXPECTED_WJ03_SEQUENCE_DEPENDENCIES | runtime_dependencies
     )
     assert binding["producer_sha256"] == hashlib.sha256(
         (ROOT / "scripts/wood_joint_wj03_sequence.py").read_bytes()

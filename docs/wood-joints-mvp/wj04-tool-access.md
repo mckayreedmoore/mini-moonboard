@@ -29,4 +29,4 @@ The model screens a 30° nut-working stroke, an unverified open-end exit proxy o
 
 ## Reproduction and provenance
 
-Run uv run python -m scripts.wood_joint_wj04_tool_access --write. Producer SHA-256: 0c7134bf6fdff0592911b88f6c2ffed3ece1cd53d36141006341b8b0e75fbe6b. JSON data: [wj04-tool-access.json](wj04-tool-access.json).
+Run uv run python -m scripts.wood_joint_wj04_tool_access --write. Producer SHA-256: 8e3af4e66153dd3de183604957db969d3bcb1cfcc5e2ce2505eaa8d9bebc129d. JSON data: [wj04-tool-access.json](wj04-tool-access.json).

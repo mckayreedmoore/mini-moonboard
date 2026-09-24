@@ -34,6 +34,11 @@ from mini_moonboard.wood_joint_geometry import (
     bolt_stack_report,
     washer_support_report,
 )
+from mini_moonboard.wood_joint_panel_machining import (
+    PANEL_CONNECTION_COUNT,
+    RIGHT_PANEL_NAMES,
+    candidate_panel_replacements,
+)
 from mini_moonboard.wood_joint_wj04_config import (
     WJ04_TRIAL,
     WJ04TrialConfig,
@@ -73,6 +78,7 @@ class MaterializedTrialGeometry:
     source_binding: Any
     source: Any
     wood: dict[str, cq.Shape]
+    source_finished: dict[str, cq.Shape]
     parts: dict[str, cq.Shape]
     cleat: cq.Shape
     stacks: dict[str, BoltStack]
@@ -83,6 +89,7 @@ class MaterializedTrialGeometry:
     protected: dict[str, cq.Shape]
     all_wood: dict[str, cq.Shape]
     panels: dict[str, cq.Shape]
+    panel_machining: dict[str, Any]
     other_wood: dict[str, cq.Shape]
     cleat_hits: dict[str, dict[str, float]]
     contact_area_mm2: dict[str, float]
@@ -185,6 +192,77 @@ def _hits(shape: cq.Shape, others: dict[str, cq.Shape]) -> dict[str, float]:
         name: round(volume, 6)
         for name, other in others.items()
         if (volume := _intersect_volume(shape, other)) > HIT_MM3
+    }
+
+
+def _panel_axis_records(source) -> tuple[dict[str, Any], ...]:
+    """Capture fixed panel-axis identity before and after panel replacement."""
+    connections = tuple(source.panel_connections())
+    names = [connection.name for connection in connections]
+    if len(connections) != PANEL_CONNECTION_COUNT or len(set(names)) != len(names):
+        raise ValueError(
+            "WJ-04 panel remachining requires the exact unique source panel axes"
+        )
+    return tuple(
+        {
+            "axis_id": connection.name,
+            "members": tuple(connection.members),
+            "start_global_xyz_mm": tuple(
+                float(value) for value in connection.start.toTuple()
+            ),
+            "direction_global_xyz": tuple(
+                float(value) for value in connection.direction.toTuple()
+            ),
+            "length_mm": float(connection.length),
+            "diameter_mm": float(connection.diameter),
+            "kind": connection.kind,
+        }
+        for connection in connections
+    )
+
+
+def _candidate_panel_obstacles(
+    source,
+    source_panels: dict[str, cq.Shape],
+    current_parts,
+    uncut_parts,
+) -> tuple[dict[str, cq.Shape], dict[str, Any]]:
+    """Overlay candidate right-panel solids while preserving source geometry."""
+    axes_before = _panel_axis_records(source)
+    replacement_parts = candidate_panel_replacements(
+        source, current_parts=current_parts, uncut_parts=uncut_parts
+    )
+    if set(replacement_parts) != RIGHT_PANEL_NAMES:
+        raise ValueError(
+            "WJ-04 panel remachining must replace exactly the three right panels"
+        )
+    if not RIGHT_PANEL_NAMES <= source_panels.keys():
+        missing = sorted(RIGHT_PANEL_NAMES - source_panels.keys())
+        raise ValueError(f"WJ-04 source panel obstacles are missing: {missing}")
+    for name, part in replacement_parts.items():
+        shape = getattr(part, "shape", None)
+        if (
+            getattr(part, "name", None) != name
+            or not isinstance(shape, cq.Shape)
+            or not shape.isValid()
+            or not shape.Solids()
+        ):
+            raise ValueError(f"WJ-04 candidate panel replacement is invalid: {name}")
+
+    axes_after = _panel_axis_records(source)
+    if axes_after != axes_before:
+        raise ValueError("WJ-04 panel remachining changed fixed source panel axes")
+    obstacles = dict(source_panels)
+    obstacles.update({name: part.shape for name, part in replacement_parts.items()})
+    axis_identity = hashlib.sha256(
+        json.dumps(axes_before, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    return obstacles, {
+        "replacement_names": sorted(replacement_parts),
+        "fixed_panel_axis_count": len(axes_before),
+        "fixed_panel_axis_identity_sha256": axis_identity,
+        "fixed_panel_axes_preserved": True,
+        "raw_source_panel_shapes_preserved_separately": True,
     }
 
 
@@ -400,9 +478,11 @@ def materialize_trial_geometry(
     binding = validate_source_binding(source)
     if binding.inventory_sha256 != config.source_inventory_sha256:
         raise ValueError("WJ-04 source inventory hash differs from canonical config")
-    wood = {part.name: part.shape for part in source.uncut_wood_parts()}
+    uncut_parts = tuple(source.uncut_wood_parts())
+    source_parts = tuple(source.parts())
+    wood = {part.name: part.shape for part in uncut_parts}
     source_finished = {
-        part.name: part.shape for part in source.parts() if part.name in wood
+        part.name: part.shape for part in source_parts if part.name in wood
     }
     source_connections = source.connections()
     retained_source_hosts = _retained_source_hosts(
@@ -435,11 +515,14 @@ def materialize_trial_geometry(
         for name, shape in source_finished.items()
         if not name.startswith(("main_", "kicker_"))
     }
-    panels = {
+    source_panels = {
         name: shape
         for name, shape in source_finished.items()
         if name.startswith(("main_", "kicker_"))
     }
+    panels, panel_machining = _candidate_panel_obstacles(
+        source, source_panels, source_parts, uncut_parts
+    )
     all_wood.update(
         {
             member.source_part_id: retained_source_hosts[member.source_part_id]
@@ -522,6 +605,7 @@ def materialize_trial_geometry(
         source_binding=binding,
         source=source,
         wood=wood,
+        source_finished=source_finished,
         parts=parts,
         cleat=cleat,
         stacks=stacks,
@@ -532,6 +616,7 @@ def materialize_trial_geometry(
         protected=protected,
         all_wood=all_wood,
         panels=panels,
+        panel_machining=panel_machining,
         other_wood=other_wood,
         cleat_hits=cleat_hits,
         contact_area_mm2={
@@ -795,6 +880,13 @@ def report(config: WJ04TrialConfig = WJ04_TRIAL, geometry=None) -> dict:
         "dependency_sha256": {
             name: _sha(ROOT / name)
             for name in (
+                "docs/panel-insert-reference.json",
+                "mini_moonboard/base_frame.py",
+                "mini_moonboard/floor_flush_width.py",
+                "mini_moonboard/insert_frame.py",
+                "mini_moonboard/panel_grid.py",
+                "mini_moonboard/panel_grid_v2.py",
+                "mini_moonboard/wood_joint_panel_machining.py",
                 "mini_moonboard/wood_joint_frame.py",
                 "mini_moonboard/wood_joint_geometry.py",
                 "mini_moonboard/wood_joint_wj04_config.py",
@@ -809,6 +901,7 @@ def report(config: WJ04TrialConfig = WJ04_TRIAL, geometry=None) -> dict:
             "rail_t_end": rail_member.source_face_ids[0],
             "principal_x_end": principal_member.source_face_ids[0],
         },
+        "panel_obstacles": geometry.panel_machining,
         "stock": {
             **trial_adapter_metadata(config)["stock"],
             "purchase_approved": config.purchase_approved,

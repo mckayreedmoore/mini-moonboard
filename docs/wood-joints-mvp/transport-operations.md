@@ -77,21 +77,20 @@ Every box is a WJ-07 state or gate, not permission to perform that action.
 - The 42 nearby screw-axis tool and withdrawal screens have no unrelated
   nominal hits. Real driver access, operator grip, and screw removal remain
   unverified. T-nuts travel with their panel; service wiring does not.
-- The integrated diagnostic includes WJ-05 backers, shifted center posts, and
-  attachment stacks in the retained maps. It samples the inverse kicker and
-  lower-panel paths, but does not establish continuous motion, support
-  transfer, or staged-part stability. The left lower-panel return has no
-  sampled positive-volume hits. The right return reports 35 fixed-light hits
-  (G1–K7), each 317.868340 mm³, only at the restored 250 mm terminal pose.
-  This is an inherited kerf-width datum mismatch: the
-  [width adapter](../../mini_moonboard/floor_flush_width.py) shifts the right
-  panel and its LED bores 1.5875 mm inboard while retaining the electrical
-  bodies at their left-anchored source datums. The return transform is the
-  inverse of extraction; the terminal witness does not establish a light
-  collision during travel and does not by itself require a disconnect
-  operation. Keep the return conditional until panel-bore and service datums
-  are reconciled, the returned pose is screened in the source-correct service
-  state, and final light fit is checked.
+- The earlier pre-helper sequence at checkpoint `0ebf90eb` reported 35
+  fixed-light hits (G1–K7), each 317.868340 mm³, at the right panel's restored
+  250 mm terminal pose. The cause was the inherited kerf-right datum mismatch:
+  the panel and its LED bores shifted 1.5875 mm inboard while electrical bodies
+  stayed at their left-anchored source datums; endpoint sampling also differed
+  between outbound and return. Candidate-only fixed-service-bore machining
+  corrects that geometry without changing the selected baseline. The final
+  sequence report (`b547a604…7e0f4`) clears the right return endpoint; the
+  left return was already clear. No LED removal or disconnection is needed or
+  inferred. Kicker motion still overlaps the lower panel by 1–18 mm if it
+  remains installed; extraction and return pass after staging it first. This
+  sequence does not establish continuous motion, support transfer, or staged-
+  part stability. The staged pose has 0 mm nominal floor gap, so positive-volume
+  clearance is not a tolerance margin.
 
 ## WJ-04 ordinary-joint state boundary
 
