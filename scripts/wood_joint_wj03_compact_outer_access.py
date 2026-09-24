@@ -11,7 +11,7 @@ import hashlib
 import json
 import math
 from collections.abc import Mapping
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from pathlib import Path
 from types import MappingProxyType, SimpleNamespace
 
@@ -92,6 +92,13 @@ class PanelShape:
 
 
 @dataclass(frozen=True)
+class SequenceHostObstacle:
+    """Finished host shape adapter for sequence collision helpers only."""
+
+    finished_shape: cq.Shape
+
+
+@dataclass(frozen=True)
 class CompactOuterGeometry:
     """One source-bound materialization shared by access and tool screens.
 
@@ -146,6 +153,18 @@ class CompactOuterGeometry:
                 for name, stack in side_stacks.items()
             }
         )
+
+
+def _sequence_host_adapter_map(
+    geometry: CompactOuterGeometry, host_ids: set[str]
+) -> dict[str, SequenceHostObstacle]:
+    missing = host_ids - geometry.host_wood.keys()
+    if missing:
+        raise ValueError(f"Combined candidate hosts are missing: {sorted(missing)}")
+    return {
+        name: SequenceHostObstacle(geometry.host_wood[name])
+        for name in sorted(host_ids)
+    }
 
 
 def _readonly_map(values):
@@ -640,20 +659,14 @@ def _obstacle_map_for_body_motion(
     nodes = {
         node_side: SimpleNamespace(
             parts=geometry.parts_by_side[node_side],
-            source_host_parts={
-                name: (
-                    replace(part, finished_shape=geometry.host_wood[name])
-                    if name in geometry.host_wood
-                    else part
-                )
-                for name, part in geometry.source_host_parts.items()
-                if name
-                in {
+            source_host_parts=_sequence_host_adapter_map(
+                geometry,
+                {
                     "base_header",
                     f"base_post_outer_{node_side}",
                     f"base_side_{node_side}",
-                }
-            },
+                },
+            ),
             stacks=geometry.stacks_by_side[node_side],
         )
         for node_side in ("left", "right")
@@ -886,16 +899,14 @@ def build_access_report(geometry: CompactOuterGeometry | None = None) -> dict:
     nodes = {
         side: SimpleNamespace(
             parts=geometry.parts_by_side[side],
-            source_host_parts={
-                name: replace(part, finished_shape=geometry.host_wood[name])
-                for name, part in geometry.source_host_parts.items()
-                if name
-                in {
+            source_host_parts=_sequence_host_adapter_map(
+                geometry,
+                {
                     "base_header",
                     f"base_post_outer_{side}",
                     f"base_side_{side}",
-                }
-            },
+                },
+            ),
             stacks=geometry.stacks_by_side[side],
             source_binding=geometry.source_binding,
         )

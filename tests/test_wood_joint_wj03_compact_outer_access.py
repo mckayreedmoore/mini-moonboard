@@ -1,15 +1,18 @@
 import json
+from types import SimpleNamespace
 
 import cadquery as cq
 
 from scripts import wood_joint_wj03_compact_outer_probe as outer_probe
 from scripts.wood_joint_wj03_compact_outer_access import (
     SOURCE_INVENTORY,
+    SequenceHostObstacle,
     _combined_header_shape,
     _frame_component_obstacles,
     _motion_for_body,
     _panel_staging,
     _part_extent_along,
+    _sequence_host_adapter_map,
 )
 
 
@@ -31,6 +34,20 @@ def test_combined_header_keeps_restored_legacy_hole_and_adds_only_new_bores():
     assert combined.intersect(retained_source).Volume() < 1e-6
     assert combined.intersect(wj05_bore).Volume() < 1e-6
     assert abs(raw.Volume() - 1000) < 1e-6
+
+
+def test_sequence_host_adapter_preserves_combined_candidate_header_shape():
+    source_host = cq.Solid.makeBox(10, 10, 10)
+    new_wj05_bore = cq.Solid.makeCylinder(0.8, 12, cq.Vector(5, 5, -1))
+    combined = _combined_header_shape(source_host, {"new_wj05_bore": new_wj05_bore})
+    geometry = SimpleNamespace(host_wood={"base_header": combined})
+
+    adapted = _sequence_host_adapter_map(geometry, {"base_header"})["base_header"]
+
+    assert isinstance(adapted, SequenceHostObstacle)
+    assert adapted.finished_shape is combined
+    assert adapted.finished_shape.intersect(new_wj05_bore).Volume() < 1e-6
+    assert abs(adapted.finished_shape.Volume() - combined.Volume()) < 1e-9
 
 
 def test_body_motion_vectors_follow_installed_bolt_layer_order():
