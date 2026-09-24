@@ -162,13 +162,13 @@ def rotational_sweep(
     axis_xyz: Any,
     angle_degrees: float,
 ) -> cq.Shape:
-    """Return a conservative full-turn cylinder enclosing a rotation sweep.
+    """Return conservative AABB enclosing continuous rotation over angle.
 
-    The requested angle is validated and reported by the operation builder,
-    while this geometry encloses all orientations about the axis. Axial
-    coordinates are measured from the supplied rotation center. This avoids
-    treating a partial kernel sweep failure as clearance and may report false
-    clashes.
+    The source shape first expands to its axis-aligned bounding box. Each of
+    that box's eight corners follows an analytic sinusoid around the requested
+    axis. Endpoints and every interior coordinate extremum are evaluated, so
+    this encloses all intermediate orientations without replacing a short
+    stroke with a full-turn sweep. It may still report clashes from the AABB.
     """
     center = cq.Vector(center_xyz_mm)
     axis = _vector(axis_xyz, "axis_xyz")
@@ -178,26 +178,67 @@ def rotational_sweep(
     if abs(angle) <= 1e-12:
         return shape
     corners = _bbox_corners(shape.BoundingBox())
-    values = [point.dot(axis) for point in corners]
-    if not values:
+    if not corners:
         raise ValueError("rotational envelope requires a bounded solid")
-    center_projection = center.dot(axis)
-    low, high = min(values) - center_projection, max(values) - center_projection
-    radial = 0.0
+
+    angle_range = sorted((0.0, math.radians(angle)))
+    bounds_min = [math.inf, math.inf, math.inf]
+    bounds_max = [-math.inf, -math.inf, -math.inf]
     for point in corners:
         delta = point - center
-        radial = max(radial, (delta - axis * delta.dot(axis)).Length)
-    if high - low <= 1e-12 or radial <= 1e-12:
-        raise ValueError("rotational envelope has zero radial or axial extent")
-    result = cq.Solid.makeCylinder(
-        radial,
-        high - low,
-        center + axis * low,
-        axis,
+        axial = axis * delta.dot(axis)
+        radial = delta - axial
+        tangent = axis.cross(radial)
+        base = center + axial
+        for coordinate in range(3):
+            base_value = base.toTuple()[coordinate]
+            cosine_value = radial.toTuple()[coordinate]
+            sine_value = tangent.toTuple()[coordinate]
+            minimum, maximum = _sinusoid_extrema(
+                cosine_value, sine_value, angle_range[0], angle_range[1]
+            )
+            bounds_min[coordinate] = min(bounds_min[coordinate], base_value + minimum)
+            bounds_max[coordinate] = max(bounds_max[coordinate], base_value + maximum)
+
+    sizes = [high - low for low, high in zip(bounds_min, bounds_max)]
+    if min(sizes) <= 1e-12:
+        raise ValueError("rotational envelope has zero axial or planar extent")
+    result = cq.Solid.makeBox(
+        sizes[0],
+        sizes[1],
+        sizes[2],
+        cq.Vector(*bounds_min),
     )
     if not result.isValid() or not result.Solids():
-        raise ValueError("rotational sweep did not produce valid solid geometry")
+        raise ValueError("continuous angular envelope did not produce valid geometry")
     return result
+
+
+def _sinusoid_extrema(
+    cosine_coefficient: float,
+    sine_coefficient: float,
+    angle_low: float,
+    angle_high: float,
+) -> tuple[float, float]:
+    """Return extrema of ``a*cos(t) + b*sin(t)`` on a closed interval."""
+    amplitude = math.hypot(cosine_coefficient, sine_coefficient)
+    if amplitude <= 1e-15:
+        return 0.0, 0.0
+    if angle_high - angle_low >= math.tau - 1e-12:
+        return -amplitude, amplitude
+
+    def evaluate(angle: float) -> float:
+        return cosine_coefficient * math.cos(angle) + sine_coefficient * math.sin(angle)
+
+    values = [evaluate(angle_low), evaluate(angle_high)]
+    stationary = math.atan2(sine_coefficient, cosine_coefficient)
+    first = math.ceil((angle_low - stationary) / math.pi)
+    last = math.floor((angle_high - stationary) / math.pi)
+    values.extend(
+        evaluate(stationary + index * math.pi)
+        for index in range(first, last + 1)
+    )
+    return min(values), max(values)
 
 
 def translation_sweep(shape: cq.Shape, displacement_xyz_mm: Any) -> cq.Shape:
@@ -310,8 +351,8 @@ def wrench_reindex_path(
         "detached_reindex_sweep": reindex_sweep,
         "lateral_reseat_sweep": reseat_sweep,
         "stroke_degrees": stroke,
-        "stroke_sweep_rotation_bound_degrees": 360.0,
-        "stroke_sweep_is_full_rotation_bound": True,
+        "stroke_sweep_rotation_bound_degrees": abs(stroke),
+        "stroke_sweep_is_full_rotation_bound": False,
         "reindex_degrees": reindex,
         "open_end_exit_distance_mm": lift_mm,
         "open_end_exit_motion_is_unverified_proxy": True,
@@ -402,6 +443,27 @@ def collision_report(
     }
 
 
+def moving_part_translation_report(
+    candidate_name: str,
+    moving_part_id: str,
+    moving_part: cq.Shape,
+    displacement_xyz_mm: Any,
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    related_excluded_ids: tuple[str, ...] = (),
+    exclusion_scope: str,
+) -> dict[str, Any]:
+    """Check a moving part's translation without colliding it with itself."""
+    return collision_report(
+        {
+            candidate_name: translation_sweep(moving_part, displacement_xyz_mm),
+        },
+        obstacles,
+        excluded_target_ids=(moving_part_id, *related_excluded_ids),
+        exclusion_scope=exclusion_scope,
+    )
+
+
 def trial_binding(config=WJ04_TRIAL) -> dict[str, Any]:
     """Return immutable trial and tool provenance for integration artifacts."""
     validate_wj04_trial(config)
@@ -449,6 +511,11 @@ def trial_binding(config=WJ04_TRIAL) -> dict[str, Any]:
             "reindex_degrees": REINDEX_DEGREES,
             "full_turn_degrees": FULL_TURN_DEGREES,
             "synthetic_heading_cases_degrees": list(tool.head_offsets_degrees),
+            "partial_rotation_enclosure": (
+                "An axis-aligned box encloses continuous rotation of the modeled "
+                "tool bounding box. Each corner's coordinate extrema are found "
+                "analytically on the requested angle interval."
+            ),
             "interpretation": (
                 "Two bounded synthetic planar heading cases use the catalog's "
                 "15-degree and 75-degree values as sampling angles only. They "
@@ -670,6 +737,9 @@ def report(
                         "stroke_sweep_rotation_bound_degrees": movement[
                             "stroke_sweep_rotation_bound_degrees"
                         ],
+                        "stroke_sweep_is_full_rotation_bound": movement[
+                            "stroke_sweep_is_full_rotation_bound"
+                        ],
                         "detached_reindex_degrees": movement["reindex_degrees"],
                         "open_end_exit_distance_mm": movement[
                             "open_end_exit_distance_mm"
@@ -698,22 +768,19 @@ def report(
             ),
         )
         head_washer_travel = stack.hardware.washer_thickness_mm + 0.01
-        head_washer_sweep = translation_sweep(
+        head_washer_removal = moving_part_translation_report(
+            "head_washer_after_bolt_withdrawal",
+            target_keys["head_washer"],
             target_shapes["head_washer"],
             head_outward * head_washer_travel,
-        )
-        head_washer_removal = collision_report(
-            {"head_washer_after_bolt_withdrawal": head_washer_sweep},
             obstacles,
-            excluded_target_ids=tuple(
-                key
-                for role, key in target_keys.items()
-                if role != "head_washer"
+            related_excluded_ids=tuple(
+                key for role, key in target_keys.items() if role != "head_washer"
             ),
             exclusion_scope=(
-                "The same-stack bolt, nut, and nut washer are already removed. "
-                "The head washer is the moving object; source wood and all other "
-                "hardware remain obstacles."
+                "The moving head washer's installed copy is excluded as the same "
+                "physical part. The same-stack bolt and nut are already removed; "
+                "source wood and all unrelated hardware and washers remain obstacles."
             ),
         )
         head_bounds = config.fasteners.head
@@ -868,11 +935,14 @@ def render_markdown(report_data: Mapping[str, Any]) -> str:
         f"- Trial config SHA-256: {report_data['trial_config_sha256']}; "
         f"source inventory SHA-256: {report_data['source_inventory_sha256']}.\n"
         f"- Bolts: {bolt_text}. Nut: {fasteners['nut']['manufacturer']} "
-        f"{fasteners['nut']['sku']}; {fasteners['washers_per_stack']} "
-        f"{fasteners['washer']['description']} washers per stack.\n"
+        f"{fasteners['nut']['sku']}; washers: "
+        f"{fasteners['washers_per_stack']} × {fasteners['washer']['description']} "
+        "per stack.\n"
         f"- Wrench: {tool['manufacturer']} {tool['candidate_id']}, "
-        f"{tool['wrench_size_in']} in, 22 mm nominal external head diameter, "
-        f"3 mm thickness, 100 mm overall length. Source: {source_links}.\n"
+        f"{tool['wrench_size_in']} in, "
+        f"{tool['modeled_head_diameter_mm']} mm nominal external head diameter, "
+        f"{tool['head_thickness_mm']} mm thickness, "
+        f"{tool['overall_length_mm']} mm overall length. Source: {source_links}.\n"
         "- These remain modeling candidates; purchase, drilling, fabrication, "
         "structural, and physical-access approvals are false.\n\n"
         "## Conservative envelope results\n\n"
@@ -883,18 +953,22 @@ def render_markdown(report_data: Mapping[str, Any]) -> str:
         "Clear means no intersections in this nominal, deliberately broad "
         "envelope. Overlap means that an envelope intersects a modeled "
         "obstacle; it does not prove that an actual open-end wrench cannot "
-        "pass. Rotational strokes use full-turn bounds around the fastener "
-        "axis, and translation paths use enclosing boxes. Exact jaw fit, "
+        "pass. Rotation paths use continuous-angle boxes computed from analytic "
+        "corner extrema; translation paths use enclosing boxes. Exact jaw fit, "
         "handle profile, and human-hand clearance are not modeled. The 15°/75° "
         "values are synthetic planar heading samples, not a verified mapping "
         "of the catalog jaw offsets.\n\n"
         f"Limiting modeled obstacles: {limiting_text}\n\n"
         "## Removal sequence screened\n\n"
-        "The model screens a 30° nut-working stroke, an unverified open-end "
-        "exit proxy over one 22 mm head width, detached 60° reindex and "
+        f"The model screens a 30° nut-working stroke, an unverified open-end "
+        f"exit proxy over one {tool['head_width_mm']} mm head width, detached "
+        "60° reindex and "
         "reseating; a full-turn tool envelope while the nut advances to clear "
         "the nominal bolt tip; nut and nut-washer translation; full bolt-axis "
-        "withdrawal; then head-washer detachment. Nut/thread fit, full-form "
+        "withdrawal; then head-washer detachment. The nut washer's source-bounded "
+        "minimum ID exceeds the modeled shaft maximum, allowing this nominal axial "
+        "slide screen; thread major diameter and received-part fit remain "
+        "unverified. Nut/thread fit, full-form "
         "threads at the tip, delivered dimensions, tool tolerances, torque, "
         "installation sequence, and hand pickup are unverified.\n\n"
         "## Reproduction and provenance\n\n"
@@ -1022,6 +1096,62 @@ def _reference_axes(config: Any) -> dict[str, tuple[float, float, float]]:
     return result
 
 
+def nut_washer_axial_removal_report(
+    moving_part_id: str,
+    moving_part: cq.Shape,
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    removed_nut_id: str,
+    shaft_id: str,
+    outward_axis_xyz: Any,
+    travel_mm: float,
+    washer_min_inner_diameter_mm: float,
+    shaft_max_diameter_mm: float,
+) -> dict[str, Any]:
+    """Screen axial washer travel with only source-supported clearances removed."""
+    washer_min_id = _positive(
+        washer_min_inner_diameter_mm, "washer_min_inner_diameter_mm"
+    )
+    shaft_max_diameter = _positive(shaft_max_diameter_mm, "shaft_max_diameter_mm")
+    if washer_min_id <= shaft_max_diameter:
+        raise ValueError(
+        "source-bound washer minimum ID must exceed modeled shaft maximum "
+        "diameter before shaft can be excluded from axial washer motion"
+        )
+    travel = float(travel_mm)
+    if not math.isfinite(travel) or travel < 0:
+        raise ValueError("travel_mm must be finite and nonnegative")
+    axis = _vector(outward_axis_xyz, "outward_axis_xyz")
+    report_data = moving_part_translation_report(
+        "nut_washer_to_clear_bolt_tip",
+        moving_part_id,
+        moving_part,
+        axis * travel,
+        obstacles,
+        related_excluded_ids=(removed_nut_id, shaft_id),
+        exclusion_scope=(
+            "The moving washer's installed copy and already-removed same-stack nut "
+            "are excluded. Its same-stack shaft is excluded only for this axial "
+            "slide: source-bounded minimum washer ID exceeds canonical modeled "
+            "shaft diameter. Unrelated shafts, washers, hardware, and wood remain "
+            "obstacles; thread major diameter, delivered-part fit, and assembly "
+            "clearances are unverified."
+        ),
+    )
+    report_data["axial_sliding_clearance"] = {
+        "motion_is_along_fastener_axis": True,
+        "washer_min_inner_diameter_mm": washer_min_id,
+        "shaft_max_diameter_mm": shaft_max_diameter,
+        "minimum_radial_clearance_mm": round(
+            (washer_min_id - shaft_max_diameter) / 2, 6
+        ),
+        "source_bounds_allow_modeled_axial_slide": True,
+        "thread_major_diameter_and_received_clearance_verified": False,
+        "delivered_parts_and_assembly_clearance_verified": False,
+    }
+    return report_data
+
+
 def _nut_removal_screen(
     stack: Any,
     tool: Any,
@@ -1056,11 +1186,13 @@ def _nut_removal_screen(
             "remain obstacles."
         ),
     )
-    nut_moving_sweep = translation_sweep(target_shapes["nut"], direction * travel)
-    nut_report = collision_report(
-        {"nut_to_clear_bolt_tip": nut_moving_sweep},
+    nut_report = moving_part_translation_report(
+        "nut_to_clear_bolt_tip",
+        nut_key,
+        target_shapes["nut"],
+        direction * travel,
         obstacles,
-        excluded_target_ids=(nut_key, shaft_key),
+        related_excluded_ids=(shaft_key,),
         exclusion_scope=(
             "The moving target nut and its own threaded shaft are excluded as "
             "intended contact during unthreading. Its washer and all other "
@@ -1069,13 +1201,16 @@ def _nut_removal_screen(
     )
     washer_start = cq.Vector(stack.nut_seat.center)
     washer_travel = max(0.0, (tip - washer_start).dot(direction) + 0.01)
-    washer_sweep = translation_sweep(
-        target_shapes["nut_washer"], direction * washer_travel
-    )
-    washer_report = collision_report(
-        {"nut_washer_to_clear_bolt_tip": washer_sweep},
+    washer_report = nut_washer_axial_removal_report(
+        washer_key,
+        target_shapes["nut_washer"],
         obstacles,
-        excluded_target_ids=(washer_key,),
+        removed_nut_id=nut_key,
+        shaft_id=shaft_key,
+        outward_axis_xyz=direction.toTuple(),
+        travel_mm=washer_travel,
+        washer_min_inner_diameter_mm=stack.hardware.washer_id_mm,
+        shaft_max_diameter_mm=stack.hardware.steel_diameter_mm,
     )
     return {
         "nominal_axial_travel_to_clear_shaft_tip_mm": round(travel, 6),

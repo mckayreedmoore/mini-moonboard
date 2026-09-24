@@ -9,6 +9,8 @@ DOCS = "docs/wood-joints-mvp"
 PROBE = f"{DOCS}/wj04-probe.json"
 MECHANICS = f"{DOCS}/wj04-early-mechanics.json"
 TOOL_ACCESS = f"{DOCS}/wj04-tool-access.json"
+RECEIVER_AUDIT = f"{DOCS}/wj05-receiver-audit.json"
+DUTY_REGISTRY = f"{DOCS}/duty-registry.json"
 BOLT_TOOL = f"{DOCS}/wj04-bolt-tool-receiving-screen.json"
 SPACER = f"{DOCS}/wj04-spacer-salvage-screen.json"
 WIDE_TRIAL = f"{DOCS}/wj04-wide-4in-rejected.json"
@@ -45,6 +47,8 @@ def _fixture(
     producer_mechanics = "scripts/wood_joint_wj04_early_mechanics.py"
     producer_tool_access = "scripts/wood_joint_wj04_tool_access.py"
     producer_viewer = "scripts/export_wood_joint_scene.py"
+    producer_receiver_audit = "scripts/wood_joint_wj05_receiver_audit.py"
+    producer_duty_registry = "scripts/wood_joint_duty_registry.py"
     dependency = "mini_moonboard/wood_joint_geometry.py"
     config_path = "mini_moonboard/wood_joint_wj04_config.py"
     source_root = Path(__file__).resolve().parents[1]
@@ -54,6 +58,8 @@ def _fixture(
         (producer_mechanics, b"mechanics producer fixture\n"),
         (producer_tool_access, b"tool-access producer fixture\n"),
         (producer_viewer, b"combined viewer producer fixture\n"),
+        (producer_receiver_audit, b"receiver-audit producer fixture\n"),
+        (producer_duty_registry, b"duty-registry producer fixture\n"),
         (dependency, b"geometry dependency fixture\n"),
         (config_path, (source_root / config_path).read_bytes()),
     ):
@@ -264,6 +270,35 @@ def _fixture(
     )
     _write_json(
         tmp_path,
+        RECEIVER_AUDIT,
+        {
+            "candidate": "wood-joints-fixture",
+            "source_fingerprints_sha256": {
+                inventory: _sha(tmp_path / inventory),
+                producer_receiver_audit: _sha(tmp_path / producer_receiver_audit),
+            },
+            "status": "diagnostic_only",
+        },
+    )
+    _write_json(
+        tmp_path,
+        DUTY_REGISTRY,
+        {
+            "candidate": "wood-joints-fixture",
+            "producer": {"script_sha256": _sha(tmp_path / producer_duty_registry)},
+            "source_binding": {
+                "source_inventory_sha256": _sha(tmp_path / inventory),
+                "receiver_audit_source_inventory_sha256": _sha(tmp_path / inventory),
+            },
+            "source_snapshot_sha256": {
+                inventory: _sha(tmp_path / inventory),
+                RECEIVER_AUDIT: _sha(tmp_path / RECEIVER_AUDIT),
+                producer_duty_registry: _sha(tmp_path / producer_duty_registry),
+            },
+        },
+    )
+    _write_json(
+        tmp_path,
         BOLT_TOOL,
         {
             "candidate": "wood-joints-fixture",
@@ -327,6 +362,8 @@ def _fixture(
         PROBE,
         MECHANICS,
         TOOL_ACCESS,
+        RECEIVER_AUDIT,
+        DUTY_REGISTRY,
         BOLT_TOOL,
         SPACER,
         WIDE_TRIAL,
@@ -363,6 +400,19 @@ def test_consistent_hashes_and_wj04_dimensions_are_diagnostic_only(tmp_path):
     )
     assert report["wj04_dimensional_configuration"]["status"] == "consistent"
     assert report["active_combined_viewer"]["status"] == "consistent"
+    active_evidence = {
+        row["path"]: row
+        for row in report["artifact_manifest"]["artifacts"]
+        if row["path"] in {RECEIVER_AUDIT, DUTY_REGISTRY}
+    }
+    assert active_evidence[RECEIVER_AUDIT]["scope"] == "active_snapshot"
+    assert active_evidence[DUTY_REGISTRY]["scope"] == "active_snapshot"
+    assert all(row["status"] == "consistent" for row in active_evidence.values())
+    assert all(
+        binding["status"] == "consistent"
+        for row in active_evidence.values()
+        for binding in row["embedded_bindings"]
+    )
     assert all(
         row["status"] == "consistent"
         for row in report["wj04_dimensional_configuration"]["checks"]
@@ -576,6 +626,69 @@ def test_historical_trial_requires_manifest_byte_identity(tmp_path):
     assert missing["manifest_entry_missing"] is True
     assert missing["current_sha256"] == _sha(root / NARROW_HISTORICAL)
     assert missing["scope"] == "historical_manifest_only"
+
+
+def test_active_receiver_and_duty_registry_require_manifest_byte_identity(tmp_path):
+    root = _fixture(tmp_path)
+    manifest_path = root / f"{DOCS}/artifact-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    del manifest["artifact_sha256"][RECEIVER_AUDIT]
+    del manifest["artifact_sha256"][DUTY_REGISTRY]
+    manifest_path.write_text(json.dumps(manifest, sort_keys=True), encoding="utf-8")
+
+    report = build_report(root)
+
+    assert report["artifact_manifest"]["artifact_state"] == "missing"
+    missing = {
+        row["path"]: row
+        for row in report["artifact_manifest"]["artifacts"]
+        if row["path"] in {RECEIVER_AUDIT, DUTY_REGISTRY}
+    }
+    assert set(missing) == {RECEIVER_AUDIT, DUTY_REGISTRY}
+    assert all(row["manifest_entry_missing"] for row in missing.values())
+    assert all(row["current_sha256"] for row in missing.values())
+    assert all(row["scope"] == "active_snapshot" for row in missing.values())
+
+
+def test_receiver_and_registry_embedded_hashes_are_checked(tmp_path):
+    root = _fixture(tmp_path)
+    registry_path = root / DUTY_REGISTRY
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    registry["producer"]["script_sha256"] = "old-duty-registry-producer-hash"
+    registry["source_snapshot_sha256"][RECEIVER_AUDIT] = "old-receiver-hash"
+    _write_json(root, DUTY_REGISTRY, registry)
+    _refresh_manifest_hash(root, DUTY_REGISTRY)
+
+    receiver_path = root / RECEIVER_AUDIT
+    receiver = json.loads(receiver_path.read_text(encoding="utf-8"))
+    receiver["source_fingerprints_sha256"]["scripts/wood_joint_wj05_receiver_audit.py"] = (
+        "old-producer-hash"
+    )
+    _write_json(root, RECEIVER_AUDIT, receiver)
+    _refresh_manifest_hash(root, RECEIVER_AUDIT)
+
+    report = build_report(root)
+
+    changed = {
+        row["path"]: row
+        for row in report["producer_and_input_hashes"]["changed_dependencies"]
+    }
+    assert report["artifact_manifest"]["artifact_state"] == "consistent"
+    assert report["snapshot_state"] == "stale"
+    assert RECEIVER_AUDIT in changed
+    registry_producer = "scripts/wood_joint_duty_registry.py"
+    receiver_producer = "scripts/wood_joint_wj05_receiver_audit.py"
+    assert registry_producer in changed
+    assert receiver_producer in changed
+    assert any(
+        binding["field"] == "producer.script_sha256"
+        and binding["status"] == "stale"
+        for binding in next(
+            row
+            for row in report["artifact_manifest"]["artifacts"]
+            if row["path"] == DUTY_REGISTRY
+        )["embedded_bindings"]
+    )
 
 
 def test_missing_diagnostic_snapshot_is_distinct_from_stale(tmp_path):

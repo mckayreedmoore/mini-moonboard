@@ -15,7 +15,9 @@ candidate. A seller SKU for the washers is not selected. The current probe
 models generic 40/50 mm tool envelopes; it does not establish the FACOM
 wrench's installed access or working sweep. The current tool-access report is
 a separate conservative-envelope diagnostic; it establishes neither physical
-access nor impossibility. The early mechanics report carries only six
+access nor impossibility. A staggered full 4×4 is under separate isolated
+prototype development; it is not the active trial or an accepted stock or
+connection. The early mechanics report carries only six
 historical angle-demand cases; no fresh candidate demand or resistance is
 established. See the
 [ordinary hardware basis](ordinary-hardware-basis.md) and
@@ -82,13 +84,21 @@ probe includes nominal insertion/withdrawal and detached-hardware envelopes,
 but neither those envelopes nor the catalog FACOM nomination proves physical
 tool operation, hand clearance, capture/retrieval, or tolerance-feasible
 access. The current [`wj04-tool-access.md`](wj04-tool-access.md) report has
-status `diagnostic_overlap_present`. Broad wrench envelopes overlap modeled
-solids during head counterhold, nut stroke/reindex, and nut/washer removal on
-the stacks; two-wrench overlap and bolt-withdrawal proxies are clear. The
-model uses synthetic heading samples and bounding-box paths, not verified
-FACOM jaw offsets, actual handle motion, hand clearance, or dimensional
-tolerances. Thus it neither establishes access nor proves a real wrench path
-impossible. Mechanics now consumes each probe finite-contact area and records
+status `diagnostic_overlap_present`. It screens synthetic 15°/75° headings,
+a 30° wrench stroke, detached 60° reindex, and an unverified open-end exit
+proxy, then separately bounds full-turn nut advancement. Rotation bounds are
+analytic enclosures of the modeled tool box. Nut and washer translations,
+full bolt-axis withdrawal, and later head-washer removal are separate steps.
+For wrench contact, only the active head or nut and its own shaft are excluded;
+washers remain obstacles. The same-stack shaft is excluded from nut-washer
+axial sliding only, because the source-bounded minimum washer ID is larger than
+the modeled shaft diameter. This does not establish clearance over actual
+thread major diameter or delivered-part fit. Full bolt withdrawal assumes all
+same-stack installed hardware was removed first; wood remains an obstacle.
+The broad bounds overlap modeled solids in several operations, while other
+proxies clear. Neither verified FACOM jaw geometry nor actual handle or hand
+motion is modeled, so the screen establishes neither access nor physical
+impossibility. Mechanics now consumes each probe finite-contact area and records
 its method, probe depth, and source hash. Both consumers use 4,560.569999 mm²
 for the principal contact and 11,401.398713 mm² for the rail contact. The
 canonical bounds rectangle is listed separately as a coordinate audit:
@@ -101,9 +111,13 @@ under the applicable 2024 NDS provisions. The first rail bolt is 38.1 mm from
 the rail grain end versus a conditional 44.45 mm 7D reference (6.35 mm short);
 the rail bolt pitch is 25.4 mm, equal to 4D. The principal group's cleat T
 edge is 19.05 mm from each axis versus a conditional 25.4 mm 4D reference
-(6.35 mm short). These comparisons do not classify which edge is loaded or
-decide compliance. Complete mechanics, stock qualification, tolerance, and
-service-specific geometry remain open.
+(6.35 mm short). If a nonzero signed ±T lateral component governs the
+principal bolts' perpendicular-grain loaded-edge distance, this narrow
+geometry cannot meet that conditional 4D criterion. Signed demands are still
+unresolved, so this is not a universal failure claim. The separate 4×4
+prototype is an unaccepted diagnostic investigation, not a promoted WJ-04
+trial. Complete mechanics, stock qualification, tolerance, and service-specific
+geometry remain open.
 
 ## Early mechanics screen
 

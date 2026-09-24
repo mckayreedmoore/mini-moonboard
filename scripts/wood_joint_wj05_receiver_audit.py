@@ -83,7 +83,9 @@ def _sha256(path: Path) -> str:
 def _bounds(shape: cq.Shape) -> list[float]:
     box = shape.BoundingBox()
     return [
-        round(value, 6)
+        # Output precision only: one 1e-5 mm quantum avoids cross-runtime
+        # flips at the sixth-decimal half-step. Collision tolerances unchanged.
+        round(value, 5)
         for value in (box.xmin, box.xmax, box.ymin, box.ymax, box.zmin, box.zmax)
     ]
 

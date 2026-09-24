@@ -1,12 +1,14 @@
 """WJ-05 fixed screw receiver and backing-path audit."""
 
 import json
+from types import SimpleNamespace
 
 import pytest
 
 from scripts.wood_joint_wj05_receiver_audit import (
     OUTPUT_JSON,
     OUTPUT_MD,
+    _bounds,
     build_report,
     render_markdown,
 )
@@ -15,6 +17,39 @@ from scripts.wood_joint_wj05_receiver_audit import (
 @pytest.fixture(scope="module")
 def report():
     return build_report()
+
+
+def test_receiver_bounds_stabilize_near_six_decimal_half_step():
+    def shape_with_ymax(ymax):
+        box = SimpleNamespace(
+            xmin=-1219.2,
+            xmax=-1130.3,
+            ymin=-175.7,
+            ymax=ymax,
+            zmin=277.0,
+            zmax=2246.290376,
+        )
+        return SimpleNamespace(BoundingBox=lambda: box)
+
+    raw_below = 1535.58450749
+    raw_above = 1535.58450751
+    assert round(raw_below, 6) == 1535.584507
+    assert round(raw_above, 6) == 1535.584508
+
+    bounds_below = _bounds(shape_with_ymax(raw_below))
+    bounds_above = _bounds(shape_with_ymax(raw_above))
+    assert (
+        bounds_below
+        == bounds_above
+        == [
+            -1219.2,
+            -1130.3,
+            -175.7,
+            1535.58451,
+            277.0,
+            2246.29038,
+        ]
+    )
 
 
 def test_all_sixty_six_fixed_axes_are_preserved_and_enumerated(report):

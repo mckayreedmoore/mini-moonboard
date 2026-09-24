@@ -41,6 +41,8 @@ WJ04_PATHS = {**ACTIVE_WJ04_PATHS, **HISTORICAL_WJ04_PATHS}
 CONTRACT_PATH = "wood-joints-candidate.json"
 OUTER_HARDWARE_PATH = f"{DOCS}/hardware.json"
 ACTIVE_VIEWER_PATH = "site/owner-wood-joints-layout-scene.json"
+ACTIVE_WJ05_RECEIVER_PATH = f"{DOCS}/wj05-receiver-audit.json"
+ACTIVE_DUTY_REGISTRY_PATH = f"{DOCS}/duty-registry.json"
 
 PRODUCER_PATHS = {
     f"{DOCS}/interfaces.json": "scripts/wood_joint_clearance.py",
@@ -51,7 +53,8 @@ PRODUCER_PATHS = {
     f"{DOCS}/wj04-early-mechanics.json": "scripts/wood_joint_wj04_early_mechanics.py",
     f"{DOCS}/wj04-tool-access.json": "scripts/wood_joint_wj04_tool_access.py",
     f"{DOCS}/wj05-center-backer-transfer.json": "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
-    f"{DOCS}/wj05-receiver-audit.json": "scripts/wood_joint_wj05_receiver_audit.py",
+    ACTIVE_WJ05_RECEIVER_PATH: "scripts/wood_joint_wj05_receiver_audit.py",
+    ACTIVE_DUTY_REGISTRY_PATH: "scripts/wood_joint_duty_registry.py",
     ACTIVE_VIEWER_PATH: "scripts/export_wood_joint_scene.py",
 }
 
@@ -62,16 +65,22 @@ FILE_HASH_MAP_KEYS = {
     "source_fingerprints_sha256",
     "source_hashes_sha256",
     "source_runtime_module_hashes_sha256",
+    "source_snapshot_sha256",
     "runtime_module_sha256",
 }
 SCALAR_FILE_HASH_PATHS = {
     "source_inventory_sha256": f"{DOCS}/source-inventory.json",
+    "interfaces_source_inventory_sha256": f"{DOCS}/source-inventory.json",
+    "receiver_audit_source_inventory_sha256": f"{DOCS}/source-inventory.json",
+    "wj04_source_inventory_sha256": f"{DOCS}/source-inventory.json",
     "config_source_sha256": WJ04_CONFIG_PATH,
 }
 MANIFEST_IDENTITY_FIELDS = ("candidate", "source_commit")
 DIMENSION_TOLERANCE = 1e-3
 REQUIRED_MANIFEST_PATHS = (
-    set(ACTIVE_WJ04_PATHS.values()) | set(HISTORICAL_PATHS) | {ACTIVE_VIEWER_PATH}
+    set(ACTIVE_WJ04_PATHS.values())
+    | set(HISTORICAL_PATHS)
+    | {ACTIVE_VIEWER_PATH, ACTIVE_WJ05_RECEIVER_PATH, ACTIVE_DUTY_REGISTRY_PATH}
 )
 
 
@@ -139,6 +148,12 @@ def _embedded_bindings(
     producer_sha = document.get("producer_sha256")
     if producer_path and isinstance(producer_sha, str):
         raw.append((producer_path, "producer_sha256", producer_sha))
+    producer = document.get("producer")
+    producer_script_sha = (
+        producer.get("script_sha256") if isinstance(producer, dict) else None
+    )
+    if producer_path and isinstance(producer_script_sha, str):
+        raw.append((producer_path, "producer.script_sha256", producer_script_sha))
     authority = document.get("authority")
     if producer_path and isinstance(authority, dict):
         authority_sha = authority.get("producer_sha256")

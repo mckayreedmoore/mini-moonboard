@@ -1,135 +1,144 @@
 # Wood-joints MVP orchestration plan
 
-Status: parent-approved execution plan, 2026-09-23. This plan coordinates
-implementation for the separate `compact-floor-flush-wood-joints-development`
-lane. It does not reopen or resume a previously paused goal, change the
-selected candidate, or authorize a native solve or physical work.
+Status: active parent-owned persistent goal, 2026-09-23.
 
-## Ownership and work model
+## Goal and authority boundary
 
-The parent owns scope and configuration decisions, integration acceptance,
-final validation, and the serialized commit and push. Implementation work is
-delegated to GPT-6 Luna Max workers. The available configuration supports 20
-subagents, excluding the parent; this capacity was confirmed for this run.
-Workers do not stage, commit, or push. Source and report editors use separate
-file ownership; reviews and cross-file integration stay with the parent.
+Continue `compact-floor-flush-wood-joints-development` toward the conditional
+DIY engineering MVP in [`next-mvp-plan.md`](next-mvp-plan.md). Parent owns
+planning, source decisions, integration, final validation, and Git delivery;
+GPT-6 Luna workers handle bounded implementation and review tasks. The earlier
+separate paused Luna session was not resumed.
 
-| Work area | Owner | Boundary |
+Preserve selected candidate authority, baseline source pin
+`df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb`, all 66 panel/kicker screw axes,
+and the separate-development lane. Do not run native solves or physical work.
+No task here authorizes cut, drill, fabrication, structural use, climbing, or
+release. Keep every release flag false until its evidence gate passes.
+Continue frequent, dependency-closed commits and pushes through parent. Keep
+reported checkpoint identity separate from selected-baseline source identity.
+
+## Completed diagnostic checkpoint
+
+The integrated diagnostic checkpoint was committed and pushed as `be540ea9`;
+`master` and its remote were clean and aligned at that checkpoint. It closes
+first integrated modeling milestone only, without joint or capacity acceptance.
+Preserved source reference and release flags did not change.
+
+- WJ-03 sequence includes WJ-05 center receivers and diagnostic backers. The
+  right lower-panel return still intersects 35 fixed LEDs at the terminal
+  250 mm pose because kerf-right service bores shift 1.5875 mm while electrical
+  parts retain earlier datums. Both staged poses have zero nominal floor gap;
+  permanent rear projection remains +86.018477 mm beyond the ordinary
+  reference. Return, permanent envelope, support, and tolerance gates remain
+  open. No LED removal or disconnection is prescribed.
+- WJ-04 binds the 95.25 × 38.1 × 119.7 mm grain-N trial across probe,
+  mechanics, and tool-access artifacts. Mechanics now uses the probe's finite
+  contact-area method and lists the canonical rectangle separately. Historical
+  angle actions remain unreplayed; no fresh demand or capacity is established.
+  Its principal bolts have 19.05 mm T-edge distance versus a conditional
+  25.4 mm perpendicular-grain loaded-edge 4D reference. Signed demand remains
+  unresolved, so this is not a universal failure claim; the narrow trial
+  cannot meet that criterion if a nonzero ±T lateral component governs.
+  Generic tool envelopes overlap modeled solids, but establish neither actual
+  access nor impossibility. The 2×6 rip requires post-rip regrading.
+- WJ-05 transfer and receiver reports remain diagnostic; center receiver path
+  remains blocked and backer/header duties remain unaccepted.
+- WJ-06 registry maps 24 duties / 144 former SDS axes, retains 66 screw axes
+  and 12 frame-bolt arrangements, and accepts zero replacements. It records
+  540 potential WJ-06 corridors, zero materialized/full stacks, and four
+  provisional WJ-05 axes with zero complete stacks.
+- Combined viewer v2 contains WJ-03/WJ-04/WJ-05 overlays;
+  `integrated_clearance=not_run`, all release flags false. Snapshot audit and
+  parent-selected audit/manifest checks passed at this checkpoint. The later
+  WJ-04 tool report and WJ-05 receiver audit are now refreshed and pinned with
+  the duty registry and viewer artifacts. Their current scene refresh is local
+  and still awaits publication. All remain diagnostic; no acceptance gate is
+  promoted.
+
+Viewer commit `f5c40093` was publicly deployed and verified: live HTML and
+scene returned HTTP 200 with exact local SHA-256 matches; the scene was
+35,665,899 bytes. Independent browser review passed family toggles and camera
+controls with no JavaScript exceptions.
+
+A later UI checkpoint `86968b09` moves eight existing temporary
+socket-envelope meshes behind a separate orange overlay toggle, off by default.
+Four envelopes extend below floor; all 20 installed WJ-05 hardware objects
+remain visible (minimum Z 0.1928 mm). Browser review passed 687 HTTP 200
+responses, toggle composition, and JavaScript checks; parent checked screenshot.
+This display control does not remove actual bolts or change structural geometry.
+Pages run `35955619614` succeeded. Parent verified the live HTML returned HTTP
+200 with an exact local SHA-256 match; browser review passed and the default-off
+overlay is live. The receiver-bound local scene refresh has a separate hash
+and awaits parent publication; only the earlier scene deployment is verified.
+
+## Current work allocation
+
+| Work area | Owner | Current scope and boundary |
 | --- | --- | --- |
-| Candidate scope, shared configuration, integration acceptance, final validation, delivery | Parent | Resolve conflicts and approve the checkpoint; serialize all Git writes. |
-| WJ-04 configuration | `luna_joint_contract` | Keep one canonical diagnostic geometry and shared trial configuration. |
-| WJ-04 center-load-path probe | `luna_center_loadpath` | Update the probe against the canonical diagnostic geometry and ordinary-joint layout. |
-| WJ-04 bolt stack | `luna_hardware_tools` | Ordinary hardware stack, thread engagement, and receiving inputs. |
-| WJ-05 producers | `luna_socket_spec` | Correct seated socket geometry in WJ-05 producer(s). |
-| WJ-03 receiver sequence | `luna_outer_path` | Integrate WJ-05 receivers into the sequence and preserve all fixed screw axes. |
-| WJ-04 mechanics | `luna_joint_mechanics` | Recompute diagnostic mechanics for the bound geometry and stack. |
-| Cross-consumer tests | `luna_integration_checks` | Check consumers against the shared configuration and refreshed artifacts. |
-| Snapshot integrity audit | `luna_snapshot_integrity` | Add independent source and artifact integrity checks. |
-| Criteria, duty registry, stock/wood/bolt/transport bases, and reviews | Assigned workers | Keep each bounded to its named records; report findings to parent. |
+| Scope, shared decisions, integration, validation, delivery | Parent `/root` | Resolve conflicts, authorize dependent edits, own serialized commit/push and final gates. |
+| WJ-04 tool refinement | `luna_wj04_tool_access` | Refined report is frozen and source/config bound. It uses synthetic 15°/75° headings, 30° stroke, 60° reindex, analytic rotation enclosure, and separately screened nut/washer removal. The washer's same-stack shaft is excluded only during axial slide (7.7978 mm source-bounded minimum ID vs 6.35 mm modeled shaft max); unrelated obstacles remain. `diagnostic_overlap_present` remains; bounds prove neither actual access nor impossibility. Exact FACOM jaw/handle shape and working sweep remain unsupported. Manifest pins refreshed. |
+| WJ-03 service alignment | `luna_outer_path` | Implements candidate-only `mini_moonboard/wood_joint_panel_machining.py` and focused tests using exact kerf-right axes. Preserve `mini_moonboard/floor_flush_width.py` baseline unchanged. Trace identified 35 terminal return/LED overlaps from `WidthAdapter` shifting panel solids −1.5875 mm while lights/wires retain fixed datums. No disconnect or rear-envelope change inferred. |
+| WJ-03 transport narrative | `luna_transport_ops` | Completed current sequence narrative; return remains conditional pending bore/datum alignment and a service-state screen. |
+| WJ-05 center paths | `luna_center_loadpath` | Implements an isolated center-node prototype. Keep it separate from the active candidate and current receiver report; no receiver duty, load path, or capacity is accepted. |
+| WJ-05 socket model and parity | `luna_socket_spec` | Owns socket exterior occupancy/datums, transfer/receiver producers, focused geometry tests, and viewer parity assertion. The receiver audit is regenerated and pinned; its bounds are rounded to 1e-5 mm without changing geometry or collision tolerance. Center receiver path remains blocked. |
+| WJ-04 full-section stock | `luna_duty_registry`; material comparison by `luna_timber_stock` | Isolated probe `scripts/wood_joint_wj04_full_stock_probe.py` is in development for a staggered 88.9 × 88.9 × 119.7 mm 4×4 block with reversed rail-bolt directions and 33 mm pitch. It is a separate diagnostic prototype, not the active WJ-04 trial or an accepted stock/connection; no purchase or fabrication release. |
+| WJ-03 outer envelope | `luna_review_contract` | Read-only rear-envelope and connector-geometry/stack tradeoff review; no source or report edits. |
+| WJ-06 residual topologies | `luna_duty_registry` | Maps 15 generic WJ-06 duties against WJ-04 geometry, station transforms, conflicts, and next independent station. The refreshed registry remains source-bound with zero replacements accepted. |
+| WJ-04 analytical helper | `luna_bolt_resistance` | Implemented/tested `mini_moonboard/wood_joint_directional_geometry.py` and focused tests (9 worker, 9 parent). `classify_member_fastener_load(...)` reports signed grain-end/cross-grain-edge components and distances; makes no demand, capacity, or pass claim. Test vector is synthetic; existing resistance basis unchanged. |
+| WJ-04 directional end/edge | `luna_wood_limit_states` | Read-only exact grain/end/edge review against NDS 12.5.1 for both-sign alternatives. Keeps conditional minima distinct from the candidate directional-edge criterion. |
+| Viewer UI | `luna_hardware_tools`; browser review by `luna_review_resistance` | Owns viewer HTML. Default-off temporary tool/socket overlay is live and reviewed; installed WJ-05 hardware remains displayed. Pages succeeded; parent verified HTTP 200 and exact local HTML hash. |
+| CI workflow and run status | `luna_checkpoint_prep` | Owns `.github/workflows/ci.yml` only. Current run records below; no worker stages, commits, or pushes. |
+| Integration test and CI failure triage | `luna_integration_checks` | WJ04 config/report parity and WJ03 dependency/T-nut/reverse-order tests pass (7 and 8); now doing bounded CI failure investigation, with no producer edits. |
 
-No worker runs native solves. Parent explicitly permits heavy CAD work when
-needed, serialized by the parent after its required inputs are integrated.
-Do not combine unbound trial outputs with the active diagnostic model.
+No native solves are authorized or run; another solve requires new user
+authorization. Keep one owner per shared file. Parent owns report regeneration
+that requires serialized CAD, integrated checks, and all Git actions.
 
-## Checkpoint progress
+## Next dependency order
 
-Dependency-closed implementation checkpoints are being committed separately
-so reviewers can inspect stable foundations while later consumers continue.
-Commits `49647ffd`, `fb63da58`, `505bca16`, and `27125144` record the WJ-04
-configuration and stack, shared geometry primitives, preserved source
-inventory and frame binding, and seated WJ-05 center-backer diagnostics.
-Their focused test and Ruff results were reported to the parent per checkpoint;
-they do not establish an integrated pass for the remaining working tree.
+1. Review candidate-only `wood_joint_panel_machining.py` and its exact 66-axis
+   kerf-right result. Preserve `floor_flush_width.py` baseline, panel outlines,
+   holds, and screw policy. Parent reviews and regenerates both return
+   directions before any sequence disposition. Keep LED service conditional;
+   do not prescribe disconnection.
+2. Complete bounded WJ-04 tool and full-section stock comparisons. Keep the
+   4×4 prototype separate from the active 95.25 × 38.1 × 119.7 mm trial; do not
+   treat it as selected, stock-qualified, or connected. Require source-supported
+   tool geometry, useful operation sequence, and traceable stock/grade route
+   before treating any candidate as buildable. Keep tool envelopes diagnostic
+   until credible wrench/hand motion and tolerances exist.
+3. Resolve center-path interfaces and backer/header stack limits; keep receiver
+   path, floor access, bearing, resistance, and tool access separate checks.
+4. Review WJ-04 signed end/edge alternatives and integrate the bounded helper
+   after parent review. Keep load classification separate from fresh demand,
+   resistance, and acceptance.
+5. Map residual WJ-06 topologies only after station transforms and physical
+   interfaces are reconciled. Keep all replacement acceptance counts at zero.
+6. Confirm latest CI and live Pages results with parent/checkpoint prep. Parent
+   then integrates returned findings, regenerates only affected artifacts,
+   reviews manifest/source bindings, and publishes dependency-closed
+   checkpoints.
 
-Parent fast-forwarded the seven validated checkpoint commits to `master` and
-pushed `origin/master` at `55ede246`, then pushed mode fix `1f5f6b0`. Continue
-integration on `master`; no feature branch is the active delivery path. The
-selected-baseline source reference stays pinned to `df7f5eca`; implementation
-commits do not move that reference.
+No component test, nominal clearance, catalog listing, registry owner map, or
+viewer interaction closes connection capacity, full-frame clearance, MVP-L,
+shop package, physical observation, or release gates.
 
-## First integrated milestone
+## CI and deployment status
 
-Produce one reviewable diagnostic checkpoint containing:
+**Latest reported status:** CI run [35956646693](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/35956646693)
+for the current pushed checkpoint is still running; Pages run
+[35956646559](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/35956646559)
+succeeded. Parent verified the deployed UI HTML returned HTTP 200 and matched
+its local SHA-256. The refreshed receiver-bound scene is local and awaits
+publication. A WJ-03 clearance-artifact equality mismatch involving a
+fingerprint and 1e-6 precision is under triage, so broad CI is not green.
 
-1. One source-bound WJ-04 ordinary joint using the current diagnostic cleat
-   section of **95.25 × 38.1 mm**, with geometry, bolt stack, tool access,
-   thread engagement, and mechanics bound to the same configuration.
-2. A **100 × 53.34 mm** WJ-04 section retained only as an unbound alternate
-   until its geometry, hardware, tools, tolerances, and mechanics are shown to
-   match.
-3. Corrected WJ-05 seated-socket envelopes and regenerated dependent reports.
-   Intended hex engagement must be distinguished from unrelated obstacle
-   clearance.
-4. WJ-03 receiver and removal-sequence evidence integrated with the WJ-05
-   center backers, while all 66 panel and kicker screw axes remain fixed.
-5. Source-bound cross-consumer tests, fresh dependent artifacts, and a
-   reviewed artifact manifest.
+Earlier CI runs with test failures are historical and do not establish the
+current run's outcome.
 
-This milestone is diagnostic. It does not accept a joint, establish capacity,
-complete the 24-duty frame, pass MVP-L, authorize a native solve, or release
-drilling, fabrication, structural use, or climbing.
-
-## Dependency order
-
-Freeze scope and the shared WJ-04 configuration first. Then bind CAD and bolt
-stack; calculate mechanics from that exact geometry; run cross-consumer tests;
-refresh all affected evidence and hashes; review the integrated diff and
-limitations; only then prepare the diagnostic checkpoint for the parent's
-commit and push. Snapshot and duty-registry work can proceed independently.
-Criteria plus stock, wood, bolt, and transport bases support later gates but
-do not waive them. No native solve starts before its applicable geometry,
-mechanics, and evidence gates pass and the parent authorizes it.
-
-## Checkpoint gates and delivery
-
-Use focused checks for each dependency-closed source-only checkpoint. Do not
-require the full repository suite or full CAD rebuild before every such
-commit. After integrated edits settle, run repository CI from the pushed
-`master` commit and complete parent-owned final validation before reporting a
-full pass:
-
-```sh
-uv sync --locked
-uv run ruff check .
-uv run pytest
-uv run scripts/smoke_test.py
-uv run python -m scripts.current_candidate --check-exports
-```
-
-The broad focused integration batch, once its producers and artifacts settle,
-is:
-
-```sh
-uv run pytest tests/test_wood_joint_frame.py tests/test_wood_joint_geometry.py tests/test_wood_joint_inventory.py tests/test_wood_joint_clearance.py tests/test_wj04_fastener_stack_method.py tests/test_wood_joint_wj04_early_mechanics.py tests/test_wood_joint_wj05_receiver_audit.py tests/test_wood_joint_wj05_socket_geometry.py tests/test_wood_joint_snapshot_fixes.py
-```
-
-CI workflow is `.github/workflows/ci.yml` (`CI`); pushes to `master` trigger it.
-The run for `55ede246` failed at lint with `EXE001` in
-`scripts/prototype_barrel_clearance_active_set.py:1`: it has a shebang but Git
-records it as non-executable. Tests, smoke test, and export verification were
-skipped. Baseline run `35821973929` also failed at lint; the flagged file,
-Ruff configuration, and lockfile are unchanged from its `df7f5eca` source, so
-the same `EXE001` explains that baseline failure. Parent pushed executable
-mode fix `1f5f6b0`. Its CI run `35945309344` passed lint and has tests in
-progress; later checks remain pending. Do not report full CI success until the
-run passes.
-
-Regenerate each source-bound artifact with its documented producer after its
-inputs settle; then check producer hashes and artifact-manifest parity. Do not
-present earlier worker test results as a pass for the integrated tree.
-
-The local pre-commit and pre-push hooks enforce only the Denver quiet-hours
-rule. They do not run tests or lint. The repository CI runs the commands above;
-the optional historical-export CI path is outside this diagnostic checkpoint.
-
-Parent has fast-forwarded the reviewed checkpoint to `master` and pushed
-Parent retains all Git writes and validation ownership. The owner explicitly
-authorized updating the online viewer. Its live URL is
-<https://mckayreedmoore.github.io/mini-moonboard/>. Pages deployment uses
-`.github/workflows/static.yml`, which publishes from `master`; run
-`35944973424` was cancelled when the next master push started replacement run
-`35945309339`. That replacement run is in progress. The viewer HTML and scene
-and `site/index.html` link remain local changes; they are not in current
-`master`. Integrate those files through parent review and a master commit, then
-verify the resulting Pages run and live viewer before reporting publication.
-No feature-branch preview or branch-policy bypass is in scope.
+CI workflow `.github/workflows/ci.yml` runs `uv sync --locked`, Ruff, pytest,
+smoke test, and current-candidate export verification. Local pre-commit and
+pre-push hooks enforce only Denver quiet hours; they do not replace CI or
+parent-owned validation. No feature-branch preview or branch-policy bypass is
+in scope.
