@@ -1,0 +1,4106 @@
+{
+  "schema": "wood_joint_outer_clearance/v1",
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "scope": "WJ-03 mirrored outer nodes only",
+  "source_inventory": {
+    "fixed_panel_kicker_screws": 66,
+    "retained_frame_bolts": 12,
+    "protected_counts": {
+      "tnuts": 142,
+      "hold_hole_and_trial_projection": 142,
+      "lights": 132,
+      "wires": 131,
+      "panel_screws": 66,
+      "frame_bolt_components": 60,
+      "frame_bolt_tools": 24,
+      "frame_bolt_withdrawal": 24,
+      "retained_legacy_sds": 120,
+      "retained_legacy_connectors": 20
+    },
+    "panel_screw_screen": {
+      "count": 66,
+      "purchased_length_mm": 63.5,
+      "diameter_basis": "source occupied screw-shank CAD diameter; not a pilot, bit, published Hillman resistance diameter, or installation rule"
+    },
+    "retained_frame_bolt_screen": {
+      "arrangements": 12,
+      "installed_components": 60,
+      "tool_sweeps": 24,
+      "withdrawal_sweeps": 24,
+      "product_status": "source provisional dimensions; delivered hardware and tools unobserved"
+    },
+    "retained_legacy_screen": {
+      "connector_bodies": 20,
+      "sds_envelopes": 120,
+      "removed_target_connector_bodies": 4,
+      "removed_target_sds_envelopes": 24
+    }
+  },
+  "source_binding": {
+    "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "runtime_module_sha256": {
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c",
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27"
+  },
+  "original_six_clash_signatures": {
+    "block/clip_timber_header_outer_left|bolt/clip_angle_base_left_header/shaft": "absent_replaced_topology",
+    "block/clip_timber_header_outer_left|bolt/clip_angle_base_left_header/head": "absent_replaced_topology",
+    "block/clip_timber_header_outer_left|bolt/clip_angle_base_left_header/near_washer": "absent_replaced_topology",
+    "block/clip_timber_header_outer_right|bolt/clip_angle_base_right_header/shaft": "absent_replaced_topology",
+    "block/clip_timber_header_outer_right|bolt/clip_angle_base_right_header/head": "absent_replaced_topology",
+    "block/clip_timber_header_outer_right|bolt/clip_angle_base_right_header/near_washer": "absent_replaced_topology"
+  },
+  "nodes": {
+    "left": {
+      "owner_id": "knee_outer_left",
+      "side": "left",
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "distinct_source_hosts": [
+        "base_header",
+        "base_post_outer_left",
+        "base_side_left"
+      ],
+      "part_bounds_xyz_mm": {
+        "knee_outer_left_spine": [
+          -1308.1,
+          -1219.2,
+          -182.05,
+          -93.15,
+          146.05,
+          416.0
+        ],
+        "knee_outer_left_rear_bridge": [
+          -1308.1,
+          -924.9,
+          -270.95,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "knee_outer_left_under_header_link": [
+          -1110.1,
+          -924.9,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ]
+      },
+      "part_face_widths_mm": {
+        "knee_outer_left_spine": {
+          "global_x": 88.9,
+          "global_y": 88.9,
+          "global_z": 269.95
+        },
+        "knee_outer_left_rear_bridge": {
+          "global_x": 383.2,
+          "global_y": 88.9,
+          "global_z": 88.9
+        },
+        "knee_outer_left_under_header_link": {
+          "global_x": 185.2,
+          "global_y": 88.9,
+          "global_z": 88.9
+        }
+      },
+      "connector_part_local_extrema": {
+        "knee_outer_left_spine": {
+          "X": {
+            "min_mm": -88.9,
+            "max_mm": 0.0,
+            "span_mm": 88.9
+          },
+          "T": {
+            "min_mm": -165.006357,
+            "max_mm": 98.931159,
+            "span_mm": 263.937516
+          },
+          "N": {
+            "min_mm": -15.90339,
+            "max_mm": 225.718477,
+            "span_mm": 241.621866
+          }
+        },
+        "knee_outer_left_rear_bridge": {
+          "X": {
+            "min_mm": -88.9,
+            "max_mm": 294.3,
+            "span_mm": 383.2
+          },
+          "T": {
+            "min_mm": -219.1243,
+            "max_mm": -93.87913,
+            "span_mm": 125.245169
+          },
+          "N": {
+            "min_mm": 54.736972,
+            "max_mm": 179.982142,
+            "span_mm": 125.245169
+          }
+        },
+        "knee_outer_left_under_header_link": {
+          "X": {
+            "min_mm": 109.1,
+            "max_mm": 294.3,
+            "span_mm": 185.2
+          },
+          "T": {
+            "min_mm": -161.980481,
+            "max_mm": -36.735312,
+            "span_mm": 125.245169
+          },
+          "N": {
+            "min_mm": -13.364379,
+            "max_mm": 111.880791,
+            "span_mm": 125.245169
+          }
+        }
+      },
+      "changed_source_host_local_extrema": {
+        "base_header": {
+          "X": {
+            "min_mm": 0.0,
+            "max_mm": 2435.225,
+            "span_mm": 2435.225
+          },
+          "T": {
+            "min_mm": -89.797429,
+            "max_mm": 29.186293,
+            "span_mm": 118.983722
+          },
+          "N": {
+            "min_mm": 0.0,
+            "max_mm": 131.506617,
+            "span_mm": 131.506617
+          }
+        },
+        "base_post_outer_left": {
+          "X": {
+            "min_mm": 0.0,
+            "max_mm": 38.1,
+            "span_mm": 38.1
+          },
+          "T": {
+            "min_mm": -272.805447,
+            "max_mm": 0.0,
+            "span_mm": 272.805447
+          },
+          "N": {
+            "min_mm": -153.56196,
+            "max_mm": 107.016409,
+            "span_mm": 260.578369
+          }
+        },
+        "base_side_left": {
+          "X": {
+            "min_mm": 0.0,
+            "max_mm": 88.9,
+            "span_mm": 88.9
+          },
+          "T": {
+            "min_mm": -60.611136,
+            "max_mm": 2479.15647,
+            "span_mm": 2539.767606
+          },
+          "N": {
+            "min_mm": 28.701408,
+            "max_mm": 168.401408,
+            "span_mm": 139.7
+          }
+        }
+      },
+      "contact_areas_mm2": {
+        "spine_post": 7576.41,
+        "spine_side": 8592.365,
+        "bridge_spine": 7814.853,
+        "bridge_link": 16375.923,
+        "link_header": 15199.903,
+        "spine_header_end": 3145.155
+      },
+      "installed_hardware_count": 10,
+      "bolt_reports": {
+        "knee_outer_left_post_1": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_post_outer_left",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1309.751,
+              -1157.351,
+              -140.775,
+              -134.425,
+              168.275,
+              174.625
+            ],
+            "head": [
+              -1313.9166,
+              -1309.751,
+              -144.0135,
+              -131.1865,
+              165.0365,
+              177.8635
+            ],
+            "head_washer": [
+              -1309.751,
+              -1308.1,
+              -146.9218,
+              -128.2782,
+              162.1282,
+              180.7718
+            ],
+            "nut_washer": [
+              -1181.1,
+              -1179.449,
+              -146.9218,
+              -128.2782,
+              162.1282,
+              180.7718
+            ],
+            "nut": [
+              -1179.449,
+              -1173.7086,
+              -144.0135,
+              -131.1865,
+              165.0365,
+              177.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1358.1,
+              -1308.1,
+              -150.3,
+              -124.9,
+              158.75,
+              184.15
+            ],
+            "nut": [
+              -1179.1,
+              -1129.1,
+              -150.3,
+              -124.9,
+              158.75,
+              184.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1462.151,
+                -1157.351,
+                -140.775,
+                -134.425,
+                168.275,
+                174.625
+              ],
+              "head_insertion_and_withdrawal": [
+                -1466.3166,
+                -1309.751,
+                -144.0135,
+                -131.1865,
+                165.0365,
+                177.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1359.751,
+                -1308.1,
+                -146.9218,
+                -128.2782,
+                162.1282,
+                180.7718
+              ],
+              "nut_washer_outward": [
+                -1181.1,
+                -1129.449,
+                -146.9218,
+                -128.2782,
+                162.1282,
+                180.7718
+              ],
+              "nut_outward": [
+                -1179.449,
+                -1123.7086,
+                -144.0135,
+                -131.1865,
+                165.0365,
+                177.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_post_2": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_post_outer_left",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1309.751,
+              -1157.351,
+              -140.775,
+              -134.425,
+              210.325,
+              216.675
+            ],
+            "head": [
+              -1313.9166,
+              -1309.751,
+              -144.0135,
+              -131.1865,
+              207.0865,
+              219.9135
+            ],
+            "head_washer": [
+              -1309.751,
+              -1308.1,
+              -146.9218,
+              -128.2782,
+              204.1782,
+              222.8218
+            ],
+            "nut_washer": [
+              -1181.1,
+              -1179.449,
+              -146.9218,
+              -128.2782,
+              204.1782,
+              222.8218
+            ],
+            "nut": [
+              -1179.449,
+              -1173.7086,
+              -144.0135,
+              -131.1865,
+              207.0865,
+              219.9135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1358.1,
+              -1308.1,
+              -150.3,
+              -124.9,
+              200.8,
+              226.2
+            ],
+            "nut": [
+              -1179.1,
+              -1129.1,
+              -150.3,
+              -124.9,
+              200.8,
+              226.2
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1462.151,
+                -1157.351,
+                -140.775,
+                -134.425,
+                210.325,
+                216.675
+              ],
+              "head_insertion_and_withdrawal": [
+                -1466.3166,
+                -1309.751,
+                -144.0135,
+                -131.1865,
+                207.0865,
+                219.9135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1359.751,
+                -1308.1,
+                -146.9218,
+                -128.2782,
+                204.1782,
+                222.8218
+              ],
+              "nut_washer_outward": [
+                -1181.1,
+                -1129.449,
+                -146.9218,
+                -128.2782,
+                204.1782,
+                222.8218
+              ],
+              "nut_outward": [
+                -1179.449,
+                -1123.7086,
+                -144.0135,
+                -131.1865,
+                207.0865,
+                219.9135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_side_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_side_left",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1309.751,
+              -1106.551,
+              -150.175,
+              -143.825,
+              306.825,
+              313.175
+            ],
+            "head": [
+              -1313.9166,
+              -1309.751,
+              -153.4135,
+              -140.5865,
+              303.5865,
+              316.4135
+            ],
+            "head_washer": [
+              -1309.751,
+              -1308.1,
+              -156.3218,
+              -137.6782,
+              300.6782,
+              319.3218
+            ],
+            "nut_washer": [
+              -1130.3,
+              -1128.649,
+              -156.3218,
+              -137.6782,
+              300.6782,
+              319.3218
+            ],
+            "nut": [
+              -1128.649,
+              -1122.9086,
+              -153.4135,
+              -140.5865,
+              303.5865,
+              316.4135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1358.1,
+              -1308.1,
+              -159.7,
+              -134.3,
+              297.3,
+              322.7
+            ],
+            "nut": [
+              -1128.3,
+              -1078.3,
+              -159.7,
+              -134.3,
+              297.3,
+              322.7
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1512.951,
+                -1106.551,
+                -150.175,
+                -143.825,
+                306.825,
+                313.175
+              ],
+              "head_insertion_and_withdrawal": [
+                -1517.1166,
+                -1309.751,
+                -153.4135,
+                -140.5865,
+                303.5865,
+                316.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1359.751,
+                -1308.1,
+                -156.3218,
+                -137.6782,
+                300.6782,
+                319.3218
+              ],
+              "nut_washer_outward": [
+                -1130.3,
+                -1078.649,
+                -156.3218,
+                -137.6782,
+                300.6782,
+                319.3218
+              ],
+              "nut_outward": [
+                -1128.649,
+                -1072.9086,
+                -153.4135,
+                -140.5865,
+                303.5865,
+                316.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_side_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_side_left",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1309.751,
+              -1106.551,
+              -122.175,
+              -115.825,
+              358.825,
+              365.175
+            ],
+            "head": [
+              -1313.9166,
+              -1309.751,
+              -125.4135,
+              -112.5865,
+              355.5865,
+              368.4135
+            ],
+            "head_washer": [
+              -1309.751,
+              -1308.1,
+              -128.3218,
+              -109.6782,
+              352.6782,
+              371.3218
+            ],
+            "nut_washer": [
+              -1130.3,
+              -1128.649,
+              -128.3218,
+              -109.6782,
+              352.6782,
+              371.3218
+            ],
+            "nut": [
+              -1128.649,
+              -1122.9086,
+              -125.4135,
+              -112.5865,
+              355.5865,
+              368.4135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1358.1,
+              -1308.1,
+              -131.7,
+              -106.3,
+              349.3,
+              374.7
+            ],
+            "nut": [
+              -1128.3,
+              -1078.3,
+              -131.7,
+              -106.3,
+              349.3,
+              374.7
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1512.951,
+                -1106.551,
+                -122.175,
+                -115.825,
+                358.825,
+                365.175
+              ],
+              "head_insertion_and_withdrawal": [
+                -1517.1166,
+                -1309.751,
+                -125.4135,
+                -112.5865,
+                355.5865,
+                368.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1359.751,
+                -1308.1,
+                -128.3218,
+                -109.6782,
+                352.6782,
+                371.3218
+              ],
+              "nut_washer_outward": [
+                -1130.3,
+                -1078.649,
+                -128.3218,
+                -109.6782,
+                352.6782,
+                371.3218
+              ],
+              "nut_outward": [
+                -1128.649,
+                -1072.9086,
+                -125.4135,
+                -112.5865,
+                355.5865,
+                368.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_bridge_spine_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1283.175,
+              -1276.825,
+              -272.601,
+              -69.401,
+              186.625,
+              192.975
+            ],
+            "head": [
+              -1286.4135,
+              -1273.5865,
+              -276.7666,
+              -272.601,
+              183.3865,
+              196.2135
+            ],
+            "head_washer": [
+              -1289.3218,
+              -1270.6782,
+              -272.601,
+              -270.95,
+              180.4782,
+              199.1218
+            ],
+            "nut_washer": [
+              -1289.3218,
+              -1270.6782,
+              -93.15,
+              -91.499,
+              180.4782,
+              199.1218
+            ],
+            "nut": [
+              -1286.4135,
+              -1273.5865,
+              -91.499,
+              -85.7586,
+              183.3865,
+              196.2135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1292.7,
+              -1267.3,
+              -320.95,
+              -270.95,
+              177.1,
+              202.5
+            ],
+            "nut": [
+              -1292.7,
+              -1267.3,
+              -91.15,
+              -41.15,
+              177.1,
+              202.5
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1283.175,
+                -1276.825,
+                -475.801,
+                -69.401,
+                186.625,
+                192.975
+              ],
+              "head_insertion_and_withdrawal": [
+                -1286.4135,
+                -1273.5865,
+                -479.9666,
+                -272.601,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1289.3218,
+                -1270.6782,
+                -322.601,
+                -270.95,
+                180.4782,
+                199.1218
+              ],
+              "nut_washer_outward": [
+                -1289.3218,
+                -1270.6782,
+                -93.15,
+                -41.499,
+                180.4782,
+                199.1218
+              ],
+              "nut_outward": [
+                -1286.4135,
+                -1273.5865,
+                -91.499,
+                -35.7586,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_bridge_spine_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1248.175,
+              -1241.825,
+              -272.601,
+              -69.401,
+              186.625,
+              192.975
+            ],
+            "head": [
+              -1251.4135,
+              -1238.5865,
+              -276.7666,
+              -272.601,
+              183.3865,
+              196.2135
+            ],
+            "head_washer": [
+              -1254.3218,
+              -1235.6782,
+              -272.601,
+              -270.95,
+              180.4782,
+              199.1218
+            ],
+            "nut_washer": [
+              -1254.3218,
+              -1235.6782,
+              -93.15,
+              -91.499,
+              180.4782,
+              199.1218
+            ],
+            "nut": [
+              -1251.4135,
+              -1238.5865,
+              -91.499,
+              -85.7586,
+              183.3865,
+              196.2135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1257.7,
+              -1232.3,
+              -320.95,
+              -270.95,
+              177.1,
+              202.5
+            ],
+            "nut": [
+              -1257.7,
+              -1232.3,
+              -91.15,
+              -41.15,
+              177.1,
+              202.5
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1248.175,
+                -1241.825,
+                -475.801,
+                -69.401,
+                186.625,
+                192.975
+              ],
+              "head_insertion_and_withdrawal": [
+                -1251.4135,
+                -1238.5865,
+                -479.9666,
+                -272.601,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1254.3218,
+                -1235.6782,
+                -322.601,
+                -270.95,
+                180.4782,
+                199.1218
+              ],
+              "nut_washer_outward": [
+                -1254.3218,
+                -1235.6782,
+                -93.15,
+                -41.499,
+                180.4782,
+                199.1218
+              ],
+              "nut_outward": [
+                -1251.4135,
+                -1238.5865,
+                -91.499,
+                -35.7586,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_bridge_link_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1025.525,
+              -1019.175,
+              -272.601,
+              -69.401,
+              191.275,
+              197.625
+            ],
+            "head": [
+              -1028.7635,
+              -1015.9365,
+              -276.7666,
+              -272.601,
+              188.0365,
+              200.8635
+            ],
+            "head_washer": [
+              -1031.6718,
+              -1013.0282,
+              -272.601,
+              -270.95,
+              185.1282,
+              203.7718
+            ],
+            "nut_washer": [
+              -1031.6718,
+              -1013.0282,
+              -93.15,
+              -91.499,
+              185.1282,
+              203.7718
+            ],
+            "nut": [
+              -1028.7635,
+              -1015.9365,
+              -91.499,
+              -85.7586,
+              188.0365,
+              200.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1035.05,
+              -1009.65,
+              -320.95,
+              -270.95,
+              181.75,
+              207.15
+            ],
+            "nut": [
+              -1035.05,
+              -1009.65,
+              -91.15,
+              -41.15,
+              181.75,
+              207.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1025.525,
+                -1019.175,
+                -475.801,
+                -69.401,
+                191.275,
+                197.625
+              ],
+              "head_insertion_and_withdrawal": [
+                -1028.7635,
+                -1015.9365,
+                -479.9666,
+                -272.601,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1031.6718,
+                -1013.0282,
+                -322.601,
+                -270.95,
+                185.1282,
+                203.7718
+              ],
+              "nut_washer_outward": [
+                -1031.6718,
+                -1013.0282,
+                -93.15,
+                -41.499,
+                185.1282,
+                203.7718
+              ],
+              "nut_outward": [
+                -1028.7635,
+                -1015.9365,
+                -91.499,
+                -35.7586,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_bridge_link_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_left_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -953.175,
+              -946.825,
+              -272.601,
+              -69.401,
+              191.275,
+              197.625
+            ],
+            "head": [
+              -956.4135,
+              -943.5865,
+              -276.7666,
+              -272.601,
+              188.0365,
+              200.8635
+            ],
+            "head_washer": [
+              -959.3218,
+              -940.6782,
+              -272.601,
+              -270.95,
+              185.1282,
+              203.7718
+            ],
+            "nut_washer": [
+              -959.3218,
+              -940.6782,
+              -93.15,
+              -91.499,
+              185.1282,
+              203.7718
+            ],
+            "nut": [
+              -956.4135,
+              -943.5865,
+              -91.499,
+              -85.7586,
+              188.0365,
+              200.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -962.7,
+              -937.3,
+              -320.95,
+              -270.95,
+              181.75,
+              207.15
+            ],
+            "nut": [
+              -962.7,
+              -937.3,
+              -91.15,
+              -41.15,
+              181.75,
+              207.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -953.175,
+                -946.825,
+                -475.801,
+                -69.401,
+                191.275,
+                197.625
+              ],
+              "head_insertion_and_withdrawal": [
+                -956.4135,
+                -943.5865,
+                -479.9666,
+                -272.601,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -959.3218,
+                -940.6782,
+                -322.601,
+                -270.95,
+                185.1282,
+                203.7718
+              ],
+              "nut_washer_outward": [
+                -959.3218,
+                -940.6782,
+                -93.15,
+                -41.499,
+                185.1282,
+                203.7718
+              ],
+              "nut_outward": [
+                -956.4135,
+                -943.5865,
+                -91.499,
+                -35.7586,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_header_1": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "base_header",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1083.175,
+              -1076.825,
+              -140.775,
+              -134.425,
+              126.251,
+              278.651
+            ],
+            "head": [
+              -1086.4135,
+              -1073.5865,
+              -144.0135,
+              -131.1865,
+              278.651,
+              282.8166
+            ],
+            "head_washer": [
+              -1089.3218,
+              -1070.6782,
+              -146.9218,
+              -128.2782,
+              277.0,
+              278.651
+            ],
+            "nut_washer": [
+              -1089.3218,
+              -1070.6782,
+              -146.9218,
+              -128.2782,
+              148.349,
+              150.0
+            ],
+            "nut": [
+              -1086.4135,
+              -1073.5865,
+              -144.0135,
+              -131.1865,
+              142.6086,
+              148.349
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1092.7,
+              -1067.3,
+              -150.3,
+              -124.9,
+              277.0,
+              327.0
+            ],
+            "nut": [
+              -1092.7,
+              -1067.3,
+              -150.3,
+              -124.9,
+              98.0,
+              148.0
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1083.175,
+                -1076.825,
+                -140.775,
+                -134.425,
+                126.251,
+                431.051
+              ],
+              "head_insertion_and_withdrawal": [
+                -1086.4135,
+                -1073.5865,
+                -144.0135,
+                -131.1865,
+                278.651,
+                435.2166
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1089.3218,
+                -1070.6782,
+                -146.9218,
+                -128.2782,
+                277.0,
+                328.651
+              ],
+              "nut_washer_outward": [
+                -1089.3218,
+                -1070.6782,
+                -146.9218,
+                -128.2782,
+                98.349,
+                150.0
+              ],
+              "nut_outward": [
+                -1086.4135,
+                -1073.5865,
+                -144.0135,
+                -131.1865,
+                92.6086,
+                148.349
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_left_header_2": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "base_header",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_left_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              -1048.175,
+              -1041.825,
+              -140.775,
+              -134.425,
+              126.251,
+              278.651
+            ],
+            "head": [
+              -1051.4135,
+              -1038.5865,
+              -144.0135,
+              -131.1865,
+              278.651,
+              282.8166
+            ],
+            "head_washer": [
+              -1054.3218,
+              -1035.6782,
+              -146.9218,
+              -128.2782,
+              277.0,
+              278.651
+            ],
+            "nut_washer": [
+              -1054.3218,
+              -1035.6782,
+              -146.9218,
+              -128.2782,
+              148.349,
+              150.0
+            ],
+            "nut": [
+              -1051.4135,
+              -1038.5865,
+              -144.0135,
+              -131.1865,
+              142.6086,
+              148.349
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              -1057.7,
+              -1032.3,
+              -150.3,
+              -124.9,
+              277.0,
+              327.0
+            ],
+            "nut": [
+              -1057.7,
+              -1032.3,
+              -150.3,
+              -124.9,
+              98.0,
+              148.0
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                -1048.175,
+                -1041.825,
+                -140.775,
+                -134.425,
+                126.251,
+                431.051
+              ],
+              "head_insertion_and_withdrawal": [
+                -1051.4135,
+                -1038.5865,
+                -144.0135,
+                -131.1865,
+                278.651,
+                435.2166
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_left removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                -1054.3218,
+                -1035.6782,
+                -146.9218,
+                -128.2782,
+                277.0,
+                328.651
+              ],
+              "nut_washer_outward": [
+                -1054.3218,
+                -1035.6782,
+                -146.9218,
+                -128.2782,
+                98.349,
+                150.0
+              ],
+              "nut_outward": [
+                -1051.4135,
+                -1038.5865,
+                -144.0135,
+                -131.1865,
+                92.6086,
+                148.349
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        }
+      },
+      "washer_support_reports": {
+        "knee_outer_left_post_1": {
+          "head": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_post_outer_left",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_post_2": {
+          "head": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_post_outer_left",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_side_1": {
+          "head": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_side_left",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_side_2": {
+          "head": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_side_left",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_bridge_spine_1": {
+          "head": {
+            "body_id": "knee_outer_left_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_bridge_spine_2": {
+          "head": {
+            "body_id": "knee_outer_left_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_bridge_link_1": {
+          "head": {
+            "body_id": "knee_outer_left_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_bridge_link_2": {
+          "head": {
+            "body_id": "knee_outer_left_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_header_1": {
+          "head": {
+            "body_id": "base_header",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_left_header_2": {
+          "head": {
+            "body_id": "base_header",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_left_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        }
+      },
+      "nominal_tool": {
+        "diameter_mm": 25.4,
+        "length_mm": 50.0,
+        "both_ends_screened": true
+      },
+      "named_clearances": {
+        "connector_body_to_base_floor_member_vertical_mm": 6.35,
+        "connector_body_to_floor_plane_z0_mm": 146.05,
+        "connector_and_installed_hardware_to_floor_plane_z0_mm": 126.251,
+        "floor_plane_clearance_by_family_mm": {
+          "connector_body": 146.05,
+          "installed_hardware_only": 126.251,
+          "permanent_body_and_installed_hardware": 126.251,
+          "tool_only": 98.0,
+          "body_hardware_and_tool": 98.0,
+          "bolt_stroke_only": 126.251,
+          "body_and_bolt_stroke": 126.251,
+          "detached_hardware_only": 92.6086,
+          "body_hardware_and_detached_path": 92.6086,
+          "retained_frame_bolt_installed_components": 56.3,
+          "retained_frame_bolt_tool_sweeps": 56.3,
+          "retained_frame_bolt_withdrawal_sweeps": 56.3
+        },
+        "header_tool_to_bottom_rail_exact_mm": 70.411773,
+        "side_tool_to_bottom_rail_exact_mm": 27.107771,
+        "post_nut_tool_to_shifted_link_exact_mm": 19.0,
+        "bridge_link_tool_to_outer_kicker_hardware_exact_mm": 71.819233,
+        "rear_bridge_to_header_rear_mm": 6.35,
+        "local_frame": {
+          "datum_name": "outer post/header-front-bottom corner",
+          "origin_global_xyz_mm": [
+            -1219.2,
+            -36.0,
+            238.9
+          ],
+          "x_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "t_global_xyz": [
+            0.0,
+            0.642787609687,
+            0.766044443119
+          ],
+          "n_global_xyz": [
+            0.0,
+            -0.766044443119,
+            0.642787609687
+          ],
+          "right_handed": true
+        },
+        "ordinary_rear_envelope_mm": 139.7,
+        "local_n_envelopes_mm": {
+          "connector_body": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 225.718477,
+            "span_mm": 241.621866,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "installed_hardware_only": {
+            "n_min_mm": -8.015072,
+            "n_max_mm": 159.988525,
+            "span_mm": 168.003597,
+            "rearward_projection_mm": 159.988525,
+            "rearward_additional_over_ordinary_mm": 20.288525
+          },
+          "permanent_body_and_installed_hardware": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 225.718477,
+            "span_mm": 241.621866,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "tool_only": {
+            "n_min_mm": -35.779145,
+            "n_max_mm": 197.875857,
+            "span_mm": 233.655003,
+            "rearward_projection_mm": 197.875857,
+            "rearward_additional_over_ordinary_mm": 58.175857
+          },
+          "body_hardware_and_tool": {
+            "n_min_mm": -35.779145,
+            "n_max_mm": 225.718477,
+            "span_mm": 261.497622,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "bolt_stroke_only": {
+            "n_min_mm": -8.015072,
+            "n_max_mm": 315.648756,
+            "span_mm": 323.663828,
+            "rearward_projection_mm": 315.648756,
+            "rearward_additional_over_ordinary_mm": 175.948756
+          },
+          "body_and_bolt_stroke": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 315.648756,
+            "span_mm": 331.552146,
+            "rearward_projection_mm": 315.648756,
+            "rearward_additional_over_ordinary_mm": 175.948756
+          },
+          "detached_hardware_only": {
+            "n_min_mm": -35.868313,
+            "n_max_mm": 196.969132,
+            "span_mm": 232.837445,
+            "rearward_projection_mm": 196.969132,
+            "rearward_additional_over_ordinary_mm": 57.269132
+          },
+          "body_hardware_and_detached_path": {
+            "n_min_mm": -35.868313,
+            "n_max_mm": 225.718477,
+            "span_mm": 261.58679,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          }
+        }
+      },
+      "failure_groups": {
+        "part_source_wood_positive_volume": {},
+        "connector_connector_positive_volume": {},
+        "part_protected": {},
+        "source_host_retained_hardware": {},
+        "hardware_geometry": {},
+        "hardware_cross_bolt": {},
+        "hardware_protected": {},
+        "tool_geometry": {},
+        "tool_other_hardware": {},
+        "tool_protected": {},
+        "bolt_axis_stroke_geometry": {},
+        "bolt_axis_stroke_other_hardware": {},
+        "bolt_axis_stroke_protected": {},
+        "detached_hardware_geometry": {},
+        "detached_hardware_other_hardware": {},
+        "detached_hardware_protected": {},
+        "washer_seat_support": {}
+      },
+      "panel_on_detached_path_hits": {
+        "knee_outer_left_bridge_link_1/nut_outward|wood/kicker_left": 31.19445,
+        "knee_outer_left_bridge_link_2/nut_outward|wood/kicker_left": 31.19445
+      },
+      "nominal_interference_free": true,
+      "kicker_panel_removal_sequence_verified": false,
+      "floor_contact": false,
+      "reverse_removal_sequence": [
+        "Remove kicker_left and its retained screws before removing node nuts; validate that panel operation in WJ-03 before layout advancement.",
+        "Confirm operator open space and selected real tools before loosening node hardware.",
+        "Support three connector pieces, remove ten nuts/washers, withdraw ten bolts, and separate bridge, link, and spine."
+      ]
+    },
+    "right": {
+      "owner_id": "knee_outer_right",
+      "side": "right",
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "distinct_source_hosts": [
+        "base_header",
+        "base_post_outer_right",
+        "base_side_right"
+      ],
+      "part_bounds_xyz_mm": {
+        "knee_outer_right_spine": [
+          1216.025,
+          1304.925,
+          -182.05,
+          -93.15,
+          146.05,
+          416.0
+        ],
+        "knee_outer_right_rear_bridge": [
+          921.725,
+          1304.925,
+          -270.95,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "knee_outer_right_under_header_link": [
+          921.725,
+          1106.925,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ]
+      },
+      "part_face_widths_mm": {
+        "knee_outer_right_spine": {
+          "global_x": 88.9,
+          "global_y": 88.9,
+          "global_z": 269.95
+        },
+        "knee_outer_right_rear_bridge": {
+          "global_x": 383.2,
+          "global_y": 88.9,
+          "global_z": 88.9
+        },
+        "knee_outer_right_under_header_link": {
+          "global_x": 185.2,
+          "global_y": 88.9,
+          "global_z": 88.9
+        }
+      },
+      "connector_part_local_extrema": {
+        "knee_outer_right_spine": {
+          "X": {
+            "min_mm": 0.0,
+            "max_mm": 88.9,
+            "span_mm": 88.9
+          },
+          "T": {
+            "min_mm": -165.006357,
+            "max_mm": 98.931159,
+            "span_mm": 263.937516
+          },
+          "N": {
+            "min_mm": -15.90339,
+            "max_mm": 225.718477,
+            "span_mm": 241.621866
+          }
+        },
+        "knee_outer_right_rear_bridge": {
+          "X": {
+            "min_mm": -294.3,
+            "max_mm": 88.9,
+            "span_mm": 383.2
+          },
+          "T": {
+            "min_mm": -219.1243,
+            "max_mm": -93.87913,
+            "span_mm": 125.245169
+          },
+          "N": {
+            "min_mm": 54.736972,
+            "max_mm": 179.982142,
+            "span_mm": 125.245169
+          }
+        },
+        "knee_outer_right_under_header_link": {
+          "X": {
+            "min_mm": -294.3,
+            "max_mm": -109.1,
+            "span_mm": 185.2
+          },
+          "T": {
+            "min_mm": -161.980481,
+            "max_mm": -36.735312,
+            "span_mm": 125.245169
+          },
+          "N": {
+            "min_mm": -13.364379,
+            "max_mm": 111.880791,
+            "span_mm": 125.245169
+          }
+        }
+      },
+      "changed_source_host_local_extrema": {
+        "base_header": {
+          "X": {
+            "min_mm": -2435.225,
+            "max_mm": 0.0,
+            "span_mm": 2435.225
+          },
+          "T": {
+            "min_mm": -89.797429,
+            "max_mm": 29.186293,
+            "span_mm": 118.983722
+          },
+          "N": {
+            "min_mm": 0.0,
+            "max_mm": 131.506617,
+            "span_mm": 131.506617
+          }
+        },
+        "base_post_outer_right": {
+          "X": {
+            "min_mm": -38.1,
+            "max_mm": 0.0,
+            "span_mm": 38.1
+          },
+          "T": {
+            "min_mm": -272.805447,
+            "max_mm": 0.0,
+            "span_mm": 272.805447
+          },
+          "N": {
+            "min_mm": -153.56196,
+            "max_mm": 107.016409,
+            "span_mm": 260.578369
+          }
+        },
+        "base_side_right": {
+          "X": {
+            "min_mm": -88.9,
+            "max_mm": 0.0,
+            "span_mm": 88.9
+          },
+          "T": {
+            "min_mm": -60.611136,
+            "max_mm": 2479.15647,
+            "span_mm": 2539.767606
+          },
+          "N": {
+            "min_mm": 28.701408,
+            "max_mm": 168.401408,
+            "span_mm": 139.7
+          }
+        }
+      },
+      "contact_areas_mm2": {
+        "spine_post": 7576.41,
+        "spine_side": 8592.365,
+        "bridge_spine": 7814.853,
+        "bridge_link": 16375.923,
+        "link_header": 15199.903,
+        "spine_header_end": 3145.155
+      },
+      "installed_hardware_count": 10,
+      "bolt_reports": {
+        "knee_outer_right_post_1": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_post_outer_right",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1154.176,
+              1306.576,
+              -140.775,
+              -134.425,
+              168.275,
+              174.625
+            ],
+            "head": [
+              1306.576,
+              1310.7416,
+              -144.0135,
+              -131.1865,
+              165.0365,
+              177.8635
+            ],
+            "head_washer": [
+              1304.925,
+              1306.576,
+              -146.9218,
+              -128.2782,
+              162.1282,
+              180.7718
+            ],
+            "nut_washer": [
+              1176.274,
+              1177.925,
+              -146.9218,
+              -128.2782,
+              162.1282,
+              180.7718
+            ],
+            "nut": [
+              1170.5336,
+              1176.274,
+              -144.0135,
+              -131.1865,
+              165.0365,
+              177.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1304.925,
+              1354.925,
+              -150.3,
+              -124.9,
+              158.75,
+              184.15
+            ],
+            "nut": [
+              1125.925,
+              1175.925,
+              -150.3,
+              -124.9,
+              158.75,
+              184.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1154.176,
+                1458.976,
+                -140.775,
+                -134.425,
+                168.275,
+                174.625
+              ],
+              "head_insertion_and_withdrawal": [
+                1306.576,
+                1463.1416,
+                -144.0135,
+                -131.1865,
+                165.0365,
+                177.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1304.925,
+                1356.576,
+                -146.9218,
+                -128.2782,
+                162.1282,
+                180.7718
+              ],
+              "nut_washer_outward": [
+                1126.274,
+                1177.925,
+                -146.9218,
+                -128.2782,
+                162.1282,
+                180.7718
+              ],
+              "nut_outward": [
+                1120.5336,
+                1176.274,
+                -144.0135,
+                -131.1865,
+                165.0365,
+                177.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_post_2": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_post_outer_right",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1154.176,
+              1306.576,
+              -140.775,
+              -134.425,
+              210.325,
+              216.675
+            ],
+            "head": [
+              1306.576,
+              1310.7416,
+              -144.0135,
+              -131.1865,
+              207.0865,
+              219.9135
+            ],
+            "head_washer": [
+              1304.925,
+              1306.576,
+              -146.9218,
+              -128.2782,
+              204.1782,
+              222.8218
+            ],
+            "nut_washer": [
+              1176.274,
+              1177.925,
+              -146.9218,
+              -128.2782,
+              204.1782,
+              222.8218
+            ],
+            "nut": [
+              1170.5336,
+              1176.274,
+              -144.0135,
+              -131.1865,
+              207.0865,
+              219.9135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1304.925,
+              1354.925,
+              -150.3,
+              -124.9,
+              200.8,
+              226.2
+            ],
+            "nut": [
+              1125.925,
+              1175.925,
+              -150.3,
+              -124.9,
+              200.8,
+              226.2
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1154.176,
+                1458.976,
+                -140.775,
+                -134.425,
+                210.325,
+                216.675
+              ],
+              "head_insertion_and_withdrawal": [
+                1306.576,
+                1463.1416,
+                -144.0135,
+                -131.1865,
+                207.0865,
+                219.9135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1304.925,
+                1356.576,
+                -146.9218,
+                -128.2782,
+                204.1782,
+                222.8218
+              ],
+              "nut_washer_outward": [
+                1126.274,
+                1177.925,
+                -146.9218,
+                -128.2782,
+                204.1782,
+                222.8218
+              ],
+              "nut_outward": [
+                1120.5336,
+                1176.274,
+                -144.0135,
+                -131.1865,
+                207.0865,
+                219.9135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_side_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_side_right",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1103.376,
+              1306.576,
+              -150.175,
+              -143.825,
+              306.825,
+              313.175
+            ],
+            "head": [
+              1306.576,
+              1310.7416,
+              -153.4135,
+              -140.5865,
+              303.5865,
+              316.4135
+            ],
+            "head_washer": [
+              1304.925,
+              1306.576,
+              -156.3218,
+              -137.6782,
+              300.6782,
+              319.3218
+            ],
+            "nut_washer": [
+              1125.474,
+              1127.125,
+              -156.3218,
+              -137.6782,
+              300.6782,
+              319.3218
+            ],
+            "nut": [
+              1119.7336,
+              1125.474,
+              -153.4135,
+              -140.5865,
+              303.5865,
+              316.4135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1304.925,
+              1354.925,
+              -159.7,
+              -134.3,
+              297.3,
+              322.7
+            ],
+            "nut": [
+              1075.125,
+              1125.125,
+              -159.7,
+              -134.3,
+              297.3,
+              322.7
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1103.376,
+                1509.776,
+                -150.175,
+                -143.825,
+                306.825,
+                313.175
+              ],
+              "head_insertion_and_withdrawal": [
+                1306.576,
+                1513.9416,
+                -153.4135,
+                -140.5865,
+                303.5865,
+                316.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1304.925,
+                1356.576,
+                -156.3218,
+                -137.6782,
+                300.6782,
+                319.3218
+              ],
+              "nut_washer_outward": [
+                1075.474,
+                1127.125,
+                -156.3218,
+                -137.6782,
+                300.6782,
+                319.3218
+              ],
+              "nut_outward": [
+                1069.7336,
+                1125.474,
+                -153.4135,
+                -140.5865,
+                303.5865,
+                316.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_side_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "base_side_right",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1103.376,
+              1306.576,
+              -122.175,
+              -115.825,
+              358.825,
+              365.175
+            ],
+            "head": [
+              1306.576,
+              1310.7416,
+              -125.4135,
+              -112.5865,
+              355.5865,
+              368.4135
+            ],
+            "head_washer": [
+              1304.925,
+              1306.576,
+              -128.3218,
+              -109.6782,
+              352.6782,
+              371.3218
+            ],
+            "nut_washer": [
+              1125.474,
+              1127.125,
+              -128.3218,
+              -109.6782,
+              352.6782,
+              371.3218
+            ],
+            "nut": [
+              1119.7336,
+              1125.474,
+              -125.4135,
+              -112.5865,
+              355.5865,
+              368.4135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1304.925,
+              1354.925,
+              -131.7,
+              -106.3,
+              349.3,
+              374.7
+            ],
+            "nut": [
+              1075.125,
+              1125.125,
+              -131.7,
+              -106.3,
+              349.3,
+              374.7
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1103.376,
+                1509.776,
+                -122.175,
+                -115.825,
+                358.825,
+                365.175
+              ],
+              "head_insertion_and_withdrawal": [
+                1306.576,
+                1513.9416,
+                -125.4135,
+                -112.5865,
+                355.5865,
+                368.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1304.925,
+                1356.576,
+                -128.3218,
+                -109.6782,
+                352.6782,
+                371.3218
+              ],
+              "nut_washer_outward": [
+                1075.474,
+                1127.125,
+                -128.3218,
+                -109.6782,
+                352.6782,
+                371.3218
+              ],
+              "nut_outward": [
+                1069.7336,
+                1125.474,
+                -125.4135,
+                -112.5865,
+                355.5865,
+                368.4135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_bridge_spine_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1273.65,
+              1280.0,
+              -272.601,
+              -69.401,
+              186.625,
+              192.975
+            ],
+            "head": [
+              1270.4115,
+              1283.2385,
+              -276.7666,
+              -272.601,
+              183.3865,
+              196.2135
+            ],
+            "head_washer": [
+              1267.5032,
+              1286.1468,
+              -272.601,
+              -270.95,
+              180.4782,
+              199.1218
+            ],
+            "nut_washer": [
+              1267.5032,
+              1286.1468,
+              -93.15,
+              -91.499,
+              180.4782,
+              199.1218
+            ],
+            "nut": [
+              1270.4115,
+              1283.2385,
+              -91.499,
+              -85.7586,
+              183.3865,
+              196.2135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1264.125,
+              1289.525,
+              -320.95,
+              -270.95,
+              177.1,
+              202.5
+            ],
+            "nut": [
+              1264.125,
+              1289.525,
+              -91.15,
+              -41.15,
+              177.1,
+              202.5
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1273.65,
+                1280.0,
+                -475.801,
+                -69.401,
+                186.625,
+                192.975
+              ],
+              "head_insertion_and_withdrawal": [
+                1270.4115,
+                1283.2385,
+                -479.9666,
+                -272.601,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1267.5032,
+                1286.1468,
+                -322.601,
+                -270.95,
+                180.4782,
+                199.1218
+              ],
+              "nut_washer_outward": [
+                1267.5032,
+                1286.1468,
+                -93.15,
+                -41.499,
+                180.4782,
+                199.1218
+              ],
+              "nut_outward": [
+                1270.4115,
+                1283.2385,
+                -91.499,
+                -35.7586,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_bridge_spine_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_spine",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1238.65,
+              1245.0,
+              -272.601,
+              -69.401,
+              186.625,
+              192.975
+            ],
+            "head": [
+              1235.4115,
+              1248.2385,
+              -276.7666,
+              -272.601,
+              183.3865,
+              196.2135
+            ],
+            "head_washer": [
+              1232.5032,
+              1251.1468,
+              -272.601,
+              -270.95,
+              180.4782,
+              199.1218
+            ],
+            "nut_washer": [
+              1232.5032,
+              1251.1468,
+              -93.15,
+              -91.499,
+              180.4782,
+              199.1218
+            ],
+            "nut": [
+              1235.4115,
+              1248.2385,
+              -91.499,
+              -85.7586,
+              183.3865,
+              196.2135
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1229.125,
+              1254.525,
+              -320.95,
+              -270.95,
+              177.1,
+              202.5
+            ],
+            "nut": [
+              1229.125,
+              1254.525,
+              -91.15,
+              -41.15,
+              177.1,
+              202.5
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1238.65,
+                1245.0,
+                -475.801,
+                -69.401,
+                186.625,
+                192.975
+              ],
+              "head_insertion_and_withdrawal": [
+                1235.4115,
+                1248.2385,
+                -479.9666,
+                -272.601,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1232.5032,
+                1251.1468,
+                -322.601,
+                -270.95,
+                180.4782,
+                199.1218
+              ],
+              "nut_washer_outward": [
+                1232.5032,
+                1251.1468,
+                -93.15,
+                -41.499,
+                180.4782,
+                199.1218
+              ],
+              "nut_outward": [
+                1235.4115,
+                1248.2385,
+                -91.499,
+                -35.7586,
+                183.3865,
+                196.2135
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_bridge_link_1": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1016.0,
+              1022.35,
+              -272.601,
+              -69.401,
+              191.275,
+              197.625
+            ],
+            "head": [
+              1012.7615,
+              1025.5885,
+              -276.7666,
+              -272.601,
+              188.0365,
+              200.8635
+            ],
+            "head_washer": [
+              1009.8532,
+              1028.4968,
+              -272.601,
+              -270.95,
+              185.1282,
+              203.7718
+            ],
+            "nut_washer": [
+              1009.8532,
+              1028.4968,
+              -93.15,
+              -91.499,
+              185.1282,
+              203.7718
+            ],
+            "nut": [
+              1012.7615,
+              1025.5885,
+              -91.499,
+              -85.7586,
+              188.0365,
+              200.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1006.475,
+              1031.875,
+              -320.95,
+              -270.95,
+              181.75,
+              207.15
+            ],
+            "nut": [
+              1006.475,
+              1031.875,
+              -91.15,
+              -41.15,
+              181.75,
+              207.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1016.0,
+                1022.35,
+                -475.801,
+                -69.401,
+                191.275,
+                197.625
+              ],
+              "head_insertion_and_withdrawal": [
+                1012.7615,
+                1025.5885,
+                -479.9666,
+                -272.601,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1009.8532,
+                1028.4968,
+                -322.601,
+                -270.95,
+                185.1282,
+                203.7718
+              ],
+              "nut_washer_outward": [
+                1009.8532,
+                1028.4968,
+                -93.15,
+                -41.499,
+                185.1282,
+                203.7718
+              ],
+              "nut_outward": [
+                1012.7615,
+                1025.5885,
+                -91.499,
+                -35.7586,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_bridge_link_2": {
+          "grip_mm": 177.8,
+          "required_under_head_length_mm": 189.3824,
+          "available_under_head_length_mm": 203.2,
+          "length_margin_mm": 13.817599999999999,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "knee_outer_right_rear_bridge",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              943.65,
+              950.0,
+              -272.601,
+              -69.401,
+              191.275,
+              197.625
+            ],
+            "head": [
+              940.4115,
+              953.2385,
+              -276.7666,
+              -272.601,
+              188.0365,
+              200.8635
+            ],
+            "head_washer": [
+              937.5032,
+              956.1468,
+              -272.601,
+              -270.95,
+              185.1282,
+              203.7718
+            ],
+            "nut_washer": [
+              937.5032,
+              956.1468,
+              -93.15,
+              -91.499,
+              185.1282,
+              203.7718
+            ],
+            "nut": [
+              940.4115,
+              953.2385,
+              -91.499,
+              -85.7586,
+              188.0365,
+              200.8635
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              934.125,
+              959.525,
+              -320.95,
+              -270.95,
+              181.75,
+              207.15
+            ],
+            "nut": [
+              934.125,
+              959.525,
+              -91.15,
+              -41.15,
+              181.75,
+              207.15
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                943.65,
+                950.0,
+                -475.801,
+                -69.401,
+                191.275,
+                197.625
+              ],
+              "head_insertion_and_withdrawal": [
+                940.4115,
+                953.2385,
+                -479.9666,
+                -272.601,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                937.5032,
+                956.1468,
+                -322.601,
+                -270.95,
+                185.1282,
+                203.7718
+              ],
+              "nut_washer_outward": [
+                937.5032,
+                956.1468,
+                -93.15,
+                -41.499,
+                185.1282,
+                203.7718
+              ],
+              "nut_outward": [
+                940.4115,
+                953.2385,
+                -91.499,
+                -35.7586,
+                188.0365,
+                200.8635
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_header_1": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "base_header",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1073.65,
+              1080.0,
+              -140.775,
+              -134.425,
+              126.251,
+              278.651
+            ],
+            "head": [
+              1070.4115,
+              1083.2385,
+              -144.0135,
+              -131.1865,
+              278.651,
+              282.8166
+            ],
+            "head_washer": [
+              1067.5032,
+              1086.1468,
+              -146.9218,
+              -128.2782,
+              277.0,
+              278.651
+            ],
+            "nut_washer": [
+              1067.5032,
+              1086.1468,
+              -146.9218,
+              -128.2782,
+              148.349,
+              150.0
+            ],
+            "nut": [
+              1070.4115,
+              1083.2385,
+              -144.0135,
+              -131.1865,
+              142.6086,
+              148.349
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1064.125,
+              1089.525,
+              -150.3,
+              -124.9,
+              277.0,
+              327.0
+            ],
+            "nut": [
+              1064.125,
+              1089.525,
+              -150.3,
+              -124.9,
+              98.0,
+              148.0
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1073.65,
+                1080.0,
+                -140.775,
+                -134.425,
+                126.251,
+                431.051
+              ],
+              "head_insertion_and_withdrawal": [
+                1070.4115,
+                1083.2385,
+                -144.0135,
+                -131.1865,
+                278.651,
+                435.2166
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1067.5032,
+                1086.1468,
+                -146.9218,
+                -128.2782,
+                277.0,
+                328.651
+              ],
+              "nut_washer_outward": [
+                1067.5032,
+                1086.1468,
+                -146.9218,
+                -128.2782,
+                98.349,
+                150.0
+              ],
+              "nut_outward": [
+                1070.4115,
+                1083.2385,
+                -144.0135,
+                -131.1865,
+                92.6086,
+                148.349
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        },
+        "knee_outer_right_header_2": {
+          "grip_mm": 127.0,
+          "required_under_head_length_mm": 138.58239999999998,
+          "available_under_head_length_mm": 152.4,
+          "length_margin_mm": 13.817600000000027,
+          "nut_on_provisional_usable_thread": true,
+          "stack_length_passes": true,
+          "washer_support": {
+            "head": {
+              "body_id": "base_header",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            },
+            "nut": {
+              "body_id": "knee_outer_right_under_header_link",
+              "support_fraction": 1.0,
+              "unsupported_area_mm2": 0.0,
+              "full_seat": true
+            }
+          },
+          "installed_envelope_bounds_xyz_mm": {
+            "shaft": [
+              1038.65,
+              1045.0,
+              -140.775,
+              -134.425,
+              126.251,
+              278.651
+            ],
+            "head": [
+              1035.4115,
+              1048.2385,
+              -144.0135,
+              -131.1865,
+              278.651,
+              282.8166
+            ],
+            "head_washer": [
+              1032.5032,
+              1051.1468,
+              -146.9218,
+              -128.2782,
+              277.0,
+              278.651
+            ],
+            "nut_washer": [
+              1032.5032,
+              1051.1468,
+              -146.9218,
+              -128.2782,
+              148.349,
+              150.0
+            ],
+            "nut": [
+              1035.4115,
+              1048.2385,
+              -144.0135,
+              -131.1865,
+              142.6086,
+              148.349
+            ]
+          },
+          "access_sweep_bounds_xyz_mm": {
+            "head": [
+              1029.125,
+              1054.525,
+              -150.3,
+              -124.9,
+              277.0,
+              327.0
+            ],
+            "nut": [
+              1029.125,
+              1054.525,
+              -150.3,
+              -124.9,
+              98.0,
+              148.0
+            ]
+          },
+          "access_sweep_result": {
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "straight_bolt_insertion_and_reverse_withdrawal": {
+            "sweep_bounds_xyz_mm": {
+              "shaft_insertion_and_withdrawal": [
+                1038.65,
+                1045.0,
+                -140.775,
+                -134.425,
+                126.251,
+                431.051
+              ],
+              "head_insertion_and_withdrawal": [
+                1035.4115,
+                1048.2385,
+                -144.0135,
+                -131.1865,
+                278.651,
+                435.2166
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "detached_hardware_removal": {
+            "panel_state": "kicker_right removed before node nut removal",
+            "sweep_bounds_xyz_mm": {
+              "head_washer_outward": [
+                1032.5032,
+                1051.1468,
+                -146.9218,
+                -128.2782,
+                277.0,
+                328.651
+              ],
+              "nut_washer_outward": [
+                1032.5032,
+                1051.1468,
+                -146.9218,
+                -128.2782,
+                98.349,
+                150.0
+              ],
+              "nut_outward": [
+                1035.4115,
+                1048.2385,
+                -144.0135,
+                -131.1865,
+                92.6086,
+                148.349
+              ]
+            },
+            "geometry_hits": {},
+            "other_installed_hardware_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          },
+          "hardware_clearance_result": {
+            "geometry_hits": {},
+            "protected_geometry_hits": {},
+            "passes_nominal_screen": true
+          }
+        }
+      },
+      "washer_support_reports": {
+        "knee_outer_right_post_1": {
+          "head": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_post_outer_right",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_post_2": {
+          "head": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_post_outer_right",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_side_1": {
+          "head": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_side_right",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_side_2": {
+          "head": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "base_side_right",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_bridge_spine_1": {
+          "head": {
+            "body_id": "knee_outer_right_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_bridge_spine_2": {
+          "head": {
+            "body_id": "knee_outer_right_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_spine",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_bridge_link_1": {
+          "head": {
+            "body_id": "knee_outer_right_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_bridge_link_2": {
+          "head": {
+            "body_id": "knee_outer_right_rear_bridge",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_header_1": {
+          "head": {
+            "body_id": "base_header",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        },
+        "knee_outer_right_header_2": {
+          "head": {
+            "body_id": "base_header",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          },
+          "nut": {
+            "body_id": "knee_outer_right_under_header_link",
+            "support_fraction": 1.0,
+            "unsupported_area_mm2": 0.0,
+            "full_seat": true
+          }
+        }
+      },
+      "nominal_tool": {
+        "diameter_mm": 25.4,
+        "length_mm": 50.0,
+        "both_ends_screened": true
+      },
+      "named_clearances": {
+        "connector_body_to_base_floor_member_vertical_mm": 6.35,
+        "connector_body_to_floor_plane_z0_mm": 146.05,
+        "connector_and_installed_hardware_to_floor_plane_z0_mm": 126.251,
+        "floor_plane_clearance_by_family_mm": {
+          "connector_body": 146.05,
+          "installed_hardware_only": 126.251,
+          "permanent_body_and_installed_hardware": 126.251,
+          "tool_only": 98.0,
+          "body_hardware_and_tool": 98.0,
+          "bolt_stroke_only": 126.251,
+          "body_and_bolt_stroke": 126.251,
+          "detached_hardware_only": 92.6086,
+          "body_hardware_and_detached_path": 92.6086,
+          "retained_frame_bolt_installed_components": 56.3,
+          "retained_frame_bolt_tool_sweeps": 56.3,
+          "retained_frame_bolt_withdrawal_sweeps": 56.3
+        },
+        "header_tool_to_bottom_rail_exact_mm": 70.411773,
+        "side_tool_to_bottom_rail_exact_mm": 27.107771,
+        "post_nut_tool_to_shifted_link_exact_mm": 19.0,
+        "bridge_link_tool_to_outer_kicker_hardware_exact_mm": 73.62699,
+        "rear_bridge_to_header_rear_mm": 6.35,
+        "local_frame": {
+          "datum_name": "outer post/header-front-bottom corner",
+          "origin_global_xyz_mm": [
+            1216.025,
+            -36.0,
+            238.9
+          ],
+          "x_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "t_global_xyz": [
+            0.0,
+            0.642787609687,
+            0.766044443119
+          ],
+          "n_global_xyz": [
+            0.0,
+            -0.766044443119,
+            0.642787609687
+          ],
+          "right_handed": true
+        },
+        "ordinary_rear_envelope_mm": 139.7,
+        "local_n_envelopes_mm": {
+          "connector_body": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 225.718477,
+            "span_mm": 241.621866,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "installed_hardware_only": {
+            "n_min_mm": -8.015072,
+            "n_max_mm": 159.988525,
+            "span_mm": 168.003597,
+            "rearward_projection_mm": 159.988525,
+            "rearward_additional_over_ordinary_mm": 20.288525
+          },
+          "permanent_body_and_installed_hardware": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 225.718477,
+            "span_mm": 241.621866,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "tool_only": {
+            "n_min_mm": -35.779145,
+            "n_max_mm": 197.875857,
+            "span_mm": 233.655003,
+            "rearward_projection_mm": 197.875857,
+            "rearward_additional_over_ordinary_mm": 58.175857
+          },
+          "body_hardware_and_tool": {
+            "n_min_mm": -35.779145,
+            "n_max_mm": 225.718477,
+            "span_mm": 261.497622,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          },
+          "bolt_stroke_only": {
+            "n_min_mm": -8.015072,
+            "n_max_mm": 315.648756,
+            "span_mm": 323.663828,
+            "rearward_projection_mm": 315.648756,
+            "rearward_additional_over_ordinary_mm": 175.948756
+          },
+          "body_and_bolt_stroke": {
+            "n_min_mm": -15.90339,
+            "n_max_mm": 315.648756,
+            "span_mm": 331.552146,
+            "rearward_projection_mm": 315.648756,
+            "rearward_additional_over_ordinary_mm": 175.948756
+          },
+          "detached_hardware_only": {
+            "n_min_mm": -35.868313,
+            "n_max_mm": 196.969132,
+            "span_mm": 232.837445,
+            "rearward_projection_mm": 196.969132,
+            "rearward_additional_over_ordinary_mm": 57.269132
+          },
+          "body_hardware_and_detached_path": {
+            "n_min_mm": -35.868313,
+            "n_max_mm": 225.718477,
+            "span_mm": 261.58679,
+            "rearward_projection_mm": 225.718477,
+            "rearward_additional_over_ordinary_mm": 86.018477
+          }
+        }
+      },
+      "failure_groups": {
+        "part_source_wood_positive_volume": {},
+        "connector_connector_positive_volume": {},
+        "part_protected": {},
+        "source_host_retained_hardware": {},
+        "hardware_geometry": {},
+        "hardware_cross_bolt": {},
+        "hardware_protected": {},
+        "tool_geometry": {},
+        "tool_other_hardware": {},
+        "tool_protected": {},
+        "bolt_axis_stroke_geometry": {},
+        "bolt_axis_stroke_other_hardware": {},
+        "bolt_axis_stroke_protected": {},
+        "detached_hardware_geometry": {},
+        "detached_hardware_other_hardware": {},
+        "detached_hardware_protected": {},
+        "washer_seat_support": {}
+      },
+      "panel_on_detached_path_hits": {
+        "knee_outer_right_bridge_link_1/nut_outward|wood/kicker_right": 31.19445,
+        "knee_outer_right_bridge_link_2/nut_outward|wood/kicker_right": 31.19445
+      },
+      "nominal_interference_free": true,
+      "kicker_panel_removal_sequence_verified": false,
+      "floor_contact": false,
+      "reverse_removal_sequence": [
+        "Remove kicker_right and its retained screws before removing node nuts; validate that panel operation in WJ-03 before layout advancement.",
+        "Confirm operator open space and selected real tools before loosening node hardware.",
+        "Support three connector pieces, remove ten nuts/washers, withdraw ten bolts, and separate bridge, link, and spine."
+      ]
+    }
+  },
+  "original_six_clashes_absent": true,
+  "replacement_nominal_interference_free": true,
+  "advance_layout": false,
+  "tolerance_aware_clearance_complete": false,
+  "decision": "revise_named_constraint",
+  "rear_projection_summary_mm": {
+    "connector_body": {
+      "n_max_mm": 225.718477,
+      "span_mm": 241.621866,
+      "rearward_projection_mm": 225.718477,
+      "rearward_additional_over_ordinary_mm": 86.018477
+    },
+    "installed_hardware_only": {
+      "n_max_mm": 159.988525,
+      "span_mm": 168.003597,
+      "rearward_projection_mm": 159.988525,
+      "rearward_additional_over_ordinary_mm": 20.288525
+    },
+    "permanent_body_and_installed_hardware": {
+      "n_max_mm": 225.718477,
+      "span_mm": 241.621866,
+      "rearward_projection_mm": 225.718477,
+      "rearward_additional_over_ordinary_mm": 86.018477
+    },
+    "tool_only": {
+      "n_max_mm": 197.875857,
+      "span_mm": 233.655003,
+      "rearward_projection_mm": 197.875857,
+      "rearward_additional_over_ordinary_mm": 58.175857
+    },
+    "body_hardware_and_tool": {
+      "n_max_mm": 225.718477,
+      "span_mm": 261.497622,
+      "rearward_projection_mm": 225.718477,
+      "rearward_additional_over_ordinary_mm": 86.018477
+    },
+    "bolt_stroke_only": {
+      "n_max_mm": 315.648756,
+      "span_mm": 323.663828,
+      "rearward_projection_mm": 315.648756,
+      "rearward_additional_over_ordinary_mm": 175.948756
+    },
+    "body_and_bolt_stroke": {
+      "n_max_mm": 315.648756,
+      "span_mm": 331.552146,
+      "rearward_projection_mm": 315.648756,
+      "rearward_additional_over_ordinary_mm": 175.948756
+    },
+    "detached_hardware_only": {
+      "n_max_mm": 196.969132,
+      "span_mm": 232.837445,
+      "rearward_projection_mm": 196.969132,
+      "rearward_additional_over_ordinary_mm": 57.269132
+    },
+    "body_hardware_and_detached_path": {
+      "n_max_mm": 225.718477,
+      "span_mm": 261.58679,
+      "rearward_projection_mm": 225.718477,
+      "rearward_additional_over_ordinary_mm": 86.018477
+    }
+  },
+  "named_constraint_revisions": [
+    {
+      "constraint": "outer-node installed rear envelope",
+      "existing_mm": 139.7,
+      "required_mm": 225.718477,
+      "additional_projection_mm": 86.018477,
+      "reason": "The exact canonical local-N maximum of connector bodies plus installed hardware controls the permanent envelope."
+    },
+    {
+      "constraint": "outer-node temporary bolt insertion envelope",
+      "existing_mm": 139.7,
+      "required_mm": 315.648756,
+      "additional_projection_mm": 175.948756,
+      "reason": "Straight head-side insertion and reverse withdrawal require temporary open space."
+    }
+  ],
+  "open_geometry_and_mechanics_risks": [
+    "Several provisional rows use approximately 4D rather than the proposal's non-universal 7D search target.",
+    "Header bolt centers have a 19.05 mm center-to-edge distance in the 38.1 mm header thickness direction.",
+    "Eccentric complete-node mechanics, compression-only contact reversal, splitting, net sections, and group action are unverified.",
+    "A purchased bolt product and its delivered shank/thread transition are unselected.",
+    "Kicker removal before node-nut removal, operator open space, and panel-off access remain sequence gates despite clear nominal cylindrical tool and bolt-axis sweeps."
+  ],
+  "limits": [
+    "Nominal finished solids, full provisional bolt stacks, washer seats, fixed protected solids, straight bolt strokes, detached hardware paths, and 50 mm tool approaches were screened at 1e-6 mm3 positive-volume tolerance.",
+    "The 6.35 mm base-floor-member gap, 146.05 mm connector-to-floor gap, 126.251 mm installed-envelope-to-floor gap, and 19.0 mm minimum nominal tool clearance are geometry results, not accepted product or fabrication tolerances.",
+    "Delivered hardware, actual tool dimensions, wiring bends, tolerance stack, wood resistance, bolt resistance, and complete-frame behavior remain unverified."
+  ],
+  "layout_accepted": false,
+  "geometry_accepted": false,
+  "drilling_released": false,
+  "fabrication_released": false,
+  "structural_released": false,
+  "climbing_released": false,
+  "geometry_fingerprint_sha256": "f1ba486b50a9efdbce7ca849053743319b3cdc0ac02a85543851b27e64c37850",
+  "producer": {
+    "command": "uv run python -m scripts.wood_joint_clearance --write",
+    "dependency_sha256": {
+      "scripts/wood_joint_clearance.py": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58"
+    },
+    "input_artifact_sha256": {
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+    }
+  }
+}

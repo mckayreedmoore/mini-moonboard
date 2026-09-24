@@ -1,0 +1,775 @@
+{
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "catalog_candidate_ids": {
+    "bolts": [
+      "kl_jack_25c375hcs5z",
+      "kl_jack_25c600hcs5z"
+    ],
+    "nut": "kl_jack_25cnfh5z",
+    "tools": [
+      "facom_34_7_16"
+    ],
+    "washer": "fastenal_type_a_wide_uss_plain_steel"
+  },
+  "cleat_hits": {
+    "hosts": {},
+    "other_wood": {},
+    "panels": {},
+    "protected": {}
+  },
+  "comparison_diagnostic": {
+    "earlier_40mm_dynamic_tool_gap_mm": 3.652,
+    "earlier_50mm_dynamic_tool_upper_rail_collision": true,
+    "earlier_generic_50mm_nut_removal_upper_rail_collision": true,
+    "earlier_rail_bolt_length_mm": 101.6,
+    "earlier_rail_x_from_butt_mm": [
+      44.45,
+      69.85
+    ],
+    "earlier_status": "diagnostic_revise",
+    "earlier_t_mm": 50.8,
+    "scope": "preserved historical comparison; not regenerated from canonical WJ-04 trial"
+  },
+  "conditional_1_4in_placement_mm": {
+    "bolt_diameter_mm": 6.35,
+    "conditional_4d_mm": 25.4,
+    "conditional_7d_mm": 44.449999999999996,
+    "principal_group": {
+      "bolt_axis": "X",
+      "cleat_grain": "N",
+      "cleat_n_grain_front_end_first": 63.159032,
+      "cleat_n_grain_rear_end_second": 29.540968,
+      "cleat_t_edge_minus_conditional_4d": -6.35,
+      "cleat_t_lateral_edge_each": 19.05,
+      "principal_grain": "T",
+      "principal_n_lateral_rear_edge_second": 29.540968
+    },
+    "rail_group": {
+      "bolt_axis": "T",
+      "cleat_grain": "N",
+      "cleat_n_grain_front_end": 63.159032,
+      "cleat_n_grain_rear_end": 29.540968,
+      "cleat_x_edge_minus_conditional_4d": 6.35,
+      "cleat_x_lateral_far_edge_second": 31.75,
+      "pitch_minus_conditional_4d": 0.0,
+      "rail_bolt_pitch_along_x": 25.4,
+      "rail_end_along_grain_first": 38.1,
+      "rail_end_minus_conditional_7d": -6.35,
+      "rail_grain": "X",
+      "rail_n_lateral_front_edge": 55.159032,
+      "rail_n_lateral_rear_edge": 84.540968,
+      "t_dimension_is_bolt_bearing_length_not_lateral_edge": true
+    },
+    "signed_load_and_applicable_2024_nds_classification_complete": false
+  },
+  "contact_area_mm2": {
+    "principal_to_cleat": 4560.569999,
+    "rail_to_cleat": 11401.398713
+  },
+  "dependency_sha256": {
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joint_clearance.py": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774"
+  },
+  "drilling_released": false,
+  "envelope": {
+    "cleat_n_from_rail_front_mm": [
+      20.0,
+      139.7
+    ],
+    "nominal_40mm_unthread_tool_gap_to_upper_rail_mm": 10.764,
+    "nominal_50mm_unthread_tool_gap_to_upper_rail_mm": 0.764,
+    "ordinary_limit_mm": 139.7,
+    "rail_tool_gaps_to_upper_rail_mm": {
+      "rail_1_40mm": 10.764,
+      "rail_1_50mm": 0.764,
+      "rail_2_40mm": 10.764,
+      "rail_2_50mm": 0.764
+    },
+    "temporary_rearward_nut_exit_excess_mm": 21.872532,
+    "wood_body_excess_mm": 0.0
+  },
+  "fabrication_released": false,
+  "limits": [
+    "K.L. Jack bolts, candidate washers, and nuts supply catalog geometry envelopes only; no strength, delivered shank, full-form thread end, or nut engagement is accepted.",
+    "Cleat uses configured 2x6 dimensional lead and rip; purchase, grade after rip, delivered dimensions, defects, kerf, and yield remain unverified.",
+    "Four WJ-03 outer legacy angle stations are removed from this local protected inventory, while replacement outer-node geometry remains absent; this is not an integrated clash pass.",
+    "Retained upper-rail SDS and connector geometry remain in this local screen until their own duties are replaced.",
+    "Tool and reverse-order access are nominal diagnostics; delivered tolerances and physical fit remain unverified.",
+    "No wood, bolt-group, washer-bearing, internal-cleat, or same-case mechanics acceptance."
+  ],
+  "preserved_selected_candidate_id": "compact-floor-flush-development",
+  "producer_command": "uv run python -m scripts.wood_joint_wj04_probe --write",
+  "producer_sha256": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840",
+  "purchase_approved": false,
+  "rail_nominal_partial_thread_bolt_length_mm": 95.25,
+  "schema": "wood_joint_wj04_probe/v1",
+  "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+  "source_datum": {
+    "rail_n_mm": [
+      209.840968,
+      349.540968
+    ],
+    "rail_t_mm": [
+      1315.774134,
+      1353.874134
+    ],
+    "rail_x_end_mm": 89.05
+  },
+  "source_faces": {
+    "principal_rear": "planar_face_04",
+    "principal_x_end": "planar_face_07",
+    "rail_rear": "planar_face_02",
+    "rail_t_end": "planar_face_04"
+  },
+  "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+  "stacks": {
+    "rail_1": {
+      "axis_global_xyz_mm": [
+        127.15,
+        642.761533,
+        1178.28018
+      ],
+      "bolt_candidate_id": "kl_jack_25c375hcs5z",
+      "bolt_candidate_status": "catalog candidate for modeling only; no purchase or strength approval",
+      "bolt_catalog_source_urls": [
+        "https://www.kljack.com/products/25c375hcs5z/",
+        "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+        "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+      ],
+      "bolt_sku": "25C375HCS5Z",
+      "bore": {
+        "layer_material_fractions": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "cad_envelope": {
+        "bore_occupancy_diameter_mm": 7.5,
+        "head_diameter_mm": 12.827,
+        "head_height_mm": 4.1402,
+        "nut_diameter_mm": 12.827,
+        "nut_height_mm": 5.7404,
+        "nut_maximum_thickness_applied": true,
+        "product_bound_head_dimensions": true,
+        "product_bound_nut_outer_dimensions": true,
+        "product_bound_shaft_diameter": true,
+        "published_all_component_tolerances": false,
+        "required_tip_projection_mm": 2.54,
+        "shaft_diameter_mm": 6.35,
+        "status": "Active collision envelope uses K.L. Jack published 1/4-in head maximums, B18.2.2 maximum hex-nut bounds, candidate maximum washer dimensions, and K.L. Jack maximum body diameter. The 7.5 mm bore occupancy is a CAD screen, not a drill instruction; received-part and assembly tolerances remain open.",
+        "washer_inner_diameter_mm": 7.7978,
+        "washer_maximum_bounds_applied": true,
+        "washer_outer_diameter_mm": 19.0246,
+        "washer_thickness_mm": 2.032
+      },
+      "direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "full_form_thread_end_guaranteed": false,
+      "grip_mm": 76.2,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "layers": [
+        {
+          "member_id": "base_rail_service_lower_right",
+          "thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_cleat",
+          "thickness_mm": 38.1
+        }
+      ],
+      "nominal_under_head_length_mm": 95.25,
+      "operation_hits": {
+        "bounded_rail_nut_removal": {
+          "40.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "50.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_nut_to_tip": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_travel_mm": 15.086,
+          "rearward_nut_after_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 6.7056,
+      "provisional_length_passes": true,
+      "provisional_nut_on_catalog_thread_interval": true,
+      "receiving_measurement_required": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "rail_2": {
+      "axis_global_xyz_mm": [
+        152.55,
+        642.761533,
+        1178.28018
+      ],
+      "bolt_candidate_id": "kl_jack_25c375hcs5z",
+      "bolt_candidate_status": "catalog candidate for modeling only; no purchase or strength approval",
+      "bolt_catalog_source_urls": [
+        "https://www.kljack.com/products/25c375hcs5z/",
+        "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+        "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+      ],
+      "bolt_sku": "25C375HCS5Z",
+      "bore": {
+        "layer_material_fractions": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "cad_envelope": {
+        "bore_occupancy_diameter_mm": 7.5,
+        "head_diameter_mm": 12.827,
+        "head_height_mm": 4.1402,
+        "nut_diameter_mm": 12.827,
+        "nut_height_mm": 5.7404,
+        "nut_maximum_thickness_applied": true,
+        "product_bound_head_dimensions": true,
+        "product_bound_nut_outer_dimensions": true,
+        "product_bound_shaft_diameter": true,
+        "published_all_component_tolerances": false,
+        "required_tip_projection_mm": 2.54,
+        "shaft_diameter_mm": 6.35,
+        "status": "Active collision envelope uses K.L. Jack published 1/4-in head maximums, B18.2.2 maximum hex-nut bounds, candidate maximum washer dimensions, and K.L. Jack maximum body diameter. The 7.5 mm bore occupancy is a CAD screen, not a drill instruction; received-part and assembly tolerances remain open.",
+        "washer_inner_diameter_mm": 7.7978,
+        "washer_maximum_bounds_applied": true,
+        "washer_outer_diameter_mm": 19.0246,
+        "washer_thickness_mm": 2.032
+      },
+      "direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "full_form_thread_end_guaranteed": false,
+      "grip_mm": 76.2,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "layers": [
+        {
+          "member_id": "base_rail_service_lower_right",
+          "thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_cleat",
+          "thickness_mm": 38.1
+        }
+      ],
+      "nominal_under_head_length_mm": 95.25,
+      "operation_hits": {
+        "bounded_rail_nut_removal": {
+          "40.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "50.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_nut_to_tip": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_travel_mm": 15.086,
+          "rearward_nut_after_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 6.7056,
+      "provisional_length_passes": true,
+      "provisional_nut_on_catalog_thread_interval": true,
+      "receiving_measurement_required": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "upright_1": {
+      "axis_global_xyz_mm": [
+        184.3,
+        658.047601,
+        1240.057673
+      ],
+      "bolt_candidate_id": "kl_jack_25c600hcs5z",
+      "bolt_candidate_status": "catalog candidate for modeling only; no purchase or strength approval",
+      "bolt_catalog_source_urls": [
+        "https://www.kljack.com/products/25c600hcs5z/",
+        "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+        "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+      ],
+      "bolt_sku": "25C600HCS5Z",
+      "bore": {
+        "layer_material_fractions": {
+          "base_principal_center_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "cad_envelope": {
+        "bore_occupancy_diameter_mm": 7.5,
+        "head_diameter_mm": 12.827,
+        "head_height_mm": 4.1402,
+        "nut_diameter_mm": 12.827,
+        "nut_height_mm": 5.7404,
+        "nut_maximum_thickness_applied": true,
+        "product_bound_head_dimensions": true,
+        "product_bound_nut_outer_dimensions": true,
+        "product_bound_shaft_diameter": true,
+        "published_all_component_tolerances": false,
+        "required_tip_projection_mm": 2.54,
+        "shaft_diameter_mm": 6.35,
+        "status": "Active collision envelope uses K.L. Jack published 1/4-in head maximums, B18.2.2 maximum hex-nut bounds, candidate maximum washer dimensions, and K.L. Jack maximum body diameter. The 7.5 mm bore occupancy is a CAD screen, not a drill instruction; received-part and assembly tolerances remain open.",
+        "washer_inner_diameter_mm": 7.7978,
+        "washer_maximum_bounds_applied": true,
+        "washer_outer_diameter_mm": 19.0246,
+        "washer_thickness_mm": 2.032
+      },
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "full_form_thread_end_guaranteed": false,
+      "grip_mm": 133.35,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "layers": [
+        {
+          "member_id": "wj04_cleat",
+          "thickness_mm": 95.25
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "nominal_under_head_length_mm": 152.4,
+      "operation_hits": {
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 6.7056,
+      "provisional_length_passes": true,
+      "provisional_nut_on_catalog_thread_interval": true,
+      "receiving_measurement_required": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "upright_2": {
+      "axis_global_xyz_mm": [
+        184.3,
+        637.364401,
+        1257.412939
+      ],
+      "bolt_candidate_id": "kl_jack_25c600hcs5z",
+      "bolt_candidate_status": "catalog candidate for modeling only; no purchase or strength approval",
+      "bolt_catalog_source_urls": [
+        "https://www.kljack.com/products/25c600hcs5z/",
+        "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+        "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+      ],
+      "bolt_sku": "25C600HCS5Z",
+      "bore": {
+        "layer_material_fractions": {
+          "base_principal_center_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "cad_envelope": {
+        "bore_occupancy_diameter_mm": 7.5,
+        "head_diameter_mm": 12.827,
+        "head_height_mm": 4.1402,
+        "nut_diameter_mm": 12.827,
+        "nut_height_mm": 5.7404,
+        "nut_maximum_thickness_applied": true,
+        "product_bound_head_dimensions": true,
+        "product_bound_nut_outer_dimensions": true,
+        "product_bound_shaft_diameter": true,
+        "published_all_component_tolerances": false,
+        "required_tip_projection_mm": 2.54,
+        "shaft_diameter_mm": 6.35,
+        "status": "Active collision envelope uses K.L. Jack published 1/4-in head maximums, B18.2.2 maximum hex-nut bounds, candidate maximum washer dimensions, and K.L. Jack maximum body diameter. The 7.5 mm bore occupancy is a CAD screen, not a drill instruction; received-part and assembly tolerances remain open.",
+        "washer_inner_diameter_mm": 7.7978,
+        "washer_maximum_bounds_applied": true,
+        "washer_outer_diameter_mm": 19.0246,
+        "washer_thickness_mm": 2.032
+      },
+      "direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "full_form_thread_end_guaranteed": false,
+      "grip_mm": 133.35,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "layers": [
+        {
+          "member_id": "wj04_cleat",
+          "thickness_mm": 95.25
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "nominal_under_head_length_mm": 152.4,
+      "operation_hits": {
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 6.7056,
+      "provisional_length_passes": true,
+      "provisional_nut_on_catalog_thread_interval": true,
+      "receiving_measurement_required": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    }
+  },
+  "station": "clip_horizontal_lower_right_1",
+  "status": "diagnostic_revise",
+  "stock": {
+    "actual_stock_and_grade_verified": false,
+    "dimensional_source": "Dimensional lead is nominal 2x6 #2 Prime Douglas Fir KD lumber (listed actual 38.1 x 139.7 mm section): place 38.1 mm thickness on T, rip X from 139.7 to 95.25 mm, then crosscut along-grain N to 119.7 mm. Listing is not a received-board inspection or cut release. Verify delivered grade mark/species group, treatment, moisture, section, straightness, defects in bolt zone, kerf, and yield.",
+    "grain_axis": "N",
+    "purchase_approved": false,
+    "section_x_t_n_mm": [
+      95.25,
+      38.1,
+      119.7
+    ],
+    "stock_source_urls": [
+      "https://www.lowes.com/pd/Top-Choice-2-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-1-5-in-x-5-5-in-x-8-ft-Actual/1000571215"
+    ]
+  },
+  "structural_released": false,
+  "trial_config_sha256": "d1c63e1fa5617999e8af68d683cc0f3074fb84f518b048a087ec5ed276206c0e",
+  "trial_id": "narrow_x95p25_ordinary_bolt_candidate"
+}

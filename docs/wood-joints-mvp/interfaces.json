@@ -1,0 +1,1707 @@
+{
+  "schema": "wood_joint_outer_interfaces/v1",
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "scope": "WJ-03 mirrored outer nodes only",
+  "duty_owners": [
+    {
+      "owner_id": "knee_outer_left",
+      "side": "left",
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "source_hosts": [
+        "base_header",
+        "base_post_outer_left",
+        "base_side_left"
+      ],
+      "part_ids": [
+        "knee_outer_left_spine",
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_under_header_link"
+      ],
+      "interface_ids": [
+        "knee_outer_left_spine_post",
+        "knee_outer_left_spine_side",
+        "knee_outer_left_bridge_spine",
+        "knee_outer_left_bridge_link",
+        "knee_outer_left_link_header",
+        "knee_outer_left_spine_header_end"
+      ],
+      "replacement_path_complete_for_layout": true,
+      "strength_complete": false
+    },
+    {
+      "owner_id": "knee_outer_right",
+      "side": "right",
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "source_hosts": [
+        "base_header",
+        "base_post_outer_right",
+        "base_side_right"
+      ],
+      "part_ids": [
+        "knee_outer_right_spine",
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_under_header_link"
+      ],
+      "interface_ids": [
+        "knee_outer_right_spine_post",
+        "knee_outer_right_spine_side",
+        "knee_outer_right_bridge_spine",
+        "knee_outer_right_bridge_link",
+        "knee_outer_right_link_header",
+        "knee_outer_right_spine_header_end"
+      ],
+      "replacement_path_complete_for_layout": true,
+      "strength_complete": false
+    }
+  ],
+  "parts": [
+    {
+      "part_id": "knee_outer_left_spine",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        88.90000000000009,
+        88.9,
+        269.95
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1308.1,
+        -1219.2,
+        -182.05,
+        -93.15,
+        146.05,
+        416.0
+      ],
+      "finished_bounds_xyz_mm": [
+        -1308.1,
+        -1219.2,
+        -182.05,
+        -93.15,
+        146.05,
+        416.0
+      ],
+      "modification_ids": [
+        "knee_outer_left_spine/knee_outer_left_post_1",
+        "knee_outer_left_spine/knee_outer_left_post_2",
+        "knee_outer_left_spine/knee_outer_left_side_1",
+        "knee_outer_left_spine/knee_outer_left_side_2",
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_1",
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_2"
+      ],
+      "bore_ids": [
+        "knee_outer_left_spine/knee_outer_left_post_1",
+        "knee_outer_left_spine/knee_outer_left_post_2",
+        "knee_outer_left_spine/knee_outer_left_side_1",
+        "knee_outer_left_spine/knee_outer_left_side_2",
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_1",
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_left_spine/knee_outer_left_post_1": [
+          -1308.1,
+          -1219.2,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "knee_outer_left_spine/knee_outer_left_post_2": [
+          -1308.1,
+          -1219.2,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ],
+        "knee_outer_left_spine/knee_outer_left_side_1": [
+          -1308.1,
+          -1219.2,
+          -150.75,
+          -143.25,
+          306.25,
+          313.75
+        ],
+        "knee_outer_left_spine/knee_outer_left_side_2": [
+          -1308.1,
+          -1219.2,
+          -122.75,
+          -115.25,
+          358.25,
+          365.75
+        ],
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_1": [
+          -1283.75,
+          -1276.25,
+          -182.05,
+          -93.15,
+          186.05,
+          193.55
+        ],
+        "knee_outer_left_spine/knee_outer_left_bridge_spine_2": [
+          -1248.75,
+          -1241.25,
+          -182.05,
+          -93.15,
+          186.05,
+          193.55
+        ]
+      },
+      "uncut_volume_mm3": 2133471.5395,
+      "finished_volume_mm3": 2109906.649355,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "baf4e1a62d080c2e7aa2d6a068d513d55c50c63d744f6eb1f06c41cca7b65b6b"
+    },
+    {
+      "part_id": "knee_outer_left_rear_bridge",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        383.20000000000005,
+        88.9,
+        88.9
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1308.1,
+        -924.9,
+        -270.95,
+        -182.05,
+        150.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        -1308.1,
+        -924.9,
+        -270.95,
+        -182.05,
+        150.0,
+        238.9
+      ],
+      "modification_ids": [
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_1",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_2",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_1",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_2"
+      ],
+      "bore_ids": [
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_1",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_2",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_1",
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_1": [
+          -1283.75,
+          -1276.25,
+          -270.95,
+          -182.05,
+          186.05,
+          193.55
+        ],
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_spine_2": [
+          -1248.75,
+          -1241.25,
+          -270.95,
+          -182.05,
+          186.05,
+          193.55
+        ],
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_1": [
+          -1026.1,
+          -1018.6,
+          -270.95,
+          -182.05,
+          190.7,
+          198.2
+        ],
+        "knee_outer_left_rear_bridge/knee_outer_left_bridge_link_2": [
+          -953.75,
+          -946.25,
+          -270.95,
+          -182.05,
+          190.7,
+          198.2
+        ]
+      },
+      "uncut_volume_mm3": 3028510.072,
+      "finished_volume_mm3": 3012800.145237,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "830b813e1e05d89bb2dacf7cf6182eade25bbafbcba8d3ea0c2e8942bb087059"
+    },
+    {
+      "part_id": "knee_outer_left_under_header_link",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        185.20000000000005,
+        88.9,
+        88.9
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1110.1,
+        -924.9,
+        -182.05,
+        -93.15,
+        150.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        -1110.1,
+        -924.9,
+        -182.05,
+        -93.15,
+        150.0,
+        238.9
+      ],
+      "modification_ids": [
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_1",
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_2",
+        "knee_outer_left_under_header_link/knee_outer_left_header_1",
+        "knee_outer_left_under_header_link/knee_outer_left_header_2"
+      ],
+      "bore_ids": [
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_1",
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_2",
+        "knee_outer_left_under_header_link/knee_outer_left_header_1",
+        "knee_outer_left_under_header_link/knee_outer_left_header_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_1": [
+          -1026.1,
+          -1018.6,
+          -182.05,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "knee_outer_left_under_header_link/knee_outer_left_bridge_link_2": [
+          -953.75,
+          -946.25,
+          -182.05,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "knee_outer_left_under_header_link/knee_outer_left_header_1": [
+          -1083.75,
+          -1076.25,
+          -141.35,
+          -133.85,
+          150.0,
+          238.9
+        ],
+        "knee_outer_left_under_header_link/knee_outer_left_header_2": [
+          -1048.75,
+          -1041.25,
+          -141.35,
+          -133.85,
+          150.0,
+          238.9
+        ]
+      },
+      "uncut_volume_mm3": 1463674.492,
+      "finished_volume_mm3": 1447964.565237,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "f167e21a05303f455f23d9d6ba30b47b5e9a8fcccd5f9363c13e4504dc19e581"
+    },
+    {
+      "part_id": "knee_outer_right_spine",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        88.90000000000009,
+        88.9,
+        269.95
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        1216.025,
+        1304.925,
+        -182.05,
+        -93.15,
+        146.05,
+        416.0
+      ],
+      "finished_bounds_xyz_mm": [
+        1216.025,
+        1304.925,
+        -182.05,
+        -93.15,
+        146.05,
+        416.0
+      ],
+      "modification_ids": [
+        "knee_outer_right_spine/knee_outer_right_post_1",
+        "knee_outer_right_spine/knee_outer_right_post_2",
+        "knee_outer_right_spine/knee_outer_right_side_1",
+        "knee_outer_right_spine/knee_outer_right_side_2",
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_1",
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_2"
+      ],
+      "bore_ids": [
+        "knee_outer_right_spine/knee_outer_right_post_1",
+        "knee_outer_right_spine/knee_outer_right_post_2",
+        "knee_outer_right_spine/knee_outer_right_side_1",
+        "knee_outer_right_spine/knee_outer_right_side_2",
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_1",
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_right_spine/knee_outer_right_post_1": [
+          1216.025,
+          1304.925,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "knee_outer_right_spine/knee_outer_right_post_2": [
+          1216.025,
+          1304.925,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ],
+        "knee_outer_right_spine/knee_outer_right_side_1": [
+          1216.025,
+          1304.925,
+          -150.75,
+          -143.25,
+          306.25,
+          313.75
+        ],
+        "knee_outer_right_spine/knee_outer_right_side_2": [
+          1216.025,
+          1304.925,
+          -122.75,
+          -115.25,
+          358.25,
+          365.75
+        ],
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_1": [
+          1273.075,
+          1280.575,
+          -182.05,
+          -93.15,
+          186.05,
+          193.55
+        ],
+        "knee_outer_right_spine/knee_outer_right_bridge_spine_2": [
+          1238.075,
+          1245.575,
+          -182.05,
+          -93.15,
+          186.05,
+          193.55
+        ]
+      },
+      "uncut_volume_mm3": 2133471.5395,
+      "finished_volume_mm3": 2109906.649355,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "359a9cde9cbc036dfbd87abfc42c67a9a6eafb5a85f486877ae81275596e5921"
+    },
+    {
+      "part_id": "knee_outer_right_rear_bridge",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        383.20000000000005,
+        88.9,
+        88.9
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        921.725,
+        1304.925,
+        -270.95,
+        -182.05,
+        150.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        921.725,
+        1304.925,
+        -270.95,
+        -182.05,
+        150.0,
+        238.9
+      ],
+      "modification_ids": [
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_1",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_2",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_1",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_2"
+      ],
+      "bore_ids": [
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_1",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_2",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_1",
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_1": [
+          1273.075,
+          1280.575,
+          -270.95,
+          -182.05,
+          186.05,
+          193.55
+        ],
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_spine_2": [
+          1238.075,
+          1245.575,
+          -270.95,
+          -182.05,
+          186.05,
+          193.55
+        ],
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_1": [
+          1015.425,
+          1022.925,
+          -270.95,
+          -182.05,
+          190.7,
+          198.2
+        ],
+        "knee_outer_right_rear_bridge/knee_outer_right_bridge_link_2": [
+          943.075,
+          950.575,
+          -270.95,
+          -182.05,
+          190.7,
+          198.2
+        ]
+      },
+      "uncut_volume_mm3": 3028510.072,
+      "finished_volume_mm3": 3012800.145237,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "e907646ed6d06cb8e63db5f87b5ed354ac5c0cc2065383540467ce7b331103a1"
+    },
+    {
+      "part_id": "knee_outer_right_under_header_link",
+      "stock_product": "nominal 4x4 solid-sawn DF-L No. 2 cutoff",
+      "actual_dimensions_mm": [
+        185.20000000000005,
+        88.9,
+        88.9
+      ],
+      "material": "DF-L No. 2 assumed; delivered stock unobserved",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        921.725,
+        1106.925,
+        -182.05,
+        -93.15,
+        150.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        921.725,
+        1106.925,
+        -182.05,
+        -93.15,
+        150.0,
+        238.9
+      ],
+      "modification_ids": [
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_1",
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_2",
+        "knee_outer_right_under_header_link/knee_outer_right_header_1",
+        "knee_outer_right_under_header_link/knee_outer_right_header_2"
+      ],
+      "bore_ids": [
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_1",
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_2",
+        "knee_outer_right_under_header_link/knee_outer_right_header_1",
+        "knee_outer_right_under_header_link/knee_outer_right_header_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_1": [
+          1015.425,
+          1022.925,
+          -182.05,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "knee_outer_right_under_header_link/knee_outer_right_bridge_link_2": [
+          943.075,
+          950.575,
+          -182.05,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "knee_outer_right_under_header_link/knee_outer_right_header_1": [
+          1073.075,
+          1080.575,
+          -141.35,
+          -133.85,
+          150.0,
+          238.9
+        ],
+        "knee_outer_right_under_header_link/knee_outer_right_header_2": [
+          1038.075,
+          1045.575,
+          -141.35,
+          -133.85,
+          150.0,
+          238.9
+        ]
+      },
+      "uncut_volume_mm3": 1463674.492,
+      "finished_volume_mm3": 1447964.565237,
+      "source_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "fabrication_method": "square crosscuts plus recorded through-bores; no primary-member notch",
+      "finished_geometry_sha256": "4ba51cd0a49f29f2f65757bef7120fcfe72ef0a72b10687704a15f124b3ce34d"
+    }
+  ],
+  "changed_source_hosts": [
+    {
+      "part_id": "base_header",
+      "stock_product": "solid sawn timber",
+      "actual_dimensions_mm": [
+        2435.225,
+        139.7,
+        38.1
+      ],
+      "material": "DF-L No. 2 assumed; delivered source member unobserved",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "modification_ids": [
+        "base_header/retained_source_openings",
+        "base_header/knee_outer_left_header_1",
+        "base_header/knee_outer_left_header_2",
+        "base_header/knee_outer_right_header_1",
+        "base_header/knee_outer_right_header_2"
+      ],
+      "bore_ids": [
+        "base_header/knee_outer_left_header_1",
+        "base_header/knee_outer_left_header_2",
+        "base_header/knee_outer_right_header_1",
+        "base_header/knee_outer_right_header_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "base_header/retained_source_openings": [
+          -1002.0701,
+          1148.38226,
+          -166.175,
+          -36.0,
+          238.9,
+          277.0
+        ],
+        "base_header/knee_outer_left_header_1": [
+          -1083.75,
+          -1076.25,
+          -141.35,
+          -133.85,
+          238.9,
+          277.0
+        ],
+        "base_header/knee_outer_left_header_2": [
+          -1048.75,
+          -1041.25,
+          -141.35,
+          -133.85,
+          238.9,
+          277.0
+        ],
+        "base_header/knee_outer_right_header_1": [
+          1073.075,
+          1080.575,
+          -141.35,
+          -133.85,
+          238.9,
+          277.0
+        ],
+        "base_header/knee_outer_right_header_2": [
+          1038.075,
+          1045.575,
+          -141.35,
+          -133.85,
+          238.9,
+          277.0
+        ]
+      },
+      "uncut_volume_mm3": 12961655.52825,
+      "finished_volume_mm3": 12930714.620382,
+      "source_sha256": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "fabrication_method": "source member plus recorded WJ-03 through-bores",
+      "finished_geometry_sha256": "c28ff5729c32c3412bb95eb6300c6fb5649f5ad2454859fb16c742dd71663b88"
+    },
+    {
+      "part_id": "base_post_outer_left",
+      "stock_product": "solid sawn timber",
+      "actual_dimensions_mm": [
+        238.9,
+        139.7,
+        38.1
+      ],
+      "material": "DF-L No. 2 assumed; delivered source member unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1219.2,
+        -1181.1,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        -1219.2,
+        -1181.1,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "modification_ids": [
+        "base_post_outer_left/retained_source_openings",
+        "base_post_outer_left/knee_outer_left_post_1",
+        "base_post_outer_left/knee_outer_left_post_2"
+      ],
+      "bore_ids": [
+        "base_post_outer_left/knee_outer_left_post_1",
+        "base_post_outer_left/knee_outer_left_post_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "base_post_outer_left/retained_source_openings": [
+          -1219.2,
+          -1181.1,
+          -111.084109,
+          -36.0,
+          57.9299,
+          194.0701
+        ],
+        "base_post_outer_left/knee_outer_left_post_1": [
+          -1219.2,
+          -1181.1,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "base_post_outer_left/knee_outer_left_post_2": [
+          -1219.2,
+          -1181.1,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ]
+      },
+      "uncut_volume_mm3": 1271561.973,
+      "finished_volume_mm3": 1259586.945304,
+      "source_sha256": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "fabrication_method": "source member plus recorded WJ-03 through-bores",
+      "finished_geometry_sha256": "fdc1015b1335f049ab2846edcab623e62f2820ab08488bd2f684176261bc2afd"
+    },
+    {
+      "part_id": "base_post_outer_right",
+      "stock_product": "solid sawn timber",
+      "actual_dimensions_mm": [
+        238.9,
+        139.7,
+        38.1
+      ],
+      "material": "DF-L No. 2 assumed; delivered source member unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "uncut_bounds_xyz_mm": [
+        1177.925,
+        1216.025,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_bounds_xyz_mm": [
+        1177.925,
+        1216.025,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "modification_ids": [
+        "base_post_outer_right/retained_source_openings",
+        "base_post_outer_right/knee_outer_right_post_1",
+        "base_post_outer_right/knee_outer_right_post_2"
+      ],
+      "bore_ids": [
+        "base_post_outer_right/knee_outer_right_post_1",
+        "base_post_outer_right/knee_outer_right_post_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "base_post_outer_right/retained_source_openings": [
+          1177.925,
+          1216.025,
+          -111.084109,
+          -36.0,
+          57.9299,
+          194.0701
+        ],
+        "base_post_outer_right/knee_outer_right_post_1": [
+          1177.925,
+          1216.025,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "base_post_outer_right/knee_outer_right_post_2": [
+          1177.925,
+          1216.025,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ]
+      },
+      "uncut_volume_mm3": 1271561.973,
+      "finished_volume_mm3": 1259586.945304,
+      "source_sha256": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "fabrication_method": "source member plus recorded WJ-03 through-bores",
+      "finished_geometry_sha256": "e573b28f6a94de41bfea0800c51a09780b779cd868bbcbf67f7a5ef5fad3d702"
+    },
+    {
+      "part_id": "base_side_left",
+      "stock_product": "solid sawn timber",
+      "actual_dimensions_mm": [
+        2570.726011836657,
+        139.7,
+        88.90000000000009
+      ],
+      "material": "DF-L No. 2 assumed; delivered source member unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.642788,
+        0.766044
+      ],
+      "uncut_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "modification_ids": [
+        "base_side_left/retained_source_openings",
+        "base_side_left/knee_outer_left_side_1",
+        "base_side_left/knee_outer_left_side_2"
+      ],
+      "bore_ids": [
+        "base_side_left/knee_outer_left_side_1",
+        "base_side_left/knee_outer_left_side_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "base_side_left/retained_source_openings": [
+          -1219.2,
+          -1130.3,
+          -58.978323,
+          1482.278195,
+          332.219313,
+          2184.620246
+        ],
+        "base_side_left/knee_outer_left_side_1": [
+          -1219.2,
+          -1130.3,
+          -150.75,
+          -143.25,
+          306.25,
+          313.75
+        ],
+        "base_side_left/knee_outer_left_side_2": [
+          -1219.2,
+          -1130.3,
+          -122.75,
+          -115.25,
+          358.25,
+          365.75
+        ]
+      },
+      "uncut_volume_mm3": 31075904.195154,
+      "finished_volume_mm3": 31020782.417625,
+      "source_sha256": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "fabrication_method": "source member plus recorded WJ-03 through-bores",
+      "finished_geometry_sha256": "5656869b53e01f389f51824230dd42007a220aa1cb7ab0be20d15598b8d29ffa"
+    },
+    {
+      "part_id": "base_side_right",
+      "stock_product": "solid sawn timber",
+      "actual_dimensions_mm": [
+        2570.726011836657,
+        139.7,
+        88.90000000000009
+      ],
+      "material": "DF-L No. 2 assumed; delivered source member unobserved",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.642788,
+        0.766044
+      ],
+      "uncut_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "modification_ids": [
+        "base_side_right/retained_source_openings",
+        "base_side_right/knee_outer_right_side_1",
+        "base_side_right/knee_outer_right_side_2"
+      ],
+      "bore_ids": [
+        "base_side_right/knee_outer_right_side_1",
+        "base_side_right/knee_outer_right_side_2"
+      ],
+      "modification_bounds_xyz_mm": {
+        "base_side_right/retained_source_openings": [
+          1127.125,
+          1216.025,
+          -58.978323,
+          1482.278195,
+          332.219313,
+          2184.620246
+        ],
+        "base_side_right/knee_outer_right_side_1": [
+          1127.125,
+          1216.025,
+          -150.75,
+          -143.25,
+          306.25,
+          313.75
+        ],
+        "base_side_right/knee_outer_right_side_2": [
+          1127.125,
+          1216.025,
+          -122.75,
+          -115.25,
+          358.25,
+          365.75
+        ]
+      },
+      "uncut_volume_mm3": 31075904.195154,
+      "finished_volume_mm3": 31020782.417625,
+      "source_sha256": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b",
+      "fabrication_method": "source member plus recorded WJ-03 through-bores",
+      "finished_geometry_sha256": "e2a940f96e86ca20e6ad597269cd1c13170de2d6d998c13c5fb85bacdfc643eb"
+    }
+  ],
+  "interfaces": [
+    {
+      "interface_id": "knee_outer_left_spine_post",
+      "body_ids": [
+        "knee_outer_left_spine",
+        "base_post_outer_left"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_spine:inner_x",
+        "base_post_outer_left:outer_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1219.2,
+          -134.387973,
+          192.475
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1219.2,
+        -134.387973,
+        192.475
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_left_post_1",
+        "knee_outer_left_post_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_left_spine",
+        "base_post_outer_left"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_left_spine_side",
+      "body_ids": [
+        "knee_outer_left_spine",
+        "base_side_left"
+      ],
+      "legacy_duties": [
+        "clip_angle_base_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_spine:inner_x",
+        "base_side_left:outer_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1219.2,
+          -128.440496,
+          332.85473
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1219.2,
+        -128.440496,
+        332.85473
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_left_side_1",
+        "knee_outer_left_side_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_left_spine",
+        "base_side_left"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_left_bridge_spine",
+      "body_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_spine"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_rear_bridge:front_y",
+        "knee_outer_left_spine:rear_y"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1263.663002,
+          -182.05,
+          194.502574
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1263.663002,
+        -182.05,
+        194.502574
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_left_bridge_spine_1",
+        "knee_outer_left_bridge_spine_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_spine"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_left_bridge_link",
+      "body_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_under_header_link"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_rear_bridge:front_y",
+        "knee_outer_left_under_header_link:rear_y"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1017.669016,
+          -182.05,
+          194.45
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1017.669016,
+        -182.05,
+        194.45
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_left_bridge_link_1",
+        "knee_outer_left_bridge_link_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_under_header_link"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_left_link_header",
+      "body_ids": [
+        "knee_outer_left_under_header_link",
+        "base_header"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_under_header_link:top_z",
+        "base_header:bottom_z"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1017.238414,
+          -134.406544,
+          238.9
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1017.238414,
+        -134.406544,
+        238.9
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_left_header_1",
+        "knee_outer_left_header_2"
+      ],
+      "bolt_penetration_order": [
+        "base_header",
+        "knee_outer_left_under_header_link"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_left_spine_header_end",
+      "body_ids": [
+        "knee_outer_left_spine",
+        "base_header"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_left",
+        "clip_angle_base_left"
+      ],
+      "contact_face_ids": [
+        "knee_outer_left_spine:inner_x",
+        "base_header:outer_end_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          -1219.2,
+          -134.425,
+          257.95
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        -1219.2,
+        -134.425,
+        257.95
+      ],
+      "behavior": "compression_only",
+      "bolt_group_ids": [],
+      "bolt_penetration_order": [],
+      "separates_for_move": true,
+      "access_sequence": [
+        "support connector parts",
+        "separate compression contact after adjacent fastened interfaces are released"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_spine_post",
+      "body_ids": [
+        "knee_outer_right_spine",
+        "base_post_outer_right"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_spine:inner_x",
+        "base_post_outer_right:outer_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1216.025,
+          -134.387973,
+          192.475
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1216.025,
+        -134.387973,
+        192.475
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_right_post_1",
+        "knee_outer_right_post_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_right_spine",
+        "base_post_outer_right"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_spine_side",
+      "body_ids": [
+        "knee_outer_right_spine",
+        "base_side_right"
+      ],
+      "legacy_duties": [
+        "clip_angle_base_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_spine:inner_x",
+        "base_side_right:outer_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1216.025,
+          -128.440496,
+          332.85473
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1216.025,
+        -128.440496,
+        332.85473
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_right_side_1",
+        "knee_outer_right_side_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_right_spine",
+        "base_side_right"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_bridge_spine",
+      "body_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_spine"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_rear_bridge:front_y",
+        "knee_outer_right_spine:rear_y"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1260.488002,
+          -182.05,
+          194.502574
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1260.488002,
+        -182.05,
+        194.502574
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_right_bridge_spine_1",
+        "knee_outer_right_bridge_spine_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_spine"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_bridge_link",
+      "body_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_under_header_link"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_rear_bridge:front_y",
+        "knee_outer_right_under_header_link:rear_y"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1014.494016,
+          -182.05,
+          194.45
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1014.494016,
+        -182.05,
+        194.45
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_right_bridge_link_1",
+        "knee_outer_right_bridge_link_2"
+      ],
+      "bolt_penetration_order": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_under_header_link"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_link_header",
+      "body_ids": [
+        "knee_outer_right_under_header_link",
+        "base_header"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_under_header_link:top_z",
+        "base_header:bottom_z"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1014.063414,
+          -134.406544,
+          238.9
+        ],
+        "x_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1014.063414,
+        -134.406544,
+        238.9
+      ],
+      "behavior": "fastened",
+      "bolt_group_ids": [
+        "knee_outer_right_header_1",
+        "knee_outer_right_header_2"
+      ],
+      "bolt_penetration_order": [
+        "base_header",
+        "knee_outer_right_under_header_link"
+      ],
+      "separates_for_move": true,
+      "access_sequence": [
+        "remove retained panels as required by complete move sequence",
+        "support connector parts",
+        "remove nut, washer, bolt, and second washer with recorded tools"
+      ]
+    },
+    {
+      "interface_id": "knee_outer_right_spine_header_end",
+      "body_ids": [
+        "knee_outer_right_spine",
+        "base_header"
+      ],
+      "legacy_duties": [
+        "clip_timber_header_outer_right",
+        "clip_angle_base_right"
+      ],
+      "contact_face_ids": [
+        "knee_outer_right_spine:inner_x",
+        "base_header:outer_end_x"
+      ],
+      "contact_frame": {
+        "origin_global_xyz_mm": [
+          1216.025,
+          -134.425,
+          257.95
+        ],
+        "x_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "t_global_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "n_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "force_reference_point_global_xyz_mm": [
+        1216.025,
+        -134.425,
+        257.95
+      ],
+      "behavior": "compression_only",
+      "bolt_group_ids": [],
+      "bolt_penetration_order": [],
+      "separates_for_move": true,
+      "access_sequence": [
+        "support connector parts",
+        "separate compression contact after adjacent fastened interfaces are released"
+      ]
+    }
+  ],
+  "source_binding": {
+    "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "runtime_module_sha256": {
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c",
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "duty_host_mapping": {
+      "clip_timber_header_outer_left": [
+        "base_header",
+        "base_post_outer_left"
+      ],
+      "clip_timber_header_outer_right": [
+        "base_header",
+        "base_post_outer_right"
+      ],
+      "clip_angle_base_left": [
+        "base_header",
+        "base_side_left"
+      ],
+      "clip_angle_base_right": [
+        "base_header",
+        "base_side_right"
+      ]
+    },
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27"
+  },
+  "geometry_fingerprint_sha256": "5f22649533edf1a2a9b4dd2acbd108a28c4ef77fa6792f71d94ef657b92e4bd4",
+  "producer": {
+    "command": "uv run python -m scripts.wood_joint_clearance --write",
+    "dependency_sha256": {
+      "scripts/wood_joint_clearance.py": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58"
+    },
+    "input_artifact_sha256": {
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+    }
+  },
+  "counts": {
+    "legacy_duties": 4,
+    "nodes": 2,
+    "cut_wood_parts": 6,
+    "changed_source_hosts": 5,
+    "source_host_bores": 12,
+    "interfaces": 12
+  },
+  "release_flags": {
+    "layout_accepted": false,
+    "hardware_selected": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "structural_released": false
+  }
+}
