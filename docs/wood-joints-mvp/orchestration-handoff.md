@@ -11,17 +11,18 @@ and outstanding shared-tree work.
 Since `0ebf90eb`, master received `616a9f4e` (archive one isolated full-stock
 probe), `06e401f0` (candidate-only fixed-service-hole machining helper and
 tests), and `0c9de19d` (ordinary-bolt option documentation). The archived
-full-stock probe is not the active WJ-04 trial. The published HTML and scene
-returned HTTP 200 and matched their local hashes; Pages run `35959025255`
-succeeded. The default-off tool/socket overlay remains live, with all 20
-installed WJ-05 hardware objects visible. A candidate panel overlay is wired
-into the local exporter. Its final 169-solid scene export
-(`df7efcda…a2e721`) has 110 WJ-03, 23 WJ-04, and 32 WJ-05 solids plus four
-shared solids; it awaits parent review and publication. The live site still
-serves the previously verified scene (`f4693633…ffd57f8e`). Parent owns
-report/export review and all Git actions. The selected-baseline source
-reference remains pinned at `df7f5eca`; source inventory and release flags are
-unchanged.
+full-stock probe is not the active WJ-04 trial. The prior deployment in Pages
+run `35959025255` returned HTTP 200 for the HTML and scene, matching their
+then-current local hashes. The default-off tool/socket overlay remains live,
+with all 20 installed WJ-05 hardware objects visible. The final candidate-panel
+scene is deployed in Pages run `35963729016`: HTML SHA-256
+`3c6549949ca4c3a91a56e84142943f99d8a52a73faa3324f0def515db4d173ad` and scene
+SHA-256 `df7efcda2bc2b603962eb7cf87e4d1399a47f7575af4b09934eb106786a2e721`,
+both HTTP 200. Parent browser review passed. This 169-solid scene has 110
+WJ-03, 23 WJ-04, 32 WJ-05, and four shared solids; the previously deployed
+scene hash `f4693633…ffd57f8e` is historical. Parent owns report/export review
+and all Git actions. The selected-baseline source reference remains pinned at
+`df7f5eca`; source inventory and release flags are unchanged.
 
 ## Current technical state
 
@@ -80,8 +81,8 @@ unchanged.
   hex fit, ratchet access, service motion, tolerance, or capacity.
   The receiver JSON now uses 1e-5 mm bound rounding; its serialized bounds
   changed, but geometry and collision tolerance did not. The artifact manifest
-  pins the current report. The local scene export binds it and includes the
-  candidate panel overlay; this refreshed scene is not yet claimed as deployed.
+  pins the current report. The deployed scene binds it and includes the
+  candidate panel overlay.
 - **WJ-06:** The current source-bound duty registry maps 24 former angle duties / 144 SDS axes,
   retains all 66 panel/kicker axes and twelve frame-bolt obligations, and
   accepts zero replacements. It records 540 potential corridors with none
@@ -104,8 +105,8 @@ references resolve to existing files.
 | `/root` | Shared configuration decisions, serialization, report regeneration, integrated acceptance, validation, Git delivery | Owns the serial slots and all staging/commit/push. |
 | `/root/luna_center_loadpath` | Stable WJ-04 probe adapter/report; isolated WJ-05 center-node prototype | WJ-04 config-bound report remains current for `narrow_x95p25_ordinary_bolt_candidate`, config SHA `d1c63e1f…206c0e`; source binding matches and release flags are false. Current implementation work is a separate center-node prototype; it does not change the four blocked receiver duties or accept their load paths. |
 | `/root/luna_joint_mechanics` | `scripts/wood_joint_wj04_early_mechanics.py`, its test, and generated `wj04-early-mechanics.json/.md` | Reconciled area basis consumes active probe finite-probe values and reports the canonical rectangle separately. Ruff and seven focused tests pass. Status remains diagnostic-only and `UNRESOLVED_DEMAND`; no fresh candidate forces or capacity are claimed. Current artifact hashes are pinned in the manifest. |
-| `/root/luna_viewer_audit` | `scripts/export_wood_joint_scene.py`, generated `site/owner-wood-joints-layout-scene.json` | Final local candidate-panel scene export has 169 solids (110 WJ-03, 23 WJ-04, 32 WJ-05, four shared) and `integrated_clearance=not_run`. The deployed scene is the previously verified one recorded above; the refreshed scene awaits parent review. |
-| `/root/luna_hardware_tools` | Viewer `site/wood-joints-outer-viewer.html`, `site/index.html`; also completed the ordinary fastener stack method, tests, and basis doc | Default-off tool/socket overlay and UI are live; the final local HTML includes reviewed “Shared geometry” labels. Viewer claims remain bounded by the diagnostic scene. |
+| `/root/luna_viewer_audit` | `scripts/export_wood_joint_scene.py`, generated `site/owner-wood-joints-layout-scene.json` | Final candidate-panel scene is deployed and browser-reviewed: 169 solids (110 WJ-03, 23 WJ-04, 32 WJ-05, four shared) and `integrated_clearance=not_run`. |
+| `/root/luna_hardware_tools` | Viewer `site/wood-joints-outer-viewer.html`, `site/index.html`; also completed the ordinary fastener stack method, tests, and basis doc | Default-off tool/socket overlay and UI are live; the reviewed “Shared geometry” labels are deployed. Viewer claims remain bounded by the diagnostic scene. |
 | `/root/luna_wj04_tool_access` | `scripts/wood_joint_wj04_tool_access.py`, its test, and generated `wj04-tool-access.json/.md` | Refined report is source/config bound; status remains `diagnostic_overlap_present`. Parent reports 13 focused tool-access checks and Ruff pass. Current artifact hashes are pinned in the manifest. |
 | `/root/luna_snapshot_integrity` | `scripts/wood_joint_snapshot_integrity.py` and its tests | Audit code, 15 focused tests, Ruff, and read-only CLI pass. Active manifest scope includes WJ-04 probe, mechanics, tool-access, viewer, WJ-05 receiver audit, and duty registry; historical screens are byte-pinned only. |
 | `/root/luna_duty_registry` | `scripts/wood_joint_duty_registry.py`, its test, `duty-registry.json`; `scripts/wood_joint_wj04_full_stock_probe.py` and its test | Registry source binding is current. Counts remain 24/144 duties/axes, retained 66/12, zero accepted replacements, and 540 potential WJ-06 corridors with none materialized or fully stacked. The separate 88.9 × 88.9 × 119.7 mm full 4×4 prototype is in development; it is unaccepted, does not change the active WJ-04 trial, and authorizes no stock or hardware purchase or fabrication. Current artifact hashes are pinned in the manifest. |
@@ -120,9 +121,9 @@ This handoff and the narrative docs (`completion-ledger.md`, `next-mvp-plan.md`,
 
 ## Parent-controlled closeout sequence
 
-1. The deployed scene and default-off UI passed live HTTP/hash and browser
-   checks. The final candidate-panel scene export is local
-   (`df7efcda…a2e721`); parent will review it before any publication claim.
+1. The final 169-solid candidate-panel scene is deployed and verified in Pages
+   run `35963729016`; HTML and scene both returned HTTP 200 and matched their
+   pinned hashes. Parent browser review passed.
 2. The refined WJ-04 tool-access result is pinned. Keep the FACOM catalog
    nomination and conservative partial-sweep/removal screens distinct from
    proven tool motion; broad-envelope overlaps prove neither actual access nor

@@ -60,10 +60,13 @@ unaccepted separate prototype, not the active WJ-04 trial.
 - Combined viewer v2 contains WJ-03/WJ-04/WJ-05 overlays;
   `integrated_clearance=not_run`, all release flags false. The WJ-04 tool
   report, WJ-05 receiver audit, duty registry, and final WJ-03 sequence are
-  refreshed. The current local scene (`df7efcda…a2e721`) has 169 solids: 110
-  WJ-03, 23 WJ-04, 32 WJ-05, and four shared. It awaits parent review; the
-  deployed scene remains the previously verified `f4693633…ffd57f8e`. All
-  reports remain diagnostic; no acceptance gate is promoted.
+  refreshed. The final candidate-panel scene is deployed and verified in Pages
+  run `35963729016`: HTML SHA-256
+  `3c6549949ca4c3a91a56e84142943f99d8a52a73faa3324f0def515db4d173ad`, scene
+  SHA-256 `df7efcda2bc2b603962eb7cf87e4d1399a47f7575af4b09934eb106786a2e721`;
+  both returned HTTP 200. Parent browser review passed. It has 169 solids: 110
+  WJ-03, 23 WJ-04, 32 WJ-05, and four shared. All reports remain diagnostic;
+  no acceptance gate is promoted.
 
 Viewer commit `f5c40093` was publicly deployed and verified: live HTML and
 scene returned HTTP 200 with exact local SHA-256 matches; the scene was
@@ -77,11 +80,12 @@ remain visible (minimum Z 0.1928 mm). Browser review passed 687 HTTP 200
 responses, toggle composition, and JavaScript checks; parent checked screenshot.
 This display control does not remove actual bolts or change structural geometry.
 Pages run `35959025255` succeeded. Parent verified live HTML SHA-256
-`eaf2e593…b4682e6` and scene SHA-256 `f4693633…ffd57f8e`, both HTTP 200. The
-candidate panel machining overlay is wired into WJ-03/WJ-04/WJ-05 and the
-exporter, with the source inventory unchanged. The final 169-solid scene
-export (`df7efcda…a2e721`) is local and awaits parent review; it is separate
-from the verified live scene.
+  `eaf2e593…b4682e6` and scene SHA-256 `f4693633…ffd57f8e`, both HTTP 200; those
+  are the previous deployment hashes. Pages run `35963729016` deployed the
+  updated HTML and final 169-solid candidate-panel scene; both matched the
+  current local hashes and returned HTTP 200. Parent browser review passed.
+  Candidate panel machining is wired into WJ-03/WJ-04/WJ-05 and the exporter,
+  with the source inventory unchanged.
 
 ## Current work allocation
 
@@ -98,7 +102,7 @@ from the verified live scene.
 | WJ-06 residual topologies | `luna_duty_registry` | Maps 15 generic WJ-06 duties against WJ-04 geometry, station transforms, conflicts, and next independent station. The refreshed registry remains source-bound with zero replacements accepted. |
 | WJ-04 analytical helper | `luna_bolt_resistance` | Implemented/tested `mini_moonboard/wood_joint_directional_geometry.py` and focused tests (9 worker, 9 parent). `classify_member_fastener_load(...)` reports signed grain-end/cross-grain-edge components and distances; makes no demand, capacity, or pass claim. Test vector is synthetic; existing resistance basis unchanged. |
 | WJ-04 directional end/edge | `luna_wood_limit_states` | Read-only exact grain/end/edge review against NDS 12.5.1 for both-sign alternatives. Keeps conditional minima distinct from the candidate directional-edge criterion. |
-| Viewer UI | `luna_hardware_tools`; browser review by `luna_review_resistance` | Owns viewer HTML. Default-off temporary tool/socket overlay is live and reviewed; installed WJ-05 hardware remains displayed. Pages succeeded; parent verified HTTP 200 and exact local HTML hash. |
+| Viewer UI | `luna_hardware_tools`; browser review by `luna_review_resistance` | Owns viewer HTML. Default-off temporary tool/socket overlay is live and reviewed; installed WJ-05 hardware remains displayed. Final shared-geometry labels and candidate-panel scene are deployed and browser-reviewed. |
 | CI workflow and run status | `luna_checkpoint_prep` | Owns `.github/workflows/ci.yml` only. Current run records below; no worker stages, commits, or pushes. |
 | Integration test and CI failure triage | `luna_integration_checks` | WJ04 config/report parity and WJ03 dependency/T-nut/reverse-order tests pass (7 and 8); now doing bounded CI failure investigation, with no producer edits. |
 
@@ -138,16 +142,16 @@ shop package, physical observation, or release gates.
 
 ## CI and deployment status
 
-The published UI and deployed scene passed parent HTTP/hash checks; the UI also
-passed browser review. The last deployed HTML hash was
-`eaf2e593…b4682e6`; the final local HTML changed two shared-family labels to
-“Shared geometry” and has hash
-`3c6549949ca4c3a91a56e84142943f99d8a52a73faa3324f0def515db4d173ad`. Browser
-review passed for that local HTML. The final receiver-bound 169-solid scene
-export is local and awaits parent review and publication. Focused local checks passed for the
-candidate panel machining, WJ-03 sequence, WJ-04 tool access and probe adapter,
-duty registry, and snapshot/bounds updates. Broad CI is not established green
-for this checkpoint; its latest status remains for parent verification.
+The deployed HTML and scene passed parent HTTP/hash checks and browser review.
+The final HTML hash is
+`3c6549949ca4c3a91a56e84142943f99d8a52a73faa3324f0def515db4d173ad`; the scene
+hash is `df7efcda2bc2b603962eb7cf87e4d1399a47f7575af4b09934eb106786a2e721`.
+The current clearance artifact exactly matched a fresh run in an isolated
+Python 3.12.14 / CadQuery 2.8 / OCP 7.9.3.1.1 environment (zero diff). This is
+a bounded clearance check. Focused local checks passed for the candidate panel
+machining, WJ-03 sequence, WJ-04 tool access and probe adapter, duty registry,
+and snapshot/bounds updates. Broad CI is not established green for this
+checkpoint; historical CI failures remain unresolved.
 
 CI workflow `.github/workflows/ci.yml` runs `uv sync --locked`, Ruff, pytest,
 smoke test, and current-candidate export verification. Local pre-commit and
