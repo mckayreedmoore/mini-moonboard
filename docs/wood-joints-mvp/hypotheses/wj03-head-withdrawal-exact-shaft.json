@@ -1,0 +1,3522 @@
+{
+  "base_report": {
+    "is_immutable_archive": true,
+    "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/wj03-head-withdrawal.json",
+    "preserved_without_overwrite": true,
+    "schema": "wood_joint_wj03_head_withdrawal/v1",
+    "sha256": "03cb0201b41b1a7dbded07bb5917301c078f698c950032c3524715583252b9f5"
+  },
+  "candidate_stack_count": 20,
+  "release_claims": {
+    "fabrication_released": false,
+    "shaft_withdrawal_access_established": false,
+    "structural_released": false,
+    "threading_or_internal_socket_fit_verified": false
+  },
+  "schema": "wood_joint_wj03_head_withdrawal_exact_shaft/v1",
+  "screen_method": {
+    "clear_result_is_fabrication_or_access_acceptance": false,
+    "counterhold_headings": "screened as separate alternatives; no union of mutually exclusive headings is interpreted as a physical blockage",
+    "cross_section": "installed shaft nominal circular section; no bounding-box corner expansion",
+    "diameter_limit": "uses the candidate's nominal 6.35 mm CAD diameter; the separate 6.604 mm generic ordinary 1/4-in shank sensitivity is not included",
+    "path": "under-head origin minus axis times withdrawal travel through original source shaft tip",
+    "physical_access_established": false,
+    "retained_map_and_exclusions": "same geometry obstacle map and sequential target exclusions as archived shaft_path screen",
+    "shape": "single exact circular cylinder swept continuously along source shaft axis",
+    "travel_rule": "one source under-head length, matching archived operation"
+  },
+  "source_binding": {
+    "duty_host_mapping": {
+      "clip_angle_base_left": [
+        "base_header",
+        "base_side_left"
+      ],
+      "clip_angle_base_right": [
+        "base_header",
+        "base_side_right"
+      ],
+      "clip_timber_header_outer_left": [
+        "base_header",
+        "base_post_outer_left"
+      ],
+      "clip_timber_header_outer_right": [
+        "base_header",
+        "base_post_outer_right"
+      ]
+    },
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27",
+    "inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c"
+  },
+  "source_pins": {
+    "coverage": "direct file pins only; base report hash pins archived coarse diagnostic",
+    "exact_shaft_direct_inputs": {
+      "docs/wood-joints-mvp/hypotheses/wj03-head-withdrawal.json": "03cb0201b41b1a7dbded07bb5917301c078f698c950032c3524715583252b9f5",
+      "docs/wood-joints-mvp/hypotheses/wj03-head-withdrawal.md": "d86f625dd447929ace0db5ce261e5444ef56a80964b86b7d6d40592fc1f2a042",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_tools.py": "2a4f833a66ffc9ff53309b2c141233505d3bd7f4a09e240f5f52b9d63a368e8e",
+      "scripts/wood_joint_wj03_head_withdrawal.py": "970513cb82c15355049138bd779c11e6cbd520a2fa2e570c2db7645a7a0564ea",
+      "scripts/wood_joint_wj03_head_withdrawal_exact_shaft.py": "706c3ddacb67e83419d8c8a9a049e24dd7d5cd5706647207bb767ad42c4b382c",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8"
+    },
+    "geometry_materializer_inputs": {
+      "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+      "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+      "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    }
+  },
+  "stacks": {
+    "knee_outer_left_bridge_link_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 191.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 191.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1022.35,
+          -145.601,
+          194.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1022.35,
+          -221.801,
+          194.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -1022.35,
+          -221.801,
+          194.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -1022.35,
+          -374.201,
+          194.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_bridge_link_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 191.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 191.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_link_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -950.0,
+          -145.601,
+          194.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -950.0,
+          -221.801,
+          194.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -950.0,
+          -221.801,
+          194.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -950.0,
+          -374.201,
+          194.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_bridge_spine_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 186.625,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 186.625,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1280.0,
+          -120.201,
+          189.8
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1280.0,
+          -221.801,
+          189.8
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          -1280.0,
+          -221.801,
+          189.8
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          -1280.0,
+          -425.001,
+          189.8
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_bridge_spine_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 186.625,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 186.625,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_left_rear_bridge",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_bridge_spine_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1245.0,
+          -120.201,
+          189.8
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1245.0,
+          -221.801,
+          189.8
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          -1245.0,
+          -221.801,
+          189.8
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          -1245.0,
+          -425.001,
+          189.8
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_header_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_header_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_header_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 126.251,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 126.251,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_header_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_header_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1080.0,
+          -137.6,
+          202.451
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1080.0,
+          -137.6,
+          278.651
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -1080.0,
+          -137.6,
+          278.651
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -1080.0,
+          -137.6,
+          431.051
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_header_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_header_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_header_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 126.251,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 126.251,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_left_under_header_link",
+        "installed_hardware/wj03/knee_outer_left_header_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_header_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1045.0,
+          -137.6,
+          202.451
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1045.0,
+          -137.6,
+          278.651
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -1045.0,
+          -137.6,
+          278.651
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -1045.0,
+          -137.6,
+          431.051
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_post_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_post_outer_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_post_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_post_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 168.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 168.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_post_outer_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_post_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_post_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1233.551,
+          -137.6,
+          171.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1309.751,
+          -137.6,
+          171.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -1309.751,
+          -137.6,
+          171.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -1462.151,
+          -137.6,
+          171.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_post_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_post_outer_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_post_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_post_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 210.325,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 210.325,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_post_outer_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_post_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_post_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1233.551,
+          -137.6,
+          213.5
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1309.751,
+          -137.6,
+          213.5
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          -1309.751,
+          -137.6,
+          213.5
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          -1462.151,
+          -137.6,
+          213.5
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_side_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_side_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_side_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_side_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 328.140553,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 328.140553,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_side_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_side_1/head_washer",
+        "installed_hardware/wj03/knee_outer_left_side_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1208.151,
+          -106.228086652,
+          331.315553019
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1309.751,
+          -106.228086652,
+          331.315553019
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          -1309.751,
+          -106.228086652,
+          331.315553019
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          -1512.951,
+          -106.228086652,
+          331.315553019
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_left_side_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_side_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_side_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_side_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 362.612553,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 362.612553,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_side_left",
+        "finished_wood/knee_outer_left_spine",
+        "installed_hardware/wj03/knee_outer_left_side_2/head_washer",
+        "installed_hardware/wj03/knee_outer_left_side_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          -1208.151,
+          -77.302644216,
+          365.787552959
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          -1309.751,
+          -77.302644216,
+          365.787552959
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          -1309.751,
+          -77.302644216,
+          365.787552959
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          -1512.951,
+          -77.302644216,
+          365.787552959
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_bridge_link_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 191.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 191.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1019.175,
+          -145.601,
+          194.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1019.175,
+          -221.801,
+          194.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          1019.175,
+          -221.801,
+          194.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          1019.175,
+          -374.201,
+          194.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_bridge_link_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 191.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 191.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_link_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          946.825,
+          -145.601,
+          194.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          946.825,
+          -221.801,
+          194.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          946.825,
+          -221.801,
+          194.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          946.825,
+          -374.201,
+          194.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 191.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 191.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_bridge_spine_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 186.625,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 186.625,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1276.825,
+          -120.201,
+          189.8
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1276.825,
+          -221.801,
+          189.8
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          1276.825,
+          -221.801,
+          189.8
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          1276.825,
+          -425.001,
+          189.8
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_bridge_spine_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 186.625,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 186.625,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/knee_outer_right_rear_bridge",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_bridge_spine_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1241.825,
+          -120.201,
+          189.8
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1241.825,
+          -221.801,
+          189.8
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          1241.825,
+          -221.801,
+          189.8
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          1241.825,
+          -425.001,
+          189.8
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 186.625,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 186.625,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_header_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_header_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_header_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 126.251,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 126.251,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_header_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_header_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1076.825,
+          -137.6,
+          202.451
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1076.825,
+          -137.6,
+          278.651
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          1076.825,
+          -137.6,
+          278.651
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          1076.825,
+          -137.6,
+          431.051
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_header_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_header_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_header_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 126.251,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 126.251,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_header",
+        "finished_wood/knee_outer_right_under_header_link",
+        "installed_hardware/wj03/knee_outer_right_header_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_header_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1041.825,
+          -137.6,
+          202.451
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1041.825,
+          -137.6,
+          278.651
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          1041.825,
+          -137.6,
+          278.651
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          1041.825,
+          -137.6,
+          431.051
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 126.251,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 126.251,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_post_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_post_outer_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_post_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_post_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 168.275,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 168.275,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_post_outer_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_post_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_post_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1230.376,
+          -137.6,
+          171.45
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1306.576,
+          -137.6,
+          171.45
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          1306.576,
+          -137.6,
+          171.45
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          1458.976,
+          -137.6,
+          171.45
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 168.275,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 168.275,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_post_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_post_outer_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_post_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_post_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 210.325,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 210.325,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_post_outer_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_post_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_post_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1230.376,
+          -137.6,
+          213.5
+        ],
+        "installed_shaft_source_volume_mm3": 4826.388738404,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1306.576,
+          -137.6,
+          213.5
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 152.4,
+        "stack_under_head_origin_xyz_mm": [
+          1306.576,
+          -137.6,
+          213.5
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 304.8,
+        "sweep_start_xyz_mm": [
+          1458.976,
+          -137.6,
+          213.5
+        ],
+        "withdrawal_travel_mm": 152.4
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 210.325,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 210.325,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_side_1": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_side_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_side_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_side_1/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 328.140553,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 328.140553,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_side_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_side_1/head_washer",
+        "installed_hardware/wj03/knee_outer_right_side_1/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1204.976,
+          -106.228086652,
+          331.315553019
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1306.576,
+          -106.228086652,
+          331.315553019
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          1306.576,
+          -106.228086652,
+          331.315553019
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          1509.776,
+          -106.228086652,
+          331.315553019
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 328.140553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 328.140553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    },
+    "knee_outer_right_side_2": {
+      "aabb_only_nonheading_obstacle_ids": [
+        "finished_wood/base_side_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_side_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_side_2/nut_washer"
+      ],
+      "analytic_sweep_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "tool_pair/stationary_nut_socket"
+        ],
+        "exclusion_scope": "Same retained-obstacle state and exclusions as archived WJ-03 report: target shaft/head/nut removed as the translating through-bolt stack; stationary nut socket external envelope excluded for intended shaft passage through its unmodeled inner bore. Both washers, wood, services and unrelated stacks remain obstacles here. The stationary nut ratchet is screened separately for each sampled heading below.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "floor_screen": {
+          "below_analytical_floor": false,
+          "clearance_mm": 362.612553,
+          "floor_z_mm": 0.0,
+          "minimum_z_mm": 362.612553,
+          "penetration_depth_mm": 0.0
+        },
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "any_sampled_heading_clear": true,
+      "archived_aabb_hit_obstacle_ids": [
+        "finished_wood/base_side_right",
+        "finished_wood/knee_outer_right_spine",
+        "installed_hardware/wj03/knee_outer_right_side_2/head_washer",
+        "installed_hardware/wj03/knee_outer_right_side_2/nut_washer"
+      ],
+      "archived_counterhold_heading_union_hit_ids": [],
+      "exact_fixed_obstacle_hit_ids": [],
+      "exact_only_nonheading_obstacle_ids": [],
+      "shaft_sweep_geometry": {
+        "axis_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "axis_xyz_source": "BoltStack.direction used by installed shaft constructor",
+        "diameter_basis": "BoltHardware.cad_occupied_diameter_mm from materialized candidate stack",
+        "diameter_mm": 6.35,
+        "installed_shaft_shape_center_xyz_mm": [
+          1204.976,
+          -77.302644216,
+          365.787552959
+        ],
+        "installed_shaft_source_volume_mm3": 6435.184984538,
+        "ordinary_quarter_inch_shank_6_604mm_sensitivity_included": false,
+        "radius_mm": 3.175,
+        "shaft_start_xyz_mm_from_installed_shape": [
+          1306.576,
+          -77.302644216,
+          365.787552959
+        ],
+        "source_center_and_volume_verified_against_installed_shape": true,
+        "source_length_mm": 203.2,
+        "stack_under_head_origin_xyz_mm": [
+          1306.576,
+          -77.302644216,
+          365.787552959
+        ],
+        "sweep_kind": "analytic cylinder union for translation along source cylinder axis",
+        "sweep_length_mm": 406.4,
+        "sweep_start_xyz_mm": [
+          1509.776,
+          -77.302644216,
+          365.787552959
+        ],
+        "withdrawal_travel_mm": 203.2
+      },
+      "stationary_nut_ratchet_heading_screens": {
+        "+0deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+180deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+270deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        },
+        "+90deg": {
+          "analytic_sweep_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "This report screens one sampled stationary-nut ratchet heading only. Other mutually exclusive headings are omitted, not unioned as simultaneous obstacles. The heading remains an envelope proxy, not a demonstrated operating pose.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "floor_screen": {
+              "below_analytical_floor": false,
+              "clearance_mm": 362.612553,
+              "floor_z_mm": 0.0,
+              "minimum_z_mm": 362.612553,
+              "penetration_depth_mm": 0.0
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "exact_sweep_hit_obstacle_ids": [],
+          "ratchet_heading_hit_obstacle_ids": [],
+          "sampled_pose_clear_with_this_heading": true
+        }
+      }
+    }
+  },
+  "status": "diagnostic_supplement_only_not_acceptance",
+  "summary": {
+    "aabb_only_obstacle_pairs": 80,
+    "archived_aabb_hit_stacks": 20,
+    "exact_fixed_obstacle_clear_stacks": 20,
+    "exact_fixed_obstacle_hit_stacks": 0,
+    "exact_only_obstacle_pairs": 0,
+    "sampled_counterhold_heading_clear_stack_counts": {
+      "+0deg": 20,
+      "+180deg": 20,
+      "+270deg": 20,
+      "+90deg": 20
+    },
+    "stacks_with_at_least_one_sampled_counterhold_heading_clear": 20
+  },
+  "trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7"
+}
