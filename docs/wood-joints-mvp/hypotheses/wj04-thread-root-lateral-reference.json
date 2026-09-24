@@ -1,0 +1,1560 @@
+{
+  "bearing_lengths_in": {
+    "main_cleat": 3.5000000000000004,
+    "side_host": 1.5000000000000002
+  },
+  "inputs": {
+    "C_delta": 0.6063,
+    "C_delta_use": "shown as a separate conditional scalar sensitivity after unadjusted single-bolt references; no actual load direction/applicability asserted",
+    "Fyb_106000_basis": "commentary estimate (92 ksi specified minimum tensile yield + 120 ksi specified minimum tensile ultimate)/2 under assumed delivered SAE J429 Grade 5 conformance and ASTM F606-compatible evidence; empirical estimate, not measured or a guaranteed lower bound",
+    "Fyb_92000_basis": "analyst sensitivity set equal to 92 ksi solely as a sensitivity; not a published or NDS-derived Fyb",
+    "Fyb_cases_psi": [
+      106000,
+      92000
+    ],
+    "K_D": 2.39,
+    "K_theta": "1 + 0.25*max(member angles)/90; NDS 2024 Table 12.3.1B",
+    "additional_diameter_scenario": {
+      "case": "D=0.250-in conditional comparator, not primary Dr default",
+      "not_established_by": "nominal 127-mm grip or catalog Grade 5 marking alone.",
+      "rule": "ANSI/AWC NDS-2024 12.3.7.2 permits D in lieu of Dr only where thread bearing <=1/4 of full bearing length in the member holding threads; must be established for both members.",
+      "sensitivity": "Reuses the same Fyb assumptions and grain-angle matrix; applies 2024 Table 12.3.1B D>=0.25 reductions 4Ktheta, 4Ktheta, 3.6Ktheta, 3.2Ktheta, 3.2Ktheta, 3.2Ktheta."
+    },
+    "bolt_full_body_D_in": 0.25,
+    "bolt_thread_root_Dr_in_used": 0.189,
+    "diameter_basis": "use Dr as conservative NDS threaded-fastener default while delivered thread exposure is unresolved; do not claim this is measured; D=0.250 in is allowed only if actual thread-bearing condition under NDS 12.3.7.2 is established",
+    "excluded": [
+      "case demand",
+      "bolt group distribution",
+      "end/edge or splitting checks",
+      "other NDS adjustments",
+      "load duration/service factors",
+      "axial bolt action",
+      "complete-joint acceptance"
+    ],
+    "gap_in": 0.0,
+    "geometry": "88.9-mm cleat bearing thickness + 38.1-mm host bearing thickness = 127-mm grip; one wood/wood single-shear plane",
+    "load_angles_deg": [
+      0,
+      90
+    ],
+    "unverified_product_and_receiving_conditions": {
+      "Fyb_condition": "The 106-ksi row is usable only as the labeled commentary estimate if the actual selected fastener is supported as SAE J429 Grade 5 and the tensile yield/ultimate basis applies. The 92-ksi row is an analyst sensitivity only. This does not create a blanket certificate gate or require a bespoke F1575 bending test.",
+      "catalog_lead": "K.L. Jack 25C600HCS5Z, 1/4-20 x 6-in Grade 5 zinc-plated hex cap screw, listed to SAE J429 and ASME B18.2.1; candidate only.",
+      "diameter_condition": "Dr=0.189 in is the conditional standard-based UNC root input; receiving identity/thread standard or actual root measurement remains unverified. The D=0.250-in comparator requires the delivered thread exposure in each member to satisfy NDS 12.3.7.2; nominal 127-mm grip by itself does not establish that condition.",
+      "not_claimed": "No delivered bolt, SKU/lot trace, manufacturer certificate, lot test report, actual tensile values, or measured thread-root diameter is represented by this diagnostic.",
+      "receiving_scope": "Verify the actual delivered part identity, applicable standard/grade and dimensions/thread transition for the hardware used. No generic external approval or destructive test is prescribed here."
+    },
+    "wood": "DF-L No.2 group G=0.50; solid wood bearing inputs"
+  },
+  "rows": [
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.39,
+      "reference_lateral_times_Cdelta_lbf": 116.1534349076369,
+      "reference_lateral_unadjusted_lbf": 191.57749448727844,
+      "reference_modes_lbf": {
+        "II": 431.7891592751021,
+        "IIIm": 443.1482385441768,
+        "IIIs": 215.74711152758178,
+        "IV": 191.57749448727844,
+        "Im": 1287.0188284518829,
+        "Is": 551.5794979079499
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 261.7937672684944,
+        "IIIm": 268.68077702933437,
+        "IIIs": 130.80747371917283,
+        "IV": 116.1534349076369,
+        "Im": 780.3195156903765,
+        "Is": 334.42264958159
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.39,
+      "reference_lateral_times_Cdelta_lbf": 108.21140562411362,
+      "reference_lateral_unadjusted_lbf": 178.4783203432519,
+      "reference_modes_lbf": {
+        "II": 431.7891592751021,
+        "IIIm": 441.29360346647695,
+        "IIIs": 211.68294985759152,
+        "IV": 178.4783203432519,
+        "Im": 1287.0188284518829,
+        "Is": 551.5794979079499
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 261.7937672684944,
+        "IIIm": 267.55631178172496,
+        "IIIs": 128.34337249865774,
+        "IV": 108.21140562411362,
+        "Im": 780.3195156903765,
+        "Is": 334.42264958159
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.39,
+      "reference_lateral_times_Cdelta_lbf": 116.1534349076369,
+      "reference_lateral_unadjusted_lbf": 191.57749448727844,
+      "reference_modes_lbf": {
+        "II": 431.7891592751021,
+        "IIIm": 443.1482385441768,
+        "IIIs": 215.74711152758178,
+        "IV": 191.57749448727844,
+        "Im": 1287.0188284518829,
+        "Is": 551.5794979079499
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 261.7937672684944,
+        "IIIm": 268.68077702933437,
+        "IIIs": 130.80747371917283,
+        "IV": 116.1534349076369,
+        "Im": 780.3195156903765,
+        "Is": 334.42264958159
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_Dr_lb_in": 119.272419,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 92.92274792610954,
+      "reference_lateral_unadjusted_lbf": 153.26199558982276,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 354.5185908353414,
+        "IIIs": 172.5976892220654,
+        "IV": 153.26199558982276,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.94462162346747,
+        "IIIs": 104.64597897533825,
+        "IV": 92.92274792610954,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1059.1242901205826,
+        "IIIs": 515.6355965509205,
+        "IV": 457.8702118245955,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.39,
+      "reference_lateral_times_Cdelta_lbf": 108.21140562411362,
+      "reference_lateral_unadjusted_lbf": 178.4783203432519,
+      "reference_modes_lbf": {
+        "II": 431.7891592751021,
+        "IIIm": 441.29360346647695,
+        "IIIs": 211.68294985759152,
+        "IV": 178.4783203432519,
+        "Im": 1287.0188284518829,
+        "Is": 551.5794979079499
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 261.7937672684944,
+        "IIIm": 267.55631178172496,
+        "IIIs": 128.34337249865774,
+        "IV": 108.21140562411362,
+        "Im": 780.3195156903765,
+        "Is": 334.42264958159
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 4650,
+      "Fe_host_psi": 4650,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_Dr_lb_in": 103.519458,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "governing_mode": "IV",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_each_mode": 2.9875000000000003,
+      "reference_lateral_times_Cdelta_lbf": 86.5691244992909,
+      "reference_lateral_unadjusted_lbf": 142.78265627460152,
+      "reference_modes_lbf": {
+        "II": 345.4313274200817,
+        "IIIm": 353.03488277318155,
+        "IIIs": 169.3463598860732,
+        "IV": 142.78265627460152,
+        "Im": 1029.6150627615064,
+        "Is": 441.2635983263599
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 209.4350138147955,
+        "IIIm": 214.04504942537994,
+        "IIIs": 102.67469799892618,
+        "IV": 86.5691244992909,
+        "Im": 624.2556125523013,
+        "Is": 267.538119665272
+      },
+      "yield_values_lbf": {
+        "II": 1031.9760906674942,
+        "IIIm": 1054.69171228488,
+        "IIIs": 505.92225015964374,
+        "IV": 426.56318562037205,
+        "Im": 3075.9750000000004,
+        "Is": 1318.2750000000003
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 3.6,
+        "IIIm": 3.2,
+        "IIIs": 3.2,
+        "IV": 3.2,
+        "Im": 4.0,
+        "Is": 4.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 165.463353686539,
+      "reference_lateral_unadjusted_lbf": 272.9067354222976,
+      "reference_modes_lbf": {
+        "II": 456.64679440129834,
+        "IIIm": 534.7726893500101,
+        "IIIs": 272.9067354222976,
+        "IV": 274.7364978104778,
+        "Im": 1225.0,
+        "Is": 525.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 276.86495144550713,
+        "IIIm": 324.23268155291106,
+        "IIIs": 165.463353686539,
+        "IV": 166.57273862249266,
+        "Im": 742.7175,
+        "Is": 318.30749999999995
+      },
+      "yield_values_lbf": {
+        "II": 1643.928459844674,
+        "IIIm": 1711.2726059200324,
+        "IIIs": 873.3015533513524,
+        "IV": 879.1567929935289,
+        "Im": 4900.0,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 114.80151455315763,
+      "reference_lateral_unadjusted_lbf": 189.34770666857602,
+      "reference_modes_lbf": {
+        "II": 348.54723437293353,
+        "IIIm": 410.2917492255368,
+        "IIIs": 189.34770666857602,
+        "IV": 206.8322789731025,
+        "Im": 980.0,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 211.32418820030958,
+        "IIIm": 248.75988755544296,
+        "IIIs": 114.80151455315763,
+        "IV": 125.40241074139203,
+        "Im": 594.174,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1568.4625546782008,
+        "IIIm": 1641.1669969021473,
+        "IIIs": 757.3908266743041,
+        "IV": 827.32911589241,
+        "Im": 4900.0,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 125.40241074139203,
+      "reference_lateral_unadjusted_lbf": 206.8322789731025,
+      "reference_modes_lbf": {
+        "II": 305.2205442897655,
+        "IIIm": 356.8204041314263,
+        "IIIs": 208.67044427013167,
+        "IV": 206.8322789731025,
+        "Im": 778.75,
+        "Is": 420.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 185.0552160028848,
+        "IIIm": 216.34021102488376,
+        "IIIs": 126.51689036098082,
+        "IV": 125.40241074139203,
+        "Im": 472.156125,
+        "Is": 254.646
+      },
+      "yield_values_lbf": {
+        "II": 1373.4924493039448,
+        "IIIm": 1427.2816165257052,
+        "IIIs": 834.6817770805267,
+        "IV": 827.32911589241,
+        "Im": 3893.75,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 110.2179086178082,
+      "reference_lateral_unadjusted_lbf": 181.7877430608745,
+      "reference_modes_lbf": {
+        "II": 290.2968907265397,
+        "IIIm": 343.9056635397048,
+        "IIIs": 181.7877430608745,
+        "IV": 195.92611941962545,
+        "Im": 778.75,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 176.007004847501,
+        "IIIm": 208.510003804123,
+        "IIIs": 110.2179086178082,
+        "IV": 118.7900062041189,
+        "Im": 472.156125,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1306.3360082694285,
+        "IIIm": 1375.6226541588192,
+        "IIIs": 727.150972243498,
+        "IV": 783.7044776785018,
+        "Im": 3893.75,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 3.6,
+        "IIIm": 3.2,
+        "IIIs": 3.2,
+        "IV": 3.2,
+        "Im": 4.0,
+        "Is": 4.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 155.18327287807904,
+      "reference_lateral_unadjusted_lbf": 255.95129948553367,
+      "reference_modes_lbf": {
+        "II": 456.64679440129834,
+        "IIIm": 531.5884866715177,
+        "IIIs": 266.10079678070946,
+        "IV": 255.95129948553367,
+        "Im": 1225.0,
+        "Is": 525.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 276.86495144550713,
+        "IIIm": 322.30209946894115,
+        "IIIs": 161.33691308814414,
+        "IV": 155.18327287807904,
+        "Im": 742.7175,
+        "Is": 318.30749999999995
+      },
+      "yield_values_lbf": {
+        "II": 1643.928459844674,
+        "IIIm": 1701.0831573488567,
+        "IIIs": 851.5225496982704,
+        "IV": 819.0441583537078,
+        "Im": 4900.0,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 111.38668237750109,
+      "reference_lateral_unadjusted_lbf": 183.71545831684165,
+      "reference_modes_lbf": {
+        "II": 348.54723437293353,
+        "IIIm": 407.89652827120995,
+        "IIIs": 183.71545831684165,
+        "IV": 192.69005392665028,
+        "Im": 980.0,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 211.32418820030958,
+        "IIIm": 247.30766509083458,
+        "IIIs": 111.38668237750109,
+        "IV": 116.82797969572806,
+        "Im": 594.174,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1568.4625546782008,
+        "IIIm": 1631.5861130848398,
+        "IIIs": 734.8618332673666,
+        "IV": 770.7602157066011,
+        "Im": 4900.0,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 116.82797969572806,
+      "reference_lateral_unadjusted_lbf": 192.69005392665028,
+      "reference_modes_lbf": {
+        "II": 305.2205442897655,
+        "IIIm": 354.1433694166907,
+        "IIIs": 203.56581761280935,
+        "IV": 192.69005392665028,
+        "Im": 778.75,
+        "Is": 420.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 185.0552160028848,
+        "IIIm": 214.71712487733956,
+        "IIIs": 123.4219552186463,
+        "IV": 116.82797969572806,
+        "Im": 472.156125,
+        "Is": 254.646
+      },
+      "yield_values_lbf": {
+        "II": 1373.4924493039448,
+        "IIIm": 1416.5734776667628,
+        "IIIs": 814.2632704512374,
+        "IV": 770.7602157066011,
+        "Im": 3893.75,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "rail_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 106.99772753613323,
+      "reference_lateral_unadjusted_lbf": 176.47654220045067,
+      "reference_modes_lbf": {
+        "II": 290.2968907265397,
+        "IIIm": 341.3723858062217,
+        "IIIs": 176.47654220045067,
+        "IV": 182.52960661675317,
+        "Im": 778.75,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 176.007004847501,
+        "IIIm": 206.9740775143122,
+        "IIIs": 106.99772753613323,
+        "IV": 110.66770049173743,
+        "Im": 472.156125,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1306.3360082694285,
+        "IIIm": 1365.4895432248868,
+        "IIIs": 705.9061688018027,
+        "IV": 730.1184264670127,
+        "Im": 3893.75,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 3.6,
+        "IIIm": 3.2,
+        "IIIs": 3.2,
+        "IV": 3.2,
+        "Im": 4.0,
+        "Is": 4.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 165.463353686539,
+      "reference_lateral_unadjusted_lbf": 272.9067354222976,
+      "reference_modes_lbf": {
+        "II": 456.64679440129834,
+        "IIIm": 534.7726893500101,
+        "IIIs": 272.9067354222976,
+        "IV": 274.7364978104778,
+        "Im": 1225.0,
+        "Is": 525.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 276.86495144550713,
+        "IIIm": 324.23268155291106,
+        "IIIs": 165.463353686539,
+        "IV": 166.57273862249266,
+        "Im": 742.7175,
+        "Is": 318.30749999999995
+      },
+      "yield_values_lbf": {
+        "II": 1643.928459844674,
+        "IIIm": 1711.2726059200324,
+        "IIIs": 873.3015533513524,
+        "IV": 879.1567929935289,
+        "Im": 4900.0,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 114.80151455315763,
+      "reference_lateral_unadjusted_lbf": 189.34770666857602,
+      "reference_modes_lbf": {
+        "II": 348.54723437293353,
+        "IIIm": 410.2917492255368,
+        "IIIs": 189.34770666857602,
+        "IV": 206.8322789731025,
+        "Im": 980.0,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 211.32418820030958,
+        "IIIm": 248.75988755544296,
+        "IIIs": 114.80151455315763,
+        "IV": 125.40241074139203,
+        "Im": 594.174,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1568.4625546782008,
+        "IIIm": 1641.1669969021473,
+        "IIIs": 757.3908266743041,
+        "IV": 827.32911589241,
+        "Im": 4900.0,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 125.40241074139203,
+      "reference_lateral_unadjusted_lbf": 206.8322789731025,
+      "reference_modes_lbf": {
+        "II": 305.2205442897655,
+        "IIIm": 356.8204041314263,
+        "IIIs": 208.67044427013167,
+        "IV": 206.8322789731025,
+        "Im": 778.75,
+        "Is": 420.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 185.0552160028848,
+        "IIIm": 216.34021102488376,
+        "IIIs": 126.51689036098082,
+        "IV": 125.40241074139203,
+        "Im": 472.156125,
+        "Is": 254.646
+      },
+      "yield_values_lbf": {
+        "II": 1373.4924493039448,
+        "IIIm": 1427.2816165257052,
+        "IIIs": 834.6817770805267,
+        "IV": 827.32911589241,
+        "Im": 3893.75,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 106000,
+      "Fyb_moment_using_D_lb_in": 276.0416666666667,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 110.2179086178082,
+      "reference_lateral_unadjusted_lbf": 181.7877430608745,
+      "reference_modes_lbf": {
+        "II": 290.2968907265397,
+        "IIIm": 343.9056635397048,
+        "IIIs": 181.7877430608745,
+        "IV": 195.92611941962545,
+        "Im": 778.75,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 176.007004847501,
+        "IIIm": 208.510003804123,
+        "IIIs": 110.2179086178082,
+        "IV": 118.7900062041189,
+        "Im": 472.156125,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1306.3360082694285,
+        "IIIm": 1375.6226541588192,
+        "IIIs": 727.150972243498,
+        "IV": 783.7044776785018,
+        "Im": 3893.75,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.0,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 3.6,
+        "IIIm": 3.2,
+        "IIIs": 3.2,
+        "IV": 3.2,
+        "Im": 4.0,
+        "Is": 4.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 155.18327287807904,
+      "reference_lateral_unadjusted_lbf": 255.95129948553367,
+      "reference_modes_lbf": {
+        "II": 456.64679440129834,
+        "IIIm": 531.5884866715177,
+        "IIIs": 266.10079678070946,
+        "IV": 255.95129948553367,
+        "Im": 1225.0,
+        "Is": 525.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 276.86495144550713,
+        "IIIm": 322.30209946894115,
+        "IIIs": 161.33691308814414,
+        "IV": 155.18327287807904,
+        "Im": 742.7175,
+        "Is": 318.30749999999995
+      },
+      "yield_values_lbf": {
+        "II": 1643.928459844674,
+        "IIIm": 1701.0831573488567,
+        "IIIs": 851.5225496982704,
+        "IV": 819.0441583537078,
+        "Im": 4900.0,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 5600.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 0,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 111.38668237750109,
+      "reference_lateral_unadjusted_lbf": 183.71545831684165,
+      "reference_modes_lbf": {
+        "II": 348.54723437293353,
+        "IIIm": 407.89652827120995,
+        "IIIs": 183.71545831684165,
+        "IV": 192.69005392665028,
+        "Im": 980.0,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 211.32418820030958,
+        "IIIm": 247.30766509083458,
+        "IIIs": 111.38668237750109,
+        "IV": 116.82797969572806,
+        "Im": 594.174,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1568.4625546782008,
+        "IIIm": 1631.5861130848398,
+        "IIIs": 734.8618332673666,
+        "IV": 770.7602157066011,
+        "Im": 4900.0,
+        "Is": 1668.75
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 5600.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IV",
+      "host_load_angle_deg": 0,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 116.82797969572806,
+      "reference_lateral_unadjusted_lbf": 192.69005392665028,
+      "reference_modes_lbf": {
+        "II": 305.2205442897655,
+        "IIIm": 354.1433694166907,
+        "IIIs": 203.56581761280935,
+        "IV": 192.69005392665028,
+        "Im": 778.75,
+        "Is": 420.0
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 185.0552160028848,
+        "IIIm": 214.71712487733956,
+        "IIIs": 123.4219552186463,
+        "IV": 116.82797969572806,
+        "Im": 472.156125,
+        "Is": 254.646
+      },
+      "yield_values_lbf": {
+        "II": 1373.4924493039448,
+        "IIIm": 1416.5734776667628,
+        "IIIs": 814.2632704512374,
+        "IV": 770.7602157066011,
+        "Im": 3893.75,
+        "Is": 2100.0
+      }
+    },
+    {
+      "Fe_cleat_psi": 4450.0,
+      "Fe_host_psi": 4450.0,
+      "Fyb_case_psi": 92000,
+      "Fyb_moment_using_D_lb_in": 239.58333333333334,
+      "K_theta": 1.25,
+      "cleat_load_angle_deg": 90,
+      "condition": "Use D only if delivered bolt and each member satisfy thread-bearing <=1/4 of that member bearing length; 127-mm nominal grip alone is not receiving proof.",
+      "diameter_case": "nominal_D_conditional_on_NDS_12_3_7_2",
+      "governing_mode": "IIIs",
+      "host_load_angle_deg": 90,
+      "interface": "principal_to_cleat",
+      "reduction_by_mode": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "reference_lateral_times_Cdelta_lbf": 106.99772753613323,
+      "reference_lateral_unadjusted_lbf": 176.47654220045067,
+      "reference_modes_lbf": {
+        "II": 290.2968907265397,
+        "IIIm": 341.3723858062217,
+        "IIIs": 176.47654220045067,
+        "IV": 182.52960661675317,
+        "Im": 778.75,
+        "Is": 333.75
+      },
+      "reference_modes_times_Cdelta_lbf": {
+        "II": 176.007004847501,
+        "IIIm": 206.9740775143122,
+        "IIIs": 106.99772753613323,
+        "IV": 110.66770049173743,
+        "Im": 472.156125,
+        "Is": 202.352625
+      },
+      "yield_values_lbf": {
+        "II": 1306.3360082694285,
+        "IIIm": 1365.4895432248868,
+        "IIIs": 705.9061688018027,
+        "IV": 730.1184264670127,
+        "Im": 3893.75,
+        "Is": 1668.75
+      }
+    }
+  ],
+  "schema": "wj04_upper_crosscut_lateral_yield_diagnostic/v1",
+  "status": "conditional_diagnostic_only",
+  "summary": {
+    "principal_to_cleat_nominal_D_conditional_on_NDS_12_3_7_2_Fyb106000": {
+      "Cdelta_range_lbf": [
+        110.2179086178082,
+        165.463353686539
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 3,
+        "IV": 1,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        181.7877430608745,
+        272.9067354222976
+      ]
+    },
+    "principal_to_cleat_nominal_D_conditional_on_NDS_12_3_7_2_Fyb92000": {
+      "Cdelta_range_lbf": [
+        106.99772753613323,
+        155.18327287807904
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 2,
+        "IV": 2,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        176.47654220045067,
+        255.95129948553367
+      ]
+    },
+    "principal_to_cleat_thread_root_default_Fyb106000": {
+      "Cdelta_range_lbf": [
+        92.92274792610954,
+        116.1534349076369
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 0,
+        "IV": 4,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        153.26199558982276,
+        191.57749448727844
+      ]
+    },
+    "principal_to_cleat_thread_root_default_Fyb92000": {
+      "Cdelta_range_lbf": [
+        86.5691244992909,
+        108.21140562411362
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 0,
+        "IV": 4,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        142.78265627460152,
+        178.4783203432519
+      ]
+    },
+    "rail_to_cleat_nominal_D_conditional_on_NDS_12_3_7_2_Fyb106000": {
+      "Cdelta_range_lbf": [
+        110.2179086178082,
+        165.463353686539
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 3,
+        "IV": 1,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        181.7877430608745,
+        272.9067354222976
+      ]
+    },
+    "rail_to_cleat_nominal_D_conditional_on_NDS_12_3_7_2_Fyb92000": {
+      "Cdelta_range_lbf": [
+        106.99772753613323,
+        155.18327287807904
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 2,
+        "IV": 2,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        176.47654220045067,
+        255.95129948553367
+      ]
+    },
+    "rail_to_cleat_thread_root_default_Fyb106000": {
+      "Cdelta_range_lbf": [
+        92.92274792610954,
+        116.1534349076369
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 0,
+        "IV": 4,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        153.26199558982276,
+        191.57749448727844
+      ]
+    },
+    "rail_to_cleat_thread_root_default_Fyb92000": {
+      "Cdelta_range_lbf": [
+        86.5691244992909,
+        108.21140562411362
+      ],
+      "governing_mode_frequency": {
+        "II": 0,
+        "IIIm": 0,
+        "IIIs": 0,
+        "IV": 4,
+        "Im": 0,
+        "Is": 0
+      },
+      "unadjusted_range_lbf": [
+        142.78265627460152,
+        178.4783203432519
+      ]
+    }
+  }
+}
