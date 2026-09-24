@@ -1,0 +1,1466 @@
+{
+  "canonical_wj04_config_sha256": "d1c63e1fa5617999e8af68d683cc0f3074fb84f518b048a087ec5ed276206c0e",
+  "claim_boundary": {
+    "accepted_replacement_count": 0,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "full_load_path_established": false,
+    "hardware_fit_established": false,
+    "physical_assembly_procedure_accepted": false,
+    "temporary_stability_established": false
+  },
+  "fixed_obligations": {
+    "accepted_replacement_count": 0,
+    "cad_environment_materialized": true,
+    "panel_kicker_screw_axes": 66,
+    "preserved_frame_bolt_count": 12,
+    "preserved_panel_kicker_axis_count": 66,
+    "starting_frame_bolts": 12
+  },
+  "limitations": [
+    "Panel removal itself is a declared state; screw extraction and safe panel handling are not modeled.",
+    "The rail movement screen is one-axis only and its swept AABB can flag conservative false collisions; no route around the frame is searched.",
+    "The two far-end legacy connector/SDS duties remain unresolved obstacles; no temporary release, replacement, or side-member removal is assumed.",
+    "The FACOM external envelope is a catalog proxy; exact jaw orientation, fit, torque, delivered tool tolerances, and human access are unverified.",
+    "The 30-degree stroke and 60-degree one-flat reindex are one bounded diagnostic, not proof of repeatable nut removal.",
+    "Temporary support, stability, load transfer, bolt-thread engagement, and structural acceptance are not established."
+  ],
+  "operations": {
+    "final_fit_state": {
+      "all_12_frame_bolt_obligations_retained": true,
+      "all_142_tnut_and_hold_projection_envelopes_restored": true,
+      "all_66_panel_kicker_axes_present_as_obligations": true,
+      "all_lights_and_wires_fixed": true,
+      "all_source_panel_and_protected_obstacles_included": true,
+      "outer_duty_geometry_restored": true,
+      "right_panels_and_attached_tnuts_restored": true,
+      "right_panels_and_tnuts_restored_for_fit_map": true,
+      "screen_status": "final pose map only; not a fit or acceptance result"
+    },
+    "off_frame_t_bolt_assembly": {
+      "external_environment_screen": "not_modeled_off_frame",
+      "field_assembly_or_stability_proven": false,
+      "member_pairings": [
+        {
+          "cleat_id": "wj04_lower_full_stock_cleat",
+          "rail_id": "base_rail_service_lower_right",
+          "station_id": "clip_horizontal_lower_right_1"
+        },
+        {
+          "cleat_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "rail_id": "base_rail_service_upper_right",
+          "station_id": "clip_horizontal_upper_right_1"
+        }
+      ],
+      "outer_duty_prerequisite_status": "unresolved",
+      "principal_x_bolts_installed_off_frame": false,
+      "rail_to_cleat_stack_ids": [
+        "lower_rail_1",
+        "lower_rail_2",
+        "upper_rail_1",
+        "upper_rail_2"
+      ],
+      "service_rail_temporarily_out_of_frame": true
+    },
+    "outer_duty_prerequisites": {
+      "accepted_replacement_count": 0,
+      "duties": {
+        "clip_horizontal_lower_right_2": {
+          "legacy_host_members": [
+            "base_rail_service_lower_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_count": 6,
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "clip_horizontal_lower_right_2_upright_1",
+            "clip_horizontal_lower_right_2_upright_2",
+            "clip_horizontal_lower_right_2_upright_3"
+          ],
+          "replacement_accepted": false,
+          "replacement_owner": "unresolved",
+          "status": "unresolved_prerequisite"
+        },
+        "clip_horizontal_upper_right_2": {
+          "legacy_host_members": [
+            "base_rail_service_upper_right",
+            "base_side_right"
+          ],
+          "legacy_sds_axis_count": 6,
+          "legacy_sds_axis_ids": [
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "clip_horizontal_upper_right_2_upright_1",
+            "clip_horizontal_upper_right_2_upright_2",
+            "clip_horizontal_upper_right_2_upright_3"
+          ],
+          "replacement_accepted": false,
+          "replacement_owner": "unresolved",
+          "status": "unresolved_prerequisite"
+        }
+      },
+      "removed_from_obstacle_map": false,
+      "staging_dependency": "Service-rail release/removal and the eventual far-end replacement connection are unresolved; this probe retains their source angle/SDS geometry as obstacles.",
+      "status": "unresolved_prerequisite"
+    },
+    "panel_off_state": {
+      "attached_tnut_ids_removed": [
+        "hold_tnut_main_G1",
+        "hold_tnut_main_G10",
+        "hold_tnut_main_G11",
+        "hold_tnut_main_G12",
+        "hold_tnut_main_G2",
+        "hold_tnut_main_G3",
+        "hold_tnut_main_G4",
+        "hold_tnut_main_G5",
+        "hold_tnut_main_G6",
+        "hold_tnut_main_G7",
+        "hold_tnut_main_G8",
+        "hold_tnut_main_G9",
+        "hold_tnut_main_H1",
+        "hold_tnut_main_H10",
+        "hold_tnut_main_H11",
+        "hold_tnut_main_H12",
+        "hold_tnut_main_H2",
+        "hold_tnut_main_H3",
+        "hold_tnut_main_H4",
+        "hold_tnut_main_H5",
+        "hold_tnut_main_H6",
+        "hold_tnut_main_H7",
+        "hold_tnut_main_H8",
+        "hold_tnut_main_H9",
+        "hold_tnut_main_I1",
+        "hold_tnut_main_I10",
+        "hold_tnut_main_I11",
+        "hold_tnut_main_I12",
+        "hold_tnut_main_I2",
+        "hold_tnut_main_I3",
+        "hold_tnut_main_I4",
+        "hold_tnut_main_I5",
+        "hold_tnut_main_I6",
+        "hold_tnut_main_I7",
+        "hold_tnut_main_I8",
+        "hold_tnut_main_I9",
+        "hold_tnut_main_J1",
+        "hold_tnut_main_J10",
+        "hold_tnut_main_J11",
+        "hold_tnut_main_J12",
+        "hold_tnut_main_J2",
+        "hold_tnut_main_J3",
+        "hold_tnut_main_J4",
+        "hold_tnut_main_J5",
+        "hold_tnut_main_J6",
+        "hold_tnut_main_J7",
+        "hold_tnut_main_J8",
+        "hold_tnut_main_J9",
+        "hold_tnut_main_K1",
+        "hold_tnut_main_K10",
+        "hold_tnut_main_K11",
+        "hold_tnut_main_K12",
+        "hold_tnut_main_K2",
+        "hold_tnut_main_K3",
+        "hold_tnut_main_K4",
+        "hold_tnut_main_K5",
+        "hold_tnut_main_K6",
+        "hold_tnut_main_K7",
+        "hold_tnut_main_K8",
+        "hold_tnut_main_K9"
+      ],
+      "frame_bolt_obligations_retained": 12,
+      "hold_hardware_and_projection_scope": "Only the right-panel T-nuts and matching provisional hold projection envelopes move with the two detached panels; no delivered hold bolt fit is represented.",
+      "hold_projection_ids_removed_with_panels": [
+        "hold_tnut_main_G1",
+        "hold_tnut_main_G10",
+        "hold_tnut_main_G11",
+        "hold_tnut_main_G12",
+        "hold_tnut_main_G2",
+        "hold_tnut_main_G3",
+        "hold_tnut_main_G4",
+        "hold_tnut_main_G5",
+        "hold_tnut_main_G6",
+        "hold_tnut_main_G7",
+        "hold_tnut_main_G8",
+        "hold_tnut_main_G9",
+        "hold_tnut_main_H1",
+        "hold_tnut_main_H10",
+        "hold_tnut_main_H11",
+        "hold_tnut_main_H12",
+        "hold_tnut_main_H2",
+        "hold_tnut_main_H3",
+        "hold_tnut_main_H4",
+        "hold_tnut_main_H5",
+        "hold_tnut_main_H6",
+        "hold_tnut_main_H7",
+        "hold_tnut_main_H8",
+        "hold_tnut_main_H9",
+        "hold_tnut_main_I1",
+        "hold_tnut_main_I10",
+        "hold_tnut_main_I11",
+        "hold_tnut_main_I12",
+        "hold_tnut_main_I2",
+        "hold_tnut_main_I3",
+        "hold_tnut_main_I4",
+        "hold_tnut_main_I5",
+        "hold_tnut_main_I6",
+        "hold_tnut_main_I7",
+        "hold_tnut_main_I8",
+        "hold_tnut_main_I9",
+        "hold_tnut_main_J1",
+        "hold_tnut_main_J10",
+        "hold_tnut_main_J11",
+        "hold_tnut_main_J12",
+        "hold_tnut_main_J2",
+        "hold_tnut_main_J3",
+        "hold_tnut_main_J4",
+        "hold_tnut_main_J5",
+        "hold_tnut_main_J6",
+        "hold_tnut_main_J7",
+        "hold_tnut_main_J8",
+        "hold_tnut_main_J9",
+        "hold_tnut_main_K1",
+        "hold_tnut_main_K10",
+        "hold_tnut_main_K11",
+        "hold_tnut_main_K12",
+        "hold_tnut_main_K2",
+        "hold_tnut_main_K3",
+        "hold_tnut_main_K4",
+        "hold_tnut_main_K5",
+        "hold_tnut_main_K6",
+        "hold_tnut_main_K7",
+        "hold_tnut_main_K8",
+        "hold_tnut_main_K9"
+      ],
+      "lights_and_wires_remain_in_panel_off_environment": true,
+      "lights_remain_fixed_count": 132,
+      "panel_fastener_axes_temporarily_removed": 24,
+      "panel_fastener_axis_ids_by_panel": {
+        "main_lower_right": [
+          "round_panel_lower_right_center_1",
+          "round_panel_lower_right_center_2",
+          "round_panel_lower_right_center_3",
+          "round_panel_lower_right_center_4",
+          "round_panel_lower_right_edge_1",
+          "round_panel_lower_right_edge_2",
+          "round_panel_lower_right_rim_1",
+          "round_panel_lower_right_rim_2",
+          "round_panel_lower_right_rim_3",
+          "round_panel_lower_right_rim_4",
+          "round_panel_lower_right_service_1",
+          "round_panel_lower_right_service_2"
+        ],
+        "main_upper_right": [
+          "round_panel_upper_right_center_1",
+          "round_panel_upper_right_center_2",
+          "round_panel_upper_right_center_3",
+          "round_panel_upper_right_center_4",
+          "round_panel_upper_right_edge_1",
+          "round_panel_upper_right_edge_2",
+          "round_panel_upper_right_rim_1",
+          "round_panel_upper_right_rim_2",
+          "round_panel_upper_right_rim_3",
+          "round_panel_upper_right_rim_4",
+          "round_panel_upper_right_service_1",
+          "round_panel_upper_right_service_2"
+        ]
+      },
+      "panel_fastener_axis_ids_removed_for_detachment": [
+        "round_panel_lower_right_center_1",
+        "round_panel_lower_right_center_2",
+        "round_panel_lower_right_center_3",
+        "round_panel_lower_right_center_4",
+        "round_panel_lower_right_edge_1",
+        "round_panel_lower_right_edge_2",
+        "round_panel_lower_right_rim_1",
+        "round_panel_lower_right_rim_2",
+        "round_panel_lower_right_rim_3",
+        "round_panel_lower_right_rim_4",
+        "round_panel_lower_right_service_1",
+        "round_panel_lower_right_service_2",
+        "round_panel_upper_right_center_1",
+        "round_panel_upper_right_center_2",
+        "round_panel_upper_right_center_3",
+        "round_panel_upper_right_center_4",
+        "round_panel_upper_right_edge_1",
+        "round_panel_upper_right_edge_2",
+        "round_panel_upper_right_rim_1",
+        "round_panel_upper_right_rim_2",
+        "round_panel_upper_right_rim_3",
+        "round_panel_upper_right_rim_4",
+        "round_panel_upper_right_service_1",
+        "round_panel_upper_right_service_2"
+      ],
+      "panel_kicker_axis_obligations_retained": 66,
+      "panel_removal_path_verified": false,
+      "panel_screw_removal_path_verified": false,
+      "panel_shapes_excluded_in_this_state_only": [
+        "main_lower_right",
+        "main_upper_right"
+      ],
+      "panels_removed": [
+        "main_lower_right",
+        "main_upper_right"
+      ],
+      "removed_panel_owned_protected_count": 144,
+      "wires_remain_fixed_count": 131
+    },
+    "principal_x_bolt_tool_screen": {
+      "candidate_id": "facom_34_7_16",
+      "environment_state": "panel_off_right_upper_and_lower",
+      "external_proxy_dimensions_mm": {
+        "head_diameter_and_handle_width": 22.0,
+        "head_thickness": 3.0,
+        "overall_length": 100.0
+      },
+      "full_repeatable_nut_removal_proven": false,
+      "one_flat_reindex_degrees": 60.0,
+      "proxy_shape": "Two circular 22 mm heads and a full-width 22 mm rectangular handle, 3 mm thick and 100 mm overall; catalog external-envelope proxy, not exact FACOM wrench CAD or jaw-fit evidence.",
+      "stacks": {
+        "lower_principal_1": {
+          "axis_direction_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "axis_point_global_xyz_mm": [
+            177.95,
+            666.335415,
+            1244.786766
+          ],
+          "full_repeatable_nut_removal_proven": false,
+          "head_wrench_count": 1,
+          "heading_cases": [
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_1/head",
+                  "hardware/lower_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_1/nut",
+                  "hardware/lower_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/lower_principal_2/nut": 387.669225,
+                    "hardware/lower_principal_2/shaft": 95.007652
+                  },
+                  "nut_reindex_60deg": {
+                    "hardware/lower_principal_2/nut": 387.669225,
+                    "hardware/lower_principal_2/shaft": 95.007652
+                  },
+                  "nut_reseat": {
+                    "hardware/lower_principal_2/nut": 387.669225,
+                    "hardware/lower_principal_2/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 15.0
+            },
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_1/head",
+                  "hardware/lower_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "head_counterhold": {
+                    "hardware/lower_principal_2/head": 84.579222,
+                    "wood/base_rail_service_upper_right": 128.6532
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_1/nut",
+                  "hardware/lower_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_reseat": {
+                    "hardware/lower_principal_2/nut": 387.669225,
+                    "hardware/lower_principal_2/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 75.0
+            }
+          ],
+          "nut_wrench_count": 1,
+          "real_tool_fit_or_torque_proven": false,
+          "two_wrenches_required_for_counterhold": true
+        },
+        "lower_principal_2": {
+          "axis_direction_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "axis_point_global_xyz_mm": [
+            177.95,
+            687.547406,
+            1270.066233
+          ],
+          "full_repeatable_nut_removal_proven": false,
+          "head_wrench_count": 1,
+          "heading_cases": [
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_2/head",
+                  "hardware/lower_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "head_counterhold": {
+                    "wood/base_rail_service_upper_right": 2096.527113
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_2/nut",
+                  "hardware/lower_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/lower_principal_1/nut": 387.669225,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  },
+                  "nut_turn_30deg": {
+                    "hardware/lower_principal_1/nut": 334.316387,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 15.0
+            },
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_2/head",
+                  "hardware/lower_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "head_counterhold": {
+                    "wood/base_rail_service_upper_right": 2444.807811
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/lower_principal_2/nut",
+                  "hardware/lower_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/lower_principal_1/nut": 387.669225,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  },
+                  "nut_reindex_60deg": {
+                    "hardware/lower_principal_1/nut": 387.669225,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  },
+                  "nut_reseat": {
+                    "hardware/lower_principal_1/nut": 387.669225,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  },
+                  "nut_turn_30deg": {
+                    "hardware/lower_principal_1/nut": 387.669225,
+                    "hardware/lower_principal_1/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 75.0
+            }
+          ],
+          "nut_wrench_count": 1,
+          "real_tool_fit_or_torque_proven": false,
+          "two_wrenches_required_for_counterhold": true
+        },
+        "upper_principal_1": {
+          "axis_direction_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "axis_point_global_xyz_mm": [
+            177.95,
+            746.365842,
+            1365.677185
+          ],
+          "full_repeatable_nut_removal_proven": false,
+          "head_wrench_count": 1,
+          "heading_cases": [
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_1/head",
+                  "hardware/upper_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_1/nut",
+                  "hardware/upper_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/upper_principal_2/nut": 387.669225,
+                    "hardware/upper_principal_2/shaft": 95.007652
+                  },
+                  "nut_reindex_60deg": {
+                    "hardware/upper_principal_2/nut": 387.669225,
+                    "hardware/upper_principal_2/shaft": 95.007652
+                  },
+                  "nut_reseat": {
+                    "hardware/upper_principal_2/nut": 387.669225,
+                    "hardware/upper_principal_2/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 15.0
+            },
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_1/head",
+                  "hardware/upper_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "head_counterhold": {
+                    "hardware/upper_principal_2/head": 84.579222
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_1/nut",
+                  "hardware/upper_principal_1/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/lower_principal_2/nut": 224.519512,
+                    "hardware/lower_principal_2/shaft": 64.487299
+                  },
+                  "nut_reseat": {
+                    "hardware/upper_principal_2/nut": 387.669225,
+                    "hardware/upper_principal_2/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 75.0
+            }
+          ],
+          "nut_wrench_count": 1,
+          "real_tool_fit_or_torque_proven": false,
+          "two_wrenches_required_for_counterhold": true
+        },
+        "upper_principal_2": {
+          "axis_direction_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "axis_point_global_xyz_mm": [
+            177.95,
+            767.577833,
+            1390.956652
+          ],
+          "full_repeatable_nut_removal_proven": false,
+          "head_wrench_count": 1,
+          "heading_cases": [
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_2/head",
+                  "hardware/upper_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_2/nut",
+                  "hardware/upper_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/upper_principal_1/nut": 387.669225,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  },
+                  "nut_turn_30deg": {
+                    "hardware/upper_principal_1/nut": 334.316387,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 15.0
+            },
+            {
+              "head_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_2/head",
+                  "hardware/upper_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "heading_is_exact_catalog_jaw_pose": false,
+              "motion_degrees": {
+                "one_flat_reindex": 60.0,
+                "open_end_exit_mm": 22.0,
+                "rotation_bounds_are_full_turn": false,
+                "working_stroke": 30.0
+              },
+              "nut_turn_reindex_reseat": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [
+                  "hardware/upper_principal_2/nut",
+                  "hardware/upper_principal_2/shaft"
+                ],
+                "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+                "external_envelope_clear": false,
+                "external_envelope_hits_mm3": {
+                  "nut_open_end_exit": {
+                    "hardware/upper_principal_1/nut": 387.669225,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  },
+                  "nut_reindex_60deg": {
+                    "hardware/upper_principal_1/nut": 387.669225,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  },
+                  "nut_reseat": {
+                    "hardware/upper_principal_1/nut": 387.669225,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  },
+                  "nut_turn_30deg": {
+                    "hardware/upper_principal_1/nut": 387.669225,
+                    "hardware/upper_principal_1/shaft": 95.007652
+                  }
+                },
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "nut_wrench_vs_counterhold": {
+                "bounds_are_conservative": true,
+                "clear_envelope_proves_actual_tool_access": false,
+                "envelope_clash_proves_physical_blockage": false,
+                "excluded_target_obstacle_ids": [],
+                "exclusion_scope": "No fastener or opposing wrench is excluded.",
+                "external_envelope_clear": true,
+                "external_envelope_hits_mm3": {},
+                "physical_access_established": false,
+                "real_tool_impossibility_proven": false
+              },
+              "synthetic_heading_degrees": 75.0
+            }
+          ],
+          "nut_wrench_count": 1,
+          "real_tool_fit_or_torque_proven": false,
+          "two_wrenches_required_for_counterhold": true
+        }
+      },
+      "working_stroke_degrees": 30.0
+    },
+    "rail_cleat_placement_removal": {
+      "directions_by_station": {
+        "clip_horizontal_lower_right_1": {
+          "attached_t_bolt_stack_ids": [
+            "lower_rail_1",
+            "lower_rail_2"
+          ],
+          "directions": {
+            "+N": {
+              "bounds_are_conservative": true,
+              "displacement_mm": 1444.439473,
+              "envelope_clear": false,
+              "fixed_obstacle_projection_clearance_mm": 25.0,
+              "hit_obstacle_ids": [
+                "hardware/upper_rail_1/head",
+                "hardware/upper_rail_1/head_washer",
+                "hardware/upper_rail_1/shaft",
+                "hardware/upper_rail_2/head",
+                "hardware/upper_rail_2/head_washer",
+                "hardware/upper_rail_2/shaft",
+                "protected/lights/light_G7",
+                "protected/lights/light_H7",
+                "protected/lights/light_I7",
+                "protected/lights/light_J7",
+                "protected/lights/light_K7",
+                "protected/retained_legacy_connectors/clip_horizontal_lower_right_2",
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "protected/wires/wire_078_G6_G7",
+                "protected/wires/wire_079_G7_G8",
+                "protected/wires/wire_089_H8_H7",
+                "protected/wires/wire_090_H7_H6",
+                "protected/wires/wire_102_I6_I7",
+                "protected/wires/wire_103_I7_I8",
+                "protected/wires/wire_113_J8_J7",
+                "protected/wires/wire_114_J7_J6",
+                "protected/wires/wire_126_K6_K7",
+                "protected/wires/wire_127_K7_K8",
+                "wood/base_rail_service_upper_right",
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+              ],
+              "hits_mm3": {
+                "hardware/upper_rail_1/head": 535.009375,
+                "hardware/upper_rail_1/head_washer": 480.581674,
+                "hardware/upper_rail_1/shaft": 1390.998931,
+                "hardware/upper_rail_2/head": 535.009375,
+                "hardware/upper_rail_2/head_washer": 480.581674,
+                "hardware/upper_rail_2/shaft": 1390.998931,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/lights/light_H7": 3832.767041,
+                "protected/lights/light_I7": 3832.767041,
+                "protected/lights/light_J7": 3832.767041,
+                "protected/lights/light_K7": 3832.767041,
+                "protected/retained_legacy_connectors/clip_horizontal_lower_right_2": 25786.035456,
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2": 13112.137423,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3": 1206.597185,
+                "protected/wires/wire_078_G6_G7": 2571.64423,
+                "protected/wires/wire_079_G7_G8": 1712.567046,
+                "protected/wires/wire_089_H8_H7": 1712.567046,
+                "protected/wires/wire_090_H7_H6": 2571.64423,
+                "protected/wires/wire_102_I6_I7": 2571.64423,
+                "protected/wires/wire_103_I7_I8": 1712.567046,
+                "protected/wires/wire_113_J8_J7": 1712.567046,
+                "protected/wires/wire_114_J7_J6": 2571.64423,
+                "protected/wires/wire_126_K6_K7": 2571.64423,
+                "protected/wires/wire_127_K7_K8": 1712.567046,
+                "wood/base_rail_service_upper_right": 5297868.248036,
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 28950.111861
+              },
+              "outer_duty_hit_ids": [
+                "retained_legacy_connectors/clip_horizontal_lower_right_2",
+                "retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_3"
+              ],
+              "physical_move_proven": false
+            },
+            "-N": {
+              "bounds_are_conservative": true,
+              "displacement_mm": 1693.348151,
+              "envelope_clear": false,
+              "fixed_obstacle_projection_clearance_mm": 25.0,
+              "hit_obstacle_ids": [
+                "hardware/upper_rail_1/head",
+                "hardware/upper_rail_1/head_washer",
+                "hardware/upper_rail_1/shaft",
+                "hardware/upper_rail_2/head",
+                "hardware/upper_rail_2/head_washer",
+                "hardware/upper_rail_2/shaft",
+                "protected/lights/light_G7",
+                "protected/lights/light_H7",
+                "protected/lights/light_I7",
+                "protected/lights/light_J7",
+                "protected/lights/light_K7",
+                "protected/retained_legacy_connectors/clip_horizontal_lower_right_2",
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "protected/wires/wire_078_G6_G7",
+                "protected/wires/wire_079_G7_G8",
+                "protected/wires/wire_089_H8_H7",
+                "protected/wires/wire_090_H7_H6",
+                "protected/wires/wire_102_I6_I7",
+                "protected/wires/wire_103_I7_I8",
+                "protected/wires/wire_113_J8_J7",
+                "protected/wires/wire_114_J7_J6",
+                "protected/wires/wire_126_K6_K7",
+                "protected/wires/wire_127_K7_K8",
+                "wood/base_rail_service_upper_right",
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+              ],
+              "hits_mm3": {
+                "hardware/upper_rail_1/head": 535.009375,
+                "hardware/upper_rail_1/head_washer": 480.581674,
+                "hardware/upper_rail_1/shaft": 1390.998931,
+                "hardware/upper_rail_2/head": 535.009375,
+                "hardware/upper_rail_2/head_washer": 480.581674,
+                "hardware/upper_rail_2/shaft": 1390.998931,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/lights/light_H7": 3832.767041,
+                "protected/lights/light_I7": 3832.767041,
+                "protected/lights/light_J7": 3832.767041,
+                "protected/lights/light_K7": 3832.767041,
+                "protected/retained_legacy_connectors/clip_horizontal_lower_right_2": 25786.035456,
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2": 13112.137423,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3": 1206.597185,
+                "protected/wires/wire_078_G6_G7": 2571.644229,
+                "protected/wires/wire_079_G7_G8": 1712.567046,
+                "protected/wires/wire_089_H8_H7": 1712.567046,
+                "protected/wires/wire_090_H7_H6": 2571.644229,
+                "protected/wires/wire_102_I6_I7": 2571.644229,
+                "protected/wires/wire_103_I7_I8": 1712.567046,
+                "protected/wires/wire_113_J8_J7": 1712.567046,
+                "protected/wires/wire_114_J7_J6": 2571.644229,
+                "protected/wires/wire_126_K6_K7": 2571.644229,
+                "protected/wires/wire_127_K7_K8": 1712.567046,
+                "wood/base_rail_service_upper_right": 5297868.248036,
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 28950.111861
+              },
+              "outer_duty_hit_ids": [
+                "retained_legacy_connectors/clip_horizontal_lower_right_2",
+                "retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+                "retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_3"
+              ],
+              "physical_move_proven": false
+            }
+          },
+          "moving_member_ids": [
+            "base_rail_service_lower_right",
+            "wj04_lower_full_stock_cleat"
+          ],
+          "outer_duty_resolution_required_before_field_removal": true,
+          "principal_x_bolts_installed_during_move": false,
+          "retained_outer_duty_geometry_ids": [
+            "protected/retained_legacy_connectors/clip_horizontal_lower_right_2",
+            "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3"
+          ],
+          "side_member_release_modeled": false
+        },
+        "clip_horizontal_upper_right_1": {
+          "attached_t_bolt_stack_ids": [
+            "upper_rail_1",
+            "upper_rail_2"
+          ],
+          "directions": {
+            "+N": {
+              "bounds_are_conservative": true,
+              "displacement_mm": 1425.191643,
+              "envelope_clear": false,
+              "fixed_obstacle_projection_clearance_mm": 25.0,
+              "hit_obstacle_ids": [
+                "hardware/lower_principal_1/head_washer",
+                "hardware/lower_principal_2/head",
+                "hardware/lower_principal_2/head_washer",
+                "hardware/lower_principal_2/shaft",
+                "hardware/lower_rail_1/head",
+                "hardware/lower_rail_1/head_washer",
+                "hardware/lower_rail_1/shaft",
+                "hardware/lower_rail_2/head",
+                "hardware/lower_rail_2/head_washer",
+                "hardware/lower_rail_2/shaft",
+                "protected/lights/light_G7",
+                "protected/lights/light_G8",
+                "protected/lights/light_H7",
+                "protected/lights/light_H8",
+                "protected/lights/light_I7",
+                "protected/lights/light_I8",
+                "protected/lights/light_J7",
+                "protected/lights/light_J8",
+                "protected/lights/light_K7",
+                "protected/lights/light_K8",
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3",
+                "protected/wires/wire_078_G6_G7",
+                "protected/wires/wire_079_G7_G8",
+                "protected/wires/wire_080_G8_G9",
+                "protected/wires/wire_088_H9_H8",
+                "protected/wires/wire_089_H8_H7",
+                "protected/wires/wire_090_H7_H6",
+                "protected/wires/wire_102_I6_I7",
+                "protected/wires/wire_103_I7_I8",
+                "protected/wires/wire_104_I8_I9",
+                "protected/wires/wire_112_J9_J8",
+                "protected/wires/wire_113_J8_J7",
+                "protected/wires/wire_114_J7_J6",
+                "protected/wires/wire_126_K6_K7",
+                "protected/wires/wire_127_K7_K8",
+                "protected/wires/wire_128_K8_K9",
+                "wood/wj04_lower_full_stock_cleat"
+              ],
+              "hits_mm3": {
+                "hardware/lower_principal_1/head_washer": 2.445049,
+                "hardware/lower_principal_2/head": 535.009375,
+                "hardware/lower_principal_2/head_washer": 480.581674,
+                "hardware/lower_principal_2/shaft": 2879.745281,
+                "hardware/lower_rail_1/head": 535.009375,
+                "hardware/lower_rail_1/head_washer": 480.581674,
+                "hardware/lower_rail_1/shaft": 1702.879847,
+                "hardware/lower_rail_2/head": 535.009375,
+                "hardware/lower_rail_2/head_washer": 480.581674,
+                "hardware/lower_rail_2/shaft": 1702.879847,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/lights/light_G8": 3832.767041,
+                "protected/lights/light_H7": 3832.767041,
+                "protected/lights/light_H8": 3832.767041,
+                "protected/lights/light_I7": 3832.767041,
+                "protected/lights/light_I8": 3832.767041,
+                "protected/lights/light_J7": 3832.767041,
+                "protected/lights/light_J8": 3832.767041,
+                "protected/lights/light_K7": 3832.767041,
+                "protected/lights/light_K8": 3832.767041,
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2": 25786.035456,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3": 80.922451,
+                "protected/wires/wire_078_G6_G7": 238.320495,
+                "protected/wires/wire_079_G7_G8": 3439.466293,
+                "protected/wires/wire_080_G8_G9": 225.420208,
+                "protected/wires/wire_088_H9_H8": 225.420207,
+                "protected/wires/wire_089_H8_H7": 3439.466293,
+                "protected/wires/wire_090_H7_H6": 238.320495,
+                "protected/wires/wire_102_I6_I7": 238.320495,
+                "protected/wires/wire_103_I7_I8": 3439.466293,
+                "protected/wires/wire_104_I8_I9": 225.420208,
+                "protected/wires/wire_112_J9_J8": 225.420207,
+                "protected/wires/wire_113_J8_J7": 3439.466293,
+                "protected/wires/wire_114_J7_J6": 238.320495,
+                "protected/wires/wire_126_K6_K7": 238.320495,
+                "protected/wires/wire_127_K7_K8": 3439.466293,
+                "protected/wires/wire_128_K8_K9": 225.420208,
+                "wood/wj04_lower_full_stock_cleat": 542070.89241
+              },
+              "outer_duty_hit_ids": [
+                "retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_3"
+              ],
+              "physical_move_proven": false
+            },
+            "-N": {
+              "bounds_are_conservative": true,
+              "displacement_mm": 1695.031387,
+              "envelope_clear": false,
+              "fixed_obstacle_projection_clearance_mm": 25.0,
+              "hit_obstacle_ids": [
+                "hardware/lower_principal_1/head_washer",
+                "hardware/lower_principal_2/head",
+                "hardware/lower_principal_2/head_washer",
+                "hardware/lower_principal_2/shaft",
+                "hardware/lower_rail_1/head",
+                "hardware/lower_rail_1/head_washer",
+                "hardware/lower_rail_1/shaft",
+                "hardware/lower_rail_2/head",
+                "hardware/lower_rail_2/head_washer",
+                "hardware/lower_rail_2/shaft",
+                "protected/lights/light_G7",
+                "protected/lights/light_G8",
+                "protected/lights/light_H7",
+                "protected/lights/light_H8",
+                "protected/lights/light_I7",
+                "protected/lights/light_I8",
+                "protected/lights/light_J7",
+                "protected/lights/light_J8",
+                "protected/lights/light_K7",
+                "protected/lights/light_K8",
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3",
+                "protected/wires/wire_078_G6_G7",
+                "protected/wires/wire_079_G7_G8",
+                "protected/wires/wire_080_G8_G9",
+                "protected/wires/wire_088_H9_H8",
+                "protected/wires/wire_089_H8_H7",
+                "protected/wires/wire_090_H7_H6",
+                "protected/wires/wire_102_I6_I7",
+                "protected/wires/wire_103_I7_I8",
+                "protected/wires/wire_104_I8_I9",
+                "protected/wires/wire_112_J9_J8",
+                "protected/wires/wire_113_J8_J7",
+                "protected/wires/wire_114_J7_J6",
+                "protected/wires/wire_126_K6_K7",
+                "protected/wires/wire_127_K7_K8",
+                "protected/wires/wire_128_K8_K9",
+                "wood/wj04_lower_full_stock_cleat"
+              ],
+              "hits_mm3": {
+                "hardware/lower_principal_1/head_washer": 2.445049,
+                "hardware/lower_principal_2/head": 535.009375,
+                "hardware/lower_principal_2/head_washer": 480.581674,
+                "hardware/lower_principal_2/shaft": 2879.745281,
+                "hardware/lower_rail_1/head": 535.009375,
+                "hardware/lower_rail_1/head_washer": 480.581674,
+                "hardware/lower_rail_1/shaft": 1702.879847,
+                "hardware/lower_rail_2/head": 535.009375,
+                "hardware/lower_rail_2/head_washer": 480.581674,
+                "hardware/lower_rail_2/shaft": 1702.879847,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/lights/light_G8": 3832.767041,
+                "protected/lights/light_H7": 3832.767041,
+                "protected/lights/light_H8": 3832.767041,
+                "protected/lights/light_I7": 3832.767041,
+                "protected/lights/light_I8": 3832.767041,
+                "protected/lights/light_J7": 3832.767041,
+                "protected/lights/light_J8": 3832.767041,
+                "protected/lights/light_K7": 3832.767041,
+                "protected/lights/light_K8": 3832.767041,
+                "protected/retained_legacy_connectors/clip_horizontal_upper_right_2": 25786.035456,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3": 1206.597185,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2": 80.922451,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3": 80.922451,
+                "protected/wires/wire_078_G6_G7": 238.320495,
+                "protected/wires/wire_079_G7_G8": 3439.466293,
+                "protected/wires/wire_080_G8_G9": 225.420207,
+                "protected/wires/wire_088_H9_H8": 225.420207,
+                "protected/wires/wire_089_H8_H7": 3439.466293,
+                "protected/wires/wire_090_H7_H6": 238.320495,
+                "protected/wires/wire_102_I6_I7": 238.320495,
+                "protected/wires/wire_103_I7_I8": 3439.466293,
+                "protected/wires/wire_104_I8_I9": 225.420207,
+                "protected/wires/wire_112_J9_J8": 225.420207,
+                "protected/wires/wire_113_J8_J7": 3439.466293,
+                "protected/wires/wire_114_J7_J6": 238.320495,
+                "protected/wires/wire_126_K6_K7": 238.320495,
+                "protected/wires/wire_127_K7_K8": 3439.466293,
+                "protected/wires/wire_128_K8_K9": 225.420207,
+                "wood/wj04_lower_full_stock_cleat": 542070.89241
+              },
+              "outer_duty_hit_ids": [
+                "retained_legacy_connectors/clip_horizontal_upper_right_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+                "retained_legacy_sds/clip_horizontal_upper_right_2_upright_3"
+              ],
+              "physical_move_proven": false
+            }
+          },
+          "moving_member_ids": [
+            "base_rail_service_upper_right",
+            "wj04_upper_g7_crosscut_full_stock_cleat"
+          ],
+          "outer_duty_resolution_required_before_field_removal": true,
+          "principal_x_bolts_installed_during_move": false,
+          "retained_outer_duty_geometry_ids": [
+            "protected/retained_legacy_connectors/clip_horizontal_lower_right_2",
+            "protected/retained_legacy_connectors/clip_horizontal_upper_right_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+            "protected/retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+            "protected/retained_legacy_sds/clip_horizontal_upper_right_2_upright_3"
+          ],
+          "side_member_release_modeled": false
+        }
+      },
+      "directions_checked": [
+        "+N",
+        "-N"
+      ],
+      "moving_member_sets": [
+        {
+          "cleat_id": "wj04_lower_full_stock_cleat",
+          "rail_id": "base_rail_service_lower_right",
+          "station_id": "clip_horizontal_lower_right_1"
+        },
+        {
+          "cleat_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "rail_id": "base_rail_service_upper_right",
+          "station_id": "clip_horizontal_upper_right_1"
+        }
+      ],
+      "outer_duty_obstacles_retained": true,
+      "screen_status": "geometry_materialized; physical path unverified",
+      "side_member_release_modeled": false,
+      "stand_off_strategy": "At materialization, extend each one-axis sweep until the moving member's N projection clears the fixed obstacle projection by 25 mm. This is not a route around the frame.",
+      "translation_axis": "source WJ04 global N axis"
+    }
+  },
+  "outer_duty_geometry": {
+    "accepted_replacement_count": 0,
+    "all_required_ids_restored_in_source_map": true,
+    "unresolved_obstacle_ids_retained": [
+      "retained_legacy_connectors/clip_horizontal_lower_right_2",
+      "retained_legacy_connectors/clip_horizontal_upper_right_2",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_beam_1",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_beam_2",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_beam_3",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_upright_1",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_upright_2",
+      "retained_legacy_sds/clip_horizontal_lower_right_2_upright_3",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_beam_1",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_beam_2",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_beam_3",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_upright_1",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_upright_2",
+      "retained_legacy_sds/clip_horizontal_upper_right_2_upright_3"
+    ]
+  },
+  "producer_sha256": "a2eb40c664ea134ecc23cd09589577de05f63ea4fb9555b74b17020d5af7c953",
+  "schema": "wood_joint_wj04_pair_access/v1",
+  "source_binding": {
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27",
+    "inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "raw_source_binding_mutated": false,
+    "runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c"
+  },
+  "source_inputs_sha256": {
+    "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+    "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+    "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+    "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+    "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+    "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+    "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+    "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+    "scripts/wood_joint_wj04_pair_access.py": "a2eb40c664ea134ecc23cd09589577de05f63ea4fb9555b74b17020d5af7c953",
+    "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+    "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+    "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+    "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860"
+  },
+  "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+  "status": "unaccepted_access_hypothesis",
+  "trial_id": "wj04_right_pair_access_staging_hypothesis"
+}
