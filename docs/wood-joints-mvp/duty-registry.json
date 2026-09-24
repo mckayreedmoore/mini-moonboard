@@ -1,0 +1,1076 @@
+{
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "claim": "Source-bound duty crosswalk only. Assignment records do not qualify a joint, complete a load path, or accept a replacement.",
+  "counts": {
+    "accepted_replacement_duty_count": 0,
+    "duties_with_WJ03_interface_owner_evidence": 4,
+    "duties_without_materialized_interface_records": 20,
+    "fixed_panel_kicker_hillman_axes_retained": 66,
+    "legacy_axes_mapped_to_duty_rows": 144,
+    "legacy_former_angle_duties": 24,
+    "legacy_removed_sds_axes": 144,
+    "missing_proposed_owner_id_count": 0,
+    "source_inventory_replacement_owner_fields_unassigned": 24,
+    "starting_frame_bolt_obligations_retained": 12,
+    "unique_duty_assignments": 24,
+    "unresolved_or_unaccepted_duty_count": 24
+  },
+  "duties": [
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_single_top_left_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "top_outer",
+      "legacy_host_members": [
+        "base_rail_top",
+        "base_side_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "1e857fb20b0b6026a4a10ec574124792487155782323782d9630cad432250c57",
+      "legacy_sds_axis_ids": [
+        "clip_single_top_left_1_beam_1",
+        "clip_single_top_left_1_beam_2",
+        "clip_single_top_left_1_beam_3",
+        "clip_single_top_left_1_upright_1",
+        "clip_single_top_left_1_upright_2",
+        "clip_single_top_left_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_single_top_left_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_single_top_right_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "top_outer",
+      "legacy_host_members": [
+        "base_rail_top",
+        "base_side_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "b22152006c7a2e68330b10de10fcd64b4e3fa69ca6cc3d8ff959fcd6b5e1d50e",
+      "legacy_sds_axis_ids": [
+        "clip_single_top_right_2_beam_1",
+        "clip_single_top_right_2_beam_2",
+        "clip_single_top_right_2_beam_3",
+        "clip_single_top_right_2_upright_1",
+        "clip_single_top_right_2_upright_2",
+        "clip_single_top_right_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_single_top_right_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_top_center_left",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "top_center",
+      "legacy_host_members": [
+        "base_rail_top",
+        "base_principal_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "53c07aa34bf0ecb62d7fa97d0e5342ff95edabcb6cb788c12d28061b172d7540",
+      "legacy_sds_axis_ids": [
+        "clip_split_top_center_left_beam_1",
+        "clip_split_top_center_left_beam_2",
+        "clip_split_top_center_left_beam_3",
+        "clip_split_top_center_left_upright_1",
+        "clip_split_top_center_left_upright_2",
+        "clip_split_top_center_left_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_split_top_center_left",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_top_center_right",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "top_center",
+      "legacy_host_members": [
+        "base_rail_top",
+        "base_principal_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "8588040c901097f03c9f4f69d4b30356b5192f69fba58de6919eefda92796320",
+      "legacy_sds_axis_ids": [
+        "clip_split_top_center_right_beam_1",
+        "clip_split_top_center_right_beam_2",
+        "clip_split_top_center_right_beam_3",
+        "clip_split_top_center_right_upright_1",
+        "clip_split_top_center_right_upright_2",
+        "clip_split_top_center_right_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_split_top_center_right",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_bottom_left_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "bottom_outer",
+      "legacy_host_members": [
+        "base_rail_bottom_left",
+        "base_side_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "0ead63a4a51a06deef6a2bf52f60f13b9f5c00622b5f39aa7251f0c769b22c42",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_bottom_left_1_beam_1",
+        "clip_horizontal_bottom_left_1_beam_2",
+        "clip_horizontal_bottom_left_1_beam_3",
+        "clip_horizontal_bottom_left_1_upright_1",
+        "clip_horizontal_bottom_left_1_upright_2",
+        "clip_horizontal_bottom_left_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_bottom_left_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_bottom_right_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "bottom_outer",
+      "legacy_host_members": [
+        "base_rail_bottom_right",
+        "base_side_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "167700f8624b8abc9ffb60854bd487ad1fab5ac1e1c0994feae8e0f621361086",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_bottom_right_2_beam_1",
+        "clip_horizontal_bottom_right_2_beam_2",
+        "clip_horizontal_bottom_right_2_beam_3",
+        "clip_horizontal_bottom_right_2_upright_1",
+        "clip_horizontal_bottom_right_2_upright_2",
+        "clip_horizontal_bottom_right_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_bottom_right_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_bottom_left_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "bottom_center",
+      "legacy_host_members": [
+        "base_rail_bottom_left",
+        "base_principal_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "111e02527779955bf519af5dfc12236691b0878a1ae2712c41b93dab775c93ef",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_bottom_left_2_beam_1",
+        "clip_horizontal_bottom_left_2_beam_2",
+        "clip_horizontal_bottom_left_2_beam_3",
+        "clip_horizontal_bottom_left_2_upright_1",
+        "clip_horizontal_bottom_left_2_upright_2",
+        "clip_horizontal_bottom_left_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_bottom_left_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_bottom_right_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "bottom_center",
+      "legacy_host_members": [
+        "base_rail_bottom_right",
+        "base_principal_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "209ed843db74ff29539b7035154e3241216e8ab04b5bb8974c116da17ecd5620",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_bottom_right_1_beam_1",
+        "clip_horizontal_bottom_right_1_beam_2",
+        "clip_horizontal_bottom_right_1_beam_3",
+        "clip_horizontal_bottom_right_1_upright_1",
+        "clip_horizontal_bottom_right_1_upright_2",
+        "clip_horizontal_bottom_right_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_bottom_right_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_lower_left_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "lower_outer",
+      "legacy_host_members": [
+        "base_rail_service_lower_left",
+        "base_side_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "bbe3eb2c10b37eee6ab1ab57767f3e57db7713d103f1cd85a6d33f80d0027092",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_lower_left_1_beam_1",
+        "clip_horizontal_lower_left_1_beam_2",
+        "clip_horizontal_lower_left_1_beam_3",
+        "clip_horizontal_lower_left_1_upright_1",
+        "clip_horizontal_lower_left_1_upright_2",
+        "clip_horizontal_lower_left_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_lower_left_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_lower_right_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "lower_outer",
+      "legacy_host_members": [
+        "base_rail_service_lower_right",
+        "base_side_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "b6ee33128c9b9a442d8e8455b0c1d2654b22ccd8370334cb6346254bd273029f",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_lower_right_2_beam_1",
+        "clip_horizontal_lower_right_2_beam_2",
+        "clip_horizontal_lower_right_2_beam_3",
+        "clip_horizontal_lower_right_2_upright_1",
+        "clip_horizontal_lower_right_2_upright_2",
+        "clip_horizontal_lower_right_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_lower_right_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_lower_left_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "lower_center",
+      "legacy_host_members": [
+        "base_rail_service_lower_left",
+        "base_principal_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "5c13b12a8ba483ee0c06f7b5064e3ed5df8a02fdcdac1a880b4cfc2fb10ebeb6",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_lower_left_2_beam_1",
+        "clip_horizontal_lower_left_2_beam_2",
+        "clip_horizontal_lower_left_2_beam_3",
+        "clip_horizontal_lower_left_2_upright_1",
+        "clip_horizontal_lower_left_2_upright_2",
+        "clip_horizontal_lower_left_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_lower_left_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ04_diagnostic_probe",
+      "evidence_path": "docs/wood-joints-mvp/wj04-probe.json",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_lower_right_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "lower_center",
+      "legacy_host_members": [
+        "base_rail_service_lower_right",
+        "base_principal_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "82d5934acfc6f96b1118cfe01f7707438cf078c9cdc141ba29b93443164c57aa",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_lower_right_1_beam_1",
+        "clip_horizontal_lower_right_1_beam_2",
+        "clip_horizontal_lower_right_1_beam_3",
+        "clip_horizontal_lower_right_1_upright_1",
+        "clip_horizontal_lower_right_1_upright_2",
+        "clip_horizontal_lower_right_1_upright_3"
+      ],
+      "owner_assignment_status": "diagnostic_revise_unaccepted",
+      "proposed_owner_id": "wj04_workhorse_clip_horizontal_lower_right_1",
+      "proposed_topology": "WJ-04 revised workhorse cleat diagnostic; geometry not accepted",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "K.L. Jack bolts, candidate washers, and nuts supply catalog geometry envelopes only; no strength, delivered shank, full-form thread end, or nut engagement is accepted.",
+        "Cleat uses configured 2x6 dimensional lead and rip; purchase, grade after rip, delivered dimensions, defects, kerf, and yield remain unverified.",
+        "Four WJ-03 outer legacy angle stations are removed from this local protected inventory, while replacement outer-node geometry remains absent; this is not an integrated clash pass.",
+        "Retained upper-rail SDS and connector geometry remain in this local screen until their own duties are replaced.",
+        "Tool and reverse-order access are nominal diagnostics; delivered tolerances and physical fit remain unverified.",
+        "No wood, bolt-group, washer-bearing, internal-cleat, or same-case mechanics acceptance."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_upper_left_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "upper_outer",
+      "legacy_host_members": [
+        "base_rail_service_upper_left",
+        "base_side_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "22158611c805b40af6a7ac93c430998f29b05857e19e02dcf2d5859f9a8dfd4d",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_upper_left_1_beam_1",
+        "clip_horizontal_upper_left_1_beam_2",
+        "clip_horizontal_upper_left_1_beam_3",
+        "clip_horizontal_upper_left_1_upright_1",
+        "clip_horizontal_upper_left_1_upright_2",
+        "clip_horizontal_upper_left_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_upper_left_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_upper_right_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "upper_outer",
+      "legacy_host_members": [
+        "base_rail_service_upper_right",
+        "base_side_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "bc917962258a7a0bc241ef85df17ae8d5bd9b98856a4739a75bff1f4d2823269",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_upper_right_2_beam_1",
+        "clip_horizontal_upper_right_2_beam_2",
+        "clip_horizontal_upper_right_2_beam_3",
+        "clip_horizontal_upper_right_2_upright_1",
+        "clip_horizontal_upper_right_2_upright_2",
+        "clip_horizontal_upper_right_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_upper_right_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_upper_left_2",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "upper_center",
+      "legacy_host_members": [
+        "base_rail_service_upper_left",
+        "base_principal_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "fa65bbaaf59f84c71424c5510d1cf9b3d3b3295a8706c4e0639301f1b7de3eed",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_upper_left_2_beam_1",
+        "clip_horizontal_upper_left_2_beam_2",
+        "clip_horizontal_upper_left_2_beam_3",
+        "clip_horizontal_upper_left_2_upright_1",
+        "clip_horizontal_upper_left_2_upright_2",
+        "clip_horizontal_upper_left_2_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_upper_left_2",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_residual_script_policy",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_horizontal_upper_right_1",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "upper_center",
+      "legacy_host_members": [
+        "base_rail_service_upper_right",
+        "base_principal_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "1cfd981ff42615f0e9fef6f02371b7ba112259f35af5e35e0bcf48922f80a22d",
+      "legacy_sds_axis_ids": [
+        "clip_horizontal_upper_right_1_beam_1",
+        "clip_horizontal_upper_right_1_beam_2",
+        "clip_horizontal_upper_right_1_beam_3",
+        "clip_horizontal_upper_right_1_upright_1",
+        "clip_horizontal_upper_right_1_upright_2",
+        "clip_horizontal_upper_right_1_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_no_generated_report",
+      "proposed_owner_id": "wj06_clip_horizontal_upper_right_1",
+      "proposed_topology": "One-piece solid-sawn orthogonal face-cleat diagnostic with provisional bolt axes",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "WJ-06 report is absent; no face mapping or trial result is materialized.",
+        "No replacement interface path is accepted for this duty.",
+        "Four script-declared bolt corridors per trial are provisional axes, not full stacks.",
+        "No member resistance, stiffness, complete load path, or release is established."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ03_interface_owner",
+      "evidence_path": "docs/wood-joints-mvp/interfaces.json",
+      "interface_ids": [
+        "knee_outer_left_spine_post",
+        "knee_outer_left_spine_side",
+        "knee_outer_left_bridge_spine",
+        "knee_outer_left_bridge_link",
+        "knee_outer_left_link_header",
+        "knee_outer_left_spine_header_end"
+      ],
+      "legacy_duty_id": "clip_timber_header_outer_left",
+      "legacy_duty_interface_ids": [
+        "knee_outer_left_bridge_link",
+        "knee_outer_left_bridge_spine",
+        "knee_outer_left_link_header",
+        "knee_outer_left_spine_header_end",
+        "knee_outer_left_spine_post"
+      ],
+      "legacy_family": "header_outer_post",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_outer_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "7fc01f834c18d00d310105ada1d5efe6a4d8eff45d7be3b74bc6125ac0201efa",
+      "legacy_sds_axis_ids": [
+        "clip_timber_header_outer_left_beam_1",
+        "clip_timber_header_outer_left_beam_2",
+        "clip_timber_header_outer_left_beam_3",
+        "clip_timber_header_outer_left_upright_1",
+        "clip_timber_header_outer_left_upright_2",
+        "clip_timber_header_outer_left_upright_3"
+      ],
+      "owner_assignment_status": "proposed_layout_path_strength_incomplete",
+      "proposed_owner_id": "knee_outer_left",
+      "proposed_topology": "WJ-03 outer-node interface path; diagnostic, not accepted",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "Owner record says strength is incomplete; no duty acceptance or capacity transfers.",
+        "No delivered wood or installed bolt stacks are observed by this artifact."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ03_interface_owner",
+      "evidence_path": "docs/wood-joints-mvp/interfaces.json",
+      "interface_ids": [
+        "knee_outer_right_spine_post",
+        "knee_outer_right_spine_side",
+        "knee_outer_right_bridge_spine",
+        "knee_outer_right_bridge_link",
+        "knee_outer_right_link_header",
+        "knee_outer_right_spine_header_end"
+      ],
+      "legacy_duty_id": "clip_timber_header_outer_right",
+      "legacy_duty_interface_ids": [
+        "knee_outer_right_bridge_link",
+        "knee_outer_right_bridge_spine",
+        "knee_outer_right_link_header",
+        "knee_outer_right_spine_header_end",
+        "knee_outer_right_spine_post"
+      ],
+      "legacy_family": "header_outer_post",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_outer_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "4cdd2d39a586ae3551246dccc2399d46048a10432b047d987b3420316dfc987d",
+      "legacy_sds_axis_ids": [
+        "clip_timber_header_outer_right_beam_1",
+        "clip_timber_header_outer_right_beam_2",
+        "clip_timber_header_outer_right_beam_3",
+        "clip_timber_header_outer_right_upright_1",
+        "clip_timber_header_outer_right_upright_2",
+        "clip_timber_header_outer_right_upright_3"
+      ],
+      "owner_assignment_status": "proposed_layout_path_strength_incomplete",
+      "proposed_owner_id": "knee_outer_right",
+      "proposed_topology": "WJ-03 outer-node interface path; diagnostic, not accepted",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "Owner record says strength is incomplete; no duty acceptance or capacity transfers.",
+        "No delivered wood or installed bolt stacks are observed by this artifact."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_script_WJ05_center_dependency",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_header_center_left",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "header_center",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "91dff0e881b28cb035b28f327d23d50b73943e38900673391eae3bd3b178f5ea",
+      "legacy_sds_axis_ids": [
+        "clip_split_header_center_left_beam_1",
+        "clip_split_header_center_left_beam_2",
+        "clip_split_header_center_left_beam_3",
+        "clip_split_header_center_left_upright_1",
+        "clip_split_header_center_left_upright_2",
+        "clip_split_header_center_left_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_blocked_by_WJ05",
+      "proposed_owner_id": "wj05_center_node_left",
+      "proposed_topology": "Integrated center node named by WJ-06; no structural interface model accepted",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "Model the center principal/header and moved-post/base/header interfaces before the base_header endpoint can be called a complete integrated candidate path.",
+        "Both center kicker receiver paths and inner-edge support remain unresolved.",
+        "Four backer attachment bores are provisional; no complete installed bolt stacks are selected."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_script_WJ05_center_dependency",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_header_center_right",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "header_center",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "c4774bbe778789ab26368196749fec5569c0c58af6d01c0f45a4e5081e19e381",
+      "legacy_sds_axis_ids": [
+        "clip_split_header_center_right_beam_1",
+        "clip_split_header_center_right_beam_2",
+        "clip_split_header_center_right_beam_3",
+        "clip_split_header_center_right_upright_1",
+        "clip_split_header_center_right_upright_2",
+        "clip_split_header_center_right_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_blocked_by_WJ05",
+      "proposed_owner_id": "wj05_center_node_right",
+      "proposed_topology": "Integrated center node named by WJ-06; no structural interface model accepted",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "Model the center principal/header and moved-post/base/header interfaces before the base_header endpoint can be called a complete integrated candidate path.",
+        "Both center kicker receiver paths and inner-edge support remain unresolved.",
+        "Four backer attachment bores are provisional; no complete installed bolt stacks are selected."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_script_WJ05_center_dependency",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_base_center_left",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "base_center",
+      "legacy_host_members": [
+        "base_header",
+        "base_principal_center_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "a953efb1e7783a2317862c3651ef1dd6746530988f8e75802f2c273ac2cd9d16",
+      "legacy_sds_axis_ids": [
+        "clip_split_base_center_left_beam_1",
+        "clip_split_base_center_left_beam_2",
+        "clip_split_base_center_left_beam_3",
+        "clip_split_base_center_left_upright_1",
+        "clip_split_base_center_left_upright_2",
+        "clip_split_base_center_left_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_blocked_by_WJ05",
+      "proposed_owner_id": "wj05_center_node_left",
+      "proposed_topology": "Integrated center node named by WJ-06; no structural interface model accepted",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "Model the center principal/header and moved-post/base/header interfaces before the base_header endpoint can be called a complete integrated candidate path.",
+        "Both center kicker receiver paths and inner-edge support remain unresolved.",
+        "Four backer attachment bores are provisional; no complete installed bolt stacks are selected."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ06_script_WJ05_center_dependency",
+      "evidence_path": "scripts/wood_joint_wj06_residual_probe.py",
+      "interface_ids": [],
+      "legacy_duty_id": "clip_split_base_center_right",
+      "legacy_duty_interface_ids": [],
+      "legacy_family": "base_center",
+      "legacy_host_members": [
+        "base_header",
+        "base_principal_center_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "3f66be8f16a4501b8f485c14ae990654dc2897d202bb05e433bbf4c6352f0cc8",
+      "legacy_sds_axis_ids": [
+        "clip_split_base_center_right_beam_1",
+        "clip_split_base_center_right_beam_2",
+        "clip_split_base_center_right_beam_3",
+        "clip_split_base_center_right_upright_1",
+        "clip_split_base_center_right_upright_2",
+        "clip_split_base_center_right_upright_3"
+      ],
+      "owner_assignment_status": "proposed_unimplemented_blocked_by_WJ05",
+      "proposed_owner_id": "wj05_center_node_right",
+      "proposed_topology": "Integrated center node named by WJ-06; no structural interface model accepted",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "Model the center principal/header and moved-post/base/header interfaces before the base_header endpoint can be called a complete integrated candidate path.",
+        "Both center kicker receiver paths and inner-edge support remain unresolved.",
+        "Four backer attachment bores are provisional; no complete installed bolt stacks are selected."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ03_interface_owner",
+      "evidence_path": "docs/wood-joints-mvp/interfaces.json",
+      "interface_ids": [
+        "knee_outer_left_spine_post",
+        "knee_outer_left_spine_side",
+        "knee_outer_left_bridge_spine",
+        "knee_outer_left_bridge_link",
+        "knee_outer_left_link_header",
+        "knee_outer_left_spine_header_end"
+      ],
+      "legacy_duty_id": "clip_angle_base_left",
+      "legacy_duty_interface_ids": [
+        "knee_outer_left_bridge_link",
+        "knee_outer_left_bridge_spine",
+        "knee_outer_left_link_header",
+        "knee_outer_left_spine_header_end",
+        "knee_outer_left_spine_side"
+      ],
+      "legacy_family": "base_outer_side",
+      "legacy_host_members": [
+        "base_header",
+        "base_side_left"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "00c4b411defcf4480ad913604f39704e656d973d483cbdec7e80b12310154109",
+      "legacy_sds_axis_ids": [
+        "clip_angle_base_left_beam_1",
+        "clip_angle_base_left_beam_2",
+        "clip_angle_base_left_beam_3",
+        "clip_angle_base_left_upright_1",
+        "clip_angle_base_left_upright_2",
+        "clip_angle_base_left_upright_3"
+      ],
+      "owner_assignment_status": "proposed_layout_path_strength_incomplete",
+      "proposed_owner_id": "knee_outer_left",
+      "proposed_topology": "WJ-03 outer-node interface path; diagnostic, not accepted",
+      "replacement_accepted": false,
+      "side": "left",
+      "unresolved_requirements": [
+        "Owner record says strength is incomplete; no duty acceptance or capacity transfers.",
+        "No delivered wood or installed bolt stacks are observed by this artifact."
+      ]
+    },
+    {
+      "axis_disposition": "source_axis_crosswalk_only_no_replacement_axis_mapping",
+      "evidence_kind": "WJ03_interface_owner",
+      "evidence_path": "docs/wood-joints-mvp/interfaces.json",
+      "interface_ids": [
+        "knee_outer_right_spine_post",
+        "knee_outer_right_spine_side",
+        "knee_outer_right_bridge_spine",
+        "knee_outer_right_bridge_link",
+        "knee_outer_right_link_header",
+        "knee_outer_right_spine_header_end"
+      ],
+      "legacy_duty_id": "clip_angle_base_right",
+      "legacy_duty_interface_ids": [
+        "knee_outer_right_bridge_link",
+        "knee_outer_right_bridge_spine",
+        "knee_outer_right_link_header",
+        "knee_outer_right_spine_header_end",
+        "knee_outer_right_spine_side"
+      ],
+      "legacy_family": "base_outer_side",
+      "legacy_host_members": [
+        "base_header",
+        "base_side_right"
+      ],
+      "legacy_sds_axis_count": 6,
+      "legacy_sds_axis_identity_sha256": "63362cbf5ce7fa89555ee0f1f5f6bc00fb985c7828522309376d69dfd97c5536",
+      "legacy_sds_axis_ids": [
+        "clip_angle_base_right_beam_1",
+        "clip_angle_base_right_beam_2",
+        "clip_angle_base_right_beam_3",
+        "clip_angle_base_right_upright_1",
+        "clip_angle_base_right_upright_2",
+        "clip_angle_base_right_upright_3"
+      ],
+      "owner_assignment_status": "proposed_layout_path_strength_incomplete",
+      "proposed_owner_id": "knee_outer_right",
+      "proposed_topology": "WJ-03 outer-node interface path; diagnostic, not accepted",
+      "replacement_accepted": false,
+      "side": "right",
+      "unresolved_requirements": [
+        "Owner record says strength is incomplete; no duty acceptance or capacity transfers.",
+        "No delivered wood or installed bolt stacks are observed by this artifact."
+      ]
+    }
+  ],
+  "producer": {
+    "command": "python3 -m scripts.wood_joint_duty_registry --write",
+    "script_sha256": "596d97ff0004e8469694864e67210e937e9089227541b5834a6571335a249061"
+  },
+  "provisional_axes_and_hardware": {
+    "replacement_complete_stack_basis": "No consumed artifact establishes a selected, delivered, complete installed replacement stack. WJ-03 has bolt-group IDs, WJ-04 remains diagnostic, WJ-05 attachment hardware is unselected, and WJ-06 axes are provisional.",
+    "replacement_complete_stack_evidence_count": 0,
+    "wj05_center_backer_attachment": {
+      "axis_ids": [
+        "backer_header_left_1",
+        "backer_header_left_2",
+        "backer_header_right_1",
+        "backer_header_right_2"
+      ],
+      "complete_installed_stack_count": 0,
+      "physical_hardware_observed": null,
+      "provisional_axis_count": 4,
+      "reported_axis_count": 4,
+      "source_inventory_binding_matches": true,
+      "status": "provisional_diagnostic_geometry_unaccepted"
+    },
+    "wj06_residual_probe": {
+      "complete_installed_stack_count": 0,
+      "declared_provisional_corridors_per_trial": 4,
+      "declared_variants_per_generic_duty": 9,
+      "generic_duty_count": 15,
+      "interpretation": "Candidate corridors remain provisional and are not selected bolt lengths or full installed stacks.",
+      "materialized_corridor_count": 0,
+      "potential_corridor_count_if_all_declared_trials_run": 540,
+      "report_source_inventory_sha256": null,
+      "report_status": "not_materialized",
+      "script_contract_markers": {
+        "center_owner_marker": true,
+        "diagnostic_topology_marker": true,
+        "explicit_no_acceptance_marker": true,
+        "four_provisional_axis_marker": true,
+        "generic_owner_marker": true,
+        "nine_trial_variants_marker": true,
+        "wj03_duty_set_markers": true,
+        "wj04_duty_marker": true,
+        "wj05_duty_set_markers": true
+      }
+    }
+  },
+  "release_flags": {
+    "climbing_released": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "hardware_selected": false,
+    "layout_accepted": false,
+    "structural_released": false
+  },
+  "retained_obligations": {
+    "fixed_panel_kicker_screws": {
+      "axes_moved_per_receiver_audit": 0,
+      "axis_ids": [
+        "round_panel_lower_left_rim_1",
+        "round_panel_lower_left_rim_2",
+        "round_panel_lower_left_rim_3",
+        "round_panel_lower_left_rim_4",
+        "round_panel_lower_left_center_1",
+        "round_panel_lower_left_center_2",
+        "round_panel_lower_left_center_3",
+        "round_panel_lower_left_center_4",
+        "round_panel_lower_left_edge_1",
+        "round_panel_lower_left_edge_2",
+        "round_panel_lower_left_service_1",
+        "round_panel_lower_left_service_2",
+        "round_panel_upper_left_rim_1",
+        "round_panel_upper_left_rim_2",
+        "round_panel_upper_left_rim_3",
+        "round_panel_upper_left_rim_4",
+        "round_panel_upper_left_center_1",
+        "round_panel_upper_left_center_2",
+        "round_panel_upper_left_center_3",
+        "round_panel_upper_left_center_4",
+        "round_panel_upper_left_edge_1",
+        "round_panel_upper_left_edge_2",
+        "round_panel_upper_left_service_1",
+        "round_panel_upper_left_service_2",
+        "round_kicker_left_rim_1",
+        "round_kicker_left_rim_2",
+        "round_kicker_left_center_1",
+        "round_kicker_left_center_2",
+        "round_panel_lower_right_rim_1",
+        "round_panel_lower_right_rim_2",
+        "round_panel_lower_right_rim_3",
+        "round_panel_lower_right_rim_4",
+        "round_panel_lower_right_center_1",
+        "round_panel_lower_right_center_2",
+        "round_panel_lower_right_center_3",
+        "round_panel_lower_right_center_4",
+        "round_panel_lower_right_edge_1",
+        "round_panel_lower_right_edge_2",
+        "round_panel_lower_right_service_1",
+        "round_panel_lower_right_service_2",
+        "round_panel_upper_right_rim_1",
+        "round_panel_upper_right_rim_2",
+        "round_panel_upper_right_rim_3",
+        "round_panel_upper_right_rim_4",
+        "round_panel_upper_right_center_1",
+        "round_panel_upper_right_center_2",
+        "round_panel_upper_right_center_3",
+        "round_panel_upper_right_center_4",
+        "round_panel_upper_right_edge_1",
+        "round_panel_upper_right_edge_2",
+        "round_panel_upper_right_service_1",
+        "round_panel_upper_right_service_2",
+        "round_kicker_right_rim_1",
+        "round_kicker_right_rim_2",
+        "round_kicker_right_center_1",
+        "round_kicker_right_center_2",
+        "kicker_header_left_1",
+        "kicker_header_left_2",
+        "kicker_header_left_3",
+        "kicker_header_left_4",
+        "kicker_header_left_5",
+        "kicker_header_right_1",
+        "kicker_header_right_2",
+        "kicker_header_right_3",
+        "kicker_header_right_4",
+        "kicker_header_right_5"
+      ],
+      "axis_rows_sha256": "69d6d0c6451e04a3aeb6208f82492c0905870a41a562c158a25a164cff19d009",
+      "count": 66,
+      "physical_observation": null,
+      "policy": "66 purchased Hillman 42605 panel/kicker screws retained"
+    },
+    "starting_frame_bolts": {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2",
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_left_2",
+        "rail_rear_bolt_right_1",
+        "rail_rear_bolt_right_2"
+      ],
+      "axis_rows_sha256": "80c549d758750848f28a7153f638dff115cc16a9d89fdae47856af0f7a0b9d58",
+      "candidate_recheck_required": true,
+      "count": 12
+    }
+  },
+  "schema": "wood_joint_duty_registry/v1",
+  "source_binding": {
+    "all_consumed_artifacts_current": true,
+    "checks": {
+      "interfaces_source_inventory_matches": true,
+      "receiver_audit_source_inventory_matches": true,
+      "wj04_source_inventory_matches": true
+    },
+    "interfaces_source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "receiver_audit_source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "wj04_source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "source_snapshot_sha256": {
+    "docs/wood-joints-mvp/interfaces.json": "048983130655f4d3d759324f43515273393692c6ce5af5bb601d0736cc557f44",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "docs/wood-joints-mvp/wj04-probe.json": "0cd9500371a2239afbfcebc692f389b69774e528c0bb08ddef59e1c2f6576362",
+    "docs/wood-joints-mvp/wj05-receiver-audit.json": "06a6f263270e970b28ca1c7f15336853a08532a5527a27c9eeb08a55c80d27c2",
+    "scripts/wood_joint_duty_registry.py": "596d97ff0004e8469694864e67210e937e9089227541b5834a6571335a249061",
+    "scripts/wood_joint_wj05_receiver_audit.py": "1980048e80b51063c075a302a79ef2d997ab6e9c98a235e57b87457ea96d2067",
+    "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795"
+  },
+  "status": "accounting_complete_replacements_unaccepted",
+  "unresolved_or_unaccepted_duty_ids": [
+    "clip_single_top_left_1",
+    "clip_single_top_right_2",
+    "clip_split_top_center_left",
+    "clip_split_top_center_right",
+    "clip_horizontal_bottom_left_1",
+    "clip_horizontal_bottom_right_2",
+    "clip_horizontal_bottom_left_2",
+    "clip_horizontal_bottom_right_1",
+    "clip_horizontal_lower_left_1",
+    "clip_horizontal_lower_right_2",
+    "clip_horizontal_lower_left_2",
+    "clip_horizontal_lower_right_1",
+    "clip_horizontal_upper_left_1",
+    "clip_horizontal_upper_right_2",
+    "clip_horizontal_upper_left_2",
+    "clip_horizontal_upper_right_1",
+    "clip_timber_header_outer_left",
+    "clip_timber_header_outer_right",
+    "clip_split_header_center_left",
+    "clip_split_header_center_right",
+    "clip_split_base_center_left",
+    "clip_split_base_center_right",
+    "clip_angle_base_left",
+    "clip_angle_base_right"
+  ],
+  "unresolved_owner_duty_ids": []
+}

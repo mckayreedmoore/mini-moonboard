@@ -1,0 +1,4863 @@
+{
+  "authority": {
+    "axes_changed": false,
+    "dependency_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/connection_geometry.py": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "af5c3964f78d60fe8dbefc81503c443baa5cf2ddf67dd16195d402001b26c976"
+    },
+    "fixed_panel_kicker_screws": 66,
+    "frame_bolt_arrangements": 12,
+    "producer_sha256": "f0eef36d3252a0f124879827fa5029112a4491eee883cd7b686b75bbe632061f",
+    "retained_candidate": "compact-floor-flush-development",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "source_model_binding": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "width_option": "kerf-right"
+  },
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "limitations": [
+    "Nominal maintained CAD only; no delivered parts, fit/tolerance, operator, or field observation.",
+    "The provisional bolt/nut dimensions are not a selected or procured product.",
+    "Tool cylinder models coaxial access only; no real ratchet head, handle swing, or grip is modeled.",
+    "Panel and connector support, weight, retention, hand positions, and human handling are not modeled.",
+    "Straight paths are sampled; a collision-free sample screen is not continuous-motion or build acceptance.",
+    "The provisional hold rear-projection solids are removable hold-bolt envelopes, not installed panel hardware; panel-motion maps start after holds and bolts are removed, and their withdrawal is not screened.",
+    "Screw overlap with its named receiver is excluded from withdrawal obstruction hits; it is not a thread-engagement or receiver-capacity check.",
+    "The four WJ-05 center-kicker receivers and their provisional backer/header attachment stacks are included as diagnostic geometry only; no receiver resistance or attachment capacity is established.",
+    "Panel-carried T-nuts follow the maintained hold_tnut_reinforcement.datums panel identity; volume intersection is not used because flange-to-panel contact may be tangent. LED bodies and wiring stay fixed as separate services because source wiring installs lights after panels.",
+    "Any panel/service collision requires an explicit service-disconnect and reinstallation operation; this diagnostic does not model one."
+  ],
+  "nut_access_and_minimum_physical_extraction": {
+    "knee_outer_left_bridge_link_1": {
+      "capture_retention_screened": false,
+      "direction_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "nut_clearance_travel_mm": 22.198,
+      "nut_minimum_disengagement_sweep_hits": {},
+      "provisional_hardware_product_selected": false,
+      "provisional_tip_projection_mm": 23.749,
+      "ratchet_handle_swing_screened": false,
+      "socket_access": {
+        "nut": {
+          "diameter_mm": 25.4,
+          "hits_including_kicker": {},
+          "length_mm": 50.0
+        }
+      },
+      "washer_clearance_travel_mm": 23.849,
+      "washer_minimum_disengagement_sweep_hits": {}
+    },
+    "knee_outer_left_bridge_link_2": {
+      "capture_retention_screened": false,
+      "direction_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "nut_clearance_travel_mm": 22.198,
+      "nut_minimum_disengagement_sweep_hits": {},
+      "provisional_hardware_product_selected": false,
+      "provisional_tip_projection_mm": 23.749,
+      "ratchet_handle_swing_screened": false,
+      "socket_access": {
+        "nut": {
+          "diameter_mm": 25.4,
+          "hits_including_kicker": {},
+          "length_mm": 50.0
+        }
+      },
+      "washer_clearance_travel_mm": 23.849,
+      "washer_minimum_disengagement_sweep_hits": {}
+    },
+    "knee_outer_right_bridge_link_1": {
+      "capture_retention_screened": false,
+      "direction_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "nut_clearance_travel_mm": 22.198,
+      "nut_minimum_disengagement_sweep_hits": {},
+      "provisional_hardware_product_selected": false,
+      "provisional_tip_projection_mm": 23.749,
+      "ratchet_handle_swing_screened": false,
+      "socket_access": {
+        "nut": {
+          "diameter_mm": 25.4,
+          "hits_including_kicker": {},
+          "length_mm": 50.0
+        }
+      },
+      "washer_clearance_travel_mm": 23.849,
+      "washer_minimum_disengagement_sweep_hits": {}
+    },
+    "knee_outer_right_bridge_link_2": {
+      "capture_retention_screened": false,
+      "direction_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "nut_clearance_travel_mm": 22.198,
+      "nut_minimum_disengagement_sweep_hits": {},
+      "provisional_hardware_product_selected": false,
+      "provisional_tip_projection_mm": 23.749,
+      "ratchet_handle_swing_screened": false,
+      "socket_access": {
+        "nut": {
+          "diameter_mm": 25.4,
+          "hits_including_kicker": {},
+          "length_mm": 50.0
+        }
+      },
+      "washer_clearance_travel_mm": 23.849,
+      "washer_minimum_disengagement_sweep_hits": {}
+    }
+  },
+  "panel_and_kicker_sequences": {
+    "left": {
+      "adjacent_lower_panel_extraction": {
+        "carry_and_rotation_after_translation": "not modeled",
+        "moving_panel_lights": [],
+        "moving_panel_tnuts": [
+          "hold_tnut_main_A1",
+          "hold_tnut_main_A2",
+          "hold_tnut_main_A3",
+          "hold_tnut_main_A4",
+          "hold_tnut_main_A5",
+          "hold_tnut_main_A6",
+          "hold_tnut_main_B1",
+          "hold_tnut_main_B2",
+          "hold_tnut_main_B3",
+          "hold_tnut_main_B4",
+          "hold_tnut_main_B5",
+          "hold_tnut_main_B6",
+          "hold_tnut_main_C1",
+          "hold_tnut_main_C2",
+          "hold_tnut_main_C3",
+          "hold_tnut_main_C4",
+          "hold_tnut_main_C5",
+          "hold_tnut_main_C6",
+          "hold_tnut_main_D1",
+          "hold_tnut_main_D2",
+          "hold_tnut_main_D3",
+          "hold_tnut_main_D4",
+          "hold_tnut_main_D5",
+          "hold_tnut_main_D6",
+          "hold_tnut_main_E1",
+          "hold_tnut_main_E2",
+          "hold_tnut_main_E3",
+          "hold_tnut_main_E4",
+          "hold_tnut_main_E5",
+          "hold_tnut_main_E6",
+          "hold_tnut_main_F1",
+          "hold_tnut_main_F2",
+          "hold_tnut_main_F3",
+          "hold_tnut_main_F4",
+          "hold_tnut_main_F5",
+          "hold_tnut_main_F6"
+        ],
+        "outward_direction_xyz": [
+          -0.0,
+          0.766044443,
+          -0.64278761
+        ],
+        "panel_body_at_250_mm": {
+          "distance_mm": 0.0,
+          "nearest_obstacle": "wood/base_floor_left",
+          "search_radius_mm": 25.0
+        },
+        "path": {
+          "distance_mm": 250.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 128,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            }
+          },
+          "moving_member_count": 37,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_main_A1",
+            "tnut/hold_tnut_main_A2",
+            "tnut/hold_tnut_main_A3",
+            "tnut/hold_tnut_main_A4",
+            "tnut/hold_tnut_main_A5",
+            "tnut/hold_tnut_main_A6",
+            "tnut/hold_tnut_main_B1",
+            "tnut/hold_tnut_main_B2",
+            "tnut/hold_tnut_main_B3",
+            "tnut/hold_tnut_main_B4",
+            "tnut/hold_tnut_main_B5",
+            "tnut/hold_tnut_main_B6",
+            "tnut/hold_tnut_main_C1",
+            "tnut/hold_tnut_main_C2",
+            "tnut/hold_tnut_main_C3",
+            "tnut/hold_tnut_main_C4",
+            "tnut/hold_tnut_main_C5",
+            "tnut/hold_tnut_main_C6",
+            "tnut/hold_tnut_main_D1",
+            "tnut/hold_tnut_main_D2",
+            "tnut/hold_tnut_main_D3",
+            "tnut/hold_tnut_main_D4",
+            "tnut/hold_tnut_main_D5",
+            "tnut/hold_tnut_main_D6",
+            "tnut/hold_tnut_main_E1",
+            "tnut/hold_tnut_main_E2",
+            "tnut/hold_tnut_main_E3",
+            "tnut/hold_tnut_main_E4",
+            "tnut/hold_tnut_main_E5",
+            "tnut/hold_tnut_main_E6",
+            "tnut/hold_tnut_main_F1",
+            "tnut/hold_tnut_main_F2",
+            "tnut/hold_tnut_main_F3",
+            "tnut/hold_tnut_main_F4",
+            "tnut/hold_tnut_main_F5",
+            "tnut/hold_tnut_main_F6"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0
+          ],
+          "sampled_steps": 10,
+          "step_mm": 25.0
+        },
+        "return_path_after_kicker_restored": {
+          "distance_mm": 250.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 128,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_A6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_B6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_C6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_D6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_E6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_F6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            }
+          },
+          "moving_member_count": 37,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_main_A1",
+            "tnut/hold_tnut_main_A2",
+            "tnut/hold_tnut_main_A3",
+            "tnut/hold_tnut_main_A4",
+            "tnut/hold_tnut_main_A5",
+            "tnut/hold_tnut_main_A6",
+            "tnut/hold_tnut_main_B1",
+            "tnut/hold_tnut_main_B2",
+            "tnut/hold_tnut_main_B3",
+            "tnut/hold_tnut_main_B4",
+            "tnut/hold_tnut_main_B5",
+            "tnut/hold_tnut_main_B6",
+            "tnut/hold_tnut_main_C1",
+            "tnut/hold_tnut_main_C2",
+            "tnut/hold_tnut_main_C3",
+            "tnut/hold_tnut_main_C4",
+            "tnut/hold_tnut_main_C5",
+            "tnut/hold_tnut_main_C6",
+            "tnut/hold_tnut_main_D1",
+            "tnut/hold_tnut_main_D2",
+            "tnut/hold_tnut_main_D3",
+            "tnut/hold_tnut_main_D4",
+            "tnut/hold_tnut_main_D5",
+            "tnut/hold_tnut_main_D6",
+            "tnut/hold_tnut_main_E1",
+            "tnut/hold_tnut_main_E2",
+            "tnut/hold_tnut_main_E3",
+            "tnut/hold_tnut_main_E4",
+            "tnut/hold_tnut_main_E5",
+            "tnut/hold_tnut_main_E6",
+            "tnut/hold_tnut_main_F1",
+            "tnut/hold_tnut_main_F2",
+            "tnut/hold_tnut_main_F3",
+            "tnut/hold_tnut_main_F4",
+            "tnut/hold_tnut_main_F5",
+            "tnut/hold_tnut_main_F6"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0
+          ],
+          "sampled_steps": 10,
+          "step_mm": 25.0
+        },
+        "sampling_definition": "0 mm initial position excluded; then 10 equally spaced positions every 25 mm through 250 mm",
+        "staged_reverse_route": [
+          "Restore and independently support the outer-node connectors before returning either panel; capture and retrieve all removed hardware.",
+          "With main_lower_left in its staged pose, return kicker_left opposite its +Y extraction direction; the sampled reverse path is not continuous-motion acceptance.",
+          "With main_lower_left still staged, refasten kicker_left at its unchanged 9 axes only after the four WJ-05 diagnostic backer receivers, real tool access, and service handling are verified.",
+          "Then return main_lower_left opposite its outward extraction direction (+N) and refasten it at its unchanged 12 axes only after its sampled reverse path, support, real tool access, and service handling are verified."
+        ],
+        "support_and_holding": "not modeled",
+        "translation_distance_mm": 250.0
+      },
+      "adjacent_panel": "main_lower_left",
+      "fixed_screw_counts": {
+        "kicker_left": 9,
+        "main_lower_left": 12
+      },
+      "fixed_screws_and_tools": {
+        "kicker_left": {
+          "kicker_header_left_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_left_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_left_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_left_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_left_5": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_left_center_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/inner_kicker_backer_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 438.127102,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "inner_kicker_backer_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_left_center_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/inner_kicker_backer_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 438.127102,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "inner_kicker_backer_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_left_rim_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_post_outer_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_post_outer_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_left_rim_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_post_outer_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_post_outer_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          }
+        },
+        "main_lower_left": {
+          "round_panel_lower_left_center_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_center_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_center_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_center_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_edge_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_bottom_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_bottom_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_edge_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_bottom_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_bottom_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_rim_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_rim_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_rim_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_rim_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_service_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_service_lower_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_service_lower_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_left_service_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_service_lower_left",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_left",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_service_lower_left",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          }
+        }
+      },
+      "kicker_translation_after_screws_removed": {
+        "adjacent_panel_tnut_obstacle_state": {
+          "after_adjacent_panel_staged": [
+            "hold_tnut_main_A1",
+            "hold_tnut_main_A2",
+            "hold_tnut_main_A3",
+            "hold_tnut_main_A4",
+            "hold_tnut_main_A5",
+            "hold_tnut_main_A6",
+            "hold_tnut_main_B1",
+            "hold_tnut_main_B2",
+            "hold_tnut_main_B3",
+            "hold_tnut_main_B4",
+            "hold_tnut_main_B5",
+            "hold_tnut_main_B6",
+            "hold_tnut_main_C1",
+            "hold_tnut_main_C2",
+            "hold_tnut_main_C3",
+            "hold_tnut_main_C4",
+            "hold_tnut_main_C5",
+            "hold_tnut_main_C6",
+            "hold_tnut_main_D1",
+            "hold_tnut_main_D2",
+            "hold_tnut_main_D3",
+            "hold_tnut_main_D4",
+            "hold_tnut_main_D5",
+            "hold_tnut_main_D6",
+            "hold_tnut_main_E1",
+            "hold_tnut_main_E2",
+            "hold_tnut_main_E3",
+            "hold_tnut_main_E4",
+            "hold_tnut_main_E5",
+            "hold_tnut_main_E6",
+            "hold_tnut_main_F1",
+            "hold_tnut_main_F2",
+            "hold_tnut_main_F3",
+            "hold_tnut_main_F4",
+            "hold_tnut_main_F5",
+            "hold_tnut_main_F6"
+          ],
+          "other_panel_tnuts_retained_after_staging": [
+            "hold_tnut_kicker_10",
+            "hold_tnut_kicker_6",
+            "hold_tnut_kicker_7",
+            "hold_tnut_kicker_8",
+            "hold_tnut_kicker_9",
+            "hold_tnut_main_A10",
+            "hold_tnut_main_A11",
+            "hold_tnut_main_A12",
+            "hold_tnut_main_A7",
+            "hold_tnut_main_A8",
+            "hold_tnut_main_A9",
+            "hold_tnut_main_B10",
+            "hold_tnut_main_B11",
+            "hold_tnut_main_B12",
+            "hold_tnut_main_B7",
+            "hold_tnut_main_B8",
+            "hold_tnut_main_B9",
+            "hold_tnut_main_C10",
+            "hold_tnut_main_C11",
+            "hold_tnut_main_C12",
+            "hold_tnut_main_C7",
+            "hold_tnut_main_C8",
+            "hold_tnut_main_C9",
+            "hold_tnut_main_D10",
+            "hold_tnut_main_D11",
+            "hold_tnut_main_D12",
+            "hold_tnut_main_D7",
+            "hold_tnut_main_D8",
+            "hold_tnut_main_D9",
+            "hold_tnut_main_E10",
+            "hold_tnut_main_E11",
+            "hold_tnut_main_E12",
+            "hold_tnut_main_E7",
+            "hold_tnut_main_E8",
+            "hold_tnut_main_E9",
+            "hold_tnut_main_F10",
+            "hold_tnut_main_F11",
+            "hold_tnut_main_F12",
+            "hold_tnut_main_F7",
+            "hold_tnut_main_F8",
+            "hold_tnut_main_F9",
+            "hold_tnut_main_G1",
+            "hold_tnut_main_G10",
+            "hold_tnut_main_G11",
+            "hold_tnut_main_G12",
+            "hold_tnut_main_G2",
+            "hold_tnut_main_G3",
+            "hold_tnut_main_G4",
+            "hold_tnut_main_G5",
+            "hold_tnut_main_G6",
+            "hold_tnut_main_G7",
+            "hold_tnut_main_G8",
+            "hold_tnut_main_G9",
+            "hold_tnut_main_H1",
+            "hold_tnut_main_H10",
+            "hold_tnut_main_H11",
+            "hold_tnut_main_H12",
+            "hold_tnut_main_H2",
+            "hold_tnut_main_H3",
+            "hold_tnut_main_H4",
+            "hold_tnut_main_H5",
+            "hold_tnut_main_H6",
+            "hold_tnut_main_H7",
+            "hold_tnut_main_H8",
+            "hold_tnut_main_H9",
+            "hold_tnut_main_I1",
+            "hold_tnut_main_I10",
+            "hold_tnut_main_I11",
+            "hold_tnut_main_I12",
+            "hold_tnut_main_I2",
+            "hold_tnut_main_I3",
+            "hold_tnut_main_I4",
+            "hold_tnut_main_I5",
+            "hold_tnut_main_I6",
+            "hold_tnut_main_I7",
+            "hold_tnut_main_I8",
+            "hold_tnut_main_I9",
+            "hold_tnut_main_J1",
+            "hold_tnut_main_J10",
+            "hold_tnut_main_J11",
+            "hold_tnut_main_J12",
+            "hold_tnut_main_J2",
+            "hold_tnut_main_J3",
+            "hold_tnut_main_J4",
+            "hold_tnut_main_J5",
+            "hold_tnut_main_J6",
+            "hold_tnut_main_J7",
+            "hold_tnut_main_J8",
+            "hold_tnut_main_J9",
+            "hold_tnut_main_K1",
+            "hold_tnut_main_K10",
+            "hold_tnut_main_K11",
+            "hold_tnut_main_K12",
+            "hold_tnut_main_K2",
+            "hold_tnut_main_K3",
+            "hold_tnut_main_K4",
+            "hold_tnut_main_K5",
+            "hold_tnut_main_K6",
+            "hold_tnut_main_K7",
+            "hold_tnut_main_K8",
+            "hold_tnut_main_K9"
+          ],
+          "with_adjacent_panel_retained": [
+            "hold_tnut_main_A1",
+            "hold_tnut_main_A2",
+            "hold_tnut_main_A3",
+            "hold_tnut_main_A4",
+            "hold_tnut_main_A5",
+            "hold_tnut_main_A6",
+            "hold_tnut_main_B1",
+            "hold_tnut_main_B2",
+            "hold_tnut_main_B3",
+            "hold_tnut_main_B4",
+            "hold_tnut_main_B5",
+            "hold_tnut_main_B6",
+            "hold_tnut_main_C1",
+            "hold_tnut_main_C2",
+            "hold_tnut_main_C3",
+            "hold_tnut_main_C4",
+            "hold_tnut_main_C5",
+            "hold_tnut_main_C6",
+            "hold_tnut_main_D1",
+            "hold_tnut_main_D2",
+            "hold_tnut_main_D3",
+            "hold_tnut_main_D4",
+            "hold_tnut_main_D5",
+            "hold_tnut_main_D6",
+            "hold_tnut_main_E1",
+            "hold_tnut_main_E2",
+            "hold_tnut_main_E3",
+            "hold_tnut_main_E4",
+            "hold_tnut_main_E5",
+            "hold_tnut_main_E6",
+            "hold_tnut_main_F1",
+            "hold_tnut_main_F2",
+            "hold_tnut_main_F3",
+            "hold_tnut_main_F4",
+            "hold_tnut_main_F5",
+            "hold_tnut_main_F6"
+          ]
+        },
+        "after_adjacent_panel_staged": {
+          "distance_mm": 100.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 7,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_1": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_2": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_3": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_4": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_5": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_1",
+            "tnut/hold_tnut_kicker_2",
+            "tnut/hold_tnut_kicker_3",
+            "tnut/hold_tnut_kicker_4",
+            "tnut/hold_tnut_kicker_5"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        },
+        "direction_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "kicker_body_at_25_mm_after_lower_staged": {
+          "distance_mm": 0.0,
+          "nearest_obstacle": "wood/base_floor_left",
+          "search_radius_mm": 25.0
+        },
+        "reverse_return_with_adjacent_panel_staged": {
+          "distance_mm": 100.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 7,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_1": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_2": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_3": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_4": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_5": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_1",
+            "tnut/hold_tnut_kicker_2",
+            "tnut/hold_tnut_kicker_3",
+            "tnut/hold_tnut_kicker_4",
+            "tnut/hold_tnut_kicker_5"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        },
+        "translation_distance_mm": 100.0,
+        "with_adjacent_panel_retained": {
+          "distance_mm": 100.0,
+          "hits": {
+            "panel -> wood/main_lower_left": {
+              "first_mm": 1.0,
+              "last_mm": 18.0,
+              "max_volume_mm3": 33.544427
+            }
+          },
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {
+                "wood/main_lower_left": {
+                  "first_mm": 1.0,
+                  "last_mm": 18.0,
+                  "max_volume_mm3": 33.544427
+                }
+              },
+              "passes_sampled_nominal_path": false,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 8,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_1": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_2": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_3": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_4": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_5": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_1",
+            "tnut/hold_tnut_kicker_2",
+            "tnut/hold_tnut_kicker_3",
+            "tnut/hold_tnut_kicker_4",
+            "tnut/hold_tnut_kicker_5"
+          ],
+          "passes_sampled_nominal_path": false,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        }
+      },
+      "moving_tnut_source_ownership": {
+        "basis": "hold_tnut_reinforcement.datums panel identity",
+        "kicker_left": {
+          "count": 5,
+          "ids": [
+            "hold_tnut_kicker_1",
+            "hold_tnut_kicker_2",
+            "hold_tnut_kicker_3",
+            "hold_tnut_kicker_4",
+            "hold_tnut_kicker_5"
+          ]
+        },
+        "main_lower_left": {
+          "count": 36,
+          "ids": [
+            "hold_tnut_main_A1",
+            "hold_tnut_main_A2",
+            "hold_tnut_main_A3",
+            "hold_tnut_main_A4",
+            "hold_tnut_main_A5",
+            "hold_tnut_main_A6",
+            "hold_tnut_main_B1",
+            "hold_tnut_main_B2",
+            "hold_tnut_main_B3",
+            "hold_tnut_main_B4",
+            "hold_tnut_main_B5",
+            "hold_tnut_main_B6",
+            "hold_tnut_main_C1",
+            "hold_tnut_main_C2",
+            "hold_tnut_main_C3",
+            "hold_tnut_main_C4",
+            "hold_tnut_main_C5",
+            "hold_tnut_main_C6",
+            "hold_tnut_main_D1",
+            "hold_tnut_main_D2",
+            "hold_tnut_main_D3",
+            "hold_tnut_main_D4",
+            "hold_tnut_main_D5",
+            "hold_tnut_main_D6",
+            "hold_tnut_main_E1",
+            "hold_tnut_main_E2",
+            "hold_tnut_main_E3",
+            "hold_tnut_main_E4",
+            "hold_tnut_main_E5",
+            "hold_tnut_main_E6",
+            "hold_tnut_main_F1",
+            "hold_tnut_main_F2",
+            "hold_tnut_main_F3",
+            "hold_tnut_main_F4",
+            "hold_tnut_main_F5",
+            "hold_tnut_main_F6"
+          ]
+        }
+      },
+      "panel_transport_precondition": "Remove and retain installed holds and hold bolts before panel screw removal. Motion maps start after that operation; hold-bolt withdrawal is not screened.",
+      "target_kicker": "kicker_left"
+    },
+    "right": {
+      "adjacent_lower_panel_extraction": {
+        "carry_and_rotation_after_translation": "not modeled",
+        "moving_panel_lights": [],
+        "moving_panel_tnuts": [
+          "hold_tnut_main_G1",
+          "hold_tnut_main_G2",
+          "hold_tnut_main_G3",
+          "hold_tnut_main_G4",
+          "hold_tnut_main_G5",
+          "hold_tnut_main_G6",
+          "hold_tnut_main_H1",
+          "hold_tnut_main_H2",
+          "hold_tnut_main_H3",
+          "hold_tnut_main_H4",
+          "hold_tnut_main_H5",
+          "hold_tnut_main_H6",
+          "hold_tnut_main_I1",
+          "hold_tnut_main_I2",
+          "hold_tnut_main_I3",
+          "hold_tnut_main_I4",
+          "hold_tnut_main_I5",
+          "hold_tnut_main_I6",
+          "hold_tnut_main_J1",
+          "hold_tnut_main_J2",
+          "hold_tnut_main_J3",
+          "hold_tnut_main_J4",
+          "hold_tnut_main_J5",
+          "hold_tnut_main_J6",
+          "hold_tnut_main_K1",
+          "hold_tnut_main_K2",
+          "hold_tnut_main_K3",
+          "hold_tnut_main_K4",
+          "hold_tnut_main_K5",
+          "hold_tnut_main_K6"
+        ],
+        "outward_direction_xyz": [
+          -0.0,
+          0.766044443,
+          -0.64278761
+        ],
+        "panel_body_at_250_mm": {
+          "distance_mm": 0.0,
+          "nearest_obstacle": "wood/base_floor_right",
+          "search_radius_mm": 25.0
+        },
+        "path": {
+          "distance_mm": 250.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 121,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            }
+          },
+          "moving_member_count": 31,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_main_G1",
+            "tnut/hold_tnut_main_G2",
+            "tnut/hold_tnut_main_G3",
+            "tnut/hold_tnut_main_G4",
+            "tnut/hold_tnut_main_G5",
+            "tnut/hold_tnut_main_G6",
+            "tnut/hold_tnut_main_H1",
+            "tnut/hold_tnut_main_H2",
+            "tnut/hold_tnut_main_H3",
+            "tnut/hold_tnut_main_H4",
+            "tnut/hold_tnut_main_H5",
+            "tnut/hold_tnut_main_H6",
+            "tnut/hold_tnut_main_I1",
+            "tnut/hold_tnut_main_I2",
+            "tnut/hold_tnut_main_I3",
+            "tnut/hold_tnut_main_I4",
+            "tnut/hold_tnut_main_I5",
+            "tnut/hold_tnut_main_I6",
+            "tnut/hold_tnut_main_J1",
+            "tnut/hold_tnut_main_J2",
+            "tnut/hold_tnut_main_J3",
+            "tnut/hold_tnut_main_J4",
+            "tnut/hold_tnut_main_J5",
+            "tnut/hold_tnut_main_J6",
+            "tnut/hold_tnut_main_K1",
+            "tnut/hold_tnut_main_K2",
+            "tnut/hold_tnut_main_K3",
+            "tnut/hold_tnut_main_K4",
+            "tnut/hold_tnut_main_K5",
+            "tnut/hold_tnut_main_K6"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0
+          ],
+          "sampled_steps": 10,
+          "step_mm": 25.0
+        },
+        "return_path_after_kicker_restored": {
+          "distance_mm": 250.0,
+          "hits": {
+            "panel -> lights/light_G1": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G2": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G3": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G4": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G5": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G6": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_G7": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H1": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H2": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H3": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H4": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H5": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H6": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_H7": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I1": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I2": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I3": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I4": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I5": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I6": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_I7": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J1": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J2": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J3": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J4": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J5": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J6": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_J7": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K1": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K2": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K3": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K4": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K5": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K6": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            },
+            "panel -> lights/light_K7": {
+              "first_mm": 250.0,
+              "last_mm": 250.0,
+              "max_volume_mm3": 317.86834
+            }
+          },
+          "member_results": {
+            "panel": {
+              "distance_mm": 250.0,
+              "hits": {
+                "lights/light_G1": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G2": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G3": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G4": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G5": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G6": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_G7": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H1": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H2": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H3": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H4": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H5": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H6": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_H7": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I1": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I2": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I3": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I4": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I5": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I6": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_I7": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J1": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J2": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J3": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J4": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J5": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J6": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_J7": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K1": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K2": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K3": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K4": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K5": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K6": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                },
+                "lights/light_K7": {
+                  "first_mm": 250.0,
+                  "last_mm": 250.0,
+                  "max_volume_mm3": 317.86834
+                }
+              },
+              "passes_sampled_nominal_path": false,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 121,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_G6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_H6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_I6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_J6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K1": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K2": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K3": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K4": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K5": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            },
+            "tnut/hold_tnut_main_K6": {
+              "distance_mm": 250.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 10,
+              "screened_obstacles": 1,
+              "step_mm": 25.0
+            }
+          },
+          "moving_member_count": 31,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_main_G1",
+            "tnut/hold_tnut_main_G2",
+            "tnut/hold_tnut_main_G3",
+            "tnut/hold_tnut_main_G4",
+            "tnut/hold_tnut_main_G5",
+            "tnut/hold_tnut_main_G6",
+            "tnut/hold_tnut_main_H1",
+            "tnut/hold_tnut_main_H2",
+            "tnut/hold_tnut_main_H3",
+            "tnut/hold_tnut_main_H4",
+            "tnut/hold_tnut_main_H5",
+            "tnut/hold_tnut_main_H6",
+            "tnut/hold_tnut_main_I1",
+            "tnut/hold_tnut_main_I2",
+            "tnut/hold_tnut_main_I3",
+            "tnut/hold_tnut_main_I4",
+            "tnut/hold_tnut_main_I5",
+            "tnut/hold_tnut_main_I6",
+            "tnut/hold_tnut_main_J1",
+            "tnut/hold_tnut_main_J2",
+            "tnut/hold_tnut_main_J3",
+            "tnut/hold_tnut_main_J4",
+            "tnut/hold_tnut_main_J5",
+            "tnut/hold_tnut_main_J6",
+            "tnut/hold_tnut_main_K1",
+            "tnut/hold_tnut_main_K2",
+            "tnut/hold_tnut_main_K3",
+            "tnut/hold_tnut_main_K4",
+            "tnut/hold_tnut_main_K5",
+            "tnut/hold_tnut_main_K6"
+          ],
+          "passes_sampled_nominal_path": false,
+          "sample_positions_mm": [
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0
+          ],
+          "sampled_steps": 10,
+          "step_mm": 25.0
+        },
+        "sampling_definition": "0 mm initial position excluded; then 10 equally spaced positions every 25 mm through 250 mm",
+        "staged_reverse_route": [
+          "Restore and independently support the outer-node connectors before returning either panel; capture and retrieve all removed hardware.",
+          "With main_lower_right in its staged pose, return kicker_right opposite its +Y extraction direction; the sampled reverse path is not continuous-motion acceptance.",
+          "With main_lower_right still staged, refasten kicker_right at its unchanged 9 axes only after the four WJ-05 diagnostic backer receivers, real tool access, and service handling are verified.",
+          "Then return main_lower_right opposite its outward extraction direction (+N) and refasten it at its unchanged 12 axes only after its sampled reverse path, support, real tool access, and service handling are verified."
+        ],
+        "support_and_holding": "not modeled",
+        "translation_distance_mm": 250.0
+      },
+      "adjacent_panel": "main_lower_right",
+      "fixed_screw_counts": {
+        "kicker_right": 9,
+        "main_lower_right": 12
+      },
+      "fixed_screws_and_tools": {
+        "kicker_right": {
+          "kicker_header_right_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_right_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_right_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_right_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "kicker_header_right_5": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_header",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_header",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_right_center_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/inner_kicker_backer_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 438.127102,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "inner_kicker_backer_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_right_center_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/inner_kicker_backer_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 438.127102,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "inner_kicker_backer_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_right_rim_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_post_outer_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_post_outer_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_kicker_right_rim_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_post_outer_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "kicker_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_post_outer_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          }
+        },
+        "main_lower_right": {
+          "round_panel_lower_right_center_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_center_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_center_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_center_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_principal_center_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_principal_center_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_edge_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_bottom_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_bottom_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_edge_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_bottom_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_bottom_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_rim_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_rim_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_rim_3": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_rim_4": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_side_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_side_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_service_1": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_service_lower_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_service_lower_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          },
+          "round_panel_lower_right_service_2": {
+            "fixed_axis_preserved": true,
+            "intended_receiver_path": {
+              "engagement_status": "not_assessed",
+              "excluded_from_withdrawal_obstruction_hits": true,
+              "intersection_volume_is_not_an_engagement_test": true,
+              "obstacle_id": "wood/base_rail_service_lower_right",
+              "present": true,
+              "shaft_receiver_intersection_volume_mm3": 0.0,
+              "source_occupied_length_mm": 50.8
+            },
+            "panel_member": "main_lower_right",
+            "purchased_length_mm": 63.5,
+            "receiver_member": "base_rail_service_lower_right",
+            "shank_withdrawal_sweep": {
+              "axial_swept_length_mm": 114.3,
+              "diameter_mm": 4.1402,
+              "hits": {},
+              "passes_nominal_screen": true
+            },
+            "source_occupied_length_mm": 50.8,
+            "tool_envelope": {
+              "axial_length_mm": 50.0,
+              "diameter_mm": 25.4,
+              "hits": {},
+              "passes_nominal_screen": true
+            }
+          }
+        }
+      },
+      "kicker_translation_after_screws_removed": {
+        "adjacent_panel_tnut_obstacle_state": {
+          "after_adjacent_panel_staged": [
+            "hold_tnut_main_G1",
+            "hold_tnut_main_G2",
+            "hold_tnut_main_G3",
+            "hold_tnut_main_G4",
+            "hold_tnut_main_G5",
+            "hold_tnut_main_G6",
+            "hold_tnut_main_H1",
+            "hold_tnut_main_H2",
+            "hold_tnut_main_H3",
+            "hold_tnut_main_H4",
+            "hold_tnut_main_H5",
+            "hold_tnut_main_H6",
+            "hold_tnut_main_I1",
+            "hold_tnut_main_I2",
+            "hold_tnut_main_I3",
+            "hold_tnut_main_I4",
+            "hold_tnut_main_I5",
+            "hold_tnut_main_I6",
+            "hold_tnut_main_J1",
+            "hold_tnut_main_J2",
+            "hold_tnut_main_J3",
+            "hold_tnut_main_J4",
+            "hold_tnut_main_J5",
+            "hold_tnut_main_J6",
+            "hold_tnut_main_K1",
+            "hold_tnut_main_K2",
+            "hold_tnut_main_K3",
+            "hold_tnut_main_K4",
+            "hold_tnut_main_K5",
+            "hold_tnut_main_K6"
+          ],
+          "other_panel_tnuts_retained_after_staging": [
+            "hold_tnut_kicker_1",
+            "hold_tnut_kicker_2",
+            "hold_tnut_kicker_3",
+            "hold_tnut_kicker_4",
+            "hold_tnut_kicker_5",
+            "hold_tnut_main_A1",
+            "hold_tnut_main_A10",
+            "hold_tnut_main_A11",
+            "hold_tnut_main_A12",
+            "hold_tnut_main_A2",
+            "hold_tnut_main_A3",
+            "hold_tnut_main_A4",
+            "hold_tnut_main_A5",
+            "hold_tnut_main_A6",
+            "hold_tnut_main_A7",
+            "hold_tnut_main_A8",
+            "hold_tnut_main_A9",
+            "hold_tnut_main_B1",
+            "hold_tnut_main_B10",
+            "hold_tnut_main_B11",
+            "hold_tnut_main_B12",
+            "hold_tnut_main_B2",
+            "hold_tnut_main_B3",
+            "hold_tnut_main_B4",
+            "hold_tnut_main_B5",
+            "hold_tnut_main_B6",
+            "hold_tnut_main_B7",
+            "hold_tnut_main_B8",
+            "hold_tnut_main_B9",
+            "hold_tnut_main_C1",
+            "hold_tnut_main_C10",
+            "hold_tnut_main_C11",
+            "hold_tnut_main_C12",
+            "hold_tnut_main_C2",
+            "hold_tnut_main_C3",
+            "hold_tnut_main_C4",
+            "hold_tnut_main_C5",
+            "hold_tnut_main_C6",
+            "hold_tnut_main_C7",
+            "hold_tnut_main_C8",
+            "hold_tnut_main_C9",
+            "hold_tnut_main_D1",
+            "hold_tnut_main_D10",
+            "hold_tnut_main_D11",
+            "hold_tnut_main_D12",
+            "hold_tnut_main_D2",
+            "hold_tnut_main_D3",
+            "hold_tnut_main_D4",
+            "hold_tnut_main_D5",
+            "hold_tnut_main_D6",
+            "hold_tnut_main_D7",
+            "hold_tnut_main_D8",
+            "hold_tnut_main_D9",
+            "hold_tnut_main_E1",
+            "hold_tnut_main_E10",
+            "hold_tnut_main_E11",
+            "hold_tnut_main_E12",
+            "hold_tnut_main_E2",
+            "hold_tnut_main_E3",
+            "hold_tnut_main_E4",
+            "hold_tnut_main_E5",
+            "hold_tnut_main_E6",
+            "hold_tnut_main_E7",
+            "hold_tnut_main_E8",
+            "hold_tnut_main_E9",
+            "hold_tnut_main_F1",
+            "hold_tnut_main_F10",
+            "hold_tnut_main_F11",
+            "hold_tnut_main_F12",
+            "hold_tnut_main_F2",
+            "hold_tnut_main_F3",
+            "hold_tnut_main_F4",
+            "hold_tnut_main_F5",
+            "hold_tnut_main_F6",
+            "hold_tnut_main_F7",
+            "hold_tnut_main_F8",
+            "hold_tnut_main_F9",
+            "hold_tnut_main_G10",
+            "hold_tnut_main_G11",
+            "hold_tnut_main_G12",
+            "hold_tnut_main_G7",
+            "hold_tnut_main_G8",
+            "hold_tnut_main_G9",
+            "hold_tnut_main_H10",
+            "hold_tnut_main_H11",
+            "hold_tnut_main_H12",
+            "hold_tnut_main_H7",
+            "hold_tnut_main_H8",
+            "hold_tnut_main_H9",
+            "hold_tnut_main_I10",
+            "hold_tnut_main_I11",
+            "hold_tnut_main_I12",
+            "hold_tnut_main_I7",
+            "hold_tnut_main_I8",
+            "hold_tnut_main_I9",
+            "hold_tnut_main_J10",
+            "hold_tnut_main_J11",
+            "hold_tnut_main_J12",
+            "hold_tnut_main_J7",
+            "hold_tnut_main_J8",
+            "hold_tnut_main_J9",
+            "hold_tnut_main_K10",
+            "hold_tnut_main_K11",
+            "hold_tnut_main_K12",
+            "hold_tnut_main_K7",
+            "hold_tnut_main_K8",
+            "hold_tnut_main_K9"
+          ],
+          "with_adjacent_panel_retained": [
+            "hold_tnut_main_G1",
+            "hold_tnut_main_G2",
+            "hold_tnut_main_G3",
+            "hold_tnut_main_G4",
+            "hold_tnut_main_G5",
+            "hold_tnut_main_G6",
+            "hold_tnut_main_H1",
+            "hold_tnut_main_H2",
+            "hold_tnut_main_H3",
+            "hold_tnut_main_H4",
+            "hold_tnut_main_H5",
+            "hold_tnut_main_H6",
+            "hold_tnut_main_I1",
+            "hold_tnut_main_I2",
+            "hold_tnut_main_I3",
+            "hold_tnut_main_I4",
+            "hold_tnut_main_I5",
+            "hold_tnut_main_I6",
+            "hold_tnut_main_J1",
+            "hold_tnut_main_J2",
+            "hold_tnut_main_J3",
+            "hold_tnut_main_J4",
+            "hold_tnut_main_J5",
+            "hold_tnut_main_J6",
+            "hold_tnut_main_K1",
+            "hold_tnut_main_K2",
+            "hold_tnut_main_K3",
+            "hold_tnut_main_K4",
+            "hold_tnut_main_K5",
+            "hold_tnut_main_K6"
+          ]
+        },
+        "after_adjacent_panel_staged": {
+          "distance_mm": 100.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 7,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_10": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_6": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_7": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_8": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_9": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_10",
+            "tnut/hold_tnut_kicker_6",
+            "tnut/hold_tnut_kicker_7",
+            "tnut/hold_tnut_kicker_8",
+            "tnut/hold_tnut_kicker_9"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        },
+        "direction_xyz": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "kicker_body_at_25_mm_after_lower_staged": {
+          "distance_mm": 0.0,
+          "nearest_obstacle": "wood/base_floor_right",
+          "search_radius_mm": 25.0
+        },
+        "reverse_return_with_adjacent_panel_staged": {
+          "distance_mm": 100.0,
+          "hits": {},
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 7,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_10": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_6": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_7": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_8": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_9": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_10",
+            "tnut/hold_tnut_kicker_6",
+            "tnut/hold_tnut_kicker_7",
+            "tnut/hold_tnut_kicker_8",
+            "tnut/hold_tnut_kicker_9"
+          ],
+          "passes_sampled_nominal_path": true,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        },
+        "translation_distance_mm": 100.0,
+        "with_adjacent_panel_retained": {
+          "distance_mm": 100.0,
+          "hits": {
+            "panel -> wood/main_lower_right": {
+              "first_mm": 1.0,
+              "last_mm": 18.0,
+              "max_volume_mm3": 33.544427
+            }
+          },
+          "member_results": {
+            "panel": {
+              "distance_mm": 100.0,
+              "hits": {
+                "wood/main_lower_right": {
+                  "first_mm": 1.0,
+                  "last_mm": 18.0,
+                  "max_volume_mm3": 33.544427
+                }
+              },
+              "passes_sampled_nominal_path": false,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 8,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_10": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_6": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_7": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_8": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            },
+            "tnut/hold_tnut_kicker_9": {
+              "distance_mm": 100.0,
+              "hits": {},
+              "passes_sampled_nominal_path": true,
+              "positive_volume_hit_tolerance_mm3": 0.0001,
+              "sampled_steps": 100,
+              "screened_obstacles": 0,
+              "step_mm": 1.0
+            }
+          },
+          "moving_member_count": 6,
+          "moving_members": [
+            "panel",
+            "tnut/hold_tnut_kicker_10",
+            "tnut/hold_tnut_kicker_6",
+            "tnut/hold_tnut_kicker_7",
+            "tnut/hold_tnut_kicker_8",
+            "tnut/hold_tnut_kicker_9"
+          ],
+          "passes_sampled_nominal_path": false,
+          "sample_positions_mm": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            83.0,
+            84.0,
+            85.0,
+            86.0,
+            87.0,
+            88.0,
+            89.0,
+            90.0,
+            91.0,
+            92.0,
+            93.0,
+            94.0,
+            95.0,
+            96.0,
+            97.0,
+            98.0,
+            99.0,
+            100.0
+          ],
+          "sampled_steps": 100,
+          "step_mm": 1.0
+        }
+      },
+      "moving_tnut_source_ownership": {
+        "basis": "hold_tnut_reinforcement.datums panel identity",
+        "kicker_right": {
+          "count": 5,
+          "ids": [
+            "hold_tnut_kicker_10",
+            "hold_tnut_kicker_6",
+            "hold_tnut_kicker_7",
+            "hold_tnut_kicker_8",
+            "hold_tnut_kicker_9"
+          ]
+        },
+        "main_lower_right": {
+          "count": 30,
+          "ids": [
+            "hold_tnut_main_G1",
+            "hold_tnut_main_G2",
+            "hold_tnut_main_G3",
+            "hold_tnut_main_G4",
+            "hold_tnut_main_G5",
+            "hold_tnut_main_G6",
+            "hold_tnut_main_H1",
+            "hold_tnut_main_H2",
+            "hold_tnut_main_H3",
+            "hold_tnut_main_H4",
+            "hold_tnut_main_H5",
+            "hold_tnut_main_H6",
+            "hold_tnut_main_I1",
+            "hold_tnut_main_I2",
+            "hold_tnut_main_I3",
+            "hold_tnut_main_I4",
+            "hold_tnut_main_I5",
+            "hold_tnut_main_I6",
+            "hold_tnut_main_J1",
+            "hold_tnut_main_J2",
+            "hold_tnut_main_J3",
+            "hold_tnut_main_J4",
+            "hold_tnut_main_J5",
+            "hold_tnut_main_J6",
+            "hold_tnut_main_K1",
+            "hold_tnut_main_K2",
+            "hold_tnut_main_K3",
+            "hold_tnut_main_K4",
+            "hold_tnut_main_K5",
+            "hold_tnut_main_K6"
+          ]
+        }
+      },
+      "panel_transport_precondition": "Remove and retain installed holds and hold bolts before panel screw removal. Motion maps start after that operation; hold-bolt withdrawal is not screened.",
+      "target_kicker": "kicker_right"
+    }
+  },
+  "recommended_diagnostic_sequence": [
+    "Remove and retain installed holds and hold bolts; this sequence starts after that operation, whose withdrawal paths are not screened. Disconnect and label services that require handling; confirm panel-screw access, support, and retrieval before moving panels.",
+    "Remove the same-side main-lower panel at its unchanged 12 axes, carrying its source-assigned T-nuts; move it along -N only if the sampled path and a supported staging position pass.",
+    "With that lower panel physically staged, remove the kicker at its unchanged 9 axes, carrying its source-assigned T-nuts; the four center axes now have WJ-05 diagnostic backers, whose attachment and receiver resistance remain unaccepted.",
+    "Move the kicker along +Y only if the sampled path includes the staged lower panel, WJ-05 backers and attachment stacks, WJ-03 node bodies and installed stacks, services, and support state and shows no blocker.",
+    "Only after both panels clear, independently support the WJ-03 spine, bridge, and link; capture and remove node hardware through its screened paths. The short nut-disengagement sweep alone does not justify node-first disassembly.",
+    "For return, restore and support node connections first; return and refasten kicker at 9 axes while lower panel stays staged, then return and refasten lower panel at 12 axes. Both reverse paths remain diagnostic until continuous motion, support, service handling, real tool access, and tolerances are resolved."
+  ],
+  "schema": "wood_joint_wj03_sequence_diagnostic/v1",
+  "status": "diagnostic_only_not_acceptance",
+  "wj05_retained_geometry": {
+    "backer_header_bolts": [
+      "backer_header_left_1",
+      "backer_header_left_2",
+      "backer_header_right_1",
+      "backer_header_right_2"
+    ],
+    "candidate_id": "wj05-center-backer-header-through-bolt-diagnostic-v1",
+    "center_receiver_axes": [
+      "round_kicker_left_center_1",
+      "round_kicker_left_center_2",
+      "round_kicker_right_center_1",
+      "round_kicker_right_center_2"
+    ],
+    "claim": "Candidate receivers and attachment envelopes included for nominal collision screening only; no backer-to-header capacity or center duty is accepted.",
+    "installed_stack_components": [
+      "backer_header_left_1/bottom_head",
+      "backer_header_left_1/bottom_washer",
+      "backer_header_left_1/top_nut",
+      "backer_header_left_1/top_washer",
+      "backer_header_left_2/bottom_head",
+      "backer_header_left_2/bottom_washer",
+      "backer_header_left_2/top_nut",
+      "backer_header_left_2/top_washer",
+      "backer_header_right_1/bottom_head",
+      "backer_header_right_1/bottom_washer",
+      "backer_header_right_1/top_nut",
+      "backer_header_right_1/top_washer",
+      "backer_header_right_2/bottom_head",
+      "backer_header_right_2/bottom_washer",
+      "backer_header_right_2/top_nut",
+      "backer_header_right_2/top_washer"
+    ],
+    "members": [
+      "base_post_center_left",
+      "base_post_center_right",
+      "inner_kicker_backer_left",
+      "inner_kicker_backer_right"
+    ]
+  }
+}
