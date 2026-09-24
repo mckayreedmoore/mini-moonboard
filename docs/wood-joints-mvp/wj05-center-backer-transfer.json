@@ -1,0 +1,1204 @@
+{
+  "candidate_id": "wj05-center-backer-header-through-bolt-diagnostic-v2",
+  "geometry_clear_for_this_probe": true,
+  "inventory": {
+    "fixed_panel_kicker_axes": 66,
+    "protected_service_families": {
+      "frame_bolts": 12,
+      "hold_hole_and_trial_projection": 142,
+      "lights": 132,
+      "panel_screws": 66,
+      "tnuts": 142,
+      "wires": 131
+    },
+    "retained_frame_bolt_axes": 12
+  },
+  "limits": [
+    "Fixed 66 panel/kicker axes and the twelve source frame-bolt axes were screened as geometric envelopes; no hardware capacity or acceptance transfers.",
+    "Hillman screw axis diameter is a historical occupied CAD envelope, not a published/observed Hillman diameter, pilot, or instruction.",
+    "Hold projection is the maintained provisional 50.8 mm screen and is not delivered hold-bolt length.",
+    "Nominal CAD gaps do not include stock, drilling, placement, washer, nut, tool, or floor tolerances.",
+    "The Ko-ken geometry is one outside-envelope proxy: internal 12-point profile, tool fit, driver, approach clearance beyond the modeled coaxial insertion sweep, and tolerance are not modeled or assessed.",
+    "This trial has not replaced all 24 former angle duties, all 144 SDS axes, or supplied fresh six-case evidence."
+  ],
+  "mechanics_and_release": {
+    "actual stock and grain quality": "unverified",
+    "bolt SKU, delivered length/shank/thread, nut engagement, washers, and torque": "unverified",
+    "bolt group and complete joint behavior": "unverified; axial loading along the vertical backer grain and load transfer into the header need an applicable mechanics method",
+    "counterbore machining and remaining foot section": "unverified",
+    "drilling/fabrication/structural/climbing release": false,
+    "permanent floor fit and bottom tool approach": "unverified; bottom counterbores are accessible only while the member is lifted/open during assembly or disassembly",
+    "resistance": "unverified; no capacity inferred",
+    "tolerance stack, tool swing, transport and installation sequence": "unverified",
+    "whole-frame header connection and altered center-post duties": "unverified",
+    "wood bearing, splitting, net section, washer bearing, stiffness, and slip": "unverified"
+  },
+  "schema": "wood_joints_wj05_center_backer_transfer_probe/v3",
+  "screens": {
+    "backer_to_unrelated_source_wood_or_shifted_posts_mm3": {
+      "inner_kicker_backer_left": {},
+      "inner_kicker_backer_right": {}
+    },
+    "backer_vs_all_66_purchased_axis_envelopes_mm3": {
+      "inner_kicker_backer_left": {
+        "expected_receiver_axis_hits_mm3": {
+          "round_kicker_left_center_1": 609.103531,
+          "round_kicker_left_center_2": 609.103531
+        },
+        "unexpected_fixed_axis_hits_mm3": {}
+      },
+      "inner_kicker_backer_right": {
+        "expected_receiver_axis_hits_mm3": {
+          "round_kicker_right_center_1": 609.103531,
+          "round_kicker_right_center_2": 609.103531
+        },
+        "unexpected_fixed_axis_hits_mm3": {}
+      }
+    },
+    "new_backer_and_fastener_geometry_vs_protected_services": {
+      "expected_center_kicker_screw_receiver_hits": {
+        "inner_kicker_backer_left": {
+          "panel_screws": {
+            "round_kicker_left_center_1": 438.127102,
+            "round_kicker_left_center_2": 438.127102
+          }
+        },
+        "inner_kicker_backer_right": {
+          "panel_screws": {
+            "round_kicker_right_center_1": 438.127102,
+            "round_kicker_right_center_2": 438.127102
+          }
+        }
+      },
+      "unintended_hits": {}
+    },
+    "new_bolt_hole_reception_by_intended_wood": {
+      "backer_header_left_1": {
+        "bore_volume_fraction_in_backer": 0.86245487,
+        "bore_volume_fraction_in_header": 0.13754513,
+        "bottom_counterbore_volume_fraction_in_backer": 1.0,
+        "clearance_bore_diameter_mm": 7.3,
+        "complete_bore_received_by_intended_wood": true,
+        "intended_wood": [
+          "inner_kicker_backer_left",
+          "base_header"
+        ]
+      },
+      "backer_header_left_2": {
+        "bore_volume_fraction_in_backer": 0.86245487,
+        "bore_volume_fraction_in_header": 0.13754513,
+        "bottom_counterbore_volume_fraction_in_backer": 1.0,
+        "clearance_bore_diameter_mm": 7.3,
+        "complete_bore_received_by_intended_wood": true,
+        "intended_wood": [
+          "inner_kicker_backer_left",
+          "base_header"
+        ]
+      },
+      "backer_header_right_1": {
+        "bore_volume_fraction_in_backer": 0.86245487,
+        "bore_volume_fraction_in_header": 0.13754513,
+        "bottom_counterbore_volume_fraction_in_backer": 1.0,
+        "clearance_bore_diameter_mm": 7.3,
+        "complete_bore_received_by_intended_wood": true,
+        "intended_wood": [
+          "inner_kicker_backer_right",
+          "base_header"
+        ]
+      },
+      "backer_header_right_2": {
+        "bore_volume_fraction_in_backer": 0.86245487,
+        "bore_volume_fraction_in_header": 0.13754513,
+        "bottom_counterbore_volume_fraction_in_backer": 1.0,
+        "clearance_bore_diameter_mm": 7.3,
+        "complete_bore_received_by_intended_wood": true,
+        "intended_wood": [
+          "inner_kicker_backer_right",
+          "base_header"
+        ]
+      }
+    },
+    "new_bore_and_counterbore_vs_unintended_source_wood_mm3": {
+      "backer_header_left_1": {},
+      "backer_header_left_2": {},
+      "backer_header_right_1": {},
+      "backer_header_right_2": {}
+    },
+    "new_fastener_bore_stack_tool_vs_12_frame_bolt_axes_mm3": {
+      "bolt/backer_header_left_1": {},
+      "bolt/backer_header_left_2": {},
+      "bolt/backer_header_right_1": {},
+      "bolt/backer_header_right_2": {},
+      "bore/backer_header_left_1": {},
+      "bore/backer_header_left_2": {},
+      "bore/backer_header_right_1": {},
+      "bore/backer_header_right_2": {},
+      "counterbore/backer_header_left_1": {},
+      "counterbore/backer_header_left_2": {},
+      "counterbore/backer_header_right_1": {},
+      "counterbore/backer_header_right_2": {},
+      "stack/backer_header_left_1/bottom_head": {},
+      "stack/backer_header_left_1/bottom_washer": {},
+      "stack/backer_header_left_1/top_nut": {},
+      "stack/backer_header_left_1/top_washer": {},
+      "stack/backer_header_left_2/bottom_head": {},
+      "stack/backer_header_left_2/bottom_washer": {},
+      "stack/backer_header_left_2/top_nut": {},
+      "stack/backer_header_left_2/top_washer": {},
+      "stack/backer_header_right_1/bottom_head": {},
+      "stack/backer_header_right_1/bottom_washer": {},
+      "stack/backer_header_right_1/top_nut": {},
+      "stack/backer_header_right_1/top_washer": {},
+      "stack/backer_header_right_2/bottom_head": {},
+      "stack/backer_header_right_2/bottom_washer": {},
+      "stack/backer_header_right_2/top_nut": {},
+      "stack/backer_header_right_2/top_washer": {},
+      "tool/backer_header_left_1/bottom": {},
+      "tool/backer_header_left_1/bottom_approach_sweep": {},
+      "tool/backer_header_left_1/bottom_seated": {},
+      "tool/backer_header_left_1/top": {},
+      "tool/backer_header_left_1/top_approach_sweep": {},
+      "tool/backer_header_left_1/top_seated": {},
+      "tool/backer_header_left_2/bottom": {},
+      "tool/backer_header_left_2/bottom_approach_sweep": {},
+      "tool/backer_header_left_2/bottom_seated": {},
+      "tool/backer_header_left_2/top": {},
+      "tool/backer_header_left_2/top_approach_sweep": {},
+      "tool/backer_header_left_2/top_seated": {},
+      "tool/backer_header_right_1/bottom": {},
+      "tool/backer_header_right_1/bottom_approach_sweep": {},
+      "tool/backer_header_right_1/bottom_seated": {},
+      "tool/backer_header_right_1/top": {},
+      "tool/backer_header_right_1/top_approach_sweep": {},
+      "tool/backer_header_right_1/top_seated": {},
+      "tool/backer_header_right_2/bottom": {},
+      "tool/backer_header_right_2/bottom_approach_sweep": {},
+      "tool/backer_header_right_2/bottom_seated": {},
+      "tool/backer_header_right_2/top": {},
+      "tool/backer_header_right_2/top_approach_sweep": {},
+      "tool/backer_header_right_2/top_seated": {}
+    },
+    "new_fastener_bore_stack_tool_vs_all_66_purchased_axes_mm3": {
+      "bolt/backer_header_left_1": {},
+      "bolt/backer_header_left_2": {},
+      "bolt/backer_header_right_1": {},
+      "bolt/backer_header_right_2": {},
+      "bore/backer_header_left_1": {},
+      "bore/backer_header_left_2": {},
+      "bore/backer_header_right_1": {},
+      "bore/backer_header_right_2": {},
+      "counterbore/backer_header_left_1": {},
+      "counterbore/backer_header_left_2": {},
+      "counterbore/backer_header_right_1": {},
+      "counterbore/backer_header_right_2": {},
+      "stack/backer_header_left_1/bottom_head": {},
+      "stack/backer_header_left_1/bottom_washer": {},
+      "stack/backer_header_left_1/top_nut": {},
+      "stack/backer_header_left_1/top_washer": {},
+      "stack/backer_header_left_2/bottom_head": {},
+      "stack/backer_header_left_2/bottom_washer": {},
+      "stack/backer_header_left_2/top_nut": {},
+      "stack/backer_header_left_2/top_washer": {},
+      "stack/backer_header_right_1/bottom_head": {},
+      "stack/backer_header_right_1/bottom_washer": {},
+      "stack/backer_header_right_1/top_nut": {},
+      "stack/backer_header_right_1/top_washer": {},
+      "stack/backer_header_right_2/bottom_head": {},
+      "stack/backer_header_right_2/bottom_washer": {},
+      "stack/backer_header_right_2/top_nut": {},
+      "stack/backer_header_right_2/top_washer": {},
+      "tool/backer_header_left_1/bottom": {},
+      "tool/backer_header_left_1/bottom_approach_sweep": {},
+      "tool/backer_header_left_1/bottom_seated": {},
+      "tool/backer_header_left_1/top": {},
+      "tool/backer_header_left_1/top_approach_sweep": {},
+      "tool/backer_header_left_1/top_seated": {},
+      "tool/backer_header_left_2/bottom": {},
+      "tool/backer_header_left_2/bottom_approach_sweep": {},
+      "tool/backer_header_left_2/bottom_seated": {},
+      "tool/backer_header_left_2/top": {},
+      "tool/backer_header_left_2/top_approach_sweep": {},
+      "tool/backer_header_left_2/top_seated": {},
+      "tool/backer_header_right_1/bottom": {},
+      "tool/backer_header_right_1/bottom_approach_sweep": {},
+      "tool/backer_header_right_1/bottom_seated": {},
+      "tool/backer_header_right_1/top": {},
+      "tool/backer_header_right_1/top_approach_sweep": {},
+      "tool/backer_header_right_1/top_seated": {},
+      "tool/backer_header_right_2/bottom": {},
+      "tool/backer_header_right_2/bottom_approach_sweep": {},
+      "tool/backer_header_right_2/bottom_seated": {},
+      "tool/backer_header_right_2/top": {},
+      "tool/backer_header_right_2/top_approach_sweep": {},
+      "tool/backer_header_right_2/top_seated": {}
+    },
+    "new_fastener_stack_tool_vs_machined_frame_wood_mm3": {
+      "bolt/backer_header_left_1": {},
+      "bolt/backer_header_left_2": {},
+      "bolt/backer_header_right_1": {},
+      "bolt/backer_header_right_2": {},
+      "stack/backer_header_left_1/bottom_head": {},
+      "stack/backer_header_left_1/bottom_washer": {},
+      "stack/backer_header_left_1/top_nut": {},
+      "stack/backer_header_left_1/top_washer": {},
+      "stack/backer_header_left_2/bottom_head": {},
+      "stack/backer_header_left_2/bottom_washer": {},
+      "stack/backer_header_left_2/top_nut": {},
+      "stack/backer_header_left_2/top_washer": {},
+      "stack/backer_header_right_1/bottom_head": {},
+      "stack/backer_header_right_1/bottom_washer": {},
+      "stack/backer_header_right_1/top_nut": {},
+      "stack/backer_header_right_1/top_washer": {},
+      "stack/backer_header_right_2/bottom_head": {},
+      "stack/backer_header_right_2/bottom_washer": {},
+      "stack/backer_header_right_2/top_nut": {},
+      "stack/backer_header_right_2/top_washer": {},
+      "tool/backer_header_left_1/bottom": {},
+      "tool/backer_header_left_1/bottom_approach_sweep": {},
+      "tool/backer_header_left_1/bottom_seated": {},
+      "tool/backer_header_left_1/top": {},
+      "tool/backer_header_left_1/top_approach_sweep": {},
+      "tool/backer_header_left_1/top_seated": {},
+      "tool/backer_header_left_2/bottom": {},
+      "tool/backer_header_left_2/bottom_approach_sweep": {},
+      "tool/backer_header_left_2/bottom_seated": {},
+      "tool/backer_header_left_2/top": {},
+      "tool/backer_header_left_2/top_approach_sweep": {},
+      "tool/backer_header_left_2/top_seated": {},
+      "tool/backer_header_right_1/bottom": {},
+      "tool/backer_header_right_1/bottom_approach_sweep": {},
+      "tool/backer_header_right_1/bottom_seated": {},
+      "tool/backer_header_right_1/top": {},
+      "tool/backer_header_right_1/top_approach_sweep": {},
+      "tool/backer_header_right_1/top_seated": {},
+      "tool/backer_header_right_2/bottom": {},
+      "tool/backer_header_right_2/bottom_approach_sweep": {},
+      "tool/backer_header_right_2/bottom_seated": {},
+      "tool/backer_header_right_2/top": {},
+      "tool/backer_header_right_2/top_approach_sweep": {},
+      "tool/backer_header_right_2/top_seated": {}
+    },
+    "shifted_posts_vs_12_frame_bolt_axes_mm3": {
+      "base_post_center_left": {},
+      "base_post_center_right": {}
+    },
+    "shifted_posts_vs_all_66_purchased_axis_envelopes_mm3": {
+      "base_post_center_left": {},
+      "base_post_center_right": {}
+    },
+    "shifted_posts_vs_unrelated_source_wood_mm3": {
+      "base_post_center_left": {},
+      "base_post_center_right": {}
+    }
+  },
+  "source_candidate": "compact-floor-flush-development kerf-right source geometry; separate wood-joints development lane only",
+  "source_fingerprints_sha256": {
+    "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+    "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+    "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "af5c3964f78d60fe8dbefc81503c443baa5cf2ddf67dd16195d402001b26c976"
+  },
+  "status": "nominal_geometry_clear_diagnostic",
+  "topology": {
+    "access_envelopes": {
+      "bottom_tool": "Seated envelope starts at bolt underhead face Z=4.968 mm and extends -Z; approach endpoint remains at head outer face. Full axial approach sweep included.",
+      "bottom_tool_against_floor": "not modeled; no floor friction or anchor claim added",
+      "intended_hex_occupancy": "Named nut/head axial occupancy recorded separately; it is not counted as an obstacle clash. The external envelope still checks against all unrelated wood, fixed axes, and protected services.",
+      "ratchet, extension, drive-end access, swing, floor clearance, and installation/removal order": "unmodeled and unverified; no tool access or assembly-sequence acceptance",
+      "socket_basis": {
+        "drive": "3/8-in square, 12-point, 7/16-in output",
+        "external_model": "D2 max OD applied over full L as conservative exterior occupancy; unlisted axial OD profile not inferred",
+        "internal_fit": "12-point cavity geometry, across-corner clearance, tolerance, and engagement fit are not modeled or assessed",
+        "listed_dimensions_mm": {
+          "D1_working_end_od": 16.0,
+          "D2_max_od": 17.2,
+          "H1_hex_engagement": 12.0,
+          "H2_stud_clearance_depth": 41.5,
+          "L_overall_length": 55.0
+        },
+        "product": "Ko-ken 3305A-7/16",
+        "product_url": "https://kokenusa.com/products/deep-socket-3-8sq-dr-12-p-7-16"
+      },
+      "top_tool": "Seated envelope starts at nut bearing face Z=283.096 mm and extends +Z; approach endpoint remains at nut outer face. Full axial approach sweep included."
+    },
+    "backer_bounds_mm": {
+      "left": {
+        "x": [
+          -90.4875,
+          -1.5875
+        ],
+        "y": [
+          -124.9,
+          -36.0
+        ],
+        "z": [
+          0.0,
+          238.9
+        ]
+      },
+      "right": {
+        "x": [
+          -1.5875,
+          87.3125
+        ],
+        "y": [
+          -124.9,
+          -36.0
+        ],
+        "z": [
+          0.0,
+          238.9
+        ]
+      }
+    },
+    "backer_stock_candidate": "two separate solid sawn 88.9 x 88.9 x 238.9 mm members, grain along Z; stock/source availability not verified",
+    "backer_to_header_path": "Each backer has two ordinary vertical through-bolts into the actual base_header. The backer/header face contact is at Z=238.9 mm; the bolts cross 238.9 mm of backer and 38.1 mm of header.",
+    "complete_frame_path": "Not established: base_header-to-principal/post duties and relocated center-post joints remain separate WJ-03/WJ-04/WJ-06 obligations.",
+    "fastener_stack_screen": {
+      "basis": {
+        "bolt_length_tolerance_over_6in_1_4_through_3_8in": "+0.10/-0.18 in",
+        "bolt_standard": "ASME B18.2.1-2012, hex bolt, 1/4-20 UNC, length over 6 in",
+        "head": "ASME B18.2.1 regular hex bolt; max height 0.188 in, max corners 0.505 in",
+        "maximum_thread_length_rule": "LG,max = Lnom - LT, with a minus-only tolerance of five coarse pitches. For the minimum total length envelope, smooth shank is (Lnom - 0.18 in) - (LT + 0.25 in); this can put the thread transition into the required wood span.",
+        "nominal_thread_length_rule": "LT = 2D + 0.50 in = 1.00 in",
+        "nut": "ASME B18.2.2 finished 1/4-20 hex nut; max thickness 0.226 in, max corners 0.505 in",
+        "option_comparison": [
+          {
+            "actual_CAD_wood_span_coordinates_z_mm": [
+              7.0,
+              277.0
+            ],
+            "actual_CAD_wood_span_length_mm": 270.0,
+            "asme_max_total_thread_length_including_five_pitch_tolerance_mm": 31.75,
+            "asme_nominal_total_thread_length_mm": 25.4,
+            "asme_smooth_shank_length_range_mm_from_underhead": [
+              255.778,
+              266.7
+            ],
+            "bolt_underhead_z_mm": 4.968,
+            "geometric_thread_stack_status": "conditional_measure_each_thread_transition;_use_root_diameter_if_header_exposure_exceeds_one_quarter",
+            "header_bearing_length_mm": 38.1,
+            "maximum_delivered_length_mm_from_asme_length_tolerance": 294.64,
+            "maximum_smooth_shank_minus_underhead_to_wood_end_mm": -5.332,
+            "minimum_delivered_bolt_tip_global_z_mm": 292.496,
+            "minimum_delivered_length_mm_from_asme_length_tolerance": 287.528,
+            "minimum_smooth_shank_minus_underhead_to_wood_end_mm": -16.254,
+            "minimum_tip_past_nut_mm_from_length_tolerance": 7.724,
+            "minimum_tip_projection_exceeds_3p175mm": true,
+            "nds_12_3_7_2_max_thread_bearing_if_using_nominal_d_mm": 9.525,
+            "nds_nominal_d_limited_thread_rule_passes_over_full_standard_envelope": false,
+            "nominal_bolt_tip_global_z_mm": 297.068,
+            "nominal_length_in": 11.5,
+            "nominal_tip_past_nut_mm": 12.677,
+            "nominal_underhead_length_mm": 292.1,
+            "nut_bearing_face_min_nominal_max_global_z_mm": [
+              278.295,
+              278.651,
+              279.032
+            ],
+            "nut_bearing_face_min_nominal_max_mm_from_underhead": [
+              273.327,
+              273.683,
+              274.064
+            ],
+            "nut_face_margin_for_standard_shank_range_mm_at_min_washer_thickness": [
+              6.627,
+              17.549
+            ],
+            "nut_seat_guaranteed_by_standard_envelope": true,
+            "overlap_with_ASME_shank_envelope_mm": [
+              262.507,
+              266.7
+            ],
+            "owner_effective_grip_criterion_mm": 269.94,
+            "possible_with_measured_thread_start_within_standard_envelope": true,
+            "required_underhead_length_mm_using_maximum_washer_and_nut_thickness": 282.979,
+            "standard_tolerance_envelope_allows_limited_threads_in_header": false,
+            "thread_exposure_in_header_mm_at_standard_min_max_smooth_shank": [
+              16.254,
+              5.332
+            ],
+            "thread_length_range_implied_at_nominal_overall_length_mm": [
+              18.773,
+              20.068
+            ],
+            "thread_transition_interval_for_nds_limited_thread_and_full_nut_engagement_mm_from_underhead": [
+              262.507,
+              273.327
+            ],
+            "thread_transition_interval_global_z_mm": [
+              267.475,
+              278.295
+            ],
+            "top_type_a_washer_count": 1,
+            "top_washer_stack_thickness_min_nominal_max_mm": [
+              1.295,
+              1.651,
+              2.032
+            ],
+            "underhead_to_wood_end_mm": 272.032,
+            "wood_bearing_end_z_mm": 277.0,
+            "wood_bearing_length_mm": 270.0,
+            "wood_bearing_start_z_mm": 7.0
+          },
+          {
+            "actual_CAD_wood_span_coordinates_z_mm": [
+              7.0,
+              277.0
+            ],
+            "actual_CAD_wood_span_length_mm": 270.0,
+            "asme_max_total_thread_length_including_five_pitch_tolerance_mm": 31.75,
+            "asme_nominal_total_thread_length_mm": 25.4,
+            "asme_smooth_shank_length_range_mm_from_underhead": [
+              268.478,
+              279.4
+            ],
+            "bolt_underhead_z_mm": 4.968,
+            "geometric_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+            "header_bearing_length_mm": 38.1,
+            "maximum_delivered_length_mm_from_asme_length_tolerance": 307.34,
+            "maximum_smooth_shank_minus_underhead_to_wood_end_mm": 7.368,
+            "minimum_delivered_bolt_tip_global_z_mm": 305.196,
+            "minimum_delivered_length_mm_from_asme_length_tolerance": 300.228,
+            "minimum_smooth_shank_minus_underhead_to_wood_end_mm": -3.554,
+            "minimum_tip_past_nut_mm_from_length_tolerance": 20.424,
+            "minimum_tip_projection_exceeds_3p175mm": true,
+            "nds_12_3_7_2_max_thread_bearing_if_using_nominal_d_mm": 9.525,
+            "nds_nominal_d_limited_thread_rule_passes_over_full_standard_envelope": true,
+            "nominal_bolt_tip_global_z_mm": 309.768,
+            "nominal_length_in": 12.0,
+            "nominal_tip_past_nut_mm": 25.377,
+            "nominal_underhead_length_mm": 304.8,
+            "nut_bearing_face_min_nominal_max_global_z_mm": [
+              278.295,
+              278.651,
+              279.032
+            ],
+            "nut_bearing_face_min_nominal_max_mm_from_underhead": [
+              273.327,
+              273.683,
+              274.064
+            ],
+            "nut_face_margin_for_standard_shank_range_mm_at_min_washer_thickness": [
+              -6.073,
+              4.849
+            ],
+            "nut_seat_guaranteed_by_standard_envelope": false,
+            "overlap_with_ASME_shank_envelope_mm": [
+              268.478,
+              273.327
+            ],
+            "owner_effective_grip_criterion_mm": 269.94,
+            "possible_with_measured_thread_start_within_standard_envelope": true,
+            "required_underhead_length_mm_using_maximum_washer_and_nut_thickness": 282.979,
+            "standard_tolerance_envelope_allows_limited_threads_in_header": true,
+            "thread_exposure_in_header_mm_at_standard_min_max_smooth_shank": [
+              3.554,
+              0.0
+            ],
+            "thread_length_range_implied_at_nominal_overall_length_mm": [
+              31.473,
+              32.768
+            ],
+            "thread_transition_interval_for_nds_limited_thread_and_full_nut_engagement_mm_from_underhead": [
+              262.507,
+              273.327
+            ],
+            "thread_transition_interval_global_z_mm": [
+              267.475,
+              278.295
+            ],
+            "top_type_a_washer_count": 1,
+            "top_washer_stack_thickness_min_nominal_max_mm": [
+              1.295,
+              1.651,
+              2.032
+            ],
+            "underhead_to_wood_end_mm": 272.032,
+            "wood_bearing_end_z_mm": 277.0,
+            "wood_bearing_length_mm": 270.0,
+            "wood_bearing_start_z_mm": 7.0
+          },
+          {
+            "actual_CAD_wood_span_coordinates_z_mm": [
+              7.0,
+              277.0
+            ],
+            "actual_CAD_wood_span_length_mm": 270.0,
+            "asme_max_total_thread_length_including_five_pitch_tolerance_mm": 31.75,
+            "asme_nominal_total_thread_length_mm": 25.4,
+            "asme_smooth_shank_length_range_mm_from_underhead": [
+              268.478,
+              279.4
+            ],
+            "bolt_underhead_z_mm": 4.968,
+            "geometric_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+            "header_bearing_length_mm": 38.1,
+            "maximum_delivered_length_mm_from_asme_length_tolerance": 307.34,
+            "maximum_smooth_shank_minus_underhead_to_wood_end_mm": 7.368,
+            "minimum_delivered_bolt_tip_global_z_mm": 305.196,
+            "minimum_delivered_length_mm_from_asme_length_tolerance": 300.228,
+            "minimum_smooth_shank_minus_underhead_to_wood_end_mm": -3.554,
+            "minimum_tip_past_nut_mm_from_length_tolerance": 16.36,
+            "minimum_tip_projection_exceeds_3p175mm": true,
+            "nds_12_3_7_2_max_thread_bearing_if_using_nominal_d_mm": 9.525,
+            "nds_nominal_d_limited_thread_rule_passes_over_full_standard_envelope": true,
+            "nominal_bolt_tip_global_z_mm": 309.768,
+            "nominal_length_in": 12.0,
+            "nominal_tip_past_nut_mm": 22.075,
+            "nominal_underhead_length_mm": 304.8,
+            "nut_bearing_face_min_nominal_max_global_z_mm": [
+              280.886,
+              281.953,
+              283.096
+            ],
+            "nut_bearing_face_min_nominal_max_mm_from_underhead": [
+              275.918,
+              276.985,
+              278.128
+            ],
+            "nut_face_margin_for_standard_shank_range_mm_at_min_washer_thickness": [
+              -3.482,
+              7.44
+            ],
+            "nut_seat_guaranteed_by_standard_envelope": false,
+            "overlap_with_ASME_shank_envelope_mm": [
+              268.478,
+              275.918
+            ],
+            "owner_effective_grip_criterion_mm": 269.94,
+            "possible_with_measured_thread_start_within_standard_envelope": true,
+            "required_underhead_length_mm_using_maximum_washer_and_nut_thickness": 287.043,
+            "standard_tolerance_envelope_allows_limited_threads_in_header": true,
+            "thread_exposure_in_header_mm_at_standard_min_max_smooth_shank": [
+              3.554,
+              0.0
+            ],
+            "thread_length_range_implied_at_nominal_overall_length_mm": [
+              28.882,
+              32.768
+            ],
+            "thread_transition_interval_for_nds_limited_thread_and_full_nut_engagement_mm_from_underhead": [
+              262.507,
+              275.918
+            ],
+            "thread_transition_interval_global_z_mm": [
+              267.475,
+              280.886
+            ],
+            "top_type_a_washer_count": 3,
+            "top_washer_stack_thickness_min_nominal_max_mm": [
+              3.886,
+              4.953,
+              6.096
+            ],
+            "underhead_to_wood_end_mm": 272.032,
+            "wood_bearing_end_z_mm": 277.0,
+            "wood_bearing_length_mm": 270.0,
+            "wood_bearing_start_z_mm": 7.0
+          }
+        ],
+        "stack_dimensions_mm": {
+          "actual_CAD_wood_bearing_length_mm": 270.0,
+          "bolt_underhead_z_mm": 4.968,
+          "bottom_counterbore_depth": 7.0,
+          "bottom_head_plus_washer_depth": 6.807,
+          "minimum_thread_past_nut_used_for_length_check": 3.175,
+          "minimum_underhead_length_with_max_washer_nut_and_thread_projection": 287.043,
+          "owner_effective_grip_criterion_mm": 269.94,
+          "remaining_counterbore_depth_allowance": 0.193,
+          "top_nut_max_thickness": 5.7404,
+          "top_washer_count": 3,
+          "top_washer_stack_min_nominal_max": [
+            3.886,
+            4.953,
+            6.096
+          ],
+          "underhead_to_wood_end_mm_including_head_washer": 272.032,
+          "wood_span_end_z_mm": 277.0,
+          "wood_span_start_z_mm": 7.0
+        },
+        "washer": "ASME B18.22.1 Type A narrow, 1/4 in; basic OD 5/8 in with 0.640 in max envelope, thickness 0.065 in nominal / 0.051-0.080 in tolerance"
+      },
+      "conditional_receiving_spec": {
+        "actual_CAD_wood_span_end_z_mm": 277.0,
+        "actual_CAD_wood_span_length_mm": 270.0,
+        "actual_CAD_wood_span_start_z_mm": 7.0,
+        "bolt_underhead_z_mm": 4.968,
+        "coupled_measured_length_thread_condition": "For measured delivered underhead length L and measured smooth-shank/thread transition S (both mm from the underhead datum), require S >= underhead-to-wood-end minus one quarter of the 38.1 mm header bearing length (262.507 mm), so thread bearing in the member holding the threads stays within the NDS 12.3.7.2 nominal-D limit. Also require S <= underhead-to-wood-end plus the actual combined top-washer thickness to engage the full nut. With the three-washer minimum stack the interval is 262.507\u2013275.918 mm. Verify conforming thread through the full nut and at least 3.175 mm of threaded tip beyond it. Measure L, S, and washer stack together; do not infer S from nominal length or a catalog minimum-thread statement. If the actual NDS thread-bearing limit is exceeded, use measured root diameter in the lateral-yield calculation instead of nominal D.",
+        "delivered_length_range_mm_from_standard_tolerance": [
+          300.228,
+          307.34
+        ],
+        "evidence_needed": "A manufacturer-guaranteed shank/thread transition that meets the coupled dimensions, or receipt measurement of every bolt's overall underhead length and actual smooth-shank/thread start, plus measurement of the washer stack and nut fit. No SKU is accepted.",
+        "measured_thread_transition_band_with_three_minimum_washers_mm": [
+          262.507,
+          275.918
+        ],
+        "measured_thread_transition_global_z_mm_with_three_top_washers": [
+          267.475,
+          280.886
+        ],
+        "measured_thread_transition_interval_from_underhead_mm_with_three_top_washers": [
+          262.507,
+          275.918
+        ],
+        "minimum_combined_top_washer_thickness_mm": 3.8862,
+        "nominal_fastener": "1/4-20 UNC, 12-in partial-thread hex bolt to ASME B18.2.1, nut and Type A narrow washers",
+        "owner_effective_grip_criterion_mm": 269.94,
+        "standard_12in_envelope_smooth_shank_mm_from_underhead": [
+          268.478,
+          279.4
+        ],
+        "status": "conditional_geometry_only_no_sku_accepted",
+        "underhead_to_wood_end_mm_including_head_washer": 272.032,
+        "worst_case_standard_threads_can_enter_wood_by_mm": 3.554
+      },
+      "dimension_sources": {
+        "12in_catalog_bolt_example": "https://boltdepot.com/Product-Details?product=5238",
+        "1_4in_washer_od_and_id": "https://boltdepot.com/Product-Details?product=2947",
+        "7_16_deep_socket_dimensions": "https://kokenusa.com/products/deep-socket-3-8sq-dr-12-p-7-16",
+        "asme_b18_2_1_thread_and_bolt_geometry": "https://studylib.net/doc/27174816/asme-b18.2.1-2012",
+        "asme_b18_2_2_finished_nut_geometry": "https://studylib.net/doc/27188368/asme-b18.2.2-2022",
+        "asme_type_a_washer_thickness": "https://www.panduit.com/content/dam/panduit/en/products/media/6/86/986/6986/101806986.pdf",
+        "finished_hex_nut_1_4_20": "https://boltdepot.com/Product-Details?product=2563"
+      },
+      "limitations": [
+        "A smooth shank through every millimeter of wood is not required by this screen. The actual thread-bearing length in the 38.1 mm header must be bounded for NDS 12.3.7.2; otherwise use a measured root diameter.",
+        "The 11.5-in option is a dimensionally plausible length screen, not a verified stocked SKU or selected material/grade.",
+        "A 7.3-mm nominal clearance hole is modeled; hole, bolt, washer, wood, and placement tolerances remain open.",
+        "Thread fit and geometric seating are not resistance, preload, bearing, splitting, stiffness, or fatigue checks."
+      ],
+      "specific_12in_catalog_example": {
+        "maximum_smooth_body_from_published_1in_minimum_thread_at_max_delivered_length_mm": 279.4,
+        "nominal_12in_thread_length_range_that_places_start_in_three_washer_band_in": [
+          1.1371,
+          1.6651
+        ],
+        "nut_face_margin_at_minimum_three_washer_thickness_mm_if_only_minimum_thread_is_provided": -3.482,
+        "published_length_tolerance": "+0.00/-0.18 in",
+        "published_minimum_thread_length_in": 1.0,
+        "required_thread_transition_interval_mm_from_underhead_for_12in_three_washer_stack": [
+          262.507,
+          275.918
+        ],
+        "source_product": "Bolt Depot product 5238, stainless 18-8 1/4-20 x 12 in hex bolt",
+        "thread_stack_status": "not_guaranteed_to_seat; published minimum 1-in thread allows a smooth shank beyond the 3-washer nut face and the total-length tolerance permits thread transition inside wood; measure delivered length, smooth-shank end, and washer/nut stack together"
+      }
+    },
+    "fixed_center_kicker_axes": {
+      "round_kicker_left_center_1": {
+        "axis_includes_panel_thickness": true,
+        "fixed_axis_xyz_mm": [
+          -70.0,
+          -17.743750000000002,
+          60.0
+        ],
+        "full_embedded_axis_volume_received": true,
+        "full_purchased_axis_shape_volume_mm3": 854.882149,
+        "modeled_axis_volume_inside_backer_mm3": 609.103531,
+        "modeled_embedded_axis_volume_fraction_inside_backer": 1.0,
+        "modeled_occupied_diameter_mm": 4.1402,
+        "nominal_embedded_length_after_panel_back_mm": 45.24375,
+        "purchased_length_mm": 63.5,
+        "receiver": "inner_kicker_backer_left",
+        "source_screw_diameter_limit": "Historical occupied CAD envelope only; it is not a Hillman 42605 measured diameter or pilot size."
+      },
+      "round_kicker_left_center_2": {
+        "axis_includes_panel_thickness": true,
+        "fixed_axis_xyz_mm": [
+          -70.0,
+          -17.743750000000002,
+          192.0
+        ],
+        "full_embedded_axis_volume_received": true,
+        "full_purchased_axis_shape_volume_mm3": 854.882149,
+        "modeled_axis_volume_inside_backer_mm3": 609.103531,
+        "modeled_embedded_axis_volume_fraction_inside_backer": 1.0,
+        "modeled_occupied_diameter_mm": 4.1402,
+        "nominal_embedded_length_after_panel_back_mm": 45.24375,
+        "purchased_length_mm": 63.5,
+        "receiver": "inner_kicker_backer_left",
+        "source_screw_diameter_limit": "Historical occupied CAD envelope only; it is not a Hillman 42605 measured diameter or pilot size."
+      },
+      "round_kicker_right_center_1": {
+        "axis_includes_panel_thickness": true,
+        "fixed_axis_xyz_mm": [
+          70.0,
+          -17.743750000000002,
+          60.0
+        ],
+        "full_embedded_axis_volume_received": true,
+        "full_purchased_axis_shape_volume_mm3": 854.882149,
+        "modeled_axis_volume_inside_backer_mm3": 609.103531,
+        "modeled_embedded_axis_volume_fraction_inside_backer": 1.0,
+        "modeled_occupied_diameter_mm": 4.1402,
+        "nominal_embedded_length_after_panel_back_mm": 45.24375,
+        "purchased_length_mm": 63.5,
+        "receiver": "inner_kicker_backer_right",
+        "source_screw_diameter_limit": "Historical occupied CAD envelope only; it is not a Hillman 42605 measured diameter or pilot size."
+      },
+      "round_kicker_right_center_2": {
+        "axis_includes_panel_thickness": true,
+        "fixed_axis_xyz_mm": [
+          70.0,
+          -17.743750000000002,
+          192.0
+        ],
+        "full_embedded_axis_volume_received": true,
+        "full_purchased_axis_shape_volume_mm3": 854.882149,
+        "modeled_axis_volume_inside_backer_mm3": 609.103531,
+        "modeled_embedded_axis_volume_fraction_inside_backer": 1.0,
+        "modeled_occupied_diameter_mm": 4.1402,
+        "nominal_embedded_length_after_panel_back_mm": 45.24375,
+        "purchased_length_mm": 63.5,
+        "receiver": "inner_kicker_backer_right",
+        "source_screw_diameter_limit": "Historical occupied CAD envelope only; it is not a Hillman 42605 measured diameter or pilot size."
+      }
+    },
+    "inner_edge_support_sample_check": {
+      "kicker_left": true,
+      "kicker_right": true
+    },
+    "member_transport": {
+      "backers": "two discrete pieces; no glue or permanent joining assumed",
+      "center_posts": "two existing 38.1 x 139.7 x 238.9 mm pieces, shifted in X only; each remains a discrete piece",
+      "increased_member_length_or_section": false,
+      "transport_and_frame_sequence_observed": false
+    },
+    "moved_center_posts_x_shift_mm": {
+      "left": -110.0,
+      "right": 110.0
+    },
+    "nominal_backer_header_contact_gross_mm2": 7903.21,
+    "nominal_contact_area_after_two_7p3mm_bores_mm2": 7819.502,
+    "through_bolts": [
+      {
+        "12in_three_washer_minimum_tip_past_nut_mm": 16.36,
+        "12in_three_washer_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+        "axis_direction_xyz": [
+          0,
+          0,
+          1
+        ],
+        "axis_start_xyz_mm": [
+          -35.0,
+          -97.0,
+          4.968
+        ],
+        "backer_header_interface_z_mm": 238.9,
+        "fastener_status": "12-in partial-thread geometry remains conditional on measuring delivered thread transition, actual nut engagement, washer stack, and tip; smooth shank through every millimeter of wood is not required; apply NDS 12.3.7.2 nominal-D limit when its thread-bearing condition is met, otherwise use actual root diameter; no SKU or capacity accepted",
+        "id": "backer_header_left_1",
+        "members": [
+          "inner_kicker_backer_left",
+          "base_header"
+        ],
+        "nominal_4d_comparator_mm_for_1_4_in_bolt": 25.4,
+        "nominal_CAD_underhead_to_wood_end_mm_including_head_washer": 272.032,
+        "nominal_backer_envelope_clearance_to_y_edges_mm": 27.900000000000006,
+        "nominal_bolt_length_envelope_mm": 304.8,
+        "nominal_bolt_tip_global_z_mm": 309.768,
+        "nominal_wood_bearing_length_mm": 270.0,
+        "provisional_underhead_length_requirement_mm": 287.043,
+        "required_wood_grip_mm": 269.94,
+        "side": "left",
+        "socket_external_occupancy_intent": {
+          "bottom_head": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": -1,
+            "target_axial_height_mm": 4.7752,
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "target_component": "bottom_bolt_head",
+            "target_max_corner_diameter_mm": 12.827
+          },
+          "top_nut": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": 1,
+            "target_axial_height_mm": 5.740400000000022,
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "target_component": "top_nut",
+            "target_max_corner_diameter_mm": 12.827
+          }
+        },
+        "tool_envelope_diameter_mm": 17.2,
+        "top_Type_A_washer_count": 3,
+        "top_washer_stack_min_nominal_max_mm": [
+          3.886,
+          4.953,
+          6.096
+        ],
+        "wood_bearing_span_mm": [
+          7.0,
+          277.0
+        ]
+      },
+      {
+        "12in_three_washer_minimum_tip_past_nut_mm": 16.36,
+        "12in_three_washer_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+        "axis_direction_xyz": [
+          0,
+          0,
+          1
+        ],
+        "axis_start_xyz_mm": [
+          -35.0,
+          -63.0,
+          4.968
+        ],
+        "backer_header_interface_z_mm": 238.9,
+        "fastener_status": "12-in partial-thread geometry remains conditional on measuring delivered thread transition, actual nut engagement, washer stack, and tip; smooth shank through every millimeter of wood is not required; apply NDS 12.3.7.2 nominal-D limit when its thread-bearing condition is met, otherwise use actual root diameter; no SKU or capacity accepted",
+        "id": "backer_header_left_2",
+        "members": [
+          "inner_kicker_backer_left",
+          "base_header"
+        ],
+        "nominal_4d_comparator_mm_for_1_4_in_bolt": 25.4,
+        "nominal_CAD_underhead_to_wood_end_mm_including_head_washer": 272.032,
+        "nominal_backer_envelope_clearance_to_y_edges_mm": 27.0,
+        "nominal_bolt_length_envelope_mm": 304.8,
+        "nominal_bolt_tip_global_z_mm": 309.768,
+        "nominal_wood_bearing_length_mm": 270.0,
+        "provisional_underhead_length_requirement_mm": 287.043,
+        "required_wood_grip_mm": 269.94,
+        "side": "left",
+        "socket_external_occupancy_intent": {
+          "bottom_head": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": -1,
+            "target_axial_height_mm": 4.7752,
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "target_component": "bottom_bolt_head",
+            "target_max_corner_diameter_mm": 12.827
+          },
+          "top_nut": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": 1,
+            "target_axial_height_mm": 5.740400000000022,
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "target_component": "top_nut",
+            "target_max_corner_diameter_mm": 12.827
+          }
+        },
+        "tool_envelope_diameter_mm": 17.2,
+        "top_Type_A_washer_count": 3,
+        "top_washer_stack_min_nominal_max_mm": [
+          3.886,
+          4.953,
+          6.096
+        ],
+        "wood_bearing_span_mm": [
+          7.0,
+          277.0
+        ]
+      },
+      {
+        "12in_three_washer_minimum_tip_past_nut_mm": 16.36,
+        "12in_three_washer_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+        "axis_direction_xyz": [
+          0,
+          0,
+          1
+        ],
+        "axis_start_xyz_mm": [
+          41.0,
+          -98.0,
+          4.968
+        ],
+        "backer_header_interface_z_mm": 238.9,
+        "fastener_status": "12-in partial-thread geometry remains conditional on measuring delivered thread transition, actual nut engagement, washer stack, and tip; smooth shank through every millimeter of wood is not required; apply NDS 12.3.7.2 nominal-D limit when its thread-bearing condition is met, otherwise use actual root diameter; no SKU or capacity accepted",
+        "id": "backer_header_right_1",
+        "members": [
+          "inner_kicker_backer_right",
+          "base_header"
+        ],
+        "nominal_4d_comparator_mm_for_1_4_in_bolt": 25.4,
+        "nominal_CAD_underhead_to_wood_end_mm_including_head_washer": 272.032,
+        "nominal_backer_envelope_clearance_to_y_edges_mm": 26.900000000000006,
+        "nominal_bolt_length_envelope_mm": 304.8,
+        "nominal_bolt_tip_global_z_mm": 309.768,
+        "nominal_wood_bearing_length_mm": 270.0,
+        "provisional_underhead_length_requirement_mm": 287.043,
+        "required_wood_grip_mm": 269.94,
+        "side": "right",
+        "socket_external_occupancy_intent": {
+          "bottom_head": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": -1,
+            "target_axial_height_mm": 4.7752,
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "target_component": "bottom_bolt_head",
+            "target_max_corner_diameter_mm": 12.827
+          },
+          "top_nut": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": 1,
+            "target_axial_height_mm": 5.740400000000022,
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "target_component": "top_nut",
+            "target_max_corner_diameter_mm": 12.827
+          }
+        },
+        "tool_envelope_diameter_mm": 17.2,
+        "top_Type_A_washer_count": 3,
+        "top_washer_stack_min_nominal_max_mm": [
+          3.886,
+          4.953,
+          6.096
+        ],
+        "wood_bearing_span_mm": [
+          7.0,
+          277.0
+        ]
+      },
+      {
+        "12in_three_washer_minimum_tip_past_nut_mm": 16.36,
+        "12in_three_washer_thread_stack_status": "conditional_NDS_limited_thread_geometry_and_full_nut_engagement;_verify_each_delivered_bolt",
+        "axis_direction_xyz": [
+          0,
+          0,
+          1
+        ],
+        "axis_start_xyz_mm": [
+          25.0,
+          -76.0,
+          4.968
+        ],
+        "backer_header_interface_z_mm": 238.9,
+        "fastener_status": "12-in partial-thread geometry remains conditional on measuring delivered thread transition, actual nut engagement, washer stack, and tip; smooth shank through every millimeter of wood is not required; apply NDS 12.3.7.2 nominal-D limit when its thread-bearing condition is met, otherwise use actual root diameter; no SKU or capacity accepted",
+        "id": "backer_header_right_2",
+        "members": [
+          "inner_kicker_backer_right",
+          "base_header"
+        ],
+        "nominal_4d_comparator_mm_for_1_4_in_bolt": 25.4,
+        "nominal_CAD_underhead_to_wood_end_mm_including_head_washer": 272.032,
+        "nominal_backer_envelope_clearance_to_y_edges_mm": 40.0,
+        "nominal_bolt_length_envelope_mm": 304.8,
+        "nominal_bolt_tip_global_z_mm": 309.768,
+        "nominal_wood_bearing_length_mm": 270.0,
+        "provisional_underhead_length_requirement_mm": 287.043,
+        "required_wood_grip_mm": 269.94,
+        "side": "right",
+        "socket_external_occupancy_intent": {
+          "bottom_head": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": -1,
+            "target_axial_height_mm": 4.7752,
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "target_component": "bottom_bolt_head",
+            "target_max_corner_diameter_mm": 12.827
+          },
+          "top_nut": {
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim",
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_external_diameter_mm": 17.2,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_outward_z": 1,
+            "target_axial_height_mm": 5.740400000000022,
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "target_component": "top_nut",
+            "target_max_corner_diameter_mm": 12.827
+          }
+        },
+        "tool_envelope_diameter_mm": 17.2,
+        "top_Type_A_washer_count": 3,
+        "top_washer_stack_min_nominal_max_mm": [
+          3.886,
+          4.953,
+          6.096
+        ],
+        "wood_bearing_span_mm": [
+          7.0,
+          277.0
+        ]
+      }
+    ]
+  }
+}

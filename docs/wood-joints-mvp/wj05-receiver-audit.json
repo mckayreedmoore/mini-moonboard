@@ -1,0 +1,3784 @@
+{
+  "schema": "wood_joint_wj05_receiver_audit/v2",
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "status": "blocked_center_receiver_path",
+  "source_fingerprints_sha256": {
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "af5c3964f78d60fe8dbefc81503c443baa5cf2ddf67dd16195d402001b26c976",
+    "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+    "scripts/wood_joint_wj05_receiver_audit.py": "1980048e80b51063c075a302a79ef2d997ab6e9c98a235e57b87457ea96d2067"
+  },
+  "fixed_axis_identity": {
+    "count": 66,
+    "unique_count": 66,
+    "main_panel_axes": 48,
+    "kicker_axes": 18,
+    "axes_moved": 0
+  },
+  "receiver_summary": {
+    "finished_receiver_geometry_pass_count": 66,
+    "direct_structural_frame_member_axes": 62,
+    "separate_center_backer_axes": 4,
+    "accepted_separate_backer_attachment_axes": 0,
+    "receiver_axis_counts": {
+      "base_header": 10,
+      "base_post_outer_left": 2,
+      "base_post_outer_right": 2,
+      "base_principal_center_left": 8,
+      "base_principal_center_right": 8,
+      "base_rail_bottom_left": 2,
+      "base_rail_bottom_right": 2,
+      "base_rail_service_lower_left": 2,
+      "base_rail_service_lower_right": 2,
+      "base_rail_service_upper_left": 2,
+      "base_rail_service_upper_right": 2,
+      "base_rail_top": 4,
+      "base_side_left": 8,
+      "base_side_right": 8,
+      "inner_kicker_backer_left": 2,
+      "inner_kicker_backer_right": 2
+    }
+  },
+  "axes": [
+    {
+      "axis_id": "round_panel_lower_left_rim_1",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_2",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_3",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_4",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_1",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_2",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_3",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_4",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_edge_1",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_rail_bottom_left",
+      "axis_origin_global_xyz_mm": [
+        -435.07500000000005,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        -113.093704,
+        18.412912,
+        319.211955,
+        438.195677
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_bottom_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_edge_2",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_rail_bottom_left",
+      "axis_origin_global_xyz_mm": [
+        -835.075,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        -113.093704,
+        18.412912,
+        319.211955,
+        438.195677
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_bottom_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_service_1",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_rail_service_lower_left",
+      "axis_origin_global_xyz_mm": [
+        -435.07500000000005,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        577.999394,
+        709.506011,
+        1142.824638,
+        1261.80836
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_lower_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_left_service_2",
+      "panel_member": "main_lower_left",
+      "candidate_finished_receiver_member": "base_rail_service_lower_left",
+      "axis_origin_global_xyz_mm": [
+        -835.075,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        577.999394,
+        709.506011,
+        1142.824638,
+        1261.80836
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_lower_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_1",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_2",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_3",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_4",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_side_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1130.3,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_1",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_2",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_3",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_4",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_principal_center_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -89.05,
+        -50.95,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_1",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_rail_top",
+      "axis_origin_global_xyz_mm": [
+        -435.07500000000005,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        1127.125,
+        1404.077891,
+        1535.584507,
+        2127.306654,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_top",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_2",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_rail_top",
+      "axis_origin_global_xyz_mm": [
+        -835.075,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        1127.125,
+        1404.077891,
+        1535.584507,
+        2127.306654,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_top",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_service_1",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_rail_service_upper_left",
+      "axis_origin_global_xyz_mm": [
+        -435.07500000000005,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        670.592949,
+        802.099566,
+        1253.17334,
+        1372.157062
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_upper_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_left_service_2",
+      "panel_member": "main_upper_left",
+      "candidate_finished_receiver_member": "base_rail_service_upper_left",
+      "axis_origin_global_xyz_mm": [
+        -835.075,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        -89.05,
+        670.592949,
+        802.099566,
+        1253.17334,
+        1372.157062
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_upper_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_left_rim_1",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_post_outer_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1181.1,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_post_outer_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_left_rim_2",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_post_outer_left",
+      "axis_origin_global_xyz_mm": [
+        -1200.15,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        -1181.1,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_post_outer_left",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_left_center_1",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "inner_kicker_backer_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -90.4875,
+        -1.5875,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "inner_kicker_backer_left",
+        "backer_header_left_1/backer_header_left_2",
+        "base_header",
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right"
+      ],
+      "receiver_is_structural_frame_member": false,
+      "separate_receiver_attachment_geometry_present": true,
+      "receiver_attachment_path_status": "blocked_diagnostic_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_left_center_2",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "inner_kicker_backer_left",
+      "axis_origin_global_xyz_mm": [
+        -70.0,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -90.4875,
+        -1.5875,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "inner_kicker_backer_left",
+        "backer_header_left_1/backer_header_left_2",
+        "base_header",
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right"
+      ],
+      "receiver_is_structural_frame_member": false,
+      "separate_receiver_attachment_geometry_present": true,
+      "receiver_attachment_path_status": "blocked_diagnostic_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_1",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_2",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_3",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_4",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_1",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_2",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_3",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_4",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_edge_1",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_rail_bottom_right",
+      "axis_origin_global_xyz_mm": [
+        435.07500000000005,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        -113.093704,
+        18.412912,
+        319.211955,
+        438.195677
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_bottom_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_edge_2",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_rail_bottom_right",
+      "axis_origin_global_xyz_mm": [
+        835.075,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        -113.093704,
+        18.412912,
+        319.211955,
+        438.195677
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_bottom_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_service_1",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_rail_service_lower_right",
+      "axis_origin_global_xyz_mm": [
+        435.07500000000005,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        577.999394,
+        709.506011,
+        1142.824638,
+        1261.80836
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_lower_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_lower_right_service_2",
+      "panel_member": "main_lower_right",
+      "candidate_finished_receiver_member": "base_rail_service_lower_right",
+      "axis_origin_global_xyz_mm": [
+        835.075,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        577.999394,
+        709.506011,
+        1142.824638,
+        1261.80836
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_lower_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_1",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_2",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_3",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_4",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_side_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1127.125,
+        1216.025,
+        -175.7,
+        1535.584507,
+        277.0,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_side_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_1",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_2",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_3",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_4",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_principal_center_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        50.95,
+        89.05,
+        -182.7,
+        1511.0943,
+        277.0,
+        2217.104083
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_principal_center_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_1",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_rail_top",
+      "axis_origin_global_xyz_mm": [
+        435.07500000000005,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        1127.125,
+        1404.077891,
+        1535.584507,
+        2127.306654,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_top",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_2",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_rail_top",
+      "axis_origin_global_xyz_mm": [
+        835.075,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1130.3,
+        1127.125,
+        1404.077891,
+        1535.584507,
+        2127.306654,
+        2246.290376
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_top",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_service_1",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_rail_service_upper_right",
+      "axis_origin_global_xyz_mm": [
+        435.07500000000005,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        670.592949,
+        802.099566,
+        1253.17334,
+        1372.157062
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_upper_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_panel_upper_right_service_2",
+      "panel_member": "main_upper_right",
+      "candidate_finished_receiver_member": "base_rail_service_upper_right",
+      "axis_origin_global_xyz_mm": [
+        835.075,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        89.05,
+        1127.125,
+        670.592949,
+        802.099566,
+        1253.17334,
+        1372.157062
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_rail_service_upper_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_right_rim_1",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_post_outer_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1177.925,
+        1216.025,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_post_outer_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_right_rim_2",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_post_outer_right",
+      "axis_origin_global_xyz_mm": [
+        1196.9750000000001,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        1177.925,
+        1216.025,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_post_outer_right",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_right_center_1",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "inner_kicker_backer_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1.5875,
+        87.3125,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "inner_kicker_backer_right",
+        "backer_header_right_1/backer_header_right_2",
+        "base_header",
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right"
+      ],
+      "receiver_is_structural_frame_member": false,
+      "separate_receiver_attachment_geometry_present": true,
+      "receiver_attachment_path_status": "blocked_diagnostic_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "round_kicker_right_center_2",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "inner_kicker_backer_right",
+      "axis_origin_global_xyz_mm": [
+        70.0,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1.5875,
+        87.3125,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "inner_kicker_backer_right",
+        "backer_header_right_1/backer_header_right_2",
+        "base_header",
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right"
+      ],
+      "receiver_is_structural_frame_member": false,
+      "separate_receiver_attachment_geometry_present": true,
+      "receiver_attachment_path_status": "blocked_diagnostic_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_left_1",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        -200.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_left_2",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        -400.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_left_3",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        -600.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_left_4",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        -800.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_left_5",
+      "panel_member": "kicker_left",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        -1000.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_right_1",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        200.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_right_2",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        400.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_right_3",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        600.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_right_4",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        800.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    },
+    {
+      "axis_id": "kicker_header_right_5",
+      "panel_member": "kicker_right",
+      "candidate_finished_receiver_member": "base_header",
+      "axis_origin_global_xyz_mm": [
+        1000.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "fixed_shop_purchased_length_mm": 63.5,
+      "source_occupied_diameter_mm": 4.1402,
+      "uncut_receiver_material_interval_from_axis_origin_mm": [
+        18.25625,
+        63.5
+      ],
+      "nominal_receiver_embedment_mm": 45.24375,
+      "finished_receiver_bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "finished_receiver_annular_probe": {
+        "radial_width_outside_occupied_axis_mm": 1.0,
+        "end_inset_mm": 0.05,
+        "support_fraction": 1.0,
+        "continuous_nominal_wood": true,
+        "scope": "local geometry continuity only; no screw resistance or pilot claim"
+      },
+      "immediate_receiver_path": [
+        "base_header",
+        "integrated replacement interfaces pending WJ-06"
+      ],
+      "receiver_is_structural_frame_member": true,
+      "separate_receiver_attachment_geometry_present": false,
+      "receiver_attachment_path_status": "direct_frame_member_no_separate_backer_attachment",
+      "whole_frame_replacement_path_complete": false,
+      "physical_receiver_observed": null
+    }
+  ],
+  "center_receiver_trial": {
+    "socket_outer_envelope_basis": {
+      "product": "Ko-ken 3305A-7/16",
+      "product_url": "https://kokenusa.com/products/deep-socket-3-8sq-dr-12-p-7-16",
+      "listed_dimensions_mm": {
+        "D1_working_end_od": 16.0,
+        "D2_max_od": 17.2,
+        "H1_hex_engagement": 12.0,
+        "H2_stud_clearance_depth": 41.5,
+        "L_overall_length": 55.0
+      },
+      "exterior_model": "D2 max OD applied over full L for seated, approach-endpoint, and coaxial insertion-sweep occupancy; D1/H1 do not define an inferred stepped outside profile.",
+      "internal_profile_and_fit": "12-point cavity, across-corner clearance, fit, and tolerance not modeled or assessed"
+    },
+    "center_axis_ids": [
+      "round_kicker_left_center_1",
+      "round_kicker_left_center_2",
+      "round_kicker_right_center_1",
+      "round_kicker_right_center_2"
+    ],
+    "backer_bounds_xyz_mm": {
+      "left": [
+        -90.4875,
+        -1.5875,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "right": [
+        -1.5875,
+        87.3125,
+        -124.9,
+        -36.0,
+        0.0,
+        238.9
+      ]
+    },
+    "inner_kicker_edge_support": {
+      "left": {
+        "sample_points_global_xyz_mm": [
+          [
+            -2.0875,
+            -36.1,
+            0.5
+          ],
+          [
+            -2.0875,
+            -36.1,
+            112.5
+          ],
+          [
+            -2.0875,
+            -36.1,
+            238.4
+          ]
+        ],
+        "all_inside_receiver": true
+      },
+      "right": {
+        "sample_points_global_xyz_mm": [
+          [
+            -1.0875,
+            -36.1,
+            0.5
+          ],
+          [
+            -1.0875,
+            -36.1,
+            112.5
+          ],
+          [
+            -1.0875,
+            -36.1,
+            238.4
+          ]
+        ],
+        "all_inside_receiver": true
+      }
+    },
+    "provisional_backer_header_attachment_bolts": [
+      {
+        "bolt_id": "backer_header_left_1",
+        "axis_global_xyz_mm": [
+          -35.0,
+          -97.0,
+          4.968
+        ],
+        "direction_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clearance_bore_diameter_mm": 7.3,
+        "minimum_center_to_backer_xy_edge_mm": 27.9,
+        "edge_margin_beyond_4d_mm": 2.5,
+        "bore_fraction_in_backer": 0.862454874,
+        "bore_fraction_in_header": 0.137545126,
+        "top_approach_endpoint_to_named_F1_G1_wire_mm": 55.285033,
+        "top_seated_tool_to_named_F1_G1_wire_mm": 55.285033,
+        "top_approach_sweep_to_named_F1_G1_wire_mm": 55.285033,
+        "minimum_bolt_or_top_approach_endpoint_to_same_side_principal_mm": 7.35,
+        "minimum_bolt_or_top_approach_sweep_to_same_side_principal_mm": 7.35,
+        "socket_external_occupancy_intent": {
+          "top_nut": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "top_nut",
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_outward_z": 1,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "target_axial_height_mm": 5.740400000000022,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          },
+          "bottom_head": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "bottom_bolt_head",
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_outward_z": -1,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "target_axial_height_mm": 4.7752,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          }
+        },
+        "same_side_principal_id": "base_principal_center_left",
+        "physical_hardware_observed": null
+      },
+      {
+        "bolt_id": "backer_header_left_2",
+        "axis_global_xyz_mm": [
+          -35.0,
+          -63.0,
+          4.968
+        ],
+        "direction_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clearance_bore_diameter_mm": 7.3,
+        "minimum_center_to_backer_xy_edge_mm": 27.0,
+        "edge_margin_beyond_4d_mm": 1.6,
+        "bore_fraction_in_backer": 0.862454874,
+        "bore_fraction_in_header": 0.137545126,
+        "top_approach_endpoint_to_named_F1_G1_wire_mm": 28.575929,
+        "top_seated_tool_to_named_F1_G1_wire_mm": 28.575929,
+        "top_approach_sweep_to_named_F1_G1_wire_mm": 28.575929,
+        "minimum_bolt_or_top_approach_endpoint_to_same_side_principal_mm": 7.35,
+        "minimum_bolt_or_top_approach_sweep_to_same_side_principal_mm": 7.35,
+        "socket_external_occupancy_intent": {
+          "top_nut": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "top_nut",
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_outward_z": 1,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "target_axial_height_mm": 5.740400000000022,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          },
+          "bottom_head": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "bottom_bolt_head",
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_outward_z": -1,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "target_axial_height_mm": 4.7752,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          }
+        },
+        "same_side_principal_id": "base_principal_center_left",
+        "physical_hardware_observed": null
+      },
+      {
+        "bolt_id": "backer_header_right_1",
+        "axis_global_xyz_mm": [
+          41.0,
+          -98.0,
+          4.968
+        ],
+        "direction_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clearance_bore_diameter_mm": 7.3,
+        "minimum_center_to_backer_xy_edge_mm": 26.9,
+        "edge_margin_beyond_4d_mm": 1.5,
+        "bore_fraction_in_backer": 0.862454874,
+        "bore_fraction_in_header": 0.137545126,
+        "top_approach_endpoint_to_named_F1_G1_wire_mm": 15.238499,
+        "top_seated_tool_to_named_F1_G1_wire_mm": 17.490379,
+        "top_approach_sweep_to_named_F1_G1_wire_mm": 15.238499,
+        "minimum_bolt_or_top_approach_endpoint_to_same_side_principal_mm": 1.35,
+        "minimum_bolt_or_top_approach_sweep_to_same_side_principal_mm": 1.35,
+        "socket_external_occupancy_intent": {
+          "top_nut": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "top_nut",
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_outward_z": 1,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "target_axial_height_mm": 5.740400000000022,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          },
+          "bottom_head": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "bottom_bolt_head",
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_outward_z": -1,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "target_axial_height_mm": 4.7752,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          }
+        },
+        "same_side_principal_id": "base_principal_center_right",
+        "physical_hardware_observed": null
+      },
+      {
+        "bolt_id": "backer_header_right_2",
+        "axis_global_xyz_mm": [
+          25.0,
+          -76.0,
+          4.968
+        ],
+        "direction_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clearance_bore_diameter_mm": 7.3,
+        "minimum_center_to_backer_xy_edge_mm": 26.5875,
+        "edge_margin_beyond_4d_mm": 1.1875,
+        "bore_fraction_in_backer": 0.862454874,
+        "bore_fraction_in_header": 0.137545126,
+        "top_approach_endpoint_to_named_F1_G1_wire_mm": 1.661248,
+        "top_seated_tool_to_named_F1_G1_wire_mm": 2.959434,
+        "top_approach_sweep_to_named_F1_G1_wire_mm": 1.661248,
+        "minimum_bolt_or_top_approach_endpoint_to_same_side_principal_mm": 17.35,
+        "minimum_bolt_or_top_approach_sweep_to_same_side_principal_mm": 17.35,
+        "socket_external_occupancy_intent": {
+          "top_nut": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "top_nut",
+            "target_bounds_z_mm": [
+              283.096,
+              288.8364
+            ],
+            "socket_engagement_face_z_mm": 283.096,
+            "socket_approach_face_z_mm": 288.8364,
+            "socket_outward_z": 1,
+            "socket_external_envelope_bounds_z_mm": [
+              283.096,
+              338.096
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              288.8364,
+              343.8364
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              283.096,
+              343.8364
+            ],
+            "target_axial_height_mm": 5.740400000000022,
+            "external_envelope_axial_overlap_mm": 5.740400000000022,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          },
+          "bottom_head": {
+            "classification": "intentional_socket_fastener_occupancy_not_obstacle_clash",
+            "target_component": "bottom_bolt_head",
+            "target_bounds_z_mm": [
+              0.19280000000000008,
+              4.968
+            ],
+            "socket_engagement_face_z_mm": 4.968,
+            "socket_approach_face_z_mm": 0.19280000000000008,
+            "socket_outward_z": -1,
+            "socket_external_envelope_bounds_z_mm": [
+              -50.032,
+              4.968
+            ],
+            "approach_endpoint_envelope_bounds_z_mm": [
+              -54.8072,
+              0.19280000000000008
+            ],
+            "approach_sweep_envelope_bounds_z_mm": [
+              -54.80720000000001,
+              4.968
+            ],
+            "target_axial_height_mm": 4.7752,
+            "external_envelope_axial_overlap_mm": 4.7752,
+            "socket_outer_envelope_spans_full_target_hex_height": true,
+            "socket_external_diameter_mm": 17.2,
+            "target_max_corner_diameter_mm": 12.827,
+            "external_diameter_margin_over_target_max_corner_diameter_mm": 4.372999999999999,
+            "internal_12_point_profile_and_engagement_fit": "not_modeled_or_assessed",
+            "scope": "outside-envelope occupancy bookkeeping only; no tool-fit, tolerance, torque, reach, or swing claim"
+          }
+        },
+        "same_side_principal_id": "base_principal_center_right",
+        "physical_hardware_observed": null
+      }
+    ],
+    "backer_bolt_pair_spacing": {
+      "left": {
+        "center_distance_mm": 34.0,
+        "diameter_multiple": 5.354331,
+        "margin_beyond_4d_mm": 8.6
+      },
+      "right": {
+        "center_distance_mm": 27.202941,
+        "diameter_multiple": 4.283928,
+        "margin_beyond_4d_mm": 1.802941
+      }
+    },
+    "nominal_collision_screens": {
+      "adopted_hardware_and_tools_vs_protected_services_mm3": {
+        "backer_header_left_1/bore": {},
+        "backer_header_left_1/counterbore": {},
+        "backer_header_left_1/bolt": {},
+        "backer_header_left_1/bottom_washer": {},
+        "backer_header_left_1/bottom_head": {},
+        "backer_header_left_1/top_washer": {},
+        "backer_header_left_1/top_nut": {},
+        "backer_header_left_1/top_tool": {},
+        "backer_header_left_1/top_tool_seated": {},
+        "backer_header_left_1/top_tool_approach_sweep": {},
+        "backer_header_left_1/bottom_tool": {},
+        "backer_header_left_1/bottom_tool_seated": {},
+        "backer_header_left_1/bottom_tool_approach_sweep": {},
+        "backer_header_left_2/bore": {},
+        "backer_header_left_2/counterbore": {},
+        "backer_header_left_2/bolt": {},
+        "backer_header_left_2/bottom_washer": {},
+        "backer_header_left_2/bottom_head": {},
+        "backer_header_left_2/top_washer": {},
+        "backer_header_left_2/top_nut": {},
+        "backer_header_left_2/top_tool": {},
+        "backer_header_left_2/top_tool_seated": {},
+        "backer_header_left_2/top_tool_approach_sweep": {},
+        "backer_header_left_2/bottom_tool": {},
+        "backer_header_left_2/bottom_tool_seated": {},
+        "backer_header_left_2/bottom_tool_approach_sweep": {},
+        "backer_header_right_1/bore": {},
+        "backer_header_right_1/counterbore": {},
+        "backer_header_right_1/bolt": {},
+        "backer_header_right_1/bottom_washer": {},
+        "backer_header_right_1/bottom_head": {},
+        "backer_header_right_1/top_washer": {},
+        "backer_header_right_1/top_nut": {},
+        "backer_header_right_1/top_tool": {},
+        "backer_header_right_1/top_tool_seated": {},
+        "backer_header_right_1/top_tool_approach_sweep": {},
+        "backer_header_right_1/bottom_tool": {},
+        "backer_header_right_1/bottom_tool_seated": {},
+        "backer_header_right_1/bottom_tool_approach_sweep": {},
+        "backer_header_right_2/bore": {},
+        "backer_header_right_2/counterbore": {},
+        "backer_header_right_2/bolt": {},
+        "backer_header_right_2/bottom_washer": {},
+        "backer_header_right_2/bottom_head": {},
+        "backer_header_right_2/top_washer": {},
+        "backer_header_right_2/top_nut": {},
+        "backer_header_right_2/top_tool": {},
+        "backer_header_right_2/top_tool_seated": {},
+        "backer_header_right_2/top_tool_approach_sweep": {},
+        "backer_header_right_2/bottom_tool": {},
+        "backer_header_right_2/bottom_tool_seated": {},
+        "backer_header_right_2/bottom_tool_approach_sweep": {}
+      },
+      "adopted_hardware_and_tools_vs_unrelated_wood_mm3": {
+        "backer_header_left_1/bore": {},
+        "backer_header_left_1/counterbore": {},
+        "backer_header_left_1/bolt": {},
+        "backer_header_left_1/bottom_washer": {},
+        "backer_header_left_1/bottom_head": {},
+        "backer_header_left_1/top_washer": {},
+        "backer_header_left_1/top_nut": {},
+        "backer_header_left_1/top_tool": {},
+        "backer_header_left_1/top_tool_seated": {},
+        "backer_header_left_1/top_tool_approach_sweep": {},
+        "backer_header_left_1/bottom_tool": {},
+        "backer_header_left_1/bottom_tool_seated": {},
+        "backer_header_left_1/bottom_tool_approach_sweep": {},
+        "backer_header_left_2/bore": {},
+        "backer_header_left_2/counterbore": {},
+        "backer_header_left_2/bolt": {},
+        "backer_header_left_2/bottom_washer": {},
+        "backer_header_left_2/bottom_head": {},
+        "backer_header_left_2/top_washer": {},
+        "backer_header_left_2/top_nut": {},
+        "backer_header_left_2/top_tool": {},
+        "backer_header_left_2/top_tool_seated": {},
+        "backer_header_left_2/top_tool_approach_sweep": {},
+        "backer_header_left_2/bottom_tool": {},
+        "backer_header_left_2/bottom_tool_seated": {},
+        "backer_header_left_2/bottom_tool_approach_sweep": {},
+        "backer_header_right_1/bore": {},
+        "backer_header_right_1/counterbore": {},
+        "backer_header_right_1/bolt": {},
+        "backer_header_right_1/bottom_washer": {},
+        "backer_header_right_1/bottom_head": {},
+        "backer_header_right_1/top_washer": {},
+        "backer_header_right_1/top_nut": {},
+        "backer_header_right_1/top_tool": {},
+        "backer_header_right_1/top_tool_seated": {},
+        "backer_header_right_1/top_tool_approach_sweep": {},
+        "backer_header_right_1/bottom_tool": {},
+        "backer_header_right_1/bottom_tool_seated": {},
+        "backer_header_right_1/bottom_tool_approach_sweep": {},
+        "backer_header_right_2/bore": {},
+        "backer_header_right_2/counterbore": {},
+        "backer_header_right_2/bolt": {},
+        "backer_header_right_2/bottom_washer": {},
+        "backer_header_right_2/bottom_head": {},
+        "backer_header_right_2/top_washer": {},
+        "backer_header_right_2/top_nut": {},
+        "backer_header_right_2/top_tool": {},
+        "backer_header_right_2/top_tool_seated": {},
+        "backer_header_right_2/top_tool_approach_sweep": {},
+        "backer_header_right_2/bottom_tool": {},
+        "backer_header_right_2/bottom_tool_seated": {},
+        "backer_header_right_2/bottom_tool_approach_sweep": {}
+      },
+      "all_clear": true
+    },
+    "path_geometry": "Each separate backer has two provisional vertical through-bolt bores into base_header; this is an owner-scope-permitted diagnostic, not an accepted structural path.",
+    "accepted": false
+  },
+  "resolved_findings": [
+    {
+      "id": "right_backer_upper_tool_hits_F1_G1_wire",
+      "disposition": "repaired_nominal_geometry",
+      "fixed_panel_kicker_axes_moved": 0,
+      "original_station_global_xy_mm": [
+        35.0,
+        -63.0
+      ],
+      "repaired_station_global_xy_mm": [
+        25.0,
+        -76.0
+      ],
+      "original_tool_wire_intersection_volume_mm3": 140.52882,
+      "repaired_tool_wire_intersection_volume_mm3": 0.0,
+      "repaired_seated_tool_wire_intersection_volume_mm3": 0.0,
+      "repaired_approach_sweep_wire_intersection_volume_mm3": 0.0,
+      "repaired_tool_to_wire_clearance_mm": 1.661248,
+      "repaired_approach_endpoint_to_wire_clearance_mm": 1.661248,
+      "repaired_seated_tool_to_wire_clearance_mm": 2.959434,
+      "repaired_approach_sweep_to_wire_clearance_mm": 1.661248,
+      "original_tool_bounds_xyz_mm": [
+        26.4,
+        43.6,
+        -71.6,
+        -54.4,
+        288.8364,
+        343.8364
+      ],
+      "original_intersection_bounds_xyz_mm": [
+        26.4,
+        38.010067,
+        -70.89407,
+        -59.525905,
+        336.321989,
+        343.8364
+      ],
+      "repaired_tool_bounds_xyz_mm": [
+        16.4,
+        33.6,
+        -84.6,
+        -67.4,
+        288.8364,
+        343.8364
+      ],
+      "repaired_seated_tool_bounds_xyz_mm": [
+        16.4,
+        33.6,
+        -84.6,
+        -67.4,
+        283.096,
+        338.096
+      ],
+      "repaired_approach_sweep_bounds_xyz_mm": [
+        16.4,
+        33.6,
+        -84.6,
+        -67.4,
+        283.096,
+        343.8364
+      ],
+      "paired_right_station_global_xy_mm": [
+        41.0,
+        -98.0
+      ],
+      "right_pair_spacing": {
+        "center_distance_mm": 27.202941,
+        "diameter_multiple": 4.283928,
+        "margin_beyond_4d_mm": 1.802941
+      },
+      "minimum_right_edge_margin_beyond_4d_mm": 1.1875,
+      "scope": "Catalog outer-envelope proxy only. Approach endpoint, seated occupancy, and coaxial insertion sweep are nominal exact solids; internal socket fit, tolerances, driver access, and mechanics remain unmodeled or open."
+    }
+  ],
+  "blocking_conditions": [
+    {
+      "id": "center_structural_duties_not_implemented",
+      "legacy_duty_ids": [
+        "clip_split_header_center_left",
+        "clip_split_header_center_right",
+        "clip_split_base_center_left",
+        "clip_split_base_center_right"
+      ],
+      "resolution_required": "Model the center principal/header and moved-post/base/header interfaces before the base_header endpoint can be called a complete integrated candidate path."
+    },
+    {
+      "id": "backer_attachment_hardware_unselected",
+      "bolt_ids": [
+        "backer_header_left_1",
+        "backer_header_left_2",
+        "backer_header_right_1",
+        "backer_header_right_2"
+      ],
+      "resolution_required": "Select and verify complete bolt stacks, delivered thread transition, tools, tolerances, and joint resistance."
+    }
+  ],
+  "physical_observations": {
+    "receiver_stock": null,
+    "screw_axes": null,
+    "backer_bolts": null,
+    "inner_edge_support": null,
+    "service_routing": null,
+    "complete": false
+  },
+  "release_flags": {
+    "layout_complete": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "limits": [
+    "The 1 mm annular probe checks nominal finished-wood continuity around the modeled occupied axis; it is not a pilot, thread, embedment-capacity, edge-distance, or split-resistance criterion.",
+    "The retained Hillman policy and all 66 axis coordinates are unchanged.",
+    "The repaired right backer bolt pair has positive nominal 4D edge and spacing margins and nominal service/wood clearance across the approach endpoint, seated, and coaxial-sweep envelopes; no tolerance or resistance acceptance is inferred.",
+    "The Ko-ken external-envelope proxy does not model the internal 12-point profile, clearance fit, ratchet, extension, drive-end access, or any path beyond the coaxial insertion sweep.",
+    "Direct reception by a structural frame member does not qualify that member's pending replacement interfaces or the integrated frame.",
+    "No physical stock, hole, fastener, service route, or edge support was observed."
+  ]
+}
