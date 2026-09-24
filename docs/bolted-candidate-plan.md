@@ -4,16 +4,33 @@ This document establishes the separate `compact-floor-flush-bolted-development`
 lane from the v2 Luna handoff. It does not promote the candidate, qualify a
 connector, or authorize fabrication.
 
+## Current block-development direction, 2026-09-23
+
+The owner selected bolted solid-wood blocks for the current development path
+instead of direct cross-dowel/barrel-nut connections. Revise the entire
+24-duty connection layout, rather than treating the existing 24-block,
+92-diagnostic-axis viewer as accepted. Explore fewer shared cleats, combined
+outer knees, and angled shoes where they preserve real load paths, service
+clearance, and individual-member transport. Shallow housed seats are now
+permitted for development in this separate lane, subject to cut geometry,
+bearing, remaining-section, tolerance, and complete-joint checks. Half-laps
+and other interlocking joinery remain outside scope. Proposed bolt sizes,
+spacing, part counts, prices, and strength claims are unverified inputs.
+The selected angle-frame authority in `current-candidate.json` stays intact.
+Neither block nor barrel work authorizes cutting, drilling, fabrication, or
+climbing release.
+
 ## Active V4 simple-joints amendment, 2026-09-20
 
 The owner-supplied V4 direction supersedes the bracket-only rule in this
 candidate lane. Plain full-section timber overlaps and bolted rectangular
 solid-wood corner cleats are permitted; metal brackets are optional.
-Half-laps and similarly elaborate housed/interlocking joinery remain excluded.
+The September 23 block direction above permits shallow housed seats for
+development; half-laps and other interlocking joinery remain excluded.
 The [simple-joints V4 plan](bolted-candidate-simple-joints-v4.md) and PB-00
-through PB-06 task cards now govern development. Start with one representative
-rail joint, then a connected center/base assembly. Keep all substantive
-geometry, mechanics, six-case, shop and independent-review gates below.
+through PB-06 task cards record the earlier development sequence. The current
+block path starts with a coherent all-duty layout, then completes the same
+substantive geometry, mechanics, six-case, shop and independent-review gates.
 
 ## Historical hardware-first amendment, 2026-09-20
 
@@ -43,18 +60,22 @@ substantive v2 safety, six-case, shop, and independent-review gates remain.
   panel inserts, panel through-bolts, and new panel hardware are excluded.
 - Target zero routine structural wood-thread removals per move. This is not a
   whole-board zero and does not remove the 66 panel screw operations.
-- Prefer plain full-section through-bolted face overlaps where they make a
-  simple complete joint; investigate bolted solid-timber corner cleats where
-  they preserve support planes. Factory brackets are optional. Half-laps,
-  housed joinery and custom steel remain excluded.
+- Develop a bolted solid-timber block system with supported timber contact
+  and accessible through-bolt stacks. Plain full-section face overlaps and
+  shallow housed seats may be explored where their cut effects and bearing
+  can be checked. Factory brackets are optional. Half-laps, other
+  interlocking joinery and custom steel remain excluded.
 - Preserve the selected baseline and its historical evidence. No new candidate
   result may overwrite or authenticate an old result.
 
 ## Gates and sequence
 
-Active development: `PB-00 -> PB-01 -> PB-02 -> PB-03 -> PB-04 -> PB-05 -> PB-06`.
-The prior LB/HF graph is historical; its substantive checks map into the
-PB tasks and are not waived.
+The earlier V4 sequence was
+`PB-00 -> PB-01 -> PB-02 -> PB-03 -> PB-04 -> PB-05 -> PB-06`.
+The current block path first revises the integrated 24-duty layout and
+resolves its geometry conflicts, then follows the applicable PB mechanics,
+resistance, six-case, shop and review gates. The prior LB/HF graph is
+historical; its substantive checks are not waived.
 
 After architecture selection: shared connection model, candidate geometry,
 six layout families, integration, width adapter, mechanics, resistance checks,

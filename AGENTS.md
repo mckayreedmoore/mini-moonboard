@@ -95,16 +95,21 @@ and custom steel remain outside this lane. The owner's earlier
 "just brackets, no lap joints" instruction is historical for this candidate:
 the later V4 scope allows plain full-section, face-to-face timber overlaps
 and bolted solid-timber corner cleats. Factory brackets are optional.
-Half-laps, housed/interlocking joinery, and routine structural wood-thread
+The later block-development direction permits shallow housed seats for
+exploration in this separate lane. Their dimensions, cut effects, bearing,
+and complete joint behavior require evidence; no house is approved to cut.
+Half-laps, other interlocking joinery, and routine structural wood-thread
 removal remain excluded. Use through bolts with metal nuts and washers;
 preserve individual-member transport and check complete joints and costs.
 This scope approval does not select a connector or authorize cutting or
 drilling. See
 `docs/bolted-candidate-plan.md` and the task ledger for the bounded sequence.
-For this separate lane, the owner selected direct cross-dowel/barrel-nut
-connections as the current development approach; the
-[simple-joints V4 plan](docs/bolted-candidate-simple-joints-v4.md) and
-rated-hardware focus are retained as history.
+For this separate lane, the owner now selects a revised bolted solid-wood
+block system as the current development approach. It must replace all 24
+former angle duties with a coherent, accessible layout; the existing
+24-block viewer remains a `REVISE` study, not that layout. Direct
+cross-dowel/barrel-nut development, the earlier V4 iterations, and rated
+hardware focus remain historical evidence, not accepted block capacities.
 The selected-candidate stock/geometry constraints above remain binding only
 for selected-baseline changes. The bolted candidate must keep the panel/screw
 hardware policy and prove any new receiver/backer connections rather

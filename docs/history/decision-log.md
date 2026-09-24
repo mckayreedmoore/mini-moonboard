@@ -437,3 +437,41 @@ authentic evidence remain untouched. The earlier rated-HL and other
 factory-bracket screens remain historical research, not V4 prerequisites
 or accepted structural capacities. The active sequence is PB-00 through
 PB-06 in `docs/bolted-candidate-simple-joints-v4.md`.
+
+## Bolted candidate block-development direction, September 23, 2026
+
+The owner switched the separate `compact-floor-flush-bolted-development`
+lane from direct cross-dowel/barrel-nut connections to a revised bolted
+solid-wood block system as the current development approach. The previous
+barrel preference and integrated barrel evidence remain history; this
+decision does not promote a candidate in `current-candidate.json`.
+
+The owner-supplied proposal suggests fewer shared rear-face cleats, combined
+outer knees and angled shoes instead of one block at each old steel angle.
+The existing 24-block, 92-diagnostic-axis viewer has unresolved service,
+access and neighboring-joint clashes and is not approved as the new layout.
+Shallow housed seats are permitted for development in this separate lane,
+superseding the September 20 housed-joinery exclusion to that extent only.
+Half-laps and other interlocking joinery remain excluded. Every former angle
+duty needs a proven load path, full protected-geometry and access checks,
+complete joint/wood resistance, verified hardware, and fresh six-case
+evidence. The suggested bolt maps, dimensions, prices and confidence scores
+are unverified; no drilling, fabrication or climbing release follows.
+
+## Separate wood-joint MVP implementation lane, September 23, 2026
+
+The owner then supplied the wood-and-through-bolt MVP handoff pinned to commit
+`df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb` and directed its implementation.
+Create `compact-floor-flush-wood-joints-development` as a distinct development
+identity. This does not promote it over `compact-floor-flush-development` in
+`current-candidate.json` and does not erase the related block or barrel work in
+`compact-floor-flush-bolted-development`.
+
+The new lane uses the handoff's stricter fixed-axis scope: preserve all 66
+kerf-right panel and kicker screw axes. It starts with WJ-00 through WJ-03:
+freeze scope, bind the source inventory, establish finished-joint geometry
+records, and replace each same-side outer duty pair with one accountable wood
+node. Any later promotion still requires the complete layout, joint mechanics,
+fresh full-frame cases, coherent shop package, and observed physical gates.
+No drilling, fabrication, structural, or climbing release follows from opening
+this lane.

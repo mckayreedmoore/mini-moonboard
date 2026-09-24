@@ -1,12 +1,23 @@
-# Bolted candidate: historical V4 simple-timber-joint plan
+# Bolted candidate: V4 simple-timber-joint plan and history
 
-The owner subsequently selected the direct cross-dowel/barrel-nut concept
-for development. The [integrated barrel viewer](bolted-candidate-prototypes/owner-barrel-viewer.md)
-and its linked current calculations supersede this page's outward-post,
-separate-backer and 48-pair progress notes. This V4 plan remains historical
-evidence; it is not a cut or structural release.
+On 2026-09-23 the owner selected a revised bolted solid-wood block system
+for current development. The existing
+[corner-block viewer](bolted-candidate-prototypes/owner-corner-viewer.md)
+is a `REVISE` 24-block layout study, not the selected new topology or a cut
+list. The prior direct cross-dowel/barrel-nut selection and its
+[integrated viewer](bolted-candidate-prototypes/owner-barrel-viewer.md)
+remain historical development evidence. The dated iterations below retain
+their own limits; no block layout or joint is structurally accepted.
 
-The later owner-directed two-vertical-bolt principal/header development
+The owner-supplied new block proposal favors shared rear-face cleats,
+combined outer knees, and angled shoes, with shallow housed seats where
+useful. These are concepts to screen against all 24 former angle duties,
+protected service paths, cut sections, complete bolt/wood load paths, and
+transport access. Its dimensions, counts, bolt grade/length, drill size,
+strength estimates, cost and confidence are not adopted specifications.
+The selected angle-frame packet remains separate authority.
+
+The owner-directed two-vertical-bolt principal/header development
 relaxes this page's fixed 66-axis rule for the separate bolted candidate.
 The 66 purchased panel/kicker screws remain, and each changed axis requires
 an explicit receiver, edge-support, installation, and load-transfer check.
@@ -63,7 +74,8 @@ and remains `REVISE`. Both use
 the approved X = ±180 mm center posts, two separate kicker backers, all 66
 fixed panel/kicker screws, and 12 retained frame-bolt visuals. The
 [comparison](bolted-candidate-prototypes/owner-two-concept-comparison.md)
-records the owner's preference to develop barrel nuts if they work. Neither
+records the September 21 preference to develop barrel nuts if they work;
+the September 23 block direction supersedes that preference. Neither
 viewer is a joint design, hardware purchase list, drilling plan, or
 structural/climbing release. The old V4 viewer remains partial history.
 

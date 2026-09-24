@@ -1,8 +1,9 @@
 # Two full-inventory bolted viewer concepts — owner comparison
 
-Status: **barrel-nut concept preferred for further development, 21 September
-2026; neither concept is qualified, build-ready, or a drilling release**. This
-compares the current
+Status: **revised block system selected for development, 23 September 2026;
+neither existing viewer is qualified, build-ready, or a drilling release**.
+The barrel-nut preference recorded on 21 September is historical. This
+compares the earlier
 [corner-block viewer](owner-corner-viewer.md) and the developing
 [barrel-nut assembly](../../scripts/owner_barrel_layout_assembly.py), not the
 selected construction packet. Both aim to replace 24 historical angle/SDS
@@ -118,6 +119,9 @@ Neither a shaft rating, a nominal bore intersection, nor a store listing is a
 complete joint verdict. All drilling, fabrication, structural, and climbing
 release flags remain **false**.
 
-The owner has selected the barrel-nut layout as the preferred development
-path *if it works*. Keep the separate corner-block viewer for comparison and
-do not interpret that preference as fabrication or climbing approval.
+On 23 September the owner switched the current development path to a revised
+bolted solid-wood block system. The 24-block corner viewer is a rejected
+layout starting point, not the revised design. Shared rear-face cleats,
+combined outer knees, and angled shoes require new integrated geometry and
+complete joint checks. The earlier barrel preference and its evidence remain
+historical. No concept has fabrication or climbing approval.
