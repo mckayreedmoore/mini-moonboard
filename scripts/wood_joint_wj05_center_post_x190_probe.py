@@ -383,8 +383,8 @@ def _contact_geometry(geometry: MaterializedCenterPostX190) -> dict[str, Any]:
                 lower,
                 header,
                 normal_axis="z",
-                first_face="min",
-                second_face="max",
+                first_face="max",
+                second_face="min",
             ),
             "principal_to_upper_cleat": _member_contact_projection(
                 principal,

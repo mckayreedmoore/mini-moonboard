@@ -9,7 +9,8 @@ or release.
 from __future__ import annotations
 
 import hashlib
-from dataclasses import dataclass
+import math
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,13 @@ ROOT = Path(__file__).resolve().parents[1]
 HIT_TOLERANCE_MM3 = 1e-6
 SOURCE_RECONSTRUCTION_TOLERANCE_MM3 = 1e-3
 LAYER_FRACTION_TOLERANCE = 1e-6
+INCH_TO_MM = 25.4
+WJ06_SIDE_NOMINAL_STEEL_DIAMETER_MM = 6.35
+ORDINARY_BOLT_BODY_MAXIMUM_IN = 0.260
+ORDINARY_BOLT_BODY_MAXIMUM_MM = ORDINARY_BOLT_BODY_MAXIMUM_IN * INCH_TO_MM
+ORDINARY_BODY_MAXIMUM_SOURCE = (
+    "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md"
+)
 
 SCHEMA = "wood_joint_right_rail_integration/v1"
 FAMILY_WJ04 = "wj04_g7"
@@ -76,6 +84,7 @@ class RightRailIntegrationGeometry:
     candidate_body_hits: dict[str, dict[str, Any]]
     installed_hits: dict[str, dict[str, Any]]
     washer_support: dict[str, dict[str, Any]]
+    side_shaft_envelope_sensitivity: dict[str, Any]
     body_solid_checks: dict[str, dict[str, Any]]
     machining: dict[str, dict[str, Any]]
     source_reconstruction: dict[str, dict[str, Any]]
@@ -205,6 +214,7 @@ def diagnostic_report(geometry: RightRailIntegrationGeometry) -> dict[str, Any]:
         "cross_bore_hits_mm3": geometry.cross_bore_hits_mm3,
         "washer_support": geometry.washer_support,
         "installed_component_conflicts": installed_conflicts,
+        "side_shaft_envelope_sensitivity": geometry.side_shaft_envelope_sensitivity,
         "protected_geometry_counts": {
             family: len(shapes) for family, shapes in geometry.protected.items()
         },
@@ -218,7 +228,178 @@ def diagnostic_report(geometry: RightRailIntegrationGeometry) -> dict[str, Any]:
             "drilling_released": False,
             "fabrication_released": False,
             "assembly_proven": False,
+            "ordinary_body_maximum_is_delivered_hardware": False,
+            "ordinary_body_maximum_is_selected_or_adopted": False,
         },
+    }
+
+
+def _wj06_side_stack_keys() -> tuple[str, ...]:
+    return tuple(
+        _namespace(FAMILY_WJ06, wj06_outer.TRIAL_ID, spec.stack_id)
+        for spec in wj06_outer.STACK_SPECS
+        if spec.interface_id == "cleat_to_side"
+    )
+
+
+def _ordinary_body_maximum_side_stack(stack: BoltStack) -> BoltStack:
+    """Change CAD shaft occupancy only; retain steel/design diameter and stack."""
+    if not math.isclose(
+        stack.hardware.steel_diameter_mm,
+        WJ06_SIDE_NOMINAL_STEEL_DIAMETER_MM,
+        abs_tol=1e-9,
+    ):
+        raise ValueError("WJ-06 side stack nominal steel diameter changed")
+    if not math.isclose(
+        stack.hardware.cad_occupied_diameter_mm,
+        WJ06_SIDE_NOMINAL_STEEL_DIAMETER_MM,
+        abs_tol=1e-9,
+    ):
+        raise ValueError("WJ-06 side stack nominal CAD shaft diameter changed")
+    if ORDINARY_BOLT_BODY_MAXIMUM_MM > stack.hardware.drill_diameter_mm:
+        raise ValueError("ordinary-class maximum shaft exceeds unchanged bore")
+    hardware = replace(
+        stack.hardware,
+        cad_occupied_diameter_mm=ORDINARY_BOLT_BODY_MAXIMUM_MM,
+    )
+    return replace(stack, hardware=hardware)
+
+
+def _shaft_clearance_screen(
+    stack_key: str,
+    shaft: cq.Shape,
+    installed: dict[str, dict[str, cq.Shape]],
+    all_wood: dict[str, cq.Shape],
+    protected: dict[str, dict[str, cq.Shape]],
+) -> dict[str, Any]:
+    other_components = {
+        f"{peer_key}/{role}": shape
+        for peer_key, components in installed.items()
+        if peer_key != stack_key
+        for role, shape in components.items()
+    }
+    return {
+        "finished_wood_hits_mm3": _hits(shaft, all_wood),
+        "protected_geometry_hits_mm3": {
+            family: _hits(shaft, shapes) for family, shapes in protected.items()
+        },
+        "other_installed_components_hits_mm3": _hits(shaft, other_components),
+    }
+
+
+def _side_shaft_envelope_sensitivity(
+    stacks: dict[str, BoltStack],
+    installed: dict[str, dict[str, cq.Shape]],
+    all_wood: dict[str, cq.Shape],
+    protected: dict[str, dict[str, cq.Shape]],
+) -> dict[str, Any]:
+    """Compare nominal and class-maximum shaft envelopes on four WJ-06 side stacks."""
+    keys = _wj06_side_stack_keys()
+    if len(keys) != 4 or len(set(keys)) != 4:
+        raise ValueError("WJ-06 side envelope sensitivity requires four unique stacks")
+    missing = set(keys) - stacks.keys() | (set(keys) - installed.keys())
+    if missing:
+        raise ValueError(
+            "WJ-06 side envelope sensitivity is missing stack geometry: "
+            + ", ".join(sorted(missing))
+        )
+    missing_shafts = {key for key in keys if "shaft" not in installed[key]}
+    if missing_shafts:
+        raise ValueError(
+            "WJ-06 side envelope sensitivity is missing nominal shaft geometry: "
+            + ", ".join(sorted(missing_shafts))
+        )
+
+    scenarios: dict[str, dict[str, Any]] = {}
+    for scenario, maximum in (("nominal", False), ("ordinary_class_maximum", True)):
+        shapes: dict[str, cq.Shape] = {}
+        screens: dict[str, dict[str, Any]] = {}
+        for key in keys:
+            stack = stacks[key]
+            selected_stack = (
+                _ordinary_body_maximum_side_stack(stack) if maximum else stack
+            )
+            shaft = selected_stack.shaft_shape() if maximum else installed[key]["shaft"]
+            shapes[key] = shaft
+            screens[key] = _shaft_clearance_screen(
+                key, shaft, installed, all_wood, protected
+            )
+            screens[key].update(
+                {
+                    "steel_or_design_diameter_mm": round(
+                        selected_stack.hardware.steel_diameter_mm, 6
+                    ),
+                    "cad_occupied_diameter_mm": round(
+                        selected_stack.hardware.cad_occupied_diameter_mm, 6
+                    ),
+                    "drilled_bore_diameter_mm": round(
+                        selected_stack.hardware.drill_diameter_mm, 6
+                    ),
+                    "under_head_length_mm": round(
+                        selected_stack.hardware.under_head_length_mm, 6
+                    ),
+                    "same_axis_and_seats_as_nominal": True,
+                    "same_head_washers_and_nut_as_nominal": True,
+                    "modeled_overlap_present": any(
+                        screens[key][category]
+                        for category in (
+                            "finished_wood_hits_mm3",
+                            "other_installed_components_hits_mm3",
+                        )
+                    )
+                    or any(
+                        any(hits.values())
+                        for hits in screens[key]["protected_geometry_hits_mm3"].values()
+                    ),
+                }
+            )
+        pairwise_hits: dict[str, dict[str, float]] = {key: {} for key in keys}
+        for index, first_key in enumerate(keys):
+            for second_key in keys[index + 1 :]:
+                overlap = _intersect_volume(shapes[first_key], shapes[second_key])
+                if overlap > HIT_TOLERANCE_MM3:
+                    volume = round(overlap, 6)
+                    pairwise_hits[first_key][second_key] = volume
+                    pairwise_hits[second_key][first_key] = volume
+        scenarios[scenario] = {
+            "shaft_diameter_mm": (
+                ORDINARY_BOLT_BODY_MAXIMUM_MM
+                if maximum
+                else WJ06_SIDE_NOMINAL_STEEL_DIAMETER_MM
+            ),
+            "modeled_overlap_present": any(
+                row["modeled_overlap_present"] for row in screens.values()
+            )
+            or any(any(hits.values()) for hits in pairwise_hits.values()),
+            "per_stack": screens,
+            "peer_side_shaft_hits_mm3": pairwise_hits,
+        }
+
+    return {
+        "status": "diagnostic shaft-envelope sensitivity only",
+        "basis": {
+            "ordinary_fastener_class": "ASME B18.2.1 ordinary 1/4-in bolt body",
+            "ordinary_body_maximum_in": ORDINARY_BOLT_BODY_MAXIMUM_IN,
+            "ordinary_body_maximum_mm": round(ORDINARY_BOLT_BODY_MAXIMUM_MM, 6),
+            "nominal_side_steel_and_CAD_shaft_diameter_mm": (
+                WJ06_SIDE_NOMINAL_STEEL_DIAMETER_MM
+            ),
+            "drilled_bores_changed": False,
+            "seats_and_other_hardware_changed": False,
+            "delivered_fastener_fit_verified": False,
+            "hardware_selected_or_received": False,
+            "capacity_or_joint_acceptance": False,
+        },
+        "screen_scope": {
+            "finished_wood_member_count": len(all_wood),
+            "protected_families_and_shape_counts": {
+                family: len(shapes) for family, shapes in protected.items()
+            },
+            "other_installed_components": "all components on other stack IDs",
+            "same_stack_companions": "excluded as intended bolt assembly parts",
+            "peer_side_shaft_pair_checks": "reported separately for each scenario",
+        },
+        "scenarios": scenarios,
     }
 
 
@@ -379,6 +560,7 @@ def _source_inputs_sha256() -> dict[str, str]:
             "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py",
             "scripts/wood_joint_wj06_outer_pair_probe.py",
             "scripts/wood_joint_right_rail_integration.py",
+            ORDINARY_BODY_MAXIMUM_SOURCE,
         }
     )
     return {
@@ -694,6 +876,12 @@ def materialize_right_rail_geometry(
     finished_timber = {**source_finished_wood, **finished}
     installed_hits: dict[str, dict[str, Any]] = {}
     washer_support: dict[str, dict[str, Any]] = {}
+    side_shaft_envelope_sensitivity = _side_shaft_envelope_sensitivity(
+        stacks,
+        installed,
+        all_wood,
+        protected,
+    )
     physical_protected = {
         family: shapes
         for family, shapes in protected.items()
@@ -836,6 +1024,14 @@ def materialize_right_rail_geometry(
     source_inputs = _source_inputs_sha256()
     if source_inputs != source_inputs_before:
         raise ValueError("right-rail source inputs changed during materialization")
+    side_shaft_envelope_sensitivity["basis"]["source_pins_sha256"] = {
+        path: source_inputs[path]
+        for path in (
+            "scripts/wood_joint_wj06_outer_pair_probe.py",
+            ORDINARY_BODY_MAXIMUM_SOURCE,
+            "scripts/wood_joint_right_rail_integration.py",
+        )
+    }
     binding_after = validate_source_binding(source)
     if binding_after != binding_before:
         raise ValueError("right-rail materialization mutated source binding")
@@ -980,6 +1176,7 @@ def materialize_right_rail_geometry(
         candidate_body_hits=candidate_body_hits,
         installed_hits=installed_hits,
         washer_support=washer_support,
+        side_shaft_envelope_sensitivity=side_shaft_envelope_sensitivity,
         body_solid_checks=body_solid_checks,
         machining=machining,
         source_reconstruction=source_reconstruction,

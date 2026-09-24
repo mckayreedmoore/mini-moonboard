@@ -92,6 +92,104 @@ def test_retained_sds_protection_uses_occupied_source_axis_extent():
     assert occupied.Volume() == pytest.approx(math.pi * 0.25**2 * 10.0)
 
 
+def test_ordinary_class_maximum_changes_only_wj06_side_shaft_envelope():
+    nominal = integration.wj06_outer.build_stacks()["lower_side_1"]
+    maximum = integration._ordinary_body_maximum_side_stack(nominal)
+    maximum_shaft = maximum.shaft_shape()
+
+    assert integration.ORDINARY_BOLT_BODY_MAXIMUM_IN == 0.260
+    assert integration.INCH_TO_MM == 25.4
+    assert integration.ORDINARY_BOLT_BODY_MAXIMUM_MM == pytest.approx(6.604)
+    assert nominal.hardware.steel_diameter_mm == pytest.approx(6.35)
+    assert maximum.hardware.steel_diameter_mm == pytest.approx(6.35)
+    assert nominal.hardware.cad_occupied_diameter_mm == pytest.approx(6.35)
+    assert maximum.hardware.cad_occupied_diameter_mm == pytest.approx(6.604)
+    assert maximum.hardware.drill_diameter_mm == nominal.hardware.drill_diameter_mm
+    assert (
+        maximum.hardware.under_head_length_mm == nominal.hardware.under_head_length_mm
+    )
+    assert maximum.head_seat == nominal.head_seat
+    assert maximum.nut_seat == nominal.nut_seat
+    assert maximum.direction == nominal.direction
+    assert maximum_shaft.BoundingBox().ylen == pytest.approx(6.604)
+
+
+def test_ordinary_body_maximum_document_is_pinned_as_an_input():
+    inputs = integration._source_inputs_sha256()
+
+    assert (
+        integration.ORDINARY_BODY_MAXIMUM_SOURCE
+        == "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md"
+    )
+    assert len(inputs[integration.ORDINARY_BODY_MAXIMUM_SOURCE]) == 64
+
+
+def test_side_shaft_sensitivity_screens_wood_protected_and_installed_geometry():
+    source_stacks = integration.wj06_outer.build_stacks()
+    by_id = {spec.stack_id: spec for spec in integration.wj06_outer.STACK_SPECS}
+    stacks = {
+        integration._namespace(
+            integration.FAMILY_WJ06,
+            integration.wj06_outer.TRIAL_ID,
+            stack_id,
+        ): stack
+        for stack_id, stack in source_stacks.items()
+        if by_id[stack_id].interface_id == "cleat_to_side"
+    }
+    installed = {key: stack.installed_shapes() for key, stack in stacks.items()}
+    first_key = min(stacks)
+    first_stack = stacks[first_key]
+    axis = first_stack.under_head_origin
+    direction = first_stack.direction
+    offset = cq.Vector(0.0, 0.0, 3.2)
+    obstacle_start = axis + offset
+    thin_obstacle = cq.Solid.makeCylinder(
+        0.01,
+        first_stack.hardware.under_head_length_mm,
+        obstacle_start,
+        direction,
+    )
+    protected_obstacle = cq.Solid.makeCylinder(
+        0.01,
+        first_stack.hardware.under_head_length_mm,
+        axis + cq.Vector(0.0, 3.2, 0.0),
+        direction,
+    )
+    installed["synthetic_peer_stack"] = {"component_probe": thin_obstacle}
+
+    report = integration._side_shaft_envelope_sensitivity(
+        stacks,
+        installed,
+        {"wood_probe": thin_obstacle},
+        {"protected_probe": {"protected_shape": protected_obstacle}},
+    )
+
+    nominal = report["scenarios"]["nominal"]["per_stack"][first_key]
+    maximum = report["scenarios"]["ordinary_class_maximum"]["per_stack"][first_key]
+    assert nominal["finished_wood_hits_mm3"] == {}
+    assert maximum["finished_wood_hits_mm3"]["wood_probe"] > 0
+    assert maximum["protected_geometry_hits_mm3"]["protected_probe"]
+    assert (
+        maximum["protected_geometry_hits_mm3"]["protected_probe"]["protected_shape"] > 0
+    )
+    assert (
+        maximum["other_installed_components_hits_mm3"][
+            "synthetic_peer_stack/component_probe"
+        ]
+        > 0
+    )
+    assert maximum["steel_or_design_diameter_mm"] == pytest.approx(6.35)
+    assert maximum["cad_occupied_diameter_mm"] == pytest.approx(6.604)
+    assert maximum["drilled_bore_diameter_mm"] == pytest.approx(
+        first_stack.hardware.drill_diameter_mm
+    )
+    assert report["basis"]["delivered_fastener_fit_verified"] is False
+    assert report["basis"]["capacity_or_joint_acceptance"] is False
+    assert (
+        report["scenarios"]["ordinary_class_maximum"]["modeled_overlap_present"] is True
+    )
+
+
 def test_diagnostic_report_is_json_safe_and_keeps_release_gates_closed():
     geometry = SimpleNamespace(
         source_binding=SimpleNamespace(
@@ -132,6 +230,7 @@ def test_diagnostic_report_is_json_safe_and_keeps_release_gates_closed():
         bore_reports={},
         cross_bore_hits_mm3={},
         washer_support={},
+        side_shaft_envelope_sensitivity={"status": "assumption-only"},
         installed_hits={},
         panels={},
         diagnostic_gates={"integrated_clearance_review": "not_run"},
@@ -147,3 +246,4 @@ def test_diagnostic_report_is_json_safe_and_keeps_release_gates_closed():
     ]
     assert report["claim_boundary"]["integrated_clearance_accepted"] is False
     assert report["release"]["fabrication_released"] is False
+    assert report["side_shaft_envelope_sensitivity"]["status"] == "assumption-only"

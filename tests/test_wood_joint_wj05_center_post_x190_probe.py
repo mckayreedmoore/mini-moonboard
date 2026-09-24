@@ -93,6 +93,47 @@ def test_member_adapter_fails_closed_when_a_fixed_upper_cleat_is_missing():
         adapter.shift_lower_members_outward(parts)
 
 
+def test_lower_cleat_header_contact_uses_cleat_top_and_header_bottom_faces():
+    parts = {
+        "base_header": cq.Solid.makeBox(
+            600.0, 139.7, 38.1, cq.Vector(-300.0, -175.7, 238.9)
+        ),
+        "base_post_center_left": cq.Solid.makeBox(
+            38.1, 139.7, 238.9, cq.Vector(-209.05, -175.7, 0.0)
+        ),
+        "base_post_center_right": cq.Solid.makeBox(
+            38.1, 139.7, 238.9, cq.Vector(170.95, -175.7, 0.0)
+        ),
+        "center_post_cleat_left": cq.Solid.makeBox(
+            88.9, 88.9, 128.9, cq.Vector(-287.95, -175.7, 110.0)
+        ),
+        "center_post_cleat_right": cq.Solid.makeBox(
+            88.9, 88.9, 128.9, cq.Vector(199.05, -175.7, 110.0)
+        ),
+        "base_principal_center_left": cq.Solid.makeBox(
+            38.1, 139.7, 200.0, cq.Vector(-89.05, -175.7, 238.9)
+        ),
+        "base_principal_center_right": cq.Solid.makeBox(
+            38.1, 139.7, 200.0, cq.Vector(50.95, -175.7, 238.9)
+        ),
+        "center_principal_cleat_left": cq.Solid.makeBox(
+            88.9, 88.9, 82.0, cq.Vector(-177.95, -150.0, 277.0)
+        ),
+        "center_principal_cleat_right": cq.Solid.makeBox(
+            88.9, 88.9, 82.0, cq.Vector(89.05, -150.0, 277.0)
+        ),
+    }
+
+    contacts = variant._contact_geometry(SimpleNamespace(parts=parts))
+
+    for side in ("left", "right"):
+        contact = contacts[side]["lower_cleat_to_header"]
+        assert contact["source_face_coordinate_mm"] == pytest.approx(238.9)
+        assert contact["mate_face_coordinate_mm"] == pytest.approx(238.9)
+        assert contact["faces_coincident"] is True
+        assert contact["gross_projected_contact_area_mm2"] > 0.0
+
+
 def test_mechanics_implications_keep_post_support_and_bolt_group_spacing_distinct():
     implications = adapter.geometry_implications()
 
