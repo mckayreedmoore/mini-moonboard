@@ -1,5 +1,8 @@
 """Synthetic coverage for heading-consistent WJ-03 withdrawal summaries."""
 
+import hashlib
+import json
+
 import pytest
 
 from scripts import summarize_wj03_head_withdrawal as summary
@@ -70,6 +73,13 @@ def _screen(candidates, hits=None, below_floor=()):
             for candidate in candidates
         },
     }
+
+
+def _exact_shaft_screen(hits=None):
+    candidate = summary.EXACT_SHAFT_CANDIDATE
+    screen = _screen({candidate}, hits=hits)
+    screen["floor_screen"] = screen["floor_screen"][candidate]
+    return screen
 
 
 def _stack_record(stack_id):
@@ -152,6 +162,8 @@ def _report():
         "schema": summary.SCHEMA,
         "trial_id": summary.TRIAL_ID,
         "candidate_stack_count": summary.EXPECTED_STACK_COUNT,
+        "operation_sequence": ["synthetic sequential operation"],
+        "source_binding": {"synthetic": "source"},
         "source_pins": {"coverage": "direct file pins only"},
         "tool_candidates": {
             "deep_socket": {
@@ -187,6 +199,150 @@ def _report():
             for index in range(summary.EXPECTED_STACK_COUNT)
         },
     }
+
+
+def _bound_exact_shaft_fixture(
+    report,
+    tmp_path,
+    monkeypatch,
+    heading_hits_by_stack=None,
+    fixed_hits_by_stack=None,
+):
+    heading_hits_by_stack = heading_hits_by_stack or {}
+    fixed_hits_by_stack = fixed_hits_by_stack or {}
+    monkeypatch.setattr(summary, "ROOT", tmp_path)
+    geometry_source = tmp_path / "mini_moonboard/test_geometry.py"
+    geometry_source.parent.mkdir(parents=True, exist_ok=True)
+    geometry_source.write_bytes(b"synthetic geometry pin")
+    geometry_pins = {
+        "mini_moonboard/test_geometry.py": hashlib.sha256(
+            geometry_source.read_bytes()
+        ).hexdigest()
+    }
+    report["source_pins"]["geometry_materializer_inputs"] = geometry_pins
+    base_raw = json.dumps(report, sort_keys=True, separators=(",", ":")).encode()
+    base_sha = hashlib.sha256(base_raw).hexdigest()
+    base_pin_path = "docs/wood-joints-mvp/hypotheses/wj03-head-withdrawal.json"
+    base_path = tmp_path / base_pin_path
+    base_path.parent.mkdir(parents=True, exist_ok=True)
+    base_path.write_bytes(base_raw)
+
+    direct_pins = {}
+    for relative_path in summary.EXACT_SHAFT_DIRECT_PIN_PATHS:
+        source_path = tmp_path / relative_path
+        source_path.parent.mkdir(parents=True, exist_ok=True)
+        if relative_path != base_pin_path:
+            source_path.write_bytes(f"synthetic source pin: {relative_path}".encode())
+        direct_pins[relative_path] = hashlib.sha256(
+            source_path.read_bytes()
+        ).hexdigest()
+
+    exact_stacks = {}
+    exact_fixed_count = 0
+    heading_clear_counts = {f"{_signed(h)}deg": 0 for h in summary.EXPECTED_HEADINGS}
+    aabb_only_pairs = 0
+    exact_only_pairs = 0
+    archived_aabb_hit_stacks = 0
+    for stack_id, stack in report["stacks"].items():
+        old_hits = stack["bolt_withdrawal_after_unthreading"]["shaft_path"][
+            "external_envelope_hits_mm3"
+        ].get(summary.BASE_SHAFT_CANDIDATE, {})
+        archived_ids = sorted(old_hits)
+        archived_heading_ids = sorted(
+            obstacle
+            for obstacle in archived_ids
+            if obstacle.startswith("tool_pair/stationary_nut_ratchet/")
+        )
+        archived_nonheading_ids = sorted(set(archived_ids) - set(archived_heading_ids))
+        fixed_hit_map = fixed_hits_by_stack.get(stack_id, {})
+        fixed_payload = (
+            {summary.EXACT_SHAFT_CANDIDATE: fixed_hit_map} if fixed_hit_map else {}
+        )
+        fixed_screen = _exact_shaft_screen(hits=fixed_payload)
+        fixed_ids = sorted(fixed_hit_map)
+        heading_screens = {}
+        any_clear = False
+        for heading in summary.EXPECTED_HEADINGS:
+            heading_key = f"{_signed(heading)}deg"
+            heading_hit_map = heading_hits_by_stack.get(stack_id, {}).get(
+                heading_key, {}
+            )
+            hit_payload = (
+                {summary.EXACT_SHAFT_CANDIDATE: heading_hit_map}
+                if heading_hit_map
+                else {}
+            )
+            heading_screen = _exact_shaft_screen(hits=hit_payload)
+            ratchet_ids = sorted(heading_hit_map)
+            combined_ids = sorted(set(fixed_ids) | set(ratchet_ids))
+            clear = not combined_ids
+            any_clear |= clear
+            heading_clear_counts[heading_key] += clear
+            heading_screens[heading_key] = {
+                "analytic_sweep_collision": heading_screen,
+                "ratchet_heading_hit_obstacle_ids": ratchet_ids,
+                "exact_sweep_hit_obstacle_ids": combined_ids,
+                "sampled_pose_clear_with_this_heading": clear,
+            }
+        aabb_only_ids = sorted(set(archived_nonheading_ids) - set(fixed_ids))
+        exact_only_ids = sorted(set(fixed_ids) - set(archived_nonheading_ids))
+        aabb_only_pairs += len(aabb_only_ids)
+        exact_only_pairs += len(exact_only_ids)
+        archived_aabb_hit_stacks += bool(archived_ids)
+        exact_fixed_count += bool(fixed_ids)
+        exact_stacks[stack_id] = {
+            "analytic_sweep_collision": fixed_screen,
+            "archived_aabb_hit_obstacle_ids": archived_ids,
+            "archived_counterhold_heading_union_hit_ids": archived_heading_ids,
+            "exact_fixed_obstacle_hit_ids": fixed_ids,
+            "aabb_only_nonheading_obstacle_ids": aabb_only_ids,
+            "exact_only_nonheading_obstacle_ids": exact_only_ids,
+            "stationary_nut_ratchet_heading_screens": heading_screens,
+            "any_sampled_heading_clear": any_clear,
+        }
+
+    exact_report = {
+        "schema": summary.EXACT_SHAFT_SCHEMA,
+        "trial_id": summary.TRIAL_ID,
+        "status": "diagnostic_supplement_only_not_acceptance",
+        "base_report": {
+            "sha256": base_sha,
+            "schema": summary.SCHEMA,
+            "preserved_without_overwrite": True,
+            "is_immutable_archive": True,
+        },
+        "source_binding": report["source_binding"],
+        "source_pins": {
+            "geometry_materializer_inputs": dict(geometry_pins),
+            "exact_shaft_direct_inputs": direct_pins,
+            "coverage": "direct file pins only; base report hash pins archived coarse diagnostic",
+        },
+        "candidate_stack_count": summary.EXPECTED_STACK_COUNT,
+        "screen_method": {
+            "physical_access_established": False,
+            "clear_result_is_fabrication_or_access_acceptance": False,
+        },
+        "summary": {
+            "archived_aabb_hit_stacks": archived_aabb_hit_stacks,
+            "exact_fixed_obstacle_hit_stacks": exact_fixed_count,
+            "exact_fixed_obstacle_clear_stacks": summary.EXPECTED_STACK_COUNT
+            - exact_fixed_count,
+            "stacks_with_at_least_one_sampled_counterhold_heading_clear": sum(
+                any(
+                    row["sampled_pose_clear_with_this_heading"]
+                    for row in stack["stationary_nut_ratchet_heading_screens"].values()
+                )
+                for stack in exact_stacks.values()
+            ),
+            "sampled_counterhold_heading_clear_stack_counts": heading_clear_counts,
+            "aabb_only_obstacle_pairs": aabb_only_pairs,
+            "exact_only_obstacle_pairs": exact_only_pairs,
+        },
+        "stacks": exact_stacks,
+        "release_claims": {"shaft_withdrawal_access_established": False},
+    }
+    exact_raw = json.dumps(exact_report, sort_keys=True, separators=(",", ":")).encode()
+    return exact_report, base_sha, hashlib.sha256(exact_raw).hexdigest()
 
 
 def test_matching_route_ignores_mutually_exclusive_heading_overlaps():
@@ -328,8 +484,8 @@ def test_raw_shaft_aabb_overlaps_remain_pending_exact_cylinder_check():
     assert stack["proxy_clear_combination_count"] == 0
     assert stack["candidate_combinations_clear_except_shaft_check_count"] == 32
     assert stack["nonclear_combination_count"] == 0
-    assert stack["raw_shaft_path_requires_exact_cylinder_supplement"] is True
-    assert "raw_shaft_path_aabb_proxy_intersections" in stack
+    assert stack["raw_shaft_path_had_aabb_proxy_intersections"] is True
+    assert "archived_shaft_path_proxy_diagnostics" in stack
 
 
 @pytest.mark.parametrize(
@@ -421,3 +577,134 @@ def test_floor_flag_inconsistent_outside_rounding_band_fails_closed():
 
     with pytest.raises(summary.ReportSchemaError, match="below-floor flag disagrees"):
         summary.summarize_report(report)
+
+
+def test_exact_shaft_supplement_replaces_only_archived_shaft_aabb_screen(
+    tmp_path, monkeypatch
+):
+    report = _report()
+    stack = report["stacks"]["stack_00"]
+    shaft = stack["bolt_withdrawal_after_unthreading"]["shaft_path"]
+    shaft["external_envelope_hits_mm3"] = {
+        summary.BASE_SHAFT_CANDIDATE: {
+            "finished_wood/intended_bore_aabb": 12.0,
+            "installed_hardware/own_washer_aabb": 1.0,
+        }
+    }
+    shaft["external_envelope_clear"] = False
+    exact_report, base_sha, exact_sha = _bound_exact_shaft_fixture(
+        report, tmp_path, monkeypatch
+    )
+
+    result = summary.summarize_report(report, base_sha, exact_report, exact_sha)
+    stack_result = result["stacks"][0]
+    assert stack_result["proxy_clear_combination_count"] == 32
+    assert stack_result["candidate_combinations_clear_except_shaft_check_count"] == 0
+    assert stack_result["raw_shaft_path_had_aabb_proxy_intersections"] is True
+    assert stack_result["archived_shaft_path_proxy_diagnostics"][
+        "envelope_intersection_proxy"
+    ]
+    assert result["shaft_withdrawal_status"] == "exact_coaxial_cylinder_proxy_applied"
+    assert result["exact_shaft_supplement"]["sha256"] == exact_sha
+    assert len(stack_result["exact_shaft_withdrawal_by_nut_heading"]) == 4
+    assert result["operation_sequence"]
+    assert result["limitations"]["shaft_screen_nominal_diameter_only"] is True
+    assert result["limitations"]["generic_6_604_mm_shank_sensitivity_included"] is False
+
+
+def test_exact_shaft_heading_overlap_applies_only_to_matching_nut_heading(
+    tmp_path, monkeypatch
+):
+    report = _report()
+    obstacle = (
+        "tool_pair/stationary_nut_ratchet/"
+        "heading_+90deg/continuous_stand_off/ratchet_head"
+    )
+    exact_report, base_sha, exact_sha = _bound_exact_shaft_fixture(
+        report,
+        tmp_path,
+        monkeypatch,
+        heading_hits_by_stack={
+            "stack_00": {
+                "+90deg": {obstacle: 2.0},
+            }
+        },
+    )
+
+    result = summary.summarize_report(report, base_sha, exact_report, exact_sha)
+    stack = result["stacks"][0]
+    assert stack["proxy_clear_combination_count"] == 24
+    assert not any(
+        route["nut_counterhold_heading_degrees"] == 90.0
+        for route in stack["proxy_clear_combinations"]
+    )
+    assert all(
+        route["nut_counterhold_heading_degrees"] != 90.0
+        for route in stack["proxy_clear_combinations"]
+    )
+
+
+@pytest.mark.parametrize(
+    ("placement", "message"),
+    [
+        ("fixed", "fixed shaft screen contains heading-specific ratchets"),
+        ("wrong_heading", "ratchet hit is outside its candidate family"),
+    ],
+)
+def test_exact_shaft_ratchet_hits_must_match_heading_partition(
+    tmp_path, monkeypatch, placement, message
+):
+    report = _report()
+    wrong_heading_id = (
+        "tool_pair/stationary_nut_ratchet/"
+        "heading_+0deg/continuous_stand_off/ratchet_head"
+    )
+    kwargs = (
+        {"fixed_hits_by_stack": {"stack_00": {wrong_heading_id: 1.0}}}
+        if placement == "fixed"
+        else {
+            "heading_hits_by_stack": {"stack_00": {"+90deg": {wrong_heading_id: 1.0}}}
+        }
+    )
+    exact_report, base_sha, exact_sha = _bound_exact_shaft_fixture(
+        report, tmp_path, monkeypatch, **kwargs
+    )
+
+    with pytest.raises(summary.ReportSchemaError, match=message):
+        summary.summarize_report(report, base_sha, exact_report, exact_sha)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        ("base_sha", "base SHA does not match"),
+        ("geometry_pins", "geometry source pins differ"),
+        ("heading", "heading family mismatch"),
+        ("stack_ids", "stack IDs differ"),
+    ],
+)
+def test_exact_shaft_supplement_binding_and_families_fail_closed(
+    tmp_path, monkeypatch, mutation, message
+):
+    report = _report()
+    exact_report, base_sha, _exact_sha = _bound_exact_shaft_fixture(
+        report, tmp_path, monkeypatch
+    )
+    if mutation == "base_sha":
+        exact_report["base_report"]["sha256"] = "0" * 64
+    elif mutation == "geometry_pins":
+        exact_report["source_pins"]["geometry_materializer_inputs"][
+            "mini_moonboard/test_geometry.py"
+        ] = "0" * 64
+    elif mutation == "heading":
+        del exact_report["stacks"]["stack_00"][
+            "stationary_nut_ratchet_heading_screens"
+        ]["+180deg"]
+    elif mutation == "stack_ids":
+        del exact_report["stacks"]["stack_00"]
+    exact_sha = hashlib.sha256(
+        json.dumps(exact_report, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+    with pytest.raises(summary.ReportSchemaError, match=message):
+        summary.summarize_report(report, base_sha, exact_report, exact_sha)
